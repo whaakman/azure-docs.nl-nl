@@ -11,24 +11,24 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/07/2018
+ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: e37b127b112768cd09989e1a4b5edf99ca101983
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141863"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317189"
 ---
 # <a name="high-availability-ports-overview"></a>Overzicht van poorten voor hoge beschikbaarheid
 
 Azure Standard Load Balancer kunt u taakverdeling TCP en UDP-stromen op alle poorten tegelijkertijd wanneer u een interne load balancer. 
 
-Een regel voor hoge beschikbaarheid (HA)-poorten is een variant van een regel voor taakverdeling, op een interne standaardversie van Load Balancer geconfigureerd. U kunt het gebruik van een load balancer vereenvoudigen door te geven van een regel voor het verdelen van alle TCP en UDP-stromen die op alle poorten van een interne standaardversie van Load Balancer binnenkomen. De beslissing load balancing is per stroom gemaakt. Deze actie is gebaseerd op de volgende 5-tuple-verbinding: bron-IP-adres, bronpoort, doel-IP-adres, bestemmingspoort en protocol.
+Een hoge beschikbaarheid (HA) poorten load balancing-regel is een variant van een regel, op een interne standaardversie van Load Balancer geconfigureerd voor taakverdeling. U kunt het gebruik van een load balancer vereenvoudigen door te geven van een regel voor het verdelen van alle TCP en UDP-stromen die op alle poorten van een interne standaardversie van Load Balancer binnenkomen. De beslissing load balancing is per stroom gemaakt. Deze actie is gebaseerd op de volgende 5-tuple-verbinding: bron-IP-adres, bronpoort, doel-IP-adres, bestemmingspoort en protocol
 
-De functie voor HA-poorten helpt u bij belangrijke scenario's, zoals hoge beschikbaarheid en schaal voor de virtuele netwerkapparaten (NVA's) in virtuele netwerken. De functie kan ook helpen bij een groot aantal poorten verdeeld worden moet. 
+De HA-poorten-taakverdelingsregels helpt u bij belangrijke scenario's, zoals hoge beschikbaarheid en schaal voor de virtuele netwerkapparaten (NVA's) in virtuele netwerken. De functie kan ook helpen bij een groot aantal poorten verdeeld worden moet. 
 
-De functie voor HA-poorten is geconfigureerd wanneer u de front-end en back-end-poorten ingesteld op **0** en het protocol **alle**. De interne load balancer-resource verdeelt vervolgens alle TCP en UDP-stromen, ongeacht het poortnummer.
+De HA-poorten load balancer-regels is geconfigureerd wanneer u de front-end en back-end-poorten ingesteld op **0** en het protocol **alle**. De interne load balancer-resource verdeelt vervolgens alle TCP en UDP-stromen, ongeacht het poortnummer
 
 ## <a name="why-use-ha-ports"></a>Waarom HA-poorten gebruiken?
 
@@ -44,8 +44,9 @@ Voor NVA HA scenario's bieden HA-poorten aan de volgende voordelen:
 - Geef *n*-actieve en actief-passief-scenario's
 - Voorkom de noodzaak voor complexe oplossingen, zoals Apache ZooKeeper-knooppunten voor het bewaken van apparaten
 
-Het volgende diagram toont een virtueel netwerk hub en spoke-implementatie. Geforceerde tunneling in de knooppunten hun verkeer naar de virtuele hub-netwerk en via de NVA, voordat u de vertrouwde ruimte. De NVA's zich achter een interne Standard Load Balancer met de configuratie van een HA-poorten. Al het verkeer kan worden verwerkt en dienovereenkomstig doorgestuurd.
+Het volgende diagram toont een virtueel netwerk hub en spoke-implementatie. Geforceerde tunneling in de knooppunten hun verkeer naar de virtuele hub-netwerk en via de NVA, voordat u de vertrouwde ruimte. De NVA's zich achter een interne Standard Load Balancer met de configuratie van een HA-poorten. Al het verkeer kan worden verwerkt en dienovereenkomstig doorgestuurd. Wanneer geconfigureerd als weergeven in het volgende diagram, biedt een HA-poorten in regel voor taakverdeling Daarnaast stroom symmetrie voor inkomend en uitgaand verkeer.
 
+<a node="diagram"></a>
 ![Diagram van de hub en spoke-virtueel netwerk, met NVA's in de modus HA geïmplementeerd](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
@@ -99,7 +100,7 @@ U kunt configureren *één* openbare Standard Load Balancer-resource voor de bac
 
 - De functie voor HA-poorten is niet beschikbaar voor IPv6.
 
-- Stroom symmetrie voor NVA's wordt met één NIC alleen ondersteund. Zie de beschrijving en diagram voor [virtuele netwerkapparaten](#nva). Echter, als een doel NAT voor uw scenario werkt kan, kan u deze om te controleren of dat de interne load balancer wordt het retourverkeer verzonden naar de dezelfde NVA.
+- Stroom symmetrie (voornamelijk voor NVA's) wordt ondersteund met back-end-exemplaar en een één NIC (en één IP-configuratie) wanneer gebruikt, zoals wordt weergegeven in de [diagram](#diagram) boven en gebruik HA-poorten in load balancer-regels. Het is niet opgegeven in ieder ander scenario. Dit betekent dat twee of meer Load Balancer-resources en hun respectieve regels onafhankelijke beslissingen en nooit gecoördineerd worden. Zie de beschrijving en diagram voor [virtuele netwerkapparaten](#nva). Wanneer u met behulp van een meerdere NIC's of de NVA tussen een openbare en interne Load Balancer tussen elkaar te plaatsen, is symmetrie van de stroom niet beschikbaar.  U kunt mogelijk dit probleem omzeilen door bron NAT'ing de inkomende gegevens overgebracht naar het IP-adres van het toestel om toe te staan van antwoorden op de dezelfde NVA binnenkomen.  Echter ten zeerste aangeraden met één NIC en de referentiearchitectuur wordt weergegeven in de [diagram](#diagram) hierboven.
 
 
 ## <a name="next-steps"></a>Volgende stappen

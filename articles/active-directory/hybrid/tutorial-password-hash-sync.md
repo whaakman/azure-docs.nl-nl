@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Integreren één AD-forest naar Azure met behulp van synchronisatie van wachtwoordhashes (WHS) | Microsoft Docs'
+title: 'Zelfstudie:  Integratie van één AD-forest naar Azure met behulp van synchronisatie van wachtwoordhashes (WHS) | Microsoft Docs'
 description: Demonstreert hoe u een hybride identiteit instellen met behulp van synchronisatie van wachtwoordhashes.
 services: active-directory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e8a39e16bd67169aac8dd7328338197b604e93f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426907"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164691"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Zelfstudie: Één AD-forest met behulp van synchronisatie van wachtwoordhashes (WHS) integreren
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Zelfstudie:  Een enkele AD-forest integreren met synchronisatie van wachtwoord-hashes (PHS)
 
 ![Maken](media/tutorial-password-hash-sync/diagram.png)
 
@@ -38,7 +38,7 @@ De volgende zijn vereisten voor het voltooien van deze zelfstudie
 >
 >De scripts die worden gebruikt, maak een algemene Active Directory-omgeving voordat u Azure AD Connect installeert.  Ze zijn relevant voor alle van de zelfstudies.
 >
-> Kopieën van de PowerShell-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar op Github [hier](https://github.com/billmath/tutorial-phs).
+> Kopieën van de PowerShell-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar op GitHub [hier](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 Het eerste wat we moeten doen, om op te halen van onze hybride identiteit omgeving van en het uitvoeren is het maken van een virtuele machine die wordt gebruikt als onze on-premises Active Directory-server.  Ga als volgt te werk:
@@ -81,7 +81,7 @@ Klaar bent met het bouwen van de virtuele machine, moet u om de installatie van 
 5. Klik op **nu installeren**.
 6. Voer uw licentiesleutel in en klikt u op **volgende**.
 7. Controleer ** ik accepteer de licentievoorwaarden en klik op **volgende**.
-8. Selecteer **aangepast: alleen Windows installeren (Geavanceerd)**
+8. Selecteer **aangepast:  Alleen Windows installeren (Geavanceerd)**
 9. Klik op **Volgende**
 10. Als de installatie is voltooid, start de virtuele machine, aanmelden en werken met Windows om te controleren of dat de virtuele machine is de meest recente updates.  Installeer de meest recente updates.
 

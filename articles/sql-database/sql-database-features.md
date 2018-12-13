@@ -12,14 +12,14 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: b559607f741c25f668100a33b9ba8e65f0acd40a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 328dd39c3ff82666c327bc5d1d106a019fb2247b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841286"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275819"
 ---
-# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking: Azure SQL Database versus SQL Server
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking van functies: Azure SQL Database versus SQL Server
 
 Azure SQL Database deelt een algemene codebasis met SQL Server. De functies van SQL Server wordt ondersteund door Azure SQL Database, is afhankelijk van het type van Azure SQL-database die u maakt. Met Azure SQL Database, kunt u ofwel een database maken als onderdeel van een [beheerd exemplaar](sql-database-managed-instance.md) of u kunt een database die deel uitmaken van de logische server en worden eventueel geplaatst in een elastische pool maken.
 
@@ -34,6 +34,8 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 
 | **SQL-functie** | **Ondersteund in de Database/logische Azure SQL-Server** | **Ondersteund in Azure SQL Database of worden beheerd exemplaar** |
 | --- | --- | --- |
+| [Actieve Geo-replicatie](sql-database-active-geo-replication.md) | Ja, algemeen gebruik en bedrijfskritiek-service alleen lagen| Nee |
+| [Automatische failover-groepen](sql-database-auto-failover-group.md) | Ja, algemeen gebruik en bedrijfskritiek-service alleen lagen| Ja (preview)|
 | [Altijd versleuteld](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Ja, Zie [certificatenstore](sql-database-always-encrypted.md) en [Key vault](sql-database-always-encrypted-azure-key-vault.md) | Ja, Zie [certificatenstore](sql-database-always-encrypted.md) en [Key vault](sql-database-always-encrypted-azure-key-vault.md) |
 | [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) |
 | [Een database koppelen](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Nee | Nee |
@@ -86,7 +88,6 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [Zoeken in volledige tekst](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Woordafbrekingen van derden worden niet ondersteund. |Woordafbrekingen van derden worden niet ondersteund. |
 | [Functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Geo-herstel](sql-database-recovery-using-backups.md#geo-restore) | Ja, algemeen gebruik en bedrijfskritiek-service alleen lagen | Nee – u kunt herstellen dabtabaseback volledige back-ups die u regelmatig - Zie [back-up van verschillen](sql-database-managed-instance-transact-sql-information.md#backup) en [herstellen verschillen](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
-| [Geo-replicatie](sql-database-geo-replication-overview.md) | Ja, algemeen gebruik en bedrijfskritiek-service alleen lagen| Ja |
 | [Grafische verwerking](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
 | [Optimalisatie in het geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja, [Premium en bedrijfskritiek-lagen](sql-database-in-memory.md) | Ja, [alleen de bedrijfskritieke laag Business](sql-database-managed-instance.md) |
 | [Ondersteuning voor JSON-gegevens](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Ja](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Ja](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |

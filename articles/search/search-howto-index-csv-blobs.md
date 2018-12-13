@@ -1,6 +1,6 @@
 ---
-title: Indexeren van CSV-blobs met de indexeerfunctie voor Azure Search blob | Microsoft Docs
-description: Meer informatie over het indexeren van CSV-blobs met Azure Search
+title: CSV-blobs indexeren met de indexeerfunctie Azure Search Blob - Azure Search
+description: CSV-blobs in Azure Blob-opslag voor zoeken in volledige tekst met behulp van een Azure Search-index verkennen. Indexeerfuncties automatiseren opname van gegevens voor bepaalde gegevensbronnen, zoals Azure Blob-opslag.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: b1f97b5e9542e32096bb060bce40e7b9620d0f49
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 2bd89432a15f6960b07102ede317acca5864b773
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406072"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310892"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexeren van CSV-blobs met de indexeerfunctie voor Azure Search blob
 Standaard [indexeerfunctie voor Azure Search blob](search-howto-indexing-azure-blob-storage.md) parseert gescheiden tekst blobs als één segment van de tekst. Echter met blobs met CSV-gegevens, wilt u meestal voor het behandelen van elke regel in de blob als een afzonderlijke document. Bijvoorbeeld, de volgende tekst met scheidingstekens worden gegeven, kunt u parseren in twee documenten, elk met de 'id', 'datePublished' en 'tags' velden: 

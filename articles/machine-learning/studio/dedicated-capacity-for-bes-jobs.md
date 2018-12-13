@@ -1,12 +1,11 @@
 ---
-title: Toegewezen capaciteit voor batch execution service-taken - Azure Machine Learning Studio | Microsoft Docs
+title: Azure Batch-service voor Machine Learning Studio-taken | Microsoft Docs
 description: Overzicht van Azure Batch-services voor Machine Learning-taken. Batchverwerking van toepassingen kunt u maken van groepen waarop u kunt indienen batchtaken.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: seodec18
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
 ms.component: studio
@@ -15,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 3a7adba53f271cd2f6bb2985d034821136d521b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075411"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275190"
 ---
-# <a name="azure-batch-service-for-machine-learning-jobs"></a>Azure Batch-service voor Machine Learning-taken
+# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Batch-service voor Azure Machine Learning Studio-taken
 
 Verwerking van machine Learning Batch-Pool voorziet schalen door de klant beheerde in de Service Azure Machine Learning Batch kan worden uitgevoerd. Klassieke batchverwerking voor machine learning vindt plaats in een omgeving met meerdere tenants, waardoor het aantal gelijktijdige taken die u kunt indienen en taken in de wachtrij op basis van first in first out. Deze onzekerheid betekent dat u kunt geen nauwkeurig te voorspellen wanneer de taak wordt uitgevoerd.
 

@@ -6,21 +6,20 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: caab6083bc12ffafe669c86bea4824ea0b31339a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c9929149c029d15d496eac0eb530371418e1e1f2
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079667"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323504"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
-[Azure Monitor](../../azure-monitor/overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
+[Azure Monitor](../overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
 
 Alle gegevens die zijn verzameld door Azure Monitor in een van twee fundamentele typen, past [metrische gegevens](#metrics) en [logboeken](#logs). Metrische gegevens zijn numerieke waarden die een bepaald aspect van een systeem op een bepaald punt in tijd beschrijven. Ze zijn lichtgewicht en kan in de buurt van realtime scenario's ondersteunen. Logboeken bevatten verschillende soorten gegevens die zijn ingedeeld in records met verschillende sets van eigenschappen voor elk type. Telemetrie, zoals gebeurtenissen en traceringen worden opgeslagen als Logboeken ook naar prestatiegegevens zodat deze kan allemaal worden gecombineerd voor analyse.
 
@@ -88,7 +87,7 @@ Er zijn drie fundamentele bronnen van metrische gegevens die door Azure Monitor 
 
 **Aangepaste metrische gegevens** metrische gegevens die u definieert naast de standaard metrische gegevens die zijn automatisch beschikbaar zijn. Aangepaste metrische gegevens moeten worden gemaakt op basis van één resource in dezelfde regio als die resource. U kunt aangepaste metrische gegevens met behulp van de volgende manieren maken:
     - [Aangepaste metrische gegevens in uw toepassing definiëren](../../application-insights/app-insights-api-custom-events-metrics.md) die wordt bewaakt door Application Insights. Deze worden naast de standaard set metrische toepassingsgegevens.
-    - Publiceren van aangepaste metrische gegevens van uw Windows-virtuele machines met behulp van [Windows diagnostische extensie (WAD),](../../monitoring-and-diagnostics/azure-diagnostics.md).
+    - Publiceren van aangepaste metrische gegevens van uw Windows-virtuele machines met behulp van [Windows diagnostische extensie (WAD),](../../azure-monitor/platform/diagnostics-extension-overview.md).
     - Publiceren van aangepaste metrische gegevens van uw Linux-machines met [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
     - Aangepaste metrische gegevens van een Azure-service met behulp van de aangepaste API voor metrische gegevens schrijven.
     
@@ -98,7 +97,7 @@ Er zijn drie fundamentele bronnen van metrische gegevens die door Azure Monitor 
 Taken die u met metrische gegevens uitvoeren kunt omvatten het volgende:
 
 - Gebruik [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) verzamelde metrische gegevens analyseren en ze op een grafiek te tekenen. De prestaties van een resource (zoals een virtuele machine, de website of de logische app) bijhouden door grafieken om vast te maken een [Azure-dashboard](../../azure-portal/azure-portal-dashboards.md).
-- Configureer een [waarschuwingsregel voor metrische gegevens](../../monitoring-and-diagnostics/alert-metric.md) die duurt of een melding verzendt [automatische actie](../../monitoring-and-diagnostics/monitoring-action-groups.md) wanneer de metriek een drempelwaarde overschrijdt.
+- Configureer een [waarschuwingsregel voor metrische gegevens](alerts-metric.md) die duurt of een melding verzendt [automatische actie](action-groups.md) wanneer de metriek een drempelwaarde overschrijdt.
 - Gebruik [voor automatisch schalen](../../monitoring-and-diagnostics/monitoring-overview-autoscale.md) vergroten of verkleinen van resources op basis van een metriek een drempelwaarde overschrijden.
 - Metrische gegevens doorsturen naar Log Analytics om metrische gegevens, samen met logboekgegevens te analyseren en voor het opslaan van de metrische waarden voor langer dan 93 dagen. 
 - Metrische gegevens naar Stream een [Event Hub](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) te routeren [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) of met externe systemen.
@@ -131,20 +130,20 @@ Logboeken zijn met name nuttig voor het combineren van gegevens uit diverse bron
 Logboeken die worden verzameld door Azure Monitor worden opgeslagen in Log Analytics dat Telemetrie en andere gegevens worden verzameld uit een groot aantal bronnen. Het biedt een uitgebreide querytaal en een analyse-engine waarmee u inzicht in de werking van uw toepassingen en resources. Andere Azure-services zoals [Azure Security Center](../../security-center/security-center-intro.md) hun gegevens opslaan in Log Analytics om te voorzien van een algemeen gegevensplatform in de Azure management.
 
 > [!IMPORTANT]
-> Gegevens uit Application Insights wordt opgeslagen in Log Analytics, zoals andere logboekgegevens, behalve dat deze opgeslagen in een afzonderlijke partitie. Dit biedt ondersteuning voor dezelfde functionaliteit als andere Log Analytics-gegevens, maar moet u de [Application Insights-console](../../application-insights/app-insights-analytics.md) of de [Application Insights-API](https://dev.applicationinsights.io/) voor toegang tot deze gegevens. U kunt een [meerdere bronnen query](../../azure-monitor/log-query/cross-workspace-query.md) voor het analyseren van gegevens, samen met andere gegevens van een toepassing.
+> Gegevens uit Application Insights wordt opgeslagen in Log Analytics, zoals andere logboekgegevens, behalve dat deze opgeslagen in een afzonderlijke partitie. Dit biedt ondersteuning voor dezelfde functionaliteit als andere Log Analytics-gegevens, maar moet u de [Application Insights-console](../../application-insights/app-insights-analytics.md) of de [Application Insights-API](https://dev.applicationinsights.io/) voor toegang tot deze gegevens. U kunt een [meerdere bronnen query](../log-query/cross-workspace-query.md) voor het analyseren van gegevens, samen met andere gegevens van een toepassing.
 
 
 ### <a name="sources-of-log-data"></a>Bronnen van logboekgegevens
 Log Analytics kan gegevens verzamelen uit diverse bronnen, zowel binnen Azure en on-premises bronnen. Bronnen van gegevens die worden geschreven naar Log Analytics omvatten het volgende:
 
-- [Activiteitenlogboeken](../../azure-monitor/platform/collect-activity-logs.md) van Azure-resources met informatie over de configuratie en de status en [diagnostische logboeken](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) die inzicht geven in hun werking.
-- Agents op [Windows](../../log-analytics/log-analytics-windows-agent.md) en [Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) virtuele machines die telemetrie vanuit de Gast-besturingssysteem en toepassingen naar Log Analytics volgens verzenden [gegevensbronnen](../../azure-monitor/platform/agent-data-sources.md) die u configureert.
+- [Activiteitenlogboeken](collect-activity-logs.md) van Azure-resources met informatie over de configuratie en de status en [diagnostische logboeken](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) die inzicht geven in hun werking.
+- Agents op [Windows](../../log-analytics/log-analytics-windows-agent.md) en [Linux](../learn/quick-collect-linux-computer.md) virtuele machines die telemetrie vanuit de Gast-besturingssysteem en toepassingen naar Log Analytics volgens verzenden [gegevensbronnen](agent-data-sources.md) die u configureert.
 - Toepassingsgegevens verzameld door [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Gegevens die inzicht bieden in een bepaalde toepassing of service van [bewakingsoplossingen](../insights/solutions.md) of functies zoals Container Insights, inzichten van de virtuele machine of Resource Group inzichten.
 - Beveiligingsgegevens die zijn verzameld door [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
 - [Metrische gegevens](#metrics) van Azure-resources. Hiermee kunt u metrische gegevens langer duurt dan 93 dagen opslaan en analyseren met andere logboekgegevens.
-- Telemetrie naar geschreven [Azure Storage](../../azure-monitor/platform/azure-storage-iis-table.md).
-- Aangepaste gegevens vanaf een willekeurige REST-API-client met behulp van de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) client of vanuit een [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) werkstroom.
+- Telemetrie naar geschreven [Azure Storage](azure-storage-iis-table.md).
+- Aangepaste gegevens vanaf een willekeurige REST-API-client met behulp van de [HTTP Data Collector API](data-collector-api.md) client of vanuit een [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) werkstroom.
 
 ![Onderdelen van Log Analytics](media/data-collection/logs-overview.png)
 
@@ -154,14 +153,14 @@ Log Analytics kan gegevens verzamelen uit diverse bronnen, zowel binnen Azure en
 ### <a name="what-can-you-do-with-logs"></a>Wat kunt u doen met Logboeken?
 Taken die u met Logboeken uitvoeren kunt omvatten het volgende:
 
-- Gebruik de [Log Analytics-pagina](../../azure-monitor/log-query/get-started-portal.md) in de Azure portal voor het schrijven van query's voor het analyseren van logboekgegevens.  Resultaten weergegeven als tabellen of grafieken vastmaken een [Azure-dashboard](../../azure-portal/azure-portal-dashboards.md).
-- Configureren van een [waarschuwingsregel](../../monitoring-and-diagnostics/alert-log.md) die duurt of verzendt een melding [automatische actie](../../monitoring-and-diagnostics/monitoring-action-groups.md) wanneer de resultaten van de query overeenkomt met een bepaalde resultaat.
+- Gebruik de [Log Analytics-pagina](../log-query/get-started-portal.md) in de Azure portal voor het schrijven van query's voor het analyseren van logboekgegevens.  Resultaten weergegeven als tabellen of grafieken vastmaken een [Azure-dashboard](../../azure-portal/azure-portal-dashboards.md).
+- Configureren van een [waarschuwingsregel](alerts-log.md) die duurt of verzendt een melding [automatische actie](action-groups.md) wanneer de resultaten van de query overeenkomt met een bepaalde resultaat.
 - Een werkstroom op basis van gegevens in met behulp van Log Analytics bouwen [Logic Apps](~/articles/logic-apps/index.yml).
-- De resultaten van een query voor het exporteren [Power BI](../../azure-monitor/platform/powerbi.md) verschillende visualisaties gebruiken en delen met gebruikers buiten Azure.
+- De resultaten van een query voor het exporteren [Power BI](powerbi.md) verschillende visualisaties gebruiken en delen met gebruikers buiten Azure.
 - Toegang tot metrische waarden van een opdrachtregel of met behulp van aangepaste toepassing [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) of [REST-API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Logboekgegevens weergeven
-Alle gegevens van Log Analytics is opgehaald met een [logboekquery](../../azure-monitor/log-query/log-query-overview.md) die een bepaalde set gegevens bevat. Query's zijn geschreven met behulp van de [querytaal van Log Analytics](../../azure-monitor/log-query/get-started-queries.md) is een uitgebreide querytaal snel ophalen, samenvoegen en analyseren van verzamelde gegevens. Gebruik de [Log Analytics-pagina](../../azure-monitor/log-query/portals.md) in Azure portal voor het rechtstreeks analyseren van de gegevens in uw metrische gegevens opslaan en de waarden van meerdere metrische gegevens gedurende een periode van grafiek. U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven. U kunt ook metrische gegevens ophalen met behulp van de [Azure REST-API bewaken](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Alle gegevens van Log Analytics is opgehaald met een [logboekquery](../log-query/log-query-overview.md) die een bepaalde set gegevens bevat. Query's zijn geschreven met behulp van de [querytaal van Log Analytics](../log-query/get-started-queries.md) is een uitgebreide querytaal snel ophalen, samenvoegen en analyseren van verzamelde gegevens. Gebruik de [Log Analytics-pagina](../log-query/portals.md) in Azure portal voor het rechtstreeks analyseren van de gegevens in uw metrische gegevens opslaan en de waarden van meerdere metrische gegevens gedurende een periode van grafiek. U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven. U kunt ook metrische gegevens ophalen met behulp van de [Azure REST-API bewaken](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Logboeken](media/data-collection/logs.png)
 
@@ -170,7 +169,7 @@ Alle gegevens van Log Analytics is opgehaald met een [logboekquery](../../azure-
 ### <a name="metrics-to-logs"></a>Metrische gegevens in Logboeken
 U kunt metrische gegevens kopiëren naar Log Analytics om uit te voeren complexe analyse met andere gegevenstypen met behulp van de uitgebreide querytaal. U kunt ook logboekgegevens voor langere tijd dan metrische gegevens, waarmee u om uit te voeren van de trends na verloop van tijd kunt bewaren. Wanneer metrische gegevens of geen prestatiegegevens worden opgeslagen in Log Analytics, die gegevens als een logboekbestand fungeert. Metrische gegevens voor de ondersteuning van bijna realtime analyse en waarschuwingsdoeleinden tijdens het gebruik van Logboeken voor trending en -analyse met andere gegevens gebruiken.
 
-Informatie voor het verzamelen van metrische gegevens van Azure-resources op [Azure verzamelen van Logboeken en metrische gegevens voor gebruik in Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md). Begeleiding voor het verzamelen van metrische gegevens voor resources van Azure PaaS-resources op [verzamelen van metrische gegevens voor Azure PaaS-resources configureren met Log Analytics](../../azure-monitor/platform/collect-azurepass-posh.md).
+Informatie voor het verzamelen van metrische gegevens van Azure-resources op [Azure verzamelen van Logboeken en metrische gegevens voor gebruik in Log Analytics](collect-azure-metrics-logs.md). Begeleiding voor het verzamelen van metrische gegevens voor resources van Azure PaaS-resources op [verzamelen van metrische gegevens voor Azure PaaS-resources configureren met Log Analytics](collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Logboeken naar metrische gegevens
 Zoals hierboven beschreven, zijn metrische gegevens sneller reageren dan Logboeken, zodat u waarschuwingen met een lagere latentie en tegen lagere kosten maken kunt. Log Analytics verzamelt een aanzienlijke hoeveelheid numerieke gegevens die zijn geschikt voor metrische gegevens, maar wordt niet opgeslagen in de metrische gegevens van Azure-database.  Een veelvoorkomend voorbeeld is de prestatiegegevens die worden verzameld van agents en oplossingen voor beheer. Sommige van deze waarden kunnen worden gekopieerd naar de database van metrische gegevens, waar ze beschikbaar voor waarschuwingen en voor analyse met Metrics explorer zijn.

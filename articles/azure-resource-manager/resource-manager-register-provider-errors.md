@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 787d6549eb8413c9dcfc0c906167cc36d4cff6b0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135709"
+ms.locfileid: "53184539"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Los fouten voor de registratie van de resourceprovider
 
@@ -47,9 +47,9 @@ Het foutbericht geeft suggesties voor de ondersteunde locaties en API-versies. U
 
 U ontvangt deze fouten voor een van drie redenen:
 
-1. De resourceprovider is niet geregistreerd voor uw abonnement
-1. API-versie niet ondersteund voor het resourcetype
-1. Locatie niet ondersteund voor het resourcetype
+* De resourceprovider is niet geregistreerd voor uw abonnement
+* API-versie niet ondersteund voor het resourcetype
+* Locatie niet ondersteund voor het resourcetype
 
 ## <a name="solution-1---powershell"></a>Oplossing 1: PowerShell
 

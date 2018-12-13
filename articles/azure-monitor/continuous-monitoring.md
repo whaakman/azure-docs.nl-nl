@@ -9,16 +9,15 @@ documentationcenter: azure-monitor
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 368cef4ef86e29ea4fe55560e44644e332455b93
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 88a4c6dbe9311a054c6ed93df0005d32e6d21672
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962661"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271790"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Doorlopende bewaking met Azure Monitor
 
@@ -50,7 +49,7 @@ Toepassingen zijn alleen zo betrouwbaar is als de onderliggende infrastructuur. 
 
 [Infrastructuur als code](/devops/learn/what-is-infrastructure-as-code) is het beheer van infrastructuur in een beschrijvend model, met behulp van de dezelfde versiebeheer DevOps-teams gebruiken voor de broncode. Betrouwbaarheid en schaalbaarheid toegevoegd aan uw omgeving en kunt u gebruikmaken van dezelfde processen die worden gebruikt voor het beheren van uw toepassingen.
 
--  Gebruik [Resource Manager-sjablonen](../azure-monitor/platform/template-workspace-configuration.md) inschakelen bewaking en waarschuwingen configureren via een groot aantal bronnen.
+-  Gebruik [Resource Manager-sjablonen](platform/template-workspace-configuration.md) inschakelen bewaking en waarschuwingen configureren via een groot aantal bronnen.
 - Gebruik [Azure Policy](../governance/policy/overview.md) om af te dwingen van verschillende regels voor uw resources. Dit zorgt ervoor dat deze resources voldoen aan uw bedrijfsnormen en serviceovereenkomsten blijven. 
 
 
@@ -65,15 +64,15 @@ Continue integratie / continue implementatie kunt u automatisch integreren en wi
 
 - Gebruik [Azure pijplijnen](/azure/devops/pipelines) continue implementatie implementeren en automatiseren van uw hele proces van code doorvoeren naar productie op basis van uw CI/CD-tests.
 - Gebruik [kwaliteit Gates](/devops/pipelines/release/approvals/gates) om te integreren in uw vóór de implementatie of na de implementatie controleren. Dit zorgt ervoor dat u voldoet aan de health/prestatie metrische gegevens (KPI's) als uw toepassingen van dev naar productie en eventuele verschillen in de infrastructuur-omgeving verplaatsen of schaal uw KPI's niet nadelig beïnvloedt.
-- [Afzonderlijke exemplaren van de controle behouden](../application-insights/app-insights-separate-resources.md) tussen de verschillende omgevingen, zoals ontwikkelen, testen, Canarische en productie. Dit zorgt ervoor dat de verzamelde gegevens relevant voor de gekoppelde toepassingen en infrastructuur is. Als u nodig hebt voor het correleren van gegevens tussen omgevingen, kunt u [meerdere resource-grafieken in Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) of maak [cross-resource-query's in Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md).
+- [Afzonderlijke exemplaren van de controle behouden](../application-insights/app-insights-separate-resources.md) tussen de verschillende omgevingen, zoals ontwikkelen, testen, Canarische en productie. Dit zorgt ervoor dat de verzamelde gegevens relevant voor de gekoppelde toepassingen en infrastructuur is. Als u nodig hebt voor het correleren van gegevens tussen omgevingen, kunt u [meerdere resource-grafieken in Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) of maak [cross-resource-query's in Log Analytics](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Bruikbare waarschuwingen maken met acties
 Een essentieel onderdeel van de bewaking wordt beheerders van actuele en voorspelde problemen proactief hoogte. 
 
-- Maak [waarschuwingen in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) op basis van Logboeken en metrische gegevens voor het identificeren van voorspelbare fout Staten. U hebt een doel van het maken van alle waarschuwingen bruikbare wat betekent dat ze werkelijke kritieke situaties vertegenwoordigen en gezocht tot fout-positieven. Gebruik [dynamische drempelwaarden](../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md) automatisch wilt berekenen basislijnen op metrische gegevens in plaats van uw eigen statische drempelwaarden te definiëren. 
-- Het definiëren van acties voor waarschuwingen gebruik van de meest efficiënte manier om uw beheerders te informeren. Beschikbare [acties voor melding](../monitoring-and-diagnostics/monitoring-action-groups.md#create-an-action-group-by-using-the-azure-portal) SMS, e-mail, pushmeldingen te verzenden of spraakoproepen zijn.
-- Gebruik Geavanceerde bewerkingen voor het [verbinding maken met uw ITSM-hulpprogramma](../log-analytics/log-analytics-itsmc-overview.md) of andere systemen waarschuwingen te beheren via [webhooks](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+- Maak [waarschuwingen in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) op basis van Logboeken en metrische gegevens voor het identificeren van voorspelbare fout Staten. U hebt een doel van het maken van alle waarschuwingen bruikbare wat betekent dat ze werkelijke kritieke situaties vertegenwoordigen en gezocht tot fout-positieven. Gebruik [dynamische drempelwaarden](platform/alerts-dynamic-thresholds.md) automatisch wilt berekenen basislijnen op metrische gegevens in plaats van uw eigen statische drempelwaarden te definiëren. 
+- Het definiëren van acties voor waarschuwingen gebruik van de meest efficiënte manier om uw beheerders te informeren. Beschikbare [acties voor melding](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) SMS, e-mail, pushmeldingen te verzenden of spraakoproepen zijn.
+- Gebruik Geavanceerde bewerkingen voor het [verbinding maken met uw ITSM-hulpprogramma](platform/itsmc-overview.md) of andere systemen waarschuwingen te beheren via [webhooks](platform/activity-log-alerts-webhook.md).
 - Herstellen van situaties geïdentificeerd in waarschuwingen ook met [Azure Automation-runbooks](../automation/automation-webhooks.md) of [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) die kunnen worden gestart vanuit een waarschuwing met behulp van webhooks. 
 - Gebruik [automatisch schalen](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) dynamisch te verhogen en verlagen van de compute-resources op basis van verzamelde gegevens.
 

@@ -1,5 +1,5 @@
 ---
-title: De functionaliteit van het besturingssysteem op Azure App Service
+title: De functionaliteit van het besturingssysteem in App Service - Azure
 description: Meer informatie over de OS-functionaliteit beschikbaar voor web-apps, back-ends voor mobiele Apps en API apps in Azure App Service
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: ebb95093d96a3c1fd36565831215355b18ac5d1a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: bb17748968d0875cae132730a02f490eab966690
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968422"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269480"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>De functionaliteit van het besturingssysteem op Azure App Service
 In dit artikel beschrijft de functionaliteit van algemene basislijn besturingssysteem dat beschikbaar is voor alle Windows-apps die worden uitgevoerd op [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Deze functionaliteit bevat de bestands-, netwerk, en toegang tot het register en logboeken met diagnostische gegevens en gebeurtenissen. 

@@ -4,9 +4,8 @@ description: Een overzicht van het mechanisme van hoe de voortgang van uw Azure 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 1254f41d4961956acc8f7abc7d5490fedbb8c5d0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5cfa11042d269353cf33f99d1238265ff9657853
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310096"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253864"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hoe een model voor Machine Learning Studio wordt uitgevoerd van een experiment naar een ingezette-webservice
 Azure Machine Learning Studio biedt een interactief canvas waarmee u kunt ontwikkelen, te worden uitgevoerd, te testen en te herhalen een ***experimenteren*** vertegenwoordigt een predictive Analytics-model. Er zijn tal van modules die kunnen:
@@ -95,7 +94,7 @@ Dat is afhankelijk van wat u nodig hebt om bij te werken:
 
 Als u niet van het model wijzigen bent, maar zijn alleen wijzigen hoe gegevens worden verwerkt door de webservice, kunt u de Voorspellend experiment bewerken en klik vervolgens op **webservice implementeren** en selecteer **webservice implementeren [klassieke]** of **Web Service implementeren [Nieuw]** opnieuw. De Web-service is gestopt, de bijgewerkte Voorspellend experiment is geïmplementeerd en de Web-service opnieuw wordt opgestart.
 
-Hier volgt een voorbeeld: Stel uw voorspellende experiment de hele rij van ingevoerde gegevens met het verwachte resultaat retourneert. U besluiten dat u wilt dat de webservice alleen het resultaat. Zodat u kunt toevoegen een **Projectkolommen** de Voorspellend experiment, vlak voor de uitvoerpoort wilt uitsluiten van kolommen behalve het resultaat van de module. Wanneer u klikt op **webservice implementeren** en selecteer **webservice implementeren [klassieke]** of **Web Service implementeren [Nieuw]** nogmaals, de webservice wordt bijgewerkt.
+Hier volgt een voorbeeld: Stel dat uw voorspellende experiment de hele rij van ingevoerde gegevens met het verwachte resultaat retourneert. U besluiten dat u wilt dat de webservice alleen het resultaat. Zodat u kunt toevoegen een **Projectkolommen** de Voorspellend experiment, vlak voor de uitvoerpoort wilt uitsluiten van kolommen behalve het resultaat van de module. Wanneer u klikt op **webservice implementeren** en selecteer **webservice implementeren [klassieke]** of **Web Service implementeren [Nieuw]** nogmaals, de webservice wordt bijgewerkt.
 
 **U wilt opnieuw trainen het model met nieuwe gegevens**
 
@@ -119,6 +118,6 @@ Zie voor meer informatie over het proces van het ontwikkelen en te experimentere
 
 Zie voor voorbeelden van het hele proces:
 
-* [Machine learning-zelfstudie: uw eerste experiment maken in Azure Machine Learning Studio](create-experiment.md)
-* [Rondleiding: Een predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)
+* [Machine learning-zelfstudie: Uw eerste experiment maken in Azure Machine Learning Studio](create-experiment.md)
+* [Walkthrough: Predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)
 

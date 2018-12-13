@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8a6f0a69f0159a31d9fefcc54a104ebc1ed47ec4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f95d7851241dfd5b077c215e2df893c6ba8ef36c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100341"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139483"
 ---
 # <a name="create-entities-without-utterances"></a>Entiteiten zonder uitingen maken
 
@@ -157,13 +157,13 @@ U kunt een lijst met alle afdelingen, samen met eventuele synoniemen voor de afd
 
 1. Als u meer genormaliseerde items voor de lijst wilt, selecteert u **raden** om te zien van de opties uit de [semantische woordenlijst](luis-glossary.md#semantic-dictionary).
 
-    ![Schermafbeelding van de oorsprong rol toe te voegen aan de entiteit locatie](./media/add-entities/hr-list-2.png)
+    ![Schermafbeelding van het selecteren van de aanbevolen functie om opties te bekijken](./media/add-entities/hr-list-2.png)
 
 
 1. Selecteer een item in de aanbevolen lijst toe te voegen als een genormaliseerde waarde of selecteert **alle** alle items kunnen worden toegevoegd. 
     U kunt waarden kunt importeren in een bestaande lijst entiteit met behulp van de volgende JSON-indeling:
 
-    ```
+    ```JSON
     [
         {
             "canonicalForm": "Blue",

@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 8afa6a29d7d97b1d961f8a8ea44a2b62896ec4da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636761"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323060"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Aangepaste metrische gegevens voor een Azure-resource verzenden naar de Azure Monitor metrische store met behulp van een REST-API
 
@@ -94,7 +94,7 @@ Als u een foutbericht weergegeven met een deel van het proces wordt, kunt u de v
 1. U kunt geen metrische gegevens op basis van een abonnement of resourcegroep uitgeven als uw Azure-resource. 
 1. U kunt geen een metrische waarde plaatsen in het archief dat is meer dan 20 minuten. De metrische store is geoptimaliseerd voor waarschuwingen en realtime voor grafieken. 
 2. Het aantal dimensienamen moet overeenkomen met de waarden en vice versa. Controleer de waarden. 
-2. Mogelijk dat u verzendt metrische gegevens op basis van een gebied dat biedt geen ondersteuning voor aangepaste metrische gegevens. Zie [ondersteunde regio's](metrics-custom-overview.md#supported-regions). 
+2. Mogelijk dat u verzendt metrische gegevens op basis van een gebied dat biedt geen ondersteuning voor aangepaste metrische gegevens. Zie [ondersteunde regio's](../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -118,4 +118,4 @@ Als u een foutbericht weergegeven met een deel van het proces wordt, kunt u de v
 
  
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [aangepaste metrische gegevens](metrics-custom-overview.md).
+- Meer informatie over [aangepaste metrische gegevens](../azure-monitor/platform/metrics-custom-overview.md).

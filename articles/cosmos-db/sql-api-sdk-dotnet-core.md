@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcd8fe040cb4d36bc98700816d6a7ebe711f13f5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4452484379b73b978cac7391bce5c71b0f6c32cd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093435"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257196"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK voor SQL-API: releaseopmerkingen en resources
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -57,6 +57,16 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 * Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over relevante CosmosDatabases, CosmosContainers en CosmosItems klassen. 
 * Ondersteuning voor stromen. 
 * Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd. 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* Toegevoegd voor diagnostische gegevens direct/TCP-transport, TransportException, het type van een interne uitzondering van de SDK. Wanneer aanwezig is in de uitzondering berichten, dit type af te drukken als u meer informatie voor het oplossen van problemen met de netwerkverbinding van de client.
+
+* Toegevoegde nieuwe constructor beschikken overbelasting waarbij een HttpMessageHandler, een HTTP-handler stack moet worden gebruikt voor het verzenden van aanvragen van httpclient maakt (bijvoorbeeld HttpClientHandler).
+
+* Los de fout waar-header met null-waarden zijn niet correct worden verwerkt.
+
+* Verbeterde verzameling Cachevalidatie.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -109,7 +119,7 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* Fout verholpen die onder bepaalde omstandigheden race is bereikt, wordt die in onregelmatige resulteert "Microsoft.Azure.Documents.NotFoundException: de lezen-sessie is niet beschikbaar voor de invoer sessietoken" fouten bij het gebruik van de sessie consistentieniveau.
+* Fout verholpen die onder bepaalde omstandigheden race is bereikt, wordt die in onregelmatige resulteert "Microsoft.Azure.Documents.NotFoundException: De gelezen sessie is niet beschikbaar voor de invoer sessietoken"fouten bij het gebruik van de sessie consistentieniveau.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
@@ -182,7 +192,7 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* Oplossing voor een probleem waardoor af en toe een WebException: de externe naam kan niet worden omgezet.
+* Oplossing voor een probleem waardoor af en toe een WebException: Kan de externe naam niet omzetten.
 * De ondersteuning voor het lezen van een getypte document rechtstreeks door toe te voegen nieuwe overloads naar ReadDocumentAsync API toegevoegd.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -207,7 +217,7 @@ De Azure Cosmos DB .NET Core Preview SDK kunt u bouwen snelle, platformoverschri
 
 De Azure Cosmos DB .NET Core Preview SDK heeft de functiepariteit met de meest recente versie van de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md) en biedt ondersteuning voor het volgende:
 * Alle [verbindingsmodus](performance-tips.md#networking): Gateway-modus, Direct via TCP en directe HTTPs. 
-* Alle [consistentieniveaus](consistency-levels.md): sterk, sessie, gebonden veroudering en uiteindelijk.
+* Alle [consistentieniveaus](consistency-levels.md): Sterk, sessie, gebonden veroudering, en uiteindelijk.
 * [Gepartitioneerde verzamelingen](partition-data.md). 
 * [Databaseaccounts voor meerdere regio's en geo-replicatie](distribute-data-globally.md).
 
@@ -217,6 +227,7 @@ Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https:/
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |07 december 2018 |--- |
 | [2.1.3](#2.1.3) |15 oktober 2018 |--- |
 | [2.1.2](#2.1.2) |04 oktober 2018 |--- |
 | [2.1.1](#2.1.1) |27 september 2018 |--- |

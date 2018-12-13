@@ -1,5 +1,5 @@
 ---
-title: Full-text search engine (Lucene) architectuur in Azure Search | Microsoft Docs
+title: Architectuur van volledige tekst zoeken (Lucene)-engine - Azure Search
 description: Uitleg van Lucene query verwerken en het document ophalen van concepten voor zoeken in volledige tekst, met betrekking tot Azure Search.
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036867"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315792"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hoe vol tekstzoekopdrachten werkt in Azure Search
 
@@ -73,7 +74,7 @@ Voor deze aanvraag zijn de zoekmachine doet het volgende:
 Het merendeel van dit artikel is over de verwerking van de *zoekquery*: `"Spacious, air-condition* +\"Ocean view\""`. Filteren en bestellen vallen buiten het bereik. Zie voor meer informatie de [zoeken-API-referentiedocumentatie](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
-## <a name="stage-1-query-parsing"></a>Fase 1: Parseren de Query 
+## <a name="stage-1-query-parsing"></a>Fase 1: Parseren van de query 
 
 Zoals is vermeld, is de query-tekenreeks in de eerste regel van de aanvraag: 
 
@@ -95,7 +96,7 @@ De queryparser is hergestructureerd de subquery's in een *querystructuur* (een i
 
  ![Booleaanse waarde searchmode elke query][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>Ondersteund parsers: eenvoudig en volledige Lucene 
+### <a name="supported-parsers-simple-and-full-lucene"></a>Ondersteunde parsers: Eenvoudige en volledige-Lucene 
 
  Azure Search wordt aangegeven dat twee verschillende querytalen `simple` (standaard) en `full`. Door in te stellen de `queryType` parameter met uw zoekopdracht u instellen dat de queryparser welke querytaal u kiest zodat deze over het interpreteren van de operators en syntaxis. De [eenvoudige query-taal](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) is intuïtief en robuuste, vaak geschikt is voor de invoer van de gebruiker als interpreteren-is zonder client-side-verwerking. Het ondersteunt standaardoperators voor query's van webzoekmachines bekend. De [volledige Lucene-querytaal](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), die wordt geleverd door in te stellen `queryType=full`, wordt de standaardtaal van eenvoudige query uitgebreid met ondersteuning voor meer operators en typen query's, zoals jokerteken, fuzzy, regex en veldgerelateerde query's. Bijvoorbeeld, wordt een reguliere expressie verzonden eenvoudige query-syntaxis geïnterpreteerd als een queryreeks en niet een expressie. De voorbeeldaanvraag in dit artikel maakt gebruik van de volledige Lucene-querytaal.
 
@@ -189,7 +190,7 @@ Lexicale analyse geldt alleen voor de typen query's waarvoor volledige voorwaard
 
 <a name="stage3"></a>
 
-## <a name="stage-3-document-retrieval"></a>Fase 3: Document ophalen 
+## <a name="stage-3-document-retrieval"></a>Fase 3: Voor het document ophalen 
 
 Het ophalen van document verwijst naar het zoeken van documenten met de bijbehorende voorwaarden in de index. Deze fase is best begrepen door een voorbeeld. Laten we beginnen met een index hotels het volgende eenvoudige schema: 
 
@@ -314,7 +315,7 @@ Tijdens de uitvoering van de query, afzonderlijke query's worden uitgevoerd op b
 
 Op de gehele voor de query is betrokken zijn de documenten die overeenkomen met 1, 2, 3. 
 
-## <a name="stage-4-scoring"></a>Stap 4: scoren  
+## <a name="stage-4-scoring"></a>Fase 4: Scoren  
 
 Elk document in een resultatenset search is een relevantiescore toegewezen. De functie van de relevantiescore is positie hoger documenten die het beste een gebruiker vragen beantwoorden die door de zoekopdracht wordt uitgedrukt als. De score wordt berekend op basis van statistische eigenschappen van voorwaarden die overeenkomen met. De spil van de scoring formule is [TF/IDF (frequentie term frequentie inverse document)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). In de query's met zeldzame en algemene voorwaarden, bevordert TF/IDF resultaten met de term zeldzaam. Bijvoorbeeld in een hypothetische index met alle Wikipedia-artikelen van documenten die overeenkomen met de query *de president*, documenten die overeenkomen op *president* worden beschouwd als relevanter dan documenten overeenkomende op *de*.
 

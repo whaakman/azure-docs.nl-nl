@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb81f62bcea43c3c30abff6b5f76e3a89347813
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8b6edcb70bca480ebe0d53c061c6461745f189e8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985393"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321286"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>De elementen van de B2B-samenwerking uitnodigingse-mail - Azure Active Directory
 
@@ -27,10 +27,10 @@ Uitnodigingen per e-mail zijn een essentieel onderdeel om partners aan boord als
 We kijken naar enkele elementen van het e-mailbericht, zodat u hoe het beste weet om hun mogelijkheden te gebruiken.
 
 ### <a name="subject"></a>Onderwerp
-Het onderwerp van het e-mailbericht bevat het volgende patroon: U bent uitgenodigd voor de &lt;tenantname&gt; organisatie
+Het onderwerp van het e-mailbericht heeft het volgende patroon: U bent uitgenodigd voor de &lt;tenantname&gt; organisatie
 
 ### <a name="from-address"></a>Van adres
-We gebruiken een LinkedIn-patroon voor het adres van de afzender.  U moet wissen die de afzender van de uitnodiging is en waaruit de bedrijfsportal, en ook verduidelijken dat de e-mail afkomstig is van een Microsoft e-mailadres. De indeling is: &lt;weergavenaam op van de afzender van de uitnodiging&gt; van &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
+We gebruiken een LinkedIn-patroon voor het adres van de afzender.  U moet wissen die de afzender van de uitnodiging is en waaruit de bedrijfsportal, en ook verduidelijken dat de e-mail afkomstig is van een Microsoft e-mailadres. De indeling is: &lt;Weergavenaam van de afzender van de uitnodiging&gt; van &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
 
 ### <a name="reply-to"></a>Antwoorden op
 Het antwoordadres e-mailbericht is ingesteld op van de afzender van de uitnodiging e indien beschikbaar, zodat u het e-mailbericht beantwoordt een e-mailbericht naar de afzender van de uitnodiging verzendt.
@@ -40,7 +40,7 @@ De uitnodigingen per e-mail van uw gebruik van de tenant de huisstijl die u moge
 
 ### <a name="call-to-action"></a>Aanzetten tot actie
 De aanroep van actie bestaat uit twee delen: waarin wordt uitgelegd waarom de ontvanger het e-mailbericht heeft ontvangen en wat de ontvanger is verzocht te doen.
-- De sectie 'Waarom' kan worden aangepakt met behulp van het volgende patroon: U bent uitgenodigd voor toegang tot toepassingen in de &lt;tenantname&gt; organisatie
+- Zie de sectie 'Waarom' kan worden aangepakt met behulp van het volgende patroon: U bent uitgenodigd voor toegang tot toepassingen in de &lt;tenantname&gt; organisatie
 
 - En de 'wat u wordt gevraagd om te doen"sectie wordt aangegeven door de aanwezigheid van de **aan de slag** knop. Als de ontvanger is toegevoegd zonder de noodzaak voor uitnodigingen, wordt niet deze knop weergegeven.
 
@@ -52,7 +52,7 @@ Als u uw eigen profielfoto nog hebt ingesteld, ziet u een pictogram met de initi
   ![Initialen van de afzender van de uitnodiging weergeven](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Hoofdtekst
-De hoofdtekst bevat het bericht dat de afzender van de uitnodiging stelt het bericht of de uitnodiging API wordt doorgegeven. Dit is een tekstgebied zodat HTML-codes uit veiligheidsoverwegingen worden niet verwerkt.
+De hoofdtekst bevat het bericht dat de afzender van de uitnodiging stelt wanneer bericht [uitnodigen van een gastgebruiker naar de directory, groep of app](add-users-administrator.md) of [met behulp van de uitnodiging API](customize-invitation-api.md). Dit is een tekstgebied zodat HTML-codes uit veiligheidsoverwegingen worden niet verwerkt.
 
 ### <a name="footer-section"></a>Voettekst
 De voettekst bevat de huisstijl van het Microsoft-bedrijf en kan de geadresseerde weten als het e-mailbericht is verzonden vanaf een niet-gecontroleerde alias. Speciale gevallen:

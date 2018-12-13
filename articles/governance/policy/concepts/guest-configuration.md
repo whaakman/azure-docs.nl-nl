@@ -1,5 +1,5 @@
 ---
-title: Begrijpen hoe audits binnen een virtuele machine wordt uitgevoerd in Azure Policy
+title: Meer informatie over het uitvoeren van controles binnen een virtuele machine
 description: Meer informatie over hoe Azure Policy Gast-configuratie gebruikt voor controle-instellingen in een virtuele machine van Azure.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 19bc8a58c1ad2115afdfd1d7e59b714ba19cadec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 1ea87dc01048a2747a668db7a5b1f22b37ed9213
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078885"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310059"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informatie over Azure Policy Gast-configuratie
 
@@ -106,7 +106,7 @@ Azure Policy maakt gebruik van de configuratie van de Gast-resourceproviders **c
 > [!NOTE]
 > Voor elke definitie van de Gast-configuratie, zowel de **DeployIfNotExists** en **AuditIfNotExists** beleidsdefinities moeten bestaan.
 
-Alle ingebouwde beleidsregels voor de configuratie van de Gast zijn opgenomen in een initiatief aan groep de definities voor gebruik in toewijzingen. De ingebouwde initiatief met de naam *[Preview]: de instellingen voor controle wachtwoordbeveiliging in virtuele machines voor Linux en Windows* 18 beleid bevat. Er zijn zes **DeployIfNotExists** en **AuditIfNotExists** paren voor Windows en drie sets voor Linux. In elk geval wordt de logica in de definitie van de alleen het doel valideert besturingssysteem wordt geëvalueerd op basis van de [beleidsregel](definition-structure.md#policy-rule) definitie.
+Alle ingebouwde beleidsregels voor de configuratie van de Gast zijn opgenomen in een initiatief aan groep de definities voor gebruik in toewijzingen. De ingebouwde initiatief met de naam *[Preview]: Controle-instellingen van wachtwoord-beveiliging in virtuele machines voor Linux en Windows* 18 beleid bevat. Er zijn zes **DeployIfNotExists** en **AuditIfNotExists** paren voor Windows en drie sets voor Linux. In elk geval wordt de logica in de definitie van de alleen het doel valideert besturingssysteem wordt geëvalueerd op basis van de [beleidsregel](definition-structure.md#policy-rule) definitie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

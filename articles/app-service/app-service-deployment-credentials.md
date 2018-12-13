@@ -1,5 +1,5 @@
 ---
-title: Referenties voor implementatie configureren voor Azure App Service | Microsoft Docs
+title: Referenties voor implementatie - Azure App Service configureren | Microsoft Docs
 description: Informatie over het gebruik van de referenties voor Azure App Service-implementatie.
 services: app-service
 documentationcenter: ''
@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/22/2018
 ms.author: cephalin
-ms.openlocfilehash: a04057023308087adbf449b8f91af6a473c11c1e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: 9f1d6714dd015af857c5e6156bc7254a944363c4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312092"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257179"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Referenties voor implementatie voor Azure App Service configureren
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) ondersteunt twee soorten referenties voor [lokale Git-implementatie](app-service-deploy-local-git.md) en [FTP/S implementatie](app-service-deploy-ftp.md). Dit zijn niet gelijk zijn aan uw Azure Active Directory-referenties.

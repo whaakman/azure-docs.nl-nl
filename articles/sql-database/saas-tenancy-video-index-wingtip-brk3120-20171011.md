@@ -12,20 +12,20 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: b472baf77cc8f253337aa0780321a6e7dd3fecac
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056678"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163970"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Video is geïndexeerd en van aantekeningen voorzien voor multitenant SaaS-app met behulp van Azure SQL Database
 
 Dit artikel is een index met aantekeningen in de locaties van de tijd van een video over SaaS tenants modellen of patronen 81 minuut. In dit artikel kunt u op vorige of doorsturen in de video voor welk gedeelte bent geïnteresseerd. De video beschrijft de ontwerpopties belangrijke voor een multitenant-database-toepassing op Azure SQL Database. De video bevat demo's, scenario's van beheer van code en soms gedetailleerder op de hoogte door ervaring dan mogelijk zijn in onze documentatie geschreven.
 
 De video versterkt de informatie in onze schriftelijke documentatie, vinden op: 
-- *Conceptuele:* [multitenant SaaS-patronen voor tenants database][saas-concept-design-patterns-563e]
-- *Zelfstudie:* [de Wingtip Tickets SaaS-toepassing][saas-how-welcome-wingtip-app-679t]
+- *Conceptuele:* [Multitenant SaaS-patronen voor databases-tenants][saas-concept-design-patterns-563e]
+- *Zelfstudie:* [De Wingtip Tickets SaaS-toepassing][saas-how-welcome-wingtip-app-679t]
 
 De video en de artikelen worden beschreven de vele fasen voor het maken van een toepassing met meerdere tenants op Azure SQL Database in de cloud. Speciale functies van Azure SQL Database wordt het eenvoudiger te ontwikkelen en implementeren van apps met meerdere tenants die beide gemakkelijker zijn te beheren en betrouwbaar goed presterende.
 
@@ -63,8 +63,8 @@ De volgende titels vindt u koppelingen naar hun bijbehorende met aantekeningen s
 - [17. Canonieke hybride multitenant SaaS-app, 0:47:33](#anchor-image-wtip-min04733)
 - [18. Wingtip SaaS-voorbeeld-app, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Scenario's en patronen in de zelfstudies, 0 verkend: 49:10](#anchor-image-wtip-min04910)
-- [20. Demo van zelfstudies en Github-opslagplaats, 0:50:18](#anchor-image-wtip-min05018)
-- [21. Github-opslagplaats Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
+- [20. Demo van zelfstudies en GitHub-opslagplaats, 0:50:18](#anchor-image-wtip-min05018)
+- [21. GitHub-opslagplaats Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. De patronen, 0 verkennen: 56:20](#anchor-image-wtip-min05620)
 - [23. Inrichten van tenants en onboarding, 0:57:44](#anchor-image-wtip-min05744)
 - [24. Inrichten van tenants en 0-toepassingsverbinding: 58:58](#anchor-image-wtip-min05858)
@@ -94,11 +94,11 @@ Op een andere afbeelding schermafbeelding te klikken gaat u naar de locatie van 
 &nbsp; <a name="anchor-image-wtip-min00001"/>
 #### <a name="1-start-welcome-slide-00001"></a>1. *(Start)*  Welkom dia, 0:00:01
 
-*Leren van MYOB: ontwerppatronen voor SaaS-toepassingen op Azure SQL Database - BRK3120*
+*Leren van MYOB: Ontwerppatronen voor SaaS-toepassingen op Azure SQL Database - BRK3120*
 
 [![Welkom dia][image-wtip-min00003-brk3120-whole-welcome]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1)
 
-- Titel: Leren van MYOB: ontwerppatronen voor SaaS-toepassingen op Azure SQL Database
+- Titel: Leren van MYOB: Ontwerppatronen voor SaaS-toepassingen op Azure SQL Database
 - Bill.Gibson@microsoft.com
 - Principal Program Manager, Azure SQL Database
 - Microsoft Ignite-sessie BRK3120, Orlando, FL Verenigde Staten, 11 oktober 2017
@@ -121,7 +121,7 @@ Op een andere afbeelding schermafbeelding te klikken gaat u naar de locatie van 
 
 &nbsp; <a name="anchor-image-wtip-min00505"/>
 #### <a name="4-multi-tenant-web-app-00500"></a>4. Webtoepassing met meerdere tenants, 0:05:00 uur
-[![Wingtip SaaS-app: multitenant-web-app][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
+[![Wingtip SaaS-app: Multitenant-web-app][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
 
 
 &nbsp; <a name="anchor-image-wtip-min00555"/>
@@ -199,13 +199,13 @@ Op een andere afbeelding schermafbeelding te klikken gaat u naar de locatie van 
 
 
 &nbsp; <a name="anchor-image-wtip-min05018"/>
-#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Demo van zelfstudies en Github-opslagplaats, 0:50:12
-[![Demo-zelfstudies en Github-opslagplaats][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
+#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Demo van zelfstudies en GitHub-opslagplaats, 0:50:12
+[![Demo-zelfstudies en GitHub-opslagplaats][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
 &nbsp; <a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Github-opslagplaats Microsoft/WingtipSaaS, 0:50:32
-[![Github-opslagplaats Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. GitHub-opslagplaats Microsoft/WingtipSaaS, 0:50:32
+[![GitHub-opslagplaats Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
 &nbsp; <a name="anchor-image-wtip-min05620"/>
@@ -294,14 +294,14 @@ Op een andere afbeelding schermafbeelding te klikken gaat u naar de locatie van 
 
 - [Blogbericht, 22 mei 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Conceptuele:* [multitenant SaaS-patronen voor tenants database][saas-concept-design-patterns-563e]
+- *Conceptuele:* [Multitenant SaaS-patronen voor databases-tenants][saas-concept-design-patterns-563e]
 
-- *Zelfstudie:* [de Wingtip Tickets SaaS-toepassing][saas-how-welcome-wingtip-app-679t]
+- *Zelfstudie:* [De Wingtip Tickets SaaS-toepassing][saas-how-welcome-wingtip-app-679t]
 
-- Github-opslagplaatsen voor versies van de toepassing Wingtip Tickets SaaS-tenants:
-    - [Github-opslagplaats voor - toepassingsmodel zelfstandige][github-wingtip-standaloneapp].
-    - [Github-opslagplaats voor - DB Per Tenant model][github-wingtip-dbpertenant].
-    - [Github-opslagplaats voor - model voor meerdere Tenants DB][github-wingtip-multitenantdb].
+- GitHub-opslagplaatsen voor versies van de toepassing Wingtip Tickets SaaS-tenants:
+    - [GitHub-opslagplaats voor - toepassingsmodel zelfstandige][github-wingtip-standaloneapp].
+    - [GitHub-opslagplaats voor - DB Per Tenant model][github-wingtip-dbpertenant].
+    - [GitHub-opslagplaats voor - model voor meerdere Tenants DB][github-wingtip-multitenantdb].
 
 
 
@@ -322,7 +322,7 @@ Op een andere afbeelding schermafbeelding te klikken gaat u naar de locatie van 
 
 [image-wtip-min00417-agenda]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00417-agenda-app-management-models-patterns.png "Agenda."
 
-[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Wingtip SaaS-app: multitenant-web-app"
+[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Wingtip SaaS-app: Multitenant-web-app"
 
 [image-wtip-min00555-app-web-form]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00555-app-form-contoso-concert-hall-night-opera.png "App-webformulier in actie"
 
@@ -354,9 +354,9 @@ Op een andere afbeelding schermafbeelding te klikken gaat u naar de locatie van 
 
 [image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "Scenario's en patronen in de zelfstudies verkennen"
 
-[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demo van zelfstudies en Github-opslagplaats"
+[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demo van zelfstudies en GitHub-opslagplaats"
 
-[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Github-opslagplaats Microsoft/WingtipSaaS"
+[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "GitHub-opslagplaats Microsoft/WingtipSaaS"
 
 [image-wtip-min05620-exploring-patterns]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05620-exploring-patterns-tutorials.png "De patronen verkennen"
 

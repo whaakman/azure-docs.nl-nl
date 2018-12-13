@@ -1,5 +1,5 @@
 ---
-title: Hoe werkt het?
+title: 'ML in de cloud: voorwaarden en -architectuur'
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over de architectuur, -terminologie en concepten van Azure Machine Learning-service. Ook leert u over de algemene werkstroom van het gebruik van de service en de Azure-services die worden gebruikt door de Azure Machine Learning-service.
 services: machine-learning
@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e006c3ac9684cc9e51e8b3505659864123758d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3966d4b27f0e3d42f47d84fb5c9f5c8519a27b6c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097995"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184726"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>De werking van de service Azure Machine Learning: architectuur en concepten
 
@@ -75,7 +75,7 @@ Een model wordt geproduceerd door een uitvoering in Azure Machine Learning. U ku
 
 Azure Machine Learning-Service is framework-agnostische. U kunt elk gewenst framework populaire machine learning kunt gebruiken bij het maken van een model, zoals scikit-informatie, xgboost, PyTorch, TensorFlow, Chainer en CNTK.
 
-Zie voor een voorbeeld van een model te trainen, de [Quickstart: maken van een machine learning-werkruimte Service](quickstart-get-started.md) document.
+Zie voor een voorbeeld van een model te trainen, de [Quick Start: Maken van een machine learning-werkruimte Service](quickstart-get-started.md) document.
 
 ### <a name="model-registry"></a>Model-register
 
@@ -99,8 +99,8 @@ Afbeeldingen bieden een manier om op betrouwbare wijze een model, samen met alle
 
 Er zijn twee typen installatiekopieën die kunnen worden gemaakt met Azure Machine Learning:
 
-* FPGA-installatiekopie: gebruikt bij het implementeren op een veld-programmable gate array in de Azure-cloud.
-* Docker-installatiekopie: gebruikt bij het implementeren voor de compute-doelen dan FPGA. Bijvoorbeeld, Azure Container Instances en Azure Kubernetes Service.
+* FPGA-installatiekopie: Gebruikt bij het implementeren op een veld-programmable gate array in de Azure-cloud.
+* Docker-installatiekopie: Gebruikt bij het implementeren van doelen dan FPGA berekenen. Bijvoorbeeld, Azure Container Instances en Azure Kubernetes Service.
 
 Zie voor een voorbeeld van het maken van een afbeelding, de [implementeren een installatiekopie classificeringsmodel in Azure Container Instances](tutorial-deploy-models-with-aml.md) document.
 
@@ -148,13 +148,13 @@ Een uitvoering is een record met de volgende informatie:
 
 Een uitvoering wordt gemaakt wanneer u een script voor een model te trainen verzendt. Een uitvoering kan nul of meer onderliggende uitvoeringen hebben. Zodat het op het hoogste niveau uitvoeren mogelijk twee onderliggende-wordt uitgevoerd, die mogelijk is hun eigen onderliggende wordt uitgevoerd.
 
-Zie voor een voorbeeld van de weergave wordt geproduceerd door het trainen van een model uitgevoerd, de [Snelstartgids: aan de slag met Azure Machine Learning-service](quickstart-get-started.md) document.
+Zie voor een voorbeeld van de weergave wordt geproduceerd door het trainen van een model uitgevoerd, de [Quick Start: Aan de slag met Azure Machine Learning-service](quickstart-get-started.md) document.
 
 ## <a name="experiment"></a>Experiment
 
 Een experiment is een groepering van veel worden uitgevoerd op een bepaald script. Altijd hoort bij een werkruimte. Wanneer u een uitvoering verzendt, kunt u de naam van een experiment opgeven. Informatie voor de uitvoering wordt onder dit experiment opgeslagen. Als u een uitvoering verzenden en geef de naam van een experiment die niet bestaat, wordt er automatisch een nieuw experiment met die naam gemaakt.
 
-Zie voor een voorbeeld van het gebruik van een experiment, het [Snelstartgids: aan de slag met Azure Machine Learning-service](quickstart-get-started.md) document.
+Zie voor een voorbeeld van het gebruik van een experiment, het [Quick Start: Aan de slag met Azure Machine Learning-service](quickstart-get-started.md) document.
 
 ## <a name="pipeline"></a>Pijplijn
 
@@ -227,5 +227,5 @@ Activiteiten kunnen meldingen via de SDK of de Webgebruikersinterface bieden, zo
 Gebruik de volgende koppelingen aan de slag met Azure Machine Learning:
 
 * [Wat is de Azure Machine Learning service](overview-what-is-azure-ml.md)
-* [Snelstart: een werkruimte maken met Python](quickstart-get-started.md)
-* [Zelfstudie: een model trainen](tutorial-train-models-with-aml.md)
+* [Snelstartgids: Een werkruimte maken met Python](quickstart-get-started.md)
+* [Zelfstudie: Een model te trainen](tutorial-train-models-with-aml.md)

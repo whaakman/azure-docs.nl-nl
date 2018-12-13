@@ -1,6 +1,6 @@
 ---
-title: Informatie over de levenscyclus van een Azure-blauwdruk
-description: Meer informatie over de levenscyclus die een blauwdruk doorloopt en details over elke fase.
+title: Informatie over de levenscyclus van een blauwdruk
+description: Meer informatie over de levenscyclus van een blauwdruk doorloopt en details over elke fase.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,19 +8,20 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094156"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309803"
 ---
-# <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>Informatie over de levenscyclus van een Azure-blauwdruk
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Informatie over de levenscyclus van een Azure-blauwdruk
 
 Net als veel resources in Azure heeft een blauwdruk in Azure blauwdrukken een typische en natuurlijke levenscyclus. Ze zijn gemaakt, geïmplementeerd en ten slotte verwijderd wanneer het niet meer nodig of nuttig.
-Blauwdrukken biedt ondersteuning voor standaard levenscyclus bewerkingen. Het bouwt vervolgens bij om extra niveaus van de status van die ondersteuning bieden voor algemene continue integratie en continue implementatie pijplijnen voor organisaties die hun infrastructuur als Code – een belangrijk element bij DevOps beheren.
+Blauwdrukken ondersteunt standaard levenscyclusbewerkingen. Het bouwt vervolgens bij om extra niveaus van de status van die ondersteuning bieden voor algemene continue integratie en continue implementatie pijplijnen voor organisaties die hun infrastructuur als Code – een belangrijk element bij DevOps beheren.
 
-Om volledig te begrijpen een blauwdruk en fasen, aan bod standaard levenscyclus:
+Om volledig te begrijpen een blauwdruk en fasen, aan bod de levensduur van een standaard:
 
 > [!div class="checklist"]
 > - Het maken en bewerken van een blauwdruk
@@ -68,7 +69,7 @@ Elke versie van een blauwdruk is een unieke object en kan afzonderlijk worden **
 > [!NOTE]
 > Het is niet mogelijk om te verwijderen van een blauwdruk die actieve toewijzingen heeft. Verwijder eerst de toewijzingen en verwijder vervolgens de versie die u wilt verwijderen.
 
-1. Klik op **alle services** en het zoeken en selecteren **beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
+1. Klik op **Alle services** en selecteer **Beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
 
 1. Selecteer **Blauwdrukdefinities** op de pagina aan de linkerkant en gebruik het filter te vinden van de blauwdruk die u wilt verwijderen van een versie van de opties. Klik op de pagina bewerken te openen.
 
@@ -87,7 +88,7 @@ Verwijderen van een blauwdruk met de [Azure-portal](../create-blueprint-portal.m
 
 ## <a name="assignments"></a>Toewijzingen
 
-Is er verschillende punten tijdens de levenscyclus van die een blauwdruk kan worden toegewezen aan een abonnement. Wanneer de modus van een versie van de blauwdruk is **gepubliceerd**, en vervolgens die versie kan worden toegewezen aan een abonnement. Deze levenscyclus kunt versies van een blauwdruk worden gebruikt en actief toegewezen terwijl een nieuwere versie is ontwikkeld.
+Is er verschillende punten tijdens de levenscyclus van die een blauwdruk kan worden toegewezen aan een abonnement. Wanneer de modus van een versie van de blauwdruk is **gepubliceerd**, en vervolgens die versie kan worden toegewezen aan een abonnement. Deze levenscyclus beheren kunt versies van een blauwdruk worden gebruikt en actief toegewezen terwijl een nieuwere versie is ontwikkeld.
 
 Als de versies van blauwdrukken zijn toegewezen, is het belangrijk om te weten waar ze zijn toegewezen en met welke parameters hebben zij is toegewezen met. De parameters kunnen statisch of dynamisch zijn. Zie voor meer informatie, [statische en dynamische parameters](parameters.md).
 

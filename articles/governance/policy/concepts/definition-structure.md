@@ -1,5 +1,5 @@
 ---
-title: Structuur van Azure-beleidsdefinities
+title: Details van de structuur van beleidsdefinities
 description: Hierin wordt beschreven hoe resourcedefinitie beleid wordt gebruikt door Azure Policy tot stand brengen van conventies voor resources in uw organisatie door te beschrijven wanneer het beleid wordt afgedwongen en welk effect te nemen.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 456ac392d74db0dc596c24a47d176e19d267bc85
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: c09f1f5af8ef417fc4ed195b8ff17cc23c744319
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079514"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313136"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -216,6 +217,8 @@ De volgende velden worden ondersteund:
 - `kind`
 - `type`
 - `location`
+- `identity.type`
+  - Retourneert het type van [beheerde identiteit](../../../active-directory/managed-identities-azure-resources/overview.md) ingeschakeld op de bron.
 - `tags`
 - `tags.<tagName>`
   - Waar **\<tagName\>** is de naam van de code voor het valideren van de voorwaarde voor.

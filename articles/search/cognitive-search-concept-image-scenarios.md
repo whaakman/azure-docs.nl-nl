@@ -1,5 +1,5 @@
 ---
-title: Verwerken en haal de tekst uit afbeeldingen in Azure Search | Microsoft Docs
+title: Verwerken en extraheren tekst uit afbeeldingen in cognitief zoeken - Azure Search
 description: Verwerken en extraheren tekst en andere informatie uit afbeeldingen in cognitive zoeken in pijplijnen in Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 5ee821f3d1e81e581f376d4b14b3e8393a8f190c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444629"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312609"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hoe worden verwerkt en extraheer informatie uit afbeeldingen in scenario's met cognitief zoeken
 
@@ -31,7 +32,7 @@ Als onderdeel van documenten kraken, moet u er een nieuwe set parameters voor de
 
 U uitschakelen normalisering van de installatiekopie niet. Genormaliseerde installatiekopieën verwacht dat de vaardigheden die installatiekopieën herhalen.
 
-| Configuratieparameter | Beschrijving |
+| Configuratieparameter | Description |
 |--------------------|-------------|
 | imageAction   | Ingesteld op 'none' als er is geen actie moet worden uitgevoerd wanneer de ingesloten afbeeldingen of afbeeldingen zijn opgetreden. <br/>Ingesteld op 'generateNormalizedImages' voor het genereren van een matrix van genormaliseerde installatiekopieën als onderdeel van het document kraken. Deze installatiekopieën worden weergegeven in de *normalized_images* veld. <br/>De standaardwaarde is 'none'. Deze configuratie is alleen relevant zijn voor blob-gegevensbronnen, als 'dataToExtract' is ingesteld op "contentAndMetadata." |
 |  normalizedImageMaxWidth | De maximale breedte (in pixels) voor genormaliseerde installatiekopieën die worden gegenereerd. De standaardwaarde is 2000.|
@@ -63,7 +64,7 @@ U geeft de imageAction in uw [definitie van indexeerfunctie](https://docs.micros
 
 Wanneer de *imageAction* is ingesteld op 'generateNormalizedImages', de nieuwe *normalized_images* veld bevat een matrix van afbeeldingen. Elke installatiekopie is een complex type met de volgende leden:
 
-| Lid van de installatiekopie       | Beschrijving                             |
+| Lid van de installatiekopie       | Description                             |
 |--------------------|-----------------------------------------|
 | gegevens               | Met base64 gecodeerde tekenreeks van de genormaliseerde afbeelding in JPEG-indeling.   |
 | Breedte              | Breedte van de installatiekopie van het genormaliseerde in pixels. |
@@ -90,7 +91,7 @@ Wanneer de *imageAction* is ingesteld op 'generateNormalizedImages', de nieuwe *
 
 ## <a name="image-related-skills"></a>Installatiekopieën gerelateerde vaardigheden
 
-Er zijn twee ingebouwde cognitieve vaardigheden die installatiekopieën als invoer: [OCR](cognitive-search-skill-ocr.md) en [analyse van de afbeelding](cognitive-search-skill-image-analysis.md). 
+Er zijn twee ingebouwde cognitieve vaardigheden die installatiekopieën als invoer: [OCR](cognitive-search-skill-ocr.md) en [Image Analysis](cognitive-search-skill-image-analysis.md). 
 
 Deze vaardigheden werken op dit moment alleen met de installatiekopieën die zijn gegenereerd op basis van de stap voor het kraken van document. Hierdoor de enige ondersteunde invoer is `"/document/normalized_images"`.
 

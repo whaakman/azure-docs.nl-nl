@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: 5d6510c1e069abe1fc295f2fccd9f2c0a9aad5bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837560"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251025"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -148,6 +148,9 @@ Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adre
 7. Waar kan ik registratiesleutels kluis downloaden?
 
     In de **Recovery Services-kluis**, **beheren** > **infrastructuur voor Site Recovery** > **configuratieservers**. Selecteer in de Servers, **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
+8. Kan ik klonen van een bestaande configuratieserver en gebruiken voor het indelen van replicatie?
+
+    **Geen**, gebruik van een gekloonde onderdeel van de configuratieserver wordt niet ondersteund. 
 
 ## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen
 

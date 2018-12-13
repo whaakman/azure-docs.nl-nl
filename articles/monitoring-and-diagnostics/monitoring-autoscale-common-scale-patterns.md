@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: c7084a10aceafcdd1039893b810fcbd8b74b874b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7fa2cbc831c6bcb734b4a4596a3f75f81e8ee085
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967401"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317029"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Overzicht van algemene patronen voor automatisch schalen
 In dit artikel worden enkele van de algemene patronen voor het schalen van uw resource in Azure beschreven.
 
 Automatisch schalen van Azure Monitor is alleen bedoeld voor [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/), en [API Management-services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
-# <a name="lets-get-started"></a>Hiermee kunnen aan de slag
+## <a name="lets-get-started"></a>Hiermee kunnen aan de slag
 
 In dit artikel wordt ervan uitgegaan dat u bekend met automatisch schalen bent. U kunt [hier uw resource schalen aan de slag][1]. Hier volgen enkele van de algemene patronen van de schaal.
 

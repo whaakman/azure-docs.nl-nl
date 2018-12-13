@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: e01bcd022b5688b6cf00f63fcf4a0f06a477ebed
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5a1d86c58b6b6b8b54d170459157371e8e73f0e8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093621"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163664"
 ---
-# <a name="url-entity"></a>URL-entiteit
+# <a name="url-prebuilt-entity-for-a-luis-app"></a>URL van vooraf gedefinieerde entiteit voor een LUIS-app
 URL-entiteit extraheert URL's met domeinnamen of IP-adressen. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met URL's naar de toepassing. URL-entiteit wordt ondersteund in `en-us` alleen de cultuur. 
 
 ## <a name="types-of-urls"></a>Typen van URL 's
-URL wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) Github-opslagplaats
+URL wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) GitHub-opslagplaats
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Oplossing voor vooraf gedefinieerde URL-entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.url** entiteit.

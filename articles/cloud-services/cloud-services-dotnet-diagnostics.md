@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: f9f26f14944986bc673a3b7529adb055ad16d058
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6a22a3dabf1aa71e0d092c4145523da9b0121c8c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003058"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322206"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Diagnostics in Azure Cloudservices inschakelen
 Zie [overzicht van Azure Diagnostics](../azure-diagnostics.md) voor een achtergrond voor Azure Diagnostics.
@@ -30,7 +30,7 @@ In dit scenario wordt beschreven hoe u een Azure-medewerkerrol die telemetriegeg
 ### <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u hebt een Azure-abonnement en worden met behulp van Visual Studio met de Azure SDK. Als u een Azure-abonnement hebt, kunt u zich aanmelden voor de [gratis proefversie][Free Trial]. Zorg ervoor dat u [installeren en configureren van Azure PowerShell versie 0.8.7 of hoger][Install and configure Azure PowerShell version 0.8.7 or later].
 
-### <a name="step-1-create-a-worker-role"></a>Stap 1: Maak een Werkrol
+### <a name="step-1-create-a-worker-role"></a>Stap 1: Maken van een Werkrol
 1. Start **Visual Studio**.
 2. Maak een **Azure Cloud Service** project vanaf de **Cloud** sjabloon die gericht is op .NET Framework 4.5.  Noem het project 'WadExample' en klik op Ok.
 3. Selecteer **Werkrol** en klik op Ok. Het project wordt gemaakt.
@@ -39,7 +39,7 @@ In dit artikel wordt ervan uitgegaan dat u hebt een Azure-abonnement en worden m
 6. Maak uw oplossing om te controleren of dat er geen fouten.
 
 ### <a name="step-2-instrument-your-code"></a>Stap 2: Instrumenteer uw code
-Vervang de inhoud van WorkerRole.cs door de volgende code. De klasse SampleEventSourceWriter, overgenomen van de [EventSource klasse][EventSource Class], implementeert vier logboekregistratiemethoden: **SendEnums**, **MessageMethod** , **SetOther** en **HighFreq**. De eerste parameter voor de **WriteEvent** methode definieert u de ID voor de bijbehorende gebeurtenis. De Run-methode implementeert een oneindige lus die worden aangeroepen voor elk van de logboekregistratiemethoden geïmplementeerd in de **SampleEventSourceWriter** klasse elke 10 seconden.
+Vervang de inhoud van WorkerRole.cs door de volgende code. De klasse SampleEventSourceWriter, overgenomen van de [EventSource klasse][EventSource Class], implementeert vier logboekregistratiemethoden: **SendEnums**, **MessageMethod**, **SetOther** en **HighFreq**. De eerste parameter voor de **WriteEvent** methode definieert u de ID voor de bijbehorende gebeurtenis. De Run-methode implementeert een oneindige lus die worden aangeroepen voor elk van de logboekregistratiemethoden geïmplementeerd in de **SampleEventSourceWriter** klasse elke 10 seconden.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -122,7 +122,7 @@ namespace WorkerRole1
 ```
 
 
-### <a name="step-3-deploy-your-worker-role"></a>Stap 3: Implementatie van uw Werkrol
+### <a name="step-3-deploy-your-worker-role"></a>Stap 3: Implementeren van uw Werkrol
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -134,7 +134,7 @@ namespace WorkerRole1
 6. Wijzigen van een andere **instellingen** als nodig en op **publiceren**.
 7. Nadat implementatie is voltooid, controleert u of in Azure portal waarmee u uw cloudservice is in een **met** staat.
 
-### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Stap 4: De Diagnostics-configuratiebestand maken en de extensie installeren
+### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Stap 4: Maken van het configuratiebestand van de diagnostische gegevens en de extensie installeren
 1. De schemadefinitie voor de configuratie van de openbare-bestand downloaden door het uitvoeren van de volgende PowerShell-opdracht:
 
     ```powershell
@@ -185,7 +185,7 @@ $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -Sto
 Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 ```
 
-### <a name="step-6-look-at-your-telemetry-data"></a>Stap 6: De telemetriegegevens van uw bekijken
+### <a name="step-6-look-at-your-telemetry-data"></a>Stap 6: Bekijk de telemetriegegevens van uw
 In de Visual Studio **Server Explorer**, gaat u naar het opslagaccount wadexample. Nadat de cloudservice ongeveer vijf (5) minuten gestart is, ziet u de tabellen **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** en **WADSetOtherTable**. Dubbelklik op een van de tabellen om weer te geven van de telemetrie die is verzameld.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
@@ -197,7 +197,7 @@ De diagnostische gegevens over configuratie-bestand definieert u waarden die wor
 Als u problemen ondervindt, raadpleegt u [het oplossen van Azure Diagnostics](../azure-diagnostics-troubleshooting.md) voor hulp bij veelvoorkomende problemen.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een overzicht van gerelateerde Azure virtuele machines diagnostische artikelen](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) wijzigen van de gegevens die u verzamelt, oplossen van problemen of meer informatie over diagnostische gegevens over het algemeen.
+[Een overzicht van gerelateerde Azure virtuele machines diagnostische artikelen](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) wijzigen van de gegevens die u verzamelt, oplossen van problemen of meer informatie over diagnostische gegevens over het algemeen.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

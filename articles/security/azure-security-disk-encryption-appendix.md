@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6e186f25cc69791d939d93d24a37cadb1113353
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f10a3c02e98db5777b5231aec04951a7ed1ad9ad
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105039"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310661"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Bijlage voor Azure Disk Encryption 
 
@@ -132,6 +132,20 @@ De volgende tabel ziet u welke parameters kunnen worden gebruikt in het PowerShe
  -  [Schakel versleuteling uit op een actieve Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Als u versleuteling uitschakelt is alleen toegestaan op gegevensvolumes voor virtuele Linux-machines.  
 
+### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Versleutelen of ontsleutelen van VM-schaalsets
+
+- [Schakelt u schijfversleuteling op een actieve virtuele-machineschaalset met Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [Schijfversleuteling op een actieve virtuele-machineschaalset met Windows inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [Een VM Scale instellen van virtuele Linux-machines met een jumpbox en kunnen versleuteling voor VMSS Linux implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [Een virtuele machine Schaalsets van Windows van virtuele machines met een jumpbox en kunnen versleuteling voor VMSS Windows implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [Schijfversleuteling op een actieve Linux virtuele-machineschaalset uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [Schijfversleuteling op een actieve Windows virtuele-machineschaalset uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Versleutelen of ontsleutelen van virtuele machines met een Azure AD-app (vorige versie) 
  
 - [Schijfversleuteling voor de bestaande of het uitvoeren van IaaS Windows-VM's inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
@@ -162,17 +176,7 @@ De volgende tabel ziet u welke parameters kunnen worden gebruikt in het PowerShe
 
 - [Schijfversleuteling op een actieve Windows-VM via de vingerafdruk van een Azure AD-client inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
-- [Schakelt u schijfversleuteling op een actieve virtuele-machineschaalset met Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
-- [Schijfversleuteling op een actieve virtuele-machineschaalset met Windows inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-
- - [Een VM Scale instellen van virtuele Linux-machines met een jumpbox en kunnen versleuteling voor VMSS Linux implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-
- - [Een virtuele machine Schaalsets van Windows van virtuele machines met een jumpbox en kunnen versleuteling voor VMSS Windows implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-
-- [Schijfversleuteling op een actieve Linux virtuele-machineschaalset uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
-
-- [Schijfversleuteling op een actieve Windows virtuele-machineschaalset uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> Vooraf gecodeerde Windows VHD voorbereiden
 De volgende secties zijn die nodig zijn voor het vooraf gecodeerde Windows VHD voorbereiden voor implementatie als een versleutelde VHD in Azure IaaS. Gebruik de informatie voor het voorbereiden en start een nieuwe Windows virtuele machine (VHD) voor Azure Site Recovery of Azure. Zie voor meer informatie over het voorbereiden en een VHD uploaden [een gegeneraliseerde VHD uploaden en maken van nieuwe virtuele machines in Azure](../virtual-machines/windows/upload-generalized-managed.md).

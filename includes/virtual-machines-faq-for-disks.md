@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585685"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326490"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -87,7 +87,7 @@ Beheerde schijven ondersteunt drie belangrijke standaardrollen:
 
 * Eigenaar: Kan alles beheren, inclusief toegang
 * Inzender: Kan alles beheren behalve toegang
-* Lezer: Kan alles weergeven, maar kan geen wijzigingen aanbrengen
+* Lezer: Alles weergeven, maar kan geen wijzigingen aanbrengen
 
 **Is er een manier dat ik kan kopiëren of een beheerde schijf naar een persoonlijke storage-account exporteren?**
 
@@ -137,9 +137,9 @@ Nee, wanneer de nieuwe schijf wordt gemaakt op dat moment een volledig zelfstand
 
 Voor beheerde schijven kan niet u deze wijzigen. U mag een niet-beheerde schijf echter wijzigen, zolang het is momenteel niet gekoppeld aan een VHD of de virtuele machine.
 
-**Kan ik de GBT partitioneren op een Azure-schijf gebruiken?**
+**Kan ik de GPT-partities op een Azure-schijf gebruiken?**
 
-GBT partitioneren kan alleen op gegevensschijven, niet de OS-schijven worden gebruikt. Besturingssysteemschijven moeten de partitiestijl MBR gebruiken.
+GPT partitioneren kan alleen op gegevensschijven, niet de OS-schijven worden gebruikt. Besturingssysteemschijven moeten de partitiestijl MBR gebruiken.
 
 ## <a name="standard-ssd-disks"></a>Standard-SSD-schijven
 
@@ -188,6 +188,10 @@ Nee, Standard-SSD-schijven zijn alleen beschikbaar als beheerde schijven.
 Nee, Standard-SSD's geen enkel exemplaar VM SLA. Premium-SSD-schijven gebruiken voor één exemplaar VM SLA.
 
 ## <a name="migrate-to-managed-disks"></a>Migreren naar Managed Disks
+
+** Zijn er gevolgen van de migratie op de prestaties van Managed Disks?
+
+Migratie omvat het verkeer van de schijf van de ene opslaglocatie naar de andere. Dit is georganiseerd via achtergrond kopiëren van gegevens kan enkele uren duren, doorgaans minder dan 24 uur, afhankelijk van de hoeveelheid gegevens in de schijven. Gedurende die tijd kunt uw toepassing ervaringen hoger dan normaal leeslatentie bij het aantal leesbewerkingen kunnen ophalen omgeleid naar de oorspronkelijke locatie en kunnen het langer duren om. Er zijn geen gevolgen voor schrijven latentie tijdens deze periode.  
 
 **Welke wijzigingen vereist zijn in een bestaande Azure Backup-service configuration voorafgaande/na de migratie naar Managed Disks?**
 
@@ -262,7 +266,7 @@ Ja
 
 Nee. Maar als u een VHD naar een versleuteld opslagaccount van een versleutelde exporteren beheerde schijf of momentopname en vervolgens het is versleuteld. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Premium-schijven: beheerde en onbeheerde
+## <a name="premium-disks-managed-and-unmanaged"></a>Premium-schijven: Beheerde en onbeheerde
 
 **Als een virtuele machine gebruikmaakt van een reeks grootte die ondersteuning biedt voor Premium-SSD-schijven, zoals een DSv2 kan ik koppelen premium en standard gegevensschijven?** 
 
@@ -292,7 +296,7 @@ De lokale SSD is tijdelijke opslag die is opgenomen in een VM-schijven beheerd. 
 
 Er is geen nadeel aan het gebruik van TRIM op Azure-schijven in een premium of standard-schijven.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nieuwe schijfgrootten: beheerde en onbeheerde
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nieuwe schijfgrootten: Beheerde en onbeheerde
 
 **Wat is de grootste beheerde schijfgrootte voor het besturingssysteem en gegevensschijven worden ondersteund?**
 
@@ -312,10 +316,10 @@ U hoeft niet te upgraden van uw bestaande Azure-hulpprogramma's maken, koppelen 
 
 |Azure-hulpprogramma 's      | Ondersteunde versies                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Versienummer 4.1.0: de release van juni 2017 of hoger|
-|Azure CLI v1     | Versienummer 0.10.13: de release van mei 2017 of hoger|
-|Azure CLI versie 2     | Versienummer 2.0.12: de release van juli 2017 of hoger|
-|AzCopy           | Versienummer 6.1.0: de release van juni 2017 of hoger|
+|Azure PowerShell | Versienummer 4.1.0: De release van juni 2017 of hoger|
+|Azure CLI v1     | Versienummer 0.10.13: De release van mei 2017 of hoger|
+|Azure CLI versie 2     | Versienummer 2.0.12: De release van juli 2017 of hoger|
+|AzCopy           | Versienummer 6.1.0: De release van juni 2017 of hoger|
 
 **Worden schijfgrootten P4 en P6 ondersteund voor niet-beheerde schijven of pagina-blobs?**
 
@@ -339,7 +343,7 @@ De grootste schijfgrootte wordt ondersteund door Azure Backup en Azure Site Reco
 
 **Wat zijn de aanbevolen VM-grootten voor grote schijven (> 4TiB) voor Standard-SSD en standaard harde schijven te bereiken geoptimaliseerd schijf-IOPS en bandbreedte?**
 
-De schijfdoorvoer van Standard-SSD en HDD Standard grote schijfgrootten bereiken (> 4TB) meer dan 500 IOPS en 60 MiB/s, moet u een van de volgende VM-grootten gebruiken om uw prestaties te optimaliseren: B-serie, DSv2-serie, Dsv3-serie, ESv3-serie, Fs-serie Fsv2-serie, M-serie, GS-serie, NCv2-serie, uit de NCv3-serie of Ls-serie VM's.
+De schijfdoorvoer van Standard-SSD en HDD Standard grote schijfgrootten bereiken (> 4TB) meer dan 500 IOPS en 60 MiB/s, moet u een van de volgende VM-grootten gebruiken om uw prestaties te optimaliseren: B-serie, DSv2-serie, Dsv3-serie, ESv3-serie, Fs-serie, Fsv2-serie, M-serie, GS-serie, NCv2-serie, uit de NCv3-serie of Ls-serie VM's.
 
 **Welke regio's zijn groter is dan 4 TiB ondersteund in de grootte van de beheerde schijven?**
 

@@ -1,5 +1,5 @@
 ---
-title: Een HDInsight-cluster configureren met Enterprise-beveiligingspakket met behulp van Azure AD DS-
+title: Enterprise-beveiligingspakket-configuratie met behulp van Azure Active Directory Domain Services - Azure HDInsight
 description: Informatie over het instellen en configureren van een Enterprise-beveiligingspakket van HDInsight-cluster met behulp van Azure Active Directory Domain Services.
 services: hdinsight
 ms.service: hdinsight
@@ -7,13 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/9/2018
-ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 10/09/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5e5b8320459561ac2dbbf72a812e29e837e08cd6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684736"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166656"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Een HDInsight-cluster configureren met Enterprise-beveiligingspakket met behulp van Azure Active Directory Domain Services
 
@@ -97,11 +98,11 @@ Zodra u ESP inschakelt, worden veelvoorkomende onjuiste configuraties die zijn g
 
 Wanneer u een HDInsight-cluster met ESP maken, moet u de volgende parameters opgeven:
 
-- **Gebruiker met beheerdersrechten cluster**: Kies een beheerder voor uw cluster vanaf uw gesynchroniseerde Azure AD DS-. Dit domeinaccount moet al zijn gesynchroniseerd en beschikbaar in Azure AD DS.
+- **Gebruiker met beheerdersrechten cluster**: Kies een beheerder voor uw cluster vanaf uw gesynchroniseerde Azure AD DS. Dit domeinaccount moet al zijn gesynchroniseerd en beschikbaar in Azure AD DS.
 
-- **Cluster-toegangsgroepen**: de waarvan gebruikers die u wilt synchroniseren en toegang hebben tot het cluster beschikbaar zijn in Azure AD DS moet-beveiligingsgroepen. Bijvoorbeeld: HiveUsers groep. Zie voor meer informatie, [een groep maken en leden toevoegen in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+- **Cluster-toegangsgroepen**: De beveiligingsgroepen waarvan gebruikers die u wilt synchroniseren en toegang hebben tot het cluster moeten beschikbaar in Azure AD DS-zijn. Bijvoorbeeld: HiveUsers groep. Zie voor meer informatie, [een groep maken en leden toevoegen in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-- **LDAPS-URL**: een voorbeeld is ldaps://contoso.com:636.
+- **LDAPS-URL**: Een voorbeeld is ldaps://contoso.com:636.
 
 De volgende schermafbeelding ziet u een juiste configuratie in Azure portal:
 

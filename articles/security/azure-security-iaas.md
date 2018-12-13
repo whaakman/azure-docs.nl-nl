@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498348"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321457"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -38,21 +38,21 @@ De best practices zijn gebaseerd op een consensus van advies, en ze werken met d
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Virtuele machines beveiligen met behulp van verificatie en toegangsbeheer
 De eerste stap bij het beschermen van uw virtuele machines is om ervoor te zorgen dat alleen gemachtigde gebruikers kunnen instellen van nieuwe virtuele machines en toegang tot virtuele machines.
 
-**Beste**: beheer-VM-toegang.   
+**Beste**: De VM-toegang beheren.   
 **Details**: Gebruik [Azure beleid](../azure-policy/azure-policy-introduction.md) conventies voor resources in uw organisatie vast te stellen en aangepaste beleidsregels maken. Dit beleid van toepassing op resources, zoals [resourcegroepen](../azure-resource-manager/resource-group-overview.md). Virtuele machines die deel uitmaken van een resourcegroep worden overgenomen voorgeschreven beleid.
 
 Als uw organisatie veel abonnementen heeft, moet u mogelijk een manier om efficiënt beheer van toegang, beleid en naleving voor deze abonnementen. [Azure-beheergroepen](../azure-resource-manager/management-groups-overview.md) een bepaald niveau van bereik hierboven abonnementen. U ordenen van abonnementen in beheergroepen (containers) en de voorwaarden van uw beheeracties toepassen op deze groepen. Alle abonnementen in een beheergroep worden automatisch de voorwaarden die aan de groep overgenomen. Beheergroepen bieden u beheer van bedrijfskwaliteit op grote schaal, ongeacht de typen abonnementen die u hebt.
 
-**Beste**: variabiliteit bij de installatie en implementatie van VM's verminderen.   
+**Beste**: Minder variabiliteit bij de installatie en implementatie van virtuele machines.   
 **Details**: Gebruik [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) sjablonen versterking van uw implementatieopties en maken het gemakkelijker om te begrijpen en inventariseren van de virtuele machines in uw omgeving.
 
-**Beste**: beveiligen van bevoegde toegang.   
-**Details**: gebruik een [benadering van minimale bevoegdheden](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) en ingebouwde Azure-rollen om gebruikers toegang tot en het instellen van virtuele machines:
+**Beste**: Beveiligde uitgebreide toegang.   
+**Details**: Gebruik een [benadering van minimale bevoegdheden](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) en ingebouwde Azure-rollen om gebruikers toegang tot en het instellen van virtuele machines:
 
-- [Inzender voor virtuele machines](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): kunt beheren, virtuele machines, maar niet op het virtuele netwerk of opslag account waaraan ze zijn verbonden.
-- [Inzender voor klassieke virtuele machines](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel, maar niet op het virtuele netwerk of opslag account waarmee de virtuele machines zijn verbonden kunt beheren.
-- [Beveiligingsbeheerder](../role-based-access-control/built-in-roles.md#security-admin): In Security Center alleen: kunt weergeven beveiligingsbeleid, security status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, waarschuwingen en aanbevelingen negeren.
-- [DevTest Labs-gebruiker](../role-based-access-control/built-in-roles.md#devtest-labs-user): kan alles weergeven en verbinding maken, starten, opnieuw opstarten en VM's af.
+- [Inzender voor virtuele machines](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Kan beheren VM's, maar niet op het virtuele netwerk of opslag account waaraan ze zijn verbonden.
+- [Inzender voor klassieke virtuele machines](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Kan virtuele machines beheren die zijn gemaakt met behulp van het klassieke implementatiemodel, maar niet op het virtuele netwerk of opslag account waarmee de virtuele machines zijn verbonden.
+- [Beveiligingsbeheerder](../role-based-access-control/built-in-roles.md#security-admin): In Security Center: Kan weergeven beveiligingsbeleid, security-status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen.
+- [DevTest Labs-gebruiker](../role-based-access-control/built-in-roles.md#devtest-labs-user): Kan alles weergeven en verbinding maken, starten, opnieuw opstarten en VM's af.
 
 Uw abonnementsbeheerders en coadmins kunt deze instelling, waardoor ze beheerders van alle virtuele machines in een abonnement wijzigen. Zorg ervoor dat u al uw abonnementsbeheerders en coadmins aanmelden bij een van uw machines vertrouwen.
 
@@ -76,16 +76,16 @@ Microsoft Antimalware bevat functies zoals realtime-beveiliging, geplande scanne
 U kunt oplossingen van Microsoft Antimalware en partners met integreren [Azure Security Center](https://docs.microsoft.com/azure/security-center/) voor een eenvoudige implementatie en ingebouwde detecties (waarschuwingen en incidenten).
 
 **Beste**: Installeer een antimalwareoplossing om u te beschermen tegen malware.   
-**Details**: [een oplossing van Microsoft-partner of Microsoft Antimalware installeren](../security-center/security-center-install-endpoint-protection.md)
+**Details**: [Een oplossing van Microsoft-partner of Microsoft Antimalware installeren](../security-center/security-center-install-endpoint-protection.md)
 
-**Beste**: uw anti malwareoplossing integreren met Security Center voor het bewaken van de status van uw beveiliging.   
-**Details**: [beheren van endpoint protection-problemen met Security Center](../security-center/security-center-partner-integration.md)
+**Beste**: De antimalwareoplossing integreren met Security Center voor het bewaken van de status van uw beveiliging.   
+**Details**: [Problemen met endpoint protection met Security Center beheren](../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>Uw virtuele machine-updates beheren
 Azure VM's, zoals alle on-premises VM's zijn bedoeld om te worden door gebruiker beheerd. Azure biedt geen Windows-updates pushen naar deze. U moet uw virtuele machine-updates wilt beheren.
 
-**Beste**: uw virtuele machines actueel te houden.   
-**Details**: Gebruik de [updatebeheer](../automation/automation-update-management.md) oplossing in Azure Automation voor het beheren van updates van het besturingssysteem voor uw Windows- en Linux-computers die zijn geïmplementeerd in Azure, on-premises omgevingen of andere cloud providers. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
+**Beste**: Uw virtuele machines actueel te houden.   
+**Details**: Gebruik de [updatebeheer](../automation/automation-update-management.md) oplossing in Azure Automation voor het beheren van updates voor uw Windows- en Linux-computers die zijn geïmplementeerd in Azure, voor het besturingssysteem in on-premises omgevingen, of in andere cloud-providers. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
 
 Computers die worden beheerd door de Update Management gebruiken de volgende configuraties voor het uitvoeren van de evaluatie en update-implementaties:
 
@@ -97,16 +97,16 @@ Computers die worden beheerd door de Update Management gebruiken de volgende con
 Als u Windows Update gebruikt, laat u de instelling voor automatisch Windows Update ingeschakeld.
 
 **Beste**: Zorg ervoor dat tijdens de implementatie dat installatiekopieën die u hebt gemaakt, de meest recente ronde van Windows-updates bevatten.   
-**Details**: controleren op en installeer alle Windows-updates als eerste stap van elke implementatie. Deze meting is vooral belangrijk om toe te passen wanneer u de installatiekopieën die afkomstig van de door u of uw eigen bibliotheek zijn implementeert. Hoewel installatiekopieën uit de Azure Marketplace automatisch door standaard bijgewerkt worden, kan dit worden veroorzaakt door een vertraging (maximaal een paar weken) na een openbare versie.
+**Details**: Controleer en alle Windows-updates te installeren als een eerste stap van elke implementatie. Deze meting is vooral belangrijk om toe te passen wanneer u de installatiekopieën die afkomstig van de door u of uw eigen bibliotheek zijn implementeert. Hoewel installatiekopieën uit de Azure Marketplace automatisch door standaard bijgewerkt worden, kan dit worden veroorzaakt door een vertraging (maximaal een paar weken) na een openbare versie.
 
-**Beste**: periodiek opnieuw implementeren van uw VM's om af te dwingen een nieuwe versie van het besturingssysteem.   
-**Details**: definiëren van uw virtuele machine met een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) , zodat u eenvoudig kunt implementeren. Met behulp van een sjabloon biedt u een virtuele machine bijwerken en beveiligen wanneer u ze nodig hebt.
+**Beste**: Periodiek opnieuw uw VM's om af te dwingen een nieuwe versie van het besturingssysteem implementeren.   
+**Details**: Definieer uw virtuele machine met een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) , zodat u eenvoudig kunt implementeren. Met behulp van een sjabloon biedt u een virtuele machine bijwerken en beveiligen wanneer u ze nodig hebt.
 
 **Beste**: Installeer de meest recente beveiligingsupdates.   
-**Details**: sommige van de eerste werkbelastingen die klanten naar Azure verplaatsen labs en externe systemen zijn. Als uw Azure VM's hosten toepassingen of services die toegankelijk zijn met het internet moeten zijn, worden waakzaam over patches. Patch dan het besturingssysteem. Niet-gepatchte beveiligingsproblemen op partnertoepassingen kunnen ook leiden tot problemen die kunnen worden voorkomen als goed patchbeheer aanwezig is.
+**Details**: Sommige van de eerste werkbelastingen die klanten naar Azure verplaatsen zijn labs en externe systemen. Als uw Azure VM's hosten toepassingen of services die toegankelijk zijn met het internet moeten zijn, worden waakzaam over patches. Patch dan het besturingssysteem. Niet-gepatchte beveiligingsproblemen op partnertoepassingen kunnen ook leiden tot problemen die kunnen worden voorkomen als goed patchbeheer aanwezig is.
 
-**Beste**: implementeren en testen van een back-upoplossing.   
-**Details**: een back-up moet worden afgehandeld dat u een andere bewerking verwerken. Dit geldt voor systemen die deel uitmaken van uw productie-omgeving uitbreiden naar de cloud.
+**Beste**: Implementeren en testen van een back-upoplossing.   
+**Details**: Een back-up moet worden afgehandeld dat u een andere bewerking verwerken. Dit geldt voor systemen die deel uitmaken van uw productie-omgeving uitbreiden naar de cloud.
 
 Testen en ontwikkelen systemen moeten voldoen aan back-upstrategieën restore-mogelijkheden die vergelijkbaar zijn met wat gebruikers gewend zijn, op basis van hun ervaring met on-premises omgevingen. Productie-workloads naar Azure verplaatst moeten integreren met bestaande back-upoplossingen indien mogelijk. Of u kunt [Azure Backup](../backup/backup-azure-vms-first-look-arm.md) bij het oplossen van uw back-upvereisten.
 
@@ -137,8 +137,8 @@ Misbruik van de resource is een probleem wanneer VM processen meer bronnen dan z
 
 Het is raadzaam dat u [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) te krijgen van inzicht in de status van uw resource. Azure Monitor-functies:
 
-- [Diagnostische logboeken bronbestanden](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): uw VM-resources worden gecontroleerd en identificeert mogelijke problemen die prestaties en beschikbaarheid beschadigen mogelijk.
-- [Azure Diagnostics-extensie](../monitoring-and-diagnostics/azure-diagnostics.md): controle en diagnose biedt op Windows-VM's. U kunt deze mogelijkheden inschakelen met de extensie opnemen als onderdeel van de [Azure Resource Manager-sjabloon](../virtual-machines/windows/extensions-diagnostics-template.md).
+- [Diagnostische logboeken bronbestanden](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): Uw VM-resources bewaakt en identificeert mogelijke problemen die prestaties en beschikbaarheid beschadigen mogelijk.
+- [Azure Diagnostics-extensie](../azure-monitor/platform/diagnostics-extension-overview.md): Biedt mogelijkheden voor controle en diagnostische gegevens op Windows-VM's. U kunt deze mogelijkheden inschakelen met de extensie opnemen als onderdeel van de [Azure Resource Manager-sjabloon](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Organisaties die geen VM-prestaties controleren kunnen niet bepalen of bepaalde wijzigingen in prestatiepatronen normale of abnormale zijn. Een virtuele machine die wordt verbruikt meer bronnen dan normaal kan wijzen op een aanval van een externe resource of een verdachte proces wordt uitgevoerd in de virtuele machine.
 
@@ -149,17 +149,17 @@ Het is raadzaam dat u uw virtuele harde schijven (VHD's) om uw opstartvolume en 
 
 Hieronder vindt u aanbevolen procedures voor het gebruik van Azure Disk Encryption:
 
-**Beste**: schakelt u versleuteling op virtuele machines.   
+**Beste**: Hiermee schakelt u versleuteling op virtuele machines.   
 **Details**: Azure Disk Encryption genereert en schrijft de versleutelingssleutels in uw key vault. Beheer van versleutelingssleutels in uw key vault, vereist Azure AD-verificatie. Maak een Azure AD-toepassing voor dit doel. Voor verificatiedoeleinden wordt gebruikt, kunt u een van beide verificaties client op basis van een geheim of [Azure AD op basis van certificaten clientverificatie](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
-**Beste**: de sleutel van een key-versleuteling (KEK) gebruiken voor een extra beveiligingslaag voor versleutelingssleutels. Een KEK-sleutel toevoegen aan uw key vault.   
+**Beste**: Gebruik een sleutel van versleutelingssleutel (KEK-sleutel) voor een extra beveiligingslaag voor versleutelingssleutels. Een KEK-sleutel toevoegen aan uw key vault.   
 **Details**: Gebruik de [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet voor het maken van een sleutel van versleutelingssleutel in de key vault. U kunt ook een KEK importeren uit uw on-premises hardware security module (HSM) voor sleutelbeheer. Zie voor meer informatie de [Key Vault-documentatie](../key-vault/key-vault-hsm-protected-keys.md). Wanneer een sleutel van versleutelingssleutel is opgegeven, gebruikt Azure Disk Encryption die sleutel het verpakken van de geheimen van de versleuteling voor het schrijven naar de Key Vault. Bewaren van een escrow-kopie van deze sleutel in een on-premises biedt Sleutelbeheer HSM extra beveiliging tegen per ongeluk verwijderen van sleutels.
 
-**Beste**: duren voordat een [momentopname](../virtual-machines/windows/snapshot-copy-managed-disk.md) en/of back-up voordat de schijven worden versleuteld. Back-ups bieden een optie voor siteherstel als het geval is een onverwachte fout opgetreden tijdens het versleutelen.   
-**Details**: een back-up van virtuele machines met beheerde schijven zijn vereist voordat versleuteling plaatsvindt. Nadat een back-up is gemaakt, kunt u de **Set-AzureRmVMDiskEncryptionExtension** cmdlet voor het versleutelen van beheerde schijven door op te geven de *- skipVmBackup* parameter. Zie voor meer informatie over hoe u een back-up en herstel van versleutelde virtuele machines, de [Azure Backup](../backup/backup-azure-vms-encryption.md) artikel.
+**Beste**: Duren voordat een [momentopname](../virtual-machines/windows/snapshot-copy-managed-disk.md) en/of back-up voordat de schijven worden versleuteld. Back-ups bieden een optie voor siteherstel als het geval is een onverwachte fout opgetreden tijdens het versleutelen.   
+**Details**: Virtuele machines met beheerde schijven moeten u een back-up voordat versleuteling plaatsvindt. Nadat een back-up is gemaakt, kunt u de **Set-AzureRmVMDiskEncryptionExtension** cmdlet voor het versleutelen van beheerde schijven door op te geven de *- skipVmBackup* parameter. Zie voor meer informatie over hoe u een back-up en herstel van versleutelde virtuele machines, de [Azure Backup](../backup/backup-azure-vms-encryption.md) artikel.
 
-**Beste**: om ervoor te zorgen de geheimen van de versleuteling niet overschreden door de regionale grenzen, Azure Disk Encryption moet de key vault en de VM's die zich in dezelfde regio bevinden.   
-**Details**: maken en gebruiken van een key vault die zich in dezelfde regio als de virtuele machine moeten worden versleuteld.
+**Beste**: Als u wilt controleren of dat de geheimen van de versleuteling niet overschreden door de regionale grenzen, moet Azure Disk Encryption de sleutelkluis en de VM's die zich in dezelfde regio bevinden.   
+**Details**: Maak en gebruik van een key vault die zich in dezelfde regio als de virtuele machine moeten worden versleuteld.
 
 Wanneer u Azure Disk Encryption toepast, kunt u voldoen aan de volgende zaken dat vereisen:
 

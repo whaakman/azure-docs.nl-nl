@@ -1,5 +1,5 @@
 ---
-title: Analyse in Azure Search | Microsoft Docs
+title: Analyse voor linguïstische en tekst verwerken - Azure Search
 description: De analyzers toewijzen aan doorzoekbare velden in een index te vervangen standaard standard Lucene met aangepaste, vooraf gedefinieerde of taalspecifieke alternatieven.
 services: search
 ms.service: search
@@ -8,14 +8,15 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec2018
+ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116367"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310535"
 ---
-# <a name="analyzers-in-azure-search"></a>Analyse in Azure Search
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Analyzers om tekst te verwerken in Azure Search
 
 Een *analyzer* is een onderdeel van [zoeken in volledige tekst](search-lucene-query-architecture.md) verantwoordelijk voor het verwerken van tekst in querytekenreeksen en geïndexeerde documenten. De volgende transformaties zijn gangbaar tijdens de analyse:
 
@@ -32,7 +33,7 @@ Maakt gebruik van Azure Search de [Standard Lucene analyzer](https://lucene.apac
 
 De volgende lijst wordt beschreven welke analyzers worden ondersteund in Azure Search.
 
-| Categorie | Beschrijving |
+| Categorie | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Standaard. Er is geen specificatie of configuratie vereist. Deze algemene analyzer wordt uitgevoerd voor de meeste scenario's en talen.|
 | Vooraf gedefinieerde analyzers | Als een voltooide product bedoeld om te worden gebruikt als aangeboden-is, met beperkte aanpassingen. <br/>Er zijn twee typen: gespecialiseerde en taal. Wat is dan "vooraf gedefinieerde" het is u ernaar te verwijzen met de naam, met geen aanpassingen. <br/><br/>[(Taal-neutraal) analyzers gespecialiseerde](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) worden gebruikt als invoer van tekst speciale verwerking of minimale vereist. Vooraf gedefinieerde niet taalanalyse bevatten **Asciifolding**, **sleutelwoord**, **patroon**, **eenvoudige**, **stoppen**, **Witruimte**.<br/><br/>[Taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support) worden gebruikt wanneer u geavanceerde linguïstische ondersteuning nodig hebt voor de afzonderlijke talen. Azure Search biedt ondersteuning voor 35 Lucene taalanalyse en 50 analyzers voor Microsoft-verwerking van natuurlijke taal. |
@@ -149,7 +150,7 @@ Stap voor stap in het volgende voorbeeld:
 ~~~~
 
 <a name="Example2"></a>
-### <a name="example-2-override-the-default-analyzer"></a>Voorbeeld 2: De analyzer standaard overschrijven
+### <a name="example-2-override-the-default-analyzer"></a>Voorbeeld 2: De standaard-analyzer overschrijven
 
 De analysefunctie voor Standard is de standaardinstelling. Stel dat u wilt de standaardwaarde vervangen door een andere vooraf gedefinieerde analyzer, zoals de analyzer patroon. Als u geen aangepaste instellingen bent, moet u alleen opgeven met de naam in de velddefinitie van het.
 

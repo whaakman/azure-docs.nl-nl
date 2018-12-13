@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 5714257fce53fafa148b8ae4d5a3addf3b872c6f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035472"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276244"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Implementatie van Azure verbroken planningsbeslissingen voor Azure Stack-geïntegreerde systemen
 Nadat u hebt besloten [hoe u Azure Stack wordt integreren in uw hybride cloudomgeving](azure-stack-connection-models.md), kunt u vervolgens uw beslissingen voor de Azure Stack-implementatie te voltooien.
 
-U kunt implementeren en gebruiken van Azure Stack zonder een verbinding met internet. Met de implementatie van een niet-verbonden bent u echter beperkt tot een AD FS-identiteitsarchief en het factureringsmodel op basis van capaciteit. 
+U kunt implementeren en gebruiken van Azure Stack zonder een verbinding met internet. Met de implementatie van een niet-verbonden bent u echter beperkt tot een AD FS-identiteitsarchief en het factureringsmodel op basis van capaciteit. Omdat voor multitenancy is vereist voor het gebruik van Azure AD, wordt multitenancy wordt niet ondersteund voor implementaties van niet-verbonden. 
 
 Kies deze optie als u:
 - Beveiligings- of andere beperkingen waarvoor u Azure Stack implementeren in een omgeving die niet is verbonden met Internet hebben.
@@ -58,7 +58,7 @@ Telemetrie|Niet-telemetriegegevens voor Azure Stack als en alle galeriepakketten
 
 ## <a name="learn-more"></a>Meer informatie
 - Zie voor informatie over gebruiksvoorbeelden, aanschaffen, partners en leveranciers van OEM-hardware, de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) productpagina.
-- Voor informatie over de roadmap en geo-beschikbaarheid voor Azure Stack geïntegreerde systemen, Zie het technische document: [Azure Stack: een uitbreiding van Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Geïntegreerde systemen, Zie het technische document voor informatie over de roadmap en geografische beschikbaarheid voor Azure Stack: [Azure Stack: Een uitbreiding van Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Voor meer informatie over Microsoft Azure Stack verpakking en prijzen [downloaden van de .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Volgende stappen

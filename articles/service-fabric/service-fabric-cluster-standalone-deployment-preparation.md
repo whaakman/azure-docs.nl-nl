@@ -13,17 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 9918c4b022fc2aca4bfc1ddba5649d7f0efe1256
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138786"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317183"
 ---
-<a id="preparemachines"></a>
-
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Plannen en voorbereiden van uw Service Fabric een zelfstandige Clusterimplementatie
-De volgende stappen uitvoeren voordat u uw cluster maakt.
+
+<a id="preparemachines"></a>De volgende stappen uitvoeren voordat u uw cluster maakt.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Uw clusterinfrastructuur plannen
 U staat op het maken van een Service Fabric-cluster op machines die u 'eigenaar', zodat u kunt beslissen welke soorten fouten die het cluster om te overbruggen. Bijvoorbeeld, u moet Scheid power lijnen of verbindingen via Internet geleverd aan deze machines? Bovendien kunt u overwegen de fysieke beveiliging van deze machines. Waar bevinden de machines zich en die behoefte hebben aan de toegang tot? Nadat u deze beslissingen nemen, kunt u de machines logisch toewijzen aan verschillende domeinen met fouten (Zie de volgende stap). De infrastructuur plannen voor productieclusters is meer betrokken dan voor testclusters.
@@ -43,10 +42,10 @@ De eenvoudigste manier om na te denken over deze concepten is om te overwegen FD
 
 Wanneer u ud's in ClusterConfig.json opgeeft, kunt u de naam op voor elke UD kiezen. De volgende namen zijn bijvoorbeeld geldige:
 
-* "upgradeDomain": "UD0"
-* "upgradeDomain": "UD1A"
-* "upgradeDomain": "DomainRed"
-* "upgradeDomain": "Blue"
+* 'upgradeDomain': "UD0"
+* 'upgradeDomain': "UD1A"
+* 'upgradeDomain': "DomainRed"
+* 'upgradeDomain': "Blue"
 
 Zie voor meer informatie over Foutdomeinen en Upgradedomeinen, [met een beschrijving van een Service Fabric-cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
@@ -104,13 +103,13 @@ Wanneer een Clusterbeheerder een zelfstandige Service Fabric-cluster configureer
    * Hebben de Remote Registry-Service (remote registry) ingeschakeld
    * Bestand die delen (SMB) ingeschakeld
    * Vereiste poorten geopend zijn op basis van poorten voor cluster-configuratie
-   * Vereiste poorten zijn geopend voor SMB in Windows en de Remote Registry-service: 135, 137, 138, 139 en 445
+   * Hebben de vereiste poorten geopend voor SMB in Windows en de Remote Registry-service: 135, 137, 138, 139 en 445
    * Netwerkverbinding hebben met elkaar
 3. Geen van de cluster-knooppunt machines moet een domeincontroller.
 4. Als het cluster worden geïmplementeerd, een beveiligd cluster is, controleert u de benodigde beveiligingsreferenties vereisten zijn in plaats en correct zijn geconfigureerd op basis van de configuratie.
 5. Als de cluster-machines niet toegankelijk is met internet zijn, moet u het volgende instellen in de configuratie van het cluster:
-   * Telemetrie uitschakelen: onder *eigenschappen* ingesteld *"enableTelemetry": false*
-   * Automatische Fabric versie gedownload en dat de huidige clusterversie einde van ondersteuning wordt binnenkort meldingen uitschakelen: onder *eigenschappen* ingesteld *"fabricClusterAutoupgradeEnabled": false*
+   * Telemetrie uitschakelen: Onder *eigenschappen* ingesteld *"enableTelemetry": false*
+   * Automatische Fabric versie gedownload en dat de huidige clusterversie einde van ondersteuning wordt binnenkort meldingen uitschakelen: Onder *eigenschappen* ingesteld *"fabricClusterAutoupgradeEnabled": false*
    * U kunt ook als internet toegang tot het netwerk beperkt tot witte lijst domeinen is, de domeinen die hieronder zijn vereist voor automatisch bijwerken: go.microsoft.com download.microsoft.com
 
 6. Juiste antivirus uitsluitingen voor Service Fabric instellen:

@@ -1,20 +1,20 @@
 ---
-title: Java-HBase-client - Azure HDInsight
+title: Met behulp van Apache Maven - Azure HDInsight HBase voor Java-client bouwen
 description: Informatie over het gebruik van Apache Maven in een Apache HBase op basis van een Java-toepassing bouwen en vervolgens implementeert u deze in HBase op Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445648"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164055"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Java-toepassingen voor Apache HBase bouwen
 
@@ -56,8 +56,8 @@ De stappen in dit document gebruiken [Apache Maven](https://maven.apache.org/) m
 
     Deze opdracht maakt u een map met dezelfde naam als de **artifactID** parameter (**hbaseapp** in dit voorbeeld.) Deze map bevat de volgende items:
 
-   * **pom.XML**: de Project-objectmodel ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) bevat informatie en configuratie die wordt gebruikt om het project te bouwen.
-   * **SRC**: de map waarin zich de **main/java/com/microsoft/voorbeelden** directory waarin u de toepassing maken.
+   * **pom.XML**:  De Project-objectmodel ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) bevat informatie en configuratie die wordt gebruikt om het project te bouwen.
+   * **SRC**: De map waarin zich de **main/java/com/microsoft/voorbeelden** directory waarin u de toepassing maken.
 
 3. Verwijder de `src/test/java/com/microsoft/examples/apptest.java` bestand. Het wordt niet gebruikt in dit voorbeeld.
 

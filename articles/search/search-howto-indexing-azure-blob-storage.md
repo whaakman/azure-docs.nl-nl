@@ -1,6 +1,6 @@
 ---
-title: Azure Blob Storage met Azure Search indexeren
-description: Leer hoe u Azure Blob Storage indexeren en haal de tekst van documenten met Azure Search
+title: Azure Blob storage-inhoud voor zoeken in volledige tekst - Azure Search-index
+description: Leer hoe u Azure Blob Storage indexeren en haal de tekst van documenten met Azure Search.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: d2706d4b10303cb62066f0381f9a69b553c05cb4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406963"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317471"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Documenten in Azure Blob-opslag met Azure Search indexeren
 Dit artikel wordt beschreven hoe u met Azure Search index documenten (zoals PDF-bestanden en Microsoft Office-documenten en enkele andere algemene indelingen) die zijn opgeslagen in Azure Blob-opslag. Eerst wordt de basisbeginselen van het instellen en configureren van een blob-indexeerfunctie uitgelegd. Vervolgens, biedt een diepergaand onderzoek van problemen en scenario's kunt u waarschijnlijk optreden.
@@ -38,7 +39,7 @@ U kunt instellen dat een Azure Blob Storage-indexeerfunctie gebruiken:
 
 Hier ziet de stroom met behulp van de REST-API.
 
-### <a name="step-1-create-a-data-source"></a>Stap 1: een gegevensbron maken
+### <a name="step-1-create-a-data-source"></a>Stap 1: Een gegevensbron maken
 Een gegevensbron bevat gegevens die u wilt indexeren, referenties die nodig zijn voor toegang tot de gegevens en beleidsregels efficiënt om wijzigingen te bepalen in de gegevens (nieuwe, gewijzigde of verwijderde rijen). Een gegevensbron kan worden gebruikt door meerdere indexeerfuncties in de dezelfde search-service.
 
 Voor blob-indexering, moet de gegevensbron de volgende vereiste eigenschappen hebben:
@@ -69,15 +70,15 @@ Zie voor meer informatie over de gegevensbron maken API's [maken Datasource](htt
 U kunt de referenties opgeven voor de blob-container in een van de volgende manieren:
 
 - **Tekenreeks opslagaccountverbinding volledige toegang tot de**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. U kunt de verbindingsreeks ophalen uit de Azure-portal door te navigeren naar de blade opslagaccount > Instellingen > sleutels (voor klassieke opslagaccounts) of instellingen > toegangssleutels (voor opslagaccounts van Azure Resource Manager).
-- **Storage-account gedeelde-toegangshandtekening** (SAS)-verbindingsreeks: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` de SAS moet de lijst en lezen-machtigingen voor containers en objecten (in dit geval blobs).
--  **Shared access signature voor containers**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` de SAS moet de lijst en lezen-machtigingen voor de container.
+- **Storage-account gedeelde-toegangshandtekening** (SAS)-verbindingsreeks: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` De SAS moet de lijst en lezen-machtigingen voor containers en objecten (in dit geval blobs).
+-  **Shared access signature voor containers**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` De SAS moet de lijst en lezen-machtigingen voor de container.
 
 Voor meer informatie over storage gedeelde toegangshandtekeningen, Zie [handtekeningen voor gedeelde toegang met behulp van](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Als u SAS-referenties gebruikt, moet u de referenties voor gegevensbron regelmatig bijgewerkt met de vernieuwde handtekeningen om te voorkomen dat ze zijn verlopen. Als de referenties van de SAS is verlopen, wordt de indexeerfunctie mislukken met een foutbericht weergegeven die vergelijkbaar is met `Credentials provided in the connection string are invalid or have expired.`.  
 
-### <a name="step-2-create-an-index"></a>Stap 2: een index maken
+### <a name="step-2-create-an-index"></a>Stap 2: Een index maken
 De index Hiermee geeft u de velden in een document, kenmerken, en andere constructies die de vorm van de zoekopdracht ervaring.
 
 Hier wordt beschreven hoe u een index maken met een doorzoekbare `content` veld voor het opslaan van de tekst die is geëxtraheerd uit blobs:   
@@ -128,7 +129,7 @@ Afhankelijk van de [configuratie van de indexeerfunctie](#PartsOfBlobToIndex), d
 * De tekstinhoud van het document wordt geëxtraheerd in een tekenreeksveld met de naam `content`.
 
 > [!NOTE]
-> Azure Search beperkt hoeveel tekst pakt deze afhankelijk van de prijscategorie: 32.000 tekens gratis laag, 64.000 voor Basic en 4 miljoen voor de lagen Standard-, Standard S2- en Standard S3. Een waarschuwing is opgenomen in het antwoord van de status van indexeerfunctie voor afgekapte documenten.  
+> Azure Search beperkt hoeveel tekst worden uitgepakt, afhankelijk van de prijscategorie: 32.000 tekens gratis laag, 64.000 voor Basic en 4 miljoen voor de lagen Standard-, Standard S2- en Standard S3. Een waarschuwing is opgenomen in het antwoord van de status van indexeerfunctie voor afgekapte documenten.  
 
 * Door gebruiker opgegeven metagegevenseigenschappen aanwezig zijn op de blob, worden indien van toepassing, geëxtraheerd bewoordingen.
 * Eigenschappen van de standaard blob-metagegevens zijn uitgepakt in de volgende velden:
@@ -333,7 +334,7 @@ Indexeren van blobs, kan een tijdrovend proces zijn. In gevallen waarin u werkt 
 
 U wilt 'samenstellen' documenten uit meerdere bronnen in uw index. U wilt bijvoorbeeld tekst van blobs samenvoegen met andere metagegevens die zijn opgeslagen in Cosmos DB. U kunt zelfs de push API indexeren, samen met verschillende indexeerfuncties gebruiken om op te bouwen documenten zoeken uit meerdere delen. 
 
-Om dit te werken, moeten alle Indexeerfuncties en andere onderdelen te stemmen op de documentsleutel. Zie dit externe artikel voor een gedetailleerd overzicht: [documenten worden gecombineerd met andere gegevens in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Om dit te werken, moeten alle Indexeerfuncties en andere onderdelen te stemmen op de documentsleutel. Zie voor een gedetailleerd overzicht dit externe artikel: [Documenten worden gecombineerd met andere gegevens in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexering als tekst zonder opmaak 
@@ -374,7 +375,7 @@ De volgende tabel geeft een overzicht van de verwerking die worden uitgevoerd vo
 | MSG (toepassing/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Haal de tekst, met inbegrip van bijlagen |
 | ZIP (toepassing/zip) |`metadata_content_type` |Haal de tekst uit alle documenten in het archief |
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |XML-opmaak van strook / en haal de tekst |
-| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Tekst extraheren<br/>Opmerking: Als u nodig hebt om op te halen van meerdere documentvelden van een JSON-blob, raadpleegt u [indexeren van JSON-blobs](search-howto-index-json-blobs.md) voor meer informatie |
+| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Tekst extraheren<br/>OPMERKING: Als u nodig hebt om op te halen van meerdere documentvelden van een JSON-blob, Zie [indexeren van JSON-blobs](search-howto-index-json-blobs.md) voor meer informatie |
 | EML (bericht/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Haal de tekst, met inbegrip van bijlagen |
 | RTF (toepassing/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Tekst extraheren|
 | Tekst zonder opmaak (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Tekst extraheren|

@@ -11,19 +11,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f59c429906d6cee2b9f4aff6e16ba23e8d28c97b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0e2353107d6554a8ecbbd2e4d9850f8d8b5fda5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105849"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165177"
 ---
-# <a name="datetimev2-entity"></a>DatetimeV2-entiteit
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 vooraf gedefinieerde entiteit voor een LUIS-app
 
 De **datetimeV2** vooraf gedefinieerde entiteit haalt de waarden voor datum en tijd. Deze waarden omzetten in een gestandaardiseerde indeling voor client-programma's te gebruiken. Wanneer een utterance heeft een datum of tijd die is niet voltooid, LUIS bevat _zowel afgelopen en toekomstige waarden_ in het antwoord van het eindpunt. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met datetimeV2 naar de toepassing intents. 
 
 ## <a name="types-of-datetimev2"></a>Typen datetimeV2
-DatetimeV2 wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) Github-opslagplaats
+DatetimeV2 wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub-opslagplaats
 
 ## <a name="example-json"></a>Voorbeeld van JSON 
 Het volgende voorbeeld-JSON-antwoord heeft een `datetimeV2` entiteit met een subtype van `datetime`. Zie voor meer voorbeelden van andere typen entiteiten datetimeV2 [subtypen van datetimeV2](#subtypes-of-datetimev2)</a>.

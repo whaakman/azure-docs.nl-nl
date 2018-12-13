@@ -1,6 +1,6 @@
 ---
-title: Aanbevolen procedures en gids voor probleemoplossing voor knooppunttoepassingen in Azure Web Apps
-description: Meer informatie over de aanbevolen procedures en de stappen voor probleemoplossing voor knooppunttoepassingen in Azure Web Apps.
+title: Aanbevolen procedures en probleemoplossing voor Node.js - Azure App Service
+description: Meer informatie over de aanbevolen procedures en de stappen voor probleemoplossing voor knooppunttoepassingen in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
-ms.openlocfilehash: 6918d216be11763a34d7738c616e917a2db01ade
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961412"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315720"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Aanbevolen procedures en gids voor probleemoplossing voor knooppunttoepassingen in Azure Web Apps
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Aanbevolen procedures en gids voor probleemoplossing voor knooppunttoepassingen in Azure App Service-Windows
 
 In dit artikel leert u aanbevolen procedures en stappen voor probleemoplossing voor [knooppunttoepassingen](app-service-web-get-started-nodejs.md) die worden uitgevoerd op Azure Web Apps (met [iisnode](https://github.com/azure/iisnode)).
 
@@ -282,6 +283,6 @@ Volg deze koppelingen voor meer informatie over de node.js-toepassingen in Azure
 * [Aan de slag met Node.js-Web-Apps in Azure App Service](app-service-web-get-started-nodejs.md)
 * [Fouten opsporen in een Node.js web-app in Azure App Service](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Node.js-modules gebruiken met Azure-toepassingen](../nodejs-use-node-modules-azure-apps.md)
-* [Web-apps van Azure App Service: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service WebApps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
 * [De geheimen van de Kudu-console voor foutopsporing](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

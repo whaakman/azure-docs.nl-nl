@@ -12,30 +12,30 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 40ec204f105b32c8b7d9e2dda6f6f3c3023b2d44
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0f608dc89d3a9bc8914fc9be142c442246ce13b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495455"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278539"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Maken, verwijderen en beheren van toepassingen en de soorten toepassingen.
 
 ## <a name="commands"></a>Opdrachten
 
-|Opdracht|Beschrijving|
+|Opdracht|Description|
 | --- | --- |
 | maken | Hiermee maakt u een Service Fabric-toepassing met behulp van de opgegeven beschrijving. |
 | delete | Hiermee verwijdert u een bestaande Service Fabric-toepassing. |
 | geïmplementeerd | Hiermee haalt u de informatie over een toepassing is geïmplementeerd op een Service Fabric-knooppunt. |
 | -en statusbewaking geïmplementeerd | Hiermee haalt u de informatie over de status van een toepassing is geïmplementeerd op een Service Fabric-knooppunt. |
 | lijst met geïmplementeerd | Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Service Fabric-knooppunt. |
-| status | Hiermee haalt u de status van de service fabric-toepassing. |
+| gezondheidszorg | Hiermee haalt u de status van de service fabric-toepassing. |
 | informatie | Hiermee haalt u informatie over een Service Fabric-toepassing. |
-| lijst | Hiermee haalt u de lijst met toepassingen die in de Service Fabric-cluster gemaakt die overeenkomen met de opgegeven filters. |
+| list | Hiermee haalt u de lijst met toepassingen die in de Service Fabric-cluster gemaakt die overeenkomen met de opgegeven filters. |
 | laden | Haalt informatie over een Service Fabric-toepassing te laden. |
 | Het manifest | Hiermee haalt u het manifest met een beschrijving van een toepassingstype. |
 | inrichten | Bepalingen of registers typt u een Service Fabric-toepassing met het cluster met behulp van het pakket .sfpkg in de externe opslag of het toepassingspakket in archief van de installatiekopie. |
@@ -54,7 +54,7 @@ Hiermee maakt u een Service Fabric-toepassing met behulp van de opgegeven beschr
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --app-naam (vereist) | De naam van de toepassing, met inbegrip van de ' fabric\:' URI-schema. |
 | --app-type (vereist) | De naam van de toepassing type is gevonden in het toepassingsmanifest. |
@@ -67,7 +67,7 @@ Hiermee maakt u een Service Fabric-toepassing met behulp van de opgegeven beschr
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -82,7 +82,7 @@ Een toepassing moet worden gemaakt voordat deze kan worden verwijderd. Een toepa
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --force-remove | Een Service Fabric-toepassing of service verwijderen geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt voor het geforceerd verwijderen van een toepassing of service voor welke verwijderen time-out vanwege problemen met de code die voorkomt dat vensters sluit van replica's. |
@@ -90,7 +90,7 @@ Een toepassing moet worden gemaakt voordat deze kan worden verwijderd. Een toepa
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -105,7 +105,7 @@ Deze query retourneert systeemgegevens van de toepassing als de toepassings-ID o
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
@@ -114,7 +114,7 @@ Deze query retourneert systeemgegevens van de toepassing als de toepassings-ID o
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -129,7 +129,7 @@ Hiermee haalt u de informatie over de status van een toepassing is geïmplemente
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
@@ -140,7 +140,7 @@ Hiermee haalt u de informatie over de status van een toepassing is geïmplemente
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -155,7 +155,7 @@ Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Servi
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
@@ -165,7 +165,7 @@ Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Servi
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -180,7 +180,7 @@ Retourneert de Health-status van de service fabric-toepassing. Het antwoord rapp
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --geïmplementeerd-toepassingen-health-status-filter | Kan het filteren van de geïmplementeerde toepassingen health state objecten geretourneerd in het resultaat van application health-query op basis van hun status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen geïmplementeerde toepassingen die overeenkomen met het filter wordt geretourneerd. Alle geïmplementeerde toepassingen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde is 6 status van geïmplementeerde toepassingen met HealthState waarde OK (2) en waarschuwing (4) zijn teruggekeerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
@@ -191,7 +191,7 @@ Retourneert de Health-status van de service fabric-toepassing. Het antwoord rapp
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -206,7 +206,7 @@ Retourneert de gegevens over de toepassing die is gemaakt of momenteel wordt gem
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --uitsluiten toepassingsparameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
@@ -214,7 +214,7 @@ Retourneert de gegevens over de toepassing die is gemaakt of momenteel wordt gem
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -229,7 +229,7 @@ Hiermee haalt u de informatie over de toepassingen die zijn gemaakt of momenteel
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --toepassing-definition-type-filter | Gebruikt om te filteren op ApplicationDefinitionKind, dit is het mechanisme dat wordt gebruikt voor het definiëren van een Service Fabric-toepassing.  <br> -Standaard - standaardwaarde, die dezelfde functie als 'Alle' selecteren. De waarde is 0.  <br> -Alle - filteren die overeenkomt met de invoer met een willekeurige waarde ApplicationDefinitionKind. De waarde is 65535.  <br> -ServiceFabricApplicationDescription - Filter op dat overeenkomt met de invoer met ApplicationDefinitionKind waarde ServiceFabricApplicationDescription. De waarde is 1.  <br> -Compose - Filter op dat overeenkomt met de invoer met ApplicationDefinitionKind waarde opstellen. De waarde is 2. |
 | ----naam van het toepassingstype | De naam van de toepassing type is gebruikt voor het filteren van de toepassingen op te vragen voor. Deze waarde moet een versie van het toepassingstype niet bevatten. |
@@ -240,7 +240,7 @@ Hiermee haalt u de informatie over de toepassingen die zijn gemaakt of momenteel
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -255,14 +255,14 @@ Retourneert de load-informatie over de toepassing die is gemaakt of momenteel wo
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -277,7 +277,7 @@ Het antwoord bevat de XML-manifest van de toepassing als een tekenreeks.
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --toepassing-type-naam (vereist) | De naam van het toepassingstype. |
 | --toepassing-type-versie (vereist) | De versie van het toepassingstype. |
@@ -285,7 +285,7 @@ Het antwoord bevat de XML-manifest van de toepassing als een tekenreeks.
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -300,7 +300,7 @@ Richt een type Service Fabric-toepassing met het cluster. Dit is vereist voordat
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --application-pakket-download-uri | Het pad naar het toepassingspakket '.sfpkg' waaruit het toepassingspakket kan worden gedownload met behulp van HTTP of HTTPS-protocol. <br><br> Voor inrichten van het type externe opslaan alleen. Het toepassingspakket kan worden opgeslagen in een externe opslag waarmee GET-bewerking om het bestand te downloaden. Ondersteunde protocollen zijn HTTP en HTTPS en het pad moet leestoegang toestaan. |
 | ---type-build-pad naar toepassing | Voor alleen richten installatiekopie van het soort archief. Het relatieve pad voor het toepassingspakket in het archief van de installatiekopie opgegeven tijdens het uploaden van eerdere. |
@@ -312,7 +312,7 @@ Richt een type Service Fabric-toepassing met het cluster. Dit is vereist voordat
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -327,22 +327,22 @@ Rapporteert de status van de opgegeven Service Fabric-toepassing. Het rapport mo
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. <br><br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id ' Mijntoep\~app1' in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --health-eigenschap (vereist) | De eigenschap van de gegevens over de servicestatus. <br><br> Een entiteit kan statusrapporten voor de verschillende eigenschappen hebben. De eigenschap is een tekenreeks en niet een vaste-opsomming waarmee de journalist flexibiliteit voor het categoriseren van de voorwaarde staat dat het rapport wordt geactiveerd. Bijvoorbeeld, een Rapportagefout met SourceId "LocalWatchdog" die de status van de beschikbare schijfruimte op een knooppunt kunt controleren, zodat deze eigenschap "AvailableDisk" op dat knooppunt rapporteren kunt. De dezelfde journalist kan het knooppunt-connectiviteit, bewaken, zodat het een eigenschap 'Connectiviteit' op hetzelfde knooppunt rapporteren kan. In de winkel de gezondheid van worden deze rapporten behandeld als afzonderlijke health-gebeurtenissen voor het opgegeven knooppunt. Samen met de bron-id identificatie de eigenschap unieke van de gegevens over de servicestatus. |
 | --status (vereist) | Mogelijke waarden zijn\: 'Ongeldige', 'Ok', 'Waarschuwing', 'Fout', 'Onbekend'. |
-| --bron-id (vereist) | De naam van de bron waarmee het onderdeel watchdog-client-systeem dat de statusgegevens gegenereerd uniek wordt geïdentificeerd. |
+| --bron-id (vereist) | De naam van de bron die de watchdog-client-systeem component aangeduid die de gezondheidsinformatie gegenereerd. |
 | --Beschrijving | De beschrijving van de gegevens over de servicestatus. <br><br> Hiermee geeft u vrije tekst die wordt gebruikt om toe te voegen menselijke leesbare informatie over het rapport. De maximumlengte voor de beschrijving is 4096 tekens. Als de opgegeven tekenreeks langer is, worden deze automatisch afgekapt. Wanneer afgekapt, de laatste tekens van de beschrijving van de markering van een '[Truncated]' bevatten en totale grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers die moet worden afgekapt is opgetreden. Houd er rekening mee dat wanneer afgekapt, de beschrijving van minder dan 4096 tekens uit de oorspronkelijke reeks heeft. |
-| --direct | Een markering waarmee wordt aangegeven of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
+| --direct | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
 | --verwijderen wanneer verlopen | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
 | --volgnummer: | Het volgnummer voor dit statusrapport als een numerieke tekenreeks. <br><br> Het volgnummer van het rapport wordt gebruikt door de health store voor het detecteren van verouderde rapporten. Indien niet opgegeven, is een volgnummer automatisch gegenereerd door de client health wanneer een rapport wordt toegevoegd. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld gebruikt voor het opgeven van de duur van de ISO8601-notatie. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
+| --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld wordt ISO8601-notatie gebruikt voor het opgeven van de duur. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -357,7 +357,7 @@ Retourneert de gegevens over de soorten toepassingen die zijn ingericht of momen
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --toepassing-type-naam (vereist) | De naam van het toepassingstype. |
 | --versie-type-toepassing | De versie van het toepassingstype. |
@@ -368,7 +368,7 @@ Retourneert de gegevens over de soorten toepassingen die zijn ingericht of momen
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -383,7 +383,7 @@ Retourneert de gegevens over de soorten toepassingen die zijn ingericht of momen
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --toepassing-type-definition-type-filter | Gebruikt om te filteren op ApplicationTypeDefinitionKind dit is het mechanisme dat wordt gebruikt voor het definiëren van een type Service Fabric-toepassing.  <br> -Standaard - standaardwaarde, die dezelfde functie als 'Alle' selecteren. De waarde is 0.  <br> -Alle - filteren die overeenkomt met de invoer met een willekeurige waarde ApplicationTypeDefinitionKind. De waarde is 65535.  <br> -ServiceFabricApplicationPackage - Filter op dat overeenkomt met de invoer met ApplicationTypeDefinitionKind waarde ServiceFabricApplicationPackage. De waarde is 1.  <br> -Compose - Filter op dat overeenkomt met de invoer met ApplicationTypeDefinitionKind waarde opstellen. De waarde is 2. |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
@@ -393,7 +393,7 @@ Retourneert de gegevens over de soorten toepassingen die zijn ingericht of momen
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -408,7 +408,7 @@ Deze bewerking kan alleen worden uitgevoerd als alle toepassingsexemplaren van h
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --toepassing-type-naam (vereist) | De naam van het toepassingstype. |
 | --toepassing-type-versie (vereist) | De versie van het toepassingstype zoals gedefinieerd in het toepassingsmanifest. |
@@ -417,7 +417,7 @@ Deze bewerking kan alleen worden uitgevoerd als alle toepassingsexemplaren van h
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -432,29 +432,29 @@ Evalueert de opgegeven parameters toepassingsupgrade en begint met bijwerken van
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. <br><br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id ' Mijntoep\~app1' in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --toepassingsversie (vereist) | Doelversie van toepassing. |
+| --aanvraag-id (vereist) | De identiteit van de toepassing. <br><br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
+| --toepassingsversie (vereist) | De toepassing type doelversie (gevonden in het toepassingsmanifest) voor de upgrade van de toepassing. |
 | --parameters (vereist) | Een lijst met JSON gecodeerd van de parameter van de toepassing onderdrukt bij het upgraden van de toepassing moet worden toegepast. |
 | ---service-health-standaardbeleid | JSON gecodeerd specificatie van het statusbeleid gebruikt standaard voor het evalueren van de status van een servicetype. |
 | --actie bij fout | De actie om uit te voeren wanneer de upgrade van een gecontroleerde controle beleidsschendingen voor beleid of de status. |
 | --geforceerd opnieuw opstarten | Start processen geforceerd opnieuw tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd. |
-| --health-controle-nieuwe poging-timeout | De hoeveelheid tijd om opnieuw te proberen de gezondheid van evaluaties wanneer de toepassing of het cluster niet in orde voordat de actie bij fout is wordt uitgevoerd. Gemeten in milliseconden.  Standaard\: PT0H10M0S. |
-| --health check-stabiele duur | De hoeveelheid tijd dat de toepassing of het cluster moet in orde blijft voordat de upgrade wordt uitgevoerd op het volgende upgradedomein. Gemeten in milliseconden.  Standaard\: PT0H2M0S. |
-| --health-controle-wait-duur | De hoeveelheid tijd moet wachten na het voltooien van een upgradedomein voordat u beleid toepast. Gemeten in milliseconden.  Standaard\: 0. |
+| --health-controle-nieuwe poging-timeout | De hoeveelheid tijd tussen pogingen tot het uitvoeren van statuscontroles als de toepassing of het cluster niet in orde is.  Standaard\: PT0H10M0S. |
+| --health check-stabiele duur | De hoeveelheid tijd dat de toepassing of het cluster moet in orde blijft voordat de upgrade wordt uitgevoerd op het volgende upgradedomein.  Standaard\: PT0H2M0S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
+| --health-controle-wait-duur | De hoeveelheid tijd moet wachten na het voltooien van een upgradedomein voordat u begint met de status controleert proces.  Standaard\: 0. |
 | --max-niet in orde-apps | De maximaal toegestane percentage van de beschadigde geïmplementeerde toepassingen. Weergegeven als een getal tussen 0 en 100 liggen. |
 | --modus | De modus status gecontroleerd tijdens een rolling upgrade.  Standaard\: UnmonitoredAuto. |
 | --replica-set-check-timeout | De maximale hoeveelheid tijd voor het verwerken van een upgradedomein blokkeren en voorkom het verlies van beschikbaarheid wanneer er onverwachte problemen zijn. Gemeten in seconden. |
 | --health-service-beleid | JSON gecodeerd kaart met het service type statusbeleid per service-typenaam. De kaart is leeg worden standaard. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --upgrade-domein-time-out | De hoeveelheid tijd elk upgradedomein is voltooid voordat FailureAction wordt uitgevoerd. Gemeten in milliseconden.  Standaard\: P10675199DT02H48M05.4775807S. |
-| --upgrade-time-out | De hoeveelheid tijd de algehele upgrade is voltooid voordat FailureAction wordt uitgevoerd. Gemeten in milliseconden.  Standaard\: P10675199DT02H48M05.4775807S. |
-| --waarschuwing als fout | Evaluatie van waarschuwingen met de dezelfde ernst behandelen als fouten. |
+| --upgrade-domein-time-out | De hoeveelheid tijd elk upgradedomein is voltooid voordat FailureAction wordt uitgevoerd.  Standaard\: P10675199DT02H48M05.4775807S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
+| --upgrade-time-out | De hoeveelheid tijd de algehele upgrade is voltooid voordat FailureAction wordt uitgevoerd.  Standaard\: P10675199DT02H48M05.4775807S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
+| --waarschuwing als fout | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -469,7 +469,7 @@ Hervat een niet-bewaakte handmatige Service Fabric-toepassing upgraden. Service 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --upgrade-domain-name (vereist) | De naam van het upgradedomein waarin u kunt doorgaan met de upgrade. |
@@ -477,7 +477,7 @@ Hervat een niet-bewaakte handmatige Service Fabric-toepassing upgraden. Service 
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -492,14 +492,14 @@ Terugdraaien van de huidige toepassing wordt gestart upgraden naar de vorige ver
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -514,14 +514,14 @@ Retourneert informatie over de status van de upgrade van de meest recente toepas
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -536,7 +536,7 @@ Een Service Fabric-toepassingspakket kopiëren naar de installatiekopieopslag.
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --pad (vereist) | Pad naar lokale toepassingspakket. |
 | --imagestore-tekenreeks | De installatiekopie van doel opslaan om het toepassingspakket te te uploaden.  Standaard\: fabric\:ImageStore. |
@@ -544,7 +544,7 @@ Een Service Fabric-toepassingspakket kopiëren naar de installatiekopieopslag.
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |

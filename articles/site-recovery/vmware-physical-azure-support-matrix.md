@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: 532cc506af2bf710fb58d2e7214686455e65981b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7593183093a722f55b2bd638ef551fb1343433c4
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851108"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323470"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -63,7 +63,7 @@ Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wor
 --- | ---
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
 Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. </br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> Windows 2016 Nano Server wordt niet ondersteund.
-Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>CentOS: 5.2 naar 5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6,9 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/></br>-Upgrade uitvoeren voor gerepliceerde machines van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.</br></br> - [Meer informatie](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) over ondersteuning voor Linux en open source-technologie in Azure. Site Recovery deelt failover voor Linux-servers uitvoeren in Azure. Linux-leveranciers kunnen echter ondersteuning om alleen distributie-versies die nog niet hebt bereikt einde van de levenscyclus te beperken.<br/><br/> -In Linux-distributies, worden alleen de voorraad kernels die deel van de release-distributiepunt secundaire versie/update uitmaken ondersteund.<br/><br/> -Upgrade uitvoeren voor beveiligde machines over belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.<br/><br/> -Servers met Red Hat Enterprise Linux 5.2-5,11 of CentOS 5.2-5,11 moeten beschikken over de [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) geïnstalleerd voor de machines om op te starten in Azure.
+Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2-5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>CentOS: 5.2-5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0 naar 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/></br>-Upgrade uitvoeren voor gerepliceerde machines van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.</br></br> - [Meer informatie](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) over ondersteuning voor Linux en open source-technologie in Azure. Site Recovery deelt failover voor Linux-servers uitvoeren in Azure. Linux-leveranciers kunnen echter ondersteuning om alleen distributie-versies die nog niet hebt bereikt einde van de levenscyclus te beperken.<br/><br/> -In Linux-distributies, worden alleen de voorraad kernels die deel van de release-distributiepunt secundaire versie/update uitmaken ondersteund.<br/><br/> -Upgrade uitvoeren voor beveiligde machines over belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.<br/><br/> -Servers met Red Hat Enterprise Linux 5.2-5,11 of CentOS 5.2-5,11 moeten beschikken over de [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) geïnstalleerd voor de machines om op te starten in Azure.
 
 
 
@@ -72,32 +72,34 @@ Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11<b>\*\*</b>, 6.
 
 **Ondersteunde versie** | **Azure Site Recovery Mobility Service versie** | **Kernelversie** |
 --- | --- | --- |
-14.04 TNS | 9.20 | 3.13.0-24-Generic naar 3.13.0-161-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-138-generic |
-14.04 TNS | 9.19 | 3.13.0-24-Generic naar 3.13.0-153-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-131-generic |
-14.04 TNS | 9.18 | 3.13.0-24-Generic naar 3.13.0-153-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-130-generic |
-14.04 TNS | 9.17 | 3.13.0-24-Generic naar 3.13.0-149-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-127-generic |
+14.04 TNS | [9.19](https://support.microsoft.com/en-us/help/4468181/azure-site-recovery-update-rollup-30) | 3.13.0-24-Generic naar 3.13.0-153-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-131-generic |
+14.04 TNS | [9.18](https://support.microsoft.com/en-us/help/4055712/update-rollup-27-for-azure-site-recovery) | 3.13.0-24-Generic naar 3.13.0-153-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-130-generic |
+14.04 TNS | [9.17](https://support.microsoft.com/en-us/help/4344054/update-rollup-26-for-azure-site-recovery) | 3.13.0-24-Generic naar 3.13.0-149-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-127-generic |
+14.04 TNS | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup-25-for-azure-site-recovery) | 3.13.0-24-Generic naar 3.13.0-144-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-119-generic |
 |||
-16.04 LTS | 9.20 | 4.4.0-21-Generic naar 4.4.0-138-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-38-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1025-azure|
-16.04 LTS | 9.19 | 4.4.0-21-Generic naar 4.4.0-131-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-30-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1019-azure|
-16.04 LTS | 9.18 | 4.4.0-21-Generic naar 4.4.0-130-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic |
-16.04 LTS | 9.17 | 4.4.0-21-Generic naar 4.4.0-127-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-43-generic |
+16.04 LTS | [9.19](https://support.microsoft.com/en-us/help/4468181/azure-site-recovery-update-rollup-30) | 4.4.0-21-Generic naar 4.4.0-131-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic,<br/>4.15.0-13-Generic naar 4.15.0-30-generic<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1018-azure <br/>4.15.0-1012-Azure naar 4.15.0-1019-azure|
+16.04 LTS | [9.18](https://support.microsoft.com/en-us/help/4055712/update-rollup-27-for-azure-site-recovery) | 4.4.0-21-Generic naar 4.4.0-130-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-45-generic |
+16.04 LTS | [9.17](https://support.microsoft.com/en-us/help/4344054/update-rollup-26-for-azure-site-recovery) | 4.4.0-21-Generic naar 4.4.0-127-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-43-generic |
+16.04 LTS | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup-25-for-azure-site-recovery) | 4.4.0-21-Generic naar 4.4.0-119-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-algemeen tot 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-38-generic |
 
 ### <a name="debian-kernel-versions"></a>Debian kernelversies
 
 
 **Ondersteunde versie** | **Azure Site Recovery Mobility Service versie** | **Kernelversie** |
 --- | --- | --- |
-Debian 7 | 9.17,9.18,9.19,9.20 | 3.2.0-4-AMD64 naar 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.17](https://support.microsoft.com/en-us/help/4344054/update-rollup-26-for-azure-site-recovery),[9.18](https://support.microsoft.com/en-us/help/4055712/update-rollup-27-for-azure-site-recovery),[9.19](https://support.microsoft.com/en-us/help/4468181/azure-site-recovery-update-rollup-30) | 3.2.0-4-AMD64 naar 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup-25-for-azure-site-recovery) | 3.2.0-4-AMD64 naar 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.20 | 3.16.0-4-AMD64 naar 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.8-amd64 |
-Debian 8 | 9.17, 9.18 | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.16 | 3.16.0-4-AMD64 naar 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.6-amd64 |
+Debian 8 | [9.19](https://support.microsoft.com/en-us/help/4468181/azure-site-recovery-update-rollup-30) | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.7-amd64 |
+Debian 8 | [9.17](https://support.microsoft.com/en-us/help/4344054/update-rollup-26-for-azure-site-recovery), [9.18](https://support.microsoft.com/en-us/help/4055712/update-rollup-27-for-azure-site-recovery) | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.6-amd64 |
+Debian 8 | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup-25-for-azure-site-recovery) | 3.16.0-4-AMD64 naar 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.6-amd64 |
+
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 ondersteunde versies van de kernel
 
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.20 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.140-94.64-default |
+SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.20 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.156-94.64-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.19 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default naar 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.18 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default naar 4.4.138-94.39-default |
 
@@ -105,12 +107,12 @@ SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.18 | SP1 3.12.49-11-default n
 
 **Onderdeel** | **Ondersteund**
 --- | ---
-Bestandssystemen | ext3, ext4, XFS.
-Volume manager | Voordat u 9.20 versie <br/> 1. LVM2 wordt ondersteund. <br/> 2. LVM wordt ondersteund voor gegevensschijven alleen. <br/> 3. Azure virtuele machines hebben alleen een besturingssysteemschijf.<br/><br/>Van 9.20 versie en hoger, worden LVM en LVM2 ondersteund
+Bestandssystemen | ext3, ext4, XFS
+Volume manager | Voordat u [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM2 wordt ondersteund. <br/> 2. LVM wordt ondersteund voor gegevensschijven alleen. <br/> 3. Azure virtuele machines hebben alleen een besturingssysteemschijf.<br/><br/>Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) en hoger, LVM en LVM2 worden ondersteund.
 Geparavirtualiseerde opslagapparaten | Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
 Meerdere wachtrij blok i/o-apparaten | Wordt niet ondersteund.
 Fysieke servers met de opslagcontroller HP CCISS | Wordt niet ondersteund.
-Mappen | Voordat u 9.20 versie <br/> 1. De volgende mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) alle moeten op dezelfde schijf als besturingssysteem op de bronserver: / (hoofd), bevinden, / usr, / usr/local, /var, / etc.</br>2. bevinden moet zich op een partitie op schijf en niet een LVM-volume.<br/><br/> Van 9.20 versie en hoger, zijn boven beperkingen niet van toepassing.
+Mappen | Voordat u [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. De volgende mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) alle moeten op dezelfde schijf als besturingssysteem op de bronserver: / (hoofd), bevinden, / usr, / usr/local, /var, / etc.</br>2. bevinden moet zich op een partitie op schijf en niet een LVM-volume.<br/><br/> Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) bovenstaande beperkingen zijn en hoger, niet van toepassing.
 Vrije schijfruimte| 2 GB op de/root-partitie <br/><br/> 250 MB op de map voor installatie
 XFSv5 | XFSv5 functies op XFS bestandssystemen, zoals metagegevens controlesom worden van Mobility Service versie 9.10 stationstoewijzingen ondersteund. Gebruik het hulpprogramma xfs_info om te controleren of de superblock XFS voor de partitie. Als ftype is ingesteld op 1, klikt u vervolgens zijn XFSv5 functies in gebruik.
 
@@ -242,7 +244,7 @@ Configuratieserver | Coördineert de communicatie tussen on-premises VMware-serv
 Processerver|standaard geïnstalleerd op de configuratieserver. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt dit naar Azure Storage. Naarmate uw implementatie groeit, kunt u extra, afzonderlijk processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.| Nieuwe installatie, klikt u op [hier](vmware-azure-set-up-process-server-scale.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-manage-process-server.md#upgrade-a-process-server).
 Mobility-Service | Coördineert de replicatie tussen on-premises VMware-servers/fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VM met VMware of fysieke servers die u wilt repliceren | Nieuwe installatie, klikt u op [hier](vmware-azure-install-mobility-service.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-physical-mobility-service-overview.md#update-the-mobility-service).
 
-Voor meer informatie over de nieuwste functies en verbeteringen, klikt u op [hier](https://aka.ms/latest_asr_updates).
+Voor meer informatie over de nieuwste functies en verbeteringen, klikt u op [hier](https://aka.ms/ASR_latest_release_notes).
 
 
 ## <a name="next-steps"></a>Volgende stappen

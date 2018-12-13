@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3cd6ef1716d455c5ac755122b8696dbc43fdf459
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 92f6bc358fe8cc5ab8f7242d94edc3004eaab4b9
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581864"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163375"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter-notebook op uw computer installeren en verbinden met Apache Spark in HDInsight
 
@@ -36,9 +36,9 @@ De vereisten die hier worden vermeld, zijn niet voor het installeren van Jupyter
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Jupyter-notebook op uw computer installeren
 
-Voordat u de Jupyter-notebooks kunt installeren, moet u Python installeren. Zowel Python als Jupyter zijn beschikbaar als onderdeel van de [Anaconda distributie](https://www.continuum.io/downloads). Als u Anaconda installeert, installeert u een Python-distributie. Wanneer Anaconda is geïnstalleerd, kunt u de Jupyter-installatie toevoegen door het uitvoeren van opdrachten.
+Voordat u de Jupyter-notebooks kunt installeren, moet u Python installeren. Zowel Python als Jupyter zijn beschikbaar als onderdeel van de [Anaconda distributie](https://www.anaconda.com/download/). Als u Anaconda installeert, installeert u een Python-distributie. Wanneer Anaconda is geïnstalleerd, kunt u de Jupyter-installatie toevoegen door het uitvoeren van opdrachten.
 
-1. Download de [Anaconda installatieprogramma](https://www.continuum.io/downloads) voor uw platform en voer de installatie. Tijdens het uitvoeren van de wizard setup, zorg ervoor dat u selecteert de optie voor het Anaconda toevoegen aan de variabele PATH.
+1. Download de [Anaconda installatieprogramma](https://www.anaconda.com/download/) voor uw platform en voer de installatie. Tijdens het uitvoeren van de wizard setup, zorg ervoor dat u selecteert de optie voor het Anaconda toevoegen aan de variabele PATH.
 1. Voer de volgende opdracht voor het installeren van Jupyter.
 
         conda install jupyter
@@ -141,14 +141,14 @@ Er is een aantal redenen waarom u wilt mogelijk Jupyter op uw computer installer
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Apache Livy](apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md)

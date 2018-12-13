@@ -10,12 +10,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 9dd2c5d619920e1205d9d3c64e463c15cf708b31
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 67383db4bd1d57d194e10de2dc1964532b3619a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887833"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53160808"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Oplossen van verbindingsproblemen met Azure Database for PostgreSQL
 
@@ -49,9 +49,9 @@ Tijdelijke fouten optreden bij het onderhoud is uitgevoerd, het systeem er een f
 
 Als de toepassing niet permanent verbinding maken met Azure Database for PostgreSQL, duidt dit meestal op een probleem met een van de volgende:
 
-* Firewall-configuratie: de Azure Database for PostgreSQL-server of client-side-firewall wordt geblokkeerd door verbindingen.
-* Herconfiguratie van netwerken op de client: een nieuw IP-adres of een proxy-server is toegevoegd.
-* Gebruikersfout: bijvoorbeeld, u hebt misschien verbindingsparameters, zoals de naam van de server in de verbindingsreeks of een ontbrekend *@servername* -achtervoegsel in de naam van de gebruiker.
+* Server firewall-configuratie: Zorg ervoor dat de Azure Database for PostgreSQL-server-firewall is geconfigureerd voor verbindingen van uw client, met inbegrip van de WAP-servers en gateways.
+* Firewall-configuratie van client: De firewall op de client moet toestaan verbindingen met uw database-server. IP-adressen en poorten van de server die is niet mogelijk om moeten worden toegestaan en de toepassingsnamen zoals PostgreSQL in sommige firewalls.
+* Gebruikersfout: U hebt verbindingsparameters, zoals de naam van de server in de verbindingsreeks of een ontbrekend verkeerd *@servername* -achtervoegsel in de naam van de gebruiker.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Stappen voor het oplossen van problemen met de permanente netwerkverbinding
 

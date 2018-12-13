@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: fe1557a6f9e5fd4e463af254fa1dd52726e73024
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e71ac4666c86c72828e9937c353eda8ba5a0668e
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713041"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322257"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diagnostische logboeken naar Log Analytics in Azure Stream
 
@@ -37,7 +37,7 @@ De Log Analytics-werkruimte heeft geen zich in hetzelfde abonnement als de resou
 > [!NOTE]
 > Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
 >
-> *Een voorbeeld*: de meetwaarde 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Wanneer de waarde wordt geëxporteerd via diagnostische instellingen, wordt deze echter voorgesteld als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
+> *Bijvoorbeeld*: De metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een wachtrijniveau. Wanneer de waarde wordt geëxporteerd via diagnostische instellingen, wordt deze echter voorgesteld als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
 >
 >
 
@@ -75,7 +75,7 @@ Houd er rekening mee dat de werkruimte-id-eigenschap duurt de volledige Azure-re
 
 ### <a name="via-azure-cli"></a>Via Azure CLI
 
-Om in te schakelen streaming via de [Azure CLI](insights-cli-samples.md), kunt u de [az monitor diagnostic-settings maken](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) opdracht.
+Om in te schakelen streaming via de [Azure CLI](../azure-monitor/platform/cli-samples.md), kunt u de [az monitor diagnostic-settings maken](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) opdracht.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

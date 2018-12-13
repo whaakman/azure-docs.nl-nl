@@ -1,5 +1,5 @@
 ---
-title: Het bijwerken van een bestaande Azure-blauwdruktoewijzing
+title: Het bijwerken van een bestaande toewijzing
 description: Meer informatie over het mechanisme voor het bijwerken van een bestaande toewijzing in blauwdrukken voor Azure.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 2c9f660e54da50e32ce1d0dc43b0efeacd643c57
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093782"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314821"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Het bijwerken van een bestaande blauwdruktoewijzing van
 
@@ -25,13 +26,13 @@ Wanneer een blauwdruk wordt toegewezen, kan de toewijzing kan worden bijgewerkt.
 
 ## <a name="updating-assignments"></a>Toewijzingen bijwerken
 
-1. Klik op **alle services** en het zoeken en selecteren **beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
+1. Klik op **Alle services** en selecteer **Beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
 
 1. Selecteer **Toegewezen blauwdrukken** op de pagina aan de linkerkant.
 
 1. In de lijst met blauwdrukken, de blauwdruktoewijzing te klikken. Klik vervolgens op de **bijwerken van de toewijzing** of met de rechtermuisknop op de blauwdruktoewijzing en selecteer **bijwerken van de toewijzing**.
 
-   ![Bijwerken van de toewijzing](../media/update-existing-assignments/update-assignment.png)
+   ![Toewijzing bijwerken](../media/update-existing-assignments/update-assignment.png)
 
 1. De **blauwdruk toewijzen** pagina vooraf gevuld met alle waarden uit de oorspronkelijke toewijzing wordt geladen. Kunt u de **blauwdruk definitieversies**, wordt de **vergrendeling toewijzing** staat, en een van de dynamische parameters die aanwezig zijn op de blauwdrukdefinitie van de. Klik op **toewijzen** wanneer alle wijzigingen hebt aangebracht.
 

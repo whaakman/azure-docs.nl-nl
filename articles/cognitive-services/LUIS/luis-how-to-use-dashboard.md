@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: fa5560c008270635d0d93b8004e017c810c9c27a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6f6de278e802b83623413b0bf70e556d083818c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074415"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140605"
 ---
-# <a name="application-dashboard"></a>Toepassingsdashboard
+# <a name="model-and-usage-statistics-in-the-dashboard"></a>Model en het gebruik van statistieken in het dashboard
 Het app-dashboard kunt u uw app in één oogopslag controleren. De **Dashboard** wordt weergegeven wanneer u een app openen door te klikken op de naam van de toepassing op **mijn Apps** pagina selecteert **Dashboard** uit boven in het venster. 
 
 > [!CAUTION]
@@ -71,7 +71,7 @@ De **uitsplitsing van de intentie** geeft een overzicht van de intenties op basi
 
 Om te bepalen of de uitsplitsing van de is gebaseerd op gelabelde uitingen of eindpunt treffers:
 
-1. Klik op **extra instellingen** ![knop Extra instellingen](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) voor toegang tot de lijst met zoals in de volgende afbeelding:
+1. Klik op **extra instellingen** ![extra instellingen knop aan de toegangslijst](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) voor toegang tot de lijst met zoals in de volgende afbeelding:
 
     ![Uitsplitsing van de intentie-lijst](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
 2. Selecteer een waarde in de lijst en klik vervolgens op de pijl-terug ![Pijl-terug](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) de grafiek weergeven.
@@ -83,7 +83,7 @@ Het dashboard geeft een overzicht van de entiteiten op basis van gelabelde uitin
 
 Om te bepalen of de uitsplitsing van de is gebaseerd op gelabelde uitingen of eindpunt treffers:
 
-1. Klik op **extra instellingen** ![knop Extra instellingen](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) voor toegang tot de lijst met zoals in de volgende afbeelding:
+1. Klik op **extra instellingen** ![knop Extra instellingen voor lijst](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) voor toegang tot de lijst met zoals in de volgende afbeelding:
 
     ![Uitsplitsing van de entiteitenlijst](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
 2. Selecteer een waarde in de lijst en klik vervolgens op de pijl-terug ![Pijl-terug](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) de grafiek dienovereenkomstig weergeven.

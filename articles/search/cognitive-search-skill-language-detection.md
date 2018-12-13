@@ -1,5 +1,5 @@
 ---
-title: Taal detecteren cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
+title: Taal detecteren cognitief zoeken vaardigheid - Azure Search
 description: Evalueert ongestructureerde tekst en voor elke record geeft als resultaat een taal-id met een score die wijzen op de sterkte van de analyse in een Azure Search verrijking-pijplijn.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 2fd1c1ec0d2442afd6367e1d35af6f798dced2c7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 741710a9f2a9e505681401183f5f41be0695633b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733275"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308563"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Taal detecteren cognitieve vaardigheden
 
@@ -24,25 +25,27 @@ Voor maximaal 120 talen, de **taaldetectie** vaardigheid detecteert de taal van 
 Deze functie is vooral nuttig wanneer u nodig hebt voor de taal van de tekst als invoer voor andere vaardigheden (bijvoorbeeld de [Sentimentanalyse vaardigheid](cognitive-search-skill-sentiment.md) of [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md)).
 
 > [!NOTE]
-> Cognitief zoeken is een openbare preview. Uitvoering van vaardigheden en uitpakken van de installatiekopie en normalisering worden momenteel gratis aangeboden. Op een later tijdstip, worden de prijzen van deze mogelijkheden aangekondigd. 
+> Vanaf December 21 mei 2018, kunt u zich een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Hierdoor kunnen we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum ook in rekening voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijven worden aangeboden zonder extra kosten.
+>
+> De uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijsstelling wordt in rekening gebracht op de preview-prijzen en wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). Informatie over [meer](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill
 
-## <a name="data-limits"></a>Limieten voor gegevens
+## <a name="data-limits"></a>Gegevenslimieten
 De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten door `String.Length`. Als u moet het opsplitsen van uw gegevens voordat deze wordt verzonden naar de analyzer sentiment, mag u de [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
 Parameters zijn hoofdlettergevoelig.
 
-| Invoer     | Beschrijving |
+| Invoer     | Description |
 |--------------------|-------------|
 | tekst | De tekst die moet worden geanalyseerd.|
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
 
-| Naam van de uitvoer    | Beschrijving |
+| Naam van de uitvoer    | Description |
 |--------------------|-------------|
 | languageCode | De ISO 6391 taalcode voor de taal die wordt geïdentificeerd. Bijvoorbeeld, "en". |
 | LanguageName | De naam van de taal. Bijvoorbeeld "Engels". |

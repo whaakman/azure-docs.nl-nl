@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 7253a31057d8e7af5c0273ef112b1155cf15a014
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 81057271fefddf7d204217d73b56e2734c8c3d48
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011654"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162831"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Deep dive - geavanceerde analyses
 
@@ -127,7 +127,7 @@ Spark en MLLib
 
 * [Machine learning met Spark in HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 Deep Learning, Cognitive Toolkit en anderen
 

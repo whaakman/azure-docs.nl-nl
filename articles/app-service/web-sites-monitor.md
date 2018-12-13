@@ -1,5 +1,5 @@
 ---
-title: Apps bewaken in Azure App Service | Microsoft Docs
+title: Apps - Azure App Service bewaken | Microsoft Docs
 description: Informatie over het bewaken van Apps in Azure App Service met behulp van de Azure-portal.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 6334b4cc50bfa6dca709fdc9d65938f0fec3ad1c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 103b5c1d2bc70f187b6e65a9fa9d80a35ad8e0c1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956744"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321576"
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>Hoe: Apps bewaken in Azure App Service
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>Procedure: App in Azure App Service bewaken
 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) biedt ingebouwde functionaliteit voor bewaking in de [Azure-portal](https://portal.azure.com).
 De Azure-portal biedt de mogelijkheid om te controleren **quota** en **metrische gegevens** voor een app, evenals de App Service-plan, instellen van **waarschuwingen** en zelfs **schalen**  automatisch op basis van deze metrische gegevens.
 
@@ -53,7 +54,7 @@ Als de toepassing wordt gehost een **Basic**, **Standard** of **Premium** van pl
 
 Het alleen van toepassing op apps die worden gehost op quotum **Basic**, **Standard**, en **Premium** abonnementen is **bestandssysteem**.
 
-Meer informatie over de specifieke quota's, limieten en functies die beschikbaar zijn voor de verschillende App Service-SKU's vindt u hier: [Servicelimieten van Azure-abonnement](../azure-subscription-service-limits.md#app-service-limits)
+Meer informatie over de specifieke quota's, limieten en functies die beschikbaar zijn voor de verschillende App Service-SKU's vindt u hier: [Azure-abonnement en servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Het afdwingen van quota
 Als een toepassing groter is dan de **CPU (kort)**, **CPU (dag)**, of **bandbreedte** quotum vervolgens de toepassing wordt gestopt, totdat het quotum wordt opnieuw ingesteld. Gedurende deze periode worden alle binnenkomende aanvragen resulteren in een **HTTP 403**.
@@ -75,7 +76,7 @@ Voor een **toepassing**, de beschikbare metrische gegevens zijn:
 * **Gemiddeld geheugenwerkset**
   * De gemiddelde hoeveelheid geheugen in MIB's die worden gebruikt door de app.
 * **CPU-tijd**
-  * De hoeveelheid CPU in seconden die worden gebruikt door de app. Zie voor meer informatie over deze metrische gegevens: [vs CPU-percentage van CPU-tijd](#cpu-time-vs-cpu-percentage)
+  * De hoeveelheid CPU in seconden die worden gebruikt door de app. Zie voor meer informatie over deze metrische gegevens: [Vs CPU-percentage van CPU-tijd](#cpu-time-vs-cpu-percentage)
 * **Gegevens In**
   * De hoeveelheid binnenkomende bandbreedte verbruikt door de app in MIB's.
 * **Uitgaande gegevens**
@@ -141,18 +142,18 @@ Metrische gegevens voor een toepassing en de app service-plan worden vastgelegd 
 U kunt de status van de verschillende bekijken **quota** en **metrische gegevens** die betrekking hebben op een toepassing in de [Azure-portal](https://portal.azure.com).
 
 ![][quotas]
-**Quota** kunt u vinden onder Instellingen >**quota**. De UX kunt u bekijken: (1) de naam van de quota, (2) het interval opnieuw instellen, (3) de huidige limiet en (4) de huidige waarde.
+**Quota** kunt u vinden onder Instellingen >**quota**. De UX kunt u om te controleren: (1) de naam van de quota, (2) het interval opnieuw instellen, (3) de huidige limiet en (4) de huidige waarde.
 
 ![][metrics]
 **Metrische gegevens** zijn toegankelijk vanaf de resourcepagina. U kunt ook de grafiek door aanpassen: (1) **klikt u op** op en selecteert u (2) **grafiek bewerken**.
 Hier kunt u de (3) **tijdsbereik**, (4) **grafiektype**, en (5) **metrische gegevens** om weer te geven.  
 
-U kunt meer informatie over deze metrische gegevens: [metrische servicegegevens bewaken](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+U kunt meer informatie over deze metrische gegevens: [Metrische servicegegevens bewaken](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Waarschuwingen en voor automatisch schalen
 Metrische gegevens voor een App of een App Service-plan kan worden aangesloten op waarschuwingen. Zie voor meer informatie over het [meldingen van waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service-apps die worden gehost in basic, standard of premium App Service-abonnementen ondersteuning **voor automatisch schalen**. Automatisch schalen kunt u regels configureren die de App Service-plan metrische gegevens controleren. Regels kunnen vergroten of verkleinen van het aantal instanties waarbij aanvullende resources naar behoefte. Regels kunt u geld besparen wanneer de toepassing te veel is ingericht. U kunt meer informatie over automatisch schalen hier: [voor schaling](../monitoring-and-diagnostics/insights-how-to-scale.md) en hier [aanbevolen procedures voor automatisch schalen van Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+App Service-apps die worden gehost in basic, standard of premium App Service-abonnementen ondersteuning **voor automatisch schalen**. Automatisch schalen kunt u regels configureren die de App Service-plan metrische gegevens controleren. Regels kunnen vergroten of verkleinen van het aantal instanties waarbij aanvullende resources naar behoefte. Regels kunt u geld besparen wanneer de toepassing te veel is ingericht. U kunt meer informatie over automatisch schalen hier: [Voor schaling](../monitoring-and-diagnostics/insights-how-to-scale.md) en hier [aanbevolen procedures voor automatisch schalen van Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
 
 > [!NOTE]
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.

@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: ad19aa8eef72234e034fe9c0e1905e848ace0650
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 31dce870e99cbe74e2795a3ba661b0caf92dd48e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091744"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140231"
 ---
-# <a name="personname-entity"></a>PersoonNaam-entiteit
+# <a name="personname-prebuilt-entity-for-a-luis-app"></a>PersonName vooraf gedefinieerde entiteit voor een LUIS-app
 De vooraf gedefinieerde personName entiteit detecteert de namen van personen. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met personName naar de toepassing intents. personName entiteit wordt ondersteund in het Engels en Chinees [culturen](luis-reference-prebuilt-entities.md).
 
 ## <a name="resolution-for-personname-entity"></a>Oplossing voor personName entiteit

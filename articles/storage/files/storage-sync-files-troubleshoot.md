@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0787d023676c707a987b4b69cb5601394db4bd3b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6ee16a0483b13471f12654f82ef6972b41ace634
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728375"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316924"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -22,7 +22,7 @@ In dit artikel is ontworpen om u te helpen u problemen op te lossen die met uw A
 
 1. [Azure Storage-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure-bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft ondersteuning. Maken van een nieuwe ondersteuningsaanvraag in de Azure-portal op de **Help** tabblad de **Help en ondersteuning** knop en selecteer vervolgens **nieuwe ondersteuningsaanvraag**.
+3. Microsoft Ondersteuning. Maken van een nieuwe ondersteuningsaanvraag in de Azure-portal op de **Help** tabblad de **Help en ondersteuning** knop en selecteer vervolgens **nieuwe ondersteuningsaanvraag**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Ik ondervind een probleem met Azure File Sync op mijn server (sync, cloud cloudlagen, enz.). Moet ik verwijderen en opnieuw maken van mijn servereindpunt?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -38,9 +38,9 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 Bekijk installer.log om te bepalen van de oorzaak van de installatie is mislukt.
 
 <a id="agent-installation-on-DC"></a>**De installatie van agent mislukt op Active Directory-domeincontroller**  
-Als u probeert de sync-agent installeren op een Active Directory-domeincontroller waar de eigenaar van de PDC-rol op een Windows Server 2008R2 of onder de versie van het besturingssysteem is, kan u bereikt voor het probleem waarbij de sync-agent niet worden geïnstalleerd.
+Als u probeert de sync-agent installeren op een Active Directory-domeincontroller waar de eigenaar van de PDC-functie in Windows Server 2008 R2 of onder de versie van het besturingssysteem is, kan u bereikt voor het probleem waarbij de sync-agent niet worden geïnstalleerd.
 
-De rol van PDC overbrengen naar een andere domain controller actieve Windows Server 2012R2 of meer recente om op te lossen, en vervolgens synchronisatie installeren.
+Om op te lossen, kunt u de rol van PDC overdragen naar een andere domeincontroller met Windows Server 2012 R2 of een meer recente, installeer de synchronisatie.
 
 <a id="server-registration-missing"></a>**Server wordt niet vermeld onder geregistreerde servers in Azure portal**  
 Als een server niet wordt vermeld onder **servers geregistreerd** voor een opslagservice voor synchronisatie:
@@ -48,7 +48,7 @@ Als een server niet wordt vermeld onder **servers geregistreerd** voor een opsla
 2. Open File Explorer en ga vervolgens naar de installatiemap van de opslag-Sync-Agent (de standaardlocatie is C:\Program Files\Azure\StorageSyncAgent). 
 3. ServerRegistration.exe worden uitgevoerd en voltooi de wizard voor het registreren van de server met een Opslagsynchronisatieservice.
 
-<a id="server-already-registered"></a>**Registratie van de server het volgende bericht weergegeven tijdens de installatie van Azure File Sync-agent: "deze server is al geregistreerd"** 
+<a id="server-already-registered"></a>**Registratie van de server weergegeven het volgende bericht tijdens de installatie van Azure File Sync-agent: "Deze server is al geregistreerd"** 
 
 ![Een schermafbeelding van de serverregistratie-dialoogvenster met de fout "server is al geregistreerd" bericht](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -85,7 +85,7 @@ Dit probleem treedt op als uw gebruikersaccount niet beschikt over voldoende rec
 
 Voor het maken van een cloudeindpunt, moet uw gebruikersaccount de volgende Microsoft Authorization-machtigingen hebben:  
 * Lezen: Roldefinitie ophalen
-* Schrijven: Maken of bijwerken van de aangepaste roldefinitie
+* Schrijven: Een aangepaste roldefinitie maken of bijwerken
 * Lezen: Roltoewijzing ophalen
 * Schrijven: Roltoewijzing maken
 
@@ -102,10 +102,10 @@ Om te bepalen of uw gebruikersrol van het account de vereiste machtigingen heeft
     * **Roltoewijzing** moet **lezen** en **schrijven** machtigingen.
     * **Roldefinitie** moet **lezen** en **schrijven** machtigingen.
 
-<a id="server-endpoint-createjobfailed"></a>**Het servereindpunt is mislukt vanwege de volgende fout: 'MgmtServerJobFailed' (foutcode:-2134375898)**  
+<a id="server-endpoint-createjobfailed"></a>**Het servereindpunt mislukt vanwege de volgende fout: 'MgmtServerJobFailed' (foutcode:-2134375898)**  
 Dit probleem treedt op als het pad van server-eindpunt op het systeemvolume en cloud tiering is ingeschakeld. Cloud tiering wordt niet ondersteund op het systeemvolume. Uitschakelen voor het maken van een servereindpunt op het systeemvolume, cloud-opslaglagen bij het maken van het servereindpunt.
 
-<a id="server-endpoint-deletejobexpired"></a>**Het servereindpunt is mislukt, vanwege de volgende fout: "MgmtServerJobExpired"**                
+<a id="server-endpoint-deletejobexpired"></a>**Het servereindpunt mislukt vanwege de volgende fout: "MgmtServerJobExpired"**                
 Dit probleem treedt op als de server offline is of geen verbinding met het netwerk. Als de server niet meer beschikbaar is, registratie van de server in de portal die de servereindpunten wordt verwijderd. Als u wilt verwijderen van de servereindpunten, volgt u de stappen die worden beschreven in [registratie ongedaan maken van een server met Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Kan niet open server eindpunt-eigenschappenpagina of bijwerken van de beleidsinstelling voor lagen cloud**  
@@ -132,7 +132,7 @@ Dit probleem kan optreden als de Monitor voor het synchroniseren van opslag-proc
 
 U lost dit probleem, moet u de volgende stappen uitvoeren:
 
-1. Op de server opent u Taakbeheer en controleer of dat de Monitor van de synchronisatie-opslag (AzureStorageSyncMonitor.exe)-proces wordt uitgevoerd. Als het proces wordt niet uitgevoerd, moet u eerst probeert de server opnieuw wordt opgestart. Als de server opnieuw wordt opgestart, wordt het probleem niet verhelpen, de Azure File Sync-agent bijwerken naar versie [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) als momenteel niet geïnstalleerd.
+1. Op de server opent u Taakbeheer en controleer of dat de Monitor van de synchronisatie-opslag (AzureStorageSyncMonitor.exe)-proces wordt uitgevoerd. Als het proces wordt niet uitgevoerd, moet u eerst probeert de server opnieuw wordt opgestart. Als de server opnieuw wordt opgestart, wordt het probleem niet verhelpen, een upgrade naar de meest recente Azure File Sync [agentversie](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
 2. Controleer of de Firewall en Proxy-instellingen correct zijn geconfigureerd:
     - Als de server zich achter een firewall bevindt, controleert u of poort 443, uitgaand is toegestaan. Als de firewall verkeer tot specifieke domeinen beperkt, controleert u of de domeinen die worden vermeld in de Firewall [documentatie](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) toegankelijk zijn.
     - Als de server zich achter een proxy, de brede, door het machine of app-specifieke proxy-instellingen configureren met de volgende stappen in de Proxy [documentatie](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
@@ -249,7 +249,7 @@ Als u wilt zien deze fouten, voer de **FileSyncErrorsReport.ps1** PowerShell-scr
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Een bestand kan niet worden gesynchroniseerd omdat deze gebruikt wordt. Het bestand worden gesynchroniseerd wanneer deze niet meer gebruikt wordt. | Er is geen actie vereist. Azure File Sync maakt een tijdelijke VSS-momentopname eenmaal per dag op de server om bestanden te synchroniseren met open ingangen. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Een bestand kan niet worden gesynchroniseerd omdat deze gebruikt wordt. Het bestand worden gesynchroniseerd wanneer deze niet meer gebruikt wordt. | Er is geen actie vereist. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Wijziging van een bestand of directory kan niet nog worden gesynchroniseerd omdat een afhankelijke map nog niet is gesynchroniseerd. Dit item wordt gesynchroniseerd nadat de afhankelijke wijzigingen zijn gesynchroniseerd. | Er is geen actie vereist. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Een bestand is gewijzigd tijdens de synchronisatie, dus hij moet opnieuw worden gesynchroniseerd. | Er is geen actie vereist. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Een bestand is gewijzigd tijdens de synchronisatie; dit bestand moet daarom opnieuw worden gesynchroniseerd. | Er is geen actie vereist. |
 
 #### <a name="handling-unsupported-characters"></a>Verwerking van niet-ondersteunde tekens
 Als de **FileSyncErrorsReport.ps1** PowerShell-script bevat fouten vanwege niet-ondersteunde tekens (0x7b-foutcodes en 0x8007007b), moet u Verwijder of wijzig de naam van de tekens op fouten van de respectieve bestandsnamen. PowerShell wordt deze tekens als vraagtekens of lege rechthoeken waarschijnlijk afdrukken, omdat de meeste van deze tekens geen standaard visuele codering hebben. De [evaluatieprogramma](storage-sync-files-planning.md#evaluation-tool) kan worden gebruikt voor het identificeren van de tekens die niet worden ondersteund.
@@ -448,7 +448,7 @@ Deze fout kan optreden als uw organisatie van een afsluitende SSL-proxy gebruikm
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Door in te stellen deze registerwaarde, accepteert de Azure File Sync-agent van een lokaal vertrouwd SSL-certificaat bij de overdracht van gegevens tussen de server en de cloudservice.
+Als u deze registerwaarde instelt, accepteert de Azure File Sync-agent elk lokaal vertrouwd SSL-certificaat tijdens de gegevensoverdracht tussen de server en de cloudservice.
 
 <a id="-2147012894"></a>**Een verbinding met de service kan niet worden gemaakt.**  
 | | |
@@ -541,7 +541,7 @@ In gevallen waarbij er veel per bestand synchronisatiefouten, synchronisatiesess
 | **Fouttekenreeks** | ECS_E_SYNC_INVALID_PATH |
 | **Herstel is vereist** | Ja |
 
-Zorg ervoor dat het pad bestaat, is op een lokaal NTFS-volume en is niet een reparsepunt of een bestaande servereindpunt.
+Controleer of het pad bestaat, op een lokaal NTFS-volume staat en geen reparsepunt of bestaand servereindpunt is.
 
 <a id="-2134376373"></a>**De service is momenteel niet beschikbaar.**  
 | | |

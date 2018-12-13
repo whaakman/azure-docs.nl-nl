@@ -14,15 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2d75a432e84c3490186da6f8342562fddcaa32e1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c0109839144775e9064db4f8396f19688fcc13e8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809424"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308631"
 ---
-<a name="lcs-subscription"></a>LCS-abonnement
-================
+# <a name="lcs-subscription"></a>LCS-abonnement
 
 In deze zelfstudie leert u hoe een abonnement maken. Dit abonnement geeft u een testtenant Microsoft Online en Microsoft Dynamics Lifecycle Services-project waarin u een omgeving kunt implementeren. U wordt ook extra gebruikers instellen in uw Microsoft Online-tenant en ervaring met de volgende mogelijkheden van de service-beheer. Dit zijn de vaardigheden die u leert:
 
@@ -32,8 +31,7 @@ In deze zelfstudie leert u hoe een abonnement maken. Dit abonnement geeft u een 
 - Extra gebruikers toevoegen aan Microsoft Azure Active Directory en de client.
 - Resources weergeven in de e-mail van uw abonnement.
 
-<a name="key-terms"></a>Belangrijkste termen
-=========
+## <a name="key-terms"></a>Belangrijkste termen
 
 **Microsoft Online Services-tenant** -een tenant is de groep van alle abonnementen en -gebruikers voor uw organisatie. De tenant is gemaakt op hetzelfde moment als uw eerste abonnement in de Microsoft Online Services.
 

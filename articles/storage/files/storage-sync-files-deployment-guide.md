@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: f32dd0fb1ffd1bbd2c58f187b2dbc310a48f65ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ee0d46cd07de4e9b123357bcc4ee9d1e51926f49
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011065"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312968"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Files SYNC implementeren
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -136,10 +136,10 @@ Voor het implementeren van een Opslagsynchronisatieservice, gaat u naar de [Azur
 
 Voer de volgende gegevens in in het deelvenster dat verschijnt:
 
-- **Naam**: een unieke naam (per abonnement) voor de Opslagsynchronisatieservice.
-- **Abonnement**: het abonnement waarin u wilt maken van de Opslagsynchronisatieservice. Afhankelijk van de strategie van de configuratie van uw organisatie wellicht u toegang tot een of meer abonnementen. Een Azure-abonnement is de meest eenvoudige container voor de facturering voor elke cloudservice (zoals Azure-bestanden).
-- **Resourcegroep**: een resourcegroep is een logische groep Azure-resources, zoals een storage-account of een Opslagsynchronisatieservice. U kunt een nieuwe resourcegroep maken of een bestaande resourcegroep gebruiken voor Azure File Sync. (Wordt u aangeraden resourcegroepen als containers voor het isoleren van bronnen logisch voor uw organisatie, zoals het groeperen van HR-resources of resources voor een specifiek project.)
-- **Locatie**: de regio waarin u wilt implementeren van Azure File Sync. Alleen ondersteunde regio's zijn beschikbaar in deze lijst.
+- **Naam**: Een unieke naam (per abonnement) voor opslagsynchronisatieservice.
+- **Abonnement**: Het abonnement waarin u wilt maken van de Opslagsynchronisatieservice. Afhankelijk van de strategie van de configuratie van uw organisatie wellicht u toegang tot een of meer abonnementen. Een Azure-abonnement is de meest eenvoudige container voor de facturering voor elke cloudservice (zoals Azure-bestanden).
+- **Resourcegroep**: Een resourcegroep is een logische groep Azure-resources, zoals een storage-account of een Opslagsynchronisatieservice. U kunt een nieuwe resourcegroep maken of een bestaande resourcegroep gebruiken voor Azure File Sync. (Wordt u aangeraden resourcegroepen als containers voor het isoleren van bronnen logisch voor uw organisatie, zoals het groeperen van HR-resources of resources voor een specifiek project.)
+- **Locatie**: De regio waarin u wilt implementeren van Azure File Sync. Alleen ondersteunde regio's zijn beschikbaar in deze lijst.
 
 Wanneer u klaar bent, selecteert u **maken** de Opslagsynchronisatieservice implementeren.
 
@@ -201,7 +201,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
 Login-AzureRmStorageSync `
-    –SubscriptionId $subID `
+    -SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
     -Location $region
@@ -223,15 +223,15 @@ Als u Windows Server registreert voor een opslagsynchronisatieservice, wordt er 
 > De registratie van de uw Azure-referenties gebruikt voor het maken van een vertrouwensrelatie tussen de Opslagsynchronisatieservice en uw Windows-Server, maar vervolgens de server maakt en gebruikt een eigen identiteit die is geldig als de server blijft ingeschreven en de huidige Shared Access Signature-token (SAS-opslag) is geldig. Een nieuwe SAS-token kan niet worden uitgegeven voor de server nadat de server geregistreerd is, dus verwijdert de mogelijkheid van de server voor toegang tot uw Azure-bestandsshares, elke synchronisatie stoppen.
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-De gebruikersinterface van de registratie van Server wordt automatisch geopend na de installatie van de Azure File Sync-agent. Als dat niet gebeurt, kunt u deze handmatig openen vanuit de bestandslocatie: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Wanneer de gebruikersinterface van de registratie van Server wordt geopend, selecteert u **aanmelden** om te beginnen.
+De gebruikersinterface van de registratie van Server wordt automatisch geopend na de installatie van de Azure File Sync-agent. Als dat niet het geval is, kunt u het handmatig openen van de bestandslocatie: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Wanneer de gebruikersinterface van de registratie van Server wordt geopend, selecteert u **aanmelden** om te beginnen.
 
 Nadat u zich hebt aangemeld, wordt u gevraagd om de volgende informatie:
 
 ![Schermafbeelding van de gebruikersinterface van de serverregistratie](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
-- **Azure-abonnement**: het abonnement met de Opslagsynchronisatieservice (Zie [implementeren de Opslagsynchronisatieservice](#deploy-the-storage-sync-service)). 
-- **Resourcegroep**: de resourcegroep met de Opslagsynchronisatieservice.
-- **Opslagsynchronisatieservice**: de naam van de Opslagsynchronisatieservice waarmee u wilt registreren.
+- **Azure-abonnement**: Het abonnement met de Opslagsynchronisatieservice (Zie [implementeren de Opslagsynchronisatieservice](#deploy-the-storage-sync-service)). 
+- **Resourcegroep**: De resourcegroep met de Opslagsynchronisatieservice.
+- **Opslagsynchronisatieservice**: De naam van de Opslagsynchronisatieservice waarmee u wilt registreren.
 
 Nadat u de juiste gegevens hebt geselecteerd, selecteert u **registreren** om de serverregistratie te voltooien. Als deel van het registratieproces wordt u gevraagd u nogmaals aan te melden.
 
@@ -243,9 +243,9 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Synchronisatiegroep en cloudeindpunt maken
-Een synchronisatiegroep definieert de synchronisatietopologie voor een verzameling bestanden. Eindpunten in een synchronisatiegroep worden synchroon met elkaar. Een synchronisatiegroep moet één cloudeindpunt bevatten, dat een Azure-bestandsshare en een of meer servereindpunten representeert. Een servereindpunt vertegenwoordigt een pad op de geregistreerde server. Een server kan servereindpunten in meerdere synchronisatiegroepen hebben. U kunt zoveel synchronisatiegroepen als nodig is voor de topologie van uw gewenste synchronisatie op de juiste wijze te beschrijven.
+Een synchronisatiegroep definieert de synchronisatietopologie voor een verzameling bestanden. Eindpunten binnen een synchronisatiegroep worden onderling synchroon gehouden. Een synchronisatiegroep moet één cloudeindpunt bevatten, dat een Azure-bestandsshare en een of meer servereindpunten representeert. Een servereindpunt vertegenwoordigt een pad op de geregistreerde server. Een server kan servereindpunten in meerdere synchronisatiegroepen hebben. U kunt zoveel synchronisatiegroepen als nodig is voor de topologie van uw gewenste synchronisatie op de juiste wijze te beschrijven.
 
-Een cloudeindpunt is een aanwijzer naar een Azure-bestandsshare. Alle servereindpunten worden gesynchroniseerd met een cloudeindpunt, waardoor het cloudeindpunt van de hub. Het opslagaccount voor de Azure-bestandsshare moet zich bevinden in dezelfde regio als de Opslagsynchronisatieservice. Het geheel van de Azure-bestandsshare wordt gesynchroniseerd, met één uitzondering: een speciale map, vergelijkbaar met de verborgen "System Volume Information"-map op een NTFS-volume, worden ingericht. Deze map heet '. SystemShareInformation'. Het bevat metagegevens met belangrijke synchroniseren die niet worden gesynchroniseerd naar andere eindpunten. Gebruik of verwijder deze niet!
+Een cloudeindpunt is een aanwijzer naar een Azure-bestandsshare. Alle servereindpunten worden gesynchroniseerd met een cloudeindpunt, waardoor het cloudeindpunt van de hub. Het opslagaccount voor de Azure-bestandsshare moet zich bevinden in dezelfde regio als de Opslagsynchronisatieservice. Het geheel van de Azure-bestandsshare wordt gesynchroniseerd, met één uitzondering: Een speciale map, vergelijkbaar met de verborgen "System Volume Information"-map op een NTFS-volume, worden ingericht. Deze map heet '. SystemShareInformation'. Het bevat metagegevens met belangrijke synchroniseren die niet worden gesynchroniseerd naar andere eindpunten. Gebruik of verwijder deze niet!
 
 > [!Important]  
 > U kunt wijzigingen aanbrengen in een cloud-eindpunt of een servereindpunt in de groep voor synchronisatie en de bestanden zijn gesynchroniseerd met de andere eindpunten in de groep voor synchronisatie. Als u een wijziging rechtstreeks met het cloudeindpunt (Azure-bestandsshare) aanbrengt, moeten wijzigingen eerst worden gedetecteerd door een Azure File Sync-taak wijzigen detectie. Een taak wijzigen-detectie wordt slechts één keer voor elke 24 uur voor een cloudeindpunt gestart. Zie voor meer informatie, [Veelgestelde vragen over Azure-bestanden](storage-files-faq.md#afs-change-detection).
@@ -257,10 +257,10 @@ Maken van een synchronisatiegroep in de [Azure-portal](https://portal.azure.com/
 
 Voer in het deelvenster dat verschijnt de volgende gegevens in om een synchronisatiegroep met een cloudeindpunt te maken:
 
-- **Naam van synchronisatiegroep**: de naam van de groep voor synchronisatie moet worden gemaakt. Deze naam moet uniek zijn binnen de opslagsynchronisatieservice, maar het mag een willekeurige naam zijn die u makkelijk kunt onthouden.
-- **Abonnement**: het abonnement waarin u de Opslagsynchronisatieservice in geïmplementeerd [implementeren de Opslagsynchronisatieservice](#deploy-the-storage-sync-service).
-- **Storage-account**: als u selecteert **storage-account selecteren**, een andere deelvenster wordt weergegeven waarin u het opslagaccount met de Azure-bestandsshare die u synchroniseren wilt met kunt selecteren.
-- **Azure-bestandsshare**: de naam van de Azure-bestandsshare die u wilt synchroniseren.
+- **Naam van synchronisatiegroep**: De naam van de groep voor synchronisatie moet worden gemaakt. Deze naam moet uniek zijn binnen de opslagsynchronisatieservice, maar het mag een willekeurige naam zijn die u makkelijk kunt onthouden.
+- **Abonnement**: Het abonnement waarin u de Opslagsynchronisatieservice in geïmplementeerd [implementeren de Opslagsynchronisatieservice](#deploy-the-storage-sync-service).
+- **Storage-account**: Als u selecteert **storage-account selecteren**, een andere deelvenster wordt weergegeven waarin u het opslagaccount met de Azure-bestandsshare die u synchroniseren wilt met kunt selecteren.
+- **Azure-bestandsshare**: De naam van de Azure-bestandsshare die u wilt synchroniseren.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 Voer de volgende PowerShell voor het maken van de groep voor synchronisatie. Vervang `<my-sync-group>` door de gewenste naam van de groep voor synchronisatie.
@@ -303,7 +303,7 @@ if ($fileShare -eq $null) {
 New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
-    -StorageAccountResourceId $storageAccount.Id
+    -StorageAccountResourceId $storageAccount.Id `
     -StorageAccountShareName $fileShare.Name
 ```
 
@@ -319,10 +319,10 @@ Een servereindpunt toevoegen, gaat u naar de zojuist gemaakte synchronisatiegroe
 
 Voer in het deelvenster **Servereindpunt toevoegen** de volgende gegevens in om een servereindpunt te maken:
 
-- **Geregistreerde server**: de naam van de server of het cluster waar u wilt maken van het servereindpunt.
-- **Pad**: de Windows Server-pad moet worden gesynchroniseerd als onderdeel van de groep voor synchronisatie.
-- **Cloud Tiering**: overschakelen naar de in- of uitschakelen van cloud tiering. Met cloud tiering, niet vaak worden gebruikt of toegang krijgen tot bestanden kan worden lagen naar Azure Files.
-- **Beschikbare volumeruimte**: de hoeveelheid vrije ruimte te reserveren op het volume waarop het servereindpunt zich bevindt. Bijvoorbeeld, als de vrije ruimte op volume is ingesteld op 50% op een volume dat een single servereindpunt heeft, is ongeveer de helft van de hoeveelheid gegevens gelaagd naar Azure Files. Ongeacht of cloud tiering is ingeschakeld, wordt uw Azure-bestandsshare is altijd een volledige kopie van de gegevens in de groep voor synchronisatie.
+- **Geregistreerde server**: De naam van de server of cluster waar u wilt maken van het servereindpunt.
+- **Pad**: Het pad van de Windows Server worden gesynchroniseerd als onderdeel van de groep voor synchronisatie.
+- **Cloud-Opslaglagen**: Overschakelen naar de in- of uitschakelen van cloud tiering. Met cloud tiering, niet vaak worden gebruikt of toegang krijgen tot bestanden kan worden lagen naar Azure Files.
+- **Beschikbare volumeruimte**: De hoeveelheid vrije ruimte te reserveren op het volume waarop het servereindpunt zich bevindt. Bijvoorbeeld, als de vrije ruimte op volume is ingesteld op 50% op een volume dat een single servereindpunt heeft, is ongeveer de helft van de hoeveelheid gegevens gelaagd naar Azure Files. Ongeacht of cloud tiering is ingeschakeld, wordt uw Azure-bestandsshare is altijd een volledige kopie van de gegevens in de groep voor synchronisatie.
 
 Als u wilt het servereindpunt toevoegen, selecteert u **maken**. Uw bestanden worden nu gesynchroniseerd gehouden in uw Azure-bestandsshare en Windows Server. 
 

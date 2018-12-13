@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/21/2018
+ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: 8253c4c84e38fc3b8279aa311c1627a540502a6c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b467618815f2bad8a6816425764fe60707c1db3d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351483"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308138"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Opstarten van virtuele Machines van Azure oplossen
 
@@ -29,6 +29,10 @@ In dit artikel geeft een lijst van de veelvoorkomende opstartfouten die kunnen w
 * [BitLocker-opstartfouten](troubleshoot-bitlocker-boot-error.md) 
 * [Windows weergeven 'Bestandssysteem controleren' tijdens het opstarten](troubleshoot-check-disk-boot-error.md)
 * [Blauw scherm fouten](troubleshoot-common-blue-screen-error.md)
+* [Opstarten van de virtuele machine is vastgelopen op 'Getting Windows gereed](troubleshoot-vm-boot-configure-update.md)
+* [De fout 'Kritieke SERVICE mislukt' in blauw scherm](troubleshoot-critical-service-failed-boot-error.md)
+* [Probleem van de lus opnieuw opstarten](troubleshoot-reboot-loop.md)
+* [Opstarten van de virtuele machine is vastgelopen bij Windows update-fase](troubleshoot-stuck-updating-boot-error.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

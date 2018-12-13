@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 5df31c4b2e82ef47c8b94d9aac498cce31f6f243
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847181"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255088"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Fouten bij het uitvoeren van een failover een virtuele machine naar Azure oplossen
 
@@ -28,7 +28,7 @@ Mogelijk ontvangt u een van de volgende fouten tijdens de failover van een virtu
 
 Site Recovery kan niet een mislukte maken via de virtuele machine in Azure. Dit kan gebeuren vanwege een van de volgende redenen:
 
-* Is er niet voldoende quotum beschikbaar voor het maken van de virtuele machine: U kunt het beschikbare quotum controleren door te gaan naar de abonnement -> Gebruik + quota. U kunt openen een [nieuwe ondersteuningsaanvraag](http://aka.ms/getazuresupport) om het quotum te verhogen.
+* Er is niet voldoende quotum beschikbaar voor het maken van de virtuele machine: U kunt het beschikbare quotum controleren door te gaan naar de abonnement -> Gebruik + quota. U kunt openen een [nieuwe ondersteuningsaanvraag](http://aka.ms/getazuresupport) om het quotum te verhogen.
 
 * U probeert te failover-virtuele machines van de van verschillende groottefamilies in dezelfde beschikbaarheidsset. Zorg ervoor dat u dezelfde serie met grootten voor alle virtuele machines in dezelfde beschikbaarheidsset kiezen. Grootte wijzigen door naar reken- en netwerkinstellingen van de virtuele machine te gaan en voer vervolgens de failover opnieuw uit.
 
@@ -113,9 +113,6 @@ Als de **Connect** knop op de failover-VM in Azure beschikbaar is (niet lichter 
 Bij het opstarten van een Windows VM na failover, als u een bericht is onverwacht afgesloten op de herstelde virtuele machine ontvangt, betekent dit dat de status van een virtuele machine afsluiten niet is opgenomen in het herstelpunt dat wordt gebruikt voor de failover. Dit gebeurt wanneer u naar een beheerpunt herstellen wanneer de virtuele machine is niet volledig afgesloten.
 
 Dit is normaal gesproken geen aanleiding en kan meestal worden genegeerd voor niet-geplande failovers. In het geval van een geplande failover, zorg ervoor dat de virtuele machine correct wordt afgesloten voordat u een failover en geef voldoende tijd voor in behandeling zijnde replicatie gegevens on-premises naar Azure worden verzonden. Gebruik vervolgens de **nieuwste** kiezen op de [Failover scherm](site-recovery-failover.md#run-a-failover) zodat alle in behandeling gegevens in Azure worden verwerkt in een herstelpunt, die vervolgens wordt gebruikt voor VM-failover.
-
-## <a name="retaining-drive-letter-after-failover"></a>Stationsletter behouden na een failover
-Als u wilt behouden de stationsletter op virtuele machines na een failover, kunt u instellen de **SAN-beleid** voor de virtuele machine on-premises naar **OnlineAll**. [Meer informatie](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Problemen oplossen [RDP-verbinding met Windows-VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)

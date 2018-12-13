@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 426df541def0aa8d4d8b6a81a7364b32ee7f11dd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f3eb5cd62d24ea7251829aed8abba38415835023
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074709"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162814"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een GitHub-account met behulp van Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "53074709"
 > Deze functie is beschikbaar als preview-versie.
 > 
 
-Voor het gebruik van een Github-account als id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de tenant die aangeeft. Als u nog een Github-account hebt, kunt u krijgen via [ https://www.github.com/ ](https://www.github.com/).
+Voor het gebruik van een GitHub-account als id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de tenant die aangeeft. Als u nog een GitHub-account hebt, kunt u krijgen via [ https://www.github.com/ ](https://www.github.com/).
 
 ## <a name="create-a-github-oauth-application"></a>Een GitHub-OAuth-toepassing maken
 
@@ -40,7 +40,7 @@ Voor het gebruik van een Github-account als id-provider in Azure Active Director
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
-5. Geef een **naam**. Voer bijvoorbeeld *Github*.
-6. Selecteer **type id-provider**, selecteer **Github (Preview)**, en klikt u op **OK**.
-7. Selecteer **instellen van deze id-provider** en voert u de Client-Id die u eerder hebt genoteerd als de **Client-ID** en voer het Clientgeheim die u hebt genoteerd als de **clientgeheim**van de Github-account-toepassing die u eerder hebt gemaakt.
-8. Klik op **OK** en klik vervolgens op **maken** om op te slaan van de configuratie van uw Github-account.
+5. Geef een **naam**. Voer bijvoorbeeld *GitHub*.
+6. Selecteer **type id-provider**, selecteer **GitHub (Preview)**, en klikt u op **OK**.
+7. Selecteer **instellen van deze id-provider** en voert u de Client-Id die u eerder hebt genoteerd als de **Client-ID** en voer het Clientgeheim die u hebt genoteerd als de **clientgeheim**van de GitHub-account-toepassing die u eerder hebt gemaakt.
+8. Klik op **OK** en klik vervolgens op **maken** om op te slaan van de configuratie van uw GitHub-account.

@@ -1,5 +1,5 @@
 ---
-title: Bot metC#
+title: Bot - C# -v3
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Bouw met behulp van C# een chatbot met ingebouwd taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 919d48d73a552596c78c3be18e7628ee7700f7e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b4b074de483d4a1ccd4c934a9fa7254e0f656a1b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080211"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133943"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot in C# met Bot Framework 3.x en de Azure-Web-app-bot
 
@@ -37,11 +37,11 @@ Bouw met behulp van C# een chatbot met ingebouwd taalbegrip (LUIS). Deze chatbot
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer **maken van nieuwe resource** in het bovenste menu links.
 
-    ![Nieuwe resource maken](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
+    ![Nieuwe resource maken in Azure portal](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
 2. Zoek in het zoekvak **Web App-Bot**. 
 
-    ![Nieuwe resource maken](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
+    ![Web app-bot als resourcetype selecteren](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
 3. Klik in het venster Web App-Bot **maken**.
 

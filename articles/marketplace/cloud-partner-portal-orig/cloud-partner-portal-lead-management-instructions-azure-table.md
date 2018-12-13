@@ -12,17 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 60e3e3d81b07bf7ae681b5cef2d6d9681877a35f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c4537709181398e401ade67b831bc2d26a99221f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810050"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193583"
 ---
-<a name="lead-management-instructions-for-azure-table"></a>Potentiële klanten Management instructies voor het Azure-tabel
-============================================
+# <a name="lead-management-instructions-for-azure-table"></a>Potentiële klanten Management instructies voor het Azure-tabel
 
 In dit artikel wordt beschreven hoe u Azure Table configureren voor het opslaan van de potentiële verkopen. Azure-tabel kunt u opslaan en aanpassen van klantgegevens.
 
@@ -42,140 +41,111 @@ In dit artikel wordt beschreven hoe u Azure Table configureren voor het opslaan 
 U kunt [Azure storage explorer](http://azurestorageexplorer.codeplex.com/) of een ander hulpprogramma om de gegevens in uw storage-tabel te bekijken. U kunt ook de gegevens in Azure Table exporteren.
 de gegevens.
 
-## <a name="optional-to-use-azure-functions-with-an-azure-table"></a>**(Optioneel)**  Azure Functions gebruikt met een Azure-tabel
+## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(Optioneel)**  Gebruik Microsoft Flow met een Azure-tabel
 
-Als u wilt aanpassen hoe ontvangt u leads, gebruik [Azure Functions](https://azure.microsoft.com/services/functions/) met een Azure-tabel. De service Azure Functions kunt u het proces voor het genereren van leads te automatiseren.
+U kunt [Microsoft Flow](https://docs.microsoft.com/flow/) voor het automatiseren van meldingen telkens als een potentiële klant wordt toegevoegd aan Azure-tabel. Als u dit niet een account hebt, kunt u [zich registreren voor een gratis account](https://flow.microsoft.com/).
 
-De volgende stappen laten zien hoe een Azure-functie die gebruikmaakt van een timer maken. Om de vijf minuten de functie zoekt in de Azure-tabel voor nieuwe records en gebruikt vervolgens de SendGrid-service voor het verzenden van een e-mailmelding.
+### <a name="lead-notification-example"></a>Voorbeeld van potentiële klanten
 
+In dit voorbeeld als richtlijn gebruiken om een eenvoudige stroom waarmee automatisch een e-mailmelding wordt verzonden wanneer een nieuwe lead is toegevoegd aan een Azure-tabel te maken. In dit voorbeeld stelt u een terugkeerpatroon voor het verzenden van gegevens over leads elk uur als tabelopslag wordt bijgewerkt.
 
-1.  [Maak](https://portal.azure.com/#create/SendGrid.SendGrid) een gratis SendGrid-account in uw Azure-abonnement.
+1. Aanmelden bij uw Microsoft Flow-account.
+2. Selecteer op de linker navigatiebalk **mijn stromen**.
+3. Selecteer op de bovenste navigatiebalk **+ nieuw**.  
+4. Selecteer op de vervolgkeuzelijst **+ leeg item maken**
+5. Selecteer onder maken een stroom met een lege App, **leeg item maken**.
 
-    ![SendGrid maken](./media/cloud-partner-portal-lead-management-instructions-azure-table/createsendgrid.png)
+   ![Maak een nieuwe stroom volledig nieuwe](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
-2.  Maak een SendGrid-API-sleutel 
-    - Selecteer **beheren** naar SendGrid UI
-    - Selecteer **instellingen**, **API-sleutels**, en vervolgens maakt u een sleutel met e-Mail verzenden -\> volledige toegang
-    - De API-sleutel opslaan
+6. Selecteer op de connectors en triggers zoekpagina **Triggers**.
+7. Onder **Triggers**, selecteer **terugkeerpatroon**.
+8. In de **terugkeerpatroon** venster, laat de standaardinstelling van 1 voor **Interval**. Uit de **frequentie** vervolgkeuzelijst **uur**.
 
+   >[!NOTE] 
+   >Hoewel dit voorbeeld een interval van 1 uur wordt, kunt u het interval en de frequentie waarmee het meest geschikt is voor uw bedrijfsbehoeften.
 
-    ![SendGrid-API-sleutel](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridkey.png)
+   ![Frequentie van 1 uur voor het terugkeerpatroon ingesteld](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
+9. Selecteer **+ nieuwe stap**.
+10. Zoek naar 'Get afgelopen tijd' en selecteer vervolgens **ophalen tijd in het verleden** onder acties. 
 
-3.  [Maak](https://portal.azure.com/#create/Microsoft.FunctionApp) een Azure-functie-app met de optie voor het abonnement voor webhosting met de naam 'Verbruik plannen'.
+    ![Zoek en selecteer ophalen in het verleden Tijdactie](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
-    ![Azure-functie-App maken](./media/cloud-partner-portal-lead-management-instructions-azure-table/createfunction.png)
+11. In de **ophalen tijd in het verleden** venster de **Interval** op 1.  Uit de **tijdseenheid** vervolgkeuzelijst **uur**.
+    >[!IMPORTANT] 
+    >Zorg ervoor dat dit Interval en -tijdseenheid overeenkomt met het Interval en frequentie die u hebt geconfigureerd voor een terugkeerpatroon.
 
+    ![Set-get te tijdsinterval](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
-4.  Maak een nieuwe functiedefinitie.
+    >[!TIP] 
+    >U kunt uw stroom controleren op elk gewenst moment om te controleren of dat elke stap correct is geconfigureerd. Selecteer om te controleren of de stroom, **stroom checker** in de menubalk stroom.
 
-    ![De definitie van de Azure-functie maken](./media/cloud-partner-portal-lead-management-instructions-azure-table/createdefinition.png)
- 
+In de volgende reeks stappen, maakt u verbinding met uw Azure-tabel en stelt u de van Verwerkingslogica voor het afhandelen van nieuwe leads.
 
-5.  Als u de functie voor het verzenden van een update voor een bepaald tijdstip, selecteer de **TimerTrigger-CSharp** als de optie starter.
+1. Selecteer na het Get afgelopen tijdstap **+ nieuwe stap**, en zoek naar 'Get-entiteiten'.
+2. Onder **acties**, selecteer **entiteiten ophalen**, en selecteer vervolgens **geavanceerde opties weergeven**.
+3. In de **entiteiten ophalen** venster informatie te verstrekken voor de volgende velden:
 
-     ![Azure functie tijd trigger-optie](./media/cloud-partner-portal-lead-management-instructions-azure-table/timetrigger.png)
+   - **Tabel** – Geef de naam van uw Azure-tabelopslag. De volgende schermopname ziet u de prompt als 'MarketPlaceLeads' voor dit voorbeeld wordt ingevoerd. 
 
+     ![Kies een aangepaste waarde voor de naam van de Azure-tabel](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-6.  Vervang de code 'Opstellen' door het volgende codevoorbeeld. Bewerk de e-mailadressen met adressen die u wilt gebruiken voor de afzender en de ontvanger.
+   - **Filterquery** : in dit veld klikt en de Get afgelopen tijd pictogram wordt weergegeven in een pop-upvenster. Selecteer **tijd in het verleden** dit te gebruiken als tijdstempel voor het filteren van de query. Ook kunt u deze functie in het veld plakken: `gt datetime'@{body('Get_past_time')}'`
 
-        #r "Microsoft.WindowsAzure.Storage"
-        #r "SendGrid"
-        using Microsoft.WindowsAzure.Storage.Table;
-        using System;
-        using SendGrid;
-        using SendGrid.Helpers.Mail;
-        public class MyRow : TableEntity
-        {
-            public string Name { get; set; }
-        }
-        public static void Run(TimerInfo myTimer, IQueryable<MyRow> inputTable, out Mail message, TraceWriter log)
-        {
-            // UTC datetime that is 5.5 minutes ago while the cron timer schedule is every 5 minutes
-            DateTime dateFrom = DateTime.UtcNow.AddSeconds(-(5 * 60 + 30));
-            var emailFrom = "YOUR EMAIL";
-            var emailTo = "YOUR EMAIL";
-            var emailSubject = "Azure Table Notification";
-            // Look in the table for rows that were added recently
-            var rowsList = inputTable.Where(r => r.Timestamp > dateFrom).ToList();
-            // Check how many rows were added
-            int rowsCount = rowsList.Count;
-            if (rowsCount > 0)
-            {
-                log.Info($"Found {rowsCount} rows added since {dateFrom} UTC");
-                // Configure the email message describing how many rows were added
-                message = new Mail
-                {
-                    From = new Email(emailFrom),
-                    Subject = emailSubject + " (" + rowsCount + " new rows)"
-                };
-                var personalization = new Personalization();
-                personalization.AddTo(new Email(emailTo));
-                message.AddPersonalization(personalization);
-                var content = new Content
-                {
-                    Type = "text/plain",
-                    Value = "Found " + rowsCount + " new rows added since " + dateFrom.ToString("yyyy-MM-dd HH:mm:ss") + " UTC"
-                };
-                message.AddContent(content);
-            }
-            else
-            {
-                // Do not send the email if no new rows were found
-                message = null;
-            }
-        }
+     ![Filter-query-functie instellen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
-    ![Azure functie-codefragment](./media/cloud-partner-portal-lead-management-instructions-azure-table/code.png)
+4. Selecteer **nieuwe stap** om toe te voegen een voorwaarde om te scannen op de Azure-tabel voor nieuwe leads.
 
+   ![Gebruik nieuwe stap een voorwaarde om te scannen op Azure-tabel toevoegen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
 
-7.  Selecteer **integreren** en **invoer** voor het definiëren van de Azure Table-verbinding.
+5. In de **een actie kiezen** venster **acties**, en selecteer vervolgens de **voorwaarde** besturingselement.
 
-    ![Azure-functie integreren](./media/cloud-partner-portal-lead-management-instructions-azure-table/integrate.png)
+     ![Voorwaarde toevoegen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
+6. In de **voorwaarde** venster de **een waarde kiezen** veld en selecteer vervolgens **expressie** in het pop-upvenster.
+7. Plakken `length(body('Get_entities')?['value'])` in de ***fx*** veld. Selecteer **OK** om toe te voegen deze functie. Instellen van de voorwaarde voltooien:
 
-8.  Voer de naam van de tabel en het definiëren van de verbindingsreeks door te selecteren **nieuwe**.
+   - Selecteer 'is groter dan' in de vervolgkeuzelijst.
+   - 0 invoeren als waarde 
 
+     ![Een functie toevoegen aan de voorwaarde](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-fx0.png)
 
-    ![Verbinding met het Azure functie tabel](./media/cloud-partner-portal-lead-management-instructions-azure-table/configtable.png)
+8. Instellen van de actie te ondernemen op basis van het resultaat van de voorwaarde.
 
-9.  Nu de uitvoer als SendGrid definiëren en laat de standaardwaarden staan.
+     ![Actie op basis van resultaten van de voorwaarde instellen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
-    ![SendGrid-uitvoer](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutput.png)
+9. Als de voorwaarde **als er geen**, iets doen. 
+10. Als de voorwaarde **als Ja**, een actie die verbinding uw Office 365-account maakt voor het verzenden van een e-mailbericht activeren. Selecteer **een actie toevoegen**.
+11. Selecteer **een e-mailbericht verzenden**. 
+12. In de **een e-mailbericht verzenden** venster informatie te verstrekken voor de volgende velden:
 
-    ![Standaardinstellingen voor SendGrid-uitvoer](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutputdefaults.png)
+    - **Naar** -Voer een e-mailadres voor iedereen die deze melding wordt ontvangen.
+    - **Onderwerp** – Geef een onderwerp voor het e-mailbericht. Bijvoorbeeld: Nieuwe leads!
+    - **Hoofdtekst**:   Toevoegen van de tekst die u wilt opnemen in elke e-mail (optioneel) en plak deze in de hoofdtekst `('Get_entities')?['value']` als een functie voor het invoegen van gegevens over leads.
 
-10. SendGrid-API-sleutel toevoegen aan de functie App-instellingen met de naam 'SendGridApiKey' en de waarde uit de API-sleutels in SendGrid UI
+      >[!NOTE] 
+      >U kunt extra statisch of dynamisch gegevenspunten aan de hoofdtekst van dit e-mailbericht invoegen.
 
-    ![Beheren van SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanage.png)
-    ![SendGrid sleutel beheren](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanagekey.png)
+       ![E-mailadres voor lead melding instellen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-Wanneer u klaar bent met het configureren van de functie, wordt de code in de sectie integreren moet eruitzien als in het volgende voorbeeld.
+13. Selecteer **opslaan** om op te slaan van de stroom. Microsoft Flow wordt automatisch de stroom voor fouten testen. Als er geen fouten, de stroom wordt gestart nadat deze opgeslagen.
 
-    {
-      "bindings": [
-        {
-          "name": "myTimer",
-          "type": "timerTrigger",
-          "direction": "in",
-          "schedule": "0 */5 * * * *"
-        },
-        {
-          "type": "table",
-          "name": "inputTable",
-          "tableName": "MarketplaceLeads",
-          "take": 50,
-          "connection": "yourstorageaccount_STORAGE",
-          "direction": "in"
-        },
-        {
-          "type": "sendGrid",
-          "name": "message",
-          "apiKey": "SendGridApiKey",
-          "direction": "out"
-        }
-      ],
-      "disabled": false
-    }
+De volgende schermopname ziet u een voorbeeld van hoe de uiteindelijke stroom moet zien.
 
-11. De laatste stap is om te navigeren naar de gebruikersinterface ontwikkelen van de functie en selecteer vervolgens **uitvoeren** de timer gestart. Nu u een melding ontvangt wanneer een nieuwe lead is beschikbaar in.
+ ![Laatste stroom-reeks](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+
+### <a name="managing-your-flow"></a>Uw stroom beheren
+
+Uw stroom beheren nadat deze wordt uitgevoerd, is eenvoudig.  Hebt u volledige controle over uw stroom. U kunt bijvoorbeeld voorkomen dat deze, bewerken, Zie een uitvoeringsgeschiedenis en analyses. De volgende schermopname ziet u de opties die beschikbaar zijn voor het beheren van een stroom. 
+
+ ![Een stroom beheren](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
+
+De stroom blijft actief totdat u voorkomen dat deze met behulp van de **stroom uitschakelen** optie.
+
+Als u een e-mailmeldingen voor lead ontvangt, betekent dit dat er nieuwe leads bibliotheekscripts zijn toegevoegd aan de Azure-tabel. Als er fouten bij stromen, krijgt u een e-mailbericht als in het voorbeeld in de volgende schermopname.
+
+ ![Stroom fout e-mailmelding](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
+
+## <a name="next-steps"></a>Volgende stappen
+
+[Klantenleads ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)

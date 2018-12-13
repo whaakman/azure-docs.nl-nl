@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: fecc694e5520444be06dab82191b6454fb4ee8f5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2d881b9dbc20dbbf95491d023b859a20815091d3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354033"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311198"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Een Azure SQL-database naar een BACPAC-bestand exporteren
 
@@ -25,7 +25,7 @@ Wanneer u nodig hebt voor het exporteren van een database voor het archiveren of
 
 > [!IMPORTANT]
 > Azure SQL Database functie voor geautomatiseerde Export is op 1 maart 2017 stopgezet. U kunt [langetermijnretentie](sql-database-long-term-retention.md
-) of [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) periodiek archiveren SQL-databases met behulp van PowerShell volgens een schema van uw keuze. Voor het voorbeeld downloaden de [PowerShell-script voorbeeld](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) vanuit Github.
+) of [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) periodiek archiveren SQL-databases met behulp van PowerShell volgens een schema van uw keuze. Voor het voorbeeld downloaden de [PowerShell-script voorbeeld](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) vanuit GitHub.
 >
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Overwegingen bij het exporteren van een Azure SQL database
@@ -39,11 +39,11 @@ Wanneer u nodig hebt voor het exporteren van een database voor het archiveren of
   - Gebruik een [geclusterde index](https://msdn.microsoft.com/library/ms190457.aspx) met niet-null-waarden voor alle grote tabellen. Zonder geclusterde indexen, worden een export kan mislukken als het langer duurt dan 6 of 12 uur. Dit komt doordat de export-service een tabelscan moet om te exporteren van de hele tabel te voltooien. Een goede manier om te bepalen als uw tabellen zijn geoptimaliseerd voor exporteren is om uit te voeren **DBCC SHOW_STATISTICS** en zorg ervoor dat de *RANGE_HI_KEY* niet null is en de waarde ervan is goed distributie. Zie voor meer informatie, [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
 > [!NOTE]
-> BACPACs zijn niet bedoeld om te worden gebruikt voor back-up en herstelbewerkingen. Azure SQL Database maakt automatisch back-ups voor elke gebruikersdatabase. Zie voor meer informatie, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md) en [back-ups van SQL-Database](sql-database-automated-backups.md).  
+> BACPACs zijn niet bedoeld om te worden gebruikt voor back-up en herstelbewerkingen. Azure SQL Database maakt automatisch back-ups voor elke gebruikersdatabase. Zie voor meer informatie, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md) en [back-ups van SQL-Database](sql-database-automated-backups.md).
 
 ## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Exporteren naar een BACPAC-bestand met de Azure portal
 
-Voor het exporteren van een database met de [Azure-portal](https://portal.azure.com), opent u de pagina voor uw database en klik op **exporteren** op de werkbalk. Het BACPAC-bestandsnaam opgeven, geeft u de Azure-opslagaccount en container voor het exporteren en geef de referenties verbinding maken met de brondatabase.  
+Voor het exporteren van een database met de [Azure-portal](https://portal.azure.com), opent u de pagina voor uw database en klik op **exporteren** op de werkbalk. Het BACPAC-bestandsnaam opgeven, geeft u de Azure-opslagaccount en container voor het exporteren en geef de referenties verbinding maken met de brondatabase.
 
 ![database exporteren](./media/sql-database-export/database-export.png)
 
@@ -72,13 +72,13 @@ De nieuwste versies van SQL Server Management Studio bieden ook een wizard voor 
 
 Gebruik de [New-AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet voor het indienen van een aanvraag van de database exporteren naar de Azure SQL Database-service. De exportbewerking kan enige tijd duren, afhankelijk van de grootte van uw database.
 
- ```powershell
- $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
-   -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
-   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
- ```
+```powershell
+$exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+  -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+  -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
+```
 
-Om te controleren of de status van de aanvraag voor exporteren, gebruikt u de [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Met dit onmiddellijk na de aanvraag meestal retourneert **Status: InProgress**. Wanneer de melding **Status: geslaagd** het exporteren is voltooid.
+Om te controleren of de status van de aanvraag voor exporteren, gebruikt u de [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Met dit onmiddellijk na de aanvraag meestal retourneert **Status: InProgress**. Wanneer de melding **Status: Geslaagd** het exporteren is voltooid.
 
 ```powershell
 $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

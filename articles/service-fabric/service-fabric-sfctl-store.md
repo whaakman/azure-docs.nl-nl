@@ -12,41 +12,41 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 2f2da5b38ab39e3636ff0ac09ac2c5515e02b0c1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 034ae29b5fabae15aa2b6b96e7fefaef23c1c5a1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492332"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275224"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Basisopdrachten voor bestandsbeheer niveau bewerkingen uitvoeren op de installatiekopieopslag van het cluster.
 
 ## <a name="commands"></a>Opdrachten
 
-|Command|Beschrijving|
+|Opdracht|Description|
 | --- | --- |
-| verwijderen | Verwijdert bestaande inhoud van de installatiekopie van de store. |
+| delete | Verwijdert bestaande inhoud van de installatiekopie van de store. |
 | root-info | Hiermee haalt u informatie over de inhoud in de hoofdmap van de installatiekopieopslag. |
 | Stat | Hiermee haalt u de informatie van een installatiekopie-store. |
 
 ## <a name="sfctl-store-delete"></a>sfctl store delete
 Verwijdert bestaande inhoud van de installatiekopie van de store.
 
-Verwijdert bestaande inhoud van de installatiekopie store wordt gevonden in de installatiekopie van het opgegeven opslaan relatieve pad. Dit kan worden gebruikt om het geüploade toepassingspakketten verwijderen wanneer deze zijn ingericht.
+Verwijdert bestaande inhoud van de installatiekopie store wordt gevonden in de installatiekopie van het opgegeven opslaan relatieve pad. Deze opdracht kan worden gebruikt om te verwijderen van geüploade toepassingspakketten zodra deze zijn ingericht.
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --inhoud-pad (vereist) | Relatief pad naar het bestand of map in de installatiekopieopslag vanuit de hoofdmap. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -61,13 +61,13 @@ Retourneert informatie over de installatiekopieopslag inhoud in de hoofdmap van 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -82,14 +82,14 @@ Retourneert informatie over de inhoud van de store op de opgegeven contentPath. 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --inhoud-pad (vereist) | Relatief pad naar het bestand of map in de installatiekopieopslag vanuit de hoofdmap. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |

@@ -1,21 +1,22 @@
 ---
-title: Azure Load Balancer metrische gegevens met de REST-API ophalen | Microsoft Docs
+title: Metrische gegevens met de REST-API ophalen
+titlesuffix: Azure Load Balancer
 description: Gebruik de Azure REST API's voor het verzamelen van metrische gegevens over status en gebruik voor Load Balancer voor een bepaald bereik van de tijd en datums.
 services: sql-database
 author: KumudD
 ms.reviewer: routlaw
 manager: jeconnoc
 ms.service: load-balancer
-ms.custom: REST
+ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
-ms.openlocfilehash: 1fac461c3af4ea0a2e1f2257256969c47bc3d134
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 43de0de6fb81d50459ba5b027a8ae1718a89c9a3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094459"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183859"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Load Balancer-gebruik metrische gegevens met behulp van de REST-API ophalen
 
@@ -35,14 +36,14 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 De volgende headers zijn vereist: 
 
-|Aanvraagheader|Beschrijving|  
+|Aanvraagheader|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
 |*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI-parameters
 
-| Naam | Beschrijving |
+| Name | Description |
 | :--- | :---------- |
 | subscriptionId | De abonnements-ID waarmee een Azure-abonnement. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
 | resourceGroupName | De naam van de resourcegroep waarin de resource. U kunt deze waarde niet ophalen van de Azure Resource Manager-API, CLI of de portal. |
@@ -52,7 +53,7 @@ De volgende headers zijn vereist:
 | TimeSpan | De duur van de query. Het is een tekenreeks met de volgende indeling `startDateTime_ISO/endDateTime_ISO`. Dit is een optionele parameter is ingesteld om te retourneren van een dag aan gegevens in het voorbeeld. |
 | &nbsp; | &nbsp; |
 
-### <a name="request-body"></a>Aanvraagtekst
+### <a name="request-body"></a>Aanvraagbody
 
 Er is geen aanvraagtekst is nodig voor deze bewerking.
 

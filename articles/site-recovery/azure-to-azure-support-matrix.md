@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: 2906f6dff84cdd6a09c05734988ee005a3d65aac
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 67a236f592392744978b7d1d7f7e7d129515a9a0
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994643"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321798"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -42,7 +42,7 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 
 ## <a name="region-support"></a>Ondersteuning voor regio
 
-U kunt repliceren en herstellen van virtuele machines tussen elke twee regio's binnen hetzelfde geografische cluster.
+U kunt repliceren en herstellen van virtuele machines tussen elke twee regio's binnen hetzelfde geografische cluster. Geografische clusters worden gedefinieerd gegevenslatentie en -soevereiniteit waarmee u rekening moet houden.
 
 **Geografische cluster** | **Azure-regio's**
 -- | --
@@ -52,11 +52,12 @@ Azië | Zuid-India, centraal-India, Zuidoost-Azië, Oost-Azië, Japan-Oost, Japa
 Australië   | Australië-Oost, Australië-Zuidoost, Australië-midden, Australië centraal 2
 Azure Government    | VS (overheid) Virginia, VS (overheid)-Iowa, VS (overheid)-Arizona, VS (overheid)-Texas, VS DOD Oost, VS DOD-centraal
 Duitsland | Duitsland-centraal, Duitsland-Noordoost
-China | China-Oost, China-Noord
+China | China-Oost, China-Noord, China North2, China-Oost 2
 
 >[!NOTE]
 >
-> Voor de regio Brazilië-Zuid, kunt u repliceren en failover naar een van de volgende: Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noord-centraal VS-regio's.
+> U kunt voor de regio Brazilië-Zuid, repliceren en failover naar een van de volgende: Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noord-centraal VS-regio's.</br>
+> Er moet worden opgemerkt Site Recovery is alleen ingeschakeld voor Brazilië-Zuid moet worden gebruikt als een regio van de gegevensbron van waar de virtuele machines kunnen worden beveiligd. Het kan niet worden gebruikt als een doel-DR-regio voor het gebruik van de Azure-regio's, zoals Zuid-centraal VS. De reden hiervoor is dat van latentie waargenomen vanwege geografische afstand dat het verdient aanbeveling om te selecteren van een andere Amerika andere regio dan Brazilië-Zuid.  
 
 ## <a name="cache-storage"></a>Cacheopslag
 
@@ -126,7 +127,7 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 
 
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.20 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.140-94.69-default |
+SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.20 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.19 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default naar 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.18 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default naar 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.17 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default naar 4.4.126-94.22-default |
@@ -135,7 +136,7 @@ SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.17 | SP1 3.12.49-11-default n
 
 * -Bestandssystemen: ext3, ext4, ReiserFS (Suse Linux Enterprise Server alleen), XFS
 * Volume manager: LVM2
-* Multipath-software: apparaat toewijzen
+* Multipath-software: Apparaten toewijzen
 
 
 ## <a name="replicated-machines---compute-settings"></a>Gerepliceerde machines - compute-instellingen
@@ -178,6 +179,7 @@ Gegevensschijf - standard storage-account | Ondersteund |
 Gegevensschijf - premium storage-account | Ondersteund | Als een virtuele machine schijven die zijn verdeeld over premium en standard storage-accounts bevat, kunt u een ander doel-opslagaccount voor elke schijf, zodat u de dezelfde opslagconfiguratie hebt in de doelregio.
 Beheerde schijf - standaard | Ondersteund in Azure-regio's waar Azure Site Recovery wordt ondersteund. |  
 Beheerde schijf - premium | Ondersteund in Azure-regio's waar Azure Site Recovery wordt ondersteund. |
+Standard - SSD | Niet ondersteund |
 Redundantie | LRS en GRS worden ondersteund.<br/><br/> ZRS wordt niet ondersteund.
 Opslag van koude en warme | Niet ondersteund | VM-schijven worden niet ondersteund op de opslag van koude en warme
 Opslagruimten | Ondersteund |         
@@ -199,6 +201,18 @@ Opslagaccounts voor algemeen gebruik V2 (zowel warme en koude laag) | Nee | Toen
 >[!IMPORTANT]
 > Zorg ervoor dat u ziet dat de virtuele machine schijf schaalbaarheids- en prestatiedoelen voor [Linux](../virtual-machines/linux/disk-scalability-targets.md) of [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuele machines om eventuele prestatieproblemen te voorkomen. Als u de standaardinstellingen volgt, maakt Site Recovery de benodigde schijven en opslagaccounts op basis van de configuratie van de gegevensbron. Als u aanpassen en uw eigen instellingen selecteert, zorgt u ervoor dat u de schijf schaalbaarheids- en prestatiedoelen voor de bron-VM's volgt.
 
+## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Azure Site Recovery-limieten voor het repliceren van gegevens wijzigen tarieven
+De volgende tabel bevat de Azure Site Recovery-limieten. Deze limieten zijn gebaseerd op onze tests, maar dekken niet alle mogelijke toepassings-I/O-combinaties. De werkelijke resultaten kunnen variëren op basis van uw toepassings-I/O-combinatie. We moeten ook Houd er rekening mee dat er zijn twee limieten rekening houden met per schijf gegevens verloop en verloop per gegevens van virtuele machines.
+Bijvoorbeeld, als we kijken naar de schijf P20 Premium in de onderstaande tabel, Site Recovery 5 MB/s verloop per schijf met op maximaal vijf dergelijke schijven per virtuele machine vanwege de limiet van 25 MB/s totale verloop per virtuele machine kunnen worden verwerkt.
+
+**Beoogde replicatieopslag** | **Gemiddelde I/O-grootte van bronschijf** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
+---|---|---|---
+Standard Storage | 8 kB | 2 MB/s | 168 GB per schijf
+Premium P10 of P15 schijf | 8 kB  | 2 MB/s | 168 GB per schijf
+Premium P10 of P15 schijf | 16 kB | 4 MB/s |  336 GB per schijf
+Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
+Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
+Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |10 MB/s | 842 GB per schijf
 ## <a name="replicated-machines---networking"></a>Gerepliceerde machines - netwerken
 **Configuratie** | **Ondersteuning** | **Details**
 --- | --- | ---

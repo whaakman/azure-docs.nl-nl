@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e5943dde86b96dc0f95df0620212daf9a972fccf
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: bc3ab808234ee0759abea0520ea0336489fc60d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882421"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309600"
 documentType: LandingData
 title: Azure SQL Database - individuele Database
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 12/01/2018
   ms.author: jovanpop-msft
 abstract:
-  description: Azure SQL Database is een relationele database als een service (DBaaS) op basis van de nieuwste stabiele versie van Microsoft SQL Server Database Engine. SQL Database is een krachtige, betrouwbare en veilige database die u kunt gebruiken om gegevensgestuurde toepassingen en websites te bouwen in de programmeertaal van uw keuze, zonder dat u hiervoor infrastructuur hoeft te beheren. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u SQL Database gebruikt.
+  description: Azure SQL Database is een relationele database als een service (DBaaS) op basis van de nieuwste stabiele versie van Microsoft SQL Server Database Engine. SQL-Database is een krachtige, eenvoudig te gebruiken, betrouwbare, en u gebruiken kunt voor het bouwen van nieuwe toepassingen, websites en microservices in de programmeertaal van uw keuze, zonder dat u nodig hebt voor het beheren van infrastructuur van de beveiligde database. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u SQL Database gebruikt.
   aside:
     image:
       alt: 
@@ -68,6 +68,17 @@ sections:
       html: <p>Beveilig uw database met Azure AD-verificatie, virtuele netwerken, firewalls en Always Encrypted-verbindingen. Identificeer bedreigingen en beveiligingsproblemen dankzij ingebouwde beveiliging.</p>
       image:
         src: media/index/i_security.svg
+- title: Nieuwe en preview-functies
+  items:
+  - type: paragraph
+    text: 'We zijn voortdurend verbeteren van de SQL-Database met nieuwe functies en willen we graag uw feedback met betrekking tot de volgende nieuwe functies:'
+  - type: list
+    style: unordered
+    items:
+    - html: (Preview) <a href="sql-database-service-tier-hyperscale">Grootschalige</a> laag die ondersteuning biedt voor maximaal 100 TB databases en meerdere leesbare replica's.
+    - html: (Preview) Nieuwe SQL Server 2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">intelligente queryverwerking</a> functies, zoals <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">tabelvariabele uitgesteld compilatie</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">batchmodus op rowstore tabellen</a>, en <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json"> scalaire UDF inlining</a>.
+    - html: (Preview) Nieuwe functies voor Transact-SQL-taal, zoals <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT statistische functie</a> en <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">BULKSGEWIJS importeren uit Azure Blob-opslag</a>.
+    - html: (Preview) Nieuwe SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">bouwen</a> en bewerkingen van GECLUSTERDE COLUMNSTORE-index opnieuw opbouwen.
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph

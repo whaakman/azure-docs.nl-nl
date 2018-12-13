@@ -1,12 +1,11 @@
 ---
-title: Een Machine Learning-werkruimte - Azure Machine Learning Studio beheren | Microsoft Docs
+title: Een Machine Learning Studio-werkruimte beheren | Microsoft Docs
 description: Toegang tot Azure Machine Learning-werkruimten, beheren en implementeren en beheren van ML API-webservices
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: c470d10b933b31d4cfe151fb541c2182562a2805
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8c5dfd82a7bf0d1985869c8de4e3b313ef885947
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314101"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270770"
 ---
-# <a name="manage-an-azure-machine-learning-workspace"></a>Een Azure Machine Learning-werkruimte beheren
+# <a name="manage-an-azure-machine-learning-studio-workspace"></a>Een Azure Machine Learning Studio-werkruimte beheren
 
 > [!NOTE]
 > Zie voor meer informatie over het beheren van webservices in Machine Learning-webservicesportal [beheren van een webservice met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md).
@@ -32,7 +31,7 @@ ms.locfileid: "52314101"
 
 U kunt Machine Learning-werkruimten in Azure portal beheren.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 

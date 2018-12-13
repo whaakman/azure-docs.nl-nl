@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 33d7322bfa3c6e6143dd2d945c5ed86c15da2fb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: de5d3fcd7eff0042e912e164050f917a0070b2c3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249962"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164641"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Maken en een schijfinstallatiekopie OpenBSD uploaden naar Azure
 In dit artikel wordt beschreven hoe u maken en uploaden van een virtuele harde schijf (VHD) die het OpenBSD-besturingssysteem bevat. Nadat u deze uploadt, kunt u deze als uw eigen installatiekopie maken van een virtuele machine (VM) in Azure via Azure CLI.
@@ -68,7 +68,7 @@ Ondersteuning op de virtuele machine waarop u het OpenBSD besturingssysteem 6.1,
     ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
-6. U kunt altijd de nieuwste versie van de Azure-agent vinden op [Github](https://github.com/Azure/WALinuxAgent/releases). Installeer de agent als volgt:
+6. U kunt altijd de nieuwste versie van de Azure-agent vinden op [GitHub](https://github.com/Azure/WALinuxAgent/releases). Installeer de agent als volgt:
 
     ```sh
     git clone https://github.com/Azure/WALinuxAgent 

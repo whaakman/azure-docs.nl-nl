@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 7f4e956601ee25549d0a0828c4c3dd0e8d6ff85b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f754242d0cf7ee30572b21a3f4daf6fd2c0f63ff
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840126"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275904"
 ---
 # <a name="validate-azure-stack-system-state"></a>Valideren van de systeemstatus van de Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Als Azure Stack-operators is het essentieel de mogelijkheid om te weten de gezondheid en status van uw systeem op aanvraag. Het hulpprogramma voor het valideren van Azure Stack (**Test AzureStack**) is een PowerShell-cmdlet u kunt een reeks tests uitvoeren op uw systeem voor het identificeren van fouten, indien aanwezig. U wordt meestal gevraagd dit hulpprogramma uitvoeren via de [bevoegde eindpunt (PEP)](azure-stack-privileged-endpoint.md) wanneer u Neem contact op met Microsoft klantenondersteuning Services (CSS) met een probleem. Met de status van de gehele systeem en de statusinformatie bij de hand, kunt CSS verzamelen en analyseren van gedetailleerde logboeken, richt u op het gebied waar de fout is opgetreden en samen met u het probleem op te lossen.
 
@@ -45,7 +45,7 @@ Zoals eerder gezegd, wordt het hulpprogramma voor het valideren via de PEP uitge
    Test-AzureStack
    ```
 
-   Raadpleeg de [Parameter overwegingen met betrekking tot](azure-stack-diagnostic-test.md#parameter-considerations) en [gebruik case voorbeelden](azure-stack-diagnostic-test.md#use-cases) secties voor meer informatie.
+   Raadpleeg de [Parameter overwegingen met betrekking tot](azure-stack-diagnostic-test.md#parameter-considerations) en [gebruik case voorbeelden](azure-stack-diagnostic-test.md#use-case-examples) secties voor meer informatie.
 
 3. Als u een rapport test **MISLUKKEN**, uitvoeren:
 
@@ -121,13 +121,13 @@ De volgende cloud-scenario's zijn getest door het hulpprogramma voor het valider
 
 - Een tenant die virtuele machine wordt geïmplementeerd als onderdeel van een test voor de cloudscenario. U kunt **DoNotDeployTenantVm** dit uitschakelen. 
 
-- Moet u opgeven de **ServiceAdminCredential** parameter cloud scenario tests uitvoeren, zoals beschreven in de [gebruik case voorbeelden](azure-stack-diagnostic-test.md#use-cases) sectie.
+- Moet u opgeven de **ServiceAdminCredential** parameter cloud scenario tests uitvoeren, zoals beschreven in de [gebruik case voorbeelden](azure-stack-diagnostic-test.md#use-case-examples) sectie.
 
-- **BackupSharePath** en **BackupShareCredential** worden gebruikt bij het testen van back-instellingen van de infrastructuur, zoals wordt weergegeven in de [gebruik case voorbeelden](azure-stack-diagnostic-test.md#use-cases) sectie.
+- **BackupSharePath** en **BackupShareCredential** worden gebruikt bij het testen van back-instellingen van de infrastructuur, zoals wordt weergegeven in de [gebruik case voorbeelden](azure-stack-diagnostic-test.md#use-case-examples) sectie.
 
-- Het hulpprogramma voor het valideren biedt ook ondersteuning voor algemene PowerShell-parameters: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable en OutVariable. Zie voor meer informatie, [over algemene Parameters](http://go.microsoft.com/fwlink/?LinkID=113216).  
+- Het hulpprogramma voor het valideren biedt ook ondersteuning voor algemene PowerShell-parameters: Uitgebreid, foutopsporing, ErrorAction, ErrorVariable, WarningAction, -WarningVariable, OutBuffer, -PipelineVariable, en OutVariable. Zie voor meer informatie, [over algemene Parameters](http://go.microsoft.com/fwlink/?LinkID=113216).  
 
-## <a name="use-case-examples"></a>De aanvraag voorbeelden gebruiken 
+## <a name="use-case-examples"></a>De aanvraag voorbeelden gebruiken
 
 ### <a name="run-validation-without-cloud-scenarios"></a>Validatie zonder cloudscenario's uitvoeren
 

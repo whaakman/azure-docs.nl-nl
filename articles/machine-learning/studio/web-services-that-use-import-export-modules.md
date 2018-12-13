@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 84bc151e8d7acf8d320b5883e8637c321762fb32
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090343"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251382"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Azure Machine Learning Studio-webservices die gebruikmaken van gegevens importeren en exporteren van gegevens modules implementeren
 
@@ -29,10 +28,10 @@ Wanneer u een Voorspellend experiment maakt, toevoegen u gewoonlijk een web-invo
 
 De gegevens importeren en exporteren van gegevens-modules, kunnen lezen en schrijven naar verschillende gegevens locaties, zoals een via HTTP, een Hive-Query, een Azure SQL-database, Azure Table storage, Azure Blob-opslag, een Gegevensfeed-URL opgeven of een on-premises SQL-database.
 
-In dit onderwerp wordt gebruikgemaakt van de "voorbeeld 5: trainen, testen, evalueren voor binaire classificatie: volwassenen gegevensset" voorbeeld en wordt ervan uitgegaan dat de gegevensset is al geladen in een Azure SQL-tabel met de naam censusdata.
+In dit onderwerp wordt gebruikgemaakt van de "voorbeeld 5: Trainen, testen, evalueren voor binaire classificatie: Volwassenen gegevensset'-voorbeeld en wordt ervan uitgegaan dat de gegevensset is al geladen in een Azure SQL-tabel met de naam censusdata.
 
 ## <a name="create-the-training-experiment"></a>De trainingsexperiment maken
-Wanneer u opent de "voorbeeld 5: evalueren van de trein, Test, voor binaire classificatie: volwassenen gegevensset ' voorbeeld van de voorbeeldgegevensset van volwassenen telling inkomsten binaire classificatie wordt gebruikt. En het experiment in het canvas ziet eruit als in de volgende afbeelding:
+Wanneer u opent de "voorbeeld 5: Trainen, testen, evalueren voor binaire classificatie: Volwassenen gegevensset' voorbeeld van de voorbeeldgegevensset voor volwassenen telling inkomsten binaire classificatie wordt gebruikt. En het experiment in het canvas ziet eruit als in de volgende afbeelding:
 
 ![Eerste configuratie van het experiment.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -104,7 +103,7 @@ Als een klassieke webservice implementeren en maken van een toepassing gebruikt:
 2. Wanneer de uitvoering is voltooid, klikt u op **webservice implementeren** en selecteer **webservice implementeren [klassieke]**.
 3. Zoek op het dashboard van de webservice, uw API-sleutel. Kopiëren en opslaan voor later gebruik.
 4. In de **standaard eindpunt** tabel, klikt u op de **Batchuitvoering** koppeling naar de API Help-pagina te openen.
-5. Maak in Visual Studio een C# consoletoepassing: **nieuw** > **Project** > **Visual C#**   >   **Windows Classic Desktop** > **consoletoepassing (.NET Framework)**.
+5. Maak in Visual Studio een C# consoletoepassing: **Nieuwe** > **Project** > **Visual C#**   >  **Windows Classic Desktop**  >   **Console-App (.NET Framework)**.
 6. Zoek op de API Help-pagina, de **voorbeeldcode** sectie aan de onderkant van de pagina.
 7. Kopieer en plak de C# voorbeeldcode in het bestand Program.cs en verwijder alle verwijzingen naar de blob-opslag.
 8. Werk de waarde van de *apiKey* variabele met de API-sleutel eerder hebt opgeslagen.
@@ -133,7 +132,7 @@ Als een nieuwe webservice implementeren en maken van een toepassing gebruikt:
 3. Voer een naam voor uw webservice op de pagina Experiment implementeren en een prijscategorie selecteren en klik vervolgens op **implementeren**.
 4. Op de **snelstartgids** pagina, klikt u op **verbruiken**.
 5. In de **voorbeeldcode** sectie, klikt u op **Batch**.
-6. Maak in Visual Studio een C# consoletoepassing: **nieuw** > **Project** > **Visual C#**   >   **Windows Classic Desktop** > **consoletoepassing (.NET Framework)**.
+6. Maak in Visual Studio een C# consoletoepassing: **Nieuwe** > **Project** > **Visual C#**   >  **Windows Classic Desktop**  >   **Console-App (.NET Framework)**.
 7. Kopieer en plak de C# voorbeeldcode in het bestand Program.cs.
 8. Werk de waarde van de *apiKey* variabele met de **primaire sleutel** zich in de **Basic verbruik info** sectie.
 9. Zoek de *scoreRequest* declaratie en de waarden voor de Webserviceparameters die worden doorgegeven aan de *importgegevens* en *gegevens exporteren* modules. In dit geval u gebruikt u de oorspronkelijke query, maar de naam van een nieuwe tabel te definiëren.

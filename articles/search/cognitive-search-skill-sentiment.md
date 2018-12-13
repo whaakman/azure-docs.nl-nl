@@ -1,6 +1,6 @@
 ---
-title: Sentiment cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
-description: Sentiment extraheren uit tekst in een Azure Search verrijking-pijplijn.
+title: Sentiment cognitief zoeken vaardigheid - Azure Search
+description: Een positieve negatieve gevoelsscore extraheren uit tekst in een Azure Search verrijking-pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,24 +11,27 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1e4028c3a810de41efe217e6dd4347fc3bc6bf16
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 4b8913d64a3df8799ba1d73972121ef331aaac81
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730881"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314071"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Sentiment cognitieve vaardigheden
 
 De **Sentiment** vaardigheid ongestructureerde tekst langs een positieve negatieve zorgcontinuüm, en voor elke record evalueert, retourneert een numerieke score tussen 0 en 1. Scores dicht bij 1 geven een positieve stemming aan en scores dicht bij 0 geven een negatieve stemming aan.
 
 > [!NOTE]
-> Cognitief zoeken is een openbare preview. Uitvoering van vaardigheden en uitpakken van de installatiekopie en normalisering worden momenteel gratis aangeboden. Op een later tijdstip, worden de prijzen van deze mogelijkheden aangekondigd. 
+> Vanaf December 21 mei 2018, kunt u zich een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Hierdoor kunnen we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum ook in rekening voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijven worden aangeboden zonder extra kosten.
+>
+> De uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijsstelling wordt in rekening gebracht op de preview-prijzen en wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). Informatie over [meer](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SentimentSkill
 
-## <a name="data-limits"></a>Limieten voor gegevens
+## <a name="data-limits"></a>Gegevenslimieten
 De maximale grootte van een record moet 5000 tekens wordt gemeten door `String.Length`. Als u splitst u uw gegevens wilt voordat deze worden verzonden naar de analyzer sentiment, gebruik de [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md).
 
 
@@ -42,14 +45,14 @@ Parameters zijn hoofdlettergevoelig.
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer 
 
-| Voer een naam in | Beschrijving |
+| Voer een naam in | Description |
 |--------------------|-------------|
 | tekst | De tekst die moet worden geanalyseerd.|
 | languageCode  |  (Optioneel) Een tekenreeks die aangeeft van de taal van de records. Als deze parameter niet is opgegeven, is de standaardwaarde 'en'. <br/>Zie [volledige lijst met ondersteunde talen](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
 
-| Naam van de uitvoer | Beschrijving |
+| Naam van de uitvoer | Description |
 |--------------------|-------------|
 | score | Een waarde tussen 0 en 1 waarmee het gevoel van de geanalyseerde tekst. Waarden dicht bij 0 negatief gevoel hebben, hebben dicht bij 0,5 neutrale sentiment en -waarden dicht bij 1 positief gevoel hebben.|
 

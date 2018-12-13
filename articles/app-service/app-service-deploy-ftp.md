@@ -1,5 +1,5 @@
 ---
-title: Uw app implementeren in Azure App Service met behulp van FTP/S | Microsoft Docs
+title: Inhoud met behulp van FTP/S - Azure App Service implementeren | Microsoft Docs
 description: Leer hoe u uw app implementeren in Azure App Service met behulp van FTP- of FTPS.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 1e3dbe04652be479a327ed9494299f89ef13492a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: f48dc4d91fd5fafda88f518c27c79e151e5b1ebe
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679389"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260069"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uw app implementeren in Azure App Service met behulp van FTP/S
 
@@ -46,8 +47,8 @@ Het wordt aanbevolen dat u **App referenties** implementeert in uw app omdat het
 ## <a name="deploy-files-to-azure"></a>Bestanden in Azure implementeren
 
 1. Van uw FTP-client (bijvoorbeeld [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), of [WinSCP](https://winscp.net/index.php)), de verbindingsgegevens die u hebt verzameld om verbinding met uw app te gebruiken.
-3. Kopieer de bestanden en de mappenstructuur naar de [ **/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (of de **/site/wwwroot/App_Data/Jobs/** Active directory voor WebJobs).
-4. Blader naar de URL van uw app om te controleren of dat de app correct wordt uitgevoerd. 
+2. Kopieer de bestanden en de mappenstructuur naar de [ **/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (of de **/site/wwwroot/App_Data/Jobs/** Active directory voor WebJobs).
+3. Blader naar de URL van uw app om te controleren of dat de app correct wordt uitgevoerd. 
 
 > [!NOTE] 
 > In tegenstelling tot [Git-implementaties](app-service-deploy-local-git.md), FTP-implementatie biedt geen ondersteuning voor de volgende implementatie-automatische: 

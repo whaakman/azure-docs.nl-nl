@@ -6,23 +6,21 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/17/2018
-ms.openlocfilehash: 8103c06e3fec51316e367de903ed84d0023568bc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/11/2018
+ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308151"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322291"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Grafana toegang in Azure HDInsight
 
 
 [Grafana](https://grafana.com/) is een populaire, open source opbouwfunctie voor graph en dashboard. Grafana is functie uitgebreide; niet alleen kunt maken van aanpasbare gebruikers en deelbaar dashboards, biedt het ook sjablonen/script dashboards, LDAP-integratie, meerdere gegevensbronnen, en meer.
 
-Grafana is momenteel alleen ondersteuning voor door het type Interactive Query-cluster in Azure HDInsight.
-
+Grafana wordt op dit moment in Azure HDInsight ondersteund met de clustertypen Hbase en interactieve query's uitvoeren.
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -45,7 +43,7 @@ In deze sectie maakt u een Interactive Query-cluster in HDInsight met behulp van
 
     Typ of selecteer de volgende waarden:
     
-    |Eigenschap  |Beschrijving  |
+    |Eigenschap  |Description  |
     |---------|---------|
     |**Abonnement**     |  Selecteer uw Azure-abonnement. |
     |**Resourcegroep**     | Maak een resourcegroep of selecteer een bestaande resourcegroep.  Een resourcegroep is een container met Azure-onderdelen.  In dit geval bevat de resourcegroep het HDInsight-cluster en het afhankelijke Azure Storage-account. |
@@ -65,7 +63,7 @@ In deze sectie maakt u een Interactive Query-cluster in HDInsight met behulp van
    
     ![Aan de slag met resourcegroepen in HDInsight op basis van Linux](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight-clusterresourcegroep")
     
-5. De tegel bevat ook de standaardopslag die aan het cluster is gekoppeld. Elk cluster is afhankelijk van een [Azure Storage-account](../hdinsight-hadoop-use-blob-storage.md) of een [Azure Data Lake-account](../hdinsight-hadoop-use-data-lake-store.md). Dit wordt het standaardopslagaccount genoemd. HDInsight-cluster en het standaard opslagaccount moeten samen in dezelfde Azure-regio worden geplaatst. Het opslagaccount wordt niet verwijderd wanneer er clusters worden verwijderd.
+5. De tegel bevat ook de standaardopslag die aan het cluster is gekoppeld. Elk cluster is afhankelijk van een [Azure Storage-account](../hdinsight-hadoop-use-blob-storage.md) of een [Azure Data Lake-account](../hdinsight-hadoop-use-data-lake-store.md). Dit wordt het standaardopslagaccount genoemd. HDInsight-cluster en het standaardopslagaccount moeten in dezelfde Azure-regio worden geplaatst. Het opslagaccount wordt niet verwijderd wanneer er clusters worden verwijderd.
     
 
 > [!NOTE]
@@ -76,16 +74,22 @@ In deze sectie maakt u een Interactive Query-cluster in HDInsight met behulp van
 ## <a name="access-the-grafana-dashboard"></a>Toegang tot het Grafana-dashboard
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+
 2. Selecteer **HDInsight-clusters**, en selecteer vervolgens de naam van het cluster die u in de laatste sectie hebt gemaakt.
+
 3. Onder **snelkoppelingen**, klikt u op **clusterdashboard**.
 
     ![HDInsight-cluster dashboard portal](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "HDInsight-cluster-dashboard in de portal")
 
-4. Vanuit het dashboard, klikt u op de **Grafana** tegel.
+4. Vanuit het dashboard, klikt u op de **Grafana** tegel. U kunt ook bladeren naar de `/grafana/` pad van de URL van uw cluster. Bijvoorbeeld `https://<clustername>.azurehdinsight.net/grafana/`.
+
 5. Voer de gebruikersreferenties van de Hadoop-cluster.
-6. Het Grafana-dashboard ziet eruit zoals:
+
+6. Het Grafana-dashboard wordt weergegeven en ziet er uit zoals in dit voorbeeld:
 
     ![HDInsight Grafana-dashboard](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana-dashboard")
+
+   
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Nadat u het artikel hebt voltooid, kunt u het cluster verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. 
@@ -137,5 +141,3 @@ Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

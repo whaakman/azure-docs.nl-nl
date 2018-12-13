@@ -1,5 +1,5 @@
 ---
-title: Eenvoudige voorbeelden voor Azure Search | Microsoft Docs
+title: Eenvoudige query-voorbeelden - Azure Search
 description: Voorbeelden van eenvoudige query voor zoeken in volledige tekst, filter, zoeken, geo zoeken, facetzoekopdrachten en andere queryreeksen gebruikt om te vragen van een Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 2d9e69a900f6665aa0ee3034cd6f9d7c394e8f0b
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.custom: seodec2018
+ms.openlocfilehash: 9697b88e23fea0cb06ab0c4a6197b5255e7076bf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054859"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316264"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Voorbeelden van eenvoudige syntaxis voor het bouwen van query's in Azure Search
 
@@ -84,7 +85,7 @@ Antwoord voor deze query moet eruitzien als op de volgende schermafbeelding.
 
 U hebt mogelijk de zoekscore in het antwoord opgemerkt. Uniform scores van 1 optreden wanneer er is geen positie, ofwel omdat de zoekopdracht is niet zoeken in volledige tekst, of omdat er geen criteria is toegepast. Voor null search zonder criteria keert u rijen terug in willekeurige volgorde. Wanneer u de werkelijke criteria opgeeft, ziet u scores in zinvolle waarden ontwikkelen zoeken.
 
-## <a name="example-2-look-up-by-id"></a>Voorbeeld 2: Controleren of op ID
+## <a name="example-2-look-up-by-id"></a>Voorbeeld 2: Zoeken op ID
 
 In dit voorbeeld is een en ander ongewone, maar bij het evalueren van zoekgedrag, kunt u de volledige inhoud van een bepaald document om te begrijpen waarom deze is opgenomen of uitgesloten van de resultaten controleren. Als één document in zijn geheel toe, gebruikt u een [opzoekfunctie](https://docs.microsoft.com/rest/api/searchservice/lookup-document) om door te geven in de document-ID.
 
@@ -179,7 +180,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 > [!NOTE]
 > Onderverdeling via bereiken met waarden is een algemene vereiste voor search-toepassing. Zie voor meer informatie en voorbeelden voor het bouwen van filters voor facet navigatiestructuur ["Filter op basis van een bereik' in *facetnavigatie implementeren*](search-faceted-navigation.md#filter-based-on-a-range).
 
-## <a name="example-5-geo-search"></a>Voorbeeld 5: Geografische locaties zoeken
+## <a name="example-5-geo-search"></a>Voorbeeld 5: Op geografische locaties zoeken
 
 De voorbeeldindex bevat een veld geo_location met de breedtegraad en lengtegraad coördinaten. In dit voorbeeld wordt de [geo.distance functie](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) die filters op documenten in de omtrek van een beginpunt uit op een willekeurige afstand (in kilometer) die u opgeeft. De laatste waarde in de query (4) naar het gebied van de query vergroten of verkleinen, kunt u aanpassen.
 
@@ -202,7 +203,7 @@ U kunt dit ook proberen om in Postman met behulp van GET:
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
 ```
 
-## <a name="example-6-search-precision"></a>Voorbeeld 6: Search precisie
+## <a name="example-6-search-precision"></a>Voorbeeld 6: De precisie zoeken
 
 Term query's zijn enkelvoudige termen, mogelijk veel van deze, die onafhankelijk van elkaar worden geëvalueerd. Woordgroep query's tussen aanhalingstekens en geëvalueerd als een verbatim-tekenreeks. De nauwkeurigheid van de overeenkomst wordt bepaald door de operators en searchMode.
 

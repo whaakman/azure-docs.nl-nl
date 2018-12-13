@@ -1,5 +1,5 @@
 ---
-title: Veilig verbinding maken met back-Endresources van een App Service Environment
+title: Veilig verbinding te maken back-end van de resources van App Service environment - Azure
 description: Meer informatie over hoe u veilig verbinding maken met back-endresources van een App Service Environment.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 4fccfbb4cbc1b0db0c032d95ad66b497520aa619
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960937"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315856"
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Veilig verbinding maken met back-Endresources van een App Service Environment
+# <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Veilig verbinding te maken back-end resources van een App Service environment
 ## <a name="overview"></a>Overzicht
 Nadat een App Service Environment wordt altijd gemaakt **beide** een virtueel netwerk van Azure Resource Manager, **of** een klassiek implementatiemodel [virtueel netwerk] [ virtualnetwork], uitgaande verbindingen van een App Service Environment met andere back-endresources kunnen stromen uitsluitend via het virtuele netwerk.  Met een recente wijziging in juni 2016, kunnen ook as-omgevingen worden geïmplementeerd in virtuele netwerken die gebruikmaken van openbare-adresbereiken of RFC1918 adresruimten (dat wil zeggen particuliere adressen).  
 

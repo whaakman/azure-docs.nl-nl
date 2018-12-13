@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e4b33552c4b070164b55a84f1d8586422aced2f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c733c148994b06e6d7cd13ee98e1a8157f26010a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446670"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163172"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Verzamelen van Logboeken
 
@@ -91,7 +91,7 @@ Voorbeeld:
 1. Open een nieuw tabblad in Application Insights.
 1. Hier volgt een lijst met query's die kunt u de logboeken
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |---------------------|--------------------|
 traceringen | Zie alle logboeken die worden gegenereerd door Azure AD B2C |
 traceringen \| waar tijdstempel > ago(1d) | Zie alle logboeken die worden gegenereerd door Azure AD B2C voor de laatste dag
@@ -108,7 +108,7 @@ De versie van de viewer die gebeurtenissen in Application Insights leest bevindt
 >[!NOTE]
 >Op dit moment de gedetailleerde activiteitenlogboeken die hier worden beschreven zijn ontworpen **alleen** om te helpen bij de ontwikkeling van aangepaste beleidsregels. Gebruik geen Ontwikkelingsmodus in productie.  Logboeken verzamelen van alle claims verzonden naar en van de id-providers tijdens de ontwikkeling.  Als in de productieomgeving gebruikt, verantwoordelijkheid de ontwikkelaar van de krijgt voor PII (privé Identifiable Information) die in het logboek voor App Insights waarvan ze eigenaar zijn verzameld.  Deze gedetailleerde logboeken worden alleen verzameld wanneer het beleid wordt geplaatst op **ONTWIKKELINGSMODUS**.
 
-[Github-opslagplaats voor niet-ondersteunde aangepast beleid voor voorbeelden en meer hulpprogramma 's](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
+[GitHub-opslagplaats voor niet-ondersteunde aangepast beleid voor voorbeelden en meer hulpprogramma 's](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 

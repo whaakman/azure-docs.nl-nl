@@ -1,5 +1,5 @@
 ---
-title: Hoe zoekresultaten in Azure Search | Microsoft Docs
+title: Pagina items op een pagina met zoekresultaten - Azure Search
 description: Paginering in Azure Search, een gehoste cloud search-service op Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.custom: seodec2018
+ms.openlocfilehash: 5f36dbb72e2518f7e3a27ef3aadec85312d751c2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527066"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309308"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Pagina's met zoekresultaten maken in Azure Search
 Dit artikel bevat richtlijnen over het gebruik van de Azure Search Service REST API voor het implementeren van standaardelementen van een pagina met zoekresultaten, zoals het totale aantal, document ophalen, sorteervolgorde en navigatie.

@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e639bd40c877aded1439fe999fcf3f7114b9a727
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890667"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278131"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights met behulp van AI voor bewaking en probleemoplossing van databaseprestaties
 
@@ -84,7 +84,7 @@ Zie voor meer informatie over hoe u intelligente inzichten logboekregistratie in
 Azure SQL Analytics-oplossing biedt een grafische gebruikersinterface, rapportage- en waarschuwingsfuncties op de prestaties van de database, samen met het Intelligent Insights-diagnoselogboek gegevens.
 
 > [!TIP]
-> Snel aan de slag: de eenvoudigste manier om op te halen uit het begin te beginnen met het gebruik van Intelligent Insights is om deze te gebruiken, samen met Azure SQL Analytics een grafische gebruikersinterface voor prestatieproblemen met de database biedt. Azure SQL Analytics-oplossing toevoegen vanuit de marketplace, een werkruimte in deze oplossing maken en vervolgens voor elke database die u wilt inschakelen, Intelligent Insights configureren streaming van logboek 'SQLInsights' in de blade van de instellingen voor diagnostische gegevens over van een database naar de werkruimte van Azure SQL Analytics.
+> Snel aan de slag: De eenvoudigste manier om op te halen uit het begin te beginnen met het gebruik van Intelligent Insights is om deze te gebruiken, samen met Azure SQL Analytics een grafische gebruikersinterface voor prestatieproblemen met de database biedt. Azure SQL Analytics-oplossing toevoegen vanuit de marketplace, een werkruimte in deze oplossing maken en vervolgens voor elke database die u wilt inschakelen, Intelligent Insights configureren streaming van logboek 'SQLInsights' in de blade van de instellingen voor diagnostische gegevens over van een database naar de werkruimte van Azure SQL Analytics.
 >
 
 Vooraf vereiste is Azure SQL Analytics toegevoegd aan uw Azure portal-dashboard van de marketplace en bekijken om te maken van een werkruimte [Azure SQL Analytics configureren](../azure-monitor/insights/azure-sql.md#configuration)

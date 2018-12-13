@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 496a24f79cee1323077c357789628123d082ceac
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 16a392d83cc24aafc7a84b4fa4c50b752508d9c2
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716161"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53215983"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Gebruik de Microsoft Authentication Library (MSAL) aan te melden bij de gebruiker
 
@@ -129,7 +129,7 @@ else {
 
 Nadat een gebruiker op de **aanmelden** knop voor het eerst de `signIn` methodeaanroepen `loginPopup` aan te melden bij de gebruiker. Resultaat van deze methode is bij het openen van een pop-upvenster met de *Microsoft Azure Active Directory v2.0-eindpunt* te vragen en referenties van de gebruiker te valideren. Als gevolg van een geslaagde aanmelding wordt de gebruiker wordt omgeleid naar de oorspronkelijke *index.html* pagina en een token wordt ontvangen, verwerkt door `msal.js` en de informatie in het token in de cache is opgeslagen. Dit token wordt ook wel de *ID-token* en bevat algemene informatie over de gebruiker, zoals de naam van de gebruiker weergegeven. Als u alle gegevens die door dit token voor andere doeleinden gebruiken wilt, moet u om ervoor te zorgen dat dit token wordt gevalideerd door uw back-endserver om te waarborgen dat het token is uitgegeven voor een geldige gebruiker voor uw toepassing.
 
-De beveiligd-WACHTWOORDVERIFICATIE die worden gegenereerd door deze handleiding aanroepen `acquireTokenSilent` en/of `acquireTokenPopup` aan te schaffen een *toegangstoken* gebruikt om te vragen van de Microsoft Graph-API voor profielgegevens van de gebruiker. Als u een voorbeeld waarin het ID-token valideert, kijk dan eens [dit](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "active-directory-javascript-singlepageapp-dotnet-webapi-v2 voorbeeld Github") voorbeeldtoepassing in GitHub – het voorbeeld maakt gebruik van een ASP .NET-web-API voor validatie van tokens.
+De beveiligd-WACHTWOORDVERIFICATIE die worden gegenereerd door deze handleiding aanroepen `acquireTokenSilent` en/of `acquireTokenPopup` aan te schaffen een *toegangstoken* gebruikt om te vragen van de Microsoft Graph-API voor profielgegevens van de gebruiker. Als u een voorbeeld waarin het ID-token valideert, kijk dan eens [dit](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "active-directory-javascript-singlepageapp-dotnet-webapi-v2 voorbeeld GitHub") voorbeeldtoepassing in GitHub – het voorbeeld maakt gebruik van een ASP .NET-web-API voor validatie van tokens.
 
 #### <a name="getting-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 

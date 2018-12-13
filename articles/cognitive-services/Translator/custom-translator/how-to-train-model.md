@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 9ec8cbe3d2467714a4b2586db79566aaef30d6d7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 60e0485c28d90050a6ff775db41f8696a09fe033
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627357"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165755"
 ---
 # <a name="train-a-model"></a>Een model trainen
 
@@ -26,21 +26,17 @@ Met het trainen van een model:
 
 2.  Het tabblad gegevens voor het project wordt de relevante documenten voor het paar van de taal project weergegeven. Selecteer handmatig de documenten die u wilt gebruiken voor het trainen van uw model. U kunt de training, afstemmen en testen van documenten in dit scherm selecteren. Ook u zojuist hebt trainingset selecteren en aangepaste Translator maken het afstemmen en sets testen voor u hebben.
 
-    -  De naam van document: naam van het document.
+    -  Naam van het document: Naam van het document.
 
-    -  Koppelen: Als dit document een parallelle of ééntalig-document is.
+    -  Koppelen: Als dit document een parallelle of ééntalig-document is. Ééntalig documenten worden momenteel niet ondersteund voor de training.
 
-    - Ééntalig documenten worden momenteel niet ondersteund voor de training.
+    -  Document van het type: Kan worden training, afstemmen, testen of woordenlijst.
 
-    -  Documenttype: training, afstemmen, testen of woordenlijst.
+    -  Combinatie van taal: Dit ziet u de bron en doel taal voor het project.
 
-    -  Combinatie van taal: dit ziet u de bron en doel-taal voor het project.
+    -  Bron zinnen: Geeft het aantal zinnen geëxtraheerd uit het bronbestand.
 
-    -  Bron van zinnen: bevat het nummer van zinnen geëxtraheerd uit de
-    - bronbestand.
-
-    -  Doel van zinnen: bevat het nummer van zinnen geëxtraheerd uit de
-    - doelbestand.
+    -  Doel zinnen: Geeft het aantal zinnen geëxtraheerd uit het doelbestand.
 
     ![Train model](media/how-to/how-to-train-model.png)
 
@@ -67,7 +63,7 @@ U kunt een model met behulp van de link bewerken op de pagina met Details van Mo
 
 2.  In het dialoogvenster-wijzigen
 
-    1.  Model van naam (vereist): Geef uw model een beschrijvende naam op.
+    1.  Modelnaam (vereist): Uw model een betekenisvolle naam geven.
 
         ![Meer dialoogvenster bewerken](media/how-to/how-to-edit-model-dialog.png)
 

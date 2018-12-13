@@ -1,5 +1,5 @@
 ---
-title: Tekst samenvoegen cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
+title: Tekst samenvoegen cognitief zoeken vaardigheid - Azure Search
 description: Tekst uit een verzameling van velden samenvoegen in één geconsolideerde veld. Gebruik deze cognitieve vaardigheden in een Azure Search verrijking-pijplijn.
 services: search
 manager: pablocas
@@ -10,19 +10,22 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 5387eeacc78875ac0f38f96a6c83fb3f5791775e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: b29d32d39b4efb7e242a3ae3213512798622d1e9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167611"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314513"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Tekst samenvoegen cognitieve vaardigheden
 
 De **tekst samenvoegen** vaardigheid consolideert tekst uit een verzameling van velden in één veld. 
 
 > [!NOTE]
-> Cognitief zoeken is een openbare preview. Uitvoering van vaardigheden en uitpakken van de installatiekopie en normalisering worden momenteel gratis aangeboden. Op een later tijdstip, worden de prijzen van deze mogelijkheden aangekondigd. 
+> Vanaf December 21 mei 2018, kunt u zich een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Hierdoor kunnen we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum ook in rekening voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijven worden aangeboden zonder extra kosten.
+>
+> De uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijsstelling wordt in rekening gebracht op de preview-prijzen en wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). Informatie over [meer](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill
@@ -31,7 +34,7 @@ Microsoft.Skills.Text.MergeSkill
 
 Parameters zijn hoofdlettergevoelig.
 
-| Parameternaam     | Beschrijving |
+| Parameternaam     | Description |
 |--------------------|-------------|
 | insertPreTag  | Tekenreeks die moet worden opgenomen voor elke invoegen. De standaardwaarde is `" "`. Als u wilt de ruimte weglaat, stelt u de waarde in op `""`.  |
 | insertPostTag | Tekenreeks die moet worden opgenomen na elke invoegen. De standaardwaarde is `" "`. Als u wilt de ruimte weglaat, stelt u de waarde in op `""`.  |

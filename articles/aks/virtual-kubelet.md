@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a2fed45e4ec51fac7d4d04e50616a7e3748d71c4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e5d415593a510acb81eac65242010d1841044857
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834397"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162644"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Virtual Kubelet gebruiken met Azure Kubernetes Service (AKS)
 
@@ -85,12 +85,12 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 Deze argumenten zijn beschikbaar voor de `aks install-connector` opdracht.
 
-| Argument: | Beschrijving | Vereist |
+| Argument: | Description | Vereist |
 |---|---|:---:|
 | `--connector-name` | Naam van de ACI-Connector.| Ja |
 | `--name` `-n` | Naam van de beheerde cluster. | Ja |
 | `--resource-group` `-g` | De naam van de resourcegroep. | Ja |
-| `--os-type` | Type in de container instances-besturingssysteem. Toegestane waarden: beide, Linux, Windows. Standaard: Linux. | Nee |
+| `--os-type` | Type in de container instances-besturingssysteem. Toegestane waarden: Beide, Linux, Windows. Standaard: Linux. | Nee |
 | `--aci-resource-group` | De resourcegroep waarin u wilt maken van de groepen ACI-container. | Nee |
 | `--location` `-l` | De locatie voor het maken van de groepen ACI-container. | Nee |
 | `--service-principal` | Service-principal gebruikt voor verificatie bij Azure-API's. | Nee |
@@ -228,7 +228,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 Zie voor mogelijke problemen met de Virtual Kubelet de [bekende quirks en tijdelijke oplossingen][vk-troubleshooting]. Om problemen te rapporteren met de Virtual Kubelet [opent u een GitHub-probleem][vk-issues].
 
-Meer informatie over de Virtual Kubelet op de [Virtual Kubelet Github-project][vk-github].
+Meer informatie over de Virtual Kubelet op de [Virtual Kubelet GitHub-project][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md

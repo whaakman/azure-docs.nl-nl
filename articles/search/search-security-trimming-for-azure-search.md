@@ -1,35 +1,37 @@
 ---
-title: Beveiligingsfilters voor bijsnijden resulteert in Azure Search | Microsoft Docs
-description: Toegangsbeheer voor Azure Search-inhoud met behulp van beveiligingsfilters en gebruikers-id's.
+title: Beveiligingsfilters voor bijsnijden resultaten - Azure Search
+description: Toegangsbeheer voor Azure Search-inhoud met beveiligingsfilters en gebruikers-id's.
 ms.service: search
 ms.topic: conceptual
 services: search
 ms.date: 08/07/2017
-author: revitalbarletz
-ms.author: revitalb
+author: brjohnstmsft
+ms.author: brjohnst
 manager: jlembicz
-ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314224"
 ---
-# <a name="security-filters-for-trimming-results-in-azure-search"></a>Beveiligingsfilters voor bijsnijden resulteert in Azure Search
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Beveiligingsfilters voor trimming resulteert in Azure Search
 
-U kunt de beveiligingsfilters zodat zoekresultaten in Azure Search op basis van gebruikersidentiteit trim toepassen. Deze zoekervaring vereist gewoonlijk de identiteit van degene die aanvragen zoeken op basis van een veld met de principes die gemachtigd zijn om het document te vergelijken. Heeft toegang tot het document dat wanneer een overeenkomst is gevonden, de gebruiker of de principal (zoals een groep of rol).
+U kunt de beveiligingsfilters zoekresultaten in Azure Search op basis van gebruikersidentiteit TRIM toepassen. Deze zoekervaring is algemeen vereist voor het vergelijken van de identiteit van degene die het zoeken op basis van een veld met de principes die machtigingen voor het document hebben aanvragen. Wanneer een overeenkomst wordt gevonden, heeft de gebruiker of de principal (zoals een groep of rol) toegang tot het document.
 
-Eén manier om een beveiliging voor het filteren is via een gecompliceerde splitsing van gelijkheid expressies: bijvoorbeeld `Id eq 'id1' or Id eq 'id2'`, enzovoort. Deze aanpak is gevoelig voor fouten, moeilijk te onderhouden, en in gevallen waarbij de lijst honderden of duizenden waarden bevat vertraagt de reactietijd van de query door het aantal seconden. 
+Eén manier om een beveiliging filteren is tot en met een gecompliceerde scheiding van gelijkheid expressies: bijvoorbeeld `Id eq 'id1' or Id eq 'id2'`, enzovoort. Deze aanpak is gevoelig voor fouten, moeilijk te onderhouden, en in gevallen waarin de lijst honderden of duizenden waarden bevat, vertraagt de reactietijd van de query door op hoeveel seconden. 
 
-Een benadering eenvoudiger en sneller is via de `search.in` functie. Als u `search.in(Id, 'id1, id2, ...')` in plaats van een expressie gelijkheid kunt u onderliggende seconde reactie verwachten tijden.
+Een eenvoudiger en sneller aanpak is via de `search.in` functie. Als u `search.in(Id, 'id1, id2, ...')` in plaats van een expressie gelijkheid u dan een seconde reactie kan verwachten tijden.
 
-In dit artikel wordt beschreven hoe u Beveiligingsfiltering met de volgende stappen uitvoeren:
+In dit artikel laat zien hoe om uit te voeren Beveiligingsfiltering met behulp van de volgende stappen uit:
 > [!div class="checklist"]
-> * Maken van een veld waarin de principal-id 's 
-> * Push of bestaande documenten bijwerken met de relevante principal-id 's
-> * Een aanvraag zoeken met `search.in` `filter`
+> * Maken van een veld met de principal-id 's 
+> * Push- of bijwerken van bestaande documenten met de relevante principal-id 's
+> * Een zoekaanvraag met uitgeven `search.in` `filter`
 
 >[!NOTE]
-> Het proces van het ophalen van de principal-id wordt niet in dit document besproken. U krijgt rechtstreeks via uw serviceprovider voor identiteit.
+> Het proces van het ophalen van de principal-id's wordt niet beschreven in dit document. U krijgt het van uw id-provider.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -37,11 +39,11 @@ In dit artikel wordt ervan uitgegaan dat u hebt een [Azure-abonnement](https://a
 
 ## <a name="create-security-field"></a>Beveiliging veld maken
 
-Uw documenten vergezeld gaan van een veld opgeven welke groepen toegang hebben. Deze informatie wordt de filtercriteria op basis waarvan documenten zijn geselecteerd of geweigerd in de resultatenset geretourneerd naar de verlener.
-Stel dat we een index van beveiligde bestanden hebben en elk bestand toegankelijk voor een andere set van gebruikers is.
-1. Veld toevoegen `group_ids` (u kunt een willekeurige naam hier) als een `Collection(Edm.String)`. Controleer of het veld heeft een `filterable` -kenmerk ingesteld op `true` zodat de zoekresultaten worden gefilterd op basis van de toegang tot de gebruiker heeft. Als u bijvoorbeeld de `group_ids` veld `["group_id1, group_id2"]` voor het document met `file_name` 'secured_file_b', alleen gebruikers die deel uitmaken van groep-id's 'group_id1' of 'group_id2' hebben toegang tot het bestand lezen.
-   Zorg ervoor dat het veld `retrievable` kenmerk is ingesteld op `false` zodat deze niet wordt geretourneerd als onderdeel van de zoekopdracht.
-2. Ook toevoegen `file_id` en `file_name` velden in dit voorbeeld.  
+Uw documenten moeten een veld op te geven welke groepen hebben toegang tot bevatten. Deze informatie wordt de filtercriteria op basis waarvan de documenten worden geselecteerd of geweigerd worden van de resultatenset geretourneerd naar de verlener.
+Stel dat we een overzicht van de beveiligde bestanden hebben, en elk bestand toegankelijk is door een andere set gebruikers.
+1. Veld toevoegen `group_ids` (u kunt een willekeurige naam hier) als een `Collection(Edm.String)`. Zorg ervoor dat het veld heeft een `filterable` kenmerk ingesteld op `true` zodat zoekresultaten worden gefilterd op basis van de toegang tot de gebruiker heeft. Als u bijvoorbeeld de `group_ids` veld `["group_id1, group_id2"]` voor het document met `file_name` "secured_file_b", alleen gebruikers die deel uitmaken van groep-id's 'group_id1' of 'group_id2' hebben toegang tot het bestand lezen.
+   Zorg ervoor dat van het veld `retrievable` kenmerk is ingesteld op `false` zodat deze niet wordt geretourneerd als onderdeel van de zoekopdracht.
+2. Ook toevoegen `file_id` en `file_name` velden dit voorbeeldscenario.  
 
 ```JSON
 {
@@ -54,9 +56,9 @@ Stel dat we een index van beveiligde bestanden hebben en elk bestand toegankelij
 }
 ```
 
-## <a name="pushing-data-into-your-index-using-the-rest-api"></a>Gegevens worden gepusht in uw index met behulp van de REST-API
+## <a name="pushing-data-into-your-index-using-the-rest-api"></a>Gegevens pushen naar uw index met behulp van de REST-API
   
-Een HTTP POST-aanvraag doet bij uw index URL-eindpunt. De hoofdtekst van de HTTP-aanvraag is een JSON-object met de documenten die moeten worden toegevoegd:
+Geven een HTTP POST-aanvraag voor URL-eindpunt van uw index. De hoofdtekst van de HTTP-aanvraag is een JSON-object met de documenten die moeten worden toegevoegd:
 
 ```
 POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=[api-version]  
@@ -64,7 +66,7 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-Geef de inhoud van uw documenten in de aanvraagtekst:
+Geef de inhoud van uw documenten in de hoofdtekst van de aanvraag:
 
 ```JSON
 {
@@ -91,7 +93,7 @@ Geef de inhoud van uw documenten in de aanvraagtekst:
 }
 ```
 
-Als u bijwerken van een bestaand document met de lijst met groepen wilt, kunt u de `merge` of `mergeOrUpload` actie:
+Als u een bestaand document bijwerken met de lijst van groepen wilt, kunt u de `merge` of `mergeOrUpload` actie:
 
 ```JSON
 {
@@ -105,14 +107,14 @@ Als u bijwerken van een bestaand document met de lijst met groepen wilt, kunt u 
 }
 ```
 
-Voor volledige informatie over het toevoegen of bijwerken van documenten, kunt u lezen [bewerken van documenten](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Voor volledige informatie over het toevoegen of bijwerken van documenten, u kunt lezen [bewerken van documenten](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Het beveiligingsfilter toepassen
 
-Om documenten op basis van trim `group_ids` toegang, moet u een zoekopdracht met de opdracht een `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, waarbij 'group_id1 group_id2...' zijn de groepen waartoe de verlener van de aanvraag zoeken behoort.
+Als u wilt knippen documenten op basis van `group_ids` toegang, moet u een zoekopdracht met de opdracht een `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` worden gefilterd, waarbij 'group_id1, group_id2...' zijn de groepen waartoe de verlener van de aanvraag zoeken behoort.
 Dit filter komt overeen met alle documenten waarvoor de `group_ids` veld bevat een van de opgegeven id's.
-Voor volledige informatie over het zoeken naar documenten met behulp van Azure Search kunt u lezen [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-Houd er rekening mee dat dit voorbeeld ziet u hoe u documenten met behulp van een POST-aanvraag zoeken.
+Voor volledige informatie over het zoeken naar documenten met behulp van Azure Search, u kunt lezen [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Houd er rekening mee dat dit voorbeeld laat zien hoe u om te zoeken naar documenten met behulp van een POST-aanvraag.
 
 Probleem met de HTTP POST-aanvraag:
 
@@ -122,7 +124,7 @@ Content-Type: application/json
 api-key: [admin or query key]
 ```
 
-Geef het filter in de aanvraagtekst:
+Geef het filter in de hoofdtekst van de aanvraag:
 
 ```JSON
 {
@@ -130,7 +132,7 @@ Geef het filter in de aanvraagtekst:
 }
 ```
 
-Krijgt u de documenten terug wanneer `group_ids` 'group_id1' of 'group_id2' bevat. Met andere woorden, krijgt u de documenten waartoe de uitgever van de aanvraag leestoegang heeft.
+Krijgt u de documenten terug wanneer `group_ids` "group_id1" of "group_id2" bevat. Met andere woorden, krijgt u de documenten die de aanvraagverlener lezen-toegang heeft.
 
 ```JSON
 {
@@ -150,10 +152,10 @@ Krijgt u de documenten terug wanneer `group_ids` 'group_id1' of 'group_id2' beva
 ```
 ## <a name="conclusion"></a>Conclusie
 
-Dit is hoe u resultaten op basis van gebruiker en de Azure Search kunt filteren `search.in()` functie. U kunt deze functie gebruiken om door te geven in de principal-id's voor de aanvragende gebruiker voor het vergelijken van de principal-id's die zijn gekoppeld aan elk doeldocument. Wanneer een zoekaanvraag is afgehandeld, de `search.in` functie gefilterd zoekresultaten waarvoor geen van de gebruiker principals leestoegang hebben. De principal-id kunnen bestaan uit items zoals beveiligingsgroepen, rollen of zelfs de identiteit van gebruiker.
+Dit is hoe u resultaten op basis van gebruikers-id en Azure Search kunt filteren `search.in()` functie. U kunt deze functie gebruiken om door te geven in de principal-id's voor de aanvragende gebruiker om te vergelijken met de principal-id's die zijn gekoppeld aan elk doeldocument dat. Wanneer u een search-aanvraag wordt verwerkt, de `search.in` functie filtert zoekresultaten waarvoor geen van de beveiligings-principals van de gebruiker leestoegang hebben. De principal-id kunnen bestaan uit zoals beveiligingsgroepen, rollen of zelfs de identiteit van gebruikers.
  
 ## <a name="see-also"></a>Zie ook
 
 + [Active Directory-identiteit gebaseerd toegangsbeheer met Azure Search-filters](search-security-trimming-for-azure-search-with-aad.md)
 + [Filters in Azure Search](search-filters.md)
-+ [Beveiliging en toegang beheren in Azure Search-bewerkingen](search-security-overview.md)
++ [Beveiligings- en toegangsbeheer in Azure Search-bewerkingen](search-security-overview.md)

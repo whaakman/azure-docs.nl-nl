@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 87f81c6b6568cd63eaf10840043511669d634062
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: b92790161ae9ad9b56400429677ab0fdd6d552e9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079314"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316230"
 ---
 # <a name="create-resource-groups-in-azure-resource-manager-templates"></a>Resourcegroepen in Azure Resource Manager-sjablonen maken
 
@@ -24,7 +24,7 @@ Voor het maken van een resourcegroep in een Azure Resource Manager-sjabloon, def
 
 U kunt resources ook implementeren in deze resourcegroep in de dezelfde sjabloon.
 
-Dit artikel wordt gebruikgemaakt van Azure CLI en PowerShell om de sjablonen te implementeren.
+Dit artikel wordt gebruikgemaakt van Azure CLI en PowerShell om de sjablonen te implementeren. U kunt de portal niet gebruiken voor de sjablonen niet implementeren omdat de interface van de portal worden geïmplementeerd op de resourcegroep, niet de Azure-abonnement.
 
 ## <a name="create-empty-resource-group"></a>Lege resourcegroep maken
 

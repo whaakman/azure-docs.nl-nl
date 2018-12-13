@@ -10,17 +10,15 @@ ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: bcdf3d2a6a7e0e20525c0e90a1ffc30c80d0e867
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6a4ac2f26c01555ef54a4ee2248db7cd2818661e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642863"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189418"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filters in Log Analytics-weergaven
 Een **filter** in een [Log Analytics weergeven](view-designer.md) kunnen gebruikers de gegevens in de weergave filteren op de waarde van een bepaalde eigenschap zonder te wijzigen van de weergave zelf.  Bijvoorbeeld, kunnen gebruikers van de weergave voor het filteren van de weergave voor alleen de gegevens van een bepaalde computer of verzameling computers.  U kunt meerdere filters in één weergave die u wilt toestaan dat gebruikers om te filteren op meerdere eigenschappen maken.  In dit artikel wordt beschreven hoe u een filter gebruiken en toevoegen aan een aangepaste weergave.
@@ -46,7 +44,7 @@ Maken van een filter van de **Filters** tabblad wanneer [bewerken van een weerga
 
 De volgende tabel beschrijft de instellingen voor een filter.
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:---|:---|
 | Veldnaam | De naam van het veld dat wordt gebruikt om te filteren.  Dit moet overeenkomen met het veld samenvatten in **Query voor waarden**. |
 | Query voor waarden | De query uit te voeren om het vullen van de vervolgkeuzelijst met filters voor de gebruiker.  Dit moet een gebruiken [samenvatten](/azure/kusto/query/summarizeoperator) of [afzonderlijke](/azure/kusto/query/distinctoperator) unieke waarden opgeven voor een bepaald veld, zodat het overeenkomt met de **veldnaam**.  U kunt [sorteren](/azure/kusto/query/sortoperator) om te sorteren van de waarden die worden weergegeven aan de gebruiker. |

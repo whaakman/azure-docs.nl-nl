@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database verbinding te maken met Azure Search met de indexeerfuncties | Microsoft Docs
-description: Informatie over het ophalen van gegevens uit Azure SQL Database naar een Azure Search-index met de indexeerfuncties.
+title: Verbinding maken en Azure SQL Database-inhoud met de indexeerfuncties - Azure Search-index
+description: Leer hoe u gegevens in Azure SQL Database met de indexeerfuncties voor zoeken in volledige tekst in Azure Search verkennen. In dit artikel bevat informatie over verbindingen, configuratie van de indexeerfunctie en opname van gegevens.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,14 +9,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245644"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313391"
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Azure SQL Database verbinding te maken met Azure Search met behulp van indexeerfuncties
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Verbinding maken met en inhoud met behulp van Azure Search-indexeerfuncties van Azure SQL Database indexeren
 
 Voordat u kunt een query een [Azure Search-index](search-what-is-an-index.md), moet u deze vullen met uw gegevens. Als de gegevens zich in een Azure SQL-database bevinden, een **Azure Search-indexeerfunctie voor Azure SQL Database** (of **indexeerfunctie voor Azure SQL** kortweg) het indexeringsproces worden geautomatiseerd, wat betekent dat minder code te schrijven en minder kunt automatiseren infrastructuur over.
 
@@ -34,7 +35,7 @@ Een **indexeerfunctie** is een resource die een enkele gegevensbron met een geri
 * Bijwerken van een index met wijzigingen in de gegevensbron volgens een schema.
 * On-demand om het bijwerken van een index, indien nodig worden uitgevoerd.
 
-Een indexeerfunctie één kan alleen worden gebruikt een tabel of weergave, maar u kunt meerdere indexeerfuncties maken als u wilt meerdere search-index te vullen. Zie voor meer informatie over concepten [bewerkingen voor indexeerfunctie: standaardwerkstroom](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
+Een indexeerfunctie één kan alleen worden gebruikt een tabel of weergave, maar u kunt meerdere indexeerfuncties maken als u wilt meerdere search-index te vullen. Zie voor meer informatie over concepten [bewerkingen voor indexeerfunctie: Gebruikelijke werkstroom](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
 
 U kunt instellen en configureren van een Azure SQL-indexer gebruiken:
 
@@ -301,8 +302,8 @@ Indexeerfunctie voor SQL wordt aangegeven dat verschillende configuratie-instell
 
 | Instelling | Gegevenstype | Doel | Standaardwaarde |
 | --- | --- | --- | --- |
-| queryTimeout |tekenreeks |Hiermee stelt u de time-out voor de uitvoering van de SQL-query |5 minuten ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |BOOL |Zorgt ervoor dat de SQL-query die wordt gebruikt door het beleid voor high-water mark weglaten de component ORDER BY. Zie [High-Water Mark beleid](#HighWaterMarkPolicy) |false |
+| queryTimeout |string |Hiermee stelt u de time-out voor de uitvoering van de SQL-query |5 minuten ("00: 05:00") |
+| disableOrderByHighWaterMarkColumn |bool |Zorgt ervoor dat de SQL-query die wordt gebruikt door het beleid voor high-water mark weglaten de component ORDER BY. Zie [High-Water Mark beleid](#HighWaterMarkPolicy) |false |
 
 Deze instellingen worden gebruikt de `parameters.configuration` object in de definitie van de indexeerfunctie. Bijvoorbeeld, als u wilt de querytime-out ingesteld op 10 minuten, maken of bijwerken van de indexeerfunctie met de volgende configuratie:
 
@@ -314,31 +315,31 @@ Deze instellingen worden gebruikt de `parameters.configuration` object in de def
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-**V: kan ik Azure SQL-indexer gebruiken met SQL-databases die worden uitgevoerd op virtuele IaaS-machines in Azure?**
+**VRAAG: Kan ik Azure SQL-indexer gebruiken met SQL-databases die worden uitgevoerd op virtuele IaaS-machines in Azure?**
 
 Ja. U moet echter om toe te staan uw search-service verbinding maakt met uw database. Zie voor meer informatie, [configureren van een verbinding tussen een Azure Search-indexeerfunctie en SQL Server op een Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
-**V: kan ik Azure SQL-indexer gebruiken met SQL-databases die on-premises uitgevoerd?**
+**VRAAG: Kan ik Azure SQL-indexer gebruiken met SQL-databases die on-premises uitgevoerd?**
 
 Niet rechtstreeks. We raden aan of niet een rechtstreekse verbinding ondersteuning als dit dus moet u uw databases om internetverkeer te openen. Klanten zijn met dit scenario met bridge-technologieën, zoals Azure Data Factory geslaagd. Zie voor meer informatie, [gegevens pushen naar een Azure Search-index met behulp van Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
-**V: kan ik indexeerfunctie voor Azure SQL-databases dan SQL Server uitvoeren in IaaS op Azure gebruiken?**
+**VRAAG: Kan ik indexeerfunctie voor Azure SQL-databases dan SQL Server uitvoeren in IaaS op Azure gebruiken?**
 
 Nee. Dit scenario wordt ondersteund niet omdat de indexeerfunctie met databases dan SQL Server niet getest.  
 
-**V: kan ik meerdere indexeerfuncties uitgevoerd volgens een planning maken?**
+**VRAAG: Kan ik meerdere indexeerfuncties uitgevoerd volgens een planning maken?**
 
 Ja. Echter kan alleen een indexeerfunctie worden uitgevoerd op één knooppunt tegelijk. Als u meerdere indexeerfuncties gelijktijdig worden uitgevoerd, kunt u omhoog schalen van uw zoekservice op meer dan één zoekeenheid.
 
-**V: bevat een indexeerfunctie hebben invloed op mijn werkbelasting van query's uitgevoerd?**
+**VRAAG: Heeft een indexeerfunctie uitvoeren van mijn werkbelasting query gevolgen?**
 
 Ja. Indexeerfunctie wordt uitgevoerd op een van de knooppunten in uw zoekservice en de resources van het knooppunt worden gedeeld tussen indexeren ten behoeve van query's en andere API-aanvragen. Als u intensieve werkbelastingen voor indexeren en query uitvoeren en een groot aantal 503-fouten of toenemende reactietijden optreden, kunt u overwegen [omhoog schalen van uw zoekservice](search-capacity-planning.md).
 
-**V: kan ik gebruik van een secundaire replica in een [failovercluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) als een gegevensbron?**
+**VRAAG: Kan ik gebruiken een secundaire replica in een [failovercluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) als een gegevensbron?**
 
 Dat hangt ervan af. Voor volledige indexering van een tabel of weergave, kunt u een secundaire replica. 
 
-Voor incrementele indexeren, Azure Search ondersteunt twee beleidsregels wijzigen: geïntegreerde SQL wijzigen bij te houden en een hoge watermerk.
+Azure Search ondersteunt voor incrementele indexeren, twee beleidsregels voor wijziging: In SQL geïntegreerde wijzigingen bijhouden en High-Water Mark.
 
 Op alleen-lezen replica's ondersteunt SQL database geen geïntegreerde wijzigingen bijhouden. Daarom moet u het beleid voor High-Water Mark gebruiken. 
 
@@ -348,7 +349,7 @@ Als u probeert te rowversion gebruiken op een alleen-lezen replica, ziet u de vo
 
     "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
-**V: kan ik een alternatieve, niet-tijdstempelkolom gebruiken voor het bijhouden van high-water mark?**
+**VRAAG: Kan ik een alternatieve, niet-tijdstempelkolom gebruiken voor het bijhouden van high-water mark?**
 
 Het wordt niet aanbevolen. Alleen **rowversion** kunt voor het synchroniseren van betrouwbare gegevens. Echter, afhankelijk van uw toepassingslogica kan het zijn veilig als:
 

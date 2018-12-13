@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309359"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310365"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Hoe: uw Azure AD join-implementatie plannen
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedure: Uw implementatie van Azure AD-deelname plannen
 
 
 Azure AD join kunt u apparaten koppelen rechtstreeks naar Azure AD-Tenant zonder de noodzaak om te koppelen aan on-premises Active Directory bij om uw gebruikers productief als veilig te houden. Azure AD join is nu klaar voor ondernemingen voor zowel op schaal en binnen het bereik implementaties.   
@@ -91,9 +91,9 @@ Deze scenario's hoeft u niet een federatieserver voor verificatie te configurere
 
 Een federatieve omgeving moet een id-provider die ondersteuning biedt voor WS-Trust- en WS-Federation-protocollen zijn:
 
-- **WS-Federation:** dit protocol is vereist voor een apparaat toevoegen aan Azure AD.
+- **WS-Federation:** Dit protocol is vereist voor een apparaat toevoegen aan Azure AD.
 
-- **WS-Trust:** dit protocol is vereist om aan te melden bij een Azure AD gekoppelde apparaat. 
+- **WS-Trust:** Dit protocol is vereist voor het aanmelden bij een Azure AD gekoppelde apparaat. 
 
 Als uw identiteitsprovider geen ondersteuning biedt voor deze protocollen, werkt Azure AD join niet systeemeigen. Beginnen met Windows 10 1809, uw gebruikers kunnen zich aanmelden met een apparaat dat is toegevoegd aan Azure AD met een op basis van SAML identiteitsprovider via [web-aanmelding op Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Op dit moment is webaanmelding een alleen-preview-functie.
 
@@ -102,7 +102,7 @@ Als uw identiteitsprovider geen ondersteuning biedt voor deze protocollen, werkt
 
 U kunt smartcards of certificaten gebaseerde verificatie niet gebruiken om apparaten aan Azure AD. Smartcards kan echter aanmelden bij Azure AD gekoppelde apparaten hebt u AD FS geconfigureerd worden gebruikt.
 
-**Aanbeveling:** implementeren Windows Hello voor bedrijven voor sterk, wachtwoord zonder verificatie van Windows 10-apparaten.
+**Aanbeveling:** Implementeer Windows Hello voor bedrijven voor sterk, wachtwoord zonder verificatie van Windows 10-apparaten.
 
 
 ### <a name="user-configuration"></a>Gebruikersconfiguratie
@@ -127,7 +127,7 @@ Azure AD join:
 
 - Is niet van toepassing op eerdere versies van Windows en andere besturingssystemen. Als u Windows 7/8.1-apparaten hebt, moet u upgraden naar Windows 10 voor het implementeren van Azure AD join.
  
-**Aanbeveling:** altijd de nieuwste versie van Windows 10 gebruiken om te profiteren van de bijgewerkte functies.
+**Aanbeveling:** Gebruik altijd de nieuwste versie van Windows 10 om te profiteren van de bijgewerkte functies.
 
 
 ### <a name="management-platform"></a>Het platform voor wachtwoordbeheer
@@ -155,7 +155,7 @@ Als uw MDM-oplossing niet beschikbaar via de app-galerie van Azure AD is, kunt u
 
 U kunt via CO-beheer, SCCM gebruiken voor het beheren van bepaalde aspecten van uw apparaten terwijl beleidsregels worden geleverd via uw MDM-platform. Microsoft Intune kunt CO-beheer met SCCM. Zie voor meer informatie, [CO-beheer voor Windows 10-apparaten](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Als u een MDM-product dan Intune gebruikt, neem contact op met uw MDM-provider op CO-beheer van toepassing zijn scenario's.
 
-**Aanbeveling:** Overweeg MDM alleen management voor Azure AD apparaten gekoppelde.
+**Aanbeveling:** Houd rekening met MDM alleen management voor Azure AD apparaten gekoppelde.
 
 
 
@@ -185,13 +185,13 @@ Als uw apps worden gebouwd en/of on-premises gehost moet u ze toevoegen aan vert
 
 Als u AD FS, Zie [controleren en beheren van eenmalige aanmelding met AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Aanbeveling:** rekening houden met hosting in de cloud (bijvoorbeeld Azure) en integreren met Azure AD voor een betere ervaring.
+**Aanbeveling:** Houd rekening met hosting in de cloud (bijvoorbeeld Azure) en integreren met Azure AD voor een betere ervaring.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>On-premises toepassingen die afhankelijk zijn van verouderde protocollen
 
 Gebruikers krijgen eenmalige aanmelding van Azure AD gekoppelde apparaten als het apparaat toegang tot een domeincontroller heeft. 
 
-**Aanbeveling:** implementeren [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) om toegang te beveiligen voor deze toepassingen.
+**Aanbeveling:** Implementeer [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) om toegang te beveiligen voor deze toepassingen.
 
 
 ### <a name="on-premises-network-shares"></a>On-premises netwerkshares
@@ -209,11 +209,11 @@ Terwijl printers kunnen niet in een cloudomgeving alleen automatisch worden gede
 
 Azure AD gekoppelde apparaten ondersteunen geen on-premises toepassingen die afhankelijk zijn van verificatie van de machine. 
 
-**Aanbeveling:** buiten gebruik stellen van deze toepassingen en verplaatst naar hun moderne alternatieven te overwegen.
+**Aanbeveling:** Houd rekening met buiten gebruik stellen van deze toepassingen en verplaatst naar hun moderne alternatieven.
 
 ### <a name="remote-desktop-services"></a>Externe bureaubladservices
 
-Extern bureaublad verbinding met een Azure AD gekoppelde apparaten is vereist voor de hostmachine naar een Azure AD zijn toegevoegd of toegevoegd aan Hybrid Azure AD. Extern bureaublad van een verwijderd of niet-Windows-apparaat wordt niet ondersteund. Zie voor meer informatie, [verbinding maken met Azure AD externe pc die lid is](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
+Extern bureaublad verbinding met een Azure AD gekoppelde apparaten is vereist voor de hostmachine naar een Azure AD zijn toegevoegd of toegevoegd aan Hybrid Azure AD. Extern bureaublad van een verwijderd of niet-Windows-apparaat wordt niet ondersteund. Zie voor meer informatie, [verbinding maken met Azure AD externe pc die lid is](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Begrijp welke mogelijkheden u inrichting
@@ -310,9 +310,9 @@ Selecteer **sommige** of **alle** op basis van het bereik van uw implementatie.
 
 Op basis van uw bereik valt, gebeurt het volgende: 
 
-- **Gebruiker is in MDM bereik**: als u een Azure AD Premium-abonnement hebt, MDM-registratie, samen met Azure AD join is geautomatiseerd. Alle binnen het bereik gebruikers moeten een juiste licentie hebben voor uw MDM. Als de MDM-registratie mislukt in dit scenario, wordt Azure AD join eveneens teruggedraaid.
+- **Gebruiker is in MDM bereik**: Als u een Azure AD Premium-abonnement hebt, is MDM-registratie geautomatiseerd, samen met Azure AD join. Alle binnen het bereik gebruikers moeten een juiste licentie hebben voor uw MDM. Als de MDM-registratie mislukt in dit scenario, wordt Azure AD join eveneens teruggedraaid.
     
-- **Gebruiker is niet binnen het bereik van MDM**: als gebruikers zich niet binnen het bereik voor MDM, Azure AD join zonder een MDM-registratie is voltooid. Dit resulteert in een niet-beheerd apparaat.
+- **Gebruiker is niet binnen het bereik van MDM**: Als gebruikers zich niet binnen het bereik voor MDM, Azure AD join zonder een MDM-registratie is voltooid. Dit resulteert in een niet-beheerd apparaat.
 
 
 ### <a name="mdm-urls"></a>MDM-URL 's
@@ -340,7 +340,7 @@ MAM geldt niet voor Azure AD join.
 
 Als u inschakelen status roaming naar Azure AD wilt zodat gebruikers hun instellingen via apparaten synchroniseren kunnen, raadpleegt u [inschakelen Enterprise State Roaming in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
 
-**Aanbeveling**: Schakel deze instelling zelfs voor hybride Azure AD gekoppelde apparaten.
+**Aanbeveling**: Schakel deze instelling ook voor hybride Azure AD gekoppelde apparaten.
 
 
 ## <a name="configure-conditional-access"></a>Voorwaardelijke toegang configureren

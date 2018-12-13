@@ -1,5 +1,5 @@
 ---
-title: Afgeschaft cognitieve vaardigheden (Azure Search) | Microsoft Docs
+title: Afgeschafte cognitieve vaardigheden - Azure Search
 description: Deze pagina bevat een lijst met cognitief zoeken vaardigheden die worden beschouwd als afgeschaft en wordt niet ondersteund in de nabije toekomst.
 services: search
 manager: pablocas
@@ -10,20 +10,21 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 6bd364ea9923b1c8cdd7c96fc29cb91dff88ec95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52449944"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311725"
 ---
-#    <a name="deprecated-cognitive-seach-skills"></a>Zoek in afgeschaft cognitieve vaardigheden
+#    <a name="deprecated-cognitive-search-skills"></a>Afgeschafte Cognitief zoeken vaardigheden
 
 Dit document beschrijft cognitieve vaardigheden die worden beschouwd als afgeschaft. Gebruik de volgende handleiding voor de inhoud:
 
-* Naam van de kwalificatie: De naam van de vaardigheden die wordt afgeschaft, het wordt toegewezen aan de @odata.type kenmerk.
-* Laatste beschikbare api-versie: de laatste versie van de Azure search openbare API via welke vaardigheden, waarin de bijbehorende vaardigheden afgeschaft kan worden gemaakt/bijgewerkt.
-* Einde van ondersteuning: de laatste dag dat de bijbehorende vaardigheid wordt beschouwd als niet-ondersteund. Eerder hebt gemaakt kennis en vaardigheden nog steeds moeten blijven werken, maar gebruikers moeten stappen van een afgeschafte vaardigheid worden aanbevolen.
+* Naam van de kwalificatie: De naam van de vaardigheden die wordt afgeschaft, wordt deze toegewezen aan de @odata.type kenmerk.
+* Laatste beschikbare api-versie: De laatste versie van de Azure zoeken naar openbare API via welke vaardigheden waarin de bijbehorende afgeschaft vaardigheid kan worden gemaakt/bijgewerkt.
+* Einde van ondersteuning: De laatste dag dat de bijbehorende vaardigheid wordt beschouwd als niet-ondersteund. Eerder hebt gemaakt kennis en vaardigheden nog steeds moeten blijven werken, maar gebruikers moeten stappen van een afgeschafte vaardigheid worden aanbevolen.
 * Aanbevelingen: Migratiepad doorsturen naar een ondersteunde vaardigheid gebruiken. Gebruikers wordt aangeraden om te volgen de aanbevelingen om door te gaan om ondersteuning te ontvangen.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -42,7 +43,7 @@ Gebruik [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-en
 
 Om te migreren naar de [entiteit erkenning vaardigheid](cognitive-search-skill-entity-recognition.md), u moet een of meer van de volgende wijzigingen aan de definitie van de kwalificatie uitvoeren. U kunt bijwerken met de kwalificatie definitie met behulp van de [vaardigheden API Update](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Houd er rekening mee_: betrouwbaarheidsscore als een concept wordt momenteel niet ondersteund. Het wordt in de nabije toekomst worden ondersteund. De `minimumPrecision` parameter bestaat op de `EntityRecognitionSkill` voor toekomstig gebruik en voor achterwaartse compatibiliteit.
+_Houd er rekening mee_: Betrouwbaarheidsscore als een concept wordt momenteel niet ondersteund. Het wordt in de nabije toekomst worden ondersteund. De `minimumPrecision` parameter bestaat op de `EntityRecognitionSkill` voor toekomstig gebruik en voor achterwaartse compatibiliteit.
 
 1. *(Vereist)*  Wijzigen de `@odata.type` van `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` naar `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

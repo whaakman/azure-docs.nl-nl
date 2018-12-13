@@ -1,5 +1,5 @@
 ---
-title: Query-typen en de samenstelling in Azure Search | Microsoft Docs
+title: Typen query's en de samenstelling - Azure Search
 description: Basisbeginselen voor het bouwen van een zoekopdracht in Azure Search met behulp van parameters om te filteren, selecteert en resultaten sorteren.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: a1dad30148da9f6b322c75fd40dc01098c4d6b63
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 03ec588b1627b82a01021a9b71958e9d66aab0ce
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054245"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315584"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Typen query's en de samenstelling in Azure Search
 
@@ -152,7 +153,7 @@ In Azure Search, waarbij de nadruk ligt het exacte aantal zoekresultaten die ove
 
 De volgende tabel bevat de API's en methoden op basis van een hulpprogramma voor het verzenden van query's.
 
-| Methodologie | Beschrijving |
+| Methodologie | Description |
 |-------------|-------------|
 | [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | De client die kan worden gebruikt om op te vragen van een Azure Search-index.  <br/>[Meer informatie.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Documenten zoeken (REST-API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET of POST-methoden op een index, met behulp van de queryparameters voor aanvullende invoer.  |

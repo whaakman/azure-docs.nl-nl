@@ -10,17 +10,15 @@ ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 33ceece70c920bcb8bfd49fcfc8ff544af592b6b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 49f515c4321b13652d64c2e6f5b8e44ed6a29bca
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088201"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188092"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Verzamelen van Azure-service-logboeken en metrische gegevens voor gebruik in Log Analytics
 
@@ -73,7 +71,7 @@ Azure-resources die ondersteuning bieden voor [Azure monitor](../../azure-monito
 > [!NOTE]
 > Het verzenden van multidimensionale metrische gegevens naar Log Analytics via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
 >
-> *Een voorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Echter, als geëxporteerd via diagnostische instellingen voor die de metrische gegevens wordt weergegeven als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
+> *Bijvoorbeeld*: De metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een wachtrijniveau. Echter, als geëxporteerd via diagnostische instellingen voor die de metrische gegevens wordt weergegeven als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
 >
 >
 

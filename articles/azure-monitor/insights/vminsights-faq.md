@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/08/2018
 ms.author: magoedte
-ms.openlocfilehash: f5865cf72f413db49e70a08305de54aff955607b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a97a7be0eaa8438a4df27b610106ec6ab9f60d30
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075230"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184386"
 ---
 # <a name="azure-monitor-for-vms-preview-faq"></a>Azure Monitor voor virtuele machines (preview) Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Monitor voor virtuele machines. Als u aanvullende vragen over de oplossing hebt, gaat u naar de [Azure-discussieforum](https://feedback.azure.com/forums/34192--general-feedback) en plaats uw vraag. Bij vragen vaak worden gesteld, toevoegen we ze aan dit artikel, zodat ze snel en eenvoudig kunnen worden gevonden.
@@ -67,7 +66,7 @@ De Azure-Monitor voor de functie voor toewijzing van virtuele machines is gebase
 * Bewaakte VM's zijn nu in het knooppunt voor de client en de ring diagram de verhouding van bewaakte naar niet-bewaakte virtuele machines geeft. U kunt ook de lijst met computers filteren als de groep wordt uitgevouwen.
 * Bewaakte virtuele machines zijn nu in de knooppunten poort groep en het ringdiagram geeft de verhouding van bewaakte naar niet-bewaakte computers. U kunt ook de lijst met computers filteren als de groep wordt uitgevouwen.
 * De stijl van de kaart is meer consistent zijn met het Toepassingsoverzicht van Azure Application Insights bijgewerkt.
-* De deelvensters aan clientzijde zijn bijgewerkt, maar de volledige set integraties gebruikt die werden ondersteund in Serviceoverzicht nog hebt: updatebeheer, bijhouden, beveiliging en -servicedesk. 
+* De deelvensters aan clientzijde zijn bijgewerkt, maar de volledige set integraties gebruikt die werden ondersteund in Serviceoverzicht nog hebt: Updatebeheer, bijhouden van wijzigingen, beveiliging en -servicedesk. 
 * De optie voor het kiezen van groepen en computers toe te wijzen, is bijgewerkt. Ondersteunt nu abonnementen, resourcegroepen, schaalsets van virtuele Azure-machine en cloudservices.
 * U kunt nieuwe Serviceoverzicht machine-groepen maken in de Azure-Monitor voor de functie voor virtuele machines toewijzen. 
 

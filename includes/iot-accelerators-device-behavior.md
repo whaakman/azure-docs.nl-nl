@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: cb1392bd70c92ae4f6bfc6707198c3079ad7ecef
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b0dd0c0c0c300b4db94c1ab22205f9e808556f0b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285798"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166824"
 ---
 ## <a name="state-behavior"></a>Status gedrag
 
-De [simulatie](../articles/iot-accelerators/iot-accelerators-device-simulation-device-schema.md#simulation) gedeelte van het modelschema apparaat definieert de interne status van een gesimuleerd apparaat:
+De [simulatie](../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) gedeelte van het modelschema apparaat definieert de interne status van een gesimuleerd apparaat:
 
 - `InitialState` initiële waarden voor alle eigenschappen van het apparaat staat object definieert.
 - `Script` een JavaScript-bestand dat wordt uitgevoerd volgens een schema om bij te werken van de apparaatstatus wordt geïdentificeerd.
@@ -143,7 +143,7 @@ U vindt de volledige [Koelunit-01-state.js](https://github.com/Azure/device-simu
 
 ## <a name="method-behavior"></a>Werking van de methode
 
-De [CloudToDeviceMethods](../articles/iot-accelerators/iot-accelerators-device-simulation-device-schema.md#cloudtodevicemethods) gedeelte van het modelschema apparaat definieert de methoden die een gesimuleerd apparaat reageert op.
+De [CloudToDeviceMethods](../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) gedeelte van het modelschema apparaat definieert de methoden die een gesimuleerd apparaat reageert op.
 
 Het volgende voorbeeld ziet u de lijst met methoden die worden ondersteund door een gesimuleerde Koelunit-apparaat:
 

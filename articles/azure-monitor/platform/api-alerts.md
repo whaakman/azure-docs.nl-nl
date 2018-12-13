@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 0176cc5688f7210d5e444b094b360bb1e7df1e7c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d4701143a24fdf89b1c61744a9661fffdbb61ed3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136403"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278046"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van regels voor waarschuwingen in Log Analytics met REST-API
 De Log Analytics Alert REST API kunt u waarschuwingen in Log Analytics maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
@@ -102,7 +100,7 @@ Alle acties hebben de eigenschappen in de volgende tabel.  Verschillende typen w
 ### <a name="retrieving-actions"></a>Bij het ophalen van acties
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../azure-monitor/platform/alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 De Get-methode gebruiken om op te halen van alle acties voor een schema.
 
@@ -125,7 +123,7 @@ De indeling van de aanvraag voor het maken van een nieuwe actie verschilt per ac
 ### <a name="deleting-actions"></a>Acties verwijderen
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../azure-monitor/platform/alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Gebruik de Delete-methode met de actie-ID om te verwijderen van een actie.
 
@@ -146,7 +144,7 @@ Een planning moet slechts één actie bij waarschuwing hebben.  Waarschuwingsact
 | Webhookacties | Gegevens van waarschuwingen, pushen naar gewenste service als JSON |Niet vereist als de waarschuwingen worden uitgebreid naar Azure|
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../azure-monitor/platform/alerts-extend.md).
 
 #### <a name="thresholds"></a>Drempelwaarden
 Een actie bij waarschuwing mag slechts één drempelwaarde hebben.  Als de resultaten van een opgeslagen zoekopdracht overeenkomen met de drempelwaarde in een actie die is gekoppeld aan die zoekopdracht, worden alle andere processen in die actie uitgevoerd.  Een actie kan ook alleen een drempelwaarde bevatten, zodat deze kan worden gebruikt met de acties die van andere typen die geen drempelwaarden bevatten.
@@ -249,7 +247,7 @@ Gebruik de Put-methode met de ID van een bestaande actie om een actie van de ern
 #### <a name="action-groups"></a>Actiegroepen
 Alle waarschuwingen in Azure, gebruik actiegroep als het standaardmechanisme voor het verwerken van acties. Met de actiegroep, kunt u uw acties één keer opgeven en koppel vervolgens de actie die u wilt meerdere waarschuwingen - binnen Azure. Zonder de noodzaak om te declareren dezelfde acties herhaaldelijk telkens opnieuw. Actiegroepen ondersteuning voor meerdere acties - inclusief e-mail, SMS, Spraakoproep, ITSM-verbinding, Automation-Runbook, Webhook URI en meer. 
 
-Voor gebruikers die hun waarschuwingen hebt uitgebreid naar Azure, hebt een planning nu actiegroep informatie doorgegeven, samen met de drempelwaarde, kunnen een waarschuwing wilt maken. Details van de e-mail, Webhook-URL's, Runbook-automatisering details en andere acties moeten worden gedefinieerd in naast een actiegroep eerst voordat het maken van een waarschuwing; een kunt maken [actiegroep van Azure Monitor](../../monitoring-and-diagnostics/monitoring-action-groups.md) in de Portal of gebruik [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+Voor gebruikers die hun waarschuwingen hebt uitgebreid naar Azure, hebt een planning nu actiegroep informatie doorgegeven, samen met de drempelwaarde, kunnen een waarschuwing wilt maken. Details van de e-mail, Webhook-URL's, Runbook-automatisering details en andere acties moeten worden gedefinieerd in naast een actiegroep eerst voordat het maken van een waarschuwing; een kunt maken [actiegroep van Azure Monitor](../../azure-monitor/platform/action-groups.md) in de Portal of gebruik [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Koppeling van de actiegroep toevoegen aan een waarschuwing, geef de unieke ID voor Azure Resource Manager van de actiegroep in het definitie van de waarschuwing. Hieronder vindt u een voorbeeld van afbeelding:
 
@@ -285,7 +283,7 @@ Gebruik de Put-methode met de ID van een bestaande actie om een actiegroep die i
 Door standaardacties, volgt u de standaardsjabloon en de indeling voor meldingen. Maar gebruiker bepaalde acties kunt aanpassen, zelfs als ze worden beheerd door Actiegroepen. Op dit moment is aanpassing mogelijk dat het onderwerp van E-mail en Webhook-nettolading.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>E-mailonderwerp voor actiegroep aanpassen
-Het e-mailonderwerp voor waarschuwingen is standaard: waarschuwingsmelding <AlertName> voor <WorkspaceName>. Maar dit kan worden aangepast, zodat u kunt specifieke woorden of tags - kunt u eenvoudig gebruikmaken van filterregels in uw postvak in. De informatie aanpassen per e-mail verzenden-header moeten verzenden, samen met ActionGroup-details conform onderstaand voorbeeld.
+Standaard is het e-mailonderwerp voor waarschuwingen: Melding <AlertName> voor <WorkspaceName>. Maar dit kan worden aangepast, zodat u kunt specifieke woorden of tags - kunt u eenvoudig gebruikmaken van filterregels in uw postvak in. De informatie aanpassen per e-mail verzenden-header moeten verzenden, samen met ActionGroup-details conform onderstaand voorbeeld.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
@@ -317,7 +315,7 @@ Gebruik de Put-methode met de ID van een bestaande actie om een actiegroep die i
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 ##### <a name="customize-webhook-payload-for-action-group"></a>Webhookpayload aanpassen voor de actiegroep
-De webhook is verzonden via actiegroep voor log analytics heeft standaard een vaste structuur. Maar een de JSON-nettolading kunt aanpassen met behulp van specifieke variabelen die worden ondersteund, om te voldoen aan de vereisten van de webhook-eindpunt. Zie voor meer informatie, [webhookactie voor waarschuwingsregels](../../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md). 
+De webhook is verzonden via actiegroep voor log analytics heeft standaard een vaste structuur. Maar een de JSON-nettolading kunt aanpassen met behulp van specifieke variabelen die worden ondersteund, om te voldoen aan de vereisten van de webhook-eindpunt. Zie voor meer informatie, [webhookactie voor waarschuwingsregels](../../azure-monitor/platform/alerts-log-webhook.md). 
 
 De details van de webhook aanpassen hoeven in te verzenden, samen met details van ActionGroup en worden toegepast op alle Webhook URI opgegeven binnen de actiegroep; conform onderstaand voorbeeld.
 
@@ -355,7 +353,7 @@ Gebruik de Put-methode met de ID van een bestaande actie om een actiegroep die i
 E-mailmeldingen verzenden e-mail naar een of meer ontvangers.  Ze bevatten de eigenschappen in de volgende tabel.
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties zoals e-mailmelding nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../azure-monitor/platform/alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties zoals e-mailmelding nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Eigenschap | Description |
@@ -399,7 +397,7 @@ Gebruik de Put-methode met de ID van een bestaande actie om een e-mailactie voor
 Herstel een runbook te starten in Azure Automation waarmee wordt geprobeerd om het probleem geïdentificeerd door de waarschuwing te verhelpen.  U moet maken van een webhook voor het runbook uit een herstelactie en geeft u de URI in de eigenschap WebhookUri.  Wanneer u deze actie met behulp van Azure portal maakt, wordt automatisch een nieuwe webhook gemaakt voor het runbook.
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties, zoals herstel met behulp van runbook nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../azure-monitor/platform/alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties, zoals herstel met behulp van runbook nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 De eigenschappen bevatten herstelbewerkingen in de volgende tabel.
 
@@ -458,7 +456,7 @@ Hieronder volgt een compleet voorbeeld om te maken van een nieuw e-mailmelding. 
 Webhookacties start een proces doordat aanroepen van een URL en eventueel een nettolading wordt verzonden.  Ze zijn vergelijkbaar met herstelacties tenzij ze zijn bedoeld voor webhooks die processen dan Azure Automation-runbooks kunnen aanroepen.  Ze bieden ook de aanvullende mogelijkheid van het leveren van een payload moet worden geleverd aan het extern proces.
 
 > [!NOTE]
-> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden acties zoals Webhook nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../azure-monitor/platform/alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden acties zoals Webhook nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Webhookacties hoeven niet een drempelwaarde, maar in plaats daarvan moeten worden toegevoegd aan een schema dat een actie bij waarschuwing met een drempelwaarde is.  
@@ -512,5 +510,5 @@ Gebruik de Put-methode met de ID van een bestaande actie om een webhookactie voo
 
 ## <a name="next-steps"></a>Volgende stappen
 * Gebruik de [REST-API voor het uitvoeren van zoekopdrachten in logboeken](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics.
-* Meer informatie over [waarschuwingen voor activiteitenlogboeken in azure-waarschuwingen](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
+* Meer informatie over [waarschuwingen voor activiteitenlogboeken in azure-waarschuwingen](../../azure-monitor/platform/alerts-unified-log.md)
 

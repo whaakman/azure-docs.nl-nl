@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 504bb56a7cb3b9582d5c8d2ab1e770d55b8ca9e5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ccccad1cb510c4988092467c723e117a47456aaf
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961617"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277502"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -145,7 +145,7 @@ Heartbeat
 
 Op een Windows-computer, kunt u de volgende informatie om te controleren of agents verbonden zijn met Log Analytics bekijken:
 
-1. Open in het Configuratiescherm, **Microsoft Monitoring Agent**. Op de **Azure Log Analytics** tabblad en de agent het volgende bericht weergegeven: **The Microsoft Monitoring Agent is verbonden met Log Analytics**.
+1. Open in het Configuratiescherm, **Microsoft Monitoring Agent**. Op de **Azure Log Analytics** tabblad en de agent het volgende bericht weergegeven: **De Microsoft Monitoring Agent is verbonden met Log Analytics**.
 2. Open het Windows-gebeurtenislogboek. Ga naar **toepassings- en servicelogboeken\operations Manager** en zoek naar gebeurtenis-ID 3000 en 5002 van de gebeurtenis-ID van de bron **serviceconnector**. Deze gebeurtenissen geven aan dat de computer is geregistreerd bij de Log Analytics-werkruimte en of deze configuratie ontvangt.
 
 Als de agent kan niet met Log Analytics communiceren en de agent is geconfigureerd voor communicatie met internet via een firewall of proxyserver, controleert u of dat de firewall of proxyserver correct is geconfigureerd. Zie voor informatie over het controleren of de firewall of proxy-server correct is geconfigureerd, [netwerkconfiguratie voor Windows-agent](../azure-monitor/platform/agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
@@ -166,7 +166,7 @@ Om te bevestigen dat een Operations Manager-beheergroep met Log Analytics commun
 
 De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing:
 
-| Verbonden bron | Ondersteund | Beschrijving |
+| Verbonden bron | Ondersteund | Description |
 | --- | --- | --- |
 | Windows-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Windows-agents en start vervolgens de installatie van vereiste updates. |
 | Linux-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Linux-agents en start vervolgens de installatie van vereiste updates op ondersteunde distributies. |
@@ -205,9 +205,9 @@ Virtuele machines die zijn gemaakt via de on-demand Red Hat Enterprise Linux (RH
 
 Voor het maken van een nieuwe update-implementatie selecteert **update-implementatie plannen**. De **nieuwe Update-implementatie** deelvenster wordt geopend. Voer waarden in voor de eigenschappen die worden beschreven in de volgende tabel en klik vervolgens op **maken**:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
-| Naam |Unieke naam voor het identificeren van de update-implementatie. |
+| Name |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Linux of Windows|
 | Groepen om bij te werken (preview)|Definieer een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie. Zie voor meer informatie, [dynamische groepen](automation-update-management.md#using-dynamic-groups)|
 | Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
@@ -219,6 +219,21 @@ Voor het maken van een nieuwe update-implementatie selecteert **update-implement
 | Opnieuw opstarten van besturingselement| Bepaalt hoe vaak opnieuw opstarten moeten worden verwerkt. De volgende opties zijn beschikbaar:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates worden niet geïnstalleerd|
 
 Update-implementaties kunnen ook programmatisch worden gemaakt. Zie voor meer informatie over het maken van een Update-implementatie met de REST-API, [configuraties van Software-Update - maken](/rest/api/automation/softwareupdateconfigurations/create). Er is ook een voorbeeldrunbook dat kan worden gebruikt om een wekelijkse Update-implementatie te maken. Zie voor meer informatie over dit runbook, [een wekelijkse update-implementatie voor een of meer virtuele machines in een resourcegroep maken](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+
+### <a name="multi-tenant"></a>Cross-tenant-Update-implementaties
+
+Als u computers in een andere Azure-tenant rapporteren aan beheer van updates die u nodig hebt voor het vullen van hebt, moet u de volgende oplossing gebruiken om op te halen ze gepland. U kunt de [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) cmdlet met de switch `-ForUpdate` een planning maken en gebruiken de [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) cmdlet en door te geven de machines in de andere tenant om de `-NonAzureComputer` parameter. Het volgende voorbeeld toont een voorbeeld van hoe u dit doet:
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
 
 ## <a name="view-missing-updates"></a>Ontbrekende updates weergeven
 
@@ -238,7 +253,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 
 ### <a name="windows"></a>Windows
 
-|Classificatie  |Beschrijving  |
+|Classificatie  |Description  |
 |---------|---------|
 |Essentiële updates     | Een update voor een specifiek probleem die een kritieke bug niet-beveiliging.        |
 |Beveiligingsupdates     | Een update voor een probleem met de productspecifieke, productspecifieke beveiliging.        |
@@ -251,7 +266,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 
 ### <a name="linux"></a>Linux
 
-|Classificatie  |Beschrijving  |
+|Classificatie  |Description  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een probleem met de productspecifieke, productspecifieke beveiliging.         |
 |Andere Updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
@@ -310,7 +325,7 @@ Het verdient aanbeveling om de adressen die worden vermeld bij het definiëren v
 
 Naast de details die beschikbaar zijn in Azure portal, kunt u zoeken op basis van de logboeken doen. Selecteer op de pagina's van de oplossing, **Log Analytics**. De **zoeken in logboeken** deelvenster wordt geopend.
 
-U kunt ook meer informatie over het aanpassen van de query of het gebruik van verschillende clients en meer recentst: [Log Analytics een API-documentatie](
+U kunt ook meer informatie over het aanpassen van de query of het gebruik van verschillende clients en meer door naar de pagina:  [Een API documentatie over log Analytics](
 https://dev.loganalytics.io/).
 
 ### <a name="sample-queries"></a>Voorbeeldquery's

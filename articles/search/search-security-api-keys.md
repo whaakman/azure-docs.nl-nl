@@ -1,5 +1,5 @@
 ---
-title: Maken, beheren en beveiligen-beheerder en query api-sleutels voor Azure Search | Microsoft Docs
+title: Maken, beheren en beveiligen-beheerder en query api-sleutels - Azure Search
 description: API-sleutels beheren de toegang tot het service-eindpunt. Beheersleutels bieden toegang voor schrijven. Querysleutels kunnen worden gemaakt voor alleen-lezen toegang.
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 0a8975fad21645535a6e7407bcd2d59f537a9fff
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec2018
+ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727970"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316913"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Api-sleutels voor Azure Search-service maken en beheren
 
@@ -31,7 +32,7 @@ Een api-sleutel is een tekenreeks die bestaat uit een willekeurig gegenereerde c
 
 Twee typen sleutels worden gebruikt voor toegang tot uw search-service: beheerder (lezen-schrijven) en query (alleen-lezen).
 
-|Sleutel|Beschrijving|Limieten|  
+|Sleutel|Description|Limieten|  
 |---------|-----------------|------------|  
 |Gemeente|De volledige rechten verleent voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, maken en verwijderen van indexen, Indexeerfuncties en gegevensbronnen.<br /><br /> Twee beheersleutels, aangeduid als *primaire* en *secundaire* sleutels in de portal worden gegenereerd wanneer de service wordt gemaakt en kan afzonderlijk worden gegenereerd op aanvraag. Twee sleutels betekent dat, kunt u één sleutel tijdens het gebruik van de tweede sleutel voor blijvende toegang tot de service worden meegenomen.<br /><br /> Beheersleutels zijn alleen opgegeven in de HTTP-aanvraagheaders. U kunt een admin api-sleutel in een URL plaatsen.|Maximaal 2 per service|  
 |Query’s uitvoeren|Geeft het alleen-lezentoegang tot indexen en documenten, en worden doorgaans verleend aan clienttoepassingen die zoekaanvragen.<br /><br /> Querysleutels worden op aanvraag gemaakt. U kunt ze handmatig maken in de portal of programmatisch via de [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Querysleutels kunnen worden opgegeven in de header van een HTTP-aanvraag voor zoeken, suggesties of zoekbewerking is. U kunt ook een querysleutel als een parameter doorgeven op een URL. Afhankelijk van hoe uw clienttoepassing formuleert voor de aanvraag, is het misschien gemakkelijker om door te geven van de sleutel als een queryparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|50 per service|  
@@ -67,7 +68,7 @@ Sleutelbeveiliging wordt gegarandeerd door het beperken van toegang via de porta
 
 + In het dashboard, klikt u op **toegangsbeheer (IAM)** en vervolgens de **roltoewijzingen** tabblad om roltoewijzingen voor uw service.
 
-Leden van de volgende rollen kunnen weergeven en opnieuw genereren van sleutels: eigenaar, Inzender, [Search Service inzenders](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
+Leden van de volgende rollen kunnen weergeven en opnieuw genereren van sleutels: Eigenaar, Inzender, [Service inzenders zoeken](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 
 > [!Note]
 > Voor toegang op basis van identiteit via zoekresultaten, kunt u beveiligingsfilters Trim resultaten door identiteit, documenten waarvoor de aanvrager mag geen toegang verwijderen. Zie voor meer informatie, [beveiligingsfilters](search-security-trimming-for-azure-search.md) en [beveiligen met Active Directory](search-security-trimming-for-azure-search-with-aad.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 4c6765e54dc881c35e344f111e82721be0852052
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3bf2135e7d4cb0e34d6e38e8673d5d69f262979c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823755"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322394"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -21,17 +21,17 @@ Azure Monitor biedt één pijplijn voor het verkrijgen van toegang tot alle bewa
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
-## <a name="what-data-can-i-send-into-an-event-hub"></a>Welke gegevens kan ik in een event hub verzenden? 
+## <a name="what-data-can-i-send-into-an-event-hub"></a>Welke gegevens kan ik in een event hub verzenden?
 
 Er zijn verschillende 'categorieën' van de gegevens te controleren binnen uw Azure-omgeving, en de methode van de toegang tot gegevens van elke laag verschilt enigszins. Deze lagen kunnen normaal gesproken worden omschreven als:
 
-- **Toepassing door gegevens te controleren:** gegevens over de prestaties en functionaliteit van de code die u hebt geschreven en worden uitgevoerd op Azure. Voorbeelden van gegevens voor toepassingsbewaking zijn prestatietraces, toepassingslogboeken en telemetrie van de gebruiker. Toepassing bewakingsgegevens worden meestal verzameld in een van de volgende manieren:
+- **Bewakingsgegevens van de toepassing:** Gegevens over de prestaties en functionaliteit van de code die u hebt geschreven en worden uitgevoerd op Azure. Voorbeelden van gegevens voor toepassingsbewaking zijn prestatietraces, toepassingslogboeken en telemetrie van de gebruiker. Toepassing bewakingsgegevens worden meestal verzameld in een van de volgende manieren:
   - Door het instrumenteren van uw code met een SDK, zoals de [Application Insights-SDK](../application-insights/app-insights-overview.md).
-  - Door het uitvoeren van een bewakingsagent die luistert naar nieuwe op de machine toepassingslogboeken uitvoeren van uw toepassing, zoals de [Windows Azure Diagnoseagent](./azure-diagnostics.md) of [Linux Azure Diagnoseagent](../virtual-machines/extensions/diagnostics-linux.md).
-- **Gastbesturingssysteem door gegevens te controleren:** gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Voorbeelden van Gast OS bewakingsgegevens zou zijn Linux syslog- of Windows-systeemgebeurtenissen. Voor het verzamelen van dit soort gegevens, moet u een agent wilt installeren, zoals de [Windows Azure Diagnoseagent](./azure-diagnostics.md) of [Linux Azure Diagnoseagent](../virtual-machines/extensions/diagnostics-linux.md).
-- **Azure-resource door gegevens te controleren:** gegevens over de werking van een Azure-resource. Voor bepaalde typen Azure-resource, zoals virtuele machines, moet u er een gastbesturingssysteem en toepassingen om te controleren binnen die Azure-service is. De resource door gegevens te controleren is het hoogste niveau van de gegevens die beschikbaar zijn voor andere Azure-resources, zoals Network Security Groups, (omdat er is geen gastbesturingssysteem of de toepassing die wordt uitgevoerd in die bronnen). Deze gegevens kan worden verzameld met behulp van [instellingen voor resourcediagnose](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-- **Azure-abonnement door gegevens te controleren:** gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en de werking van Azure zelf. De [activiteitenlogboek](./monitoring-overview-activity-logs.md) bevat de meeste abonnement, zoals service health incidenten en Azure Resource Manager-controle door gegevens te controleren. U kunt deze gegevens met behulp van een Logboekprofiel verzamelen.
-- **Azure-tenant door gegevens te controleren:** gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory. Controles van de Azure Active Directory en aanmeldingen zijn voorbeelden van de tenant door gegevens te controleren. Deze gegevens kan worden verzameld met behulp van de diagnostische instelling van een tenant.
+  - Door het uitvoeren van een bewakingsagent die luistert naar nieuwe op de machine toepassingslogboeken uitvoeren van uw toepassing, zoals de [Windows Azure Diagnoseagent](./../azure-monitor/platform/diagnostics-extension-overview.md) of [Linux Azure Diagnoseagent](../virtual-machines/extensions/diagnostics-linux.md).
+- **Bewakingsgegevens van Guest OS:** Gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Voorbeelden van Gast OS bewakingsgegevens zou zijn Linux syslog- of Windows-systeemgebeurtenissen. Voor het verzamelen van dit soort gegevens, moet u een agent wilt installeren, zoals de [Windows Azure Diagnoseagent](./../azure-monitor/platform/diagnostics-extension-overview.md) of [Linux Azure Diagnoseagent](../virtual-machines/extensions/diagnostics-linux.md).
+- **Azure-resource door gegevens te controleren:** Gegevens over de werking van een Azure-resource. Voor bepaalde typen Azure-resource, zoals virtuele machines, moet u er een gastbesturingssysteem en toepassingen om te controleren binnen die Azure-service is. De resource door gegevens te controleren is het hoogste niveau van de gegevens die beschikbaar zijn voor andere Azure-resources, zoals Network Security Groups, (omdat er is geen gastbesturingssysteem of de toepassing die wordt uitgevoerd in die bronnen). Deze gegevens kan worden verzameld met behulp van [instellingen voor resourcediagnose](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **Azure-abonnement door gegevens te controleren:** Gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en de werking van Azure zelf. De [activiteitenlogboek](./monitoring-overview-activity-logs.md) bevat de meeste abonnement, zoals service health incidenten en Azure Resource Manager-controle door gegevens te controleren. U kunt deze gegevens met behulp van een Logboekprofiel verzamelen.
+- **Azure-tenant door gegevens te controleren:** Gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory. Controles van de Azure Active Directory en aanmeldingen zijn voorbeelden van de tenant door gegevens te controleren. Deze gegevens kan worden verzameld met behulp van de diagnostische instelling van een tenant.
 
 Gegevens van elke laag kunnen worden verzonden naar een event hub, waar deze kan worden opgehaald in een partner-hulpprogramma. De volgende secties wordt beschreven hoe u gegevens uit elke laag kunnen worden gestreamd naar een event hub kunt configureren. De stappen wordt ervan uitgegaan dat u de activa in die laag moet worden bewaakt al hebt.
 
@@ -91,7 +91,7 @@ De [Linux Azure Diagnostics-agent](../virtual-machines/extensions/diagnostics-li
 
 ### <a name="windows-data"></a>Windows-gegevens
 
-De [Windows Azure Diagnostics-agent](./azure-diagnostics.md) kan worden gebruikt voor het verzenden van gegevens van een Windows-machine naar een event hub te controleren. Dit doen door de event hub als een sink in de sectie privateConfig van het configuratiebestand WAD toe te voegen. [Raadpleeg dit artikel voor meer informatie over het toevoegen van de event hub-sink aan uw Windows Azure Diagnostics-agent](./azure-diagnostics-streaming-event-hubs.md).
+De [Windows Azure Diagnostics-agent](./../azure-monitor/platform/diagnostics-extension-overview.md) kan worden gebruikt voor het verzenden van gegevens van een Windows-machine naar een event hub te controleren. Dit doen door de event hub als een sink in de sectie privateConfig van het configuratiebestand WAD toe te voegen. [Raadpleeg dit artikel voor meer informatie over het toevoegen van de event hub-sink aan uw Windows Azure Diagnostics-agent](./../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 > [!NOTE]
 > U kunt voor streaming van Gast-OS bewakingsgegevens naar een event hub in de portal instellen. In plaats daarvan moet u handmatig het configuratiebestand bewerken.
@@ -114,10 +114,10 @@ Routering van uw bewakingsgegevens naar een event hub met Azure Monitor kunt u e
     2. Als u niet een invoegtoepassing in uw exemplaar van Splunk (bv installeren. Als een proxy of die worden uitgevoerd op Splunk Cloud), kunt u deze gebeurtenissen voor het gebruik van de Splunk HTTP Event Collector doorsturen [deze functie die wordt geactiveerd door nieuwe berichten in de event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** -instructies voor het instellen van SumoLogic gebruiken voor gegevens van een event hub zijn [beschikbaar hier](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 * **ArcSight** -slimme de ArcSight Azure Event Hub-connector is beschikbaar als onderdeel van [de ArcSight slimme connector verzameling hier](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
-* **Syslog-server** : als u wilt dat Azure Monitor om gegevens te streamen rechtstreeks naar een syslog-server, kunt u uitchecken [deze github-opslagplaats](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+* **Syslog-server** : als u wilt dat Azure Monitor om gegevens te streamen rechtstreeks naar een syslog-server, kunt u uitchecken [deze GitHub-opslagplaats](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Het activiteitenlogboek naar een opslagaccount archiveren](monitoring-archive-activity-log.md)
 * [Lees het overzicht van de Azure-activiteitenlogboek](monitoring-overview-activity-logs.md)
-* [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](monitor-alerts-unified-log-webhook.md)
+* [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](../azure-monitor/platform/alerts-log-webhook.md)
 

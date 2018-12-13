@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 588dcabb35660c860f3d96dd03c82ed95a1d4d5b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 47d597188c761921817bf7e2155548157e0d2eb3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087203"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185423"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Inzicht in prestaties in een AKS-cluster met Azure Monitor voor containers 
 Met Azure Monitor voor containers, kunt u de van prestatiegrafieken en de status voor het bewaken van de werkbelasting van uw Azure Kubernetes Service (AKS)-clusters vanuit twee perspectieven, rechtstreeks vanuit een AKS-cluster of alle AKS-clusters in een abonnement van Azure Monitor. Weergeven van Azure Container Instances (ACI) is ook mogelijk wanneer u een specifieke AKS-cluster bewaken.
@@ -94,10 +93,10 @@ De standaardpagina geopend wanneer u klikt op **Insights** is **Cluster**, en om
 
 Het diagram van de prestaties worden vier metrische gegevens voor prestaties weergegeven:
 
-- **Knooppunt CPU-gebruik&nbsp;%**: een samengevoegde perspectief van de CPU-gebruik voor het hele cluster. U kunt filteren dat de resultaten voor het tijdsbereik selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de kiezer percentielen boven de grafiek, ofwel afzonderlijk of gecombineerd. 
-- **Geheugengebruik knooppunt&nbsp;%**: een samengevoegde perspectief van geheugengebruik voor het hele cluster. U kunt filteren dat de resultaten voor het tijdsbereik selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de kiezer percentielen boven de grafiek, ofwel afzonderlijk of gecombineerd. 
-- **Aantal knooppunten**: een aantal knooppunten en de status van Kubernetes. Status van de clusterknooppunten weergegeven zijn *alle*, *gereed*, en *niet gereed* en kunnen worden gefilterd afzonderlijk of in de kiezer boven de grafiek worden gecombineerd. 
-- **Activiteit pod aantal**: een pod aantal en de status van Kubernetes. Status van de vertegenwoordigd schillen zijn *alle*, *in behandeling*, *uitgevoerd*, en *onbekende* en kunnen worden gefilterd, afzonderlijk of gecombineerd de kiezer boven de grafiek. 
+- **CPU-Knooppuntgebruik&nbsp;%**: Een samengevoegde perspectief van de CPU-gebruik voor het hele cluster. U kunt filteren dat de resultaten voor het tijdsbereik selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de kiezer percentielen boven de grafiek, ofwel afzonderlijk of gecombineerd. 
+- **Geheugengebruik knooppunt&nbsp;%**: Een samengevoegde perspectief van geheugengebruik voor het hele cluster. U kunt filteren dat de resultaten voor het tijdsbereik selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de kiezer percentielen boven de grafiek, ofwel afzonderlijk of gecombineerd. 
+- **Aantal knooppunten**: Een aantal knooppunten en de status van Kubernetes. Status van de clusterknooppunten weergegeven zijn *alle*, *gereed*, en *niet gereed* en kunnen worden gefilterd afzonderlijk of in de kiezer boven de grafiek worden gecombineerd. 
+- **Activiteit pod aantal**: Een pod aantal en de status van Kubernetes. Status van de vertegenwoordigd schillen zijn *alle*, *in behandeling*, *uitgevoerd*, en *onbekende* en kunnen worden gefilterd, afzonderlijk of gecombineerd de kiezer boven de grafiek. 
 
 Als u overschakelt naar **knooppunten**, **Controllers**, en **Containers** tabblad automatisch weergegeven aan de rechterkant van de pagina is het deelvenster met de eigenschap.  Het bevat de eigenschappen van het item dat is geselecteerd, met inbegrip van de labels die u definieert om te organiseren van Kubernetes-objecten. Klik op de **>>** koppelen in het deelvenster aan view\hide het deelvenster.  
 
@@ -275,4 +274,4 @@ Vaak is het handig om te maken van query's die beginnen met een voorbeeld of twe
 | **Selecteer de optie lijndiagram weergeven**:<br> Prestaties<br> &#124;waarbij ObjectName == "K8SContainer" en CounterName == "memoryRssBytes" &#124; AvgUsedRssMemoryBytes samenvatten avg(CounterValue) door bin (TimeGenerated, 30 min.), InstanceName = | Container-geheugen |
 
 ## <a name="alerting"></a>Waarschuwingen
-Azure Monitor voor containers bevat geen een vooraf gedefinieerde set waarschuwingen die u kunt kopiëren en wijzigen op basis van uw ondersteunende processen en procedures. Bekijk in de tussentijd [waarschuwingen maken met Azure Monitor](../../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json) en informatie over het maken van uw eigen set waarschuwingen.  
+Azure Monitor voor containers bevat geen een vooraf gedefinieerde set waarschuwingen die u kunt kopiëren en wijzigen op basis van uw ondersteunende processen en procedures. Bekijk in de tussentijd [waarschuwingen maken met Azure Monitor](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json) en informatie over het maken van uw eigen set waarschuwingen.  

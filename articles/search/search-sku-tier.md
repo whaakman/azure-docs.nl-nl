@@ -1,6 +1,6 @@
 ---
-title: Kies een prijscategorie laag of SKU voor Azure Search-service | Microsoft Docs
-description: "Azure Search kan worden ingericht op deze SKU's: gratis, Basic en Standard, waar Standard is beschikbaar in verschillende resourceconfiguraties en capaciteit niveaus."
+title: Kies een prijscategorie laag of SKU voor Azure Search-service - Azure Search
+description: "Azure Search kan worden ingericht op deze SKU's: Gratis, Basic en Standard, waar Standard is beschikbaar in verschillende resourceconfiguraties en capaciteit niveaus."
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.custom: seodec2018
+ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785304"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315550"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 

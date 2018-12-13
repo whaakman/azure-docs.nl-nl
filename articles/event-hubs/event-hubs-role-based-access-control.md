@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3d096a2b62dec0eb1ef2bb68099aef2353f29d68
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c7d38538b3876ae91c0ae3794e14ab11f08993c6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084155"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162882"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Actieve Directory Role-Based Access Control (preview)
 
@@ -34,7 +34,7 @@ Voor de eerste openbare preview, kunt u Azure AD-accounts en service-principals 
 
 De volgende sectie wordt beschreven hoe u maken en uitvoeren van een voorbeeldtoepassing die om een interactieve Azure vraagt AD-gebruiker aanmelden, het verlenen van toegang aan de gebruikersaccount Event Hubs en die identiteit gebruiken voor toegang tot de Event Hubs. 
 
-Deze inleiding beschrijft een eenvoudige consoletoepassing de [code waarvoor is op Github](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+Deze inleiding beschrijft een eenvoudige consoletoepassing de [code waarvoor is op GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
 
 ### <a name="create-an-active-directory-user-account"></a>Een Active Directory-gebruikersaccount maken
 
@@ -44,7 +44,7 @@ Als u nog steeds wilt maken van een speciaal account voor dit scenario [als volg
 
 ### <a name="create-an-event-hubs-namespace"></a>Een Event Hubs-naamruimte maken
 
-Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md) in een van de Azure-regio's die Event Hubs preview ondersteuning bieden voor RBAC: **VS Oost**, **VS Oost 2**, of **West-Europa** . 
+Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md) in een van de Azure-regio's die Event Hubs preview ondersteuning bieden voor RBAC: **VS Oost**, **VS Oost 2**, of **West-Europa**. 
 
 Nadat de naamruimte is gemaakt, gaat u naar de **Access Control (IAM)** pagina in de portal en klik vervolgens op **roltoewijzing toevoegen** de Azure AD-gebruikersaccount toevoegen aan de rol van eigenaar. Als u uw eigen gebruikersaccount gebruikt en u de naamruimte hebt gemaakt, bent u al in de rol van eigenaar. Zoek de naam van de web-App in een ander account toevoegen aan de rol, de **machtigingen toevoegen** deelvenster **Selecteer** veld en klik vervolgens op de vermelding. Klik vervolgens op **Opslaan**. Het gebruikersaccount heeft nu toegang tot de Event Hubs-naamruimte en naar de event hub die u eerder hebt gemaakt.
  
@@ -64,7 +64,7 @@ Voordat u het voorbeeld uitvoeren kunt, bewerkt u het bestand App.config en, afh
 - `clientId`: Ingesteld op **ApplicationId** waarde. 
 - `clientSecret`: Als u wilt zich aanmelden met het clientgeheim, kunt u deze in Azure AD maken. Een web-app of API ook gebruiken in plaats van een systeemeigen app. Voeg ook de app onder **Access Control (IAM)** in de naamruimte die u eerder hebt gemaakt.
 - `eventHubNamespaceFQDN`: Ingesteld op de volledig gekwalificeerde DNS-naam van uw zojuist gemaakte Event Hubs-naamruimte. bijvoorbeeld, `example.servicebus.windows.net`.
-- `eventHubName`: Ingesteld op de naam van de event hub die u hebt gemaakt.
+- `eventHubName`: Stel op de naam van de event hub die u hebt gemaakt.
 - De omleidings-URI die u in uw app in de vorige stappen hebt opgegeven.
  
 Wanneer u de consoletoepassing uitvoert, wordt u gevraagd om te selecteren van een scenario; Klik op **interactieve aanmelding voor gebruiker** door te typen van het nummer en druk op ENTER. De toepassing verschijnt een venster aanmelden, wordt u gevraagd om uw toestemming voor toegang tot de Event Hubs en gebruikt vervolgens de service uit te voeren via het scenario verzenden/ontvangen met behulp van de identiteit van de aanmelding.

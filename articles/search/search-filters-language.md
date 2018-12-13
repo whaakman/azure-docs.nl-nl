@@ -1,6 +1,6 @@
 ---
-title: Taalfilters in Azure Search | Microsoft Docs
-description: Filtercriteria door gebruiker beveiligings-id, taal, geo-locatie of numerieke waarden te verminderen van de zoekresultaten op query's in Azure Search, een gehoste cloud search-service op Microsoft Azure.
+title: Taalfilters voor meerdere talen inhoud van een zoekindex - Azure Search
+description: Filtercriteria ter ondersteuning van meerdere taal zoeken, scoping queryuitvoering taalspecifieke velden.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,12 +9,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 2bacffe64fed3e2ee0cc2eb983776b4ab7086e51
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec2018
+ms.openlocfilehash: aae081232d3633d3f7d8094979764606bf99430d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466578"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311181"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Hoe kunt u filteren op taal in Azure Search 
 

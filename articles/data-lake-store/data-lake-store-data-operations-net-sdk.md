@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391484"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163227"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Bestandssysteembewerkingen in Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
@@ -146,7 +146,7 @@ Het volgende codefragment retourneert de eigenschappen die zijn gekoppeld aan ee
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-De definitie van de methode `PrintDirectoryEntry` is beschikbaar als onderdeel van de voorbeeld-[-code op Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
+De definitie van de `PrintDirectoryEntry` methode is beschikbaar als onderdeel van het voorbeeld [op GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
 ## <a name="rename-a-file"></a>De naam van een bestand wijzigen
 Het volgende codefragment wijzigt de naam van een bestaand bestand in een Data Lake Storage Gen1-account.
@@ -164,7 +164,7 @@ Het volgende codefragment worden opgesomd mappen in een Data Lake Storage Gen1-a
         PrintDirectoryEntry(entry);
     }
 
-De definitie van de methode `PrintDirectoryEntry` is beschikbaar als onderdeel van de voorbeeld-[-code op Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
+De definitie van de `PrintDirectoryEntry` methode is beschikbaar als onderdeel van het voorbeeld [op GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="delete-directories-recursively"></a>Mappen recursief verwijderen
 Met het volgende codefragment worden een map, en alle bijbehorende submappen, recursief verwijderd.
@@ -174,8 +174,8 @@ Met het volgende codefragment worden een map, en alle bijbehorende submappen, re
 
 ## <a name="samples"></a>Voorbeelden
 Hier volgen enkele voorbeelden over het gebruik van de Data Lake Storage Gen1 bestandssysteem-SDK.
-* [Eenvoudig voorbeeld op Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [Geavanceerd voorbeeld op Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [Eenvoudig voorbeeld op GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Geavanceerd voorbeeld op GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Zie ook
 * [Accountbeheerbewerkingen in Data Lake Storage Gen1 met .NET SDK](data-lake-store-get-started-net-sdk.md)

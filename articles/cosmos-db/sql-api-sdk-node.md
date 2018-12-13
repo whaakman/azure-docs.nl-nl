@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5616ee6f6b855cb366f24c79c73d12a03b69b2ac
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 9a859c2a8feeaf60be56404367f126bbd252771b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865655"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164854"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js-SDK voor SQL-API: releaseopmerkingen en resources
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -106,8 +106,8 @@ ms.locfileid: "52865655"
 ### <a name="1.12.1"/>1.12.1</a>
 * Vaste een bug in executeStoredProcedure documenten die betrokken zijn waar speciale Unicode-tekens (LS, PS).
 * Er is een fout in verwerking van documenten met Unicode-tekens in de partitiesleutel opgelost.
-* Vaste ondersteuning voor het maken van verzamelingen met de naam van media. Github-probleem #114.
-* Vaste ondersteuning voor de machtiging van de verificatietoken. Github-probleem #178.
+* Vaste ondersteuning voor het maken van verzamelingen met de naam van media. GitHub-probleem #114.
+* Vaste ondersteuning voor de machtiging van de verificatietoken. GitHub-probleem #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * Ondersteuning toegevoegd voor een nieuwe [consistentieniveau](consistency-levels.md) ConsistentPrefix genoemd.
@@ -119,8 +119,8 @@ ms.locfileid: "52865655"
 * De optie voor het beheren van de graad van parallelle uitvoering voor cross-partitie query's toegevoegd.
 * De optie voor het uitschakelen van SSL-verificatie met het uitvoeren in Azure Cosmos DB-Emulator toegevoegd.
 * Het minimale doorvoer op gepartitioneerde verzamelingen van 10,100 RU/s 2500 RU/s verlaagd.
-* Het probleem opgelost voortzetting van token voor de verzameling met één partitie. Github-probleem #107.
-* Het probleem opgelost executeStoredProcedure bij het verwerken van 0 als één parameter. Github-probleem #155.
+* Het probleem opgelost voortzetting van token voor de verzameling met één partitie. GitHub-probleem #107.
+* Het probleem opgelost executeStoredProcedure bij het verwerken van 0 als één parameter. GitHub-probleem #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Vaste gebruikersagent header om op te nemen van de SDK-versie.
@@ -152,10 +152,10 @@ ms.locfileid: "52865655"
 * Fout verholpen RangePartitionResolver.resolveForRead waar is het niet koppelingen vanwege een ongeldige concat van resultaten retourneren.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Vaste hashPartitionResolver resolveForRead(): Er is geen opgegeven partitiesleutel wanneer die uitzondering, in plaats van een lijst met alle geregistreerde koppelingen retourneren is veroorzaakt.
+* Vaste hashPartitionResolver resolveForRead(): Wanneer is geen opgegeven partitiesleutel die uitzondering, in plaats van een lijst met alle geregistreerde koppelingen retourneren veroorzaakt.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Probleem opgelost [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -HTTPS-Agent toegewezen: voorkomen dat de algemene agent voor Azure Cosmos DB-toepassing wijzigen. Gebruik een toegewezen agent voor alle aanvragen van de lib.
+* Probleem opgelost [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -HTTPS-Agent toegewezen: Vermijd het wijzigen van de globale agent voor Azure Cosmos DB-doeleinden. Gebruik een toegewezen agent voor alle aanvragen van de lib.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Probleem opgelost [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - correct streepjes in de media-ID's worden verwerkt.

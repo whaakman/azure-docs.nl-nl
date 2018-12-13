@@ -1,5 +1,6 @@
 ---
-title: Bewaken van bewerkingen, gebeurtenissen en prestatiemeteritems voor openbare Basic Load Balancer | Microsoft Docs
+title: Bewaken van bewerkingen, gebeurtenissen en prestatiemeteritems voor openbare Basic Load Balancer
+titlesuffix: Azure Load Balancer
 description: Meer informatie over het inschakelen van waarschuwingsgebeurtenissen en registratie van de health-status voor openbare Basic Load Balancer-test
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: e8d38aaff2e7f20a3935608bcf4d610828d2b84f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261499"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164123"
 ---
 # <a name="log-analytics-for-public-basic-load-balancer"></a>Log analytics voor openbare Basic Load Balancer
 
@@ -25,9 +27,9 @@ ms.locfileid: "51261499"
 
 U kunt verschillende soorten logboeken in Azure gebruiken om te beheren en problemen oplossen Basic Load Balancers. Sommige van deze logboeken kunnen worden geopend via de portal. Alle logboeken kunnen worden opgehaald uit Azure blob-opslag, en worden bekeken in verschillende hulpprogramma's, zoals Excel en Power BI. U kunt meer informatie over de verschillende typen logboeken in de onderstaande lijst.
 
-* **Auditlogboeken:** kunt u [auditlogboeken van Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (voorheen bekend als de operationele Logboeken) om alle bewerkingen die worden verzonden naar uw Azure-abonnementen en hun status weer te geven. Auditlogboeken zijn standaard ingeschakeld en kunnen worden weergegeven in de Azure-portal.
-* **Waarschuwing gebeurtenislogboeken:** kunt u dit logboek om weer te geven van waarschuwingen die worden gegenereerd door de load balancer. De status voor de load balancer worden verzameld om de vijf minuten. Dit logboek wordt alleen geschreven als een load balancer-waarschuwingsgebeurtenis wordt gegenereerd.
-* **Statustestlogboeken:** kunt u dit logboek om problemen gedetecteerd door de statustest, zoals het aantal exemplaren in uw back-end-pool die geen aanvragen van de load balancer vanwege health test problemen ontvangen zijn weer te geven. Dit logboek wordt geschreven naar wanneer er een wijziging in de status van de test.
+* **Auditlogboeken:** U kunt [auditlogboeken van Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (voorheen bekend als de operationele Logboeken) om alle bewerkingen die worden verzonden naar uw Azure-abonnementen en hun status weer te geven. Auditlogboeken zijn standaard ingeschakeld en kunnen worden weergegeven in de Azure-portal.
+* **Logboeken voor waarschuwingen:** U kunt dit logboek gebruiken om weer te geven van waarschuwingen die worden gegenereerd door de load balancer. De status voor de load balancer worden verzameld om de vijf minuten. Dit logboek wordt alleen geschreven als een load balancer-waarschuwingsgebeurtenis wordt gegenereerd.
+* **Statustestlogboeken:** U kunt dit logboek gebruiken om problemen gedetecteerd door de statustest, zoals het aantal exemplaren in uw back-end-pool die geen aanvragen van de load balancer vanwege health test problemen ontvangen zijn weer te geven. Dit logboek wordt geschreven naar wanneer er een wijziging in de status van de test.
 
 > [!IMPORTANT]
 > Meld u analytics momenteel geldt alleen voor openbare Basic netwerktaakverdelers. Logboeken zijn alleen beschikbaar voor resources die zijn geïmplementeerd in het Resource Manager-implementatiemodel. U kunt Logboeken niet gebruiken voor resources in het klassieke implementatiemodel. Zie voor meer informatie over de implementatiemodellen [Understanding Resource Manager-implementatie en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -131,8 +133,8 @@ De JSON-uitvoer laat zien in het eigenschappenveld van de algemene informatie vo
 
 U kunt bekijken en analyseren van logboekgegevens van controle met behulp van een van de volgende methoden:
 
-* **Azure-hulpprogramma's:** gegevens ophalen uit de auditlogboeken via Azure PowerShell, de Azure-opdrachtregelinterface (CLI), de Azure REST API of de Azure previewportal. Stapsgewijze instructies voor elke methode worden beschreven in de [bewerkingen controleren met Resource Manager](../azure-resource-manager/resource-group-audit.md) artikel.
-* **Power BI:** als u nog geen een [Power BI](https://powerbi.microsoft.com/pricing) -account, kunt u proberen deze gratis. Met behulp van de [auditlogboeken van Azure-inhoudspakket voor Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), kunt u uw gegevens met vooraf geconfigureerde dashboards analyseren, of u weergaven aan de behoeften van uw behoeften kunt aanpassen.
+* **Azure-hulpprogramma's:** Informatie ophalen uit de auditlogboeken via Azure PowerShell, de Azure-opdrachtregelinterface (CLI), de Azure REST API of de Azure previewportal. Stapsgewijze instructies voor elke methode worden beschreven in de [bewerkingen controleren met Resource Manager](../azure-resource-manager/resource-group-audit.md) artikel.
+* **Power BI:** Als u nog geen een [Power BI](https://powerbi.microsoft.com/pricing) -account, kunt u proberen deze gratis. Met behulp van de [auditlogboeken van Azure-inhoudspakket voor Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), kunt u uw gegevens met vooraf geconfigureerde dashboards analyseren, of u weergaven aan de behoeften van uw behoeften kunt aanpassen.
 
 ## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Bekijk en analyseer de statustest en het gebeurtenislogboek
 

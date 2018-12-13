@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: b1a63862444969bbb7058841fb755e147dcf6909
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 878d9e635d82e52d8a47d47a135ba865f140c9e9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015837"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321883"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de Apache Hadoop-onderdelen en versies die beschikbaar met HDInsight?
 
@@ -28,7 +28,7 @@ Azure HDInsight biedt ondersteuning voor meerdere versies van de Hadoop-cluster 
 
 De component-versies die zijn gekoppeld aan de versies van HDInsight-cluster worden vermeld in de volgende tabel: 
 
-> [!NOTE]
+> [!NOTE]  
 > De standaardversie voor de HDInsight-service kan zonder kennisgeving worden gewijzigd. Als u een afhankelijkheid versie hebt, geeft u de HDInsight-versie wanneer u uw clusters met de .NET-SDK met Azure PowerShell en de klassieke Azure-CLI maken.
 
 | Onderdeel | HDInsight 4.0 (Preview) | HDInsight 3.6 (standaard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | 3.2 voor HDInsight | HDInsight 3.1 | HDInsight 3.0 |
@@ -60,9 +60,7 @@ De component-versies die zijn gekoppeld aan de versies van HDInsight-cluster wor
 
 De Hadoop-ecosysteem onderdeel versies die zijn gekoppeld aan het HDInsight-clusterversies kunnen wijzigen met updates in HDInsight. Om te controleren op Hadoop-onderdelen en om te controleren welke versies worden gebruikt voor een cluster, gebruikt u de Ambari REST-API. De **GetComponentInformation** opdracht haalt informatie op over de onderdelen van service. Zie voor meer informatie, de [Apache Ambari-documentatie][ambari-docs].
 
-Voor Windows-clusters is een andere manier om te controleren of de onderdeelversie Meld u aan bij een cluster met behulp van extern bureaublad en bekijk de inhoud van de map C:\apps\dist\.
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie voor meer informatie, [buitengebruikstelling van HDInsight Windows](#hdinsight-windows-retirement).
 
 ### <a name="release-notes"></a>Releaseopmerkingen
@@ -84,7 +82,7 @@ De volgende tabel bevat de versies van HDInsight die beschikbaar in de Azure-Por
 
 *&ast; HDInsight 3.5-ondersteuning is uitgebreid alleen voor Spark-clustertypen*
 
-> [!NOTE]
+> [!NOTE]  
 > Na de ondersteuning voor een versie is verlopen, wordt mogelijk niet beschikbaar via de Microsoft Azure-portal. Clusterversies blijven echter zijn beschikbaar met de `Version` parameter in de Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) opdracht en de .NET SDK tot de vervaldatum van de versie.
 >
 
@@ -104,7 +102,7 @@ De volgende tabel bevat de versies van HDInsight die **niet** beschikbaar in de 
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 oktober 2013 |Vanaf 12 mei 2014 |En met 31 mei 2015 |Ja |Nee |
 | HDInsight 1.6 |HDP 1.1 | |28 oktober 2013 |26 april 2014 |En met 31 mei 2015 |Nee |Nee |
 
-> [!NOTE]
+> [!NOTE]  
 > Maximaal beschikbare clusters met twee hoofdknooppunten worden geïmplementeerd die standaard voor HDInsight versie 2.1 en hoger. Ze zijn niet beschikbaar voor HDInsight versie 1.6-clusters.
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Enterprise-beveiligingspakket voor HDInsight
@@ -193,12 +191,12 @@ Beginnen met een HDInsight versie 3.4, heeft Microsoft HDInsight alleen op het b
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Service level agreement voor versies van HDInsight-cluster
 De service level agreement (SLA) wordt gedefinieerd in termen van een _ondersteuning venster_. Het venster ondersteuning is de periode gedurende welke een HDInsight-cluster-versie wordt ondersteund door Microsoft Customer Service and Support. Als de versie is een _ondersteuning voor de datum van afloop_ die is doorgegeven, is het HDInsight-cluster buiten het venster ondersteuning. Zie voor meer informatie over ondersteunde versies, de lijst met [ondersteunde versies van HDInsight-cluster](hdinsight-migrate-from-windows-to-linux.md). De vervaldatum voor de ondersteuning voor een opgegeven HDInsight versie X (nadat er een nieuwere X + 1-versie beschikbaar is) wordt berekend als de meest recente van:  
 
-* Formule 1: Voeg 180 dagen toe aan de datum waarop de HDInsight-clusterversie X werd uitgebracht.
-* Formule 2: 90 dagen toevoegen aan de datum waarop de HDInsight-clusterversie X + 1 beschikbaar in Azure portal is gemaakt.
+* 1-formule: 180 dagen toevoegen aan de datum waarop de HDInsight-clusterversie X werd uitgebracht.
+* 2-formule: 90 dagen toevoegen aan de datum waarop de HDInsight-clusterversie X + 1 beschikbaar in Azure portal is gemaakt.
 
 De _vervaldatum_ is de datum waarna de clusterversie in HDInsight kan worden gemaakt. Vanaf 31 juli 2017, u kan niet de grootte van een HDInsight-cluster na de vervaldatum. 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight-Windows-clusters (inclusief versie 2.1, 3.0, 3.1, 3.2 en 3.3) worden uitgevoerd op Azure Guest OS Family versie 4, die gebruikmaakt van de 64-bits versie van Windows Server 2012 R2. Azure Guest OS Family versie 4 ondersteunt de versies van .NET Framework 4.0, 4.5 4.5.1 en 4.5.2.
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Hortonworks releaseopmerkingen die zijn gekoppeld aan het HDInsight-versies
@@ -214,7 +212,7 @@ De sectie bevat koppelingen naar de release-opmerkingen voor de Hortonworks Data
   * [Opmerkingen bij de release Apache Hive](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843) zijn beschikbaar op de website van Apache.
 * HDInsight-clusterversie 3.2 maakt gebruik van een Hadoop-distributie die is gebaseerd op [Hortonworks Data Platform 2.2][hdp-2-2].
 
-  * Opmerkingen bij de release voor onderdelen die specifieke Apache beschikbaar zijn als volgt: [Hive 0,14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0,14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [algemene](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), en [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
+  * Opmerkingen bij de release voor onderdelen die specifieke Apache zijn als volgt beschikbaar: [Hive-0,14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0,14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [algemene](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [0.9.3 Storm](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), en [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 * HDInsight-clusterversie 3.1 maakt gebruik van een Hadoop-distributie die is gebaseerd op [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. 3.1 HDInsight-clusters die zijn gemaakt vóór November, 7, 2014, zijn gebaseerd op [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
 * HDInsight-clusterversie 3.0 maakt gebruik van een Hadoop-distributie die is gebaseerd op [Hortonworks Data Platform 2.0][hdp-2-0-8].
 * HDInsight-clusterversie 2.1 maakt gebruik van een Hadoop-distributie die is gebaseerd op [Hortonworks Data Platform 1.3][hdp-1-3-0].
@@ -222,41 +220,36 @@ De sectie bevat koppelingen naar de release-opmerkingen voor de Hortonworks Data
 
 
 
-
-
-
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Standaard configuratie en de virtuele machine knooppuntgrootten voor clusters
-De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voor HDInsight-clusters.
+De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voor HDInsight-clusters.  In deze grafiek is nodig om meer informatie over de VM-formaten moet worden gebruikt bij het maken van PowerShell of Azure CLI-scripts naar HDInsight-clusters implementeren.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Als u meer dan 32 worker-knooppunten in een cluster, moet u de grootte van een hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB aan RAM-geheugen.
-> 
-> 
 
 * Alle ondersteunde regio's met uitzondering van Brazilië-Zuid en Japan (West):
 
-  | Clustertype | Hadoop | HBase | Interactive Query | Storm | Spark | ML-Server |
+  | Clustertype | Hadoop | HBase | Interactive Query | Storm | Spark  | ML-Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | HEAD: standaard VM-grootte |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
-  | HEAD: aanbevolen VM-grootten |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A4 versie 2, A8 versie 2, A2m versie 2 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Werknemer: standaard VM-grootte |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Werknemer: aanbevolen VM-grootten |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | HEAD: standaard VM-grootte |D3 v2 |D3 v2 | D13,<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | HEAD: aanbevolen VM-grootten |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |A4 versie 2,<br/> A8 versie 2,<br/> A2m v2 |D12 v2<br/> D13 v2,<br/> D14 v2 |D12 v2<br/> D13 v2,<br/> D14 v2 |
+  | Werknemer: standaard VM-grootte |D3 v2 |D3 v2  | D13,<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | Werknemer: aanbevolen VM-grootten |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |D3 v2<br/> D4 v2<br/> D12 v2 |D4 v2<br/> D12 v2<br/> D13 v2,<br/> D14 v2 |D4 v2<br/> D12 v2<br/> D13 v2,<br/> D14 v2 |
   | ZooKeeper: standaard VM-grootte | |A4 v2 | |A2 v2 | | |
-  | ZooKeeper: aanbevolen VM-grootten | |A4 versie 2, A8 versie 2, A2m versie 2 | | A2 versie 2, A4 versie 2, A8 versie 2 | | |
-  | Edge: standaard VM-grootte | | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Edge: aanbevolen VM-grootte | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: aanbevolen VM-grootten | |A4 versie 2,<br/> A8 versie 2,<br/> A2m v2 | | A2 versie 2,<br/> A4 versie 2,<br/> A8 v2 | | |
+  | Edge: standaard VM-grootte | | | | | |D4 v2 |
+  | Edge: aanbevolen VM-grootte | | | | | |D4 v2<br/> D12 v2<br/> D13 v2,<br/> D14 v2 |
 * Brazilië-Zuid en Japan-West alleen (geen v2-grootte):
 
   | Clustertype | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
-  | HEAD: standaard VM-grootte |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | HEAD: aanbevolen VM-grootten |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Werknemer: standaard VM-grootte |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Werknemer: aanbevolen VM-grootten |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D13, D12 D14 |Windows: D12, D13, D14; Linux: D4, D13, D12 D14 |
+  | HEAD: standaard VM-grootte |D3 |D3  | D13,<br/> D14 |A3 |D12 |D12 |
+  | HEAD: aanbevolen VM-grootten |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
+  | Werknemer: standaard VM-grootte |D3 |D3  | D13,<br/> D14 |D3 |D4 |D4 |
+  | Werknemer: aanbevolen VM-grootten |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: standaard VM-grootte | |A2 | | A2 | | |
-  | ZooKeeper: aanbevolen VM-grootten | |A2, A3, A4 | |A2, A3, A4 | | |
-  | Edge: standaard VM-grootten | | | | | |Windows: D12; Linux: D4 |
-  | Edge: aanbevolen VM-grootten | | | | | |Windows: D12, D13, D14; Linux: D4, D13, D12 D14 |
+  | ZooKeeper: aanbevolen VM-grootten | |A2,<br/> A3<br/> A4 | |A2,<br/> A3<br/> A4 | | |
+  | Edge: standaard VM-grootten | | | | | |D4 |
+  | Edge: aanbevolen VM-grootten | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - HEAD staat bekend als *Nimbus* voor de Storm-cluster type.

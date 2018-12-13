@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 8080cdf78333eed9541311ba67221c713341a21a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b961dadbe8743f1485ef0d13a44a1bb0f3ce32b5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741569"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321372"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Hiermee stelt u verticaal automatisch schalen met virtuele-machineschaalset
 Dit artikel wordt beschreven hoe u verticaal schaalt Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) met of zonder beëindiging. Raadpleeg voor verticaal schalen van virtuele machines die zich niet in schaalsets, [verticaal schalen met Azure Automation virtuele Azure-machine](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -84,7 +84,7 @@ Nadat u de runbooks hebt geïmporteerd, moet u een webhook toevoegen aan het run
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Een waarschuwing toevoegen aan uw virtuele-machineschaalset
-Hieronder wordt een PowerShell-script dat laat zien hoe u een waarschuwing toevoegen aan een virtuele-machineschaalset ingesteld. Raadpleeg het volgende artikel om op te halen van de naam van de metrische waarde voor het starten van de waarschuwing in: [Azure Monitor autoscaling common metrics](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+Hieronder wordt een PowerShell-script dat laat zien hoe u een waarschuwing toevoegen aan een virtuele-machineschaalset ingesteld. Raadpleeg het volgende artikel om op te halen van de naam van de metrische waarde voor het starten van de waarschuwing in: [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -120,7 +120,7 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 Zie de volgende artikelen voor meer informatie over het maken van waarschuwingen:
 
 * [Voorbeelden van Azure Monitor PowerShell-snelstartgids](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* [Azure Monitor platformoverschrijdende CLI Quick Start-voorbeelden](../monitoring-and-diagnostics/insights-cli-samples.md)
+* [Azure Monitor platformoverschrijdende CLI Quick Start-voorbeelden](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Samenvatting
 In dit artikel hebt u geleerd eenvoudige voorbeelden van verticaal schalen. Met deze bouwstenen - Automation-account, runbooks, webhooks, waarschuwingen - kunt u verbinding maken met een uitgebreid scala aan gebeurtenissen met een aangepaste set acties.

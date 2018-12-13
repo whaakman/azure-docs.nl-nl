@@ -8,16 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 61a4e3700e88efba1ea9cea876b19e2f7ed4168b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b76bea6207cd6ac5d2ed570cf54dde7c52d5ff97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137067"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309617"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Overzicht van de oplossingsversneller Voorspeld onderhoud
 
 De oplossingsversneller Voorspeld onderhoud is een totaaloplossing voor een bedrijfsscenario die het punt voorspelt waarop naar verwachting een fout optreedt. U kunt deze oplossingsversneller proactief gebruiken voor activiteiten zoals het optimaliseren van onderhoud. De oplossing combineert belangrijke Azure IoT-oplossing accelerators services, zoals IoT Hub en een [Azure Machine Learning] [ lnk-machine-learning] werkruimte. Deze werkruimte bevat een model, gebaseerd op een openbare verzameling voorbeeldgegevens, om de resterende bruikbare levensduur (RUL) van een vliegtuigmotor te voorspellen. De oplossing implementeert het IoT-bedrijfsscenario volledig als een beginpunt zodat u een oplossing kunt plannen en implementeren die voldoet aan uw eigen specifieke zakelijke vereisten.
+
+De oplossingsversneller voor Predictief onderhoud [code is beschikbaar op GitHub](https://github.com/Azure/azure-iot-predictive-maintenance).
 
 ## <a name="logical-architecture"></a>Logische architectuur
 
@@ -43,7 +45,7 @@ Wanneer u de oplossingsversneller inricht, krijgt u een e-mailbericht met een ko
 
 ## <a name="simulated-devices"></a>Gesimuleerde apparaten
 
-In de solution accelerator is een gesimuleerd apparaat een vliegtuigmotor. De oplossing is ingericht met twee motoren die aan één vliegtuig zijn toegewezen. Elke motor verzendt vier typen telemetrie: Sensor 9, Sensor 11, Sensor 14 en Sensor 15 leveren de benodigde gegevens waarmee het Machine Learning-model de RUL voor de motor berekent. Elk gesimuleerd apparaat verzendt de volgende telemetrieberichten naar IoT Hub:
+In de solution accelerator is een gesimuleerd apparaat een vliegtuigmotor. De oplossing is ingericht met twee motoren die aan één vliegtuig zijn toegewezen. Elke motor verzendt vier typen telemetrie: Sensor 9, Sensor 11, Sensor 14 en Sensor 15 leveren de benodigde gegevens waarmee het Machine Learning-model voor het berekenen van de resterende bruikbare Levensduur van de engine. Elk gesimuleerd apparaat verzendt de volgende telemetrieberichten naar IoT Hub:
 
 *Aantal maal gebruikt*. Een cyclus is een uitgevoerde vlucht met een duur tussen twee en tien uur. Tijdens de vlucht worden elk half uur telemetriegegevens vastgelegd.
 
@@ -51,7 +53,7 @@ In de solution accelerator is een gesimuleerd apparaat een vliegtuigmotor. De op
 
 De gesimuleerde apparaten kunnen de volgende opdrachten verwerken die zijn verzonden vanaf de IoT Hub in de oplossing:
 
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
 | StartTelemetry |Bepaalt de status van de simulatie.<br/>Start het verzenden van telemetrie vanaf het apparaat |
 | StopTelemetry |Bepaalt de status van de simulatie.<br/>Stopt het verzenden van telemetrie vanaf het apparaat |
@@ -60,7 +62,7 @@ IoT Hub biedt een bevestiging van apparaatopdrachten.
 
 ## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics-job
 
-**Job: Telemetrie** verwerkt de inkomende telemetriestroom van het apparaat met behulp van twee instructies:
+**Taak: Telemetrie** is van invloed op de inkomende telemetriestroom apparaat is met behulp van twee instructies:
 
 * De eerste selecteert alle telemetrie van de apparaten en verzendt deze gegevens naar Blob Storage. Hier worden ze weergegeven in de web-app.
 * De tweede instructie berekent de gemiddelde sensorwaarden gedurende een sliding window van twee minuten en verzendt deze gegevens via Event Hub naar een **gebeurtenisprocessor**.

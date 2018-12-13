@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016690"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164634"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -39,7 +39,7 @@ Ja.
 
 De kern van het Service Fabric-clusters technologie kan worden gebruikt op computers met een willekeurige plaats in de hele wereld, combineren, zolang ze verbinding met het netwerk aan elkaar hebben. Echter, het bouwen en uitvoeren van deze clusters kunnen ingewikkeld zijn.
 
-Als u geïnteresseerd in dit scenario bent, raden we u aan in Neem contact op met ofwel ophalen via de [lijst van Service Fabric Github-problemen](https://github.com/azure/service-fabric-issues) of via uw ondersteuningsmedewerker om te verkrijgen van aanvullende richtlijnen. De Service Fabric-team werkt aan meer duidelijkheid, richtlijnen en aanbevelingen voor dit scenario. 
+Als u geïnteresseerd in dit scenario bent, raden we u aan in Neem contact op met ofwel ophalen via de [lijst van Service Fabric GitHub-problemen](https://github.com/azure/service-fabric-issues) of via uw ondersteuningsmedewerker om te verkrijgen van aanvullende richtlijnen. De Service Fabric-team werkt aan meer duidelijkheid, richtlijnen en aanbevelingen voor dit scenario. 
 
 Een aantal punten die u daarbij in overweging moet nemen: 
 

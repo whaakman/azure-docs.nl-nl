@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: faf8852df8b50c43affe32ede0f1e96d0bb80d3d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 25ea4f41ac1fa36c7f9b6f64bc7c4eede4702f38
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821239"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315176"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>De Azure Import/Export-service gebruiken voor het exporteren van gegevens uit Azure Blob storage
 In dit artikel bevat stapsgewijze instructies over het gebruik van de Azure Import/Export-service veilig grote hoeveelheden gegevens exporteren uit Azure Blob-opslag. De service vereist dat u voor het verzenden van lege stations in de Azure-datacenter. De service exporteert gegevens van uw opslagaccount naar de stations en wordt vervolgens geleverd de schijven terug.
@@ -127,7 +127,7 @@ De export is voltooid. Op dit moment kunt u de taak verwijderen of deze automati
 
 Dit *optionele* stap helpt u het aantal stations die vereist zijn voor de taak voor het exporteren bepaalt. Deze stap uitvoeren op een Windows-systeem met een [ondersteunde besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Download de WAImportExport versie 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) op het Windows-systeem. 
+1. [Download de WAImportExport versie 1](https://aka.ms/waiev1) op het Windows-systeem. 
 2. Pak deze uit naar de standaardmap `waimportexportv1`. Bijvoorbeeld `C:\WaImportExportV1`.
 3. Open een PowerShell- of vanaf de opdrachtregel-venster met beheerdersbevoegdheden. Als u de map naar de uitgepakte map, moet u de volgende opdracht uitvoeren:
     
@@ -139,7 +139,7 @@ Dit *optionele* stap helpt u het aantal stations die vereist zijn voor de taak v
 
     De parameters worden in de volgende tabel beschreven:
     
-    |Opdrachtregelparameter|Beschrijving|  
+    |Opdrachtregelparameter|Description|  
     |--------------------------|-----------------|  
     |**schakeloptie/LOGDIR op:**|Optioneel. De logboekmap. Uitgebreid logboek van de bestanden worden naar deze map geschreven. Als niet is opgegeven, wordt de huidige map gebruikt als de logboekmap.|  
     |**/sn:**|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
@@ -193,7 +193,7 @@ Number of drives needed:        3
 
 De volgende tabel ziet u voorbeelden van geldige blob paden:
    
-   | Selector | Blobpad | Beschrijving |
+   | Selector | Blobpad | Description |
    | --- | --- | --- |
    | Begint met |/ |Hiermee exporteert u alle blobs in de storage-account |
    | Begint met |/$root / |Hiermee exporteert u alle blobs in de hoofdmap-container |

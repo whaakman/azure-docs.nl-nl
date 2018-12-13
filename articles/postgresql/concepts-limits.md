@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 2f4f5bf19815469f76c1ee18ff42177f77faec28
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/12/2018
+ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871112"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311657"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Beperkingen in Azure Database for PostgreSQL
 De volgende secties beschrijven de capaciteits- en functionele limieten in de database-service.
@@ -58,6 +58,9 @@ De Azure-systeem is vijf verbindingen voor het bewaken van de Azure Database for
 - Wanneer u de functie PITR, wordt de nieuwe server gemaakt met dezelfde prijzen laag schijfconfiguraties als de server die is gebaseerd op.
 - De nieuwe server die is gemaakt tijdens een terugzetbewerking hoeft niet de firewallregels die aanwezig op de oorspronkelijke server was. Firewallregels moeten afzonderlijk worden ingesteld voor deze nieuwe server.
 - Een verwijderde server herstelt, wordt niet ondersteund.
+
+### <a name="utf-8-characters-on-windows"></a>UTF-8 tekens op Windows
+- In sommige scenario's zijn niet volledig UTF-8 tekens ondersteund in open-source PostgreSQL op Windows, die invloed hebben op Azure Database voor PostgreSQL. Raadpleeg de thread op [fout #15476 in de postgresql-archief](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Inzicht in [wat beschikbaar is in elke prijscategorie](concepts-pricing-tiers.md)

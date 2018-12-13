@@ -1,5 +1,5 @@
 ---
-title: Replicatie van HBase-cluster in virtuele Azure-netwerken instellen
+title: Instellen van replicatie van HBase-cluster in Azure, virtuele netwerken - Azure HDInsight
 description: Meer informatie over het instellen van HBase-replicatie van een HDInsight-versie naar een andere voor taakverdeling, hoge beschikbaarheid, zonder enige uitvaltijd migratie en updates en herstel na noodgevallen.
 services: hdinsight,virtual-network
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584176"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163824"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Apache HBase-cluster-replicatie in virtuele Azure-netwerken instellen
 
@@ -263,10 +263,10 @@ Maak een [Apache HBase](http://hbase.apache.org/) -cluster in elk van de twee vi
 - **De naam van resourcegroep**: naam van de dezelfde resourcegroep gebruiken als u de virtuele netwerken die zijn gemaakt.
 - **Clustertype**: HBase
 - **Versie**: HBase 1.1.2 (HDI 3.6)
-- **Locatie**: gebruik dezelfde locatie als het virtuele netwerk.  Vnet1 is standaard *VS-West*, en vnet2 is *VS-Oost*.
+- **Locatie**: Gebruik de dezelfde locatie als het virtuele netwerk.  Vnet1 is standaard *VS-West*, en vnet2 is *VS-Oost*.
 - **Opslag**: Maak een nieuw opslagaccount voor het cluster.
-- **Virtueel netwerk** (van de geavanceerde instellingen op de portal): Selecteer vnet1 in de laatste procedure hebt gemaakt.
-- **Subnet**: de standaardnaam die wordt gebruikt in de sjabloon is **subnet1**.
+- **Virtueel netwerk** (van de geavanceerde instellingen op de portal): Selecteer vnet1 die in de laatste procedure hebt gemaakt.
+- **Subnet**: De standaardnaam die wordt gebruikt in de sjabloon is **subnet1**.
 
 Om te controleren of dat de omgeving goed is geconfigureerd, moet u de FQDN van het hoofdknooppunt tussen de twee clusters met pingen.
 
@@ -274,7 +274,7 @@ Om te controleren of dat de omgeving goed is geconfigureerd, moet u de FQDN van 
 
 Wanneer u een cluster repliceert, moet u de tabellen die u wilt repliceren. In deze sectie kunt u enkele gegevens laden in het broncluster. In de volgende sectie schakelt u replicatie tussen de twee clusters.
 
-Maakt een **contactpersonen** tabel en voeg enkele gegeven in de tabel, volg de instructies op [Apache HBase-zelfstudie: aan de slag met Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Maakt een **contactpersonen** tabel en voeg enkele gegeven in de tabel, volg de instructies op [Apache HBase-zelfstudie: Aan de slag met Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
@@ -291,7 +291,7 @@ De volgende stappen wordt beschreven hoe u het script van de actie script aanroe
   1. **Naam**: Voer **inschakelen replicatie**.
   2. **Bash-Script-URL**: Voer **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
   3.  **HEAD**: Zorg ervoor dat deze optie is geselecteerd. Schakel de andere typen.
-  4. **Parameters**: het volgende voorbeeldparameters replicatie inschakelen voor alle bestaande tabellen en alle gegevens van het broncluster naar het doelcluster kopiëren:
+  4. **Parameters**: Het volgende voorbeeldparameters replicatie inschakelen voor alle bestaande tabellen en alle gegevens van het broncluster naar het doelcluster kopiëren:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
@@ -303,7 +303,7 @@ De volgende stappen wordt beschreven hoe u het script van de actie script aanroe
 
 Vereiste argumenten:
 
-|Naam|Beschrijving|
+|Name|Description|
 |----|-----------|
 |-s,--src-cluster | Hiermee geeft u de DNS-naam van de bron HBase-cluster. Bijvoorbeeld: hbsrccluster -s-,--src-cluster hbsrccluster = |
 |-d--dst-cluster | Hiermee geeft u de DNS-naam van de HBase doelclusterknooppunten (replica). Bijvoorbeeld: dsthbcluster -s-,--src-cluster dsthbcluster = |
@@ -312,7 +312,7 @@ Vereiste argumenten:
 
 Optionele argumenten:
 
-|Naam|Beschrijving|
+|Name|Description|
 |----|-----------|
 |-su,--src-ambari-gebruiker | Hiermee geeft u de beheerdersnaam voor de Ambari op de bron HBase-cluster. De standaardwaarde is **admin**. |
 |-database-eenheid,--dst-ambari-gebruiker | Hiermee geeft u de beheerdersnaam voor de Ambari op de bestemming HBase-cluster. De standaardwaarde is **admin**. |

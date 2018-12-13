@@ -1,7 +1,7 @@
 ---
 title: V1, v2 API-migratie
 titleSuffix: Azure Cognitive Services
-description: Informatie over het migreren naar de meest recente API-set.
+description: De versie 1-eindpunt en authoring API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2-eindpunt en API's ontwerpen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 7514390593b4afca4793923089516f3393db0428
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105832"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138820"
 ---
-# <a name="api-v2-migration-guide"></a>Migratiehandleiding voor API-versie 2
-De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's wordt afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1, v2-Migratiehandleiding LUIS-apps
+De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
 
 ## <a name="new-azure-regions"></a>Nieuwe Azure-regio 's
 LUIS heeft nieuwe [regio's](https://aka.ms/LUIS-regions) opgegeven voor de APIs LUIS. LUIS, biedt een andere website voor regiogroepen. De toepassing moet worden gemaakt in dezelfde regio die u verwacht te vragen. Toepassingen kunnen de regio's niet automatisch gemigreerd. U exporteert de app vanuit één regio en vervolgens importeren in een andere waarde voor deze beschikbaar zijn in een nieuwe regio.

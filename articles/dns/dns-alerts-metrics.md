@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: de29c24556522abeaff8d942edc027c7444c3ed3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbdacd6947c897d3b137b427c3e4c316869fa401
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965011"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193192"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-metrische gegevens en waarschuwingen
 Azure DNS is een hostingservice voor DNS-domeinen die naamomzetting met de Microsoft Azure-infrastructuur biedt. Dit artikel wordt beschreven voor metrische gegevens en waarschuwingen voor de Azure DNS-service.
@@ -44,7 +44,7 @@ De *queryvolume* metrische gegevens in Azure DNS bevat het volume van DNS-query'
 
 ![Queryvolume](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 
-*Afbeelding: Azure DNS-Query Volume metrische gegevens*
+*Afbeelding: Metrische gegevens van Azure DNS-Query Volume*
 
 ### <a name="record-set-count"></a>Set-aantal records
 De *Record ingesteld aantal* metriek wordt het aantal Recordsets in Azure DNS voor de DNS-zone. Alle Recordsets gedefinieerd in uw zone worden geteld. De maateenheid Count is en de aggregatie is het Maximum van alle Recordsets. Als u wilt deze metrische gegevens weergeven, selecteert u **metrische gegevens (preview)** explorer-ervaring van de **Monitor** tabblad in de Azure-portal. Selecteer uw DNS-zone van de **Resource** vervolgkeuzelijst, selecteer de **ingesteld aantal records** metrische gegevens en selecteer vervolgens **Max** als de **aggregatie** . Voor meer informatie over de Metrics Explorer-ervaring en grafieken, Zie [Azure Monitor Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md). 
@@ -59,10 +59,10 @@ De *Record ingesteld capaciteitsverbruik* metrische gegevens in Azure DNS bevat 
 
 ![Set-aantal records](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
-*Afbeelding: Azure DNS-Record ingesteld capaciteit metrische gegevens over Resourcegebruik*
+*Afbeelding: Metrische gegevens van Azure capaciteitsverbruik voor instellen van DNS-Record*
 
 ## <a name="alerts-in-azure-dns"></a>Waarschuwingen in Azure DNS
-Azure Monitor biedt de mogelijkheid voor de waarschuwing op basis van beschikbare metrische waarden. De DNS-metrische gegevens zijn beschikbaar in de nieuwe ervaring voor configuratie van de waarschuwing. Zoals beschreven in de [documentatie van Azure Monitor-waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), DNS-Zone selecteren als de resource, kies het signaaltype metrische en configureer de waarschuwingslogica en andere parameters, zoals **periode**en **frequentie**. U kunt verder te definiëren een [actiegroep](../monitoring-and-diagnostics/monitoring-action-groups.md) voor wanneer de waarschuwing voorwaarde wordt voldaan, waarbij de waarschuwing wordt geleverd via de gekozen acties. Zie voor meer informatie over het configureren van waarschuwingen voor metrische gegevens van Azure Monitor [maken, weergeven en beheren van waarschuwingen via Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Azure Monitor biedt de mogelijkheid voor de waarschuwing op basis van beschikbare metrische waarden. De DNS-metrische gegevens zijn beschikbaar in de nieuwe ervaring voor configuratie van de waarschuwing. Zoals beschreven in de [documentatie van Azure Monitor-waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), DNS-Zone selecteren als de resource, kies het signaaltype metrische en configureer de waarschuwingslogica en andere parameters, zoals **periode**en **frequentie**. U kunt verder te definiëren een [actiegroep](../azure-monitor/platform/action-groups.md) voor wanneer de waarschuwing voorwaarde wordt voldaan, waarbij de waarschuwing wordt geleverd via de gekozen acties. Zie voor meer informatie over het configureren van waarschuwingen voor metrische gegevens van Azure Monitor [maken, weergeven en beheren van waarschuwingen via Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [Azure DNS](dns-overview.md).

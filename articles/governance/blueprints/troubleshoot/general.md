@@ -1,19 +1,20 @@
 ---
-title: Problemen oplossen met behulp van Azure blauwdrukken
+title: Veelvoorkomende problemen oplossen
 description: Informatie over het oplossen van problemen met het maken en toewijzen van blauwdrukken
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092931"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315519"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Problemen oplossen met behulp van Azure blauwdrukken
 
@@ -23,7 +24,7 @@ U kunt uitvoeren in fouten bij het maken of toewijzen van blauwdrukken. Dit arti
 
 Veel fouten is het resultaat van een blauwdruk toewijzen aan een bereik. Wanneer een toewijzing is mislukt, bevat de blauwdruk informatie over de mislukte implementatie. Deze informatie geeft aan dat het probleem zodat deze kan worden opgelost en de volgende implementatie is geslaagd.
 
-1. Klik op **alle services** en het zoeken en selecteren **beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
+1. Klik op **Alle services** en selecteer **Beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
 
 1. Selecteer **toegewezen blauwdrukken** op de pagina aan de linkerkant en gebruik het zoekvak om te filteren van het blueprint-toewijzingen voor de mislukte-toewijzing niet vinden. U kunt ook de lijst met toewijzingen door sorteren de **Inrichtingsstatus** kolom om te zien van alle mislukte toewijzingen gegroepeerd.
 

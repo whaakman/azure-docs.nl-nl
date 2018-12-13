@@ -1,9 +1,9 @@
 ---
-title: Transacties en modi van de vergrendeling in Azure Service Fabric betrouwbare verzamelingen | Microsoft Docs
-description: Azure Service Fabric betrouwbare status Manager en betrouwbare verzamelingen transacties en vergrendelen.
+title: Transacties en vergrendeling modi in Azure Service Fabric Reliable Collections | Microsoft Docs
+description: Status Manager van Azure Service Fabric betrouwbare en betrouwbare verzamelingen transacties en vergrendeling.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,38 +13,38 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: mcoskun
-ms.openlocfilehash: 79be861a70abb0331d971b00e753691e77642637
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: a7e2bfba736e3b6cee738d5a2b5283f51f60d7c5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207363"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185390"
 ---
-# <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transacties en -modi in Azure Service Fabric betrouwbare verzamelingen
+# <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transacties en vergrendeling modi in Azure Service Fabric Reliable Collections
 
 ## <a name="transaction"></a>Transactie
 Een transactie is een reeks bewerkingen die worden uitgevoerd als één logische eenheid van het werk.
-Een transactie mag de volgende ACID-eigenschappen vertonen. (Zie: https://technet.microsoft.com/library/ms190612)
-* **Atomisch**: een transactie moet een atomic-eenheid van het werk. Met andere woorden, de gegevenswijzigingen worden uitgevoerd of geen van beide wordt uitgevoerd.
-* **Consistentie**: wanneer voltooid, een transactie moet laten staan alle gegevens in een consistente status. Alle interne gegevensstructuren moet juist aan het einde van de transactie.
-* **Isolatie**: wijzigingen aangebracht door gelijktijdige transacties worden geïsoleerd van de wijzigingen die zijn aangebracht door andere gelijktijdige transacties. Het isolatieniveau gebruikt voor een bewerking binnen een ITransaction wordt bepaald door de IReliableState de bewerking wordt uitgevoerd.
-* **Duurzaamheid**: nadat een transactie is voltooid, de gevolgen ervan permanent aanwezig zijn in het systeem. De wijzigingen behouden blijven zelfs als er zich een systeemfout is opgetreden.
+Een transactie moet de volgende ACID-eigenschappen vertonen. (Zie: https://technet.microsoft.com/library/ms190612)
+* **Atomisch**: Een transactie moet een atomische eenheid van het werk. Met andere woorden, alle gegevenswijzigingen worden uitgevoerd of geen van beide wordt uitgevoerd.
+* **Consistentie**: Wanneer dit is voltooid, moet een transactie laat u alle gegevens in een consistente status. Alle interne gegevensstructuren moet juist aan het einde van de transactie.
+* **Isolatie**: Wijzigingen die zijn aangebracht door gelijktijdige transacties moeten worden geïsoleerd van de wijzigingen die zijn aangebracht door andere gelijktijdige transacties. Het isolatieniveau dat is gebruikt voor een bewerking binnen een ITransaction wordt bepaald door het uitvoeren van de bewerking IReliableState.
+* **Duurzaamheid**: Nadat een transactie is voltooid, zijn de gevolgen ervan permanent aanwezig in het systeem. De wijzigingen behouden, zelfs in het geval van een systeemfout is opgetreden.
 
 ### <a name="isolation-levels"></a>Isolatieniveaus
-Het isolatieniveau bepaalt de mate waarnaar de transactie geïsoleerd van wijzigingen aangebracht door andere transacties worden moet.
+Het isolatieniveau bepaalt de mate waarop de transactie geïsoleerd van wijzigingen die zijn aangebracht door andere transacties worden moet.
 Er zijn twee isolatieniveaus die worden ondersteund in betrouwbare verzamelingen:
 
-* **Herhaalbare leesbewerking**: Hiermee geeft u de instructies kunnen gegevens die zijn gewijzigd, maar nog niet zijn doorgevoerd door andere transacties worden gelezen en dat er geen andere transacties gegevens die door de huidige transactie totdat de huidige transactie is gelezen kunnen wijzigen is voltooid. Zie voor meer informatie [ https://msdn.microsoft.com/library/ms173763.aspx ](https://msdn.microsoft.com/library/ms173763.aspx).
-* **Momentopname**: geeft aan dat gegevens gelezen door een instructie in een transactie transactioneel consistent versie van de gegevens die beschikbaar aan het begin van de transactie waren is.
-  De transactie kan alleen gegevenswijzigingen zijn doorgevoerd vóór het begin van de transactie kan herkennen.
+* **Herhaalbare lezen**: Hiermee geeft u op dat overzichten kunnen niet worden gebruikt voor het lezen van gegevens die zijn gewijzigd, maar nog niet zijn doorgevoerd met andere transacties en dat er geen andere transacties gegevens die door de huidige transactie is gelezen totdat de huidige transactie is voltooid kunnen wijzigen. Zie voor meer informatie, [ https://msdn.microsoft.com/library/ms173763.aspx ](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Momentopname**: Hiermee geeft u op dat gegevens gelezen door elke instructie in een transactie transactioneel consistente versie van de gegevens die aan het begin van de transactie bestonden is.
+  De transactie kan alleen gegevenswijzigingen die zijn doorgevoerd vóór het begin van de transactie te herkennen.
   Gegevenswijzigingen die zijn aangebracht door andere transacties na het begin van de huidige transactie zijn niet zichtbaar voor de instructies in de huidige transactie wordt uitgevoerd.
-  Het effect is alsof de instructies in een transactie ophalen van een momentopname van de vastgelegde gegevens zoals deze bestond aan het begin van de transactie.
-  Momentopnamen zijn consistent in betrouwbare verzamelingen.
-  Zie voor meer informatie [ https://msdn.microsoft.com/library/ms173763.aspx ](https://msdn.microsoft.com/library/ms173763.aspx).
+  Het effect is als de instructies in een transactie er een momentopname van de vastgelegde gegevens zoals het bestond aan het begin van de transactie.
+  Momentopnamen zijn consistent voor betrouwbare verzamelingen.
+  Zie voor meer informatie, [ https://msdn.microsoft.com/library/ms173763.aspx ](https://msdn.microsoft.com/library/ms173763.aspx).
 
-Betrouwbare verzamelingen kiezen automatisch het isolatieniveau moet worden gebruikt voor een bepaalde leesbewerking afhankelijk van de bewerking en de rol van de replica op het moment van de transactie wordt gemaakt.
-Hier volgt de tabel die standaardwaarden op siteniveau isolatie voor betrouwbare woordenlijst en wachtrij-bewerkingen beschrijft.
+Betrouwbare verzamelingen automatisch gekozen het isolatieniveau op dat moet worden gebruikt voor een bepaalde leesbewerking afhankelijk van de bewerking en de rol van de replica op het moment dat de transactie wordt gemaakt.
+Hieronder volgt de tabel met standaardwaarden op siteniveau isolatie voor betrouwbare Dictionary en wachtrij.
 
 | Bewerking \ rol | Primair | Secundair |
 | --- |:--- |:--- |
@@ -55,43 +55,43 @@ Hier volgt de tabel die standaardwaarden op siteniveau isolatie voor betrouwbare
 > Algemene voorbeelden voor één entiteit bewerkingen zijn `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
 > 
 
-Zowel het woordenboek betrouwbare en de wachtrij van betrouwbare ondersteuning voor lezen uw schrijft.
-Met andere woorden, is een schrijven binnen een transactie zichtbaar voor de volgende lezen die bij dezelfde transactie hoort.
+Zowel de betrouwbare Dictionary en de betrouwbare wachtrij ondersteuning voor uw schrijft lezen.
+Met andere woorden, is een schrijven binnen een transactie zichtbaar voor een volgende lezen die deel uitmaakt van dezelfde transactie.
 
 ## <a name="locks"></a>Vergrendelingen
-In betrouwbare verzamelingen alle transacties implementeren strengere twee fase vergrendelen: een transactie geeft niet de deze heeft verkregen tot de transactie wordt beëindigd met een afbreking of een doorvoer vergrendelingen vrij.
+In Reliable Collections alle transacties implementeren strenge twee fase vergrendelen: een transactie heeft geen vergrendelingen de deze totdat de transactie wordt gesloten met een afbreken of een wijziging heeft verkregen.
 
-Betrouwbare woordenlijst gebruikt rijniveau vergrendelen voor alle bewerkingen van één entiteit.
-Betrouwbare wachtrij, ruilt gelijktijdigheid van taken voor strikte transactionele FIFO-eigenschap.
-Betrouwbare wachtrij maakt gebruik van bewerking niveau vergrendelingen zodat één transactie met `TryPeekAsync` en/of `TryDequeueAsync` en één transactie met `EnqueueAsync` tegelijk.
-Houd er rekening mee dat als u wilt behouden FIFO, als een `TryPeekAsync` of `TryDequeueAsync` ooit toetsenbordinvoer dat de wachtrij van betrouwbare leeg is, wordt ook vergrendeld `EnqueueAsync`.
+Betrouwbare Dictionary maakt gebruik van rijniveau vergrendelen voor alle bewerkingen voor één entiteit.
+Betrouwbare wachtrij wisselt lokale uit de waarde voor concurrency voor strikte transactionele FIFO-eigenschappen.
+Betrouwbare wachtrij maakt gebruik van bewerking niveau wordt vergrendeld zodat een transactie met `TryPeekAsync` en/of `TryDequeueAsync` en één transactie met `EnqueueAsync` tegelijk.
+Houd er rekening mee dat als u wilt behouden FIFO, als een `TryPeekAsync` of `TryDequeueAsync` ooit observeert dat de betrouwbare wachtrij leeg is, worden ze ook wordt vergrendeld `EnqueueAsync`.
 
-Schrijven operations altijd exclusieve vergrendelingen overnemen.
-Voor leesbewerkingen, de vergrendeling is afhankelijk van een aantal factoren.
-Een leesbewerking uitgevoerd met behulp van Snapshot-isolatie is vergrendelingsvrije.
-Een herhaalbare leesbewerking standaard duurt gedeelde vergrendelingen.
-De gebruiker kunt echter voor een leesbewerking die ondersteuning biedt voor herhaalbare leesbewerking vragen voor de vergrendeling van een Update in plaats van de gedeelde vergrendeling.
-Een Update-vergrendeling is een asymmetrische vergrendeling gebruikt om te voorkomen dat een gemeenschappelijk model impasse dat zich voordoet wanneer meerdere transacties resources voor mogelijke updates op een later tijdstip vergrendelen.
+Bewerkingen kunnen altijd exclusieve vergrendelingen worden geschreven.
+Voor leesbewerkingen hangt de vergrendeling een aantal factoren.
+Elke leesbewerking gedaan met behulp van de Snapshot-isolatie is vergrendelingsvrije.
+Een herhaalbare leesbewerking standaard duurt gedeeld wordt vergrendeld.
+Voor elke leesbewerking die ondersteuning biedt voor herhaalbare lezen, kan de gebruiker echter vraag voor een Update-vergrendeling in plaats van de gedeelde vergrendeling.
+Een Update-vergrendeling is een asymmetrische vergrendeling die is gebruikt om te voorkomen dat een algemene vorm van impasse die wordt uitgevoerd wanneer meerdere transacties resources voor mogelijke updates op een later tijdstip vergrendelen.
 
-De vergrendeling compatibiliteit matrix vindt u in de volgende tabel:
+Het lock-compatibiliteitsmatrix vindt u in de volgende tabel:
 
-| Aanvragen \ verleend | Geen | Gedeeld | Update | Exclusieve |
+| Aanvraag \ verleend | Geen | Gedeeld | Update | Exclusieve |
 | --- |:--- |:--- |:--- |:--- |
 | Gedeeld |Er is geen conflict |Er is geen conflict |Conflict |Conflict |
 | Update |Er is geen conflict |Er is geen conflict |Conflict |Conflict |
 | Exclusieve |Er is geen conflict |Conflict |Conflict |Conflict |
 
-Time-argument in de betrouwbare verzamelingen-API's wordt gebruikt voor deadlock-detectie.
-Bijvoorbeeld probeert twee transacties (T1 en T2) te lezen en bijwerken K1.
-Is het mogelijk deze een impasse veroorzaken, omdat ze beide uiteindelijk met de gedeelde vergrendeling.
-In dit geval wordt een of beide van de bewerkingen time-out.
+Time-argument in de betrouwbare verzamelingen-API's wordt gebruikt om deadlock-detectie.
+Bijvoorbeeld, probeert te lezen en bijwerken van K1 twee transacties (T1 en T2).
+Het is mogelijk dat zij impasse, omdat ze beide ontstaat de gedeelde vergrendeling.
+In dit geval wordt één of beide van de bewerkingen time-out.
 
-Dit scenario impasse is een goed voorbeeld van hoe een vergrendeling Update impassen kunt voorkomen.
+In dit scenario impasse is een goed voorbeeld van hoe een Update-vergrendeling voorkomen impassen dat kan.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Werken met betrouwbare verzamelingen](service-fabric-work-with-reliable-collections.md)
-* [Betrouwbare Services meldingen](service-fabric-reliable-services-notifications.md)
-* [Betrouwbare Services back-up en herstel (herstel na noodgevallen)](service-fabric-reliable-services-backup-restore.md)
-* [Betrouwbaar status Manager-configuratie](service-fabric-reliable-services-configuration.md)
+* [Meldingen van betrouwbare Services](service-fabric-reliable-services-notifications.md)
+* [Reliable Services back-up en herstellen (herstel na noodgevallen)](service-fabric-reliable-services-backup-restore.md)
+* [Configuratie van betrouwbare status Manager](service-fabric-reliable-services-configuration.md)
 * [Referentie voor ontwikkelaars voor betrouwbare verzamelingen](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

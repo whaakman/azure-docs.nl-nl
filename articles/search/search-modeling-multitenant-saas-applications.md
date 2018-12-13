@@ -2,19 +2,20 @@
 title: Modellering van Multitenancy in Azure Search | Microsoft Docs
 description: Meer informatie over algemene ontwerppatronen voor multitenant SaaS-toepassingen tijdens het gebruik van Azure Search.
 manager: jlembicz
-author: ashmaka
+author: LiamCavanagh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: liamca
+ms.custom: seodec2018
+ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232372"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313034"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Ontwerppatronen voor multitenant SaaS-toepassingen en Azure Search
 Een multitenant-toepassing is die de dezelfde services en mogelijkheden biedt naar een willekeurig aantal tenants die niet kan zien of de gegevens van een andere tenant delen. Dit document bespreekt strategieën voor tenant-isolatie voor multitenant-toepassingen die zijn gebouwd met Azure Search.
@@ -57,20 +58,20 @@ Concrete invulling te geven, kan een S3-service hebben tussen 1 en 200 indexen d
 ## <a name="considerations-for-multitenant-applications"></a>Overwegingen voor multitenant-toepassingen
 Multitenant-toepassingen moeten effectief met het distribueren van bronnen tussen de tenants behoud van bepaalde mate van privacy tussen de verschillende tenants. Er zijn enkele overwegingen bij het ontwerpen van de architectuur voor dergelijke toepassing:
 
-* *Tenantisolatie:* ontwikkelaars van toepassingen moeten passende maatregelen om ervoor te zorgen dat er geen tenants hebben niet-geautoriseerde of toegang tot de gegevens van andere tenants ongewenste. Naast het perspectief van de privacy van gegevens vereisen tenant isolatie strategieën effectief beheer van gedeelde resources en de bescherming van de luidruchtige buren.
-* *Kosten van de resource in de cloud:* zoals met elke andere toepassing softwareoplossingen kosten concurrerende als onderdeel van een multitenant-toepassing moeten blijven.
-* *Gebruiksgemak Operations:* bij het ontwikkelen van een architectuur met meerdere tenants, de impact op de bewerkingen en de complexiteit van de toepassing is een belangrijk aandachtspunt. Azure Search is een [SLA van 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* *Isolatie van tenants:* Ontwikkelaars van toepassingen moeten passende maatregelen om ervoor te zorgen dat er geen tenants hebben niet-geautoriseerde of toegang tot de gegevens van andere tenants ongewenste. Naast het perspectief van de privacy van gegevens vereisen tenant isolatie strategieën effectief beheer van gedeelde resources en de bescherming van de luidruchtige buren.
+* *Kosten van de resource cloud:* Net als bij elke andere toepassing, moeten de software-oplossingen kosten concurrerende als onderdeel van een multitenant-toepassing blijven.
+* *Eenvoudige bewerkingen:* Wanneer u een architectuur met meerdere tenants ontwikkelt, is de impact op de bewerkingen en de complexiteit van de toepassing een belangrijk aandachtspunt. Azure Search is een [SLA van 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 * *Wereldwijde voetafdruk:* Multitenant-toepassingen mogelijk effectief fungeren tenants die zijn verdeeld over de hele wereld.
-* *Schaalbaarheid:* ontwikkelaars van toepassingen moeten rekening houden met hoe ze in overeenstemming brengen tussen een voldoende laag niveau van de complexiteit van de toepassing te onderhouden en het ontwerpen van de toepassing om te schalen met het aantal tenants en de grootte van gegevens voor tenants en workload.
+* *Schaalbaarheid:* Ontwikkelaars van toepassingen moeten rekening houden met hoe ze in overeenstemming brengen tussen een voldoende laag niveau van de complexiteit van de toepassing te onderhouden en het ontwerpen van de toepassing om te schalen met het aantal tenants en de grootte van de gegevens en werkbelasting van tenants.
 
 Azure Search biedt een aantal grenzen die kunnen worden gebruikt voor het isoleren van de gegevens en werkbelasting van tenants.
 
 ## <a name="modeling-multitenancy-with-azure-search"></a>Multitenancy met Azure Search modelleren
 In het geval van een scenario voor meerdere tenants, ontwikkelaar van de toepassing verbruikt een of meer search-services en delen van hun tenants tussen services en/of indexen. Azure Search heeft een aantal algemene patronen bij het modelleren van een scenario voor meerdere tenants:
 
-1. *Index per tenant:* elke tenant heeft een eigen index binnen een search-service die wordt gedeeld met andere tenants.
-2. *Service per tenant:* elke tenant heeft een eigen toegewezen Azure Search-service, biedt de hoogste niveau van scheiding van gegevens en werkbelasting.
-3. *Combinatie van beide:* grotere, meer actieve tenants toegewezen services zijn toegewezen, terwijl tenants kleinere afzonderlijke indexen in gedeelde services zijn toegewezen.
+1. *Index per tenant:* Elke tenant heeft een eigen index binnen een search-service die wordt gedeeld met andere tenants.
+2. *De service per tenant:* Elke tenant heeft een eigen toegewezen Azure Search-service, biedt de hoogste niveau van scheiding van gegevens en werkbelasting.
+3. *De combinatie van beide:* Grotere, meer actieve tenants zijn toegewezen services toegewezen, terwijl tenants kleinere afzonderlijke indexen in gedeelde services zijn toegewezen.
 
 ## <a name="1-index-per-tenant"></a>1. Index per tenant
 ![Een portrayal van de index-per-tenant-model](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)

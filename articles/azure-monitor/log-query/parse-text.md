@@ -6,19 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 91088e5279702f92f240e3620d3a544cb946d911
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 03268981bcfe90f14f35c74effe5799dd31e4ac0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974953"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185780"
 ---
 # <a name="parse-text-data-in-log-analytics"></a>Parseren van tekstgegevens in Log Analytics
 Sommige gegevens die zijn verzameld door Log Analytics bevat meerdere delen van gegevens in één eigenschap. Het parseren van deze gegevens in meerdere eigenschappen maken het gemakkelijker om te gebruiken in query's. Een veelvoorkomend voorbeeld is een [aangepast logboek](../../log-analytics/log-analytics-data-sources-custom-logs.md) die een hele logboekvermelding met meerdere waarden worden verzameld in één eigenschap. Door het maken van afzonderlijke eigenschappen voor de verschillende waarden, kunt u zoeken en op elk cumulatieve.

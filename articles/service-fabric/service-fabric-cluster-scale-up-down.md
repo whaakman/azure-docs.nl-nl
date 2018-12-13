@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: 85a1e874ad80d0a3251c93c9c1199f56ab045527
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 91516e3284ebf3588c2dba31b67cc583e4d395db
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140553"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309413"
 ---
 # <a name="read-before-you-scale"></a>Lees voordat u de schaal
 Schaal rekenresources zdroji de werkbelasting van uw toepassing vereist opzettelijke planning, bijna altijd duurt langer dan een uur om uit te voeren voor een productie-omgeving en vereist dat u meer informatie over uw werkbelasting bedrijfscontext; zelfs als u deze activiteit voordat u nooit eerder hebt gedaan, het raadzaam u starten door te lezen en te begrijpen [Service Fabric-cluster overwegingen voor capaciteitsplanning](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity), voordat u doorgaat met de rest van dit document. Deze aanbeveling is om te voorkomen dat onbedoelde LiveSite problemen en u kunt het beste testen is de bewerkingen die u besluit om uit te voeren op basis van een niet-productieomgeving. U kunt op elk gewenst moment [productieproblemen melden of betaalde ondersteuning aanvragen voor Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). Voor technici toegewezen voor het uitvoeren van deze bewerkingen die beschikken over de juiste context, moet vergroten / verkleinen in dit artikel wordt beschreven, maar u bepalen en weten welke bewerkingen zijn geschikt is voor uw situatie; zoals welke resources op schaal (CPU, opslag, geheugen), welke richting om te schalen (horizontaal of verticaal), en welke bewerkingen moeten worden uitgevoerd (Resource-sjabloon implementeren, Portal, PowerShell/CLI).
 
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Een Service Fabric-cluster in of uitschalen met behulp van regels voor automatisch schalen of handmatig
+## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Een Service Fabric-cluster in of uitschalen met behulp van regels voor automatisch schalen of handmatig
 Virtuele-machineschaalsets vormen een Azure compute-resource die u gebruiken kunt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype die is gedefinieerd in een Service Fabric-cluster is ingesteld als een afzonderlijke virtuele-machineschaalset. Elk knooppunttype kan vervolgens worden geschaald of uit onafhankelijk van elkaar, hebben verschillende sets open poorten en verschillende capaciteitsstatistieken hebben. Meer informatie over het in de [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Aangezien de typen van de Service Fabric-knooppunt in het cluster worden gemaakt van de virtuele-machineschaalsets met de back-end, moet u voor het instellen van regels voor automatisch schalen voor elk knooppunt type/virtuele-machineschaalset.
 
 > [!NOTE]

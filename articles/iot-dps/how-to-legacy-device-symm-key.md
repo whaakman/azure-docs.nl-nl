@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9553d1dd5dd8d8ff11ea480618b471b9898985e3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60321b2463a535c3f7a0c73e0922010bd12a3e82
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456555"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323232"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Over het inrichten van verouderde apparaten met behulp van symmetrische sleutels
 
@@ -35,7 +35,7 @@ Een unieke registratie-ID worden gedefinieerd voor elk apparaat dat is gebaseerd
 
 Een registratiegroep zit die gebruikmaakt van [symmetrische sleutel attestation](concepts-symmetric-key-attestation.md) wordt gemaakt met de Device Provisioning Service. De registratiegroep bevat een hoofdsleutel voor de groep. Deze master-sleutel wordt gebruikt voor hashing van elke unieke registratie-ID voor het produceren van een unieke apparaat-sleutel voor elk apparaat. Het apparaat gebruikt deze apparaatsleutel afgeleide met de unieke registratie-ID om te bevestigen met de Device Provisioning Service en worden toegewezen aan een IoT-hub.
 
-De apparaatcode gedemonstreerd in dit artikel volgen hetzelfde patroon als het [Snelstartgids: een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md). De code met een voorbeeld van een apparaat simuleert de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Het gesimuleerde apparaat wordt bevestigen met een registratiegroep in plaats van een afzonderlijke inschrijving, zoals in de Quick Start wordt gedemonstreerd.
+De apparaatcode gedemonstreerd in dit artikel volgen hetzelfde patroon als het [Quick Start: Een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md). De code met een voorbeeld van een apparaat simuleert de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Het gesimuleerde apparaat wordt bevestigen met een registratiegroep in plaats van een afzonderlijke inschrijving, zoals in de Quick Start wordt gedemonstreerd.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,7 +90,7 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
 4. Voer de volgende opdracht uit om een versie van de SDK te bouwen die specifiek is voor uw clientplatform voor ontwikkeling. Er wordt een Visual Studio-oplossing voor het gesimuleerde apparaat gegenereerd in de map `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Als `cmake` uw C++-compiler niet kan vinden, kunnen er fouten in de build optreden tijdens het uitvoeren van de bovenstaande opdracht. Als dit gebeurt, voert u deze opdracht uit bij de [Visual Studio-opdrachtprompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -98,7 +98,7 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
     Zodra het bouwen is voltooid, zijn de laatste paar uitvoerregels vergelijkbaar met de volgende uitvoer:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -124,7 +124,7 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
 
     - **Type Attestation**: Selecteer **symmetrische sleutel**.
 
-    - **Automatisch sleutels genereren**: schakel dit selectievakje in.
+    - **Automatisch sleutels genereren**: Schakel dit selectievakje in.
 
     - **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **statische configuratie** , zodat u aan een specifieke hub toewijzen kunt.
 

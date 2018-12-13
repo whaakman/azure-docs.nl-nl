@@ -12,27 +12,27 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e68a258c8e323b62f85219648c011ce1e661ee0d
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 5ceda83863d892b84ee4dc272345f760116e5e69
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494535"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278602"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Beheren van de knooppunten die een cluster wordt gevormd.
 
 ## <a name="commands"></a>Opdrachten
 
-|Opdracht|Beschrijving|
+|Opdracht|Description|
 | --- | --- |
 | uitschakelen | Deactiveer het knooppunt van een Service Fabric-cluster met de bedoeling opgegeven deactiveren. |
 | inschakelen | Activeren van een Service Fabric-cluster-knooppunt dat is gedeactiveerd. |
-| status | Hiermee haalt u de status van een Service Fabric-knooppunt. |
+| gezondheidszorg | Hiermee haalt u de status van een Service Fabric-knooppunt. |
 | informatie | Hiermee haalt de informatie over een bepaald knooppunt in het Service Fabric-cluster. |
-| lijst | Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster. |
+| list | Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster. |
 | laden | Hiermee haalt u de gegevens laden van een Service Fabric-knooppunt. |
 | Remove-status | Service Fabric de hoogte gebracht dat de permanente status op een knooppunt is definitief verwijderd of verloren gaan. |
 | rapport-en statusbewaking | Verzendt een statusrapport over de Service Fabric-knooppunt. |
@@ -47,7 +47,7 @@ Deactiveer het knooppunt van een Service Fabric-cluster met de bedoeling opgegev
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --deactivering-doel | Beschrijving van het doel of de reden voor het deactiveren van het knooppunt. De mogelijke waarden zijn te volgen. |
@@ -55,7 +55,7 @@ Deactiveer het knooppunt van een Service Fabric-cluster met de bedoeling opgegev
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -70,14 +70,14 @@ Hiermee activeert u een Service Fabric-cluster-knooppunt dat is gedeactiveerd. Z
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -92,7 +92,7 @@ Hiermee haalt u de status van een Service Fabric-knooppunt. EventsHealthStateFil
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling van HealthEvent-objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van de bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is worden vervolgens alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
@@ -100,7 +100,7 @@ Hiermee haalt u de status van een Service Fabric-knooppunt. EventsHealthStateFil
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -115,14 +115,14 @@ Het antwoord bevat de naam, status, -ID, status, actieve tijdsduur en andere det
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -137,7 +137,7 @@ Het antwoord bevat de naam, status, -ID, status, actieve tijdsduur en andere det
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
 | --max-resultaten | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
@@ -146,7 +146,7 @@ Het antwoord bevat de naam, status, -ID, status, actieve tijdsduur en andere det
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -161,14 +161,14 @@ Haalt informatie op het laden van een Service Fabric-knooppunt voor de metrische
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -183,14 +183,14 @@ Dit betekent dat het is niet mogelijk om te herstellen van de permanente status 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -205,22 +205,22 @@ Rapporteert de status van de opgegeven Service Fabric-knooppunt. Het rapport moe
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --health-eigenschap (vereist) | De eigenschap van de gegevens over de servicestatus. <br><br> Een entiteit kan statusrapporten voor de verschillende eigenschappen hebben. De eigenschap is een tekenreeks en niet een vaste-opsomming waarmee de journalist flexibiliteit voor het categoriseren van de voorwaarde staat dat het rapport wordt geactiveerd. Bijvoorbeeld, een Rapportagefout met SourceId "LocalWatchdog" die de status van de beschikbare schijfruimte op een knooppunt kunt controleren, zodat deze eigenschap "AvailableDisk" op dat knooppunt rapporteren kunt. De dezelfde journalist kan het knooppunt-connectiviteit, bewaken, zodat het een eigenschap 'Connectiviteit' op hetzelfde knooppunt rapporteren kan. In de winkel de gezondheid van worden deze rapporten behandeld als afzonderlijke health-gebeurtenissen voor het opgegeven knooppunt. Samen met de bron-id identificatie de eigenschap unieke van de gegevens over de servicestatus. |
 | --status (vereist) | Mogelijke waarden zijn\: 'Ongeldige', 'Ok', 'Waarschuwing', 'Fout', 'Onbekend'. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt om te rapporteren over. |
-| --bron-id (vereist) | De naam van de bron waarmee het onderdeel watchdog-client-systeem dat de statusgegevens gegenereerd uniek wordt geïdentificeerd. |
+| --knooppuntnaam (vereist) | De naam van het knooppunt. |
+| --bron-id (vereist) | De naam van de bron die de watchdog-client-systeem component aangeduid die de gezondheidsinformatie gegenereerd. |
 | --Beschrijving | De beschrijving van de gegevens over de servicestatus. <br><br> Hiermee geeft u vrije tekst die wordt gebruikt om toe te voegen menselijke leesbare informatie over het rapport. De maximumlengte voor de beschrijving is 4096 tekens. Als de opgegeven tekenreeks langer is, worden deze automatisch afgekapt. Wanneer afgekapt, de laatste tekens van de beschrijving van de markering van een '[Truncated]' bevatten en totale grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers die moet worden afgekapt is opgetreden. Houd er rekening mee dat wanneer afgekapt, de beschrijving van minder dan 4096 tekens uit de oorspronkelijke reeks heeft. |
-| --direct | Een markering waarmee wordt aangegeven of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
+| --direct | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
 | --verwijderen wanneer verlopen | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
 | --volgnummer: | Het volgnummer voor dit statusrapport als een numerieke tekenreeks. <br><br> Het volgnummer van het rapport wordt gebruikt door de health store voor het detecteren van verouderde rapporten. Indien niet opgegeven, is een volgnummer automatisch gegenereerd door de client health wanneer een rapport wordt toegevoegd. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld gebruikt voor het opgeven van de duur van de ISO8601-notatie. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
+| --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld wordt ISO8601-notatie gebruikt voor het opgeven van de duur. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -235,7 +235,7 @@ Start opnieuw op een Service Fabric-clusterknooppunt die al is gestart.
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --maken-fabric-dump | Geef op waar voor het maken van een dump van het proces van fabric-knooppunt. Dit is hoofdlettergevoelig.  Standaard\: False. |
@@ -244,7 +244,7 @@ Start opnieuw op een Service Fabric-clusterknooppunt die al is gestart.
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -259,7 +259,7 @@ Wordt gestart of gestopt een clusterknooppunt.  Een clusterknooppunt is een proc
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --knooppunt-exemplaar-id (vereist) | De exemplaar-ID voor het knooppunt van het doelknooppunt. Dit kan worden bepaald via GetNodeInfo API. |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
@@ -270,7 +270,7 @@ Wordt gestart of gestopt een clusterknooppunt.  Een clusterknooppunt is een proc
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -285,7 +285,7 @@ Hiermee haalt u de voortgang van een bewerking aan de slag met StartNodeTransiti
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
 | --bewerking-id (vereist) | Een GUID die een aanroep van deze API identificeert.  Deze informatie wordt doorgegeven aan de bijbehorende GetProgress-API. |
@@ -293,7 +293,7 @@ Hiermee haalt u de voortgang van een bewerking aan de slag met StartNodeTransiti
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |

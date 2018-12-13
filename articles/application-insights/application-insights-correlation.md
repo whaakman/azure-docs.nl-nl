@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: da9ec327edc27e2f37f76704d6b5481869621049
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09db1c7a7d348d866cd131e66102044a37c010a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997484"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310331"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetriecorrelatie in Application Insights
 
@@ -31,7 +31,7 @@ Application Insights definieert een [gegevensmodel](application-insights-data-mo
 
 Gedistribueerde logische bewerking bestaat gewoonlijk uit een set kleinere bewerkingen - aanvragen verwerkt door een van de onderdelen. Deze bewerkingen worden gedefinieerd door [aanvragen telemetrie](application-insights-data-model-request-telemetry.md). Elke aanvraag telemetrische gegevens is een eigen `id` die deze wereldwijd uniek wordt aangeduid. En alle telemetrie - traceringen, uitzonderingen, enz. die zijn gekoppeld aan deze aanvraag moet de `operation_parentId` op de waarde van de aanvraag `id`.
 
-Elke uitgaande bewerking, zoals http-aanroep naar een ander onderdeel dat wordt vertegenwoordigd door [afhankelijkheidstelemetrie](application-insights-data-model-dependency-telemetry.md). Afhankelijkheidstelemetrie bepaalt ook een eigen `id` wereldwijd uniek is. Aanvraagtelemetrie, gestart door deze afhankelijkheidsaanroep wordt gebruikt als `operation_parentId`.
+Elke uitgaande bewerking (zoals een http-aanroep naar een ander onderdeel) wordt vertegenwoordigd door [afhankelijkheidstelemetrie](application-insights-data-model-dependency-telemetry.md). Afhankelijkheidstelemetrie bepaalt ook een eigen `id` wereldwijd uniek is. Aanvraagtelemetrie, gestart door deze afhankelijkheidsaanroep wordt gebruikt als `operation_parentId`.
 
 U kunt de weergave van het gebruik van gedistribueerde logische bewerking bouwen `operation_Id`, `operation_parentId`, en `request.id` met `dependency.id`. Deze velden worden ook de volgorde oorzakelijke van telemetrie aanroepen definiëren.
 

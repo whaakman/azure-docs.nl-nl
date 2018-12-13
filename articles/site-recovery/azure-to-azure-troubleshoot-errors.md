@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: a524c773b0f4f6d3dc14830d4c3200512f8b287c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 84462b98e1006cadf34adecf948efd39ad4f69d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140911"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313969"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -24,7 +24,7 @@ Uw abonnement moet worden ingeschakeld om te maken van virtuele Azure-machines i
 
 **Foutcode** | **Mogelijke oorzaken** | **Aanbeveling**
 --- | --- | ---
-150097<br></br>**Bericht**: replicatie kan niet worden ingeschakeld voor de virtuele machine VmName. | -Uw abonnements-ID kan niet worden ingeschakeld om te maken van virtuele machines op de doellocatie voor de regio.</br></br>-Uw abonnements-ID kan niet worden ingeschakeld of beschikt niet over voldoende quotum voor het maken van specifieke VM-grootten op de doellocatie voor de regio.</br></br>-Een geschikt doel-VM-grootte die overeenkomt met de bron-VM NIC aantal (2) is niet gevonden voor de abonnements-ID op de doellocatie voor de regio.| Neem contact op met [Azure ondersteuning voor facturering](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) om te kunnen maken van de virtuele machine voor de vereiste VM-grootten op de doellocatie voor uw abonnement. Nadat deze ingeschakeld, moet u de mislukte bewerking opnieuw proberen.
+150097<br></br>**Bericht**: Replicatie kan niet worden ingeschakeld voor de virtuele machine VmName. | -Uw abonnements-ID kan niet worden ingeschakeld om te maken van virtuele machines op de doellocatie voor de regio.</br></br>-Uw abonnements-ID kan niet worden ingeschakeld of beschikt niet over voldoende quotum voor het maken van specifieke VM-grootten op de doellocatie voor de regio.</br></br>-Een geschikt doel-VM-grootte die overeenkomt met de bron-VM NIC aantal (2) is niet gevonden voor de abonnements-ID op de doellocatie voor de regio.| Neem contact op met [Azure ondersteuning voor facturering](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) om te kunnen maken van de virtuele machine voor de vereiste VM-grootten op de doellocatie voor uw abonnement. Nadat deze ingeschakeld, moet u de mislukte bewerking opnieuw proberen.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 U kunt contact opnemen met [Azure ondersteuning voor facturering](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) om in te schakelen van uw abonnement te maken van virtuele machines van de vereiste grootte in de doellocatie.
@@ -37,7 +37,7 @@ Als de meest recente vertrouwde basiscertificaten niet aanwezig op de virtuele m
 
 **Foutcode** | **Mogelijke oorzaak** | **Aanbevelingen**
 --- | --- | ---
-151066<br></br>**Bericht**: Site Recovery-configuratie is mislukt. | De vereiste vertrouwde basiscertificaten gebruikt voor autorisatie en verificatie zijn niet aanwezig op de machine. | -Voor een virtuele machine met het Windows-besturingssysteem, zorg ervoor dat de vertrouwde basiscertificaten aanwezig zijn op de machine. Zie voor meer informatie, [configureren van vertrouwde basiscertificaten en niet-toegestane certificaten](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Voor een virtuele machine met het Linux-besturingssysteem, volg de richtlijnen voor vertrouwde basiscertificaten gepubliceerd door de distributeur versie van Linux-besturingssysteem.
+151066<br></br>**Bericht**: Configuratie van site Recovery is mislukt. | De vereiste vertrouwde basiscertificaten gebruikt voor autorisatie en verificatie zijn niet aanwezig op de machine. | -Voor een virtuele machine met het Windows-besturingssysteem, zorg ervoor dat de vertrouwde basiscertificaten aanwezig zijn op de machine. Zie voor meer informatie, [configureren van vertrouwde basiscertificaten en niet-toegestane certificaten](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Voor een virtuele machine met het Linux-besturingssysteem, volg de richtlijnen voor vertrouwde basiscertificaten gepubliceerd door de distributeur versie van Linux-besturingssysteem.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 **Windows**
@@ -149,7 +149,7 @@ Omdat symlinks SuSE Linux gebruikt voor het onderhouden van een lijst van certif
 
 Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde URL's of IP-bereiken zijn van de virtuele machine. Als uw VM zich achter een firewall bevindt of regels voor network security group (NSG) gebruikt voor het beheren van uitgaande connectiviteit, kunt u een van deze problemen kan tegenkomen.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>1 probleem: Kan niet registreren van virtuele machine van Azure met Site Recovery (151195) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Probleem 1: Kan niet registreren van virtuele machine van Azure met Site Recovery (151195) </br>
 - **Mogelijke oorzaak** </br>
   - Kan geen verbinding maken met site recovery-eindpunten vanwege een probleem met de DNS-omzetting.
   - Dit wordt vaker gezien tijdens opnieuw beveiliging wanneer u de virtuele machine failover, maar de DNS-server niet bereikbaar vanaf de DR-regio is.
@@ -160,7 +160,7 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
     ![COM-fout](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
  
 
-### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Probleem 2: De configuratie van Site Recovery is mislukt (151196)
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Probleem 2: Configuratie van site Recovery is mislukt (151196)
 - **Mogelijke oorzaak** </br>
   - Verbinding kan niet worden gemaakt met Office 365-verificatie en identiteit IP4-eindpunten.
 
@@ -170,7 +170,7 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
         - Als er nieuwe adressen worden toegevoegd aan de Azure Active Directory (AAD) in de toekomst, moet u nieuwe NSG-regels maken.
 
 
-### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Probleem 3: Configuratie van de Site Recovery is mislukt (151197)
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Probleem 3: Configuratie van site Recovery is mislukt (151197)
 - **Mogelijke oorzaak** </br>
   - Kan geen verbinding maken met Azure Site Recovery service-eindpunten.
 
@@ -188,11 +188,12 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
    2.  Als u liever proxy alleen voor ASR Mobility-Service instellen, kunt u de proxygegevens in ProxyInfo.conf dat zich bevindt in opgeven:</br>
        - ``/usr/local/InMage/config/`` op ***Linux***
        - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` op ***Windows***
-   3.   De ProxyInfo.conf moet de proxy-instellingen in de volgende INI-indeling hebben. </br>
+   3.   De ProxyInfo.conf moet de proxy-instellingen in de volgende INI-indeling hebben.</br>
                    *[proxy]*</br>
                    *Adres =http://1.2.3.4*</br>
                    *Poort 567 =*</br>
    4. ASR Mobility Service-agent ondersteunt alleen ***niet-geverifieerde proxy's***.
+ 
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 Aan lijst met geaccepteerde [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](site-recovery-azure-to-azure-networking-guidance.md).
@@ -203,12 +204,12 @@ Een nieuwe schijf die is gekoppeld aan de virtuele machine moet worden geïnitia
 
 **Foutcode** | **Mogelijke oorzaken** | **Aanbevelingen**
 --- | --- | ---
-150039<br></br>**Bericht**: Azure-gegevensschijf (DiskName) (DiskURI) met logische unit number (LUN) (LUNValue) is niet toegewezen aan een overeenkomende schijf die wordt doorgegeven vanuit de virtuele machine met dezelfde LUN-waarde. | -Een nieuwe gegevensschijf aan de VM is gekoppeld, maar deze is niet geïnitialiseerd.</br></br>-De gegevensschijf binnen de virtuele machine rapporteert de LUN-waarde waarop de schijf is gekoppeld aan de virtuele machine niet correct.| Zorg ervoor dat de gegevensschijven zijn geïnitialiseerd en voer de bewerking vervolgens opnieuw uit.</br></br>Voor Windows: [koppelen en een nieuwe schijf initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Voor Linux: [initialiseren van een nieuwe gegevensschijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+150039<br></br>**Bericht**: Azure-gegevensschijf (DiskName) (DiskURI) met logische unit number (LUN) (LUNValue) is niet toegewezen aan een overeenkomende schijf die wordt doorgegeven vanuit de virtuele machine met dezelfde LUN-waarde. | -Een nieuwe gegevensschijf aan de VM is gekoppeld, maar deze is niet geïnitialiseerd.</br></br>-De gegevensschijf binnen de virtuele machine rapporteert de LUN-waarde waarop de schijf is gekoppeld aan de virtuele machine niet correct.| Zorg ervoor dat de gegevensschijven zijn geïnitialiseerd en voer de bewerking vervolgens opnieuw uit.</br></br>Voor Windows: [Koppelen en een nieuwe schijf initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Voor Linux: [Initialiseren van een nieuwe gegevensschijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 Zorg ervoor dat de gegevensschijven zijn geïnitialiseerd en voer de bewerking vervolgens opnieuw uit:
 
-- Voor Windows: [koppelen en een nieuwe schijf initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- Voor Windows: [Koppelen en een nieuwe schijf initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
 - Voor Linux: [toevoegen van een nieuwe gegevensschijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Als het probleem zich blijft voordoen, neem dan contact op met ondersteuning.
@@ -216,13 +217,13 @@ Als het probleem zich blijft voordoen, neem dan contact op met ondersteuning.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Kan niet zien van de Azure-VM voor selectie in 'replicatie inschakelen'
 
- **1 oorzaak: Resourcegroep en de virtuele bronmachine zijn in een andere locatie** <br>
+ **1 oorzaak:  Resourcegroep en de virtuele bronmachine zich in andere locatie** <br>
 Azure Site Recovery voorgeschreven momenteel dat bronresourcegroep regio en virtuele machines moeten zich in dezelfde locatie. Als dat niet het geval is klikt zou u niet kunnen vinden van de virtuele machine tijdens het ophalen van beveiliging.
 
 **2 oorzaak: Resourcegroep maakt geen deel uit van het geselecteerde abonnement** <br>
 U kunt mogelijk niet vinden van de resourcegroep op het moment van beveiliging, als deze geen deel uitmaakt van het betreffende abonnement. Zorg ervoor dat de resourcegroep deel uitmaakt van het abonnement dat wordt gebruikt.
 
- **3 oorzaak: De verouderde configuratie** <br>
+ **3 oorzaak: Verouderde configuratie** <br>
 Als u de virtuele machine die u wilt inschakelen voor de replicatie niet ziet, wordt mogelijk vanwege een verouderde configuratie van Site Recovery blijven op de virtuele machine van Azure. De verouderde configuratie kan worden blijven op een Azure-VM in de volgende gevallen:
 
 - U replicatie voor de Azure-VM ingeschakeld met behulp van Site Recovery en vervolgens de Site Recovery-kluis wordt verwijderd zonder expliciet uitschakelen van replicatie op de virtuele machine.
@@ -233,9 +234,9 @@ Als u de virtuele machine die u wilt inschakelen voor de replicatie niet ziet, w
 U kunt [verwijderen van verouderde ASR-configuratiescript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) en verwijdert de verouderde Site Recovery-configuratie op de virtuele machine van Azure. U zou het mogelijk om te zien van de virtuele machine na het verwijderen van de verouderde configuratie.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Kan geen virtuele machine voor beveiliging selecteert 
- **1 oorzaak: de virtuele machine heeft een bepaalde extensie geïnstalleerd in de status van een mislukte of reageert niet** <br>
+ **1 oorzaak:  Virtuele machine uitbreidings-sommige in de status van een mislukte of reageert niet geïnstalleerd** <br>
  Ga naar virtuele machines > instelling > extensies en controleer of er geen extensies in een foutstatus zijn. Verwijder de extensie is mislukt en probeer het opnieuw beveiligen van de virtuele machine.<br>
- **2 oorzaak: [VM de Inrichtingsstatus is niet geldig](#vms-provisioning-state-is-not-valid-error-code-150019)**
+ **2 oorzaak:  [De Inrichtingsstatus van de virtuele machine is niet geldig](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>De Inrichtingsstatus van de virtuele machine is niet geldig (foutcode 150019)
 
@@ -271,7 +272,7 @@ Inschakelen van replicatie op de virtuele machine, de Inrichtingsstatus moet **g
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ fout van de Volume Shadow Copy service (foutcode 151025)
 **Foutcode** | **Mogelijke oorzaken** | **Aanbevelingen**
 --- | --- | ---
-151025<br></br>**Bericht**: kan de extensie voor Site recovery niet installeren | -, COM + System Application' service uitgeschakeld.</br></br>-'Volume Shadow Copy-service is uitgeschakeld.| 'COM + System Application' en 'Volume Shadow Copy' services ingesteld op automatische of handmatige opstartmodus.
+151025<br></br>**Bericht**: Kan de extensie voor site recovery niet installeren | -, COM + System Application' service uitgeschakeld.</br></br>-'Volume Shadow Copy-service is uitgeschakeld.| 'COM + System Application' en 'Volume Shadow Copy' services ingesteld op automatische of handmatige opstartmodus.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 

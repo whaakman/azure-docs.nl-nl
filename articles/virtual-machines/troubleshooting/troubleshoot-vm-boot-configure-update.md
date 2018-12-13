@@ -1,6 +1,6 @@
 ---
-title: Opstarten van de virtuele machine loopt vast bij 'Windows voorbereiden. Schakel de computer niet uit.' in Azure | Microsoft Docs
-description: Introductie van de stappen voor het oplossen van het probleem op welke virtuele machine opstarten is vastgelopen op 'Windows voorbereiden. Zet uw computer uit'.
+title: Opstarten van de virtuele machine is vastgelopen op 'gereed aan Windows. Zet uw computer uit' in Azure | Microsoft Docs
+description: Introductie van de stappen voor het oplossen van het probleem waarin het opstarten van de virtuele machine is vastgelopen op 'gereed aan Windows. Schakel de computer niet uit.'
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 722bf7b42e500e3e6a46f48646ff1fd2edfb68f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: eb27b4e6c60f23a55a58cd2aae3cff927ffeaf03
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955733"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316094"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Opstarten van de virtuele machine loopt vast bij 'Windows voorbereiden. Schakel de computer niet uit.' in Azure
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Opstarten van de virtuele machine is vastgelopen op 'gereed aan Windows. Zet uw computer uit' in Azure
 
-Dit artikel helpt u het probleem oplossen wanneer uw virtuele Machine (VM) is vastgelopen op de 'Windows voorbereiden. Schakel de computer niet uit.' fase tijdens het opstarten.
+Dit artikel helpt u het probleem oplossen wanneer uw virtuele machine (VM) is vastgelopen op de 'Windows voorbereiden. Het uitschakelen van de computer niet"fase tijdens het opstarten.
 
 ## <a name="symptoms"></a>Symptomen
 
-Bij het gebruik **diagnostische gegevens over opstarten** als u de schermafbeelding van een virtuele machine, vindt u het besturingssysteem is niet volledig opgestart. Bovendien de virtuele machine weer een **'Windows voorbereiden. Zet uw computer uit."** Bericht.
+Bij het gebruik **diagnostische gegevens over opstarten** als u de schermafbeelding van een virtuele machine, het besturingssysteem niet volledig worden opgestart. De virtuele machine wordt het bericht 'gereed aan Windows. Schakel de computer niet uit.'
 
-![Voorbeeld van bericht](./media/troubleshoot-vm-configure-update-boot/message1.png)
+![Voorbeeld van het bericht voor Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
 ![Voorbeeld van bericht](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
 ## <a name="cause"></a>Oorzaak
 
-Dit probleem treedt meestal op wanneer de server met de laatste keer opnieuw opstarten gaat nadat de configuratie is gewijzigd. Wijzigen van de configuratie kan worden geïnitialiseerd door Windows-updates of door de wijzigingen op de rollen of onderdeel van de server. Voor Windows Update, als de grootte van de updates groot is, is het besturingssysteem wordt meer tijd nodig hebt om de wijzigingen opnieuw te configureren.
+Dit probleem treedt meestal op wanneer de server met de laatste keer opnieuw opstarten gaat nadat de configuratie is gewijzigd. Wijzigen van de configuratie kan worden geïnitialiseerd door Windows-updates of door de wijzigingen op de rollen of onderdeel van de server. Als de grootte van de updates groot is, is moet het besturingssysteem voor Windows Update, meer tijd om de wijzigingen opnieuw te configureren.
 
 ## <a name="back-up-the-os-disk"></a>Back-up van de besturingssysteemschijf
 
-Voordat u probeert om het probleem te verhelpen, back-up van de besturingssysteemschijf:
+Voordat u probeert om het probleem te verhelpen, back-up van de besturingssysteemschijf.
 
 ### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>Voor virtuele machines met een versleutelde schijf, moet u eerst de schijven ontgrendelen
 
-Controleren of de virtuele machine een versleutelde VM is. Voer de volgende stappen uit om dit te doen:
+Volg deze stappen om te bepalen of de virtuele machine een versleutelde VM.
 
-1. Op de portal en open uw virtuele machine en blader vervolgens naar de schijven.
+1. Open uw virtuele machine in Azure portal, en blader vervolgens naar de schijven.
 
-2. Hier ziet u een kolom call '-versleuteling,"wat vertelt u of versleuteling is ingeschakeld.
+2. Bekijk de **versleuteling** kolom om te zien of versleuteling is ingeschakeld.
 
-Als de Besturingssysteemschijf is versleuteld, maak gebruik van de versleutelde schijf. Voer de volgende stappen uit om dit te doen:
+Als de besturingssysteemschijf is versleuteld, maak gebruik van de versleutelde schijf. Volg deze stappen voor het ontgrendelen van de schijf.
 
 1. Maak een VM voor herstel die zich in dezelfde resourcegroep, Opslagaccount en locatie als de betrokken virtuele machine.
 
-2. In Azure portal, de betrokken virtuele machine verwijderen en behouden van de schijf.
+2. In de Azure-portal, de betrokken virtuele machine verwijderen en behouden van de schijf.
 
 3. Voer PowerShell uit als beheerder.
 
@@ -72,7 +72,7 @@ Als de Besturingssysteemschijf is versleuteld, maak gebruik van de versleutelde 
     Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
     ```
 
-5. Nadat u de naam van het geheim hebt, voert u de volgende opdrachten in PowerShell:
+5. Nadat u de naam van de geheime hebt, kunt u de volgende opdrachten uitvoeren in PowerShell.
 
     ```Powershell
     $secretName = 'SecretName'
@@ -83,7 +83,7 @@ Als de Besturingssysteemschijf is versleuteld, maak gebruik van de versleutelde 
 6. De met Base64 gecodeerde waarde converteren naar bytes en de uitvoer naar een bestand te schrijven. 
 
     > [!Note]
-    > De naam van de BEK moet overeenkomen met de oorspronkelijke BEK GUID als u de USB-poort ontgrendelen optie. U moet ook, maak een map op station C met de naam 'BEK' voordat u de volgende stappen werken.
+    > Als u de USB-poort optie ontgrendelen, de naam van de BEK moet overeenkomen met de oorspronkelijke BEK GUID. Maak een map op station C met de naam 'BEK' voordat u deze stappen volgen.
     
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
@@ -92,22 +92,22 @@ Als de Besturingssysteemschijf is versleuteld, maak gebruik van de versleutelde 
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. Nadat de BEK-bestand is gemaakt op uw PC, moet u het bestand kopiëren naar de herstel-VM die u de vergrendelde besturingssysteemschijf die is gekoppeld hebt aan. Voer de volgende opdracht uit met behulp van de BEK bestandslocatie:
+7. Nadat de BEK-bestand is gemaakt op uw PC, moet u het bestand kopiëren naar de herstel-VM die u de vergrendelde besturingssysteemschijf die is gekoppeld hebt aan. Voer de volgende opdrachten met behulp van de locatie van de BEK.
 
     ```Powershell
     manage-bde -status F:
     manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
     ```
-    **Optionele** in sommige scenario's mogelijk ook het ontsleutelen van de schijf met deze opdracht.
+    **Optionele**: In sommige scenario's kan het nodig zijn voor het ontsleutelen van de schijf met behulp van deze opdracht.
    
     ```Powershell
     manage-bde -off F:
     ```
 
     > [!Note]
-    > Dit overweegt dat de schijf voor het versleutelen op de letter F: is.
+    > De vorige opdracht wordt ervan uitgegaan dat de schijf voor het versleutelen is op de stationsletter f kan zijn.
 
-8. Als u nodig hebt om Logboeken te verzamelen, kunt u navigeren naar het pad **station stationsletter: \Windows\System32\winevt\Logs**.
+8. Als u nodig hebt om Logboeken te verzamelen, gaat u naar het pad **station stationsletter: \Windows\System32\winevt\Logs**.
 
 9. Ontkoppel de schijf van de machine voor herstel.
 
@@ -121,17 +121,17 @@ Gebruik de stappen in de [verzamelen os dump](troubleshoot-common-blue-screen-er
 
 ## <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft Ondersteuning
 
-Nadat u het dumpbestand verzameld, neem dan contact op met [Microsoft ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) voor analyse van de hoofdoorzaak te achterhalen.
+Nadat u het dumpbestand verzameld, neem dan contact op met [Microsoft ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) voor het analyseren van de hoofdoorzaak te achterhalen.
 
 
-## <a name="rebuild-the-vm-using-powershell"></a>Opnieuw opbouwen van de virtuele machine met behulp van PowerShell
+## <a name="rebuild-the-vm-by-using-powershell"></a>Opnieuw opbouwen van de virtuele machine met behulp van PowerShell
 
-Nadat u het geheugendumpbestand verzameld, gebruikt u de volgende stappen opnieuw opbouwen van de virtuele machine.
+Nadat u het geheugendumpbestand verzameld, volg deze stappen om de virtuele machine opnieuw te maken.
 
 **Voor niet-beheerde schijven**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -162,7 +162,7 @@ New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 **Voor beheerde schijven**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -183,7 +183,7 @@ $avName = "AvailabilitySetName";
 $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
-#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
+#This can be found by selecting the Managed Disks you wish you use in the Azure portal if the format below doesn't match
 $osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 

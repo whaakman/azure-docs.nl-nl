@@ -1,5 +1,5 @@
 ---
-title: Indexeerfuncties in Azure Search | Microsoft Docs
+title: Indexeerfuncties voor verkennen gegevensbronnen tijdens het indexeren - Azure zoeken
 description: Azure SQL database, Azure Cosmos DB of Azure Storage verkennen om doorzoekbare gegevens op te halen en een Azure Search-index te vullen.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 2164e0b7cc973969e39f5708bb6509c1ed5f636a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: b763da25fb5a707e6a0c0cee1aabbe3eda03ee4c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641132"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312371"
 ---
 # <a name="indexers-in-azure-search"></a>Indexeerfuncties in Azure Search
 
@@ -52,18 +53,18 @@ Indexeerfuncties verkennen gegevensarchieven in Azure.
 ## <a name="basic-configuration-steps"></a>Basisconfiguratiestappen
 Indexeerfuncties kunnen functies bieden die uniek voor de gegevensbron zijn. In dit opzicht variëren bepaalde aspecten van de configuratie van de indexeerfunctie of de gegevensbron al naar gelang het type indexeerfunctie. Alle indexeerfuncties hebben echter dezelfde basissamenstelling en voor alle indexeerfuncties gelden dezelfde vereisten. Hieronder vindt u de stappen die voor alle indexeerfuncties gemeenschappelijk zijn.
 
-### <a name="step-1-create-a-data-source"></a>Stap 1: een gegevensbron maken
+### <a name="step-1-create-a-data-source"></a>Stap 1: Een gegevensbron maken
 Een indexeerfunctie haalt gegevens op uit een *gegevensbron* die informatie bevat, zoals een verbindingsreeks en mogelijk aanmeldingsgegevens. Roep de [Datasource maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST-API of [DataSource-klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) om de resource te maken.
 
 Gegevensbronnen worden geconfigureerd en onafhankelijk van de indexeerfuncties beheerd die gebruikmaken van de gegevensbronnen. Dit betekent dat een gegevensbron door meerdere indexeerfuncties kan worden gebruikt om tegelijkertijd meer dan één index te laden.
 
-### <a name="step-2-create-an-index"></a>Stap 2: een index maken
+### <a name="step-2-create-an-index"></a>Stap 2: Een index maken
 Een indexeerfunctie automatiseert bepaalde taken met betrekking tot de opname van gegevens, maar het maken van een index behoort hier niet toe. Een vereiste is dat u een vooraf gedefinieerde index moet hebben met velden die overeenkomen met de velden in uw externe gegevensbron. Zie voor meer informatie over het structureren van een index [maken van een Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) of [Index-klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Zie [Veldtoewijzingen in Azure Search-indexeerfuncties](search-indexer-field-mappings.md) voor hulp bij veldkoppelingen.
 
 > [!Tip]
 > Hoewel indexeerfuncties een index niet voor u kunnen genereren, kan de wizard **Gegevens importeren** in de portal helpen. In de meeste gevallen kan de wizard een indexschema afleiden uit bestaande metagegevens in de bron, met een voorlopig indexschema dat u kunt bewerken terwijl de wizard actief is. Als de index eenmaal is aangemaakt op de service, blijven verdere bewerkingen in de portal meestal beperkt tot het toevoegen van nieuwe velden. Overweeg de wizard voor het maken, maar niet voor het herzien van een index. Doorloop het [Portaloverzicht](search-get-started-portal.md) om aan de slag te gaan.
 
-### <a name="step-3-create-and-schedule-the-indexer"></a>Stap 3: de indexeerfunctie maken en plannen
+### <a name="step-3-create-and-schedule-the-indexer"></a>Stap 3: Maken en plannen van de indexeerfunctie
 De definitie van de indexeerfunctie is een constructie die de index, gegevensbron en een planning specificeert. Een indexeerfunctie kan verwijzen naar een gegevensbron van een andere service, zolang die gegevensbron maar uit hetzelfde abonnement komt. Zie [Create Indexer (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer) (Een indexeerfunctie maken (Azure Search REST API)) voor meer informatie over het structureren van een indexeerfunctie.
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,5 +1,5 @@
 ---
-title: Servicelimieten in Azure Search | Microsoft Docs
+title: Servicelimieten voor lagen en SKU's - Azure Search
 description: Servicelimieten gebruikt voor het plannen van capaciteit en maximumlimieten op aanvragen en antwoorden voor Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: 8abcc90bf72544e6226d6c8487d2951b60ea6d29
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 98902c7a27d769b59b20d4560b2cda21bfcff6c6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802146"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310213"
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **gratis**, **Basic**, of **Standard** Prijscategorieën.
@@ -23,7 +24,7 @@ Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en an
 
 + **Basic** biedt speciale computerbronnen voor productieworkloads op kleinere schaal.
 
-+ **Standard** wordt uitgevoerd op toegewezen virtuele machines met meer capaciteit voor opslag en verwerking op ieder niveau. Standaard is beschikbaar in vier niveaus: S1, S2, S3 en S3 HD.
++ **Standard** wordt uitgevoerd op toegewezen virtuele machines met meer capaciteit voor opslag en verwerking op ieder niveau. Er is standaard beschikbaar in vier niveaus: S1, S2, S3 en S3 HD.
 
   S3 High Density (S3 HD) is ontworpen voor specifieke werkbelastingen: [multitenancy](search-modeling-multitenant-saas-applications.md) en grote hoeveelheden kleine indexen (1 miljoen documenten per index, drie duizend indexen per service). Deze laag biedt de [indexeerfunctie functie](search-indexer-overview.md). Opname van gegevens moet gebruikmaken van de push-benadering, met behulp van API-aanroepen om gegevens te pushen van bron naar een index op S3 HD. 
 

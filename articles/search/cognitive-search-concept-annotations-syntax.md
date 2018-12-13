@@ -1,5 +1,5 @@
 ---
-title: Verwijzen naar een aantekening in invoer en uitvoer in een pijplijn cognitief zoeken in Azure Search | Microsoft Docs
+title: Referentie-invoer en uitvoer in cognitive zoeken pijplijnen - Azure Search
 description: Verklaart de syntaxis van de aantekening en hoe u om te verwijzen naar een aantekening in de invoer en uitvoer van een set vaardigheden in een pijplijn cognitief zoeken in Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801944"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315802"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Hoe om te verwijzen naar aantekeningen in een vaardigheden cognitief zoeken
 
@@ -27,13 +28,13 @@ Voorbeelden in dit artikel zijn gebaseerd op de *inhoud* veld automatisch gegene
 
 Voordat u de syntaxis van de bekeken, gaan we terug naar een paar belangrijke concepten voor meer informatie over de voorbeelden verderop in dit artikel.
 
-| Termijn | Beschrijving |
+| Termijn | Description |
 |------|-------------|
 | Verrijkt Document | Een geavanceerde document is een interne structuur gemaakt en gebruikt door de pijplijn voor het opslaan van alle aantekeningen met betrekking tot een document. Een document verrijkt beschouwen als een boomstructuur van aantekeningen. Een aantekening gemaakt op basis van een vorige aantekening wordt over het algemeen het onderliggende.<p/>Verrijkt documenten bestaan alleen voor de duur van de uitvoering van vaardigheden. Wanneer inhoud wordt toegewezen aan de search-index, wordt het verrijkt document niet meer nodig hebt. Hoewel u niet rechtstreeks met verrijkt documenten communiceren, is het handig om een mentale model van de documenten hebt bij het maken van een set vaardigheden. |
 | Verrijking Context | De context waarin de verrijking plaatsvindt, in termen van welke element is uitgebreid. De context verrijking is standaard op de `"/document"` niveau binnen het bereik van afzonderlijke documenten. Wanneer een kwalificatie wordt uitgevoerd, wordt de uitvoer van deze kwalificatie worden [eigenschappen van de gedefinieerde context](#example-2).|
 
 <a name="example-1"></a>
-## <a name="example-1-simple-annotation-reference"></a>Voorbeeld 1: Eenvoudige aantekeningsverwijzing
+## <a name="example-1-simple-annotation-reference"></a>Voorbeeld 1: Met eenvoudige aantekeningsverwijzing
 
 Stel dat u beschikt over tal van bestanden met verwijzingen naar de namen van personen die u wilt ophalen met herkenning van named entity's in Azure Blob-opslag. In de definitie van de kwalificatie hieronder `"/document/content"` is de tekstuele weergave genereren van het hele document en 'iedereen' is een extractie van de volledige naam voor entiteiten die zijn geïdentificeerd als personen.
 
@@ -93,7 +94,7 @@ Wanneer aantekeningen matrices of verzamelingen van tekenreeksen, is het raadzaa
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Voorbeeld 3: Verwijzen naar leden in een matrix
+## <a name="example-3-reference-members-within-an-array"></a>Voorbeeld 3: Leden van de referentie in een matrix
 
 Soms moet u aan de groep alle aantekeningen van een bepaald type ze doorgeven aan een bepaalde kwalificatie. Houd rekening met een hypothetische aangepaste vaardigheden waarmee de meest voorkomende achternaam van de laatste namen in voorbeeld 2 hebt uitgepakt. Om alleen de laatste namen aan de aangepaste vaardigheid, geef de context als `"/document"` en de invoer als `"/document/people/*/lastname"`.
 

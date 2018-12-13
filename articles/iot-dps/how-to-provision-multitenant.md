@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 6855521475e24b7243a391abdc6e6cf707991159
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457388"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320689"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Inrichten voor multitenancy 
 
 Het toewijzingsbeleid gedefinieerd door de inrichtingsservice ondersteuning van tal van scenario's voor toewijzing. Er zijn twee gangbare scenario's:
 
-* **Geolocatie / GeoLatency**: als een apparaat worden verplaatst tussen locaties, netwerklatentie is verbeterd doordat het apparaat is ingericht voor de IoT-hub die het dichtst bij elke locatie. In dit scenario wordt een groep van IoT-hubs in regio's omvatten, worden geselecteerd voor inschrijvingen. De **laagste latentie** toewijzingsbeleid is geselecteerd voor deze registraties. Dit beleid zorgt ervoor dat de Device Provisioning Service om te evalueren apparaat latentie en bepalen de kast IoT-hub uit de groep van IoT-hubs. 
+* **Geolocatie / GeoLatency**: Als u een apparaat verplaatst tussen locaties, wordt de netwerklatentie verbeterd doordat het apparaat is ingericht voor de IoT-hub die het dichtst bij elke locatie. In dit scenario wordt een groep van IoT-hubs in regio's omvatten, worden geselecteerd voor inschrijvingen. De **laagste latentie** toewijzingsbeleid is geselecteerd voor deze registraties. Dit beleid zorgt ervoor dat de Device Provisioning Service om te evalueren apparaat latentie en bepalen de kast IoT-hub uit de groep van IoT-hubs. 
 
-* **Multitenancy**: apparaten die worden gebruikt binnen een IoT-oplossing mogelijk moeten worden toegewezen aan een specifieke IoT-hub of de groep van IoT-hubs. De oplossing moeten alle apparaten voor een bepaalde tenant om te communiceren met een specifieke groep van IoT-hubs. In sommige gevallen kan een tenant eigenaar bent van IoT-hubs en vereisen dat apparaten worden toegewezen aan hun IoT-hubs.
+* **Multitenancy**: Apparaten die worden gebruikt binnen een IoT-oplossing mogelijk moeten worden toegewezen aan een specifieke IoT-hub of de groep van IoT-hubs. De oplossing moeten alle apparaten voor een bepaalde tenant om te communiceren met een specifieke groep van IoT-hubs. In sommige gevallen kan een tenant eigenaar bent van IoT-hubs en vereisen dat apparaten worden toegewezen aan hun IoT-hubs.
 
 Het is gebruikelijk om te combineren van deze twee scenario's. Een multitenant IoT-oplossing wordt bijvoorbeeld vaak toewijzen voor tenant-apparaten met behulp van een groep van IoT-hubs die worden verspreid over verschillende regio's. Deze tenant-apparaten kunnen worden toegewezen aan de IoT-hub in de groep met de laagste latentie op basis van geografische locatie.
 
@@ -96,7 +96,7 @@ Voor het gemak in dit artikel wordt [symmetrische sleutel attestation](concepts-
 
     **Type Attestation**: Selecteer **symmetrische sleutel**.
 
-    **Automatisch sleutels genereren**: dit selectievakje al moet worden gecontroleerd.
+    **Automatisch sleutels genereren**: Dit selectievakje moet nog worden gecontroleerd.
 
     **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **laagste latentie**.
 
@@ -105,11 +105,11 @@ Voor het gemak in dit artikel wordt [symmetrische sleutel attestation](concepts-
 
 4. Op **Registratiegroep toevoegen**, klikt u op **een nieuwe IoT-hub koppelen** te koppelen van de regionale hubs.
 
-    **Abonnement**: als u meerdere abonnementen hebt, kiest u het abonnement waarin u de regionale IoT-hubs hebt gemaakt.
+    **Abonnement**: Als u meerdere abonnementen hebt, kiest u het abonnement waarin u de regionale IoT-hubs hebt gemaakt.
 
     **IoT-hub**: Selecteer een van de regionale hubs die u hebt gemaakt.
 
-    **Het toegangsbeleid**: kies **iothubowner**.
+    **Het toegangsbeleid**: Kies **iothubowner**.
 
     ![De regionale IoT-hubs met de provisioning-service koppelen](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
@@ -132,9 +132,9 @@ Om het opschonen gemakkelijker, deze VM's wordt toegevoegd aan dezelfde resource
 
     **--naam**: Voer een unieke naam voor uw **VS-Oost** regionale apparaat VM. 
 
-    **-admin-username**: uw eigen naam gebruiken.
+    **-admin-username**: De gebruikersnaam van uw eigen beheer gebruiken.
 
-    **---beheerderswachtwoord**: uw eigen beheerderswachtwoord gebruiken.
+    **---beheerderswachtwoord**: Gebruik uw eigen beheerderswachtwoord.
 
     ```azurecli-interactive
     az vm create \
@@ -153,9 +153,9 @@ Om het opschonen gemakkelijker, deze VM's wordt toegevoegd aan dezelfde resource
 
     **--naam**: Voer een unieke naam voor uw **VS-West** regionale apparaat VM. 
 
-    **-admin-username**: uw eigen naam gebruiken.
+    **-admin-username**: De gebruikersnaam van uw eigen beheer gebruiken.
 
-    **---beheerderswachtwoord**: uw eigen beheerderswachtwoord gebruiken.
+    **---beheerderswachtwoord**: Gebruik uw eigen beheerderswachtwoord.
 
     ```azurecli-interactive
     az vm create \
@@ -220,7 +220,7 @@ In deze sectie wordt u de Azure IoT C SDK op elke virtuele machine klonen. De SD
 1. Voor beide VM's, voert u de volgende opdracht maakt die een versie van de SDK die specifiek zijn voor uw clientplatform voor ontwikkeling. 
 
     ```bash
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
     Zodra het bouwen is voltooid, zijn de laatste paar uitvoerregels vergelijkbaar met de volgende uitvoer:

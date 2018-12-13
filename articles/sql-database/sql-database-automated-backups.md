@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 6fe9a95c891ecd560682d02f14485cc9d198a0a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/10/2018
+ms.openlocfilehash: 2d6df569a2b5b813bd832adf5ef2e1d193de9364
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879144"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187565"
 ---
-# <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
+# <a name="automated-backups"></a>Automatische back-ups
 
-SQL Database automatisch maakt databaseback-ups en geografisch redundante opslag met Azure-leestoegang (RA-GRS) gebruikt om geo-redundantie te verlenen. Deze back-ups worden gemaakt automatisch en zonder extra kosten. U hoeft te doen zodat ze zich voordoen. Databaseback-ups zijn een essentieel onderdeel van een strategie voor zakelijke continuïteit en noodherstel omdat ze uw gegevens tegen per ongeluk beschadigd of verwijderd beschermen. Als uw beveiligingsregels is vereist dat uw back-ups beschikbaar voor een lange periode zijn, kunt u een beleid met een back-up langetermijnbewaarperiode kunt configureren. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
+SQL-Database automatisch maakt databaseback-ups die tussen 7 en 35 dagen worden bewaard en geografisch redundante opslag met Azure-leestoegang (RA-GRS) gebruikt om ervoor te zorgen dat ze behouden blijft, zelfs als het datacenter is niet beschikbaar. Deze back-ups worden gemaakt automatisch en zonder extra kosten. U hoeft te doen zodat ze zich voordoen en kunt u [wijzigen van de bewaarperiode voor back-up](#how-to-change-the-pitr-backup-retention-period). Databaseback-ups zijn een essentieel onderdeel van een strategie voor zakelijke continuïteit en noodherstel omdat ze uw gegevens tegen per ongeluk beschadigd of verwijderd beschermen. Als uw beveiligingsregels is vereist dat uw back-ups beschikbaar voor een lange periode (maximaal 10 jaar zijn), kunt u een [langetermijnretentie](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

@@ -1,9 +1,9 @@
 ---
-title: Inleiding op verzamelingen van betrouwbare in Azure Service Fabric stateful services | Microsoft Docs
-description: Service Fabric stateful services bieden betrouwbare verzamelingen waarmee u maximaal beschikbare, schaalbare en lage latentie cloud-toepassingen schrijven.
+title: Inleiding tot betrouwbare verzamelingen in Azure Service Fabric stateful services | Microsoft Docs
+description: Stateful service Fabric-services bieden een betrouwbare verzamelingen die u in staat om maximaal beschikbare, schaalbare en lage latentie cloudtoepassingen te schrijven.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,57 +13,57 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
-ms.author: mcoskun
-ms.openlocfilehash: 2876d90c02995394104009d1b2d62d5b3ed6a8d9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: caca297afb9ed4e2d85f1068ad3c1122db60c1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212922"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191985"
 ---
-# <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Inleiding op verzamelingen van betrouwbare in Azure Service Fabric stateful services
-Betrouwbare verzamelingen kunnen u maximaal beschikbare, schaalbare en lage latentie cloud-toepassingen schrijven, alsof u schreef toepassingen voor één computer. De klassen in de **Microsoft.ServiceFabric.Data.Collections** naamruimte leveren een verzameling van verzamelingen die uw status automatisch maximaal beschikbaar maken. Ontwikkelaars moeten programma alleen voor de betrouwbare verzameling API's en laat betrouwbare verzamelingen die de status van de gerepliceerde en lokaal beheren.
+# <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Inleiding tot betrouwbare verzamelingen in Azure Service Fabric stateful services
+Betrouwbare verzamelingen kunnen u maximaal beschikbare, schaalbare en lage latentie om cloudtoepassingen te schrijven, alsof u één computertoepassingen schrijft. De klassen in de **Microsoft.ServiceFabric.Data.Collections** naamruimte bieden een set verzamelingen die de status automatisch maximaal beschikbaar maken. Ontwikkelaars moeten programma alleen naar de betrouwbare verzameling API's om te laten betrouwbare verzamelingen beheren van de gerepliceerde en lokale status.
 
-Het belangrijkste verschil tussen betrouwbare verzamelingen en andere technologieën voor hoge beschikbaarheid (zoals Redis, Azure Table-service en Azure Queue-service) is dat de status wordt opgeslagen lokaal in het service-exemplaar tijdens ook maximaal beschikbaar gesteld. Dit betekent dat:
+Het belangrijkste verschil tussen de betrouwbare verzamelingen en andere technologieën voor hoge beschikbaarheid (zoals Redis, Azure Table-service en Azure Queue-service) is dat de status worden bewaard lokaal in de service-exemplaar bij worden ook maximaal beschikbaar gemaakt. Dit betekent dat:
 
-* Alle leesbewerkingen zijn lokaal is, wat resulteert in een lage latentie en hoge gegevensdoorvoer leest.
-* Alle schrijfbewerkingen worden het minimum aantal IOs-netwerk, wat in een lage latentie resulteert en hoge gegevensdoorvoer schrijft.
+* Alle leesbewerkingen zijn lokale computer, wat resulteert in een lage latentie en hoge doorvoer wordt gelezen.
+* Alle schrijfbewerkingen in rekening worden gebracht het minimum aantal IOs-netwerk, wat tot een lage latentie leidt en hoge doorvoer schrijft.
 
-![Afbeelding van de evolutie van verzamelingen.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
+![Afbeelding van de ontwikkeling van verzamelingen.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
-Betrouwbare verzamelingen kunnen worden beschouwd als de natuurlijke evolutie van het **System.Collections** klassen: een nieuwe reeks verzamelingen die zijn ontworpen voor de cloud en meerdere computers toepassingen zonder complexiteit toeneemt voor ontwikkelaars. Als zodanig zijn betrouwbare verzamelingen:
+Betrouwbare verzamelingen kunnen worden beschouwd als de natuurlijke evolutie van het **System.Collections** klassen: een nieuwe set verzamelingen die zijn ontworpen voor de cloud en meerdere computers toepassingen zonder de toenemende complexiteit voor het ontwikkelaar. Als zodanig zijn betrouwbare verzamelingen:
 
-* Gerepliceerd: Statuswijzigingen worden gerepliceerd voor hoge beschikbaarheid.
-* Persistent: Gegevens worden bewaard naar schijf voor duurzaamheid tegen grootschalige storingen (bijvoorbeeld een datacenter stroomstoring).
-* Asynchrone: API's zijn asynchroon om ervoor te zorgen dat threads worden niet geblokkeerd wanneer de i/o aangaan.
-* Transactionele: API's maken gebruik van de abstrahering van transacties zodat u eenvoudig meerdere betrouwbare verzamelingen binnen een service kunt beheren.
+* Gerepliceerd: Status wijzigingen worden gerepliceerd voor hoge beschikbaarheid.
+* Persistent gemaakt: Gegevens worden opgeslagen op schijf voor duurzaamheid tegen grootschalige storingen (bijvoorbeeld een datacenter stroomstoring).
+* Asynchrone: API's zijn om ervoor te zorgen dat threads worden niet geblokkeerd wanneer waarbij extra kosten voor i/o asynchroon.
+* Transactionele: API's maken gebruik van de abstractie van transacties, zodat u eenvoudig meerdere betrouwbare verzamelingen in een service kunt beheren.
 
-Betrouwbare verzamelingen bieden sterke consistentie wordt gegarandeerd dat buiten het vak redenering over toepassingsstatus om gemakkelijker te maken.
-Sterke consistentie wordt bereikt door ervoor te zorgen transactie doorvoeracties pas nadat de hele transactie is aangemeld een quorum meerderheid van replica's, met inbegrip van de primaire voltooien.
-Toepassingen kunnen zodat zwakkere consistentie erken terug naar de client/aanvrager voordat het asynchrone doorvoeren wordt geretourneerd.
+Betrouwbare verzamelingen bieden de sterke consistentie gegarandeerd gebruiksklaar reasoning over de toepassingsstatus van de om gemakkelijker te maken.
+Sterke consistentie wordt bereikt door ervoor te zorgen dat de transactie wordt doorgevoerd voltooien nadat de hele transactie is geregistreerd op het quorum van een meerderheid van replica's, met inbegrip van de primaire.
+Als u wilt bereiken zwakkere consistentie, kunnen toepassingen erkent terug naar de client/aanvrager voordat het asynchrone doorvoer wordt geretourneerd.
 
 De betrouwbare verzamelingen-API's zijn een evolutie van gelijktijdige verzamelingen API's (gevonden in de **System.Collections.Concurrent** naamruimte):
 
 * Asynchrone: Retourneert een taak omdat, in tegenstelling tot gelijktijdige verzamelingen, de bewerkingen zijn gerepliceerd en opgeslagen.
-* Geen out-parameters: maakt gebruik van `ConditionalValue<T>` om een Boole-waarde en een waarde in plaats van out-parameters te retourneren. `ConditionalValue<T>` lijkt `Nullable<T>` , maar geen T moet een struct zijn vereist.
-* Transacties: Maakt gebruik van een transactieobject zodat de gebruiker aan groep acties op meerdere betrouwbare verzamelingen in een transactie.
+* Geen uitvoerparameters: Maakt gebruik van `ConditionalValue<T>` om een Boole-waarde en een waarde in plaats van parameters uit te retourneren. `ConditionalValue<T>` is vergelijkbaar met `Nullable<T>` T moet een struct vereist.
+* Transacties: Maakt gebruik van een transactieobject waarmee de gebruiker aan groepacties op meerdere betrouwbare verzamelingen in een transactie.
 
 Vandaag de dag **Microsoft.ServiceFabric.Data.Collections** bevat drie verzamelingen:
 
-* [Betrouwbare woordenlijst](https://msdn.microsoft.com/library/azure/dn971511.aspx): vertegenwoordigt een verzameling gerepliceerde transactionele en asynchrone sleutel/waarde-paren. Net als bij **ConcurrentDictionary**, zowel de sleutel als de waarde van elk type kunnen zijn.
-* [Betrouwbare wachtrij](https://msdn.microsoft.com/library/azure/dn971527.aspx): vertegenwoordigt een gerepliceerde transactionele en asynchrone strikte first in, First-out ' (FIFO) wachtrij. Net als bij **ConcurrentQueue**, de waarde van elk type kan zijn.
-* [Betrouwbare gelijktijdige wachtrij](service-fabric-reliable-services-reliable-concurrent-queue.md): vertegenwoordigt een gerepliceerde transactionele en asynchrone best-effort ordening van wachtrij voor hoge doorvoer. Net als bij de **ConcurrentQueue**, de waarde van elk type kan zijn.
+* [Betrouwbare Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Vertegenwoordigt de verzameling van een gerepliceerde, transactionele en asynchrone van sleutel/waarde-paren. Vergelijkbaar met **ConcurrentDictionary**, zowel de sleutel en de waarde van elk type kunnen zijn.
+* [Betrouwbare wachtrij](https://msdn.microsoft.com/library/azure/dn971527.aspx): Hiermee geeft u een gerepliceerde, transactionele en asynchrone strikte first-in, First out (FIFO-principe)-wachtrij. Vergelijkbaar met **ConcurrentQueue**, de waarde van elk type kan zijn.
+* [Betrouwbare gelijktijdige wachtrij](service-fabric-reliable-services-reliable-concurrent-queue.md): Hiermee geeft u een gerepliceerde, transactionele en asynchrone best-effort bestellen wachtrij voor hoge doorvoer. Vergelijkbaar met de **ConcurrentQueue**, de waarde van elk type kan zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Betrouwbare verzameling richtlijnen en aanbevelingen](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Werken met betrouwbare verzamelingen](service-fabric-work-with-reliable-collections.md)
 * [Transacties en vergrendelingen](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* Het beheren van gegevens
+* Beheren van gegevens
   * [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
   * [Meldingen](service-fabric-reliable-services-notifications.md)
   * [Betrouwbare verzamelingserialisatie](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialisatie en Upgrade](service-fabric-application-upgrade-data-serialization.md)
-  * [Betrouwbaar status Manager-configuratie](service-fabric-reliable-services-configuration.md)
+  * [Configuratie van betrouwbare status Manager](service-fabric-reliable-services-configuration.md)
 * Andere
-  * [Betrouwbare Services snel starten](service-fabric-reliable-services-quick-start.md)
+  * [Snel starten met betrouwbare Services](service-fabric-reliable-services-quick-start.md)
   * [Referentie voor ontwikkelaars voor betrouwbare verzamelingen](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

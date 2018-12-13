@@ -5,9 +5,8 @@ keywords: machine learning-voorbeelden, voorbeeldexperiment, machine learning-vo
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6b2a07b105252ca1fb5eb37c2571601c3eb74179
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306677"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276431"
 ---
-# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Machine learning-experimenten maken van werkende voorbeelden in Azure AI Gallery
+# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure Machine Learning Studio-experimenten maken van werkende voorbeelden in Azure AI Gallery
 
 Leer hoe u met voorbeeldexperimenten uit [Azure AI Gallery](https://gallery.cortanaintelligence.com/) aan de slag gaat in plaats van experimenten voor Machine Learning helemaal opnieuw te maken. U kunt de voorbeelden gebruiken om uw eigen Machine Learning-oplossing te maken.
 
@@ -32,7 +31,7 @@ De galerie bevat voorbeeldexperimenten van het Microsoft Azure Machine Learning-
 
 Bekijk de video [Copy other people's work to do data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) (Werk van anderen kopiëren om gegevenswetenschap uit te voeren) uit de serie [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) (Gegevenswetenschap voor beginners). Deze video duurt 3 minuten.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Een experiment zoeken om in Azure AI Gallery te kopiëren
 Als u wilt zien welke experimenten beschikbaar zijn, gaat u naar [Gallery](https://gallery.cortanaintelligence.com/) en klikt u boven aan de pagina op **Experiments**.
@@ -46,7 +45,7 @@ Door alle experimenten bladeren:
 1. Klik boven aan de pagina op **Browse all**.
 2. Selecteer aan de linkerkant onder **Refine by**, in het gedeelte **Categories**, de optie **Experiment** om alle experimenten in de galerie weer te geven.
 3. U kunt op verschillende manieren experimenten vinden die aan uw vereisten voldoen:
-   * **Selecteer filters aan de linkerkant.** Als u bijvoorbeeld door experimenten wilt bladeren die gebruikmaken van een PCA-algoritme voor de detectie van afwijkingen, klikt u onder **Categories** op **Experiment**. Klik vervolgens onder **Algorithms Used** op **Show All** en kies in het dialoogvenster de optie **PCA-Based Anomaly Detection**. Misschien moet u scrollen om de optie te zien.<br></br>
+   * **Selecteer filters aan de linkerkant.** Bijvoorbeeld, om te bladeren-experimenten die gebruikmaken van een PCA-gebaseerd anomaliedetectie-algoritme: Onder **categorieën** klikt u op **Experiment**. Klik vervolgens onder **Algorithms Used** op **Show All** en kies in het dialoogvenster de optie **PCA-Based Anomaly Detection**. Misschien moet u scrollen om de optie te zien.<br></br>
      ![Filters selecteren](./media/sample-experiments/choose-an-algorithm.png)
    * **Het zoekvak gebruiken.** Als u bijvoorbeeld experimenten wilt vinden die door Microsoft zijn aangedragen en die betrekking hebben op cijferherkenning waarbij gebruik wordt gemaakt van een algoritme van twee klassen voor ondersteuningsvectormachines, voert u 'digit recognition' (cijferherkenning) in het zoekvak in. Selecteer vervolgens de filters **Experiment**, **Microsoft content only** en **Two-Class Support Vector Machine**:<br></br>
      ![Het zoekvak gebruiken](./media/sample-experiments/search-for-experiments.png)

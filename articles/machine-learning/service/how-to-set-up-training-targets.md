@@ -1,7 +1,7 @@
 ---
-title: Maken en gebruiken van compute-doelen voor modeltraining
+title: COMPUTE-doelen voor modeltraining
 titleSuffix: Azure Machine Learning service
-description: Informatie over het selecteren en configureren van de training-omgevingen (compute-doelen) gebruikt voor het trainen van uw machine learning-modellen. De service Azure Machine Learning kunt u eenvoudig over training van omgeving. Start lokaal training en als u nodig hebt om uit te schalen, gaat u naar een cloud-gebaseerde compute-doel.
+description: Configureer de training-omgevingen (compute-doelen) voor machine learning-modeltraining. Training-omgevingen kunt u eenvoudig overschakelen. Start lokaal training en als u nodig hebt om uit te schalen, gaat u naar een cloud-gebaseerde compute-doel. Databricks
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -12,12 +12,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1a6533c1ec25eb8500f67cb98494463d7daf752b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c91cc8dabc1fcf4918e64c18e5d5975dc7720c30
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080092"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315982"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
@@ -27,11 +27,11 @@ Een compute-doel is een resource waar uw trainingsscript wordt uitgevoerd, of he
 
 Er zijn drie hoofdcategorieën worden onderverdeeld van compute-doelen die ondersteuning biedt voor Azure Machine Learning:
 
-* __Lokale__: de lokale computer of een cloud-gebaseerde VM die u gebruikt als een dev/experimentele omgeving. 
+* __Lokale__: Uw lokale computer of een cloud-gebaseerde VM die u gebruikt als een dev/experimentele omgeving. 
 
 * __Beheerde Compute__: Azure Machine Learning-Computing is een compute-aanbieding die wordt beheerd door de Azure Machine Learning-service. Hiermee kunt u één of meerdere node compute voor trainingen, testen en batch inferentietaken eenvoudig kunt maken.
 
-* __Gekoppelde Compute__: U kunt ook doen om uw eigen Azure-cloud-computing en verbindt u deze met Azure Machine Learning. Lees meer hierover op ondersteunde rekentypen en het gebruik ervan.
+* __Gekoppelde Compute__: U kunt ook doen om uw eigen Azure-cloud-computing en deze koppelen aan Azure Machine Learning. Lees meer hierover op ondersteunde rekentypen en het gebruik ervan.
 
 
 ## <a name="supported-compute-targets"></a>Ondersteunde compute-doelen
@@ -43,7 +43,7 @@ Azure Machine Learning-service heeft verschillende ondersteuning voor de verschi
 |[Lokale computer](#local)| Misschien | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning-Computing](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Externe virtuele machine](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
 |[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
@@ -170,7 +170,7 @@ Een permanente Azure Machine Learning-Computing kan worden hergebruikt voor meer
 Als u wilt een permanente bron voor Azure Machine Learning-Computing maakt, geeft u de `vm_size` en `max_nodes` parameters. Azure Machine Learning maakt vervolgens gebruik van slimme standaardinstellingen voor de rest van de parameters.  Bijvoorbeeld, is de compute ingesteld op automatisch schalen naar nul knooppunten wanneer niet wordt gebruikt en te maken van de toegewezen virtuele machines om uit te voeren van uw taken, indien nodig. 
 
 * **vm_size**: VM-reeks van de knooppunten die zijn gemaakt door Azure Machine Learning-Computing.
-* **max_nodes**: maximum aantal knooppunten automatisch te schalen, terwijl een taak wordt uitgevoerd op Azure Machine Learning-Computing.
+* **max_nodes**: Maximum aantal knooppunten automatisch te schalen, terwijl een taak wordt uitgevoerd op Azure Machine Learning-Computing.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -198,12 +198,12 @@ U kunt ook verschillende geavanceerde eigenschappen configureren bij het maken v
 
 Naast `vm_size` en `max_nodes`, kunt u de volgende eigenschappen:
 
-* **min_nodes**: minimale knooppunten (standaard 0 knooppunten) te verkleinen terwijl een taak wordt uitgevoerd op Azure Machine Learning-Computing.
-* **vm_priority**: kiezen tussen 'toegewezen' (standaard) en 'lowpriority' virtuele machines bij het maken van Azure Machine Learning-Computing. VM's met lage prioriteit overtollige capaciteit van Azure gebruiken en zijn dus goedkoper maar risico's van uw bezet wordt uitgevoerd.
-* **idle_seconds_before_scaledown**: niet-actieve tijd (standaard 120 seconden) moet worden gewacht na voltooiing van uitvoering voor automatisch schalen naar min_nodes.
-* **vnet_resourcegroup_name**: resourcegroep van de __bestaande__ virtueel netwerk. Azure Machine Learning-Computing wordt gemaakt in dit virtuele netwerk.
-* **vnet_name**: naam van het virtuele netwerk. Het virtuele netwerk moet zich in dezelfde regio als uw Azure Machine Learning-werkruimte.
-* **subnet_name**: naam van subnet binnen het virtuele netwerk. Azure Machine Learning-Computing-resources worden toegewezen IP-adressen uit dit subnetbereik.
+* **min_nodes**: Minimum aantal knooppunten (standaard 0 knooppunten) te verkleinen terwijl een taak wordt uitgevoerd op Azure Machine Learning-Computing.
+* **vm_priority**: Kiezen tussen 'toegewezen' (standaard) en 'lowpriority' virtuele machines bij het maken van Azure Machine Learning-Computing. VM's met lage prioriteit overtollige capaciteit van Azure gebruiken en zijn dus goedkoper maar risico's van uw bezet wordt uitgevoerd.
+* **idle_seconds_before_scaledown**: Niet-actieve tijd (standaard 120 seconden) moet worden gewacht na voltooiing van uitvoering voor automatisch schalen naar min_nodes.
+* **vnet_resourcegroup_name**: Resourcegroep van de __bestaande__ virtueel netwerk. Azure Machine Learning-Computing wordt gemaakt in dit virtuele netwerk.
+* **vnet_name**: De naam van het virtuele netwerk. Het virtuele netwerk moet zich in dezelfde regio als uw Azure Machine Learning-werkruimte.
+* **subnet_name**: Naam van subnet binnen het virtuele netwerk. Azure Machine Learning-Computing-resources worden toegewezen IP-adressen uit dit subnetbereik.
 
 > [!TIP]
 > Wanneer u een permanente resource van Azure Machine Learning-Computing maakt hebt u ook de mogelijkheid om de eigenschappen, zoals de min_nodes of de max_nodes te werken. Roep de `update()` functie voor het.
@@ -312,9 +312,9 @@ Azure Databricks is een omgeving op basis van Apache Spark in de Azure-cloud. He
 
 Als u wilt koppelen Azure Databricks als een compute-doel, moet u de Azure Machine Learning-SDK gebruiken en geef de volgende informatie:
 
-* __De naam van COMPUTE__: de naam die u wilt toewijzen aan deze compute-resource.
-* __De naam van de Databricks-werkruimte__: de naam van de Azure Databricks-werkruimte.
-* __Toegangstoken__: het toegangstoken dat wordt gebruikt om te verifiëren met Azure Databricks. Zie voor het genereren van een toegangstoken de [verificatie](https://docs.azuredatabricks.net/api/latest/authentication.html) document.
+* __De naam van COMPUTE__: De naam die u wilt toewijzen aan deze compute-resource.
+* __De naam van de Databricks-werkruimte__: De naam van de Azure Databricks-werkruimte.
+* __Toegangstoken__: Het toegangstoken dat wordt gebruikt om te verifiëren met Azure Databricks. Zie voor het genereren van een toegangstoken de [verificatie](https://docs.azuredatabricks.net/api/latest/authentication.html) document.
 
 De volgende code ziet u hoe u Azure Databricks als een compute-doel toevoegen:
 
@@ -357,9 +357,9 @@ Azure Data Lake Analytics is een platform voor big data-analyses in de Azure-clo
 
 Als u wilt koppelen Data Lake Analytics als een compute-doel, moet u de Azure Machine Learning-SDK gebruiken en geef de volgende informatie:
 
-* __De naam van COMPUTE__: de naam die u wilt toewijzen aan deze compute-resource.
-* __Resourcegroep__: de resourcegroep met de Data Lake Analytics-account.
-* __Accountnaam__: naam van de Data Lake Analytics-account.
+* __De naam van COMPUTE__: De naam die u wilt toewijzen aan deze compute-resource.
+* __Resourcegroep__: De resourcegroep met de Data Lake Analytics-account.
+* __Accountnaam__: De naam van de Data Lake Analytics-account.
 
 De volgende code ziet u hoe u Data Lake Analytics als een compute-doel toevoegen:
 
@@ -571,6 +571,6 @@ Raadpleeg notebooks onder in de volgende locaties:
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Naslaginformatie over Azure Machine Learning-SDK](https://aka.ms/aml-sdk)
-* [Zelfstudie: een model trainen](tutorial-train-models-with-aml.md)
+* [Zelfstudie: Een model te trainen](tutorial-train-models-with-aml.md)
 * [Waar u modellen implementeren](how-to-deploy-and-where.md)
 * [Machine learning-pijplijnen met Azure Machine Learning-service bouwen](concept-ml-pipelines.md)

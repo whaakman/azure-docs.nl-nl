@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582443"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184046"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Order apparaat connection-gebeurtenissen van Azure IoT Hub met behulp van Azure Cosmos DB
 
@@ -200,11 +200,11 @@ In uw werkstroom voor logische Apps, helpen voorwaarden bij het uitvoeren van sp
 
 2. Vul de voorwaarde, zoals hieronder wordt weergegeven om uit te voeren dit alleen voor apparaten die zijn verbonden en apparaat verbroken gebeurtenissen:
 
-  * Een waarde kiezen: **type gebeurtenis**
-  * Wijziging 'is gelijk aan' naar **eindigt met**
-  * Een waarde kiezen: **nected**
+   * Een waarde kiezen: **type gebeurtenis**
+   * Wijziging 'is gelijk aan' naar **eindigt met**
+   * Een waarde kiezen: **nected**
 
-   ![Opvulling van voorwaarde](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Opvulling van voorwaarde](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. Als de voorwaarde waar is, klikt u op **een actie toevoegen**.
   
@@ -250,7 +250,7 @@ In deze sectie configureert u de IoT-hub voor het publiceren van gebeurtenissen 
 
    * **Gebeurtenistype**: Schakel het selectievakje abonneren op alle gebeurtenistypen en selecteer **apparaat aangesloten** en **apparaat losgekoppeld** in het menu.
 
-   * **Eindpuntdetails**: selecteer Eindpunttype als **Webhook**, klik op Eindpunt selecteren, plak de URL die u hebt gekopieerd in uw logische app en bevestig uw selectie.
+   * **Details van eindpunt**: Selecteer Eindpunttype als **Webhook** en klik op selecteren eindpunt en plak de URL die u hebt gekopieerd uit uw logische app en Bevestig de selectie.
 
        ![eindpunt-URL selecteren](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 

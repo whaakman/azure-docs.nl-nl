@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met de Azure WebJobs SDK
+title: Aan de slag met de WebJobs SDK - Azure
 description: Inleiding tot de WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde. Leer hoe u toegang tot gegevens in Azure-services en services van derden.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 95fd44d5865eb804cb91d7adc2cc17bb5f957b5c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140346"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275207"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -63,9 +63,9 @@ In dit artikel wordt ervan uitgegaan dat u hebt [een Azure-account](https://azur
 
 1. Selecteer in Visual Studio, **bestand > nieuw project**.
 
-1. Selecteer **klassieke bureaublad van Windows > consoletoepassing (.NET Framework)**.
+2. Selecteer **klassieke bureaublad van Windows > consoletoepassing (.NET Framework)**.
 
-1. Noem het project *WebJobsSDKSample*, en selecteer vervolgens **OK**.
+3. Noem het project *WebJobsSDKSample*, en selecteer vervolgens **OK**.
 
    ![Het dialoogvenster Nieuw project](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -318,13 +318,13 @@ In deze sectie maakt uitvoeren u de volgende taken voor het instellen van Applic
 
 1. In de **verbindingsreeksen** Voeg de volgende vermelding.
 
-   |Naam  |Connection String  |Databasetype|
+   |Name  |Connection String  |Databasetype|
    |---------|---------|------|
    |AzureWebJobsStorage | {de verbindingsreeks voor opslag die u eerder hebt gekopieerd}|Aangepast telefoonnummer|
    
 1. Als de **toepassingsinstellingen** vak beschikt niet over de instrumentatie van een Application Insights-sleutel, voegt u de naam die u eerder hebt gekopieerd. (De instrumentatiesleutel kan al zijn er, afhankelijk van hoe u de App Service-app hebt gemaakt.)
 
-   |Naam  |Waarde  |
+   |Name  |Waarde  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {instrumentatiesleutel} |
 

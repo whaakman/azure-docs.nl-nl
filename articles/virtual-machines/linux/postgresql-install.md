@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: zarhoads
-ms.openlocfilehash: dc7bb0eab9004b9c818a4a7cbbf6102f01b24f45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e794c191737f14fb06351e345f70edb9f7cddb7c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465223"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322053"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>PostgreSQL installeren en configureren op Azure
 PostgreSQL is een geavanceerde open-source-database die vergelijkbaar is met Oracle en DB2. Het bevat enterprise-ready-functies zoals volledige ACID naleving, betrouwbare transactionele verwerking en gelijktijdigheidsbeheer voor meerdere versies. Het biedt ook ondersteuning voor standaarden, zoals ANSI SQL en SQL/MED (met inbegrip van externe gegevens wrappers voor Oracle, MySQL, MongoDB en nog veel meer). Het is maximaal worden uitgebreid met ondersteuning voor meer dan 12 procedurele talen GIN en basisvertalingen indexen, ruimtelijke gegevens en ondersteuning meerdere NoSQL-achtige functies voor JSON of toepassingen op basis van sleutel-waarde.
@@ -76,7 +76,7 @@ Verbinding maken met de Linux VM die u hebt gemaakt via PuTTY. Als dit de eerste
 ## <a name="configure-postgresql"></a>PostgreSQL configureren
 1. (Optioneel) Maak een symbolische koppeling voor het verkorten van de PostgreSQL-verwijzing om het versienummer niet bevatten:
    
-        # ln -s /opt/pgsql9.3.5 /opt/pgsql
+        # ln -s /opt/postgresql-9.3.5 /opt/pgsql
 2. Maak een map voor de database:
    
         # mkdir -p /opt/pgsql_data
@@ -119,6 +119,7 @@ Verbinding maken met de Linux VM die u hebt gemaakt via PuTTY. Als dit de eerste
 7. U kunt ook de PostgreSQL-versie controleren:
    
         $ psql -V
+
 8. Initialiseren van de database:
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W

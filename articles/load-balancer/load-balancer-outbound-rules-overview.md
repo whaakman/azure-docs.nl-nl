@@ -1,5 +1,6 @@
 ---
-title: Regels voor uitgaand verkeer in Azure Load Balancer | Microsoft Docs
+title: Regels voor uitgaand verkeer in Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Gebruik regels voor uitgaand verkeer vertalingen uitgaand netwerkverkeer definiëren
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 34a80a180d4c08027e4c975d4f7955966eec7307
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086365"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185015"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer-regels voor uitgaand
 
@@ -191,14 +193,14 @@ Wanneer u een interne Standard Load Balancer, is uitgaande NAT niet beschikbaar 
    1. Uitgaande SNAT op de load balancer-regel uitschakelen.
    2. Een uitgaande regel configureren op de dezelfde Load Balancer.
    3. De back-endpool al gebruikt door uw VM's gebruiken.
-   4. Geef 'protocol': 'All' als onderdeel van de regel voor uitgaande.
+   4. Geef "protocol": 'All' als onderdeel van de regel voor uitgaande.
 
 - Wanneer alleen binnenkomende NAT-regels worden gebruikt, worden er geen uitgaande NAT wordt geboden.
 
    1. Virtuele machines in een back endadresgroep plaatsen.
    2. Een of meer front-end IP-configuraties met openbare IP-adressen of openbare IP-adresvoorvoegsel definiëren.
    3. Een uitgaande regel configureren op de dezelfde Load Balancer.
-   4. Geef 'protocol': 'All' als onderdeel van de regel voor uitgaande
+   4. Geef "protocol": 'All' als onderdeel van de regel voor uitgaande
 
 ## <a name="limitations"></a>Beperkingen
 

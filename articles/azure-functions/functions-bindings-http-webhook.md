@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3cdedd0c8ddf6d2c724351cf150499434e3886c9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994705"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317437"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions-HTTP-triggers en bindingen
 
@@ -495,7 +495,7 @@ Als uw functie-app [App Service-verificatie / autorisatie](../app-service/app-se
 
 U kunt deze informatie ook lezen uit het binden van gegevens. Deze mogelijkheid is alleen beschikbaar voor de Functions-runtime 2.x. Het is ook momenteel alleen beschikbaar voor .NET-talen.
 
-In .NET languagues, deze informatie is beschikbaar als een [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). Het ClaimsPrincipal is beschikbaar als onderdeel van de context van de aanvraag zoals wordt weergegeven in het volgende voorbeeld:
+In .NET-talen, deze informatie is beschikbaar als een [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). Het ClaimsPrincipal is beschikbaar als onderdeel van de context van de aanvraag zoals wordt weergegeven in het volgende voorbeeld:
 
 ```csharp
 using System.Net;
@@ -540,8 +540,8 @@ Functions kunt u sleutels gebruiken voor het moeilijker voor toegang tot uw HTTP
 
 Er zijn twee soorten sleutels:
 
-* **Hostsleutels**: deze sleutels worden gedeeld door alle functies in de functie-app. Wanneer gebruikt als een API-sleutel, geven deze toegang tot een functie binnen de functie-app.
-* **Functietoetsen**: deze sleutels alleen van toepassing op de specifieke functies waarin ze zijn gedefinieerd. Wanneer gebruikt als een API-sleutel, geven alleen toegang tot die functie.
+* **Hostsleutels**: Deze sleutels worden gedeeld door alle functies in de functie-app. Wanneer gebruikt als een API-sleutel, geven deze toegang tot een functie binnen de functie-app.
+* **Functietoetsen**: Deze sleutels gelden alleen voor de specifieke functies waarin ze zijn gedefinieerd. Wanneer gebruikt als een API-sleutel, geven alleen toegang tot die functie.
 
 Elke sleutel is met de naam van verwijzing en er is een standaard-sleutel (met de naam 'standaard') op het niveau van de functie en de host. Functietoetsen hebben voorrang op de hostsleutels. Wanneer er twee sleutels zijn gedefinieerd met dezelfde naam, wordt de sleutel van de functie altijd gebruikt.
 
@@ -606,8 +606,8 @@ De Slack-webhook genereert een token voor u in plaats van waarin u kunt opgeven,
 
 Autorisatie van de Webhook wordt verwerkt door het onderdeel van de ontvanger webhook, onderdeel van de HTTP-trigger, en het mechanisme is afhankelijk van het webhooktype. Elke methode zijn afhankelijk van een sleutel. De functie-sleutel met de naam 'standaard' wordt standaard gebruikt. Voor het gebruik van een andere productcode, de webhook-provider voor het verzenden van de naam van de sleutel met de aanvraag in een van de volgende manieren te configureren:
 
-* **Querytekenreeks**: de provider geeft de naam van de sleutel in de `clientid` query-tekenreeksparameter, zoals `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-* **Aanvraagkoptekst**: de provider geeft de naam van de sleutel in de `x-functions-clientid` header.
+* **Querytekenreeks**: De provider geeft de naam van de sleutel in de `clientid` query-tekenreeksparameter, zoals `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Aanvraagkoptekst**: De provider geeft de naam van de sleutel in de `x-functions-clientid` header.
 
 ## <a name="trigger---limits"></a>Trigger - limieten
 

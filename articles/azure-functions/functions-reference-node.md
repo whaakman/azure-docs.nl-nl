@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 44a2cb196e1a89b0abe229f478c0b76b146aa268
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 17e0cf170197b99037e2892d1b74a699a3a9eef5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620622"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275326"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -269,7 +269,7 @@ context.log(message)
 Kunt u schrijven naar de streaminglogboeken functie op het standaardniveau voor tracering. Op `context.log`, extra logboekregistratie methoden zijn beschikbaar waarmee u de functie Logboeken op andere traceringsniveaus:
 
 
-| Methode                 | Beschrijving                                |
+| Methode                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **fout (_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
 | **waarschuwing (_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
@@ -346,7 +346,7 @@ HTTP- en webhook-triggers en HTTP-output bindingen met de aanvraag en respons ob
 
 De `context.req` (aanvraag)-object heeft de volgende eigenschappen:
 
-| Eigenschap      | Beschrijving                                                    |
+| Eigenschap      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _De hoofdtekst_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
 | _Headers_     | Een object dat de aanvraagheaders bevat.                   |
@@ -361,7 +361,7 @@ De `context.req` (aanvraag)-object heeft de volgende eigenschappen:
 
 De `context.res` (antwoord)-object heeft de volgende eigenschappen:
 
-| Eigenschap  | Beschrijving                                               |
+| Eigenschap  | Description                                               |
 | --------- | --------------------------------------------------------- |
 | _De hoofdtekst_    | Een object dat de hoofdtekst van het antwoord bevat.         |
 | _Headers_ | Een object met de antwoordheaders.             |
@@ -417,7 +417,7 @@ De volgende tabel ziet u de Node.js-versie die wordt gebruikt door elke primaire
 | Versie van de functies | Versie van Node.js | 
 |---|---|
 | 1.x | 6.11.2 (vergrendeld door de runtime) |
-| 2.x  | _Actieve LTS_ en even _huidige_ Node.js-versies (8.11.1 en 10.6.0 aanbevolen). De-versie instellen met behulp van de WEBSITE_NODE_DEFAULT_VERSION [app-instelling](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Actieve LTS_ en even _huidige_ Node.js-versies (8.11.1 en 10.14.1 aanbevolen). De-versie instellen met behulp van de WEBSITE_NODE_DEFAULT_VERSION [app-instelling](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 U kunt zien dat de huidige versie die door de runtime wordt gebruikt door de bovenstaande appinstelling te controleren of door te drukken `process.version` van elke functie.
 

@@ -1,5 +1,5 @@
 ---
-title: Gegevens importeren in Azure Search via de portal | Microsoft Docs
+title: Gegevens importeren in search-index met behulp van Azure portal - Azure Search
 description: Informatie over het gebruik van de wizard gegevens importeren in Azure portal voor het verkennen van Azure-gegevens van Cosmos DB, Blob storage, table-opslag, SQL-Database en SQL Server op Azure Virtual machines.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: ceca9b8e89a963cd9a9226be143d24ed5429747b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004937"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316469"
 ---
 # <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Gegevens importeren in Azure Search-index met behulp van de Azure portal
 

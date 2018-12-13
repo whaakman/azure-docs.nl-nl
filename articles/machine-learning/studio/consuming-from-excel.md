@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3f3cdd2f-1816-487e-ab78-530e01e9788f
 ms.service: machine-learning
@@ -15,20 +14,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2018
-ms.openlocfilehash: 1425cb0f0b327e0f39733b99a4c10c03a0ec3089
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 02/01/2018
+ms.openlocfilehash: ad7eae16c2933790aefba3cee1551be29ee457be
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092346"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276924"
 ---
-# <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Een Azure Machine Learning-webservice gebruiken vanuit Excel
+# <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Een Azure Machine Learning Studio-webservice uit Excel gebruiken
+
  Azure Machine Learning Studio maakt het eenvoudig om aan te roepen webservices rechtstreeks vanuit Excel zonder code te schrijven.
 
 Als u Excel 2013 (of hoger) of Excel Online, gebruikt, raden wij aan dat u de Excel [Excel-invoegtoepassing](excel-add-in-for-web-services.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="steps"></a>Stappen
 Een webservice publiceren. [Deze pagina](walkthrough-5-publish-web-service.md) wordt uitgelegd hoe u om dit te doen. De Excel-werkmap-functie wordt momenteel alleen ondersteund voor aanvraag/antwoord-services die een enkele uitvoer (dat wil zeggen, een enkel scoring label) hebben. 

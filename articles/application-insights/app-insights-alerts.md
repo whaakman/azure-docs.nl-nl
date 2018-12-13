@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ac91632656e83fc4262f28240525c8fb106b99ec
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 4400430e012dee7caceba62637db1bf626d02b61
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679119"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277334"
 ---
 # <a name="set-alerts-in-application-insights"></a>Waarschuwingen instellen in Application Insights
 [Azure Application Insights] [ start] kunt u te waarschuwen voor wijzigingen in de prestaties of gebruik metrische gegevens in uw web-app. 
@@ -43,7 +43,7 @@ Open de blade waarschuwingsregels en gebruik vervolgens de knop toevoegen.
 * Wees voorzichtig om te weten de eenheden waarin u wordt gevraagd om in te voeren van de drempelwaarde.
 * Als u het selectievakje '... e-mail sturen naar eigenaars', worden waarschuwingen verzonden via e-mail naar iedereen die toegang tot deze resourcegroep heeft. Als u wilt deze set personen wilt uitbreiden, voeg deze toe aan de [resourcegroep of abonnement](app-insights-resources-roles-access-control.md) (niet de bron).
 * Als u 'Extra e-mailadressen' opgeeft, worden meldingen verzonden naar deze personen of groepen (of u dit selectievakje inschakelt het vak 'e-eigenaren...'). 
-* Stel een [webhook adres](../monitoring-and-diagnostics/insights-webhooks-alerts.md) als u een web-app die op waarschuwingen reageert hebt ingesteld. Deze wordt aangeroepen wanneer de waarschuwing is geactiveerd en wanneer het probleem is opgelost. (Maar houd er rekening mee dat momenteel, queryparameters niet worden doorgegeven als webhookeigenschappen).
+* Stel een [webhook adres](../azure-monitor/platform/alerts-webhooks.md) als u een web-app die op waarschuwingen reageert hebt ingesteld. Deze wordt aangeroepen wanneer de waarschuwing is geactiveerd en wanneer het probleem is opgelost. (Maar houd er rekening mee dat momenteel, queryparameters niet worden doorgegeven als webhookeigenschappen).
 * U kunt uitschakelen of inschakelen van de waarschuwing: de knoppen aan de bovenkant van de blade zien.
 
 *Ik zie niet de knop Waarschuwing toevoegen.* 
@@ -69,7 +69,7 @@ De geschiedenis van statuswijzigingen is in het activiteitenlogboek:
 ![Op de blade overzicht klikt u op de logboeken voor controle-instellingen](./media/app-insights-alerts/09-alerts.png)
 
 ## <a name="how-alerts-work"></a>Hoe waarschuwingen werken
-* Een waarschuwing heeft drie statussen: 'Nooit geactiveerd', 'Geactiveerd' en 'Omgezet'. Geactiveerde betekent dat de voorwaarde die u hebt opgegeven is waar, wanneer deze het laatst is geëvalueerd.
+* Een waarschuwing heeft drie statussen: 'Nooit geactiveerd', "Geactiveerd" en "Opgelost." Geactiveerde betekent dat de voorwaarde die u hebt opgegeven is waar, wanneer deze het laatst is geëvalueerd.
 * Een melding wordt gegenereerd wanneer de status van een waarschuwing wordt gewijzigd. (Als de voorwaarde voor de waarschuwing is al waar bij het maken van de waarschuwing, mogelijk niet ontvangt u een melding totdat de voorwaarde onwaar is.)
 * Elke melding genereert een e-mailbericht als u dit selectievakje is ingeschakeld in het vak e-mailberichten of e-mailadressen verstrekt. U kunt ook zoeken op de vervolgkeuzelijst met meldingen.
 * Een waarschuwing wordt telkens wanneer een metrische waarde, maar niet verder bereikt worden geëvalueerd.
@@ -93,7 +93,7 @@ Vergeet niet dat [snelheid van proactieve foutdiagnoses](app-insights-proactive-
 
 ## <a name="automation"></a>Automation
 * [PowerShell gebruiken voor het instellen van waarschuwingen automatiseren](app-insights-powershell-alerts.md)
-* [Webhooks gebruiken om te reageren op waarschuwingen automatiseren](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Webhooks gebruiken om te reageren op waarschuwingen automatiseren](../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="video"></a>Video
 

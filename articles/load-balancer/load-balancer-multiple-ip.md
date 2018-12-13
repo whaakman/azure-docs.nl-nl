@@ -1,5 +1,6 @@
 ---
-title: Taakverdeling over meerdere IP-configuraties in Azure | Microsoft Docs
+title: De taakverdeling op meerdere IP-configuraties in Azure
+titlesuffix: Azure Load Balancer
 description: Taakverdeling over de primaire en secundaire IP-configuraties.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0f092c471a7908eabe481adc8c722993818840b8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e6aff89fe45220e1642a91e6a2d31a9da422fdea
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219508"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163528"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>De taakverdeling op meerdere IP-configuraties met behulp van Azure portal
 
@@ -56,7 +58,7 @@ Zie voor meer informatie over het maken van virtuele machines met meerdere NIC's
 
 De volgende stappen voor het bereiken van het scenario in dit artikel beschreven.
 
-### <a name="step-1-configure-the-secondary-nics"></a>Stap 1: Configureer de secundaire NIC 's
+### <a name="step-1-configure-the-secondary-nics"></a>Stap 1: Configureren van de secundaire NIC 's
 
 Voor elke virtuele machine in uw virtuele netwerk, moet u de IP-configuratie voor de secundaire NIC toevoegen:  
 
@@ -80,7 +82,7 @@ Voor elke virtuele machine in uw virtuele netwerk, moet u de IP-configuratie voo
 
 Na het tweede IP-configuratie voor de secundaire NIC voltooid is, wordt deze weergegeven onder de **IP-configuraties** instellingen voor de opgegeven NIC.
 
-### <a name="step-2-create-the-load-balancer"></a>Stap 2: De load balancer maken
+### <a name="step-2-create-the-load-balancer"></a>Stap 2: Load balancer maken
 
 Uw load balancer voor de configuratie maken:
 

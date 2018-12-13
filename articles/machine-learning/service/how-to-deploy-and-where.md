@@ -1,7 +1,7 @@
 ---
-title: Waar modellen te implementeren
+title: Modellen als webservices implementeren
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over de verschillende manieren waarop u uw modellen in productie door middel van de service Azure Machine Learning kunt implementeren.
+description: 'Meer informatie over hoe en waar uw Azure Machine Learning-service-modellen met inbegrip van implementeren: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge en Field-programmable gate arrays.'
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 53f3c61a98bc08b453ae894abaa512b94044bcf7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e7840bb3ac6449009b843bb74cc19b960b492205
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100698"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310144"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -30,6 +30,8 @@ U kunt modellen implementeren op de volgende compute-doelen:
 | [Azure Kubernetes Service (AKS)](#aks) | Webservice | Geschikt voor grootschalige productie-implementaties. Biedt automatisch schalen en snelle responstijden. |
 | [Azure IoT Edge](#iotedge) | IoT-module | Implementeer modellen op IoT-apparaten. Inferentietaken gebeurt op het apparaat. |
 | [Veld-programmable gate array (FPGA)](#fpga) | Webservice | Zeer lage latentie voor realtime inferentietaken. |
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -53,8 +55,8 @@ Het proces voor het implementeren van een model is vergelijkbaar voor alle compu
 
     * Wanneer **implementeren als een webservice**, er zijn drie opties voor implementatie:
 
-        * [Implementeer](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): wanneer u deze methode gebruikt, hoeft u niet registreren van het model of maken van de installatiekopie. Maar u geen invloed hebben op de naam van het model of de afbeelding of gekoppelde tags en beschrijvingen.
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): wanneer u deze methode gebruikt, hoeft u niet om een installatiekopie te maken. Maar u hebt geen controle over de naam van de installatiekopie die wordt gemaakt.
+        * [Implementeer](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): Wanneer u deze methode gebruikt, hoeft u niet te registreren van het model of maken van de installatiekopie. Maar u geen invloed hebben op de naam van het model of de afbeelding of gekoppelde tags en beschrijvingen.
+        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): Wanneer u deze methode gebruikt, hoeft u niet om een installatiekopie te maken. Maar u hebt geen controle over de naam van de installatiekopie die wordt gemaakt.
         * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): Registreer het model en een installatiekopie maken voordat u deze methode.
 
         De voorbeelden in dit document gebruiken `deploy_from_image`.
@@ -78,7 +80,7 @@ model = Model.register(model_path = "model.pkl",
 > [!NOTE]
 > Hoewel het voorbeeld met behulp van een model dat is opgeslagen als een pickle-bestand op, maar u kunt ook gebruikte ONNX-modellen. Zie voor meer informatie over het gebruik van ONNX-modellen, de [ONNX en Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
-Zie voor meer informatie de documentatie bij de [Modelklasse](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+Zie voor meer informatie de documentatie bij de [Modelklasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
 ## <a id="configureimage"></a> De configuratie van een installatiekopie maken
 
@@ -102,9 +104,9 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
 
 Deze configuratie maakt gebruik van een `score.py` bestand om door te geven aanvragen naar het model. Dit bestand bevat twee functies:
 
-* `init()`: Deze functie worden het model meestal in een globale objecttoegang geladen. Deze functie wordt slechts één keer uitgevoerd wanneer de Docker-container wordt gestart. 
+* `init()`: Deze functie worden doorgaans het model in een globale objecttoegang geladen. Deze functie wordt slechts één keer uitgevoerd wanneer de Docker-container wordt gestart. 
 
-* `run(input_data)`: Met deze functie maakt gebruik van het model om te voorspellen van een waarde op basis van de ingevoerde gegevens. De in- en uitvoer van de uitvoerbewerking maken doorgaans gebruik van JSON voor serialisatie en deserialisatie, maar andere indelingen worden ook ondersteund.
+* `run(input_data)`: Deze functie maakt gebruik van het model om te voorspellen van een waarde op basis van de ingevoerde gegevens. De in- en uitvoer van de uitvoerbewerking maken doorgaans gebruik van JSON voor serialisatie en deserialisatie, maar andere indelingen worden ook ondersteund.
 
 Voor een voorbeeld `score.py` bestand, raadpleegt u de [installatiekopie classificatie zelfstudie](tutorial-deploy-models-with-aml.md#make-script). Zie voor een voorbeeld dat gebruikmaakt van een ONNX-model, de [ONNX en Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
@@ -125,11 +127,9 @@ image = ContainerImage.create(name = "myimage",
                               )
 ```
 
-**Geschatte tijd**: ongeveer 3 minuten.
+**Geschatte tijd**: Ongeveer 3 minuten.
 
 Afbeeldingen zijn samengesteld automatisch wanneer u meerdere installatiekopieën met dezelfde naam registreren. Bijvoorbeeld, de eerste afbeelding geregistreerd als `myimage` is een ID toegewezen `myimage:1`. De volgende keer dat u een afbeelding als registreren `myimage`, is de ID van de nieuwe installatiekopie `myimage:2`.
-
-Het maken van de installatiekopie van plaats ongeveer 5 minuten.
 
 Zie voor meer informatie de documentatie bij [ContainerImage klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
@@ -147,7 +147,7 @@ Wanneer u op de implementatie, is het proces enigszins verschillen afhankelijk v
 Gebruik Azure Container Instances voor het implementeren van uw modellen als een webservice die als één of meer van de volgende voorwaarden is waar:
 
 - U moet sneller te implementeren en valideren van uw model. ACI-implementatie is voltooid in minder dan vijf minuten.
-- U test een model dat is in ontwikkeling. ACI kunt u groepen met 20 containers per abonnement kunt implementeren. Zie voor meer informatie de [quota en beschikbaarheid in regio's voor Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
+- U test een model dat is in ontwikkeling. Quota en regio de beschikbaarheid voor ACI, Zie de [quota en beschikbaarheid in regio's voor Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
 
 Als u wilt implementeren in Azure Container Instances, gebruikt u de volgende stappen uit:
 
@@ -159,7 +159,7 @@ Als u wilt implementeren in Azure Container Instances, gebruikt u de volgende st
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
 
-    **Geschatte tijd**: ongeveer 3 minuten.
+    **Geschatte tijd**: Ongeveer 3 minuten.
 
     > [!TIP]
     > Als er fouten tijdens de implementatie zijn, gebruikt u `service.get_logs()` om de AKS-service-logboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
@@ -204,7 +204,7 @@ Als u wilt implementeren in Azure Kubernetes Service, gebruikt u de volgende sta
     print(aks_target.provisioning_errors)
     ```
 
-    **Geschatte tijd**: ongeveer 20 minuten.
+    **Geschatte tijd**: Ongeveer 20 minuten.
 
     > [!TIP]
     > Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.11. *, kunt u het implementeren van uw installatiekopie. De volgende code ziet u hoe u een bestaand cluster koppelt aan uw werkruimte:

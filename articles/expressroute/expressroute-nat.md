@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4febd1538e16b840bcd89116ac63531105222cce
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.custom: seodec18
+ms.openlocfilehash: 4aa1b170b0c0c515faa67118772ad14d34c7276b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134145"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278250"
 ---
 # <a name="expressroute-nat-requirements"></a>NAT-vereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u NAT's instellen en beheren. Sommige connecitiviteitsproviders bieden het instellen en beheren van NAT aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de vereisten die hieronder worden beschreven. 

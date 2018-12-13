@@ -1,6 +1,6 @@
 ---
-title: Toegang beperken met IP-filters - Azure Event Hubs | Microsoft Docs
-description: Gebruik van IP-filtering om verbindingen te blokkeren van bepaalde IP-adressen naar Azure Event Hubs.
+title: Firewallregels voor Azure Eventhubs | Microsoft Docs
+description: Gebruik firewallregels om verbindingen van specifieke IP-adressen naar Azure Event Hubs te staan.
 services: event-hubs
 documentationcenter: ''
 author: spelluru
@@ -11,28 +11,26 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: d21bf32ce804d2c8f6177eb7f789474bc41c9733
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087504"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268271"
 ---
-# <a name="restrict-access-to-azure-event-hubs-using-ip-filters"></a>Beperken van toegang tot Azure Event Hubs met behulp van IP-filters
-Voor scenario's waarin Azure Event Hubs toegankelijk alleen van bepaalde bekende sites zijn moet, de *IP-filter* functie kunt u regels voor weigeren of verkeer dat afkomstig is van de specifieke IPv4-adressen te configureren. Bijvoorbeeld, kunnen deze adressen die van een zakelijke NAT-gateway zijn.
+# <a name="use-firewall-rules"></a>Firewall-regels gebruiken
+
+Voor scenario's waarin Azure Event Hubs toegankelijk alleen van bepaalde bekende sites zijn moet, kunnen firewall-regels u regels voor het accepteren van verkeer dat afkomstig is van de specifieke IPv4-adressen te configureren. Bijvoorbeeld, kunnen deze adressen die van een zakelijke NAT-gateway zijn.
 
 ## <a name="when-to-use"></a>Wanneer gebruikt u dit?
 
-Twee belangrijke gevallen waarin het is nuttig om het blokkeren van Event Hubs voor bepaalde IP-adressen als volgt zijn gebruiken:
-
-- Uw eventhubs moeten ontvangen verkeer alleen vanaf een opgegeven bereik van IP-adressen en alle andere afwijzen. Bijvoorbeeld, gebruikt u Event Hubs met [Azure Express Route] [ express-route] particuliere verbindingen met uw on-premises infrastructuur te maken. 
-- U moet verkeer van IP-adressen die zijn geïdentificeerd als verdacht door de beheerder van de Event Hubs afwijzen.
+Als u wilt instellen van uw Event Hubs-naamruimte als zodanig dat deze moet ontvangen verkeer van alleen een opgegeven bereik van IP-adressen en alle andere afwijzen en vervolgens kunt u gebruikmaken van een *firewallregel* Event Hub-eindpunten van blokkeren andere IP-adressen. Bijvoorbeeld, gebruikt u Event Hubs met [Azure Express Route] [ express-route] particuliere verbindingen met uw on-premises infrastructuur te maken.
 
 ## <a name="how-filter-rules-are-applied"></a>Hoe regels worden toegepast
 
 De IP-filterregels worden toegepast op het niveau van de Event Hubs-naamruimte. Daarom de regels van toepassing op alle verbindingen van clients met behulp van een ondersteund protocol.
 
-Elke verbindingspoging vanaf een IP-adres dat overeenkomt met die een rejecting IP-regel op de Eventhubs-naamruimte wordt geweigerd als niet-geautoriseerde. Het antwoord wordt niet vermeld voor de IP-regel.
+Elke verbindingspoging vanaf een IP-adres dat komt niet overeen met een toegestane IP-regel op de Event Hubs naamruimte wordt geweigerd als niet-geautoriseerde. Het antwoord wordt niet vermeld voor de IP-regel.
 
 ## <a name="default-setting"></a>Standaardinstelling
 
@@ -42,68 +40,107 @@ Standaard de **IP-Filter** raster in de portal voor Event Hubs is leeg. Deze ins
 
 IP-filterregels worden toegepast in volgorde en de eerste regel die overeenkomt met het IP-adres bepaalt de actie accepteren of weigeren.
 
-Als u adressen in het bereik 70.37.104.0/24 accepteren en weigeren alle andere wilt, moet de eerste regel in het raster bijvoorbeeld, het adresbereik 70.37.104.0/24 accepteren. De volgende regel moet alle adressen weigeren met behulp van het adresbereik 0.0.0.0/0.
+>[!WARNING]
+> Implementatie van Firewalls kunt voorkomen dat andere Azure-services interactie met Event Hubs.
+>
+> Vertrouwde Microsoft-services worden niet ondersteund wanneer IP-filters (Firewalls) worden geïmplementeerd en beschikbaar gesteld binnenkort.
+>
+> Algemene Azure-scenario's die niet met IP-filters werken (Let op: de lijst is **niet** volledig)-
+> - Azure Monitor
+> - Azure Stream Analytics
+> - Integratie met Azure Event Grid
+> - Azure IoT Hub-Routes
+> - Azure IoT Device Explorer
+> - Azure Data Explorer
+>
+> De onderstaande Microsoft services vereist zijn om te worden in een virtueel netwerk
+> - Azure Web Apps
+> - Azure Functions
 
-> [!NOTE]
-> IP-adressen weigeren kunt voorkomen dat andere Azure-services (zoals Azure Stream Analytics, Azure Virtual Machines of het Device Explorer in de portal) interactie met Event Hubs.
-
-### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>Het maken van een IP-filter rule met Azure Resource Manager-sjablonen
+### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Een firewallregel maken met Azure Resource Manager-sjablonen
 
 > [!IMPORTANT]
-> Virtuele netwerken worden ondersteund **standard** en **toegewezen** lagen van Event Hubs. Het wordt niet ondersteund in de basic-laag. 
+> Firewall-regels worden ondersteund in **standard** en **toegewezen** lagen van Event Hubs. Het wordt niet ondersteund in de basic-laag.
 
 De volgende Resource Manager-sjabloon kunt een regel voor IP-filter toe te voegen aan een bestaande Event Hubs-naamruimte.
 
 Sjabloonparameters:
 
-- **ipFilterRuleName** moet een unieke, niet-hoofdlettergevoelig, alfanumerieke tekenreeks, maximaal 128 tekens lang zijn.
-- **ipFilterAction** is **afwijzen** of **accepteren** als de actie om toe te passen voor de IP-filter rule.
 - **ipMask** is één IPv4-adres of een blok IP-adressen in CIDR-notatie. Bijvoorbeeld, in CIDR vertegenwoordigt notatie 70.37.104.0/24 de 256 IPv4-adressen van 70.37.104.0 tot 70.37.104.255, met 24 uur per dag die wijzen op het aantal bits aanzienlijke voorvoegsel voor het bereik.
 
+> [!NOTE]
+> Er zijn geen regels voor weigeren mogelijk, de Azure Resource Manager-sjabloon is de standaardactie die is ingesteld op **'Toestaan'** die verbindingen niet beperken.
+> Bij het maken van regels voor Virtueelnetwerk of Firewalls, moeten we wijzigen de ***"defaultAction"***
+> 
+> uit
+> ```json
+> "defaultAction": "Allow"
+> ```
+> tot
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "ipFilterRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "ipFilterAction":{  
-             "type":"string",
-             "allowedValues": ["Reject", "Accept"],
-             "metadata":{  
-                "description":"IP Filter Action"
-             }
-          },
-          "IpMask":{  
-             "type":"string",
-             "metadata":{  
-                "description":"IP Mask"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "eventhubNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
       },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.EventHub/Namespaces/IPFilterRules",
-            "properties": {
-                "FilterName":"[parameters('ipFilterRuleName')]",
-                "Action":"[parameters('ipFilterAction')]",              
-                "IpMask": "[parameters('IpMask')]"
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
-    ]
-}
+          ],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Volg de instructies voor het implementeren van de sjabloon, [Azure Resource Manager][lnk-deploy].

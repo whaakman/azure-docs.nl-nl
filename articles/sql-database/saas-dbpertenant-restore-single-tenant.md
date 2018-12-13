@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 12/04/2018
+ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056740"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274425"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Een individuele tenant met een database-per-tenant SaaS-toepassing terugzetten
 
@@ -26,10 +26,8 @@ Het database-per-tenant-model kunt eenvoudig een individuele tenant terugzetten 
 In deze zelfstudie leert u twee data recovery patronen:
 
 > [!div class="checklist"]
-
 > * Een database herstellen in een parallelle database (naast elkaar).
 > * Een database aanwezig is, vervangt de bestaande database terugzetten.
-
 
 |||
 |:--|:--|
@@ -44,13 +42,13 @@ U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt vold
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Inleiding tot de SaaS-patronen voor het herstellen van tenant
 
-Er zijn twee eenvoudige patronen voor het herstellen van een afzonderlijke tenant-gegevens. Omdat de tenant-databases worden geïsoleerd van elkaar worden verbonden, heeft herstellen van één tenant geen invloed op een andere tenant-gegevens. De functie van Azure SQL Database point-in-time-restore (PITR) wordt gebruikt in beide patronen. PITR altijd een nieuwe database gemaakt.   
+Er zijn twee eenvoudige patronen voor het herstellen van een afzonderlijke tenant-gegevens. Omdat de tenant-databases worden geïsoleerd van elkaar worden verbonden, heeft herstellen van één tenant geen invloed op een andere tenant-gegevens. De functie van Azure SQL Database point-in-time-restore (PITR) wordt gebruikt in beide patronen. PITR altijd een nieuwe database gemaakt.
 
-* **Herstellen parallel**: In het eerste patroon maakt een nieuwe parallelle database samen met de huidige database van de tenant is gemaakt. De tenant is vervolgens alleen-lezen toegang krijgen tot de herstelde database. De herstelde gegevens kunnen worden bekeken en mogelijk gebruikt voor het overschrijven van de huidige gegevenswaarden van. Het is aan de app-ontwerper om te bepalen hoe de tenant toegang heeft tot de herstelde database en welke opties voor herstel beschikbaar. Gewoon waardoor de tenant om te controleren van hun gegevens op een eerder tijdstip mogelijk is alles wat in sommige scenario's vereist. 
+* **Herstellen parallel**: In het eerste patroon wordt een nieuwe parallelle database samen met de huidige database van de tenant gemaakt. De tenant is vervolgens alleen-lezen toegang krijgen tot de herstelde database. De herstelde gegevens kunnen worden bekeken en mogelijk gebruikt voor het overschrijven van de huidige gegevenswaarden van. Het is aan de app-ontwerper om te bepalen hoe de tenant toegang heeft tot de herstelde database en welke opties voor herstel beschikbaar. Gewoon waardoor de tenant om te controleren van hun gegevens op een eerder tijdstip mogelijk is alles wat in sommige scenario's vereist.
 
-* **Herstellen in plaats**: de tweede patroon is handig als gegevens verloren of beschadigd en de tenant wil om terug te zetten naar een eerder tijdstip. De tenant wordt gemaakt offline terwijl de database is hersteld. De oorspronkelijke database wordt verwijderd en de naam van de herstelde database is gewijzigd. De back-keten van de oorspronkelijke database blijft toegankelijk na de verwijdering, zodat u kunt de database herstellen naar een eerder tijdstip, indien nodig.
+* **Herstellen in plaats**: Het tweede patroon is handig als gegevens verloren of beschadigd en de tenant wil om terug te zetten naar een eerder tijdstip. De tenant wordt gemaakt offline terwijl de database is hersteld. De oorspronkelijke database wordt verwijderd en de naam van de herstelde database is gewijzigd. De back-keten van de oorspronkelijke database blijft toegankelijk na de verwijdering, zodat u kunt de database herstellen naar een eerder tijdstip, indien nodig.
 
-Als de database maakt gebruik van [geo-replicatie](sql-database-geo-replication-overview.md) en parallel is teruggezet, wordt aangeraden dat u alle vereiste gegevens van het herstelde kopie naar de oorspronkelijke database kopiëren. Als u de oorspronkelijke database door de herstelde database vervangen, moet u opnieuw configureren en geo-replicatie opnieuw synchroniseren.
+Als de database maakt gebruik van [actieve geo-replicatie](sql-database-active-geo-replication.md) en parallel is teruggezet, wordt aangeraden dat u alle vereiste gegevens van het herstelde kopie naar de oorspronkelijke database kopiëren. Als u de oorspronkelijke database door de herstelde database vervangen, moet u opnieuw configureren en geo-replicatie opnieuw synchroniseren.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>De database-per-tenant-toepassing Wingtip Tickets SaaS scripts ophalen
 
@@ -74,7 +72,6 @@ Wanneer een database wordt gemaakt, duurt het 10 tot 15 minuten voordat de eerst
 
    ![Laatste gebeurtenis wordt weergegeven](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
-
 ### <a name="accidentally-delete-the-last-event"></a>"Per ongeluk" verwijdert de laatste gebeurtenis
 
 1. Open in de PowerShell ISE... \\Learning Modules\\zakelijke continuïteit en herstel na noodgevallen\\RestoreTenant\\*Demo-RestoreTenant.ps1*, en stel de volgende waarde:
@@ -88,15 +85,13 @@ Wanneer een database wordt gemaakt, duurt het 10 tot 15 minuten voordat de eerst
    ```
 
 3. De pagina van de Contoso-gebeurtenissen wordt geopend. Schuif omlaag en controleer of de gebeurtenis is verdwenen. Als de gebeurtenis nog steeds in de lijst wordt, selecteert u **vernieuwen** en controleer of deze is geworden.
-
    ![Laatste gebeurtenis is verwijderd](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
-
 
 ## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>Een tenantdatabase in combinatie met de productiedatabase herstellen
 
 In deze oefening wordt de database Contoso Concert Hall hersteld naar een tijdstip voordat de gebeurtenis is verwijderd. In dit scenario wordt ervan uitgegaan dat u wilt bekijken van de verwijderde gegevens in een parallelle-database.
 
- De *terugzetten TenantInParallel.ps1* script maakt u een parallelle tenantdatabase met de naam *ContosoConcertHall\_oude*, met een parallelle catalogusvermelding. Dit patroon van herstel is het meest geschikt is voor het herstellen van een secundaire gegevens verloren gaan. U kunt ook dit patroon gebruiken als u nodig hebt om gegevens voor naleving of controledoeleinden te bekijken. Het is de aanbevolen benadering wanneer u [geo-replicatie](sql-database-geo-replication-overview.md).
+ De *terugzetten TenantInParallel.ps1* script maakt u een parallelle tenantdatabase met de naam *ContosoConcertHall\_oude*, met een parallelle catalogusvermelding. Dit patroon van herstel is het meest geschikt is voor het herstellen van een secundaire gegevens verloren gaan. U kunt ook dit patroon gebruiken als u nodig hebt om gegevens voor naleving of controledoeleinden te bekijken. Het is de aanbevolen benadering wanneer u [actieve geo-replicatie](sql-database-active-geo-replication.md).
 
 1. Voltooi de [simuleren van een tenant per ongeluk verwijderen van gegevens](#simulate-a-tenant-accidentally-deleting-data) sectie.
 2. Open in de PowerShell ISE... \\Learning Modules\\zakelijke continuïteit en herstel na noodgevallen\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
@@ -115,7 +110,6 @@ De herstelde tenant als een andere tenant, met een eigen app gebeurtenissen bloo
 2. Druk op F5 om het script uitvoert.
 3. De *ContosoConcertHall\_oude* vermelding wordt nu verwijderd uit de catalogus. Sluit de pagina gebeurtenissen voor deze tenant in uw browser.
 
-
 ## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>Een tenant aanwezig is, vervangt de bestaande tenantdatabase terugzetten
 
 In deze oefening wordt de tenant Contoso Concert Hall hersteld naar een voordat de gebeurtenis is verwijderd. De *terugzetten TenantInPlace* script een tenantdatabase wordt hersteld naar een nieuwe database en de oorspronkelijke verwijderd. Dit patroon terugzetten is het meest geschikt om te herstellen van ernstige gegevensbeschadiging en de tenant mogelijk om verlies van belangrijke gegevens mogelijk te maken.
@@ -128,14 +122,13 @@ Het script worden de tenant-database hersteld naar een punt voordat de gebeurten
 
 Is hersteld u de database naar een tijdstip voordat de gebeurtenis is verwijderd. Wanneer de **gebeurtenissen** pagina wordt geopend, bevestigt u dat de laatste gebeurtenis is hersteld.
 
-Nadat u de database hebt hersteld, duurt het een ander 10 tot 15 minuten voordat de eerste volledige back-up is beschikbaar voor het herstellen van het opnieuw. 
+Nadat u de database hebt hersteld, duurt het een ander 10 tot 15 minuten voordat de eerste volledige back-up is beschikbaar voor het herstellen van het opnieuw.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-
 > * Een database herstellen in een parallelle database (naast elkaar).
 > * Een database herstellen in plaats.
 

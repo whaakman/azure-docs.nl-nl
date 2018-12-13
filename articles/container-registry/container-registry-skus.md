@@ -7,18 +7,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: danlep
-ms.openlocfilehash: 80ee1033ef7a5fee849126ab2b614de18b71e051
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3f058a68057d6b84cbbb2dfdb08ea8c2cb12b0b9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855847"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322087"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry-SKU 's
 
 Azure Container Registry (ACR) is beschikbaar in verschillende Servicelagen, ook wel SKU's. Deze SKU's bieden voorspelbare prijzen en verschillende opties voor het afstemmen van de capaciteit en gebruikspatronen van uw persoonlijke Docker-register in Azure.
 
-| SKU | Managed | Beschrijving |
+| SKU | Managed | Description |
 | --- | :-------: | ----------- |
 | **Basic** | Ja | Een rendabel toegangspunt voor ontwikkelaars die meer willen leren over Azure Container Registry. Basic registers hebben dezelfde programmatische mogelijkheden als standaard en Premium (integratie van Azure Active Directory-verificatie, verwijdering van afbeelding en webhooks). De inbegrepen opslag en doorvoer van de afbeelding zijn echter meest geschikt is voor lagere gebruiksscenario's. |
 | **Standard** | Ja | Standard registers bieden dezelfde mogelijkheden als Basic met verbeterde inbegrepen opslag- en image-doorvoer. Standard-registers moeten voldoen aan de behoeften van de meeste productiescenario's. |
@@ -81,6 +81,8 @@ Zie voor meer informatie over het bijwerken van uw Classic-register op een van d
 ## <a name="pricing"></a>Prijzen
 
 Zie voor informatie over elk van de Azure Container Registry-SKU's prijzen, [prijzen voor Container Registry][container-registry-pricing].
+
+Zie voor meer informatie over de prijzen voor gegevensoverdracht [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -6,15 +6,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39a938d45c8f15c21b44bb5b04b1429fb4733b5a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033920"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323265"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Wat te doen in het geval van een Azure Storage-storing
 Bij Microsoft werken we er hard om ervoor te zorgen dat onze services altijd beschikbaar zijn. Soms zorgt ervoor dat meer dan onze invloed ons op een manier die niet-geplande storingen in een of meer regio's veroorzaken. Voor hulp bij het verwerken van deze zelden, bieden we de informatie te volgen op hoog niveau voor Azure Storage-services.
@@ -37,13 +37,13 @@ Als een of meer opslagservices tijdelijk niet beschikbaar op een of meer regio's
 ### <a name="option-1-wait-for-recovery"></a>Optie 1: Wachten op herstel
 In dit geval is geen actie van uw kant vereist. Er wordt hard gewerkt om te herstellen van de beschikbaarheid van Azure Services. U kunt de servicestatus controleren op de [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
-### <a name="option-2-copy-data-from-secondary"></a>Optie 2: Gegevens kopiëren uit de secundaire regio
+### <a name="option-2-copy-data-from-secondary"></a>Optie 2: Gegevens uit de secundaire regio kopiëren
 Als u ervoor hebt gekozen [geo-redundante opslag met leestoegang (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (aanbevolen) voor uw storage-accounts, hebt u alleen toegang tot uw gegevens van de secundaire regio. U kunt hulpprogramma's zoals [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), en de [-bibliotheek voor gegevensverplaatsing van Azure Data](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) gegevens te kopiëren van de secundaire regio naar een ander opslagaccount in een unimpacted regio en vervolgens verwijst u uw toepassingen die storage-account voor zowel lezen en schrijven van beschikbaarheid.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Wat u kunt verwachten als een opslag-failover is uitgevoerd
 Als u ervoor hebt gekozen [geografisch redundante opslag (GRS)](storage-redundancy-grs.md) of [geo-redundante opslag met leestoegang (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (aanbevolen), Azure Storage blijven uw gegevens duurzaam in twee regio's (primaire en secundaire). In beide regio's houdt de Azure Storage voortdurend meerdere replica's van uw gegevens.
 
-Wanneer een regionaal noodgeval is van invloed op de primaire regio, zullen we eerst proberen te herstellen van de service in die regio biedt de best mogelijke combinatie van RTO en RPO. Afhankelijk van de aard van de na noodgevallen en de effecten, in sommige zeldzame gevallen we niet mogelijk om terug te zetten van de primaire regio. Op dat moment gaat een geo-failover uitvoeren. Regio-overschrijdende gegevensreplicatie is een asynchroon proces dat betrekking heeft op een vertraging, zodat het mogelijk dat de wijzigingen die nog niet is gerepliceerd naar de secundaire regio mogelijk verloren gaan.
+Wanneer een regionaal noodgeval is van invloed op de primaire regio, zullen we eerst proberen te herstellen van de service in die regio voor de best mogelijke combinatie van RTO en RPO. Afhankelijk van de aard van de na noodgevallen en de effecten, in sommige zeldzame gevallen we niet mogelijk om terug te zetten van de primaire regio. Op dat moment gaat een geo-failover uitvoeren. Regio-overschrijdende gegevensreplicatie is een asynchroon proces dat betrekking heeft op een vertraging, zodat het mogelijk dat de wijzigingen die nog niet is gerepliceerd naar de secundaire regio mogelijk verloren gaan.
 
 Een aantal punten met betrekking tot de opslagervaring voor geo-failover:
 

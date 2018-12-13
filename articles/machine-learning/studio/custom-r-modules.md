@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -16,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 5cddc767b4652df6753cc57eb7305b46ec45e19d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2bdc8b7b28bee37ae88e466874d2b3d22dcd7556
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098631"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277927"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Aangepaste R-modules voor Azure Machine Learning Studio definieert
 
 In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning Studio. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen. Deze ziet u hoe u een van de bestanden die een module definiëren en registreren van de module voor implementatie in een Machine Learning-werkruimte. De elementen en kenmerken die worden gebruikt in de definitie van de aangepaste module worden vervolgens in meer detail beschreven. Het gebruik van aanvullende functionaliteit, bestanden en meerdere uitvoer wordt ook beschreven. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="what-is-a-custom-r-module"></a>Wat is een aangepaste R-module?
 Een **aangepaste module** is een door de gebruiker gedefinieerde module die kan worden geüpload naar uw werkruimte en kan worden uitgevoerd als onderdeel van een Azure Machine Learning-experiment. Een **aangepaste R-module** is een aangepaste module die een door de gebruiker gedefinieerde R-functie wordt uitgevoerd. **R** is een programmeertaal voor statistische computing en afbeeldingen die veel door statistici en data scientists wordt gebruikt voor het implementeren van algoritmen. R is momenteel de enige ondersteunde in aangepaste modules, maar ondersteuning voor extra talen is gepland voor toekomstige versies taal.
@@ -96,7 +95,7 @@ Om beschikbaar te stellen deze `CustomAddRows` functie als een module voor Azure
     </Module>
 
 
-Het is essentieel om te weten dat de waarde van de **id** kenmerken van de **invoer** en **func** elementen in het XML-bestand moeten overeenkomen met de parameter functienamen van de R-code in de CustomAddRows.R bestand exact: (*dataset1*, *dataset2*, en *wisselen* in het voorbeeld). Op dezelfde manier de waarde van de **entryPoint** kenmerk van de **taal** element moet overeenkomen met de naam van de functie in het R-script PRECIES: (*CustomAddRows* in het voorbeeld) . 
+Het is essentieel om te weten dat de waarde van de **id** kenmerken van de **invoer** en **func** elementen in het XML-bestand moeten overeenkomen met de parameter functienamen van de R-code in de CustomAddRows.R bestand exact: (*dataset1*, *dataset2*, en *wisselen* in het voorbeeld). Op dezelfde manier de waarde van de **entryPoint** kenmerk van de **taal** element moet overeenkomen met de naam van de functie in het R-script PRECIES: (*CustomAddRows* in het voorbeeld). 
 
 Daarentegen de **id** kenmerk voor de **uitvoer** element komt niet overeen met eventuele variabelen die in de R-script. Als meer dan één uitvoer vereist is, retourneert een lijst van de R-functie met resultaten geplaatst *in dezelfde volgorde* als **uitvoer** elementen zijn gedefinieerd in het XML-bestand.
 
@@ -150,7 +149,7 @@ Elk invoerkaart en uitvoerpoort kan hebben een optioneel **beschrijving** onderl
 ### <a name="input-elements"></a>Invoerelementen
 Ingangspoorten kunnen u gegevens doorgeven aan uw R-functie en de werkruimte. De **gegevenstypen** die worden ondersteund voor invoer poorten als volgt zijn: 
 
-**DataTable:** dit type wordt doorgegeven aan uw R-functie als een data.frame. In feite alle typen (bijvoorbeeld CSV-bestanden of bestanden ARFF) die worden ondersteund door Machine Learning en die compatibel zijn met **DataTable** worden geconverteerd naar een data.frame automatisch. 
+**DataTable:** Dit type wordt doorgegeven aan uw R-functie als een data.frame. In feite alle typen (bijvoorbeeld CSV-bestanden of bestanden ARFF) die worden ondersteund door Machine Learning en die compatibel zijn met **DataTable** worden geconverteerd naar een data.frame automatisch. 
 
         <Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
             <Description>Input Dataset 1</Description>
@@ -159,7 +158,7 @@ Ingangspoorten kunnen u gegevens doorgeven aan uw R-functie en de werkruimte. De
 De **id** die zijn gekoppeld aan elk kenmerk **DataTable** invoerpoort moet een unieke waarde hebben en deze waarde moet overeenkomen met de bijbehorende parameter in de R-functie met de naam.
 Optionele **DataTable** poorten die niet worden doorgegeven als invoer in een experiment hebben de waarde **NULL** doorgegeven aan de R-functie en de optionele zip poorten worden genegeerd als de invoer niet is verbonden. De **isOptional** kenmerk is optioneel voor zowel de **DataTable** en **Zip** van het type en is *false* standaard.
 
-**Postcode:** aangepaste modules kunnen een zip-bestand als invoer worden geaccepteerd. Deze invoer is uitgepakt in de R-werkmap van uw functie
+**Postcode:** Aangepaste modules kunnen u een zip-bestand accepteren als invoer. Deze invoer is uitgepakt in de R-werkmap van uw functie
 
         <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
             <Description>Zip files to be extracted to the R working directory.</Description>
@@ -177,7 +176,7 @@ Voor aangepaste R-modules heeft de id voor een Zip-poort niet overeenkomt met de
 * De waarde van de **isOptional** kenmerk van de **invoer** element is niet vereist (en *false* standaard als niet is opgegeven); maar als deze is opgegeven, moeten deze *waar* of *false*.
 
 ### <a name="output-elements"></a>Uitvoer-elementen
-**Standard uitvoer poorten:** uitvoerpoorten zijn toegewezen aan de retourwaarden van uw R-functie, die vervolgens kan worden gebruikt door de volgende modules. *DataTable* is het alleen standaarduitvoer-poorttype momenteel ondersteund. (Ondersteuning voor *cursisten* en *transformeert* ontbreekt.) Een *DataTable* uitvoer wordt gedefinieerd als:
+**Standaarduitvoer poorten:** Uitvoerpoorten worden toegewezen aan de retourwaarden van uw R-functie, die vervolgens kan worden gebruikt door de volgende modules. *DataTable* is het alleen standaarduitvoer-poorttype momenteel ondersteund. (Ondersteuning voor *cursisten* en *transformeert* ontbreekt.) Een *DataTable* uitvoer wordt gedefinieerd als:
 
     <Output id="dataset" name="Dataset" type="DataTable">
         <Description>Combined dataset</Description>
@@ -215,7 +214,7 @@ En de lijst van objecten in een lijst in de juiste volgorde in 'CustomAddRows.R'
     return (list(dataset, dataset1, dataset2)) 
     } 
 
-**Uitvoer van de visualisatie:** kunt u ook een uitvoerpoort van het type opgeven *visualisatie*, die de uitvoer van de R-afbeeldingen apparaat en de console-uitvoer wordt weergegeven. Deze poort maakt geen deel uit van de uitvoer van de R-functie en de volgorde van de andere poort uitvoertypen niet verstoort. Als u wilt de poort van een visualisatie toevoegen aan de aangepaste modules, een **uitvoer** -element met een waarde van *visualisatie* voor de **type** kenmerk:
+**Visualisatie-uitvoer:** U kunt ook opgeven een uitvoerpoort van het type *visualisatie*, die de uitvoer van de R-afbeeldingen apparaat en de console-uitvoer wordt weergegeven. Deze poort maakt geen deel uit van de uitvoer van de R-functie en de volgorde van de andere poort uitvoertypen niet verstoort. Als u wilt de poort van een visualisatie toevoegen aan de aangepaste modules, een **uitvoer** -element met een waarde van *visualisatie* voor de **type** kenmerk:
 
     <Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -372,6 +371,6 @@ De uitvoeringsomgeving van het R-script maakt gebruik van dezelfde versie van R 
 
 **Beperkingen van de uitvoeringsomgeving** opnemen:
 
-* Niet-permanente bestandssysteem: bestanden die zijn geschreven wanneer de aangepaste module wordt uitgevoerd voor verschillende runs van dezelfde module niet permanent.
+* Niet-permanente bestandssysteem: Bestanden die zijn geschreven wanneer de aangepaste module wordt uitgevoerd, zijn niet permanent voor verschillende runs van dezelfde module.
 * Er is geen toegang tot het netwerk
 

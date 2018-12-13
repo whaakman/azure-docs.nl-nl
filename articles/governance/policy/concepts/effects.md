@@ -1,5 +1,5 @@
 ---
-title: Informatie over Azure Policy-effecten
+title: Informatie over de werking van effecten
 description: Azure Policy definition hebben verschillende effecten die bepalen hoe de naleving wordt beheerd en gerapporteerd.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 2bed2f52f29d5c97ab576fae73498b60fb7ecc30
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079797"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310841"
 ---
 # <a name="understand-policy-effects"></a>Inzicht in de effecten van het beleid
 
@@ -187,7 +187,7 @@ De **details** eigenschap van de gevolgen AuditIfNotExists heeft alle subeigensc
 
 ### <a name="auditifnotexists-example"></a>Voorbeeld van de AuditIfNotExists
 
-Voorbeeld: Evalueert virtuele Machines om te bepalen of de anti-malware-extensie bestaat voert een controle uit als deze ontbreekt.
+Voorbeeld: Evalueert de virtuele Machines om te bepalen of de anti-malware-extensie bestaat voert een controle uit als deze ontbreekt.
 
 ```json
 {
@@ -265,7 +265,7 @@ De **details** eigenschap van het DeployIfNotExists-effect heeft de subeigenscha
 
 ### <a name="deployifnotexists-example"></a>DeployIfNotExists-voorbeeld
 
-Voorbeeld: Evalueert SQL Server-databases om te bepalen of transparentDataEncryption is ingeschakeld. Als dat niet het geval is, klikt u vervolgens een implementatie zodat het wordt uitgevoerd.
+Voorbeeld: Evalueert de SQL Server-databases om te bepalen of transparentDataEncryption is ingeschakeld. Als dat niet het geval is, klikt u vervolgens een implementatie om in te schakelen wordt uitgevoerd.
 
 ```json
 "if": {

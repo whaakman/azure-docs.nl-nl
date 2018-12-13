@@ -1,5 +1,5 @@
 ---
-title: Shaper cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
+title: Shaper cognitief zoeken vaardigheid - Azure Search
 description: Metagegevens en gestructureerde informatie onttrekken aan niet-gestructureerde gegevens en vorm te geven als een complex type in een Azure Search verrijking-pijplijn.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728994"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313825"
 ---
 #   <a name="shaper-cognitive-skill"></a>Shaper cognitieve vaardigheden
 
@@ -26,9 +27,6 @@ De kwalificatie Shaper kunt u in feite een structuur maken, het definiëren van 
 Standaard ondersteunt deze techniek objecten die een niveau zijn. Voor meer complexe objecten, kunt u verschillende Shaper stappen koppelen.
 
 In het antwoord, is de naam van de uitvoer altijd 'uitvoeren'. Intern, de pijplijn kan een andere naam toewijzen, zoals 'analyzedText' in de onderstaande voorbeelden "uitvoeren", maar de Shaper vaardigheid zelf als resultaat 'uitvoeren' in het antwoord. Dit kan belangrijk zijn als u foutopsporing verrijkt documenten en u ziet de naamgevingsconventie afwijking, of als u een aangepaste vaardigheden ontwikkelen en zijn structureren van het antwoord zelf.
-
-> [!NOTE]
-> Cognitief zoeken is een openbare preview. Uitvoering van vaardigheden en uitpakken van de installatiekopie en normalisering worden momenteel gratis aangeboden. Op een later tijdstip, worden de prijzen van deze mogelijkheden aangekondigd. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: b842a80762989c34ae278a397cc49c088ff77fb2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525515"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316577"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Logboekbestandindeling van Azure Import/Export-service
 Wanneer de Microsoft Azure Import/Export-service een actie op een station dat als onderdeel van een import-taak of een exporttaak bekijken uitvoert, worden de logboeken geschreven naar het blok-blobs in de storage-account dat is gekoppeld aan die taak.  
@@ -74,7 +74,7 @@ page-range-list ::=
 <PageRangeList>  
       [<PageRange Offset="page-range-offset" Length="page-range-length"   
        [Hash="md5-hash"] Status="page-range-status"/>]  
-      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
        [Hash="md5-hash"] Status="page-range-status"/>]  
 </PageRangeList>  
   
@@ -82,7 +82,7 @@ block-list ::=
 <BlockList>  
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
        [Hash="md5-hash"] Status="block-status"/>]  
-      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        [Hash="md5-hash"] Status="block-status"/>]  
 </BlockList>  
   
@@ -101,7 +101,7 @@ properties-status ::=
 
 De volgende tabel beschrijft de elementen van het logboekbestand.  
   
-|XML-Element|Type|Beschrijving|  
+|XML-Element|Type|Description|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML-Element|Hiermee geeft u een logboek station.|  
 |`Version`|Tekenreeks-kenmerk|De versie van de indeling voor logboekbestanden.|  
@@ -142,10 +142,10 @@ De volgende tabel beschrijft de elementen van het logboekbestand.
 |`Properties/Path/@Hash`|Tekenreeks-kenmerk|Base16 gecodeerde MD5-hash van het eigenschappenbestand.|  
 |`Blob/Status`|Reeks|De status van de verwerking van de blob.|  
   
-# <a name="drive-status-codes"></a>Statuscodes van station  
+## <a name="drive-status-codes"></a>Statuscodes van station  
 De volgende tabel bevat de statuscodes voor het verwerken van een station.  
   
-|Statuscode|Beschrijving|  
+|Statuscode|Description|  
 |-----------------|-----------------|  
 |`Completed`|Het station is verwerking zonder fouten voltooid.|  
 |`CompletedWithWarnings`|Het station is verwerkt met waarschuwingen in een of meer blobs per de import-dispositions opgegeven voor de blobs.|  
@@ -174,7 +174,7 @@ De volgende tabel bevat de statuscodes voor het verwerken van een station.
 ## <a name="blob-status-codes"></a>BLOB-statuscodes  
 De volgende tabel bevat de statuscodes voor het verwerken van een blob.  
   
-|Statuscode|Beschrijving|  
+|Statuscode|Description|  
 |-----------------|-----------------|  
 |`Completed`|De blob is verwerking zonder fouten voltooid.|  
 |`CompletedWithErrors`|De blob is verwerkt met fouten in een of meer page-bereiken of blokken, metagegevens of eigenschappen.|  
@@ -193,7 +193,7 @@ De volgende tabel bevat de statuscodes voor het verwerken van een blob.
 ## <a name="import-disposition-status-codes"></a>Statuscodes toestand importeren  
 De volgende tabel bevat de statuscodes voor het oplossen van een toestand importeren.  
   
-|Statuscode|Beschrijving|  
+|Statuscode|Description|  
 |-----------------|-----------------|  
 |`Created`|De blob is gemaakt.|  
 |`Renamed`|De blob is per naam importeren toestand gewijzigd. De `Blob/BlobPath` element bevat de URI voor de nieuwe naam van de blob.|  
@@ -204,7 +204,7 @@ De volgende tabel bevat de statuscodes voor het oplossen van een toestand import
 ## <a name="page-rangeblock-status-codes"></a>Pagina-bereik/blok statuscodes  
 De volgende tabel bevat de statuscodes voor het verwerken van een bereik of blok.  
   
-|Statuscode|Beschrijving|  
+|Statuscode|Description|  
 |-----------------|-----------------|  
 |`Completed`|De paginabereik of blok is verwerking zonder fouten voltooid.|  
 |`Committed`|Het blok is doorgevoerd, maar niet in het volledige blok lijst omdat andere blokken is mislukt, of volledige lijst met geblokkeerde websites zelf plaatsen is mislukt.|  
@@ -220,7 +220,7 @@ De volgende tabel bevat de statuscodes voor het verwerken van een bereik of blok
 ## <a name="metadata-status-codes"></a>Statuscodes van metagegevens  
 De volgende tabel bevat de statuscodes voor het verwerken van metagegevens van de blob.  
   
-|Statuscode|Beschrijving|  
+|Statuscode|Description|  
 |-----------------|-----------------|  
 |`Completed`|De metagegevens is verwerking zonder fouten voltooid.|  
 |`FileNameInvalid`|De naam van het metagegevens-bestand is ongeldig.|  
@@ -238,7 +238,7 @@ De volgende tabel bevat de statuscodes voor het verwerken van metagegevens van d
 ## <a name="properties-status-codes"></a>Eigenschappen van statuscodes  
 De volgende tabel bevat de statuscodes voor het verwerken van blob-eigenschappen.  
   
-|Statuscode|Beschrijving|  
+|Statuscode|Description|  
 |-----------------|-----------------|  
 |`Completed`|De eigenschappen verwerken zonder fouten is voltooid.|  
 |`FileNameInvalid`|De naam van de eigenschappen is ongeldig.|  

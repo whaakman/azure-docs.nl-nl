@@ -10,17 +10,15 @@ ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 8a1ee511848cf854374323b356492f374988d5d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: af41e2af87afbbeb8629d07508d4e5244351a4df
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109769"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277339"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 
@@ -174,7 +172,7 @@ In deze sectie wordt beschreven hoe u een waarschuwing instelt als:
 - Het gegevensvolume groter is dan een opgegeven hoeveelheid.
 - Het gegevensvolume naar verwachting een opgegeven hoeveelheid gaat overschrijden.
 
-Azure-waarschuwingen bieden ondersteuning voor [logboekwaarschuwingen](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md) die gebruikmaken van zoekquery’s. 
+Azure-waarschuwingen bieden ondersteuning voor [logboekwaarschuwingen](../../azure-monitor/platform/alerts-unified-log.md) die gebruikmaken van zoekquery’s. 
 
 De volgende query geeft een resultaat wanneer er meer dan 100 GB aan gegevens in de afgelopen 24 uur is verzameld:
 
@@ -186,7 +184,7 @@ De volgende query gebruikt een eenvoudige formule om te voorspellen wanneer meer
 
 Als u een waarschuwing wilt instellen bij een ander gegevensvolume, wijzigt u 100 in de query's in het aantal GB waarbij u een waarschuwing wilt.
 
-Gebruik de stappen in [Een nieuwe logboekwaarschuwing maken](../../monitoring-and-diagnostics/alert-metric.md) om een melding te krijgen wanneer de hoeveelheid verzamelde gegevens groter is dan verwacht.
+Gebruik de stappen in [Een nieuwe logboekwaarschuwing maken](../../azure-monitor/platform/alerts-metric.md) om een melding te krijgen wanneer de hoeveelheid verzamelde gegevens groter is dan verwacht.
 
 Bij het instellen van de waarschuwing voor de eerste query - wanneer er meer dan 100 GB aan gegevens in 24 uur, stelt u het volgende in:  
 
@@ -200,7 +198,7 @@ Bij het instellen van de waarschuwing voor de eerste query - wanneer er meer dan
    - **Naam** op *Gegevensvolume groter dan 100 GB in 24 uur*
    - **Ernst** op *Waarschuwing*
 
-Maak een nieuwe [Actiegroep](../../monitoring-and-diagnostics/monitoring-action-groups.md) of geef een bestaande op, zodat u een melding ontvangt wanneer aan de criteria voor een logboekwaarschuwing wordt voldaan.
+Maak een nieuwe [Actiegroep](../../azure-monitor/platform/action-groups.md) of geef een bestaande op, zodat u een melding ontvangt wanneer aan de criteria voor een logboekwaarschuwing wordt voldaan.
 
 Bij het maken van de waarschuwing voor de tweede query - wanneer wordt voorspeld dat er meer dan 100 GB aan gegevens in 24 uur zal zijn, stelt u het volgende in:
 
@@ -214,13 +212,13 @@ Bij het maken van de waarschuwing voor de tweede query - wanneer wordt voorspeld
    - **Naam** op *Gegevensvolume naar verwachting groter dan 100 GB in 24 uur*
    - **Ernst** op *Waarschuwing*
 
-Maak een nieuwe [Actiegroep](../../monitoring-and-diagnostics/monitoring-action-groups.md) of geef een bestaande op, zodat u een melding ontvangt wanneer aan de criteria voor een logboekwaarschuwing wordt voldaan.
+Maak een nieuwe [Actiegroep](../../azure-monitor/platform/action-groups.md) of geef een bestaande op, zodat u een melding ontvangt wanneer aan de criteria voor een logboekwaarschuwing wordt voldaan.
 
 Wanneer u een waarschuwing ontvangt, gebruikt u de stappen in de volgende sectie om te bepalen waarom het-gebruik is hoger dan verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Zoekopdrachten in logboeken in Log Analytics](../log-query/log-query-overview.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
-* Gebruik de stappen in [Een nieuwe logboekwaarschuwing maken](../../monitoring-and-diagnostics/alert-metric.md) om een melding te krijgen wanneer aan een zoekcriterium wordt voldaan.
+* Gebruik de stappen in [Een nieuwe logboekwaarschuwing maken](../../azure-monitor/platform/alerts-metric.md) om een melding te krijgen wanneer aan een zoekcriterium wordt voldaan.
 * Gebruik [oplossingstargeting](../insights/solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 * Lees [Filterbeleid van Azure Security Center](../../security-center/security-center-enable-data-collection.md) om een effectief beleid voor het verzamelen van beveiligingsgebeurtenissen te configureren.
 * Wijzig de [prestatiemeteritemconfiguratie](data-sources-performance-counters.md).

@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: cb3584101dea4dc8d8d888632175415480a6a1b3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b37626fe899bf7ee49bd71021631e21dc36b3963
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581525"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315612"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Gebruik van gratis services inbegrepen bij uw gratis Azure-account controleren 
 
-U betaalt geen voor services die zijn gratis inbegrepen met gratis Azure-account, tenzij u de grenzen van deze services overschrijdt. Om te blijven met de limieten, kunt u ofwel de Azure portal of uw gebruiksbestand om te controleren en bijhouden van het gebruik van gratis services gebruiken. 
+U bent niet in rekening gebracht voor services die zijn gratis inbegrepen met gratis Azure-account, tenzij u de grenzen van deze services overschrijdt. Om te blijven met de limieten, kunt u ofwel de Azure portal of uw gebruiksbestand om te controleren en bijhouden van het gebruik van gratis services gebruiken. 
 
 ## <a name="check-usage-on-the-azure-portal"></a>Gebruik in Azure portal controleren
 
-1.  Meld u aan bij [Azure Portal]( http://portal.azure.com).
+1.  Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2.  Selecteer in de navigatiebalk aan de linkerkant gebied **alle services**.
 
@@ -51,20 +51,19 @@ U betaalt geen voor services die zijn gratis inbegrepen met gratis Azure-account
 
     De tabel bevat de volgende kolommen:
 
-* **Meternaam:** identificeert de maateenheid voor de meter wordt gebruikt. Zie voor meer informatie over de toewijzing van de meter-service, [inzicht in de gratis service toewijzing van de meter](billing-understand-free-service-meter-mapping.md). 
-* **Gebruikslimiet:** het gebruik en de limiet voor het meten van de huidige maand. U kunt ook deze informatie vinden in de statusbalk.
-* **Status:** gebruik van de status van de meter. Op basis van uw gebruikspatroon, kunt u hebben een van deze statuten.
-  * **Niet in gebruik:** u hebt niet de meter gebruikt of het gebruik van de meter heeft niet het factureringssysteem bereikt.
-  * **Overschreden op \<datum >:** u hebt de limiet voor de meter overschreden op \<datum >.
-  * **Waarschijnlijk Exceed:** u waarschijnlijk niet langer zijn dan de limiet voor de meter.
-  * **Overschrijdt op \<datum >:** u waarschijnlijk langer zijn dan de limiet voor de meter op \<datum >.
-
+* **Meternaam:** Identificeert de maateenheid voor de meter wordt gebruikt. Zie voor meer informatie over de toewijzing van de meter-service, [inzicht in de gratis service toewijzing van de meter](billing-understand-free-service-meter-mapping.md).
+* **Gebruikslimiet:** Huidige maand gebruik en de limiet voor de meter. U kunt ook deze informatie vinden in de statusbalk.
+* **Status:** Gebruik de status van de meter. Op basis van uw gebruikspatroon, kunt u hebben een van deze statuten.
+  * **Niet in gebruik:** U hebt de meter nog niet hebt gebruikt of het gebruik van de meter nog niet het factureringssysteem bereikt.
+  * **Overschreden op \<datum >:** U hebt de limiet voor de meter overschreden op \<datum >.
+  * **Waarschijnlijk geen overschrijding:** U kunt waarschijnlijk geen overschrijding van de limiet voor de meter.
+  * **Overschrijdt op \<datum >:** U bent waarschijnlijk zal overschrijden de limiet voor de meter op \<datum >.
 
 ## <a name="check-usage-through-the-usage-file"></a>Gebruik controleren via het gebruiksbestand
 
-Uw gebruiksbestand bevat gedetailleerde informatie voor uw Azure-abonnement. U kunt downloaden van uw maandelijkse en dagelijks gebruiksbestand van Azure-Accountcentrum. Zie voor meer informatie over het van-gebruiksbestand downloaden en begrijpen van de toegang is vereist, [ophalen factuur- en gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md). Zie voor meer informatie over de kolommen in het gebruiksbestand, [meer informatie over uw gebruik](billing-understand-your-usage.md). 
+Uw gebruiksbestand bevat gedetailleerde informatie voor uw Azure-abonnement. U kunt downloaden van uw maandelijkse en dagelijks gebruiksbestand van Azure-Accountcentrum. Zie voor meer informatie over het van-gebruiksbestand downloaden en begrijpen van de toegang is vereist, [ophalen factuur- en gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md). Zie voor meer informatie over de kolommen in het gebruiksbestand, [meer informatie over uw gebruik](billing-understand-your-usage.md).
 
-Het van-gebruiksbestand bevat informatie over het gebruik van gratis en betaalde services. Gratis service meters zou hebben **gratis** toegevoegd aan het einde van de meternaam van de. Zoeken naar gratis meters, open het bestand in excel en filter de **Metercategorie kolom** voor cellen met tekst **- vrij** (Filters gebruiken om tekst &rarr; filter Contains) &nbsp;
+Het gebruiksbestand bevat informatie over het gebruik van gratis en betaalde services. Gratis service meters zou hebben **gratis** toegevoegd aan het einde van de meternaam van de. Zoeken naar gratis meters, open het bestand in excel en filter de **Metercategorie kolom** voor cellen die de tekst **- vrij** (Filters gebruiken om tekst &rarr; filter Contains) &nbsp;
 
 ![Schermafbeelding van het gebruik van gratis services](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 

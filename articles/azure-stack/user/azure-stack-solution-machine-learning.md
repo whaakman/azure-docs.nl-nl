@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 12/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 057df4260da267254cb764e58fdac749bee3b842
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5a1f0c0ee8a9f6ef6871e19e7722e09f4e96ba7f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106750"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53142067"
 ---
-# <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een edge-machine learning-oplossing met Azure en Azure Stack maken
+# <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Zelfstudie: Maak een edge-machine learning-oplossing met Azure en Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Informatie over het maken van een edge-machine learning-oplossing met Azure en Azure Stack.
 
@@ -135,13 +135,13 @@ Kennis van Azure en Azure Stack is vereist. Beginnen met de volgende onderwerpen
 
  -  **Gehoste VSTS Build van de Linux-Agentpool.** Snel bouwen, testen en implementeren van toepassingen met behulp van een door Microsoft beheerd en onderhouden die worden gehost agent. Zie voor meer informatie over gehoste VSTS build agents [gehoste Agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/hosted?view=vsts) documentatie.
 
-## <a name="step-1-create-a-storage-account"></a>Stap 1: Een storage-account maken
+## <a name="step-1-create-a-storage-account"></a>Stap 1: Create a storage account
 
 Maak een opslagaccount en container schoon gegevens zich bevinden.
 
 1.  Aanmelden bij de [ *Azure-portal*](https://portal.azure.com/).
 
-2.  Vouw in de Azure-portal het menu aan de linkerkant op het menu met services te openen en kies **alle Services**. Schuif omlaag naar **opslag** en kies **opslagaccounts**. In de ** Opslagaccounts ** venster Kies **toevoegen**.
+2.  Vouw in de Azure-portal het menu aan de linkerkant op het menu met services te openen en kies **alle Services**. Schuif omlaag naar **opslag** en kies **opslagaccounts**. In de **Opslagaccounts** venster Kies **toevoegen**.
 
 3.  Voer een naam in voor het opslagaccount.
 
@@ -150,7 +150,7 @@ Maak een opslagaccount en container schoon gegevens zich bevinden.
 
 4.  Geef het implementatiemodel moet worden gebruikt: **Resource Manager**.
 
-5.  Selecteer het type opslagaccount: **algemeen gebruik V1**, geeft u de prestatielaag: **Standard**.
+5.  Selecteer het type opslagaccount: **Algemeen gebruik V1**, geeft u de prestatielaag: **Standard**.
 
 6.  Selecteer de replicatieoptie voor het opslagaccount: **GRS**.
 
@@ -162,7 +162,7 @@ Maak een opslagaccount en container schoon gegevens zich bevinden.
 
 10. Selecteer **Maken** om het opslagaccount te maken.
 
-    ![Alternatieve tekst](/media/azure-stack-solution-machine-learning/image1.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image1.png)
 
 11.  Kies de opslagaccount die onlangs zijn gemaakt.
 
@@ -180,7 +180,7 @@ Maak een opslagaccount en container schoon gegevens zich bevinden.
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image4.png)
 
-## <a name="step-2-create-a-data-science-virtual-machine"></a>Stap 2: Maak een virtuele Machine voor Datatechnologie
+## <a name="step-2-create-a-data-science-virtual-machine"></a>Stap 2: Maken van een virtuele Machine voor Datatechnologie
 
 Maak een Ubuntu Data Science Virtual Machine (DSVM) in Azure portal.
 
@@ -194,8 +194,8 @@ Maak een Ubuntu Data Science Virtual Machine (DSVM) in Azure portal.
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image6.png)
 
-> ! [Belangrijk]  
-> **Kies** wachtwoord ** als de*verificatietype*.
+> [!Important]  
+> Kies **wachtwoord** als de **verificatietype**.
 
 Plaats de nieuwe DSVM in dezelfde resourcegroep bevinden als de zojuist gemaakte opslagaccount. Alle Edge ML-objecten worden geïmplementeerd in Azure in deze resourcegroep.
 
@@ -209,7 +209,8 @@ Plaats de nieuwe DSVM in dezelfde resourcegroep bevinden als de zojuist gemaakte
 
     d.  Voor de **Opslagaccount voor diagnostische gegevens**, selecteer het opslagaccount dat eerder hebt gemaakt.
 
-    e.  Opmerking: Bij AAD ingeschakeld en geconfigureerd voor het Azure-abonnement, beheerde identiteiten voor Azure-resources kunnen ook worden ingeschakeld.
+    > [!Note]  
+    > Met AAD ingeschakeld en geconfigureerd voor het Azure-abonnement, kunnen de beheerde identiteiten voor Azure-resources ook worden ingeschakeld.
 
 2.  Selecteer **OK**.
 
@@ -312,7 +313,8 @@ Gebruik de Azure-portal voor het inrichten van de Azure Machine Learning-account
 
 Azure Machine Learning Workbench is beschikbaar voor Windows of macOS. Overzicht van [ondersteunde platforms](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation).
 
-**Waarschuwing:** het installeren kan ongeveer een uur duren om uit te voeren.
+> [!Warning]  
+> Het installeren kan ongeveer een uur duren om uit te voeren.
 
 1.  Download het meest recente Workbench-installatieprogramma en start het.
 
@@ -321,7 +323,7 @@ Azure Machine Learning Workbench is beschikbaar voor Windows of macOS. Overzicht
 
 1.  Volg de aanwijzingen op het scherm instructies in het installatieprogramma is voltooid.
 
-    ** De installatie kan zo veel 30 minuten duren. **
+    **De installatie kan zo veel 30 minuten duren.**
     
     `Windows: C:\\Users\\<user>\\AppData\\Local\\AmlWorkbench`
     
@@ -493,7 +495,7 @@ Dit pakket kan later worden doorgegeven aan een runtime, zoals local-C\#/CoreCLR
 
     3.  Selecteer **waarde telt** in het menu.
 
-        Het deelvenster **Inspectors** wordt geopend onder de gegevens. Een histogram met vier balken wordt weergegeven. De doelkolom vier afzonderlijke waarden heeft: **iris_virginica**, **iris_versicolor**,**Iris-setosa**, en een **(null)** waarde.
+        Het deelvenster **Inspectors** wordt geopend onder de gegevens. Een histogram met vier balken wordt weergegeven. De doelkolom heeft vier afzonderlijke waarden: **Iris_virginica**, **iris_versicolor**,**Iris-setosa**, en een **(null)** waarde.
 
     ![Selecteer Value Counts](media/azure-stack-solution-machine-learning/image34.png)
 
@@ -885,7 +887,7 @@ In het vorige deel van de zelfstudie werd het script **iris_sklearn.py** lokaal 
 
 4.  Controleer het bestand **iris_sklearn.py** om te zien waar het pickle-bestand is gegenereerd. Selecteer Ctrl+F om het dialoogvenster **Zoeken** te openen en zoek vervolgens het woord **pickle** in de Python-code.
 
-Dit codefragment laat zien hoe het pickle-uitvoerbestand is gegenereerd. Op de schijf heeft het pickle-uitvoerbestand de naam **model.pkl**.
+    Dit codefragment laat zien hoe het pickle-uitvoerbestand is gegenereerd. Op de schijf heeft het pickle-uitvoerbestand de naam **model.pkl**.
 
     ```Python
         print("Export the model to model.pkl")
@@ -923,7 +925,7 @@ Scoring-script is voor het implementeren van de webservice het modelbestand nodi
 
     Dit script maakt u een JSON-bestand in de **uitvoer** sectie, met daarin het schema voor invoergegevens vereist voor het model.
 
-1.  Aan de rechterkant van het **projectdashboard** wordt nu het deelvenster **taken** weergegeven. Wacht tot de meest recente ** score_iris.py**-taak om weer te geven van de groene **voltooid** status. Klik vervolgens op de hyperlink **iris-score.py** voor de laatst uitgevoerde taak om de details van de uitvoering te zien.
+1.  Aan de rechterkant van het **projectdashboard** wordt nu het deelvenster **taken** weergegeven. Wacht tot de meest recente **score_iris.py**-taak groen wordt weergegeven met de status **Completed**. Klik vervolgens op de hyperlink **iris-score.py** voor de laatst uitgevoerde taak om de details van de uitvoering te zien.
 
 2.  Ga in het deelvenster **Run Properties** naar de sectie **Outputs** en selecteer het zojuist gemaakte bestand **service_schema.json**. Selecteer het selectievakje naast de bestandsnaam en selecteer vervolgens **Download**. Sla het bestand in de hoofdmap van het project.
 
@@ -952,23 +954,23 @@ Scoring-script is voor het implementeren van de webservice het modelbestand nodi
 
 Bereidt de omgeving om het model operationeel te maken.
 
-## <a name="step-5-deploy-and-use-azure-container-registry"></a>Stap 5: Implementeren en gebruiken van Azure Container Registry
+## <a name="step-5-deploy-and-use-azure-container-registry"></a>Stap 5: Azure Container Registry implementeren en gebruiken
 
 Implementeren en gebruiken van Azure Container Registry.
 
 Maak een Azure Container Registry met de opdracht **az acr create**. De registernaam moet uniek zijn binnen Azure en mag 5 tot 50 alfanumerieke tekens bevatten. De resourcegroep is hetzelfde.
 
-    ```CLI
-        az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
-    ```
+```CLI
+    az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
+```
 
 ### <a name="container-registry-login"></a>Aanmelden bij het containerregister
 
 Gebruik de opdracht **az acr login** om u aan te melden bij het ACR-exemplaar. Geef de unieke naam op die u het containerregister hebt gegeven toen u het maakte.
 
-    ```CLI
-        az acr login --name <acrName>
-    ```
+```CLI
+    az acr login --name <acrName>
+```
 
 De opdracht retourneert een ' aanmelding geslaagd bericht nadat deze is voltooid.
 
@@ -978,11 +980,11 @@ Gebruik *lokale modus* implementatie worden uitgevoerd in Docker-containers op d
 
 De Docker-engine moet lokaal worden uitgevoerd om de stappen te kunnen voltooien die nodig zijn om het model operationeel te maken. Gebruik de `-h` vlag aan het einde van elke opdracht om de bijbehorende help-bericht weer te geven.
 
-    > [!Note]  
-    > If Docker engine is not locally available, proceed by creating a cluster in Azure for deployment and keep the cluster for re-use, or delete it after the tutorial to avoid ongoing charges.
+> [!Note]  
+> Als Docker-engine niet lokaal beschikbaar is, gaat u verder met het maken van een cluster in Azure voor implementatie en het cluster bewaren voor hergebruik of verwijderen na de zelfstudie om te voorkomen dat de lopende kosten in rekening gebracht.
 
-    > [!Note]  
-    > Web services deployed locally do not appear in Azure Portal's list of services. They will be running in Docker on the local machine.
+> [!Note]  
+> Webservices die lokaal is geïmplementeerd, worden niet weergegeven in de lijst met services van Azure Portal. Ze zullen in Docker worden uitgevoerd op de lokale computer.
 
 1.  Open de CLI (opdrachtregelinterface). Selecteer in de toepassing Machine Learning Workbench in het menu **File** de optie **Open Command Prompt**.
 
@@ -1017,7 +1019,7 @@ De Docker-engine moet lokaal worden uitgevoerd om de stappen te kunnen voltooien
     az provider show -n Microsoft.ContainerRegistry
     ```
 
-    De derde regel van de uitvoer bestaat uit **'registrationState': 'Registering'**. Wacht even en Herhaal de **weergeven** opdracht totdat u de uitvoer **'registrationState': 'Registered.**
+    De derde regel van de uitvoer **'registrationState': 'Registering'**. Wacht even en Herhaal de **weergeven** opdracht totdat u de uitvoer **'registrationState': 'Geregistreerd.**
 
 1.  Maak de omgeving. Deze stap eenmaal per omgeving uitvoeren.
 
@@ -1106,7 +1108,7 @@ Registreer eerst het model. Genereer vervolgens het manifest, bouw de Docker-ins
     
     Voer vervolgens de web-service.
 
-## <a name="step-6-deploy-a-kubernetes-cluster-to-azure-stack"></a>Stap 6: Een Kubernetes-cluster implementeren op Azure Stack
+## <a name="step-6-deploy-a-kubernetes-cluster-to-azure-stack"></a>Stap 6: Een Kubernetes-cluster implementeren in Azure Stack
 
 Een Kubernetes-cluster implementeren in Azure Stack.
 
@@ -1218,9 +1220,9 @@ De service-principal toegang geven tot het abonnement, zodat deze resources kan 
 
     ![Oplossingssjabloon implementeren](media/azure-stack-solution-machine-learning/image59.png)
 
-10\. Selecteer **basisbeginselen** in het Kubernetes-Cluster maken.
+10. Selecteer **basisbeginselen** in het Kubernetes-Cluster maken.
 
-    ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
+    ![Oplossingssjabloon implementeren](media/azure-stack-solution-machine-learning/image60.png)
 
 11. Voer de **Linux VM-Beheerdersgebruikersnaam**. De naam van de gebruiker voor de virtuele Linux-Machines die deel van het Kubernetes-cluster uitmaken en DVM.
 
@@ -1261,7 +1263,7 @@ Voer de volgende opdrachten voor het installeren van kubectl in de omgeving WSL 
 
 ```PowerShell  
 Install-script -name install-kubectl -scope CurrentUser -force
-Install-kubectl.ps1 -downloadlocation “C:\Users\<Current User>\Documents\Kube
+Install-kubectl.ps1 -downloadlocation "C:\Users\<Current User>\Documents\Kube"
 ```
 
 ### <a name="install-kubectl-on-the-windows-subsystem-for-linux-environment"></a>Kubectl installeren op het Windows-subsysteem voor Linux-omgeving
@@ -1301,7 +1303,7 @@ Bijvoorbeeld, wanneer een Kubernetes-cluster wordt uitgevoerd op een lokale lapt
 Als u kubectl cluster-info wordt het url-antwoord geretourneerd, maar het cluster nog steeds niet toegankelijk is, Controleer voor de juiste configuratie met behulp van:
 
 ```Bash  
-> kubectl cluster-info dump
+    kubectl cluster-info dump
 ```
 
 ### <a name="enable-shell-autocompletion"></a>Automatisch aanvullen shell inschakelen
@@ -1349,7 +1351,7 @@ Als u het lokale JSON-bestand is verkregen, in een nieuwe sessie WSL, gebruik de
     kubectl proxy
     kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
     kubectl proxy
-    set KUBECONFIG=”/mnt/c/users/<current user>/documents/Kube/kubeconfig.json”
+    set KUBECONFIG="/mnt/c/users/<current user>/documents/Kube/kubeconfig.json"
     kubectl.exe config view
 ```
 
@@ -1408,7 +1410,7 @@ Sla de **iris_deployment.yaml** bestand (zich in /*mnt/c/gebruikers/<current use
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image67.png)
 
 Controleer de status van de implementatie:
 
@@ -1416,7 +1418,7 @@ Controleer de status van de implementatie:
 Kubectl get deployments
 ```
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image68.png)
 
 De implementatie kan enige tijd duren.
 
@@ -1553,7 +1555,7 @@ Als onderdeel van de configuratie van de service-eindpunt, VSTS vereist de **Ten
 
 De Service-Principal-rechten voor het implementeren van resources in de Azure Stack-abonnement verlenen
 
-Voor toegang tot resources in het abonnement, de toepassing toewijzen aan een rol. Bepaal welke rol staat voor de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Voor toegang tot resources in het abonnement, de toepassing toewijzen aan een rol. Bepaal welke rol staat voor de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: Ingebouwde rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Stel het bereik op het niveau van het abonnement, resourcegroep of resource. Machtigingen worden overgenomen op lagere niveaus van bereik. Een toepassing toevoegt aan de rol van lezer voor een resourcegroep kan bijvoorbeeld het lezen van de resourcegroep en alle resources die deze bevat.
 
@@ -1824,11 +1826,11 @@ Succes ziet er ongeveer als volgt uit:
 
 1.  Selecteer onder een verbinding met Kubernetes, de **+ nieuw** en selecteer**Kubernetes**in de lijst. u kunt dit eindpunt gebruiken om verbinding te maken de**VSTS**en de**Azure Container Service (AKS)**.
 
-2.  **Verbindingsnaam**: Geef de naam van de verbinding.
+2.  **Verbindingsnaam**: Geef de verbindingsnaam.
 
-3.  **Server-URL**: het adres van de container in de formathttp bevatten: / / {API-serveradres}
+3.  **Server-URL**: Geef het adres van de container in de formathttp: / / {API-serveradres}
 
-4.  **Kubeconfig**: als u de waarde Kubeconfig, kunt u de volgende Azure opdrachten uitvoeren in een opdrachtprompt geopend waarin de Administrator-bevoegdheden.
+4.  **Kubeconfig**: Als u de waarde Kubeconfig, de volgende Azure-opdrachten worden uitgevoerd in een opdrachtprompt geopend waarin de Administrator-bevoegdheden.
 
     > [!Important]  
     > Dit CLI-venster om uit te voeren van de volgende stappen gebruiken.
@@ -1914,7 +1916,7 @@ Zodra de kubernetes UI wordt uitgevoerd, bladert u naar de implementatie op [ **
 
     ```Bash  
     git add .
-    git commit -m “Added Service YAML” 
+    git commit -m "Added Service YAML" 
     git push
     ```
 
@@ -1959,9 +1961,8 @@ Zodra de kubernetes UI wordt uitgevoerd, bladert u naar de implementatie op [ **
 1.  De verbinding Kubernates Service ingesteld op de Azure Stack-verbinding eerder hebt gemaakt en selecteer vervolgens de **configuratiebestanden gebruiken** selectievakje in om toe te voegen een configuratiebestand. Blader naar het bestand iris_service.yaml in de gekoppelde artefacten.
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image135.png)
-
-
-    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image136.png)
+    <!-- -->
+    ![Alt-tekst](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  Sla de release-definitie.
 
@@ -2013,7 +2014,7 @@ Een van die vergelijkbaar is met het volgende validatiebericht weergegeven:
 
 Een functie-app is vereist voor het hosten van de uitvoering van elke functie. Een functie-app kunt gebruiken als een logische eenheid voor eenvoudiger beheer, implementatie en delen van resources groeperen.
 
-1.  Selecteer in de gebruikersportal van Azure Stack, de **+ nieuw** knop gevonden in de linkerbovenhoek, selecteer vervolgens**Web en mobiel** >**functie-App**.
+1.  Selecteer in de gebruikersportal van Azure Stack, de **+ nieuw** knop gevonden in de linkerbovenhoek, selecteer vervolgens **Web en mobiel** >**functie-App**.
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image141.png)
 
@@ -2021,13 +2022,13 @@ Een functie-app is vereist voor het hosten van de uitvoering van elke functie. E
 
     ![Nieuwe functie app-instellingen definiëren](media/azure-stack-solution-machine-learning/image142.png)
 
-1.  Selecteer**maken**inrichten en implementeren van de functie-app.
+1.  Selecteer **maken**inrichten en implementeren van de functie-app.
 
-2.  Selecteer het meldingspictogram in de rechterbovenhoek van de portal en zoek de**implementatie is voltooid** bericht.
+2.  Selecteer het meldingspictogram in de rechterbovenhoek van de portal en zoek het bericht **Implementatie voltooid**.
 
     ![Instellingen voor nieuwe functie-apps definiëren](media/azure-stack-solution-machine-learning/image143.png)
 
-1.  Selecteer**naar de resource gaan** om de nieuwe functie-app weer te geven.
+1.  Selecteer **naar de resource gaan** om de nieuwe functie-app weer te geven.
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image144.png)
 
@@ -2087,7 +2088,7 @@ Om te controleren of dat u hebt ingesteld de functies en Kbernetes kunt correct 
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image155.png)
 
-## <a name="step-7-create-an-azure-stack-storage-account-and-storage-queue"></a>Stap 7: Een Azure Stack-opslagaccount en de Storage-wachtrij maken
+## <a name="step-7-create-an-azure-stack-storage-account-and-storage-queue"></a>Stap 7: Maak een Azure Stack-opslagaccount en een Storage-wachtrij
 
 Maak een Azure Stack-opslagaccount en de Storage-wachtrij voor gegevens.
 
@@ -2103,13 +2104,13 @@ Maak een Azure Stack-opslagaccount en de Storage-wachtrij voor gegevens.
 
 6.  Selecteer **lokale** voor de locatie voor het opslagaccount.
 
-7.  Selecteer**maken**om het opslagaccount te maken.
+7.  Selecteer **maken**om het opslagaccount te maken.
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  Kies de opslagaccount die onlangs zijn gemaakt.
 
-2.  Selecteer op**wachtrijen**.
+2.  Selecteer op **wachtrijen**.
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image157.png)
 
@@ -2129,7 +2130,7 @@ Maak een Azure Stack-opslagaccount en de Storage-wachtrij voor gegevens.
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image161.png)
 
-1.  Voer de naam van het opslagaccount in de **naam** veld toe te voegen aan het einde; _opslag
+1.  Voer de naam van het opslagaccount in de **naam** veld toe te voegen aan het einde `_STORAGE`.
 
 Hierdoor kan de toepassing om te begrijpen dat dit een eindpunt van de storage-account is.
 
@@ -2159,7 +2160,7 @@ Hierdoor kan de toepassing om te begrijpen dat dit een eindpunt van de storage-a
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image166.png)
 
-## <a name="step-8-create-a-function-to-handle-clean-data"></a>Stap 8: Maak een functie voor het afhandelen van nieuwe gegevens
+## <a name="step-8-create-a-function-to-handle-clean-data"></a>Stap 8: Een functie voor het afhandelen van nieuwe gegevens maken
 
 Maak een nieuwe Azure Stack-functie voor het verplaatsen van de schoon gegevens uit Azure Stack in Azure.
 
@@ -2229,7 +2230,7 @@ Hierdoor kan de toepassing om te begrijpen dat dit een eindpunt van de storage-a
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image178.png)
 
-1.  Controleer het gehoste Storage-account om de gegevens te zien is geparseerd naar de cloud van Azure: geslaagd ziet eruit als het hieronder.
+1.  Controleer het opslagaccount van Azure die wordt gehost als u wilt zien van dat de gegevens naar de cloud van Azure is geparseerd: Succes ziet eruit als het hieronder.
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image179.png)
 

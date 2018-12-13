@@ -1,5 +1,5 @@
 ---
-title: Hulp bij het Azure-web-apps implementeren met behulp van sjablonen | Microsoft Docs
+title: Hulp bij het implementeren van apps met sjablonen - Azure App Service | Microsoft Docs
 description: Aanbevelingen voor het maken van Azure Resource Manager-sjablonen voor de implementatie van web-apps.
 services: app-service
 documentationcenter: app-service
@@ -11,12 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: c2f600d86965e1115d4be1370da8f7c8e1b67f05
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.custom: seodec18
+ms.openlocfilehash: 523574f49673ee961665136d90f04183e7c1a679
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927669"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277757"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Hulp bij het implementeren van web-apps met behulp van Azure Resource Manager-sjablonen
 
@@ -87,7 +88,7 @@ In het volgende voorbeeld ziet u deel van een sjabloon. De waarde van de configu
 }
 ```
 
-Zie voor een kant-en-klaar-voorbeeld dat gebruikmaakt van de bovenstaande code, [sjabloon: een eenvoudige Umbraco-Web-App bouwen](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+Zie voor een kant-en-klaar-voorbeeld dat gebruikmaakt van de bovenstaande code, [sjabloon: Een eenvoudige Umbraco-Web-App bouwen](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Meer informatie over MSDeploy-fouten
 

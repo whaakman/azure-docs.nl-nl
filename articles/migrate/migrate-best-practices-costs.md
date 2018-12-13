@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 03a60940b4889671149c49becb0f823da89781ff
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9d1acabd07e7c01445c55a57be9b0c9a36140aa5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135556"
+ms.locfileid: "53163766"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Aanbevolen procedures voor workloads met kosten en sizing gemigreerd naar Azure
 
@@ -34,7 +34,7 @@ De aanbevolen procedures in deze sectie helpt u bij de kosten schatten, tot de b
 
 
 
-## <a name="best-practice-estimate-monthly-workload-costs"></a>Aanbevolen: schatting maandelijkse kosten van de werkbelasting
+## <a name="best-practice-estimate-monthly-workload-costs"></a>Aanbevolen: Schatting maandelijkse kosten van de werkbelasting
  
 Er zijn een aantal hulpprogramma's die kunt u voor een prognose van uw maandelijkse factuur voor de gemigreerde werkbelasting.
 
@@ -42,12 +42,12 @@ Er zijn een aantal hulpprogramma's die kunt u voor een prognose van uw maandelij
 
  ![Azure prijscalculator](./media/migrate-best-practices-costs/pricing.png) *prijscalculator van Azure*
 
-- **Azure Migrate**: voor een schatting van de kosten die u wilt controleren en voor alle resources die zijn vereist voor het uitvoeren van uw workloads in Azure-account. Om te verkrijgen van deze gegevens, maakt u de inventaris van uw assets, met inbegrip van servers, virtuele machines, databases en opslag. U kunt Azure Migrate gebruiken om deze informatie te verzamelen.
+- **Azure Migrate**: Voor een schatting van de kosten die u wilt controleren en voor alle resources die zijn vereist voor het uitvoeren van uw workloads in Azure-account. Om te verkrijgen van deze gegevens, maakt u de inventaris van uw assets, met inbegrip van servers, virtuele machines, databases en opslag. U kunt Azure Migrate gebruiken om deze informatie te verzamelen.
 
  - Azure Migrate wordt gedetecteerd en uw on-premises omgeving voor een inventaris beoordeelt.
  - Azure Migrate kunt toewijzen en u afhankelijkheden tussen virtuele machines weergeven zodat u beschikt over een volledig overzicht.
  - Een Azure Migrate-evaluatie bevat de geschatte kosten.
-    - De kosten voor rekenuren: de API van de facturering voor het berekenen van de geschatte maandelijkse kosten voor virtuele machine met behulp van de Azure-VM-grootte aanbevolen wanneer u een evaluatie maken, Azure Migrate gebruikt. De schatting van de rekening gehouden met het besturingssysteem, software assurance, gereserveerde instanties, VM uptime, locatie en valuta-instellingen. Het combineert de kosten voor alle virtuele machines in de evaluatie en een totale maandelijkse kosten worden berekend.
+    - De rekenkosten: Met behulp van de Azure-VM-grootte aanbevolen wanneer u een evaluatie maken, Azure Migrate maakt gebruik van de facturering-API voor het berekenen van de geschatte maandelijkse kosten voor virtuele machine. De schatting van de rekening gehouden met het besturingssysteem, software assurance, gereserveerde instanties, VM uptime, locatie en valuta-instellingen. Het combineert de kosten voor alle virtuele machines in de evaluatie en een totale maandelijkse kosten worden berekend.
     - Kosten voor gegevensopslag: Azure Migrate berekent de totale maandelijkse kosten voor opslag door samenvoeging van de kosten voor opslag van alle virtuele machines in een evaluatie. U kunt de maandelijkse opslagkosten voor voor een specifieke machine berekenen door samenvoeging van de maandelijkse kosten van alle gekoppelde schijven. 
 
     ![Azure Migrate](./media/migrate-best-practices-costs/assess.png) *Azure Migrate-evaluatie*
@@ -58,7 +58,7 @@ Er zijn een aantal hulpprogramma's die kunt u voor een prognose van uw maandelij
 - [Meer informatie over](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation) Azure Migrate-evaluaties.
 - [Meer informatie](https://docs.microsoft.com/azure/dms/dms-overview) over Database Migration Service (DMS).
 
-## <a name="best-practice-right-size-vms"></a>Aanbevolen: virtuele machines de juiste grootte
+## <a name="best-practice-right-size-vms"></a>Aanbevolen: Virtuele machines de juiste grootte
 
 U kunt een aantal opties kiezen bij het implementeren van virtuele Azure-machines om workloads te ondersteunen. Elk VM-type heeft specifieke functies en verschillende combinaties van CPU, geheugen en schijven. Virtuele machines worden als volgt gegroepeerd.
 
@@ -96,7 +96,7 @@ Azure biedt verschillende typen gegevens in de opslag.
 --- | --- |  ---
 **Blobs** | Geoptimaliseerd voor het opslaan van grote hoeveelheden ongestructureerde objecten, zoals tekst of binaire gegevens<br/><br/> | Toegang tot gegevens vanaf elke locatie via HTTP/HTTPS. | Gebruik voor scenario's voor streamen en willekeurige toegang. Bijvoorbeeld behoeve van afbeeldingen en documenten rechtstreeks aan een browser, video en audio streamen en opslaan van gegevens voor herstel na noodgevallen en back-ups.
 **Bestanden** | Beheerde bestandsshares via SMB 3.0 | Gebruik bij het migreren van on-premises bestandsshares, en om meerdere toegang/verbindingen met gegevens uit een bestand.
-**Schijven** | Gebaseerd op de pagina-blobs.<br/><br/> Schijftype (snelheid): Standard (harde schijven of SSD)- of Premium (SSD).<br/><br/>Schijfbeheer: niet-beheerde (u beheert instellingen voor schijven en opslag) of beheerd (selecteert u het schijftype en Azure beheert de schijf voor u). | Premium-schijven voor virtuele machines gebruiken. Beheerde schijven gebruiken voor eenvoudig beheer en schalen.
+**Schijven** | Gebaseerd op de pagina-blobs.<br/><br/> Schijftype (snelheid): Standaard (HDD of SSD) of Premium (SSD).<br/><br/>Schijfbeheer: Niet-beheerde (u beheert instellingen voor schijven en opslag) of beheerd (selecteert u het schijftype en Azure beheert de schijf voor u). | Premium-schijven voor virtuele machines gebruiken. Beheerde schijven gebruiken voor eenvoudig beheer en schalen.
 **wachtrijen** | Store en op te halen van grote aantallen berichten benaderd via geverifieerde oproepen (HTTP of HTTPS) | Verbinding maken met app-onderdelen met asynchrone message Queuing.
 **Tabellen** | Store tabellen. | Nu onderdeel van Azure Cosmos DB Table-API.
 
@@ -129,7 +129,7 @@ Storage-accounts kunt verschillende soorten redundantie voor herstelvermogen en 
 **Type** | **Details** | **Gebruik**
 --- | --- | ---
 **Lokaal redundante opslag (LRS)** | Beschermt tegen uitval van een lokale door te repliceren in een enkele opslageenheid op een afzonderlijke foutdomein en updatedomein. Meerdere kopieën van uw gegevens blijven in één datacenter. Biedt ten minste 99,999999999% (11 9\'s) duurzaamheid van objecten in een bepaald jaar. | U kunt als uw app worden gegevens opgeslagen die eenvoudig kunnen worden gerepareerd.
-**Zone-redundante opslag (ZRS)** | Beschermt opnieuw een uitval van het datacenter te repliceren in meerdere drie opslagclusters in één regio. Elke opslagcluster is fysiek gescheiden en zich in een eigen binnen een beschikbaarheidszone. Biedt ten minste 99,9999999999% (12 9\'s) duurzaamheid van objecten in een bepaald jaar door meerdere kopieën van uw gegevens op meerdere datacenters of regio's. | Houd rekening met als u consistentie, duurzaamheid en hoge beschikbaarheid. Kan geen bescherming tegen een regionaal noodgeval als meerdere zones permenently beïnvloed.
+**Zone-redundante opslag (ZRS)** | Beschermt opnieuw een uitval van het datacenter te repliceren in meerdere drie opslagclusters in één regio. Elke opslagcluster is fysiek gescheiden en zich in een eigen binnen een beschikbaarheidszone. Biedt ten minste 99,9999999999% (12 9\'s) duurzaamheid van objecten in een bepaald jaar door meerdere kopieën van uw gegevens op meerdere datacenters of regio's. | Houd rekening met als u consistentie, duurzaamheid en hoge beschikbaarheid. Kan geen bescherming tegen een regionaal noodgeval als meerdere zones permanent worden beïnvloed.
 **Geografisch redundante opslag (GRS)** | Worden beschermd tegen uitval van een hele regio repliceren van gegevens naar een secundaire regio die honderden mijl weg van de primaire. Biedt ten minste 99,99999999999999% (16-9\'s) duurzaamheid van objecten in een bepaald jaar. | Replicagegevens is niet beschikbaar tenzij Microsoft een failover naar de secundaire regio initieert. Als failover optreedt, is lees- en schrijftoegang beschikbaar.
 **Geografisch redundante opslag met leestoegang (RA-GRS)** | Dit is vergelijkbaar met GRS. Biedt ten minste 99,99999999999999% (16-9\'s) duurzaamheid van objecten in een bepaald jaar | Biedt en 99,99% beschikbaarheid voor lezen doordat leestoegang van de tweede regio die wordt gebruikt voor GRS.
 
@@ -144,7 +144,7 @@ Storage-accounts kunt verschillende soorten redundantie voor herstelvermogen en 
 
 
 
-## <a name="best-practice-leverage-azure-hybrid-benefits"></a>Aanbevolen: gebruik te maken van Azure Hybrid benefits
+## <a name="best-practice-leverage-azure-hybrid-benefits"></a>Aanbevolen: Maak gebruik van Azure Hybrid benefits
 
 Microsoft is vanwege een jaar van de software-investeringen in systemen, zoals Windows Server en SQL Server in een unieke positie te bieden klanten waarde in de cloud, met aanzienlijke kortingen die andere cloudproviders niet per se biedt. 
 
@@ -157,7 +157,7 @@ Een geïntegreerde Microsoft on-premises/Azure-productaanbod genereert concurrer
 - [Beoordeling](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) prijsinformatie voor SQL Server Azure VM's.
 
 
-## <a name="best-practice-use-reserved-vm-instances"></a>Aanbevolen: gebruik van gereserveerde VM-instanties
+## <a name="best-practice-use-reserved-vm-instances"></a>Aanbevolen: Gebruik van gereserveerde VM-instanties
 
 De meeste cloudplatforms zijn ingesteld als betalen per gebruik. Dit model geeft nadelen, omdat u niet per se weet hoe dynamische workloads zijn. Wanneer u duidelijk bedoelingen voor een werkbelasting opgeeft, wordt u bijdragen aan de infrastructuur plannen.
 
@@ -177,7 +177,7 @@ Met behulp van Azure gereserveerde VM-instanties, betaalt u vooraf voor een of d
 - [Richtlijnen voor prijzen](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) voor SQL Server Azure VM's.
 
 
-## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>Aanbevolen: cumulatieve clouduitgaven voor abonnementen
+## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>Aanbevolen: Cumulatieve clouduitgaven voor abonnementen
 
 Het is onvermijdelijk dat uiteindelijk meer dan één Azure-abonnement hebt u. Bijvoorbeeld, moet u mogelijk een extra abonnement voor het scheiden van de grenzen van ontwikkeling en productie, of mogelijk hebt u een platform dat een afzonderlijk abonnement is vereist voor elke client. De mogelijkheid het samenvoegen van gegevens in alle abonnementen in één platform reporting is een belangrijke functie.
 
@@ -197,7 +197,7 @@ Na een geslaagde migratie van uw workloads en een paar weken van het verzamelen 
 
 Aanbevolen procedures in deze sectie bevatten met behulp van Azure Cost Management voor kosten ook beter budgetteren en analyse, het bewaken van resources en resource group budgetten implementeren en controleren, opslag en virtuele machines te optimaliseren.
 
-## <a name="best-practice-use-azure-cost-management"></a>Aanbevolen: gebruik Azure Cost Management
+## <a name="best-practice-use-azure-cost-management"></a>Aanbevolen: Gebruik Azure Cost Management
 
 Microsoft biedt Azure Cost Management waarmee u kunt als volgt uitgave bij te houden:
 
@@ -211,20 +211,20 @@ In Cost Management, kunt u het volgende doen:
 
 
 - **Maak een budget**: Maak een budget voor financiële aansprakelijkheid.
-    - U kunt een account maken voor de services die u verbruikt of zich abonneert op voor een bepaalde periode (maandelijks, elk kwartaal, per jaar) en ascope (abonnementen/resourcegroepen). Bijvoorbeeld, kunt u het budget van een Azure-abonnement gedurende een maand, per kwartaal of jaar.
+    - U kunt een account maken voor de services die u verbruikt of zich abonneert op voor een bepaalde periode (maandelijks, elk kwartaal, per jaar) en een bereik (abonnementen/resourcegroepen). Bijvoorbeeld, kunt u het budget van een Azure-abonnement gedurende een maand, per kwartaal of jaar.
     - Nadat u een budget gemaakt, wordt deze weergegeven in kostenanalyse. Voor het weergeven van uw budget voor de huidige uitgaven is een van de eerste stappen die nodig zijn bij het analyseren van uw kosten en uitgaven.
     - E-mailmeldingen kunnen worden verzonden wanneer de budgetdrempels wordt bereikt.
     - U kunt kosten beheergegevens exporteren naar Azure storage, voor analyse.
 
     ![Cost Management budget](./media/migrate-best-practices-costs/budget.png) *Azure Cost Management budget*
 
-- **Een analyse kosten**: een kostenanalyse te verkennen en analyseren van uw organisatie kosten, zodat u inzicht in hoe de kosten worden opgebouwd, ophalen en trends in uitgaven te identificeren.
+- **Voer een kostenanalyse**: Een kostenanalyse te verkennen en analyseren van uw organisatie kosten, zodat u inzicht in hoe de kosten worden opgebouwd, ophalen en trends in uitgaven te identificeren.
     - Kostenanalyse is beschikbaar voor EA-gebruikers.
     - U kunt gegevens van cost analysis voor een aantal scopes, met inbegrip van afdeling, account, abonnement of resourcegroep weergeven.
     - U krijgt een kostenanalyse waarin de totale kosten voor de huidige maand en de totale dagelijkse kosten. 
 
     ![Kosten van analysis Management](./media/migrate-best-practices-costs/analysis.png) *analyse van Azure Cost Management*
-- **Ontvang aanbevelingen**: U Advisor-aanbevelingen waarin u u ziet hoe u kunt optimaliseren en efficiëntie te verbeteren.
+- **Ontvang aanbevelingen**: Ontvang aanbevelingen van Advisor waarin u u ziet hoe u kunt optimaliseren en efficiëntie te verbeteren.
 
 
 **Meer informatie:**
@@ -235,9 +235,9 @@ In Cost Management, kunt u het volgende doen:
 - [Ophalen van een zelfstudie](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json) voor het optimaliseren van de kosten van aanbevelingen.
 - [Beoordeling](https://docs.microsoft.com/rest/api/consumption/budgets) de Azure API-verbruik.
 
-## <a name="best-practice-monitor-resource-utilization"></a>Aanbevolen: gebruik van resources controleren
+## <a name="best-practice-monitor-resource-utilization"></a>Aanbevolen: Brongebruik door de monitor
 
-U betaalt voor wat u gebruikt, wanneer wanneer resources worden verbruikt, en u niet betaalt wanneer ze niet in Azure. Voor virtuele machines, vindt facturering plaats wanneer een virtuele machine wordt toegewezen, en niet in rekening gebracht nadat een VM ongedaan is gemaakt. U moet hart controleren van virtuele machines in gebruik en controleer of de VM-grootte.
+U betaalt voor wat u gebruikt, wanneer resources worden verbruikt, en u niet betaalt wanneer ze niet in Azure. Voor virtuele machines, vindt facturering plaats wanneer een virtuele machine wordt toegewezen, en niet in rekening gebracht nadat een VM ongedaan is gemaakt. U moet hart controleren van virtuele machines in gebruik en controleer of de VM-grootte.
 
 - Uw VM-workloads om te bepalen van basislijnen voortdurend worden geëvalueerd.
 - Als uw werkbelasting sterk maandag tot en met vrijdag, 8: 00 uur op 18: 00 uur gebruikt, maar nauwelijks buiten deze uren wordt gebruikt, kunt u virtuele machines downgraden buiten piektijden. Dit kan betekenen dat het wijzigen van VM-grootten, of met behulp van de virtuele-machineschaalset ingesteld op virtuele machines automatisch schalen omhoog of omlaag.
@@ -251,7 +251,7 @@ U betaalt voor wat u gebruikt, wanneer wanneer resources worden verbruikt, en u 
 - [Meer informatie over het [kosten van aanbevelingen optimaliseren](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), en [onverwachte kosten te voorkomen dat](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 - [Meer informatie over](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/) de Toolkit Azure-Resource-optimalisatie (ARO)
 
-## <a name="best-practice-implement-resource-group-budgets"></a>Aanbevolen: resource group budgetten implementeren
+## <a name="best-practice-implement-resource-group-budgets"></a>Aanbevolen: Resource group budgetten implementeren
 
 Resourcegroepen worden vaak gebruikt om weer te geven van de grenzen van de kosten. Samen met dit patroon blijft het team van Azure voor het ontwikkelen van nieuwe en verbeterde manieren voor het bijhouden en analyseren van de resource uitgaven op verschillende niveaus, waaronder de mogelijkheid om te maken van budgetten in de resourcegroep en resources.  
 
@@ -278,7 +278,7 @@ Als u resources wilt naar Azure verplaatsen en diagnostische logboekregistratie 
 
 - [Meer informatie over](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs) gebruik en geschatte kosten bewaken.
  
-## <a name="best-practice-optimize-storage"></a>Aanbevolen: opslag optimaliseren
+## <a name="best-practice-optimize-storage"></a>Aanbevolen: Opslag optimaliseren
 
 Als u aanbevolen procedures voor het selecteren van opslag voor de migratie hebt gevolgd, bent u waarschijnlijk zo volop enkele voordelen. Er zijn echter waarschijnlijk extra opslagkosten die u nog steeds kunt optimaliseren. Na verloop van tijd verouderen bestanden en blobs. Gegevens niet meer worden gebruikt, maar de wettelijke vereisten kunnen dit betekenen dat u wilt behouden gedurende een bepaalde periode. Daarom mogelijk niet moet u deze opslaan op de opslag met hoge prestaties die u hebt gebruikt voor de oorspronkelijke migratie.
 
@@ -291,7 +291,7 @@ Identificeren en verouderde gegevens verplaatst naar goedkoper opslagplaatsen ku
 - [Meer informatie](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) over toegangslagen.
 - [Bekijk een overzicht](https://docs.microsoft.com/azure/azure-monitor/overview) van StorSimple, en [StorSimple prijzen](https://azure.microsoft.com/pricing/details/storsimple/).
 
-## <a name="best-practice-automate-vm-optimization"></a>Aanbevolen: optimalisatie van de virtuele machine automatiseren
+## <a name="best-practice-automate-vm-optimization"></a>Aanbevolen: Optimalisatie van de virtuele machine automatiseren
 
 Er is een einddoel het toegankelijk maken van het uitvoeren van een virtuele machine in de cloud om te maximaliseren van de CPU, geheugen en schijfruimte die wordt gebruikt. Als u virtuele machines die geoptimaliseerd zijn niet detecteren of hebben vaak perioden wanneer virtuele machines worden niet gebruikt, het verstandig om ze uitschakelen, vergroten of verkleinen van deze met behulp van VM-schaalsets.
 
@@ -304,7 +304,7 @@ U kunt een virtuele machine met Azure Automation, VM scale sets, automatisch afs
 - [Meer informatie over het](https://docs.microsoft.com/azure/automation/automation-solution-vm-management) starten of stoppen van VM's buiten kantooruren in Azure Automation.
 - [Vindt u meer informatie] over [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview), en de [Azure Resource Optimization (ARO) Toolkit](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/).
 
-## <a name="best-practices-use-logic-apps-and-runbooks-with-budgets-api"></a>Aanbevolen procedures: gebruik Logic Apps en runbooks met budgetten API
+## <a name="best-practices-use-logic-apps-and-runbooks-with-budgets-api"></a>Aanbevolen procedures: Logic Apps en runbooks met budgetten API gebruiken
 
 Azure biedt een REST-API die toegang tot uw factureringsgegevens voor de tenant heeft.
 
@@ -320,7 +320,7 @@ Azure biedt een REST-API die toegang tot uw factureringsgegevens voor de tenant 
 - [Inzichten verkrijgen](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview) in het gebruik van Azure met de API voor facturering.
 
 
-## <a name="best-practice-implement-serverless-technologies"></a>Aanbevolen: serverloze technologieën implementeren
+## <a name="best-practice-implement-serverless-technologies"></a>Aanbevolen: Serverloze technologieën implementeren
 
 VM-workloads worden vaak gemigreerd "as is" geen downtime. Virtuele machines kunnen vaak taken die zijn onregelmatige, waarbij een korte periode uit te voeren, of u kunt ook vele uren hosten. Bijvoorbeeld, taak virtuele machines die worden uitgevoerd van geplande taken, zoals Windows scheduler of PowerShell-scripts. Wanneer deze taken worden niet uitgevoerd, u toch opvangen VM en schijf-kosten voor opslag.
 
