@@ -1,5 +1,5 @@
 ---
-title: Met de naam van entiteit erkenning cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
+title: Met de naam entiteit erkenning cognitief zoeken vaardigheid - Azure Search
 description: Benoemde entiteiten voor persoon, locatie en organisatie extraheren uit tekst in een Azure Search cognitief zoeken-pijplijn.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: f9ff3f66f3a73fbaf1a4c2ca280c85f4bde65444
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: e63354152f8821c5ce975563639c8b87fb332bd4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442026"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313986"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Met de naam entiteit erkenning cognitieve vaardigheden
 
@@ -23,8 +24,10 @@ De **herkenning van entiteit met de naam** vaardigheid extraheert benoemde entit
 
 > [!NOTE]
 > <ul>
-> <li>Cognitief zoeken is een openbare preview. Het uitvoeren van vaardighedensets, het extraheren van afbeeldingen en normaliseren worden momenteel gratis aangeboden. De prijzen voor deze mogelijkheden worden op een later moment bekend gemaakt. </li>
-> <li> Benoemde entiteiten erkenning vaardigheid wordt beschouwd als 'afgeschaft' en worden ze niet officieel ondersteund vanaf 15 Feburary, 2019. Volg de aanbevelingen die worden vermeld in <a href="cognitive-search-skill-deprecated.md">afgeschaft cognitieve vaardigheden voor een</a> pagina om te migreren naar een ondersteunde vaardigheid</li>
+> <li>
+> Vanaf December 21 mei 2018, kunt u zich een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Hierdoor kunnen we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum ook in rekening voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijven worden aangeboden zonder extra kosten.>
+> De uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijsstelling wordt in rekening gebracht op de preview-prijzen en wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). Informatie over [meer](cognitive-search-attach-cognitive-services.md).</li>
+> <li> Benoemde entiteiten erkenning vaardigheid wordt beschouwd als 'afgeschaft' en worden ze niet officieel ondersteund vanaf 15 Feburary, 2019. Volg de aanbevelingen die worden vermeld in <a href="cognitive-search-skill-deprecated.md">afgeschaft cognitieve vaardigheden voor zoeken</a> pagina om te migreren naar een ondersteunde vaardigheid</li>
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -36,7 +39,7 @@ De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten do
 
 Parameters zijn hoofdlettergevoelig.
 
-| Parameternaam     | Beschrijving |
+| Parameternaam     | Description |
 |--------------------|-------------|
 | categorieën    | Matrix van categorieën die moeten worden geëxtraheerd.  Mogelijke categorietypen: `"Person"`, `"Location"`, `"Organization"`. Als er geen categorie is opgegeven, worden alle typen worden geretourneerd.|
 |defaultLanguageCode |  De taalcode van de invoertekst. De volgende talen worden ondersteund: `de, en, es, fr, it`|
@@ -44,14 +47,14 @@ Parameters zijn hoofdlettergevoelig.
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Voer een naam in      | Beschrijving                   |
+| Voer een naam in      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | Optioneel. De standaardwaarde is `"en"`.  |
 | tekst          | De tekst die moet worden geanalyseerd.          |
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
 
-| Naam van de uitvoer     | Beschrijving                   |
+| Naam van de uitvoer     | Description                   |
 |---------------|-------------------------------|
 | personen      | Een matrix met tekenreeksen waarbij elke tekenreeks de naam van een persoon vertegenwoordigt. |
 | locaties  | Een matrix met tekenreeksen waarbij elke tekenreeks een locatie vertegenwoordigt. |

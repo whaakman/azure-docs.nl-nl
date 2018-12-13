@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: be14b560eb48adc2fcf0ad0a1cf7fe27792a402a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5b8db52623eead2800b0a5d8154a222573808750
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002488"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192427"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Richtlijnen voor persoonlijke gegevens die zijn opgeslagen in Log Analytics en Application Insights
 
@@ -50,24 +49,24 @@ Log Analytics is een flexibele opslag, die tijdens het voorschrijven van een sch
     | where * matches regex @'\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b' //RegEx originally provided on https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
     | summarize count() by $table
     ```
-* *Gebruikers-id's*: gebruikers-id's vindt u in een grote verscheidenheid aan oplossingen en tabellen. U kunt zoeken naar een specifieke gebruikersnaam in uw hele gegevensset met de zoekopdracht:
+* *Gebruikers-id's*: Gebruikers-id's komen in een grote verscheidenheid aan oplossingen en tabellen. U kunt zoeken naar een specifieke gebruikersnaam in uw hele gegevensset met de zoekopdracht:
     ```
     search "[username goes here]"
     ```
 Houd er rekening mee om te zoeken, niet alleen voor mensen leesbare gebruikersnamen, maar ook GUID's die kunnen rechtstreeks worden gerelateerd aan een bepaalde gebruiker!
-* *Apparaat-id's*: zoals gebruikers-id's, apparaat-id's worden soms ' als privé beschouwd '. Zoals hierboven vermeld voor de gebruikers-id's dezelfde benadering gebruiken om te identificeren van tabellen wanneer dit wordt mogelijk een probleem. 
+* *Apparaat-id's*: Als gebruikers-id's, apparaat-id's worden soms beschouwd als 'persoonlijke'. Zoals hierboven vermeld voor de gebruikers-id's dezelfde benadering gebruiken om te identificeren van tabellen wanneer dit wordt mogelijk een probleem. 
 * *Aangepaste gegevens*: Log Analytics kunt u de verzameling in een aantal methoden: aangepaste logboeken en aangepaste velden, de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) , en aangepaste gegevens worden verzameld als onderdeel van gebeurtenislogboeken van systeem. Al deze waarden zijn vatbaar voor die persoonlijke gegevens bevatten en moet worden onderzocht om te controleren of er dergelijke gegevens bestaat.
-* *Oplossing vastgelegde gegevens*: omdat het mechanisme voor oplossing een open is, wordt aanbevolen alle tabellen die zijn gegenereerd door oplossingen om de naleving controleren.
+* *Oplossing vastgelegde gegevens*: Omdat het mechanisme voor oplossing een open is, wordt u aangeraden alle tabellen die zijn gegenereerd door oplossingen om de naleving controleren.
 
 ### <a name="application-data"></a>Toepassingsgegevens
 
-* *IP-adressen*: terwijl Application Insights wordt standaard, onleesbaar maakt alle velden van IP-adres op '0.0.0.0', is het een vrij algemeen patroon voor de onderdrukking van deze waarde met de werkelijke gebruikers-IP-adres om sessiegegevens te beheren. De onderstaande Analytics-query kan worden gebruikt om een tabel die de waarden in de kolom IP-adres dan "0.0.0.0" in de afgelopen 24 uur bevat te vinden:
+* *IP-adressen*: Hoewel Application Insights wordt standaard onleesbaar maakt alle velden van IP-adres op '0.0.0.0', is het een vrij algemeen patroon voor de onderdrukking van deze waarde met de werkelijke gebruikers-IP-adres om sessiegegevens te beheren. De onderstaande Analytics-query kan worden gebruikt om een tabel die de waarden in de kolom IP-adres dan "0.0.0.0" in de afgelopen 24 uur bevat te vinden:
     ```
     search client_IP != "0.0.0.0"
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *Gebruikers-id's*: standaard, Application Insights willekeurig gegenereerde id wordt gebruikt voor de gebruiker en voor sessie bijhouden. Het is echter gebruikelijk om te zien van deze velden worden genegeerd voor het opslaan van een meer relevant zijn voor de toepassing-ID. Bijvoorbeeld: gebruikersnamen, AAD-GUID's, enzovoort. Deze id's zijn vaak beschouwd als binnen de regeling vallen als persoonlijke gegevens, en daarom moet worden verwerkt op de juiste wijze. Onze aanbeveling is altijd proberen te verbergen, weergeven of anoniem maken van deze id. Dit zijn enkele velden waarin deze waarden worden vaak gevonden type session_Id, user_Id, user_AuthenticatedId, user_AccountId, evenals customDimensions.
+* *Gebruikers-id's*: Standaard Application Insights willekeurig gegenereerde id's voor de gebruiker en voor sessie bijhouden gebruikt. Het is echter gebruikelijk om te zien van deze velden worden genegeerd voor het opslaan van een meer relevant zijn voor de toepassing-ID. Bijvoorbeeld: gebruikersnamen, AAD-GUID's, enzovoort. Deze id's zijn vaak beschouwd als binnen de regeling vallen als persoonlijke gegevens, en daarom moet worden verwerkt op de juiste wijze. Onze aanbeveling is altijd proberen te verbergen, weergeven of anoniem maken van deze id. Dit zijn enkele velden waarin deze waarden worden vaak gevonden type session_Id, user_Id, user_AuthenticatedId, user_AccountId, evenals customDimensions.
 * *Aangepaste gegevens*: Application Insights kunt u een set aangepaste dimensies toevoegen aan elk gegevenstype. Deze dimensies kunnen worden *eventuele* gegevens. Gebruik de volgende query uit om te identificeren die worden verzameld in de afgelopen 24 uur aangepaste dimensies:
     ```
     search * 
@@ -75,8 +74,8 @@ Houd er rekening mee om te zoeken, niet alleen voor mensen leesbare gebruikersna
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *Gegevens in het geheugen en in-transit*: Application Insights wilt bijhouden, uitzonderingen, aanvragen, afhankelijkheidsaanroepen en traceringen. Persoonlijke gegevens kunnen vaak worden verzameld op de code en het niveau van de HTTP-aanroep. Bekijk de uitzonderingen, aanvragen, afhankelijkheden en traceringen tabellen voor het identificeren van dergelijke gegevens. Gebruik [telemetrie initializers](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) waar mogelijk op deze gegevens, onleesbaar maakt.
-* *Snapshot Debugger opnamen*: de [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) functie in Application Insights kunt u voor het verzamelen van momentopnamen voor foutopsporing, telkens wanneer een uitzondering is opgetreden op de productie-instantie van uw toepassing. Momentopnamen wordt de volledige stack-trace leidt tot de uitzonderingen, evenals de waarden voor lokale variabelen bij elke stap in de stack weergegeven. Deze functie is helaas niet toegestaan voor selectieve verwijdering van uitlijnpunten of programmatische toegang tot gegevens in de momentopname. Als de retentie-frequentie van de standaard-momentopnamen niet voldoet aan uw vereisten voor naleving, moet de aanbeveling is daarom de functie uitschakelen.
+* *Gegevens in het geheugen en in-transit*: Application Insights wordt bijgehouden, uitzonderingen, aanvragen, afhankelijkheidsaanroepen en traceringen. Persoonlijke gegevens kunnen vaak worden verzameld op de code en het niveau van de HTTP-aanroep. Bekijk de uitzonderingen, aanvragen, afhankelijkheden en traceringen tabellen voor het identificeren van dergelijke gegevens. Gebruik [telemetrie initializers](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) waar mogelijk op deze gegevens, onleesbaar maakt.
+* *Snapshot Debugger opnamen*: De [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) functie in Application Insights kunt u voor het verzamelen van momentopnamen voor foutopsporing, telkens wanneer een uitzondering is opgetreden op de productie-instantie van uw toepassing. Momentopnamen wordt de volledige stack-trace leidt tot de uitzonderingen, evenals de waarden voor lokale variabelen bij elke stap in de stack weergegeven. Deze functie is helaas niet toegestaan voor selectieve verwijdering van uitlijnpunten of programmatische toegang tot gegevens in de momentopname. Als de retentie-frequentie van de standaard-momentopnamen niet voldoet aan uw vereisten voor naleving, moet de aanbeveling is daarom de functie uitschakelen.
 
 ## <a name="how-to-export-and-delete-private-data"></a>Het exporteren en verwijderen van persoonlijke gegevens
 

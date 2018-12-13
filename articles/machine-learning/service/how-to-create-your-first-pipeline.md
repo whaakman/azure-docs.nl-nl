@@ -1,5 +1,5 @@
 ---
-title: Maken en uitvoeren van ML-pijplijnen
+title: Maken, uitvoeren en bijhouden van ML-pijplijnen
 titleSuffix: Azure Machine Learning service
 description: Maken en uitvoeren van een machine learning-pijplijn met de Azure Machine Learning-SDK voor Python.  Pijplijnen worden gebruikt voor het maken en beheren van de werkstromen die fasen geniet samen machine learning (ML), zoals gegevens voor te bereiden, modeltraining modelimplementatie en inferentietaken.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3038d8978ed3705e9e18be58080afd532b9d72d6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8478b6760921f4641cd214b1ff19cae9757b6d7e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100536"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269036"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-using-azure-machine-learning-sdk"></a>Maken en uitvoeren van een machine learning-pijplijn met behulp van Azure Machine Learning-SDK
 
@@ -26,10 +26,10 @@ De pijplijnen die u maakt zijn zichtbaar voor de leden van de service Azure Mach
 
 Externe compute-doelen pijplijnen gebruiken voor berekeningen en opslag van de tussenliggende en laatste gegevens die zijn gekoppeld aan die pijplijn.  Pijplijnen kunnen lezen en schrijven gegevens van en naar ondersteund [Azure storage](https://docs.microsoft.com/azure/storage/) locaties.
 
+>[!Note]
+>Als u geen Azure-abonnement hebt, een gratis account maken voordat u begint. Probeer de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree) vandaag nog.
 
 ## <a name="prerequisites"></a>Vereisten
-
-* Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
 
 * [Uw ontwikkelomgeving configureren](how-to-configure-environment.md) voor het installeren van de SDK van Azure Machine Learning.
 

@@ -7,7 +7,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 76898d2b55d5187e12b91dbd6c9a85af6a274726
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8f82332b02d2e7bbf937a84de42714392e3fccd6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091710"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258182"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Azure Machine Learning Studio-webservices met API Management beheren
 ## <a name="overview"></a>Overzicht
@@ -224,7 +223,7 @@ Klik op **Ja** voor het publiceren van het experiment.
 ![Ja om te publiceren](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>De webservice testen
-Een web-service van AzureML bestaat uit RSS (aanvraag/antwoord-service) en BES (batchuitvoeringsservice)-eindpunten. RSS is voor synchrone uitvoering. BES is voor het uitvoeren van asynchrone taak. Als u wilt testen van uw web-service met het onderstaande voorbeeld Python bron, u moet mogelijk te downloaden en installeren van de Azure SDK voor Python (Zie: [installeren Python](../../python-how-to-install.md)).
+Een web-service van AzureML bestaat uit RSS (aanvraag/antwoord-service) en BES (batchuitvoeringsservice)-eindpunten. RSS is voor synchrone uitvoering. BES is voor het uitvoeren van asynchrone taak. Als u wilt testen van uw web-service met het onderstaande voorbeeld Python bron, u moet mogelijk te downloaden en installeren van de Azure SDK voor Python (Zie: [Het installeren van Python](../../python-how-to-install.md)).
 
 U moet ook de **werkruimte**, **service**, en **api_key** van uw experiment voor het onderstaande voorbeeld-bron. U kunt de werkruimte en de service vinden door te klikken op **aanvraag/antwoord** of **Batchuitvoering** voor uw experiment in het dashboard van de webservice.
 

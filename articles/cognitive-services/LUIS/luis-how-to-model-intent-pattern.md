@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 20a486a048fe6287544a9fec35a95c88f6194a66
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093179"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134995"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Patronen voor het verbeteren van nauwkeurigheid toevoegen
 Nadat een LUIS-app eindpunt uitingen ontvangt, gebruikt u de [concept](luis-concept-patterns.md) van patronen voor het verbeteren van nauwkeurigheid voor uitingen dat een patroon in de woordvolgorde en word keuze. Gebruik patronen [entiteiten](luis-concept-entity-types.md) en hun rollen om gegevens met behulp van specifieke patroon syntaxis te extraheren. 
@@ -96,7 +96,7 @@ Als u wilt toewijzen verschillende patronen naar een ander doel, schakelt u het 
 
 2. De **patronen verwijderen** bevestigingsvenster weergegeven. Selecteer **Ok** voltooien van de verwijdering.
 
-    ![Schermopname van het verwijderen van verschillende patronen](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Schermopname van het verwijderen van verschillende patronen bevestigingsvenster](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## <a name="filter-pattern-list-by-entity"></a>Patroon lijst filteren door entiteit
 
@@ -117,7 +117,7 @@ Nadat het filter wordt toegepast, wordt de naam van de intentie wordt weergegeve
 ## <a name="remove-entity-or-intent-filter"></a>Entiteit of intentie filter verwijderen
 Wanneer het patroon lijst is gefilterd, de entiteit of de naam van de intentie wordt weergegeven onder de werkbalk. Als u wilt verwijderen van het filter, de naam te selecteren.
 
-![Schermafbeelding van gefilterde patronen van entiteit](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Schermafbeelding van het verwijderen van entiteit van filter](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 Het filter verwijderd en alle patronen weer te geven. 
 

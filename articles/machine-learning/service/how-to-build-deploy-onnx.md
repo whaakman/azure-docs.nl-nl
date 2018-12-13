@@ -11,14 +11,14 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5fc0e00d9c4404a1c6a757c354a9c7116dfeffa7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8da2309a16c07440158c1de324eea1fa05b1c98b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094012"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189061"
 ---
-# <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>U kunt ONNX- en Azure Machine Learning: maken en interoperabele AI-modellen implementeren
+# <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>U kunt ONNX en Azure Machine Learning: Maken en interoperabele AI-modellen implementeren
 
 De [Neural Network-Exchange Open](https://onnx.ai) (ONNX)-indeling is een open standaard voor de vertegenwoordiging van machine learning-modellen. U kunt ONNX wordt ondersteund door een [community van partners](https://onnx.ai/supported-tools), waaronder Microsoft, die compatibel frameworks en programma's maken. Microsoft hecht aan open en interoperabele AI dat data scientists en ontwikkelaars kunnen:
 

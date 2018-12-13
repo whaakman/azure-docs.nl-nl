@@ -1,6 +1,6 @@
 ---
-title: Search explorer voor het uitvoeren van query's indexen in Azure Search | Microsoft Docs
-description: Leer hoe u Search explorer gebruiken voor het uitvoeren van query's indexen in Azure Search.
+title: Search explorer in Azure portal voor het uitvoeren van query's indexen - Azure Search
+description: Gebruik Azure portal-hulpprogramma's zoals Search explorer in query-indexen in Azure Search. Voer zoektermen of volledig gekwalificeerde zoekreeksen met geavanceerde syntaxis.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: 11f102fcb2a24f9062313f9a3234c29e70a3dfe0
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004130"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315657"
 ---
 # <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Over het gebruik Search explorer in query-indexen in Azure Search 
 

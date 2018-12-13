@@ -1,6 +1,6 @@
 ---
-title: Upgraden naar Azure Search .NET Management SDK versie 2 | Microsoft Docs
-description: Upgraden naar Azure Search .NET Management SDK versie 2
+title: Een upgrade naar de Azure Search .NET Management SDK versie 2 - Azure Search
+description: Upgrade uitvoeren naar de Azure Search .NET Management SDK versie 2 van eerdere versies. Ontdek wat er nieuw is en welke wijzigingen in de code zijn vereist.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,39 +9,40 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/15/2018
-ms.openlocfilehash: a6b6c01f0cc811abca90139e4c26c27b7bd7119f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 369e5283d7350729e0d8cc44f94f1f2e71b133c3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790362"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316863"
 ---
-# <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Upgraden naar Azure Search .NET Management SDK versie 2
-Als u versie 1.0.2 of ouder van de [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk), dit artikel helpt u bij het bijwerken van uw toepassing te gebruiken versie 2.
+# <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Een upgrade naar de Azure Search .NET Management SDK versie 2
+Als u versie 1.0.2 of ouder bent van de [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk), in dit artikel ziet u een upgrade van uw toepassing voor het gebruik van versie 2.
 
-Versie 2 van het beheer van Azure Search .NET SDK bevat een aantal wijzigingen uit eerdere versies. Dit zijn vooral kleine, zodat u uw code wijzigt, moet alleen minimale inspanning nodig. Zie [stappen voor het upgraden](#UpgradeSteps) voor instructies over het wijzigen van uw code voor het gebruik van de nieuwe versie van de SDK.
+Versie 2 van het beheer van Azure Search .NET SDK bevat enkele wijzigingen van eerdere versies. Dit zijn doorgaans kleine, zodat u uw code wijzigt, moet alleen minimale inspanning vereisen. Zie [stappen voor het upgraden](#UpgradeSteps) voor instructies over het wijzigen van uw code voor het gebruik van de nieuwe SDK-versie.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-2"></a>Wat is er nieuw in versie 2
-Versie 2 van het beheer van Azure Search .NET SDK is bedoeld voor de algemeen beschikbaar dezelfde versie van de Azure Search Management REST API als bij eerdere versies van de SDK, speciaal 2015-08-19. De wijzigingen in de SDK zijn uitsluitend clientzijde wijzigingen voor het verbeteren van de bruikbaarheid van de SDK zelf. Deze wijzigingen omvatten het volgende:
+Versie 2 van het beheer van Azure Search .NET SDK is gericht op de dezelfde algemeen beschikbare versie van de Azure Search Management REST-API als eerdere versies van de SDK, specifiek 2015-08-19. De wijzigingen in de SDK zijn strikt client-side-wijzigingen voor het verbeteren van de bruikbaarheid van de SDK zelf. Deze wijzigingen omvatten het volgende:
 
-* `Services.CreateOrUpdate` en via de asynchrone versies nu automatisch de inrichting `SearchService` en niet retourneren, totdat de service inrichten is voltooid. Dit bespaart u code hoeft te schrijven dergelijke polling zelf.
-* Als u nog steeds pollen service handmatig inrichting wilt, kunt u de nieuwe `Services.BeginCreateOrUpdate` methode of een van de asynchrone versies.
-* Nieuwe methoden `Services.Update` en de asynchrone versies zijn toegevoegd aan de SDK. Deze methoden gebruiken HTTP PATCH ter ondersteuning van incrementele updates van een service. Bijvoorbeeld, kunt u nu een service schalen door het doorgeven van een `SearchService` exemplaar van deze methoden die alleen de gewenste bevat `partitionCount` en `replicaCount` eigenschappen. De oude manier om aanroepen `Services.Get`, wijzigen van de geretourneerde `SearchService`, en door te geven aan `Services.CreateOrUpdate` wordt nog steeds ondersteund, maar is niet meer nodig. 
+* `Services.CreateOrUpdate` en de asynchrone versies nu automatisch de inrichting `SearchService` en niet retourneren totdat het inrichten van de service is voltooid. Dit bespaart u niet hoeft te schrijven van dergelijke code polling zelf.
+* Als u nog steeds wilt te peilen service handmatig wordt ingericht, kunt u de nieuwe `Services.BeginCreateOrUpdate` methode of een van de asynchrone versies.
+* Nieuwe methoden `Services.Update` en de asynchrone versies zijn toegevoegd aan de SDK. Deze methoden gebruiken HTTP-PATCH ter ondersteuning van incrementele updates van een service. Bijvoorbeeld, kunt u nu een service schalen door door te geven een `SearchService` exemplaar voor deze methoden die alleen de gewenste bevat `partitionCount` en `replicaCount` eigenschappen. De oude manier van aanroepen `Services.Get`, wijzigen van de geretourneerde `SearchService`, en daaraan te `Services.CreateOrUpdate` wordt nog steeds ondersteund, maar is niet meer nodig. 
 
 <a name="UpgradeSteps"></a>
 
-## <a name="steps-to-upgrade"></a>Stappen voor het upgraden
-Eerst uw NuGet-verwijzing voor bijwerken `Microsoft.Azure.Management.Search` via de NuGet Package Manager-Console of door met de rechtermuisknop op uw projectverwijzingen en 'Beheren NuGet-pakketten...' selecteren in Visual Studio.
+## <a name="steps-to-upgrade"></a>Stappen voor het bijwerken
+Update eerst uw NuGet-verwijzing voor `Microsoft.Azure.Management.Search` met behulp van de NuGet Package Manager-Console of door met de rechtermuisknop op uw projectverwijzingen en 'Beheren NuGet-pakketten...' selecteren in Visual Studio.
 
-Zodra de NuGet heeft de nieuwe pakketten en afhankelijkheden zijn gedownload, opnieuw worden opgebouwd uw project. Afhankelijk van hoe uw code is gestructureerd, deze mogelijk opnieuw worden opgebouwd is. Zo ja, bent u nu klaar voor!
+Nadat NuGet heeft de nieuwe pakketten en de bijbehorende afhankelijkheden gedownload, bouwt u uw project opnieuw. Afhankelijk van hoe uw code is opgebouwd, kan deze opnieuw is. Als dit het geval is, bent u klaar om te beginnen.
 
-Als uw build is mislukt, kan het zijn dat u hebt geïmplementeerd enkele van de SDK-interfaces (bijvoorbeeld voor de doeleinden van testen unit) die zijn gewijzigd. U lost dit op, moet u voor het implementeren van de nieuwe methoden zoals `BeginCreateOrUpdateWithHttpMessagesAsync`.
+Als uw build mislukt, kan het zijn dat u hebt geïmplementeerd enkele van de SDK-interfaces (bijvoorbeeld voor de doeleinden van Eenheidstesten), die zijn gewijzigd. U kunt dit oplossen, moet u de nieuwe methoden, zoals implementeren `BeginCreateOrUpdateWithHttpMessagesAsync`.
 
 Als u eventuele fouten in de build hebt opgelost, kunt u wijzigingen aanbrengen aan uw toepassing om te profiteren van nieuwe functionaliteit als u wenst. Nieuwe functies in de SDK worden beschreven in [wat is er nieuw in versie 2](#WhatsNew).
 
 ## <a name="conclusion"></a>Conclusie
-Uw feedback is Welkom op de SDK. Als u problemen ondervindt, gerust ons om hulp te vragen op de [Azure Search MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Als u een bug vinden, kunt u het bestand een probleem in de [Azure .NET SDK GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-net/issues). Zorg ervoor dat het voorvoegsel van de titel van uw probleem met '[Azure Search]'.
+We stellen uw feedback over de SDK. Als u problemen ondervindt, gerust ons vragen voor meer informatie over op de [Azure Search MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Als u een bug vinden, kunt u het bestand een probleem in de [Azure .NET SDK GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-net/issues). Zorg ervoor dat u het voorvoegsel van de titel van uw probleem met '[Azure Search]'.
 
 Hartelijk dank voor het gebruik van Azure Search.

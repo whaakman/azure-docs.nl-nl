@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: bc82f0b71c6963c4f5a356180a1eabbca1b166c4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cf66a257ef176ab6f8d58ab558d2582a811609a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156949"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166554"
 ---
-# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Zelfstudie: GitHub configureren voor het automatisch inrichten van gebruikers
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Zelfstudie: GitHub voor het automatisch inrichten van gebruikers configureren
 
 
 Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in GitHub en Azure AD wilt om automatisch inrichten en verwijdering van gebruikersaccounts vanuit Azure AD naar GitHub. 
@@ -36,7 +36,7 @@ Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items
 *   Een gebruikersaccount in GitHub met beheerdersmachtigingen 
 
 > [!NOTE]
-> De integratie wordt ingericht op Azure AD is afhankelijk van de [GitHub SCIM API](https://developer.github.com/v3/scim/), die beschikbaar zijn voor Github-teams van het plan zakelijke of hoger is.
+> De integratie wordt ingericht op Azure AD is afhankelijk van de [GitHub SCIM API](https://developer.github.com/v3/scim/), die beschikbaar zijn voor GitHub-teams van het plan zakelijke of hoger is.
 
 ## <a name="assigning-users-to-github"></a>Gebruikers toewijzen aan GitHub
 
@@ -80,7 +80,7 @@ In deze sectie helpt u bij uw Azure AD verbinden met de GitHub-gebruikersaccount
 
     ![Autorisatie-dialoogvenster](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. Voer in de Azure-portal **Tenant-URL** en klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met uw GitHub-app. Als de verbinding is mislukt, controleert u of uw GitHub-account beheerdersmachtigingen heeft en **Tenant-URl** correct is ingevoerde en probeer het opnieuw de stap 'Autoriseren' (u kunt vormen **Tenant-URL** door regel: `https://api.github.com/scim/v2/organizations/<Organization_name>` u kunt uw organisaties vinden onder uw GitHub-account: **instellingen** > **organisaties**).
+7. Voer in de Azure-portal **Tenant-URL** en klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met uw GitHub-app. Als de verbinding is mislukt, controleert u of uw GitHub-account beheerdersmachtigingen heeft en **Tenant-URl** correct is ingevoerde en probeer het opnieuw de stap 'Autoriseren' (u kunt vormen **Tenant-URL** door regel: `https://api.github.com/scim/v2/organizations/<Organization_name>` , u kunt uw organisaties vinden onder uw GitHub-account: **Instellingen voor** > **organisaties**).
 
     ![Autorisatie-dialoogvenster](./media/github-provisioning-tutorial/GitHub3.png)
 

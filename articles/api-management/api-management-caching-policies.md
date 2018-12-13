@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 2511a608a74a04314b5fd56a55f4ae93ca0e2978
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 48b0085e52c1752c0b5ecc89ce229a5a82f74345
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017471"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310433"
 ---
 # <a name="api-management-caching-policies"></a>Cachebeleidsregels van API Management
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -80,7 +80,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Voorbeeld met behulp van beleidsexpressies  
- In dit voorbeeld laat zien hoe het configureren van API Management antwoord Cacheduur die overeenkomt met de antwoorden in cache opslaan van de back-endservice zoals opgegeven door de back-ups service `Cache-Control` richtlijn. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: meer API Management functies met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 25:25.  
+ In dit voorbeeld laat zien hoe het configureren van API Management antwoord Cacheduur die overeenkomt met de antwoorden in cache opslaan van de back-endservice zoals opgegeven door de back-ups service `Cache-Control` richtlijn. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: Meer functies van API Management met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 25:25.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -118,14 +118,14 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 | cache-voorkeur               | Kiezen uit de volgende waarden van het kenmerk:<br />- `internal` de ingebouwde API Management-cache gebruiken<br />- `external` de externe-cache gebruiken, zoals beschreven in [een externe Azure-Cache gebruiken voor Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` om te gebruiken externe cache als geconfigureerd of de interne cache anders. | Nee       | `prefer-external` |
 | downstream-caching-type        | Dit kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -geen - downstream opslaan in cache is niet toegestaan.<br />-persoonlijke - downstream in een privécache is toegestaan.<br />-openbare - persoonlijke en gedeelde downstream opslaan in cache is toegestaan.                                                                                                          | Nee       | geen              |
 | moet revalidate                | Als downstream opslaan in cache is ingeschakeld. dit kenmerk schakelt in of uit de `must-revalidate` cache-control instructie in antwoorden van een gateway.                                                                                                                                                                                                                      | Nee       | true              |
-| door ontwikkelaars verschillen              | Ingesteld op `true` aan reacties van cache per ontwikkelaarssleutel.                                                                                                                                                                                                                                                                                                         | Ja      |                   |
-| variëren-in-ontwikkelaars-groepen       | Ingesteld op `true` cache antwoorden per gebruikersrol.                                                                                                                                                                                                                                                                                                             | Ja      |                   |  
+| door ontwikkelaars verschillen              | Ingesteld op `true` cache antwoorden per [abonnementssleutel](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | Ja      |                   |
+| variëren-in-ontwikkelaars-groepen       | Ingesteld op `true` cache antwoorden per [gebruikersgroep](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Ja      |                   |  
 
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend  
--   **Beleid bereiken:** API, bewerking, product  
+-   **Beleid bereiken:** Bewerking, product-API  
   
 ##  <a name="StoreToCache"></a> Store voor cache  
  De `cache-store` beleid in de cache opgeslagen reacties op basis van de opgegeven cache-instellingen. Dit beleid kan worden toegepast in gevallen waar inhoud van de reactie statisch gedurende een bepaalde periode blijft. Reactiecaching verbruikt minder bandbreedte en verwerking van vereisten die zijn opgelegd voor de back-end web server- en lagere latentie waargenomen door de API-consument.  
@@ -159,7 +159,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Voorbeeld met behulp van beleidsexpressies  
- In dit voorbeeld laat zien hoe het configureren van API Management antwoord Cacheduur die overeenkomt met de antwoorden in cache opslaan van de back-endservice zoals opgegeven door de back-ups service `Cache-Control` richtlijn. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: meer API Management functies met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 25:25.  
+ In dit voorbeeld laat zien hoe het configureren van API Management antwoord Cacheduur die overeenkomt met de antwoorden in cache opslaan van de back-endservice zoals opgegeven door de back-ups service `Cache-Control` richtlijn. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: Meer functies van API Management met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 25:25.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -197,7 +197,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** uitgaande    
--   **Beleid bereiken:** API, bewerking, product  
+-   **Beleid bereiken:** Bewerking, product-API  
   
 ##  <a name="GetFromCacheByKey"></a> Haal uit cache  
  Gebruik de `cache-lookup-value` beleid voor het opzoeken van de cache door sleutel uitvoeren en een in cache opgeslagen waarde retourneren. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door met behulp van een beleidsexpressie voor een.  

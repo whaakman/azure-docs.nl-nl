@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 2/1/2018
-ms.openlocfilehash: 7e84db390d3a193be5ac1755837e5f9333bebbc9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 02/01/2018
+ms.openlocfilehash: e836323ad452b86d89eee62936b574b2cc9d0337
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097196"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269485"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-invoegtoepassing voor Azure Machine Learning Studio-webservices
 Excel maakt het eenvoudig om aan te roepen webservices rechtstreeks zonder code te schrijven.
@@ -41,7 +41,7 @@ Excel maakt het eenvoudig om aan te roepen webservices rechtstreeks zonder code 
    
     ![Sectie voorspellen][02]
 
-Een webservice implementeren of gebruik een bestaande webservice. Zie voor meer informatie over het implementeren van een webservice [scenario stap 5: de Azure Machine Learning-webservice implementeren](walkthrough-5-publish-web-service.md).
+Een webservice implementeren of gebruik een bestaande webservice. Zie voor meer informatie over het implementeren van een webservice [scenario stap 5: De Azure Machine Learning-webservice implementeren](walkthrough-5-publish-web-service.md).
 
 Haal de API-sleutel voor uw webservice. Wanneer u deze actie is afhankelijk van of u een klassieke Machine Learning-webservice van een nieuwe Machine Learning-webservice hebt gepubliceerd.
 
@@ -69,7 +69,7 @@ Haal de API-sleutel voor uw webservice. Wanneer u deze actie is afhankelijk van 
 
 ## <a name="steps-to-add-a-new-web-service"></a>Stappen voor het toevoegen van een nieuwe webservice
 
-1. Een webservice implementeren of gebruik een bestaande webservice. Zie voor meer informatie over het implementeren van een webservice [scenario stap 5: de Azure Machine Learning-webservice implementeren](walkthrough-5-publish-web-service.md).
+1. Een webservice implementeren of gebruik een bestaande webservice. Zie voor meer informatie over het implementeren van een webservice [scenario stap 5: De Azure Machine Learning-webservice implementeren](walkthrough-5-publish-web-service.md).
 2. Klik op **gebruiken**.
 3. Zoek de **Basic verbruik info** sectie. Kopieer en bewaar de **primaire sleutel** en de **Request Response** URL.
 4. In Excel, gaat u naar de **webservices** sectie (als u zich in de **Predict** sectie, klikt u op de pijl-terug naar de lijst van webservices).

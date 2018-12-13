@@ -5,18 +5,19 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 06/25/2018
+ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+manager: jeanpaul.connock
+ms.openlocfilehash: 7103557d19b367be0b9f0aa6f4a4642800c14558
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278307"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314826"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Veelgestelde vragen over Service Fabric NET
+
 Azure Service Fabric Mesh is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen kunnen implementeren zonder virtuele machines, opslag of netwerken hoeven te beheren. In dit artikel vindt u antwoorden op veelgestelde vragen.
 
 ## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>Hoe ik een probleem melden of een vraag stellen?
@@ -25,31 +26,33 @@ Stel vragen, krijg antwoorden van Microsoft-technici en rapporteren van probleme
 
 ## <a name="quota-and-cost"></a>Quota en kosten
 
-**Wat zijn de kosten die deel uitmaken van de Preview-versie?**
+### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Wat zijn de kosten die deel uitmaken van de Preview-versie?
 
 Er zijn momenteel geen kosten voor het implementeren van toepassingen of containers naar de Mesh-preview. Maar we raden u aan de resources die u implementeert en niet laten verwijderen, tenzij u ze actief test uitgevoerd.
 
-**Is er een limiet van het aantal cores en RAM-geheugen?**
+### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Is er een limiet van het aantal cores en RAM-geheugen?
 
-Ja, de quota voor elk abonnement zijn als volgt instellen:
+Ja. De quota voor elk abonnement zijn:
 
-- Aantal toepassingen - 5 
-- Kernen per toepassing tot en met 12 
-- Totale RAM-geheugen per toepassing - 48 GB 
-- Eindpunten netwerk en binnenkomende: 5  
-- Azure Volumes die u koppelen kunt - 10 
-- Aantal replica's Service – 3 
-- De grootste container die u kunt implementeren, is beperkt tot 4 kernen, 16GB RAM-geheugen.
-- U kunt gedeeltelijke kerngeheugens toewijzen aan uw containers in stappen van 0,5 kernen maximaal 6 kernen.
+- Het aantal toepassingen: 5
+- Kernen per toepassing: 12
+- Totale RAM per toepassing: 48 GB
+- Netwerk- en Uitgangsclaims eindpunten: 5
+- Azure Volumes die u kunt koppelen: 10
+- Het aantal Service-replica's: 3
+- De grootste container die u kunt implementeren, is beperkt tot 4 kernen en 16GB RAM-geheugen.
+- U kunt gedeeltelijke kerngeheugens toewijzen aan uw containers in stappen van 0,5 kernen, tot maximaal 6 kernen.
 
-**Hoe lang kan ik mijn toepassing die is geïmplementeerd voor verlaten?**
+### <a name="how-long-can-i-leave-my-application-deployed"></a>Hoe lang laat ik mijn toepassing geïmplementeerd?
 
-We hebben momenteel beperkt de levensduur van een toepassing in twee dagen. Dit is om optimaal gebruik te maken van de vrije kernen toegewezen aan de Preview-versie. Als gevolg hiervan u zijn alleen toegestaan om uit te voeren van een bepaalde implementatie continu gedurende 48 uur, waarna deze wordt afgesloten door het systeem. Als dit gebeurt, kunt u controleren dat het systeem door het uitvoeren van afsluiten een `az mesh app show` opdracht in de Azure CLI en controleren als het resultaat `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+We hebben momenteel beperkt de levensduur van een toepassing in twee dagen. Dit is om optimaal gebruik te maken van de vrije kernen toegewezen aan de Preview-versie. Als gevolg hiervan u zijn alleen toegestaan om uit te voeren van een bepaalde implementatie continu gedurende 48 uur, waarna deze worden afgesloten.
+
+Als dit gebeurt, kunt u controleren dat het systeem door het uitvoeren van afsluiten de `az mesh app show` opdracht in de Azure CLI. Als u wilt zien als het resultaat controleren `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Bijvoorbeeld: 
 
 ```cli
-chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -72,28 +75,73 @@ chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name hello
 }
 ```
 
-Om door te gaan de dezelfde toepassing Mesh implementeert, moet u de resourcegroep die is gekoppeld aan de toepassing verwijderen, of de toepassing afzonderlijk verwijderen en alle gerelateerde Mesh-resources (met inbegrip van het netwerk). 
-
-Als u wilt verwijderen van de resourcegroep, gebruikt u de `az group delete <nameOfResourceGroup>` opdracht. 
+Als u wilt verwijderen van de resourcegroep, gebruikt u de `az group delete <nameOfResourceGroup>` opdracht.
 
 ## <a name="supported-container-os-images"></a>Ondersteunde OS containerinstallatiekopieën
-De volgende container OS-installatiekopieën kunnen worden gebruikt bij het implementeren van services.
+
+Als u ontwikkelt op een computer met Windows Fall Creators Update (versie 1709), kunt u alleen Windows-versie 1709 docker docker-installatiekopieën.
+
+Als u ontwikkelt op een Windows-10 April 2018 update (versie 1803) machine, kunt u Windows-versie 1709 of Windows-versie 1803 docker-installatiekopieën.
+
+De volgende container OS-installatiekopieën kunnen worden gebruikt om services te implementeren:
 
 - Windows - windowsservercore en nanoserver
-    - Windows Server 2016
     - Windows Server versie 1709
+    - Windows Server versie 1803
 - Linux
     - Er zijn geen bekende beperkingen
 
-## <a name="features-gaps-and-known-issues"></a>Functies hiaten en bekende problemen
+## <a name="developer-experience-issues"></a>Problemen met Developer-ervaring
 
-**Na de implementatie van mijn toepassing zich de netwerk-resource die is gekoppeld aan deze niet op een IP-adres**
+### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>DNS-omzetting van een uitgaande container werkt niet
 
-Er is een bekend probleem vandaag nog met het IP-adres na een vertraging te komen. Controleer de status van de netwerk-resource in een paar minuten om te zien van het bijbehorende IP-adres.
+Service-naar-servicecommunicatie kan onder bepaalde omstandigheden mislukken. Dit wordt onderzocht. Om te verhelpen:
 
-**Mijn toepassing is te krijgen tot de juiste netwerk of het volume-resource mislukt**
+- Gebruik Windows Fall Creators update (versie 1709) of hoger als basis om de containerinstallatiekopie.
+- Als u alleen de naam van de service niet werkt, probeert u de volledig gekwalificeerde naam: ServiceName.ApplicationName.
+- Voeg in het Docker-bestand voor uw service, `EXPOSE <port>` waar de poort is u uw service wordt weergegeven op. Bijvoorbeeld:
 
-In het toepassingsmodel van uw moet u de volledige resource-ID voor netwerken en volumes gebruiken om toegang tot de gekoppelde resource te kunnen. Hier ziet u hoe dit eruitziet in de quickstart-voorbeeld:
+```
+EXPOSE 80
+```
+
+### <a name="dns-does-not-work-the-same-as-it-does-for-service-fabric-development-clusters-and-in-mesh"></a>DNS werkt niet hetzelfde als voor Service Fabric-clusters voor ontwikkeling en in Mesh
+
+U moet mogelijk anders in uw lokale ontwikkelcluster dan in Azure net services verwijzen.
+
+Gebruik in uw lokale ontwikkelcluster `{serviceName}.{applicationName}`. Gebruik in Azure Service Fabric NET `{servicename}`. 
+
+Azure NET ondersteunt momenteel geen DNS-omzetting voor toepassingen.
+
+Zie voor andere bekende DNS-problemen bij het uitvoeren van een Service Fabric-cluster voor ontwikkeling in Windows 10: [Fouten opsporen in Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) en [bekende DNS-problemen](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+
+### <a name="networking"></a>Netwerken
+
+Het service fabric-netwerk NAT kan verdwijnen tijdens het gebruik van uw app op uw lokale computer uitgevoerd. Als u wilt vaststellen of dit is gebeurd, voert u de volgende vanaf een opdrachtprompt:
+
+`docker network ls` en opmerking of `servicefabric_nat` wordt vermeld.  Als dat niet het geval is, voer de volgende opdracht: `docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
+
+Hiermee wordt het probleem op te lossen, zelfs als de app lokaal en in een slechte staat al is geïmplementeerd.
+
+### <a name="issues-running-multiple-apps"></a>Problemen met het uitvoeren van meerdere apps
+
+U kunt tegenkomen beschikbaarheid van de CPU en limieten voor alle toepassingen die worden opgelost. Om te verhelpen:
+- Een cluster met vijf knooppunten maken.
+- Minder CPU-gebruik in services via de app die is geïmplementeerd. Wijzig bijvoorbeeld in van uw service service.yaml bestand `cpu: 1.0` naar `cpu: 0.5`
+
+Meerdere toepassingen kunnen niet worden geïmplementeerd op een cluster met één knooppunt. Om te verhelpen:
+- Gebruik een cluster met vijf knooppunten bij het implementeren van meerdere apps in een lokaal cluster.
+- Alle apps die u momenteel geen test verwijderd.
+
+## <a name="feature-gaps-and-other-known-issues"></a>Functiehiaten en andere bekende problemen
+
+### <a name="after-deploying-my-application-the-network-resource-associated-with-it-does-not-have-an-ip-address"></a>Na de implementatie van mijn toepassing heeft de netwerk-resource die is gekoppeld aan deze geen een IP-adres
+
+Er is een bekend probleem waarbij het IP-adres niet beschikbaar meteen. Controleer de status van de netwerk-resource in een paar minuten om te zien van het bijbehorende IP-adres.
+
+### <a name="my-application-fails-to-access-the-right-networkvolume-resource"></a>Mijn toepassing heeft geen toegang tot de juiste netwerk of het volume-resource
+
+Gebruik de volledige resource-ID voor netwerken en volumes moet toegang hebben tot de gekoppelde resource in uw toepassingsmodel. Hier volgt een voorbeeld van het quickstart-voorbeeld:
 
 ```json
 "networkRefs": [
@@ -103,49 +151,9 @@ In het toepassingsmodel van uw moet u de volledige resource-ID voor netwerken en
 ]
 ```
 
-**Ik zie niet de huidige toepassingsmodel ondersteunen een manier voor het versleutelen van moje tajné kódy**
+### <a name="when-i-scale-out-all-of-my-containers-are-affected-including-running-ones"></a>Wanneer ik de schaal vergroten, zijn alle van de containers betrokken, inclusief het uitvoeren van resources
 
-Ja, geheimen versleutelen wordt niet ondersteund in de huidige Private Preview. 
-
-**DNS is niet op dezelfde manier werken in mijn Service Fabric-cluster voor ontwikkeling en Mesh**
-
-Er is een bekend probleem waarbij u mogelijk om te verwijzen naar services anders in uw lokale ontwikkelcluster en Azure NET. Gebruik in uw lokale ontwikkelcluster {serviceName}. {applicationName}. Gebruik in Azure Service Fabric NET {servicename}. Azure NET ondersteunt momenteel geen dns-omzetting voor toepassingen.
-
-Voor andere bekende DNS-problemen bij het uitvoeren van een Service Fabric-cluster voor ontwikkeling in Windows 10, hier te zien: [fouten opsporen in Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers).
-
-**Er verschijnt deze fout bij het gebruik van de CLI-module, ImportError: de naam 'sdk_no_wait' kan niet importeren**
-
-Als u oudere CLI-versie dan 2.0.30, krijgt u mogelijk deze fout:
-
-```
-cannot import name 'sdk_no_wait'
-Traceback (most recent call last):
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\knack\cli.py", line 193, in invoke cmd_result = self.invocation.execute(args)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands_init_.py", line 241, in execute self.commands_loader.load_arguments(command)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 201, in load_arguments self.command_table[command].load_arguments() # this loads the arguments via reflection
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands_init_.py", line 142, in load_arguments super(AzCliCommand, self).load_arguments()
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\knack\commands.py", line 76, in load_arguments cmd_args = self.arguments_loader()
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 332, in default_arguments_loader op = handler or self.get_op_handler(operation)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 375, in get_op_handler op = import_module(mod_to_import)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\importlib_init_.py", line 126, in import_module return _bootstrap._gcd_import(name[level:], package, level)
-File "", line 978, in _gcd_import
-File "", line 961, in _find_and_load
-File "", line 950, in _find_and_load_unlocked
-File "", line 655, in _load_unlocked
-File "", line 678, in exec_module
-File "", line 205, in _call_with_frames_removed
-File "C:\Users\annayak.azure\cliextensions\azure-cli-sbz\azext_sbz\custom.py", line 18, in 
-from azure.cli.core.util import get_file_json, shell_safe_json_parse, sdk_no_wait
-ImportError: cannot import name 'sdk_no_wait'.
-```
-
-**Er verschijnt een fout met niet overeenkomende distributie naam bij het installeren van de CLI-extensie-pakket**
-
-Dit betekent niet dat de extensie niet zijn geïnstalleerd. U moet nog steeds kunnen de CLI-opdrachten zonder problemen gebruiken.
-
-**Wanneer ik de schaal vergroten, zie ik dat alle mijn containers zijn betrokken, inclusief Mijn actieve**
-
-Dit is een fout en moet worden vastgesteld in de volgende vernieuwing van de runtime.
+Dit is een fout en is een oplossing wordt geïmplementeerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

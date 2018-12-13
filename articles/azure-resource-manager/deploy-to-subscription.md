@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d281ebe80c6089c559cfaa77f4875a856566092
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9a9fe16f562805f1bfd6f51af063531f34ffdde2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079375"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308495"
 ---
 # <a name="deploy-resources-to-an-azure-subscription"></a>Resources implementeren op een Azure-abonnement
 
 Normaal gesproken implementeren u resources in een resourcegroep in uw Azure-abonnement. Sommige resources kunnen echter worden geïmplementeerd op het niveau van uw Azure-abonnement. Deze resources toepassen voor uw abonnement. [Beleid](../azure-policy/azure-policy-introduction.md), [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md), en [Azure Security Center](../security-center/security-center-intro.md) zijn services die u mogelijk wilt toepassen op het abonnementsniveau, in plaats van het niveau van de resource.
 
-Dit artikel wordt gebruikgemaakt van Azure CLI en PowerShell om de sjablonen te implementeren.
+Dit artikel wordt gebruikgemaakt van Azure CLI en PowerShell om de sjablonen te implementeren. U kunt de portal niet gebruiken voor de sjablonen niet implementeren omdat de interface van de portal worden geïmplementeerd op de resourcegroep, niet de Azure-abonnement.
 
 ## <a name="name-and-location-for-deployment"></a>Naam en locatie voor de implementatie
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242820"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270396"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) SQL-Database
 
@@ -196,9 +196,9 @@ Bijvoorbeeld:
 > [!NOTE]
 > Voor een beperkte periode, zijn de kosten voor back-up en i/o-kosten in rekening gebracht zijn gratis.
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Hoe gaat het gebruik van actieve geo-replicatie in een elastische pool worden weergegeven op mijn factuur
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>Hoe wordt het gebruik van actieve geo-replicatie of automatische failover-groepen in een elastische pool weergegeven op mijn factuur
 
-In tegenstelling tot individuele databases, met behulp van [actieve geo-replicatie](sql-database-geo-replication-overview.md) met elastische databases een directe invloed facturering niet hebt.  U betaalt alleen voor de resources die zijn ingericht voor elk van de groepen (groep van primaire en secundaire groep)
+In tegenstelling tot individuele databases, met behulp van [actieve geo-replicatie](sql-database-active-geo-replication.md) of [automatische failovergroepen](sql-database-auto-failover-group.md) met elastische databases een directe invloed facturering niet hebt. U betaalt alleen voor de resources die zijn ingericht voor elk van de groepen (groep van primaire en secundaire groep)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Hoe het gebruik van de auditingfunctie van invloed zijn op mijn factuur
 
@@ -217,7 +217,7 @@ Zie [databases en aanmeldingen beheren](sql-database-manage-logins.md).
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Hoe maak ik ervoor dat alleen geautoriseerde IP-adressen zijn toegestaan voor toegang tot een server
 
-Zie [hoe: firewallinstellingen voor SQL-Database configureren](sql-database-configure-firewall-settings.md).
+Zie [het: Firewall-instellingen configureren op de SQL-Database](sql-database-configure-firewall-settings.md).
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>Wat is er een vertraging van het verwachte replicatie wanneer geo-replicatie een database tussen twee regio's binnen dezelfde Geografie Azure
 

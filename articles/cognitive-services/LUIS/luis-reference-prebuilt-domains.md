@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: a47fb82b1e6d42bdebff8cc4f3cb4c3c87025831
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106240"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140962"
 ---
-# <a name="prebuilt-domain-reference"></a>Vooraf gemaakte domeinverwijzing
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Naslaginformatie voor vooraf gedefinieerde voor uw LUIS-app
 Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
 
 [Aangepaste domeinen](luis-how-to-start-new-app.md), daarentegen, beginnen met geen intents en modellen. U kunt een vooraf gedefinieerde domein intenties en entiteiten toevoegen aan een aangepast model.
@@ -116,7 +116,7 @@ Het domein communicatie biedt intenties en entiteiten die betrekking hebben op e
 | TurnForwardingOff| Een telefoongesprek.|<br/><br/>|
 | Kiezen| Kiezen of het opnieuw aanroepen van een getal.|Kies opnieuw.<br/>Mijn laatste aanroep opnieuw.|
 | Afwijzen| Een binnenkomende oproep afwijzen.|Oproep afwijzen<br/>Nu kan geen antwoord<br/>Niet beschikbaar is op dit moment en wordt voor de terugbelfunctie later opnieuw.|
-| EmailVerzenden| Een e-mail verzenden. Dit doel is van toepassing op e-mailadres, maar geen SMS-berichten.|E-mailbericht Mike Waters: Mike, of diner afgelopen week schitterende is.<br/>Een e-mailbericht verzenden naar Bob<br/>|
+| EmailVerzenden| Een e-mail verzenden. Dit doel is van toepassing op e-mailadres, maar geen SMS-berichten.|E-mailadres aan het water Mike: Mike of diner afgelopen week schitterende is.<br/>Een e-mailbericht verzenden naar Bob<br/>|
 | SendMessage| Een SMS-bericht of een expresbericht verzenden.|Tekst naar Chris en Carola verzenden|
 | SetSpeedDial| Stel een snelkoppeling naar de snelheid kiezen voor het telefoonnummer van een contactpersoon.|Stel snelkiezen een voor Carola.<br/>Snelheid kiezen voor mom instellen.|
 | ShowNext| Zie het volgende item, bijvoorbeeld in een lijst van de SMS-berichten of e-mailberichten.|Het volgende object weergeven.<br/>Ga naar de volgende pagina.|
@@ -242,11 +242,12 @@ Het domein HomeAutomation biedt intenties en entiteiten die betrekking hebben op
 Het domein MovieTickets biedt intenties en entiteiten met betrekking tot reservering tickets naar films op een theater film.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|Voorbeelden|
+|--|
+|Boek me twee tickets voor kapitein Omar en de twee Musketeers|
+|Tickets annuleren|
+|Wanneer wordt kapitein Omar weergegeven?|
 
 ### <a name="intents"></a>Intents
 | De naam van de intentie | Description | Voorbeelden |

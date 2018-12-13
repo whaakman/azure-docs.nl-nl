@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e4d96fa558e1122ef9e0fe0b265166757c45e678
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686889"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321047"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
@@ -105,7 +105,9 @@ Dit is de gegenereerde bijbehorende `function.json` door de [azure-functions-mav
 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK runtime-beschikbaarheid en ondersteuning 
 
-Download en gebruik de [Azul Zulu voor Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK van [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) voor lokale ontwikkeling van Java-functie-apps. JDK zijn beschikbaar voor Windows, Linux en macOS. [Ondersteuning van Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) is beschikbaar met een [gekwalificeerde ondersteuningsplan](https://azure.microsoft.com/support/plans/).
+Download en gebruik de [Azul Zulu Enterprise voor Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8-JDK van [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) voor lokale ontwikkeling van Java-functie-apps. Azure Functions maakt gebruik van de runtime Azul Java 8-JDK wanneer u uw functie-apps implementeren in de cloud.
+
+[Ondersteuning van Azure](https://azure.microsoft.com/en-us/support/) voor problemen met de functie JDK en apps is beschikbaar met een [gekwalificeerde ondersteuningsplan](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Bibliotheken van derden 
 
@@ -361,11 +363,11 @@ U moet bestandssysteem logboekregistratie in de Azure Portal of Azure CLI voor h
 
 ## <a name="environment-variables"></a>Omgevingsvariabelen
 
-In de functies, [app-instellingen](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), zoals serviceverbinding tekenreeksen, worden weergegeven als omgevingsvariabelen tijdens de uitvoering. U hebt toegang tot deze instellingen gebruikt, `System.getenv("AzureWebJobsStorage")`
+In de functies, [app-instellingen](https://docs.microsoft.com/azure/azure-functions/functions-app-settings), zoals serviceverbinding tekenreeksen, worden weergegeven als omgevingsvariabelen tijdens de uitvoering. U hebt toegang tot deze instellingen gebruikt, `System.getenv("AzureWebJobsStorage")`
 
 Voorbeeld:
 
-Voeg [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) met de naam testAppSetting en de waarde testAppSettingValue
+Voeg [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) met de naam testAppSetting en de waarde testAppSettingValue
 
 ```java
 

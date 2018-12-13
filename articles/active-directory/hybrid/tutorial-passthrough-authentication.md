@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Integreren één AD-forest naar Azure met behulp van Pass through-verificatie (PTA) | Microsoft Docs'
+title: 'Zelfstudie:  Integratie van één AD-forest naar Azure met behulp van Pass through-verificatie (PTA) | Microsoft Docs'
 description: Demonstreert hoe u een hybride identiteit instellen met behulp van Pass through-verificatie.
 services: active-directory
 author: billmath
@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df4a1ef30997bef6b83e66182404d0e2659a5d51
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422301"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165450"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Zelfstudie: Één AD-forest met behulp van Pass through-verificatie (PTA) integreren
+# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Zelfstudie:  Een enkele AD-forest integreren met pass-through-verificatie (PTA)
 
 ![Maken](media/tutorial-passthrough-authentication/diagram.png)
 
@@ -36,7 +36,7 @@ De volgende zijn vereisten voor het voltooien van deze zelfstudie
 >
 >De scripts die worden gebruikt, maak een algemene Active Directory-omgeving voordat u Azure AD Connect installeert.  Ze zijn relevant voor alle van de zelfstudies.
 >
-> Kopieën van de PowerShell-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar op Github [hier](https://github.com/billmath/tutorial-phs).
+> Kopieën van de PowerShell-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar op GitHub [hier](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 Het eerste wat we moeten doen, om op te halen van onze hybride identiteit omgeving van en het uitvoeren is het maken van een virtuele machine die wordt gebruikt als onze on-premises Active Directory-server.  
@@ -84,7 +84,7 @@ Klaar bent met het bouwen van de virtuele machine, moet u om de installatie van 
 5. Klik op **nu installeren**.
 6. Voer uw licentiesleutel in en klikt u op **volgende**.
 7. Controleer ** ik accepteer de licentievoorwaarden en klik op **volgende**.
-8. Selecteer **aangepast: alleen Windows installeren (Geavanceerd)**
+8. Selecteer **aangepast:  Alleen Windows installeren (Geavanceerd)**
 9. Klik op **Volgende**
 10. Als de installatie is voltooid, start de virtuele machine, aanmelden en werken met Windows om te controleren of dat de virtuele machine is de meest recente updates.  Installeer de meest recente updates.
 

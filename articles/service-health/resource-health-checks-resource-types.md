@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/15/2018
 ms.author: stbaron
-ms.openlocfilehash: 73e58653c249639d2c2317badcd9995658009b64
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3abf0268a7a6f84e5c26efc5643d048216fc2215
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710984"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163035"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resourcetypen en statuscontroles in Azure resource health
 Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource health door resourcetypen.
@@ -144,4 +144,4 @@ Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource h
 # <a name="next-steps"></a>Volgende stappen
 -  Zie [Inleiding tot Azure Service Health dashboard](service-health-overview.md) en [Inleiding tot Azure Resource Health](resource-health-overview.md) voor meer informatie over deze. 
 -  [Veelgestelde vragen over Azure Resource Health](resource-health-faq.md)
-- Stel waarschuwingen in zodat u een melding van statusproblemen ontvangt. Zie voor meer informatie, [waarschuwingen voor servicestatusgebeurtenissen configureren](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Stel waarschuwingen in zodat u een melding van statusproblemen ontvangt. Zie voor meer informatie, [waarschuwingen voor servicestatusgebeurtenissen configureren](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

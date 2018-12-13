@@ -1,7 +1,7 @@
 ---
-title: Wat is geautomatiseerde Machine Learning
+title: Automatische selectie van ML-algoritme en afstemmen
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over hoe Azure Machine Learning-service kan automatisch een algoritme kiezen voor u en genereert een model op basis van het op te slaan dat met behulp van de parameters en de criteria die u opgeeft om te selecteren van het beste algoritme voor het model van uw tijd.
+description: Meer informatie over Azure Machine Learning-service kan automatisch een algoritme kiezen voor u, en genereert een model op basis van dat u tijd besparen met behulp van de parameters en de criteria die u opgeeft op de beste algoritme voor het model te selecteren.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8c1641c975ff235b581f784f0965caf203a9562f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 09d4ef0b6a3455728ddab0484db4c701c6764214
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142532"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270923"
 ---
 # <a name="what-is-automated-machine-learning"></a>Wat is geautomatiseerde machine learning?
 

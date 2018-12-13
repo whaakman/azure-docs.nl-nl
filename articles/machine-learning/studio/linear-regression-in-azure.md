@@ -5,9 +5,8 @@ metakeywords: ''
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311055"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276670"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Lineaire regressie gebruiken in Azure Machine Learning Studio
 > *Kate Baroni* en *Ben Boatman* enterprise oplossingsarchitecten in van de Microsoft Data Insights Center Excellence zijn. In dit artikel beschreven ze hun ervaring migreren van een bestaande regressie analysis-pakket naar een cloud-gebaseerde oplossing met behulp van Azure Machine Learning. 
@@ -31,7 +30,7 @@ ms.locfileid: "52311055"
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="goal"></a>Doel
 Dit project is gestart met twee drie doelen voor ogen: 
@@ -73,7 +72,7 @@ Op het eerste gezicht de Excel-gegevensmodel duidelijk beter dan het model voor 
 Wanneer we onze proces en de resultaten door de ontwikkelaars en gegevenswetenschappers uitgevoerd op de Machine Learning-team, opgegeven ze snel enkele nuttige tips. 
 
 * Wanneer u gebruikt de [lineaire regressie] [ linear-regression] -module in Machine Learning Studio, twee methoden worden gebruikt:
-  * Online verloop afkomst: Mogelijk beter geschikt is voor grotere problemen
+  * Online leren met stochastische Gradiëntdaling: Mogelijk meer geschikt is voor grotere problemen
   * Gewone kleinste kwadraten: Dit is de methode die de meeste personen denken als ze lineaire regressie hoort. Voor kleine gegevenssets, kan normale kleinste kwadraten een meer optimale keuze zijn.
 * Houd rekening met het aanpassen van de parameter L2 regularisatie gewicht om prestaties te verbeteren. Deze standaard is ingesteld op 0,001, maar voor ons kleine gegevensset we hebben het ingesteld op 0,005 om prestaties te verbeteren. 
 
@@ -86,8 +85,8 @@ Wanneer we de aanbevelingen hebt toegepast, bereikt we dezelfde basislijnprestat
 | Learner |Excel-gegevens > Analysis -> regressie |Lineaire regressie. |Lineaire regressie |
 | Opties voor learner |N/A |Standaardwaarden |gewone kleinste kwadraten<br />L2 0,005 = |
 | Gegevensset |26 rijen, 3-functies, 1 label. Alle numerieke. |Dezelfde |Dezelfde |
-| Splitsen: Train |Excel die zijn getraind op de eerste 18 rijen zijn getest op de laatste 8 rijen. |Dezelfde |Dezelfde |
-| Splitsen: Test |Regressieformule toegepast op de laatste 8 rijen in Excel |Dezelfde |Dezelfde |
+| Splitsen: Trainen |Excel die zijn getraind op de eerste 18 rijen zijn getest op de laatste 8 rijen. |Dezelfde |Dezelfde |
+| Splitsen: Testen |Regressieformule toegepast op de laatste 8 rijen in Excel |Dezelfde |Dezelfde |
 | **Prestaties** | | | |
 | Aangepast R-kwadraat |0.96 |N/A | |
 | Correlatiecoëfficiënt |N/A |0.78 |0.952049 |
@@ -145,7 +144,7 @@ Hier volgen enkele resources voor u werken met regressie te helpen:
 
 * Regressie in Excel. Als u nooit regressie in Excel hebt geprobeerd, met deze zelfstudie kunt eenvoudig kunnen worden gebruikt: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * Regressie vs prognose. Tyler Chessman geschreven een blogartikel waarin wordt uitgelegd hoe u uitvoeren op tijden reeks prognoses in Excel, die een goede beginners beschrijving van de lineaire regressie bevat. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Lineaire regressie van gewone kleinste kwadraten: Fouten, problemen en valkuilen. Voor een inleiding en een beschrijving van de regressie: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Gewone minst kwadraten lineaire regressie: Beveiligingsfouten, problemen en valkuilen. Voor een inleiding en een beschrijving van de regressie: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

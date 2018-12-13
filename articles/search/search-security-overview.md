@@ -1,5 +1,5 @@
 ---
-title: Beveiliging en privacy in Azure Search | Microsoft Docs
+title: Beveiliging en privacy - Azure Search
 description: Azure Search is compatibel met het SOC 2, HIPAA en andere certificeringen. Verbinding met en gegevens voor versleuteling, verificatie en identiteit toegang door middel van gebruiker en groep beveiligings-id's in de filters voor Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.custom: seodec2018
+ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092628"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311708"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Beveiliging en privacy in Azure Search
 
@@ -39,7 +40,7 @@ Naleving van standaarden geldt voor de algemeen beschikbare functies. Preview-fu
 
 Versleuteling is een uitbreiding gedurende de hele pijplijn voor indexering: van verbindingen, door middel van overdracht, en geïndexeerde gegevens die zijn opgeslagen in Azure Search.
 
-| Beveiligingslaag | Beschrijving |
+| Beveiligingslaag | Description |
 |----------------|-------------|
 | Versleuteling tijdens overdracht <br>(HTTPS/SSL/TLS) | Azure Search luistert naar HTTPS-poort 443. Verbindingen met Azure-services zijn op het platform versleuteld. <br/><br/>Alle client-naar-service Azure Search interacties zijn SSL/TLS 1.2 die geschikt.  Zorg dat u ondersteuning voor TLSv1.2 gebruiken voor SSL-verbindingen met uw service.|
 | Versleuteling 'at rest' | Versleuteling is volledig internalized in het indexeringsproces worden geautomatiseerd, met geen merkbare impact heeft op de indexering van tijd tot voltooiing of de indexgrootte. Dit gebeurt automatisch op alle indexeren, met inbegrip van incrementele updates naar een index die niet volledig is versleuteld (die zijn gemaakt vóór januari 2018).<br><br>Intern, versleuteling is gebaseerd op [Azure Storage-Serviceversleuteling](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), met behulp van 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
@@ -94,7 +95,7 @@ Zie voor meer informatie over het structureren van een aanvraag in Azure Search 
 
 Per gebruiker toegang tot de inhoud van een index wordt geïmplementeerd via de beveiligingsfilters van uw query's, documenten die zijn gekoppeld aan een bepaalde beveiligings-id geretourneerd. In plaats van vooraf gedefinieerde rollen roltoewijzingen, wordt op basis van de identiteit geïmplementeerd als een filter dat Trim van documenten en inhoud op basis van identiteiten zoekresultaten. De volgende tabel beschrijft de twee benaderingen voor trimming zoekresultaten van niet-geautoriseerde inhoud.
 
-| Methode | Beschrijving |
+| Methode | Description |
 |----------|-------------|
 |[Security trimming wordt geregeld op basis van id-filters](search-security-trimming-for-azure-search.md)  | De algemene werkstroom voor het implementeren van toegangsbeheer voor gebruiker identiteit-documenten. Het bevat informatie over toe te voegen beveiligings-id's naar een index en vervolgens wordt uitgelegd filteren op basis van de resultaten van niet-toegestane inhoud trim voor dat veld. |
 |[Security trimming wordt geregeld op basis van Azure Active Directory-identiteiten](search-security-trimming-for-azure-search-with-aad.md)  | In dit artikel gaat verder in op het vorige artikel, bieden stappen voor het ophalen van identiteiten van Azure Active Directory (AAD), een van de [gratis services](https://azure.microsoft.com/free/) in het Azure-cloud-platform. |

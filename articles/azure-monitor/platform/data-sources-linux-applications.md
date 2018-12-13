@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 4ddf163ce37c4adf1b89012c214ee807f55a0d98
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03faa393d42f3596aa6b05c4a3afb476c8b9e0a3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836319"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186511"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -50,7 +48,7 @@ Hieronder volgt de indeling voor het verificatiebestand MySQL OMI
 
 De vermeldingen in het verificatiebestand worden beschreven in de volgende tabel.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 | Poort | Hiermee geeft u de huidige poort op de MySQL-exemplaar luistert. Poort 0 geeft aan dat de volgende eigenschappen worden gebruikt voor het standaardexemplaar. |
 | Binding-adres| Huidige MySQL-bind-adres. |
@@ -63,7 +61,7 @@ Het verificatiebestand MySQL OMI kunt een standaard exemplaar en het poortnummer
 
 De volgende tabel bevat instellingen voor voorbeeld-exemplaar 
 
-| Beschrijving | File |
+| Description | File |
 |:--|:--|
 | Standaardexemplaar en -exemplaar met poort 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | Standaardexemplaar en -exemplaar met poort 3308 en andere gebruikersnaam en wachtwoord. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
@@ -79,7 +77,7 @@ Inbegrepen bij de installatie van de MySQL OMI-provider is een MySQL OMI verific
 
 De volgende tabel bevat details over de syntaxis voor het gebruik van mycimprovauth.
 
-| Bewerking | Voorbeeld | Beschrijving
+| Bewerking | Voorbeeld | Description
 |:--|:--|:--|
 | AutoUpdate *false of true* | mycimprovauth autoupdate false | Stelt het verificatiebestand wel of niet automatisch bijgewerkt op opnieuw starten of bijwerken. |
 | standaard *bind-address gebruikersnaam wachtwoord* | mycimprovauth standaard 127.0.0.1 hoofdmap pwd | Hiermee stelt u het standaardexemplaar plaatst in het OMI MySQL verificatiebestand.<br>Het wachtwoordveld moet worden ingevoerd als tekst zonder opmaak: het wachtwoord in het verificatiebestand MySQL OMI is Base-64 gecodeerd. |

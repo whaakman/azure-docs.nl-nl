@@ -1,5 +1,5 @@
 ---
-title: Faseringsomgevingen voor web-apps in Azure App Service instellen | Microsoft Docs
+title: Faseringsomgevingen voor web-apps - Azure App Service instellen | Microsoft Docs
 description: Leer hoe u gefaseerde publicatie gebruiken voor web-apps in Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c6e28554f86a6a7de5d50027ceb552e15856bc96
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 17bc8fe2e5ccd9888777e11f3ca98e6afefb56b7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970855"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277383"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -124,8 +125,8 @@ Wanneer u gebruikt de **wisseling met voorbeeld** optie (Zie [implementatiesites
 - Houdt de bestemmingssleuf niet worden gewijzigd, zodat bestaande werkbelasting op dat de sleuf (zoals een productieomgeving) wordt niet negatief beïnvloed.
 - Geldt de configuratie-elementen van de doelsleuf voor de bron-sleuf, met inbegrip van de site-specifieke verbindingsreeksen en app-instellingen.
 - De werkprocessen op de bron-site met behulp van deze elementen van de hiervoor genoemde configuratie opnieuw is opgestart.
-- Wanneer u de wisseling voltooien: de bron van de pre-warmed-up-sleuf is verplaatst naar de doelsleuf. De doelsleuf is verplaatst naar de bron-sleuf zoals in een handmatige wisselen.
-- Wanneer u de wisseling annuleren: de configuratie-elementen van de bron-sleuf opnieuw naar de bronsite.
+- Wanneer u de wisseling voltooien: De bron van de pre-warmed-up-sleuf is verplaatst naar de doelsleuf. De doelsleuf is verplaatst naar de bron-sleuf zoals in een handmatige wisselen.
+- Wanneer u de wisseling annuleren: De configuratie-elementen van de bron-sleuf opnieuw naar de bronsite.
 
 U kunt een voorbeeld precies hoe de app wordt uitgevoerd met de configuratie van de doelsleuf. Nadat u de validatie is voltooid, kunt u de wisseling in een aparte stap voltooien. Deze stap heeft het bijkomende voordeel dat de bron-sleuf al is opgewarmd met de gewenste configuratie en clients geen geen downtime.  
 

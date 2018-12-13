@@ -12,25 +12,25 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: f24d273afa47466fe53b93d9c9c22bbcb1fc6959
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 78c04abeea1fdc4771f44d44b973ca0dcd2922ea
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493516"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274986"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Eigenschappen van Store en query's uitvoeren onder de namen van de Service Fabric.
 
 ## <a name="commands"></a>Opdrachten
 
-|Command|Beschrijving|
+|Opdracht|Description|
 | --- | --- |
-| verwijderen | Hiermee verwijdert u de opgegeven Service Fabric-eigenschap. |
+| delete | Hiermee verwijdert u de opgegeven Service Fabric-eigenschap. |
 | Toevoegen | Hiermee haalt u de opgegeven Service Fabric-eigenschap. |
-| lijst | Hiermee haalt u informatie over alle Service Fabric-eigenschappen onder een opgegeven naam. |
+| list | Hiermee haalt u informatie over alle Service Fabric-eigenschappen onder een opgegeven naam. |
 | plaatsen | Hiermee maakt of een eigenschap voor Service Fabric-updates. |
 
 ## <a name="sfctl-property-delete"></a>sfctl eigenschap verwijderen
@@ -40,7 +40,7 @@ Hiermee verwijdert u de opgegeven Service Fabric-eigenschap onder een opgegeven 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --naam-id (vereist) | De Service Fabric-naam, zonder de ' fabric\:' URI-schema. |
 | --eigenschapsnaam (vereist) | Hiermee geeft u de naam van de eigenschap om op te halen. |
@@ -48,7 +48,7 @@ Hiermee verwijdert u de opgegeven Service Fabric-eigenschap onder een opgegeven 
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -63,7 +63,7 @@ Hiermee haalt u de opgegeven Service Fabric-eigenschap onder een opgegeven naam.
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --naam-id (vereist) | De Service Fabric-naam, zonder de ' fabric\:' URI-schema. |
 | --eigenschapsnaam (vereist) | Hiermee geeft u de naam van de eigenschap om op te halen. |
@@ -71,7 +71,7 @@ Hiermee haalt u de opgegeven Service Fabric-eigenschap onder een opgegeven naam.
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -86,7 +86,7 @@ De naam van een Service Fabric kan een of meer benoemde eigenschappen die aangep
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --naam-id (vereist) | De Service Fabric-naam, zonder de ' fabric\:' URI-schema. |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
@@ -95,7 +95,7 @@ De naam van een Service Fabric kan een of meer benoemde eigenschappen die aangep
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -110,7 +110,7 @@ Hiermee of bijwerken van de opgegeven Service Fabric-eigenschap onder een opgege
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --naam-id (vereist) | De Service Fabric-naam, zonder de ' fabric\:' URI-schema. |
 | --eigenschapsnaam (vereist) | De naam van de Service Fabric-eigenschap. |
@@ -120,7 +120,7 @@ Hiermee of bijwerken van de opgegeven Service Fabric-eigenschap onder een opgege
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |

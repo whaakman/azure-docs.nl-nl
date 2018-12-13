@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: b2774b53956ad0ca6121189a494d6d4996d4e0c3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 90aaed0ad364de69d3297ceb5c3323c6f4a7ecaf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870772"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193328"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows-gebeurtenislogboek gegevensbronnen in Log Analytics
 Windows-gebeurtenislogboeken zijn een van de meest voorkomende [gegevensbronnen](agent-data-sources.md) voor het verzamelen van gegevens met behulp van Windows-agents, omdat veel toepassingen naar het Windows-gebeurtenislogboek schrijven.  U kunt gebeurtenissen verzamelen van standard logboeken zoals systeem- en naast het opgeven van een aangepaste logboeken die zijn gemaakt door toepassingen die u nodig hebt om te controleren.
@@ -46,7 +44,7 @@ Log Analytics verzamelt elke gebeurtenis die overeenkomt met een geselecteerde e
 ## <a name="windows-event-records-properties"></a>Windows-gebeurtenis registreert eigenschappen
 Windows-gebeurtenis legt vast zijn een type **gebeurtenis** en hebben de eigenschappen in de volgende tabel:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Computer |De naam van de computer waarop de gebeurtenis is verzameld. |
 | Culture |Categorie van de gebeurtenis. |
@@ -66,7 +64,7 @@ Windows-gebeurtenis legt vast zijn een type **gebeurtenis** en hebben de eigensc
 ## <a name="log-searches-with-windows-events"></a>Zoekopdrachten in Logboeken met Windows-gebeurtenissen
 De volgende tabel bevat voorbeelden van zoekopdrachten die Windows-gebeurtenis legt vast ophalen.
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |:---|:---|
 | Gebeurtenis |Alle Windows-gebeurtenissen. |
 | Gebeurtenis &#124; waar EventLevelName == "error" |Alle Windows-gebeurtenissen met de ernst van fout. |

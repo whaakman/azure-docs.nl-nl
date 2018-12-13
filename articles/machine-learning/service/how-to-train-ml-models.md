@@ -1,5 +1,5 @@
 ---
-title: ML-modellen met behulp van een klasse Estimator trainen
+title: ML-modellen trainen met loopt
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het uitvoeren van één knooppunt en gedistribueerde training van traditionele machine learning- en deep learning-modellen met behulp van Azure Machine Learning services Estimator klasse
 ms.author: minxia
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e7157b9546d1f9ca40bab35d9e643c38051db04e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0ebb12df835cf1c32e02419989b21684e9884c18
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100749"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184352"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Trainen van modellen met Azure Machine Learning
 
 Training machine learning-modellen, met name deep neural networks is vaak een tijd - en rekenintensieve taak. Wanneer u klaar bent met het schrijven van uw scripts training en wordt uitgevoerd op een kleine subset van gegevens op uw lokale computer, wilt u waarschijnlijk uw workload opschalen.
 
-Training in het kader, biedt de Azure Machine Learning Python SDK een abstractie op hoog niveau, de klasse estimator, zodat gebruikers eenvoudig modellen kunt trainen hun in het Azure-ecosysteem. U kunt maken en gebruiken een `Estimator` object om in te dienen alle training-code die u uitvoeren op externe compute, wilt ongeacht of dit een één knooppunt uitvoeren of gedistribueerde training in een GPU-cluster. Voor PyTorch en TensorFlow-taken, biedt Azure Machine Learning ook respectieve aangepaste `PyTorch` en `TensorFlow` loopt te vereenvoudigen met behulp van deze frameworks.
+Training in het kader, biedt de Azure Machine Learning Python SDK een abstractie op hoog niveau, de klasse estimator, zodat gebruikers eenvoudig modellen kunt trainen hun in het Azure-ecosysteem. U kunt maken en gebruiken een [ `Estimator` object](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) om in te dienen alle training-code die u wilt uitvoeren op externe compute, of het is een één knooppunt uitvoeren of gedistribueerde training in een GPU-cluster. Voor PyTorch en TensorFlow-taken, biedt Azure Machine Learning ook respectieve aangepaste `PyTorch` en `TensorFlow` loopt te vereenvoudigen met behulp van deze frameworks.
 
 ## <a name="train-with-an-estimator"></a>Trainen met een estimator
 

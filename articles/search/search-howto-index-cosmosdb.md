@@ -1,6 +1,6 @@
 ---
-title: Indexeren van een Azure Cosmos DB-gegevensbron voor Azure Search | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u een indexeerfunctie Azure Search maken met een Azure Cosmos DB-gegevensbron.
+title: Een Azure Cosmos DB-gegevensbron - Azure Search-index
+description: Een Azure Cosmos DB-gegevensbron verkennen en opnemen van gegevens in een doorzoekbare index met volledige tekst in Azure Search. Indexeerfuncties automatiseren opname van gegevens voor bepaalde gegevensbronnen, zoals Azure Cosmos DB.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec2018
+ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747538"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311810"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Cosmos DB verbinden met Azure Search met behulp van indexeerfuncties
 
@@ -73,7 +74,7 @@ In dit artikel laat zien hoe de REST-API gebruikt. Als u ervoor voor de portal k
 > Nu u kunt maken of bewerken **MongoDB** gegevensbronnen met behulp van Azure Portal of de .NET SDK. Echter, u **kunt** uitvoeringsgeschiedenis van MongoDB indexeerfuncties in de portal controleren.  
 
 <a name="CreateDataSource"></a>
-## <a name="step-1-create-a-data-source"></a>Stap 1: een gegevensbron maken
+## <a name="step-1-create-a-data-source"></a>Stap 1: Een gegevensbron maken
 Voer een bericht voor het maken van een gegevensbron:
 
     POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
@@ -95,18 +96,18 @@ Voer een bericht voor het maken van een gegevensbron:
 
 De hoofdtekst van de aanvraag bevat de definitie van de gegevensbron, waaronder de volgende velden moet:
 
-* **naam**: Kies een naam voor uw database.
-* **type**: moet `documentdb`.
+* **Naam**: Kies een naam voor uw database.
+* **Type**: Moet `documentdb`.
 * **referenties**:
   
-  * **connectionString**: vereist. De verbindingsgegevens van de met uw Azure Cosmos DB-database opgeven in de volgende indeling: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` voor MongoDB-verzamelingen toevoegen **API-soort MongoDb =** op de verbindingstekenreeks: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  * **connectionString**: Vereist. Geef de verbindingsgegevens van de met uw Azure Cosmos DB-database in de volgende indeling: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Voor MongoDB-verzamelingen toevoegen **API-soort MongoDb =** op de verbindingstekenreeks: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
   Vermijd poortnummers in de eindpunt-url. Als u het poortnummer opgeeft, worden Azure Search kan geen index van uw Azure Cosmos DB-database.
 * **container**:
   
-  * **naam**: vereist. Geef de id van de databaseverzameling worden geïndexeerd.
-  * **query**: optioneel. U kunt een query voor het samenvoegen van een willekeurige JSON-document in een vast schema dat Azure Search kunt indexeren. Query's worden niet ondersteund voor MongoDB-verzamelingen. 
-* **dataChangeDetectionPolicy**: aanbevolen. Zie [gewijzigd documenten te indexeren](#DataChangeDetectionPolicy) sectie.
-* **dataDeletionDetectionPolicy**: optioneel. Zie [verwijderd documenten te indexeren](#DataDeletionDetectionPolicy) sectie.
+  * **Naam**: Vereist. Geef de id van de databaseverzameling worden geïndexeerd.
+  * **query**: Optioneel. U kunt een query voor het samenvoegen van een willekeurige JSON-document in een vast schema dat Azure Search kunt indexeren. Query's worden niet ondersteund voor MongoDB-verzamelingen. 
+* **dataChangeDetectionPolicy**: Aanbevolen. Zie [gewijzigd documenten te indexeren](#DataChangeDetectionPolicy) sectie.
+* **dataDeletionDetectionPolicy**: Optioneel. Zie [verwijderd documenten te indexeren](#DataDeletionDetectionPolicy) sectie.
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Met behulp van query's op vorm geïndexeerde gegevens
 U kunt een SQL-query voor het samenvoegen van geneste eigenschappen of matrices, project JSON-eigenschappen opgeven, en filter de gegevens moeten worden geïndexeerd. 
@@ -145,7 +146,7 @@ Matrix afvlakken query:
     SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 <a name="CreateIndex"></a>
-## <a name="step-2-create-an-index"></a>Stap 2: een index maken
+## <a name="step-2-create-an-index"></a>Stap 2: Een index maken
 Een doel-Azure Search-index maken als u er nog geen hebt. U kunt maken met een index met behulp van de [gebruikersinterface van Azure portal](search-create-index-portal.md), wordt de [Index REST-API maken](/rest/api/searchservice/create-index) of [Index-klasse](/dotnet/api/microsoft.azure.search.models.index).
 
 Het volgende voorbeeld wordt een index met een veld-id en -beschrijving:
@@ -187,7 +188,7 @@ Zorg ervoor dat het schema van de doelindex compatibel met het schema van de bro
 | Reeks |Edm.String |
 | Matrices met primitieve typen, bijvoorbeeld ["a", "b", "c"] |Collection(EDM.String) |
 | Tekenreeksen die lijkt op datums |Edm.DateTimeOffset, Edm.String |
-| GeoJSON-objecten, bijvoorbeeld {"type": "Punt", "coördinaten": [lang zijn en lat]} |Edm.GeographyPoint |
+| GeoJSON-objecten, bijvoorbeeld {"type": 'Point', "coördinaten": [lang zijn en lat]} |Edm.GeographyPoint |
 | Andere JSON-objecten |N/A |
 
 <a name="CreateIndexer"></a>

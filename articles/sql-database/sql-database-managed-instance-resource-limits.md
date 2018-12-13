@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 1512098c29c8916a0486ed66b438654ba29f0601
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/12/2018
+ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968225"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315635"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
@@ -70,6 +70,8 @@ Beheerd exemplaar ondersteunt momenteel implementatie alleen op de volgende type
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Cloud serviceprovider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
 > [!NOTE]
 > Deze beperking is tijdelijk. Typen voor nieuwe abonnementen worden in de toekomst ingeschakeld.
@@ -78,8 +80,8 @@ Beheerd exemplaar ondersteunt momenteel implementatie alleen op de volgende type
 
 Ondersteunde abonnementstypen mag een beperkt aantal resources per regio. Beheerd exemplaar heeft twee standaardlimieten per Azure-regio, afhankelijk van een type van het abonnementstype:
 
-- **Subnet limiet**: het maximum aantal subnetten waarop beheerde exemplaren zijn geïmplementeerd in een enkele regio.
-- **Maximumaantal exemplaar**: het maximum aantal instanties dat kan worden geïmplementeerd in een enkele regio.
+- **Subnet limiet**: Het maximale aantal subnetten waarop beheerde exemplaren zijn geïmplementeerd in een enkele regio.
+- **Maximumaantal exemplaar**: Het maximum aantal instanties dat kan worden geïmplementeerd in een enkele regio.
 
 In de volgende tabel worden weergegeven regionale standaardlimieten voor ondersteunde abonnementen:
 
@@ -87,6 +89,8 @@ In de volgende tabel worden weergegeven regionale standaardlimieten voor onderst
 | :---| :--- | :--- |:--- |:--- |
 |Betalen naar gebruik|1 *|4 *|4 *|1 *|
 |CSP |1 *|4 *|4 *|1 *|
+|Pay-as-you-go Dev/Test|1 *|4 *|4 *|1 *|
+|Enterprise Dev/Test|1 *|4 *|4 *|1 *|
 |EA|3 **|12 **|12 **|3 **|
 
 \* U kunt ofwel 1 BC of 4 GP-exemplaren in één subnet implementeren, zodat het totaal aantal 'exemplaar eenheden' in het subnet nooit meer dan 4.

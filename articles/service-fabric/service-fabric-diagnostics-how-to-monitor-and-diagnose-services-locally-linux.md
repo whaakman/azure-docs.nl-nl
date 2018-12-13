@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5aeb87538968304d3eaf73873d4c4c762c07329c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051371"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309158"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Controle en diagnose van services in een lokale machine development setup
 
@@ -35,7 +35,7 @@ Bewaking, detecteren, onderzoeken en oplossen van problemen kunt voor diensten o
 
 ## <a name="debugging-service-fabric-java-applications"></a>Foutopsporing in Service Fabric Java-toepassingen
 
-Voor Java-toepassingen, [meerdere frameworks voor logboekregistratie](http://en.wikipedia.org/wiki/Java_logging_framework) beschikbaar zijn. Aangezien `java.util.logging` is de standaardoptie met de JRE wordt geselecteerd, wordt ook gebruikt voor de [codevoorbeelden in github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  Het volgende onderwerp wordt uitgelegd hoe u het configureren van de `java.util.logging` framework.
+Voor Java-toepassingen, [meerdere frameworks voor logboekregistratie](http://en.wikipedia.org/wiki/Java_logging_framework) beschikbaar zijn. Aangezien `java.util.logging` is de standaardoptie met de JRE wordt geselecteerd, wordt ook gebruikt voor de [codevoorbeelden in GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started). Het volgende onderwerp wordt uitgelegd hoe u het configureren van de `java.util.logging` framework.
 
 U kunt met behulp van java.util.logging uw toepassingslogboeken omleiden naar geheugen, uitvoerstromen, consolebestanden of sockets. Voor elk van deze opties zijn er standaard handlers al opgegeven in het kader. U kunt maken een `app.properties` bestand dat u wilt configureren van de bestands-handler voor uw toepassing zodat alle logboeken worden omgeleid naar een lokaal bestand.
 
@@ -48,7 +48,7 @@ java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.limit = 1024000
 java.util.logging.FileHandler.count = 10
-java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log             
+java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
 De map waarnaar wordt verwezen door de `app.properties` bestand moet bestaan. Na de `app.properties` bestand wordt gemaakt, moet u ook wijzigen van het invoerpunt-script, `entrypoint.sh` in de `<applicationfolder>/<servicePkg>/Code/` map om in te stellen de eigenschap `java.util.logging.config.file` naar `app.propertes` bestand. De vermelding moet eruitzien als in het volgende codefragment:
@@ -64,7 +64,7 @@ Deze configuratie leidt tot de logboeken die worden verzameld in een draaiende m
 
 Standaard als geen handler expliciet is geconfigureerd, is de console-handler geregistreerd. Een Bekijk de logboeken in syslog onder /var/log/syslog.
 
-Zie voor meer informatie de [codevoorbeelden in github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
+Zie voor meer informatie de [codevoorbeelden in GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Foutopsporing in Service Fabric C#-toepassingen
@@ -83,8 +83,8 @@ U kunt een aangepaste EventListener gebruiken om te luisteren naar de servicegeb
 
 ```csharp
 
- public class ServiceEventSource : EventSource
- {
+public class ServiceEventSource : EventSource
+{
         public static ServiceEventSource Current = new ServiceEventSource();
 
         [NonEvent]
@@ -105,8 +105,8 @@ U kunt een aangepaste EventListener gebruiken om te luisteren naar de servicegeb
 
 
 ```csharp
-   internal class ServiceEventListener : EventListener
-   {
+internal class ServiceEventListener : EventListener
+{
 
         protected override void OnEventSourceCreated(EventSource eventSource)
         {
@@ -114,20 +114,20 @@ U kunt een aangepaste EventListener gebruiken om te luisteren naar de servicegeb
         }
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
-            using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-        { 
-                 // report all event information               
-         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
-                if (eventData.Message != null)              
-            Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
-            else             
-        { 
-                    string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
-                    Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");             
+                using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))
+                {
+                        // report all event information
+                        Out.Write(" {0} ", Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+                        if (eventData.Message != null)
+                                Out.WriteLine(eventData.Message, eventData.Payload.ToArray());
+                        else
+                        {
+                                string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
+                                Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");
+                        }
+                }
         }
-           }
-        }
-    }
+}
 ```
 
 

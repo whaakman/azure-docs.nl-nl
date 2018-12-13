@@ -1,5 +1,5 @@
 ---
-title: SSH-ondersteuning voor Azure App Service on Linux | Microsoft Docs
+title: SSH-ondersteuning voor App Service on Linux - Azure | Microsoft Docs
 description: Meer informatie over het gebruik van SSH met Azure App Service on Linux.
 keywords: Azure appservice, web-app, linux, oss
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 4fa5e40b75be933ee62c8ba59449a78ac071dc43
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ff5c18b08a2921efe72a35b9bd982986c1867812
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958167"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251287"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-ondersteuning voor Azure App Service on Linux
 
@@ -66,7 +67,7 @@ Deze stappen worden weergegeven in de opslagplaats voor Azure App Service als [e
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Toevoegen een [ `COPY` instructie](https://docs.docker.com/engine/reference/builder/#copy) naar het bestand Dockerfile kopiëren een [sshd_config](https://man.openbsd.org/sshd_config) van het bestand in de */etc/ssh/* directory. Het configuratiebestand moet worden gebaseerd op het bestand sshd_config in de Azure-App-Service-GitHub-opslagplaats [hier](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+2. Toevoegen een [ `COPY` instructie](https://docs.docker.com/engine/reference/builder/#copy) naar het bestand Dockerfile kopiëren een [sshd_config](https://man.openbsd.org/sshd_config) van het bestand in de */etc/ssh/* directory. Het configuratiebestand moet worden gebaseerd op het bestand sshd_config in de Azure-App-Service-GitHub-opslagplaats [hier](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > De *sshd_config* bestand moet zijn onder andere de volgende anders mislukt de verbinding: 
@@ -77,13 +78,13 @@ Deze stappen worden weergegeven in de opslagplaats voor Azure App Service als [e
     COPY sshd_config /etc/ssh/
     ```
 
-1. Poort 2222 in bevatten de [ `EXPOSE` instructie](https://docs.docker.com/engine/reference/builder/#expose) voor het bestand Dockerfile. Hoewel het hoofdwachtwoord bekend is, is poort 2222 niet toegankelijk vanaf het internet. Het is een interne enige poort die toegankelijk is alleen door containers in het Brugnetwerk van een virtueel particulier netwerk.
+3. Poort 2222 in bevatten de [ `EXPOSE` instructie](https://docs.docker.com/engine/reference/builder/#expose) voor het bestand Dockerfile. Hoewel het hoofdwachtwoord bekend is, is poort 2222 niet toegankelijk vanaf het internet. Het is een interne enige poort die toegankelijk is alleen door containers in het Brugnetwerk van een virtueel particulier netwerk.
 
     ```docker
     EXPOSE 2222 80
     ```
 
-1. Zorg ervoor dat u start de SSH-service met behulp van een shell-script (Zie het voorbeeld op [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
+4. Zorg ervoor dat u start de SSH-service met behulp van een shell-script (Zie het voorbeeld op [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash

@@ -1,5 +1,5 @@
 ---
-title: Big-gegevens visualiseren met Power BI in Azure HDInsight
+title: Apache Hive-gegevens visualiseren met Power BI - Azure HDInsight
 description: Informatie over het gebruik van Microsoft Power BI om verwerkt door Azure HDInsight Hive-gegevens te visualiseren.
 keywords: hdinsight, hadoop, hive, interactive query, interactive hive, LLAP, odbc
 services: hdinsight
@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 12/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e6711a5595c6b7c6caaff97f4c1996817be1abce
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 86006e68ac06ce26eb58cc14d4d881f81981183c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634546"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164293"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Apache Hive-gegevens visualiseren met Microsoft Power BI met behulp van ODBC in Azure HDInsight
 
-Informatie over Microsoft Power BI verbinden met Azure HDInsight met behulp van ODBC- en Apache Hive-gegevens visualiseren. 
+Informatie over Microsoft Power BI verbinden met Azure HDInsight met behulp van ODBC- en Apache Hive-gegevens visualiseren.
 
 >[!IMPORTANT]
 > U kunt gebruikmaken van het Hive ODBC-stuurprogramma om te via de algemene ODBC-connector in Power BI Desktop importeren. Het is echter niet aanbevolen voor BI workloads vanwege niet-interactieve aard van de Hive-query-engine. [HDInsight Interactive Query-connector](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) en [HDInsight Spark-connector](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) betere mogelijkheden voor de prestaties zijn.

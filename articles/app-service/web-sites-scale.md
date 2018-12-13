@@ -1,5 +1,5 @@
 ---
-title: Een app in Azure omhoog schalen | Microsoft Docs
+title: Functies en -capaciteit - Azure App Service opschalen | Microsoft Docs
 description: Leer hoe u een app in Azure App Service voor capaciteit en onderdelen toevoegen kunt schalen.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: e612fc6ce737fba1552c4eacbab133783c9994dd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971229"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251047"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Een app in Azure omhoog schalen
 
@@ -29,8 +30,8 @@ ms.locfileid: "52971229"
 
 Dit artikel leest u hoe uw app schalen in Azure App Service. Er zijn twee werkstromen voor vergroten/verkleinen, scale-en scale-out, en in dit artikel wordt uitgelegd de schaal van de werkstroom.
 
-* [Omhoog schalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): ophalen van meer CPU, geheugen, schijfruimte en extra functies, zoals toegewezen virtuele machines (VM's), aangepaste domeinen en certificaten, faseringssleuven, automatisch schalen en meer. U schalen omhoog door de prijscategorie van de App Service-plan waartoe uw app behoort te wijzigen.
-* [Uitschalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): verhoog het aantal VM-exemplaren waarop uw app wordt uitgevoerd.
+* [Omhoog schalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get-meer CPU, geheugen, schijfruimte en extra functies, zoals toegewezen virtuele machines (VM's), aangepaste domeinen en certificaten, faseringssleuven, automatisch schalen en meer. U schalen omhoog door de prijscategorie van de App Service-plan waartoe uw app behoort te wijzigen.
+* [Uitschalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Verhoog het aantal VM-exemplaren waarop uw app wordt uitgevoerd.
   U kunt uitschalen naar maximaal 20 exemplaren, afhankelijk van uw prijscategorie. [App Service-omgevingen](environment/intro.md) in **geïsoleerd** laag verder verhoogt het aantal scale-out naar 100 instanties. Zie voor meer informatie over het uitbreiden [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md). Daar vindt u informatie over het gebruik van automatisch schalen, dat is het aantal exemplaren automatisch op basis van vooraf gedefinieerde regels en schema's schalen.
 
 De schaalinstellingen worden alleen de seconden toe te passen en gelden voor alle apps in uw [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
@@ -98,7 +99,7 @@ Zie voor een tabel van Servicelimieten, quotums en beperkingen en ondersteunde f
   
     [Virtuele Machine en Cloud Service Sizes for Microsoft Azure][vmsizes]
   
-* Zie voor meer informatie over Azure App Service aanbevolen procedures, met inbegrip van het bouwen van een schaalbare en flexibele architectuur, [aanbevolen procedures: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
+* Zie voor meer informatie over Azure App Service aanbevolen procedures, met inbegrip van het bouwen van een schaalbare en flexibele architectuur, [aanbevolen procedures: Azure App Service WebApps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Zie de volgende bronnen voor video's over het schalen van App Service-apps:
   
   * [Wanneer Azure Websites - met Stefan Schackow schalen](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

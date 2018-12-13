@@ -1,5 +1,5 @@
 ---
-title: Apache Pig in HDInsight gebruiken
+title: Apache Pig - Azure HDInsight gebruiken
 description: Leer hoe u Pig gebruiken met Apache Hadoop op HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 4eb4fa201a435df5e2b5016ba9686d76707c0635
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 25a91c6217aac1b2278957c1ff0ed8b7a9b1f6ac
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011620"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166163"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Apache Pig gebruiken met Apache Hadoop op HDInsight
 
@@ -40,11 +40,11 @@ Pig kunt u verwerking definiëren als een reeks transformaties die de gegevens v
 
 De Pig Latin-taal kunt u beschrijven de gegevensstroom van onbewerkte invoer, via een of meer transformaties, om de gewenste uitvoer te produceren. Pig Latin-programma's volgen deze algemene patroon:
 
-* **Load**: gegevens van het bestandssysteem worden gemanipuleerd lezen
+* **Load**: Gegevens lezen van het bestandssysteem worden bewerkt
 
-* **Transformeren**: de gegevens bewerken
+* **Transformeren**: De gegevens bewerken
 
-* **Dump of op te slaan**: uitvoergegevens naar het scherm of op te slaan voor verwerking
+* **Dump of op te slaan**: Uitvoer van gegevens naar het scherm of op te slaan voor verwerking
 
 ### <a name="user-defined-functions"></a>De gebruiker gedefinieerde functies
 

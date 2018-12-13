@@ -1,11 +1,11 @@
 ---
-title: Time-out bij inactiviteit voor Load Balancer TCP configureren | Microsoft Docs
-description: Time-out bij inactiviteit voor Load Balancer TCP configureren
+title: Time-out voor inactiviteit van TCP voor Load Balancer in Azure configureren
+titlesuffix: Azure Load Balancer
+description: Time-out voor inactiviteit van TCP voor Load Balancer configureren
 services: load-balancer
 documentationcenter: na
 author: kumudd
-manager: timlt
-ms.assetid: 4625c6a8-5725-47ce-81db-4fa3bd055891
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,48 +13,48 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: f19ac77f7c7f7d4ab8909d628f9dcce08c07c928
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24a7d2354693e362d7709b8817c438555caae0e3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855227"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256193"
 ---
-# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>TCP-time-out voor inactiviteit instellingen configureren voor Azure Load Balancer
+# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>TCP-outinstellingen voor inactiviteit voor Azure Load Balancer configureren
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-In de standaardconfiguratie heeft Azure Load Balancer een instelling voor time-out voor inactiviteit van vier minuten. Als een periode van inactiviteit langer dan de time-outwaarde is, is er geen garantie dat de TCP- of HTTP-sessie wordt onderhouden tussen de client en de cloudservice.
+In de standaardconfiguratie heeft Azure Load Balancer een instelling voor time-out voor inactiviteit van vier minuten. Als een periode van inactiviteit langer dan de time-outwaarde is, is er geen garantie dat de TCP- of HTTP-sessie wordt onderhouden tussen de client en de service in de cloud.
 
-Wanneer de verbinding is gesloten, wordt de clienttoepassing het volgende foutbericht weergegeven: ' de onderliggende verbinding is gesloten: een verbinding waarvan wordt verwacht dat worden behouden door de server is gesloten. "
+Wanneer de verbinding is gesloten, wordt de clienttoepassing de volgende strekking weergegeven: "De onderliggende verbinding is gesloten: Een verbinding die werd verwacht leven wordt gehouden is gesloten door de server."
 
-Vaak is het gebruik van een TCP-keepalive. Hierdoor blijft de verbinding actief voor een langere periode. Zie voor meer informatie deze [voorbeelden .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Met keep-alive is ingeschakeld, pakketten worden verzonden tijdens perioden van inactiviteit op de verbinding. Deze keepalive-pakketten Zorg dat de waarde voor time-out voor inactiviteit nooit bereikt is en gedurende een lange periode wordt bijgehouden.
+Een algemene praktijk is het gebruik van een TCP-keepalive. Hierdoor blijft de verbinding actief voor een langere periode. Zie voor meer informatie deze [.NET-voorbeelden](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Met keepalive is ingeschakeld, pakketten worden verzonden tijdens perioden van inactiviteit van de verbinding. Deze keepalive pakketten ervoor te zorgen dat de waarde voor time-out voor inactiviteit nooit bereikt is en wordt bijgehouden voor een lange periode.
 
-Deze instelling is geschikt voor binnenkomende verbindingen alleen. Om te voorkomen dat de verbinding verloren gaan, moet u de TCP-keepalive configureren met een interval van minder dan de instelling voor time-out voor inactiviteit of verhoog de waarde voor time-out voor inactiviteit. Toegevoegd ter ondersteuning van dergelijke scenario's, ondersteuning voor een configureerbare time-out voor inactiviteit. U kunt het nu instellen voor een duur van 4 tot en met 30 minuten.
+Deze instelling werkt alleen binnenkomende verbindingen. Om te voorkomen dat de verbinding verloren gaat, moet u de TCP-keepalive configureren met een interval van minder dan de instelling voor time-out voor inactiviteit of verhoog de waarde van de time-out voor inactiviteit. Er is ondersteuning voor een configureerbare time-out voor inactiviteit toegevoegd ter ondersteuning van dergelijke scenario's. U kunt dit nu instellen voor een duur van 4 tot en met 30 minuten.
 
-TCP-keepalive geschikt is voor scenario's waarin batterij niet een beperking. Dit wordt niet aanbevolen voor mobiele toepassingen. Met een TCP-keepalive in een mobiele toepassing kan de accu raakt door apparaat sneller.
+TCP keepalive werkt goed voor scenario's waarin acculevensduur hebben niet een beperking. Het wordt niet aanbevolen voor mobiele toepassingen. Met behulp van een TCP keepalive in een mobiele toepassing kan de accu raakt door apparaat sneller.
 
-![TCP-time](./media/load-balancer-tcp-idle-timeout/image1.png)
+![Time-out voor TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-De volgende secties wordt beschreven hoe wijzig de instellingen van de time-out voor inactiviteit in virtuele machines en cloudservices.
+De volgende secties wordt beschreven hoe u instellingen van de time-out voor inactiviteit in virtuele machines en cloudservices.
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>De TCP-time configureren voor uw openbare IP op exemplaarniveau tot 15 minuten
+## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>De time-out voor TCP configureren voor uw openbare IP op exemplaarniveau tot 15 minuten
 
 ```powershell
 Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 ```
 
-`IdleTimeoutInMinutes` is optioneel. Als deze niet is ingesteld, wordt de standaardtime-out vier minuten. Het bereik van acceptabele time-out is 4 tot en met 30 minuten.
+`IdleTimeoutInMinutes` is optioneel. Als deze niet is ingesteld, is de standaardtime-out 4 minuten. Het bereik van acceptabele time-out is 4 tot en met 30 minuten.
 
-## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>De time-out voor inactiviteit ingesteld bij het maken van een Azure-eindpunt op een virtuele machine
+## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Stel de time-out voor inactiviteit bij het maken van een Azure-eindpunt op een virtuele machine
 
-Als u wilt wijzigen van de instelling voor time-out voor een eindpunt, gebruikt u het volgende:
+Als u wilt wijzigen van de time-out voor een eindpunt, gebruikt u het volgende:
 
 ```powershell
 Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
 ```
 
-Gebruik de volgende opdracht voor het ophalen van de time-out voor inactiviteit-configuratie:
+Als u wilt ophalen van de configuratie van de time-out voor inactiviteit, gebruik de volgende opdracht:
 
     PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
@@ -74,19 +74,19 @@ Gebruik de volgende opdracht voor het ophalen van de time-out voor inactiviteit-
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>De TCP-out instellen op een eindpuntset met gelijke taakverdeling
+## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>De time-out van de TCP-instelt op een eindpuntset met load balancing
 
-Als eindpunten deel van een eindpuntset met gelijke taakverdeling uitmaken, kan de TCP-out moet worden ingesteld op de eindpuntset met gelijke taakverdeling. Bijvoorbeeld:
+Als eindpunten onderdeel van een eindpuntset met load balancing-zijn, moet de time-out voor TCP worden ingesteld op de eindpuntset met taakverdeling. Bijvoorbeeld:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
 ```
 
-## <a name="change-timeout-settings-for-cloud-services"></a>Time-outinstellingen voor cloudservices wijzigen
+## <a name="change-timeout-settings-for-cloud-services"></a>Wijzigen van de time-outinstellingen voor cloudservices
 
-U kunt de Azure SDK gebruiken om bij te werken van uw cloudservice. U eindpuntinstellingen voor cloudservices in het csdef-bestand. Bijwerken van de TCP-out voor de implementatie van een cloudservice, moet een upgrade van een implementatie. Een uitzondering hierop is als de time-out voor de TCP-alleen voor een openbaar IP-adres is opgegeven. Openbare IP-instellingen zijn in het .cscfg-bestand en u die kunt bijwerken via de implementatie-update en de upgrade.
+De Azure SDK kunt u uw cloudservice bijwerken. U maken instellingen van eindpunten voor cloudservices in het csdef-bestand. Bijwerken van de TCP-time-out voor de implementatie van een cloudservice, moet een upgrade van een implementatie. Een uitzondering hierop is als de time-out voor TCP-alleen voor een openbaar IP-adres is opgegeven. Openbare IP-instellingen zijn in het .cscfg-bestand en kunt u deze bijwerken door middel van implementatie-update en upgrade.
 
-De wijzigingen csdef voor eindpuntinstellingen zijn:
+De wijzigingen .csdef voor instellingen van eindpunten zijn:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -96,7 +96,7 @@ De wijzigingen csdef voor eindpuntinstellingen zijn:
 </WorkerRole>
 ```
 
-De wijzigingen cscfg-bestand voor de instelling voor de time-out voor openbare IP-adressen zijn:
+De cscfg-bestand is gewijzigd voor de time-outinstelling op openbare IP-adressen zijn:
 
 ```xml
 <NetworkConfiguration>
@@ -111,9 +111,9 @@ De wijzigingen cscfg-bestand voor de instelling voor de time-out voor openbare I
 </NetworkConfiguration>
 ```
 
-## <a name="rest-api-example"></a>REST-API-voorbeeld
+## <a name="rest-api-example"></a>Voorbeeld van de REST-API
 
-U kunt de time-out voor inactiviteit TCP configureren met behulp van de servicebeheer-API. Zorg ervoor dat de `x-ms-version` header is ingesteld op versie `2014-06-01` of hoger. Werk de configuratie van de opgegeven taakverdeling invoer-eindpunten op alle virtuele machines in een implementatie.
+U kunt de TCP-inactiviteit configureren met behulp van de servicebeheer-API. Zorg ervoor dat de `x-ms-version` header is ingesteld op versie `2014-06-01` of hoger. De configuratie van de opgegeven invoer taakverdelingseindpunten op alle virtuele machines in een implementatie bijgewerkt.
 
 ### <a name="request"></a>Aanvraag
 
@@ -154,8 +154,8 @@ U kunt de time-out voor inactiviteit TCP configureren met behulp van de serviceb
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Interne load balancer-overzicht](load-balancer-internal-overview.md)
+[Overzicht van interne load balancer](load-balancer-internal-overview.md)
 
-[Configureren van een Internet gerichte load balancer aan de slag](load-balancer-get-started-internet-arm-ps.md)
+[Aan de slag een internetgerichte load balancer configureren](load-balancer-get-started-internet-arm-ps.md)
 
 [Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)

@@ -1,5 +1,5 @@
 ---
-title: Webservice gebruiken met web-appsjabloon - Azure Machine Learning Studio | Microsoft Docs
+title: Studio webservice gebruiken met web-appsjabloon - Azure Machine Learning Studio | Microsoft Docs
 description: Een web-appsjabloon gebruiken in Azure Marketplace een voorspellende webservice in Azure Machine Learning gebruiken.
 keywords: webservice, uitoefening, REST-API voor machine learning
 services: machine-learning
@@ -7,7 +7,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 3eaf881ea1b8831891588310bfcec5e8fb146978
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6a6da1af937338637cd875abe4e9d539b2e2b6e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078579"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273881"
 ---
-# <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Een Azure Machine Learning-webservice met behulp van een web-appsjabloon gebruiken
+# <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>Een Azure Machine Learning Studio-webservice met behulp van een web-appsjabloon gebruiken
 
 U kunt een Voorspellend model te ontwikkelen en implementeren als een Azure-web-service met behulp van:
 - Azure Machine Learning Studio.
@@ -36,7 +35,7 @@ Er zijn een aantal manieren om te gebruiken van de REST-API en toegang tot de we
 
 Maar de snelste en eenvoudigste manier voor toegang tot uw webservice is via de web-app-sjablonen beschikbaar zijn in de [Azure Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="azure-machine-learning-web-app-templates"></a>Azure Machine Learning web app-sjablonen
 De web-appsjablonen die beschikbaar zijn in de Azure Marketplace kunnen maken van een aangepaste web-app die de invoergegevens van de webservice en de verwachte resultaten. U hoeft alleen is de web-app-toegang geven tot uw web-service en de gegevens en doet de rest van de sjabloon.

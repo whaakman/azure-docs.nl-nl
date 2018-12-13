@@ -1,6 +1,6 @@
 ---
-title: Azure Table storage met Azure Search indexeren | Microsoft Docs
-description: Meer informatie over het indexeren van gegevens die zijn opgeslagen in Azure Table storage met Azure Search
+title: Inhoud van de index van Azure Table storage voor zoeken in volledige tekst - Azure Search
+description: Leer hoe u gegevens die zijn opgeslagen in Azure Table storage met Azure Search-index.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 738518f94869a55cf80db1c87b8c74b167f5cce1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406922"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317267"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Table storage met Azure Search-index
 In dit artikel laat zien hoe Azure Search gebruiken om gegevens te indexeren die zijn opgeslagen in Azure Table storage.
@@ -66,16 +67,16 @@ Zie voor meer informatie over de gegevensbron maken API [maken Datasource](https
 
 U kunt de referenties opgeven voor de tabel in een van de volgende manieren: 
 
-- **Tekenreeks opslagaccountverbinding volledige toegang tot de**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` kunt u de verbindingsreeks ophalen uit de Azure-portal door te gaan naar de **blade Opslagaccount** > **instellingen**  >  **Sleutels** (voor klassieke opslagaccounts) of **instellingen** > **toegangssleutels** (voor Azure Resource Manager-opslag accounts).
-- **Storage-account shared access signature-verbindingsreeks**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` de shared access signature moet de lijst en leesrechten op containers (tabellen in dit geval) en -objecten (rijen).
--  **Tabel gedeelde-toegangshandtekening**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` de shared access signature hebt query (lezen) machtigingen voor de tabel.
+- **Tekenreeks opslagaccountverbinding volledige toegang tot de**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` U kunt de verbindingsreeks ophalen uit de Azure-portal door te gaan naar de **blade Opslagaccount** > **instellingen** > **sleutels** (voor klassiek Storage-accounts) of **instellingen** > **toegangssleutels** (voor opslagaccounts van Azure Resource Manager).
+- **Storage-account shared access signature-verbindingsreeks**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` De shared access signature moet de lijst en leesrechten op containers (tabellen in dit geval) en -objecten (rijen).
+-  **Tabel gedeelde-toegangshandtekening**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` De shared access signature moet query (lezen) machtigingen hebben voor de tabel.
 
 Voor meer informatie over storage gedeelde toegangshandtekeningen, Zie [voor gedeelde toegangshandtekeningen](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Als u referenties van handtekening voor gedeelde toegang, moet u de referenties voor gegevensbron regelmatig bijgewerkt met de vernieuwde handtekeningen om te voorkomen dat ze zijn verlopen. Als de referenties van handtekening voor gedeelde toegang is verlopen, de indexeerfunctie is mislukt met een foutbericht weergegeven die vergelijkbaar is met "Referenties die zijn opgegeven in de connection string zijn ongeldig of verlopen."  
 
-### <a name="step-2-create-an-index"></a>Stap 2: een index maken
+### <a name="step-2-create-an-index"></a>Stap 2: Een index maken
 De index Hiermee geeft u de velden in een document, de kenmerken en andere constructies die de vorm van de zoekopdracht ervaring.
 
 Een index te maken:

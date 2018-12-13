@@ -1,5 +1,5 @@
 ---
-title: Hosting met hoge dichtheid op Azure App Service met behulp van per-app schalen | Microsoft Docs
+title: Hosting met hoge dichtheid met behulp van de per-app schalen - Azure App Service | Microsoft Docs
 description: Hosting met hoge dichtheid op Azure App Service
 author: btardif
 manager: erikre
@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: e07653db70c5baff038cacf8628351c682e20f7f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e7ebe3ade66e62e1f42aa304b33c42d96be72c06
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971977"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258913"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hosting met hoge dichtheid op Azure App Service met behulp van per-app schalen
 Standaard, schaalt u App Service-apps door te schalen de [App Service-plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) ze worden uitgevoerd op. Wanneer meerdere apps worden uitgevoerd in hetzelfde App Service-plan, wordt alle apps in elk exemplaar van de scale-out uitgevoerd in het abonnement.
@@ -129,10 +130,10 @@ Per app schalen is een functie die is ingeschakeld in beide globale Azure-regio'
 Volg deze stappen voor het configureren van hoge dichtheid die als host fungeert voor uw apps:
 
 1. De App Service Environment configureren en kies een groep met werkrollen die is aan het scenario met hosting met hoge dichtheid toegewezen.
-1. Één App Service-plan maken en schalen van het gebruik van de beschikbare capaciteit in de groep met werkrollen.
-1. Stel de `PerSiteScaling` vlag op ' True ' voor de App Service-plan.
-1. Nieuwe apps worden gemaakt en toegewezen aan het App Service-plan met de **numberOfWorkers** eigenschap ingesteld op **1**. Met deze configuratie geeft de hoogst mogelijke dichtheid op deze groep met werkrollen.
-1. Het aantal werknemers kan afzonderlijk worden geconfigureerd per app voor het verlenen van extra resources naar behoefte. Bijvoorbeeld:
+2. Één App Service-plan maken en schalen van het gebruik van de beschikbare capaciteit in de groep met werkrollen.
+3. Stel de `PerSiteScaling` vlag op ' True ' voor de App Service-plan.
+4. Nieuwe apps worden gemaakt en toegewezen aan het App Service-plan met de **numberOfWorkers** eigenschap ingesteld op **1**. Met deze configuratie geeft de hoogst mogelijke dichtheid op deze groep met werkrollen.
+5. Het aantal werknemers kan afzonderlijk worden geconfigureerd per app voor het verlenen van extra resources naar behoefte. Bijvoorbeeld:
     - Een app intensief gebruik kunt stellen **numberOfWorkers** naar **3** hebben meer verwerkingscapaciteit voor die app. 
     - Laag gebruik apps wordt ingesteld **numberOfWorkers** naar **1**.
 

@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5726444033d8da14c213918f409ddf5875e026b9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634265"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322752"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Overzicht van de Azure monitoring-agents 
 Microsoft Azure biedt verschillende manieren voor het verzamelen van verschillende typen gegevens van virtuele machines met Microsoft Windows en Linux die worden gehost in Azure en uw datacenter of andere cloudproviders. De drie typen van de agents is beschikbaar voor het bewaken van een virtuele machine zijn:
@@ -31,7 +30,7 @@ Microsoft Azure biedt verschillende manieren voor het verzamelen van verschillen
 Dit artikel beschrijft de verschillen tussen deze en de bijbehorende mogelijkheden in volgorde voor u om te bepalen welke sjabloon biedt ondersteuning voor uw IT-servicebeheer of algemene controlevereisten.  
 
 ## <a name="azure-diagnostic-extension"></a>Diagnostische Azure-extensie
-De [Azure Diagnostics-extensie](../../monitoring-and-diagnostics/azure-diagnostics.md) (vaak aangeduid als de extensie Windows Azure diagnostische (WAD) of de Linux Azure diagnostische (LAD)), die is opgegeven voor Azure Cloud Services omdat deze algemeen beschikbaar in 2010 is is een agent die biedt eenvoudige verzamelen van diagnostische gegevens van een Azure compute-resource, zoals een virtuele machine en deze bewaard in Azure storage. Wanneer in de opslag, u hebt gekozen om weer te geven met een van de verschillende beschikbare hulpprogramma's, zoals [Server Explorer in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) en [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+De [Azure Diagnostics-extensie](../../azure-monitor/platform/diagnostics-extension-overview.md) (vaak aangeduid als de extensie Windows Azure diagnostische (WAD) of de Linux Azure diagnostische (LAD)), die is opgegeven voor Azure Cloud Services omdat deze algemeen beschikbaar in 2010 is is een agent die biedt eenvoudige verzamelen van diagnostische gegevens van een Azure compute-resource, zoals een virtuele machine en deze bewaard in Azure storage. Wanneer in de opslag, u hebt gekozen om weer te geven met een van de verschillende beschikbare hulpprogramma's, zoals [Server Explorer in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) en [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 U kunt kiezen voor het verzamelen van:
 
@@ -46,7 +45,7 @@ De Azure Diagnostics-agent moet worden gebruikt wanneer u wilt:
 
 * Archiveren van Logboeken en metrische gegevens naar Azure storage
 * Bewakingsgegevens worden geïntegreerd met hulpprogramma's van derden. Deze hulpprogramma's gebruiken een aantal methoden, waaronder het uitvoeren van query's de storage-account, doorgestuurd naar [Event Hubs](../../event-hubs/event-hubs-about.md), of query's uitvoeren met de [REST-API voor Azure-bewaking](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
-* Gegevens uploaden naar Azure Monitor om te grafieken met metrische gegevens maken in Azure portal of maak bijna-realtime [metrische waarschuwingen](../../monitoring-and-diagnostics/alert-metric-overview.md). 
+* Gegevens uploaden naar Azure Monitor om te grafieken met metrische gegevens maken in Azure portal of maak bijna-realtime [metrische waarschuwingen](../../azure-monitor/platform/alerts-metric-overview.md). 
 * De virtuele machine-schaalsets automatisch schalen en klassieke Cloudservices gebaseerd op OS metrische gegevens voor gasten.
 * VM-opstartproblemen met onderzoeken [diagnostische gegevens over opstarten](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Inzicht in hoe uw toepassingen worden uitgevoerd en identificeert u proactief problemen die betrekking hebben op deze met [Application Insights](../../azure-monitor/overview.md).

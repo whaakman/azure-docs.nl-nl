@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus-IP-verbindingsfilters | Microsoft Docs
-description: Het gebruik van IP-filtering om verbindingen te blokkeren van bepaalde IP-adressen met Azure Service Bus.
+title: Firewallregels voor Azure Service Bus | Microsoft Docs
+description: Het gebruik van firewallregels om verbindingen van specifieke IP-adressen met Azure Service Bus te staan.
 services: service-bus
 documentationcenter: ''
 author: clemensv
@@ -10,29 +10,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: c6e9eef762d4a9eb95685d94c61ce10d499bb155
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f8771be9a96ae188a9610a1b19dfd6cbd49ba277
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884800"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270430"
 ---
-# <a name="use-ip-filters"></a>IP-filters gebruiken
+# <a name="use-firewall-rules"></a>Firewall-regels gebruiken
 
-Voor scenario's waarin Azure Service Bus alleen toegankelijk zijn van bepaalde bekende sites is, de *IP-filter* functie kunt u regels voor weigeren of verkeer dat afkomstig is van de specifieke IPv4-adressen te configureren. Bijvoorbeeld, kunnen deze adressen die van een zakelijke NAT-gateway zijn.
+Voor scenario's waarin Azure Service Bus alleen toegankelijk zijn van bepaalde bekende sites is, kunnen Firewall-regels u regels voor het accepteren van verkeer dat afkomstig is van de specifieke IPv4-adressen te configureren. Bijvoorbeeld, kunnen deze adressen die van een zakelijke NAT-gateway zijn.
 
 ## <a name="when-to-use"></a>Wanneer gebruikt u dit?
 
-Er zijn twee specifieke gebruiksscenario's waarin het is nuttig voor het blokkeren van Service Bus-eindpunten voor bepaalde IP-adressen:
-
-- Service Bus moet ontvangen verkeer alleen vanaf een opgegeven bereik van IP-adressen en alle andere afwijzen. Bijvoorbeeld, gebruikt u Service Bus met [Azure Express Route] [ express-route] particuliere verbindingen met uw on-premises infrastructuur te maken.
-- U moet verkeer van IP-adressen die zijn geïdentificeerd als verdacht door de beheerder van de Service Bus afwijzen.
+Als u op zoek bent naar Service Bus-instellingen zoals die moet ontvangen verkeer alleen vanaf een opgegeven bereik van IP-adressen en alle andere afwijzen en vervolgens kunt u gebruikmaken van een *Firewall* moet worden geblokkeerd dat Service Bus-eindpunten van andere IP-adressen. Bijvoorbeeld, gebruikt u Service Bus met [Azure Express Route] [ express-route] particuliere verbindingen met uw on-premises infrastructuur te maken. 
 
 ## <a name="how-filter-rules-are-applied"></a>Hoe regels worden toegepast
 
 De IP-filterregels worden toegepast op het niveau van de Service Bus-naamruimte. Daarom de regels van toepassing op alle verbindingen van clients met behulp van een ondersteund protocol.
 
-Elke verbindingspoging vanaf een IP-adres dat overeenkomt met die een rejecting IP-regel op de Servicebus-naamruimte wordt geweigerd als niet-geautoriseerde. Het antwoord wordt niet vermeld voor de IP-regel.
+Elke verbindingspoging vanaf een IP-adres dat komt niet overeen met een toegestane IP-regel op de Service Bus naamruimte wordt geweigerd als niet-geautoriseerde. Het antwoord wordt niet vermeld voor de IP-regel.
 
 ## <a name="default-setting"></a>Standaardinstelling
 
@@ -42,67 +39,107 @@ Standaard de **IP-Filter** raster in de portal voor Service Bus is leeg. Deze in
 
 IP-filterregels worden toegepast in volgorde en de eerste regel die overeenkomt met het IP-adres bepaalt de actie accepteren of weigeren.
 
-Als u adressen in het bereik 70.37.104.0/24 accepteren en weigeren alle andere wilt, moet de eerste regel in het raster bijvoorbeeld, het adresbereik 70.37.104.0/24 accepteren. De volgende regel moet alle adressen weigeren met behulp van het adresbereik 0.0.0.0/0.
+>[!WARNING]
+> Implementatie van Firewall-regels kunt voorkomen dat andere Azure-services interactie met Service Bus.
+>
+> Vertrouwde Microsoft-services worden niet ondersteund wanneer IP-filters (Firewall-regels) worden geïmplementeerd en beschikbaar gesteld binnenkort.
+>
+> Algemene Azure-scenario's die niet met IP-filters werken (Let op: de lijst is **niet** volledig)-
+> - Azure Monitor
+> - Azure Stream Analytics
+> - Integratie met Azure Event Grid
+> - Azure IoT Hub-Routes
+> - Azure IoT Device Explorer
+> - Azure Data Explorer
+>
+> De onderstaande Microsoft services vereist zijn om te worden in een virtueel netwerk
+> - Azure Web Apps
+> - Azure Functions
 
-> [!NOTE]
-> IP-adressen weigeren kunt voorkomen dat andere Azure-services (zoals Azure Stream Analytics, Azure Virtual Machines of het Device Explorer in de portal) interactie met Service Bus.
+### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Het maken van een virtueel netwerk en firewall-regel met Azure Resource Manager-sjablonen
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Het maken van een regel voor virtuele netwerken met Azure Resource Manager-sjablonen
-
-> ! [BELANGRIJK] Virtuele netwerken worden alleen ondersteund in de **premium** laag van Service Bus.
+> [!IMPORTANT]
+> Virtuele netwerken worden alleen ondersteund in de **premium** laag van Service Bus.
 
 De volgende Resource Manager-sjabloon kunt een regel voor virtuele netwerken toe te voegen aan een bestaande Service Bus-naamruimte.
 
 Sjabloonparameters:
 
-- **ipFilterRuleName** moet een unieke, niet-hoofdlettergevoelig, alfanumerieke tekenreeks maximaal 128 tekens lang zijn.
-- **ipFilterAction** is **afwijzen** of **accepteren** als de actie om toe te passen voor de IP-filter rule.
 - **ipMask** is één IPv4-adres of een blok IP-adressen in CIDR-notatie. Bijvoorbeeld, in CIDR vertegenwoordigt notatie 70.37.104.0/24 de 256 IPv4-adressen van 70.37.104.0 tot 70.37.104.255, met 24 uur per dag die wijzen op het aantal bits aanzienlijke voorvoegsel voor het bereik.
 
+> [!NOTE]
+> Er zijn geen regels voor weigeren mogelijk, de Azure Resource Manager-sjabloon is de standaardactie die is ingesteld op **'Toestaan'** die verbindingen niet beperken.
+> Bij het maken van regels voor Virtueelnetwerk of Firewalls, moeten we wijzigen de ***"defaultAction"***
+> 
+> uit
+> ```json
+> "defaultAction": "Allow"
+> ```
+> tot
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "ipFilterRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "ipFilterAction":{  
-             "type":"string",
-             "allowedValues": ["Reject", "Accept"],
-             "metadata":{  
-                "description":"IP Filter Action"
-             }
-          },
-          "IpMask":{  
-             "type":"string",
-             "metadata":{  
-                "description":"IP Mask"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "servicebusNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Service Bus namespace"
+        }
       },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('servicebusNamespaceName'), concat('/', 'default'))]",
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.ServiceBus/Namespaces/IPFilterRules",
-            "properties": {
-                "FilterName":"[parameters('ipFilterRuleName')]",
-                "Action":"[parameters('ipFilterAction')]",              
-                "IpMask": "[parameters('IpMask')]"
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('servicebusNamespaceName')]",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
-    ]
-}
+          ],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Volg de instructies voor het implementeren van de sjabloon, [Azure Resource Manager][lnk-deploy].

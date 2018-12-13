@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e273568a04ec2a3758684025acf8034b8e788627
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871332"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274561"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hoe u uw hybride Azure Active Directory join-implementatie plannen
 
@@ -112,7 +112,6 @@ Als uw organisatie internettoegang via een geverifieerde uitgaande proxy vereist
 
 Hybride Azure AD join is een proces naar uw on-premises domein apparaten automatisch wordt geregistreerd bij Azure AD. Er zijn gevallen waarin u niet wilt dat al uw apparaten automatisch te registreren. Als dit het geval is, raadpleegt u [over het beheren van de hybride Azure AD join van uw apparaten](hybrid-azuread-join-control.md).
 
-
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Lees hoe u de hybride Azure AD join van uw apparaten beheren
 
 Hybride Azure AD join is een proces naar uw on-premises domein apparaten automatisch wordt geregistreerd bij Azure AD. Er zijn gevallen waarin u niet wilt dat al uw apparaten automatisch te registreren. Dit is voor voorbeeld true, wordt tijdens de initiële implementatie om te controleren of alles werkt zoals verwacht.
@@ -145,7 +144,22 @@ Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-kop
  Als het installeren van de vereiste versie van Azure AD Connect kan niet worden gebruikt voor u, raadpleegt u [het handmatig configureren van device Registration service](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Ondersteuning voor alternatieve aanmeldings-Id in hybride Azure AD join
 
+Windows 10 hybride Azure AD join biedt beperkte ondersteuning voor [alternatieve aanmeldings-id's](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) op basis van het type van de alternatieve aanmeldings-id, [verificatiemethode](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), domeintype en Windows 10-versie. Er zijn twee soort alternatieve aanmeldings-id's die kunnen optreden in uw omgeving.
+
+ - Routeerbaar alternatieve aanmeldings-id: Een routeerbaar alternatieve aanmeldings-id heeft een ongeldig geverifieerd domein, die is geregistreerd bij een domeinregistrar. Bijvoorbeeld, als het primaire domein contoso.com is contoso.org en contoso.co.uk zijn geldige domeinen die eigendom zijn van Contoso en [geverifieerd in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ 
+ - Niet-routeerbare alternatieve aanmeldings-id: Een niet-routeerbare alternatieve aanmeldings-id beschikt niet over een geverifieerd domein. Het is van toepassing alleen binnen het particuliere netwerk van uw organisatie. Bijvoorbeeld, als het primaire domein contoso.com is contoso.local is niet een geverifieerd domein in het internet, maar binnen Contoso netwerk wordt gebruikt.
+ 
+De onderstaande tabel bevat informatie over ondersteuning voor een van deze alternatieve aanmeldings-id's in Windows 10 Hybrid Azure AD join
+
+|Type van de alternatieve aanmeldings-id|Domeintype|Windows 10-versie|Description|
+|-----|-----|-----|-----|
+|Routeerbaar|Federatief |Vanaf versie 1703|Algemeen beschikbaar|
+|Routeerbaar|Managed|Vanaf versie 1709|Momenteel in private preview. Azure AD SSPR wordt niet ondersteund. |
+|Niet-routeerbare|Federatief|Vanaf versie 1803|Algemeen beschikbaar|
+|Niet-routeerbare|Managed|Niet ondersteund||
 
 
 

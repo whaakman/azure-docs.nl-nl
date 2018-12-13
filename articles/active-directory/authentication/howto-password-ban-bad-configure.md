@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 34011144d4f960413e78f13c999dfddf6d2660bf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: c4a289d1aeefc35f07e7598adf3780620b11f0da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743287"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252198"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>De lijst met aangepaste uitgesloten wachtwoorden configureren
 
@@ -36,7 +36,7 @@ De lijst met aangepaste uitgesloten wachtwoorden configureren, is een Azure Acti
    * De lijst met aangepaste uitgesloten wachtwoorden kan maximaal 1000 woorden bevatten.
    * De lijst met aangepaste uitgesloten wachtwoorden is niet hoofdlettergevoelig.
    * De lijst met uitgesloten wachtwoorden aangepaste rekening gehouden met algemene tekens vervangen.
-      * Voorbeeld: "o" en "0" of "a" en "@"
+      * Voorbeeld: "o" en "0" of "a" en "\@"
    * De minimale tekenreekslengte is vier tekens en de maximumwaarde is 16 tekens.
 1. Wanneer u alle tekenreeksen hebt toegevoegd, klikt u op **opslaan**.
 

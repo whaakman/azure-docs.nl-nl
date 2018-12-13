@@ -1,5 +1,6 @@
 ---
-title: Maken en beheren van Azure Machine Learning-service werkruimten
+title: Maken en beheren van werkruimten
+titleSuffix: Azure Machine Learning service
 description: Informatie over het maken, weergeven en verwijderen van Azure Machine Learning-service toegang tot werkruimten in Azure portal.
 services: machine-learning
 ms.service: machine-learning
@@ -10,20 +11,20 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 647af189319a1fa7b80b10410ad96f3297c18192
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 73a47929fa26ae0729943e17d0f6c9a054f4f6bb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083764"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276703"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Maken en beheren van Azure Machine Learning-service werkruimten
 
 In dit artikel, zult u maken, weergeven en verwijderen [ **Azure Machine Learning-service werkruimten** ](concept-azure-machine-learning-architecture.md#workspace) in Azure portal voor [Azure Machine Learning-service](overview-what-is-azure-ml.md).  U kunt ook maken en verwijderen van werkruimten [met behulp van de CLI](reference-azure-machine-learning-cli.md) of [met Python-code](https://aka.ms/aml-sdk).
 
-Een werkruimte te maken, moet u een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
-
 ## <a name="create-a-workspace"></a>Een werkruimte maken 
+
+Een werkruimte te maken, moet u een Azure-abonnement. Als u geen Azure-abonnement hebt, een gratis account maken voordat u begint. Probeer de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree) vandaag nog.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -45,7 +46,7 @@ Een werkruimte te maken, moet u een Azure-abonnement. Als u nog geen abonnement 
 
 1. Selecteer de werkruimte die u zojuist hebt gemaakt om de eigenschappen ervan weer te geven.
 
-   ![PNG](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
+   ![Eigenschappen van de werkruimte](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Een werkruimte verwijderen
 
@@ -63,4 +64,4 @@ Gebruik de knop verwijderen aan de bovenkant van de werkruimte die u wilt verwij
 Voer de volledige zelfstudie voor informatie over het gebruik van een werkruimte te bouwen, te trainen en implementeer modellen met Azure Machine Learning-service.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Train modellen](tutorial-train-models-with-aml.md)
+> [Zelfstudie: Modellen trainen](tutorial-train-models-with-aml.md)

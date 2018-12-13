@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 9ca8bb04748a1fd94c227627516be0e8ca83409d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 35438644842d5280bd789efa135805ba9943cb8b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882622"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183044"
 ---
 # <a name="sql-to-log-analytics-query-language-cheat-sheet"></a>SQL voor het referentiemateriaal voor querytaal Log Analytics 
 
@@ -27,7 +26,7 @@ De onderstaande tabel helpt gebruikers die bekend met SQL zijn voor meer informa
 
 ## <a name="sql-to-log-analytics"></a>SQL naar Log Analytics
 
-Beschrijving                             |SQL-Query                                                                                          |Azure Log Analytics-Query
+Description                             |SQL-Query                                                                                          |Azure Log Analytics-Query
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Alle gegevens uit een tabel selecteren            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Selecteer specifieke kolommen uit een tabel    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>

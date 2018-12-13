@@ -1,5 +1,5 @@
 ---
-title: OS- en runtime patching uit handen in Azure App Service | Microsoft Docs
+title: OS- en runtime patches uitgebracht - Azure App Service | Microsoft Docs
 description: Hierin wordt beschreven hoe Azure App Service-updates van het besturingssysteem en runtimes, en hoe u kunt aankondigingen bijwerken.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 9855becd7c047788ed310dff4317a5df87cc9b61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.custom: seodec18
+ms.openlocfilehash: a0fdab06606a88fafa803a9a112c05452578cfeb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047625"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252861"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>OS- en runtime patching uit handen in Azure App Service
 
@@ -100,5 +101,5 @@ De volgende tabel ziet u hoe u de versies van Windows en de taal die uw toepassi
 
 ## <a name="more-resources"></a>Meer bronnen
 
-[Vertrouwenscentrum: beveiliging](https://www.microsoft.com/en-us/trustcenter/security)  
+[Vertrouwenscentrum van: Beveiliging](https://www.microsoft.com/en-us/trustcenter/security)  
 [64-bits ASP.NET Core in Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

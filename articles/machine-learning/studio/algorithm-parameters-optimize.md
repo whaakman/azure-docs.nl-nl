@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -16,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: b0494a9da422b7c0effc14ff4188d3a5b20b8e9d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 57561c9841297b7ea2991bda1e94065a854597cd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081928"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269410"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Parameters kiezen voor het optimaliseren van uw algoritmen in Azure Machine Learning Studio
 
 In dit onderwerp wordt beschreven hoe u de juiste hyperparameter instellen voor een Azure Machine Learning-algoritme kiezen. De meeste machine learning-algoritmen hebben parameters om in te stellen. Wanneer u een model te trainen, moet u waarden opgeven voor deze parameters. De effectiviteit van het getrainde model, is afhankelijk van de Modelparameters die u kiest. Het proces uit het vinden van de optimale set met parameters wordt ook wel *model selectie*.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Er zijn verschillende manieren om Modelleer selectie. Kruisvalidatie is een van de meest gebruikte methoden voor de modelselectie van het in machine learning, en is het standaardmechanisme voor het selecteren van model in Azure Machine Learning. Omdat Azure Machine Learning zowel R als Python ondersteunt, kunt u altijd eigen methoden van de selectie model implementeren met behulp van R of Python.
 
 Er zijn vier stappen van de beste parameterset zoeken:
 
-1. **Definieer de parameter-ruimte**: voor het algoritme, besluit u eerst de exacte parameterwaarden die u wilt gebruiken.
-2. **Definieer de instellingen van de kruisvalidatie**: bepalen hoe u kruisvalidatie vouwen opgeven voor de gegevensset kiezen.
-3. **De metrische gegevens definiëren**: Bepaal welke metrische gegevens te gebruiken voor het bepalen van de beste set parameters, zoals nauwkeurigheid, root mean squared fout, precisie, intrekken of f-score.
-4. **Trainen, evalueren en vergelijken**: voor elke unieke combinatie van de parameterwaarden kruisvalidatie is uitgevoerd door en op basis van de fout meetwaarde definiëren. Na de evaluatie en vergelijking, kunt u het best presterende model kiezen.
+1. **Definieer de parameter-ruimte**: Besluit eerst de exacte parameterwaarden die u wilt gebruiken voor de algoritme.
+2. **Definieer de instellingen van de kruisvalidatie**: Bepalen hoe u kruisvalidatie vouwen opgeven voor de gegevensset kiezen.
+3. **De metrische gegevens definiëren**: Bepalen welke metrische gegevens te gebruiken voor het bepalen van de beste set parameters, zoals nauwkeurigheid, root mean squared fout, precisie, intrekken of f-score.
+4. **Trainen, evalueren en vergelijken**: Kruisvalidatie is voor elke unieke combinatie van de parameterwaarden die zijn uitgevoerd door en op basis van de fout meetwaarde definiëren. Na de evaluatie en vergelijking, kunt u het best presterende model kiezen.
 
 De volgende afbeelding ziet hoe u dit in Azure Machine Learning doen kunt wordt weergegeven.
 
 ![De beste parameterset zoeken](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>De parameter-ruimte definiëren
-U kunt de parameter is ingesteld op de stap van de initialisatie van model definiëren. Het deelvenster parameter van alle machine learning-algoritmen beschikt over twee modi voor trainer: *één Parameter* en *Parameter bereik*. Kies de Parameter-bereik-modus. U kunt meerdere waarden voor elke parameter invoeren in de modus van de Parameter-bereik. U kunt met door komma's gescheiden waarden invoeren in het tekstvak in.
+U kunt de parameter is ingesteld op de stap van de initialisatie van model definiëren. Het deelvenster parameter van alle machine learning-algoritmen heeft twee trainer modi: *Eén Parameter* en *Parameter bereik*. Kies de Parameter-bereik-modus. U kunt meerdere waarden voor elke parameter invoeren in de modus van de Parameter-bereik. U kunt met door komma's gescheiden waarden invoeren in het tekstvak in.
 
 ![Twee-class boosted-beslisboom, één parameter](./media/algorithm-parameters-optimize/fig2.png)
 

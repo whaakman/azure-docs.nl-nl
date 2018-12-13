@@ -1,6 +1,6 @@
 ---
-title: Cognitieve zoekopdrachten voor het ophalen van gegevens, verwerking van natuurlijke taal AI in Azure Search | Microsoft Docs
-description: Uitpakken van inhoud, (NLP) voor de verwerking van natuurlijke taal en afbeeldingsverwerking activeren voor doorzoekbare inhoud maken in Azure Search indexeren met cognitieve vaardigheden en AI-algoritmen
+title: Cognitieve zoekopdrachten voor het ophalen van gegevens, verwerking van natuurlijke taal, AI - Azure Search
+description: Uitpakken van inhoud, (NLP) voor de verwerking van natuurlijke taal en afbeeldingsverwerking activeren voor doorzoekbare inhoud maken in Azure Search indexeren met cognitieve vaardigheden en AI-algoritmen.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 5d7f275be1f04658f9901aba9faca83375a9bbf5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec2018
+ms.openlocfilehash: 62d2e7af40d6abf6f316789051dfe78f73208eb3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956190"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315601"
 ---
-# <a name="what-is-cognitive-search"></a>Wat is cognitive search?
+# <a name="what-is-cognitive-search-in-azure-search"></a>Wat is 'cognitive search' in Azure Search?
 
 Cognitief zoeken maakt doorzoekbare gegevens buiten niet-doorzoekbare inhoud samenvoegt met AI-algoritmen te koppelen aan een pijplijn voor indexering. AI-integratie is via *cognitieve vaardigheden*, brondocumenten onderweg naar een search-index uit te breiden. 
 
@@ -26,12 +27,14 @@ Cognitief zoeken maakt doorzoekbare gegevens buiten niet-doorzoekbare inhoud sam
 
 ![Overzichtsdiagram van gegevenspijplijn cognitief zoeken](./media/cognitive-search-intro/cogsearch-architecture.png "overzicht van de pijplijn Cognitief zoeken")
 
-De cognitieve vaardigheden in Azure Search zijn gebaseerd op de dezelfde AI-algoritmen in Cognitive Services API's gebruikt: [entiteit Recognition-API met de naam](cognitive-search-skill-named-entity-recognition.md), [API van Key woordgroep extractie](cognitive-search-skill-keyphrases.md), en [OCR API](cognitive-search-skill-ocr.md) zijn een paar. 
+De cognitieve vaardigheden in Azure Search zijn gebaseerd op de dezelfde AI-algoritmen in Cognitive Services API's gebruikt: [Met de naam van entiteit Recognition-API](cognitive-search-skill-named-entity-recognition.md), [API van Key woordgroep extractie](cognitive-search-skill-keyphrases.md), en [OCR API](cognitive-search-skill-ocr.md) zijn een paar. 
 
 Natuurlijke taal en verwerking van afbeeldingen wordt toegepast tijdens de fase van de gegevensopname met steeds deel van de samenstelling van een document in een doorzoekbare index in Azure Search resultaten. Gegevens worden als een Azure data source en vervolgens via een indexing-pijplijn met behulp van afhankelijk van wat wordt gepusht [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) u nodig hebt. De architectuur worden uitgebreid, zodat als de ingebouwde vaardigheden niet voldoende, kunt u maken en koppelen [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md) aangepaste verwerking te integreren. Voorbeelden zijn een aangepaste entiteit module of document classificatie die gericht is op een specifiek domein, zoals Financiën, wetenschappelijke publicaties of diergeneeskunde.
 
 > [!NOTE]
-> Cognitief zoeken is een openbare preview. Het uitvoeren van vaardighedensets, het extraheren van afbeeldingen en normaliseren worden momenteel gratis aangeboden. De prijzen voor deze mogelijkheden worden op een later moment bekend gemaakt. 
+> Vanaf December 21 mei 2018, kunt u zich een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Hierdoor kunnen we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum ook in rekening voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijven worden aangeboden zonder extra kosten.
+>
+> De uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijsstelling wordt in rekening gebracht op de preview-prijzen en wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). Informatie over [meer](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="components-of-cognitive-search"></a>Onderdelen van cognitief zoeken
 
@@ -71,7 +74,7 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 
 ## <a name="key-features-and-concepts"></a>Belangrijke functies en concepten
 
-| Concept | Beschrijving| Koppelingen |
+| Concept | Description| Koppelingen |
 |---------|------------|-------|
 | Vaardigheden | Een op het hoogste niveau met de naam resource met een verzameling van vaardigheden. Een set vaardigheden is de pijplijn verrijking. Deze wordt aangeroepen tijdens het indexeren van een indexeerfunctie. | [Een set vaardigheden definiëren](cognitive-search-defining-skillset.md) |
 | Cognitieve vaardigheden | Een atomische transformatie in een pijplijn verrijking. Het is vaak het geval is, een onderdeel dat wordt opgehaald of bepaalt welke structuur en worden daarom verbetert uw kennis van de ingevoerde gegevens. Bijna altijd de uitvoer is op basis van tekst en de verwerking is verwerking van natuurlijke taal of verwerking van afbeeldingen die worden geëxtraheerd of tekst van de invoer van de afbeelding genereert. Uitvoer van een kwalificatie kan worden toegewezen aan een veld in een index of gebruikt als invoer voor een downstream verrijking. Een kwalificatie is vooraf gedefinieerd en geleverd door Microsoft of aangepast: gemaakt en geïmplementeerd door u. | [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) |
@@ -88,7 +91,7 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 
 ## <a name="where-do-i-start"></a>Waar moet ik beginnen?
 
-**Stap 1: Een service voor zoeken in een regio die de API's maken** 
+**Stap 1: Maken van een service voor zoeken in een regio die de API 's** 
 
 + US - west-centraal
 + US - zuid-centraal
@@ -110,11 +113,11 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 + [Zelfstudie (HTTP-aanvragen)](cognitive-search-tutorial-blob.md)
 + [Voorbeeld van de aangepaste vaardigheden (C#)](cognitive-search-create-custom-skill-example.md)
 
-**Stap 3: Controleer de API (alleen REST)**
+**Stap 3: Bekijk de API (alleen REST)**
 
 Op dit moment worden alleen REST-API's geleverd. Gebruik `api-version=2017-11-11-Preview` op alle aanvragen. Gebruik de volgende API's om een oplossing voor cognitief zoeken. Slechts twee API's worden toegevoegd of uitgebreid voor cognitief zoeken. Andere API's hebben dezelfde syntaxis als de algemeen beschikbare versie.
 
-| REST-API | Beschrijving |
+| REST-API | Description |
 |-----|-------------|
 | [Gegevensbron maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Een bron voor het identificeren van een externe gegevensbron brongegevens gebruikt voor het maken van geavanceerde documenten bieden.  |
 | [Vaardighedenset maken (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource coördinatie van het gebruik van [vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md) en [aangepaste cognitieve vaardigheden](cognitive-search-custom-skill-interface.md) gebruikt in een pijplijn verrijking tijdens het indexeren. |

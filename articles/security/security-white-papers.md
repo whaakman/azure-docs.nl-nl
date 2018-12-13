@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 5feedcd750841be159a7cf4a31f408aec2fffd38
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 214598291e69acfec2064738f798a48180ad05a6
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712973"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322992"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security technische documenten
 | | |
@@ -31,7 +31,7 @@ ms.locfileid: "51712973"
 |[Azure data encryption-at-rest](azure-security-encryption-atrest.md)|Richt zich op het beveiligen van gegevens in rust in Azure en de verschillende onderdelen die deel uitmaken van de implementatie van de bescherming van gegevens. Controleert de voor- en nadelen van de verschillende Sleutelbeheer protection-methoden.|
 |[Logboekregistratie en bewaking in Azure](azure-log-audit.md)|Bevat een inleiding voor het genereren, verzamelen en analyseren van beveiligingslogboeken van services die worden gehost op Azure. Deze logboeken kunt u inzicht kunnen verkrijgen in uw Azure-implementaties. |
 |[Azure-netwerkbeveiliging](abstract-azure-network-security.md)|Vindt u het brede aanbod van netwerk-besturingselementen die u zo de beveiliging van de oplossingen die u in Azure implementeert kunt configureren. De focus ligt klantgerichte netwerk beveiligingscontroles.|
-|[Azure Functions en serverloos platformbeveiliging](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Deze downloadbare whitepaper gaat over de voordelen van serverloze computing terwijl beveiligingsoverwegingen en oplossingen in de context van Azure. |
+|[Azure Functions en serverloos platformbeveiliging](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)|Deze downloadbare whitepaper gaat over de voordelen van serverloze computing terwijl beveiligingsoverwegingen en oplossingen in de context van Azure. |
 |[Beveiliging van de container in Microsoft Azure](abstract-container-security-microsoft-azure.md)|Beschrijving van containers, containerimplementatie en beheer en systeemeigen platform-services. Ook wordt beschreven runtime beveiligingsproblemen die met het gebruik van containers op het Azure-platform optreden. |
 |[Azure operationele beveiliging](abstract-azure-operational-security.md)|Azure biedt een uitgebreid overzicht van de klantgerichte operationele beveiligingstechnologieën en -services die beschikbaar zijn.|
 |[Technische mogelijkheden van Azure-beveiliging](azure-security-technical-capabilities.md)|Richt zich op de beveiligingsfuncties en -functionaliteit met ondersteuning voor Azure Storage, Azure SQL Database, het model virtuele Azure-machine en de hulpprogramma's en infrastructuur die alles.|

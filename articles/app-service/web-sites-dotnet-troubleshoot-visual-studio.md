@@ -1,5 +1,5 @@
 ---
-title: Een web-app in Azure App Service met behulp van Visual Studio oplossen
+title: Een web-app met Visual Studio - Azure App Service oplossen
 description: Informatie over het oplossen van een Azure-web-app met behulp van foutopsporing op afstand, tracering en logboekregistratie-hulpprogramma's die zijn ingebouwd in Visual Studio 2013.
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: eafb4e82a319a0fdbe954757158a09aba83e9be0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 689ff528f18a810c35031dd60a65470d4351b9a7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972283"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278522"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Een web-app in Azure App Service met behulp van Visual Studio oplossen
 ## <a name="overview"></a>Overzicht
@@ -71,7 +72,7 @@ Visual Studio biedt toegang tot een subset van de web-app-beheerfuncties en conf
 
     In deze zelfstudie gebruikt u de logboekregistratie en tracering vervolgkeuzelijsten. U zult ook gebruiken voor foutopsporing op afstand, maar u een andere methode gebruiken om te inschakelen.
 
-    Zie voor meer informatie over de App-instellingen en verbindingsreeksen vakken in dit venster [Azure Web Apps: tekenreeksen van toepassingen en verbindingsreeksen](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+    Zie voor meer informatie over de App-instellingen en verbindingsreeksen vakken in dit venster [Azure Web Apps: Hoe tekenreeksen van toepassingen en verbinding werk tekenreeksen](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
     Als u uitvoeren van een beheertaak voor web-app die in dit venster kan niet worden uitgevoerd wilt, klikt u op **Open in de beheerportal** om een browservenster naar de Azure-portal te openen.
 
@@ -655,7 +656,7 @@ Er zijn geen grondige en up-to-date introductie van ASP.NET-tracering beschikbaa
   Oude maar nog steeds een goede bron voor een algemene inleiding tot aan het onderwerp.
 * [Traceer-Listeners](https://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   Informatie over traceer-listeners, maar wordt niet vermeld de [WebPageTraceListener](https://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
-* [Walkthrough: Integratie van ASP.NET-tracering met System.Diagnostics tracering](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [Walkthrough: Tracering van ASP.NET integreren met System.Diagnostics tracering](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   In dit artikel is ook oude, maar bevat aanvullende informatie die niet wordt behandeld in het inleidende artikel.
 * [Traceren in ASP.NET MVC Razor weergaven](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Naast de tracering in Razor weergaven, het bericht ook wordt uitgelegd hoe u een fout-filter maken om aan te melden van alle niet-verwerkte uitzonderingen in een MVC-toepassing. Zie voor informatie over hoe u zich aanmeldt alle niet-verwerkte uitzonderingen in een Web Forms-toepassing in het voorbeeld Global.asax in [compleet voorbeeld voor Foutenhandlers](https://msdn.microsoft.com/library/bb397417.aspx) op MSDN. In MVC of Web Forms, als u wilt vastleggen van bepaalde uitzonderingen, maar laat de standaard-framework verwerking wordt pas van kracht voor, kunt u variabel en foutparameters zoals in het volgende voorbeeld:

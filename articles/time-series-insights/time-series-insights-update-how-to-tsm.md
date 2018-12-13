@@ -1,6 +1,6 @@
 ---
-title: Gegevens modelleren in Azure Time Series Insights | Microsoft Docs
-description: Wat is Azure Time Series Insights modelleren van gegevens?
+title: Azure Time Series Insights-gegevensmodellering - gegevensmodellen in Azure Time Series Insights Preview | Microsoft Docs
+description: Krijg inzicht in gegevens modelleren in Azure Time Series Insights Preview.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -8,133 +8,132 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: dc6244b6e263d3fb963d40b2f0c626cdfa9ecff8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/10/2018
+ms.custom: seodec18
+ms.openlocfilehash: e68bc01d2c0781333454fa753992d0136fac0c06
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873458"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269087"
 ---
-# <a name="data-modeling-in-azure-time-series-insights"></a>Gegevens modelleren in Azure Time Series Insights
+# <a name="data-modeling-in-azure-time-series-insights-preview"></a>Gegevens modelleren in Azure Time Series Insights-Preview
 
-Dit document wordt beschreven hoe u werkt met **Time Series modellen** Azure Time Series Insights (Preview) te volgen. Deze details over verschillende algemene scenario's met gegevens.
+Dit document wordt beschreven hoe u werkt met Time Series modellen Azure Time Series Insights Preview te volgen. Deze details over verschillende algemene scenario's met gegevens.
 
-Lees de [(Preview) van Azure TSI-Verkenner](./time-series-insights-update-explorer.md) artikel voor meer informatie over de update te navigeren.
+Lees voor meer informatie over het gebruik van de update [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
 ## <a name="types"></a>Typen
 
-### <a name="how-to-create-a-single-type"></a>Over het maken van één type
+### <a name="create-a-single-type"></a>Maken van één type
 
-1. Begin met de kop van het paneel TSM model selector en typen selecteren in het menu. Vervolgens samen het paneel zich kunt richten op TSM typen:
+1. Ga naar het deelvenster van de selectie van Time Series-modellen en selecteer **typen** in het menu. Het deelvenster zich kunt richten op de typen Time Series modellen samenvouwen.
 
-    ![portal_one][1]
+    ![Portal_one][1]
 
-1. Klik op **Toevoegen**.
-1. Voer alle details met betrekking tot de typen en op **maken**. In dat geval moet typen maken in de omgeving:
+1. Selecteer **Toevoegen**.
+1. Alle gegevens die betrekking hebben op de typen en selecteer de invoer **maken**. Deze actie wordt gemaakt van typen in de omgeving.
 
-    ![portal_two][2]
+    ![Portal_two][2]
 
-### <a name="how-to-bulk-upload-one-or-more-types"></a>Bulksgewijs uploaden van een of meer typen
+### <a name="bulk-upload-one-or-more-types"></a>Bulksgewijs uploaden van een of meer typen
 
-1. Klik op **uploaden JSON**.
-1. Kies dit bestand met de nettolading van het type.
-1. Klik op **uploaden**
+1. Selecteer **uploaden JSON**.
+1. Selecteer het bestand dat de nettolading van het type bevat.
+1. Selecteer **Uploaden**.
 
-    ![portal_three][3]
+    ![Portal_three][3]
 
-### <a name="how-to-edit-a-single-type"></a>Het bewerken van één type
+### <a name="edit-a-single-type"></a>Één type bewerken
 
-* Selecteer het type en klik op **bewerken** knop. Benodigde wijzigingen aanbrengen en klik op **opslaan**:
+Selecteer het type en selecteer **bewerken**. De benodigde wijzigingen aanbrengen en selecteer **opslaan**.
 
-    ![portal_four][4]
+![Portal_four][4]
 
-### <a name="how-to-delete-a-type"></a>Het verwijderen van een type
+### <a name="delete-a-type"></a>Een type verwijderen
 
-* Selecteer het type en klik op **verwijderen** knop. Als er geen exemplaren gekoppeld aan de typen zijn, wordt deze verwijderd:
+Selecteer het type en selecteer **verwijderen**. Als er geen exemplaren gekoppeld aan de typen zijn, wordt deze verwijderd.
 
-    ![portal_five][5]
+![Portal_five][5]
 
 ## <a name="hierarchies"></a>Hiërarchieën
 
-### <a name="how-to-create-a-single-hierarchy"></a>Over het maken van een enkele hiërarchie
+### <a name="create-a-single-hierarchy"></a>Maken van een enkele hiërarchie
 
-1. Begin met de kop van het paneel TSM model selector en hiërarchieën selecteren in het menu. Vervolgens samen het paneel zich kunt richten op TSM typen:
+1. Ga naar het deelvenster van de selectie van Time Series-modellen en selecteer **hiërarchieën** in het menu. Het deelvenster zich kunt richten op de modellen van Time Series-hiërarchieën samenvouwen.
 
-    ![portal_six][6]
+    ![Portal_six][6]
 
-1. Klik op **toevoegen**
+1. Selecteer **Toevoegen**.
 
-    ![portal_seven][7]
+    ![Portal_seven][7]
 
-1. Klik op **niveau toevoegen** in het rechterdeelvenster:
+1. Selecteer **niveau toevoegen** in het rechter deelvenster.
 
-    ![portal_eight][8]
+    ![Portal_eight][8]
 
-1. Voer de Hiërarchiedetails van de en klik op **maken**:
+1. Voer de Hiërarchiedetails van de en selecteer **maken**.
 
-    ![portal_nine][9]
+    ![Portal_nine][9]
 
-### <a name="how-to-bulk-upload-one-or-more-hierarchies"></a>Bulksgewijs uploaden van een of meer hiërarchieën
+### <a name="bulk-upload-one-or-more-hierarchies"></a>Bulksgewijs uploaden van een of meer hiërarchieën
 
-1. Klik op **uploaden JSON**.
-1. Kies het bestand met de nettolading van de hiërarchie.
-1. Klik op **uploaden**:
+1. Selecteer **uploaden JSON**.
+1. Selecteer het bestand met de nettolading van de hiërarchie.
+1. Selecteer **Uploaden**.
 
-    ![portal_ten][10]
+    ![Portal_ten][10]
 
-### <a name="how-to-edit-a-single-hierarchy"></a>Een enkele hiërarchie bewerken
+### <a name="edit-a-single-hierarchy"></a>Een enkele hiërarchie bewerken
 
-* De hiërarchie selecteren en klik op de **bewerken** knop. Benodigde wijzigingen aanbrengen en klik op **opslaan**:
+Selecteer de hiërarchie en **bewerken**. De benodigde wijzigingen aanbrengen en selecteer **opslaan**.
 
-    ![portal_eleven][11]
+![Portal_eleven][11]
 
-### <a name="how-to-delete-a-hierarchy"></a>Een hiërarchie verwijderen
+### <a name="delete-a-hierarchy"></a>Een hiërarchie verwijderen
 
-* De hiërarchie selecteren en klik op **verwijderen** knop. Als er geen exemplaren gekoppeld aan de hiërarchie zijn, wordt deze verwijderd.
+Selecteer de hiërarchie en **verwijderen**. Als er geen exemplaren gekoppeld aan de hiërarchie zijn, wordt deze verwijderd.
 
-    ![portal_twelve][12]
+![Portal_twelve][12]
 
 ## <a name="instances"></a>Exemplaren
 
-### <a name="how-to-create-a-single-instance"></a>Over het maken van één exemplaar
+### <a name="create-a-single-instance"></a>Een enkele instantie maken
 
-1. Begin met de kop van het paneel TSM model selector en exemplaren selecteren in het menu. Vervolgens samen het paneel zich kunt richten op TSM typen:
+1. Ga naar het deelvenster van de selectie van Time Series-modellen en selecteer **exemplaren** in het menu. Het deelvenster om zich te richten op de modellen van Time Series-instanties samenvouwen.
 
-    ![portal_thirteen][13]
+    ![Portal_thirteen][13]
 
-1. Klik op **toevoegen**:
+1. Selecteer **Toevoegen**.
 
-    ![portal_fourteen][14]
+    ![Portal_fourteen][14]
 
-1. Geef de exemplaardetails, type en de hiërarchie koppeling selecteren en op **maken**.
+1. Geef de exemplaardetails, selecteer het type en hiërarchie-koppeling en selecteer **maken**.
 
-### <a name="how-to-bulk-upload-one-or-more-instances"></a>Bulksgewijs uploaden van een of meer exemplaren
+### <a name="bulk-upload-one-or-more-instances"></a>Bulksgewijs uploaden van een of meer exemplaren
 
-1. Klik op **uploaden JSON**.
-1. Kies het bestand met de nettolading van de exemplaren:
+1. Selecteer **uploaden JSON**.
+1. Selecteer het bestand met de nettolading van de exemplaren.
 
-    ![portal_fifteen][15]
+    ![Portal_fifteen][15]
 
-1. Klik op **uploaden**.
+1. Selecteer **Uploaden**.
 
-### <a name="how-to-edit-a-single-instance"></a>Het bewerken van één exemplaar
+### <a name="edit-a-single-instance"></a>Een enkele instantie bewerken
 
-* Selecteer het exemplaar en klik op de **bewerken** knop. Benodigde wijzigingen aanbrengen en klik op **opslaan**:
+Selecteer het exemplaar en selecteer **bewerken**. De benodigde wijzigingen aanbrengen en selecteer **opslaan**.
 
-    ![portal_sixteen][16]
+![Portal_sixteen][16]
 
-### <a name="how-to-delete-an-instance"></a>Een exemplaar verwijderen
+### <a name="delete-an-instance"></a>Een exemplaar verwijderen
 
-* Selecteer het exemplaar en klik op **verwijderen** knop. Als er geen gebeurtenissen gekoppeld aan de exemplaren zijn, wordt deze verwijderd.
+Selecteer het exemplaar en selecteer **verwijderen**. Als er geen gebeurtenissen gekoppeld aan de exemplaren zijn, wordt deze verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over [gegevensmodellering](./time-series-insights-update-tsm.md) voor meer informatie over **Time Series modellen**.
-
-De Azure TSI (Preview)-Verkenner weergeven [artikel](./time-series-insights-update-explorer.md) voor meer informatie over de Preview-versie.
-
-Meer informatie over ondersteunde JSON-vormen door te lezen [ondersteund JSON-vormen](./time-series-insights-send-events.md#json).
+- Lees voor meer informatie over Time Series modellen [gegevensmodellering](./time-series-insights-update-tsm.md).
+- Lees voor meer informatie over de Preview-versie [visualiseren van gegevens in de Verkenner van Azure Time Series Insights Preview](./time-series-insights-update-explorer.md).
+- Lees voor meer informatie over ondersteunde JSON-vormen, [ondersteund JSON-vormen](./time-series-insights-send-events.md#json).
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png

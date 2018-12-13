@@ -1,5 +1,5 @@
 ---
-title: Certificaten en de Azure App Service-omgeving
+title: Certificaten en de App Service Environment - Azure
 description: Groot aantal onderwerpen met betrekking tot certificaten op een as-omgeving uitgelegd
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 3d417d560d8a88100f31def27c7db5f9b2493062
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167919"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271892"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificaten en de App Service-omgeving 
 
@@ -32,8 +33,8 @@ Als u van een externe as-omgeving gebruikmaakt, worden uw apps bereikt op [toepa
 
 Er zijn twee opties voor het configureren van certificaten met uw ILB as-omgeving.  U kunt een certificaat met jokertekens standaard ingesteld voor de ILB as-omgeving of certificaten instellen op de afzonderlijke web-apps in de as-omgeving.  Ongeacht de keuze die u maakt, moeten de volgende certificaatkenmerken juist zijn geconfigureerd:
 
-- **Onderwerp:** dit kenmerk moet worden ingesteld op *. [ uw-root-domein-here] voor een certificaat met jokertekens ILB as-omgeving. Als u het certificaat voor uw app maakt, moet dit [toepassingsnaam] zijn. [uw-root-domein-here]
-- **Alternatieve naam voor onderwerp:** dit kenmerk moet bevatten zowel *. [ uw-root-domein-here] en *.scm. [uw-root-domein-here] voor het certificaat met jokertekens ILB as-omgeving. Als u het certificaat voor uw app maakt, moet dit [toepassingsnaam] zijn. [uw-root-domein-here] en [toepassingsnaam] .scm. [uw-root-domein-here].
+- **Onderwerp:** Dit kenmerk moet worden ingesteld op *. [uw-root-domein-here] voor een certificaat met jokertekens ILB as-omgeving. Als u het certificaat voor uw app maakt, moet dit [toepassingsnaam] zijn. [uw-root-domein-here]
+- **Alternatieve naam voor onderwerp:** Dit kenmerk moet bevatten zowel *. [uw-root-domein-here] en *.scm. [uw-root-domein-here] voor het certificaat met jokertekens ILB as-omgeving. Als u het certificaat voor uw app maakt, moet dit [toepassingsnaam] zijn. [uw-root-domein-here] en [toepassingsnaam] .scm. [uw-root-domein-here].
 
 Als een derde variant, kunt u een ILB as-omgeving-certificaat dat al uw afzonderlijke app-namen in de SAN van het certificaat in plaats van met een jokertekenverwijzing bevat. Het probleem met deze methode is dat u wilt weten van tevoren de namen van de apps die u wilt opslaan in de as-omgeving of moet u het certificaat van de ILB as-omgeving telkens bijgewerkt.
 

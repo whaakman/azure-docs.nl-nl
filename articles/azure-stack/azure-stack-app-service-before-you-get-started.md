@@ -12,18 +12,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615871"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275666"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Voordat u Azure App Service in Azure Stack implementeren, moet u de vereiste stappen in dit artikel te voltooien.
 
@@ -73,7 +73,7 @@ Wanneer u de volgende PowerShell-opdracht uitvoert, hebt u voor het eindpunt van
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 scriptparameters
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
+| Parameter | Vereist of optioneel | Standaardwaarde | Description |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Vereist | AzS-ERCS01 | Bevoegde eindpunt |
 | CloudAdminCredential | Vereist | AzureStack\CloudAdmin | Referenties van het domein account voor Azure Stack-cloud-beheerders |
@@ -98,7 +98,7 @@ Volg deze stappen voor het maken van de certificaten:
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Scriptparameters maken AppServiceCerts.ps1
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
+| Parameter | Vereist of optioneel | Standaardwaarde | Description |
 | --- | --- | --- | --- |
 | pfxPassword | Vereist | Null | Wachtwoord dat helpt de persoonlijke sleutel van het certificaat te beschermen |
 | Domeinnaam | Vereist | Local.azurestack.external | Azure Stack-achtervoegsel voor de regio en het domein |
@@ -152,6 +152,12 @@ Het certificaat voor de id moet een onderwerpnaam die overeenkomt met de volgend
 | Indeling | Voorbeeld |
 | --- | --- |
 | SSO.appservice. \<regio\>.\< Domeinnaam\>.\< extensie\> | sso.appservice.redmond.azurestack.external |
+
+
+### <a name="validate-certificates"></a>Certificaten valideren
+Voordat u de app service-resourceprovider implementeert, moet u [valideren van de certificaten te gebruiken Vernieuwingsdatum](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) met behulp van de Azure Stack gereedheid van de Registercontrole beschikbaar is via de [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Het hulpprogramma Azure Stack Readiness Checker valideert dat de gegenereerde PKI-certificaten geschikt voor implementatie van app-services zijn. 
+
+Als een best practice, als u werkt met een van de benodigde [Azure Stack PKI-certificaten](azure-stack-pki-certs.md), moet u van plan bent om te laten voldoende tijd om te testen en certificaten opnieuw uitgegeven, indien nodig. 
 
 ## <a name="virtual-network"></a>Virtueel netwerk
 
@@ -339,7 +345,7 @@ Volg deze stappen:
     Create-AADIdentityApp.ps1
 ```
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
+| Parameter | Vereist of optioneel | Standaardwaarde | Description |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Vereist | Null | Azure AD-tenant-ID. Geef de GUID of een tekenreeks. Een voorbeeld is myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Vereist | Null | Eindpunt van Admin Azure Resource Manager. Een voorbeeld is adminmanagement.local.azurestack.external. |
@@ -375,7 +381,7 @@ Volg deze stappen:
     Create-ADFSIdentityApp.ps1
 ```
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
+| Parameter | Vereist of optioneel | Standaardwaarde | Description |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Vereist | Null | Eindpunt van Admin Azure Resource Manager. Een voorbeeld is adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Vereist | Null | Bevoegde eindpunt. Een voorbeeld is AzS-ERCS01. |

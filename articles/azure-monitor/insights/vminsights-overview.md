@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2018
 ms.author: magoedte
-ms.openlocfilehash: c7d2004da52d83ceda62dc31583797d9a218ef48
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 69aa2cbcaa6861b1d5c5c71769be2fb8046d9ea5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085448"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188493"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Wat is Azure Monitor voor virtuele machines (preview)?
 
@@ -27,11 +26,11 @@ Azure Monitor voor virtuele machines bewaakt uw Azure virtual machines (VM) en v
 
 Azure Monitor voor virtuele machines bevat als een oplossing, ondersteuning voor het bewaken van prestatie- en afhankelijkheden voor virtuele machines die zich on-premises gehost of in een andere cloudprovider. Drie belangrijke functies bieden een diepgaande informatie:
 
-* **Logische onderdelen van Azure-VM's met Windows en Linux**: ten opzichte van de van vooraf geconfigureerde gezondheidscriteria worden gemeten en ze een melding wanneer de geëvalueerde voorwaarde wordt voldaan.  
+* **Logische onderdelen van Azure-VM's met Windows en Linux**: Ten opzichte van de van vooraf geconfigureerde gezondheidscriteria worden gemeten en ze een melding wanneer de geëvalueerde voorwaarde wordt voldaan.  
 
-* **Vooraf gedefinieerde prestatiegrafieken populair**: core maatstaven voor prestaties van het gastbesturingssysteem van de virtuele machine weergeven.
+* **Vooraf gedefinieerde prestatiegrafieken populair**: Core maatstaven voor prestaties van het gastbesturingssysteem van de virtuele machine weergegeven.
 
-* **Kaart van afhankelijkheden**: bevat de onderdelen met elkaar verbonden met de virtuele machine vanuit de verschillende resourcegroepen en abonnementen.  
+* **Kaart van afhankelijkheden**: Geeft de onderling verbonden onderdelen met de virtuele machine vanuit de verschillende resourcegroepen en abonnementen.  
 
 De functies zijn ingedeeld in drie perspectieven:
 
@@ -46,8 +45,8 @@ Integratie met Log Analytics biedt krachtige aggregatie en filteren, en deze geg
 
 U kunt deze gegevens weergeven in een enkele virtuele machine van de virtuele machine rechtstreeks of u kunt Azure Monitor gebruiken voor het leveren van een samengevoegde weergave van uw virtuele machines. In deze weergave is gebaseerd op van elke functie perspectief:
 
-* **Status**: de VM's zijn gekoppeld aan een resourcegroep.
-* **Kaart** en **prestaties**: de virtuele machines zijn geconfigureerd voor rapportage aan een specifieke Log Analytics-werkruimte.
+* **Status**: De virtuele machines zijn gekoppeld aan een resourcegroep.
+* **Kaart** en **prestaties**: De virtuele machines zijn geconfigureerd voor rapportage aan een specifieke Log Analytics-werkruimte.
 
 ![Perspectief van de virtuele machine inzicht in de Azure-portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 

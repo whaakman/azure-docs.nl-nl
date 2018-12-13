@@ -1,5 +1,5 @@
 ---
-title: Partities en replica's toewijzen voor query's en indexering in Azure Search | Microsoft Docs
+title: Partities en replica's toewijzen voor de query en de indexing - Azure Search
 description: Partitie en de replica computerbronnen in Azure Search, waarbij elke resource prijs is afhankelijk van in factureerbare search-eenheden aanpassen.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fa1a13c5c786867f6e92a678c40a491e0a226076
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238729"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316111"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Partities en replica's toewijzen voor query's en indexering van workloads in Azure Search
 Nadat u [Kies een prijscategorie](search-sku-tier.md) en [inrichten van een service voor zoeken](search-create-service-portal.md), de volgende stap is het eventueel verhogen van het aantal replica's of partities die worden gebruikt door uw service. Elke laag biedt een vast aantal factureringseenheden. In dit artikel wordt uitgelegd hoe u de eenheden voor het bereiken van een optimale configuratie die een van uw vereisten voor het uitvoeren van query's, indexering en opslag toewijzen.
@@ -92,12 +93,12 @@ Zoektoepassingen waarvoor in de buurt van real-time gegevens vernieuwen moet pro
 
 Grotere indexen langer duren voordat de query. Daarom kan het gebeuren dat een kleiner, maar in verhouding toename van de replica's voor elke incrementele toename in partities is vereist. In hoe snel uitvoeren van query's is ingeschakeld om rekening met de complexiteit van uw query's en queryvolume.
 
-## <a name="basic-tier-partition-and-replica-combinations"></a>Basic-laag: combinaties van partitie en replica
+## <a name="basic-tier-partition-and-replica-combinations"></a>Basic-laag: Combinaties van partitie en replica
 Een eenvoudige service kan exact één partitie en maximaal drie replica's, voor een maximale beperken van drie su's. De alleen aanpasbare resource heeft replica's. U moet er minimaal twee replica's voor hoge beschikbaarheid op query's.
 
 <a id="chart"></a>
 
-## <a name="standard-tiers-partition-and-replica-combinations"></a>Standaard-laag: combinaties van partitie en replica
+## <a name="standard-tiers-partition-and-replica-combinations"></a>Standaard-laag: Combinaties van partitie en replica
 Deze tabel bevat de su's vereist zijn ter ondersteuning van combinaties van replica's en partities, afhankelijk van de limiet 36 SU voor alle Standard-lagen.
 
 |   | **1 partitie** | **2 partities** | **3 partities** | **4-partities** | **6-partities** | **12 partities** |

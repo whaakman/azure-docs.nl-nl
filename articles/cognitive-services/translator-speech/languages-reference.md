@@ -10,20 +10,20 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345200"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256387"
 ---
-# <a name="translator-speech-api-languages"></a>Translator Speech-API: talen
+# <a name="translator-speech-api-languages"></a>Translator Speech-API: Talen
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Translator Speech wordt voortdurend uitgebreid voor de lijst met talen die worden ondersteund door de services. Gebruik deze API voor het detecteren van de reeks talen die momenteel beschikbaar voor gebruik met de Translator Speech-service.
 
-Voorbeelden van code aan te tonen gebruik van de API om op te halen van de beschikbare talen zijn beschikbaar via de [Microsoft Translator Github-site](https://github.com/MicrosoftTranslator).
+Voorbeelden van code aan te tonen gebruik van de API om op te halen van de beschikbare talen zijn beschikbaar via de [Microsoft Translator GitHub-site](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Opmerkingen bij de implementatie
 
@@ -33,9 +33,9 @@ Een groot aanbod van talen is beschikbaar voor spraak, de getranscribeerde tekst
 
 Een client gebruikt de `scope` queryparameter om te definiëren welke sets met talen die het is geïnteresseerd in.
 
-* **Spraak-naar-tekst:** gebruiken queryparameter `scope=speech` om de set beschikbare spraak naar tekst te transcriberen talen te halen.
-* **Tekstomzetting:** gebruiken queryparameter `scope=text` om op te halen van de set met talen die beschikbaar zijn voor de omzetting van getranscribeerde tekst.
-* **Tekst naar spraak:** gebruiken queryparameter `scope=tts` om op te halen van de reeks talen en stemmen beschikbaar om na te bootsen vertaalde tekst naar spraak.
+* **Spraak-naar-tekst:** Gebruik van de queryparameter `scope=speech` om de set beschikbare spraak naar tekst te transcriberen talen te halen.
+* **Vertalen van tekst:** Gebruik van de queryparameter `scope=text` om op te halen van de set met talen die beschikbaar zijn voor de omzetting van getranscribeerde tekst.
+* **Tekst naar spraak:**  Gebruik van de queryparameter `scope=tts` om op te halen van de reeks talen en stemmen beschikbaar om na te bootsen vertaalde tekst naar spraak.
 
 Een client kan meerdere sets tegelijk ophalen door een door komma's gescheiden lijst met opties op te geven. Bijvoorbeeld `scope=speech,text,tts`.
 
@@ -63,8 +63,8 @@ De waarde die is opgegeven met elke eigenschap is als volgt.
 
 De waarde die is gekoppeld met de spraak-naar-tekst-eigenschap, `speech`, is een dictionary van (sleutel, waarde) paren. Elke sleutel identificeert een taal die wordt ondersteund voor spraak-naar-tekst. De sleutel is de id die client wordt doorgegeven aan de API. De waarde die is gekoppeld aan de sleutel is een object met de volgende eigenschappen:
 
-* `name`: De weergavenaam van de taal.
-* `language`: Taalcode van de bijbehorende taal geschreven. Zie 'Tekst line transactie' hieronder.
+* `name`: Weergavenaam van de taal.
+* `language`: De taalcode van de bijbehorende taal geschreven. Zie 'Tekst line transactie' hieronder.
 Er is een voorbeeld:
 
 ```
@@ -79,7 +79,7 @@ Er is een voorbeeld:
 
 De waarde die is gekoppeld aan de `text` eigenschap is ook een woordenlijst waar elke sleutel een taal voor tekstvertaling wordt ondersteund identificeert. De waarde die is gekoppeld aan de sleutel worden beschreven van de taal:
 
-* `name`: De weergavenaam van de taal.
+* `name`: Weergavenaam van de taal.
 * `dir`: Richting is `rtl` voor talen van rechts naar links of `ltr` voor talen van links naar rechts.
 
 Er is een voorbeeld:
@@ -96,12 +96,12 @@ Er is een voorbeeld:
 
 De waarde die is gekoppeld aan de Text to Speech eigenschap tts, is ook een woordenlijst waar elke sleutel een ondersteunde stem identificeert. Kenmerken van een stem-object zijn:
 
-* `displayName`: De weergavenaam voor de stem.
+* `displayName`: Weergavenaam voor de stem.
 * `gender`: Het geslacht van de stem (mannelijke of vrouwelijke).
-* `locale`: Taalcode van de stem met subcode van de primaire taal en regio subcode.
-* `language`: Taalcode van de bijbehorende taal geschreven.
-* `languageName`: De weergavenaam van de taal.
-* `regionName`: De naam van de regio voor deze taal weergegeven.
+* `locale`: De taalcode van de stem met subcode van de primaire taal en regio subcode.
+* `language`: De taalcode van de bijbehorende taal geschreven.
+* `languageName`: Weergavenaam van de taal.
+* `regionName`: De weergavenaam van de regio voor deze taal.
 
 Er is een voorbeeld:
 
@@ -131,18 +131,18 @@ Langagues {spraak (object, optioneel), tekst (object, optioneel), tts (object, o
 
 ### <a name="headers"></a>Headers
 
-|Header|Beschrijving|Type|
+|Header|Description|Type|
 :--|:--|:--|
-X-RequestId|Waarde die worden gegenereerd door de server voor het identificeren van de aanvraag en gebruikt voor het oplossen van problemen.|tekenreeks|
+X-RequestId|Waarde die worden gegenereerd door de server voor het identificeren van de aanvraag en gebruikt voor het oplossen van problemen.|string|
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|
-|API-versie    |De versie van de API die is aangevraagd door de client. Toegestane waarden zijn: `1.0`.|query|tekenreeks|
-|scope  |Sets met ondersteunde talen of stemmen om terug te keren naar de client. Deze parameter is opgegeven als een door komma's gescheiden lijst met trefwoorden. De volgende trefwoorden zijn beschikbaar:<ul><li>`speech`: Bevat de set met talen die worden ondersteund voor spraak transcriberen.</li><li>`tts`: Bevat het aantal stemmen ondersteund voor conversie van tekst-spraak.</li><li>`text`: Bevat de set met talen die worden ondersteund voor het omzetten van tekst.</li></ul>Als een waarde niet opgegeven is, de waarde van `scope` standaard ingesteld op `text`.|query|tekenreeks|
-|X-ClientTraceId    |Een client gegenereerde GUID gebruikt voor het traceren van een aanvraag. Om te kunnen oplossen van problemen met, moeten clients voorzien van elke aanvraag een nieuwe waarde en aangemeld.|koptekst|tekenreeks|
-|Accepteer taal    |Enkele van de velden in het antwoord zijn namen van talen of regio's. Gebruik deze parameter voor het definiëren van de taal waarin de namen worden geretourneerd. De taal die is opgegeven door op te geven van een opgemaakte BCP-47-taalcode. Selecteer een label in de lijst van taal-id's die zijn geretourneerd met de `text` bereik. Voor niet-ondersteunde talen vindt u de namen in het Engels.<br/>Gebruik bijvoorbeeld de waarde `fr` aan te vragen van namen in het Frans of gebruikt u de waarde `zh-Hant` naar namen van de aanvraag in een traditioneel Chinees.|koptekst|tekenreeks|
+|API-versie    |De versie van de API die is aangevraagd door de client. Toegestane waarden zijn: `1.0`.|query|string|
+|scope  |Sets met ondersteunde talen of stemmen om terug te keren naar de client. Deze parameter is opgegeven als een door komma's gescheiden lijst met trefwoorden. De volgende trefwoorden zijn beschikbaar:<ul><li>`speech`: Biedt de talen die worden ondersteund voor spraak transcriberen.</li><li>`tts`: Biedt de stemmen voor tekst-speech conversie wordt ondersteund.</li><li>`text`: Biedt de talen die worden ondersteund voor het omzetten van tekst.</li></ul>Als een waarde niet opgegeven is, de waarde van `scope` standaard ingesteld op `text`.|query|string|
+|X-ClientTraceId    |Een client gegenereerde GUID gebruikt voor het traceren van een aanvraag. Om te kunnen oplossen van problemen met, moeten clients voorzien van elke aanvraag een nieuwe waarde en aangemeld.|koptekst|string|
+|Accepteer taal    |Enkele van de velden in het antwoord zijn namen van talen of regio's. Gebruik deze parameter voor het definiëren van de taal waarin de namen worden geretourneerd. De taal die is opgegeven door op te geven van een opgemaakte BCP-47-taalcode. Selecteer een label in de lijst van taal-id's die zijn geretourneerd met de `text` bereik. Voor niet-ondersteunde talen vindt u de namen in het Engels.<br/>Gebruik bijvoorbeeld de waarde `fr` aan te vragen van namen in het Frans of gebruikt u de waarde `zh-Hant` naar namen van de aanvraag in een traditioneel Chinees.|koptekst|string|
     
 ### <a name="response-messages"></a>Berichten met reacties
 

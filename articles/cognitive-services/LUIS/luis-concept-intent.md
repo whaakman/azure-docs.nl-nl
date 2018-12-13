@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: b3285e242b88f2bdc07390db49a1fe582a5c7f09
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a6343d9bd2009ee2c16f0cca3118e5653faa4c07
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075559"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138684"
 ---
-# <a name="intents-in-luis"></a>Intents in LUIS
+# <a name="concepts-about-intents-in-your-luis-app"></a>Concepten over intents in uw LUIS-app
 
 Een doel vertegenwoordigt een taak of actie de gebruiker wil om uit te voeren. Het is een doel of het doel, uitgedrukt in van een gebruiker [utterance](luis-concept-utterance.md).
 

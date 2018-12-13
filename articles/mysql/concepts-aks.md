@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 11/28/2018
-ms.openlocfilehash: 54deae9fcf9fdc786aa917bae518a2177a7acaff
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: baba85aeb800dd8effe3be295b2149179604b41d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500313"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164837"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Maak verbinding van Azure Kubernetes Service en Azure Database voor MySQL
 
@@ -39,7 +39,7 @@ U kunt controleren of uw AKS-cluster netwerken versnelde:
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker voor Azure 
 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) kunt u Azure-services rechtstreeks via Kubernetes of Cloud Foundry inrichten. Het is een [Open Service Broker API](https://www.openservicebrokerapi.org/) implementatie voor Azure.
 
-U kunt met OSBA, een Azure Database for MySQL-server maken en koppelen aan uw AKS-cluster met behulp van Kubernetes de eigen taal. Meer informatie over het gebruik van OSBA en Azure Database for MySQL samen op de [OSBA Github-pagina](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
+U kunt met OSBA, een Azure Database for MySQL-server maken en koppelen aan uw AKS-cluster met behulp van Kubernetes de eigen taal. Meer informatie over het gebruik van OSBA en Azure Database for MySQL samen op de [OSBA GitHub-pagina](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
 
 
 

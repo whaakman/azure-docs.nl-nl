@@ -12,38 +12,38 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 27108d27ee27346e4cba44e6778faff56df70a36
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 455b2a70568566bff5b1ea4c185568a1758f7db3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495125"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274901"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Voer container gerelateerde opdrachten op een clusterknooppunt.
 
 ## <a name="commands"></a>Opdrachten
 
-|Opdracht|Beschrijving|
+|Opdracht|Description|
 | --- | --- |
-| api's aanroepen | Container REST-API aanroepen. |
-| logboeken | Bij het ophalen van Logboeken voor containers. |
+| api's aanroepen | Container-API voor een container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket worden aangeroepen. |
+| logboeken | Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket. |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl aanroepen container-api
-Container REST-API aanroepen.
+Container-API voor een container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket worden aangeroepen.
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | Toepassings-id. |
-| --code-pakket-exemplaar-id (vereist) | Pakket exemplaar-ID, die kan worden opgehaald door 'code-pakket-lijst van de service'-code. |
-| --code-pakket-naam (vereist) | Naam van de code-pakket. |
+| --aanvraag-id (vereist) | De identiteit van de toepassing. <br><br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
+| --code-pakket-exemplaar-id (vereist) | De ID die een code-pakket-exemplaar geïmplementeerd op een service fabric-knooppunt wordt aangeduid. <br><br> Kan worden opgehaald door 'code-pakket-lijst van de service'. |
+| --code-pakket-naam (vereist) | De naam van het codepakket opgegeven in het servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --container-api-uri-pad (vereist) | Container REST API-URI-pad, gebruik {id} in plaats van de naam /-id van de container. |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-manifest-naam (vereist) | Naam van de manifest van de service. |
+| --service-manifest-naam (vereist) | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --container-api-instantie | Hoofdtekst van de HTTP-aanvraag voor de container met REST-API. |
 | --container-api-content-type | Inhoudstype voor de container met REST-API standaard ingesteld op 'application/json'. |
 | --container-api-http-term | HTTP-term voor de container met REST-API standaard GET. |
@@ -51,7 +51,7 @@ Container REST-API aanroepen.
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -60,23 +60,23 @@ Container REST-API aanroepen.
 | --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
 
 ## <a name="sfctl-container-logs"></a>de containerlogboeken sfctl
-Bij het ophalen van Logboeken voor containers.
+Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket.
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | Toepassings-id. |
+| --aanvraag-id (vereist) | De identiteit van de toepassing. <br><br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
 | --code-pakket-exemplaar-id (vereist) | Pakket exemplaar-ID, die kan worden opgehaald door 'code-pakket-lijst van de service'-code. |
-| --code-pakket-naam (vereist) | Naam van de code-pakket. |
+| --code-pakket-naam (vereist) | De naam van het codepakket opgegeven in het servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
 | --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-manifest-naam (vereist) | Naam van de manifest van de service. |
-| --staart | Retourneert dit getal log regels alleen vanaf het einde van de logboeken. Als een geheel getal of alle voor de uitvoer van alle logboek-regels opgeven. Standaard ingesteld op 'alle'. |
+| --service-manifest-naam (vereist) | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
+| --staart | Het aantal regels om weer te geven vanaf het einde van de logboeken. De standaardwaarde is 100. 'alle' om weer te geven van de volledige Logboeken. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |

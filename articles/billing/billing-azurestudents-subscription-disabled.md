@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: cwatson
 ROBOTS: NOINDEX
-ms.openlocfilehash: c8d78d51425ea5a5fc2f3b326710b3c2ad5a6a06
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0e4c7ca6776e2016bf0d34d856c4c2332a0bece0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581833"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250447"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Waarom is mijn Azure for Students-abonnement is uitgeschakeld en hoe ik het opnieuw activeren?
 
 Uw Azure for Students-abonnement kan uitgeschakeld omdat u al uw tegoed hebt gebruikt, uw tegoed is verlopen of u uw abonnement per ongeluk hebt geannuleerd. Zie welke probleem geldt voor u en ontdek hoe u uw abonnement opnieuw geactiveerd kan ontvangen.
 
-## <a name="you-have-used-all-of-your-credit"></a>U hebt al uw tegoed gebruikt
+## <a name="youve-used-all-of-your-credit"></a>U hebt al uw tegoed gebruikt
 
-Azure for Students-account biedt u $100 tegoed en een beperkte hoeveelheid van gratis services voor 12 maanden. Gebruik de gratis services en aantallen die niet wordt afgetrokken van uw tegoed. Zodra uw tegoed verloopt, schakelt Azure uw services en -abonnement. Om door te gaan met Azure-services, moet u uw abonnement upgraden naar een abonnement op gebruiksbasis contact opnemen met de [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , waardoor u uw creditcardgegevens. Na de upgrade, wordt uw abonnement nog steeds toegang tot gratis services gedurende 12 maanden vanaf de datum van uw aanmelding heeft. U alleen in rekening gebracht voor gebruik buiten de gratis services en aantallen.
+Azure for Students-account biedt u $100 tegoed en een beperkte hoeveelheid van gratis services voor 12 maanden. Gebruik de gratis services en aantallen die niet wordt afgetrokken van uw tegoed. Zodra uw tegoed verloopt, schakelt Azure uw services en -abonnement. Om door te gaan met Azure-services, moet u uw abonnement upgraden naar een abonnement op gebruiksbasis contact opnemen met de [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Na de upgrade, wordt uw abonnement nog steeds toegang tot gratis services gedurende 12 maanden vanaf de datum van uw aanmelding heeft. U alleen in rekening gebracht voor gebruik buiten de gratis services en aantallen.
 
 U kunt het resterende tegoed controleren op de [Microsoft Azure Sponsorships-portal](https://www.microsoftazuresponsorships.com/balance)
 
@@ -43,17 +43,15 @@ U kunt het resterende tegoed controleren op de [Microsoft Azure Sponsorships-por
 
 De tabel bevat de volgende kolommen:
 
-* **Servicenaam:** Service die uw Azure-tegoed is verbruikt.
-* **Serviceresource:** maateenheid voor de service die wordt verbruikt.
-* **Uitgaven:** kredietbedrag in USD($) die wordt besteed aan de service.
-
+* **Servicenaam:** De service die uw Azure-tegoed is verbruikt.
+* **Bron van de service:** Maateenheid voor de service die wordt verbruikt.
+* **Uitgaven:** Hoeveelheid tegoed in USD($) die wordt besteed aan de service.
 
 ## <a name="your-credit-has-expired"></a>Uw tegoed is verlopen
 
-Uw Azure for Students-tegoed verloopt aan het einde van 12 maanden. Zodra uw tegoed is verlopen, wordt uw abonnement uitgeschakeld in Azure. Om door te gaan met Azure-services, moet u uw abonnement upgraden naar een betalen per gebruik-abonnement contact opnemen met de [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , waardoor u uw creditcardgegevens. Na de upgrade, wordt Azure rekent u betalen per gebruik-tarieven voor alle services die u gebruikt.
+Uw Azure for Students-tegoed verloopt aan het einde van 12 maanden. Zodra uw tegoed is verlopen, wordt uw abonnement uitgeschakeld in Azure. Om door te gaan met Azure-services, moet u uw abonnement upgraden naar een betalen per gebruik-abonnement contact opnemen met de [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Na de upgrade, wordt Azure rekent u betalen per gebruik-tarieven voor alle services die u gebruikt.
 
-
-## <a name="you-have-accidentally-canceled-your-subscription"></a>U hebt uw abonnement per ongeluk geannuleerd
+## <a name="youve-accidentally-canceled-your-subscription"></a>U hebt uw abonnement per ongeluk geannuleerd
 
 Als u uw Azure for Students-abonnement per ongeluk hebt geannuleerd, kunt u deze activeren door contact op met [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Nadat u opnieuw wilt activeren, hebt u nog steeds toegang tot de resterende tegoed en gratis services voor 12 maanden na uw registratie.
 

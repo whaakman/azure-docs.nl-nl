@@ -1,7 +1,7 @@
 ---
 title: Voorbeelden van utterances toevoegen
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Informatie over het toevoegen van uitingen in Language Understanding (LUIS)-toepassingen.
+description: Voorbeeld uitingen zijn voorbeelden van de tekst van de gebruiker vragen of opdrachten. Als u wilt leren Language Understanding (LUIS), moet u voorbeeld utterances toevoegen aan een doel.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: ada1d7e922bdd47cfc9fe8139ad83adfa45ed073
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 33c941f84952faca1961bb65687b4098b837a2fd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085512"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139163"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Een entiteit toevoegen aan de voorbeeld-uitingen 
 
@@ -90,7 +90,7 @@ De naam van de werknemer, John Smith, is een vooraf gedefinieerde [personName](l
 
 1. Voer de naam van de samengestelde entiteit in de vervolgkeuzelijst.
 
-    ![Schermafbeelding van het invoeren van de naam van de entiteit](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
+    ![Schermafbeelding van de samengestelde entiteit invoeren in de vervolgkeuzelijst](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Wanneer u de entiteiten correct inpakt, is er een groene lijn onder de volledige woordgroep.
 
@@ -118,7 +118,7 @@ In de utterance `Move John Smith from Seattle to Cairo`, Seattle, is de verzendi
 
 1. Het woord in de utterance is gelabeld met de bovenliggende hiërarchische entiteit. U moet het woord toewijzen aan een onderliggende entiteit. Ga terug naar de utterance op de detailpagina van de intentie. Selecteert u het woord en kies de naam van de entiteit die u hebt gemaakt in de vervolgkeuzelijst en volgt u het menu aan de rechterkant de juiste onderliggende entiteit kiezen.
 
-    ![Schermafbeelding van de intenties pagina, met ToLocation entiteit is gemarkeerd](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+    ![Schermafbeelding van de intenties detailpagina, waar u moet het woord toewijzen aan een onderliggende entiteit](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Namen van de onderliggende entiteiten moeten uniek zijn in alle entiteiten in een enkele app. Twee entiteiten met verschillende hiërarchische mag geen onderliggende entiteiten met dezelfde naam bevatten. 
@@ -135,7 +135,7 @@ Selecteer de woorden die zijn onderstreept in rood in de utterance.
 
 Het van de entiteit wordt weergegeven de **entiteit status** met een rood uitroepteken als er een discrepantie voorspelling. De status van de entiteit met informatie over het verschil tussen entiteiten met het label en voorspelde Selecteer **entiteit status** Selecteer vervolgens het item aan de rechterkant.
 
-![Schermafbeelding van de entiteit status voorspelling discrepantie](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Schermafbeelding van het juiste artikel om op te lossen voorspelling discrepantie selecteren](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 De rode-regel kan worden weergegeven op een van de volgende tijden:
 

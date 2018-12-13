@@ -6,19 +6,20 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 11/27/2018
-ms.openlocfilehash: b3e2beb0245fa790dc60cf742d6ad8938de187f4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/12/2018
+ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832578"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314394"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
-De installatie van mobiliteitsservice is een belangrijke stap tijdens replicatie inschakelen. Het succes van deze stap is afhankelijk van uitsluitend op voldoen aan de vereisten van en werken met ondersteunde configuraties. De meest voorkomende fouten die u tijdens de installatie van Mobility service te maken krijgt zijn vanwege
+De installatie van mobiliteitsservice is een belangrijke stap tijdens replicatie inschakelen. Het succes van deze stap is afhankelijk van uitsluitend op voldoen aan de vereisten van en werken met ondersteunde configuraties. De meest voorkomende fouten die u tijdens de installatie van Mobility service te maken krijgt zijn vanwege:
 
 * Referentie/bevoegdheden fouten
+* Aanmeldingsfouten
 * Fouten in de basisnetwerkverbinding
 * Niet-ondersteunde besturingssystemen
 * VSS-installatiefouten
@@ -28,23 +29,63 @@ Wanneer u replicatie inschakelt, installeren probeert om Azure Site Recovery mob
 ## <a name="credentials-check-errorid-95107--95108"></a>Controleer de referenties (Aanroepstatus: 95107 & 95108)
 
 * Controleer of het gebruikersaccount dat is gekozen tijdens replicatie inschakelen is **geldig, nauwkeurige**.
-* Azure Site Recovery vereist **administrator-bevoegdheden** om uit te voeren van push-installatie.
-  * Voor Windows, controleert u of als het gebruikersaccount beheerderstoegang heeft lokaal of domein, op de bronmachine.
+* Azure Site Recovery vereist **hoofdmap** -account of gebruikersaccount met **administrator-bevoegdheden** om uit te voeren van push-installatie. Anders wordt push-installatie op de bronmachine wordt geblokkeerd.
+  * Voor Windows (**fout 95107**), Controleer of als het gebruikersaccount beheerderstoegang heeft lokaal of domein, op de bronmachine.
   * Als u niet een domeinaccount gebruikt, moet u toegangsbeheer voor externe gebruikers op de lokale computer uitschakelen.
-    * Schakel externe gebruiker Access control, onder HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registersleutel een nieuwe DWORD toevoegen: LocalAccountTokenFilterPolicy. Stel de waarde in op 1. Voor het uitvoeren van deze stap, voer de volgende opdracht vanaf de opdrachtprompt:
+    * Voeg een nieuwe DWORD om uit te schakelen van de externe gebruiker Access control, onder HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registersleutel: LocalAccountTokenFilterPolicy. Stel de waarde in op 1. Voor het uitvoeren van deze stap, voer de volgende opdracht vanaf de opdrachtprompt:
 
          `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
-  * Voor Linux, moet u het root-account voor de installatie van de mobility-agent.
+  * Voor Linux (**fout 95108**), moet u het root-account voor de installatie van de mobility-agent. Bovendien de SFTP-services moeten worden uitgevoerd. SFTP-subsysteem en wachtwoordverificatie verificatie in het bestand sshd_config inschakelen:
+    1. Meld u aan als hoofdgebruiker.
+    2. Ga naar /etc/ssh/sshd_config, zoek de regel die met PasswordAuthentication begint.
+    3. Verwijder opmerkingen bij de regel en wijzig de waarde op Ja.
+    4. Zoek de regel die met het subsysteem begint en verwijder opmerkingen bij de regel.
+    5. Start de service sshd.
 
 Als u wijzigen van de referenties van de gekozen gebruikersaccount wilt, volgt u de instructies [hier](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="connectivity-check-errorid-95117--97118"></a>**Controle van gatewayconnectiviteit (Aanroepstatus: 95117 & 97118)**
+## <a name="insufficient-privileges-failure-errorid-95517"></a>Fout bij onvoldoende bevoegdheden (Aanroepstatus: 95517)
+
+Wanneer de gebruiker gekozen voor het installeren van de mobility-agent geen administrator-bevoegdheden heeft, wordt Configuration server/uitbreidbare processerver niet toegestaan om te kopiëren van de mobility-agentsoftware naar de bronmachine. Deze fout is dus een resultaat van de toegang is geweigerd fout. Zorg ervoor dat het gebruikersaccount beheerdersbevoegdheden heeft.
+
+Als u wijzigen van de referenties van de gekozen gebruikersaccount wilt, volgt u de instructies [hier](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+## <a name="insufficient-privileges-failure-errorid-95518"></a>Fout bij onvoldoende bevoegdheden (Aanroepstatus: 95518)
+
+Wanneer domein vertrouwensrelatie relatie tot stand brengen tussen het primaire domein en -werkstation is mislukt tijdens het aanmelden bij de bron-VM, mislukt de installatie van de mobility-agent met de fout-id 95518. Dus zorg ervoor dat het gebruikersaccount dat wordt gebruikt voor het installeren van de mobility-agent administratorbevoegdheden om aan te melden via de primaire domeincontroller van de bronmachine.
+
+Als u wijzigen van de referenties van de gekozen gebruikersaccount wilt, volgt u de instructies [hier](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+## <a name="login-failure-errorid-95519"></a>Aanmelden mislukt (Aanroepstatus: 95519)
+
+Het gebruikersaccount dat is gekozen tijdens replicatie inschakelen is uitgeschakeld. Raadpleeg het artikel zodat het gebruikersaccount dat [hier](https://aka.ms/enable_login_user) of Voer de volgende opdracht te vervangen tekst *gebruikersnaam* met de naam van de werkelijke gebruiker.
+`net user 'username' /active:yes`
+
+## <a name="login-failure-errorid-95520"></a>Aanmelden mislukt (Aanroepstatus: 95520)
+
+Meerdere mislukte opnieuw proberen inspanningen voor toegang tot een virtuele machine, wordt het gebruikersaccount vergrendeld. De fout kan worden veroorzaakt door:
+
+* Tijdens de installatie van de configuratie van opgegeven referenties onjuist zijn of
+* Het gebruikersaccount dat is gekozen tijdens replicatie inschakelen is onjuist
+
+De referenties die is gekozen door de instructies te volgen, te wijzigen [hier](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) en voer de bewerking na enige tijd opnieuw uit.
+
+## <a name="login-failure-errorid-95521"></a>Aanmelden mislukt (Aanroepstatus: 95521)
+
+Deze fout treedt op wanneer de aanmeldingsservers niet beschikbaar op de bronmachine zijn. Geen aanmeldingsservers beschikbaar zijn zal leiden tot het mislukken van de aanmeldingsaanvraag en dus de mobility-agent kan niet worden geïnstalleerd. Zorg ervoor dat aanmeldingsservers beschikbaar op de broncomputer zijn en de Logon-service starten voor een geslaagde aanmelding. Klik voor gedetailleerde instructies [hier](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
+
+## <a name="login-failure-errorid-95522"></a>Aanmelden mislukt (Aanroepstatus: 95522)
+
+De aanmeldings-service niet wordt uitgevoerd op de bronmachine en fout van aanmeldingsaanvraag heeft veroorzaakt. Dus de mobility-agent kan niet worden geïnstalleerd. Zorg ervoor dat Logon-service wordt uitgevoerd op de broncomputer voor een geslaagde aanmelding om op te lossen. De logon-service wilt starten, voer de opdracht 'net start aanmelding' vanaf de opdrachtprompt of 'NetLogon'-service starten van Taakbeheer.
+
+## <a name="connectivity-failure-errorid-95117--97118"></a>**Verbindingsfout (Aanroepstatus: 95117 & 97118)**
+
+Configuratieserver / uitbreidbare processerver probeert verbinding maken met de bron-VM voor het installeren van de Mobility-agent. Deze fout treedt op wanneer de bronmachine is niet bereikbaar vanwege problemen met de netwerkverbinding. Om op te lossen,
 
 * Zorg ervoor dat u bent uw bron-VM vanaf de configuratieserver te pingen. Als u uitbreidbare processerver hebt gekozen tijdens replicatie inschakelen, controleert u of dat u bent uw bron-VM vanaf de processerver te pingen.
   * Vanaf de opdrachtregel van de bronserver machine, kunt u Telnet gebruiken om te pingen van de configuratieserver / uitbreidbare processerver met https-poort (135), zoals hieronder wordt weergegeven om te zien of er problemen met de netwerkverbinding of de firewall port blokkerende problemen zijn.
 
      `telnet <CS/ scale-out PS IP address> <135>`
-  * Controleer de status van service **InMage Scout VX Agent-Sentinel/Outpost**. Start de service, als deze niet wordt uitgevoerd.
 * Bovendien kunt u voor **virtuele Linux-machine**,
   * Controleer of de meest recente openssh, openssh-server en openssl-pakketten zijn geïnstalleerd.
   * Controleer en zorg ervoor dat de Secure Shell (SSH) is ingeschakeld en wordt uitgevoerd op poort 22.
@@ -57,9 +98,13 @@ Als u wijzigen van de referenties van de gekozen gebruikersaccount wilt, volgt u
 * Een poging om verbinding te kan zijn mislukt of er is geen juiste reactie na een bepaalde periode, tot stand gebrachte verbinding is mislukt omdat de verbonden host niet heeft gereageerd.
 * Het is mogelijk een connectiviteit/netwerk/domein probleem. Het kan ook voorkomen vanwege DNS-naam van het probleem of TCP-poort uitputting probleem oplossen. Controleer of er dergelijke bekende problemen in uw domein zijn.
 
+## <a name="connectivity-failure-errorid-95523"></a>Verbindingsfout (Aanroepstatus: 95523)
+
+Deze fout treedt op wanneer het netwerk waarin de bronmachine zich bevindt, is niet gevonden of is mogelijk verwijderd of niet meer beschikbaar is. Er is de enige manier om de fout oplossen door ervoor te zorgen dat het netwerk bestaat.
+
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Bestands- en printerdeling services selectievakje (Aanroepstatus: 95105 & 95106)
 
-Nadat de connectiviteitscontrole, controleren of bestands- en printerdeling sharing-service is ingeschakeld op uw virtuele machine.
+Nadat de connectiviteitscontrole, controleren of bestands- en printerdeling sharing-service is ingeschakeld op uw virtuele machine. Deze instellingen zijn vereist voor het kopiëren van de Mobility-agent op de bronmachine.
 
 Voor **windows 2008 R2 en eerdere versies**,
 
@@ -68,16 +113,16 @@ Voor **windows 2008 R2 en eerdere versies**,
   * Zoek de regels voor bestands- en printerdeling (NB-Session-In) en -bestand en printerdeling (SMB-In). Voor elke regel met de rechtermuisknop op de regel en klik vervolgens op **regel inschakelen**.
 * Om in te schakelen met Groepsbeleid, het delen van bestanden
   * Ga naar Start, typ gpmc.msc en zoeken.
-  * Open in het navigatiedeelvenster van de volgende mappen: beleid voor lokale Computer, Gebruikersconfiguratie Beheersjablonen, Windows-onderdelen en netwerk delen.
+  * Open de volgende mappen in het navigatiedeelvenster: Beleid voor lokale Computer, Gebruikersconfiguratie Beheersjablonen, Windows-onderdelen en netwerk delen.
   * Dubbelklik in het deelvenster met details op **te voorkomen dat gebruikers in het delen van bestanden in hun profiel**. Als u de instelling voor Groepsbeleid uitschakelen en inschakelen van de gebruiker de mogelijkheid om bestanden te delen, klikt u op uitgeschakeld. Klik op OK om uw wijzigingen hebt opgeslagen. Voor meer informatie, klikt u op [hier](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
 Voor **hoger**, volg de instructies [hier](vmware-azure-install-mobility-service.md) om in te schakelen van bestands- en printerdeling.
 
-## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Windows Management Instrumentation (WMI)-configuratiecontrole
+## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>Windows Management Instrumentation (WMI)-configuratiecontrole (foutcode: 95103)
 
-Nadat de bestands- en printerdeling services controleren, schakelt u WMI-service via de firewall.
+Nadat de bestands- en printerdeling services controleren, schakelt u WMI-service voor privé-, openbare- en -profielen via firewall. Deze instellingen zijn vereist om uit te voeren van uitvoering op afstand op de bronmachine. Om in te schakelen,
 
-* In het Configuratiescherm, klik op beveiliging en klik vervolgens op Windows Firewall.
+* Ga naar het Configuratiescherm, klik op beveiliging en klik op Windows Firewall.
 * Klik op instellingen wijzigen en klik vervolgens op het tabblad Uitzonderingen.
 * Schakel het selectievakje voor Windows Management Instrumentation (WMI) WMI-verkeer via de firewall inschakelen in het venster uitzonderingen. 
 
@@ -93,6 +138,24 @@ Andere artikelen over probleemoplossing van WMI kunnen worden gevonden op de vol
 Een andere meest voorkomende reden voor mislukken kan worden veroorzaakt door niet-ondersteund besturingssysteem. Zorg ervoor dat u gebruikmaakt van de ondersteunde versie van het besturingssysteem/Kernel voor geslaagde installatie van de Mobility-service.
 
 Raadpleeg voor meer informatie over welke besturingssystemen worden ondersteund door Azure Site Recovery, onze [matrix ondersteuningsdocument](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Opstart- en systeempartities / -volumes zijn niet dezelfde schijf (Aanroepstatus: 95309)
+
+Voordat u 9.20 versie, opstart- en systeempartities / volumes op verschillende schijven is een niet-ondersteunde configuratie. Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), deze configuratie wordt ondersteund. Gebruik de meest recente versie voor deze ondersteuning.
+
+## <a name="system-partition-on-multiple-disks-errorid-95313"></a>De systeempartitie op meerdere schijven (Aanroepstatus: 95313)
+
+Is een niet-ondersteunde configuratie voor 9.20 versie root partitie of het volume dat is verspreid over meerdere schijven. Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), deze configuratie wordt ondersteund. Gebruik de meest recente versie voor deze ondersteuning.
+
+## <a name="lvm-support-from-920-version"></a>LVM-ondersteuning van 9.20 versie
+
+LVM is vóór 9.20 versie ondersteund voor gegevensschijven alleen. bevinden moet zich op een partitie op schijf en niet een LVM-volume.
+
+Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), [besturingssysteemschijf op LVM](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) wordt ondersteund. Gebruik de meest recente versie voor deze ondersteuning.
+
+## <a name="insufficient-space-errorid-95524"></a>Er is onvoldoende ruimte (Aanroepstatus: 95524)
+
+Wanneer de Mobility-agent is gekopieerd naar de bron-VM, is ten minste 100 MB vrije ruimte is vereist. Dus zorg ervoor dat uw bronmachine vrije ruimte is vereist en probeer het opnieuw.
 
 ## <a name="vss-installation-failures"></a>Installatie van de VSS-fouten
 

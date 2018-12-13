@@ -2,8 +2,8 @@
 title: Azure Machine Learning Modelbeheer web service-verbruik | Microsoft Docs
 description: Dit document beschrijft de stappen en concepten die betrokken zijn bij het gebruik van webservices die zijn geïmplementeerd met behulp van Modelbeheer in Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbd36e5389208b21704f1749beee016e30cc4ec5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950618"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253847"
 ---
 # <a name="consuming-web-services"></a>Webservices gebruiken
 
@@ -60,7 +60,7 @@ Als u de sleutel voor de webservice, gebruikt u de volgende opdracht uit:
 ```
 az ml service keys realtime -i <web service id>
 ```
-Bij het maken van HTTP-aanvraag, gebruikt u de sleutel in de autorisatie-header: "Autorisatie": "Bearer <key>"
+Bij het maken van HTTP-aanvraag, gebruikt u de sleutel in de autorisatie-header: 'Autorisatie': "Bearer <key>"
 
 ## <a name="get-the-service-swagger-description"></a>De beschrijving van de Swagger service ophalen
 Als het schema van de service-API is opgegeven, het service-eindpunt beschikbaar zou maken van een Swagger-document op ```http://<ip>/api/v1/service/<service name>/swagger.json```. De Swagger-document kan worden gebruikt om automatisch genereren van de service-client en de verwachte invoer- en andere details over de service te verkennen.

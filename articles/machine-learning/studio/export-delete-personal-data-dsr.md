@@ -3,22 +3,21 @@ title: Exporteren en verwijderen van uw gegevens vanuit Machine Learning Studio 
 description: In het product gegevens die zijn opgeslagen door Azure Machine Learning Studio is beschikbaar voor exporteren en verwijderen via de Azure-portal en via geverifieerde REST-API's. Telemetriegegevens zijn toegankelijk via de Azure-Privacy-Portal. In dit artikel ziet u hoe u.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 04b26dc9ad9f4b7a4feb03039d92854385d75465
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e69883022937ccb4ad0f83f144afef0b5b1e0e56
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262364"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276255"
 ---
-# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>Exporteren en verwijderen van gebruikersgegevens in het product van Machine Learning Studio
+# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exporteren en verwijderen van gebruikersgegevens in het product van Azure Machine Learning Studio
 
 U kunt verwijderen of het exporteren van gegevens in het product die zijn opgeslagen door Azure Machine Learning Studio met behulp van Azure portal, de Studio-interface, PowerShell, en geverifieerde REST-API's. In dit artikel leest u hoe. 
 
@@ -33,8 +32,8 @@ Telemetriegegevens zijn toegankelijk via de Privacy van de Azure-portal.
 Voor deze service bevat gebruikersgegevens informatie over gebruikers die zijn gemachtigd voor toegang tot werkruimten en -records van de telemetrie van de interactie van gebruikers met de service.
 
 Er zijn twee soorten gebruikersgegevens in Machine Learning Studio:
-- **Persoonlijke gegevens:** Account-id en e-mailadressen die zijn gekoppeld aan een account.
-- **Gegevens van de klant:** u hebt geüpload voor het analyseren van gegevens.
+- **Gegevens van persoonlijk account:** Account-id's en e-mailadressen die zijn gekoppeld aan een account.
+- **Klantgegevens:** Gegevens die u hebt geüpload om te analyseren.
 
 ## <a name="studio-account-types-and-how-data-is-stored"></a>Studio-accounttypen en hoe gegevens worden opgeslagen
 
@@ -65,7 +64,7 @@ Gebruikers kunnen activa in een werkruimte verwijderen door ze te selecteren en 
 ### <a name="delete-an-entire-workspace"></a>Een volledige-werkruimte verwijderen
 
 Gebruikers kunnen ook hun hele werkruimte verwijderen:
-- Betaalde werkruimte: verwijderen via de Azure-portal.
+- Betaalde werkruimte: Verwijderen via de Azure-portal.
 - Gratis werkruimte: Gebruik de verwijderknop in de **instellingen** deelvenster.
 
 ![Verwijderen van een gratis werkruimte in Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)

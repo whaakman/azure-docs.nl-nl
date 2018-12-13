@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 12/4/2018
+ms.date: 12/10/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 4f4d30b483d0740261d85921d5dc66e053b5bcf0
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 5bea4c655e9a8970d8d0d946827cc3e46e7efa7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890956"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255156"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Opmerkingen bij de release voor de Azure File Sync-agent
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.
@@ -25,7 +25,8 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
 | Mijlpaal | Versienummer agent | Releasedatum | Status |
 |----|----------------------|--------------|------------------|
-| December updatepakket - [KB4459988](https://support.microsoft.com/help/4459988)| 4.1.0.0 | 4 december 2018 | Ondersteunde (aanbevolen versie) |
+| December updatepakket - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 december 2018 | Ondersteunde (aanbevolen versie) |
+| Updatepakket van december | 4.1.0.0 | 4 december 2018 | Ondersteund |
 | V4-Release | 4.0.1.0 | 13 november 2018 | Ondersteund |
 | September update rollup | 3.3.0.0 | 24 september 2018 | Ondersteund |
 | Updatepakket voor augustus | 3.2.0.0 | 15 augustus 2018 | Ondersteund |
@@ -44,13 +45,19 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 ### <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-4200"></a>Agentversie 4.2.0.0
+De volgende releaseopmerkingen zijn voor versie 4.2.0.0 van de Azure File Sync-agent die zijn uitgebracht 10 December 2018. Deze opmerkingen zijn naast de releaseopmerkingen voor versie 4.0.1.0.
+
+Lijst met problemen opgelost in deze release:  
+- Een fout stoppen 0x3B of de fout stoppen 0x1E kan optreden wanneer een VSS-momentopname wordt gemaakt.  
+- Een geheugenlek optreden wanneer cloud tiering is ingeschakeld  
+
 ## <a name="agent-version-4100"></a>Agentversie 4.1.0.0
 De volgende releaseopmerkingen zijn voor versie 4.1.0.0 van de Azure File Sync-agent die zijn uitgebracht 4 December 2018. Deze opmerkingen zijn naast de releaseopmerkingen voor versie 4.0.1.0.
 
 Lijst met problemen opgelost in deze release:  
-- Een fout stoppen 0x3B of de fout stoppen 0x1E kan optreden wanneer een VSS-momentopname wordt gemaakt.  
 - De server reageert vanwege een geheugenlek cloud-opslaglagen.  
-- Installatie van de agent is mislukt met de volgende fout: fout 1921. Service-opslag Sync-Agent' (FileSyncSvc) kan niet worden gestopt.  Controleer of u voldoende bevoegdheden voor het stoppen van systeemservices.  
+- De installatie van agent mislukt met de volgende fout: Fout bij het 1921. Service-opslag Sync-Agent' (FileSyncSvc) kan niet worden gestopt.  Controleer of u voldoende bevoegdheden voor het stoppen van systeemservices.  
 - De service opslag-Sync-Agent (FileSyncSvc) loopt vast bij het geheugengebruik hoog is.  
 - Verbeteringen van de diverse betrouwbaarheid voor cloud-opslaglagen en synchroniseren.
 
@@ -121,7 +128,7 @@ De volgende releaseopmerkingen zijn voor versie 3.3.0.0 van de Azure File Sync-a
 Lijst met problemen opgelost in deze release:
 - Status van de geregistreerde server is 'Wordt als offline weergegeven' nadat de Azure File Sync-agent is bijgewerkt naar versie 3.1 of 3.2.
 - Storage-Sync-Agent (FileSyncSvc) service vastloopt vanwege bestanden met lange paden.
-- Registratie van de server is mislukt met fout: kan bestand of de assembly Kailani.Afs.StorageSyncProtocol.V3 niet laden.
+- Registratie van de server is mislukt met fout: Kan bestand of de assembly Kailani.Afs.StorageSyncProtocol.V3 niet laden.
 
 ## <a name="agent-version-3200"></a>Agent-versie 3.2.0.0
 De volgende releaseopmerkingen zijn voor versie 3.2.0.0 van de Azure File Sync-agent die zijn uitgebracht 15 augustus 2018. Deze opmerkingen zijn naast de releaseopmerkingen voor versie 3.1.0.0.

@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 454f45b692a87dbd47ca1ca70880323912693839
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a1594d3dfe449049258e5ee12bc173c413459f8a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082693"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132871"
 ---
 # <a name="manage-versions"></a>Versies beheren
 
@@ -45,7 +45,7 @@ De lijst met versies laten zien welke versies worden gepubliceerd, waarin ze wor
 
 Selecteer een versie in de lijst en selecteer vervolgens **Maak actief** via de werkbalk. 
 
-[![Beheersectie, pagina-versies](./media/luis-how-to-manage-versions/versions-other.png "gedeelte beheren, pagina-versies")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Beheersectie, pagina-versies, maken een actie versie](./media/luis-how-to-manage-versions/versions-other.png "beheersectie, pagina-versies, een versie-actie maken")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Importversie
 
@@ -53,7 +53,7 @@ Selecteer een versie in de lijst en selecteer vervolgens **Maak actief** via de 
 
 2. In de **de nieuwe versie importeren** pop-upvenster, geef de nieuwe naam voor de versie van tien tekens. U hoeft in te stellen van een versie-ID als de versie in het JSON-bestand al in de app bestaat.
 
-    ![Sectie, pagina-versies beheren](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
+    ![Sectie, pagina-versies, nieuwe versie importeren beheren](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Nadat u een versie importeert, wordt de nieuwe versie de actieve versie.
 

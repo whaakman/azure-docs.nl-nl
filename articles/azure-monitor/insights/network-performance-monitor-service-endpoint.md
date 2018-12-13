@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 6a9bc347af471a2ab84cefc25bcd7f48f1d5908d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846042"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186205"
 ---
 # <a name="service-connectivity-monitor"></a>Bewaking van serviceverbinding
 
@@ -97,11 +95,11 @@ In de **Testknooppunten** weergeven, kunt u de netwerkverbinding van elk knooppu
 
 Bepalen of de prestaties slecht presteert vanwege een probleem aan het uiteinde van de provider van de toepassing of het netwerk met inachtneming van de correlatie tussen de reactietijd van de toepassing en de netwerklatentie. 
 
-* **Toepassingsprobleem:** een piek in de reactietijd, maar consistentie in de netwerklatentie kan erop wijzen dat het netwerk goed werkt en het probleem wordt mogelijk veroorzaakt door een probleem aan het einde van de toepassing. 
+* **Toepassingsprobleem met de:** Een piek in de reactietijd, maar consistentie in de netwerklatentie kan erop wijzen dat het netwerk goed werkt en het probleem wordt mogelijk veroorzaakt door een probleem aan het einde van de toepassing. 
 
     ![Connectiviteitsmonitor voor service-toepassingsprobleem](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
-* **Probleem met het netwerk:** een piek in de reactietijd, samen met een bijbehorende piek in de netwerklatentie kan erop wijzen dat de toename van reactietijden veroorzaakt door een toename van de netwerklatentie worden kan. 
+* **Netwerkprobleem:** Een piek in de reactietijd, samen met een bijbehorende piek in de netwerklatentie kan erop wijzen dat de toename van reactietijden veroorzaakt door een toename van de netwerklatentie worden kan. 
 
     ![Connectiviteitsmonitor voor service-netwerkprobleem](media/network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 

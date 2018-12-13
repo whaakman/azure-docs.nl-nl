@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 1508ccc151aaafd7e0c0b46345c4dcb1a5b7b03c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b6d3cbd56182b8dba3738f38798efa378c6b49d0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083662"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254823"
 ---
 # <a name="use-azure-machine-learning-services-in-a-notebook"></a>Azure Machine Learning-Services in een notitieblok gebruiken
 
@@ -28,7 +28,7 @@ Azure-notitieblokken afkomstig is vooraf geconfigureerd met de noodzakelijke omg
 
 1. Meld u aan bij [Azure notitieblokken](https://notebooks.azure.com/).
 1. Selecteer **Mijn projecten** om te navigeren naar het dashboard projecten.
-1. Selecteer de **GitHub-opslagplaats uploaden** (de pijl-omhoog) knop open de **Github-opslagplaats uploaden** pop-upvenster.
+1. Selecteer de **GitHub-opslagplaats uploaden** (de pijl-omhoog) knop open de **GitHub-opslagplaats uploaden** pop-upvenster.
 1. Voer in het pop-upvenster `Azure/MachineLearningNotebooks` in **GitHub-opslagplaats**, Geef een naam op voor het project in **projectnaam** bieden een id in, zoals 'Azure ML-Services, **Project-ID**, schakel **openbare** als u wilt, selecteert u **importeren**.
 
     ![Voorbeeld van Azure Machine Learning-Notebook in uw account notitieblokken importeren](media/azureml-import-project.png)
@@ -47,9 +47,9 @@ Azure-notitieblokken afkomstig is vooraf geconfigureerd met de noodzakelijke omg
 
 De documentatie van Azure Machine Learning-Services bevat tal van andere bronnen die u begeleiden bij het werken met Machine Learning-Service in notitieblokken:
 
-- [Snelstartgids: Gebruik Python aan de slag met Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Snelstartgids: Python gebruiken om aan de slag met Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
 - [Zelfstudie #1: Een model van de classificatie installatiekopie met de service Azure Machine Learning te trainen](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [Zelfstudie #2: Een classificeringsmodel installatiekopie in Azure Container exemplaar (ACI) implementeren](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Zelfstudie #2: Een afbeelding classificatie model in Azure Container exemplaar (ACI) implementeren](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
 - [Zelfstudie: Een classificatie model trainen met geautomatiseerde machine learning in Azure Machine Learning-service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 Zie ook de documentatie voor de [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

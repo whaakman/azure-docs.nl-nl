@@ -4,9 +4,8 @@ description: Leer hoe u gelijktijdigheid van een Azure Machine Learning Studio-w
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 keywords: Azure machine learning-webservices, uitoefening, schaal, eindpunt, gelijktijdigheid
 ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
@@ -17,14 +16,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.openlocfilehash: 3077afc99e7879b14c36e16cdbed8afb3a07bdb3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 736c27f5c8ad6efb2b4e36f44998ce06d7b69248
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312178"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256346"
 ---
-# <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Een Azure Machine Learning-webservice schalen door extra eindpunten toe te voegen
+# <a name="scaling-an-azure-machine-learning-studio-web-service-by-adding-additional-endpoints"></a>Een Azure Machine Learning Studio-webservice schalen door extra eindpunten toe te voegen
 > [!NOTE]
 > Dit onderwerp wordt beschreven technieken die van toepassing op een **klassieke** Machine Learning-webservice. 
 > 

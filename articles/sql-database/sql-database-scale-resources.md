@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: ede96607e14a43e85c3605e2d710c15ef0495c1f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 5e3c282c198b6a1290e724549a4af30119f9cb04
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868172"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251212"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dynamisch schalen database-resources met minimale downtime
 
@@ -36,7 +36,7 @@ U hoeft niet te hoeven maken over het aanschaffen van hardware en het wijzigen v
 Azure SQL Database biedt de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
 - De [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) biedt een combinatie van rekenkracht, geheugen en i/o-resources in drie Servicelagen voor lichte tot zware workloads van databases: Basic, Standard en Premium. Prestatieniveaus binnen elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
-- De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) kunt u het aantal vCores, het bedrag of geheugen, en de hoeveelheid en de snelheid van de opslag kiezen. Deze aankoopmodel biedt drie Servicelagen: algemeen gebruik, bedrijfskritiek en grootschalige (preview).
+- De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) kunt u het aantal vCores, het bedrag of geheugen, en de hoeveelheid en de snelheid van de opslag kiezen. Deze aankoopmodel biedt drie Servicelagen: Algemeen doel, bedrijfskritiek en grootschalige (preview).
 
 U kunt uw eerste app ontwikkelen op een kleine, één database tegen lage kosten per maand in de servicelaag Basic, Standard- of algemeen gebruik en wijzig vervolgens de servicelaag handmatig of via een programma op elk gewenst moment in de servicelaag Premium en bedrijfskritiek om te voldoen aan de ne EDS van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
 
@@ -50,7 +50,7 @@ Er zijn echter scripts die kunnen worden geautomatiseerd schaalbaarheid voor é�
 
 U kunt wijzigen [DTU-Servicelagen](sql-database-service-tiers-dtu.md) of [vCore kenmerken](sql-database-vcore-resource-limits-single-databases.md) op elk gewenst moment met minimale downtime voor uw toepassing (doorgaans minder dan vier seconden). Voor veel bedrijven en apps is het kunnen maken van databases en het naar wens omhoog of omlaag schalen van de prestaties al voldoende, vooral als de gebruikspatronen redelijk voorspelbaar zijn. Bij onvoorspelbare gebruikspatronen kan het echter lastig zijn uw kosten en bedrijfsmodel effectief te beheren. Voor dit scenario gebruikt u een elastische pool met een bepaald aantal edtu's die worden gedeeld tussen meerdere databases in de groep.
 
-![Inleiding tot SQL Database: DTU's van individuele database per laag en niveau](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+![Inleiding tot SQL Database: Individuele database dtu's per laag en niveau](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Alle drie versies van Azure SQL Database bieden een mogelijkheid voor het dynamisch schalen van uw databases:
 
@@ -62,7 +62,7 @@ Alle drie versies van Azure SQL Database bieden een mogelijkheid voor het dynami
 
 Schalen van resources is de eenvoudigste en de meest efficiënte manier om prestaties te verbeteren van uw database zonder code van de database of de toepassing te wijzigen. In sommige gevallen, zelfs de hoogste Servicelagen, compute-grootten en optimalisaties mogelijk niet verwerken uw werkbelasting op geslaagd en goedkope manier. In dat geval hebt u deze extra opties voor het schalen van uw database:
 
-- [Read scale-out](sql-database-read-scale-out.md) is een functie die beschikbaar zijn in waar u ontvangt een alleen-lezen replica van uw gegevens waar u de veeleisende alleen-lezen query's, zoals rapporten kunt uitvoeren. Rood alleen-lezen replica wordt uw workload alleen-lezen worden verwerkt zonder gebruik van bronnen op uw primaire database.
+- [Read scale-out](sql-database-read-scale-out.md) is een functie die beschikbaar zijn in waar u ontvangt een alleen-lezen replica van uw gegevens waar u de veeleisende alleen-lezen query's, zoals rapporten kunt uitvoeren. Alleen-lezen replica wordt uw workload alleen-lezen worden verwerkt zonder gebruik van bronnen op uw primaire database.
 - [Database sharding](sql-database-elastic-scale-introduction.md) is een set technieken waarmee u uw gegevens splitsen in meerdere databases en ze onafhankelijk worden geschaald.
 
 ## <a name="next-steps"></a>Volgende stappen

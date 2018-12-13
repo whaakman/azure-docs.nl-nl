@@ -12,24 +12,24 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492237"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276448"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Ophalen en instellen van de planning van chaos.
 
 ## <a name="commands"></a>Opdrachten
 
-|Command|Beschrijving|
+|Opdracht|Description|
 | --- | --- |
 | Toevoegen | Haal de Chaos-planning definiëren wanneer en hoe u Chaos uitgevoerd. |
-| instellen | De Chaos-schema moet worden gebruikt door Chaos instellen. |
+| set | Stel de planning die wordt gebruikt door Chaos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl chaos schema ophalen
 Haal de Chaos-planning definiëren wanneer en hoe u Chaos uitgevoerd.
@@ -38,13 +38,13 @@ Hiermee haalt u de versie van de planning Chaos in gebruik en de Chaos-planning 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -53,13 +53,13 @@ Hiermee haalt u de versie van de planning Chaos in gebruik en de Chaos-planning 
 | --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schema instellen
-De Chaos-schema moet worden gebruikt door Chaos instellen.
+Stel de planning die wordt gebruikt door Chaos.
 
-De Chaos schema instellen die momenteel in gebruik door Chaos. Chaos wordt automatisch gepland op basis van de Chaos-planning wordt uitgevoerd. De versie in de opgegeven invoer planning moet overeenkomen met de versie van de planning Chaos op de server. Als de opgegeven versie komt niet overeen met de versie op de server, wordt de Chaos-planning niet bijgewerkt. Als de versie die overeenkomt met de versie op de server, de Chaos-planning wordt bijgewerkt en de versie van de planning Chaos op de server zo wordt verhoogd met één en wordt weer in op 0 na 2.147.483.647. Als Chaos wordt uitgevoerd wanneer deze oproep wordt gedaan, wordt de oproep mislukt.
+Chaos wordt automatisch gepland op basis van de Chaos-planning wordt uitgevoerd. De versie in de opgegeven invoer planning moet overeenkomen met de versie van de planning Chaos op de server. Als de opgegeven versie komt niet overeen met de versie op de server, wordt de Chaos-planning niet bijgewerkt. Als de versie die overeenkomt met de versie op de server, de Chaos-planning wordt bijgewerkt en de versie van de planning Chaos op de server zo wordt verhoogd met één en wordt weer in op 0 na 2.147.483.647. Als Chaos wordt uitgevoerd wanneer deze oproep wordt gedaan, wordt de oproep mislukt.
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --chaos-parameters-woordenlijst | JSON gecodeerd lijst een toewijzing van de tekenreeksnamen van de die naar ChaosParameters moet worden gebruikt door taken. |
 | --verstrijken-datum-utc | De datum en tijd voor het stoppen met het gebruik van de planning voor het plannen van Chaos.  Standaard\: 9999-12-31T23\:59\:59.999Z. |
@@ -70,7 +70,7 @@ De Chaos schema instellen die momenteel in gebruik door Chaos. Chaos wordt autom
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -143,6 +143,7 @@ De volgende opdracht stelt een schema (ervan uitgaande dat het huidige schema he
         ]
     }
     ]
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.

@@ -1,5 +1,5 @@
 ---
-title: Opnieuw opbouwen van een Azure Search-index of vernieuwen doorzoekbare inhoud | Microsoft Docs
+title: Een Azure Search-index opnieuw maken of vernieuwen van doorzoekbare inhoud - Azure Search
 description: Nieuwe elementen toe te voegen, bestaande elementen of documenten bijwerken of verwijderen van verouderde documenten in een volledig opnieuw samenstellen of een gedeeltelijke incrementele indexeren om te vernieuwen van een Azure Search-index.
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 374e7601169647f0eb7d3a214cf15567b7b11090
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641421"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316893"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Het opnieuw opbouwen van een Azure Search-index
 
@@ -35,7 +36,7 @@ Plan op regelmatige, volledig opnieuw worden opgebouwd tijdens het ontwikkelen v
 
 | Wijziging | Status opnieuw samenstellen|
 |--------------|---------------|
-| De naam van een veld wijzigen-gegevenstype, of de [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index) | Wijzigen van de velddefinitie van een doorgaans leidt tot een boete opnieuw maken, met uitzondering van deze [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index): Ophaalbaar, SearchAnalyzer, SynonymMaps. U kunt de kenmerken ophalen mogelijk, SearchAnalyzer en SynonymMaps toevoegen aan een bestaand veld zonder te hoeven de index opnieuw opbouwen.|
+| De naam van een veld wijzigen-gegevenstype, of de [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index) | Wijzigen van de velddefinitie van een doorgaans leidt tot een boete opnieuw maken, met uitzondering van deze [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index): Ophalen mogelijk, SearchAnalyzer, SynonymMaps. U kunt de kenmerken ophalen mogelijk, SearchAnalyzer en SynonymMaps toevoegen aan een bestaand veld zonder te hoeven de index opnieuw opbouwen.|
 | Een veld toevoegen | Er is geen strikte vereiste op opnieuw. Bestaande geïndexeerde documenten worden een null-waarde opgegeven voor het nieuwe veld. In een toekomstige opnieuw indexeren vervangt u waarden uit de brongegevens de null-waarden toegevoegd door Azure Search. |
 | Een veld verwijderen | U kunt een veld rechtstreeks uit een Azure Search-index verwijderen. In plaats daarvan moet u uw toepassing het veld 'verwijderd' om te voorkomen met behulp van deze negeren. Fysiek, blijven de velddefinitie van het en de inhoud in de index tot de volgende keer dat u opnieuw opbouwen van uw index met behulp van een schema dat het betreffende veld wordt weggelaten.|
 

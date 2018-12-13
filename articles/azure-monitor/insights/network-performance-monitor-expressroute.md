@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 85e39e47c5f532888911c00d3e526e51596f57bb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832816"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188772"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute-bewaking
 
@@ -118,7 +116,7 @@ Network Performance Monitor kunt u verschillende circuit Verbindingsproblemen va
 
 U kunt het overzicht van de melding en waarschuwingen instellen voor deze via **LogAnalytics**. Op de **NPM Diagnostics** pagina, ziet u beschrijvingen voor elk bericht diagnostics is geactiveerd.
 
-| Melding Code (Logboeken) | Beschrijving |
+| Melding Code (Logboeken) | Description |
 | --- | --- |
 | 5101 | Microsoft Edge subinterfaces toont hoge latentie |
 | 5102 | Subinterfaces van Microsoft Edge wordt het pakket verwijderen | 

@@ -10,30 +10,28 @@ ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 8f2bf9707d28744707c39a507108120e948dde7f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866675"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193872"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Naslaggids voor Weergaveontwerper visualisatie delen in Log Analytics
 Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een handleiding verwijzing naar de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
 
 Zie voor meer informatie over Designer bekijken:
 
-* [Designer weergeven](view-designer.md): biedt een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
-* [Tegel verwijzing](view-designer-tiles.md): bevat een verwijzing naar de instellingen voor elke tegel beschikbaar in uw aangepaste weergaven.
+* [Designer weergeven](view-designer.md): Biedt een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
+* [Tegel verwijzing](view-designer-tiles.md): Bevat een verwijzing naar de instellingen voor elke tegel beschikbaar in uw aangepaste weergaven.
 
 
 De beschikbare typen van de Weergaveontwerper-tegel worden in de volgende tabel beschreven:
 
-| Weergavetype | Beschrijving |
+| Weergavetype | Description |
 |:--- |:--- |
 | [Lijst met query 's](#list-of-queries-part) |Geeft een lijst van logboek zoekquery's. U kunt elke query om de resultaten weer te geven. |
 | [Getal en lijst](#number-and-list-part) |De koptekst wordt weergegeven een enkel getal dat geeft het aantal records van een zoekquery logboek. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft. |
@@ -52,7 +50,7 @@ De lijst met query's onderdeel geeft een lijst van logboek zoekquery's. U kunt e
 
 ![Lijst met query's weergeven](media/view-designer-parts/view-list-queries.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Titel |De tekst die wordt weergegeven aan de bovenkant van de weergave. |
@@ -68,7 +66,7 @@ De koptekst wordt weergegeven een enkel getal dat geeft het aantal records van e
 
 ![Lijst met query's weergeven](media/view-designer-parts/view-number-list.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de weergave. |
@@ -87,7 +85,7 @@ De koptekst wordt weergegeven een enkel getal dat geeft het aantal records van e
 | Naam en waarde scheidingsteken |Het scheidingsteken één teken gebruiken om te parseren van de teksteigenschap in meerdere waarden. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
@@ -97,7 +95,7 @@ De header heeft twee getallen die een aantal records van de afzonderlijke log zo
 
 ![Twee getallen en lijst weergeven](media/view-designer-parts/view-two-numbers-list.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de weergave. |
@@ -118,7 +116,7 @@ De header heeft twee getallen die een aantal records van de afzonderlijke log zo
 | Naam en waarde scheidingsteken |Het scheidingsteken één teken gebruiken om te parseren van de teksteigenschap in meerdere waarden. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
@@ -128,7 +126,7 @@ De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van
 
 ![Ring en lijst weergeven](media/view-designer-parts/view-donut-list.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -159,7 +157,7 @@ De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van
 | Naam en waarde scheidingsteken |Het scheidingsteken één teken gebruiken om te parseren van de teksteigenschap in meerdere waarden. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
@@ -169,7 +167,7 @@ De resultaten van twee logboeken-query's weergegeven de koptekst na verloop van 
 
 ![Twee tijdlijnen en lijst weergeven](media/view-designer-parts/view-two-timelines-list.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -182,7 +180,7 @@ De resultaten van twee logboeken-query's weergegeven de koptekst na verloop van 
 | Legenda |De tekst die wordt weergegeven onder het bijschrift voor de eerste reeks. |
 | Kleur |De kleur moet worden gebruikt voor de kolommen in de reeks. |
 | Query’s uitvoeren |De query wilt uitvoeren voor de eerste reeks. Het aantal records via elk tijdsinterval wordt vertegenwoordigd door de grafiekkolommen. |
-| Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Som: De som van de waarden van alle records.</li><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Laatste voorbeeld: de waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Eerste voorbeeld: de waarde van het eerste interval dat opgenomen in de grafiek.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li></ul> |
+| Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Som: De som van de waarden van alle records.</li><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Eerste voorbeeld: De waarde van het eerste interval dat opgenomen in de grafiek.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li></ul> |
 | **Lijst met** | |
 | Query’s uitvoeren |De query wilt uitvoeren voor de lijst. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
 | Grafiek verbergen |Selecteer deze koppeling om uit te schakelen van de grafiek aan de rechterkant van de numerieke kolom. |
@@ -191,7 +189,7 @@ De resultaten van twee logboeken-query's weergegeven de koptekst na verloop van 
 | Bewerking |De bewerking uit te voeren voor de sparkline. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
@@ -201,7 +199,7 @@ De koptekst wordt weergegeven voor statische tekst en een optionele koppeling. D
 
 ![Informatie weergeven](media/view-designer-parts/view-information.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -222,7 +220,7 @@ De koptekst wordt een lijndiagram met meerdere reeksen uit een query voor tijd e
 
 ![Lijndiagram, bijschrift en lijst](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -238,7 +236,7 @@ De koptekst wordt een lijndiagram met meerdere reeksen uit een query voor tijd e
 | **Lijndiagram** |**> Bijschrift** |
 | Titel van bijschrift |De tekst die wordt weergegeven boven de waarde van bijschrift. |
 | Reeksnaam |De waarde van de eigenschap voor de reeks moet worden gebruikt voor de waarde van bijschrift. Als er geen reeks is opgegeven, worden alle records van de query worden gebruikt. |
-| Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: de waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Maximale: De maximumwaarde van de tijden die zijn opgenomen in de grafiek.</li><li>Min.: De minimale waarde uit de intervallen die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
+| Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Max.: De maximale waarde van de tijden die zijn opgenomen in de grafiek.</li><li>Min.: De minimale waarde uit de intervallen die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
 | **Lijndiagram** |**> Y-as** |
 | Logaritmische schaal gebruiken |Selecteer deze koppeling naar een logaritmische schaal gebruiken voor de y-as. |
 | Eenheden |Geef de eenheden voor de waarden moeten worden geretourneerd door de query. Deze informatie wordt gebruikt op gegevenslabels weergegeven die wijzen op de typen en, optioneel, om te converteren van de waarden. De *eenheid* type Hiermee geeft u de categorie van de eenheid en definieert de beschikbare *huidige eenheid* waarden. Als u een waarde in *converteren naar*, de numerieke waarden worden geconverteerd van de *huidige eenheid* type de *converteren naar* type. |
@@ -252,7 +250,7 @@ De koptekst wordt een lijndiagram met meerdere reeksen uit een query voor tijd e
 | Naam en waarde scheidingsteken |Het scheidingsteken één teken gebruiken om te parseren van de teksteigenschap in meerdere waarden. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
@@ -262,7 +260,7 @@ Een lijndiagram met meerdere reeksen uit een query voor weergegeven de koptekst 
 
 ![Regel grafiek en een lijst weergeven](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -288,7 +286,7 @@ Een lijndiagram met meerdere reeksen uit een query voor weergegeven de koptekst 
 | Naam en waarde scheidingsteken |Het scheidingsteken één teken gebruiken om te parseren van de teksteigenschap in meerdere waarden. Zie voor meer informatie, [algemene instellingen die u](#sparklines). |
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
 | Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
@@ -298,7 +296,7 @@ De stack van lijndiagram weergegeven drie afzonderlijke lijndiagrammen, met meer
 
 ![Stapel lijndiagrammen](media/view-designer-parts/view-stack-line-charts.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | **Algemeen** | |
 | Groepstitel |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
@@ -328,7 +326,7 @@ Navigatie via klikken wordt gedefinieerd welke actie moet worden ondernomen wann
 
 De volgende tabel beschrijft de instellingen voor navigatie via klikken.
 
-| Instelling           | Beschrijving |
+| Instelling           | Description |
 |:--|:--|
 | Zoeken in logboeken (automatisch) | Zoeken in Logboeken worden uitgevoerd wanneer u een header-item selecteren.  Dit is dezelfde zoeken in logboeken die het item is gebaseerd op.
 | Zoeken in logboeken        | Zoeken in Logboeken om uit te voeren wanneer u een item in een lijst selecteert.  Typ de query in de **navigatiequery** vak.   Gebruik *{geselecteerde item}* om op te nemen van de syntaxis voor het item dat de gebruiker heeft geselecteerd.  Bijvoorbeeld, als de query heeft een kolom met de naam *Computer* en de navigatiequery is *{geselecteerde item}*, een query zoals *Computer = 'Computer'* wordt uitgevoerd wanneer u selecteert een computer. Als de navigatiequery is *Type = Event {geselecteerde item}*, de query *Type = Event Computer = 'Computer'* wordt uitgevoerd. |
@@ -341,10 +339,10 @@ Een sparkline is een kleine lijndiagram waarin de waarde van een lijstitem na ve
 
 De volgende tabel beschrijft de instellingen voor sparklines:
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | Sparklines inschakelen |Selecteer deze koppeling om een sparkline in plaats van een horizontale balk weer te geven. |
-| Bewerking |Als sparklines zijn ingeschakeld, is dit de bewerking uit te voeren op elke eigenschap in de lijst om de waarden voor de sparkline te berekenen.<ul><li>Laatste voorbeeld: de laatste waarde voor de reeks gedurende de tijdsinterval.</li><li>Maximale: De maximumwaarde voor de reeks gedurende de tijdsinterval.</li><li>Min.: De minimale waarde voor de reeks gedurende de tijdsinterval.</li><li>Som: De som van de waarden voor de serie over het tijdsinterval.</li><li>Overzicht: Maakt gebruik van dezelfde `measure` opdracht als de query in de header.</li></ul> |
+| Bewerking |Als sparklines zijn ingeschakeld, is dit de bewerking uit te voeren op elke eigenschap in de lijst om de waarden voor de sparkline te berekenen.<ul><li>Laatste voorbeeld: De laatste waarde voor de reeks gedurende de tijdsinterval.</li><li>Max.: De maximale waarde voor de serie over het tijdsinterval.</li><li>Min.: De minimumwaarde voor de reeks gedurende de tijdsinterval.</li><li>Som: De som van de waarden voor de serie over het tijdsinterval.</li><li>Overzicht: Maakt gebruik van dezelfde `measure` opdracht als de query in de header.</li></ul> |
 
 ### <a name="thresholds"></a>Drempelwaarden
 U kunt een gekleurde pictogram naast elk item in een lijst weergeven met behulp van de drempelwaarden. Drempelwaarden bieden u een snelle visuele indicator van de items die meer dan een bepaalde waarde of binnen een bepaald bereik vallen. U kunt bijvoorbeeld een groen pictogram voor items met een acceptabele waarde, geel als de waarde binnen een bereik dat een waarschuwing geeft en rood weergeven als er een foutwaarde overschrijdt.
@@ -355,10 +353,10 @@ Elke set drempelwaarde heeft een drempelwaarde met een waarde van **standaard**.
 
 De volgende tabel beschrijft de instellingen voor de drempelwaarden:
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om een Kleurenpictogram aan de linkerkant van elke waarde weer te geven. Het pictogram geeft de status van de waarde ten opzichte van de opgegeven drempelwaarden. |
-| Naam |De naam van de drempelwaarde. |
+| Name |De naam van de drempelwaarde. |
 | Drempelwaarde |De waarde voor de drempelwaarde. De kleur van de status van elk lijstitem is ingesteld op de kleur van de hoogste drempelwaarde die door de waarde van het item wordt overschreden. Als er geen drempelwaarden worden overschreden, wordt de standaardkleur van een gebruikt. |
 | Kleur |De kleur die geeft aan de drempelwaarde dat. |
 

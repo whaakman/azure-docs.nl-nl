@@ -1,6 +1,6 @@
 ---
-title: Waarschuwingen van de metrische gegevens voor Azure-Database voor PostgreSQL configureren in Azure-portal
-description: Dit artikel wordt beschreven hoe u configureert en toegang tot metrische waarschuwingen voor Azure-Database voor PostgreSQL vanuit de Azure-portal.
+title: Waarschuwingen voor metrische gegevens voor Azure Database voor PostgreSQL configureren in Azure portal
+description: Dit artikel wordt beschreven hoe u configureert en toegang tot metrische waarschuwingen voor Azure Database for PostgreSQL vanuit Azure portal.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,77 +9,77 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b57827cb4e8c1105c88b6fab217e17d6cf4db056
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29690250"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271219"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>De Azure portal gebruiken om in te stellen waarschuwingen op metrische gegevens voor Azure-Database voor PostgreSQL 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>De Azure portal gebruiken voor het instellen van waarschuwingen over metrische gegevens voor Azure Database for PostgreSQL 
 
-In dit artikel laat zien hoe Azure-Database instellen voor PostgreSQL waarschuwingen met de Azure portal. U kunt een waarschuwing op basis van de bewaking van metrische gegevens voor uw Azure-services kunt ontvangen.
+Dit artikel leest u hoe het instellen van Azure Database voor PostgreSQL-meldingen met behulp van de Azure portal. U kunt een waarschuwing op basis van metrische gegevens voor uw Azure-services controleren ontvangen.
 
-De waarschuwing activeert wanneer de waarde van een opgegeven waarde overschrijdt de drempelwaarde die u toewijst. De waarschuwing triggers zowel wanneer het eerst de voorwaarde is voldaan en vervolgens later wanneer die voorwaarde wordt niet langer wordt voldaan. 
+De waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven metrische gegevens van een drempel die u toewijst overschrijden. De waarschuwing triggers beide wanneer de voorwaarde wordt voldaan en klik daarna als die voorwaarde is niet meer wordt voldaan aan. 
 
-U kunt de volgende acties uitvoeren als er wordt een waarschuwing configureren:
+Een waarschuwing als u wilt de volgende acties uitvoeren wanneer deze wordt geactiveerd, kunt u configureren:
 * E-mailmeldingen verzenden naar de servicebeheerder en medebeheerders.
-* e-mail verzenden naar andere e-mailberichten die u opgeeft.
+* e-mail verzenden naar extra e-mailadressen die u opgeeft.
 * Een webhook aanroepen.
 
-U kunt configureren en informatie krijgen over de regels voor waarschuwingen met behulp van:
+U kunt configureren en informatie over met behulp van regels voor waarschuwingen:
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Opdrachtregelinterface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [Opdrachtregelinterface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
+* [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Een waarschuwingsregel maken op een waarde van de Azure-portal
-1. In de [Azure-portal](https://portal.azure.com/), selecteert u de Azure-Database voor PostgreSQL-server die u wilt bewaken.
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Een waarschuwingsregel maken op een metrische waarde van de Azure-portal
+1. In de [Azure-portal](https://portal.azure.com/), selecteert u de Azure Database for PostgreSQL-server die u wilt bewaken.
 
-2. Onder de **bewaking** sectie van de zijbalk, selecteer **waarschuwing regels** zoals wordt weergegeven:
+2. Onder de **bewaking** sectie van de zijbalk Selecteer **waarschuwingsregels** zoals wordt weergegeven:
 
-   ![Selecteer de regels voor waarschuwingen](./media/howto-alert-on-metric/1-alert-rules.png)
+   ![Schakel regels voor waarschuwingen](./media/howto-alert-on-metric/1-alert-rules.png)
 
 3. Selecteer **metrische waarschuwing toevoegen** (+ pictogram). 
 
-4. De **regel toevoegen** pagina wordt geopend, zoals hieronder wordt weergegeven.  Vul de vereiste gegevens in:
+4. De **regel toevoegen** pagina wordt geopend, zoals hieronder weergegeven.  Vul de vereiste gegevens:
 
-   ![Metrische waarschuwing formulier toevoegen](./media/howto-alert-on-metric/2-add-rule-form.png)
+   ![Metrische waarschuwing toevoegen](./media/howto-alert-on-metric/2-add-rule-form.png)
 
-   | Instelling | Beschrijving  |
+   | Instelling | Description  |
    |---------|---------|
-   | Naam | Geef een naam voor de waarschuwingsregel. Deze waarde wordt verzonden in de e-mailmelding voor waarschuwingen. |
-   | Beschrijving | Geef een korte beschrijving van de waarschuwingsregel. Deze waarde wordt verzonden in de e-mailmelding voor waarschuwingen. |
+   | Name | Geef een naam voor de waarschuwingsregel. Deze waarde wordt verzonden in de e-mailmelding voor waarschuwingen. |
+   | Description | Geef een korte beschrijving van de waarschuwingsregel. Deze waarde wordt verzonden in de e-mailmelding voor waarschuwingen. |
    | Waarschuwen bij | Kies **metrische gegevens** voor dit type waarschuwing. |
-   | Abonnement | Dit veld is vooraf ingevuld met het abonnement dat als host fungeert voor uw Azure-Database voor PostgreSQL. |
-   | Resourcegroep | Dit veld is vooraf ingevuld met de resourcegroep van uw Azure-Database voor PostgreSQL. |
-   | Resource | Dit veld is vooraf ingevuld met de naam van uw Azure-Database voor PostgreSQL. |
-   | Gegevens | Selecteer de metriek die u wilt een waarschuwing voor het uitgeven. Bijvoorbeeld: **opslagpercentage**. |
-   | Voorwaarde | Kies de voorwaarde voor de meetwaarde moet worden vergeleken met. Bijvoorbeeld: **groter is dan**. |
-   | Drempelwaarde | Drempelwaarde voor de metriek, bijvoorbeeld 85 (procent). |
-   | Periode | De periode die de metrische regel moet worden voldaan voordat de waarschuwing triggers. Bijvoorbeeld: **in de afgelopen 30 minuten**. |
+   | Abonnement | Dit veld wordt vooraf ingevuld met het abonnement dat als host fungeert voor uw Azure Database voor PostgreSQL. |
+   | Resourcegroep | Dit veld wordt vooraf ingevuld met de resourcegroep van uw Azure Database voor PostgreSQL. |
+   | Resource | Dit veld wordt vooraf ingevuld met de naam van uw Azure Database voor PostgreSQL. |
+   | Gegevens | Selecteer de metrische gegevens die u wilt een waarschuwing voor uitgeven. Bijvoorbeeld, **opslagpercentage**. |
+   | Voorwaarde | Kies de voorwaarde voor de metrische gegevens moet worden vergeleken met. Bijvoorbeeld, **groter is dan**. |
+   | Drempelwaarde | Drempelwaarde voor de meetwaarde, bijvoorbeeld 85 (procent). |
+   | Periode | De periode dat de regel voor metrische gegevens moet worden voldaan voordat de waarschuwing triggers. Bijvoorbeeld, **in de afgelopen 30 minuten**. |
 
-   Op basis van het voorbeeld, de waarschuwing wordt gezocht naar opslagpercentage dan 85% gedurende een periode van 30 minuten. Deze waarschuwing wordt geactiveerd wanneer het gemiddelde percentage van de opslag meer dan 85% gedurende 30 minuten is. Zodra de eerste trigger is plaatsvindt, activeert het opnieuw wanneer het gemiddelde percentage van de opslag is lager dan 85% meer dan 30 minuten.
+   Op basis van het voorbeeld, de waarschuwing zoekt naar opslagpercentage dan 85% gedurende een periode van 30 minuten. Deze waarschuwing wordt geactiveerd wanneer het gemiddelde percentage van de opslag gedurende 30 minuten meer dan 85% is geweest. Nadat de eerste trigger is die zich voordoet, activeert het opnieuw wanneer het gemiddelde percentage van de opslag is lager dan 85% meer dan 30 minuten.
 
-5. Kies de meldingsmethode die u voor de waarschuwingsregel wilt instellen. 
+5. Kies de meldingsmethode die u wilt gebruiken voor de waarschuwingsregel. 
 
-   Controleer **e-eigenaren, bijdragers en lezers** optie als u de abonnement-administrators en medebeheerders wilt ontvangen wanneer de waarschuwing wordt geactiveerd.
+   Controleer **e-eigenaren, bijdragers en lezers** optie als u wilt de abonnementsbeheerders en CO-beheerder moet worden verzonden wanneer de waarschuwing wordt geactiveerd.
 
-   Als u aanvullende e-mailberichten een melding ontvangen wilt wanneer de waarschuwing wordt geactiveerd, deze toevoegen in de **aanvullende beheerder email(s)** veld. Scheid meerdere e-mailberichten met puntkomma's -  *email@contoso.com;email2@contoso.com*
+   Als u aanvullende e-mailberichten wilt die een melding ontvangen wanneer de waarschuwing wordt geactiveerd, voegt u ze op in de **beheerder email(s)** veld. Meerdere e-mailberichten gescheiden door puntkomma's -  *email@contoso.com;email2@contoso.com*
 
-   Geef desgewenst een geldige URI in de **Webhook** als u wilt dat deze wordt aangeroepen wanneer de waarschuwing wordt geactiveerd.
+   (Optioneel) Geef een geldige URI in de **Webhook** veld als u wilt dat deze wordt aangeroepen wanneer de waarschuwing wordt geactiveerd.
 
-6. Selecteer **OK** de waarschuwing wilt maken.
+6. Selecteer **OK** om de waarschuwing te maken.
 
-   Binnen een paar minuten de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
+   Binnen een paar minuten, wordt de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
 
-## <a name="manage-your-alerts"></a>Waarschuwingen beheren
-Nadat u een waarschuwing hebt gemaakt, kunt u deze selecteren en de volgende acties uitvoeren:
+## <a name="manage-your-alerts"></a>De waarschuwingen beheren
+Als u een waarschuwing hebt gemaakt, kunt u deze selecteren en de volgende acties uitvoeren:
 
-* Een grafiek weer met de metrische drempel en de werkelijke waarden van de vorige dag relevant zijn voor deze waarschuwing weergeven.
+* Een grafiek weer met de drempelwaarde voor metrische gegevens en de werkelijke waarden van de vorige dag relevant zijn voor deze waarschuwing weergeven.
 * **Bewerken** of **verwijderen** de waarschuwingsregel.
-* **Schakel** of **inschakelen** de waarschuwing, als u wilt tijdelijk stoppen of te hervatten ontvangen van meldingen.
+* **Uitschakelen** of **inschakelen** de waarschuwing, als u wilt tijdelijk stoppen of doorgaan met het ontvangen van meldingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [configureren van webhooks in waarschuwingen](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
-* Ophalen van een [overzicht van metrische gegevens verzameling](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) om ervoor te zorgen dat uw service beschikbaar is en reageert.
+* Meer informatie over [configureren van webhooks in waarschuwingen](../azure-monitor/platform/alerts-webhooks.md).
+* Krijgen een [overzicht van metrische gegevens verzameling](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) om ervoor te zorgen dat uw service beschikbaar is en reageert.

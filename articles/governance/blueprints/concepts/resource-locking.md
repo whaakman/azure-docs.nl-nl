@@ -1,5 +1,5 @@
 ---
-title: Resources vergrendelen in Azure blauwdrukken begrijpen
+title: Informatie over resource vergrendelen
 description: Meer informatie over de vergrendeling opties om resources te beschermen bij het toewijzen van een blauwdruk.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: seodec18
+ms.openlocfilehash: 0e272f7137967b545269a408b6e83552de532682
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139439"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309422"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Resources vergrendelen in Azure blauwdrukken begrijpen
 
@@ -21,9 +22,9 @@ Het maken van consistente testomgevingen op schaal is alleen echt nuttig zijn al
 
 ## <a name="locking-modes-and-states"></a>Vergrendeling modi en statussen
 
-Vergrendelingsmodus is van toepassing op de blauwdruktoewijzing en heeft slechts twee opties: **geen** of **alle Resources**. De vergrendelingsmodus tijdens de blauwdruktoewijzing is geconfigureerd en kan niet worden gewijzigd nadat de toewijzing is toegepast op het abonnement.
+Vergrendelingsmodus is van toepassing op de blauwdruktoewijzing en alleen bestaat uit twee opties: **Geen** of **alle Resources**. De vergrendelingsmodus tijdens de blauwdruktoewijzing is geconfigureerd en kan niet worden gewijzigd nadat de toewijzing is toegepast op het abonnement.
 
-Resources die zijn gemaakt door artefacten in een blauwdruktoewijzing heeft drie statussen: **niet vergrendeld**, **alleen-lezen**, of **kan niet bewerken / verwijderen**. Elke artefact kan zich in de **niet vergrendeld** staat. Niet-resourcegroep artefacten hebben echter **alleen-lezen** en resourcegroepen hebt **kan niet bewerken / verwijderen** Staten. Dit verschil is een belangrijk verschil in hoe deze resources worden beheerd.
+Resources die zijn gemaakt door artefacten in een blauwdruktoewijzing heeft drie statussen: **Niet vergrendeld**, **alleen-lezen**, of **kan niet bewerken / verwijderen**. Elke artefact kan zich in de **niet vergrendeld** staat. Niet-resourcegroep artefacten hebben echter **alleen-lezen** en resourcegroepen hebt **kan niet bewerken / verwijderen** Staten. Dit verschil is een belangrijk verschil in hoe deze resources worden beheerd.
 
 De **alleen-lezen** status is precies zoals gedefinieerd: de resource kan niet worden gewijzigd op geen enkele manier--er zijn geen wijzigingen en kunnen niet worden verwijderd. De **kan niet bewerken / verwijderen** is meer genuanceerde vanwege de aard van het 'container' van resourcegroepen. De resource-group-object is alleen-lezen, maar het is mogelijk wijzigingen aanbrengen in niet-vergrendelde resources binnen de resourcegroep.
 

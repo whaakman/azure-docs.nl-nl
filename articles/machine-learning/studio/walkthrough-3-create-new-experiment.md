@@ -1,12 +1,11 @@
 ---
 title: 'Stap 3: Maak een nieuw experiment in Machine Learning Studio - Azure | Microsoft Docs'
-description: 'Stap 3 van het ontwikkelen van een voorspellende oplossing-overzicht: een nieuw trainingsexperiment maken in Azure Machine Learning Studio.'
+description: 'Stap 3 van het ontwikkelen van een overzicht van de voorspellende oplossing: Een nieuw trainingsexperiment maken in Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317525"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260783"
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Kennismaken, stap 3: Een nieuw Azure Machine Learning Studio-experiment maken
 Dit is de derde stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)
@@ -56,7 +55,7 @@ De volgende stap in dit scenario is het maken van een experiment in Machine Lear
     ![De gegevensset toevoegen aan het experiment][7]
 
 ## <a name="prepare-the-data"></a>De gegevens voorbereiden
-U kunt de eerste 100 rijen van de gegevens en enkele statische gegevens voor de hele gegevensset weergeven: klik op de uitvoerpoort van de gegevensset (de kleine cirkel aan de onderkant) en selecteer **Visualize**.  
+U kunt de eerste 100 rijen van de gegevens en enkele statische gegevens voor de hele gegevensset weergeven: Klik op de uitvoerpoort van de gegevensset (de kleine cirkel aan de onderkant) en selecteer **Visualize**.  
 
 Omdat het gegevensbestand is niet geleverd met kolomkoppen, Studio algemene koppen is opgegeven (Col1, Col2, *enzovoort*). Goede koppen niet essentieel is voor het maken van een model, maar ze maken het gemakkelijker om te werken met de gegevens in het experiment. Ook, wanneer we dit model uiteindelijk in een web-service publiceert, de kolomkoppen te identificeren de kolommen voor de gebruiker van de service.  
 
@@ -164,7 +163,7 @@ Onze experiment nu ziet er ongeveer uit als volgt:
 
 Zie voor meer informatie over het gebruik van R-scripts in uw experimenten [uw experiment uitbreiden met R](extend-your-experiment-with-r.md).
 
-**Volgende stap: [trainen en evalueren van de modellen](walkthrough-4-train-and-evaluate-models.md)**
+**Volgende: [De modellen trainen en evalueren](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png

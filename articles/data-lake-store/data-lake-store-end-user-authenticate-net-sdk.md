@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955691"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261531"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Verificatie van de eindgebruiker met Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
@@ -104,7 +104,7 @@ Voor het gebruiksgemak gebruikt gebruikt het volgende codefragment standaardwaar
 
 Een aantal dingen die u moet weten over het bovenstaande codefragment:
 
-* Het bovenstaande codefragment maakt gebruik van een ondersteunende functies `GetTokenCache` en `GetCreds_User_Popup`. De code voor deze helperfuncties is beschikbaar [hier op Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* Het bovenstaande codefragment maakt gebruik van een ondersteunende functies `GetTokenCache` en `GetCreds_User_Popup`. De code voor deze helperfuncties is beschikbaar [hier op GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
 * Het fragment maakt gebruik van een systeemeigen toepassing client-ID die standaard beschikbaar zijn voor alle Azure-abonnementen is, kunt u de zelfstudie sneller voltooien. U kunt **dit fragment dus in zijn huidige vorm in uw toepassing gebruiken**.
 * Als u echter uw eigen Azure AD-domein- en toepassingsclient-id wilt gebruiken, moet u een systeemeigen Azure AD-toepassing maken en vervolgens het Azure AD-tenant-ID, de client-ID en omleidings-URI gebruiken voor de toepassing die u hebt gemaakt. Zie [maken van een Active Directory-toepassing voor verificatie van eindgebruikers met Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) voor instructies.
 

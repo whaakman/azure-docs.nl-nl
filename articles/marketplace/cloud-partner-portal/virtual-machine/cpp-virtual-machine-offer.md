@@ -12,23 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d3682d18fb849b2d851bae0986f9e61f216aaf2c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d51fffad897ba2658c7bee51c26e7e3be9f10e88
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639690"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188755"
 ---
 # <a name="virtual-machine-offer"></a>Virtuele machine-aanbieding
 
-In deze sectie geeft een overzicht van de elementen van de publicatie van een virtuele Machine (VM) en is bedoeld als richtlijn voor de uitgever de [Azure Marketplace](https://azuremarketplace.microsoft.com).  In dit opzicht is het onderverdeeld in de volgende hoofdonderdelen:
+|    |    |
+|-----------------------------------------------------------------|------------------------------------------|
+| Deze sectie wordt uitgelegd hoe u een nieuwe virtuele machine-aanbieding voor publiceert de [Azure Marketplace](https://azuremarketplace.microsoft.com). Er wordt ondersteuning geboden voor zowel op basis van Windows en Linux gebaseerde virtuele machines, met een besturingssysteem virtuele harde schijf (VHD) en nul of meer gegevens VHD's. | ![pictogram van de virtuele machine](./media/virtual-machine-icon.png)  |
 
-- [Vereisten](./cpp-prerequisites.md) -geeft een lijst van de technische en zakelijke vereisten voor het maken of een VM-aanbieding publiceren
-- [Maken van VM-aanbieding](./cpp-create-offer.md) -een lijst met de stappen die nodig zijn om te maken van een nieuwe virtuele machine bieden vermelding met behulp van de [Cloud Partner-Portal](https://cloudpartner.azure.com)
-- [Maken van virtuele machine technische activa](./cpp-create-technical-assets.md) : de manier waarop het maken van de technische assets voor een VM-oplossing en hoe u dit pakket configureert als een virtuele machine op Azure Marketplace bieden
-- [VM-aanbieding publiceren](./cpp-publish-offer.md) -het indienen van de aanbieding voor publicatie naar de Azure Marketplace
+
+## <a name="publishing-overview"></a>Overzicht van publiceren
+
+De volgende video [optimaliseren van uw Azure Marketplace bieden](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), geeft u een breed overzicht van de Azure Marketplace, met inbegrip van hoe u publiceert op deze marketplace (met behulp van de oplossing van een virtuele machine), over het optimaliseren van de gebruikerservaring met uw productpagina en optionele Test Drive-ervaring, hoe de gebruiker leidt worden gegenereerd en hoe u kunt gebruiken en klantbetrokkenheid te optimaliseren.
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026]
 
 
 ## <a name="vm-publishing-process-flow"></a>Processtroom voor virtuele machine publiceren

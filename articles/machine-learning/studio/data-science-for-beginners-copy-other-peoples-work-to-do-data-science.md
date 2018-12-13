@@ -1,13 +1,12 @@
 ---
 title: 'Anderen data science-voorbeelden kopiëren: Azure Machine Learning Studio | Microsoft Docs'
-description: 'Handelsgeheim van gegevenswetenschap: anderen uitnodigen voor uw werk voor u. Machine learning-voorbeelden uit de Azure AI Gallery ophalen.'
+description: 'Handelsgeheim van wetenschappelijke gegevens: Get-andere gebruikers voor uw werk voor u. Machine learning-voorbeelden uit de Azure AI Gallery ophalen.'
 keywords: Data science voorbeelden, machine learning voorbeeld clustering-algoritme, clustering-algoritme-voorbeeld
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: c033cc42fd9f57c18242c6e7a6b301238592c0fe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075010"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260375"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Werk van anderen kopiëren om gegevenswetenschap uit te voeren
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Gegevenswetenschap voor Beginners-serie
@@ -42,13 +41,13 @@ Als u optimaal te profiteren van de serie, bekijk ze allemaal. [Ga naar de lijst
 ## <a name="other-videos-in-this-series"></a>Andere video's in deze serie
 *Gegevenswetenschap voor Beginners* is een korte inleiding over data Science in vijf korte video's.
 
-* Video 1: [gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-* Video 2: [zijn uw gegevens gereed voor gegevenswetenschap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Video 3: [een vraag stellen u met gegevens kunt beantwoorden](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-* Video 4: [een antwoord met een eenvoudig model voorspellen](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-* Video 5: Werk van anderen als u wilt doen, wetenschappelijke gegevens kopiëren
+* Video 1: [Gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: [Zijn uw gegevens gereed voor gegevenswetenschap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Video 3: [Een vraag stellen u met gegevens kunt beantwoorden](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Video 4: [Een antwoord met een eenvoudig model voorspellen](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Video 5: Werk van anderen kopiëren om gegevenswetenschap uit te voeren
 
-## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transcript: Werk van anderen als u wilt doen, wetenschappelijke gegevens kopiëren
+## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transcript: Werk van anderen kopiëren om gegevenswetenschap uit te voeren
 Welkom bij de vijfde video in de reeks "Gegevenswetenschap voor Beginners."
 
 In deze versie leert u een plaats om te zoeken naar voorbeelden die u als uitgangspunt voor uw eigen werk kan ontleend. U kunt het meeste uit deze video krijgen als u eerst de eerdere video's in deze serie bekijken.

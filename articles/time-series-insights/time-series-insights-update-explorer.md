@@ -1,5 +1,5 @@
 ---
-title: Gegevens visualiseren in de Verkenner van Azure Time Series Insights Preview | Microsoft Docs
+title: Azure Time Series Insights Preview explorer - gegevens visualiseren in de Verkenner van Azure Time Series Insights Preview | Microsoft Docs
 description: In dit artikel worden de functies en opties die beschikbaar zijn in de web-app van Azure Time Series Insights Preview explorer beschreven.
 author: ashannon7
 ms.author: anshan
@@ -9,12 +9,13 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 3a2958d838f0646ac030421b3785fc11a1466dd6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 5372a36291ee13966d497bdae83a6e214dce99b9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086722"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272334"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Gegevens visualiseren in de Preview-versie van de Verkenner
 
@@ -24,7 +25,7 @@ Dit artikel beschrijft functies en opties die beschikbaar zijn in Azure Time Ser
 
 Voordat u de Verkenner van Azure Time Series Insights Preview gebruiken, moet u:
 
-* Een Time Series Insights-omgeving instellen hebt. Zie voor meer informatie, [zelfstudie: Azure Time Series Insights Preview](./time-series-insights-update-create-environment.md).
+* Een Time Series Insights-omgeving instellen hebt. Zie voor meer informatie, [zelfstudie: Voorbeeld van Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 * Gegevenstoegang verlenen tot de Time Series Insights-omgeving die u hebt gemaakt voor het account. U kunt toegang tot andere ook over uzelf opgeven.
 * Een gebeurtenisbron toevoegen aan de Time Series Insights-omgeving om gegevens te pushen naar de omgeving.
 
@@ -34,12 +35,12 @@ Voordat u de Verkenner van Azure Time Series Insights Preview gebruiken, moet u:
 
 De Verkenner van Azure Time Series Insights Preview bestaat uit de volgende elementen:
 
-* **Navigatiebalk**: Hiermee kunt u tussen pagina's voor analyse en het model schakelen.
-* **Hiërarchiestructuur**: u kunt aangeven specifieke gegevenselementen weer te geven.
-* **Time series en**: geeft de momenteel geselecteerde gegevenselementen weer.
-* **Grafiek deelvenster**: Hiermee wordt de grafiek van uw huidige werken.
-* **Tijdlijn**: kunt u de tijdsduur van uw werkende wijzigen.
-* **App-balk**: bevat uw gebruikersbeheeropties, zoals de huidige tenant, en Hiermee kunt u wijzigen thema-en taalinstellingen.
+* **Navigatiebalk**: Hiermee kunt u schakelen tussen pagina's voor analyse en het model.
+* **Hiërarchiestructuur**: Kunt u selecteren specifieke gegevenselementen weer te geven.
+* **Time series en**: Geeft de momenteel geselecteerde gegevenselementen weer.
+* **Grafiek deelvenster**: Uw huidige werkmap-grafiek weergegeven.
+* **Tijdlijn**: Kunt u de tijdsduur van uw werkende wijzigen.
+* **App-balk**: Bevat uw gebruikersbeheeropties, zoals de huidige tenant, en Hiermee kunt u wijzigen thema-en taalinstellingen.
 
 ## <a name="time-series-insights-preview-environment-panel"></a>Time Series Insights-Preview-omgeving deelvenster
 
@@ -61,9 +62,9 @@ U kunt met het navigatiemenu schakelen tussen de Time Series Insights-apps:
 
 U kunt met deze app kunt maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op uw Time Series-Model uitvoeren.  
 
-* **Time Series-Model type**: Time Series Insights typen kunt definiëren variabelen of formules voor het uitvoeren van berekeningen. Ze zijn gekoppeld aan een bepaalde Time Series Insights-exemplaar. Een type kan een of meer variabelen hebben.
-* **Time Series-Model hiërarchie**: hiërarchieën zijn systematische organisaties van uw gegevens. Hiërarchieën weer de relaties tussen verschillende entiteiten in uw Time Series Insights-gegevens.
-* **Time Series-Model exemplaar**:-exemplaren zijn de tijdreeksen zelf. In de meeste gevallen zijn ze de apparaat-id of AssetID, dit de unieke id van de activa in de omgeving is.
+* **Time Series-Model type**: Typen van Time Series Insights inschakelen definiëren variabelen of formules voor het uitvoeren van berekeningen. Ze zijn gekoppeld aan een bepaalde Time Series Insights-exemplaar. Een type kan een of meer variabelen hebben.
+* **Time Series-Model hiërarchie**: Hiërarchieën zijn systematische organisaties van uw gegevens. Hiërarchieën weer de relaties tussen verschillende entiteiten in uw Time Series Insights-gegevens.
+* **Time Series-Model exemplaar**: -Exemplaren zijn de tijdreeksen zelf. In de meeste gevallen zijn ze de apparaat-id of AssetID, dit de unieke id van de activa in de omgeving is.
 
 Zie voor meer informatie over de Time Series-Model, [tijden reeks modellen](./time-series-insights-update-tsm.md).
 
@@ -94,19 +95,19 @@ U kunt de time series-instanties als regels weergeven met de grafiek. U kunt het
 
   ![Verkenner-8][8]
 
-1. **Geselecteerde datumbereik**: besturingselementen welke elementen beschikbaar voor visualisatie zijn.
+1. **Geselecteerde datumbereik**: Hiermee wordt bepaald welke elementen beschikbaar voor visualisatie zijn.
 
-1. **Binnenste datum bereik schuifregelaar hulpprogramma**: gebruik van de twee besturingselementen voor het eindpunt door ze via de gewenste tijdspanne te slepen.
+1. **Binnenste datum bereik schuifregelaar hulpprogramma**: De twee endpoint-opties gebruiken door ze via de gewenste tijdspanne te slepen.
 
-1. **Tijd van span samenvouwen besturingselement**: samengevouwen en breidt de tijd span Configuratiescherm-editor.
+1. **Tijd van span samenvouwen besturingselement**: Samengevouwen en breidt de tijd span Configuratiescherm-editor.
 
-1. **Besturingselement voor y-as opmaken**: bladeren door de beschikbare opties voor de y-as:
+1. **Besturingselement voor y-as opmaken**: Bladeren door de beschikbare opties voor de y-as:
 
     * `Default`: Elke regel is een afzonderlijke y-as.
     * `Stacked`: Hiermee kunt u meerdere regels op de dezelfde y-as-stack met de y-as gegevens wijzigen op basis van de geselecteerde regel.
     * `Shared`: Alle y-as-gegevens samen weergegeven.
 
-1. **Huidige gegevenselement**: het geselecteerde element en de bijbehorende gegevens.
+1. **Huidige gegevenselement**: Het geselecteerde element en de bijbehorende gegevens.
 
 U kunt verder inzoomen in een specifieke gegevenssegment door te klikken met de linkermuisknop een gegevenspunt in de huidige grafiek en sleept u het geselecteerde gebied naar het eindpunt van uw keuze. Met de rechtermuisknop op het gebied grijs weergegeven, geselecteerde en inzoomen op zoals weergegeven in dit volgende afbeelding:
 
@@ -126,19 +127,19 @@ Als u met Time Series Insights Preview werkt, selecteert u eerst een tijdsduur. 
 
   ![Verkenner-twaalf][12]
 
-1. **Schuifregelaar voor interne datumbereik**: gebruik van de twee besturingselementen voor het eindpunt door ze via de gewenste tijdspanne te slepen. Deze interne-datumbereik wordt beperkt door de schuifregelaar buitenste datumbereik.
+1. **Schuifregelaar voor interne datumbereik**: De twee endpoint-opties gebruiken door ze via de gewenste tijdspanne te slepen. Deze interne-datumbereik wordt beperkt door de schuifregelaar buitenste datumbereik.
 
-1. **Vergroot of verklein de knoppen voor datumbereik**: toename of afname uw tijd omspannen door een van de knoppen voor het interval dat u wilt selecteren.
+1. **Vergroot of verklein de knoppen voor datumbereik**: Vergroten of verkleinen van de tijdspanne door een van de knoppen voor het interval dat u wilt selecteren.
 
-1. **Tijd van span samenvouwen besturingselement**: dit webbesturingselement kunt u de besturingselementen, met uitzondering van de schuifregelaar binnenste datumbereik verbergen.
+1. **Tijd van span samenvouwen besturingselement**: Dit webbesturingselement kunt u de besturingselementen, met uitzondering van de schuifregelaar binnenste datumbereik verbergen.
 
 1. **Besturingselement voor schuifregelaar outer datumbereik**: Gebruik de eindpunt-besturingselementen het buitenste datum bereik, die beschikbaar zijn voor het besturingselement inner datumbereik te selecteren.
 
-1. **Snelle tijden datum vervolgkeuzelijst voor bereik**: Hiermee kunt u snel tussen span selecties vooraf ingestelde tijd, zoals de laatste 30 minuten, de afgelopen 12 uur of een aangepast bereik schakelen. Als u deze waarde wijzigt, wijzigt ook de beschikbare interval bereiken die worden beschreven in de schuifregelaar voor grootte-interval.
+1. **Snelle tijden datum vervolgkeuzelijst voor bereik**: Hiermee kunt u snel schakelen tussen span selecties vooraf ingestelde tijd, zoals de laatste 30 minuten, de afgelopen 12 uur of een aangepast bereik. Als u deze waarde wijzigt, wijzigt ook de beschikbare interval bereiken die worden beschreven in de schuifregelaar voor grootte-interval.
 
-1. **Intervalgrootte schuifregelaar**: Hiermee kunt u in en uit de intervallen via dezelfde inzoomen periode. Deze actie biedt meer controle over verkeer tussen grote segmenten van de tijd. Vloeiend trends op segmenten zo klein is als een milliseconde, zodat u kunt om te zien met hoge resolutie, gedetailleerde delen van uw gegevens worden weergegeven. Startpunt van de schuifregelaar-standaard is ingesteld als de meest optimale weergave van de gegevens van uw selectie, waardoor resolutie, de snelheid van de query en de granulatie.
+1. **Intervalgrootte schuifregelaar**: Hiermee kunt u inzoomen in en uit de intervallen via de dezelfde periode. Deze actie biedt meer controle over verkeer tussen grote segmenten van de tijd. Vloeiend trends op segmenten zo klein is als een milliseconde, zodat u kunt om te zien met hoge resolutie, gedetailleerde delen van uw gegevens worden weergegeven. Startpunt van de schuifregelaar-standaard is ingesteld als de meest optimale weergave van de gegevens van uw selectie, waardoor resolutie, de snelheid van de query en de granulatie.
 
-1. **Datumbereik naar en van het webbesturingselement voor**: met dit webbesturingselement kunt u eenvoudig op en selecteer de gewenste datum en tijd bereiken. U kunt ook het besturingselement gebruiken om over te schakelen tussen de verschillende tijdzones. Nadat de wijzigingen zijn aangebracht, toe te passen op de huidige werkruimte, selecteert u **opslaan**.
+1. **Datumbereik naar en van het webbesturingselement voor**: Met dit webbesturingselement kunt u eenvoudig op en selecteer de gewenste datum en tijd bereiken. U kunt ook het besturingselement gebruiken om over te schakelen tussen de verschillende tijdzones. Nadat de wijzigingen zijn aangebracht, toe te passen op de huidige werkruimte, selecteert u **opslaan**.
 
   ![Verkenner-13][13]
 
@@ -169,8 +170,8 @@ Selecteer de koppeling webbesturingselement voor (gemarkeerd) voor het genereren
 
 Azure Time Series Insights Preview ondersteunt twee thema's:
 
-* **Licht thema**: het standaardthema dat wordt weergegeven in dit document.
-* **Donker thema**: de explorer wordt weergegeven zoals hier wordt weergegeven:
+* **Licht thema**: Het standaardthema dat wordt weergegeven in dit document.
+* **Donker thema**:  Hiermee maakt u de explorer, zoals hier wordt weergegeven:
 
   ![Verkenner-17][17]
 
@@ -188,7 +189,7 @@ In plaats van de hiërarchie ziet u het deelvenster Time Series Insights termen,
 
 Het deelvenster met Time Series Insights Preview-voorwaarden editor bevat de volgende parameters:
 
-**Waar**: waar u de component kunt u snel filter de gebeurtenissen met behulp van de set met operanden die worden vermeld in de volgende tabel. Als u een zoekopdracht uitvoeren door een operand selecteren, wordt het predicaat automatisch bijgewerkt op basis van die zoekopdracht. Ondersteunde Operandtypen zijn onder andere:
+**Waar**: De where component kunt u snel filter de gebeurtenissen met behulp van de set met operanden die worden vermeld in de volgende tabel. Als u een zoekopdracht uitvoeren door een operand selecteren, wordt het predicaat automatisch bijgewerkt op basis van die zoekopdracht. Ondersteunde Operandtypen zijn onder andere:
 
 | Bewerking | Ondersteunde typen   | Opmerkingen |
 | --- | --- | --- |
@@ -203,9 +204,9 @@ Meer informatie over ondersteunde query operations en gegevenstypen vindt [Time 
 
   ![Verkenner-19][19]
 
-**Meting**: deze vervolgkeuzelijst wordt weergegeven voor alle numerieke kolommen (**verdubbelt**) die u kunt gebruiken als elementen voor de huidige grafiek.
+**Meting**: Deze vervolgkeuzelijst wordt weergegeven voor alle numerieke kolommen (**verdubbelt**) die u kunt gebruiken als elementen voor de huidige grafiek.
 
-**Splitsen op basis van**: deze vervolgkeuzelijst wordt weergegeven van alle beschikbare categorische kolommen (tekenreeksen) in uw model dat u kunt uw gegevens door te groeperen. U kunt maximaal vijf voorwaarden om weer te geven op de dezelfde x-as toevoegen. Voer de gewenste parameters en selecteer vervolgens **toevoegen** om toe te voegen een nieuwe term.
+**Splitsen op basis van**: Deze vervolgkeuzelijst wordt weergegeven van alle beschikbare categorische kolommen (tekenreeksen) in uw model dat u kunt uw gegevens door te groeperen. U kunt maximaal vijf voorwaarden om weer te geven op de dezelfde x-as toevoegen. Voer de gewenste parameters en selecteer vervolgens **toevoegen** om toe te voegen een nieuwe term.
 
   ![Verkenner-twintig][20]
 

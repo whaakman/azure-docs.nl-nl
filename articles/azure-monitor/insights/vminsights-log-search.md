@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 17d663873639cc36e9727881d990a3f32697c798
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 676baa6947eaf8b3842b0100657f42a1e6438061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872149"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184879"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (Preview)
 Azure Monitor voor virtuele machines verzamelt metrische gegevens over prestaties en verbinding-, computer- en inventarisgegevens van proces- en informatie over de status en stuurt het naar de Log Analytics data store in Azure Monitor.  Deze gegevens zijn beschikbaar voor [zoeken](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
@@ -41,7 +40,7 @@ Records in deze tabellen zijn gegenereerd op basis van gegevens die zijn gerappo
 
 Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding records geen afzonderlijke fysieke netwerkverbindingen. Verbindingen van meerdere fysieke netwerk zijn gegroepeerd in een logische verbinding, die vervolgens wordt weergegeven in de bijbehorende tabel.  Betekenis, registreert in *VMConnection* tabel staan voor een logische groepering en niet de afzonderlijke fysieke verbindingen die zijn waargenomen. Fysieke netwerkverbinding delen dezelfde waarde voor de volgende kenmerken tijdens een opgegeven interval van één minuut worden samengevoegd in één logische record in *VMConnection*. 
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |Richting |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
 |Machine |De FQDN-naam van de computer |
@@ -53,7 +52,7 @@ Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding record
 
 Voor het account voor de impact van groepering, informatie over het aantal gegroepeerde fysieke verbindingen vindt u in de volgende eigenschappen van de record:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |LinksEstablished |Het aantal fysieke netwerkverbindingen die zijn gemaakt tijdens de rapportage venster |
 |LinksTerminated |Het aantal fysieke netwerkverbindingen die tijdens de rapportage venster zijn beëindigd |
@@ -64,7 +63,7 @@ Voor het account voor de impact van groepering, informatie over het aantal gegro
 
 Naast de verbinding aantal metrische gegevens, informatie over de hoeveelheid gegevens verzonden en ontvangen op een bepaalde logische verbinding of netwerkpoort zijn ook opgenomen in de volgende eigenschappen van de record:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |BytesSent |Totaal aantal bytes dat is verzonden tijdens het rapportage venster |
 |BytesReceived |Totaal aantal bytes dat is ontvangen tijdens het rapportage venster |
@@ -90,7 +89,7 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 #### <a name="geolocation"></a>Geolocatie
 *VMConnection* omvat ook geolocatie-informatie voor het externe einde van elke verbindingsrecord in de volgende eigenschappen van de record: 
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |RemoteCountry |De naam van het betreffende land RemoteIp hosten.  Bijvoorbeeld, *Verenigde Staten* |
 |RemoteLatitude |De breedtegraad geolocatie. Bijvoorbeeld, *47.68* |
@@ -99,11 +98,11 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 #### <a name="malicious-ip"></a>Schadelijk IP
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |MaliciousIp |Het adres RemoteIp |
 |IndicatorThreadType |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
-|Beschrijving |Beschrijving van de waargenomen bedreiging. |
+|Description |Beschrijving van de waargenomen bedreiging. |
 |TLPLevel |Niveau van stoplicht Protocol (TLP) is een van de gedefinieerde waarden, *wit*, *groen*, *oranje*, *Red*. |
 |Betrouwbaarheid |Waarden zijn *0-100*. |
 |Severity |Waarden zijn *0 – 5*, waarbij *5* is het meest ernstige en *0* is helemaal niet ernstig. Standaardwaarde is *3*.  |
@@ -116,7 +115,7 @@ Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL records
 Records met een type *ServiceMapComputer_CL* inventarisgegevens voor servers met de agent voor afhankelijkheden hebben. Deze records hebben de eigenschappen in de volgende tabel:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -141,7 +140,7 @@ Records met een type *ServiceMapComputer_CL* inventarisgegevens voor servers met
 ### <a name="servicemapprocesscl-type-records"></a>Type ServiceMapProcess_CL records
 Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens voor TCP verbonden processen op servers met de agent voor afhankelijkheden. Deze records hebben de eigenschappen in de volgende tabel:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |

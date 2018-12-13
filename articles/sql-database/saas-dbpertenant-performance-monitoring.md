@@ -1,5 +1,5 @@
 ---
-title: 'SaaS-app: prestaties van veel Azure SQL-databases bewaken | Microsoft Docs'
+title: 'SaaS-app: Prestaties bewaken van veel Azure SQL-databases | Microsoft Docs'
 description: Prestaties van Azure SQL-databases en pools in een multitenant SaaS-app controleren en beheren
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353897"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259134"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Prestaties van Azure SQL-databases en pools in een multitenant SaaS-app controleren en beheren
 
@@ -75,7 +75,7 @@ Als u al een batch met tenants in een eerdere zelfstudie ingericht, gaat u naar 
 
 Het script implementeert 17 tenants in minder dan vijf minuten.
 
-De *New-TenantBatch* script maakt gebruik van een geneste of gekoppelde set [Resource Manager](../azure-resource-manager/index.md) sjablonen die een batch met tenants, wat standaard kopieert u de database maakt **basetenantdb**op de catalogusserver om databases voor de nieuwe tenant maken, klikt u vervolgens worden deze geregistreerd in de catalogus en ten slotte geïnitialiseerd met de tenant en het locatietype type. Dit komt overeen met de manier waarop die de app een nieuwe tenant inricht. Alle wijzigingen aan *basetenantdb* worden toegepast op alle nieuwe tenants ingericht. Zie de [Schemabeheer zelfstudie](saas-tenancy-schema-management.md) voor informatie over het aanbrengen van schemawijzigingen naar *bestaande* tenant-databases (met inbegrip van de *basetenantdb* database).
+De *New-TenantBatch* script maakt gebruik van een geneste of gekoppelde set [Resource Manager](../azure-resource-manager/index.yml) sjablonen die een batch met tenants, wat standaard kopieert u de database maakt **basetenantdb**op de catalogusserver om databases voor de nieuwe tenant maken, klikt u vervolgens worden deze geregistreerd in de catalogus en ten slotte geïnitialiseerd met de tenant en het locatietype type. Dit komt overeen met de manier waarop die de app een nieuwe tenant inricht. Alle wijzigingen aan *basetenantdb* worden toegepast op alle nieuwe tenants ingericht. Zie de [Schemabeheer zelfstudie](saas-tenancy-schema-management.md) voor informatie over het aanbrengen van schemawijzigingen naar *bestaande* tenant-databases (met inbegrip van de *basetenantdb* database).
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Gebruik simuleren op alle tenantdatabases
 

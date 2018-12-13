@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6170b69d213470b1f5b7e75c9b102e5e07c09209
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8a1f7e367b3f8f06e33bbcd11f8090c9578c1d30
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682869"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269563"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Taakstatus en taakstromen van Automation doorsturen naar Log Analytics
 
@@ -84,7 +84,7 @@ Zorg ervoor dat in de uitvoer:
 Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in Log Analytics en zijn gelabeld als **AzureDiagnostics**. De volgende query's gebruikt u de bijgewerkte querytaal Log Analytics. Bezoek voor meer informatie over algemene query's tussen de verouderde query-taal en de nieuwe Azure Log Analytics-querytaal [verouderde naar de nieuwe querytaal van Azure Log Analytics-referentiemateriaal](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### <a name="job-logs"></a>Taaklogboeken
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | TimeGenerated |Datum en tijd van uitvoering van de runbooktaak. |
 | RunbookName_s |De naam van het runbook. |
@@ -106,7 +106,7 @@ Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in
 
 
 ### <a name="job-streams"></a>Taakstromen
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | TimeGenerated |Datum en tijd van uitvoering van de runbooktaak. |
 | RunbookName_s |De naam van het runbook. |
@@ -138,10 +138,10 @@ Een van de grote klanten wordt gevraagd de mogelijkheid voor het verzenden van e
 Voor het maken van een waarschuwingsregel, begint u met het maken van een zoeken in Logboeken voor de runbook-Taakrecords die de waarschuwing moet worden aangeroepen. Klik op de **waarschuwing** knop maken en configureren van de waarschuwingsregel.
 
 1. Klik op de pagina overzicht van Log Analytics **zoeken in logboeken**.
-2. Maken van een zoekquery logboek voor de waarschuwing door te zoeken in de volgende typen in het queryveld: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` u ook de RunbookName kunt groeperen met behulp van: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Maak een zoekquery logboek voor de waarschuwing door te zoeken in de volgende typen in het queryveld: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  U kunt ook de RunbookName groeperen met behulp van: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Als u logboeken van meer dan één Automation-account of abonnement aan uw werkruimte, kunt u uw waarschuwingen op basis van abonnement en de Automation-account kunt groeperen. Naam van het Automation-account kan worden gevonden in het veld Resource in het zoekvak van JobLogs.
-1. Om te openen de **maken regel** scherm, klikt u op **+ nieuwe waarschuwingsregel** aan de bovenkant van de pagina. Zie voor meer informatie over de opties voor het configureren van de waarschuwing [waarschuwingen voor activiteitenlogboeken in Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
+1. Om te openen de **maken regel** scherm, klikt u op **+ nieuwe waarschuwingsregel** aan de bovenkant van de pagina. Zie voor meer informatie over de opties voor het configureren van de waarschuwing [waarschuwingen voor activiteitenlogboeken in Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Alle taken hebt voltooid met fouten zoeken
 U kunt naast de waarschuwingen op fouten, wanneer een runbook-taak een niet-afsluitfout heeft vinden. In dergelijke gevallen PowerShell een foutstroom produceert, maar de niet-afsluitfouten niet tot gevolg dat de taak onderbreken of als mislukt.    

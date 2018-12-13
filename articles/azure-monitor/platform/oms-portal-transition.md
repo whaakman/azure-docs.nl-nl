@@ -12,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: a1189f621b3d4c8846b374cd8369c69daef2fa31
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 6e85d19460d0b1c02ddd6666cf1e441e44e7a03d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002555"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276771"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portal naar Azure verplaatsen
 
@@ -80,7 +79,7 @@ U bent niet langer om nieuwe werkruimten met behulp van de OMS-portal te maken. 
 > [!NOTE]
 > Waarschuwingen zijn nu volledig uitgebreid naar de Azure-portal voor de openbare cloud. Bestaande waarschuwingsregels kunnen worden weergegeven in de OMS-portal, maar ze kunnen alleen worden beheerd in Azure portal. Uitbreiding van waarschuwingen in Azure portal wordt gestart voor de Azure government-cloud in oktober 2018.
 
-Waarschuwingen zijn [uitgebreid naar Azure portal](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Zodra dit voltooid is, zijn acties voor waarschuwingen alleen worden beschikbaar in Azure portal. Bestaande-waarschuwingen blijven worden vermeld in de OMS-portal. Als u waarschuwingen programmatisch met behulp van de Log Analytics Alert REST API of Log Analytics-waarschuwing Resourcesjabloon opent, moet u actiegroepen gebruiken in plaats van acties in uw API-aanroepen, Azure Resource Manager-sjablonen en PowerShell-opdrachten.
+Waarschuwingen zijn [uitgebreid naar Azure portal](../../azure-monitor/platform/alerts-extend.md). Zodra dit voltooid is, zijn acties voor waarschuwingen alleen worden beschikbaar in Azure portal. Bestaande-waarschuwingen blijven worden vermeld in de OMS-portal. Als u waarschuwingen programmatisch met behulp van de Log Analytics Alert REST API of Log Analytics-waarschuwing Resourcesjabloon opent, moet u actiegroepen gebruiken in plaats van acties in uw API-aanroepen, Azure Resource Manager-sjablonen en PowerShell-opdrachten.
 
 ### <a name="alert-management-solution"></a>Oplossing voor waarschuwing
 In plaats van de [waarschuwingenbeheeroplossing](../../azure-monitor/platform/alert-management-solution.md), kunt u [van Azure Monitor unified interface waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) te visualiseren en waarschuwingen beheren. Deze nieuwe ervaring aggregeert waarschuwingen uit meerdere bronnen binnen Azure inclusief waarschuwingen van Log Analytics. U kunt distributies van uw waarschuwingen bekijken, profiteer van geautomatiseerde groeperen van gerelateerde waarschuwingen via slimme groepen en weergeven van waarschuwingen voor meerdere abonnementen terwijl geavanceerde filters zijn toegepast. Al deze functies zijn beschikbaar in Preview-versie 4 juni 2018 beginnen. Het beheersysteem voor de waarschuwing is niet beschikbaar in de Azure portal. 
@@ -88,7 +87,7 @@ In plaats van de [waarschuwingenbeheeroplossing](../../azure-monitor/platform/al
 De gegevens die zijn verzameld door de oplossing van waarschuwingen te beheren (records met een type van de waarschuwing) blijft in Log Analytics, zolang de oplossing voor de werkruimte is geïnstalleerd. Vanaf augustus 2018, wordt streaming van waarschuwingen van geïntegreerde waarschuwingen in werkruimten ingeschakeld, vervangt deze mogelijkheid. Sommige wijzigingen in het schema worden verwacht en op een later tijdstip worden aangekondigd.
 
 ## <a name="oms-mobile-app"></a>Mobiele OMS-App
-De mobiele OMS-app worden sunsetted samen met de OMS-portal. In plaats van de mobiele OMS-app voor toegang tot informatie over uw IT-infrastructuur, dashboards en opgeslagen query's, kunt u de Azure-portal rechtstreeks openen vanuit uw browser in uw mobiele apparaat. Als u waarschuwingen, moet u configureren [Azure-actiegroepen](../../monitoring-and-diagnostics/monitoring-action-groups.md) voor het ontvangen van meldingen in de vorm van SMS- of een telefoongesprek
+De mobiele OMS-app worden sunsetted samen met de OMS-portal. In plaats van de mobiele OMS-app voor toegang tot informatie over uw IT-infrastructuur, dashboards en opgeslagen query's, kunt u de Azure-portal rechtstreeks openen vanuit uw browser in uw mobiele apparaat. Als u waarschuwingen, moet u configureren [Azure-actiegroepen](../../azure-monitor/platform/action-groups.md) voor het ontvangen van meldingen in de vorm van SMS- of een telefoongesprek
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights-Connector en oplossing
 [Application Insights-Connector](../../azure-monitor/platform/app-insights-connector.md) biedt een manier om Application Insights-gegevens in een Log Analytics-werkruimte. De duplicatie van deze gegevens is vereist voor het inschakelen van zichtbaarheid in de infrastructuur-en toepassingsgegevens.

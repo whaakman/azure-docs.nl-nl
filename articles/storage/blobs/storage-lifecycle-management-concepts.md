@@ -5,39 +5,39 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/04/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 856d202965c7b950705e4f861257e7bf553701e9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 4dff63a20f9ae3372e37cbd413dd3ec6187ea2cc
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019799"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310214"
 ---
-# <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Beheer van de levenscyclus van Azure Blob Storage (Preview)
+# <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Beheren van de Azure Blob-opslag Lifecycle (Preview)
 
-Gegevenssets hebben unieke Lifecycle-beleid. Sommige gegevens worden vaak vroeg geopend in de levenscyclus van, maar de noodzaak voor toegang wordt geweigerd hebt u aanzienlijk als de gegevens van de leeftijd. Sommige gegevens in de cloud inactief en zelden worden gebruikt wanneer deze zijn opgeslagen. Sommige gegevens verlopen dagen of maanden na het maken, terwijl andere gegevenssets actief worden gelezen en gewijzigd gedurende hun levensduur. Azure Blob-opslag levenscyclusbeheer (Preview) biedt een uitgebreide, op basis van regels beleid die u in GPv2- en Blob storage-accounts gebruiken kunt aan uw gegevens naar de juiste laag overgang of verloopt aan het einde van de levenscyclus.
+Gegevenssets hebben unieke Lifecycle-beleid. Vroeg in de levenscyclus, mensen toegang tot bepaalde gegevens vaak. Maar hebt u aanzienlijk als de gegevens van de leeftijd door de noodzaak voor toegang wordt geweigerd. Sommige gegevens in de cloud blijft niet-actieve en zelden worden gebruikt wanneer deze zijn opgeslagen. Sommige gegevens verlopen dagen of maanden na het maken, terwijl andere gegevenssets actief worden gelezen en gewijzigd gedurende hun levensduur. Azure Blob storage-levenscyclusbeheer (Preview) biedt een uitgebreide, op regels gebaseerde beleid voor GPv2- en Blob storage-accounts. Gebruik het beleid aan uw gegevens naar de juiste laag overgang of verloopt aan het einde van de levenscyclus van de gegevens.
 
-Levenscyclusbeheerbeleid kunt u:
+De levenscyclus van management-beleid kunt u:
 
-- Overgang van blobs naar een minder dynamische opslaglaag (warm naar koud, warm naar archief of koud naar archief) om te optimaliseren voor prestaties en kosten
+- Overgang van blobs en een minder dynamische opslaglaag (' hot ' naar ' Cool ', ' hot ' als u wilt archiveren of koud naar archief) om te optimaliseren voor prestaties en kosten
 - Verwijderen van blobs aan het einde van de levenscycli hiervan
 - Definieer regels moet één keer per dag worden uitgevoerd op het niveau van de storage-account
 - Regels toepassen op containers of een subset van blobs (met behulp van voorvoegsels als filters)
 
-Houd rekening met een set gegevens die vaak tijdens de eerste fase van de levenscyclus is geopend, is alleen nodig af en toe na twee weken en zelden worden gebruikt na één maand en daarbuiten. In dit scenario hot storage is het beste tijdens de eerste fasen koude opslag is het meest geschikt is voor incidentele toegang en archiefopslag is de beste optie laag nadat de gegevens van de leeftijd meer dan een maand. Door het aanpassen van opslaglagen met betrekking tot de leeftijd van de gegevens, kunt u de minst dure opslagopties ontwerpen voor uw behoeften. Voor het bereiken van deze overgang, zijn beheerbeleidsregels lifecycle veroudering om gegevens te verplaatsen naar een minder dynamische laag beschikbaar.
+Houd rekening met het scenario waar een gegevensset opgehaald regelmatig toegang tijdens de eerste fasen van de levenscyclus van, maar vervolgens alleen af en toe na twee weken. Na de eerste maand, wordt de gegevensset zelden worden gebruikt. In dit scenario wordt er tijdens de eerste fasen hot storage aanbevolen. Koude opslag is het meest geschikt is voor incidentele toegang en archiefopslag is de beste optie laag nadat de gegevens van de leeftijd meer dan een maand. Door het aanpassen van opslaglagen met betrekking tot de leeftijd van de gegevens, kunt u de minst dure opslagopties ontwerpen voor uw behoeften. Voor het bereiken van deze overgang, zijn beheerbeleidsregels lifecycle veroudering om gegevens te verplaatsen naar een minder dynamische laag beschikbaar.
 
 ## <a name="storage-account-support"></a>Ondersteuning voor Storage-account
 
-Levenscyclusbeheerbeleid is beschikbaar bij zowel algemeen gebruik v2 (GPv2)-account en Blob Storage-account. U kunt een bestaande account voor algemeen gebruik (GPv1) upgraden naar een GPv2-account via een eenvoudig éénkliksproces in Azure portal zonder uitvaltijd. Zie voor meer informatie over de storage-accounts, [overzicht van Azure storage-account](../common/storage-account-overview.md) voor meer informatie.  
+De levenscyclus van management-beleid is beschikbaar bij zowel algemeen gebruik v2 (GPv2) accounts en Blob storage-accounts. U kunt een bestaande account voor algemeen gebruik (GPv1) upgraden naar een GPv2-account via een eenvoudig éénkliksproces in Azure portal. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie over opslagaccounts.  
 
 ## <a name="pricing"></a>Prijzen 
 
-Functie voor het beheer van levenscyclus is gratis in preview. Klanten betalen voor de bewerkingskosten van de normale voor de [Blobs weergeven](https://docs.microsoft.com/rest/api/storageservices/list-blobs) en [Blob-laag instellen](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-aanroepen. Zie [prijzen voor blok-Blob](https://azure.microsoft.com/pricing/details/storage/blobs/) voor meer informatie over prijzen.
+De levenscyclus van management-functie is gratis in preview. Klanten betalen voor de bewerkingskosten van de normale voor de [Blobs weergeven](https://docs.microsoft.com/rest/api/storageservices/list-blobs) en [Blob-laag instellen](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-aanroepen. Zie voor meer informatie over prijzen [prijzen voor blok-Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>Registreren voor de Preview-versie 
-Als u wilt registreren in openbare preview-versie, moet u een aanvraag indient bij het registreren van deze functie kunt u uw abonnement. Nadat uw aanvraag is goedgekeurd (binnen een paar dagen), is alle bestaande en nieuwe GPv2 of Blob Storage-account in VS-West 2, West-Centraal VS, VS-Oost 2 en West-Europa, heeft de functie is ingeschakeld. Tijdens de preview, wordt alleen blok-blob ondersteund. Net als bij de meeste Preview-versies, mag deze functie niet worden gebruikt voor werkbelastingen voor productie totdat het bereikt die algemene beschikbaarheid.
+Om in te schrijven in openbare preview, moet u een aanvraag indient bij het registreren van deze functie kunt u uw abonnement. Aanvragen worden meestal binnen twee weken goedgekeurd. In afwachting van goedkeuring, alle bestaande en nieuwe GPv2- of Blob storage-accounts in de volgende regio's zijn onder andere de functie: VS-West 2, West-Centraal VS, VS-Oost 2 en West-Europa. Preview-versie ondersteunt alleen blok-blob. Net als bij de meeste Preview-versies, mag niet u deze functie voor werkbelastingen voor productie gebruiken totdat het bereikt die algemene beschikbaarheid.
 
 Als u wilt een aanvraag indient, voer de volgende PowerShell of CLI-opdrachten.
 
@@ -52,7 +52,7 @@ U kunt de status van de goedkeuring registratie met de volgende opdracht control
 ```powershell
 Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
-Als de functie is goedgekeurd en juist is geregistreerd, kunt u de status 'Registered' moeten ontvangen.
+Bij goedkeuring en correct is geregistreerd, ontvangt u de *geregistreerde* status wanneer u de vorige aanvragen indienen.
 
 ### <a name="azure-cli"></a>Azure-CLI
 
@@ -64,20 +64,20 @@ U kunt de status van de goedkeuring registratie met de volgende opdracht control
 ```cli
 az feature show --namespace Microsoft.Storage --name DLM
 ```
-Als de functie is goedgekeurd en juist is geregistreerd, kunt u de status 'Registered' moeten ontvangen. 
+Bij goedkeuring en correct is geregistreerd, ontvangt u de *geregistreerde* status wanneer u de vorige aanvragen indienen.
 
 
 ## <a name="add-or-remove-a-policy"></a>Toevoegen of verwijderen van een beleid 
 
-U kunt toevoegen, bewerken of verwijderen van een beleid met behulp van Azure portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST-API's](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate), of clienthulpprogramma's in de volgende talen: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](  https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+U kunt toevoegen, bewerken of verwijderen van een beleid met behulp van Azure portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), [REST-API's](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate), of clienthulpprogramma's in de volgende talen: [.NET ](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure Portal
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Ga naar uw opslagaccount, selecteer Alle resources en selecteer vervolgens uw opslagaccount.
+2. Selecteer **alle Resources** en selecteer vervolgens uw opslagaccount.
 
-3. Klik in de blade instellingen op **levenscyclusbeheer** gegroepeerd op Blob-Service om te bekijken en/of wijzigen van uw beleid.
+3. Selecteer **levenscyclusbeheer (preview)** gegroepeerd op Blob-Service weergeven of wijzigen van uw beleid.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -89,8 +89,16 @@ Set-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
 ```
 
+### <a name="azure-cli"></a>Azure-CLI
+
+```
+az account set --subscription "[subscriptionName]”
+az extension add --name storage-preview
+az storage account management-policy show --resource-group [resourceGroupName] --account-name [accountName]
+```
+
 > [!NOTE]
-Als u firewallregels voor uw opslagaccount inschakelt, worden lifecycle management-aanvragen geblokkeerd. U kunt deze blokkering opheffen door op te geven van uitzonderingen. Zie voor meer informatie de sectie uitzonderingen op [firewalls en virtuele netwerken configureren](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Als u firewallregels voor uw opslagaccount inschakelt, worden lifecycle management-aanvragen geblokkeerd. U kunt deze aanvragen blokkering opheffen door op te geven van uitzonderingen. Zie voor meer informatie de sectie uitzonderingen in [firewalls en virtuele netwerken configureren](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## <a name="policy"></a>Beleid
 
@@ -115,31 +123,31 @@ Een lifecycle management-beleid is een verzameling van regels in een JSON-docume
 ```
 
 
-Binnen een beleid worden twee parameters nodig:
+Een beleid vereist twee parameters:
 
 | Parameternaam | Parametertype | Opmerkingen |
 |----------------|----------------|-------|
-| versie        | Een tekenreeks die is uitgedrukt als `x.x` | Het nummer van de preview-versie is 0,5 |
+| versie        | Een tekenreeks die is uitgedrukt als `x.x` | Het nummer van de preview-versie is 0,5. |
 | regels          | Een matrix met regelobjecten | Ten minste één regel is in elke beleidsregel vereist. Tijdens de preview, kunt u maximaal 4 regels per beleid opgeven. |
 
-In elke regel worden drie parameters nodig:
+Elke regel in het beleid vereist drie parameters:
 
 | Parameternaam | Parametertype | Opmerkingen |
 |----------------|----------------|-------|
 | Name           | Reeks | De naam van een regel kan elke combinatie van alfanumerieke tekens bevatten. De naam van regel is hoofdlettergevoelig. Deze moet uniek zijn binnen een beleid. |
-| type           | Een enum-waarde | De geldige waarde voor de Preview-versie is `Lifecycle` |
-| definitie     | Een object dat de levenscyclus van regel definieert | Elke definitie is opgebouwd met een set filters en een reeks acties. |
+| type           | Een enum-waarde | De geldige waarde voor de Preview-versie is `Lifecycle`. |
+| definitie     | Een object dat de levenscyclus van regel definieert | Elke definitie bestaat uit een filter en een actie. |
 
 ## <a name="rules"></a>Regels
 
-De definitie van elke regel bevat een set filters en een set acties. De [filteren set](#rule-filters) wordt gebruikt voor het beperken van bewerkingen van de regel voor een bepaalde set van objecten in een container of namen van objecten. De [actie set](#rule-actions) van toepassing is de laag of acties aan de gefilterde set objecten verwijderen.
+De definitie van elke regel bevat een filterset en een actie-set. De [filteren set](#rule-filters) beperkt regelacties op een bepaalde set van objecten in een container of namen van objecten. De [actie set](#rule-actions) van toepassing is de laag of acties aan de gefilterde set objecten verwijderen.
 
 ### <a name="sample-rule"></a>Van voorbeeldregel
-Het volgende voorbeeldregel filtert de account voor uitvoering van de acties alleen op `container1/foo`. Voor alle objecten die bestaan binnen `container1` **en** begint met `foo`, deze volgende acties worden uitgevoerd: 
+Het volgende voorbeeldregel filtert de account voor uitvoering van de acties alleen op `container1/foo`. Voer de volgende acties voor alle objecten die bestaan binnen `container1` **en** begint met `foo`: 
 
 - Laag-blob naar de koude laag 30 dagen na de laatste wijziging
-- Laag-blob naar de Archive-laag 90 dagen na de laatste wijziging
-- Het verwijderen van de blob 2,555 dagen (7 jaar) na de laatste wijziging
+- Laag-blob naar de laag archief 90 dagen na de laatste wijziging
+- Het verwijderen van de blob 2,555 dagen (zeven jaar) na de laatste wijziging
 - 90 dagen na het maken van momentopnamen voor blob-momentopnamen verwijderen
 
 ```json
@@ -173,31 +181,31 @@ Het volgende voorbeeldregel filtert de account voor uitvoering van de acties all
 
 ### <a name="rule-filters"></a>Regel filters
 
-Filters beperken regelacties tot een subset van de blobs in de storage-account. Als meerdere filters zijn gedefinieerd, een logische `AND` wordt uitgevoerd op alle filters.
+Filters beperken regelacties tot een subset van de blobs in de storage-account. Als meer dan één filter wordt gedefinieerd, een logische `AND` wordt uitgevoerd op alle filters.
 
 Tijdens de preview, geldige filters zijn onder andere:
 
 | Naam van het filter | Filtertype | Opmerkingen | Is vereist |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Een matrix met vooraf gedefinieerde enum-waarden. | Voor de preview-versie, alleen `blockBlob` wordt ondersteund. | Ja |
-| prefixMatch | Een matrix met tekenreeksen voor voorvoegsels worden aan. Een voorvoegseltekenreeks moet beginnen met een containernaam. Bijvoorbeeld, als alle blobs onder 'https://myaccount.blob.core.windows.net/container1/foo/... ' moeten worden gekoppeld voor een regel, de prefixMatch "container1/foo" zou zijn. | Als prefixMatch is niet gedefinieerd, zijn de regels van toepassing op alle blobs in het account. | Nee |
+| blobTypes   | Een matrix met vooraf gedefinieerde enum-waarden. | De evaluatieversie uitsluitend ondersteunt `blockBlob`. | Ja |
+| prefixMatch | Een matrix met tekenreeksen voor voorvoegsels worden aan. Een voorvoegseltekenreeks moet beginnen met een containernaam. Bijvoorbeeld, als u wilt om alle blobs onder 'https://myaccount.blob.core.windows.net/container1/foo/... ' voor een regel, is het de prefixMatch `container1/foo`. | Als u geen prefixMatch definieert, zijn de regels van toepassing op alle blobs in het account. | Nee |
 
 ### <a name="rule-actions"></a>Regelacties
 
 Acties worden uitgevoerd voor de gefilterde blobs wanneer de uitvoering van voorwaarde wordt voldaan.
 
-Preview-versie biedt ondersteuning voor levenscyclusbeheer blobniveau en verwijdering van blob en het verwijderen van blobmomentopnamen. Elke regel moet ten minste één actie gedefinieerd voor blobs of blobschermopnamen hebben.
+Preview-versie biedt ondersteuning voor levenscyclusbeheer in lagen en verwijderen van blobs en verwijderen van blob-momentopnamen. Ten minste één actie voor elke regel op blobs of blobschermopnamen definiëren.
 
 | Bewerking        | Basis-Blob                                   | Momentopname      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Ondersteuning voor blobs dat zich momenteel in de warme laag         | Niet ondersteund |
-| tierToArchive | Ondersteuning voor blobs dat zich momenteel in de warme of koude laag | Niet ondersteund |
+| tierToArchive | Ondersteuning voor blobs dat zich momenteel in de opslaglaag hot of cool | Niet ondersteund |
 | delete        | Ondersteund                                   | Ondersteund     |
 
 >[!NOTE] 
-Als meer dan één actie is gedefinieerd in dezelfde blob, geldt levensduurbeheer van de minst dure actie naar de blob. (bijv, actie `delete` is goedkoper dan actie `tierToArchive`. Actie `tierToArchive` is goedkoper dan actie `tierToCool`.)
+Als u meer dan één actie op dezelfde blob definieert, is levensduurbeheer van de minst dure actie van toepassing op de blob. Bijvoorbeeld: actie `delete` is goedkoper dan actie `tierToArchive`. Actie `tierToArchive` is goedkoper dan actie `tierToCool`.
 
-Preview-versie zijn de voorwaarden van de uitvoering van actie op basis van leeftijd. Maakt gebruik van basis blob tijd bij te houden leeftijd en blob-momentopnamen maakt gebruik van momentopname Aanmaaktijd om bij te houden leeftijd het laatst is gewijzigd.
+Preview-versie zijn de voorwaarden van de uitvoering van actie op basis van leeftijd. Basis-blobs gebruikt u de laatst gewijzigd om bij te houden van de leeftijd en blob-momentopnamen gebruiken de aanmaaktijd van de momentopname voor het bijhouden van leeftijd.
 
 | Actie tot uitvoering van voorwaarde | Voorwaarde-waarde | Description |
 |----------------------------|-----------------|-------------|
@@ -209,7 +217,7 @@ De volgende voorbeelden laten zien hoe u algemene scenario's met de levenscyclus
 
 ### <a name="move-aging-data-to-a-cooler-tier"></a>Ouderdom gegevens verplaatsen naar een minder dynamische laag
 
-Het volgende voorbeeld ziet u hoe u voor de overgang van blok-blobs voorafgegaan door `container1/foo` of `container2/bar`. Het beleid overgangen blobs die nog niet zijn gewijzigd in meer dan 30 dagen op koude opslag en -blobs niet worden gewijzigd in 90 dagen voor de archive-laag:
+Dit voorbeeld laat zien hoe u voor de overgang van blok-blobs voorafgegaan door `container1/foo` of `container2/bar`. Het beleid overgangen blobs die nog niet zijn gewijzigd in meer dan 30 dagen op koude opslag en -blobs niet worden gewijzigd in 90 dagen voor de archive-laag:
 
 ```json
 {
@@ -238,7 +246,7 @@ Het volgende voorbeeld ziet u hoe u voor de overgang van blok-blobs voorafgegaan
 
 ### <a name="archive-data-at-ingest"></a>Archiveer gegevens in de opname 
 
-Weer andere gegevens in de cloud zijn inactief en worden, als ze eenmaal zijn opgeslagen, zelden tot nooit geopend. Deze gegevens is het beste worden gearchiveerd onmiddellijk nadat deze is opgenomen. De volgende lifecycle-beleid is geconfigureerd voor het archiveren van data-at-opname. In dit voorbeeld overgangen blok-blobs in de storage-account in container `archivecontainer` onmiddellijk in een archive-laag. De onmiddellijke overgang wordt bereikt door het uitvoeren van blobs 0 dagen na het tijdstip laatst gewijzigd:
+Sommige gegevens in de cloud blijft niet-actieve en zelden, als tot nooit geopend eenmaal opgeslagen. Deze gegevens archiveren onmiddellijk één keer worden opgenomen. De volgende lifecycle-beleid is geconfigureerd voor het archiveren van data-at-opname. In dit voorbeeld overgangen blok-blobs in de storage-account in container `archivecontainer` onmiddellijk in een archive-laag. De onmiddellijke overgang wordt bereikt door het uitvoeren van blobs 0 dagen na het tijdstip laatst gewijzigd:
 
 ```json
 {
@@ -267,7 +275,7 @@ Weer andere gegevens in de cloud zijn inactief en worden, als ze eenmaal zijn op
 
 ### <a name="expire-data-based-on-age"></a>Gegevens op basis van leeftijd laten verlopen
 
-Sommige gegevens wordt verlopen dagen of maanden na het maken van kosten verlagen of te voldoen aan wettelijke voorschriften verwacht. Een lifecycle management-beleid kan worden ingesteld op gegevens laten verlopen door verwijderen op basis van gegevens leeftijd. Het volgende voorbeeld ziet een beleid dat Hiermee verwijdert u alle blok-blobs (met geen voorvoegsel dat is opgegeven) ouder is dan 365 dagen.
+Sommige gegevens wordt verlopen dagen of maanden na het maken van kosten verlagen of te voldoen aan de overheidsvereisten verwacht. U kunt een levenscyclus van management-beleid om te verlopen gegevens door verwijderen op basis van gegevens leeftijd configureren. Het volgende voorbeeld ziet een beleid dat Hiermee verwijdert u alle blok-blobs (met geen voorvoegsel dat is opgegeven) ouder is dan 365 dagen.
 
 ```json
 {
@@ -319,10 +327,9 @@ Voor gegevens die is gewijzigd en gedurende hun levensduur regelmatig geopend, w
   ]
 }
 ```
-## <a name="faq"></a>Veelgestelde vragen
-### <a name="i-created-a-new-policy-why-are-the-actions-specified-not-executed-immediately"></a>Ik heb een nieuw beleid, waarom worden de acties opgegeven niet onmiddellijk wordt uitgevoerd gemaakt? 
+## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>Veelgestelde vragen - ik heb gemaakt voor een nieuw beleid, waarom worden de acties die niet direct uitvoeren? 
 
-Lifecycle-beleid wordt eenmaal per dag worden uitgevoerd door het platform. Zodra een nieuw beleid is ingesteld, duurt het tot 24 uur voor acties, zoals opslaglagen of verwijderen om te worden gestart en worden uitgevoerd.  
+Het platform wordt één keer per dag uitgevoerd de lifecycle-beleid. Nadat u een nieuw beleid hebt ingesteld, duurt het tot 24 uur voor sommige acties (zoals blobniveau en verwijdering) start en uitvoert.  
 
 ## <a name="next-steps"></a>Volgende stappen
 

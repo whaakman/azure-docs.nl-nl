@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: da6cc943c310b627626b3d2081ffa88ef3185013
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bcfb3a52793ba0daca980564d5d2248629b5caf4
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727831"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323009"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systeemprestatiemeteritems in Application Insights
 Windows biedt een groot aantal verschillende [prestatiemeteritems](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , zoals CPU-bezetting, geheugen, schijf en netwerkgebruik. U kunt ook uw eigen links definiëren. [Application Insights](app-insights-overview.md) weergeven van deze prestatiemeteritems als uw toepassing onder IIS wordt uitgevoerd op een on-premises-host of virtuele machine waarop u beheerderstoegang hebben. De grafieken geven van de beschikbare resources voor uw live-toepassing en helpen bij het identificeren van niet-gebalanceerde load tussen exemplaren van de server.
@@ -26,7 +26,7 @@ Prestatiemeteritems worden weergegeven in de blade Servers, waaronder een tabel 
 
 ![Prestatiemeteritems die zijn gerapporteerd in Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Prestatiemeteritems zijn niet beschikbaar voor Azure Web Apps. Maar u kunt de [Azure diagnostische gegevens verzenden naar Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
+(Prestatiemeteritems zijn niet beschikbaar voor Azure Web Apps. Maar u kunt de [Azure diagnostische gegevens verzenden naar Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).)
 
 ## <a name="view-counters"></a>Items weergeven
 De blade Servers wordt een standaardset prestatiemeteritems. 

@@ -1,5 +1,5 @@
 ---
-title: Gebruik en statistieken in een Azure Search-service controleren | Microsoft Docs
+title: Gebruik en statistieken voor een search-service - Azure Search controleren
 description: Bijhouden resourcegrootte verbruik en de index voor Azure Search, een gehoste cloud search-service op Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 274513c7e8ad1ca9ed0452f6237eec4ebb38e9cd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.custom: seodec2018
+ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134859"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314156"
 ---
-# <a name="monitoring-an-azure-search-service"></a>Een Azure Search-service controleren
+# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Azure Search-service in Azure portal controleren
 
 Azure Search biedt verschillende resources voor het bijhouden van gebruik en prestaties van de search-services. Het biedt u toegang tot metrische gegevens, Logboeken, indexstatistieken en uitgebreide mogelijkheden voor bewaking op Power BI. Dit artikel wordt beschreven hoe u om in te schakelen van de verschillende strategieën voor bewaking en over het interpreteren van de resulterende gegevens.
 
@@ -26,9 +27,9 @@ Metrische gegevens geven u bijna realtime inzicht in uw search-service en zijn b
 
 Azure Search worden verzameld van drie verschillende metrische gegevens:
 
-* Zoeklatentie: tijd van de search-service die nodig zijn voor het verwerken van zoekquery's bij elkaar opgeteld per minuut.
-* Zoekquery's per seconde (QPS): het aantal zoeken ontvangen per seconde, query's bij elkaar opgeteld per minuut.
-* Beperkte zoekquery query percentage: Percentage van de zoekquery's die zijn beperkt, bij elkaar opgeteld per minuut.
+* Zoeklatentie: Tijd van de search-service die nodig zijn voor het verwerken van zoekquery's bij elkaar opgeteld per minuut.
+* Zoekquery's per seconde (QPS): Aantal zoeken ontvangen per seconde, query's bij elkaar opgeteld per minuut.
+* Percentage van beperkte zoekquery's: Percentage van de zoekquery's die zijn beperkt, bij elkaar opgeteld per minuut.
 
 ![Schermafbeelding van QPS activiteit][1]
 
@@ -99,7 +100,7 @@ Elke blob heeft records voor de bewerking die plaatsgevonden tijdens hetzelfde u
 | operationName |string |"Query.Search" |De naam van de bewerking |
 | operationVersion |string |"2015-02-28" |De api-versie die wordt gebruikt |
 | category |string |"OperationLogs" |constante |
-| resultType |string |"Geslaagd" |Mogelijke waarden: slagen of mislukken |
+| resultType |string |"Geslaagd" |Mogelijke waarden: Slagen of mislukken |
 | resultSignature |int |200 |HTTP-resultaatcode |
 | durationMS |int |50 |Duur van de bewerking in milliseconden |
 | properties |object |Zie de volgende tabel |Object met de bewerking-specifieke gegevens |

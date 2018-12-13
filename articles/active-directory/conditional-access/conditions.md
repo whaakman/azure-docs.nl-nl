@@ -17,16 +17,16 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: eb7d5dc2d38d814625e904d1270446f5f1671624
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42058124"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321098"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory? 
 
-U kunt hoe gemachtigde gebruikers toegang tot uw cloud-apps beheren met behulp van [voorwaardelijke toegang van Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In een beleid voor voorwaardelijke toegang, definieert u het antwoord ("Voer dit") met de reden voor het activeren van uw beleid ('als dit gebeurt'). 
+U kunt bepalen hoe gebruikers toegang tot uw cloud-apps met behulp van [voorwaardelijke toegang van Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In een beleid voor voorwaardelijke toegang, definieert u het antwoord ("Voer dit") met de reden voor het activeren van uw beleid ('als dit gebeurt'). 
 
 ![Reden en het antwoord](./media/conditions/10.png)
 
@@ -50,7 +50,7 @@ Wanneer u selecteert **alle gebruikers**, het beleid wordt toegepast op alle geb
 
 Wanneer u **gebruikers en groepen selecteren**, kunt u de volgende opties instellen:
 
-* **Alle gastgebruikers** is gericht op een beleid voor B2B-gastgebruikers. Dit probleem komt overeen met een gebruikersaccount dat is de **userType** kenmerk ingesteld op **Gast**. U kunt deze instelling gebruiken wanneer een beleid worden toegepast moet zodra het account is gemaakt in een stroom uitnodiging in Azure AD.
+* **Alle gastgebruikers** is gericht op een beleid voor B2B-gastgebruikers. Dit probleem komt overeen met een gebruikersaccount dat is de **userType** kenmerk ingesteld op **Gast**. Gebruik deze instelling als u een beleid moet worden toegepast zodra het account is gemaakt in een stroom uitnodiging in Azure AD.
 
 * **Maprollen** is gericht op een beleid op basis van de roltoewijzing van de gebruiker. Deze voorwaarde biedt ondersteuning voor directory-rollen, zoals **hoofdbeheerder** of **wachtwoordbeheerder**.
 
@@ -82,7 +82,7 @@ U kunt specifieke apps uitsluiten van een beleid. Deze apps zijn echter nog stee
 
 ## <a name="sign-in-risk"></a>Aanmeldingsrisico
 
-Een aanmeldingsrisico is een indicator van de kans dat een poging tot aanmelden is niet door de rechtmatige eigenaar van een gebruikersaccount gemaakt (hoog, Gemiddeld of laag). Azure AD berekent dat het niveau van aanmeldingsrisico tijdens een gebruiker zich sign-in. U kunt het niveau van de berekende aanmeldingsrisico gebruiken als voorwaarde in een beleid voor voorwaardelijke toegang.
+Een aanmeldingsrisico is een indicator van de kans (hoog, Gemiddeld of laag) die een aanmelding door de rechtmatige eigenaar van een gebruikersaccount is niet gemaakt. Azure AD berekent dat het niveau van aanmeldingsrisico tijdens een gebruiker zich sign-in. U kunt het niveau van de berekende aanmeldingsrisico gebruiken als voorwaarde in een beleid voor voorwaardelijke toegang.
 
 ![Aanmelden risiconiveaus](./media/conditions/22.png)
 
@@ -93,7 +93,7 @@ Algemene scenario's voor deze voorwaarde zijn sets beleidsregels met de volgende
 - Blokkeren dat gebruikers met een hoog risico. Deze beveiliging wordt voorkomen dat gebruikers mogelijk niet-goedaardige toegang tot uw cloudapps. 
 - Meervoudige verificatie vereisen voor gebruikers met een gemiddeld risico aanmelden. Door het afdwingen van multi-factor authentication, kunt u extra vertrouwen te geven dat de aanmelding wordt uitgevoerd door de rechtmatige eigenaar van een account opgeven.
 
-Zie [Riskante aanmeldingen](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins) voor meer informatie.  
+Zie voor meer informatie, [toegang blokkeren als er een risico voor de sessie wordt gedetecteerd](app-sign-in-risk.md).  
 
 ## <a name="device-platforms"></a>Apparaatplatformen
 
@@ -111,13 +111,12 @@ Een algemene use-case voor deze situatie doet zich een beleid dat beperkt de toe
 
 ## <a name="device-state"></a>Apparaatstatus
 
-De apparaatstatusvoorwaarde sluit hybride die Azure AD gekoppelde apparaten en apparaten die zijn gemarkeerd als compatibel van beleid voor voorwaardelijke toegang. Deze voorwaarde is handig wanneer een beleid van toepassing alleen op een niet-beheerd apparaat voor de sessiebeveiliging van aanvullende. Alleen afdwingen bijvoorbeeld de Microsoft Cloud App Security-sessiebeheer wanneer een apparaat niet-beheerde is. 
+De apparaatstatusvoorwaarde sluit hybride die Azure AD gekoppelde apparaten en apparaten die zijn gemarkeerd als compatibel van beleid voor voorwaardelijke toegang. 
 
 
 ![Status van het apparaat configureren](./media/conditions/112.png)
 
-Als u wilt dat de toegang voor niet-beheerde apparaten geblokkeerd, implementeren [apparaat gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
+Deze voorwaarde is handig wanneer een beleid van toepassing alleen op een niet-beheerd apparaat voor de sessiebeveiliging van aanvullende. Alleen afdwingen bijvoorbeeld de Microsoft Cloud App Security-sessiebeheer wanneer een apparaat niet-beheerde is. 
 
 ## <a name="locations"></a>Locaties
 
@@ -136,92 +135,61 @@ Zie voor meer informatie, [wat is er met de locatievoorwaarde in Azure Active Di
 
 ## <a name="client-apps"></a>Client-apps
 
-Met behulp van de voorwaarde van client-apps, kunt u een beleid toepassen op verschillende typen toepassingen. Voorbeelden zijn websites, services, mobiele apps en bureaublad-toepassingen. 
+Standaard is een beleid voor voorwaardelijke toegang van toepassing op de volgende apps:
+
+- [Browser-apps](technical-reference.md#supported-browsers) -Browser-apps zijn onder andere websites met behulp van de SAML, WS-Federation en OpenID Connect web SSO-protocollen. Dit geldt ook voor elke website of web-service die is geregistreerd als een vertrouwelijke OAuth-client. Bijvoorbeeld, de Office 365 SharePoint-website. 
+
+- [Mobiele en bureaublad-apps die moderne authenticatie gebruiken](technical-reference.md#supported-mobile-applications-and-desktop-clients) -deze apps bevatten de Office-bureaubladtoepassingen en phone-apps. 
 
 
+Bovendien kunt u zich richten op een beleid op specifieke client-apps die geen moderne verificatie, bijvoorbeeld:
 
-Een toepassing wordt als volgt ingedeeld:
+- Client-apps met behulp van de Microsoft Exchange ActiveSync-protocol. Wanneer een beleid blokken met behulp van Exchange ActiveSync, krijgen betrokken gebruikers een enkele quarantaine-e met informatie over waarom ze worden geblokkeerd. Indien nodig, bevat het e-mailbericht instructies voor het inschrijven van hun apparaat bij Intune.
 
-- Een website of de service als deze gebruikmaakt van web-SSO-protocollen, SAML, WS-Federation en OpenID Connect voor een vertrouwelijke client.
+- Andere clients. Deze apps dus ook clients die gebruikmaken van basisverificatie met e-mailprotocollen zoals IMAP, MAPI-, pop-server, SMTP en oudere Office-apps die moderne verificatie wordt niet gebruikt. Zie voor meer informatie, [hoe moderne verificatie werkt voor client-apps voor Office 2013 en Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
-- Een mobiele app of een bureaubladtoepassing als de mobiele app OpenID Connect wordt gebruikt voor een native client.
+![Client-apps](./media/conditions/41.png)
 
-Zie voor een lijst van de client-apps die u in uw beleid voor voorwaardelijke toegang gebruiken kunt, [Client-apps voorwaarde](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#client-apps-condition) in de technische documentatie voor Azure Active Directory voor voorwaardelijke toegang.
+Algemene scenario's voor deze voorwaarde zijn beleid met de volgende vereisten:
 
-Algemene scenario's voor deze voorwaarde zijn beleid met de volgende goed: 
+- **[Vereisen dat een beheerd apparaat](require-managed-devices.md)**  voor mobiele en desktoptoepassingen die gegevens naar een apparaat downloaden. Op hetzelfde moment, kunt u browsertoegang vanaf elk apparaat. In dit scenario wordt voorkomen dat documenten opslaan en synchroniseren met een niet-beheerde apparaat. Met deze methode kunt u de kans voor verlies van gegevens beperken als het apparaat is zoekgeraakt of gestolen.
 
-- Vereist een [compatibel apparaat](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) voor mobiele en desktoptoepassingen die grote hoeveelheden gegevens om het apparaat downloadt. Op hetzelfde moment, kunt u browsertoegang vanaf elk apparaat.
+- **[Vereisen dat een beheerd apparaat](require-managed-devices.md)**  apps met behulp van ActiveSync voor toegang tot Exchange Online.
+
+- **[Verouderde verificatie blok](block-legacy-authentication.md)**  naar Azure AD (andere clients)
 
 - Blokkeer de toegang van web-apps, maar zodat toegang vanaf mobiele en bureaubladtoepassingen.
 
-U kunt dit probleem op het web-SSO en moderne-verificatieprotocollen toepassen. U kunt deze ook toepassen op e-mailtoepassingen die gebruikmaken van Microsoft Exchange ActiveSync. Voorbeelden zijn de systeemeigen e-mailapps op de meeste smartphones. 
 
-U kunt de client-apps-voorwaarde alleen selecteren als Microsoft Office 365 Exchange Online is de enige cloud-app die u hebt geselecteerd.
 
-![Cloud-apps](./media/conditions/32.png)
+### <a name="exchange-activesync-clients"></a>Exchange ActiveSync-clients
 
-Selecteren **Exchange ActiveSync** als een client apps voorwaarde wordt alleen ondersteund als er geen andere bepalingen die zijn geconfigureerd in een beleid. U kunt echter het bereik van dit probleem om toe te passen op ondersteunde platformen verfijnen.
+U kunt alleen selecteren **Exchange ActiveSync-clients** als:
 
+
+- Microsoft Office 365 Exchange Online is de enige cloud-app die u hebt geselecteerd.
+
+    ![Cloud-apps](./media/conditions/32.png)
+
+- U hebt geen andere bepalingen die zijn geconfigureerd in een beleid. Echter, u het bereik van dit probleem is alleen van toepassing kunt verfijnen [ondersteunde platforms](technical-reference.md#device-platform-condition).
  
-![Het beleid toepassen op ondersteunde platformen](./media/conditions/33.png)
-
-Deze voorwaarde toepassen op ondersteunde platformen is gelijk aan alle apparaatplatforms in een [apparaat platform voorwaarde](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
-![Apparaatplatforms configureren](./media/conditions/34.png)
+    ![Het beleid toepassen op ondersteunde platformen](./media/conditions/33.png)
 
 
- Raadpleeg voor meer informatie de volgende artikelen:
+Wanneer toegang is geblokkeerd omdat een [beheerd apparaat](require-managed-devices.md) is vereist, de betrokken gebruikers een enkel een e-mail ontvangt die bevat stappen waarmee ze om Intune te gebruiken. 
+
+Als een goedgekeurde app vereist is, krijgt de betrokken gebruikers richtlijnen voor het installeren en gebruiken van de Outlook-client voor mobiele.
+
+In andere gevallen, bijvoorbeeld, worden als MFA vereist is, de betrokken gebruikers geblokkeerd, omdat clients met behulp van basisverificatie bieden geen ondersteuning voor MFA.
+
+U kunt deze instelling om gebruikers en groepen alleen richten. Het biedt geen ondersteuning voor gasten of rollen. Als een voorwaarde gast- of -rol is geconfigureerd, worden alle gebruikers geblokkeerd omdat voorwaardelijke toegang kan niet worden vastgesteld als het beleid van toepassing op de gebruiker of niet.
+
+
+ Zie voor meer informatie:
 
 - [SharePoint Online en Exchange Online instellen voor voorwaardelijke toegang van Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
 - [Azure Active Directory op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
-
-
-### <a name="legacy-authentication"></a>Verouderde verificatie  
-
-Voorwaardelijke toegang is nu van toepassing op oudere Microsoft Office-clients die geen ondersteuning voor moderne verificatie bieden. Dit geldt ook voor clients die gebruikmaken van e-mailprotocollen zoals POP, IMAP en SMTP. Met behulp van verouderde verificatie, kunt u beleid voor zoals **blokkeert de toegang van andere clients**.
-
-
-![Client-apps configureren](./media/conditions/160.png)  
-
-
-#### <a name="known-issues"></a>Bekende problemen
-
-- Configureren van een beleid voor **andere clients** Hiermee blokkeert u de hele organisatie van bepaalde clients, zoals SPConnect. Dit blok treedt op omdat oudere clients worden geverifieerd op onverwachte manieren. Het probleem geldt niet voor belangrijke Office-toepassingen, zoals de oudere Office-clients. 
-
-- Duurt maximaal 24 uur voor het beleid van kracht. 
-
-
-#### <a name="frequently-asked-questions"></a>Veelgestelde vragen
-
-**V:** deze verificatie blokkeert Microsoft Exchange-webservices?
-
-Dat hangt ervan af op het verificatieprotocol die gebruikmaakt van Exchange Web Services. Als de Exchange Web Services-toepassing maakt gebruik van moderne verificatie, wordt gedekt door de **mobiele apps en bureaubladclients** client-app. Basisverificatie wordt gedekt door de **andere clients** client-app.
-
-
-**V:** welke besturingselementen kan ik gebruiken voor **andere clients**?
-
-Elk besturingselement kan worden geconfigureerd voor **andere clients**. De eindgebruikerservaring zijn echter in alle gevallen de toegang is geblokkeerd. **Andere clients** bieden geen ondersteuning voor besturingselementen zoals MFA en compatibel apparaat lid van domein. 
- 
-**V:** welke voorwaarden kan ik gebruiken voor **andere clients**?
-
-Een voorwaarde kan worden geconfigureerd voor **andere clients**.
-
-**V:** Exchange ActiveSync biedt ondersteuning voor alle voorwaarden en besturingselementen?
-
-Nee. De volgende lijst bevat een overzicht van ondersteuning voor Exchange ActiveSync: 
-
-- Exchange ActiveSync ondersteunt alleen gebruikers en groepen. Het biedt geen ondersteuning voor gasten of rollen. Als een voorwaarde gast- of -rol is geconfigureerd, worden alle gebruikers worden geblokkeerd. Exchange ActiveSync worden alle gebruikers geblokkeerd omdat deze kan niet worden vastgesteld als het beleid van toepassing op de gebruiker of niet.
-
-- Exchange ActiveSync werkt alleen met Microsoft Exchange Online als de cloud-app. 
-
-- Exchange ActiveSync biedt geen ondersteuning voor een voorwaarde met uitzondering van de client-app zelf. 
-
-- Exchange ActiveSync kan worden geconfigureerd met een besturingselement. Alle besturingselementen met uitzondering van het nalevingsbeleid voor apparaten leidt tot een blok.
-
-**V:** zijn het beleid van toepassing op alle client-apps standaard voortaan?
-
-Nee. Er is geen wijziging in het standaardgedrag voor het beleid. Het beleid blijven toepassen op de browser en mobiele toepassingen en bureaublad-clients standaard.
 
 
 

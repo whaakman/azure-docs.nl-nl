@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2018
+ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: 89ceb6134d19354831a76f814d2ee55053252f62
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d3e0fd510968abed55e0e3fea2a8689027713a2b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083577"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310399"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 
@@ -186,7 +186,7 @@ Naast het Load Balancer-tests gebruiken de volgende bewerkingen voor dit IP-adre
 - Kan de VM-Agent om te communiceren met het platform om aan te geven is in een status 'Gereed'
 - Communicatie met de virtuele DNS-server voor gefilterde naamomzetting voor klanten die geen aangepaste DNS-servers definieert mogelijk maakt.  Dit filter zorgt ervoor dat klanten alleen de hostnamen van de implementatie kunnen omzetten.
 
-Voor Load Balancer statustest uw exemplaar omhoog, markeert u **moet** toestaan dit IP-adres in elke Azure [beveiligingsgroepen](../virtual-network/security-overview.md) en lokale firewall-beleid.
+Voor Load Balancer statustest uw exemplaar omhoog, markeert u **moet** toestaan dit IP-adres in elke Azure [beveiligingsgroepen](../virtual-network/security-overview.md) en lokale firewall-beleid.  Elke netwerkbeveiligingsgroep omvat standaard de [servicetag](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer naar health test verkeer toestaan.
 
 Als u niet toestaan dat dit IP-adres in uw firewall-beleid, mislukt de statustest omdat deze kan niet worden bereikt uw exemplaar.  Load Balancer wordt op zijn beurt markeren in uw exemplaar omdat de status test is mislukt.  Hierdoor kan de service met taakverdeling mislukken. 
 

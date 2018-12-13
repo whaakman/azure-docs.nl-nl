@@ -1,31 +1,31 @@
 ---
-title: Abstracte Azure Functions en zonder server Platform-beveiliging
-description: De samenvatting voor het whitepaper Azure Functions en zonder server Platform-beveiliging.
+title: Samenvatting-Azure Functions en Serverloos Platformbeveiliging
+description: Samenvatting voor het technische document van Azure Functions en Serverless Platformbeveiliging.
 author: TomShinder
 ms.author: TomSh
 ms.date: 06/21/2018
 ms.topic: article
 ms.service: security
-ms.openlocfilehash: 8f5f600b0680b85d760e72b8e177ae247e41ac6b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 87010b3256fb8eef6871d76f80db2999760386b4
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132941"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320734"
 ---
-# <a name="azure-functions-and-serverless-platform-security"></a>Azure Functions en zonder server platform-beveiliging
-## <a name="abstract"></a>Abstracte
-In de meeste bedrijven moeten een grote hoeveelheid bronnen en tijd voor het beheren van servers, waarmee kosten worden toegevoegd. Als ondernemingen minder bronnen gebruikt kunnen voor het beheren van servers, kunnen ze zich richten op geweldige toepassingen bouwen.  
+# <a name="azure-functions-and-serverless-platform-security"></a>Azure Functions en serverloos platformbeveiliging
+## <a name="abstract"></a>Samenvatting
+In de meeste bedrijven moeten een aanzienlijke hoeveelheid resources en tijd voor het beheren van servers, waarmee kosten worden toegevoegd. Als bedrijven u minder bronnen gebruikt kunnen om servers te beheren, ze zich kunnen concentreren op het bouwen van geweldige apps.  
 
-Zonder server computing kunt u dit wordt geregeld, omdat de infrastructuur die u wilt uitvoeren en schalen van uw apps voor u wordt beheerd. Serverloze computing is de abstractie van servers, infrastructuur en besturingssystemen. Als u kiest computing wordt aangedreven door de reactie op gebeurtenissen en triggers, die zijn alle plaatsvinden in bijna realtime — in de cloud. 
+Serverloze computing kunt u precies dat doen omdat de infrastructuur die u wilt uitvoeren en schalen van uw apps voor u wordt beheerd. Serverloze computing is de abstractie van servers, infrastructuur en besturingssystemen. Serverloze computing wordt gestuurd door de reactie op gebeurtenissen en triggers, die zijn alle plaatsvinden in bijna realtime, in de cloud. 
 
-Als een volledig beheerde service zijn Serverbeheer en capaciteitsplanning onzichtbaar voor de ontwikkelaar. Het framework zonder server helpt u bij het ontwikkelen en implementeren zonder server toepassingen met behulp van Azure Functions. Het is een opdrachtregelinterface (CLI) biedt de structuur en automatisering te helpen u bij het maken van geavanceerde, op basis van gebeurtenissen, zonder server architecturen bestaat uit functies en gebeurtenissen. Een Azure-functie is een onafhankelijke implementatie, zoals een microservice-eenheid. Dit is alleen code, geïmplementeerd in de cloud, die meestal wordt geschreven naar één taak uitvoeren.
+Als een volledig beheerde service zijn Serverbeheer en plannen van capaciteit onzichtbaar voor de ontwikkelaar. Serverloos framework helpt u bij het ontwikkelen en implementeren van serverloze toepassingen met behulp van Azure Functions. Het is een opdrachtregelinterface (CLI) die structuur en automatisering voor informatie over het bouwen van geavanceerde, op gebeurtenissen gebaseerde, serverloze architectuur bestaat uit functies en gebeurtenissen biedt. Een Azure-functie is een onafhankelijke implementatie, zoals een microservice-eenheid. Dit is alleen code, geïmplementeerd in de cloud, die meestal worden geschreven naar het uitvoeren van een eenmalige taak.
 
-Zonder Server beveiliging heeft ondanks de voordelen zijn eigen risicofactoren te bekommeren. De aanpak van zonder server biedt geen nieuwe beveiligingsproblemen introduceren, maar het vereist dat een methode om bestaande beveiligingsproblemen. Dit technisch document richt zich op dit gebied van beveiliging: 
-* Voordelen van een platform zonder server
-* Beveiligingsproblemen bij de berekening van zonder server
-* Kritieke beveiligingsproblemen en oplossingen beschreven in de context van Azure
-* Het Microsoft-platform voor zonder server beveiligen
+Ondanks de voordelen is serverloze beveiliging een eigen risicofactoren om op te lossen. De aanpak van serverloze niet introduceren nieuwe beveiligingsproblemen, maar met een methode om te zorgen over de bestaande beveiliging vereist. Dit technische document richt zich op dit gebied beveiliging: 
+* Voordelen van een serverloos platform
+* Beveiligingsproblemen in serverloze computing
+* Kritieke beveiligingsproblemen en oplossingen in de context van Azure
+* Beveiligen van het serverloze Microsoft-platform
 
-[Download het witboek](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)
+[De whitepaper downloaden](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)
 

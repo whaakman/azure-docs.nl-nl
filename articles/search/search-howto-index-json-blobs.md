@@ -1,6 +1,6 @@
 ---
-title: Indexeren van JSON-blobs met de indexeerfunctie voor Azure Search blob
-description: Indexeren van JSON-blobs met de indexeerfunctie voor Azure Search blob
+title: JSON-blobs indexeren van Azure Blob-indexering voor zoeken in volledige tekst - Azure Search
+description: Verken Azure JSON-blobs voor tekstinhoud met behulp van de indexeerfunctie Azure Search Blob. Indexeerfuncties automatiseren opname van gegevens voor bepaalde gegevensbronnen, zoals Azure Blob-opslag.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,19 +9,20 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec2018
+ms.openlocfilehash: 7eb215271a8d5d21403cc7c5a49028bb366e61fd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711069"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312524"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met de indexeerfunctie voor Azure Search blob
 In dit artikel leest u hoe het configureren van een indexeerfunctie Azure Search blob om uit te pakken gestructureerde inhoud uit JSON-blobs in Azure Blob-opslag.
 
 JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een JSON-matrix. De bouw, afhankelijk van hoe u ingesteld kan worden geparseerd in de blob-indexeerfunctie in Azure Search de **parsingMode** parameter voor de aanvraag.
 
-| JSON-document | parsingMode | Beschrijving | Beschikbaarheid |
+| JSON-document | parsingMode | Description | Beschikbaarheid |
 |--------------|-------------|--------------|--------------|
 | Een per-blob | `json` | Geparseerd JSON-blobs als één segment van de tekst. Elk JSON-blob wordt één Azure Search-document. | Algemeen beschikbaar in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API's. |
 | Meerdere per blob | `jsonArray` | Een JSON-matrix in de blob, waarbij elk element van de matrix een afzonderlijke Azure Search-document wordt geparseerd.  | Algemeen beschikbaar in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API's. |
@@ -30,7 +31,7 @@ JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een J
 ## <a name="setting-up-json-indexing"></a>Instellen van het indexeren van JSON
 Indexeren van JSON-blobs is vergelijkbaar met de extractie gewoon document in een werkstroom driedelige gemeenschappelijk voor alle indexeerfuncties in Azure Search.
 
-### <a name="step-1-create-a-data-source"></a>Stap 1: een gegevensbron maken
+### <a name="step-1-create-a-data-source"></a>Stap 1: Een gegevensbron maken
 
 De eerste stap is het bron-verbindingsgegevens voor de gegevens die worden gebruikt door de indexeerfunctie opgeven. Het type, dat is opgegeven voor de gegevensbron als `azureblob`, bepaalt welke gegevens extractie gedrag worden aangeroepen door de indexeerfunctie. Voor JSON blob-indexering is definitie van de gegevensbron hetzelfde voor JSON-documenten en -matrices. 
 

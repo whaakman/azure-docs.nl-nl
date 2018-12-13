@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 6354212eb95fbefb217dd5339613d050da55f4ba
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 2f300e496873c0b048ccc1acc078bf1650e6bd9c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688131"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166282"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL resource provider 1.1.30.0 release-opmerkingen
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Deze releaseopmerkingen beschrijven de verbeteringen en bekende problemen in MySQL resource provider-versie 1.1.30.0.
 
@@ -56,13 +56,26 @@ Deze versie van de Azure Stack-MySQL-resourceprovider bevat de volgende verbeter
 
 - **MySQL-SKU's kan een uur duren om te worden weergegeven in de portal**. Het kan een uur duren voor zojuist gemaakte SKU's zijn zichtbaar voor gebruik bij het maken van nieuwe MySQL-databases. 
 
-    **Tijdelijke oplossing**: geen.
+    **Tijdelijke oplossing**: Geen.
 
 - **MySQL-aanmeldingen hergebruikt**. Bij het maken van een nieuwe MySQL Meld u aan met de dezelfde gebruikersnaam als een bestaande aanmelding onder hetzelfde abonnement, leidt dat dezelfde aanmeldgegevens en het bestaande wachtwoord. 
 
-    **Tijdelijke oplossing**: gebruik van verschillende gebruikersnamen op bij het maken van nieuwe aanmeldingen onder hetzelfde abonnement of aanmeldingen kan maken met de dezelfde gebruikersnaam onder verschillende abonnementen.
+    **Tijdelijke oplossing**: Gebruik verschillende gebruikersnamen op bij het maken van nieuwe aanmeldingen onder hetzelfde abonnement of aanmeldingen kan maken met de dezelfde gebruikersnaam onder verschillende abonnementen.
 
+- **Vereiste voor ondersteuning van TLS 1.2**. Als u probeert te implementeren of bijwerken van de MySQL-resourceprovider vanaf een computer waarop TLS 1.2 niet is ingeschakeld, kan de bewerking mislukken. Voer de volgende PowerShell-opdracht op de computer die wordt gebruikt om te implementeren of bijwerken van de resource-provider om te controleren dat TLS 1.2 wordt geretourneerd als ondersteund:
 
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  Als **Tls12** is niet opgenomen in de uitvoer van de opdracht, TLS 1.2 is niet ingeschakeld op de computer.
+
+    **Tijdelijke oplossing**: Voer de volgende PowerShell-opdracht uit te schakelen van TLS 1.2 en start vervolgens de implementatie van resource provider of werk script vanuit dezelfde PowerShell-sessie:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
+ 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Bekende problemen voor Cloud-beheerders die Azure Stack
 Raadpleeg de documentatie in de [opmerkingen bij de Release van de Azure Stack](azure-stack-servicing-policy.md).
 

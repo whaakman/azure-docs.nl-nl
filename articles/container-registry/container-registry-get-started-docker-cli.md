@@ -1,5 +1,5 @@
 ---
-title: Docker-installatiekopie pushen naar Azure privéregister
+title: Docker-installatiekopie naar persoonlijke Azure container registry pushen
 description: Docker-installatiekopieën pushen naar en ophalen van een privécontainerregister in Azure met de Docker-CLI
 services: container-registry
 author: stevelas
@@ -8,13 +8,13 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24cccd4745d611196046168f0125e7ef2a184e15
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18, H1Hack27Feb2017
+ms.openlocfilehash: 3cbc9f30f180913fefa79f24612e50db75f5c9cd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576488"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260579"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een Docker-containerregister pushen met de Docker-CLI
 

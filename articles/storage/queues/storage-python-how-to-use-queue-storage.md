@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 1e52f199847b9e03eb31da71f1f0577df92d2b51
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230407"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162984"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Queue Storage gebruiken met Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -47,9 +47,9 @@ pip install azure-storage-queue
 > 
 > 
 
-Voor de van alternatieve installatiemethoden, gaat u naar de [Azure Storage SDK voor Python op Github](https://github.com/Azure/azure-storage-python/).
+Voor de van alternatieve installatiemethoden, gaat u naar de [Azure Storage SDK voor Python op GitHub](https://github.com/Azure/azure-storage-python/).
 
-## <a name="how-to-create-a-queue"></a>Procedure: Een wachtrij maken
+## <a name="how-to-create-a-queue"></a>Procedures: Een wachtrij maken
 De **QueueService** object kunt u samenwerken met wachtrijen. De volgende code maakt een **QueueService** object. Voeg het volgende aan de bovenkant van een Python-bestand waarin u wilt programmatisch toegang verkrijgen tot Azure Storage:
 
 ```python
@@ -64,14 +64,14 @@ queue_service = QueueService(account_name='myaccount', account_key='mykey')
 queue_service.create_queue('taskqueue')
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Procedure: Een bericht in een wachtrij invoegen
+## <a name="how-to-insert-a-message-into-a-queue"></a>Procedures: Een bericht in een wachtrij invoegen
 Voor het invoegen van een bericht in een wachtrij wordt geplaatst, gebruikt u de **plaatsen\_bericht** methode voor het maken van een nieuw bericht en toe te voegen aan de wachtrij.
 
 ```python
 queue_service.put_message('taskqueue', u'Hello World')
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procedure: Het volgende bericht bekijken
+## <a name="how-to-peek-at-the-next-message"></a>Procedures: Het volgende bericht
 U kunt het bericht vooraan in een wachtrij bekijken zonder deze te verwijderen uit de wachtrij door het aanroepen van de **peek\_berichten** methode. Standaard **peek\_berichten** peeks op één bericht.
 
 ```python
@@ -80,7 +80,7 @@ for message in messages:
     print(message.content)
 ```
 
-## <a name="how-to-dequeue-messages"></a>Procedure: Berichten uit de wachtrij verwijderen
+## <a name="how-to-dequeue-messages"></a>Procedures: Berichten in wachtrij
 Uw code wordt een bericht uit een wachtrij in twee stappen. Als u aanroept **ophalen\_berichten**, krijgt u het volgende bericht in een wachtrij standaard. Een bericht dat wordt geretourneerd van **ophalen\_berichten** wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Standaard blijft het bericht onzichtbaar gedurende 30 seconden. Voor het voltooien van het bericht uit de wachtrij verwijderen, moet u ook aanroepen **verwijderen\_bericht**. Dit proces in twee stappen van het verwijderen van een bericht zorgt ervoor dat wanneer uw code niet kan verwerken van een bericht vanwege fout bij de hardware of software, een ander exemplaar van uw code kunt hetzelfde bericht en probeer het opnieuw. Uw code roept **verwijderen\_bericht** direct nadat het bericht is verwerkt.
 
 ```python
@@ -100,7 +100,7 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)        
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedure: De inhoud van een bericht in de wachtrij wijzigen
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedures: De inhoud van een bericht in de wachtrij wijzigen
 U kunt de inhoud van een bericht in de wachtrij wijzigen. Als het bericht een werktaak vertegenwoordigt, kunt u deze functie gebruiken om de status van de werktaak bij te werken. De code hieronder wordt de **bijwerken\_bericht** methode voor het bijwerken van een bericht. De time-out voor zichtbaarheid is ingesteld op 0, wat betekent dat het bericht verschijnt onmiddellijk en de inhoud wordt bijgewerkt.
 
 ```python
@@ -109,7 +109,7 @@ for message in messages:
     queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Procedure: Lengte van de wachtrij ophalen
+## <a name="how-to-get-the-queue-length"></a>Procedures: Lengte van de wachtrij ophalen
 U kunt een schatting ophalen van het aantal berichten in de wachtrij. De **ophalen\_wachtrij\_metagegevens** methode vraagt de queue-service om terug te keren metagegevens over de wachtrij en de **approximate_message_count**. Het resultaat is alleen bij benadering omdat berichten kunnen worden toegevoegd of verwijderd nadat de queue-service op uw aanvraag reageert.
 
 ```python
@@ -117,7 +117,7 @@ metadata = queue_service.get_queue_metadata('taskqueue')
 count = metadata.approximate_message_count
 ```
 
-## <a name="how-to-delete-a-queue"></a>Procedure: Een wachtrij verwijderen
+## <a name="how-to-delete-a-queue"></a>Procedures: Een wachtrij verwijderen
 Als wilt verwijderen van een wachtrij en alle berichten die erin zijn opgenomen, roept de **verwijderen\_wachtrij** methode.
 
 ```python

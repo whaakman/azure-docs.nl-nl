@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: ca844c89b657bc3286f3472af3acbf937ef1e20f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891058"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315771"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI
 
@@ -61,7 +61,7 @@ De fundamentele architectuur bestaat uit de volgende onderdelen:
 
 -   **[Status controleren.](https://aka.ms/healthreviewpaper)** De oplossing is gecontroleerd door Coalfire systems, Inc. De status van naleving (HIPAA en HITRUST) te beoordelen en richtlijnen voor implementatie biedt één auditor\'s beoordeling van de oplossing en overwegingen voor het transformeren van de blauwdruk aan een gereed is voor productie-implementatie.
 
-# <a name="architectural-diagram"></a>Architectuurdiagram
+## <a name="architectural-diagram"></a>Architectuurdiagram
 
 
 ![](images/ra2.png)
@@ -76,11 +76,11 @@ De blauwdruk definieert twee rollen voor gebruikers met beheerdersrechten (opera
 
 De beheerder is verantwoordelijk voor het Azure-abonnement van de klant. Ze beheren van de algehele implementatie, maar hebben geen toegang tot de records.
 
--   Standaard roltoewijzingen: [eigenaar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+-   Standaard-roltoewijzingen: [Eigenaar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
--   Aangepaste roltoewijzingen: N.V.T.
+-   Aangepaste roltoewijzingen: N/A
 
--   Bereik: abonnement
+-   Bereik: Abonnement
 
 ### <a name="database-analyst"></a>Database-analist
 
@@ -89,7 +89,7 @@ Ze hebben geen toegang tot de records.
 
 -   Ingebouwde roltoewijzingen: [' SQL DB Contributor '](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Inzender voor SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
--   Aangepaste roltoewijzingen: N.V.T.
+-   Aangepaste roltoewijzingen: N/A
 
 -   Bereik: ResourceGroup
 
@@ -98,9 +98,9 @@ Ze hebben geen toegang tot de records.
 
 De gegevenswetenschapper werkt de Azure Machine Learning Studio. Ze kunnen importeren, exporteren, en beheren van gegevens en rapporten uitvoeren. De gegevenswetenschapper heeft toegang tot de gegevens, maar heeft geen beheerdersrechten.
 
--   Ingebouwde roltoewijzingen: [Inzender voor Opslagaccounts](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
+-   Ingebouwde roltoewijzingen: [Inzender voor opslagaccounts](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
--   Aangepaste roltoewijzingen: N.V.T.
+-   Aangepaste roltoewijzingen: N/A
 
 -   Bereik: ResourceGroup
 
@@ -109,7 +109,7 @@ De gegevenswetenschapper werkt de Azure Machine Learning Studio. Ze kunnen impor
 
 De CMIO kloof de tussen informatica-/ technologiemedewerkers en zorgprofessionals in een zorginstelling overbrugt. Hun taken behoren doorgaans analytische gegevens gebruiken om te bepalen als resources op de juiste wijze worden toegewezen binnen de organisatie.
 
--   Ingebouwde roltoewijzingen: geen
+-   Ingebouwde roltoewijzingen: Geen
 
 ### <a name="care-line-manager"></a>Care Line Manager
 
@@ -117,9 +117,9 @@ De CMIO kloof de tussen informatica-/ technologiemedewerkers en zorgprofessional
 De care line manager rechtstreeks is betrokken bij de zorgverlening aan patiënten.
 Het is de taak van deze functie om de status van individuele patiënten te bewaken, alsmede ervoor te zorgen dat er personeel beschikbaar is om aan de specifieke zorgeisen van hun patiënten te voldoen. De care line manager is verantwoordelijk voor het toevoegen en bijwerken van de records.
 
--   Ingebouwde roltoewijzingen: geen
+-   Ingebouwde roltoewijzingen: Geen
 
--   Aangepaste roltoewijzingen: heeft bevoegdheden om uit te voeren HealthcareDemo.ps1 hiervoor beide toegangsbeheer patiënt en ontladen.
+-   Aangepaste roltoewijzingen: Bevoegdheid om uit te voeren HealthcareDemo.ps1 hiervoor beide toegangsbeheer patiënt heeft en ontladen.
 
 -   Bereik: ResourceGroup
 
@@ -128,11 +128,11 @@ Het is de taak van deze functie om de status van individuele patiënten te bewak
 
 De revisor evalueert de oplossing voor naleving. Ze hebben geen directe toegang tot het netwerk.
 
--   Ingebouwde roltoewijzingen: [lezer](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
+-   Ingebouwde roltoewijzingen: [Lezer](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
--   Aangepaste roltoewijzingen: N.V.T.
+-   Aangepaste roltoewijzingen: N/A
 
--   Bereik: abonnement
+-   Bereik: Abonnement
 
 ## <a name="example-use-case"></a>Voorbeeld van de Use case
 
@@ -150,19 +150,19 @@ De blauwdruk omvat een groot aantal anonieme medische dossiers ter illustratie v
 
 **Sitebeheerder--Alex**
 
-*E-mailadres: Alex\_SiteAdmin*
+*E-mail: Alex\_SiteAdmin*
 
 Alex van taak is het evalueren van de technologieën die kunnen reductie van de werkbelasting van het beheer van een on-premises netwerk en verlagen voor beheer. Alex evalueren Azure heeft gedurende een bepaalde periode, maar heeft pogingen gedaan om de services die hij nodig heeft om te voldoen aan de nalevingsvereisten HiTrust patiënt gegevens opslaan in de cloud te configureren. Alex heeft de status van Azure AI voor het implementeren van een oplossing de status gereed is voor naleving, die de vereisten om te voldoen aan de eisen van klanten voor HiTrust heeft verwerkt geselecteerd.
 
 **Gegevenswetenschapper Debra**
 
-*E-mailadres: Debra\_DataScientist*
+*E-mail: Debra\_DataScientist*
 
 Debra is verantwoordelijk voor het maken en gebruiken van modellen die medische dossiers analyseren voor inzicht in patiëntenzorg introduceren. Debra maakt gebruik van SQL en de statistische R-programmeertaal om haar modellen te maken.
 
 **Database-analist--Danny**
 
-*E-mailadres: Danny\_DBAnalyst*
+*E-mail: Danny\_DBAnalyst*
 
 Danny is de belangrijkste contactpersoon voor alles wat met betrekking tot de Microsoft SQL Server de patiënt gegevens voor Contosoclinic slaat. Danny is een ervaren SQL Server-beheerder die onlangs met Azure SQL Database raken is.
 
@@ -173,18 +173,18 @@ De voorspellingen op basis van de lengte van blijven (LOS)-oplossing Caroline ge
 
 **Care Line Manager--Chris**
 
-*E-mailadres: Chris\_CareLineManager*
+*E-mail: Chris\_CareLineManager*
 
 Als de persoon rechtstreeks verantwoordelijk voor het beheren van de patiënt is opgenomen en ontslaan op Contosoclinic, Chris maakt gebruik van de prognoses gegenereerd door de oplossing LOS om ervoor te zorgen dat voldoende personeel beschikbaar zijn voor care bieden aan patiënten terwijl ze worden blijven de opslagruimte.
 
 **Auditor--Han**
 
-*E-mailadres: Han\_Auditor*
+*E-mail: Han\_Auditor*
 
 Han is een gecertificeerde accountant die ervaring controle-instellingen voor ISO, SOC en HiTrust. Han is aangesteld om te controleren van Contosoclinc netwerk. Han kunt bekijken van de klant verantwoordelijkheid Matrix voorzien van de oplossing om ervoor te zorgen dat de blauwdruk en LOS oplossing kunnen worden gebruikt voor het opslaan, verwerken, en gevoelige, persoonlijke gegevens weer te geven.
 
 
-# <a name="design-configuration"></a>Configuratie ontwerpen
+## <a name="design-configuration"></a>Configuratie ontwerpen
 
 
 In deze sectie worden de standaardconfiguraties en beveiligingsmaatregelen die zijn ingebouwd in de blauwdruk die worden beschreven op:
@@ -267,8 +267,8 @@ De azure-functie is bovendien ontworpen om te lezen en aangewezen gevoelige gege
 
 **2. Toegangsbeheer van nieuwe patiënten**
 
-Als u de demoscript. . \\HealthcareDemo.ps1 met de **BulkPatientadmission** schakelen zoals wordt beschreven in **implementeren en uitvoeren van de demo** het uitvoeren van de volgende verwerkings-pipeline: ![](images/securetransact.png) 
- **1. Azure-functie** geactiveerd en de functie-aanvragen voor een [bearer-token](/rest/api/) uit Azure Active directory.
+Als u de demoscript. . \\HealthcareDemo.ps1 met de **BulkPatientadmission** schakelen zoals wordt beschreven in **implementeren en uitvoeren van de demo** het uitvoeren van de volgende verwerking pijplijn: ![](images/securetransact.png)
+**1. Azure-functie** geactiveerd en de functie-aanvragen voor een [bearer-token](/rest/api/) uit Azure Active directory.
 
 **2. Key Vault** aangevraagd voor een geheim dat is gekoppeld aan het aangevraagde token.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: jroth
-ms.openlocfilehash: 0677faa90c73ffe4c0c1c48600c2f1ef2d05eb50
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 298a8597ae111550dfbd44d1e7bd9efb212f08af
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628780"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323214"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migreer een SQL Server-database naar een SQL Server in een virtuele machine van Azure
 
@@ -36,7 +36,7 @@ De primaire migratiemethoden zijn:
 * Loskoppelen en kopieer de bestanden van de gegevens en logboekbestanden naar Azure blob-opslag en vervolgens koppelen aan SQL Server in virtuele Azure-machine via URL
 * On-premises fysieke machine converteren naar Hyper-V-VHD, uploaden naar Azure Blob-opslag en vervolgens implementeert als VHD met behulp van nieuwe virtuele machine worden geüpload
 * Verzending van harde schijf met behulp van Windows Import/Export-Service
-* Als u hebt een AlwaysOn-implementatie van on-premises, gebruikt u de [Wizard Azure Replica toevoegen](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) voor het maken van een replica in Azure en vervolgens een failover, wijst u gebruikers met het Azure-database-exemplaar
+* Als u de implementatie van een AlwaysOn-beschikbaarheidsgroep on-premises, gebruikt u de [Wizard Azure Replica toevoegen](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) voor het maken van een replica in Azure en vervolgens een failover, wijst u gebruikers met het Azure-database-exemplaar
 * SQL Server gebruiken [transactionele replicatie](https://msdn.microsoft.com/library/ms151176.aspx) voor het configureren van de Azure SQL Server-exemplaar als een abonnee en schakelt u replicatie uit, die u gebruikers verwijst naar de Azure database-instantie
 
 > [!TIP]

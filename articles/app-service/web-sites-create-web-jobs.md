@@ -1,5 +1,5 @@
 ---
-title: Achtergrondtaken uitvoeren met WebJobs in Azure App Service
+title: Achtergrondtaken uitvoeren met WebJobs - Azure App Service
 description: Informatie over het gebruik van WebJobs voor achtergrondtaken uitvoeren in Azure App Service WebApps, API-apps of mobiele apps.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
-ms.openlocfilehash: 901cf32557e0a437e938ceb50ecd500c69c8c3be
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 1a43c6061c497c92123865e530208f2cbef09359
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364027"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269585"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Achtergrondtaken uitvoeren met WebJobs in Azure App Service
 
@@ -75,15 +76,15 @@ when making changes in one don't forget the other two.
 
     ![WebJob-pagina](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Gebruik de **webtaak toevoegen** instellingen zoals opgegeven in de tabel.
+3. Gebruik de **webtaak toevoegen** instellingen zoals opgegeven in de tabel.
 
    ![Webtaak pagina toevoegen](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Instelling      | Voorbeeldwaarde   | Beschrijving  |
+   | Instelling      | Voorbeeldwaarde   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Naam** | myContinuousWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'. |
-   | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Continu | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
+   | **Naam** | myContinuousWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'. |
+   | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
+   | **Type** | Continu | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
    | **Schalen** | Meerdere exemplaren | Alleen beschikbaar voor doorlopende webtaken. Bepaalt of het programma of script wordt uitgevoerd op alle exemplaren of slechts één exemplaar. De mogelijkheid om te worden uitgevoerd op meerdere exemplaren niet van toepassing op gratis of gedeeld [Prijscategorieën](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Klik op **OK**.
@@ -113,16 +114,16 @@ when making changes in one don't forget the other two.
 
     ![WebJob-pagina](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Gebruik de **webtaak toevoegen** instellingen zoals opgegeven in de tabel.
+3. Gebruik de **webtaak toevoegen** instellingen zoals opgegeven in de tabel.
 
    ![Webtaak pagina toevoegen](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Instelling      | Voorbeeldwaarde   | Beschrijving  |
+   | Instelling      | Voorbeeldwaarde   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Naam** | myTriggeredWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'.|
-   | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Geactiveerd | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
-   | **Triggers** | Handmatig | |
+   | **Naam** | myTriggeredWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'.|
+   | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
+   | **Type** | Geactiveerd | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
+   | **Triggers** | Handmatig | |
 
 4. Klik op **OK**.
 
@@ -151,17 +152,17 @@ when making changes in one don't forget the other two.
 
    ![WebJob-pagina](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Gebruik de **webtaak toevoegen** instellingen zoals opgegeven in de tabel.
+3. Gebruik de **webtaak toevoegen** instellingen zoals opgegeven in de tabel.
 
    ![Webtaak pagina toevoegen](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Instelling      | Voorbeeldwaarde   | Beschrijving  |
+   | Instelling      | Voorbeeldwaarde   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Naam** | myScheduledWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'. |
-   | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Geactiveerd | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
-   | **Triggers** | Gepland | Voor de planning betrouwbaar werkt, moet u de functie altijd op inschakelen. Altijd beschikbaar is alleen beschikbaar in de Basic, Standard en Premium-Prijscategorieën.|
-   | **CRON-expressie** | 0 0/20 * * * * | [CRON-expressies](#cron-expressions) worden beschreven in de volgende sectie. |
+   | **Naam** | myScheduledWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'. |
+   | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
+   | **Type** | Geactiveerd | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
+   | **Triggers** | Gepland | Voor de planning betrouwbaar werkt, moet u de functie altijd op inschakelen. Altijd beschikbaar is alleen beschikbaar in de Basic, Standard en Premium-Prijscategorieën.|
+   | **CRON-expressie** | 0 0/20 * * * * | [CRON-expressies](#cron-expressions) worden beschreven in de volgende sectie. |
 
 4. Klik op **OK**.
 

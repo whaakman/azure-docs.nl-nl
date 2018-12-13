@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: ac62800e81cece61e9f51c496ace2868629a49a1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 911b8051530daca57fe26fb22c6dc1be845c6d6d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960240"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321423"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Blob- en wachtrijgegevens met RBAC (Preview)
 
@@ -29,6 +29,7 @@ Azure Storage ondersteunt zowel ingebouwde als aangepaste RBAC-rollen. Azure Sto
 
 - [Gegevensbijdrager voor Blob (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
 - [Gegevenslezer voor Opslagblob (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+- [Storage Blob de eigenaar van gegevens (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
 - [Gegevensbijdrager voor wachtrij (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
 - [Gegevenslezer voor Opslagwachtrij (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
 
@@ -44,7 +45,7 @@ Een RBAC-rol toewijzen aan een Azure-identiteit om machtigingen aan containers o
 
 |Bereik|De eigenaar van de BLOB-gegevens|Inzender voor BLOB-gegevens|Gegevenslezer voor opslagblob|Inzender voor wachtrij Data|Gegevenslezer voor opslagwachtrij|
 |---|---|---|---|---|---|
-|Het niveau van abonnement|Lees-/ schrijftoegang tot alle containers en blobs in het abonnement|Lees-/ schrijftoegang tot alle containers en blobs in het abonnement| Leestoegang tot alle containers en blobs in het abonnement|Lees-/ schrijftoegang tot alle wachtrijen in het abonnement|Leestoegang tot alle wachtrijen in het abonnement|
+|Abonnementsniveau|Lees-/ schrijftoegang tot alle containers en blobs in het abonnement|Lees-/ schrijftoegang tot alle containers en blobs in het abonnement| Leestoegang tot alle containers en blobs in het abonnement|Lees-/ schrijftoegang tot alle wachtrijen in het abonnement|Leestoegang tot alle wachtrijen in het abonnement|
 |Het niveau van resourcegroep|Lees-/ schrijftoegang tot alle containers en blobs in de resourcegroep|Lees-/ schrijftoegang tot alle containers en blobs in de resourcegroep|Leestoegang tot alle containers en blobs in de resourcegroep|Lees-/ schrijftoegang tot alle wachtrijen in de resourcegroep|Leestoegang tot alle wachtrijen in de resourcegroep|
 |Niveau van de Storage-account|Lees-/ schrijftoegang tot alle containers en blobs in de storage-account|Lees-/ schrijftoegang tot alle containers en blobs in de storage-account|Leestoegang tot alle containers en blobs in de storage-account|Lees-/ schrijftoegang tot alle wachtrijen in de storage-account|Leestoegang tot alle wachtrijen in de storage-account|
 |Het niveau van de container/wachtrij|Toegang tot de opgegeven container en de blobs voor lezen/schrijven|Toegang tot de opgegeven container en de blobs voor lezen/schrijven|Leestoegang tot de opgegeven container en de blobs|Lees-/ schrijftoegang tot de opgegeven wachtrij|Leestoegang tot de opgegeven wachtrij|

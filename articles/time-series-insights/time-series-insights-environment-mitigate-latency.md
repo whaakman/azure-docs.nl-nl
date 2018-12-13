@@ -1,5 +1,5 @@
 ---
-title: Bewaken en beperken van beperkingen in Azure Time Series Insights | Microsoft Docs
+title: Azure Time Series Insights-prestaties en beperking - bewaken en beperken van beperkingen in Azure Time Series Insights | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u bewaken, opsporen en oplossen van prestatieproblemen waardoor latentie en beperkingen in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: e2b68982a855b56d97983460f248ef3040d03d79
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 34f7128a6ab86a23d911f9bc92908102df4dee92
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876754"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278420"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Controleren en om te verminderen latentie in Azure Time Series Insights Aanvraagbeperkingen minimaliseren
 Wanneer de hoeveelheid inkomende gegevens groter is dan de configuratie van uw omgeving, kunt u latentie of beperkingen in Azure Time Series Insights kan optreden.
@@ -50,7 +51,7 @@ Waarschuwingen kunnen u helpen te helpen opsporen en corrigeren van latentieprob
 
 Van daaruit kunt u waarschuwingen met behulp van de volgende metrische gegevens configureren:
 
-|Gegevens  |Beschrijving  |
+|Gegevens  |Description  |
 |---------|---------|
 |**Inkomend verkeer ontvangen Bytes**     | Telling van onbewerkte bytes lezen uit bronnen van gebeurtenissen. Onbewerkte aantal omvat gewoonlijk de naam van de eigenschap en waarde.  |  
 |**Inkomende gegevens ontvangen ongeldig berichten**     | Aantal ongeldige berichten lezen van alle bronnen van Azure Event Hubs of Azure IoT Hub gebeurtenissen.      |

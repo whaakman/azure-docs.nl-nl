@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3caa4f2dbe36f86c9b15a83303e90b16d06c56fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419398"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192053"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>De Azure VM-Agent installeren in de offlinemodus bevindt 
 
@@ -36,7 +36,7 @@ De VM-Agent installeren in de offlinemodus bevindt in de volgende scenario's:
 
 Gebruik de volgende stappen voor het installeren van de VM-Agent in de offlinemodus bevindt.
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Stap 1: De besturingssysteemschijf van de virtuele machine koppelen aan een andere virtuele machine als gegevensschijf
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Stap 1: Koppel de besturingssysteemschijf van de virtuele machine naar een andere virtuele machine als gegevensschijf
 
 1.  De virtuele machine verwijderen. Zorg ervoor dat u selecteert de **houden van de schijven** optie wanneer u de virtuele machine verwijdert.
 
@@ -76,7 +76,7 @@ Gebruik de volgende stappen voor het installeren van de VM-Agent in de offlinemo
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![De registersubsleutels exporteren](./media/install-vm-agent-offline/backup-reg.png)
+          ![De registersubsleutels exporteren](./media/install-vm-agent-offline/backup-reg.png)
 
     2. Bewerk de registerbestanden. In elk bestand, wijzig de waarde van de vermelding **SYSTEM** naar **BROKENSYSTEM** (zoals weergegeven in de volgende installatiekopieën) en sla het bestand. Houd er rekening mee de **ImagePath** van de huidige VM-agent. We moet de bijbehorende map kopiëren naar de gekoppelde besturingssysteemschijf. 
 

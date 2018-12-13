@@ -10,25 +10,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/21/2018
+ms.date: 12/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 3c829819748309ecbca248afe35cd59f54b202a6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d2000e626166304e92556e3c965df175a27046ad
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085407"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321064"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Azure Active Directory-verificatie inschakelen voor de Azure-SSIS integratieruntime
 
 In dit artikel wordt beschreven hoe u een Azure-SSIS IR maken met Azure Data Factory-service-identiteit. U kunt verificatie van Azure Active Directory (Azure AD) met de beheerde identiteit voor uw Azure Data Factory in plaats van SQL-verificatie gebruiken om te maken van een Azure-SSIS integratieruntime.
 
-Zie voor meer informatie over de beheerde identiteit voor uw ADF [Azure Data Factory-service-identiteit](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Zie voor meer informatie over de beheerde identiteit voor uw data factory [Azure Data Factory-service-identiteit](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > Als u al een Azure-SSIS integratieruntime met SQL-verificatie hebt gemaakt, kunt u de IR voor het gebruik van Azure AD-verificatie met PowerShell op dit moment niet opnieuw configureren.
 
-## <a name="create-a-group-in-azure-ad-and-make-the-managed-identity-for-your-adf-a-member-of-the-group"></a>Een groep maken in Azure AD en de beheerde identiteit voor uw ADF een lid van de groep maken
+## <a name="enable-azure-ad-on-azure-sql-database"></a>Azure AD in Azure SQL Database inschakelen
+
+Azure SQL Database ondersteunt het maken van een database met een Azure AD-gebruiker. Als gevolg hiervan kunt u een Azure AD-gebruiker instellen als de Active Directory-beheerder en vervolgens Meld u aan SQL Server Management Studio (SSMS) hebt met behulp van de Azure AD-gebruiker. Vervolgens maakt u een contained-gebruiker voor de Azure AD-groep om in te schakelen uw IR te maken van de catalogus van SQL Server Integration Services (SSIS) op de server.
+
+### <a name="create-a-group-in-azure-ad-and-make-the-managed-identity-for-your-data-factory-a-member-of-the-group"></a>Een groep maken in Azure AD en een lid van de groep voor de beheerde identiteit voor uw data factory maken
 
 U kunt een bestaande Azure AD-groep gebruiken of een nieuwe groep maken met behulp van Azure AD PowerShell.
 
@@ -53,7 +57,7 @@ U kunt een bestaande Azure AD-groep gebruiken of een nieuwe groep maken met behu
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  De beheerde identiteit voor uw ADF toevoegen aan de groep. U kunt volgen [Azure Data Factory-service-identiteit](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) om op te halen van de principal-SERVICE-identiteit-ID (bijvoorbeeld 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, maar gebruik geen SERVICE-identiteit TOEPASSINGS-ID voor dit doel).
+3.  De beheerde identiteit voor uw data factory toevoegen aan de groep. U kunt volgen [Azure Data Factory-service-identiteit](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) om op te halen van de principal-SERVICE-identiteit-ID (bijvoorbeeld 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, maar gebruik geen SERVICE-identiteit TOEPASSINGS-ID voor dit doel).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -64,10 +68,6 @@ U kunt een bestaande Azure AD-groep gebruiken of een nieuwe groep maken met behu
     ```powershell
     Get-AzureAdGroupMember -ObjectId $Group.ObjectId
     ```
-
-## <a name="enable-azure-ad-on-azure-sql-database"></a>Azure AD in Azure SQL Database inschakelen
-
-Azure SQL Database ondersteunt het maken van een database met een Azure AD-gebruiker. Als gevolg hiervan kunt u een Azure AD-gebruiker instellen als de Active Directory-beheerder en vervolgens Meld u aan bij SSMS met behulp van de Azure AD-gebruiker. Vervolgens maakt u een contained-gebruiker voor de Azure AD-groep om in te schakelen uw IR te maken van de catalogus van SQL Server Integration Services (SSIS) op de server.
 
 ### <a name="enable-azure-ad-authentication-for-the-azure-sql-database"></a>Azure AD-verificatie inschakelen voor de Azure SQL Database
 
@@ -121,21 +121,52 @@ Voor deze stap moet u [Microsoft SQL Server Management Studio](https://docs.mic
 
 ## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Azure AD op beheerd exemplaar voor Azure SQL Database inschakelen
 
-Azure SQL Database Managed Instance biedt geen ondersteuning voor het maken van een database met een Azure AD-gebruiker dan AD-beheerder. Als gevolg hiervan, hebt u het instellen van de Azure AD-groep als de Active Directory-beheerder. U hoeft te maken van de contained-gebruiker.
+Azure SQL Database Managed Instance biedt ondersteuning voor het maken van een database met MSI-bestand rechtstreeks. U hoeft niet te gegevensfactory MSI-bestand toevoegen aan een AD-groep of de contained-gebruiker maken in MI.
 
-U kunt [Azure AD-verificatie voor de SQL Database Managed Instance-server configureren](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) met behulp van de volgende stappen uit:
+### <a name="enable-azure-ad-authentication-for-the-azure-sql-database-managed-instance"></a>Azure AD-verificatie inschakelen voor de Azure SQL Database Managed Instance
 
-7.  Selecteer in de Azure portal, **alle services** -> **SQL-servers** in de navigatie aan de linkerkant.
+1.   Selecteer in de Azure portal, **alle services** -> **SQL-servers** in de navigatie aan de linkerkant.
 
-8.  Selecteer de SQL-server worden ingeschakeld voor Azure AD-verificatie.
+1.   Selecteer de SQL-server worden ingeschakeld voor Azure AD-verificatie.
 
-9.  In de **instellingen** sectie van de blade, selecteer **Active Directory-beheerder**.
+1.   In de **instellingen** sectie van de blade, selecteer **Active Directory-beheerder**.
 
-10. Selecteer in de opdrachtbalk **beheerder instellen**.
+1.   Selecteer in de opdrachtbalk **beheerder instellen**.
 
-11. Zoek en selecteer de Azure AD-groep (bijvoorbeeld SSISIrGroup) en selecteer **selecteren.**
+1.   Selecteer een Azure AD-gebruikersaccount moet een beheerder van de server worden gemaakt en selecteer vervolgens **Selecteer**.
 
-12. Selecteer in de opdrachtbalk **opslaan.**
+1.   Selecteer in de opdrachtbalk **opslaan**.
+
+### <a name="add-data-factory-msi-as-a-user-to-the-azure-sql-database-managed-instance"></a>Data factory MSI-bestand als een gebruiker toevoegen aan de Azure SQL Database Managed Instance
+
+1.  Start SQL Server Management Studio.
+
+2.  Aanmelden met een SQL-beheerdersaccount of een Active Directory-beheerdersaccount.
+
+3.  Vouw in Object Explorer de Databases -> map voor systeemdatabases.
+
+4.  Met de rechtermuisknop op de hoofddatabase en selecteer **nieuwe query**.
+
+5.  U kunt het artikel volgen [Azure Data Factory-service-identiteit](data-factory-service-identity.md) om op te halen van de principal-SERVICE-identiteit TOEPASSINGS-ID. (Gebruik niet de ID van de SERVICE-identiteit voor dit doel.)
+
+6.  Voer het volgende script om te converteren van de SERVICE-identiteit TOEPASSINGS-ID in binaire type in het queryvenster:
+
+    ```sql
+    DECLARE @applicationId uniqueidentifier = {your service identity application id}
+    select CAST(@applicationId AS varbinary)
+    ```
+
+7.  U krijgt de waarde van het resultatenvenster.
+
+8.  Schakel het query-venster en voer het volgende script:
+
+    ```sql
+    CREATE LOGIN [{MSI name}] FROM EXTERNAL PROVIDER with SID ={your service identity application id in binary type}, TYPE = E
+    ALTER SERVER ROLE [dbcreator] ADD MEMBER [{MSI name}]
+    ALTER SERVER ROLE [securityadmin] ADD MEMBER [{MSI name}]
+    ```
+
+9.  De opdracht is voltooid.
 
 ## <a name="provision-the-azure-ssis-ir-in-the-portal"></a>Inrichten van de Azure-SSIS-IR in de portal
 

@@ -12,15 +12,15 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056638"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315200"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Het schema in een SaaS-toepassing die gebruikmaakt van shard SQL-databases van meerdere tenants beheren
- 
+
 In deze zelfstudie onderzoekt de uitdagingen bij het onderhouden van een hele vloot van databases in een Software als een dienst (SaaS)-toepassing. Oplossingen worden voor airconditioningapparatuur van schemawijzigingen in de vloot van databases gedemonstreerd.
 
 Net als elke toepassing, de Wingtip Tickets SaaS-app na verloop van tijd en de wijzigingen in de database is vereist. Wijzigingen kunnen invloed hebben op schema of een verwijzing gegevens of databaseonderhoudstaken toepassen. Met een SaaS-toepassing met behulp van een database per tenant patroon moeten de wijzigingen worden gecoördineerd in een mogelijk enorme reeks tenantdatabases. Bovendien moet u deze wijzigingen opnemen in de database inrichtingsproces om te controleren of dat ze zijn opgenomen in nieuwe databases nadat ze zijn gemaakt.
@@ -64,12 +64,12 @@ De shard multitenant-database-gegevensmodel wordt gebruikt in dit voorbeeld maak
 ## <a name="elastic-jobs-limited-preview"></a>Beperkte preview voor Elastische taken
 
 Er is een nieuwe versie van elastische taken; dit is nu een geïntegreerde functie van Azure SQL Database. Van deze nieuwe versie van Elastische taken is momenteel een beperkte preview beschikbaar. De beperkte preview op dit moment ondersteunt het gebruik van PowerShell om een agent voor taken en T-SQL voor het maken en beheren van taken te maken.
-> [!NOTE] 
+> [!NOTE]
 > In deze zelfstudie maakt gebruik van functies van de SQL-Database-service die zich in een beperkte preview (elastische databasetaken). Als u doen in deze zelfstudie wilt, geeft u uw abonnements-ID naar SaaSFeedback@microsoft.com met onderwerp = Elastic Jobs Preview. Nadat u een bevestiging dat uw abonnement is ingeschakeld ontvangt, download en installeer de meest recente voorlopige versie taken-cmdlets. Deze Preview-versie is beperkt, dus neem contact op met SaaSFeedback@microsoft.com voor vragen of voor ondersteuning.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Download de broncode van de toepassing Wingtip Tickets SaaS multitenant-Database en -scripts
 
-De Wingtip Tickets SaaS multitenant-Database-scripts en broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) -bibliotheek op Github. Zie de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de blokkering opheffen van de Wingtip Tickets SaaS-scripts. 
+De Wingtip Tickets SaaS multitenant-Database-scripts en broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) -bibliotheek op GitHub. Zie de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de blokkering opheffen van de Wingtip Tickets SaaS-scripts.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Een taakagent-database en -agent voor nieuwe taken maken
 
@@ -84,9 +84,9 @@ De *Demo-SchemaManagement.ps1* script aanroepen de *Deploy-SchemaManagement.ps1*
 
 #### <a name="prepare"></a>Voorbereiden
 
-Van elke tenantdatabase bevat een reeks locatietypen in de **VenueTypes** tabel. Elk type venue definieert het type van de gebeurtenissen die kunnen worden gehost op een locatie. Deze locatietypen komen overeen met de achtergrondafbeeldingen die u in de app voor tenantevenementen ziet.  In deze oefening maakt u een update implementeert op alle databases om toe te voegen van twee nieuwe locatietypen: *Motorcycle Racing* en *Swimming Club*. 
+Van elke tenantdatabase bevat een reeks locatietypen in de **VenueTypes** tabel. Elk type venue definieert het type van de gebeurtenissen die kunnen worden gehost op een locatie. Deze locatietypen komen overeen met de achtergrondafbeeldingen die u in de app voor tenantevenementen ziet.  In deze oefening maakt implementeert u een update op alle databases om toe te voegen van twee nieuwe locatietypen: *Motorcycle Racing* en *Swimming Club*.
 
-Bekijk eerst de typen venues is opgenomen in elke tenantdatabase. Verbinding maken met een van de tenant-databases in SQL Server Management Studio (SSMS) en controleren van de tabel venuetypes bij.  U kunt ook een query in deze tabel in de Query-editor in Azure portal, toegankelijk via de pagina van de database. 
+Bekijk eerst de typen venues is opgenomen in elke tenantdatabase. Verbinding maken met een van de tenant-databases in SQL Server Management Studio (SSMS) en controleren van de tabel venuetypes bij.  U kunt ook een query in deze tabel in de Query-editor in Azure portal, toegankelijk via de pagina van de database.
 
 1. Open SSMS en maak verbinding met de tenantserver: *tenants1-dpt -&lt;gebruiker&gt;. database.windows.net*
 1. Om te bevestigen dat *Motorcycle Racing* en *Swimming Club* **niet** momenteel is opgenomen, blader naar de *contosoconcerthall* database op de *tenants1-dpt -&lt;gebruiker&gt;*  -server en de query de *VenueTypes* tabel.

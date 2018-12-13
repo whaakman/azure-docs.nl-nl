@@ -1,5 +1,5 @@
 ---
-title: Het configureren van een App Service Environment v1
+title: Het configureren van een App Service Environment v1 - Azure
 description: Configuratie, beheer en bewaking van de App Service Environment v1
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 60e086197b61d14394cad3d54a7efc4baede1f7b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 85353b68673ea91711e0c3d93e68bec662f406df
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965817"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272130"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configureren van een App Service Environment v1
 
@@ -44,14 +45,14 @@ De hosts in de resourcegroepen (front-ends en werkrollen) zijn niet rechtstreeks
 U kunt resource pool hoeveelheid en grootte instellen. In een as-omgeving hebt u vier grootteopties, die zijn gelabeld P1 tot en met P4. Zie voor meer informatie over deze grootten en bijbehorende prijzen [App Service-prijzen](https://azure.microsoft.com/pricing/details/app-service/).
 De hoeveelheid of het formaat wijzigen, heet een schaalbewerking.  Slechts één schaalbewerking kan worden uitgevoerd op een tijdstip.
 
-**Front-ends**: de front-ends zijn de HTTP/HTTPS-eindpunten voor uw apps die zijn ondergebracht in de as-omgeving. U kunt werkbelastingen niet uitvoeren in de front-ends.
+**Front-ends**: De front-ends zijn de HTTP/HTTPS-eindpunten voor uw apps die zijn ondergebracht in de as-omgeving. U kunt werkbelastingen niet uitvoeren in de front-ends.
 
 * Een as-omgeving begint met twee P2s, die is voldoende voor werkbelastingen voor ontwikkelen/testen en op laag niveau productieworkloads. Wij raden P3s voor normaal naar zware productieworkloads.
 * Normaal tot zware productieworkloads, wordt u aangeraden dat u ten minste vier P3s hebt om te controleren of er zijn voldoende front-ends uitgevoerd als gepland onderhoud plaatsvindt. Geplande onderhoudsactiviteiten uitvallen een front-end in op een tijdstip. Dit vermindert het totale beschikbare front-end capaciteit tijdens onderhoudswerkzaamheden.
 * Front-ends kunnen een uur duren om in te richten. 
 * Voor verdere schaal te passen, moet u het CPU-percentage, geheugenpercentage en actieve aanvragen metrische gegevens voor de front-end-pool controleren. Als het percentage CPU of geheugen meer dan 70 procent bij het uitvoeren van P3s, Voeg meer front-ends. Als het gemiddelde van de waarde van de actieve aanvragen naar 15.000 tot 20.000 aanvragen per front-end, moet u ook meer front-ends toevoegen. De algemene doelstelling onderstaande percentages van CPU en geheugen houden 70% is en actieve aanvragen gemiddelde naar hieronder 15.000 aanvragen per front end wanneer u P3s uitvoert.  
 
-**Werknemers**: de werknemers zijn waar uw apps daadwerkelijk worden uitgevoerd. Wanneer u uw App Service-plannen opschalen, die gebruikmaakt van werknemers in de groep met werkrollen gekoppeld.
+**Werknemers**: De werknemers zijn waar uw apps daadwerkelijk worden uitgevoerd. Wanneer u uw App Service-plannen opschalen, die gebruikmaakt van werknemers in de groep met werkrollen gekoppeld.
 
 * U kunt geen werknemers direct toevoegen. Ze kunnen een uur duren om in te richten.
 * De grootte van een compute-resource voor een pool schalen duurt < 1 uur per updatedomein. Er zijn 20 updatedomeinen in een as-omgeving. Als u de compute-grootte van een groep met werkrollen met 10 exemplaren geschaald, kan het tot 10 uur duren.
@@ -68,7 +69,7 @@ Als uw apps een groter formaat van de compute-resource is vereist, kan niet u pr
 * Uw App Service-plannen die als host van de apps die een groter formaat naar de meest recent geconfigureerde worker-groep moeten toewijzen. Dit is een snelle bewerking moet minder dan een minuut in beslag nemen.  
 * De eerste groep met werkrollen verkleinen als u niet meer nodig hebt die niet-gebruikte instanties. Met deze bewerking duurt een paar minuten om te voltooien.
 
-**Automatisch schalen**: een van de hulpprogramma's die u helpen kunnen bij het beheren van het gebruik van de compute-resources automatisch wordt geschaald. U kunt automatisch schalen voor front-end- of worker-groepen. U kunt dingen doen zoals toename van de exemplaren van elk type groep in de ochtend en deze in de avonduren is gepland te verminderen. Of misschien kunt u exemplaren toevoegen wanneer het aantal werknemers die beschikbaar in een groep met werkrollen zijn onder een bepaalde drempelwaarde komt.
+**Automatisch schalen**: Een van de hulpprogramma's die u helpen kunnen bij het beheren van het gebruik van de compute-resources is automatisch schalen. U kunt automatisch schalen voor front-end- of worker-groepen. U kunt dingen doen zoals toename van de exemplaren van elk type groep in de ochtend en deze in de avonduren is gepland te verminderen. Of misschien kunt u exemplaren toevoegen wanneer het aantal werknemers die beschikbaar in een groep met werkrollen zijn onder een bepaalde drempelwaarde komt.
 
 Als u wilt instellen van de regels voor automatisch schalen om compute resource pool metrische gegevens, en houd rekening met de tijd die de inrichting is vereist. Zie voor meer informatie over automatisch schalen App Service-omgevingen, [configureren voor automatisch schalen in een App Service Environment][ASEAutoscale].
 
@@ -132,13 +133,13 @@ In een as-omgeving worden alle van de App Service-abonnementen toegewezen App Se
 ### <a name="settings"></a>Instellingen
 In de blade as-omgeving, er is een **instellingen** sectie waarin verschillende belangrijke mogelijkheden:
 
-**Instellingen voor** > **eigenschappen**: de **instellingen** blade wordt automatisch geopend als u uw ASE-blade. Aan de bovenkant is **eigenschappen**. Er zijn een aantal items in hier die redundante aan wat u ziet in **Essentials**, maar wat is zeer nuttig is **virtuele IP-adres**, evenals **uitgaande IP-adressen**.
+**Instellingen voor** > **eigenschappen**: De **instellingen** blade wordt automatisch geopend als u uw ASE-blade. Aan de bovenkant is **eigenschappen**. Er zijn een aantal items in hier die redundante aan wat u ziet in **Essentials**, maar wat is zeer nuttig is **virtuele IP-adres**, evenals **uitgaande IP-adressen**.
 
 ![Instellingenblade en eigenschappen][4]
 
-**Instellingen voor** > **IP-adressen**: wanneer u een IP-Secure Sockets Layer (SSL)-app in de as-omgeving maakt, moet u een IP SSL-adres. Als u wilt aanvragen, moet uw ASE IP SSL-adressen die het eigendom zijn van die kunnen worden toegewezen. Wanneer een as-omgeving is gemaakt, wordt er één IP SSL-adres voor dit doel, maar u meer kunt toevoegen. Er is een post voor extra IP SSL-adressen, zoals wordt weergegeven in [App Service-prijzen] [ AppServicePricing] (in de sectie over SSL-verbindingen). De prijs voor extra is de prijs IP SSL.
+**Instellingen voor** > **IP-adressen**: Wanneer u een IP-Secure Sockets Layer (SSL)-app in de as-omgeving maakt, moet u een IP SSL-adres. Als u wilt aanvragen, moet uw ASE IP SSL-adressen die het eigendom zijn van die kunnen worden toegewezen. Wanneer een as-omgeving is gemaakt, wordt er één IP SSL-adres voor dit doel, maar u meer kunt toevoegen. Er is een post voor extra IP SSL-adressen, zoals wordt weergegeven in [App Service-prijzen] [ AppServicePricing] (in de sectie over SSL-verbindingen). De prijs voor extra is de prijs IP SSL.
 
-**Instellingen voor** > **Front-Endgroep** / **werknemersgroepen**: elk van deze groep resourceblades biedt de mogelijkheid om informatie op die resourcegroep toevoeging aan het leveren van besturingselementen aan volledig schaal die resourcegroep.  
+**Instellingen voor** > **Front-Endpool** / **werknemersgroepen**: Elk van deze groep resourceblades biedt de mogelijkheid om informatie zien alleen in die resourcegroep, naast het leveren van besturingselementen om te schalen volledig die resourcegroep.  
 
 De basis-blade voor elke resourcegroep bevat een grafiek met metrische gegevens voor deze resourcegroep. Net als met de grafieken op de blade as-omgeving u gaat u naar de grafiek en instellen van waarschuwingen naar wens. Een waarschuwing instellen op de blade as-omgeving voor een specifieke resourcegroep doet hetzelfde als het doen van de resourcegroep. In de groep met werkrollen **instellingen** blade, hebt u toegang tot alle Apps of App Service-abonnementen die worden uitgevoerd in deze groep met werkrollen.
 
