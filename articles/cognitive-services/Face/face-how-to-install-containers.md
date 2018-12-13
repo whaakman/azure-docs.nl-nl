@@ -1,21 +1,22 @@
 ---
-title: Over het installeren en uitvoeren van containers
-titlesuffix: Face - Cognitive Services - Azure
+title: Installeren en uitvoeren van containers
+titlesuffix: Face - Azure Cognitive Services
 description: Het downloaden, installeren en uitvoeren van containers voor gezicht in deze zelfstudie met stapsgewijze instructies.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634537"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086433"
 ---
 # <a name="install-and-run-containers"></a>Containers installeren en uitvoeren
 
@@ -37,7 +38,7 @@ Docker moet worden geconfigureerd, zodat de containers om te verbinden met en fa
 
 Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Vereisten en aanbevelingen
+### <a name="container-requirements-and-recommendations"></a>Containervereisten en aanbevelingen
 
 De Face-container vereist een minimum van 1 CPU-kern, ten minste 2,6 GHz (gigahertz) of sneller en 4 GB (Gigabyte) geheugen toegewezen, maar we raden ten minste 2 CPU-kernen en 6 GB aan toegewezen geheugen.
 
@@ -147,7 +148,7 @@ POST http://localhost:5000/face/v1.0/detect
 
 De Face-container verzendt factureringsgegevens naar Azure, met een bijbehorende Face-resource in uw Azure-account. De volgende opdrachtregelopties worden gebruikt door de Face-container voor factureringsdoeleinden bepalen:
 
-| Optie | Beschrijving |
+| Optie | Description |
 |--------|-------------|
 | `ApiKey` | De API-sleutel van de Face-resource die is gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op een API-sleutel voor de ingerichte Face Azure resource die is opgegeven `Billing`. |
 | `Billing` | Het eindpunt van de Face-resource die is gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op de URI van een ingerichte Face Azure-resource van het eindpunt.|
@@ -167,7 +168,9 @@ In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, insta
 * Containerinstallatiekopieën uitvoeren in Docker.
 * U kunt de REST-API of de SDK gebruiken om aan te roepen van bewerkingen in Face containers door de host-URI van de container op te geven.
 * Bij het instantiëren van een container, moet u informatie over facturering opgeven.
-* ** Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens (zoals de afbeelding of tekst die wordt geanalyseerd) niet naar Microsoft.  
+
+> [!IMPORTANT]
+> Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens (zoals de afbeelding of tekst die wordt geanalyseerd) niet naar Microsoft.
 
 ## <a name="next-steps"></a>Volgende stappen
 

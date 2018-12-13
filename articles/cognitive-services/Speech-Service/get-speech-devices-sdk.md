@@ -1,21 +1,22 @@
 ---
 title: De Speech Devices SDK ophalen
 titleSuffix: Azure Cognitive Services
-description: Informatie over het verkrijgen van toegang tot de SDK van de apparaten spraak.
+description: De spraak-Service werkt met een groot aantal apparaten en audio-bronnen. Nu kunt u uw spraaktoepassingen-naar een hoger niveau met overeenkomende hardware en software uitvoeren. In dit artikel leert u hoe u toegang krijgen tot de SDK van de apparaten spraak en begin te ontwikkelen.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 822c4bdc6bb47d51bcd264c9093e7d07308d2b11
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: bc9497ff8d48cd1c5fd045f12908234462a7a2f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468769"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095050"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>De Cognitive Services spraak apparaten SDK ophalen
 
@@ -29,14 +30,14 @@ Om toegang te krijgen met de SDK van de spraak-apparaten:
 1. Lees de [gebruiksrechtovereenkomst](speech-devices-sdk-license.md).
 1. Als u akkoord met de voorwaarden van de gebruiksrechtovereenkomst gaat, selecteer **ik ga akkoord**.
 1. Beantwoord de vragen in het formulier.
-1. Het formulier verzendt. 
+1. Het formulier verzendt.
 1. Als uw e-mailadres nog niet is onderdeel van Azure Active Directory (Azure AD), ontvangt u een uitnodiging via e-mail als in het volgende voorbeeld als u hebt goedgekeurd voor toegang. Als uw e-mailadres al in Azure AD is, ontvangt u een e-mailbericht van de spraak-Team van Microsoft wanneer u bent goedgekeurd voor toegang en u kunt verdergaan naar [downloadt u de SDK van de apparaten spraak](#download-the-speech-devices-sdk).
 
 ## <a name="approval-e-mail"></a>E-mail voor goedkeuring
 
 ```
-From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com> 
-Subject: You're invited to the Microsoft organization 
+From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com>
+Subject: You're invited to the Microsoft organization
 ```
 
 ![e-mailbericht](media/speech-devices-sdk/get-sdk-1.png)
@@ -58,16 +59,16 @@ De volgende stappen als u wilt deelnemen aan Azure AD met het e-mailadres dat u 
 4. Selecteer **volgende** om een wachtwoord te maken.
 
 5. Als u hierom wordt gevraagd om te controleren of uw e-mailberichten, ontvangt u de verificatiecode van de uitnodiging per e-mail die u hebt ontvangen.
- 
+
 7. Plak of typ de beveiligingscode van het e-mailbericht in het dialoogvenster. In dit voorbeeld is het de beveiligingscode **8406**. Selecteer **Volgende**.
 
     ![E-mailadres controleren](media/speech-devices-sdk/get-sdk-6.png)
- 
+
 8. Wanneer u de toepassing toegang deelvenster in de browser ziet, kunt u hebt bevestigd dat uw e-mailadres onderdeel van Azure AD is. U hebt nu toegang tot de site voor het downloaden van spraak Devices SDK.
 
 ## <a name="download-the-speech-devices-sdk"></a>De spraak-apparaten SDK downloaden
 
-Ga naar de [site voor het downloaden van spraak Devices SDK](https://shares.datatransfer.microsoft.com/). Meld u aan met het Microsoft-account dat u eerder hebt gemaakt. 
+Ga naar de [site voor het downloaden van spraak Devices SDK](https://shares.datatransfer.microsoft.com/). Meld u aan met het Microsoft-account dat u eerder hebt gemaakt.
 
 ![SDK downloaden-site](media/speech-devices-sdk/get-sdk-7.png)
 
@@ -76,20 +77,20 @@ Apparaten SDK, die zijn gekoppeld voorbeeldcode en referentiemateriaal voor het 
 1. Download en installeer het hulpprogramma Aspera verbinding maken wanneer u wordt gevraagd in de browser.
 
     ![downloaden van de Aspera-verbinding](media/speech-devices-sdk/get-sdk-8.png)
- 
+
 1. Selecteer **Ja** om over te schakelen apps Aspera verbinding maken.
 
     ![overschakelen naar de Aspera-verbinding](media/speech-devices-sdk/get-sdk-9.png)
- 
+
 1. Selecteer **toestaan** te bevestigen dat de bestanden met behulp van Aspera verbinding maken.
 
     ![Downloaden met behulp van Aspera verbinding maken](media/speech-devices-sdk/get-sdk-10.png)
- 
+
 1. Sluit het venster verbinding maken met Aspera-overdrachten nadat de bestanden worden gedownload.
 
     ![Verbinding maken met overdrachten van Aspera-venster](media/speech-devices-sdk/get-sdk-11.png)
- 
-Standaard worden de bestanden gedownload naar uw **Downloads** map. U kunt nu deze site afmelden. 
+
+Standaard worden de bestanden gedownload naar uw **Downloads** map. U kunt nu deze site afmelden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

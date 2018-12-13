@@ -3,7 +3,7 @@ title: Azure SQL Database DTU gebaseerde resource limieten elastische pools | Mi
 description: Deze pagina beschrijft enkele algemene DTU gebaseerde resourcelimieten voor elastische pools in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pools
+ms.subservice: elastic-poolss
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: e3b46620d15f8c08d0da69aef3d8c0920e5ad4ec
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a31a2bc3fa1edc0f4424dde4b5c8934e26669fc0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830069"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873441"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limieten voor elastische pools met behulp van het op DTU gebaseerde aankoopmodel resources 
 
@@ -41,10 +41,10 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Inbegrepen opslag per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Opties van de maximale opslag per groep (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Maximum aantal In-Memory OLTP-opslag per pool (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. |
+| Maximum aantal In-Memory OLTP-opslag per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Maximaal aantal databases per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 |30.000 | 30.000 | 30.000 | 30.000 |
 | Opties voor min-edtu's per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Opties van de maximale edtu's per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Maximale opslag per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 
@@ -56,10 +56,10 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |:---|---:|---:|---:| ---: | ---: | ---: | 
 | Inbegrepen opslag per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
 | Opties van de maximale opslag per groep (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
-| Maximum aantal In-Memory OLTP-opslag per pool (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | 
+| Maximum aantal In-Memory OLTP-opslag per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | 
 | Maximaal aantal databases per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 |
 | Opties voor min-edtu's per database | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Opties van de maximale edtu's per database | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
 | Maximale opslag per database (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
@@ -71,10 +71,10 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |:---|---:|---:|---:| ---: | ---: |
 | Inbegrepen opslag per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
 | Opties van de maximale opslag per groep (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Maximum aantal In-Memory OLTP-opslag per pool (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | 
+| Maximum aantal In-Memory OLTP-opslag per pool (GB) | N/A | N/A | N/A | N/A | N/A | 
 | Maximaal aantal databases per pool | 500 | 500 | 500 | 500 | 500 | 
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30000 | 30000 | 30000 | 30000 | 
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 
 | Opties voor min-edtu's per database | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Opties van de maximale edtu's per database | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
 | Opties van de maximale opslag per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 | 
@@ -89,7 +89,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 | Maximum aantal In-Memory OLTP-opslag per pool (GB) | 1 | 2 | 4 | 10 | 12 | 
 | Maximaal aantal databases per pool | 50 | 100 | 100 | 100 | 100 | 
 | Maximaal aantal gelijktijdige werknemers per pool (aanvragen) | 200 | 400 | 800 | 1600 | 2400 | 
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30000 | 30000 | 30000 | 30000 | 
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 
 | Minimaal aantal eDTU’s per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
 | Maximaal aantal eDTU’s per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
 | Maximale opslag per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 | 
@@ -104,7 +104,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 | Maximum aantal In-Memory OLTP-opslag per pool (GB) | 16 | 20 | 24 | 28 | 32 |
 | Maximaal aantal databases per pool | 100 | 100 | 100 | 100 | 100 | 
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30000 | 30000 | 30000 | 30000 | 
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 
 | Opties voor min-edtu's per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
 | Opties van de maximale edtu's per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
 | Maximale opslag per database (GB) | 1024 | 1024 | 1024 | 1024 | 1024 | 

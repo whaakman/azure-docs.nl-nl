@@ -1,5 +1,6 @@
 ---
-title: Gegevensverzameling inschakelen voor modellen in productie - Azure Machine Learning
+title: Gegevensverzameling inschakelen voor modellen in productie
+titleSuffix: Azure Machine Learning service
 description: Meer informatie over het verzamelen van Azure Machine Learning invoermodel gegevens in een Azure Blob-opslag.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3033b049b3d4bbe49b6a30be7ec78e1c2caf49ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: e6b6a8e1dd1b3746977062341013b92acff132c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011132"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100529"
 ---
 # <a name="collect-data-for-models-in-production"></a>Verzamelen van gegevens voor modellen in productie
 
@@ -55,7 +56,7 @@ Het pad naar de uitvoergegevens in de blob met de volgende deze syntaxis:
 
 - Een getraind model voor machine learning om te worden geïmplementeerd naar Azure Kubernetes Service (AKS). Als u niet hebt, raadpleegt u de [classificeringsmodel voor de installatiekopie van de trein](tutorial-train-models-with-aml.md) zelfstudie.
 
-- Een [AKS-cluster](how-to-deploy-to-aks.md).
+- Een Azure Kubernetes Service-cluster. Zie voor meer informatie over het maken en implementeren op een de [implementeren en waar](how-to-deploy-and-where.md) document.
 
 - [Instellen van uw omgeving](how-to-configure-environment.md) en installeer de [Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
@@ -103,7 +104,7 @@ Als u wilt inschakelen, moet u naar:
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. [Nieuwe installatiekopie maken en implementeren van uw service.](how-to-deploy-to-aks.md) 
+5. Een nieuwe installatiekopie maken en implementeren van de service, Zie de [implementeren en waar](how-to-deploy-and-where.md) document.
 
 
 Als u al een service met de afhankelijkheden die zijn geïnstalleerd hebt uw **omgevingsbestand** en **scoring-bestand**, verzamelen van gegevens door inschakelen:

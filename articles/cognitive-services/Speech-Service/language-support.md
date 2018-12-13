@@ -1,21 +1,22 @@
 ---
 title: Taalondersteuning - Speech Service-API
 titleSuffix: Azure Cognitive Services
-description: Een lijst van natuurlijke talen die worden ondersteund door spraak-Service.
+description: De Azure-Services voor spraak-ondersteuning voor vele talen voor spraak-naar-tekst en spraak conversie, samen met spraakomzetting. Dit artikel bevat een uitgebreide lijst van taalondersteuning door de service.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 8cdcdd6c5e0201f8f6af39faab0a67a68920e568
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284758"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094573"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Ondersteuning voor spraak-API voor Service taal en regio
 
@@ -36,8 +37,8 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen. Verschillende n
  en-GB | Engels (Verenigd Koninkrijk) | Nee | Ja | Ja
  NL-IN | English (India) | Ja | Ja | Ja
  NL-NZ | Engels (Nieuw-Zeeland) | Nee | Ja | Ja  
- nl-NL | Engels (Verenigde Staten) | Ja | Ja | Ja
- es-ES | Spaans (Spanje) | Nee | Ja | Nee
+ en-US | Engels (Verenigde Staten) | Ja | Ja | Ja
+ es-ES | Spaans (Spanje) | Ja | Ja | Nee
  es-MX | Spaans (Mexico) | Nee | Ja | Nee
  fi-FI | Fins (Finland) | Nee | Nee | Nee
  fr-CA | Frans (Canada) | Nee | Ja | Nee
@@ -49,7 +50,7 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen. Verschillende n
  nb-NO | Noors (Bokmål) (Noorwegen) | Nee | Nee | Nee
  NL-NL | Nederlands (Nederland) | Nee | Ja | Nee
  pl-PL | Pools (Polen) | Nee | Nee | Nee
- pt-BR | Portugees (Brazilië) | Nee | Ja | Nee
+ pt-BR | Portugees (Brazilië) | Ja | Ja | Nee
  pt-PT | Portugees (Portugal) | Nee | Ja | Nee
  ru-RU | Russisch (Rusland) | Ja | Ja | Nee
  SV-SE | Zweeds (Zweden) | Nee | Nee | Nee
@@ -158,7 +159,7 @@ Stem aanpassing is beschikbaar voor ons Engels (en-US), vasteland Chinees (zh-CN
 
 ## <a name="speech-translation"></a>Spraakomzetting
 
-De **Spraakomzetting** API biedt ondersteuning voor verschillende talen voor spraak-naar-spraak- en spraak naar tekst converteren. De source-taal moet altijd in de volgende tabel voor spraak-taal. De beschikbare talen voor doel, is afhankelijk van of het doel van de vertaling spraak of tekst is. U mag vertalen binnenkomende spraak in meer dan [60 talen](https://www.microsoft.com/translator/business/languages/). Een subset van deze talen zijn beschikbaar voor [spraaksynthese](language-support.md#text-languages). 
+De **Spraakomzetting** API biedt ondersteuning voor verschillende talen voor spraak-naar-spraak- en spraak naar tekst converteren. De source-taal moet altijd in de volgende tabel voor spraak-taal. De beschikbare talen voor doel, is afhankelijk van of het doel van de vertaling spraak of tekst is. U mag vertalen binnenkomende spraak in meer dan [60 talen](https://www.microsoft.com/translator/business/languages/). Een subset van deze talen zijn beschikbaar voor [spraaksynthese](language-support.md#text-languages).
 
 ### <a name="speech-languages"></a>Talen voor spraak
 

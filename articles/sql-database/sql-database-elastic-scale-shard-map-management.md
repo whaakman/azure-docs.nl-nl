@@ -3,7 +3,7 @@ title: Scale-out van een Azure SQL database | Microsoft Docs
 description: Het gebruik van de ShardMapManager, clientbibliotheek voor elastic database
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/16/2018
-ms.openlocfilehash: 71496a11deff5236161931d572e75d4a84b75c5f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 28387c1487c506173cba2eaaf3364dab36c7f70f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162063"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865849"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Uitschalen-databases met de shard-Toewijzingsbeheer
 Eenvoudig opschalen databases op SQL Azure, een shard-Toewijzingsbeheer gebruiken De shard-Toewijzingsbeheer is een speciale database die wordt onderhouden door van algemene toewijzingsinformatie over alle shards (databases) in een shard-verzameling. De metagegevens kan een toepassing verbinding maakt met de juiste database op basis van de waarde van de **sharding-sleutel**. Bovendien elke shard in de set bevat kaarten die de lokale gegevens bijhouden (ook wel **shardlets**). 
@@ -52,8 +52,8 @@ Elastisch schalen ondersteuning van de volgende typen als sharding sleutels:
 | .NET | Java |
 | --- | --- |
 | geheel getal |geheel getal |
-| lengte |lengte |
-| GUID |UUID |
+| lang |lang |
+| GUID |uuid |
 | byte[]  |byte[] |
 | datum/tijd | tijdstempel |
 | TimeSpan | duur|

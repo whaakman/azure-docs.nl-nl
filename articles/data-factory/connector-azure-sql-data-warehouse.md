@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c45167255ec91030f07e550de223a7ebed93168
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0971122ee7b9cde0664ee661454a8b7824f4b7d5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345756"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093897"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -57,7 +57,7 @@ De volgende secties bevatten meer informatie over eigenschappen die specifieke D
 
 De volgende eigenschappen worden ondersteund voor een Azure SQL Data Warehouse gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **AzureSqlDW**. | Ja |
 | connectionString | Geef de informatie die nodig zijn voor het verbinding maken met de Azure SQL Data Warehouse-exemplaar voor de **connectionString** eigenschap. Dit veld als markeert een **SecureString** voor het veilig opslaan in de Data Factory of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -214,7 +214,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren van of naar Azure SQL Data Warehouse, stel de **type** eigenschap van de gegevensset in **AzureSqlDWTable**. De volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de gegevensset moet worden ingesteld op **AzureSqlDWTable**. | Ja |
 | tableName | De naam van de tabel of weergave in de Azure SQL Data Warehouse-instantie waarnaar de gekoppelde service naar verwijst. | Nee voor bron, Ja voor sink |
@@ -246,7 +246,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren van Azure SQL Data Warehouse, stel de **type** eigenschap in de bron van Kopieeractiviteit naar **SqlDWSource**. De volgende eigenschappen worden ondersteund in de Kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Kopieeractiviteit-bron moet worden ingesteld op **SqlDWSource**. | Ja |
 | sqlReaderQuery | Gebruik de aangepaste SQL-query om gegevens te lezen. Voorbeeld: `select * from MyTable`. | Nee |
@@ -349,7 +349,7 @@ GO
 
 Om gegevens te kopiëren naar Azure SQL Data Warehouse, stelt u het sink-type in de Kopieeractiviteit naar **SqlDWSink**. De volgende eigenschappen worden ondersteund in de Kopieeractiviteit **sink** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Copy-activiteit-sink moet zijn ingesteld op **SqlDWSink**. | Ja |
 | allowPolyBase | Hiermee wordt aangegeven of het gebruik van PolyBase, indien van toepassing, in plaats van het mechanisme voor BULKINSERT. <br/><br/> Het is raadzaam om gegevens te laden in SQL Data Warehouse met behulp van PolyBase. Zie de [gebruik PolyBase om gegevens te laden in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) sectie voor beperkingen en meer informatie.<br/><br/>Toegestane waarden zijn **waar** en **False** (standaard).  | Nee |
@@ -404,7 +404,7 @@ Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of 
 
    1. `fileName` filteren op jokerteken bevat.
    2. `rowDelimiter` moet **\n**.
-   3. `nullValue` is een ingesteld op **lege tekenreeks** ("") of als standaard, links en `treatEmptyAsNull` niet is ingesteld op false.
+   3. `nullValue` is een ingesteld op **lege tekenreeks** ("") of als standaard, links en `treatEmptyAsNull` als standaard links of ingesteld op true.
    4. `encodingName` is ingesteld op **utf-8**, dit is de standaardwaarde.
    5. `escapeChar`, `quoteChar` en `skipLineCount` zijn niet opgegeven. Ondersteuning voor PolyBase overslaan rij met koppen die kan worden geconfigureerd als `firstRowAsHeader` in ADF.
    6. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
@@ -564,7 +564,7 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopieert, worden de volg
 | Float | Double-waarde |
 | image | Byte[] |
 | int | Int32 |
-| geld | decimaal |
+| money | decimaal |
 | nchar | Tekenreeks, Char] |
 | ntext | Tekenreeks, Char] |
 | numerieke | decimaal |
@@ -576,7 +576,7 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopieert, worden de volg
 | smallmoney | decimaal |
 | sql_variant | Object * |
 | tekst | Tekenreeks, Char] |
-| tijd | TimeSpan |
+| time | TimeSpan |
 | tijdstempel | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | GUID |

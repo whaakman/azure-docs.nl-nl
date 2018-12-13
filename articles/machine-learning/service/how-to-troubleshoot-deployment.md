@@ -1,6 +1,7 @@
 ---
-title: Implementatie probleemoplossingsgids voor Azure Machine Learning-service
-description: Informatie over hoe tijdelijke oplossing, is opgelost en veelvoorkomende problemen oplossen de Docker-implementatie met Azure Machine Learning-service.
+title: Handleiding voor het oplossen van problemen met de implementatie
+titleSuffix: Azure Machine Learning service
+description: Informatie over hoe tijdelijke oplossing, is opgelost en veelvoorkomende problemen oplossen de Docker-implementatie met AKS en ACI met behulp van Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,18 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
-ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321679"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100511"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Problemen met Azure Machine Learning-service-implementaties oplossen
+# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Problemen met Azure Machine Learning-service AKS en ACI-implementaties oplossen
 
-In dit artikel leert u hoe u kunt omzeilen of oplossen van de veelvoorkomende implementatiefouten Docker met Azure Machine Learning-service.
+In dit artikel leert u hoe u kunt omzeilen of oplossen van de veelvoorkomende implementatiefouten Docker met Azure Container Instances (ACI) en Azure Kubernetes Service (AKS) met behulp van Azure Machine Learning-service.
 
 Bij het implementeren van een model in Azure Machine Learning-service, wordt in het systeem een aantal taken uitvoert. Dit is een complexe reeks gebeurtenissen en soms zich problemen voordoen. De implementatietaken zijn:
 
@@ -117,7 +119,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Fouten opsporen in lokaal de Docker-installatiekopie
-Enkele voorbeelden van momenten het Docker-logboek is niet voldoende informatie over wat er mis verzenden. U kunt Ga een stap verder en haal de ingebouwde Docker-installatiekopie, een lokale container starten en fouten opsporen in rechtstreeks worden uitgevoerd in de live-container interactief. Voor het starten van een lokale container, moet u een Docker-engine lokaal worden uitgevoerd en het is veel eenvoudiger als u ook hebt [azure-cli](/cli/azure/install-azure-cli?view=azure-cli-latest) geïnstalleerd.
+Enkele voorbeelden van momenten het Docker-logboek is niet voldoende informatie over wat er mis verzenden. U kunt Ga een stap verder en haal de ingebouwde Docker-installatiekopie, een lokale container starten en fouten opsporen in rechtstreeks worden uitgevoerd in de live-container interactief. Voor het starten van een lokale container, moet u een Docker-engine lokaal worden uitgevoerd en het is veel eenvoudiger als u ook hebt [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) geïnstalleerd.
 
 Eerst moeten we weten van de installatiekopie-locatie:
 
@@ -222,10 +224,6 @@ def run(input_data):
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over implementatie: 
-* [Implementeren naar ACI](how-to-deploy-to-aci.md)
+* [Over het implementeren en waar](how-to-deploy-and-where.md)
 
-* [Implementeren naar AKS](how-to-deploy-to-aks.md)
-
-* [Zelfstudie deel 1: model te trainen](tutorial-train-models-with-aml.md)
-
-* [Deel 2 van de zelfstudie: model implementeren](tutorial-deploy-models-with-aml.md)
+* [Zelfstudie: Trainen en implementeren van modellen](tutorial-train-models-with-aml.md)

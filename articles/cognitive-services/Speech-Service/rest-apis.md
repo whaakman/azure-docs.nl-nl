@@ -1,5 +1,5 @@
 ---
-title: Speech Service REST-API's - Spraakservice
+title: Speech Services REST-API's - spraakservices
 titleSuffix: Azure Cognitive Services
 description: Informatie over het gebruik van de spraak-naar-tekst en spraak REST-API's. In dit artikel leert u over de opties voor autorisatie, opties voor query's, het structureren van een aanvraag en antwoord heeft ontvangen.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 5a3c160fcb550fc4f0c92145733aa993b95bd112
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584856"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089341"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
@@ -30,7 +31,7 @@ Voordat u de REST-API's te begrijpen:
 
 Elke aanvraag aan een van beide de spraak-naar-tekst of tekst naar spraak REST-API vereist autorisatie-header. Deze tabel ziet u welke headers voor elke service worden ondersteund:
 
-| Ondersteunde autorisatie-header | Spraak-naar-tekst | Tekst-naar-spraak |
+| Ondersteunde autorisatie-header | Spraak-naar-tekst | Tekst naar spraak |
 |------------------------|----------------|----------------|
 | OCP-Apim-Subscription-Key | Ja | Nee |
 | Autorisatie: Bearer | Ja | Ja |
@@ -257,7 +258,7 @@ Deze regio's worden ondersteund voor transcriptie van spraak-naar-tekst met behu
 
 Deze parameters kunnen worden opgenomen in de query-tekenreeks van de REST-aanvraag.
 
-| Parameter | Beschrijving | Vereiste / optioneel |
+| Parameter | Description | Vereiste / optioneel |
 |-----------|-------------|---------------------|
 | `language` | Hiermee geeft u de gesproken taal die wordt herkend. Zie [ondersteunde talen](language-support.md#speech-to-text). | Vereist |
 | `format` | Hiermee geeft u de resultaatindeling. Geaccepteerde waarden zijn `simple` en `detailed`. Eenvoudige tot de resultaten behoren `RecognitionStatus`, `DisplayText`, `Offset`, en `Duration`. Gedetailleerde antwoorden bevatten meerdere resultaten met vertrouwen waarden en vier verschillende manieren. De standaardinstelling is `simple`. | Optioneel |
@@ -267,7 +268,7 @@ Deze parameters kunnen worden opgenomen in de query-tekenreeks van de REST-aanvr
 
 Deze tabel bevat de vereiste en optionele headers voor spraak-naar-tekst-aanvragen.
 
-|Header| Beschrijving | Vereiste / optioneel |
+|Header| Description | Vereiste / optioneel |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Uw abonnementssleutel Speech-Service. | Een van beide deze header of `Authorization` is vereist. |
 | `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie [Verificatie](#authentication) voor meer informatie. | Een van beide deze header of `Ocp-Apim-Subscription-Key` is vereist. |
@@ -306,7 +307,7 @@ Expect: 100-continue
 
 De HTTP-statuscode voor elke reactie geeft aan dat het slagen of veelvoorkomende fouten.
 
-| HTTP-statuscode | Beschrijving | Mogelijke oorzaak |
+| HTTP-statuscode | Description | Mogelijke oorzaak |
 |------------------|-------------|-----------------|
 | 100 | Doorgaan | De eerste aanvraag is geaccepteerd. Doorgaan met het verzenden van de rest van de gegevens. (Met gesegmenteerde overdracht gebruikt.) |
 | 200 | OK | De aanvraag is uitgevoerd. de antwoordtekst is een JSON-object. |
@@ -350,7 +351,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 Resultaten worden gegeven als JSON. De `simple` indeling omvat deze velden op het hoogste niveau.
 
-| Parameter | Beschrijving  |
+| Parameter | Description  |
 |-----------|--------------|
 |`RecognitionStatus`|Status, zoals `Success` voor geslaagde opname. Zie de volgende tabel.|
 |`DisplayText`|De herkende tekst na het hoofdlettergebruik, interpunctie, inverse tekst normalisering (conversie van de gesproken tekst voor kortere formulieren, zoals 200 voor '200' of 'Dr. Smith' voor 'doctor smith'), en grof taalgebruik maskeren. Alleen op succes is geïnstalleerd.|
@@ -359,7 +360,7 @@ Resultaten worden gegeven als JSON. De `simple` indeling omvat deze velden op he
 
 De `RecognitionStatus` veld bevat deze waarden mogelijk:
 
-| Status | Beschrijving |
+| Status | Description |
 |--------|-------------|
 | `Success` | De opname is voltooid en de `DisplayText` veld niet aanwezig is. |
 | `NoMatch` | Spraak is gedetecteerd in de audiostream, maar er zijn geen woorden uit de doeltaal zijn afgestemd. Betekent meestal dat de opname-taal is een andere taal dan het account dat de gebruiker spreekt. |
@@ -374,7 +375,7 @@ De `detailed` indeling bevat dezelfde gegevens als de `simple` opmaken, samen me
 
 Elk object in de `NBest` lijst bevat:
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 |-----------|-------------|
 | `Confidence` | De betrouwbaarheidsscore van de vermelding van 0,0 (geen vertrouwen) 1.0 (volledig vertrouwen) |
 | `Lexical` | De lexicale vorm van de herkende tekst: de werkelijke woorden herkend. |
@@ -442,7 +443,7 @@ Zie voor een volledige lijst met beschikbare stemmen [ondersteunde talen](langua
 
 Deze tabel bevat de vereiste en optionele headers voor spraak-naar-tekst-aanvragen.
 
-| Header | Beschrijving | Vereiste / optioneel |
+| Header | Description | Vereiste / optioneel |
 |--------|-------------|---------------------|
 | `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie voor meer informatie, [verificatie](#authentication). | Vereist |
 | `Content-Type` | Hiermee geeft u het type inhoud voor de opgegeven tekst. Waarde geaccepteerd: `application/ssml+xml`. | Vereist |
@@ -492,7 +493,7 @@ Authorization: Bearer [Base64 access_token]
 
 De HTTP-statuscode voor elke reactie geeft aan dat het slagen of veelvoorkomende fouten.
 
-| HTTP-statuscode | Beschrijving | Mogelijke oorzaak |
+| HTTP-statuscode | Description | Mogelijke oorzaak |
 |------------------|-------------|-----------------|
 | 200 | OK | De aanvraag is uitgevoerd. de antwoordtekst is een geluidsbestand. |
 | 400 | Onjuiste aanvraag | Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is. |

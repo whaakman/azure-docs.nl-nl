@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b42ce119db2c435f05424cceb5bb90627668bece
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f3ab50c4fdc080b157212bcc662a2acf6629483d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407194"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097961"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>System Center Configuration Manager integreren met updatebeheer
 
@@ -26,7 +26,7 @@ U kunt rapporteren en beheerde Windows-servers bijwerken door te maken en vooraf
 
 * Hebt u de [oplossing Update Management](automation-update-management.md) toegevoegd aan uw Automation-account.
 * Windows-servers die worden beheerd door uw System Center Configuration Manager-omgeving moeten ook rapporteren aan de Log Analytics-werkruimte waar ook de Updatebeheer-oplossing is ingeschakeld.
-* Deze functie is ingeschakeld in System Center Configuration Manager current branch versie 1606 en hoger. Als u uw centrale beheersite van Configuration Manager of een zelfstandige primaire site met Log Analytics wilt integreren en verzamelingen importeren, leest u [Connect Configuration Manager to Log Analytics](../log-analytics/log-analytics-sccm.md) (Configuration Manager koppelen aan Log Analytics).  
+* Deze functie is ingeschakeld in System Center Configuration Manager current branch versie 1606 en hoger. Als u uw centrale beheersite van Configuration Manager of een zelfstandige primaire site met Log Analytics wilt integreren en verzamelingen importeren, leest u [Connect Configuration Manager to Log Analytics](../azure-monitor/platform/collect-sccm.md) (Configuration Manager koppelen aan Log Analytics).  
 * Windows-agents moeten worden geconfigureerd om te communiceren met een WSUS-server (Windows Server Update Services of toegang hebben tot Microsoft Update als ze geen beveiligingsupdates krijgen van Configuration Manager.   
 
 Hoe u clients die worden gehost in Azure IaaS met uw bestaande Configuration Manager-omgeving beheert, hangt hoofdzakelijk af van de verbinding die u hebt tussen Azure-datacenters en uw infrastructuur. Deze verbinding is van invloed op de ontwerpwijzigingen die u mogelijk moet aanbrengen in uw Configuration Manager-infrastructuur en de daarmee samenhangende kosten voor de ondersteuning van de benodigde wijzigingen. Om te begrijpen welke overwegingen u wilt evalueren voordat u doorgaat, leest u [Configuration Manager on Azure - Frequently Asked Questions](/sccm/core/understand/configuration-manager-on-azure#networking) (veelgestelde vragen).

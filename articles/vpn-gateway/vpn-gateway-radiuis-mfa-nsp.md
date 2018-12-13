@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 12e2f96e66305370499fbacf9ae6a834a22eb504
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fec5ef3ef190270d22e9a7d0306eb9477b39a8c8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412496"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095227"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Azure VPN-gateway RADIUS-verificatie integreren met NPS-server voor multi-factor Authentication 
 
@@ -58,7 +58,7 @@ U MFA inschakelt, moet de gebruikers in Azure Active Directory (Azure AD), die m
     - **Adres (IP- of DNS)**: typt u het gatewaysubnet dat u in stap 1 hebt gemaakt.
     - **Gedeeld geheim**: Typ een geheime sleutel en onthouden voor later gebruik.
 
-    ![De afbeelding RADUIS clientinstellingen](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![De afbeelding RADUIS clientinstellingen](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  Op de **Geavanceerd** tabblad, stelt u de naam van de leverancier op **RADIUS-standaard** en zorg ervoor dat de **extra opties** selectievakje niet is ingeschakeld.
@@ -77,7 +77,7 @@ U MFA inschakelt, moet de gebruikers in Azure Active Directory (Azure AD), die m
     - **Verificatietype**: Selecteer **RADIUS-verificatie**.
     - **IP-adres van**: Typ het IP-adres van de NPS-server.
 
-    ![Afbeelding van site-instellingen, wijs de](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+      ![Afbeelding van site-instellingen, wijs de](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

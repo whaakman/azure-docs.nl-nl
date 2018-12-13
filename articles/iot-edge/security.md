@@ -1,6 +1,6 @@
 ---
-title: Beveiliging in Azure IoT Edge | Microsoft Docs
-description: Beveiliging, verificatie en autorisatie van IoT Edge-apparaten
+title: Security framework - Azure IoT Edge | Microsoft Docs
+description: Meer informatie over de beveiliging, verificatie en autorisatie-normen die zijn gebruikt voor het ontwikkelen van Azure IoT Edge en moeten worden beschouwd als u uw oplossing ontwerpt
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,15 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4292dc3abf775d48ee33cc7a48793d080156efb1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 1042f53147122a7370b464f6bfc892dcee70fe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568934"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100137"
 ---
-# <a name="securing-azure-iot-edge"></a>Azure IoT Edge beveiligen
+# <a name="security-standards-for-azure-iot-edge"></a>Beveiligingsstandaarden voor Azure IoT Edge
 
 Het beveiligen van de intelligente edge is die nodig zijn voor het verlenen van vertrouwen in de werking van een end-to-end-IoT-oplossing. Azure IoT Edge is ontworpen voor beveiliging die is uitgebreid om andere risicoprofiel, implementatiescenario's, en biedt de dezelfde beveiliging die u kunt van alle Azure-services verwachten.
 

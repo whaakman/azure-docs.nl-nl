@@ -1,6 +1,6 @@
 ---
-title: Directory-rollen toewijzen aan gebruikers met Azure Active Directory | Microsoft Docs
-description: Informatie over het directory-rollen toewijzen aan gebruikers met Azure Active Directory.
+title: 'Directory-rollen toewijzen aan gebruikers: Azure Active Directory | Microsoft Docs'
+description: Instructies over het toewijzen van beheerder-en niet-beheerder voor gebruikers met Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: b73df5ec0381e83c54c8cd9f8c0335448def0c6d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: e8646893d6dd57fd3f743f450f438cd962f02b36
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733039"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095117"
 ---
-# <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Hoe: rollen en beheerders toewijzen aan gebruikers met Azure Active Directory
+# <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>De beheerder en niet-beheerder rollen toewijzen aan gebruikers met Azure Active Directory
 Als een gebruiker in uw organisatie heeft toestemming nodig voor Azure Active Directory (Azure AD)-resources beheren, moet u de gebruiker een juiste rol in Azure AD, op basis van de acties die de gebruiker moet toestemming om uit te voeren.
 
 Zie voor meer informatie over de beschikbare rollen [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Zie voor meer informatie over het toevoegen van gebruikers [nieuwe gebruikers toevoegen aan Azure Active Directory](add-users-azure-active-directory.md).
@@ -29,7 +30,7 @@ Een veelgebruikte manier voor Azure AD-rollen toewijzen aan een gebruiker zich o
 U kunt ook rollen met behulp van Privileged Identity Management (PIM) toewijzen. Zie voor meer informatie over hoe u PIM gaat gebruiken, [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 ### <a name="to-assign-a-role-to-a-user"></a>Een rol toewijzen aan een gebruiker
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van een globale beheerdersaccount voor de map.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) met het account van een globale administrator voor de map.
 
 2. Selecteer **Azure Active Directory**, selecteer **gebruikers**, en zoek vervolgens naar de gebruiker en selecteer de roltoewijzing aan. Bijvoorbeeld, _Alain Charon_.
 

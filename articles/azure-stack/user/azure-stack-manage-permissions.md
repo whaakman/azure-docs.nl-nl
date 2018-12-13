@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: ef9c096989eeb37159d0deb705e7870afe2eff8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 70641084d2213b50803800a64000611d139facec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975393"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075764"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Toegang tot resources met Azure Stack Role-Based toegangsbeheer beheren
 
@@ -91,9 +91,9 @@ De volgende stappen wordt beschreven hoe u machtigingen configureren voor een ge
 1. Meld u aan met een account met eigenaarsmachtigingen voor de resource die u wilt beheren.
 2. Kies **Resourcegroepen** in het linkernavigatievenster.
 3. Kies de naam van de resourcegroep die u instellen van machtigingen wilt op.
-4. Kies in het navigatiedeelvenster van de groep resource **toegangsbeheer (IAM)**. De **toegangsbeheer** weergave bevat de Items die toegang tot de resourcegroep hebben. U kunt deze resultaten te filteren en gebruiken van een in de menubalk toevoegen of verwijderen van machtigingen.
-5. Op de **toegangsbeheer** menu van de balk, kiest u **+ toevoegen**.
-6. Op **machtigingen toevoegen**:
+4. Kies in het navigatiedeelvenster van de groep resource **toegangsbeheer (IAM)**. De **roltoewijzingen** weergave bevat de items die toegang tot de resourcegroep hebben. U kunt filteren en de resultaten groeperen.
+5. Op de **toegangsbeheer** menu van de balk, kiest u **roltoewijzing toevoegen**.
+6. Op **roltoewijzing toevoegen** deelvenster:
 
    * Selecteer de rol die u toewijzen wilt uit de **rol** vervolgkeuzelijst.
    * Kies de resource die u toewijzen wilt uit de **toegang toewijzen aan** vervolgkeuzelijst.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 1b3b0a1fca01b80459571efff74f1d4da19d133e
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b9428e4451ebef921907809b1250238bf084706d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725196"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864958"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie: afwijkende prestaties
 
@@ -184,7 +184,7 @@ Deze diagnostische hulpprogramma's kunnen u de telemetrie van uw app controleren
 
 * [Profiler](app-insights-profiler.md) 
 * [Snapshot debugger](app-insights-snapshot-debugger.md)
-* [Analytische gegevens](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytische gegevens](../azure-monitor/log-query/get-started-portal.md)
 * [Analytics slimme diagnostische gegevens](app-insights-analytics.md)
 
 Slimme detectie worden volledig automatisch uitgevoerd. Maar misschien u graag enkele meer waarschuwingen instellen?

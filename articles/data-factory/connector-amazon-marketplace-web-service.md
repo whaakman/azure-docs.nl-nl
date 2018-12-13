@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: bcda662790c1af72e28b8968142bab15f62e83bf
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c58b956a0fc1899b12050daf0fbf61514ca24407
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127164"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095134"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Gegevens kopiëren van Amazon Marketplace Web Service met behulp van Azure Data Factory (Preview)
 
@@ -43,7 +43,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor Amazon Marketplace Web Service gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AmazonMWS** | Ja |
 | endpoint | Het eindpunt van de Amazon MWS-server (dat wil zeggen, mws.amazonservices.com)  | Ja |
@@ -85,7 +85,12 @@ De volgende eigenschappen worden ondersteund voor Amazon Marketplace Web Service
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Amazon Marketplace Web Service-gegevensset.
 
-Om gegevens te kopiëren van Amazon Marketplace Web Service, stel de eigenschap type van de gegevensset in **AmazonMWSObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
+Om gegevens te kopiëren van Amazon Marketplace Web Service, stel de eigenschap type van de gegevensset in **AmazonMWSObject**. De volgende eigenschappen worden ondersteund:
+
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **AmazonMWSObject** | Ja |
+| tableName | Naam van de tabel. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
 **Voorbeeld**
 
@@ -97,7 +102,8 @@ Om gegevens te kopiëren van Amazon Marketplace Web Service, stel de eigenschap 
         "linkedServiceName": {
             "referenceName": "<AmazonMWS linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -107,14 +113,14 @@ Om gegevens te kopiëren van Amazon Marketplace Web Service, stel de eigenschap 
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Amazon Marketplace Web Service-bron.
 
-### <a name="amazonmwssource-as-source"></a>AmazonMWSSource als bron
+### <a name="amazon-mws-as-source"></a>Amazon MWS als bron
 
 Om gegevens te kopiëren van Amazon Marketplace Web Service, stelt u het brontype in de kopieeractiviteit naar **AmazonMWSSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **AmazonMWSSource** | Ja |
-| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Ja |
+| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 

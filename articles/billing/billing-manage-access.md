@@ -1,6 +1,6 @@
 ---
 title: Beheer de toegang tot Azure-facturering | Microsoft Docs
-description: ''
+description: Leer hoe u toegang geven tot uw Azure-Factureringsinformatie voor leden van uw team.
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 00b29ddf29ae334154d41eedd0bf9e66556e09ad
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: a15d055505ca0f28ad28b477e90e6fe859cc9ac7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720116"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094284"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Beheer de toegang tot factureringsgegevens voor Azure
 

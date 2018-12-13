@@ -4,16 +4,16 @@ description: Dit artikel helpt u bij het programmatisch beleid maken en beheren 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: MT
+ms.openlocfilehash: 881dc5c66f9b408d28a43fa16cff987a79a896a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242625"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084903"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmatisch beleid maken en compatibiliteitsgegevens weergeven
 
@@ -29,7 +29,7 @@ Voordat u begint, zorg ervoor dat de volgende vereisten wordt voldaan:
 
 1. Werk uw PowerShell-module van Azure RM bij naar de nieuwste versie. Zie voor meer informatie over de nieuwste versie, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Registreer de resourceprovider Policy Insights met behulp van Azure PowerShell om ervoor te zorgen dat uw abonnement hiervoor met de resourceprovider geschikt. Als u een resourceprovider wilt registreren, moet u toestemming hebben om de registreeractie voor de resourceprovider uit te voeren. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Voer de volgende opdracht uit om de resourceprovider te registreren:
+1. Registreer de resourceprovider Policy Insights met behulp van Azure PowerShell om te valideren dat uw abonnement hiervoor met de resourceprovider geschikt. Als u wilt een resourceprovider registreren, moet u gemachtigd zijn om uit te voeren van de registreeractie voor de resourceprovider. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Voer de volgende opdracht uit om de resourceprovider te registreren:
 
    ```azurepowershell-interactive
    Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'

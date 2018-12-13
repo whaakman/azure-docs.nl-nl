@@ -1,6 +1,6 @@
 ---
-title: Een transparante gateway maken met Azure IoT Edge | Microsoft Docs
-description: Een Azure IoT Edge-apparaat gebruiken als een transparante gateway waarmee informatie voor meerdere apparaten kan worden verwerkt.
+title: Transparante gateway-apparaat - Azure IoT Edge maken | Microsoft Docs
+description: Een Azure IoT Edge-apparaat gebruiken als een transparante gateway waarmee gegevens uit de downstream-apparaten kan worden verwerkt.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 55968393ff64d9eed1f5b384094a77d0d169dc5d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681191"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094352"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Een IoT Edge-apparaat om te fungeren als een transparante gateway configureren
 
@@ -31,7 +32,7 @@ Een downstream-apparaat mag een toepassing of het platform waarvoor een identite
 
 U kunt een certificaatinfrastructuur waarmee de vertrouwensrelatie die vereist zijn voor de topologie van uw apparaat-gateway maken. In dit artikel gaan we ervan uit dezelfde certificaat-instellingen die u gebruiken zou om in te schakelen [x.509-CA-beveiliging](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, waarbij een X.509-CA-certificaat dat is gekoppeld aan een specifieke IoT-hub (de IoT hub eigenaar CA) en een reeks van certificaten geregistreerd bij deze Certificeringsinstantie, en een CA voor het Edge-apparaat.
 
-![Gateway-installatie](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![Certificaat-gatewayupgrade](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 De gateway geeft het Edge-apparaat CA-certificaat naar het downstream apparaat tijdens de initialisatie van de verbinding. Het downstream apparaat controleert om ervoor te zorgen dat het Edge-apparaat CA-certificaat is ondertekend door de eigenaar van CA-certificaat. Dit proces kan de downstream-apparaat om te bevestigen van dat de gateway van een vertrouwde bron afkomstig is.
 

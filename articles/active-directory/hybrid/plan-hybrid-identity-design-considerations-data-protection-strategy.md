@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238145"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865043"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit definiëren
 In deze taak definieert u de strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in:
@@ -92,7 +92,7 @@ Door gebruik te maken van de verificatie, autorisatie en mogelijkheden voor toeg
 
 Gecentraliseerd beheer en volledig integratie met andere directory 's
 
-Azure Active Directory biedt single sign-on bij duizenden SaaS-toepassingen en on-premises webtoepassingen. Zie de [federatiecompatibiliteitslijst van Azure Active Directory: externe id-providers die kunnen worden gebruikt voor het implementeren van eenmalige aanmelding](https://msdn.microsoft.com/library/azure/jj679342.aspx) artikel voor meer informatie over de eenmalige aanmelding van derden die zijn getest door Microsoft. Deze mogelijkheid kan een organisatie voor het implementeren van tal van B2B-scenario's terwijl de controle over het beheer van identiteits- en toegangsbeheer. Tijdens de B2B is het ontwerpen van proces echter belangrijk te begrijpen van de verificatiemethode die wordt gebruikt door de partner en valideren of deze methode wordt ondersteund door Azure. De volgende methoden worden momenteel ondersteund door Azure AD:
+Azure Active Directory biedt single sign-on bij duizenden SaaS-toepassingen en on-premises webtoepassingen. Zie de [federatiecompatibiliteitslijst van Azure Active Directory: externe id-providers die kunnen worden gebruikt voor het implementeren van eenmalige aanmelding](how-to-connect-fed-compatibility.md) artikel voor meer informatie over de eenmalige aanmelding van derden die zijn getest door Microsoft. Deze mogelijkheid kan een organisatie voor het implementeren van tal van B2B-scenario's terwijl de controle over het beheer van identiteits- en toegangsbeheer. Tijdens de B2B is het ontwerpen van proces echter belangrijk te begrijpen van de verificatiemethode die wordt gebruikt door de partner en valideren of deze methode wordt ondersteund door Azure. De volgende methoden worden momenteel ondersteund door Azure AD:
 
 * Security Assertion Markup Language (SAML)
 * OAuth

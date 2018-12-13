@@ -1,6 +1,6 @@
 ---
-title: Het bewerken van de groepsgegevens van uw met behulp van Azure Active Directory | Microsoft Docs
-description: Informatie over het bewerken van een groep gegevens met behulp van Azure Active Directory.
+title: Bewerk de groepsgegevens van uw - Azure Active Directory | Microsoft Docs
+description: Instructies over het bewerken van uw groep informatie met behulp van Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: a02987fdce3a15cd5d416234e3717df6d33622ec
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: b857b0bd56b479d4301535a4e1f734d8002dcc8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731339"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099049"
 ---
-# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>Hoe: de groepsgegevens van uw met behulp van Azure Active Directory bewerken
+# <a name="edit-your-group-information-using-azure-active-directory"></a>Bewerk de groepsgegevens van uw met behulp van Azure Active Directory
 
-Met Azure Active Directory, kunt u van een groep instellingen, waaronder het bijwerken van de naam, beschrijving of lidmaatschapstype bewerken.
+Met behulp van Azure Active Directory (Azure AD), kunt u de instellingen van een groep, met inbegrip van het type naam, beschrijving of lidmaatschap bijwerken bewerken.
 
 ## <a name="to-edit-your-group-settings"></a>Instellingen van uw groep bewerken
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een globale beheerdersaccount voor de map.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) met het account van een globale administrator voor de map.
 
 2. Selecteer **Azure Active Directory**, en selecteer vervolgens **groepen**.
 
@@ -46,7 +46,7 @@ Met Azure Active Directory, kunt u van een groep instellingen, waaronder het bij
 
     - **Naam van de groep.** Bewerk de bestaande groepsnaam.
     
-    - **De beschrijving van de groep.** De groepsbeschrijving van de bestaande bewerken.
+    - **Groepsbeschrijving.** De groepsbeschrijving van de bestaande bewerken.
 
     - **Het type groep.** U kunt het type van de groep niet wijzigen nadat deze is gemaakt. Wijzigen van de **groepstype**, moet u de groep verwijderen en een nieuwe maken.
     
@@ -57,7 +57,7 @@ Met Azure Active Directory, kunt u van een groep instellingen, waaronder het bij
 ## <a name="next-steps"></a>Volgende stappen
 Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
-- [Uw groepen en leden weergeven](active-directory-groups-view-azure-portal.md)
+- [Groepen en leden weergeven](active-directory-groups-view-azure-portal.md)
 
 - [Een basisgroep maken en leden toevoegen](active-directory-groups-create-azure-portal.md)
 
@@ -69,4 +69,4 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 - [Toegang tot resources met behulp van groepen beheren](active-directory-manage-groups.md)
 
-- [Koppelen of een Azure-abonnement toevoegen aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Een Azure-abonnement aan Azure Active Directory koppelen of toevoegen](active-directory-how-subscriptions-associated-directory.md)

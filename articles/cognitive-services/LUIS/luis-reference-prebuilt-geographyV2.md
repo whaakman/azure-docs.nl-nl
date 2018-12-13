@@ -1,23 +1,24 @@
 ---
-title: Geografie V2 vooraf gedefinieerde entiteit - LUIS Reference
+title: Geografie V2 vooraf gemaakte entiteiten
 titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat geographyV2 vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cjgronlund
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 3559bc02944f88f486104d4d9553f0c45a1f1754
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 07bbb8e17a9f75bd878c384b5b8d90798d043814
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983409"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086215"
 ---
-# <a name="geographyv2-entity"></a>GeographyV2 entiteit
+# <a name="geographyv2-entity"></a>GeographyV2-entiteit
 De vooraf gedefinieerde geographyV2 entiteit detecteert plaatsen. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen GeographyV2 die aan de toepassing intents. GeographyV2 entiteit wordt ondersteund in het Engels [cultuur](luis-reference-prebuilt-entities.md).
 
 ## <a name="subtypes"></a>Subtypen
@@ -35,7 +36,7 @@ De geografische locaties zijn subtypen:
 ## <a name="resolution-for-geographyv2-entity"></a>Oplossing voor GeographyV2 entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.geographyV2** entiteit.
 
-```JSON
+```json
 {
     "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
     "topScoringIntent": {

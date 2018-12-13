@@ -1,5 +1,6 @@
 ---
-title: Load Balancer-tests gebruiken voor het beveiligen van uw service | Microsoft Docs
+title: Load Balancer-tests gebruiken voor het beveiligen van uw service
+titlesuffix: Azure Load Balancer
 description: Informatie over het gebruik van statuscontroles instanties achter Load Balancer bewaken
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 58bc0c0669992b8b3884e24c39862f47412b9110
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
-ms.translationtype: MT
+ms.openlocfilehash: 89ceb6134d19354831a76f814d2ee55053252f62
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584652"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083577"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 

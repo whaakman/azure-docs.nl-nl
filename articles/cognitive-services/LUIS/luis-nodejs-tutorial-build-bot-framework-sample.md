@@ -1,25 +1,26 @@
 ---
-title: LUIS-Bot met Node.js - Web-app-Bot - Botframework SDK 3.0
+title: LUIS-Bot met behulp van Node.js
 titleSuffix: Azure Cognitive Services
 description: Bouw een bot die is geïntegreerd met een LUIS-toepassing met behulp van Bot Framework.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0bd191da3f2625bc202ee66100e7dac25d9d65de
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: 7229155b9fbfb93babd45c746d0f36fbab812013
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042326"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093400"
 ---
-# <a name="luis-bot-in-nodejs"></a>LUIS-bot in Node.js
+# <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot in Node.js met Bot Framework 3.x en de Azure-Web-app-bot
 
-Met behulp van Node.js, een chatbot bouwen geïntegreerd met taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren. De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
+Bouw met behulp van Node.js een chatbot met ingebouwd taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren. De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
 
 ## <a name="prerequisite"></a>Vereiste
 
@@ -27,7 +28,7 @@ Voordat u de bot maakt, volg de stappen in [maken van een app](./luis-get-starte
 
 De bot reageert op intents van het domein HomeAutomation die zich in de LUIS-app. Voor elk van deze intents biedt de LUIS-app een doel dat is toegewezen aan deze. De bot biedt een dialoogvenster die verantwoordelijk is voor het doel dat LUIS detecteert.
 
-| Intentie | Voorbeeld utterance | Bot-functionaliteit |
+| Intentie | Voorbeeld van een utterance | Bot-functionaliteit |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Schakel in het licht. | De bot roept de `TurnOnDialog` wanneer de `HomeAutomation.TurnOn` wordt gedetecteerd. Dit dialoogvenster is waar u een IoT-service om te schakelen op een apparaat en de gebruiker die het apparaat is ingeschakeld zien wilt aanroepen. |
 | HomeAutomation.TurnOff | De verlichting slaapkamers uitschakelen. | De bot roept de `TurnOffDialog` wanneer de `HomeAutomation.TurnOff` wordt gedetecteerd. Dit dialoogvenster wanneer u een IoT-service waarmee een apparaat uitschakelen en de gebruiker die het apparaat is uitgeschakeld vertellen wilt aanroepen. |
@@ -78,7 +79,7 @@ NPM-pakketten installeren met de volgende stappen uit:
 
 5. Er wordt een nieuw browservenster geopend. Voer de volgende opdracht in de console:
 
-    ```
+    ```console
     cd site\wwwroot && npm install
     ```
 
@@ -115,7 +116,7 @@ Ga naar het tweede browservenster als deze nog steeds openen of Selecteer in het
 
 Open in de code-editor `app.js`. Het bevat de volgende code:
 
-```javascript
+```nodejs
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
@@ -206,7 +207,7 @@ De bestaande intenties in het app.js worden genegeerd. U kunt ze laten.
 
 Kopieer de volgende code en toe te voegen aan `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOn',
     (session) => {
         session.send('You reached the TurnOn intent. You said \'%s\'.', session.message.text);
@@ -223,7 +224,7 @@ De [komt overeen met] [ matches] kiezen op de [triggerAction] [ triggerAction] d
 
 Kopieer de volgende code en toe te voegen aan `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOff',
     (session) => {
         session.send('You reached the TurnOff intent. You said \'%s\'.', session.message.text);

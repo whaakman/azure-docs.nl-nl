@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 075f79707dda4683c288163ec7bfdbf9807e153f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b509c7eceb3c2e2fb2e53f20791976b0322ad744
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834864"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089731"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Consistentieniveaus in Azure Cosmos DB
 
-Gedistribueerde databases die afhankelijk van de replicatie voor hoge beschikbaarheid, lage latentie, of beide zijn, moeten het fundamentele verschil tussen het lezen van consistentie en beschikbaarheid, latentie en doorvoer. De meeste commercieel verkrijgbaar gedistribueerde databases stellen ontwikkelaars om te kiezen tussen de twee extreme consistentiemodellen: sterke consistentie en uiteindelijke consistentie. De [verwerkingen](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) of het model sterke consistentie is de standaard gold van gegevens programmeren. Maar een steile prijs van hogere latentie (in onveranderlijke) toegevoegd en verminderde beschikbaarheid (bij storingen). Aan de andere kant uiteindelijke consistentie biedt een hogere beschikbaarheid en betere prestaties, maar is moeilijk te programmeren van toepassingen. 
+Gedistribueerde databases die afhankelijk van de replicatie voor hoge beschikbaarheid, lage latentie, of beide zijn, moeten het fundamentele verschil tussen het lezen van consistentie en beschikbaarheid, latentie en doorvoer. De meeste commercieel verkrijgbaar gedistribueerde databases stellen ontwikkelaars om te kiezen tussen de twee extreme consistentiemodellen: sterke consistentie en uiteindelijke consistentie. De [verwerkingen](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) of het model sterke consistentie is de standaard gold van gegevens programmeren. Maar een steile prijs van hogere latentie (in onveranderlijke) toegevoegd en verminderde beschikbaarheid (bij storingen). Aan de andere kant uiteindelijke consistentie biedt een hogere beschikbaarheid en betere prestaties, maar is moeilijk te programmeren van toepassingen. 
 
 Azure Cosmos DB nadert de consistentie van gegevens als een spectrum van de opties in plaats van twee extreme. Sterke consistentie en uiteindelijke consistentie zijn aan het einde, maar er zijn veel keuzes in consistentie langs het spectrum krijgen. Ontwikkelaars kunnen deze opties gebruiken om te maken van nauwkeurige keuzes en gedetailleerde compromissen met betrekking tot hoge beschikbaarheid of prestaties. 
 
@@ -38,7 +38,7 @@ U kunt het standaardconsistentieniveau configureren op uw Azure Cosmos-account o
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garanties die zijn gekoppeld aan consistentieniveaus
 
-De uitgebreide Sla's geleverd door Azure Cosmos DB gegarandeerd dat 100 procent van de leesaanvragen voldoet aan de consistentiegarantie voor elk consistentieniveau die u kiest. Een leesaanvraag voldoet aan de SLA van de consistentie als alle de consistentiegarantie die zijn gekoppeld aan het consistentieniveau is voldaan. De precieze definities van de vijf consistentieniveaus in Azure Cosmos DB met behulp van de [TLA + specificatietaal](http://lamport.azurewebsites.net/tla/tla.html) vindt u in de [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub-opslagplaats. 
+De uitgebreide Sla's geleverd door Azure Cosmos DB gegarandeerd dat 100 procent van de leesaanvragen voldoet aan de consistentiegarantie voor elk consistentieniveau die u kiest. Een leesaanvraag voldoet aan de SLA van de consistentie als alle de consistentiegarantie die zijn gekoppeld aan het consistentieniveau is voldaan. De precieze definities van de vijf consistentieniveaus in Azure Cosmos DB met behulp van de [TLA + specificatietaal](https://lamport.azurewebsites.net/tla/tla.html) vindt u in de [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub-opslagplaats. 
 
 De semantiek van de vijf consistentieniveaus worden hier beschreven:
 
@@ -85,7 +85,7 @@ Lees voor meer informatie over concepten van de consistentie van de volgende art
 - [Gerepliceerde gegevens consistentie uitgelegd via Baseball (technisch document) door Doug Terry](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Sessie-garanties voor zwak consistente gerepliceerde gegevens](https://dl.acm.org/citation.cfm?id=383631)
 - [Optimalisatie van de consistentie in het ontwerp van moderne systemen voor gedistribueerde Database: LIMIET is slechts een deel van het artikel](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
-- [Probabilistic gebonden veroudering (PBS) voor praktische gedeeltelijke quorum](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+- [Probabilistic gebonden veroudering (PBS) voor praktische gedeeltelijke quorum](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Uiteindelijk Consistent - herzien](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 ## <a name="next-steps"></a>Volgende stappen

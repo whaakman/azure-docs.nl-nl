@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 918ffaf42e7216313a385c866f73bd57a529784a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838885"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090751"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Gebruik Azure Cosmos DB-wijzigingenfeed voor het visualiseren van realtime gegevensanalyse
 
@@ -94,13 +94,12 @@ De Azure-resources - Azure Cosmos DB, Storage-account maken, Event Hub, Stream A
 
 U maakt nu een verzameling voor het opslaan van gebeurtenissen voor e-commerce-site. Wanneer een gebruiker een item bekijkt, wordt een item toegevoegd aan hun winkelwagen of koopt van een item, de verzameling ontvangen een record met de actie ('weergegeven', 'toegevoegd' of 'gekocht'), de naam van het item is betrokken, de prijs van de betrokken item en de ID-nummer van de gebruiker winkelwagen i nvolved.
 
-1. Ga naar [Azure Portal](http://portal.azure.com/) en zoek de **Azure Cosmos DB-Account** die door de sjabloonimplementatie wordt gemaakt.  
+1. Ga naar [Azure Portal](https://portal.azure.com/) en zoek de **Azure Cosmos DB-Account** die door de sjabloonimplementatie wordt gemaakt.  
 
 2. Uit de **Data Explorer** venster **nieuwe verzameling** en vul het formulier met de volgende details:  
 
    * Voor de **Database-id** veld **nieuw**, voert u **changefeedlabdatabase**. Laat de **inrichten database doorvoer** selectievakje uitgeschakeld.  
    * Voor de **verzameling** id veld **changefeedlabcollection**.  
-   * Voor **opslagcapaciteit**, selecteer **onbeperkt**.  
    * Voor de **partitiesleutel** veld **/Item**. Dit is hoofdlettergevoelig, dus zorg ervoor dat u deze goed.  
    * Voor de **doorvoer** veld **10000**.  
    * Selecteer de knop **OK**.  
@@ -119,7 +118,7 @@ U maakt nu een verzameling voor het opslaan van gebeurtenissen voor e-commerce-s
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>De Azure Cosmos DB-verbindingsreeks ophalen
 
-1. Ga naar [Azure Portal](http://portal.azure.com/) en zoek de **Azure Cosmos DB-Account** die door de sjabloonimplementatie wordt gemaakt.  
+1. Ga naar [Azure Portal](https://portal.azure.com/) en zoek de **Azure Cosmos DB-Account** die door de sjabloonimplementatie wordt gemaakt.  
 
 2. Navigeer naar de **sleutels** deelvenster, Kopieer de PRIMARY CONNECTION STRING en kopieer het naar een Kladblok of een ander document dat u toegang tot in de testomgeving hebt. U moet deze labelen **Cosmos DB-verbindingsreeks**. U moet de tekenreeks die later in uw code kopiëren, dus let en onthouden waar u deze opslaat.
 
@@ -179,7 +178,7 @@ Om te zien hoe wijzigingenfeed verwerkt nieuwe acties op een e-commerce-site, he
  
 6. Wacht totdat het programma om uit te voeren. De sterren betekent dat gegevens afkomstig is in! Houd het programma uitvoeren: het is belangrijk dat grote hoeveelheden gegevens worden verzameld.  
 
-7. Als u de navigatiefunctie [Azure Portal](http://portal.azure.com/) , klikt u vervolgens naar de Cosmos DB-account binnen de resourcegroep, klikt u vervolgens aan **Data Explorer**, ziet u de willekeurige gegevens geïmporteerd uw  **changefeedlabcollection** .
+7. Als u de navigatiefunctie [Azure Portal](https://portal.azure.com/) , klikt u vervolgens naar de Cosmos DB-account binnen de resourcegroep, klikt u vervolgens aan **Data Explorer**, ziet u de willekeurige gegevens geïmporteerd uw  **changefeedlabcollection** .
  
    ![Gegevens die zijn gegenereerd in de portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -187,7 +186,7 @@ Om te zien hoe wijzigingenfeed verwerkt nieuwe acties op een e-commerce-site, he
 
 Azure Stream Analytics is een volledig beheerde cloudservice voor de verwerking van streaminggegevens in realtime. In dit lab gebruikt u stream analytics voor het verwerken van nieuwe gebeurtenissen van de Event Hub (dat wil zeggen wanneer een item wordt weergegeven, toegevoegd aan een winkelwagen of gekocht), nemen deze gebeurtenissen in realtime gegevensanalyse en ze verzenden naar Power BI voor visualisatie.
 
-1. Uit de [Azure Portal](http://portal.azure.com/), gaat u naar de resourcegroep, klikt u vervolgens aan **streamjob1** (de stream analytics-taak die u hebt gemaakt in de prelab).  
+1. Uit de [Azure Portal](https://portal.azure.com/), gaat u naar de resourcegroep, klikt u vervolgens aan **streamjob1** (de stream analytics-taak die u hebt gemaakt in de prelab).  
 
 2. Selecteer **invoer** zoals hieronder wordt gedemonstreerd.  
 
@@ -322,11 +321,11 @@ Power BI is een suite met hulpprogramma's voor business analytics voor het analy
 
 Nu ziet u hoe u de nieuwe gegevens analysis tool kunt gebruiken om te verbinden met een echte e-commerce-site. Het samenstellen van de e-commerce-site, gebruikt u een Azure Cosmos DB-database voor het opslaan van de lijst met productcategorieën (dameskleding, heren, Unisex), de productcatalogus en een lijst van de meest populaire artikelen.
 
-1. Ga terug naar de [Azure Portal](http://portal.azure.com/), klikt u vervolgens aan uw **Cosmos DB-account**, klikt u vervolgens aan **Data Explorer**.  
+1. Ga terug naar de [Azure Portal](https://portal.azure.com/), klikt u vervolgens aan uw **Cosmos DB-account**, klikt u vervolgens aan **Data Explorer**.  
 
    Toevoegen van twee verzamelingen onder **changefeedlabdatabase** - **producten** en **categorieën** met een vaste opslagcapaciteit.
 
-   Toevoegen van een andere verzameling onder **changefeedlabdatabase** met de naam **topItems** met **onbeperkt** opslagcapaciteit. Schrijven **/Item** als de partitiesleutel.
+   Toevoegen van een andere verzameling onder **changefeedlabdatabase** met de naam **topItems** en **/Item** als de partitiesleutel.
 
 2. Selecteer de **topItems** verzameling, en klikt u onder **schaal en instellingen** instellen de **Time to Live** moet **30 seconden** , zodat deze topItems bijgewerkt elke 30 seconden.
 
@@ -392,7 +391,7 @@ Nu ziet u hoe u de nieuwe gegevens analysis tool kunt gebruiken om te verbinden 
 
 ## <a name="delete-the-resources"></a>De resources verwijderen
 
-Als u wilt verwijderen van de resources die u tijdens dit lab hebt gemaakt, gaat u naar de resourcegroep op [Azure Portal](http://portal.azure.com/)en selecteer vervolgens **resourcegroep verwijderen** in het menu aan de bovenkant van de pagina en volg de instructies opgegeven.
+Als u wilt verwijderen van de resources die u tijdens dit lab hebt gemaakt, gaat u naar de resourcegroep op [Azure Portal](https://portal.azure.com/)en selecteer vervolgens **resourcegroep verwijderen** in het menu aan de bovenkant van de pagina en volg de instructies opgegeven.
 
 ## <a name="next-steps"></a>Volgende stappen 
   

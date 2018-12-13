@@ -1,23 +1,23 @@
 ---
 title: Cloudyn-rapporten gebruiken in Azure | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u verschillende rapporten in de Cloudyn-portal.
+description: Dit artikel wordt beschreven voor het doel van de Cloudyn-rapporten die zijn opgenomen in de Cloudyn-portal kunt u ze effectief te gebruiken.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: c3f1fec21ab2c71f75677e814a6e19e1e540dddb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994733"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075867"
 ---
-# <a name="use-cloudyn-reports"></a>Cloudyn-rapporten gebruiken
+# <a name="reports-available-in-the-cloudyn-portal"></a>Rapporten die beschikbaar zijn in de Cloudyn-portal
 
 Dit artikel wordt beschreven voor het doel van de Cloudyn-rapporten die zijn opgenomen in de Cloudyn-portal. Ook wordt beschreven hoe u de rapporten effectief kunt gebruiken. De meeste rapporten zijn intuïtief en een uniform uiterlijk hebben. De meeste van de acties die u in één rapport doen kunt, kunt u ook doen in andere rapporten. Zie voor een overzicht over het gebruik van Cloudyn-rapporten, waaronder over het aanpassen en opslaan of plannen van rapporten, [Understanding kostenrapportages](understanding-cost-reports.md).
 
@@ -59,7 +59,7 @@ Dashboards in Cloudy bieden een weergave op hoog niveau van rapporten. Dashboard
 
 ## <a name="budget-information-in-reports"></a>Budgetgegevens in rapporten
 
-Veel Cloudyn-rapporten weergeven budgetgegevens nadat u deze handmatig hebt gemaakt. Rapporten weergegeven niet zodanig budgetgegevens wanneer u een budget gemaakt. Zie voor meer informatie, [Budget instellingen](#budget-settings).
+Veel Cloudyn-rapporten weergeven budgetgegevens nadat u deze handmatig hebt gemaakt. Rapporten weergegeven niet zodanig budgetgegevens wanneer u een budget gemaakt. Zie voor meer informatie, [Budget beheerinstellingen](#budget-management-settings).
 
 ## <a name="reports-and-reporting-features"></a>Rapporten en reporting-functies
 

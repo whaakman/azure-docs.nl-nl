@@ -1,30 +1,31 @@
 ---
 title: Inzicht in de taak bewaken in Azure Stream Analytics
-description: In dit artikel wordt beschreven hoe u taken in Azure Stream Analytics controleren
+description: In dit artikel wordt beschreven hoe u Azure Stream Analytics-taken in Azure portal controleren.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 81c5eabcfcca6818293ff9dbbfb1515d5729dd79
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963281"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096581"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informatie over Stream Analytics-taak controleren en bewaken van query 's
 
 ## <a name="introduction-the-monitor-page"></a>Inleiding: De pagina van de monitor
 De Azure portal beide surface prestatie-metrische gegevens die kunnen worden gebruikt voor bewaking en probleemoplossing van de prestaties van uw query's en -taak. Als u wilt deze metrische gegevens zien, bladert u naar de Stream Analytics-taak u geïnteresseerd bent in de metrische gegevens voor zien en bekijk de **bewaking** sectie op de pagina overzicht.  
 
-![Bewaking van koppeling](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![Stream Analytics-taak bewaking van koppeling](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
 Het venster wordt weergegeven, zoals wordt weergegeven:
 
-![Bewakingstaak Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+![Stream Analytics-taak bewaking dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Metrische gegevens beschikbaar voor Stream Analytics
 | Gegevens                 | Definitie                               |
@@ -49,7 +50,7 @@ Het venster wordt weergegeven, zoals wordt weergegeven:
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Bewaking aanpassen in Azure portal
 U kunt het type van de grafiek, metrische gegevens die worden weergegeven, aanpassen en tijdsbereik in de instellingen van de grafiek bewerken. Zie voor meer informatie, [over het aanpassen van bewaking](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-  ![Grafiek van query-tijd bewaken](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Stream Analytics query uitvoeren op het diagram met de monitor](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
 ## <a name="latest-output"></a>Laatste uitvoer

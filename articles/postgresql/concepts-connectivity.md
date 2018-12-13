@@ -3,19 +3,19 @@ title: Afhandeling van tijdelijke connectiviteitsfouten voor Azure Database voor
 description: Leer hoe u voor het afhandelen van tijdelijke connectiviteitsfouten voor Azure Database voor PostgreSQL.
 keywords: postgresql-verbinding, verbindingsreeks, problemen met de netwerkverbinding, tijdelijke fout, -verbindingsfout
 services: postgresql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 0459c8ff31564adfbaa3e1735535cd24c3064663
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 021fad5e59e76444351711fb529c542d428af189
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51284927"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890057"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-postgresql"></a>Afhandeling van tijdelijke connectiviteitsfouten voor Azure Database for PostgreSQL
 
@@ -49,4 +49,4 @@ Zorg ervoor dat voor het testen van u logica voor opnieuw proberen. Bijvoorbeeld
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Oplossen van verbindingsproblemen met Azure Database for PostgreSQL](howto-troubleshoot-common-connection-issues.md)
+* [Verbindingsproblemen met Azure Databases for PostgreSQL oplossen](howto-troubleshoot-common-connection-issues.md)

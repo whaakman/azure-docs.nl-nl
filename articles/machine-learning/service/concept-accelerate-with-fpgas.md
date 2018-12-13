@@ -1,5 +1,6 @@
 ---
-title: Wat is een FPGA en Project Brainwave? -Azure Machine Learning-webservice
+title: Wat is een FPGA en Project Brainwave?
+titleSuffix: Azure Machine Learning service
 description: Informatie over het versnellen van modellen en deep neural networks met FPGA's op Azure. Dit artikel bevat een inleiding tot veld-programmable gate arrays (FPGA) en hoe Azure Machine Learning-Service biedt realtime kunstmatige intelligentie (AI) wanneer u uw model naar een Azure-FPGA implementeert.
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +9,14 @@ ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
-ms.date: 9/24/2018
-ms.openlocfilehash: 411beacd65915c30338ab415b095acc1a0c8cbe6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: MT
+ms.date: 10/24/2018
+ms.custom: seodec18
+ms.openlocfilehash: b55d641f9a72fc2f757a7687b1b6214a98c92507
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238852"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093995"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>Wat is FPGA en Project Brainwave?
 
@@ -26,7 +28,7 @@ FPGA's bevatten een matrix van programmeerbare logische blokken en een hiërarch
 
 ![FPGA vergelijking van Azure Machine Learning-service](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|Processor||Beschrijving|
+|Processor||Description|
 |---|:-------:|------|
 |Toepassingsspecifieke geïntegreerde circuits|ASICs|Aangepaste circuits, zoals Google TensorFlow Processor eenheden (TPU), biedt het hoogste rendement. Ze kunnen niet opnieuw worden geconfigureerd wanneer uw behoeften veranderen.|
 |Veld-programmable gate arrays|FPGA 's|FPGA's, zoals die beschikbaar zijn op Azure, levert prestaties dicht bij ASICs, maar zijn flexibel en herconfigureerbare na verloop van tijd om nieuwe logica te implementeren.|
@@ -37,7 +39,7 @@ FPGA's bevatten een matrix van programmeerbare logische blokken en een hiërarch
 
 [Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) is van Microsoft voordelige hardware-architectuur, op basis van Intel FPGA-apparaten, die data scientists en ontwikkelaars gebruiken om te versnellen realtime AI-berekeningen.  Deze architectuur FPGA-functionaliteit biedt **prestaties**, **flexibiliteit**, en **schaal** en is beschikbaar op Azure.
 
-**FPGA's maken het mogelijk is om te realiseren met lage latentie voor realtime inferentietaken aanvragen.** Batchverwerking betekent een grote hoeveelheid gegevens verzamelen en deze uit naar een processor voor het gebruik van hardware te verbeteren. Batchverwerking kan leiden tot latentie omdat meer gegevens moet worden verwerkt, maar deze doorvoer kan verbeteren. Project Brainwave implementaties van neurale verwerkingseenheden vereisen batchverwerking; de latentie mag daarom vaak lager dan voor CPU en GPU.
+**FPGA's maken het mogelijk is om te realiseren met lage latentie voor realtime inferentietaken aanvragen.** Asynchrone aanvragen (batch) zijn niet nodig. Batchverwerking kan leiden tot latentie omdat meer gegevens moet worden verwerkt, maar deze doorvoer in sommige contexten kunt verbeteren. Project Brainwave implementaties van neurale verwerkingseenheden vereisen batchverwerking; de latentie mag daarom vaak lager dan voor CPU en GPU.
 
 ### <a name="reconfigurable-power"></a>Herconfigureerbare power
 **FPGA's kunnen worden geconfigureerd voor verschillende soorten machine learning-modellen.** Deze flexibiliteit maakt het gemakkelijker om te versnellen van de toepassingen op basis van de meest optimale numerieke precisie en model van het geheugen wordt gebruikt.
@@ -68,7 +70,7 @@ De volgende scenario's gebruiken FPGA op Project Brainwave architectuur:
 
 Dit is de werkstroom voor het maken van een image recognition-service in Azure met behulp van ondersteunde dnn's als een featurizer voor implementatie op Azure FPGA's:
 
-1. De Azure Machine Learning-SDK voor Python gebruiken om te maken van de servicedefinitie van een, een bestand met een beschrijving van een pijplijn van grafieken (invoer, featurizer en classificatie) op basis van TensorFlow. De implementatieopdracht wordt automatisch de definitie en grafieken in een ZIP-bestand comprimeren en het ZIP-bestand uploaden naar Azure Blob-opslag.  De DNN is al geïmplementeerd op het Project Brainwave uit te voeren op FPGA.
+1. Gebruik de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) voor het maken van de servicedefinitie van een die wordt een bestand met een beschrijving van een pijplijn van grafieken (invoer, featurizer en classificatie) op basis van TensorFlow. De implementatieopdracht wordt automatisch de definitie en grafieken in een ZIP-bestand comprimeren en het ZIP-bestand uploaden naar Azure Blob-opslag.  De DNN is al geïmplementeerd op het Project Brainwave uit te voeren op FPGA.
 
 1. Registreer het model met behulp van de SDK met het ZIP-bestand in Azure Blob-opslag.
 

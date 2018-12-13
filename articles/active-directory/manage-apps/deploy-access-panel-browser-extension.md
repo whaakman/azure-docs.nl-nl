@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a21a21f40e731e8bc1d20e01d3671c372df65d84
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622037"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877473"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Over het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer met behulp van Groepsbeleid
 Deze zelfstudie laat zien hoe u kunt Groepsbeleid gebruiken om de extensie van het toegangsvenster voor Internet Explorer op afstand installeren op uw gebruikers virtuele machines. Deze uitbreiding is vereist voor Internet Explorer-gebruikers die u moeten zich aanmelden bij apps die zijn geconfigureerd met behulp van [wachtwoord gebaseerde eenmalige aanmelding](what-is-single-sign-on.md#password-based-sso).
@@ -54,7 +54,7 @@ Eerst moet u het installer-pakket plaatsen op een netwerklocatie die toegankelij
 1. Meld u op de server die als host fungeert voor de installatie van Active Directory Domain Services (AD DS).
 2. In Serverbeheer, gaat u naar **extra** > **Group Policy Management**.
    
-    ![Ga naar Extra > groep beleid Management](./media/deploy-access-panel-browser-extension/tools-gpm.png)
+    ![Ga naar Extra > Groepsbeleidsbeheer](./media/deploy-access-panel-browser-extension/tools-gpm.png)
 3. In het linkerdeelvenster van de **Group Policy Management** venster weergeven van uw hiërarchie van organisatie-eenheid (OE) en te bepalen bij welke bereik wilt u het groepsbeleid van toepassing. Bijvoorbeeld, u besluiten om te kiezen van een kleine organisatie-eenheid om te implementeren op een paar gebruikers voor het testen of kiest u een op het hoogste niveau organisatie-eenheid om te implementeren voor uw hele organisatie.
    
    > [!NOTE]

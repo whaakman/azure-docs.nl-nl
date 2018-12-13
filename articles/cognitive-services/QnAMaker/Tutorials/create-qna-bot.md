@@ -1,21 +1,22 @@
 ---
-title: 'Zelfstudie: QnA bot met Azure Bot Service - QnA Maker'
+title: QnA bot - Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie helpt u bij het bouwen van een QnA bot met Azure Bot service v3 in Azure portal.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker`
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 19c56cf05e307deca52808b0eeba65b8949ffc0b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f5587e14a0250e7312f1c95598b481bd052931c3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212730"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094828"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Zelfstudie: Een QnA Bot maken met Azure Bot Service v3
 
@@ -60,11 +61,11 @@ U moet een gepubliceerde knowledge base voor deze zelfstudie. Als u een hebt, vo
 
 5. Selecteer de **vraag en antwoord** sjabloon voor het veld van de sjabloon Bot, en vervolgens slaat u de sjabloon door het selecteren van **Selecteer**.
 
-    ![bot-service selecteren](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+    ![Sla de bot service-sjabloon selecteren](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
 
 6. Controleer uw instellingen en selecteer vervolgens **maken**. Hiermee maakt en implementeert de bot-service met op Azure.
 
-    ![bot-service selecteren](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+    ![bot maken](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
 
 7. Bevestig dat de botservice is geïmplementeerd.
 

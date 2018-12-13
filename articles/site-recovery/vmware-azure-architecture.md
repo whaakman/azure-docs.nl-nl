@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9dc0ca53433d27a36c21604b8462520c278a8969
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 962ced808f97dd1fea3805fa8c953e6d7563cd17
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845642"
+ms.locfileid: "52871741"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware naar Azure disaster recovery-architectuur
 
@@ -44,7 +44,7 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
         - **Bewaarperiode voor herstelpunten**. Deze instelling bepaalt hoe ver terug in de tijd die u gaan wilt wanneer er een onderbreking optreedt. Maximum bewaartermijn op premium storage is 24 uur. Op de standard-opslag is dit 72 uur. 
         - **App-consistente momentopnamen**. App-consistente momentopname tilt elke 1 tot 12 uur, afhankelijk van de behoeften van uw app. Momentopnamen zijn standaard Azure blob-momentopnamen. De Mobility-agent die wordt uitgevoerd op een virtuele machine vraagt een VSS-momentopname in overeenstemming met deze instelling en bladwijzers die point-in-time als een toepassing die consistent punt in de stream van replicatie.
 
-2. Verkeer repliceert naar Azure storage-openbare eindpunten via internet. U kunt ook kunt u Azure ExpressRoute met [openbare peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Het repliceren van verkeer via een site-naar-site virtueel particulier netwerk (VPN) van een on-premises site naar Azure wordt niet ondersteund.
+2. Verkeer repliceert naar Azure storage-openbare eindpunten via internet. U kunt ook kunt u Azure ExpressRoute met [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering). Het repliceren van verkeer via een site-naar-site virtueel particulier netwerk (VPN) van een on-premises site naar Azure wordt niet ondersteund.
 3. Nadat de initiële replicatie is voltooid, begint de replicatie van deltaverschillen naar Azure. Bijgehouden wijzigingen voor een virtuele machine worden verzonden naar de processerver.
 4. Communicatie gebeurt er als volgt uit:
 

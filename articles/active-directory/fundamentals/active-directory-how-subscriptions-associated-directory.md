@@ -1,6 +1,6 @@
 ---
-title: Een bestaande Azure-abonnement toevoegen aan uw Azure Active Directory-tenant | Microsoft Docs
-description: Leer hoe u een bestaande Azure-abonnement toevoegen aan uw Azure Active Directory-tenant.
+title: Een bestaande Azure-abonnement toevoegen aan uw tenant - Azure Active Directory | Microsoft Docs
+description: Instructies over hoe u een bestaande Azure-abonnement toevoegen aan uw Azure Active Directory-tenant.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: dd62b22eca40a214c5b08a9bc48815e40fe90e47
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 4e4d4d9f34c8220ba70c64f073557f0293881c3e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984074"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083866"
 ---
-# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Hoe: koppelen of een Azure-abonnement toevoegen aan Azure Active Directory
+# <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppelen of een Azure-abonnement toevoegen aan uw Azure Active Directory-tenant
 Het Azure-abonnement heeft een vertrouwensrelatie met Azure Active Directory (Azure AD), wat betekent dat het abonnement Azure AD om te verifiëren van gebruikers, services en apparaten vertrouwt. Meerdere abonnementen kunnen dezelfde Azure AD-directory vertrouwen, maar elk abonnement kan alleen een één directory vertrouwen.
 
 Als uw abonnement is verlopen, verliest u toegang tot alle andere resources die zijn gekoppeld aan het abonnement. De Azure AD-directory blijft echter in Azure, zodat u kunt koppelen en beheren van de directory met behulp van een ander Azure-abonnement.

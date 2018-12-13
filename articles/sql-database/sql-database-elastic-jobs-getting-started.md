@@ -3,7 +3,7 @@ title: Aan de slag met taken voor elastic database | Microsoft Docs
 description: Taken voor elastic database gebruiken voor het uitvoeren van T-SQL-scripts die meerdere databases omvatten.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,27 +12,27 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241358"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863530"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Aan de slag met taken voor Elastic Database
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 Taken voor elastic Database (preview) voor Azure SQL Database kunt u T-SQL-scripts die meerdere databases omvatten tijdens het automatisch opnieuw te proberen en die uiteindelijke voltooiing waarborgen biedt betrouwbaar uit te voeren. Zie voor meer informatie over de functie Elastic Database taak [elastische taken](sql-database-elastic-jobs-overview.md).
 
 In dit artikel wordt het voorbeeld dat is gevonden in uitgebreid [aan de slag met elastische Databasehulpprogramma's](sql-database-elastic-scale-get-started.md). Wanneer dit is voltooid, leert u hoe u taken die voor het beheren van een groep gerelateerde databases maken en beheren. Het is niet vereist voor het gebruik van de hulpprogramma's voor elastisch schalen om te profiteren van de voordelen van elastische taken.
 
 ## <a name="prerequisites"></a>Vereisten
+
 Downloaden en uitvoeren van de [aan de slag met hulpprogramma's elastische Database voor klantorders](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Een shard-Toewijzingsbeheer met behulp van de voorbeeld-app maken
+
 Hier maakt u een shard-toewijzing manager samen met verschillende shards, gevolgd door het invoegen van gegevens in de shards. Als u al ingesteld met shard-gegevens in deze shards, kunt u de volgende stappen overslaan en verplaatsen naar de volgende sectie.
 
 1. Bouwen en uit de **aan de slag met elastische Databasehulpprogramma's** voorbeeldtoepassing. Volg de stappen tot stap 7 in de sectie [downloaden en uitvoeren van de voorbeeld-app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Aan het einde van stap 7 ziet u de volgende opdrachtprompt:
@@ -48,8 +48,9 @@ Hier maakt u een shard-toewijzing manager samen met verschillende shards, gevolg
 
 Hier wordt meestal maken we een shard-toewijzing als doel, met behulp van de **New-AzureSqlJobTarget** cmdlet. De database voor shard-Toewijzingsbeheer moet worden ingesteld als het doel van een database en vervolgens de specifieke shard-toewijzing is opgegeven als een doel. We gaan in plaats daarvan het inventariseren van alle databases in de server en de databases toevoegen aan de nieuwe aangepaste verzameling met uitzondering van de database master.
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Hiermee maakt u een aangepaste verzameling en alle databases op de server toevoegen aan het doel van de aangepaste verzameling met uitzondering van de master.
-   ```
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Hiermee maakt u een aangepaste verzameling en alle databases op de server toevoegen aan het doel van de aangepaste verzameling met uitzondering van master
+
+   ```Powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -301,23 +302,25 @@ Update voor de gewenste uitvoeringsbeleid om bij te werken:
    ```
 
 ## <a name="cancel-a-job"></a>Een taak annuleren
+
 Taken voor elastic Database ondersteunt jobs annulering aanvragen.  Als taken voor Elastic Database een aanvraag voor annulering voor een taak die momenteel wordt uitgevoerd detecteert, wordt geprobeerd om de taak te stoppen.
 
 Er zijn twee verschillende manieren dat taken voor Elastic Database een annulering kan uitvoeren:
 
 1. Annuleren momenteel actieve taken: als een annulering wordt gedetecteerd, terwijl een taak wordt momenteel uitgevoerd, een annulering wordt uitgevoerd binnen het momenteel wordt uitgevoerd aspect van de taak.  Bijvoorbeeld: als er een langlopende query's die momenteel wordt uitgevoerd wanneer een annulering wordt uitgevoerd, er is een poging tot annuleren van de query.
-2. Annuleren taak nieuwe pogingen: Als bij een annulering wordt gedetecteerd door de besturingselement-thread voordat een taak wordt gestart voor de uitvoering, de besturingselement-thread vermijdt u de taak starten en de aanvraag Declareer zoals geannuleerd.
+2. Annuleren nieuwe pogingen: Als een annulering wordt gedetecteerd door de besturingselement-thread voordat een taak wordt gestart voor de uitvoering, de besturingselement-thread vermijdt u de taak starten en de aanvraag worden gedeclareerd als geannuleerd.
 
 Als een geannuleerde taken voor een bovenliggende taak is aangevraagd, wordt de aanvraag voor annulering herkend voor de bovenliggende taak en alle bijbehorende onderliggende taken.
 
 Om in te dienen een aanvraag voor annulering, gebruikt u de **Stop-AzureSqlJobExecution** cmdlet en stel de **JobExecutionId** parameter.
 
-   ```
+   ```Powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Een taak door de naam en de geschiedenis van de taak verwijderen
+
 Taken voor elastic Database biedt ondersteuning voor asynchrone verwijderen van taken. Een taak kan worden gemarkeerd voor verwijdering en het systeem worden verwijderd en de taakgeschiedenis van de taak nadat alle taakuitvoeringen voor de taak hebt voltooid. Het systeem wordt niet automatisch geannuleerd voor actieve taakuitvoeringen.  
 
 Stop-AzureSqlJobExecution moet in plaats daarvan worden aangeroepen als u wilt annuleren active taakuitvoeringen.

@@ -1,26 +1,18 @@
 ---
-title: 'Een Azure ExpressRoute-circuit maken en wijzigen: CLI | Microsoft Docs'
-description: Dit artikel wordt beschreven hoe u kunt maken, inrichten, controleren, bijwerken, verwijderen en de inrichting van een ExpressRoute-circuit met behulp van CLI.
-documentationcenter: na
+title: 'Een ExpressRoute-circuit maken en aanpassen: Azure CLI | Microsoft Docs'
+description: In dit artikel laat zien hoe maken, inrichten, controleren, bijwerken, verwijderen en de inrichting van een ExpressRoute-circuit met behulp van CLI.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/19/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: a53fe43365100c6d71fcc2b9e0944a221adf188d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2013b3b96fddd32f01245655c1feb600bc426e2a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249231"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084138"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Maken en aanpassen van een ExpressRoute-circuit met behulp van CLI
 
@@ -44,7 +36,7 @@ In dit artikel wordt beschreven hoe u een Azure ExpressRoute-circuit maken met b
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Meld u aan bij uw Azure-account en selecteer uw abonnement
 
-Als u wilt de configuratie begint, moet u zich aanmelden bij uw Azure-account. Gebruik de volgende voorbeelden kunt u verbinding maken:
+Als u wilt de configuratie begint, moet u zich aanmelden bij uw Azure-account. Als u het 'Try It' CloudShell gebruikt, bent u aangemeld automatisch. Gebruik de volgende voorbeelden kunt u verbinding maken:
 
 ```azurecli
 az login
@@ -52,13 +44,13 @@ az login
 
 Controleer de abonnementen voor het account.
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 Selecteer het abonnement waarvoor u wenst te maken van een ExpressRoute-circuit.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
@@ -66,7 +58,7 @@ az account set --subscription "<subscription ID>"
 
 Voordat u een ExpressRoute-circuit maken, moet u de lijst met ondersteunde connectiviteitsproviders, locaties en bandbreedte-opties. De CLI-opdracht 'az network express-route lijst--serviceproviders' retourneert deze informatie, die u in latere stappen gebruikt:
 
-```azurecli
+```azurecli-interactive
 az network express-route list-service-providers
 ```
 
@@ -125,7 +117,7 @@ Het antwoord is vergelijkbaar met het volgende voorbeeld:
 
 Controleer het antwoord om te zien als uw connectiviteitsprovider wordt vermeld. Noteer de volgende informatie, u moet bij het maken van een circuit:
 
-* Naam
+* Name
 * PeeringLocations
 * BandwidthsOffered
 
@@ -140,7 +132,7 @@ U bent nu klaar om te maken van een ExpressRoute-circuit.
 
 Als u nog een resourcegroep hebt, moet u een maken voordat u uw ExpressRoute-circuit maken. U kunt een resourcegroep maken met de volgende opdracht:
 
-```azurecli
+```azurecli-interactive
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
@@ -154,7 +146,7 @@ Zorg ervoor dat u opgeeft dat de juiste SKU-laag en de SKU-serie:
 
 Uw ExpressRoute-circuit wordt in rekening gebracht vanaf het moment dat een servicesleutel wordt uitgegeven. Het volgende voorbeeld wordt een aanvraag voor een nieuwe servicesleutel:
 
-```azurecli
+```azurecli-interactive
 az network express-route create --bandwidth 200 -n MyCircuit --peering-location "Silicon Valley" -g ExpressRouteResourceGroup --provider "Equinix" -l "West US" --sku-family MeteredData --sku-tier Standard
 ```
 
@@ -164,7 +156,7 @@ Het antwoord bevat de sleutel van de service.
 
 Als u een lijst met alle ExpressRoute-circuits die u hebt gemaakt, voert u de opdracht 'az network express-route list'. U kunt deze informatie op elk gewenst moment ophalen met behulp van deze opdracht. Als u alle circuits, moet u de aanroep zonder parameters.
 
-```azurecli
+```azurecli-interactive
 az network express-route list
 ```
 
@@ -201,7 +193,7 @@ De sleutel van uw service wordt weergegeven in de *ServiceKey* veld van het antw
 
 U kunt gedetailleerde beschrijvingen van alle parameters ophalen door het uitvoeren van de installatieopdracht via de '-h "parameter.
 
-```azurecli
+```azurecli-interactive
 az network express-route list -h
 ```
 
@@ -211,21 +203,21 @@ az network express-route list -h
 
 Wanneer u een nieuwe ExpressRoute-circuit maakt, wordt het circuit is in de volgende status:
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "NotProvisioned"
 "circuitProvisioningState": "Enabled"
 ```
 
 Het circuit gewijzigd in de volgende status hebben de connectiviteitsprovider Bezig inschakelen voor u is:
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
 Voordat u kunt een ExpressRoute-circuit gebruiken, moet deze de status van de volgende zijn:
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
@@ -234,7 +226,7 @@ Voordat u kunt een ExpressRoute-circuit gebruiken, moet deze de status van de vo
 
 De status en de status van de sleutel van het circuit controleren, laat u weten wanneer uw provider het circuit is ingeschakeld. Nadat het circuit is geconfigureerd, is 'ServiceProviderProvisioningState' wordt weergegeven als 'Ingericht', zoals wordt weergegeven in het volgende voorbeeld:
 
-```azurecli
+```azurecli-interactive
 az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
 ```
 
@@ -297,7 +289,7 @@ Zie voor meer informatie over limieten en beperkingen, de [Veelgestelde vragen o
 
 U kunt de invoegtoepassing ExpressRoute premium inschakelen voor uw bestaande circuit met behulp van de volgende opdracht uit:
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Premium
 ```
 
@@ -318,7 +310,7 @@ Voordat u de invoegtoepassing ExpressRoute premium uitschakelt, begrijpt u de vo
 
 U kunt de ExpressRoute premium-invoegtoepassing voor de bestaande circuit uitschakelen met behulp van het volgende voorbeeld:
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Standard
 ```
 
@@ -334,7 +326,7 @@ Voor de ondersteunde bandbreedte-opties voor uw provider, Controleer de [Veelges
 
 Nadat u de grootte die u nodig hebt, gebruikt u de volgende opdracht om het formaat van uw circuit te bepalen:
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --bandwidth 1000
 ```
 
@@ -344,7 +336,7 @@ Uw circuit wordt bepaald door de grootte aan de kant van Microsoft. U kunt vervo
 
 U kunt de SKU van een ExpressRoute-circuit wijzigen met behulp van het volgende voorbeeld:
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-family UnlimitedData
 ```
 
@@ -362,7 +354,7 @@ Voor inrichting ongedaan maken en verwijderen van een ExpressRoute-circuit, zorg
 
 U kunt uw ExpressRoute-circuit verwijderen door de volgende opdracht uit:
 
-```azurecli
+```azurecli-interactive
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 ```
 

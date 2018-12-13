@@ -1,17 +1,18 @@
 ---
 title: Maken en aanpassen van plannen voor herstel voor herstel na noodgevallen met Azure Site Recovery | Microsoft Docs
 description: Informatie over het maken en aanpassen van plannen voor herstel voor herstel na noodgevallen met behulp van de Azure Site Recovery-service.
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: aed37195f352719f3363992e4cee1e339e6e6056
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 85e649f3065d7f8d601541bbac6e93f4b2a0dc85
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835587"
+ms.locfileid: "52878625"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Maken en plannen voor herstel aanpassen
 
@@ -42,7 +43,7 @@ In dit artikel wordt beschreven hoe u maken en aanpassen van een plan voor herst
 
 ## <a name="add-a-group-to-a-plan"></a>Een groep toevoegen aan een plan
 
-U extra groepen maken en machines toevoegen aan verschillende groepen, zodat u kunt verschillend gedrag op basis van de groep door groe opgeven. U kunt bijvoorbeeld opgeven wanneer computers in een groep moeten na een failover starten of aangepaste acties per groep opgeven.
+U extra groepen maken en machines toevoegen aan verschillende groepen, zodat u kunt verschillend gedrag op basis van de door de groep opgeven. U kunt bijvoorbeeld opgeven wanneer computers in een groep moeten na een failover starten of aangepaste acties per groep opgeven.
 
 1. In **herstelplannen**, met de rechtermuisknop op het plan > **aanpassen**. Na het maken van een plan zich alle de machines die u hebt toegevoegd aan het zijn standaard in 1 groep.
 2. Klik op **+ groep**. Standaard wordt een nieuwe groep genummerde in de volgorde waarin deze toegevoegd. U kunt maximaal zeven groepen hebben.

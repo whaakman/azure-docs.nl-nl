@@ -3,7 +3,7 @@ title: Aan de slag met elastische Databasehulpprogramma's - Azure | Microsoft Do
 description: Basic uitleg van de functie Elastic Database-hulpprogramma's van Azure SQL Database, met inbegrip van een eenvoudig-en-klaar voorbeeld-app.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: ''
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: ad07b0a9ae2d0c90f63d4f3a842a5d386ac4c59b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 13e9bb045bcce553ba9fdc344baa86ba96260387
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249860"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870228"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Aan de slag met elastische Databasehulpprogramma 's
 Dit document bevat een inleiding tot de ervaring voor ontwikkelaars voor het [clientbibliotheek voor elastic database](sql-database-elastic-database-client-library.md) doordat u een voorbeeld-app uitvoeren. De voorbeeld-app een eenvoudige sharded toepassing maakt en gaat in op de belangrijkste mogelijkheden van de functie Elastic Database-hulpprogramma's van Azure SQL Database. Dit artikel gaat over gebruiksvoorbeelden voor [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md), [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md), en [meerdere shards uitvoeren van query's](sql-database-elastic-scale-multishard-querying.md). De clientbibliotheek is beschikbaar voor zowel .NET als Java. 

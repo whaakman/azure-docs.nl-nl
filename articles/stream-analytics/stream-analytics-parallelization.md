@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 83fbebc07be3a61d7fd54953f842a320a537a7ac
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985009"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091040"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Maak gebruik van query-parallellisatie in Azure Stream Analytics
 Dit artikel ziet u hoe u kunt profiteren van parallelle uitvoering in Azure Stream Analytics. Leert u hoe u Stream Analytics-taken schalen door invoer partities configureren en afstemmen van de definitie van de analytics-query.
@@ -51,7 +51,7 @@ Power BI, SQL en SQL Data Warehouse uitvoer bieden geen ondersteuning voor parti
 Zie voor meer informatie over partities, de volgende artikelen:
 
 * [Overzicht van functies van Event Hubs](../event-hubs/event-hubs-features.md#partitions)
-* [Gegevenspartitionering](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
+* [Gegevenspartitionering](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Perfect parallelle taken
@@ -80,9 +80,11 @@ De volgende secties worden enkele voorbeeldscenario's die perfect parallelle zij
 
 Query:
 
+```SQL
     SELECT TollBoothId
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
+```
 
 Deze query is een eenvoudige filter. Daarom moet we geen zorgen over het partitioneren van de invoer die worden verzonden naar de event hub. U ziet dat de query bevat **partitie door PartitionId**, zodat deze voldoen aan de vereiste #2 van eerder. Voor de uitvoer moet voor het configureren van de event hub-uitvoer in de taak is het belangrijkste partitie worden ingesteld op **PartitionId**. Er is één sinds laatste controle om ervoor te zorgen dat het aantal invoer partities gelijk aan het aantal partities van de uitvoer is.
 
@@ -93,9 +95,11 @@ Deze query is een eenvoudige filter. Daarom moet we geen zorgen over het partiti
 
 Query:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Deze query heeft een groeperingssleutel. Daarom moeten de gebeurtenissen gegroepeerd worden verzonden naar dezelfde Event Hub-partitie. Omdat in dit voorbeeld we op TollBoothID groeperen, moeten we ervoor dat TollBoothID als de partitiesleutel wordt gebruikt als de gebeurtenissen naar Event Hub worden verzonden worden. Klik in de ASA, we gebruiken **partitie door PartitionId** overnemen van dit partitieschema en volledige parallellisering inschakelen. Omdat de uitvoer is een blob-opslag, moet we geen zorgen over het configureren van een waarde voor de partitiesleutel, aan de hand van vereiste #4.
 
@@ -121,6 +125,7 @@ Uitvoer van de Power BI ondersteunt momenteel geen partitioneren. In dit scenari
 
 Query:
 
+```SQL
     WITH Step1 AS (
     SELECT COUNT(*) AS Count, TollBoothId, PartitionId
     FROM Input1 Partition By PartitionId
@@ -130,6 +135,7 @@ Query:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1 Partition By TollBoothId
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Zoals u zien kunt, gebruik van de tweede stap **TollBoothId** als de te nemen partitionerende sleutel. Deze stap is niet hetzelfde als de eerste stap en daarom moeten we doen een willekeurige volgorde. 
 
@@ -143,6 +149,7 @@ Een query kan een of meer stappen bevatten. Elke stap wordt een subquery die zij
 
 Query:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -151,6 +158,7 @@ Query:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute,3), TollBoothId
+```
 
 Deze query bestaat uit twee stappen.
 
@@ -182,20 +190,25 @@ Vindt u enkele **voorbeelden** in de onderstaande tabel.
 
 De volgende query berekent het aantal auto's binnen een drie minuten een gratis-station met drie tollbooths te doorlopen. Deze query kan worden geschaald tot maximaal zes su's.
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Voor het gebruik van meer su's voor de query, moeten zowel de invoer gegevensstroom als de query worden gepartitioneerd. Omdat de partitie van de stroom is ingesteld op 3, kan de volgende gewijzigde query worden geschaald tot maximaal 18 su's:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Wanneer een query is gepartitioneerd, worden de invoergebeurtenissen verwerkt en samengevoegd in een afzonderlijke partitiegroepen. Uitvoergebeurtenissen worden ook gegenereerd voor elk van de groepen. Partitioneren kan leiden tot enige onverwachte resultaten wanneer de **GROUP BY** veld is niet de partitiesleutel in de stroom inkomende gegevens. Bijvoorbeeld, de **TollBoothId** veld in de vorige query is niet de partitiesleutel van **Input1**. Het resultaat is dat de gegevens van stencil #1 in meerdere partities kunnen worden verspreid.
 
 Elk van de **Input1** partities worden afzonderlijk verwerkt door Stream Analytics. Als gevolg hiervan wordt meerdere records van het aantal auto's voor de dezelfde stencil in de dezelfde tumblingvenster gemaakt. Als de invoer van de partitiesleutel kan niet worden gewijzigd, kan dit probleem worden opgelost door een niet-partitie stap toe te voegen aan samengevoegde waarden over meerdere partities, zoals in het volgende voorbeeld:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -205,6 +218,7 @@ Elk van de **Input1** partities worden afzonderlijk verwerkt door Stream Analyti
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Deze query kan worden geschaald tot 24 su's.
 

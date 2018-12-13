@@ -1,6 +1,6 @@
 ---
-title: Problemen met Azure Monitor voor bekende VM's (Preview) | Microsoft Docs
-description: Azure Monitor voor virtuele machines is een oplossing in Azure en combineert status en prestaties bewaken van het besturingssysteem van de virtuele machine van Azure, evenals automatisch detecteren van onderdelen van de toepassing en afhankelijkheden met andere resources en de communicatie tussen de kaarten ze. In dit artikel bevat informatie over bekende problemen.
+title: Azure Monitor voor bekende problemen-machines (preview) | Microsoft Docs
+description: In dit artikel bevat informatie over bekende problemen met Azure Monitor voor virtuele machines, een oplossing in Azure en combineert statussen en prestaties van het besturingssysteem van de virtuele machine van Azure. Azure Monitor voor virtuele machines onderdelen van de toepassing en afhankelijkheden met andere resources wordt ook automatisch gedetecteerd en de communicatie tussen deze toewijst.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -14,51 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 99f84e9784c448091c0257218855c3bf32c2f8f4
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.openlocfilehash: d720a7401b9ed1188a01d3cc2cc9ec7b66b640ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715341"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091542"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Bekende problemen met Azure Monitor voor virtuele machines (Preview)
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Bekende problemen met Azure Monitor voor virtuele machines (preview)
 
-Hieronder volgen enkele bekende problemen met de Health-functie van Azure Monitor voor virtuele machines:
+In dit artikel bevat informatie over bekende problemen met Azure Monitor voor virtuele machines, een oplossing in Azure en combineert statussen en prestaties van het besturingssysteem van de virtuele machine van Azure. 
 
-- De Health-functie is ingeschakeld voor alle virtuele machines die zijn verbonden met de Log Analytics-werkruimte, zelfs wanneer het wordt gestart en ingevuld op basis van een enkele virtuele machine.
-- Als na het uitschakelen van de bewaking voor een virtuele machine met behulp van de ondersteunde methoden als voorbereiding opnieuw wordt geprobeerd, moet dit worden gedaan met dezelfde werkruimte.  Als een nieuwe werkruimte wordt gebruikt bij het weergeven van de status voor deze virtuele machine, kan afwijkend gedrag worden weergegeven.
-- Als een Azure-VM niet meer bestaat, omdat deze is verwijderd of is verwijderd, wordt deze weergegeven in de lijstweergave van de virtuele machine met drie tot zeven dagen. Bovendien te klikken op de status van een virtuele machine verwijderd of verwijderde zou Start de **diagnostische gegevens over gezondheid** weergeven, en gaat u in een lus laden. Als u de naam van een verwijderde virtuele machine selecteert, wordt een blade gestart met een bericht waarin staat dat de virtuele machine is verwijderd.
+De volgende volgen bekende problemen met de functie voor Health:
+
+- De Health-functie is ingeschakeld voor alle virtuele machines die zijn verbonden met de Log Analytics-werkruimte. Dit is dus zelfs als de actie begint en eindigt in een enkele virtuele machine.
+- Nadat u Schakel bewaking voor een virtuele machine met behulp van de ondersteunde methoden en u probeert u deze opnieuw implementeert, moet u deze implementeren in dezelfde werkruimte. Als u een nieuwe werkruimte en probeer het gebruikt om de status voor deze virtuele machine weer te geven, kan het afwijkend gedrag wordt weergegeven.
+- Als een Azure-VM is verwijderd of wordt gewist, wordt deze weergegeven in de VM-lijstweergave voor drie tot zeven dagen. Bovendien op de status van een virtuele machine verwijderd of verwijderde klikt, wordt de **diagnostische gegevens over gezondheid** weergeven en start vervolgens een lus laden. Als u de naam van de verwijderde virtuele machine selecteert, wordt een deelvenster geopend met een bericht weergegeven dat de virtuele machine is verwijderd.
 - De periode en de frequentie van criteria voor beveiligingsstatus kunnen niet worden gewijzigd met deze release. 
 - Criteria voor beveiligingsstatus kunnen niet worden uitgeschakeld. 
-- Na de onboarding, kan het even voordat gegevens worden weergegeven in Azure Monitor -> virtuele Machines -> Health of vanaf de resourceblade van de virtuele machine -> Insights
-- Diagnostische gegevens over gezondheid ervaring updates sneller dan een andere weergave, zodat u gegevens vertragingen optreden kan bij het schakelen tussen weergaven  
-- Overzicht waarschuwingen die zijn opgenomen met Azure Monitor voor de virtuele machine zijn alleen voor waarschuwingen geactiveerd voor statusproblemen gedetecteerd met gecontroleerde Azure-VM's.
-- De **lijst met waarschuwingen** weergave pagina in de virtuele machine en Azure Monitor ziet u enkele waarschuwingen waarvan bewakingsvoorwaarde is ingesteld op 'geactiveerde"in afgelopen 30 dagen.  Ze zijn niet configureerbaar. Echter na één keer te klikken op de samenvatting, de **lijst met waarschuwingen** -pagina weergeven wordt gestart, kunt u de filterwaarde van zowel de monitor-voorwaarde en de tijdsbereik wijzigen.
-- Op de **lijst met waarschuwingen** -pagina weergeven, het is raadzaam niet te wijzigen de **resourcetype**, **Resource**, en **-controleservice** filters zodra ze Er zijn specifiek voor de oplossing (deze lijstweergave ziet u dat enkele extra velden als vergeleken met de Azure monitor -> Bekijk de waarschuwingen) geconfigureerd.    
-- In de virtuele Linux-machines **diagnostische gegevens over gezondheid** weergave bevat de volledige domeinnaam van de virtuele machine in plaats van de naam van de gebruiker gedefinieerde VM.
-- Afsluiten van virtuele machines wordt bijgewerkt enkele van de health-criteria voor een kritieke status en anderen die een goede status met net status van de virtuele machine in een kritieke status.
-- Status van de ernst van waarschuwing kan niet worden gewijzigd, ze kunnen alleen worden ingeschakeld of uitgeschakeld.  Bovendien enkele dagen per week bijwerken op basis van de status van de van gezondheidscriteria.
-- Alle instellingen van een exemplaar van het criterium status te wijzigen, zal leiden tot het wijzigen van de dezelfde instelling over alle health criteria exemplaren van hetzelfde type op de virtuele machine. Bijvoorbeeld, als de drempelwaarde van schijf vrije ruimte health criterium exemplaar overeenkomt met de logische schijf C: wordt gewijzigd, wordt deze drempelwaarde wordt toegepast op alle andere logische-schijven detecteren en bewaken voor dezelfde virtuele machine.   
-- Drempelwaarden voor de volgende status criteria die zijn gericht op een Windows-VM niet kan worden gewijzigd, zijn omdat hun statussen zijn al ingesteld op **met** of **beschikbaar**. Wanneer een query uitgevoerd vanaf de [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager), de status health toont de *vergelijkingsoperator* waarde van **LessThan** of **groter dan**met een *drempelwaarde* waarde van **4** voor de service of de entiteit als:
-   - DNS-Client-Service Health-Service wordt niet uitgevoerd 
-   - DHCP-client-service health-Service wordt niet uitgevoerd 
-   - RPC-Service Health-Service wordt niet uitgevoerd. 
-   - Windows firewall-service health-Service wordt niet uitgevoerd.
-   - Windows-gebeurtenislogboek service health-Service wordt niet uitgevoerd. 
-   - Server-service health-Service wordt niet uitgevoerd. 
-   - Windows remote management-service health-Service wordt niet uitgevoerd 
-   - Bestandssysteemfout of beschadiging – logische schijf is niet beschikbaar
+- Na de implementatie, kan het even voordat gegevens worden weergegeven in de **Azure Monitor** > **virtuele Machines** > **Health** deelvenster of de  **VM-resource** > **Insights** deelvenster.
+- Diagnostische gegevens over de status van updates sneller dan een andere weergave-ervaring. De gegevens kan zijn vertraagd wanneer u tussen weergaven schakelen. 
+- De samenvatting van waarschuwingen die is opgenomen met Azure Monitor voor de virtuele machine bevat alleen de waarschuwingen die zijn dat resultaat van de gezondheid van problemen die worden gedetecteerd met virtuele Azure-machines bewaakt.
+- De **lijst met waarschuwingen** deelvenster in de enkele virtuele machine en de Azure Monitor worden waarschuwingen waarvan bewakingsvoorwaarde is ingesteld op weergegeven *geactiveerd* in de afgelopen 30 dagen. De waarschuwingen niet kunnen worden geconfigureerd. Echter, nadat de **lijst met waarschuwingen** deelvenster wordt geopend, klikt u op de samenvatting van de filterwaarde van zowel de monitor-voorwaarde en de tijdbereik wilt wijzigen.
+- In de **lijst met waarschuwingen** in het deelvenster wordt aangeraden niet wijzigen van de **resourcetype**, **Resource**, en **-controleservice** filters. Ze hebben geconfigureerd specifiek zijn voor de oplossing. In deze lijstweergave geeft meer velden dan de **Azure monitor** > **waarschuwingen** lijstweergave biedt.   
+- In Linux-VM's, de **diagnostische gegevens over gezondheid** weergave bevat de volledige domeinnaam van de virtuele machine in plaats van de naam van de gebruiker gedefinieerde VM.
+- Enkele van de van gezondheidscriteria voor het afsluiten van virtuele machines updates *kritieke* en andere naar *in orde*. De net VM-status wordt weergegeven als *kritieke*.
+- Status van de ernst van waarschuwing kan niet worden gewijzigd. Het kan alleen worden ingeschakeld of uitgeschakeld. Bovendien worden enkele dagen per week bijgewerkt op basis van de status van de van gezondheidscriteria.
+- Als u alle instellingen van een health criterium-instantie wijzigt, worden alle exemplaren van de gezondheid van criteria van hetzelfde type op de virtuele machine worden gewijzigd. Bijvoorbeeld, als de drempelwaarde van de status van de vrije ruimte criterium schijfexemplaar die overeenkomt met de logische schijf C: wordt gewijzigd, geldt deze drempelwaarde voor alle andere logische schijven die zijn gedetecteerd en bewaakt voor dezelfde virtuele machine.  
+- Drempelwaarden voor de health-criteria die zijn gericht op een Windows-VM zijn gewijzigd, niet omdat hun statussen zijn ingesteld op *met* of *beschikbaar*. Wanneer u de status van een query de [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager), wordt de *vergelijkingsoperator* waarde van **LessThan** of **groter dan** met een *drempelwaarde* waarde van **4** voor de service of de entiteit als:
+   - DNS-Client-Service Health-Service niet actief is. 
+   - DHCP-client-service health-Service niet actief is. 
+   - RPC-Service Health-Service niet actief is. 
+   - Windows firewall-service health-Service niet actief is.
+   - Windows-gebeurtenislogboek service health-Service niet actief is. 
+   - Server-service health-Service niet actief is. 
+   - Windows remote management-service health-Service wordt niet uitgevoerd. 
+   - Bestandssysteemfout of beschadiging – logische schijf is niet beschikbaar.
 
-- Drempelwaarden voor de volgende criteria voor Linux-status niet gewijzigd worden, omdat hun status zijn al ingesteld op **waar**.  De status health toont de *vergelijkingsoperator* met een waarde **LessThan** en *drempelwaarde* waarde van **1** wanneer opgevraagd uit de werkbelasting Bewakings-API voor de entiteit, afhankelijk van de context:
+- Drempelwaarden voor de volgende criteria voor Linux-status zijn gewijzigd, niet omdat hun status is al ingesteld op *waar*. De status wordt weergegeven de *vergelijkingsoperator* met een waarde **LessThan** en *drempelwaarde* waarde van **1** wanneer opgevraagd uit de Workload bewakings-API voor de entiteit, afhankelijk van de context:
    - Status van logische schijf – logische schijf is niet online / beschikbaar
    - De Status van de schijf-schijf is niet online / beschikbaar
    - Status van Network Adapter - netwerkadapter is uitgeschakeld  
 
-- **Totale CPU-gebruik** health criterium in Windows ziet u een drempelwaarde voor **niet gelijk zijn aan 4** vanuit de portal en wanneer opgevraagd uit de bewakings-API van werkbelasting wanneer CPU-gebruik groter dan 95 is % en systeemwachtrijlengte groter is dan 15. Dit criterium status kan niet worden gewijzigd in deze release.  
-- Wijzigingen in de configuratie, zoals het bijwerken van een drempelwaarde wordt pas van kracht zelfs als de portal of Workload Monitor API kan direct bijgewerkt tot 30 minuten.  
-- Afzonderlijke processor en het logische processor op de gezondheid van criteria zijn niet beschikbaar in Windows, alleen **totale CPU-gebruik** is beschikbaar voor Windows-VM's.  
-- Waarschuwingsregels is gedefinieerd voor elk criterium status worden niet weergegeven in de Azure-portal. Ze worden alleen geconfigureerd vanuit de [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager) inschakelen of uitschakelen van een waarschuwingsregel health.  
-- Toewijzen van een [Azure Monitor actiegroep](../../monitoring-and-diagnostics/monitoring-action-groups.md) voor health waarschuwingen niet mogelijk is vanuit de Azure-portal. U kunt alleen de melding instelling-API gebruiken voor het configureren van een actiegroep wordt geactiveerd wanneer een statuswaarschuwing wordt geactiveerd. Op dit moment actiegroepen kunnen worden toegewezen op basis van een virtuele machine, zodat alle *statusmeldingen* de dezelfde groep(en) van actie op basis van de VM-trigger wordt geactiveerd. Er is geen concept van een aparte actiegroep voor elke status waarschuwingsregel, zoals traditionele Azure-waarschuwingen. Bovendien worden alleen de actiegroepen die zijn geconfigureerd op de hoogte stellen door te sturen een e-mailadres of SMS ondersteund wanneer de gezondheid van waarschuwingen worden geactiveerd. 
+- De *totale CPU-gebruik* health criterium in Windows wordt een drempelwaarde voor **niet gelijk zijn aan 4** in zowel de portal als de werkbelasting bewakings-API. De drempelwaarde wordt bereikt wanneer *totale CPU-gebruik* is groter dan 95 procent en de wachtrijlengte groter is dan 15. Dit criterium status kan niet worden gewijzigd in deze release. 
+- Wijzigingen in de configuratie, zoals het bijwerken van een drempelwaarde, wordt er maximaal 30 minuten duren, zelfs als de portal of Workload Monitor API kan ze onmiddellijk bijwerken. 
+- Afzonderlijke processor en het logische processor op de gezondheid van criteria zijn niet beschikbaar in Windows. Totale CPU-gebruik is beschikbaar voor Windows-VM's. 
+- Regels voor waarschuwingen die zijn gedefinieerd voor elk criterium status worden niet weergegeven in de Azure-portal. U kunt inschakelen of uitschakelen van een statuswaarschuwing voor de regel alleen in de [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager). 
+- U kunt geen toewijzen een [Azure Monitor actiegroep](../../monitoring-and-diagnostics/monitoring-action-groups.md) voor de gezondheid van waarschuwingen in Azure portal. U kunt alleen de melding instelling API het configureren van een actiegroep wordt geactiveerd wanneer een statuswaarschuwing wordt geactiveerd. Op dit moment kunt u actiegroepen op basis van een virtuele machine toewijzen zodat alle *statusmeldingen* dezelfde actiegroepen op basis van de VM-trigger wordt geactiveerd. In tegenstelling tot traditionele Azure-waarschuwingen is er geen concept van een aparte actiegroep voor elke status waarschuwingsregel. Bovendien worden alleen actiegroepen die zijn geconfigureerd voor e-mailadres of SMS-berichten ondersteund wanneer de gezondheid van waarschuwingen worden geactiveerd. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Beoordeling [ingebouwde Azure-Monitor voor virtuele machines](vminsights-onboard.md) voor informatie over vereisten en methoden voor bewaking van uw virtuele machines wilt inschakelen.
+Bekijk voor meer informatie over de vereisten en -methoden voor het inschakelen van bewaking van uw virtuele machines, [implementeert Azure Monitor voor virtuele machines](vminsights-onboard.md).

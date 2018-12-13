@@ -2,19 +2,19 @@
 title: Veelvoorkomende problemen oplossen in Azure Stream Analytics
 description: Dit artikel beschrijft enkele veelvoorkomende problemen in Azure Stream Analytics en stappen om op te lossen die problemen.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 2fe180873f8f410d80b06d29d16881eb49f7fc2a
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978435"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090972"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Veelvoorkomende problemen in Stream Analytics en stappen om op te lossen
 
@@ -24,7 +24,7 @@ ms.locfileid: "50978435"
  
  Wanneer een Stream Analytics-taak ontvangt een onjuist ingedeeld bericht uit de invoer, wordt het bericht verwijderd en ontvangt de gebruiker een waarschuwing. Er wordt een waarschuwingssymbool weergegeven op de **invoer** tegel van uw Stream Analytics-taak (deze waarschuwing aanmelding bestaat, zolang de taak wordt uitgevoerd):
 
-![Tegel invoer](media/stream-analytics-malformed-events/inputs_tile.png)
+![De tegel invoer op Azure Stream Analytics-dashboard](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Als u meer informatie, schakel de diagnostische logboeken om de details van de waarschuwing weer te geven. Voor onjuist gevormde invoergebeurtenissen, bevatten de logboeken van de uitvoering van een vermelding met het bericht dat lijkt op: "bericht: kan de invoergebeurtenis(sen) van resource niet deserialiseren <blob URI> als json '. 
 
@@ -34,7 +34,7 @@ Als u meer informatie, schakel de diagnostische logboeken om de details van de w
 
 2. De tegel invoer details toont een set waarschuwingen weergegeven met informatie over het probleem. Hieronder volgt een voorbeeld van de waarschuwing, de waarschuwing bevat de partitie, Offset en volgnummers waarbij er ongeldige JSON-gegevens. 
 
-   ![Waarschuwing met offset](media/stream-analytics-malformed-events/warning_message_with_offset.png)
+   ![Invoerbericht waarschuwing met offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
 3. Als u de JSON-gegevens die heeft een onjuiste indeling, voert u de code CheckMalformedEvents.cs. In dit voorbeeld is beschikbaar in de [opslagplaats met GitHub-voorbeelden](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Deze code leest de partitie-ID, verschuiving en de gegevens die zich in deze offset af te drukken. 
 

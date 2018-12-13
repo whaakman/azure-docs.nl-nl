@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: d88a82921e5baee06aacc09fafe274a8c56780c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972402"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093417"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB-database-beveiliging
 
@@ -47,7 +47,7 @@ U wordt aangeraden de volgende controlelijst voor vereisten waarop u wilt vergel
 - Fysieke beveiliging van servers in beveiligde datacenters
 - Certificering
 
-En hoewel het lijkt misschien duidelijk, recente [grootschalige database schendingen](http://thehackernews.com/2017/01/mongodb-database-security.html) herinneren dat we de eenvoudige maar kritiek belang van de volgende vereisten:
+En hoewel het lijkt misschien duidelijk, recente [grootschalige database schendingen](https://thehackernews.com/2017/01/mongodb-database-security.html) herinneren dat we de eenvoudige maar kritiek belang van de volgende vereisten:
 - Patch uitgevoerd voor servers die zijn bijgewerkt
 - HTTPS door standaard/SSL-versleuteling
 - Beheerdersaccounts met sterke wachtwoorden

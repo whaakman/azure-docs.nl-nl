@@ -1,5 +1,5 @@
 ---
-title: Wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory? | Microsoft Docs
+title: Standaard gebruikersmachtigingen - Azure Active Directory | Microsoft Docs
 description: Meer informatie over de andere gebruikersmachtigingen beschikbaar zijn in Azure Active Directory.
 services: active-directory
 author: eross-msft
@@ -11,16 +11,15 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-custom: it-pro
-ms.openlocfilehash: 9a9bd33dce4b2be9e15df2745dd25338cdb42702
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730476"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096569"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory?
-
 In Azure Active Directory (Azure AD) wordt aan alle gebruikers een reeks standaardmachtigingen verleend. De toegang van een gebruiker wordt bepaald door het type gebruiker, zijn/haar [rollidmaatschappen](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) en eigendom van afzonderlijke objecten. Dit artikel beschrijft deze standaardmachtigingen en bevat een vergelijking van de standaardinstellingen voor lid- en gastgebruikers.
 
 ## <a name="member-and-guest-users"></a>Lid- en gastgebruikers

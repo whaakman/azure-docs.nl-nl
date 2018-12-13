@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cbf0895274672c053158cf07acb344908b37831
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 98a1dd3fb3fd733cc17ac9c6ccf9d0dfc77737e1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623465"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868018"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Veelgestelde vragen over Azure Active Directory-rapporten
 
@@ -94,7 +94,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 **Vraag: welke API's gebruik ik voor informatie over Office 365-activiteitenlogboeken?**
 
-**A:** gebruiken de [Management API's van Office 365](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview) voor toegang tot de Office 365-activiteitenlogboeken via een API.
+**A:** gebruiken de [Management API's van Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) voor toegang tot de Office 365-activiteitenlogboeken via een API.
 
 ---
 

@@ -2,19 +2,19 @@
 title: Een IoT-oplossing bouwen met behulp van Azure Stream Analytics
 description: Aan de slag-zelfstudie voor de Stream Analytics IoT-oplossing van een stencil-scenario
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/21/2018
-ms.openlocfilehash: e70a1210d44e5bfec914006afaf18eff772cac47
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: MT
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 230318dc8e352a3adc970b13f20fa992954e3b15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978788"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091091"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Een IoT-oplossing bouwen met behulp van Stream Analytics
 
@@ -36,7 +36,7 @@ U moet de volgende vereisten voor het voltooien van deze oplossing:
 ## <a name="scenario-introduction-hello-toll"></a>Scenario-Inleiding: "Hallo, gratis!"
 Een station nummer is een algemene verschijnsel. U ondervindt ze op tal van autowegen, bruggen en tunnels over de hele wereld. Elk station nummer heeft meerdere nummer stands. Bij handmatige stands stoppen u om te betalen van de gratis naar een daarmee gepaard gaande. Bij geautomatiseerde stands scant een sensor boven op elke stand een RFID-kaart die wordt aangebracht op de voorruit van het voertuig als u het nummer tolloket doorgeven. Het is gemakkelijk om te visualiseren van het verstrijken van de door middel van deze stations nummer als een gebeurtenisstroom waarover interessante bewerkingen kunnen worden uitgevoerd.
 
-![Afbeelding van auto's op nummer stands](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+! [Afbeelding van auto's op nummer stands] (media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
 
 ## <a name="incoming-data"></a>Binnenkomende gegevens
 Deze oplossing werkt met twee gegevensstromen. Sensoren die in de in- en afsluiten van de stations nummer geïnstalleerd produceren de eerste stream. De tweede stream is een statische lookup-gegevensset waarvoor vehicle-registratiegegevens.
@@ -55,7 +55,7 @@ De gegevensstroom vermelding bevat informatie over auto's als ze gratis stations
 
 Hier volgt een korte beschrijving van de kolommen:
 
-| Kolom | Beschrijving |
+| Kolom | Description |
 | --- | --- |
 | TollID |De gratis stand-ID die een unieke identificatie van een tolloket nummer |
 | EntryTime |De datum en tijd van de vermelding van het voertuig naar de stand nummer in UTC |
@@ -82,7 +82,7 @@ De gegevensstroom afsluiten bevat informatie over auto's zodat het station dat n
 
 Hier volgt een korte beschrijving van de kolommen:
 
-| Kolom | Beschrijving |
+| Kolom | Description |
 | --- | --- |
 | TollID |De gratis stand-ID die een unieke identificatie van een tolloket nummer |
 | ExitTime |De datum en tijd van af te sluiten van het voertuig in stand nummer in UTC |
@@ -102,7 +102,7 @@ De oplossing maakt gebruik van een momentopname van een commerciële voertuigen 
 
 Hier volgt een korte beschrijving van de kolommen:
 
-| Kolom | Beschrijving |
+| Kolom | Description |
 | --- | --- |
 | LicensePlate |De sofi-nummer van het voertuig |
 | Registratie-id |Registratie-ID van het voertuig |
@@ -310,7 +310,7 @@ Om omhoog te schalen naar meer streamingeenheden de streaming-taak:
 ## <a name="monitor-the-job"></a>De taak bewaken
 De **MONITOR** gebied statistieken over de actieve taak bevat. Configuratie van de eerste keer is nodig voor het gebruik van het opslagaccount in dezelfde regio (naam nummer als de rest van dit document).   
 
-![Schermafbeelding van monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Azure Stream Analytics-taak controleren](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 U hebt toegang tot **activiteitenlogboeken** vanuit het dashboard van de taak **instellingen** ook gebied.
 

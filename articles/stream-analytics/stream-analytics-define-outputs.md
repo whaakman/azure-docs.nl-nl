@@ -7,13 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 555a2bdfe3997114c1aaa202a89d650287f27c0e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310034"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091625"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens. 
@@ -34,15 +35,15 @@ Azure Data Lake Store-uitvoer van Stream Analytics is momenteel niet beschikbaar
 
 1. Wanneer Data Lake-opslag is geselecteerd als uitvoer in Azure portal, wordt u gevraagd om een verbinding met een bestaande Data Lake Store.  
 
-   ![Data Lake Store toestaan](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+   ![Verbinding met Data Lake Store toestaan](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 2. Als u al toegang tot Data Lake Store hebt, selecteert u **nu autoriseren** en wordt een pagina weergegeven die wijzen op **omleiden naar autorisatie**. Nadat de autorisatie is gelukt, krijgt u de pagina die u kunt de uitvoer van de Data Lake Store configureren.
 
 3. Zodra u de Data Lake Store-account dat is geverifieerd hebt, kunt u de eigenschappen configureren voor uw Data Lake Store-uitvoer. De onderstaande tabel wordt de lijst met namen van eigenschappen en hun beschrijving van de uitvoer van uw Data Lake Store configureren.
 
-   ![Data Lake Store toestaan](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+   ![Het definiëren van Data Lake Store als uitvoer van de Stream Analytics](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
-| Naam van eigenschap | Beschrijving | 
+| Naam van eigenschap | Description | 
 | --- | --- |
 | Uitvoeralias | Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer aan dit Data Lake Store te regelen. | 
 | Accountnaam | De naam van het Data Lake Storage-account waar u de uitvoer verzendt. Krijgt u een vervolgkeuzelijst met Data Lake Store-accounts die beschikbaar in uw abonnement zijn. |
@@ -59,12 +60,12 @@ U moet uw Data Lake Store-account te verifiëren als het wachtwoord is gewijzigd
 
 Autorisatie vernieuwen **stoppen** uw taak > Ga naar de uitvoer van uw Data Lake Store > klikt u op de **autorisatie vernieuwen** koppelen en gedurende een korte periode een pagina weergegeven die wijzen op **omleiden naar autorisatie...** . Automatisch wordt gesloten en als dit lukt, geeft u aan de pagina **autorisatie is vernieuwd**. Vervolgens moet u klikken op **opslaan** aan de onderkant van de pagina, en u kunt doorgaan door de taak opnieuw te starten de **gestopt laatst** om gegevensverlies te voorkomen.
 
-![Data Lake Store toestaan](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![Vernieuw de autorisatie van de Data Lake Store in de uitvoer](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan worden gebruikt als uitvoer voor gegevens die relationele of voor toepassingen die afhankelijk zijn van de inhoud wordt gehost in een relationele database. Stream Analytics-taken schrijven naar een bestaande tabel in een Azure SQL Database.  Het tabelschema moet exact overeenkomen met de velden en de typen hiervan wordt de uitvoer van uw taak. Een [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan ook worden opgegeven als uitvoer via de uitvoeroptie SQL-Database. Raadpleeg voor meer informatie over manieren om te schrijven-doorvoer te verbeteren, de [Stream Analytics met Azure SQL-database als uitvoer](stream-analytics-sql-output-perf.md) artikel. De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van de uitvoer van een SQL-Database.
 
-| Naam van eigenschap | Beschrijving |
+| Naam van eigenschap | Description |
 | --- | --- |
 | Uitvoeralias |Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer met deze database te regelen. |
 | Database | De naam van de database waar u de uitvoer verzendt. |
@@ -82,7 +83,7 @@ BLOB-opslag biedt een voordelige en schaalbare oplossing voor het opslaan van gr
 
 De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van een blob-uitvoer.
 
-| Naam van eigenschap       | Beschrijving                                                                      |
+| Naam van eigenschap       | Description                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | Uitvoeralias        | Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar deze blobopslag te regelen. |
 | Opslagaccount     | De naam van het opslagaccount waar u de uitvoer verzendt.               |
@@ -112,7 +113,7 @@ De [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) -service
 
 Er zijn een aantal parameters die nodig zijn voor de Event Hub-gegevensstromen configureren als uitvoer.
 
-| Naam van eigenschap | Beschrijving |
+| Naam van eigenschap | Description |
 | --- | --- |
 | Uitvoeralias | Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar deze Event Hub te regelen. |
 | Event hub-naamruimte |Een Event Hub-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe Event Hub hebt gemaakt, is ook een Event Hub-naamruimte gemaakt. |
@@ -133,11 +134,11 @@ Power BI-uitvoer van Stream Analytics is momenteel niet beschikbaar in de Azure 
 ### <a name="authorize-a-power-bi-account"></a>Power BI-account toestaan
 1. Wanneer Power BI is geselecteerd als uitvoer in Azure portal, maakt u wordt gevraagd om een bestaande Power BI-gebruiker of een nieuw Power BI-account maken.  
    
-   ![Autorisatie van Power BI-gebruiker](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+   ![Autorisatie van Power BI-gebruiker uitvoer configureren](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
 2. Maak een nieuw account als u niet nog een, en klik vervolgens op nu autoriseren.  De volgende pagina wordt weergegeven:
    
-   ![Azure-Account Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![Verifiëren bij Power BI uit Azure-Account](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
 3. In deze stap maakt het account voor werk of school te bieden voor het verlenen van de uitvoer van de Power BI. Als u bent nog niet aangemeld voor Power BI, kiest u nu Sign up. Het werk- of schoolaccount waarmee u voor Power BI kan afwijken van het account Azure-abonnement, dat u momenteel bent aangemeld.
 
@@ -190,11 +191,11 @@ Datum en tijd | Reeks | Reeks |  Datum en tijd | Reeks
 ### <a name="renew-power-bi-authorization"></a>Vernieuw de autorisatie van Power BI
 Als het wachtwoord van uw Power BI-account wordt gewijzigd nadat uw Stream Analytics-taak is gemaakt of laatst geverifieerd, moet u verifiëren van de Stream Analytics. Als multi-factor Authentication (MFA) is geconfigureerd op uw Azure Active Directory (AAD)-tenant, moet u ook Power BI-autorisatie elke twee weken vernieuwen. Een symptoom zijn van dit probleem is geen taakuitvoer en een "verifiëren gebruiker error" in de logboeken voor bewerkingen:
 
-  ![Power BI refresh token fout](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
+  ![Power BI gebruikersfout verifiëren](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
 De actieve taak stoppen om op te lossen dit probleem, en Ga naar de uitvoer van uw Power BI.  Selecteer de **autorisatie vernieuwen** koppelen en start de taak van de **gestopt laatst** om gegevensverlies te voorkomen.
 
-  ![Power BI wordt vernieuwd autorisatie](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
+  ![Vernieuw de autorisatie van Power BI voor uitvoer](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Table Storage
 [Azure-tabelopslag](../storage/common/storage-introduction.md) biedt een zeer beschikbare en zeer schaalbare opslag, zodat een toepassing kan automatisch worden geschaald om te voldoen aan de behoeften van de gebruiker. Tabelopslag is van Microsoft NoSQL-sleutel-/ kenmerkopslag, welke voor gestructureerde gegevens met minder beperkingen met betrekking tot het schema gebruiken kunt. Azure Table storage kan worden gebruikt voor het opslaan van gegevens voor de persistentie en efficiënte ophalen.
@@ -235,7 +236,7 @@ Hoewel Service Bus-wachtrijen een methode voor communicatie in één van afzende
 
 De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van een van de tabeluitvoer.
 
-| Naam van eigenschap | Beschrijving |
+| Naam van eigenschap | Description |
 | --- | --- |
 | Uitvoeralias |Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar deze Service Bus-onderwerp te regelen. |
 | Service Bus-naamruimte |Een Service Bus-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe Event Hub hebt gemaakt, u ook een Service Bus-naamruimte gemaakt |
@@ -268,7 +269,7 @@ De volgende tabel beschrijft de eigenschappen voor het maken van een Azure Cosmo
 | Database | De naam van de Cosmos DB-database. |
 | Patroon voor de collectienaam | Naam van de verzameling of het patroon voor de verzamelingen op die moet worden gebruikt. <br/>De indeling van de verzameling kan worden samengesteld met behulp van de optionele {partition}-token, waarbij partities beginnen bij 0. Twee voorbeelden:  <br/>1. _MyCollection_ : een verzameling met de naam 'MyCollection' moet bestaan.  <br/>2. _MyCollection {partition}_ – op basis van de partitioneringskolom. <br/>De partitionering kolom verzamelingen moeten aanwezig zijn: 'MyCollection0","MyCollection1","MyCollection2", enzovoort. |
 | Partitiesleutel | Optioneel. Dit is alleen nodig als u een token {partition} in het patroon voor de verzameling.<br/> De partitiesleutel is de naam van het veld in uitvoergebeurtenissen dat wordt gebruikt om op te geven van de sleutel voor het partitioneren van uitvoer in collecties.<br/> Voor één verzameling uitvoer, kan elke willekeurige uitvoerkolom worden gebruikt. Bijvoorbeeld, PartitionId. |
-| Document-id |Optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt om op te geven van de primaire sleutel op welke invoegen of bijwerken bewerkingen zijn gebaseerd.  
+| Document-ID |Optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt om op te geven van de primaire sleutel op welke invoegen of bijwerken bewerkingen zijn gebaseerd.  
 
 ## <a name="azure-functions"></a>Azure Functions
 Azure Functions is een serverloze compute-service waarmee u code op aanvraag kunt uitvoeren zonder expliciet een infrastructuur in te richten of te beheren. Hiermee kunt u code te implementeren die wordt geactiveerd door gebeurtenissen in Azure of services van derden.  Deze mogelijkheid van Azure Functions om op triggers te reageren, is het een natuurlijke uitvoer voor een Azure Stream Analytics. Deze uitvoeradapter kan gebruikers Stream Analytics verbinden met Azure Functions en een script of een stukje code uitvoeren in reactie op een aantal gebeurtenissen.
@@ -280,7 +281,7 @@ Azure Stream Analytics activeert Azure Functions via HTTP-triggers. De nieuwe Az
 | Naam van eigenschap | description |
 | --- | --- |
 | Function App |Naam van uw Azure Functions-App |
-| Functie |Naam van de functie in uw Azure Functions-App |
+| Function |Naam van de functie in uw Azure Functions-App |
 | Sleutel |Als u een Azure-functie van een ander abonnement gebruiken wilt, kunt u doen door op te geven van de sleutel voor toegang tot uw functie |
 | Maximale batchgrootte |Deze eigenschap kan worden gebruikt om in te stellen de maximale grootte voor elke uitvoerbatch die wordt verzonden naar uw Azure-functie. Deze waarde is standaard 256 KB |
 | Maximum aantal batches  |Als de naam aangeeft, wordt deze eigenschap kunt u het maximum aantal gebeurtenissen in elke batch wordt verzonden naar Azure Functions opgeven. De standaardwaarde voor de maximale batch-aantal is 100 |

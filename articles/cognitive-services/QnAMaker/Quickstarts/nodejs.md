@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: cd3d159e4482b43c6356ab7b657a79fa59159c60
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 8867fd92bc816097bbff9e081a7cb37e1eb80050
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214984"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093366"
 ---
-# <a name="qna-maker-rest-api-with-nodejs"></a>QnA Maker REST-API met Node.js 
+# <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Over het gebruik van de QnA Maker REST-API met Node.js 
 <a name="HOLTop"></a>
 
 In dit artikel leest u hoe u de [QnA Maker-API van Microsoft](../Overview/overview.md) met behulp van Node.js om het volgende te doen.

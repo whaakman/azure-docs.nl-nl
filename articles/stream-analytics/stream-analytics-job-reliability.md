@@ -1,31 +1,39 @@
 ---
 title: Vermijd serviceonderbrekingen in Azure Stream Analytics-taken
-description: Dit artikel bevat instructies over het maken van uw Stream Analytics-taken werken robuuste.
+description: In dit artikel bevat instructies over het maken van uw Stream Analytics-taken bijwerken robuuste.
 services: stream-analytics
 author: jseb225
-manager: kfile
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 47ccfe99d2ee6576dbb70324eb383f52d2a1b2e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7375fb2763ad83e049b1ef30a623f164e059a792
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902711"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090802"
 ---
-# <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Stream Analytics-taak betrouwbaarheid garanderen tijdens de service-updates
+# <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Betrouwbaarheid van de Stream Analytics-taken te garanderen tijdens de service-updates
 
-Deel van een volledig beheerde service wordt is de mogelijkheid om te introduceren van nieuwe service-functionaliteit en verbeteringen in een snelle tempo. Stream Analytics kan hierdoor een service-update implementeert op basis van wekelijkse (of vaker) hebben. Ongeacht hoeveel tests worden uitgevoerd nog er steeds het risico bestaat dat een bestaande, actieve taak is het vanwege de introductie van een fout verbroken mogelijk. Voor klanten die kritieke streaming verwerking taken uitvoeren, moeten deze risico's worden vermeden. Een mechanisme klanten gebruiken kunnen om dit risico te verminderen van Azure is **[gekoppelde regio](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** model. 
+Onderdeel van een volledig beheerde service die wordt is de mogelijkheid om nieuwe servicefunctionaliteit en verbeteringen in een hoog tempo te introduceren. Stream Analytics kan als gevolg hiervan, een service-update implementeren op basis van wekelijkse (of vaker) hebben. Ongeacht hoeveel tests worden uitgevoerd is er nog steeds een risico dat een bestaande, actieve taak is het vanwege de introductie van een bug verbroken mogelijk. Voor klanten die essentiële taken voor streaming verwerkt uitvoeren moeten deze risico's worden vermeden. Een mechanisme voor klanten gebruiken kunnen om dit risico te beperken van Azure is **[gekoppelde regio](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** model. 
 
-## <a name="how-do-azure-paired-regions-address-this-concern"></a>Hoe gekoppelde Azure-regio adresseren van dit te voorkomen?
+## <a name="how-do-azure-paired-regions-address-this-concern"></a>Hoe dit probleem oplossen met Azure gekoppelde regio's?
 
-Stream Analytics-taken in de gekoppelde regio's worden bijgewerkt in afzonderlijke batches wordt gegarandeerd. Er is als gevolg hiervan een voldoende tijdsverschil tussen de updates te identificeren mogelijke recente fouten en ze herstellen.
+Stream Analytics-taken in gekoppelde regio's worden bijgewerkt in afzonderlijke batches wordt gegarandeerd. Er is als gevolg hiervan een voldoende tijdsverschil tussen de updates voor het identificeren van mogelijke belangrijke fouten en ze herstellen.
 
-_Met uitzondering van centrale India_ (waarvan gekoppelde regio, Zuid, India geen Stream Analytics aanwezigheid), de implementatie van een update voor Stream Analytics gebeurt niet op hetzelfde moment in een set van gekoppelde regio's. Implementaties in meerdere regio's **in dezelfde groep** optreden **op hetzelfde moment**.
+_Met uitzondering van Centraal-India_ (waarvan de gekoppelde regio Zuid-India, heeft geen Stream Analytics aanwezigheid), de implementatie van een update voor Stream Analytics wordt niet uitgevoerd op hetzelfde moment in een set van gekoppelde regio's. Implementaties in meerdere regio's **in dezelfde groep** optreden **op hetzelfde moment**.
 
-Het artikel over **[beschikbaarheid en gekoppelde regio's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** heeft de meest actuele informatie op welke regio's zijn gekoppeld.
+In het artikel over **[beschikbaarheid en gekoppelde regio's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** is de meest actuele informatie over welke regio's zijn gekoppeld.
 
-Klanten wordt aangeraden om te implementeren identiek taken voor beide gekoppelde regio's. Naast de Stream Analytics interne bewakingsmogelijkheden, ook klanten wordt aangeraden om te controleren van de taken als **beide** zijn productietaken. Als een einde wordt geïdentificeerd als een resultaat van de Stream Analytics-service-update, escaleren op de juiste wijze en downstream consumenten aan de orde taakuitvoer failover. Escalatie ter ondersteuning van wordt voorkomen dat de gekoppelde regio wordt beïnvloed door de nieuwe implementatie en de integriteit van de gekoppelde taken beheren.
+Klanten wordt aangeraden om te implementeren identieke taken voor beide gekoppelde regio's. Naast de Stream Analytics interne bewakingsmogelijkheden, ook klanten wordt aangeraden voor het bewaken van de taken als **beide** productietaken zijn. Als een einde wordt vastgesteld dat het gevolg zijn van de Stream Analytics-service-update, escaleren op de juiste wijze en downstream consumenten aan de orde taakuitvoer failover. Escalatie ter ondersteuning van wordt voorkomen dat de gekoppelde regio worden beïnvloed door de nieuwe implementatie- en onderhouden van de integriteit van de gekoppelde taken.
+
+## <a name="next-steps"></a>Volgende stappen
+
+* [Inleiding tot Stream Analytics](stream-analytics-introduction.md)
+* [Aan de slag met Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
+* [Stream Analytics query language-referentie](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics management REST API-naslaginformatie](https://msdn.microsoft.com/library/azure/dn835031.aspx)

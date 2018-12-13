@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core-API, SDK en resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL .NET Core-API, SDK en resources'
 description: Meer informatie over de SQL .NET Core-API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a0fb429c36005edca579cbdb7b379e6b04be60b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: bcd8fe040cb4d36bc98700816d6a7ebe711f13f5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840840"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093435"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -213,7 +211,7 @@ De Azure Cosmos DB .NET Core Preview SDK heeft de functiepariteit met de meest r
 * [Gepartitioneerde verzamelingen](partition-data.md). 
 * [Databaseaccounts voor meerdere regio's en geo-replicatie](distribute-data-globally.md).
 
-Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), of een probleem melden in het [github-opslagplaats](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), of een probleem melden in het [github-opslagplaats](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## <a name="release--retirement-dates"></a>Release & datums buiten gebruik stellen
 

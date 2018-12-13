@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.openlocfilehash: 2b2dc3ba78cfa682c4a326754bdddfa9bc81f836
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: MT
+ms.openlocfilehash: 0098d532f09ca2fa7ef4434add90729a15809ac5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346671"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087453"
 ---
 # <a name="troubleshoot-input-connections"></a>Invoer-verbindingsproblemen oplossen
 
@@ -35,7 +35,7 @@ Deserialisatie problemen worden veroorzaakt wanneer de invoerstroom van uw Strea
  
 Wanneer een Stream Analytics-taak ontvangt een onjuist ingedeeld bericht uit de invoer, wordt het bericht verwijderd en ontvangt u een melding met een waarschuwing. Er wordt een waarschuwingssymbool weergegeven op de **invoer** tegel van uw Stream Analytics-taak. Deze waarschuwing aanmelding bestaat, zolang de taak wordt uitgevoerd:
 
-![Azure Stream Analytics-invoer tegel](media/stream-analytics-malformed-events/inputs_tile.png)
+![Azure Stream Analytics-invoer tegel](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Schakel de diagnostische logboeken om de details van de waarschuwing weer te geven. Voor onjuist gevormde invoergebeurtenissen bevatten de logboeken van de uitvoering van een item met het bericht dat lijkt op: 
 <code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
@@ -47,8 +47,8 @@ U kunt de volgende stappen voor het analyseren van de invoer gebeurtenissen in d
 
 2. De tegel invoer details geeft een lijst van waarschuwingen met informatie over elk probleem. De waarschuwing voorbeeld bevat de partitie, offset en volgnummers waarbij er ongeldige JSON-gegevens. 
 
-   ![Waarschuwing met offset](media/stream-analytics-malformed-events/warning_message_with_offset.png)
-
+   ![Waarschuwing met offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   
 3. Als u wilt zoeken in de JSON-gegevens met de juiste indeling, voert u de CheckMalformedEvents.cs code die beschikbaar zijn in de [opslagplaats met GitHub-voorbeelden](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Deze code leest de partitie-ID, verschuiving en de gegevens die zich in deze offset af te drukken. 
 
 4. Zodra de gegevens zijn gelezen, kunt u de serialisatie-indeling analyseren en corrigeren.

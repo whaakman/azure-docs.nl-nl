@@ -12,16 +12,16 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 60d19f6d598c6090e0dc00c61817a0f8aed35003
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230033"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889494"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
-Deze pagina bevat informatie over Azure SQL Database en prestatieproblemen Managed Instance gedetecteerd via de [Intelligent Insights](sql-database-intelligent-insights.md) database prestaties-diagnoselogboek. De telemetrie diagnostisch logboek kan worden gestreamd naar [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), of een oplossing van derden voor aangepaste waarschuwingen van DevOps en rapportagemogelijkheden.
+Deze pagina bevat informatie over Azure SQL Database en prestatieproblemen Managed Instance gedetecteerd via de [Intelligent Insights](sql-database-intelligent-insights.md) database prestaties-diagnoselogboek. De telemetrie diagnostisch logboek kan worden gestreamd naar [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), of een oplossing van derden voor aangepaste waarschuwingen van DevOps en rapportagemogelijkheden.
 
 > [!NOTE]
 > Zie voor een snelle prestaties van SQL Database problemen oplossen met behulp van intelligente inzichten met, de [aanbevolen oplossingen stroom](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) stroomdiagram in dit document.

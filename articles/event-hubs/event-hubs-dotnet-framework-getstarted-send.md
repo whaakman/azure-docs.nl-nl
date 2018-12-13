@@ -1,6 +1,6 @@
 ---
-title: Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework | Microsoft Docs
-description: Ga aan de slag met het verzenden van gebeurtenissen naar Event Hubs met .NET Framework
+title: Gebeurtenissen verzenden met behulp van .NET Framework - Azure Event Hubs | Microsoft Docs
+description: Dit artikel bevat een overzicht voor het maken van een Fraemwork .NET-toepassing die gebeurtenissen naar Azure Event Hubs verzendt.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: fac720940c2f8d3eb38e2231ce89284147d56b6a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 062dc707dea99ed6e5e04905a13572c234f0c172
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011216"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091153"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework
 Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie [Overzicht van Event Hubs](event-hubs-about.md) en [Functies van Event Hubs](event-hubs-features.md) voor een gedetailleerd overzicht van Event Hubs.

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ab90b4431a0f8d3a4ee70869e053174f89f23dba
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: fdc45f6f1fbbb4580b71a46740fa51278b869ec0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785212"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889307"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limieten voor geheugen en gelijktijdigheid voor Azure SQL Data Warehouse
 Bekijk de limieten voor geheugen en gelijktijdigheid toegewezen aan de verschillende prestatieniveaus en resourceklassen in Azure SQL Data Warehouse. Zie voor meer informatie en om toe te passen van deze mogelijkheden voor uw abonnement van de management workload [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). 
@@ -27,10 +27,14 @@ De volgende tabellen ziet u de maximale capaciteit voor het datawarehouse op ver
 
 ### <a name="gen2"></a>Gen2
 
-Gen2 biedt 2,5 x meer geheugen per query dan de Gen1. Deze extra geheugen helpt bij het leveren van de snelle prestaties Gen2.  De prestaties voor het bereik Gen2 van DW500c tot DW30000c. 
+Gen2 biedt 2,5 x meer geheugen per query dan de Gen1. Deze extra geheugen helpt bij het leveren van de snelle prestaties Gen2.  De prestaties voor het bereik Gen2 van DW100c tot DW30000c. 
 
 | Prestatieniveau | Rekenknooppunten | Distributies per knooppunt | Geheugen per datawarehouse (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW100c            | 1             | 60                             |    60                          |
+| DW200c            | 1             | 60                             |   120                          |
+| DW300c            | 1             | 60                             |   180                          |
+| DW400c            | 1             | 60                             |   240                          |
 | DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
@@ -76,6 +80,10 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 
 | Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
+| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
+| DW300c        | 12                         |   12                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
+| DW400c        | 16                         |   16                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
@@ -92,7 +100,7 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 **Dynamische resourceklassen**
 
 > [!NOTE]
-> De resourceklasse smallrc in Gen2 dynamisch geheugen wordt toegevoegd als het serviceniveau van de wordt verhoogd en biedt alleen ondersteuning voor een maximaal 32 gelijktijdige query's op DW1000c en 20 en DW500c.  Zodra het exemplaar is geschaald DW1500c, gelijktijdigheidssleuven en geheugen dat wordt gebruikt door niet verhoogt smallrc als de service wordt verhoogd. 
+> De resourceklasse smallrc in Gen2 dynamisch geheugen wordt toegevoegd als het serviceniveau van de wordt verhoogd en biedt alleen ondersteuning voor een maximaal 32 gelijktijdige query's op DW1000c en 4 en DW100c.  Zodra het exemplaar is geschaald DW1500c, gelijktijdigheidssleuven en geheugen dat wordt gebruikt door niet verhoogt smallrc als de service wordt verhoogd. 
 >
 >
 
@@ -100,6 +108,10 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 
 | Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar | Sleuven die worden gebruikt door smallrc | Sleuven die worden gebruikt door mediumrc | Sleuven die worden gebruikt door largerc | Sleuven die worden gebruikt door xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
+| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
+| DW300c        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
+| DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
 | DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |

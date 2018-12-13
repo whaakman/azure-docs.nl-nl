@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 591b79d4d9d44c55c2438d872b61a90abbe6ecad
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841112"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089221"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>De hoogte te brengen patiënten van HL7 FHIR gezondheidszorg record wordt gewijzigd met Logic Apps en Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Dit artikel helpt bij de notification-oplossing die zijn gemaakt voor deze organ
 
 ## <a name="project-requirements"></a>Projectvereisten
 - Providers verzenden dat HL7 geconsolideerde klinische Document-architectuur (C-CDA)-documenten in XML-indeling. C-CDA documenten bevat vrijwel elk type klinische document, inclusief klinische documenten, zoals de geschiedenis van familie en immunisatie records, ook als administratieve werkstroom en financiële documenten. 
-- C-CDA documenten worden geconverteerd naar [HL7 FHIR Resources](http://hl7.org/fhir/2017Jan/resourcelist.html) in JSON-indeling.
+- C-CDA documenten worden geconverteerd naar [HL7 FHIR Resources](https://hl7.org/fhir/2017Jan/resourcelist.html) in JSON-indeling.
 - Gewijzigde FHIR resource documenten worden verzonden via e-mail in JSON-indeling.
 
 ## <a name="solution-workflow"></a>Werkstroom van de oplossing 

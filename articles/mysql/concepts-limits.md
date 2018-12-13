@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 12/6/2018
+ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982875"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090989"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Beperkingen in Azure Database for MySQL
 De volgende secties beschrijven capaciteit, ondersteuning voor de opslag-engine, bevoegdheden ondersteuning, gegevens manipuleren instructie ondersteuning en functionele limieten in de database-service. Zie ook [algemene beperkingen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) van toepassing op de MySQL-database-engine.
@@ -31,10 +31,12 @@ Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt:
 |Algemeen doel| 8| 1250|
 |Algemeen doel| 16| 2500|
 |Algemeen doel| 32| 5000|
+|Algemeen doel| 64| 10.000|
 |Geoptimaliseerd geheugen| 2| 600|
 |Geoptimaliseerd geheugen| 4| 1250|
 |Geoptimaliseerd geheugen| 8| 2500|
 |Geoptimaliseerd geheugen| 16| 5000|
+|Geoptimaliseerd geheugen| 32| 10.000|
 
 Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 > Fout 1040 (08004): Te veel verbindingen

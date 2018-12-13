@@ -1,5 +1,5 @@
 ---
-title: Spraak-Service-regio 's
+title: Regio - spraakservices
 titlesuffix: Azure Cognitive Services
 description: Verwijzing voor regio's van de Speech-Service.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: mahilleb
-ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712888"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091642"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service ondersteunde regio 's
 
@@ -45,7 +46,7 @@ De spraak-SDK is beschikbaar in deze regio's voor **spraakherkenning** en **vert
 
 ### <a name="intent-recognition"></a>Intentieherkenning
 
-**Intentieherkenning** voor de shares spraak SDK-regio's met LUIS ondersteunen. Zie voor een volledige lijst van beschikbare regio's, [publiceren regio's en -eindpunten - LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)
+**Intentieherkenning** voor de shares spraak SDK-regio's met LUIS ondersteunen. Zie voor een volledige lijst van beschikbare regio's, [publiceren regio's en -eindpunten - LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
 
 Beschikbare regio's voor **intentieherkenning** via de SDK spraak worden weergegeven op de [Language Understanding service regio pagina](/azure/cognitive-services/luis/luis-reference-regions).
 
@@ -61,7 +62,7 @@ Zie voor spraak-naar-tekst naslagdocumentatie [REST-API's](https://docs.microsof
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
-### <a name="text-to-speech"></a>Tekst-naar-spraak
+### <a name="text-to-speech"></a>Tekst naar spraak
 
 Zie voor de Text to Speech naslagdocumentatie [REST-API's](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
 

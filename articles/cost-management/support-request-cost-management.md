@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: ce6847accef6290497ff0833901a1c07ee59b7b6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4118e0bb0e42a1eec707b2fdb6682333400e2e1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998027"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099831"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Maak een ondersteuningsaanvraag voor Cloudyn
 
@@ -43,7 +43,7 @@ Als u wilt een facturering ondersteuningsticket maken voor kostenbeheer, onder *
 
 Om te controleren of de status van een incident dat u hebt ingediend, Zie [alle ondersteuningsaanvragen](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
 
-Als u een oudere Cloudyn-gebruiker zonder een Azure-account bent, kunt u een ondersteuningsaanvraag op openen http://support.microsoft.com/oas/default.aspx?prid=16451.
+Als u een oudere Cloudyn-gebruiker zonder een Azure-account bent, kunt u een ondersteuningsaanvraag op openen https://support.microsoft.com/oas/default.aspx?prid=16451.
 
 
 ## <a name="next-steps"></a>Volgende stappen
