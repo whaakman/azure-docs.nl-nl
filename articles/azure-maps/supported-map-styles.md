@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c8edaba8de597e3e76e760e1f5109006338a663c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238817"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888457"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps ondersteunde kaartstijlen
-Azure maps ondersteunen vier verschillende ingebouwde kaartstijlen. De stijlen op met de bijbehorende beschrijvingen worden hieronder vermeld.
+Azure kaarten biedt ondersteuning voor diverse verschillende ingebouwde kaartstijlen zoals hieronder wordt beschreven.
 
 ## <a name="road"></a>Kaartachtergrond als weg
 Een **weg** kaart is een standaard-kaart die wordt weergegeven wegen, natuurlijke en kunstmatige functies samen met de labels voor deze functies.
@@ -49,6 +49,14 @@ De stijl van deze kaart is een hybride van wegen en labels satelliet en Luchtfot
 **Weg in grijswaarden donker** is een donkere versie van de roadmap-stijl.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+
+**Van toepassing API's:**
+* Kaartbesturingselement JS 
+
+## <a name="night"></a>'s nachts
+**'s nachts** is een donkere versie van de stijl overzicht met gekleurde wegen en symbolen.
+
+!['s nachts](./media/supported-map-styles/night.PNG)
 
 **Van toepassing API's:**
 * Kaartbesturingselement JS 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: 29fe100821e5ad2d9d5d340a1178c19c60c6d821
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: fb0a67a9b3b556a85a2b28989fe15dfeea1f0d72
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995433"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099580"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -27,11 +27,23 @@ Als u hetzelfde hulpprogramma gebruiken om te werken met alle van de inhoud die 
 
 ## <a name="blob-storage-apis"></a>BLOB storage-API 's
 
-BLOB storage-API's zijn nog niet beschikbaar voor Azure Data Lake Storage Gen 2-accounts.
+BLOB storage-API's zijn nog niet beschikbaar voor Azure Data Lake Storage Gen2 accounts.
 
 Deze API's zijn uitgeschakeld om te voorkomen dat onbedoelde gegevens toegangsproblemen die optreden kunnen omdat Blob Storage-API's nog niet compatibel met Azure Data Lake Gen2 API's.
 
-Niet-beheerde schijven van de virtuele Machine (VM) is afhankelijk van deze API's, dus als u wilt inschakelen, hiërarchische naamruimten op een storage-account, houd rekening met het plaatsen van niet-beheerde VM-schijven in een opslagaccount waarvoor geen hiërarchische ingeschakelde naamruimten.
+Als u deze API's gebruikt om gegevens te laden voordat ze zijn uitgeschakeld en u een productie-vereiste hebt voor toegang tot die gegevens, klikt u vervolgens Neem contact op met Microsoft Support met de volgende informatie:
+
+* Abonnements-ID (de GUID, niet de naam)
+
+* Opslagaccounts
+
+* Of u actief in productie wordt beïnvloed, en zo ja, voor welke storage-accounts?
+
+* Zelfs als u niet actief beïnvloed in productie, laat ons weten of moet u deze gegevens moeten worden gekopieerd naar een ander opslagaccount om een bepaalde reden, en indien dit het geval is, waarom?
+
+In de volgende situaties, kunnen we herstellen toegang tot de Blob-API voor een beperkte periode zodat u kunt deze gegevens kopiëren naar een opslagaccount waarvoor geen hiërarchische ingeschakelde naamruimten.
+
+Niet-beheerde schijven van de virtuele Machine (VM) is afhankelijk van het uitgeschakelde Blob Storage-API's, dus als u wilt inschakelen, hiërarchische naamruimten op een storage-account, houd rekening met het plaatsen van niet-beheerde VM-schijven in een opslagaccount waarvoor geen hiërarchische ingeschakelde naamruimten.
 
 ## <a name="azure-storage-explorer"></a>Azure Opslagverkenner
 

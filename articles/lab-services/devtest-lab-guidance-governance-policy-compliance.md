@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 016daa7ed57650a42b224df4e4173c7593893eb7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8165efaa10eb31410f00dfa9bfffb2c02d7396ae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251060"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872323"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Beheer van infrastructuur voor Azure DevTest Labs - bedrijfsbeleid en naleving
 In dit artikel bevat richtlijnen voor het betreffende bedrijfsbeleid en naleving voor Azure DevTest Labs-infrastructuur. 
@@ -42,10 +42,10 @@ Moet een organisatie van plan bent voor één enkele opslagruimte of meerdere op
 ### <a name="answer"></a>Antwoord
 Als onderdeel van de algehele governance van uw organisatie en beheer configuratiestrategie, raden wij aan dat u een centrale opslagplaats. Wanneer u meerdere opslagplaatsen, kunnen ze silo's van niet-beheerde software worden na verloop van de tijd. Met een centrale opslagplaats, kunnen meerdere teams artefacten uit deze opslagplaats voor hun projecten gebruiken. Het wordt afgedwongen standaardisatie, beveiliging, eenvoudig beheer en elimineert de duplicatie van inspanningen. Als onderdeel van de centralisatie, worden de volgende acties aanbevolen procedures voor het beheer van op de lange termijn en duurzaamheid:
 
-- De Visual Studio Team Services koppelen aan dezelfde Azure Active Directory-tenant die het Azure-abonnement wordt gebruikt voor verificatie en autorisatie.
+- De Azure-opslagplaatsen koppelen aan dezelfde Azure Active Directory-tenant die het Azure-abonnement wordt gebruikt voor verificatie en autorisatie.
 - Maak een groep met de naam **alle DevTest Labs ontwikkelaars** in Azure Active Directory die centraal wordt beheerd. Elke ontwikkelaar die draagt bij aan de ontwikkeling van artefacten moet worden geplaatst in deze groep.
-- De dezelfde Azure Active Directory-groep kan worden gebruikt voor toegang tot de opslagplaats van Visual Studio Team Services en het lab.
-- In Visual Studio Team Services, moet vertakkingen of splits worden gebruikt naar een afzonderlijke een in-ontwikkeling-opslagplaats van de primaire productie-opslagplaats. Inhoud is alleen toegevoegd aan de master-vertakking met een pull-aanvraag na een overzicht van de juiste code. Zodra de revisor van de code wordt de wijziging goedgekeurd, worden de bijgewerkte code door een ontwikkelaar lead, die verantwoordelijk voor onderhoud van de master-vertakking is, samengevoegd. 
+- De dezelfde Azure Active Directory-groep kan worden gebruikt voor toegang tot de opslagplaats van de Azure-opslagplaatsen en de testomgeving.
+- In de Azure-opslagplaatsen, moet vertakkingen of splits worden gebruikt naar een afzonderlijke een in-ontwikkeling-opslagplaats van de primaire productie-opslagplaats. Inhoud is alleen toegevoegd aan de master-vertakking met een pull-aanvraag na een overzicht van de juiste code. Zodra de revisor van de code wordt de wijziging goedgekeurd, worden de bijgewerkte code door een ontwikkelaar lead, die verantwoordelijk voor onderhoud van de master-vertakking is, samengevoegd. 
 
 ## <a name="corporate-security-policies"></a>Zakelijke beveiligingsbeleid
 

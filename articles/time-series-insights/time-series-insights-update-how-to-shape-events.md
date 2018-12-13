@@ -1,6 +1,6 @@
 ---
-title: Hoe vorm gebeurtenissen met de Azure Time Series Insights (preview) | Microsoft Docs
-description: Informatie over hoe u kunt vormgeven van gebeurtenissen met de Azure Time Series Insights (preview)
+title: Gebeurtenissen met de Azure Time Series Insights Preview vorm | Microsoft Docs
+description: Meer informatie over het vormgeven van gebeurtenissen Azure Time Series Insights Preview
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,39 +9,39 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 17528b148c04f48fa8222f64900bdf5c3b95ee25
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: dcab5fba62d1a17ba16b541ccbaa6a4a2b2bf2bd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873645"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078494"
 ---
-# <a name="shaping-events-with-azure-time-series-insights-preview"></a>Shaping gebeurtenissen met de Azure Time Series Insights (Preview)
+# <a name="shape-events-with-azure-time-series-insights-preview"></a>Shapegebeurtenissen met de Azure Time Series Insights Preview
 
-In dit artikel bevat richtlijnen voor het vormgeven van JSON naar de efficiëntie van uw Azure Time Series Insights (TSI) preview query's te maximaliseren.
+Dit artikel helpt u uw JSON-bestand voor een maximale de efficiency van uw Azure Time Series Insights Preview query's vormen.
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
-Het is belangrijk om na te denken over hoe u gebeurtenissen naar Azure TSI verzenden. Dat wil zeggen moet u altijd:
+Het is belangrijk om na te denken over hoe u gebeurtenissen naar de Time Series Insights Preview verzenden. Dat wil zeggen moet u altijd:
 
-1. gegevens zo efficiënt mogelijk via het netwerk verzenden.
-1. Zorg ervoor dat uw gegevens worden opgeslagen op een begrijpelijke manier kunt u aggregatiefuncties die geschikt is voor uw scenario.
+* gegevens zo efficiënt mogelijk via het netwerk verzenden.
+* Uw gegevens op een manier waarmee u meer naar behoren aggregeren voor uw scenario Store.
 
-De volgende richtlijnen kunt de best mogelijke query-prestaties:
+Voor de best mogelijke query's, het volgende doen:
 
-1. Geen overbodige eigenschappen niet verzenden. TSI (Preview) wordt u gefactureerd op uw gebruik en het is een aanbevolen procedure om op te slaan en de gegevens verwerken die u een query zullen uitvoeren.
-1. Instantievelden voor statische gegevens gebruiken om te voorkomen dat statische gegevens verzenden via het netwerk. Exemplaarvelden, een onderdeel van de time series-model, werken zoals verwijzen naar gegevens in de algemeen beschikbare TSI-service. Lees voor meer informatie over het exemplaarveld [Time Series modellen](./time-series-insights-update-tsm.md).
-1. Delen tussen meerdere gebeurtenissen, om gegevens te verzenden via het netwerk efficiënter dimensie-eigenschappen.
-1. Gebruik geen grondige matrix nesten. TSI biedt ondersteuning voor maximaal twee niveaus van geneste matrices die objecten bevatten. TSI effent matrices in de berichten in meerdere gebeurtenissen met eigenschap-waardeparen.
-1. Als er slechts een paar metingen bestaan voor alle of de meeste gebeurtenissen, is het beter om het verzenden van deze metingen als afzonderlijke eigenschappen binnen hetzelfde object. Afzonderlijk naar hen kan vermindert het aantal gebeurtenissen, en query's beter als minder gebeurtenissen moeten worden verwerkt.
+* Geen overbodige eigenschappen niet verzenden. Time Series Insights Preview worden er kosten op uw gebruik. Het is raadzaam opslaan en verwerken van de gegevens die u hebt een query.
+* Exemplaarvelden gebruiken voor statische gegevens. Met deze procedure kunt u statische gegevens verzenden via het netwerk voorkomen. Exemplaarvelden, een onderdeel van de time series-model, werken zoals verwijzen naar gegevens in de Time Series Insights GA-service. Zie voor meer informatie over instantievelden [Time Series modellen](./time-series-insights-update-tsm.md).
+* Dimensie-eigenschappen tussen twee of meer gebeurtenissen delen. Met deze procedure kunt u gegevens efficiënter via het netwerk verzenden.
+* Gebruik geen grondige matrix nesten. Time Series Insights Preview biedt ondersteuning voor maximaal twee niveaus van geneste matrices met objecten. Time Series Insights Preview effent matrices in berichten in meerdere gebeurtenissen met eigenschap-waardeparen.
+* Als er slechts een paar metingen bestaan voor alle of de meeste gebeurtenissen, is het beter om het verzenden van deze metingen als afzonderlijke eigenschappen binnen hetzelfde object. Afzonderlijk naar hen vermindert het aantal gebeurtenissen en, omdat minder gebeurtenissen worden verwerkt moeten, de procedure kan query's beter.
 
 ## <a name="example"></a>Voorbeeld
 
-Het voorbeeld is gebaseerd op een scenario waar meerdere apparaten metingen of signalen verzenden. Metingen of signalen konden worden **Flow tarief**, **Engine oliedruk**, **temperatuur**, en **vochtigheid**.
+Het volgende voorbeeld is gebaseerd op een scenario waarbij twee of meer apparaten metingen of signalen verzenden. De metingen of signalen mogelijk *Flow tarief*, *Engine oliedruk*, *temperatuur*, en *vochtigheid*.
 
-In het volgende voorbeeld wordt is er een enkel bericht van de IoT Hub waar de buitenste matrix een gedeelde sectie van de algemene dimensiewaarden bevat. Time Series-Instantiegegevens door de buitenste matrix wordt gebruikt om de efficiëntie van het bericht. Time Series-exemplaar bevat metagegevens van apparaten, die niet met elke gebeurtenis wordt gewijzigd, maar biedt nuttige eigenschappen voor data-analyse. Algemene dimensiewaarden batchverwerking, zowel die gebruikmaakt van de metagegevens van de Time Series-exemplaar, worden opgeslagen op bytes verzonden via de kabel, waardoor het bericht efficiënter.
+In het volgende voorbeeld is er een enkel bericht van IoT Hub, waarbij de buitenste matrix een gedeelde sectie van de algemene dimensiewaarden bevat. Time Series-Instantiegegevens door de buitenste matrix wordt gebruikt om de efficiëntie van het bericht. Time Series-exemplaar bevat metagegevens van apparaten, die met elke gebeurtenis niet wijzigen, maar biedt nuttige eigenschappen voor data-analyse. Als u wilt opslaan op via de kabel verzonden bytes en het bericht efficiënter te maken, moet u rekening houden met algemene dimensiewaarden batchverwerking en die gebruikmaakt van de metagegevens van het exemplaar van Time Series.
 
-Voorbeeld van JSON-nettolading:
+### <a name="example-json-payload"></a>Voorbeeld van JSON-nettolading
 
 ```JSON
 [
@@ -72,7 +72,9 @@ Voorbeeld van JSON-nettolading:
 ]
 ```
 
-Time Series-exemplaar (Opmerking: de **Time Series-ID** is *deviceId*):
+### <a name="time-series-instance"></a>Time Series-exemplaar 
+> [!NOTE]
+> De Time Series-ID is *deviceId*.
 
 ```JSON
 {
@@ -105,7 +107,7 @@ Time Series-exemplaar (Opmerking: de **Time Series-ID** is *deviceId*):
   },
 ```
 
-TSI lid zijn van tabel (na afvlakken) tijdens het uitvoeren van query's. De tabel bevat meer kolommen zoals Type. In dit voorbeeld laat zien hoe u [vorm](./time-series-insights-send-events.md#json) uw telemetriegegevens:
+Time Series Insights Preview lid wordt van een tabel (na afvlakken) tijdens het uitvoeren van query's. De tabel bevat aanvullende kolommen, zoals **Type**. Het volgende voorbeeld laat zien hoe u [vorm](./time-series-insights-send-events.md#json) uw telemetriegegevens:
 
 | deviceId  | Type | L1 | L2 | tijdstempel | reeks. Stroom tarief ft3/s | reeks. Engine oliedruk psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -113,19 +115,19 @@ TSI lid zijn van tabel (na afvlakken) tijdens het uitvoeren van query's. De tabe
 | `FXXX` | LINE_DATA REVOLT | SIMULATOR |    Accu System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49,2 |
 | `FYYY` | ALGEMENE LINE_DATA | SIMULATOR |    Accu System |    2018-01-17T01:18:00Z | 0.58015072345733643 |    22.2 |
 
-Let op het volgende in het vorige voorbeeld:
+In het voorgaande voorbeeld, houd rekening met de volgende punten:
 
-* Statische eigenschappen worden opgeslagen als TSI om te worden verzonden via het netwerk optimaliseren.
-* TSI-gegevens op het moment dat de query is gekoppeld met behulp van de *timeSeriesId* gedefinieerd in het exemplaar.
-* Twee lagen van geneste worden gebruikt, is de maximale hoeveelheid nesten ondersteund door TSI. Het is essentieel om te voorkomen dat diep geneste matrices.
-* Metingen worden verzonden als afzonderlijke eigenschappen binnen hetzelfde object, omdat er enkele metingen. Hier **reeks. Flow tarief psi**, reeks **Engine oliedruk**, en **ft3/s** unieke kolommen zijn.
+* Statische eigenschappen worden opgeslagen in de Preview van tijd Series Insights om te worden verzonden via het netwerk optimaliseren.
+* Time Series Insights-Preview-gegevens op het moment dat de query is gekoppeld met behulp van de *timeSeriesId* die gedefinieerd in het exemplaar.
+* Twee lagen van geneste worden gebruikt, is het meest die wordt ondersteund door de Time Series Insights Preview. Het is essentieel om te voorkomen dat diep geneste matrices.
+* Omdat er enkele metingen, wordt deze zijn verzonden als afzonderlijke eigenschappen binnen hetzelfde object. In het voorbeeld **reeks. Flow tarief psi**, **reeks. Engine oliedruk psi**, en **reeks. Flow tarief ft3/s** unieke kolommen zijn.
 
 >[!IMPORTANT]
-> Exemplaarvelden worden niet opgeslagen met telemetrie, ze worden opgeslagen met metagegevens in de **Tijdreeksmodel**.
-> De bovenstaande tabel vertegenwoordigt de queryweergave.
+> Exemplaarvelden worden niet opgeslagen met telemetrie. Ze worden opgeslagen met metagegevens in de **Tijdreeksmodel**.
+> De voorgaande tabel vertegenwoordigt de queryweergave.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Om deze richtlijnen in de praktijk, Zie [Azure TSI-querysyntaxis](./time-series-insights-query-data-csharp.md) voor meer informatie over de query-syntaxis voor de TSI-data access-REST-API.
+Om deze richtlijnen in de praktijk, Zie [Azure Time Series Insights Preview querysyntaxis](./time-series-insights-query-data-csharp.md). Leert u dat meer informatie over de query-syntaxis voor de gegevens van de Time Series Insights Preview REST-API toegang.
 
-Meer informatie over ondersteunde JSON-vormen door te lezen [ondersteund JSON-vormen](./time-series-insights-send-events.md#json).
+Zie voor meer informatie over ondersteunde JSON-vormen, [ondersteund JSON-vormen](./time-series-insights-send-events.md#json).

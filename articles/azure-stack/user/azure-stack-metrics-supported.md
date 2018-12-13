@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: f8ef54393f3de00ae231c45c117e3a16a8d1aad1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7ebb9d683803a6c5a5a0fa25308b348eeea586c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725604"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097893"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Ondersteunde metrische gegevens met Azure Monitor in Azure Stack
 
@@ -26,17 +26,17 @@ ms.locfileid: "52725604"
 
 U kunt uw metrische gegevens ophalen uit Azure monitor in Azure Stack in hetzelfde als de globale Azure. U kunt uw metingen maken in de portal, de REST-API ophalen of query's voor uitvoert met PowerShell of CLI.
 
-De volgende tabellen worden de metrische gegevens beschikbaar met metrische gegevens van Azure Monitor-pijplijn in Azure Stack. Als u wilt opvragen en toegang tot deze metrische gegevens, moet u de **2018-01-01** api-versie van de API-profiel. Zie voor meer informatie over API-profielen en Azure Stack [beheren API-versieprofielen in Azure Stack](azure-stack-version-profiles.md).
+De volgende tabellen worden de metrische gegevens beschikbaar met metrische gegevens van Azure Monitor-pijplijn in Azure Stack. Als u wilt opvragen en toegang tot deze metrische gegevens, moet u gebruiken de **2018-01-01** api-versie van de API-profiel. Zie voor meer informatie over API-profielen en Azure Stack [beheren API-versieprofielen in Azure Stack](azure-stack-version-profiles.md).
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Aggregatietype | Beschrijving | Dimensies |
+| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Aggregatietype | Description | Dimensies |
 |----------------|---------------------|---------|------------------|-----------------------------------------------------------------------------------------------|---------------|
 | Percentage CPU | Percentage CPU | Procent | Gemiddeld | Het percentage toegewezen berekeningseenheden dat momenteel door de virtuele machine(s) wordt gebruikt | Er zijn geen dimensies |
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Aggregatietype | Beschrijving | Dimensies |
+| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Aggregatietype | Description | Dimensies |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | Gebruikte capaciteit | Bytes | Gemiddeld | Gebruikte capaciteit van account | Er zijn geen dimensies |
 | Transacties | Transacties | Count | Totaal | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen evenals aanvragen die tot fouten. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie. | De ResponseType, GeoType, ApiName |
@@ -48,7 +48,7 @@ De volgende tabellen worden de metrische gegevens beschikbaar met metrische gege
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Aggregatietype | Beschrijving | Dimensies |
+| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Aggregatietype | Description | Dimensies |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | BlobCapacity | Blobcapaciteit | Bytes | Totaal | De hoeveelheid opslag die wordt gebruikt door de Blob-service van het opslagaccount (in bytes). | BlobType |
 | BlobCount | Aantal blobs | Count | Totaal | Het aantal blobs in de Blob-service van het opslagaccount. | BlobType |
@@ -62,7 +62,7 @@ De volgende tabellen worden de metrische gegevens beschikbaar met metrische gege
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Aggregatietype | Beschrijving | Dimensies |
+| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Aggregatietype | Description | Dimensies |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | TableCapacity | Tabelcapaciteit | Bytes | Gemiddeld | De hoeveelheid opslag die wordt gebruikt door de Table-service van het opslagaccount (in bytes). | Er zijn geen dimensies |
 | TableCount | Aantal tabellen | Count | Gemiddeld | Het aantal tabellen in de Table-service van het opslagaccount. | Er zijn geen dimensies |
@@ -76,7 +76,7 @@ De volgende tabellen worden de metrische gegevens beschikbaar met metrische gege
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Aggregatietype | Beschrijving | Dimensies |
+| Gegevens | De naam van de metrische gegevens weergeven | Eenheid | Aggregatietype | Description | Dimensies |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | QueueCapacity | Wachtrijcapaciteit | Bytes | Gemiddeld | De hoeveelheid opslag die wordt gebruikt door de Queue-service van het opslagaccount (in bytes). | Er zijn geen dimensies |
 | QueueCount | Aantal wachtrijen | Count | Gemiddeld | Het aantal wachtrijen in de Queue-service van het opslagaccount. | Er zijn geen dimensies |

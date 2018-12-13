@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute-controle, metrische gegevens en waarschuwingen | Microsoft Docs
+title: 'Controleren, metrische gegevens en waarschuwingen: Azure ExpressRoute | Microsoft Docs'
 description: Deze pagina bevat informatie over het controleren van ExpressRoute
 services: expressroute
 author: cherylmc
@@ -7,19 +7,20 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: 90735ac04c95ee3d270853c18eddebd3f11dd8c1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725949"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091761"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Bewaking, metrische gegevens en waarschuwingen voor ExpressRoute
 
-Dit artikel helpt u inzicht in de ExpressRoute-controle, metrische gegevens en waarschuwingen. Azure Monitor is een centrale locatie voor alle metrische gegevens, waarschuwingen, diagnostische logboeken in heel Azure.
+Dit artikel helpt u inzicht in de ExpressRoute-bewaking, metrische gegevens en waarschuwingen met behulp van Azure Monitor. Azure Monitor is een centrale locatie voor alle metrische gegevens, waarschuwingen, diagnostische logboeken in heel Azure.
  
 >[!NOTE]
->Met behulp van **klassieke metrische gegevens** wordt niet aanbevolen. 
+>Met behulp van **klassieke metrische gegevens** wordt niet aanbevolen.
 >
 
 ## <a name="circuit-metrics"></a>Circuit metrische gegevens
@@ -46,7 +47,7 @@ Hier vindt u metrische gegevens voor persoonlijke, openbare en Microsoft-peering
 
 2. Klik op **+ doel selecteren** en selecteer de verbindingsresource van de ExpressRoute-gateway.
 
-  ![Doel]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+  ![doel]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Definieer de details van de waarschuwing.
 
   ![Actiegroep](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)

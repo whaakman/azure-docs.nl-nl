@@ -1,5 +1,6 @@
 ---
-title: Met behulp van een klasse Estimator met Azure Machine Learning-service van ML-modellen trainen
+title: ML-modellen met behulp van een klasse Estimator trainen
+titleSuffix: Azure Machine Learning service
 description: Meer informatie over het uitvoeren van één knooppunt en gedistribueerde training van traditionele machine learning- en deep learning-modellen met behulp van Azure Machine Learning services Estimator klasse
 ms.author: minxia
 author: mx-iao
@@ -9,13 +10,13 @@ ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 53462fc0aecbb8f5aeef0bb9208264c714ce8394
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: e7157b9546d1f9ca40bab35d9e643c38051db04e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011417"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100749"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Trainen van modellen met Azure Machine Learning
 

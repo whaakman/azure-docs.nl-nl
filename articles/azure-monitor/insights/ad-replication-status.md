@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: be519dd2a6e6948bedeedd4166c7adf466dbb365
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 7a8f2fc0d8b9f023e20cf8c4d4939aa3094a13e8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836369"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890174"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Status van de Active Directory-replicatie met Log Analytics controleren
 
@@ -33,7 +33,7 @@ Het AD-replicatiestatus-oplossingenpakket controleert regelmatig uw Active Direc
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
-* U moet agenten installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of u moet agenten installeren op lidservers en configureren van de agents AD-replicatie om gegevens te verzenden naar Log Analytics. Zie voor meer informatie over hoe u Windows-computers verbinden met Log Analytics, [verbinding maken met Windows-computers naar Log Analytics](../../azure-monitor/platform/agent-windows.md). Als uw domeincontroller al deel van een bestaande System Center Operations Manager-omgeving die u wilt koppelen aan Log Analytics uitmaakt, Zie [Operations Manager verbinden met Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+* U moet agenten installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of u moet agenten installeren op lidservers en configureren van de agents AD-replicatie om gegevens te verzenden naar Log Analytics. Zie voor meer informatie over hoe u Windows-computers verbinden met Log Analytics, [verbinding maken met Windows-computers naar Log Analytics](../../azure-monitor/platform/agent-windows.md). Als uw domeincontroller al deel van een bestaande System Center Operations Manager-omgeving die u wilt koppelen aan Log Analytics uitmaakt, Zie [Operations Manager verbinden met Log Analytics](../../azure-monitor/platform/om-agents.md).
 * De oplossing Active Directory Replication Status toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../../azure-monitor/insights/solutions.md).  Er is geen verdere configuratie nodig.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Details van AD-replicatiestatus gegevens verzamelen
@@ -48,7 +48,7 @@ Als u niet wilt dat uw domeincontrollers rechtstreeks verbinden met Log Analytic
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Om in te schakelen van een niet-domeincontroller AD-gegevens te verzenden naar Log Analytics
 1. Controleer of de computer lid is van het domein dat u wilt bewaken met behulp van de AD-replicatiestatus-oplossing.
-2. [De Windows-computer verbinden met Log Analytics](../../log-analytics/log-analytics-om-agents.md) of [verbinding maken met behulp van uw bestaande Operations Manager-omgeving naar Log Analytics](../../log-analytics/log-analytics-om-agents.md), als deze nog niet is verbonden.
+2. [De Windows-computer verbinden met Log Analytics](../../azure-monitor/platform/om-agents.md) of [verbinding maken met behulp van uw bestaande Operations Manager-omgeving naar Log Analytics](../../azure-monitor/platform/om-agents.md), als deze nog niet is verbonden.
 3. Stel de volgende registersleutel op die computer:
 
    * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
@@ -149,7 +149,7 @@ A: normale gebruikersmachtigingen voor Active Directory zijn voldoende.
 ## <a name="troubleshoot-data-collection-problems"></a>Problemen met gegevens verzamelen
 Als u wilt verzamelen van gegevens, moet het AD-replicatiestatus-oplossingenpakket ten minste één domeincontroller worden verbonden met uw Log Analytics-werkruimte. Totdat u verbinding maakt met een domeincontroller, er een bericht weergegeven dat aangeeft dat **nog steeds gegevens worden verzameld**.
 
-Als u hulp bij het verbinden van een van uw domeincontrollers, vindt u de documentatie bij [verbinding maken met Windows-computers naar Log Analytics](../../log-analytics/log-analytics-om-agents.md). Als uw domeincontroller al met een bestaande System Center Operations Manager-omgeving verbonden is, kunt u ook documentatie bij bekijken [System Center Operations Manager verbinden met Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Als u hulp bij het verbinden van een van uw domeincontrollers, vindt u de documentatie bij [verbinding maken met Windows-computers naar Log Analytics](../../azure-monitor/platform/om-agents.md). Als uw domeincontroller al met een bestaande System Center Operations Manager-omgeving verbonden is, kunt u ook documentatie bij bekijken [System Center Operations Manager verbinden met Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 Als u niet wilt verbinding maken met een van uw domeincontrollers rechtstreeks Log Analytics of met System Center Operations Manager, raadpleegt u [om in te schakelen van een niet-domeincontroller AD-gegevens te verzenden naar Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 

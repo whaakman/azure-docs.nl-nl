@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 694682264a38d0b35f00fb6611f843ae7e518ba0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8af76c64e755b9c72ae4ebcc223e5f69549b92b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838162"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076716"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Cosmos DB en Azure App Service Web Apps met behulp van een Azure Resource Manager-sjabloon implementeren
 Deze zelfstudie leert u hoe u een Azure Resource Manager-sjabloon gebruiken om te implementeren en integreren [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), een [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) web-app en een Voorbeeldwebtoepassing.
@@ -119,7 +119,7 @@ Nu gaan we de tweede sjabloon implementeert.  Deze sjabloon is handig om te late
 ## <a name="next-steps"></a>Volgende stappen
 Gefeliciteerd! U kunt Azure Cosmos DB, App Service-web-app en een Voorbeeldwebtoepassing met behulp van Azure Resource Manager-sjablonen hebt geïmplementeerd.
 
-* Voor meer informatie over Azure Cosmos DB, klikt u op [hier](http://azure.com/docdb).
+* Voor meer informatie over Azure Cosmos DB, klikt u op [hier](https://azure.microsoft.com/services/cosmos-db/).
 * Voor meer informatie over Azure App Service Web apps, klikt u op [hier](https://go.microsoft.com/fwlink/?LinkId=325362).
 * Voor meer informatie over Azure Resource Manager-sjablonen, klikt u op [hier](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 

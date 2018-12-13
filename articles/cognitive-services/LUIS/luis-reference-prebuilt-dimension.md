@@ -1,8 +1,9 @@
 ---
-title: LUIS vooraf gemaakte entiteiten dimensie referentie - Azure | Microsoft Docs
+title: Dimensie vooraf gemaakte entiteiten
 titleSuffix: Azure
 description: In dit artikel bevat vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS) dimensie.
 services: cognitive-services
+ms.custom: seodec18
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
@@ -10,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 138cf1d2fbc050797c133afaffdb2a9820e2717f
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: 775c7800c2ea9abe4b960a2e82cebb85e3c74d3b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52332915"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098761"
 ---
 # <a name="dimension-entity"></a>Dimensie-entiteit
 De vooraf gedefinieerde dimensie entiteit detecteert de verschillende typen dimensies, ongeacht de cultuur van LUIS-app. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met dimensies aan de toepassing intents. Dimensie entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
@@ -28,7 +29,7 @@ Dimensie wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Rec
 ## <a name="resolution-for-dimension-entity"></a>Oplossing voor de dimensie entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.dimension** entiteit.
 
-```JSON
+```json
 {
   "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
   "topScoringIntent": {
