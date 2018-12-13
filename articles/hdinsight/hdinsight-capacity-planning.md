@@ -2,19 +2,19 @@
 title: Plannen van capaciteit in Azure HDInsight-cluster
 description: Klik hier voor meer informatie over het opgeven van een HDInsight-cluster voor capaciteit en prestaties.
 services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/22/2017
-ms.author: maxluk
-ms.openlocfilehash: b8b562e1f783a9da7621b29fbf6d5bd1ff6ca5ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.date: 12/04/2018
+ms.author: hrasheed
+ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013506"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193855"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Capaciteitsplanning voor HDInsight-clusters
 
@@ -32,7 +32,7 @@ De belangrijkste vragen die voor het plannen van capaciteit zijn:
 
 De Azure-regio bepaalt waar het cluster fysiek is ingericht. Om te beperken de latentie van lees- en schrijfbewerkingen, moet het cluster in de buurt van uw gegevens.
 
-HDInsight is beschikbaar in veel Azure-regio's. De dichtstbijzijnde regio, Zie de *HDInsight Linux* item onder *gegevens en analyses* in [Azure-producten beschikbaar per regio](https://azure.microsoft.com/regions/services/).
+HDInsight is beschikbaar in veel Azure-regio's. De dichtstbijzijnde regio, Zie de *HDInsight* item onder *Analytics* in [producten beschikbaar per regio](https://azure.microsoft.com/regions/services/).
 
 ## <a name="choose-storage-location-and-size"></a>Opslaglocatie en grootte kiezen
 
@@ -57,7 +57,7 @@ Een cluster, hebben toegang tot een combinatie van verschillende opslagaccounts.
 * Als u wilt om gegevens te maken, hebt u al geüpload naar een blobcontainer beschikbaar voor het cluster.
 * Als u wilt voor het isoleren van de verschillende onderdelen van de opslag uit veiligheidsoverwegingen of beheer te vereenvoudigen.
 
-Voor een cluster met 48-knooppunten het beste 4 tot en met 8 storage-accounts. Hoewel er mogelijk al voldoende totale opslag, biedt elk opslagaccount aanvullende netwerken bandbreedte voor de compute-knooppunten. Als u meerdere opslagaccounts hebt, gebruikt u een willekeurige naam voor de storage-account zonder een voorvoegsel. Het doel van een willekeurige naam geven, is de kans op opslag knelpunten (beperking) of gemeenschappelijke-modus fouten verminderen voor alle accounts. Voor betere prestaties, gebruik slechts één container per opslagaccount.
+Voor een cluster met 48-knooppunten raden wij 4 tot en met 8 storage-accounts. Hoewel er mogelijk al voldoende totale opslag, biedt elk opslagaccount aanvullende netwerken bandbreedte voor de compute-knooppunten. Als u meerdere opslagaccounts hebt, gebruikt u een willekeurige naam voor de storage-account zonder een voorvoegsel. Het doel van een willekeurige naam geven, is de kans op opslag knelpunten (beperking) of gemeenschappelijke-modus fouten verminderen voor alle accounts. Voor betere prestaties, gebruik slechts één container per opslagaccount.
 
 ## <a name="choose-a-cluster-type"></a>Kies een clustertype
 
@@ -75,7 +75,7 @@ De VM-grootte en het type wordt bepaald door de CPU-verwerking van kracht, RAM-g
 
 * RAM: De VM-grootte bepaalt ook de hoeveelheid RAM-geheugen beschikbaar is in de virtuele machine. Voor workloads die gegevens opslaan in het geheugen voor verwerking, in plaats van lezen van de schijf, zorg ervoor dat uw worker-knooppunten hebben onvoldoende geheugen om aan te passen de gegevens.
 
-* Netwerk: Voor de meeste clustertypen, de gegevens die worden verwerkt door het cluster is niet op de lokale schijf, maar in plaats van in een service voor externe opslag, zoals Data Lake Store of Azure Storage. Houd rekening met de netwerkbandbreedte en de doorvoer tussen de VM-knooppunt en de storage-service. De netwerkbandbreedte die beschikbaar zijn voor een virtuele machine wordt doorgaans met grotere verhoogt. Zie voor meer informatie, [VM-grootten overzicht](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Netwerk: Voor de meeste clustertypen is de gegevens die worden verwerkt door het cluster niet op de lokale schijf, maar in een service voor externe opslag, zoals Data Lake Store of Azure Storage. Houd rekening met de netwerkbandbreedte en de doorvoer tussen de VM-knooppunt en de storage-service. De netwerkbandbreedte die beschikbaar zijn voor een virtuele machine wordt doorgaans met grotere verhoogt. Zie voor meer informatie, [VM-grootten overzicht](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Kies de cluster-schaal
 
@@ -95,7 +95,7 @@ U betaalt voor de levensduur van een cluster. Als er alleen specifieke tijden da
 
 ### <a name="isolate-cluster-job-errors"></a>Cluster-taakfouten isoleren
 
-Soms fouten kunnen optreden als gevolg van de parallelle uitvoering van meerdere kaart en onderdelen op een cluster met meerdere knooppunten verminderen. Om te isoleren van het probleem, probeert u gedistribueerde testen door te voeren gelijktijdige vouwt meerdere taken op een cluster met één knooppunt, u deze aanpak meerdere taken gelijktijdig worden uitgevoerd op clusters met meer dan één knooppunt. Gebruik voor het maken van een cluster met één knooppunt HDInsight in Azure de *geavanceerde* optie.
+Soms fouten kunnen optreden als gevolg van de parallelle uitvoering van meerdere toewijzingen en onderdelen op een cluster met meerdere knooppunten verminderen. Om te isoleren van het probleem, probeert u gedistribueerde testen door te voeren gelijktijdige vouwt meerdere taken op een cluster met één knooppunt, u deze aanpak meerdere taken gelijktijdig worden uitgevoerd op clusters met meer dan één knooppunt. Gebruik voor het maken van een cluster met één knooppunt HDInsight in Azure de *geavanceerde* optie.
 
 U kunt ook een ontwikkelingsomgeving met één knooppunt op uw lokale computer installeren en testen van de oplossing bevat. Hortonworks biedt een omgeving met één knooppunt lokale ontwikkeling voor Hadoop-gebaseerde oplossingen die is handig voor het eerste ontwikkeling, bewijs van concept, en tests. Zie voor meer informatie, [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
 
@@ -103,11 +103,31 @@ Voor het identificeren van het probleem op een lokale cluster met één knooppun
 
 ## <a name="quotas"></a>Quota
 
-Controleer na het vaststellen van uw doel cluster VM-grootte, de schaal en het type, de huidige quotumlimiet voor een capaciteit van uw abonnement. Wanneer u een limiet bereikt, kunt u mogelijk niet implementeren van nieuwe clusters of bestaande clusters uitschalen door meer worker-knooppunten toe te voegen. De meest voorkomende quotumlimiet bereikt is het quotum voor CPU-kernen die op het abonnement, regio en niveaus van VM-serie bestaat. Uw abonnement mogelijk bijvoorbeeld een totale limiet van 200 core met een limiet van 30 kernen in uw regio, en een limiet van 30 core op VM-instanties. U kunt [contact op met ondersteuning voor het aanvragen van een quotaverhoging](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Controleer na het vaststellen van uw doel cluster VM-grootte, de schaal en het type, de huidige quotumlimiet voor een capaciteit van uw abonnement. Wanneer u een limiet bereikt, kunt u mogelijk niet implementeren van nieuwe clusters of bestaande clusters uitschalen door meer worker-knooppunten toe te voegen. De enige quotumlimiet is het quotum voor CPU-kernen dat op het regioniveau van de voor elk abonnement bestaat. Uw abonnement mogelijk bijvoorbeeld 30 kernlimiet in de regio VS-Oost. Als u nodig hebt om aan te vragen een quotaverhoging, voert u de volgende stappen uit:
+
+1. Ga naar de Azure-portal
+1. Klik op **Help en ondersteuning** in de linkerbenedenhoek van de pagina.
+1. Klik op **nieuwe ondersteuningsaanvraag**.
+1. Op de **nieuwe ondersteuningsaanvraag** pagina onder **basisbeginselen** tabblad, selecteert u de volgende opties:
+    - **Type probleem**: **Limieten voor service en -abonnement (quota)**
+    - **Abonnement**: het abonnement dat u wilt wijzigen
+    - **Quotumtype**: **HDInsight**
+    
+    ![Maak een ondersteuningsaanvraag om HDInsight core quotum te verhogen](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+
+1. Klik op **Volgende**.
+1. Op de **Details** pagina, voer een beschrijving van het probleem, selecteert u de ernst van het probleem en selecteer uw voorkeursmethode voor contact.
+1. Klik op **volgende: Beoordelen en maken**.
+1. Op de **revisie + maken** tabblad **maken**.
+
+> [!Note]
+> Als u wilt verhogen van het HDInsight-quotum voor kerngeheugens in een persoonlijk gebied [een lijst met toegestane adressen indienen](https://aka.ms/canaryintwhitelist).
+
+U kunt [contact op met ondersteuning voor het aanvragen van een quotaverhoging](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 Echter er gelden enkele beperkingen vaste quota, bijvoorbeeld een enkel Azure-abonnement maximaal 10.000 cores kan hebben. Zie voor meer informatie over deze limieten [Azure-abonnement en Servicelimieten, quotums en beperkingen](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Clusters instellen in HDInsight met Apache Hadoop, Spark, Kafka en meer](hdinsight-hadoop-provision-linux-clusters.md): meer informatie over het instellen en configureren van clusters in HDInsight met Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML-Services of Storm.
-* [Cluster-prestaties bewaken](hdinsight-key-scenarios-to-monitor.md): meer informatie over belangrijke scenario's voor het bewaken van voor uw HDInsight-cluster die invloed kan hebben op de capaciteit van uw cluster.
+* [Clusters instellen in HDInsight met Apache Hadoop, Spark, Kafka en meer](hdinsight-hadoop-provision-linux-clusters.md): Informatie over het instellen en configureren van clusters in HDInsight met Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML-Services of Storm.
+* [Cluster-prestaties bewaken](hdinsight-key-scenarios-to-monitor.md): Meer informatie over belangrijke scenario's voor het bewaken van voor uw HDInsight-cluster die invloed kan hebben op de capaciteit van uw cluster.

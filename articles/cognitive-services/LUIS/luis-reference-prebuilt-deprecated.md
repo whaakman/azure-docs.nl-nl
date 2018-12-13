@@ -11,19 +11,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 2fcd5a784801c3591d76b4c4569a7dda9472686e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7b294b9c528d0b7a93a3e287b37124a26d0851dd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103979"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138055"
 ---
-# <a name="deprecated-entities"></a>Afgeschafte entiteiten
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Afgeschafte vooraf gemaakte entiteiten in een LUIS-app
 De volgende vooraf gemaakte entiteiten zijn afgeschaft en kunnen niet worden toegevoegd aan de nieuwe LUIS-apps.
 
-* **Datum-/**: bestaande LUIS-apps die gebruikmaken van **datum-/** moeten worden gemigreerd naar **datetimeV2**, hoewel de datum/tijd-entiteit blijft werken in bestaande apps die worden gebruikt.
-* **Geografie**: bestaande LUIS-apps die gebruikmaken van **Geografie** tot December 2018 wordt ondersteund.
-* **Encyclopedie**: bestaande LUIS-apps die gebruikmaken van **encyclopedie** tot December 2018 wordt ondersteund.
+* **Datum-/**: Bestaande LUIS-apps die gebruikmaken van **datum-/** moeten worden gemigreerd naar **datetimeV2**, hoewel de datum/tijd-entiteit blijft werken in bestaande apps die worden gebruikt.
+* **Geografie**: Bestaande LUIS-apps die gebruikmaken van **Geografie** tot December 2018 wordt ondersteund.
+* **Encyclopedie**: Bestaande LUIS-apps die gebruikmaken van **encyclopedie** tot December 2018 wordt ondersteund.
 
 ## <a name="geography-culture"></a>Geografie cultuur
 **Geografie** is alleen beschikbaar in de `en-us` landinstelling.
@@ -43,7 +43,7 @@ Vooraf gemaakte entiteiten   |   Voorbeeld van een utterance   |   JSON
 **Encyclopedie** is alleen beschikbaar in de `en-US` landinstelling.
 
 #### <a name="encyclopedia-subtypes"></a>Encyclopedie subtypen
-Encyclopedie ingebouwde entiteit bevat meer dan 100 subtypen in de volgende tabel: bovendien encyclopedie entiteiten vaak worden toegewezen aan meerdere typen. Bijvoorbeeld, de query Ronald Reagan levert: 
+Encyclopedie ingebouwde entiteit bevat meer dan 100 subtypen in de volgende tabel: Bovendien encyclopedie entiteiten worden vaak toegewezen aan meerdere typen. Bijvoorbeeld, de query Ronald Reagan levert: 
 
 ```json
 {

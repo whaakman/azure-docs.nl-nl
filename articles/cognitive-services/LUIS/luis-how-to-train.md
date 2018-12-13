@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 9affaaaf38fbba8a374824aeccf70663693e1cb0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ba450258a03fc21a06476a6bdd81dc5a886056de
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092550"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137621"
 ---
-# <a name="train-your-luis-app-version"></a>Uw LUIS-app-versie trainen
+# <a name="train-your-active-version-of-the-luis-app"></a>Trainen van uw actieve versie van de LUIS-app 
 
 Training is het proces van uw app Language Understanding (LUIS) voor het verbeteren van de natuurlijke taal begrijpen lessen. Uw LUIS-app na updates voor het model zoals toevoegen, bewerken, labels of verwijderen van entiteiten, intents of uitingen trainen. 
 

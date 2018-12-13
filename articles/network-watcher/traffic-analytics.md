@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 6999f51482d38245373a8a7a5081a89f1790b669
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0338ffa13d1b141bb40deaf43fd04fe37bfaf5d2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956737"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252091"
 ---
 # <a name="traffic-analytics"></a>Verkeersanalyse
 
@@ -39,11 +39,11 @@ Virtuele netwerken van Azure hebben NSG-stroomlogboeken, waarin u informatie ove
 
 ## <a name="key-components"></a>Belangrijkste onderdelen
 
-- **Netwerkbeveiligingsgroep (NSG)**: bevat een lijst met regels voor toestaan of weigeren van netwerkverkeer naar resources die zijn verbonden met een Azure-netwerk. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager). Zie voor meer informatie, [overzicht van netwerkbeveiligingsgroepen](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network security group (NSG) stroomlogboeken**: kunt u informatie wilt weergeven over inkomende en uitgaande IP-verkeer via een netwerkbeveiligingsgroep. NSG-stroom logboeken zijn geschreven in json-indeling en weergeven van binnenkomende en uitgaande stromen op basis van per regel, dat de NIC van de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, bron-/ doel-poort en protocol) en als het verkeer is toegestaan of is geweigerd. Zie voor meer informatie over NSG-stroomlogboeken [NSG-stroomlogboeken](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: een Azure-service die gegevens verzamelt en de gegevens worden opgeslagen in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API van Azure bevatten. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Bewaking van toepassingen, zoals network performance monitor en verkeer analytics zijn gebouwd met behulp van Log Analytics als basis. Zie voor meer informatie, [Log analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Log analytics-werkruimte**: een exemplaar van log analytics, waar de gegevens die betrekking hebben op een Azure-account is opgeslagen. Zie voor meer informatie over log analytics-werkruimten, [een Log Analytics-werkruimte maken](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network Watcher**: een regionale service waarmee u kunt bewaken en diagnosticeren op netwerkscenarioniveau in Azure. U kunt NSG-stroomlogboeken in- en uitschakelen met Network Watcher inschakelen. Zie voor meer informatie, [Network Watcher](network-watcher-monitoring-overview.md).
+- **Netwerkbeveiligingsgroep (NSG)**: Bevat een lijst met regels voor toestaan of weigeren van netwerkverkeer naar resources die zijn verbonden met een Azure-netwerk. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager). Zie voor meer informatie, [overzicht van netwerkbeveiligingsgroepen](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Network security group (NSG) stroomlogboeken**: Kunt u informatie bekijken over inkomende en uitgaande IP-verkeer via een netwerkbeveiligingsgroep. NSG-stroom logboeken zijn geschreven in json-indeling en weergeven van binnenkomende en uitgaande stromen op basis van per regel, dat de NIC van de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, bron-/ doel-poort en protocol) en als het verkeer is toegestaan of is geweigerd. Zie voor meer informatie over NSG-stroomlogboeken [NSG-stroomlogboeken](network-watcher-nsg-flow-logging-overview.md).
+- **Log Analytics**: Een Azure-service die gegevens verzamelt en de gegevens worden opgeslagen in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API van Azure bevatten. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Bewaking van toepassingen, zoals network performance monitor en verkeer analytics zijn gebouwd met behulp van Log Analytics als basis. Zie voor meer informatie, [Log analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log analytics-werkruimte**: Een instantie van log analytics, waar de gegevens die betrekking hebben op een Azure-account is opgeslagen. Zie voor meer informatie over log analytics-werkruimten, [een Log Analytics-werkruimte maken](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Network Watcher**: Een regionale service waarmee u kunt bewaken en diagnosticeren op netwerkscenarioniveau in Azure. U kunt NSG-stroomlogboeken in- en uitschakelen met Network Watcher inschakelen. Zie voor meer informatie, [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>De werking van traffic analytics
 
@@ -291,9 +291,12 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
     ![Dashboard met daarop virtuele netwerkdistributie](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - De topologie van het virtuele netwerk bevat de bovenste lint voor selectie van parameters, zoals een virtueel netwerk van (Inter virtueel netwerk verbindingen/actief/inactief), externe verbindingen, actieve stromen en schadelijke stromen van het virtuele netwerk.
+- U kunt de virtuele netwerktopologie op basis van abonnementen, werkruimten, resouece groepen en tijdsinterval filteren. Extra filters waarmee u inzicht in de stroom zijn: Flow Type (InterVNet, IntraVNET enzovoort), Flow richting (inkomend, uitgaand), de Status Flow (toegestaan, geblokkeerd) vnet's (doelgroepen en verbonden), verbindingstype (Peering of Gateway - P2S- en S2S) en in de Netwerkbeveiligingsgroep. Deze filters gebruiken om zich te richten op VNets die u wilt onderzoeken in detail.
 - De topologie van het virtuele netwerk bevat de distributie van verkeer naar een virtueel netwerk met betrekking tot stromen (toegestaan/geblokkeerd/Inkomend/uitgaand/Benign/kwaadaardig), toepassingsprotocol en netwerkbeveiligingsgroepen, bijvoorbeeld:
 
     ![Virtuele netwerktopologie verkeer distributie en flow details weergeven](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
+    
+    ![Virtueel netwerk-topologie die laat zien op het hoogste niveau en meer filters](./media/traffic-analytics/virtual-network-filters.png)
 
     ![Stroomgegevens voor de distributie van verkeer voor virtueel netwerk in zoeken in Logboeken](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
