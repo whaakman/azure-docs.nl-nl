@@ -1,31 +1,27 @@
 ---
-title: SSL-beleid configureren op Azure Application Gateway - PowerShell
-description: Deze pagina vindt u instructies voor het configureren van SSL-beleid op Azure Application Gateway
-documentationcenter: na
+title: SSL-beleid configureren in Azure Application Gateway - PowerShell
+description: Dit artikel bevat instructies voor het configureren van SSL-beleid in Azure Application Gateway
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: 4c9ca5cee14603fb39115defc574aa7e956886ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7afa628ea455aa28f1717de8da66b631baeee4f1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232133"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870450"
 ---
-# <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Versies van SSL-beleid configureren en cipher suites in toepassingsgateway
+# <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Versies van SSL-beleid configureren en cipher suites in Application Gateway
 
-Informatie over het configureren van SSL-beleid versies en cipher suites in toepassingsgateway. U kunt kiezen uit een [lijst met vooraf gedefinieerde beleidsregels](#predefined-ssl-policies) die verschillende configuraties van SSL-beleid versies bevatten en coderingssuites ingeschakeld. U hebt ook de mogelijkheid voor het definiëren van een [aangepaste SSL-beleid](#configure-a-custom-ssl-policy) op basis van uw vereisten.
+Informatie over het configureren van SSL-beleid versies en cipher suites in Application Gateway. U kunt kiezen uit een [lijst met vooraf gedefinieerde beleidsregels](#predefined-ssl-policies) die verschillende configuraties van SSL-beleid versies bevatten en coderingssuites ingeschakeld. U hebt ook de mogelijkheid voor het definiëren van een [aangepaste SSL-beleid](#configure-a-custom-ssl-policy) op basis van uw vereisten.
 
 ## <a name="get-available-ssl-options"></a>Ophalen van de beschikbare opties voor SSL
 
-De `Get-AzureRMApplicationGatewayAvailableSslOptions` cmdlet biedt een lijst met beschikbare vooraf gedefinieerde beleidsregels beschikbaar coderingssuites en adresprotocolversies die kunnen worden geconfigureerd. Het volgende voorbeeld toont een voorbeeld van uitvoer van de cmdlet wordt uitgevoerd.
+De `Get-AzureRMApplicationGatewayAvailableSslOptions` cmdlet biedt een overzicht van beschikbare vooraf gedefinieerde beleidsregels beschikbaar coderingssuites en protocolversies die kunnen worden geconfigureerd. Het volgende voorbeeld ziet een voorbeeld van uitvoer van de cmdlet uit te voeren.
 
 ```
 DefaultPolicy: AppGwSslPolicy20150501
@@ -75,9 +71,9 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Lijst met vooraf gedefinieerde SSL-beleid
 
-Er wordt een toepassingsgateway geleverd met drie vooraf gedefinieerde beleidsregels die kunnen worden gebruikt. De `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet haalt deze beleidsregels. Elk beleid heeft een ander protocolversies en coderingssuites die zijn ingeschakeld. Deze vooraf gedefinieerde beleidsregels kunnen worden gebruikt voor het snel een SSL-beleid configureren op de toepassingsgateway van uw. Standaard **AppGwSslPolicy20150501** is geselecteerd als er geen specifieke SSL-beleid is gedefinieerd.
+Application gateway is beschikbaar met drie vooraf gedefinieerde beleid die kunnen worden gebruikt. De `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet deze beleidsregels worden opgehaald. Elk beleid heeft een ander protocolversies en coderingssuites die zijn ingeschakeld. Deze vooraf gedefinieerde beleid kunnen worden gebruikt om snel een SSL-beleid configureren op uw application gateway. Standaard **AppGwSslPolicy20150501** is geselecteerd als er geen specifieke SSL-beleid is gedefinieerd.
 
-De volgende uitvoer is een voorbeeld van een actief `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
+De volgende uitvoer is een voorbeeld van het uitvoeren `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 
 ```
 Name: AppGwSslPolicy20150501
@@ -108,18 +104,19 @@ CipherSuites:
 ...
 ```
 
-## <a name="configure-a-custom-ssl-policy"></a>Een aangepaste SSL-beleid configureren
+## <a name="configure-a-custom-ssl-policy"></a>Een aangepast SSL-beleid configureren
 
-Als een aangepaste SSL-beleid te configureren, geeft u de volgende parameters: PolicyType, MinProtocolVersion CipherSuite en taakverdeling. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway. 
+Als een aangepast SSL-beleid configureren, geeft u de volgende parameters: PolicyType, MinProtocolVersion, -CipherSuite en Application Gateway. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway. 
 
-Het volgende voorbeeld wordt een aangepaste SSL-beleid op een toepassingsgateway. De minimale protocolversie wordt ingesteld op `TLSv1_1` en kunt u de volgende cipher suites:
+Het volgende voorbeeld wordt een aangepast SSL-beleid in een toepassingsgateway. De minimale protocolversie wordt ingesteld op `TLSv1_1` en kunnen de volgende cipher suites:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> Ten minste één coderingssuite in de volgende lijst moet worden geselecteerd bij het configureren van een aangepast beleid voor SSL. Toepassingsgateway maakt gebruik van RSA SHA256-coderingssuites voor het beheer van back-end.
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+> Ten minste één coderingssuite in de volgende lijst moet worden geselecteerd bij het configureren van een aangepast SSL-beleid. Application gateway maakt gebruik van RSA-SHA256-coderingssuites voor back-end management.
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 > * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_RSA_WITH_AES_128_GCM_SHA256
@@ -142,7 +139,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Een toepassingsgateway maken met een vooraf gedefinieerde SSL-beleid
 
-Als een vooraf gedefinieerde SSL-beleid te configureren, geeft u de volgende parameters: PolicyType PolicyName en taakverdeling. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
+Als een vooraf gedefinieerde SSL-beleid te configureren, geeft u de volgende parameters: PolicyType, -PolicyName en Application Gateway. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
 
 Het volgende voorbeeld wordt een nieuwe toepassingsgateway gemaakt met een vooraf gedefinieerde SSL-beleid.
 
@@ -197,11 +194,11 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Bijwerken van een bestaande application gateway met een vooraf gedefinieerde SSL-beleid
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Een bestaande toepassingsgateway met een vooraf gedefinieerde SSL-beleid bijwerken
 
-Als u wilt een aangepast SSL-beleid instellen, de volgende parameters: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, en **ApplicationGateway**. Als u wilt instellen op een vooraf gedefinieerde SSL-beleid, de volgende parameters: **PolicyType**, **PolicyName**, en **ApplicationGateway**. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
+Om een aangepast SSL-beleid, de volgende parameters: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, en **ApplicationGateway**. Om in te stellen van een vooraf gedefinieerde SSL-beleid, de volgende parameters: **PolicyType**, **PolicyName**, en **ApplicationGateway**. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
 
-In het volgende voorbeeld zijn er codevoorbeelden voor aangepast beleid én vooraf gedefinieerd beleid. Verwijder de opmerkingen in het beleid dat u wilt gebruiken.
+Er zijn codevoorbeelden voor zowel vooraf gedefinieerd beleid als aangepast beleid in het volgende voorbeeld. Verwijder de opmerkingen in het beleid dat u wilt gebruiken.
 
 ```powershell
 # You have to change these parameters to match your environment.
@@ -225,4 +222,4 @@ $SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar [Application Gateway omleiding overzicht](application-gateway-redirect-overview.md) voor informatie over het HTTP-verkeer omleiden naar een HTTPS-eindpunt.
+Ga naar [overzicht van Application Gateway redirect](application-gateway-redirect-overview.md) voor meer informatie over HTTP-verkeer omleiden naar een HTTPS-eindpunt.

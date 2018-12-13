@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 379e5503900621381bbc27c6604cc8208cfdb80e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822752"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076454"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking
 
@@ -53,11 +53,17 @@ Alle Batch-account metrische gegevens weergeven:
 
 Om op te halen metrische gegevens via een programma, gebruikt u de Azure Monitor-API's. Zie bijvoorbeeld [ophalen van Azure Monitor metrics met .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
+## <a name="batch-metric-reliability"></a>Metrische betrouwbaarheid van batch
+
+Metrische gegevens zijn bedoeld om te worden gebruikt voor trending en -gegevensanalyse. Levering van metrische gegevens kan niet worden gegarandeerd en is onderhevig aan de out-van-volgorde, verlies van gegevens en/of dupliceren. Met behulp van één gebeurtenissen in waarschuwing of trigger functies wordt niet aanbevolen. Zie de [Batch metrische waarschuwingen](#batch-metric-alerts) sectie voor meer informatie over het instellen van drempelwaarden voor waarschuwingen.
+
+Metrische gegevens worden weergegeven in de afgelopen 3 minuten kunnen nog steeds worden geaggregeerd. Gedurende deze periode, kunnen de metrische waarden worden ondergerapporteerd.
+
 ## <a name="batch-metric-alerts"></a>Batch metrische waarschuwingen
 
-Configureer desgewenst bijna-realtime *metrische waarschuwingen* die wordt geactiveerd wanneer de waarde van een opgegeven metrische gegevens van een drempel die u toewijst overschrijden. De waarschuwing genereert een [melding](../monitoring-and-diagnostics/insights-alerts-portal.md) u kiest u wanneer de waarschuwing is 'geactiveerd' (als de drempelwaarde is overschreden en de waarschuwing voorwaarde wordt voldaan) evenals bij is 'opgelost' (wanneer de drempel voor het opnieuw is overschreden en de voorwaarde is geen meer voldaan aan). 
+Configureer desgewenst bijna-realtime *metrische waarschuwingen* die wordt geactiveerd wanneer de waarde van een opgegeven metrische gegevens van een drempel die u toewijst overschrijden. De waarschuwing genereert een [melding](../monitoring-and-diagnostics/insights-alerts-portal.md) u kiest u wanneer de waarschuwing is 'geactiveerd' (als de drempelwaarde is overschreden en de waarschuwing voorwaarde wordt voldaan) evenals bij is 'opgelost' (wanneer de drempel voor het opnieuw is overschreden en de voorwaarde is geen meer voldaan aan). Waarschuwingen op basis van één gegevenspunten wordt niet aanbevolen omdat metrische gegevens onderworpen aan de out-van-volgorde, verlies van gegevens en/of dupliceren zijn. Waarschuwingen moet het gebruik van de drempelwaarden voor deze inconsistenties.
 
-Bijvoorbeeld, als u wilt een waarschuwing voor metrische gegevens configureren wanneer uw kerngeheugens met lage prioriteit op een bepaald niveau, valt zodat u de samenstelling van uw toepassingen kunt aanpassen.
+Bijvoorbeeld, als u wilt een waarschuwing voor metrische gegevens configureren wanneer uw kerngeheugens met lage prioriteit op een bepaald niveau, valt zodat u de samenstelling van uw toepassingen kunt aanpassen. Het verdient aanbeveling om in te stellen van een periode van meer dan 10 minuten waar waarschuwingen activeren als de gemiddelde met lage prioriteit core-telling onder de drempelwaarde voor de hele periode valt. Het wordt niet aanbevolen om te waarschuwen over een periode van 1-5 minuten, zoals metrische gegevens kunnen nog steeds aggregeren.
 
 Het configureren van een waarschuwing voor metrische gegevens in de portal:
 

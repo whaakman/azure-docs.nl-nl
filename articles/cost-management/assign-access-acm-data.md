@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 55d0d029e8b22833b61ec3232e0027644296ced7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: secdec18
+ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001717"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075638"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Toegang tot gegevens van kostenbeheer toewijzen
 
@@ -64,12 +64,12 @@ Toegang tot de facturering accountbereik is enterprise-beheerder toestemming in 
 1. Meld u aan bij de EA-portal op [ https://ea.azure.com ](https://ea.azure.com) met een enterprise-beheerdersaccount.
 2. Selecteer **beheren** in het linkerdeelvenster.
 3. Op de **inschrijving** tabblad, selecteert u de inschrijving die u wilt beheren.  
-    ![EA-portal](./media/assign-access-acm-data/ea-portal.png)
+    ![Selecteer uw inschrijving in de EA-portal](./media/assign-access-acm-data/ea-portal.png)
 4. Klik op **+ beheerder toevoegen**.
 5. Selecteer het verificatietype en typ de e-mailadres van de gebruiker in het vak beheerder toevoegen.
 6. Als de gebruiker moet alleen-lezen toegang hebben tot gegevens van de kosten en gebruik, onder **alleen-lezen**, selecteer **Ja**.  Selecteer anders **Nee**.
 7. Klik op **toevoegen** om het account te maken.  
-    ![Beheerder toevoegen](./media/assign-access-acm-data/add-admin.png)
+    ![van de voorbeeldinformatie die wordt weergegeven in het vak van de beheerder toevoegen](./media/assign-access-acm-data/add-admin.png)
 
 Het duurt maximaal 30 minuten voordat de nieuwe gebruiker toegang heeft tot gegevens in Cost Management.
 
@@ -85,7 +85,7 @@ Toegang tot het bereik van de afdeling is vereist afdeling beheerderstoegang (ko
 6. Als de gebruiker moet alleen-lezen toegang hebben tot gegevens van de kosten en gebruik, onder **alleen-lezen**, selecteer **Ja**.  Selecteer anders **Nee**.
 7. Selecteer de afdelingen die u wilt een beheerdersmachtiging nodig voor afdeling verlenen.
 8. Klik op **toevoegen** om het account te maken.  
-    ![Vak voor afdeling beheerder toevoegen](./media/assign-access-acm-data/add-depart-admin.png)
+    ![Voer de vereiste gegevens in het vak voor de beheerder afdeling toevoegen](./media/assign-access-acm-data/add-depart-admin.png)
 
 ## <a name="assign-enrollment-account-scope-access"></a>Toegang tot het bereik voor inschrijving toewijzen
 
@@ -99,7 +99,7 @@ Toegang tot het bereik van de account inschrijving vereist account eigenaar (kos
 6. Selecteer het verificatietype en typ de naam van het account.
 7. Typ de e-mailadres van de gebruiker en typt u de kostenplaats (optioneel).
 8. Klik op **toevoegen** om het account te maken.  
-    ![In het account toevoegen](./media/assign-access-acm-data/add-account.png)
+    ![Voer de vereiste gegevens in het account toevoegen voor een inschrijvingsaccount voor](./media/assign-access-acm-data/add-account.png)
 
 Na het voltooien van de bovenstaande stappen het gebruikersaccount dat wordt een voor apparaatregistratie-account in de Enterprise portal en -abonnementen kunt maken. De gebruiker kan toegang tot gegevens van kosten en gebruik voor abonnementen die ze maken.
 
@@ -107,7 +107,7 @@ Na het voltooien van de bovenstaande stappen het gebruikersaccount dat wordt een
 
 Toegang tot een beheerbereik van de groep moet ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen voor een beheergroep configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor de beheergroep die u wilt toegang inschakelen voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
 
-1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 2. Selecteer **alle Services** Zoek in de zijbalk _beheergroepen_en selecteer vervolgens **beheergroepen**.
 3. De beheergroep die u in de hiërarchie selecteren.
 4. Naast de naam van uw beheergroep, klikt u op **Details**.
@@ -117,13 +117,13 @@ Toegang tot een beheerbereik van de groep moet ten minste de machtiging Cost Man
 8. Onder **toegang toewijzen aan**, selecteer **Azure AD-gebruiker, groep of toepassing**.
 9. Toegang toewijzen, zoeken naar en selecteer vervolgens de gebruiker.
 10. Klik op **Opslaan**.  
-    ![Machtigingen toevoegen](./media/assign-access-acm-data/add-permissions.png)
+    ![van de voorbeeldinformatie in het vak toevoegen machtigingen voor een beheergroep](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Abonnement bereik toegang toewijzen
 
 Toegang tot een abonnement vereist ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen voor een abonnement configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor het abonnement om toegang te voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
 
-1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 2. Selecteer **alle Services** Zoek in de zijbalk _abonnementen_en selecteer vervolgens **abonnementen**.
 3. Selecteer uw abonnement.
 4. Selecteer **Access Control (IAM)** in het linkerdeelvenster.
@@ -137,7 +137,7 @@ Toegang tot een abonnement vereist ten minste de machtiging Cost Management Read
 
 Toegang tot een resourcegroep is vereist ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen om een resourcegroep te configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor de resourcegroep voor het inschakelen van toegang voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
 
-1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 2. Selecteer **alle Services** Zoek in de zijbalk _resourcegroepen_en selecteer vervolgens **resourcegroepen**.
 3. Selecteer de resourcegroep.
 4. Selecteer **Access Control (IAM)** in het linkerdeelvenster.

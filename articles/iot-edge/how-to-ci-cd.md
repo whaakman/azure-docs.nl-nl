@@ -1,19 +1,20 @@
 ---
-title: Azure IoT Edge continue integratie en continue implementatie | Microsoft Docs
-description: Overzicht van de continue integratie en continue implementatie voor Azure IoT Edge
+title: Continue integratie en continue implementatie - Azure IoT Edge | Microsoft Docs
+description: Instellen van continue integratie en continue implementatie - Azure IoT Edge met Azure DevOps, Azure-pijplijnen
 author: shizn
-manager: ''
+manager: philmea
 ms.author: xshi
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16dac996f871241b8c9b5e4c1b797d07d79aeb79
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.custom: seodec18
+ms.openlocfilehash: 4db5fce89df0b5974261788608b785cf16917f1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632559"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074791"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie voor Azure IoT Edge
 
@@ -26,7 +27,7 @@ In dit artikel leert u hoe u:
 
 Het duurt 20 minuten om de stappen in dit artikel te voltooien.
 
-![CI en CD](./media/how-to-ci-cd/cd.png)
+![Diagram - CI en CD vertakkingen voor ontwikkeling en productie](./media/how-to-ci-cd/cd.png)
 
 
 ## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Een voorbeeld van Azure IoT Edge-oplossing met behulp van Visual Studio Code maken
@@ -35,7 +36,7 @@ In deze sectie maakt u een voorbeeld van een IoT Edge oplossing met eenheidstest
 
 1. Typ in het opdrachtenpalet van VS Code, en voer de opdracht **Azure IoT Edge: nieuwe IoT-Edge-oplossing**. Selecteer de werkruimtemap van uw, geeft u de oplossingsnaam (de standaardnaam is **EdgeSolution**), en maakt u een C#-Module (**FilterModule**) als de eerste gebruikersmodule in deze oplossing. U moet ook de opslagplaats voor Dockerinstallatiekopieën opgeven voor de eerste module. De standaard-opslagplaats voor installatiekopieën is gebaseerd op een lokale Docker-register (`localhost:5000/filtermodule`). Wijzig deze in Azure Container Registry (`<your container registry address>/filtermodule`) of Docker-Hub voor verdere continue integratie.
 
-    ![ACR instellen](./media/how-to-ci-cd/acr.png)
+    ![Instellen van Azure Container Registry](./media/how-to-ci-cd/acr.png)
 
 2. Het venster VS Code, de werkruimte van uw IoT Edge-oplossing wordt geladen. U kunt eventueel typt en uitvoeren **Azure IoT Edge: toevoegen aan IoT Edge module** om toe te voegen meer modules. Er is een `modules` map, een `.vscode` map en een manifest-sjabloonbestand van de implementatie in de hoofdmap. Alle gebruiker module codes zijn submappen onder de map `modules`. De `deployment.template.json` is het manifest sjabloon voor de implementatie. Sommige van de parameters in dit bestand wordt geparseerd uit de `module.json`, waar zich bevindt in de modulemap voor elke.
 
@@ -52,19 +53,19 @@ In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automat
 
 1. Meld u aan bij uw organisatie Azure DevOps ( **https://dev.azure.com/{your organisatie} /**) en open het project waarin u dit selectievakje is ingeschakeld in de voorbeeld-app.
 
-    ![De code is ingecheckt](./media/how-to-ci-cd/init-project.png)
+    ![Code is ingecheckt aan Azure-pijplijnen](./media/how-to-ci-cd/init-project.png)
 
 1. Open in uw Azure-pijplijnen, de **bouwt** tabblad **+ nieuwe pijplijn**. Of, als u bouwen van pijplijnen al hebt, kiest u de **+ nieuw** knop. Selecteer vervolgens **nieuwe build-pijplijn**.
 
-    ![Nieuwe pijplijn](./media/how-to-ci-cd/add-new-build.png)
+    ![Een nieuwe build-pipeline maken](./media/how-to-ci-cd/add-new-build.png)
 
 1. Als u hierom wordt gevraagd, selecteert u **Azure DevOps Git** het brontype. Selecteer vervolgens het project, de opslagplaats en de vertakking waar uw code zich bevindt. Kies **blijven**.
 
-    ![Git selecteren](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Azure-opslagplaatsen Git selecteren](./media/how-to-ci-cd/select-vsts-git.png)
 
     In **selecteert u een sjabloon** venster, kiest u **beginnen met een lege proces**.
 
-    ![Selecteer een sjabloon](./media/how-to-ci-cd/start-with-empty.png)
+    ![Beginnen met een lege proces](./media/how-to-ci-cd/start-with-empty.png)
 
 1. Kies in de pijplijneditor de agent-pool. 
     
@@ -72,27 +73,27 @@ In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automat
     * Als u maken van de modules in platform amd64 voor Windows-containers wilt, kiest u **VS2017 die worden gehost** 
     * Als u uw modules in platform arm32v7 voor Linux-containers maken wilt, moet u instellen van uw eigen bouwagent door te klikken op de **beheren** knop.
     
-    ![Build-agent configureren](./media/how-to-ci-cd/configure-env.png)
+    ![Build-agentpool configureren](./media/how-to-ci-cd/configure-env.png)
 
 1. In de Agent-taak, klikt u op '+' om toe te voegen drie taken in de build-pijplijn. De eerste twee zijn afkomstig uit **Azure IoT Edge**. En het derde is van **Build-artefacten publiceren**
     
-    ![Taken toevoegen](./media/how-to-ci-cd/add-tasks.png)
+    ![Taken toevoegen aan de build-pijplijn](./media/how-to-ci-cd/add-tasks.png)
 
 1. In de eerste **Azure IoT Edge** taak, bij te werken de **weergavenaam** naar **Azure IoT Edge - Build-module installatiekopieën**, en klik in de **actie** vervolgkeuzelijst in de lijst met **maken van installatiekopieën van de module**. In de **. template.json-bestand** besturingselement, schakelt de **deployment.template.json** -bestand, dat wordt uw IoT Edge-oplossing beschreven. Kies vervolgens **standaard platform**, zorg ervoor dat u hetzelfde platform selecteren als uw IoT Edge-apparaat. Deze taak bouwt alle modules in de oplossing met het doelplatform die u hebt opgegeven. En net zo makkelijk genereren de **deployment.json** -bestand, kunt u het pad naar het vinden in de variabelen voor de uitvoer. De alias ingesteld op `edge` voor deze variabele.
     
-    ![Maken en pushen](./media/how-to-ci-cd/build-and-push.png)
+    ![Build-module installatiekopieën taak configureren](./media/how-to-ci-cd/build-and-push.png)
 
 1. In de tweede **Azure IoT Edge** taak, bij te werken de **weergavenaam** naar **Azure IoT Edge - Push-module installatiekopieën**, en klik in de **actie** vervolgkeuzelijst in de lijst met **module installatiekopieën pushen**. Type Containerregister kiezen, zorg ervoor dat u configureert en selecteert u de dezelfde register in uw code(module.json). In de **. template.json-bestand** besturingselement, schakelt de **deployment.template.json** -bestand, dat wordt uw IoT Edge-oplossing beschreven. Kies vervolgens **standaard platform**, zorg ervoor dat u hetzelfde platform voor de installatiekopieën van de ingebouwde module selecteert. Deze taak kunt u alle installatiekopieën van de module verzenden naar het containerregister dat u hebt geselecteerd. En ook toevoegen container registry-referenties in de **deployment.json** -bestand, kunt u het pad naar het vinden in de variabelen voor de uitvoer. De alias ingesteld op `edge` voor deze variabele. Als u meerdere containerregisters voor het hosten van uw installatiekopieën module hebt, moet u het dupliceren van deze taak, selecteert u andere container registry en gebruiken **overslaan van modules die zijn** in de geavanceerde instellingen om de installatiekopieën die niet voor dit over te slaan specifieke register.
 
-    ![Push](./media/how-to-ci-cd/push.png)
+    ![Push-module installatiekopieën taak configureren](./media/how-to-ci-cd/push.png)
 
 1. In **Build-artefacten publiceren** taak, geeft u de implementatiebestand dat is gegenereerd door de build-taak. Stel de **pad om te publiceren** naar `$(edge.DEPLOYMENT_FILE_PATH)`.
 
-    ![Artefacten publiceren](./media/how-to-ci-cd/publish-build-artifacts.png)
+    ![Configureer artefact taak publiceren](./media/how-to-ci-cd/publish-build-artifacts.png)
 
 1. Open de **Triggers** tabblad en schakelt u de **continue integratie** trigger. Zorg ervoor dat de vertakking met uw code is opgenomen.
 
-    ![Trigger configureren](./media/how-to-ci-cd/configure-trigger.png)
+    ![Trigger continue integratie inschakelen](./media/how-to-ci-cd/configure-trigger.png)
 
     Sla de nieuwe build-pijplijn. Klik op de knop **Opslaan**.
 
@@ -110,7 +111,7 @@ In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het autom
 
 2. Klik de release-pijplijn met één fase zou initialiseren: **fase 1**. Wijzig de naam van de **fase 1** naar **QA** en behandelen als een testomgeving. Deze doorgaans meerdere fasen bestaat, maakt u meer op basis van uw DevOps-praktijken in een pijplijn typische continue implementatie.
 
-    ![Fase maken](./media/how-to-ci-cd/QA-env.png)
+    ![Fase voor test-omgeving maken](./media/how-to-ci-cd/QA-env.png)
 
 3. Koppel de release aan de build-artefacten. Klik op **toevoegen** in het gebied van artefacten.
 
@@ -118,11 +119,11 @@ In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het autom
     
     In **toevoegen van een pagina artefact**, brontype kiezen **bouwen**. Selecteer vervolgens het project en de build-pijplijn die u hebt gemaakt. Klik vervolgens op **toevoegen**.
 
-    ![Een artefact toevoegen](./media/how-to-ci-cd/add-an-artifact.png)
+    ![Een build-artefact toevoegen](./media/how-to-ci-cd/add-an-artifact.png)
 
     Open de trigger voor continue implementatie zodat nieuwe release wordt telkens wanneer die een nieuwe build beschikbaar is worden gemaakt.
 
-    ![Trigger configureren](./media/how-to-ci-cd/add-a-trigger.png)
+    ![Trigger voor continue implementatie configureren](./media/how-to-ci-cd/add-a-trigger.png)
 
 4. Navigeer naar **QA fase** en configureert u de taken in deze fase.
 

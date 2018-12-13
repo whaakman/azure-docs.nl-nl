@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 71a8077f2423dd170d08d540edd307c08ed886cc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165500"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073819"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Geforceerde tunneling met het klassieke implementatiemodel configureren
 
@@ -110,32 +110,35 @@ De stappen wordt de 'DefaultSiteHQ' ingesteld als de standaard-site-verbinding v
 
 1. Maak een routeringstabel. Gebruik de volgende cmdlet om de routetabel te maken.
 
-  ```powershell
-  New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
-  ```
+   ```powershell
+   New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+   ```
+
 2. Een standaard-route toevoegen aan de routeringstabel. 
 
-  Het volgende voorbeeld wordt een standaard-route toegevoegd aan de routeringstabel in stap 1 hebt gemaakt. Houd er rekening mee dat de route alleen wordt ondersteund, is het voorvoegsel voor bestemming '0.0.0.0/0' aan de 'VPN-gateway' volgende hop.
+   Het volgende voorbeeld wordt een standaard-route toegevoegd aan de routeringstabel in stap 1 hebt gemaakt. Houd er rekening mee dat de route alleen wordt ondersteund, is het voorvoegsel voor bestemming '0.0.0.0/0' aan de 'VPN-gateway' volgende hop.
 
-  ```powershell
-  Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
-  ```
+   ```powershell
+   Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+   ```
+
 3. De routeringstabel naar de subnetten koppelen. 
 
-  Nadat een routeringstabel wordt gemaakt en een route toegevoegd, gebruikt u het volgende voorbeeld toe te voegen of de routetabel aan een VNet-subnet koppelen. Het voorbeeld wordt de routetabel 'MyRouteTable' toegevoegd aan het Midtier- en back-end-subnetten van VNet MultiTier-VNet.
+   Nadat een routeringstabel wordt gemaakt en een route toegevoegd, gebruikt u het volgende voorbeeld toe te voegen of de routetabel aan een VNet-subnet koppelen. Het voorbeeld wordt de routetabel 'MyRouteTable' toegevoegd aan het Midtier- en back-end-subnetten van VNet MultiTier-VNet.
 
-  ```powershell
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
-  ```
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+   ```
+
 4. Een standaardsite toewijzen voor geforceerde tunneling. 
 
-  In de vorige stap, de cmdlet voorbeeldscripts gemaakt van de routeringstabel en de routetabel op twee van de VNet-subnetten die zijn gekoppeld. De laatste stap is om te selecteren van een lokale site tussen de verbindingen van meerdere sites van het virtuele netwerk als de standaard-site of -tunnel.
+   In de vorige stap, de cmdlet voorbeeldscripts gemaakt van de routeringstabel en de routetabel op twee van de VNet-subnetten die zijn gekoppeld. De laatste stap is om te selecteren van een lokale site tussen de verbindingen van meerdere sites van het virtuele netwerk als de standaard-site of -tunnel.
 
-  ```powershell
-  $DefaultSite = @("DefaultSiteHQ")
-  Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
-  ```
+   ```powershell
+   $DefaultSite = @("DefaultSiteHQ")
+   Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
+   ```
 
 ## <a name="additional-powershell-cmdlets"></a>Andere PowerShell-cmdlets
 ### <a name="to-delete-a-route-table"></a>Een routetabel verwijderen

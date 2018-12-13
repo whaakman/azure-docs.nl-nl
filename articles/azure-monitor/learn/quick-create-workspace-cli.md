@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 8a015d94304c9b0f9dcfacb24f17af1a19a3d008
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 635e73a9cbff1c7a18f274db09125be19e1c6bb7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975163"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074465"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Een Log Analytics-werkruimte maken met Azure CLI 2.0
 
@@ -32,8 +32,8 @@ De Azure CLI 2.0 wordt gebruikt voor het maken en beheren van Azure-resources va
  
 Zie de volgende onderwerpen voor andere bronnen, zoals Azure-VM's en Windows of Linux-VM's in uw omgeving:
 
-* [Verzamelen van gegevens van virtuele machines van Azure](../../log-analytics/log-analytics-quick-collect-azurevm.md)
-* [Gegevens verzamelen van hybride Linux-computer](../../log-analytics/log-analytics-quick-collect-linux-computer.md)
+* [Verzamelen van gegevens van virtuele machines van Azure](../../azure-monitor/learn/quick-collect-azurevm.md)
+* [Gegevens verzamelen van hybride Linux-computer](../../azure-monitor/learn/quick-collect-linux-computer.md)
 * [Gegevens verzamelen van hybride Windows-computer](quick-collect-windows-computer.md)
 
 Als u geen Azure-abonnement hebt, maakt u [een gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
@@ -129,5 +129,5 @@ Nu dat u een werkruimte beschikbaar hebt, kunt u verzamelen van telemetrie bewak
 
 * Zie voor het inschakelen van verzamelen van gegevens uit Azure-resources met Azure Diagnostics of Azure storage [Azure verzamelen van Logboeken en metrische gegevens voor gebruik in Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
 * Voeg [System Center Operations Manager als een gegevensbron](../../azure-monitor/platform/om-agents.md) voor het verzamelen van gegevens van agents die rapporteren van uw Operations Manager-beheergroep en sla deze op in uw Log Analytics-werkruimte.  
-* Verbinding maken met [Configuration Manager](../../log-analytics/log-analytics-sccm.md) voor het importeren van computers die lid van verzamelingen in de hiërarchie zijn.  
+* Verbinding maken met [Configuration Manager](../../azure-monitor/platform/collect-sccm.md) voor het importeren van computers die lid van verzamelingen in de hiërarchie zijn.  
 * Controleer de [beheeroplossingen](../../azure-monitor/insights/solutions.md) beschikbaar en hoe u kunt toevoegen of verwijderen van een oplossing uit uw werkruimte.

@@ -1,5 +1,6 @@
 ---
-title: Toegang tot gegevens in de gegevensopslag van Azure Machine Learning-service
+title: Toegang tot gegevens in de gegevensopslag
+titleSuffix: Azure Machine Learning service
 description: Het gebruik van gegevensopslag voor toegang tot gegevensopslag tijdens de training met Azure Machine Learning-service
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +11,14 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 50df0647372832647712d514dd9d4651d8d9cc2d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: bce6d636dd80820732d4911c1b24ef00118b594e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014051"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073463"
 ---
-# <a name="how-to-access-data-during-training"></a>Toegang krijgen tot gegevens tijdens de training
+# <a name="access-data-during-training-from-your-datastores"></a>Toegang tot gegevens tijdens de training van uw gegevensopslag
 Een gegevensarchief gebruiken voor toegang tot en interactie met uw gegevens in Azure Machine Learning-werkstromen.
 
 De gegevensopslag is in Azure Machine Learning-service is een abstractie via [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction). Het gegevensarchief kan verwijzen naar een een [Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) container of [Azure-bestandsshare](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) als de onderliggende opslag. 

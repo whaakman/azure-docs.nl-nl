@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Blockchain Workbench-architectuur
 description: Overzicht van Azure Blockchain Workbench-architectuur en de bijbehorende onderdelen.
 services: azure-blockchain
@@ -82,9 +82,9 @@ De opslagconsument neemt berichten van de Service Bus en pusht gegevens naar een
 
 ## <a name="transaction-builder-and-signer"></a>Transactiebuilder en ondertekenaar
 
-Als een bericht op de inbound-berichtenmakelaar naar de blockchain moet worden geschreven, wordt dit door de DLT-consument verwerkt. De DLT-consument is een service die het bericht met metagegevens voor een gewenste transactie ophaalt en vervolgens de informatie naar de transactiebuilder en ondertekenaar verzendt. De transactiebuilder en ondertekenaar assembleert een blockchain-transactie op basis van de gegevens en de gewenste blockchainbestemming. Eenmaal geassembleerd, is de transactie ondertekend. Privésleutels worden opgeslagen in Azure Key Vault.
+Als een bericht op de inbound-berichtenmakelaar naar de blockchain moet worden geschreven, wordt dit door de DLT-consument verwerkt. De DLT-consument is een service die het bericht met metagegevens voor een gewenste transactie ophaalt en vervolgens de informatie naar de transactiebuilder en *ondertekenaar verzendt*. De *transactiebuilder en ondertekenaar* assembleert een blockchain-transactie op basis van de gegevens en de gewenste blockchainbestemming. Eenmaal geassembleerd, is de transactie ondertekend. Privésleutels worden opgeslagen in Azure Key Vault.
 
-Blockchain Workbench haalt de juiste persoonlijke sleutel uit Key Vault en ondertekent de transactie buiten Key Vault. Na ondertekening wordt de transactie verzonden naar transactierouters en grootboeken.
+ Blockchain Workbench haalt de juiste persoonlijke sleutel uit Key Vault en ondertekent de transactie buiten Key Vault. Na ondertekening wordt de transactie verzonden naar transactierouters en grootboeken.
 
 ## <a name="transaction-routers-and-ledgers"></a>Transactie-routers en grootboeken
 
@@ -113,7 +113,7 @@ Blockchain Workbench ondersteunt de mogelijkheid om documenten of andere media-i
 
 ## <a name="monitoring"></a>Bewaking
 
-Workbench biedt logging voor toepassingen met behulp van Application Insights en Azure Monitor. Application Insights wordt gebruikt om alle geregistreerde informatie van Blockchain Workbench op te slaan en bevat foutmeldingen, waarschuwingen en succesvolle bewerkingen. Application Insights kunnen door ontwikkelaars worden gebruikt om problemen met de Blockchain Workbench op te lossen.
+Workbench biedt logging voor toepassingen met behulp van Application Insights en Azure Monitor. Application Insights wordt gebruikt om alle geregistreerde informatie van Blockchain Workbench op te slaan en bevat foutmeldingen, waarschuwingen en succesvolle bewerkingen. Application Insights kunnen door ontwikkelaars worden gebruikt om problemen met de Blockchain Workbench op te lossen. 
 
 Azure Monitor biedt informatie over de status van de blockchain-netwerk. 
 

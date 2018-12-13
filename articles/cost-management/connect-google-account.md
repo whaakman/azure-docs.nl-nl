@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: f0a119bb7a2e18b04caa52319e4908fa5f6241dc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 45d5cee92ce75c2e13f602d1ea6540698ea8abf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000337"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078358"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Verbinding maken met een account van Google Cloud Platform
 
@@ -30,7 +30,7 @@ Begint u met het verzamelen van gegevens over uw project.
 
 1. Aanmelden bij de Google Cloud Platform-console op [ https://console.cloud.google.com ](https://console.cloud.google.com).
 2. Lees de projectinformatie die u voorbereiden naar Cloudyn en noteer wilt de **projectnaam** en de **Project-ID**. De gegevens voor de latere fasen bij de hand te houden.  
-    ![Google Cloud Platform-console](./media/connect-google-account/gcp-console01.png)
+    ![Naam van het project en Project-ID wordt weergegeven in de Google Cloud Platform-console](./media/connect-google-account/gcp-console01.png)
 3. Als u facturering niet is ingeschakeld en is gekoppeld aan uw project, maakt u een factureringsaccount. Zie voor meer informatie, [maken van een nieuwe factureringsaccount](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account).
 
 ## <a name="enable-storage-bucket-billing-export"></a>Opslag bucket facturering exporteren inschakelen
@@ -41,7 +41,7 @@ Google Cloud Storage gebruiken voor het opslaan van rapporten over gebruik leidt
 
 1. Als u facturering exporteren naar een bestand niet hebt ingeschakeld, volgt u de instructies op de [inschakelen facturering exporteren naar een bestand](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file). U kunt de exportindeling van de JSON- of CSV-facturering.
 2. Anders wordt in de Google Cloud Platform-console, Ga naar **facturering** > **facturering export**. Houd er rekening mee uw facturering **Bucketnaam** en **rapport voorvoegsel**.  
-    ![Facturering exporteren](./media/connect-google-account/billing-export.png)
+    ![Facturering export informatie die wordt weergegeven op de pagina voor het exporteren van facturering](./media/connect-google-account/billing-export.png)
 
 ## <a name="enable-google-cloud-platform-apis"></a>Google Cloud Platform-API's inschakelen
 
@@ -69,7 +69,7 @@ Voor het verzamelen van gebruiks-en asset nodig Cloudyn heeft de volgende Google
 4. In **Google-accountnaam**, voer het e-mailadres voor de facturering account en klik vervolgens op **volgende**.
 5. In het dialoogvenster voor Google-verificatie, selecteer of typ een Google-account en vervolgens **toestaan** cloudyn.com toegang tot uw account.
 6. De gegevens van de aanvraag-project toevoegen dat u al vorige die u hebt genoteerd. Dit zijn onder andere **Project-ID**, **Project** naam **facturering** Bucketnaam, en **facturering bestand** voorvoegsel rapport en klik vervolgens op  **Sla**.  
-    ![Google-project toevoegen](./media/connect-google-account/add-project.png)
+    ![Google-project toevoegen aan Cloudyn-account](./media/connect-google-account/add-project.png)
 
 Uw Google-account wordt weergegeven in de lijst van accounts en moet er **geverifieerde**. Klik hieronder moet uw Google-project de naam en ID worden weergegeven en hebben een groen vinkje symbool. Status van de account moet zijn **voltooid**.
 

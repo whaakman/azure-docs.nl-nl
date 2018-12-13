@@ -1,6 +1,6 @@
 ---
-title: Schema-triggers maken in Azure Data Factory | Microsoft Docs
-description: Informatie over het maken van een trigger in Azure Data Factory die een pijplijn volgens een planning wordt uitgevoerd.
+title: Schematriggers maken in Azure Data Factory | Microsoft Docs
+description: Informatie over het maken van een trigger in Azure Data Factory die een pijplijn volgens een schema wordt uitgevoerd.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f6b7764bf994079f7f3ef9e6243720da0d2f4a28
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054347"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868222"
 ---
-# <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Een trigger die volgens een schema uitgevoerd van een pijplijn maken
-Dit artikel bevat informatie over de trigger schema en de stappen voor het maken, start en controleren van een schema-trigger. Zie voor andere soorten triggers [Pipeline-uitvoering en triggers](concepts-pipeline-execution-triggers.md).
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Maken van een trigger die een pijplijn volgens een schema wordt uitgevoerd
+In dit artikel bevat informatie over schematriggers en de stappen voor het maken, starten en controleren van een planningstrigger. Zie voor andere soorten triggers, [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md).
 
-Wanneer u de trigger van een planning maakt, u een planning opgeven (de begindatum, terugkeerpatroon, einddatum enz.) voor de trigger en koppelen met een pipeline. Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen één pijplijn activeren. Eén trigger kan meerdere pijplijnen activeren.
+Wanneer u een schematrigger maakt, u een planning opgeven (de begindatum, terugkeerpatroon, datum enz.) voor de trigger en koppelen met een pijplijn. Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen één pijplijn activeren. Eén trigger kan meerdere pijplijnen activeren.
 
-De volgende secties bieden stappen voor het maken van een schema-trigger op verschillende manieren. 
+De volgende secties bieden stappen voor het maken van een schematrigger op verschillende manieren. 
 
 ## <a name="data-factory-ui"></a>Gebruikersinterface van Data Factory
-Kunt u een **planning trigger** plannen van een pijplijn periodiek wordt uitgevoerd (elk uur, dagelijks, enzovoort). 
+U kunt maken een **schematrigger** voor het plannen van een pijplijn periodiek wordt uitgevoerd (elk uur, dagelijks, enzovoort). 
 
 > [!NOTE]
-> Zie voor een volledige procedure voor het maken van een pijplijn en een schema worden geactiveerd, de trigger koppelen aan de pijplijn, en de uitgevoerd en de pijplijn bewaken [Snelstartgids: Maak een gegevensfactory met behulp van Data Factory-gebruikersinterface](quickstart-create-data-factory-portal.md).
+> Zie voor een volledige procedure voor het maken van een pijplijn en een planningstrigger, koppelt de trigger de pijplijn, en wordt uitgevoerd en bewaking van de pijplijn [Snelstartgids: een data factory maken met Data Factory-UI](quickstart-create-data-factory-portal.md).
 
 1. Ga naar het tabblad **Bewerken**. 
 
@@ -42,24 +42,24 @@ Kunt u een **planning trigger** plannen van een pijplijn periodiek wordt uitgevo
 2. Klik op de pagina **Triggers toevoegen** op **Trigger kiezen...** , en klik op **Nieuw**. 
 
     ![Triggers toevoegen - nieuwe trigger](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
-3. In de **nieuwe Trigger** pagina, voert u de volgende stappen uit: 
+3. In de **nieuwe Trigger** pagina, de volgende stappen uit: 
 
     1. Bevestig dat **planning** is geselecteerd voor **Type**. 
-    2. Geef de begindatum/tijd van de trigger voor **Start datum (UTC)**. Dit standaard ingesteld op de huidige datum/tijd. 
-    3. Geef **terugkeerpatroon** voor de trigger. Selecteer een van de waarden in de vervolgkeuzelijst (elke minuut, uur, dagelijks, wekelijks, en maandelijks). De vermenigvuldigingsfactor invoeren in het tekstvak. Bijvoorbeeld, als u wilt dat de trigger wordt eenmaal uitvoeren voor elke 15 minuten, u **elke minuut**, en voer **15** in het tekstvak. 
-    4. Voor de **End** veld, als u niet wilt opgeven van een einddatum/tijd voor de trigger, selecteer **Nee End**. Als u een end datum / tijd, schakelt u **op datum**, geef de einddatum/tijd en klikt u op **toepassen**. Er zijn kosten gekoppeld aan elke uitvoering van de pijplijn. Als u testen wilt, kunt u om ervoor te zorgen dat de pijplijn wordt geactiveerd slechts een paar keer. Zorg er echter wel voor dat er voldoende tijd is om de pijplijn uit te voeren tussen de publicatietijd en de eindtijd. De trigger gaat pas van kracht nadat u de oplossing hebt gepubliceerd in Data Factory, niet wanneer u de trigger opslaat in de UI.
+    2. Geef de begindatum/tijd van de trigger voor **Start datum (UTC)**. Deze wordt standaard ingesteld op de huidige datum/tijd. 
+    3. Geef **terugkeerpatroon** voor de trigger. Selecteer een van de waarden in de vervolgkeuzelijst (elke minuut, uur, dagelijks, wekelijks, en maandelijks). Voer de vermenigvuldiger in het tekstvak in. Bijvoorbeeld, als u wilt dat de trigger eenmaal voor elke 15 minuten wordt uitgevoerd, u **elke minuut**, en voer **15** in het tekstvak in. 
+    4. Voor de **End** veld, als u niet wilt opgeven van een datum en tijd voor de trigger, selecteer **geen End**. Als u een end datum en tijd, schakelt u **op datum**, en geef de datum en tijd en klikt u op **toepassen**. Er zijn kosten gekoppeld aan elke uitvoering van de pijplijn. Als u testen wilt, kunt u om ervoor te zorgen dat de pijplijn wordt geactiveerd slechts een paar keer. Zorg er echter wel voor dat er voldoende tijd is om de pijplijn uit te voeren tussen de publicatietijd en de eindtijd. De trigger gaat pas van kracht nadat u de oplossing hebt gepubliceerd in Data Factory, niet wanneer u de trigger opslaat in de UI.
 
         ![Triggerinstellingen](./media/how-to-create-schedule-trigger/trigger-settings.png)
-4. In de **nieuwe Trigger** venster, Controleer de **geactiveerd** optie en klik op **volgende**. Dit selectievakje kunt u later de trigger deactiveren. 
+4. In de **nieuwe Trigger** venster, Controleer de **geactiveerd** optie en klik op **volgende**. U kunt dit selectievakje in voor het deactiveren van de trigger later gebruiken. 
 
     ![Triggerinstellingen - knop Volgende](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
 5. Lees op de pagina **Nieuwe trigger** de waarschuwing en klik op **Voltooien**.
 
     ![Triggerinstellingen - knop Voltooien](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
-6. Klik op **Publiceren** om wijzigingen te publiceren in Data Factory. Totdat u de wijzigingen naar Data Factory publiceert, start de trigger niet activering van de pijplijn wordt uitgevoerd. 
+6. Klik op **Publiceren** om wijzigingen te publiceren in Data Factory. Totdat u de wijzigingen naar Data Factory publiceert, start de trigger niet activeren van de pijplijn wordt uitgevoerd. 
 
     ![De knop Publiceren](./media/how-to-create-schedule-trigger/publish-2.png)
-8. Ga naar het tabblad **Controleren** aan de linkerkant. Klik op **Vernieuwen** om de lijst te vernieuwen. U ziet in dat de pijplijn wordt uitgevoerd door de geplande gebeurtenis geactiveerd. Bekijk de waarden in de kolom **Geactiveerd door**. Als u **Trigger nu** optie, ziet u de handmatige trigger uitvoeren in de lijst. 
+8. Ga naar het tabblad **Controleren** aan de linkerkant. Klik op **Vernieuwen** om de lijst te vernieuwen. U ziet dat de pijplijn wordt geactiveerd door de geplande trigger uitgevoerd. Bekijk de waarden in de kolom **Geactiveerd door**. Als u **nu activeren** optie, ziet u de handmatige triggeruitvoering in de lijst. 
 
     ![Geactiveerde uitvoeringen controleren](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 9. Klik op de pijl-omlaag naast **Pijplijnuitvoeringen** om naar de weergave **Triggeruitvoeringen** te gaan. 
@@ -67,12 +67,12 @@ Kunt u een **planning trigger** plannen van een pijplijn periodiek wordt uitgevo
     ![Triggeruitvoeringen controleren](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Deze sectie wordt beschreven hoe u Azure PowerShell gebruiken voor het maken, start en controleren van een schema-trigger. In dit voorbeeld werken eerst Ga via de [Snelstartgids: Maak een gegevensfactory met Azure PowerShell](quickstart-create-data-factory-powershell.md). Voeg de volgende code aan de belangrijkste methode, die zijn gemaakt en gestart van een trigger planning die wordt uitgevoerd om de 15 minuten. De trigger wordt gekoppeld aan een pijplijn met de naam **Adfv2QuickStartPipeline** die u maakt als onderdeel van de Quick Start.
+Deze sectie leest u hoe u Azure PowerShell gebruiken om te maken, starten en controleren van een planningstrigger. In dit voorbeeld werken eerst Ga via de [Snelstartgids: een data factory maken met behulp van Azure PowerShell](quickstart-create-data-factory-powershell.md). Voeg de volgende code aan de belangrijkste methode, die wordt gemaakt en een planningstrigger die wordt uitgevoerd om de 15 minuten wordt gestart. De trigger is gekoppeld aan een pijplijn met de naam **Adfv2QuickStartPipeline** die u maakt als onderdeel van de Quick Start.
 
 1. Maak een JSON-bestand met de naam **MyTrigger.json** in de map C:\ADFv2QuickStartPSH\ met de volgende inhoud:
 
     > [!IMPORTANT]
-    > Voordat u het JSON-bestand opslaan, stel de waarde van de **startTime** element in de huidige UTC-tijd. Stel de waarde van de **endTime** element aan één uur na de huidige UTC-tijd.
+    > Voordat u het JSON-bestand opslaat, stel de waarde van de **startTime** element op de huidige UTC-tijd. Stel de waarde van de **endTime** element naar één uur na de huidige UTC-tijd.
 
     ```json   
     {
@@ -102,14 +102,14 @@ Deze sectie wordt beschreven hoe u Azure PowerShell gebruiken voor het maken, st
     }
     ```
 
-    In het JSON-fragment:
-    - De **type** element van de trigger is ingesteld op 'ScheduleTrigger'.
-    - De **frequentie** element is ingesteld op 'Minuut' en de **interval** element is ingesteld op 15. De trigger voert de pijplijn daarom om de 15 minuten tussen de begin- en eindtijden.
-    - De **endTime** -element is één uur nadat de waarde van de **startTime** element. De trigger voert de pijplijn daarom 15 minuten, 30 minuten en 45 minuten na de begintijd. Vergeet niet bijwerken van de begintijd voor de huidige UTC-tijd en de eindtijd aan één uur na de begintijd. 
-    - De trigger is gekoppeld aan de **Adfv2QuickStartPipeline** pijplijn. Als u wilt meerdere pijplijnen koppelen aan een trigger, meer toevoegen **pipelineReference** secties.
-    - De pijplijn in de Quick Start heeft twee **parameters** waarden: **inputPath** en **outputPath**. U kunt daarom waarden voor deze parameters doorgeven van de trigger.
+    In de JSON-fragment:
+    - De **type** element van de trigger is ingesteld op "ScheduleTrigger."
+    - De **frequentie** element is ingesteld op 'Minuut' en de **interval** element is ingesteld op 15. Daarom voert de trigger de pijplijn om de 15 minuten tussen de begin- en eindtijden.
+    - De **endTime** -element is één uur na de waarde van de **startTime** element. Daarom voert de trigger de pijplijn 15 minuten, 30 minuten en 45 minuten na de begintijd vallen. Vergeet niet om bij te werken van de begintijd voor de huidige UTC-tijd en de eindtijd op één uur na de begintijd. 
+    - De trigger is gekoppeld aan de **Adfv2QuickStartPipeline** pijplijn. Als u wilt koppelen meerdere pijplijnen met een trigger, meer toevoegen **pipelineReference** secties.
+    - De pijplijn in de Quick Start worden twee **parameters** waarden: **inputPath** en **outputPath**. Daarom geeft u de waarden voor deze parameters van de trigger.
 
-2. Geen trigger maken met behulp van de **Set AzureRmDataFactoryV2Trigger** cmdlet:
+2. Een trigger maken met behulp van de **Set-AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
@@ -121,7 +121,7 @@ Deze sectie wordt beschreven hoe u Azure PowerShell gebruiken voor het maken, st
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. De trigger wordt gestart via de **Start AzureRmDataFactoryV2Trigger** cmdlet:
+4. Start de trigger met behulp van de **Start-AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
@@ -133,19 +133,19 @@ Deze sectie wordt beschreven hoe u Azure PowerShell gebruiken voor het maken, st
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Get-de trigger wordt uitgevoerd in Azure PowerShell met behulp van de **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. Als u de informatie over de trigger wordt uitgevoerd, moet u de volgende opdracht periodiek uitvoeren. Update de **TriggerRunStartedAfter** en **TriggerRunStartedBefore** in overeenstemming met de waarden in de definitie van de trigger:
+6.  Ontvang de trigger wordt uitgevoerd in Azure PowerShell met behulp van de **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. Als u de informatie over de trigger wordt uitgevoerd, moet u de volgende opdracht periodiek uitvoeren. Update de **TriggerRunStartedAfter** en **TriggerRunStartedBefore** waarden zodat deze overeenkomen met de waarden in de Triggerdefinitie van de:
 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
-    Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd in de Azure portal, Zie [pijplijn bewaken wordt uitgevoerd](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+    Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd in Azure portal, Zie [pijplijnuitvoeringen controleren](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 
 ## <a name="net-sdk"></a>.NET SDK
-Deze sectie wordt beschreven hoe u met de .NET SDK maakt, starten en controleren van een trigger. In dit voorbeeld werken eerst Ga via de [Snelstartgids: Maak een gegevensfactory met behulp van de .NET SDK](quickstart-create-data-factory-dot-net.md). Voeg de volgende code aan de belangrijkste methode, die zijn gemaakt en gestart van een trigger planning die wordt uitgevoerd om de 15 minuten. De trigger wordt gekoppeld aan een pijplijn met de naam **Adfv2QuickStartPipeline** die u maakt als onderdeel van de Quick Start.
+Deze sectie leest u hoe u de .NET SDK gebruiken om te maken, starten en controleren van een trigger. In dit voorbeeld werken eerst Ga via de [Snelstartgids: een data factory maken met behulp van de .NET SDK](quickstart-create-data-factory-dot-net.md). Voeg de volgende code aan de belangrijkste methode, die wordt gemaakt en een planningstrigger die wordt uitgevoerd om de 15 minuten wordt gestart. De trigger is gekoppeld aan een pijplijn met de naam **Adfv2QuickStartPipeline** die u maakt als onderdeel van de Quick Start.
 
-Als u wilt maken en starten van een trigger planning die wordt uitgevoerd om de 15 minuten, voeg de volgende code aan de belangrijkste methode:
+Als u wilt maken en starten van een planningstrigger die elk kwartier wordt uitgevoerd, voeg de volgende code toe aan de belangrijkste methode:
 
 ```csharp
             // Create the trigger
@@ -195,7 +195,7 @@ Als u wilt maken en starten van een trigger planning die wordt uitgevoerd om de 
             client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
 ```
 
-Voor het bewaken van een trigger worden uitgevoerd, voeg de volgende code voordat de laatste `Console.WriteLine` instructie in de steekproef:
+Voor het controleren van uitvoering van een trigger, voeg de volgende code vóór de laatste `Console.WriteLine` -instructie in het voorbeeld:
 
 ```csharp
             // Check that the trigger runs every 15 minutes
@@ -219,11 +219,11 @@ Voor het bewaken van een trigger worden uitgevoerd, voeg de volgende code voorda
             }
 ```
 
-Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd in de Azure portal, Zie [pijplijn bewaken wordt uitgevoerd](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd in Azure portal, Zie [pijplijnuitvoeringen controleren](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 
 ## <a name="python-sdk"></a>Python-SDK
-Deze sectie wordt beschreven hoe u met de SDK voor Python maken, te starten en te bewaken van een trigger. In dit voorbeeld werken eerst Ga via de [Snelstartgids: Maak een gegevensfactory met behulp van de SDK voor Python](quickstart-create-data-factory-python.md). Vervolgens voegt u het volgende codeblok na het codeblok 'bewaken de pijplijn uitvoeren' in het Python-script. Deze code maakt een trigger planning die wordt uitgevoerd om de 15 minuten tussen de opgegeven start- en eindtijd. Update de **start_time** variabele in de huidige UTC-tijd en de **end_time** variabele aan één uur na de huidige UTC-tijd.
+Deze sectie leest u hoe u de Python SDK gebruikt om te maken, starten en controleren van een trigger. In dit voorbeeld werken eerst Ga via de [Snelstartgids: een data factory maken met behulp van de Python-SDK](quickstart-create-data-factory-python.md). Vervolgens voegt u het volgende codeblok na het codeblok "de pijplijnuitvoering controleren" in het Python-script. Deze code maakt een planningstrigger die wordt uitgevoerd om de 15 minuten tussen de opgegeven begintijd en eindtijd ervan. Update de **start_time** variabele op de huidige UTC-tijd, en de **end_time** variabele naar één uur na de huidige UTC-tijd.
 
 ```python
     # Create a trigger
@@ -240,13 +240,13 @@ Deze sectie wordt beschreven hoe u met de SDK voor Python maken, te starten en t
     adf_client.triggers.start(rg_name, df_name, tr_name)
 ```
 
-Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd in de Azure portal, Zie [pijplijn bewaken wordt uitgevoerd](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd in Azure portal, Zie [pijplijnuitvoeringen controleren](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
-Een Azure Resource Manager-sjabloon kunt u geen trigger maken. Zie voor stapsgewijze instructies [maken van een Azure data factory met Resource Manager-sjabloon](quickstart-create-data-factory-resource-manager-template.md).  
+U kunt een Azure Resource Manager-sjabloon gebruiken om te maken van een trigger. Zie voor stapsgewijze instructies [een Azure data factory maken met behulp van Resource Manager-sjabloon](quickstart-create-data-factory-resource-manager-template.md).  
 
-## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>De begintijd van de trigger doorgeven aan een pijplijn
-Azure Data Factory versie 1 ondersteunt lezen of schrijven van gepartitioneerde gegevens met behulp van de systeemvariabelen: **SliceStart**, **SliceEnd**, **WindowStart**, en **WindowEnd**. U kunt dit gedrag met behulp van een pipeline-parameter bereiken in de huidige versie van Azure Data Factory. De begintijd en de geplande tijd voor de trigger worden ingesteld als de waarde voor de pipeline-parameter. In het volgende voorbeeld wordt de geplande tijd voor de trigger is doorgegeven als een waarde voor de pijplijn **scheduledRunTime** parameter:
+## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>De begintijd van trigger doorgeven aan een pijplijn
+Azure Data Factory versie 1 ondersteunt lezen of schrijven van gepartitioneerde gegevens met behulp van de systeemvariabelen: **SliceStart**, **SliceEnd**, **WindowStart**, en **WindowEnd**. In de huidige versie van Azure Data Factory, kunt u dit gedrag bewerkstelligen met behulp van een pijplijnparameter. De begintijd en de geplande tijd voor de trigger zijn ingesteld als de waarde voor de pijplijnparameter. In het volgende voorbeeld wordt de geplande tijd voor de trigger wordt doorgegeven als een waarde aan de pijplijn **scheduledRunTime** parameter:
 
 ```json
 "parameters": {
@@ -254,10 +254,10 @@ Azure Data Factory versie 1 ondersteunt lezen of schrijven van gepartitioneerde 
 }
 ```    
 
-Voor meer informatie, Zie de instructies in [het lezen of schrijven gepartitioneerd gegevens](how-to-read-write-partitioned-data.md).
+Zie voor meer informatie de instructies in [lezen of schrijven gegevens gepartitioneerd](how-to-read-write-partitioned-data.md).
 
 ## <a name="json-schema"></a>JSON-schema
-De volgende JSON-definitie laat zien hoe u een trigger schema maken met plannen en het terugkeerpatroon:
+De volgende JSON-definitie wordt beschreven hoe u een planningstrigger maken met het schema en een terugkeerpatroon:
 
 ```json
 {
@@ -275,7 +275,7 @@ De volgende JSON-definitie laat zien hoe u een trigger schema maken met plannen 
           "weekDays": : [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
-          "monthlyOccurences": [
+          "monthlyOccurrences": [
                {
                     "day": <<Monday-Sunday>>,
                     "occurrence": <<1-5>>
@@ -315,7 +315,7 @@ De volgende tabel bevat een overzicht van de belangrijkste schema-elementen die 
 | **startTime** | Een datum/tijdwaarde. Voor eenvoudige schema's is de waarde **startTime** van toepassing op de eerste gebeurtenis. In complexe schema's begint de trigger niet eerder dan de opgegeven waarde voor **startTime**. |
 | **endTime** | De einddatum en -tijd voor de trigger. De trigger wordt na de opgegeven einddatum en -tijd niet uitgevoerd. De waarde voor de eigenschap kan niet in het verleden liggen. Deze eigenschap is optioneel. |
 | **timeZone** | De tijdzone. Momenteel wordt alleen de tijdzone UTC ondersteund. |
-| **recurrence** | Een recurrence-object bepaalt de regels voor het terugkeerpatroon van de trigger. Het terugkeerpatroon object ondersteunt de **frequentie**, **interva**l, **endTime**, **aantal**, en **planning**elementen. Als een recurrence-object wordt gedefinieerd, is het element **frequency** vereist. De overige elementen van het recurrence-object zijn optioneel. |
+| **recurrence** | Een recurrence-object bepaalt de regels voor het terugkeerpatroon van de trigger. Het recurrence-object ondersteunt de elementen **frequency**, **interval**, **endTime**, **count** en **schedule**. Als een recurrence-object wordt gedefinieerd, is het element **frequency** vereist. De overige elementen van het recurrence-object zijn optioneel. |
 | **frequency** | Hiermee geeft u de frequentie aan waarmee de trigger wordt uitgevoerd. De ondersteunde waarden omvatten 'minuut', 'uur', 'dag', 'week' en 'maand'. |
 | **interval** | Een positief geheel getal dat het interval voor de waarde **frequency** aangeeft. Het bepaalt hoe vaak de trigger wordt uitgevoerd. Als **interval** bijvoorbeeld 3 is en **frequency** 'week', dan wordt de trigger elke 3 weken uitgevoerd. |
 | **schedule** | Het terugkeerschema voor de trigger. Een trigger met een opgegeven waarde voor **frequency** wijzigt het terugkeerpatroon op basis van een terugkeerschema. De eigenschap **property** bevat wijzigingen voor het terugkeerpatroon en zijn gebaseerd op minuten, uren, weekdagen, maanddagen en weeknummer.
@@ -362,7 +362,7 @@ In de volgende tabel worden de **schedule**-elementen in detail beschreven:
 | **minutes** | Minuten van het uur waarop de trigger wordt uitgevoerd. | <ul><li>Geheel getal</li><li>Matrix van gehele getallen</li></ul>
 | **hours** | Uren van de dag waarop de trigger wordt uitgevoerd. | <ul><li>Geheel getal</li><li>Matrix van gehele getallen</li></ul> |
 | **weekDays** | Dagen van de week waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een weekfrequentie. | <ul><li>Maandag, dinsdag, woensdag, donderdag, vrijdag, zaterdag, zondag</li><li>Array met dagwaarden (maximale grootte van de array is 7)</li><li>Dagwaarden zijn niet hoofdlettergevoelig</li></ul> |
-| **monthlyOccurrences** | Dagen van de maand waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een maandfrequentie. | <ul><li>Array met **monthlyOccurence**-objecten: `{ "day": day,  "occurrence": occurence }`.</li><li>Het attribuut **day** is de dag van de week waarop de trigger wordt uitgevoerd. Zo betekent de eigenschap **monthlyOccurrences** met een waarde **day** van `{Sunday}` dat er elke zondag van de maand een uitvoering is. Het attribuut **day** is verplicht.</li><li>Het attribuut **occurrence** slaat op het uitvoeren van de trigger op de opgegeven dag, **day**, tijdens de maand. Zo betekent de eigenschap **monthlyOccurrences** met de waarden **day** en **occurrence** van `{Sunday, -1}` dat er elke laatste zondag van de maand een uitvoering is. Het attribuut **occurrence** is optioneel.</li></ul> |
+| **monthlyOccurrences** | Dagen van de maand waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een maandfrequentie. | <ul><li>Matrix van **monthlyOccurrence** objecten: `{ "day": day,  "occurrence": occurrence }`.</li><li>Het attribuut **day** is de dag van de week waarop de trigger wordt uitgevoerd. Zo betekent de eigenschap **monthlyOccurrences** met een waarde **day** van `{Sunday}` dat er elke zondag van de maand een uitvoering is. Het attribuut **day** is verplicht.</li><li>Het attribuut **occurrence** slaat op het uitvoeren van de trigger op de opgegeven dag, **day**, tijdens de maand. Zo betekent de eigenschap **monthlyOccurrences** met de waarden **day** en **occurrence** van `{Sunday, -1}` dat er elke laatste zondag van de maand een uitvoering is. Het attribuut **occurrence** is optioneel.</li></ul> |
 | **monthDays** | Dagen van de maand waarop de trigger wordt uitgevoerd. De waarde kan alleen worden opgegeven met een maandfrequentie. | <ul><li>Alle waarden < = -1 en > =-31</li><li>Alle waarden > = -1 en < =-31</li><li>Array met waarden</li></ul> |
 
 
@@ -402,4 +402,4 @@ In het voorbeeld wordt ervan uitgegaan dat de waarde **interval** 1 is en de waa
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor gedetailleerde informatie over triggers [Pipeline-uitvoering en triggers](concepts-pipeline-execution-triggers.md#triggers).
+Zie voor meer informatie over triggers [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md#triggers).

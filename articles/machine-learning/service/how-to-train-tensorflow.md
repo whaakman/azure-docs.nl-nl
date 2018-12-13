@@ -1,6 +1,5 @@
 ---
-title: Trainen van modellen met TensorFlow
-titleSuffix: Azure Machine Learning service
+title: TensorFlow-modellen met Azure Machine Learning te trainen
 description: Meer informatie over het uitvoeren van één knooppunt en gedistribueerde modellen TensorFlow-training met de TensorFlow estimator
 services: machine-learning
 ms.service: machine-learning
@@ -10,15 +9,14 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec18
-ms.openlocfilehash: d15d3ed115009ad1395a85d36e833d85197d4d19
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: 5746180b894da265dfc02176c13b5f9b60f4df96
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094102"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872778"
 ---
-# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>TensorFlow-modellen met Azure Machine Learning-service trainen
+# <a name="how-to-train-tensorflow-models"></a>Hoe TensorFlow modellen kunt trainen
 
 Azure Machine Learning biedt voor deep neural network (DNN) training over het gebruik van TensorFlow, een aangepaste `TensorFlow` klasse van de `Estimator`. De Azure SDK `TensorFlow` estimator (niet te worden conflated met de [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klasse) kunt u eenvoudig TensorFlow-trainingstaken voor één knooppunt en het gedistribueerde wordt uitgevoerd op Azure-rekenen indienen.
 
@@ -45,7 +43,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 
 Hier geeft u de volgende parameters voor de TensorFlow-constructor:
 
-Parameter | Description
+Parameter | Beschrijving
 --|--
 `source_directory` | Lokale map waarin alle uw code die nodig zijn voor de trainingstaak. Deze map wordt op uw lokale machine gekopieerd naar de externe compute
 `script_params` | Woordenlijst voor de opdrachtregelargumenten voor uw trainingsscript op te geven `entry_script`, in de vorm van < opdrachtregelargument, waarde > paren
@@ -88,7 +86,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 
 De bovenstaande code wordt aangegeven dat de volgende nieuwe parameters voor de TensorFlow-constructor:
 
-Parameter | Description | Standaard
+Parameter | Beschrijving | Standaard
 --|--|--
 `node_count` | Het aantal knooppunten moet worden gebruikt voor de trainingstaak. | `1`
 `process_count_per_node` | Het aantal processen (of 'werknemers') om uit te voeren op elk knooppunt.|`1`
@@ -129,7 +127,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 
 Let op de volgende parameters voor de TensorFlow-constructor in de bovenstaande code:
 
-Parameter | Description | Standaard
+Parameter | Beschrijving | Standaard
 --|--|--
 `worker_count` | Het aantal werknemers. | `1`
 `parameter_server_count` | Het aantal parameter-servers. | `1`

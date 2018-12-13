@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457052"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082643"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -128,7 +128,7 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
 
 ### <a name="syntax-details"></a>Syntaxis van de details
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van een kopieeractiviteit moet worden ingesteld op: **kopiëren** | Ja |
 | invoer | Geef op de gegevensset die u hebt gemaakt die verwijst naar de brongegevens. Kopieeractiviteit ondersteunt alleen een één invoer. | Ja |
@@ -168,11 +168,12 @@ Klik op de '**Details**' koppeling onder **acties** om te zien van de kopieeract
 
 Details van uitvoering van activiteit kopiëren en prestatiekenmerken worden ook geretourneerd in de Kopieeractiviteit uitvoering uitvoer sectie ->. Hieronder vindt u een volledige lijst. alleen van toepassing die op uw scenario kopiëren worden weergegeven. Informatie over het bewaken van de uitvoering van activiteiten [snelstartgids sectie bewaking](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
-| Naam van eigenschap  | Beschrijving | Eenheid |
+| Naam van eigenschap  | Description | Eenheid |
 |:--- |:--- |:--- |
 | DataRead | Grootte van de gegevens lezen van bron | Waarde voor Int64 in **bytes** |
 | Datawritten door | Grootte van gegevens naar een sink geschreven | Waarde voor Int64 in **bytes** |
 | filesRead | Het aantal bestanden die bij het kopiëren van gegevens uit de opslag van bestanden worden gekopieerd. | Waarde voor Int64 (geen unit) |
+| fileScanned | Het aantal bestanden worden gescand van de bron van file storage. | Waarde voor Int64 (geen unit) |
 | filesWritten | Het aantal bestanden die bij het kopiëren van gegevens met file storage worden gekopieerd. | Waarde voor Int64 (geen unit) |
 | rowsCopied | Het aantal rijen (niet van toepassing voor binaire kopie) wordt gekopieerd. | Waarde voor Int64 (geen unit) |
 | rowsSkipped | Het aantal niet-compatibele rijen wordt overgeslagen. U kunt de functie inschakelen door de set 'enableSkipIncompatibleRow' op ' True '. | Waarde voor Int64 (geen unit) |

@@ -1,21 +1,22 @@
 ---
-title: Over Azure ExpressRoute-gateways voor virtueel netwerk | Microsoft Docs
-description: Meer informatie over virtuele netwerkgateways voor ExpressRoute.
+title: Over ExpressRoute-gateways voor virtueel netwerk - Azure | Microsoft Docs
+description: Meer informatie over virtuele netwerkgateways voor ExpressRoute. In dit artikel bevat informatie over gateway-SKU's en -typen.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: mialdrid
-ms.openlocfilehash: df0d9c91d1d4f120f934c7375d0c517e3869834e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: dcae78e507597ae2b7f79cc1d6cbb326ee535696
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684763"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076590"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Virtuele netwerkgateways voor ExpressRoute
-Een virtuele netwerkgateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties. U kunt een virtuele netwerkgateway voor verkeer van ExpressRoute of VPN-verkeer. In dit artikel richt zich op de virtuele netwerkgateways voor ExpressRoute.
+Een virtuele netwerkgateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties. U kunt een virtuele netwerkgateway voor verkeer van ExpressRoute of VPN-verkeer. In dit artikel is gericht op de virtuele netwerkgateways voor ExpressRoute en bevat informatie over SKU's en de geschatte prestaties per SKU en gatewaytypen.
 
 ## <a name="gateway-types"></a>Gatewaytypen
 

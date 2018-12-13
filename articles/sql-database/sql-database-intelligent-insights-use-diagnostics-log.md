@@ -12,16 +12,16 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: MT
+ms.openlocfilehash: 2809dd45042e41c8337ecddccc76ec4e16d7cb8b
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977094"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887692"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Gebruik het diagnoselogboek voor Intelligent Insights Azure SQL Database-prestaties
 
-Deze pagina vindt u informatie over het gebruik van de Azure SQL Database performance logboekbestanden met diagnostische gegevens die worden gegenereerd door [Intelligent Insights](sql-database-intelligent-insights.md), de indeling en de daarin opgenomen voor de ontwikkeling van uw aangepaste gegevens. U kunt deze logboekbestanden met diagnostische gegevens te verzenden [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), of een oplossing van derden voor aangepaste DevOps waarschuwingen en rapporten mogelijkheden.
+Deze pagina vindt u informatie over het gebruik van de Azure SQL Database performance logboekbestanden met diagnostische gegevens die worden gegenereerd door [Intelligent Insights](sql-database-intelligent-insights.md), de indeling en de daarin opgenomen voor de ontwikkeling van uw aangepaste gegevens. U kunt deze logboekbestanden met diagnostische gegevens te verzenden [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), of een oplossing van derden voor aangepaste DevOps waarschuwingen en rapporten mogelijkheden.
 
 ## <a name="log-header"></a>Logboekheader
 

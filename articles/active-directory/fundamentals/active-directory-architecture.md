@@ -1,6 +1,6 @@
 ---
-title: Wat is de Azure Active Directory-architectuur? | Microsoft Docs
-description: Leer wat een Azure Active Directory-tenant is en hoe u Azure beheert via Azure Active Directory.
+title: Overzicht van de architectuur - Azure Active Directory | Microsoft Docs
+description: Leer wat een Azure Active Directory-tenant is en het beheren van Azure met behulp van Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: 62ade1318b670b4eecf1be1a9255fe497d094a1a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733208"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076109"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Wat is de Azure Active Directory-architectuur?
-Met Azure AD (Azure Active Directory) kunt u veilig de toegang tot Azure-services en -resources beheren voor uw gebruikers. Azure AD omvat een volledige suite met mogelijkheden voor identiteitsbeheer. Zie [Wat is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) voor meer informatie over de functies van Azure AD.
+Met Azure AD (Azure Active Directory) kunt u veilig de toegang tot Azure-services en -resources beheren voor uw gebruikers. Azure AD omvat een volledige suite met mogelijkheden voor identiteitsbeheer. Zie [Wat is Azure Active Directory?](active-directory-whatis.md) voor meer informatie over de functies van Azure AD.
 
-Met Azure AD kunt u gebruikers en groepen maken en beheren, en machtigingen inschakelen om toegang tot bedrijfsresources te verlenen of te weigeren. Zie [De grondbeginselen van Azure-identiteitsbeheer](https://docs.microsoft.com/azure/active-directory/fundamentals-identity) voor meer informatie over identiteitsbeheer.
+Met Azure AD kunt u gebruikers en groepen maken en beheren, en machtigingen inschakelen om toegang tot bedrijfsresources te verlenen of te weigeren. Zie [De grondbeginselen van Azure-identiteitsbeheer](active-directory-whatis.md) voor meer informatie over identiteitsbeheer.
 
 ## <a name="azure-ad-architecture"></a>Azure AD-architectuur
 Geografisch verspreide architectuur van Azure AD combineert uitgebreide controle, geautomatiseerde omleidingen, failover en herstel mogelijkheden, die het hele bedrijf beschikbaarheid en prestaties aan klanten leveren.

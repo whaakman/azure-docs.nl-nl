@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: MT
+ms.openlocfilehash: e639bd40c877aded1439fe999fcf3f7114b9a727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976182"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890667"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights met behulp van AI voor bewaking en probleemoplossing van databaseprestaties
 
@@ -87,7 +87,7 @@ Azure SQL Analytics-oplossing biedt een grafische gebruikersinterface, rapportag
 > Snel aan de slag: de eenvoudigste manier om op te halen uit het begin te beginnen met het gebruik van Intelligent Insights is om deze te gebruiken, samen met Azure SQL Analytics een grafische gebruikersinterface voor prestatieproblemen met de database biedt. Azure SQL Analytics-oplossing toevoegen vanuit de marketplace, een werkruimte in deze oplossing maken en vervolgens voor elke database die u wilt inschakelen, Intelligent Insights configureren streaming van logboek 'SQLInsights' in de blade van de instellingen voor diagnostische gegevens over van een database naar de werkruimte van Azure SQL Analytics.
 >
 
-Vooraf vereiste is Azure SQL Analytics toegevoegd aan uw Azure portal-dashboard van de marketplace en bekijken om te maken van een werkruimte [Azure SQL Analytics configureren](../log-analytics/log-analytics-azure-sql.md#configuration)
+Vooraf vereiste is Azure SQL Analytics toegevoegd aan uw Azure portal-dashboard van de marketplace en bekijken om te maken van een werkruimte [Azure SQL Analytics configureren](../azure-monitor/insights/azure-sql.md#configuration)
 
 Configureren voor het gebruik van Intelligent Insights met Azure SQL Analytics, Intelligent Insights-logboekgegevens kunnen worden gestreamd naar Azure SQL Analytics-werkruimte die u hebt gemaakt in de vorige stap, Zie [Azure SQL Database-metrische en diagnostische gegevens logboekregistratie](sql-database-metrics-diag-logging.md).
 
@@ -179,5 +179,5 @@ Als een van de bewaakte kritieke uitzonderingen cross-de absolute drempelwaarden
 
 - Meer informatie over het [oplossen van prestatieproblemen met de SQL-Database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Gebruik de [diagnoselogboek voor Intelligent Insights SQL Database performance](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Meer informatie over het [SQL-Database bewaken met behulp van SQL-analyse](../log-analytics/log-analytics-azure-sql.md).
+- Meer informatie over het [SQL-Database bewaken met behulp van SQL-analyse](../azure-monitor/insights/azure-sql.md).
 - Meer informatie over het [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

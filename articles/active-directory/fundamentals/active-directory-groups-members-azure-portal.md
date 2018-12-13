@@ -1,6 +1,6 @@
 ---
-title: Toevoegen of verwijderen van leden van beveiligingsgroep met Azure Active Directory | Microsoft Docs
-description: Informatie over het toevoegen of verwijderen van gebruikers en apparaten uit een groep met behulp van Azure Active Directory.
+title: Groepsleden - Azure Active Directory toevoegen of verwijderen | Microsoft Docs
+description: Instructies over het toevoegen of verwijderen van leden uit een groep met behulp van Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,21 +10,21 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 7c1a83d83dcbf247550c66602a6f53d4ef0d7930
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42b80b53ca7c860143f1de1005a609b3e921e650
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733361"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076141"
 ---
-# <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>Hoe: toevoegen of verwijderen van leden van beveiligingsgroep met Azure Active Directory
+# <a name="add-or-remove-group-members-using-azure-active-directory"></a>Toevoegen of verwijderen van leden van beveiligingsgroep met Azure Active Directory
 Met Azure Active Directory, kunt u blijven toevoegen en verwijderen van leden van de beveiligingsgroep.
 
 ## <a name="to-add-group-members"></a>Groepsleden toevoegen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een globale beheerdersaccount voor de map.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) met het account van een globale administrator voor de map.
 
 2. Selecteer **Azure Active Directory**, en selecteer vervolgens **groepen**.
 
@@ -32,7 +32,7 @@ Met Azure Active Directory, kunt u blijven toevoegen en verwijderen van leden va
 
     ![Pagina groepen-alle groepen in de naam van de groep is gemarkeerd](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-4. Uit de **MDM-beleid - West-overzicht** weergeeft, schakelt **leden** uit de **beheren** gebied.
+4. Selecteer op de pagina **Overzicht van MDM-beleid - West** de optie **Leden** onder **Beheren**.
 
     ![Beleid voor MDM - West overzichtspagina met leden-optie is gemarkeerd](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
@@ -54,7 +54,7 @@ Met Azure Active Directory, kunt u blijven toevoegen en verwijderen van leden va
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Uw groepen en leden weergeven](active-directory-groups-view-azure-portal.md)
+- [Groepen en leden weergeven](active-directory-groups-view-azure-portal.md)
 
 - [Instellingen van uw groep bewerken](active-directory-groups-settings-azure-portal.md)
 
@@ -62,4 +62,4 @@ Met Azure Active Directory, kunt u blijven toevoegen en verwijderen van leden va
 
 - [Dynamische regels voor gebruikers in een groep beheren](../users-groups-roles/groups-create-rule.md)
 
-- [Koppelen of een Azure-abonnement toevoegen aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Een Azure-abonnement aan Azure Active Directory koppelen of toevoegen](active-directory-how-subscriptions-associated-directory.md)

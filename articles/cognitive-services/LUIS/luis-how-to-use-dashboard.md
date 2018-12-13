@@ -1,21 +1,22 @@
 ---
-title: Toepassingsdashboard voor Language Understanding-apps
-titleSuffix: Azure Cognitive Services
+title: App-dashboard
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Meer informatie over het dashboard, een gevisualiseerde rapportagetool in te voeren die u kunt uw apps in één oogopslag controleren.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: fa5560c008270635d0d93b8004e017c810c9c27a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335007"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074415"
 ---
 # <a name="application-dashboard"></a>Toepassingsdashboard
 Het app-dashboard kunt u uw app in één oogopslag controleren. De **Dashboard** wordt weergegeven wanneer u een app openen door te klikken op de naam van de toepassing op **mijn Apps** pagina selecteert **Dashboard** uit boven in het venster. 
@@ -28,7 +29,7 @@ Het app-dashboard kunt u uw app in één oogopslag controleren. De **Dashboard**
 
 De **Dashboard** pagina geeft een overzicht van de LUIS-app met inbegrip van het huidige model staat, evenals [eindpunt](luis-glossary.md#endpoint) gebruik na verloop van tijd. 
   
-## <a name="app-status"></a>Status van de App
+## <a name="app-status"></a>App-status
 Het dashboard wordt weergegeven van de toepassing training en publicatiestatus, met inbegrip van de datum en tijd wanneer de app het laatst getraind en gepubliceerd.  
 
 ![Dashboard - App-Status](./media/luis-how-to-use-dashboard/app-state.png)

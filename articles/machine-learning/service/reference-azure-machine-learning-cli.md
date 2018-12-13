@@ -1,5 +1,6 @@
 ---
-title: Het gebruik van de Azure Machine Learning CLI-extensie
+title: Met behulp van de machine learning CLI-extensie
+titleSuffix: Azure Machine Learning service
 description: Meer informatie over de Azure Machine Learning CLI-extensie voor de Azure CLI. De Azure-CLI is een opdrachtregelprogramma voor meerdere platformen die u kunt werken met resources in de Azure-cloud. De Machine Learning-extensie kunt u werken met de Azure Machine Learning-Service.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
-ms.openlocfilehash: 3ab348ce3a6d45c2ac4d2d14978781e57a8b5d17
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: e1e94c2301cdbacf2ade037fe04cc8359ed06598
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872836"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078188"
 ---
-# <a name="use-the-azure-machine-learning-cli-extension"></a>De Azure Machine Learning CLI-extensie gebruiken
+# <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Gebruik de CLI-extensie voor Azure Machine Learning-service
 
 De CLI van Azure Machine Learning is een uitbreiding van de [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), een platformoverschrijdende opdrachtregelinterface voor het Azure-platform. Deze extensie bevat opdrachten voor het werken met de Azure Machine Learning-service vanaf de opdrachtregel. Hiermee kunt u scripts maken die uw machine learning-werkstromen automatiseren. Bijvoorbeeld, kunt u scripts maken die de volgende acties uitvoeren:
 

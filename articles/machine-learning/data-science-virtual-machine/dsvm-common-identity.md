@@ -1,11 +1,12 @@
 ---
 title: Instellen van een gemeenschappelijke identiteit voor de Data Science Virtual Machine - Azure | Microsoft Docs
-description: Stel een gemeenschappelijke identiteit in omgevingen met een enterprise-team DSVM.
+description: Informatie over het maken van algemene gebruikersaccounts die kunnen worden gebruikt voor meerdere virtuele Machines voor Datatechnologie. U kunt Azure Active Directory of een on-premises Active Directory gebruiken voor verificatie van gebruikers aan de Data Science Virtual Machine.
 keywords: deep learning, AI, hulpprogramma's voor data science, virtuele machine voor datatechnologie, georuimtelijke analyses, team data science process
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be7c63d3879c7ed89cd97eaecd6d59b6b5aadd4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436298"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075468"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Instellen van een gemeenschappelijke identiteit voor de Data Science Virtual Machine
 

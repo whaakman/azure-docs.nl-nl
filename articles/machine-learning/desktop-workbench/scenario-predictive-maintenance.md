@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c638ed9132612db7b82168d3a57057aba9b2d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996210"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870331"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Voorspellend onderhoud voor echte scenario 's
 
@@ -98,13 +98,13 @@ De voorbeeld-notebooks zijn opgeslagen in de Code-map. De notebooks zijn ingeste
 
 ## <a name="data-description"></a>Beschrijving van de gegevens
 
-De [gesimuleerde gegevens](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) bestaat uit vijf bestanden met door komma's gescheiden waarden (.csv). Gebruik de volgende koppelingen voor gedetailleerde beschrijvingen van de gegevenssets ophalen.
+De [gesimuleerde gegevens](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide) bestaat uit de volgende [vijf door komma's gescheiden waarden (CSV)-bestanden](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data):
 
-* [Machines](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): functies die elke machine, zoals de leeftijd en het model te onderscheiden.
-* [Fout](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): het foutenlogboek bevat vaste-fouten die zijn opgetreden tijdens de machine nog steeds operationeel is. Deze fouten worden niet beschouwd als fouten, maar ze voorspeld van een toekomstige foutgebeurtenis worden kunnen. De datum / tijd-waarden voor de fouten zijn afgerond op het dichtstbijzijnde uur omdat de telemetriegegevens worden verzameld op uurbasis.
-* [Onderhoud](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): het logboek onderhoud bevat zowel geplande en ongeplande onderhoudsrecords. Gepland onderhoud komt overeen met de reguliere inspectie van onderdelen. Niet-gepland onderhoud kan tegen mechanische of andere prestatievermindering optreden. De datum / tijd-waarden voor onderhoud worden afgerond op het dichtstbijzijnde uur omdat de telemetriegegevens worden verzameld op uurbasis.
-* [Telemetrie](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): de telemetriegegevens van time series metingen van meerdere sensoren binnen elke machine bestaat. De gegevens worden geregistreerd door de gemiddelde sensorwaarden gedurende elke één uur.
-* [Fouten](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): fouten komen overeen met de component vervangingen in het logboek voor onderhoud. Elke record bevat de computer-ID, onderdeeltype vervanging en datum / tijd. Deze records worden gebruikt voor het maken van de machine learning-labels die het model wordt geprobeerd om te voorspellen.
+* [Machines](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/machines.csv): functies die elke machine, zoals de leeftijd en het model te onderscheiden.
+* [Fouten](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/errors.csv): het foutenlogboek bevat vaste-fouten die zijn opgetreden tijdens de machine nog steeds operationeel is. Deze fouten worden niet beschouwd als fouten, maar ze voorspeld van een toekomstige foutgebeurtenis worden kunnen. De datum / tijd-waarden voor de fouten zijn afgerond op het dichtstbijzijnde uur omdat de telemetriegegevens worden verzameld op uurbasis.
+* [Onderhoud](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/maint.csv): het logboek onderhoud bevat zowel geplande en ongeplande onderhoudsrecords. Gepland onderhoud komt overeen met de reguliere inspectie van onderdelen. Niet-gepland onderhoud kan tegen mechanische of andere prestatievermindering optreden. De datum / tijd-waarden voor onderhoud worden afgerond op het dichtstbijzijnde uur omdat de telemetriegegevens worden verzameld op uurbasis.
+* [Telemetrie](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/telemetry.csv): de telemetriegegevens van time series metingen van meerdere sensoren binnen elke machine bestaat. De gegevens worden geregistreerd door de gemiddelde sensorwaarden gedurende elke één uur.
+* [Fouten](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/failures.csv): fouten komen overeen met de component vervangingen in het logboek voor onderhoud. Elke record bevat de computer-ID, onderdeeltype vervanging en datum / tijd. Deze records worden gebruikt voor het maken van de machine learning-labels die het model wordt geprobeerd om te voorspellen.
 
 Als u de onbewerkte gegevens downloaden vanuit de GitHub-opslagplaats en maken van de PySpark-gegevenssets voor deze analyse, Zie de [gegevensopname](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) scenario in de map met de Jupyter-Notebook.
 

@@ -1,6 +1,5 @@
 ---
-title: Wat is een FPGA en Project Brainwave?
-titleSuffix: Azure Machine Learning service
+title: Wat is een FPGA en Project Brainwave? -Azure Machine Learning-webservice
 description: Informatie over het versnellen van modellen en deep neural networks met FPGA's op Azure. Dit artikel bevat een inleiding tot veld-programmable gate arrays (FPGA) en hoe Azure Machine Learning-Service biedt realtime kunstmatige intelligentie (AI) wanneer u uw model naar een Azure-FPGA implementeert.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,12 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
-ms.custom: seodec18
-ms.openlocfilehash: b55d641f9a72fc2f757a7687b1b6214a98c92507
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c40837baf66b39d98da17c244f462f356d2b1f26
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093995"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864346"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>Wat is FPGA en Project Brainwave?
 
@@ -28,7 +26,7 @@ FPGA's bevatten een matrix van programmeerbare logische blokken en een hiërarch
 
 ![FPGA vergelijking van Azure Machine Learning-service](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|Processor||Description|
+|Processor||Beschrijving|
 |---|:-------:|------|
 |Toepassingsspecifieke geïntegreerde circuits|ASICs|Aangepaste circuits, zoals Google TensorFlow Processor eenheden (TPU), biedt het hoogste rendement. Ze kunnen niet opnieuw worden geconfigureerd wanneer uw behoeften veranderen.|
 |Veld-programmable gate arrays|FPGA 's|FPGA's, zoals die beschikbaar zijn op Azure, levert prestaties dicht bij ASICs, maar zijn flexibel en herconfigureerbare na verloop van tijd om nieuwe logica te implementeren.|

@@ -1,20 +1,21 @@
 ---
-title: Azure ExpressRoute Direct configureren met behulp van de Azure CLI | Microsoft Docs
-description: Dit artikel helpt u bij het configureren van ExpressRoute Direct met behulp van de Azure CLI (Preview)
+title: Configureren van ExpressRoute Direct - Azure CLI | Microsoft Docs
+description: Dit artikel helpt u bij het configureren van ExpressRoute Direct met behulp van de Azure CLI (preview)
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfc13d584abcd05cd15b7ce9e3034bbf246f3b8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: seodec18
+ms.openlocfilehash: 285b429f565f8a2c7f8c20756f076e631223b10f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976604"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076709"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>Direct voor ExpressRoute configureren met behulp van de Azure CLI (Preview)
+# <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>Direct voor ExpressRoute configureren met behulp van de Azure CLI (preview)
 
 U kunt Azure ExpressRoute Direct rechtstreeks verbinding maken met het wereldwijde netwerk van Microsoft op peeringlocaties strategisch verdeeld over de hele wereld. Zie voor meer informatie, [over ExpressRoute rechtstreeks verbinding maken met](expressroute-erdirect-about.md).
 

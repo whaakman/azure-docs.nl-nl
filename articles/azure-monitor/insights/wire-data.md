@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 33b22dd3ba654c7fdbfe03ccd9c9c0433d202509
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 4f0eb0ce4b0a63005246424d241ada8ce4aed4a3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841129"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075808"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0 (preview) in Log Analytics
 
@@ -60,8 +60,8 @@ Wire Data haalt zijn gegevens uit de Microsoft-agent voor afhankelijkheden. De A
 | **Verbonden bron** | **Ondersteund** | **Beschrijving** |
 | --- | --- | --- |
 | Windows-agents | Ja | Wire Data analyseert en verzamelt gegevens van Windows-agentcomputers. <br><br> Naast de [Log Analytics-agent voor Windows](../../azure-monitor/platform/agent-windows.md), Windows-agents vereist de Microsoft-Agent voor afhankelijkheden. Zie de [ondersteunde besturingssystemen](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Linux-agents | Ja | Wire Data analyseert en verzamelt gegevens van Linux-agentcomputers.<br><br> Naast de [Log Analytics-agent voor Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md), Linux-agents vereist de Microsoft-Agent voor afhankelijkheden. Zie de [ondersteunde besturingssystemen](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Beheergroep System Center Operations Manager | Ja | Wire Data analyseert en verzamelt gegevens van Windows- en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../../log-analytics/log-analytics-om-agents.md). <br><br> Er is een directe verbinding van de System Center Operations Manager-agentcomputer naar Log Analytics vereist. |
+| Linux-agents | Ja | Wire Data analyseert en verzamelt gegevens van Linux-agentcomputers.<br><br> Naast de [Log Analytics-agent voor Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), Linux-agents vereist de Microsoft-Agent voor afhankelijkheden. Zie de [ondersteunde besturingssystemen](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Beheergroep System Center Operations Manager | Ja | Wire Data analyseert en verzamelt gegevens van Windows- en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md). <br><br> Er is een directe verbinding van de System Center Operations Manager-agentcomputer naar Log Analytics vereist. |
 | Azure Storage-account | Nee | Omdat Wire Data gegevens van agentcomputers verzamelt, zijn er geen gegevens te verzamelen van Azure Storage. |
 
 In Windows wordt de Microsoft Monitoring Agent (MMA) door zowel System Center Operations Manager als Log Analytics gebruikt voor het verzamelen en verzenden van gegevens. Afhankelijk van de context, wordt de agent de System Center Operations Manager-Agent, de Log Analytics-agent, de MMA of Direct Agent genoemd. System Center Operations Manager en Log Analytics bieden enigszins verschillende versies van de MMA. Deze versies kunnen beide rapporteren aan System Center Operations Manager, aan Log Analytics of aan beide.
@@ -236,7 +236,7 @@ De agent voor afhankelijkheden wordt geïnstalleerd op Linux-computers via Insta
 
 Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkheden op elke Linux-computer:
 
-1. De volgende stappen in Log Analytics-agent installeren [gegevens verzamelen van Linux-computers die worden gehost in uw omgeving](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. De volgende stappen in Log Analytics-agent installeren [gegevens verzamelen van Linux-computers die worden gehost in uw omgeving](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Download de Linux-agent voor afhankelijkheden met behulp van de koppeling in de vorige sectie en installeer deze als hoofdmap met de volgende opdracht: sh InstallDependencyAgent-Linux64.bin
 3. Als de agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Voor Linux-agents is dit de logboekmap: /var/opt/microsoft/dependency-agent/log.
 
@@ -360,7 +360,7 @@ rpm -e dependency-agent dependency-agent-connector
 
 ## <a name="management-packs"></a>Management packs
 
-Wanneer Wire Data wordt geactiveerd in een werkruimte van Log Analytics, wordt een management pack van 300 kB verzonden naar alle Windows-servers in die werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../../log-analytics/log-analytics-om-agents.md) gebruikt, wordt het management pack Afhankelijkheidsmonitor geïmplementeerd vanuit System Center Operations Manager. Als de agents rechtstreeks verbonden zijn, levert Log Analytics het management pack.
+Wanneer Wire Data wordt geactiveerd in een werkruimte van Log Analytics, wordt een management pack van 300 kB verzonden naar alle Windows-servers in die werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../../azure-monitor/platform/om-agents.md) gebruikt, wordt het management pack Afhankelijkheidsmonitor geïmplementeerd vanuit System Center Operations Manager. Als de agents rechtstreeks verbonden zijn, levert Log Analytics het management pack.
 
 De naam van het management pack is Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Het management pack wordt geschreven naar: %Microsoft Monitoring Agent\Agent\Health Service State\Management Packs. De gegevensbron waarvan het management pack gebruikmaakt is: %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources&lt;AutoGeneratedID&gt;\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -417,7 +417,7 @@ Wire Data verzamelt metagegevens over netwerkverkeer met behulp van de agents di
 
 Een record met het type _WireData_ is gemaakt voor elk type invoergegevens. WireData-records hebben eigenschappen die worden weergegeven in de volgende tabel:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |---|---|
 | Computer | De naam van de computer waar gegevens zijn verzameld |
 | TimeGenerated | Tijd van de record |

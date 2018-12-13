@@ -1,21 +1,22 @@
 ---
-title: Over het installeren en uitvoeren van containers
-titlesuffix: Computer Vision - Cognitive Services - Azure
+title: Containers installeren en uitvoeren
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: Het downloaden, installeren en uitvoeren van containers voor Computer Vision in deze zelfstudie met stapsgewijze instructies.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9964be07c578cd1cafd93328bffe972483123e03
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634639"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077032"
 ---
 # <a name="install-and-run-containers"></a>Containers installeren en uitvoeren
 
@@ -39,7 +40,7 @@ Docker moet worden geconfigureerd, zodat de containers om te verbinden met en fa
 
 Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Vereisten en aanbevelingen
+### <a name="container-requirements-and-recommendations"></a>Containervereisten en aanbevelingen
 
 De container herkennen tekst vereist een minimum van 1 CPU-kern, ten minste 2,6 GHz (gigahertz) of sneller en 8 GB (Gigabyte) aan toegewezen geheugen, maar we raden ten minste 2 CPU-kernen en 8 GB aan toegewezen geheugen.
 
@@ -142,7 +143,7 @@ U kunt de `POST /vision/v2.0/recognizeTextDirect` bewerking is synchroon gedrukt
 
 De container herkennen tekst verzendt factureringsgegevens naar Azure, met een bijbehorende Computer Vision-resource in uw Azure-account. De volgende opties worden gebruikt door de tekst herkennen-container voor factureringsdoeleinden:
 
-| Optie | Beschrijving |
+| Optie | Description |
 |--------|-------------|
 | `ApiKey` | De API-sleutel van de Computer Vision-resource die is gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op een API-sleutel voor de ingerichte Computer Vision-Azure-resource in opgegeven `Billing`. |
 | `Billing` | Het eindpunt van de Computer Vision-resource die is gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op de URI van een ingerichte Computer Vision-Azure-resource van het eindpunt.|
@@ -162,7 +163,9 @@ In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, insta
 * Containerinstallatiekopieën uitvoeren in Docker.
 * U kunt de REST-API of de SDK gebruiken om aan te roepen van bewerkingen in Computer Vision-containers door de host-URI van de container op te geven.
 * Bij het instantiëren van een container, moet u informatie over facturering opgeven.
-* ** Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens (zoals de afbeelding of tekst die wordt geanalyseerd) niet naar Microsoft.  
+
+> [!IMPORTANT]
+> Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens (zoals de afbeelding of tekst die wordt geanalyseerd) niet naar Microsoft.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,11 +1,13 @@
 ---
-title: Tien dingen die u dit op de Data Science Virtual Machine in Azure doen kunt | Microsoft Docs
+title: Gegevens verkennen en modelleren met Data Science Virtual Machine
+titleSuffix: Azure
 description: Verschillende gegevens verkennen en modelleren taak uitvoeren op de Data science Virtual Machine.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52f0a298b1a9e9f3f209f51c1bc0362b8ddf2c4e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250914"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075677"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tien dingen die u dit op de Windows Data Science Virtual Machine doen kunt
 
@@ -62,7 +64,7 @@ Voor Python, kunt u een IDE zoals Visual Studio Community Edition, met Python To
 
 Hier ziet u hoe de installatie van de aangepaste omgeving eruitziet in Visual Studio.
 
-![PTVS Setup](./media/vm-do-ten-things/PTVSSetup.png)
+![Schermopname van Visual Studio met Python Tools for Visual Studio geselecteerd](./media/vm-do-ten-things/PTVSSetup.png)
 
 Zie de [documentatie bij PTVS](https://aka.ms/ptvsdocs) voor meer informatie over het maken van de Python-omgevingen.
 
@@ -249,7 +251,7 @@ Als u wilt downloaden code vanuit een GitHub-opslagplaats, gebruikt u de ```git 
 
 In Visual Studio, kunt u de dezelfde kloonbewerking doen. De volgende schermafbeelding ziet u hoe toegang tot hulpprogramma's voor Git en GitHub in Visual Studio.
 
-![GIT in Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
+![Schermopname van Visual Studio met de weergegeven GitHub-verbinding](./media/vm-do-ten-things/VSGit.PNG)
 
 U vindt meer informatie over het werken met uw GitHub-opslagplaats van verschillende resources beschikbaar op github.com met behulp van Git. De [overzichtskaart](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is een nuttig verwijzing.
 
@@ -261,12 +263,12 @@ Azure-blob is een betrouwbare, betaalbare cloudopslag voor gegevens, groot en kl
 
 * **Maken van uw Azure Blob storage-account van [Azure-portal](https://portal.azure.com).**
 
-![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Schermopname van het proces voor het Storage-Account maken in Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Bevestig dat de vooraf geïnstalleerde AzCopy-opdrachtregelprogramma is gevonden op ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. De map met de azcopy.exe is al in uw padomgevingsvariabele bevindt om te voorkomen dat het pad van de volledige opdracht te typen bij het uitvoeren van dit hulpprogramma. Raadpleeg voor meer informatie over het hulpprogramma AzCopy [documentatie van AzCopy](../../storage/common/storage-use-azcopy.md)
 * Start het hulpprogramma Azure Storage Explorer. Deze kan worden gedownload vanaf [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
-![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
+![Schermafbeelding van de toegang tot een Storage-Account van Azure Storage Explorer](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
 **Gegevens verplaatsen van virtuele machine naar Azure Blob: AzCopy**
 
@@ -276,7 +278,7 @@ Om gegevens te verplaatsen tussen uw lokale bestanden en blob-opslag, kunt u AzC
 
 Vervang **C:\myfolder** naar het pad waar het bestand wordt opgeslagen, **mystorageaccount** naar uw blob storage-accountnaam **mycontainer** aan de containernaam **opslagaccountsleutel** naar de toegangssleutel voor uw blob-opslag. U vindt uw opslagaccountreferenties in [Azure-portal](https://portal.azure.com).
 
-![StorageAccountCredential_v2](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
+![Schermopname van de sleutels voor het Opslagaccount en container-gegevens in de Azure portal](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 AzCopy-opdracht uitvoeren in PowerShell of vanaf een opdrachtprompt. Hier volgt voorbeeldgebruik van AzCopy-opdracht:
 
@@ -291,20 +293,20 @@ AzCopy-opdracht uitvoeren in PowerShell of vanaf een opdrachtprompt. Hier volgt 
 
 Nadat u de AzCopy-opdracht om te kopiëren naar een Azure-blob hebt uitgevoerd, ziet u dat het bestand wordt weergegeven in Azure Storage Explorer binnenkort.
 
-![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
+![Schermafbeelding van de Storage-Account, het geüploade CSV-bestand weergeven](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
 **Gegevens verplaatsen van virtuele machine naar Azure Blob: Azure Storage Explorer**
 
 U kunt ook gegevens uit het lokale bestand uploaden in uw virtuele machine met behulp van Azure Storage Explorer:
 
-* Als u wilt gegevens uploaden naar een container, selecteert u de doelcontainer en klik op de **uploaden** knop.![ Uploaden in Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Klik op de **...**  aan de rechterkant van de **bestanden** Selecteer een of meerdere bestanden voor het uploaden van het bestandssysteem en klikt u op **uploaden** om te beginnen met uploaden van de bestanden.![ Bestanden naar de blob uploaden](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Als u wilt gegevens uploaden naar een container, selecteert u de doelcontainer en klik op de **uploaden** knop.![ Schermafbeelding van de knop voor uploaden in Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
+* Klik op de **...**  aan de rechterkant van de **bestanden** Selecteer een of meerdere bestanden voor het uploaden van het bestandssysteem en klikt u op **uploaden** om te beginnen met uploaden van de bestanden.![ Schermopname van het dialoogvenster van de bestanden uploaden](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Gegevens lezen uit Azure Blob: reader-module voor Machine Learning**
 
 In Azure Machine Learning Studio, kunt u een **module gegevens importeren** gegevens lezen uit uw blob.
 
-![AML_ReaderBlob_Module_v3](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
+![Schermafbeelding van de module gegevens importeren in Machine Learning Studio](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
 **Gegevens lezen uit Azure Blob: Python ODBC**
 
@@ -352,7 +354,7 @@ Daarna sluit u de referenties van uw Azure Blob-account en gegevens uit de Blob 
 
 De gegevens worden gelezen als een gegevensframe:
 
-![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
+![Schermafbeelding van de eerste 10 rijen met gegevens](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake Storage is een zeer grote opslagruimte voor big data analytics-workloads en compatibel is met Hadoop Distributed File System (HDFS). Het werkt met Hadoop, Spark- en Azure Data Lake Analytics. In deze sectie leert u hoe u gegevens kunt verplaatsen in de Azure Data Lake Store en uitvoeren van analyses met Azure Data Lake Analytics.
@@ -361,17 +363,17 @@ Azure Data Lake Storage is een zeer grote opslagruimte voor big data analytics-w
 
 * Maken van uw Azure Data Lake Analytics in [Azure-portal](https://portal.azure.com).
 
-![Azure_Data_Lake_Create_v2](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+![Schermopname van het maken van Data Lake Analytics vanuit Azure portal](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 * De **Azure Data Lake Tools** in **Visual Studio** gevonden op deze [koppeling](https://www.microsoft.com/download/details.aspx?id=49504) al is geïnstalleerd op de Visual Studio Community Edition die zich op de virtuele machine. Na het starten van Visual Studio en logboekregistratie in uw Azure-abonnement, ziet u uw Azure Data Analytics-account en de opslag in het linkerdeelvenster van Visual Studio.
 
-![Azure_Data_Lake_PlugIn_v2](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
+![Schermopname van het Data Lake Tools in Visual Studio](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
 **Gegevens van virtuele machine verplaatsen naar Data Lake: Azure Data Lake Explorer**
 
 U kunt **Azure Data Lake Explorer** om gegevens uit de lokale bestanden in uw virtuele Machine naar Data Lake-opslag te uploaden.
 
-![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+![Schermafbeelding van het gebruik van Data Lake Explorer om bestanden te uploaden](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
 U kunt ook een pijplijn om uw verplaatsing van gegevens naar of van het gebruik van Azure Data Lake operationeel te maken de [Azure gegevens Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Verwijzen naar dit [artikel](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) pijplijnen om u te begeleiden u bij de stappen voor het bouwen van de gegevens.
 
@@ -379,11 +381,11 @@ U kunt ook een pijplijn om uw verplaatsing van gegevens naar of van het gebruik 
 
 Als uw gegevens zich in Azure Blob-opslag bevinden, kunt u gegevens rechtstreeks lezen van Azure storage-blob in U-SQL-query. Controleer of dat uw blob storage-account is gekoppeld aan uw Azure Data Lake voordat het samenstellen van uw U-SQL-query. Ga naar **Azure-portal**, zoeken van uw Azure Data Lake Analytics-dashboard, klikt u op **gegevensbron toevoegen**, selecteert u opslagtype u moet **Azure Storage** en sluit in uw Azure Storage-Account Naam en sleutel. U bent vervolgens kunnen verwijzen naar de gegevens die zijn opgeslagen in de storage-account.
 
-![Storage-account en de sleutel invoeren](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![Schermopname van het dialoogvenster gegevensbron toevoegen](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 In Visual Studio, kunt u gegevens lezen van blob-opslag, doen enkele gegevens manipuleren, functie-engineering en voert u de resulterende gegevens naar Azure Data Lake of Azure Blob Storage. Wanneer u verwijst naar de gegevens in blob-opslag, gebruikt u **wasb: / /**; wanneer u verwijst naar de gegevens in Azure Data Lake, gebruik **swbhdfs: / /**
 
-![Gegevensframe](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![Schermafbeelding van de query met de WASB-vermelding is gemarkeerd](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 U kunt de volgende U-SQL-query's in Visual Studio:
 
@@ -429,7 +431,7 @@ U kunt de volgende U-SQL-query's in Visual Studio:
 
 Nadat de query wordt verzonden naar de server, wordt een diagram van de status van uw taak weergegeven.
 
-![Taakdiagram status](./media/vm-do-ten-things/USQL_Job_Status.PNG)
+![Schermopname van het dialoogvenster taakstatus](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
 **Query uitvoeren op gegevens in Data Lake: U-SQL**
 
@@ -437,11 +439,11 @@ Nadat de gegevensset in Azure Data Lake wordt opgenomen, kunt u [U-SQL-taal](../
 
 Nadat de query wordt verzonden naar tripdata_summary-server. CSV kan worden gevonden binnenkort in **Azure Data Lake Explorer**, u mogelijk voorbeeld van de gegevens door met de rechtermuisknop op het bestand.
 
-![Bestand in Azure Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
+![Schermopname van het csv-bestand in Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
 
 Het om bestandsinformatie te bekijken:
 
-![Samenvatting van bestand](./media/vm-do-ten-things/USQL_tripdata_summary.png)
+![Schermafbeelding van de samenvatting bestandsgegevens](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop-Clusters
 Azure HDInsight is een beheerde Apache Hadoop, Spark, HBase en Storm-service in de cloud. U kunt eenvoudig werken met Azure HDInsight-clusters van de virtuele machine voor datatechnologie.
@@ -450,7 +452,7 @@ Azure HDInsight is een beheerde Apache Hadoop, Spark, HBase en Storm-service in 
 
 * Maken van uw Azure Blob storage-account van [Azure-portal](https://portal.azure.com). Dit opslagaccount wordt gebruikt voor het opslaan van gegevens voor HDInsight-clusters.
 
-![Azure Blob storage-account maken](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Schermopname van het maken van HDInsight van Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Azure HDInsight Hadoop-Clusters aanpassen vanuit [Azure-portal](../team-data-science-process/customize-hadoop-cluster.md)
   
@@ -460,7 +462,7 @@ Azure HDInsight is een beheerde Apache Hadoop, Spark, HBase en Storm-service in 
 
 * Schakel **RAS** met het hoofdknooppunt van het cluster nadat deze is gemaakt. Vergeet niet de RAS-referenties die u hier opgeeft, u ze in de volgende procedure moet.
 
-![Externe toegang inschakelen](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![Externe toegang tot het HDInsight-cluster](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
 * Een Azure Machine Learning-werkruimte maken. Uw Machine Learning-experimenten worden opgeslagen in deze Machine Learning-werkruimte. Selecteer de gemarkeerde opties in de Portal zoals wordt weergegeven in de volgende schermafbeelding:
 
@@ -638,7 +640,7 @@ U kunt ook de afstand tussen de ophalen locatie en dropoff locatie compute en ve
     results.head(5)
 
 
-![Tabel ophalen en dropoff](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
+![Bovenste rijen van de tabel ophalen en dropoff](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
     results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
                        'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -782,7 +784,7 @@ Na enige tijd ziet u dat de gegevens zijn geladen in Hadoop-clusters:
     pd.read_sql(queryString,connection)
 
 
-![Tabel met gegevens](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![Bovenste rijen met gegevens uit de tabel](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 **Lezen van gegevens van HDI met Machine Learning: reader-module**
 

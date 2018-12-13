@@ -1,6 +1,6 @@
 ---
-title: Inzicht in de Azure IoT Edge-runtime | Microsoft Docs
-description: Meer informatie over de Azure IoT Edge-runtime en hoe deze in staat stelt uw edge-apparaten
+title: 'Informatie over hoe de runtime beheert voor apparaten: Azure IoT Edge | Microsoft Docs'
+description: Leer hoe u de modules, beveiliging, communicatie en rapportage op uw apparaten worden beheerd door de Azure IoT Edge-runtime
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 05c97d21e9acf1bb49418e3a7d0ccf1657f84435
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 3495d157f1a681e80b6d113acced53d01751690f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685188"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077491"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>De Azure IoT Edge-runtime en de bijbehorende architectuur begrijpen
 
@@ -29,7 +30,7 @@ IoT Edge-runtime voert de volgende functies op IoT Edge-apparaten:
 * Vergemakkelijkt de communicatie tussen modules op het IoT Edge-apparaat.
 * Vergemakkelijkt de communicatie tussen het IoT Edge-apparaat en de cloud.
 
-![IoT Edge-runtime communiceert inzichten en status van de module voor IoT-Hub](./media/iot-edge-runtime/Pipeline.png)
+![Runtime communiceert inzichten en status van de module voor IoT-Hub](./media/iot-edge-runtime/Pipeline.png)
 
 De verantwoordelijkheden van de IoT Edge-runtime kunnen worden onderverdeeld in twee categorieën: communicatie-en-module. Deze twee rollen worden uitgevoerd door twee onderdelen die gezamenlijk de IoT Edge-runtime. De IoT Edge hub is verantwoordelijk voor communicatie, terwijl de IoT Edge-agent wordt beheerd, implementeren en controleren van de modules. 
 
@@ -49,7 +50,7 @@ De Edge hub is niet een volledige versie van IoT-Hub die lokaal wordt uitgevoerd
 
 Als u wilt de bandbreedte reduceren uw IoT Edge-oplossing gebruikt, de Edge hub optimaliseert het aantal daadwerkelijke verbindingen worden aangebracht in de cloud. Edge hub neemt logische verbindingen van clients, zoals modules of leaf-apparaten en worden ze gecombineerd voor één fysieke verbinding naar de cloud. De details van dit proces zijn transparant voor de rest van de oplossing. U kunt clients zien dat ze hun eigen verbinding naar de cloud hebben, zelfs als ze al worden verzonden via dezelfde verbinding. 
 
-![Edge hub fungeert als een gateway tussen meerdere fysieke apparaten en de cloud](./media/iot-edge-runtime/Gateway.png)
+![Edge hub is een gateway tussen fysieke apparaten en IoT-Hub](./media/iot-edge-runtime/Gateway.png)
 
 Edge hub kunt bepalen of deze verbonden met IoT Hub. Als de verbinding verbroken wordt, Edge hub-berichten of dubbele updates lokaal wordt opgeslagen. Zodra een verbinding opnieuw tot stand is gebracht, worden deze gesynchroniseerd met alle gegevens. De locatie die wordt gebruikt voor deze tijdelijke cache wordt bepaald door een eigenschap van de moduledubbel van de Edge hub. De grootte van de cache wordt niet beperkt tot, en zullen groeien zolang het apparaat heeft opslagcapaciteit. 
 
@@ -57,7 +58,7 @@ Edge hub kunt bepalen of deze verbonden met IoT Hub. Als de verbinding verbroken
 
 Edge Hub vergemakkelijkt de communicatie van de module-module. Edge Hub gebruikt als een berichtenbroker, houdt modules onafhankelijk van elkaar. Modules hoeft alleen te geven van de invoer waarop ze berichten en de uitvoer waaraan ze berichten schrijven accepteren. Een ontwikkelaar van de oplossing vervolgens dan aan elkaar gehecht deze invoer en uitvoer samen zodat de modules verwerken van gegevens in de volgorde die specifiek zijn voor die oplossing. 
 
-![Edge Hub vergemakkelijkt de communicatie van de module-naar-module](./media/iot-edge-runtime/ModuleEndpoints.png)
+![Edge Hub vergemakkelijkt de communicatie van de module-naar-module](./media/iot-edge-runtime/module-endpoints.png)
 
 Een module aanroepen om gegevens te verzenden naar de Edge hub, de methode SendEventAsync. Het eerste argument geeft op welke uitvoer het bericht te verzenden. De volgende pseudocode verzendt een bericht op output1:
 
@@ -79,7 +80,7 @@ De ontwikkelaar van de oplossing is verantwoordelijk voor het opgeven van de reg
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Routes tussen modules](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
+![Routes tussen modules gaan via Edge hub](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
 ## <a name="iot-edge-agent"></a>IoT Edge-agent
 

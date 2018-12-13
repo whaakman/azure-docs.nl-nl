@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.date: 11/14/2018
+ms.openlocfilehash: 8b982dbddf22393e276437c77007e18bc4d40042
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083883"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867186"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health oplossen met connectiviteit voor Azure SQL Database gebruiken
 
@@ -67,11 +67,11 @@ Wanneer uw SQL-Database downtime optreedt, uitgevoerd om een reden vast te stell
 
 #### <a name="planned-maintenance"></a>Gepland onderhoud
 
-De Azure-infrastructuur wordt periodiek uitgevoerd voor gepland onderhoud: upgraden van hardware of software-onderdelen in het datacenter. Terwijl de database onderhoud ondergaat, kan de SQL beëindigen van sommige bestaande verbindingen en de nieuwe weigeren. De mislukte aanmeldpogingen bij opgetreden tijdens het geplande onderhoud zijn gewoonlijk tijdelijk en [logica voor opnieuw proberen](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) helpt de impact te verminderen. Als u aanmeldingsfouten zich blijft voordoen, neem contact op met ondersteuning.
+De Azure-infrastructuur wordt periodiek uitgevoerd voor gepland onderhoud: upgraden van hardware of software-onderdelen in het datacenter. Terwijl de database onderhoud ondergaat, kan de SQL beëindigen van sommige bestaande verbindingen en de nieuwe weigeren. De aanmelding fouten opgetreden tijdens het geplande onderhoud zijn gewoonlijk tijdelijk en logica voor opnieuw proberen vermindert de gevolgen. Als u aanmeldingsfouten zich blijft voordoen, neem contact op met ondersteuning.
 
 #### <a name="reconfiguration"></a>Herconfiguratie
 
-Wanneer worden beschouwd als tijdelijke omstandigheden, en van tijd tot tijd worden verwacht. Deze gebeurtenissen kunnen worden geactiveerd door load balancing- of software/hardwarestoringen. Productie met elke clienttoepassing die verbinding met een database in de cloud maakt moet een robuuste verbinding implementeren [logica voor opnieuw proberen](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), zoals deze zou zodat deze situaties worden verminderd en over het algemeen de fouten transparant voor de eindgebruiker moet.
+Wanneer worden beschouwd als tijdelijke omstandigheden, en van tijd tot tijd worden verwacht. Deze gebeurtenissen kunnen worden geactiveerd door load balancing- of software/hardwarestoringen. Productie met elke clienttoepassing die verbinding met een cloudservice voor de database maakt moet een logica voor opnieuw proberen van robuuste verbinding met uitstellogica implementeren, zoals deze zou zodat deze situaties worden verminderd en over het algemeen de fouten transparant voor de eindgebruiker moet.
 
 ## <a name="next-steps"></a>Volgende stappen
 

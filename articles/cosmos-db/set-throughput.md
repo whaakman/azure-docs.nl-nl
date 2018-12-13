@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 15b7dce5af984e4eb719024368479df1b5c8320a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010957"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075349"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Doorvoer inrichten op Azure Cosmos-containers en databases
 
@@ -57,7 +57,7 @@ Meerdere logische partities delen van de doorvoer die is ingericht met een datab
 
 U kunt de twee modellen combineren, is inrichting doorvoer op zowel de database en de container toegestaan. Het volgende voorbeeld laat zien hoe om te worden ingericht met doorvoer op een Azure Cosmos-database en een container:
 
-* U kunt een Azure Cosmos-database met de naam 'Z' met ingerichte doorvoer van 'K' ru's maken. 
+* U kunt een Azure Cosmos-database met de naam 'Z' met een ingerichte doorvoer van 'K' ru's maken. 
 * Maak vervolgens vijf containers met de naam A, B, C, D en E in de database.
 * U kunt expliciet 'P' ru's van de ingerichte doorvoer voor de container "B" configureren.
 * De 'K' RUs-doorvoer wordt gedeeld door de vier containers: A, C, D en E. De exacte hoeveelheid doorvoer beschikbaar voor A, C, D of E variëren en zijn er geen Sla's voor elke afzonderlijke containerdoorvoer.
@@ -67,7 +67,7 @@ U kunt de twee modellen combineren, is inrichting doorvoer op zowel de database 
 
 |**Quotum**  |**Doorvoer die is ingericht op een database**  |**Doorvoer die is ingericht in een container**|
 |---------|---------|---------|
-|Minimale ru 's |400 |400|
+|Minimale ru 's |400 (na de eerste vier containers, moet elke aanvullende container een minimum van 100 RU/s.) |400|
 |Minimale ru's per container|100|400|
 |Minimale ru's nodig om te gebruiken van 1 GB aan opslagruimte|40|40|
 |Maximum aantal ru 's|Onbeperkte, op de database|Onbeperkt aantal voor de container|

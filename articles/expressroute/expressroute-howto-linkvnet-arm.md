@@ -2,18 +2,18 @@
 title: 'Een virtueel netwerk koppelen aan een ExpressRoute-circuit: PowerShell: Azure | Microsoft Docs'
 description: Dit document bevat een overzicht van virtuele netwerken (VNets) koppelen aan ExpressRoute-circuits met behulp van de Resource Manager-implementatiemodel en PowerShell.
 services: expressroute
-documentationcenter: na
 author: ganesr
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: ganesr
-ms.openlocfilehash: 02b765b3efe933a1dd8d12d422efff8142bdc553
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 5dde6dfdfaed23dbbfe61b06a433f731d90a0440
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234694"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075995"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit
 > [!div class="op_single_selector"]

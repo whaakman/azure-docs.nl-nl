@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c842efd6c66fd70bbac3969090b71c42c725545
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 24ffe9eded908c82750ce5a6d6fbe87991bdae72
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839633"
+ms.locfileid: "52872841"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Ontwerpen en bouwen van een oplossing in Azure (Preview)
 > [!NOTE]
@@ -46,7 +46,7 @@ De eerste stap bij het ontwerpen van een oplossing is het vaststellen van de geg
 
 Er zijn een aantal manieren om gegevensbronnen die kunnen worden verzameld in de Log Analytics-opslagplaats, zoals beschreven in [gegevensbronnen in Log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Dit omvat gebeurtenissen in het Windows-gebeurtenislogboek of die worden gegenereerd door Syslog naast prestatiemeteritems voor zowel Windows als Linux-clients.  U kunt ook gegevens verzamelen van Azure-resources die door Azure Monitor worden verzameld.  
 
-Als u gegevens die niet toegankelijk zijn via een van de beschikbare gegevensbronnen nodig hebt, dan kunt u de [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) waarmee u gegevens schrijven naar de Log Analytics-opslagplaats van een willekeurige client die een REST-API kunt aanroepen.  Aangepaste gegevensverzameling in een oplossing voor de meest voorkomende manier is het maken van een [runbook in Azure Automation](../../automation/automation-runbook-types.md) die de vereiste gegevens verzamelt van Azure of externe resources en de Collector-API gebruikt om te schrijven naar de opslagplaats.  
+Als u gegevens die niet toegankelijk zijn via een van de beschikbare gegevensbronnen nodig hebt, dan kunt u de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) waarmee u gegevens schrijven naar de Log Analytics-opslagplaats van een willekeurige client die een REST-API kunt aanroepen.  Aangepaste gegevensverzameling in een oplossing voor de meest voorkomende manier is het maken van een [runbook in Azure Automation](../../automation/automation-runbook-types.md) die de vereiste gegevens verzamelt van Azure of externe resources en de Collector-API gebruikt om te schrijven naar de opslagplaats.  
 
 ### <a name="log-searches"></a>Zoekopdrachten in Logboeken
 [Zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) worden gebruikt om te extraheren en analyseren van gegevens in de Log Analytics-opslagplaats.  Ze worden gebruikt door weergaven en waarschuwingen naast de mogelijkheid van de gebruiker voor het uitvoeren van ad hoc-analyse van gegevens in de opslagplaats.  

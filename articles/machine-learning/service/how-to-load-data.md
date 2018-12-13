@@ -9,13 +9,13 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 11/20/2018
-ms.openlocfilehash: 208d6958b56dafbfacc45ecb05a71c14ac024ab4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.date: 12/04/2018
+ms.openlocfilehash: 4f4bb4d95548a8c6c373eaa32617245a7ee0910b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309870"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865672"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
 
@@ -131,7 +131,7 @@ dataflow.head(5)
 |0|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
 |1|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
 |2|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
-|3|positie|Titel|Studio|Over de hele wereld|Binnenlandse / %|Kolom1|LGO / %|Kolom2|Jaar ^|
+|3|positie|Titel|Studio|Wereldwijd|Binnenlandse / %|Kolom1|LGO / %|Kolom2|Jaar ^|
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|5|
 
 De uitvoer ziet u dat de gegevens in het tweede blad al drie lege rijen voordat u de headers. De `read_excel()` functie bevat de volgende optionele parameters voor het overslaan van rijen en met behulp van headers. Voer de volgende code om over te slaan van de eerste drie rijen uit en gebruik van de vierde rij als de headers.
@@ -140,7 +140,7 @@ De uitvoer ziet u dat de gegevens in het tweede blad al drie lege rijen voordat 
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_header=True, skip_rows=3)
 ```
 
-||positie|Titel|Studio|Over de hele wereld|Binnenlandse / %|Kolom1|LGO / %|Kolom2|Jaar ^|
+||positie|Titel|Studio|Wereldwijd|Binnenlandse / %|Kolom1|LGO / %|Kolom2|Jaar ^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|
 |1|2|Titanic|Par.|2186.8|658.7|0.301|1528.1|0.699|1997 ^|
@@ -284,7 +284,7 @@ dataflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.a
 dataflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|Website|Adres|city|Provincie|
+||FMID|MarketName|Website|Adres|city|District|
 |----|------|-----|----|----|----|----|
 |0|1012063|Caledonië landbouwers markt Association - Danville|https://sites.google.com/site/caledoniafarmers... ||Danville|Caledonië|
 |1|1011871|Liefst in Stearns Homestead landbouwers ' markt|http://Stearnshomestead.com |6975 ridge weg|Parma|Cuyahoga|

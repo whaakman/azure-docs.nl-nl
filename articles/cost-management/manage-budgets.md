@@ -1,23 +1,23 @@
 ---
 title: Cloudyn budgetten in Azure beheren | Microsoft Docs
-description: Dit artikel helpt u bij het maken en beheren van budgetten in Cloudyn.
+description: Dit artikel helpt u snel budgetten maken en te beginnen met beheer van deze in Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: ef2ccd1d1fb5583d1356969ca759e5fb58a81936
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 44062670283a15f678da45e13a831e73a7738c39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997555"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075485"
 ---
-# <a name="manage-budgets"></a>Budgetten beheren
+# <a name="manage-azure-budgets-with-cloudyn"></a>Azure budgetten met Cloudyn beheren
 
 Opzetten van budgetten en budget gebaseerde waarschuwingen helpen bij het verbeteren van uw cloud-governance en aansprakelijkheid. Dit artikel helpt u snel budgetten maken en te beginnen met beheer van deze in Cloudyn.
 
@@ -40,7 +40,7 @@ Maken van een budget en wijs deze toe aan een entiteit:
 3. Selecteer in het budgetjaar, het jaar waarin u wilt maken van het budget.
 4. Stel de Budgetwaarde van een voor elke maand. Wanneer u klaar bent, klikt u op **opslaan**.
 In dit voorbeeld worden de maandelijkse budget voor juni 2018 is ingesteld op $135.000. Het totale budget voor het jaar is $1,615,000.00.
-![Maak een budget](./media/manage-budgets/set-budget.png)
+![Maak een budget-pagina waar u een budget voor elke maand instellen](./media/manage-budgets/set-budget.png)
 
 
 Voor het importeren van een bestand voor de jaarlijkse budget:
@@ -64,11 +64,11 @@ In dit voorbeeld wordt ervan uitgegaan dat de huidige datum is 22 juni. De koste
 
 Er is een andere manier om het rapport weer te geven om te kijken naar vs van de totale kosten uw budget. Om te zien samengevoegde kosten onder **velden weergeven/verbergen**, selecteer **totale kosten** en **totaalbudget**. Hier volgt een voorbeeld van de totale kosten sinds het begin van het jaar.
 
-![Totale budget](./media/manage-budgets/accumulated-budget.png)
+![Voorbeeld van de cumulatieve kosten en totaal budget in de vs kosten weergegeven. Rapport budget gedurende een periode](./media/manage-budgets/accumulated-budget.png)
 
 Enige tijd in de toekomst uw totale kosten kan groter zijn dan uw budget. Kunt u eenvoudig kunt zien dat als u de diagramweergave voor wijzigt de _regel_ type.
 
-![Budget wordt weergegeven in het lijndiagram weer te geven](./media/manage-budgets/budget-line.png)
+![Budget wordt weergegeven in een lijndiagram in de kosten door maanden rapport](./media/manage-budgets/budget-line.png)
 
 ## <a name="create-budget-alerts-for-a-filter"></a>Budget waarschuwingen voor een filter maken
 
@@ -81,7 +81,7 @@ We bekijken een voorbeeld.
 
 In de kosten voor Visual Studio. Op tijd rapport budget, klikt u op **acties** en selecteer vervolgens **rapport plant**. Selecteer een drempelwaarde voor metrische gegevens op het tabblad drempelwaarde. Bijvoorbeeld, **Cost percentage vs budget**. Selecteer een type waarschuwing en voer een percentage van het budget. Als u wilt om slechts één keer te worden geïnformeerd, selecteer **aantal achtereenvolgende waarschuwingen** en typ vervolgens _1_. Klik op **Opslaan**.
 
-![Budgetwaarschuwing](./media/manage-budgets/budget-alert.png)
+![Het maken van een budget waarschuwing bij het opslaan of dit vak rapport plannen](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

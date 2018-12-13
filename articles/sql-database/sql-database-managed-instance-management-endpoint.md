@@ -12,39 +12,42 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 99ec559429d66becc20e038e43349f5369afac39
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 45ddf1c75dd22f5074c2017185bc0ed3be0b2a80
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855830"
+ms.locfileid: "52872693"
 ---
-# <a name="discover-azure-sql-database-managed-instance-management-endpoint"></a>Ontdek Azure SQL Database Managed Instance-beheereindpunt 
+# <a name="discover-azure-sql-database-managed-instance-management-endpoint"></a>Ontdek Azure SQL Database Managed Instance-beheereindpunt
 
-## <a name="overview"></a>Overzicht
-Azure SQL Managed Instance [virtueel cluster](sql-database-managed-instance-connectivity-architecture.md) beheereindpunt die gebruikmaakt van Microsoft voor het beheren van het exemplaar bevat.  
+De Azure SQL Database Managed Instance [virtueel cluster](sql-database-managed-instance-connectivity-architecture.md) bevat een beheereindpunt die gebruikmaakt van Microsoft voor het beheren van het beheerde exemplaar. Het eindpunt is beveiligd met ingebouwde firewall netwerk certificaat niveau en wederzijdse verificatie op toepassingsniveau.
 
-Beheereindpunt is beveiligd met ingebouwde firewall netwerk certificaat niveau en wederzijdse verificatie op toepassingsniveau. 
-
-Wanneer verbindingen geïnitieerd worden vanuit binnen het beheerde exemplaar (CLR, gekoppelde server, back-up, auditlogboek enz.) het lijkt erop dat verkeer afkomstig is uit het beheer van eindpunt openbare IP-adres. U kunt toegang beperken tot openbare services van Managed Instance door in te stellen van firewallregels om toe te staan van dit IP-adres.
+Wanneer verbindingen geïnitieerd worden vanuit binnen het beheerde exemplaar (back-up, auditlogboek) wordt weergegeven dat verkeer afkomstig is uit het beheer van eindpunt openbare IP-adres. U kunt toegang beperken tot openbare services van Managed Instance door in te stellen van firewallregels om toe te staan alleen het beheerd exemplaar IP-adres.
 
 > [!NOTE]
-> Dit is niet van toepassing op het instellen van de firewallregels voor Azure-services die zich in dezelfde regio als beheerd exemplaar als het platform heeft optimalisatie voor het verkeer dat wordt verstuurd tussen de services die zijn geplaatst. 
+> Dit is niet van toepassing op het instellen van de firewallregels voor Azure-services die zich in dezelfde regio als beheerd exemplaar als het Azure-platform heeft een optimalisatie voor het verkeer dat wordt verstuurd tussen de services die zijn geplaatst.
 
 In dit artikel wordt uitgelegd hoe u management openbare IP-adres van het eindpunt en over de manier om te controleren of de ingebouwde firewall-beveiliging kan ophalen.
 
-## <a name="finding-management-endpoint-public-ip-address"></a>Beheer van eindpunt openbare IP-adres zoeken
-We gaan ervan uit dat MI host _mi-demo.xxxxxx.database.windows.net_. Voer _nslookup_ met behulp van de hostnaam.
+## <a name="finding-the-management-endpoint-public-ip-address"></a>Zoeken naar openbare IP-adres van het management eindpunt
+
+We gaan ervan uit dat Managed Instance host `mi-demo.xxxxxx.database.windows.net`. Voer `nslookup` met behulp van de hostnaam.
 
 ![Het omzetten van interne host-naam](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
 
-Voer een andere _nslookup_ voor de naam van de gemarkeerde met removed_.vnet._segment. U krijgt het openbare IP-adres als gevolg van deze opdracht wordt uitgevoerd.
+Voer een andere `nslookup` voor het verwijderen van de naam van de gemarkeerde de `.vnet.` segment. U krijgt het openbare IP-adres als gevolg van deze opdracht wordt uitgevoerd.
 
 ![Het omzetten van openbare IP-adres](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
 
-## <a name="verifying-managed-instance-built-in-firewall"></a>Managed Instance ingebouwde firewall controleren
-Beheerd exemplaar [verplichte beveiligingsregels voor binnenkomend verkeer](sql-database-managed-instance-vnet-configuration.md#mandatory-inbound-security-rules) vereisen beheerpoorten 9000, 9003, 1438, 1440, 1452 moet openen vanuit een bron op Network Security Group die worden beveiligd met het beheerde exemplaar. Hoewel deze poorten geopend op het niveau van de NSG zijn, worden ze op het netwerkniveau van het beveiligd door ingebouwde firewall.
+## <a name="verifying-the-managed-instance-built-in-firewall"></a>Controleren van de ingebouwde Managed Instance-firewall
 
-U kunt elke scanner beveiligingsprogramma om te controleren of deze poorten, gebruiken voor het testen van deze poorten. De volgende schermafbeelding ziet u hoe u een van deze hulpprogramma's.
+Het beheerde exemplaar [verplichte beveiligingsregels voor binnenkomend verkeer](sql-database-managed-instance-vnet-configuration.md#mandatory-inbound-security-rules) vereisen beheerpoorten 9000, 9003, 1438, 1440, 1452 moet openen vanuit **elke bron** op de Netwerkbeveiligingsgroep (NSG) die worden beveiligd met de beheerde Het exemplaar. Hoewel deze poorten geopend op het niveau van de NSG zijn, worden ze op het niveau van het netwerk beveiligd door de ingebouwde firewall.
+
+Gebruiken om te controleren of deze poorten, eventuele beveiligingsprogramma scanner voor het testen van deze poorten. De volgende schermafbeelding ziet u hoe u een van deze hulpprogramma's.
 
 ![Ingebouwde firewall controleren](./media/sql-database-managed-instance-management-endpoint/03_verify_firewall.png)
+
+## <a name="next-steps"></a>Volgende stappen
+
+Zie voor meer informatie over beheerde exemplaren en -connectiviteit, [Azure SQL-Database beheerd exemplaar Connectiviteitsarchitectuur](sql-database-managed-instance-connectivity-architecture.md).

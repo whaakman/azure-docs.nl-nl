@@ -2,19 +2,19 @@
 title: Planning van uw VM-back-upinfrastructuur in Azure
 description: Belangrijke overwegingen bij het plannen van back-up van virtuele machines in Azure
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: back-up van VM's, back-up van virtuele machines
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
-ms.author: markgal
-ms.openlocfilehash: 806d68370921a7658066a9bad770b36b4e8e59bf
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.author: raynew
+ms.openlocfilehash: 7ebb71c6c5968f8f3548f1accd8d659039e6b545
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680035"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871639"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>De infrastructuur voor back-ups van virtuele Azure-machines plannen
 In dit artikel biedt prestaties en suggesties voor het plannen van uw VM-back-upinfrastructuur resource. Het definieert ook belangrijke aspecten van de Backup-service; deze aspecten kunnen essentieel bij het bepalen van uw architectuur zijn plannen van capaciteit en planning. Als u hebt [bereid uw omgeving](backup-azure-arm-vms-prepare.md), planning van de volgende stap is voordat u begint met [back-up van virtuele machines](backup-azure-arm-vms.md). Als u meer informatie over Azure virtual machines, Zie de [documentatie voor virtuele Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).

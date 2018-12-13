@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 876cb037aab718a91f469f8862c501bb9a29e4d6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 8f2bf9707d28744707c39a507108120e948dde7f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846420"
+ms.locfileid: "52866675"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Naslaggids voor Weergaveontwerper visualisatie delen in Log Analytics
 Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een handleiding verwijzing naar de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
@@ -324,7 +324,7 @@ Het scheidingsteken naam en waarde is het scheidingsteken één teken gebruiken 
 Neem bijvoorbeeld een eigenschap genaamd *locatie* die waarden, zoals opgenomen *Redmond gebouw 41* en *Bellevue gebouw 12*. U kunt een streepje (-) opgeven voor de naam en waarde scheidingsteken en *plaats ontwikkelen* voor de naam. Deze aanpak parseert elke waarde in de twee eigenschappen aangeroepen *plaats* en *gebouw*.
 
 ### <a name="click-through-navigation"></a>Navigatie via klikken
-Navigatie via klikken wordt gedefinieerd welke actie moet worden ondernomen wanneer u een koptekst of lijstitem in een weergave op.  Hiermee wordt een query in een geopend de [portal zoeken in logboeken](../../log-analytics/log-analytics-log-search-portals.md) of een andere weergave te starten.
+Navigatie via klikken wordt gedefinieerd welke actie moet worden ondernomen wanneer u een koptekst of lijstitem in een weergave op.  Hiermee wordt een query in een geopend de [portal zoeken in logboeken](../../azure-monitor/log-query/portals.md) of een andere weergave te starten.
 
 De volgende tabel beschrijft de instellingen voor navigatie via klikken.
 

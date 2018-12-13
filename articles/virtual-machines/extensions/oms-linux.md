@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 93e64aaa436b23390de328a9268dcfcb773c279f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 08a114b7f1ea3c422489a830676d859a9da88b7c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728156"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075300"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics VM-extensie voor Linux
 
@@ -81,7 +81,7 @@ De Log Analytics-Agent-extensie voor Linux is vereist dat de virtuele doelmachin
 
 ## <a name="extension-schema"></a>Extensieschema
 
-De volgende JSON ziet u het schema voor de Log Analytics-Agent-extensie. De extensie is vereist voor de werkruimte-ID en werkruimtesleutel van de doel-Log Analytics-werkruimte. Deze waarden kunnen worden [gevonden in uw Log Analytics-werkruimte](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) in Azure portal. Omdat de sleutel van de werkruimte moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de instellingsconfiguratie van een beveiligde. Azure-VM-extensie beveiligde instellingsgegevens versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
+De volgende JSON ziet u het schema voor de Log Analytics-Agent-extensie. De extensie is vereist voor de werkruimte-ID en werkruimtesleutel van de doel-Log Analytics-werkruimte. Deze waarden kunnen worden [gevonden in uw Log Analytics-werkruimte](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) in Azure portal. Omdat de sleutel van de werkruimte moet worden behandeld als gevoelige gegevens, moet deze worden opgeslagen in de instellingsconfiguratie van een beveiligde. Azure-VM-extensie beveiligde instellingsgegevens versleuteld en alleen op de virtuele doelmachine worden ontsleuteld. Houd er rekening mee dat **workspaceId** en **workspaceKey** zijn hoofdlettergevoelig.
 
 ```json
 {
@@ -112,7 +112,7 @@ De volgende JSON ziet u het schema voor de Log Analytics-Agent-extensie. De exte
 
 ### <a name="property-values"></a>Waarden van eigenschappen
 
-| Naam | Waarde / voorbeeld |
+| Name | Waarde / voorbeeld |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | Uitgever | Microsoft.EnterpriseCloud.Monitoring |

@@ -1,21 +1,22 @@
 ---
-title: Entiteitstypen in LUIS-apps - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Entiteitstypen
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Entiteiten (belangrijke gegevens in het domein van uw toepassing) in Language Understanding Intelligent Service (LUIS)-apps toevoegen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: MT
+ms.openlocfilehash: 761b2101ed7b55de27628882778c51bc86c70ef4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085827"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075655"
 ---
 # <a name="entities-in-luis"></a>Entiteiten in LUIS
 
@@ -68,10 +69,10 @@ Zie [entiteit Status voorspellingen](luis-how-to-add-example-utterances.md#entit
 ## <a name="types-of-entities"></a>Typen entiteiten
 LUIS biedt veel soorten entiteiten; vooraf gemaakte entiteiten, aangepaste machine hebt geleerd entiteiten en lijst met entiteiten.
 
-| Naam | Kan label | Beschrijving |
+| Name | Kan label | Description |
 | -- |--|--|
 | **Vooraf gedefinieerde** <br/>[Aangepaste](#prebuilt)| |  **Definitie**<br>Ingebouwde typen die algemene concepten vertegenwoordigen. <br><br>**Lijst met**<br/>sleuteluitdrukkingen nummer, het rangtelwoord voor temperatuur, dimensie, geld, leeftijd, percentage, e-mailadres, URL, telefoonnummer en sleuteluitdrukkingen. <br><br>Namen van vooraf gemaakte entiteiten zijn gereserveerd. <br><br>Alle vooraf gedefinieerde entiteiten die zijn toegevoegd aan de toepassing worden geretourneerd in de [eindpunt](luis-glossary.md#endpoint) query. Zie voor meer informatie, [vooraf gemaakte entiteiten](./luis-prebuilt-entities.md). <br/><br/>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Reguliere expressie**<br/>[Reguliere expressie](#regex)||**Definitie**<br>Aangepaste reguliere expressie voor opmaak onbewerkte utterance tekst. Deze aanvraag wordt genegeerd en worden genegeerd culturele variant.  <br><br>Deze entiteit is handig voor woorden of zinsdelen die consistent zijn geformatteerd met een wijziging die ook consistent is.<br><br>Reguliere expressie die overeenkomt met wordt na spellingcontrole wijzigingen toegepast. <br><br>Als de reguliere expressie te complex is is, zoals het gebruik van veel vierkante haken, bent u niet de expressie toevoegen aan het model. <br><br>**Voorbeeld**<br>`kb[0-9]{6,}` komt overeen met kb123456.<br/><br/>[Snelstartgids](luis-quickstart-intents-regex-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Reguliere expressie**<br/>[Reguliere expressie](#regex)||**Definitie**<br>Aangepaste reguliere expressie voor opmaak onbewerkte utterance tekst. Deze aanvraag wordt genegeerd en worden genegeerd culturele variant.  <br><br>Deze entiteit is handig voor woorden of zinsdelen die consistent zijn geformatteerd met een wijziging die ook consistent is.<br><br>Reguliere expressie die overeenkomt met is na spellingcontrole wijzigingen op het niveau van het teken, niet het niveau van de token toegepast. Maakt gebruik van onderdeel maar niet alle van de [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) bibliotheek.<br><br>Als de reguliere expressie te complex is is, zoals het gebruik van veel vierkante haken, bent u niet de expressie toevoegen aan het model. <br><br>**Voorbeeld**<br>`kb[0-9]{6,}` komt overeen met kb123456.<br/><br/>[Snelstartgids](luis-quickstart-intents-regex-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md)|
 | **Eenvoudige** <br/>[Machine geleerd](#machine-learned) | ✔ | **Definitie**<br>Een enkele entiteit is een algemene entiteit die een enkele concept wordt beschreven en wordt geleerd van context machine geleerd. Context zijn woord keuze, word plaatsing en utterance lengte.<br/><br/>Dit is een goede entiteit naar woorden of zinsdelen die niet consistent zijn opgemaakt maar wijzen om hetzelfde te doen. <br/><br/>[Snelstartgids](luis-quickstart-primary-and-secondary-data.md)<br/>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Lijst met** <br/>[Exacte overeenkomst](#exact-match)|| **Definitie**<br>Lijst met entiteiten vertegenwoordigen een vaste en gesloten set verwante woorden samen met hun synoymns in uw systeem. <br><br>Elke entiteit lijst mogelijk een of meer formulieren. Het best worden gebruikt voor een bekende set varianten van de manieren om weer te geven van hetzelfde concept.<br/><br/>LUIS detecteert geen aanvullende waarden voor de lijst met entiteiten. Gebruik de **raden** functie om te bekijken van suggesties voor nieuwe woorden op basis van de huidige lijst.<br/><br>Als er meer dan één lijst entiteit met dezelfde waarde, wordt elke entiteit in de query eindpunt geretourneerd. <br/><br/>[Snelstartgids](luis-quickstart-intent-and-list-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Gemengde modus](#mixed) | ✔|**Definitie**<br>Patterns.any is een tijdelijke aanduiding voor de variabele lengte gebruikt alleen in een patroon van sjabloon utterance markeren waar de entiteit begint en eindigt.  <br><br>**Voorbeeld**<br>Uitgaande van een zoekopdracht utterance voor rapporten op basis van de titel, haalt de pattern.any de volledige titel. Een sjabloon utterance met behulp van pattern.any is `Who wrote {BookTitle}[?]`.<br/><br/>[Zelfstudie](luis-tutorial-pattern.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#composite-entity-data)|  
@@ -98,7 +99,7 @@ Beoordeling [limieten](luis-boundaries.md#model-boundaries) om te begrijpen hoe 
 
 ## <a name="roles-versus-hierarchical-entities"></a>Functies ten opzichte van hiërarchische entiteiten
 
-Zie voor meer informatie, [functies ten opzichte van hiërarchische entiteiten](luis-concept-roles.md#roles-versus-hierarchical-entities).
+Zie [Rollen versus hiërarchische entiteiten](luis-concept-roles.md#roles-versus-hierarchical-entities) voor meer informatie.
 
 ## <a name="composite-vs-hierarchical-entities"></a>Samengestelde vs hiërarchische entiteiten
 Samengestelde entiteiten en hiërarchische entiteiten zowel hebben relaties tussen bovenliggende en onderliggende en machine hebt geleerd. De machine learning kunt LUIS om te begrijpen van de entiteiten op basis van verschillende contexten (rangschikking van woorden). Samengestelde entiteiten zijn flexibel omdat ze verschillende Entiteitstypen als onderliggende items toegestaan. Een hiërarchische entiteit kinderen zijn alleen eenvoudige entiteiten. 

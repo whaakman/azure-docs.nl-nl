@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a3d079483ecf4ea8cf9a4c6bda050bfe8befcfd0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 51a48576b56413e0e779a49829a6eccaa0266a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241680"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076097"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Gegevens kopiëren van QuickBooks Online met Azure Data Factory (Preview)
 
@@ -45,7 +45,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor QuickBooks gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **QuickBooks** | Ja |
 | endpoint | Het eindpunt van de QuickBooks Online-server. (dat wil zeggen, quickbooks.api.intuit.com)  | Ja |
@@ -89,8 +89,12 @@ De volgende eigenschappen worden ondersteund voor QuickBooks gekoppelde service:
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door QuickBooks gegevensset.
 
-Als u wilt kopiëren van gegevens uit QuickBooks Online, stel de eigenschap type van de gegevensset in **QuickBooksObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
+Als u wilt kopiëren van gegevens uit QuickBooks Online, stel de eigenschap type van de gegevensset in **QuickBooksObject**. De volgende eigenschappen worden ondersteund:
 
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **QuickBooksObject** | Ja |
+| tableName | Naam van de tabel. | Nee (als 'query' in de activiteitbron is opgegeven) |
 **Voorbeeld**
 
 ```json
@@ -101,7 +105,8 @@ Als u wilt kopiëren van gegevens uit QuickBooks Online, stel de eigenschap type
         "linkedServiceName": {
             "referenceName": "<QuickBooks linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -110,14 +115,14 @@ Als u wilt kopiëren van gegevens uit QuickBooks Online, stel de eigenschap type
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door QuickBooks bron.
 
-### <a name="quickbookssource-as-source"></a>QuickBooksSource als bron
+### <a name="quickbooks-as-source"></a>QuickBooks als bron
 
 Als u wilt kopiëren van gegevens uit QuickBooks Online, stelt u het brontype in de kopieeractiviteit naar **QuickBooksSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **QuickBooksSource** | Ja |
-| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Ja |
+| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 

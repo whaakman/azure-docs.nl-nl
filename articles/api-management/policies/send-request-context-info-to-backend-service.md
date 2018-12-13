@@ -1,6 +1,6 @@
 ---
-title: Azure API management-beleid voorbeeld - gegevens voor aanvraag context verzenden naar de back-endservice | Microsoft Docs
-description: Azure API management-beleid-voorbeeld - laat zien hoe contextgegevens aanvraag verzendt naar de back-endservice.
+title: API management-beleid voorbeeld van Azure - gegevens voor de context van verzenden aanvraag naar de back-endservice | Microsoft Docs
+description: Azure API management-beleid-voorbeeld - ziet u hoe u contextinformatie aanvraag verzenden naar de back-endservice.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: d6cfd6e63dbc8a56179197b2942c52d15539ae74
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3369f3b3349e8daf9ff540b824c10bbd618a1147
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285544"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873424"
 ---
-# <a name="send-request-context-information-to-the-backend-service"></a>Aanvraag contextinformatie sturen naar de back-endservice
+# <a name="send-request-context-information-to-the-backend-service"></a>Contextinformatie aanvraag verzenden naar de back-endservice
 
-In dit artikel bevat een voorbeeld Azure API management-beleid die u laat zien hoe contextgegevens aanvraag verzendt naar de back-endservice. Volg de stappen in wilt instellen of bewerken van een beleid code, [instellen of bewerken van een beleid](../set-edit-policies.md). Zie voor andere voorbeelden [beleid voorbeelden](../policy-samples.md).
+In dit artikel wordt een Azure API management-beleid voorbeeld die laat zien hoe u aanvraag contextinformatie naar de back-endservice te verzenden. Als u wilt instellen of bewerken van een beleid voor code, volg de stappen [instellen of bewerken van een beleid](../set-edit-policies.md). Zie voor meer voorbeelden [beleid voorbeelden](../policy-samples.md).
 
 ## <a name="policy"></a>Beleid
 
-Plak de code in de **inkomende** blok.
+Plak de code in de **inkomende** blokkeren.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Send request context information to the backend service.policy.xml)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over APIM beleid:
+Meer informatie over de APIM-beleid:
 
 + [Transformatiebeleid](../api-management-transformation-policies.md)
 + [Voorbeelden van beleid](../policy-samples.md)

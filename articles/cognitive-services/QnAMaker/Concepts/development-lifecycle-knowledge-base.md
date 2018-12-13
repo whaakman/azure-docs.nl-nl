@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: ec5e9f92114e9bae1aaa840a1d02f5a42b2fd7bf
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18
+ms.openlocfilehash: 68fcc8b324bebfc7ca4fa94b2633b475137ea580
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857165"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075588"
 ---
-# <a name="knowledge-base-lifecycle"></a>Knowledge base-levenscyclus
+# <a name="knowledge-base-lifecycle-in-qna-maker"></a>Levenscyclus van de Knowledge base in QnA Maker
 QnA Maker leert beste in een iteratief cyclus van wijzigingen in het gegevensmodel, utterance voorbeelden, publiceren en verzamelen van gegevens van eindpunt query's. 
 
 ![Ontwerpcyclus](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
@@ -30,8 +31,8 @@ De knowledge base is klaar voor testen wanneer het wordt gevuld met inhoud, reda
 
 Voor grote kB's, kan de tests worden geautomatiseerd via generateAnswer API's. 
 
-## <a name="publish-the-knowledge-base"></a>De kennisdatabase publiceren
-Zodra u klaar bent met testen van de knowledge base, kunt u deze publiceert. De nieuwste versie van de geteste knowledge base voor een specifieke Azure Search-index vertegenwoordigt pushes publiceren de **gepubliceerd** knowledge base. Het maakt ook een eindpunt dat kan worden aangeroepen in uw toepassing of bot chatten.
+## <a name="publish-the-knowledge-base"></a>De knowledge base publiceren
+Zodra u klaar bent met testen van de knowledge base, kunt u deze publiceert. De nieuwste versie van de geteste knowledge base voor een specifieke Azure Search-index vertegenwoordigt pushes publiceren de **gepubliceerd** knowledge base. Hiermee wordt ook een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
 
 Op deze manier alle wijzigingen aan de testversie van de knowledge base niet van invloed op de gepubliceerde versie die mogelijk live in een productietoepassing.
 

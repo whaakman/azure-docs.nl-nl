@@ -1,5 +1,5 @@
 ---
-title: Gebruiksrechtovereenkomst voor spraak Devices SDK
+title: Gebruiksrechtovereenkomst voor spraak Devices SDK - spraakservices
 titleSuffix: Azure Cognitive Services
 description: Gebruiksrechtovereenkomst voor spraak Devices SDK.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b1605337a810c635bfa40cd05e2f9b15d2e5a7e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466117"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078511"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Gebruiksrechtovereenkomst voor spraak Devices SDK
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>LICENTIEBEPALINGEN VOOR MICROSOFT-SOFTWARE<br>SPRAAK APPARATEN SOFTWARE DEVELOPMENT KIT (SDK) 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>LICENTIEBEPALINGEN VOOR MICROSOFT-SOFTWARE<br>SPRAAK APPARATEN SOFTWARE DEVELOPMENT KIT (SDK)
 
 > ALS U LIVE IN (OF BENT VAN EEN BEDRIJF MET DE PRINCIPAL OP LOCATIE IN) DE VERENIGDE STATEN, LEEST U DE SECTIE 'BINDENDE ARBITRAGE EN AFSTANDSVERKLARING VERKLARING VAN AFSTAND' HIERONDER. IS VAN INVLOED OP HOE GESCHILLEN WORDEN OPGELOST.
 
@@ -57,7 +58,7 @@ f) moet u de software alleen in combinatie met Microsoft Azure Cognitive Service
 
 **5\. FEEDBACK.** Als u feedback geven over de software naar Microsoft, geeft u aan Microsoft, zonder kosten, het recht om te gebruiken, delen en commercialiseren van uw feedback op elke manier en voor welk doeleinde. U geeft geen feedback weergegeven dat is onderworpen aan een licentie waarvoor Microsoft eigen software of documentatie aan derden licentie omdat Microsoft uw feedback hierin omvat. Deze rechten overleven deze overeenkomst.
 
-**6\. PERIODE.** Deze overeenkomst gaat in op de bevestiging is en kan op elk gewenst moment door u of door Microsoft worden beëindigd. 
+**6\. PERIODE.** Deze overeenkomst gaat in op de bevestiging is en kan op elk gewenst moment door u of door Microsoft worden beëindigd.
 
 **7\. BEËINDIGING.** Onverminderd alle overige rechten, kan Microsoft deze Overeenkomst beëindigen als u niet om te voldoen aan een van de voorwaarden of voorwaarden. In dat geval moet u alle exemplaren van de software en alle onderdelen van vernietigen.
 

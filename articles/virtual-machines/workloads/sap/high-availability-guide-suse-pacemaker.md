@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 34a72bb38c87902648ad92261a70d6545f10d0fa
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723683"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076352"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -436,7 +436,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   De volgende vet inhoud toevoegen aan het bestand als de waarden niet er of een ander. Zorg ervoor dat u het token 30000 waarmee onderhoud met statusbehoud geheugen wijzigen. Zie voor meer informatie, [in dit artikel voor Linux] [ virtual-machines-linux-maintenance] of [Windows][virtual-machines-windows-maintenance].
+   De volgende vet inhoud toevoegen aan het bestand als de waarden niet er of een ander. Zorg ervoor dat u het token 30000 waarmee onderhoud met statusbehoud geheugen wijzigen. Zie voor meer informatie, [in dit artikel voor Linux] [ virtual-machines-linux-maintenance] of [Windows][virtual-machines-windows-maintenance]. Zorg ervoor dat u de parameter-mcastaddr verwijderen.
 
    <pre><code>[...]
      <b>token:          30000
@@ -449,6 +449,8 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
         [...] 
      }
      <b>transport:      udpu</b>
+     # remove parameter mcastaddr
+     <b># mcastaddr: IP</b>
    } 
    <b>nodelist {
      node {

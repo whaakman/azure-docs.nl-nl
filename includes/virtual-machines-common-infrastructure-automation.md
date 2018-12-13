@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981441"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53027924"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Infrastructuur automatiseringsprogramma's gebruiken met virtuele machines in Azure
 Als u wilt maken en beheren van virtuele Azure-machines (VM's) op een consistente manier op schaal, een vorm van automatisering doorgaans gewenst. Er zijn veel hulpprogramma's en oplossingen waarmee u kunt de volledige Azure-infrastructuur-implementatie en beheer van levenscyclus automatiseren. In dit artikel worden enkele van de infrastructuur voor automation-hulpprogramma's die u in Azure gebruiken kunt. Deze hulpprogramma's wordt vaak aanpassen aan een van de volgende methoden:
@@ -23,7 +23,7 @@ Als u wilt maken en beheren van virtuele Azure-machines (VM's) op een consistent
     - [Azure Automation](#azure-automation) acties kunnen uitvoeren in uw Azure en on-premises infrastructuur.
 
 - Implementatie van toepassingen en -levering automatiseren
-    - Voorbeelden zijn onder meer [Azure DevOps Services](#visual-studio-team-services) en [Jenkins](#jenkins).
+    - Voorbeelden zijn onder meer [Azure DevOps Services](#azure-devops-services) en [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) is een automatiseringsengine voor voor Configuratiebeheer, het maken van VM of implementatie van de toepassing. Ansible maakt gebruik van een model zonder agent, meestal met SSH-sleutels, om te verifiëren en beheren van doelmachines. Configuratietaken zijn gedefinieerd in playbooks, met een aantal Ansible-modules die beschikbaar zijn voor het uitvoeren van specifieke taken. Zie voor meer informatie, [hoe Ansible werkt](https://www.ansible.com/how-ansible-works).

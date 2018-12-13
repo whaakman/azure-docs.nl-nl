@@ -1,21 +1,22 @@
 ---
-title: Understanding intents in LUIS-apps
-titleSuffix: Azure Cognitive Services
-description: Een doel vertegenwoordigt een taak of actie de gebruiker wil om uit te voeren. Het is een doel of het doel, uitgedrukt in van een gebruiker utterance. Een set intents die overeenkomt met voor acties die gebruikers te nemen in uw toepassing wilt definiëren.
+title: Gebruiker bedoelingen
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Een doel vertegenwoordigt een taak of actie de gebruiker wil om uit te voeren. Het is een doel of het doel, uitgedrukt in van een gebruiker utterance.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5ccfe781b3632bd7ccfc532398a00faf7a87b63f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: MT
+ms.openlocfilehash: b3285e242b88f2bdc07390db49a1fe582a5c7f09
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637208"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075559"
 ---
 # <a name="intents-in-luis"></a>Intents in LUIS
 

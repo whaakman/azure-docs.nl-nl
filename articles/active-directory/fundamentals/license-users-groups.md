@@ -1,6 +1,6 @@
 ---
-title: Het toewijzen of verwijderen van licenties voor Azure Active Directory | Microsoft Docs
-description: Toewijzen of verwijderen van licenties voor Azure Active Directory van uw gebruikers of groepen met behulp van Azure Active Directory.
+title: Wijs toe of verwijder licenties - Azure Active Directory | Microsoft Docs
+description: Instructies over het toewijzen of verwijderen van licenties voor Azure Active Directory van uw gebruikers of groepen.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: e1b0b2f84c67e30c3bb998554dc662b002744003
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603877"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077451"
 ---
-# <a name="how-to-assign-or-remove-azure-active-directory-licenses"></a>Hoe: toewijzen of verwijderen van licenties voor Azure Active Directory
+# <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Wijs toe of verwijder licenties met behulp van de Azure Active Directory-portal
 Veel services van Azure Active Directory (Azure AD) moeten u een Azure AD-product te activeren en licenties voor elk van uw gebruikers of groepen (en bijbehorende leden) voor dat product. Alleen gebruikers met actieve licenties kunnen openen en gebruiken de gelicentieerde Azure AD-services.
 
 ## <a name="available-product-editions"></a>Beschikbare product-edities
@@ -40,7 +40,7 @@ Zie voor meer informatie over elke editie van het product en de bijbehorende lic
 U kunt uw beschikbare producten, met inbegrip van de afzonderlijke licenties weergeven voor alle in behandeling vervaldatums en het aantal beschikbare toewijzingen controleren.
 
 ### <a name="to-find-your-product-and-license-details"></a>Voor uw product en licentie-informatie
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van een globale beheerdersaccount voor de map.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) met het account van een globale administrator voor de map.
 
 2. Selecteer **Azure Active Directory**, en selecteer vervolgens **licenties**.
 

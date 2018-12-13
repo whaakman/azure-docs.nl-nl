@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 947a39a3660e0755efbf99b74b66d2c16e331e07
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 29bb495bbbd56ab39964b34db35fb4d222a60179
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837049"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074692"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Georuimtelijke en GeoJSON locatiegegevens gebruiken met Azure Cosmos DB SQL API-account
 
@@ -305,7 +305,7 @@ Op dezelfde manier als volgt een query voor het zoeken naar alle documenten waar
 Nu dat we een overzicht van hoe u documenten met behulp van LINQ en SQL query hebt gemaakt, laten we eens over het configureren van Azure Cosmos DB voor ruimtelijke indexering.
 
 ## <a name="indexing"></a>Indexeren
-Zoals wordt beschreven in de [Schema-agnostische indexering met Azure Cosmos DB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) papier, we ontworpen voor Azure Cosmos DB-database-engine moet echt schema-agnostische en eersteklas ondersteuning voor JSON. De schrijven geoptimaliseerde database-engine van Azure Cosmos DB begrijpt systeemeigen ruimtelijke gegevens (punten, veelhoeken en regels) weergegeven in de GeoJSON-standaard.
+Zoals wordt beschreven in de [Schema-agnostische indexering met Azure Cosmos DB](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) papier, we ontworpen voor Azure Cosmos DB-database-engine moet echt schema-agnostische en eersteklas ondersteuning voor JSON. De schrijven geoptimaliseerde database-engine van Azure Cosmos DB begrijpt systeemeigen ruimtelijke gegevens (punten, veelhoeken en regels) weergegeven in de GeoJSON-standaard.
 
 Kortom, de geometrie is geprojecteerd van geodetisch coördinaten op een 2D vlak vervolgens geleidelijk worden onderverdeeld in cellen met behulp van een **quadtree**. Als u deze cellen zijn toegewezen aan 1D op basis van de locatie van de cel binnen een **Hilbert ruimte vullen curve**, die de locatie van de punten blijft behouden. Daarnaast wanneer locatiegegevens wordt geïndexeerd, doorloopt een proces dat ook wel **mozaïekpatroon**, dat wil zeggen, de cellen die elkaar een locatie overlappen worden geïdentificeerd en opgeslagen als sleutels in de Azure Cosmos DB-index. Op het moment dat de query, argumenten, zoals punten en polygonen zijn ook representatie mozaïekpatroon om op te halen van de relevante ID celbereiken, en vervolgens gebruikt voor het ophalen van gegevens uit de index.
 
@@ -389,7 +389,7 @@ En dit is hoe u een bestaande verzameling om te profiteren van ruimtelijke index
 U hebt geleerd hoe u aan de slag met georuimtelijke ondersteuning in Azure Cosmos DB, naast kunt u:
 
 * Gaan coderen met de [georuimtelijke .NET-codevoorbeelden op GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
-* Aan de slag met georuimtelijke query's uitvoeren op de [Azure Cosmos DB testomgeving voor Query's](http://www.documentdb.com/sql/demo#geospatial)
+* Aan de slag met georuimtelijke query's uitvoeren op de [Azure Cosmos DB testomgeving voor Query's](https://www.documentdb.com/sql/demo#geospatial)
 * Meer informatie over [Azure Cosmos DB-Query](how-to-sql-query.md)
 * Meer informatie over [Azure Cosmos DB indexeren van beleid](index-policy.md)
 

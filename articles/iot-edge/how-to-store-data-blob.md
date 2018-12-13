@@ -1,5 +1,5 @@
 ---
-title: Azure Blob-opslag op Azure IoT Edge-apparaten | Microsoft Docs
+title: Blok-blobs Store op apparaten - Azure IoT Edge | Microsoft Docs
 description: Een Azure Blob Storage-module implementeren op uw IoT Edge-apparaat voor het opslaan van gegevens aan de rand.
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: e56d49208740686b51cdaef1bab778e2c08a9b58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567278"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077917"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
@@ -40,7 +41,7 @@ Een Azure IoT Edge-apparaat:
    | Ubuntu-Server 18.04 | AMD64 |
    | Windows 10 IoT Core (update van oktober) | AMD64 |
    | Windows 10 IoT Enterprise (update van oktober) | AMD64 |
-   | WindowsServer 2019 | AMD64 |
+   | Windows Server 2019 | AMD64 |
    | Raspbian Stretch | ARM32 |
 
 Cloudresources:
@@ -105,7 +106,7 @@ Kies een van de twee manieren om te zoeken van de blob storage-module:
    > [!CAUTION]
    > Wijzig niet de "/ blobroot ' voor Linux en" C:/BlobRoot' voor Windows, voor  **\<Storage directory binden >** waarden.
 
-    ![Waarden van de Module bijwerken](./media/how-to-store-data-blob/edit-module.png)
+    ![Update-module container opties - portal maken](./media/how-to-store-data-blob/edit-module.png)
 
 6. **Sla** de waarden in "IoT Edge-aangepaste Modules"
 7. Klik op **volgende** in de sectie "Modules instellen"
@@ -149,7 +150,7 @@ Sjabloon van de oplossing maakt een manifest implementatiesjabloon die uw blob s
    {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"<storage directory bind>\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
    ```
 
-   ![Opties voor update-module maken](./media/how-to-store-data-blob/create-options.png)
+   ![Module createOptions - VS Code bijwerken](./media/how-to-store-data-blob/create-options.png)
 
 4. Werk in de opties voor het maken JSON, `<storage directory bind>` afhankelijk van uw besturingssysteem voor de container. Geef de naam van een [volume](https://docs.docker.com/storage/volumes/) of het absolute pad naar een map op uw IoT Edge-apparaat dat is waar u de blob-module voor het opslaan van de gegevens.  
 

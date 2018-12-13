@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: barbkess
-ms.openlocfilehash: c1e6c48ef262bf3cb71f7201ba2ff7e9105681dc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1876ff0cea2e46f8159b9ffb24de72a6272b3a79
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356770"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077071"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Self-servicetoepassingen toewijzing configureren
 
@@ -57,7 +57,7 @@ Om in te schakelen Self-servicetoepassingen toegang tot een toepassing, de volge
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
+    * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
 6.  Selecteer de toepassing die u wilt inschakelen, selfservice toegang tot in de lijst.
 
@@ -67,8 +67,8 @@ Om in te schakelen Self-servicetoepassingen toegang tot een toepassing, de volge
 
 9.  Klik vervolgens op de selector naast het label te selecteren in de groep waaraan de gebruikers die aanvragen toegang tot deze toepassing moet worden toegevoegd, **aan welke groep moeten toegewezen gebruikers worden toegevoegd?** en selecteert u een groep.
   
-  > [!NOTE]
-  > Groepen die zijn gesynchroniseerd van on-premises worden niet ondersteund om te worden gebruikt voor de groep waaraan de gebruikers die toegang tot deze toepassing willen moeten worden toegevoegd.
+    > [!NOTE]
+    > Groepen die zijn gesynchroniseerd van on-premises worden niet ondersteund om te worden gebruikt voor de groep waaraan de gebruikers die toegang tot deze toepassing willen moeten worden toegevoegd.
   
 10. **Optioneel:** als u wilt een zakelijke goedkeuring vereisen voordat gebruikers toegang hebben, stelt u de **goedkeuring vereisen voordat het verlenen van toegang tot deze toepassing?** overzet naar **Ja**.
 
@@ -76,10 +76,10 @@ Om in te schakelen Self-servicetoepassingen toegang tot een toepassing, de volge
 
 12. **Optioneel:** om op te geven van de fiatteur die gemachtigd zijn om goed te keuren toegang tot deze toepassing, klikt u op de kiezer naast het label **die is toegestaan toegang tot deze toepassing goedkeuren?** maximaal 10 afzonderlijke selecteren fiatteur.
 
-   >[!NOTE]
-   >Groepen worden niet ondersteund.
-   >
-   >
+     > [!NOTE]
+     > Groepen worden niet ondersteund.
+     >
+     >
 
 13. **Optioneel:** **voor toepassingen waardoor rollen worden blootgesteld**, als u wilt Self-service goedgekeurde gebruikers toewijzen aan een rol, klik op de selector naast de **aan welke rol moeten gebruikers worden toegewezen in deze toepassing?** Selecteer de rol die deze gebruikers moeten worden toegewezen.
 

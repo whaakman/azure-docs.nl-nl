@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 854f457e6731f69c64bf2036840d9e1c18a1cbf2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093898"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075087"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Een beheerde gegevensschijf koppelen aan een virtuele Windows-machine met behulp van Azure portal
 
@@ -52,30 +52,6 @@ In dit artikel wordt beschreven hoe u een nieuwe beheerde gegevensschijf koppele
 8. In de **nieuwe schijf formatteren** venster, Controleer de instellingen en selecteer vervolgens **Start**.
 9. Een waarschuwing weergegeven de melding dat de schijven formatteert, worden alle gegevens. Selecteer **OK**.
 10. Wanneer de opmaak voltooid is, selecteert u **OK**.
-
-## <a name="use-trim-with-standard-storage"></a>TRIM gebruiken met standard storage
-
-Als u een standard-opslag (HDD) gebruikt, moet u inschakelen de **TRIM** opdracht. De **TRIM** opdracht verwijdert niet-gebruikte blokken op de schijf, zodat u wordt gefactureerd voor alleen voor opslag die u daadwerkelijk gebruikt. Met behulp van **TRIM**, u kosten kunt besparen als u grote bestanden maakt en vervolgens later verwijderen. 
-
-Om te controleren of de **TRIM** instellen, open een opdrachtprompt op de Windows-VM en voer de volgende opdracht:
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-Als de opdracht 0 retourneert, **TRIM** correct is ingeschakeld. Anders uitgevoerd de volgende opdracht uit om in te schakelen als deze 1 retourneert, **TRIM**:
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-Nadat u gegevens van de schijf verwijderd, kunt u controleren of de **TRIM** leegmaken goed door het uitvoeren van bewerkingen met Defragmentatie **TRIM**:
-
-```
-defrag.exe <volume:> -l
-```
-
-U kunt ook het volume om te controleren of dat het hele volume wordt bijgesneden opmaken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
