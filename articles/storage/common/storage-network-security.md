@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: cca1c8e02de84e3a1b2e265bffaaa2b608e64038
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8801954ec5ff0277614f65217b9abab6bfb67035
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959441"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098603"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
 
@@ -350,7 +350,7 @@ Als u inschakelt de **vertrouwde Microsoft-services toestaan...**  uitzondering,
 |Azure Backup|Microsoft.Backup|Back-ups en herstelbewerkingen van niet-beheerde schijven in virtuele machines van IAAS uitvoeren. (niet vereist voor beheerde schijven). [Meer informatie](/azure/backup/backup-introduction-to-azure-backup).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Herstel na noodgevallen configureren door het inschakelen van replicatie voor virtuele machines van Azure IaaS. Dit is vereist als u de cache-opslagaccount firewall is ingeschakeld of bron storage-account of doelopslagaccount.  [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Aangepaste installatiekopie maken en artefact installatie. [Meer informatie](/azure/devtest-lab/devtest-lab-overview).|
-|Azure Event Grid|Microsoft.EventGrid|Blob-opslag gebeurtenis publiceren inschakelen. [Meer informatie](/azure/event-grid/overview).|
+|Azure Event Grid|Microsoft.EventGrid|Gebeurtenispublicatie Blob-opslag inschakelen en toestaan van Event Grid om te publiceren naar storage-wachtrijen. Meer informatie over [blob-opslaggebeurtenissen](/azure/event-grid/event-sources) en [publiceren naar wachtrijen](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Gegevens met Event Hubs Capture archiveren. [Meer informatie](/azure/event-hubs/event-hubs-capture-overview).|
 |Azure-netwerken|Microsoft.Networking|Store en netwerk-verkeerslogboeken te analyseren. [Meer informatie](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Monitor|Microsoft.Insights|Kan het schrijven van gegevens naar een beveiligde storage-account te controleren [meer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|

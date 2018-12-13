@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a273d0bd4d064cb1c6ac4d3951af8a493e303f51
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0b3c4a4c21bc9b124a98b1f204f85e6e78ff233e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015888"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099559"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Inleiding tot Azure Data Lake Storage Gen2 Preview
 
@@ -57,7 +57,7 @@ Daarnaast functies zoals de [hiërarchische naamruimte](data-lake-storage-namesp
 
 ### <a name="one-service-multiple-concepts"></a>Een service, meerdere concepten
 
-Data Lake Storage Gen2 is een aanvullende mogelijkheden voor analyse van big data, gebouwd op Azure Blob Storage. Er zijn tal van voordelen in gebruik te maken van bestaande platformonderdelen van Blobs maken en gebruiken van datalakes voor analyses, dit leiden tot meerdere concepten met een beschrijving van de dingen die dezelfde, gedeeld.
+Data Lake Storage Gen2 is een aanvullende mogelijkheden voor analyse van big data, gebouwd op Azure Blob-opslag. Er zijn tal van voordelen in gebruik te maken van bestaande platformonderdelen van Blobs maken en gebruiken van datalakes voor analyses, dit leiden tot meerdere concepten met een beschrijving van de dingen die dezelfde, gedeeld.
 
 Hier volgen de equivalente entiteiten, zoals beschreven door andere concepten. Tenzij anders opgegeven deze entiteiten rechtstreeks synoniem zijn:
 
@@ -66,7 +66,7 @@ Hier volgen de equivalente entiteiten, zoals beschreven door andere concepten. T
 | BLOBs-opslag voor algemeen gebruik-object | Container              | Virtuele map (SDK alleen – geeft geen atomaire bewerking) | Blob           |
 | ADLS Gen2 – Storage Analytics          | Bestandssysteem             | Directory                                                           | File           |
 
-## <a name="open-source-platforms-that-work-with-data-lake-storage-gen2"></a>Open source-platforms die met Data Lake Storage Gen2 werken
+## <a name="supported-open-source-platforms"></a>Open source-platforms ondersteund
 
 Data Lake Storage Gen2 ondersteuning voor verschillende open source-platforms. Deze platforms worden weergegeven in de volgende tabel.
 
@@ -77,9 +77,9 @@ Data Lake Storage Gen2 ondersteuning voor verschillende open source-platforms. D
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 + | [Wat zijn de Apache Hadoop-onderdelen en versies die beschikbaar met HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 | [Hadoop](https://hadoop.apache.org/) | 2.7 + | [Apache Hadoop-versies archiveren](https://hadoop.apache.org/release.html) |
-| [Cloudera](https://www.cloudera.com/) | 6.1 + | [Opmerkingen bij de release van de onderneming Claudera 6.x](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
+| [Cloudera](https://www.cloudera.com/) | 6.1 + | [Opmerkingen bij de release van de Cloudera Enterprise 6.x](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2 + | [Databricks Runtime-versies](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[HortenWorks](https://hortonworks.com/)| 2.6 + | [HortenWorks-documentatie](https://docs.hortonworks.com/) |
+|[Hortonworks](https://hortonworks.com/)| 2.6 + | [Hortonworks-documentatie](https://docs.hortonworks.com/) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -87,5 +87,5 @@ De volgende artikelen beschreven enkele van de belangrijkste concepten van Data 
 
 -   [Hiërarchische naamruimte](data-lake-storage-namespace.md)
 -   [Een opslagaccount maken](data-lake-storage-quickstart-create-account.md)
--   [Een HDInsight-cluster maken met Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
--   [Een Azure Data Lake Storage Gen2-account in Azure Databricks gebruiken](data-lake-storage-quickstart-create-databricks-account.md)
+-   [Een HDInsight-cluster maken met Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
+-   [Een Data Lake Storage Gen2-account in Azure Databricks gebruiken](data-lake-storage-quickstart-create-databricks-account.md)

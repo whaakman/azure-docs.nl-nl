@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73876d950a34317365c9fceb865a3c473a75780a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bcd8fe040cb4d36bc98700816d6a7ebe711f13f5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874342"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093435"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -211,7 +211,7 @@ De Azure Cosmos DB .NET Core Preview SDK heeft de functiepariteit met de meest r
 * [Gepartitioneerde verzamelingen](partition-data.md). 
 * [Databaseaccounts voor meerdere regio's en geo-replicatie](distribute-data-globally.md).
 
-Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), of een probleem melden in het [github-opslagplaats](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), of een probleem melden in het [github-opslagplaats](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## <a name="release--retirement-dates"></a>Release & datums buiten gebruik stellen
 

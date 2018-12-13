@@ -1,6 +1,6 @@
 ---
-title: Uw aangepaste domein toevoegen aan Azure Active Directory | Microsoft Docs
-description: Informatie over het toevoegen van een aangepast domein met behulp van de Azure Active Directory-portal.
+title: Uw aangepaste domein - Azure Active Directory toevoegen | Microsoft Docs
+description: Instructies over het toevoegen van een aangepast domein met behulp van Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
-ms.custom: it-pro
-ms.openlocfilehash: 77c2247281fde4aa2b67388464b386b276fe6437
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233334"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098290"
 ---
-# <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Hoe: de naam van uw aangepaste domein met behulp van de Azure Active Directory-portal toevoegen
+# <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>De naam van uw aangepaste domein met behulp van de Azure Active Directory-portal toevoegen
 Elke nieuwe Azure AD-tenant wordt geleverd met een initiële domeinnaam *domainname*. onmicrosoft.com. U niet wijzigen of verwijderen van de initiële domeinnaam, maar u kunt de namen van uw organisatie toevoegen aan de lijst. Toevoegen van aangepaste domeinnamen, helpt u bij het maken van de gebruikersnamen die bekend bij uw gebruikers, zoals zijn *alain@contoso.com*.
 
 ## <a name="before-you-begin"></a>Voordat u begint

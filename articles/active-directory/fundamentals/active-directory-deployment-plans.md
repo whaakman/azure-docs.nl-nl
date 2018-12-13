@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-implementatieplannen | Microsoft Docs
-description: Deze bieden end-to-end-richtlijnen over het implementeren van de mogelijkheden van Azure Active Directory
+title: Implementatieplannen voor - Azure Active Directory | Microsoft Docs
+description: End-to-end-richtlijnen over het implementeren van de vele mogelijkheden van Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
-ms.openlocfilehash: f5a148cba172b4e1e4490b52afb3b500da3a593c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: f471f1183a7d0d695b5817003fe70a018787731d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434157"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094777"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-implementatieplannen
 Bent u op zoek naar end-to-end-richtlijnen over het implementeren van sommige mogelijkheden van Azure Active Directory (Azure AD)? De volgende implementatieplannen geven richtlijnen bij de vereiste bedrijfswaarde, planningsoverwegingen, het ontwerp en de operationele procedures voor de implementatie van enkele algemene mogelijkheden van Azure AD. 
@@ -24,7 +25,7 @@ In de documenten vindt u e-mailsjablonen, diagrammen met systeemarchitectuur, al
 
 Uw feedback over de documenten wordt op prijs gesteld. Vul deze korte [enquête](https://aka.ms/deploymentplanfeedback) in verband met de documenten in. 
 
-|Scenario |Beschrijving |
+|Scenario |Description |
 |-|-|
 |[Eenmalige aanmelding](https://aka.ms/SSODPDownload)|Met eenmalige aanmelding kunt u alle apps en resources openen die u voor uw bedrijf nodig hebt. U hoeft u slechts eenmaal aan te melden met één gebruikersaccount. Nadat u zich hebt aangemeld, gaat u vanuit Microsoft Office naar SalesForce en naar Box zonder dat u zich een tweede keer hoeft te verifiëren (bijvoorbeeld door een wachtwoord te typen).|
 |[Inrichten van WorkDay gebaseerde inkomende gebruikers](https://aka.ms/WorkdayDeploymentPlan)|WorkDay gebaseerde inkomende inrichten van gebruikers naar Active Directory maakt u een basis voor lopende identiteitsbestuur, en verbetert de kwaliteit van zakelijke processen die afhankelijk van de gezaghebbende identiteitsgegevens zijn. Met deze functie kunt u naadloos beheren de levenscyclus van de identiteit van werknemers en voorwaardelijke werknemers door regels die binding-Mover-Leaver processen (zoals nieuwe werven, beëindigen, overdracht) aan IT inrichting acties (zoals het maken, inschakelen toewijzen, te configureren Uitschakelen, accounts verwijderen).|

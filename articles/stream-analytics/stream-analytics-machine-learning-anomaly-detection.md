@@ -4,17 +4,17 @@ description: In dit artikel wordt beschreven hoe u Azure Stream Analytics en Azu
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567040"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091217"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Anomaliedetectie in Azure Stream Analytics
 
@@ -95,7 +95,7 @@ Als de voortgang van de tijd, modellen worden getraind met andere gegevens. Als 
 
 Schematisch aangegeven, de stappen er als volgt uitzien: 
 
-![Modellen voor training](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![Machine learning-modellen voor training](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**Model** | **Begintijd van de training** | **Tijd om te gaan met behulp van de score** |
 |---------|---------|---------|
@@ -145,15 +145,15 @@ De volgende punten moeten worden gehouden bij met deze detectie:
 
    Dit wordt weergegeven in afbeelding 1 en 2 hieronder met behulp van een wijziging in de bovenste limiet (dezelfde logica is van toepassing op een lagere limiet wijzigen). In beide afbeeldingen zijn de golfvormen een afwijkende niveau wijzigen. Verticale oranje regels geven hop grenzen en de grootte van de vensterverplaatsing is hetzelfde als de opgegeven in de operator AnomalyDetection venster voor detectie. De groene regels geven aan de grootte van het venster training. In afbeelding 1 is de grootte van de vensterverplaatsing hetzelfde als de tijd voor welke anomaliedetectie duurt. In afbeelding 2 is de grootte van de vensterverplaatsing helft van de tijd die de anomalie duurt. In alle gevallen wordt een opwaartse wijzigen omdat het model dat wordt gebruikt voor het scoren is getraind op normale gegevens gedetecteerd. Maar op basis van de werking van de detector bidirectionele niveau wijzigen, moet deze de normale waarden uitsluiten van de training venster dat wordt gebruikt voor het model dat terug te keren naar de normale beoordeelt. In afbeelding 1 bevat de scoring modeltraining sommige normale gebeurtenissen, zodat terug te keren naar de normale kan niet worden gedetecteerd. Maar in afbeelding 2, bevat de training alleen de afwijkende onderdeel, dat zorgt ervoor dat er terug te keren naar de normale is gedetecteerd. Codes kleiner dan de helft werkt ook voor dezelfde reden dat iets groter wordt uiteindelijk waaronder een deel van de normale gebeurtenissen. 
 
-   ![AD met de lengte van venster Grootte gelijk anomaliedetectie](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![AD met de lengte van venster Grootte gelijk anomaliedetectie](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![AD met venstergrootte gelijk is aan de helft van de lengte van afwijkingen](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![AD met venstergrootte gelijk is aan de helft van de lengte van afwijkingen](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. In gevallen waarbij de lengte van de afwijkingen kan niet worden voorspeld, werkt deze detector ten best inspanning. Echter kiezen dat een smaller tijdvenster beperkt de trainingsgegevens, die zou vergroot de kans op terug te keren naar de normale detecteren. 
 
 3. In het volgende scenario, is niet de langer anomalie als het venster training al een afwijking van dezelfde hoge waarde bevat gedetecteerd. 
 
-   ![Afwijkingen met dezelfde grootte](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![Gedetecteerde afwijkingen met dezelfde grootte](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## <a name="example-query-to-detect-anomalies"></a>Voorbeeld van een query voor het detecteren van afwijkingen 
 

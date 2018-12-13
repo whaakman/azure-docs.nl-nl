@@ -1,5 +1,5 @@
 ---
-title: Bijwerken van apparaten naar de nieuwste versie van Azure IoT Edge | Microsoft Docs
+title: Versie van de update IoT Edge op apparaten - Azure IoT Edge | Microsoft Docs
 description: Het bijwerken van IoT Edge-apparaten voor het uitvoeren van de meest recente versies van de security-daemon en de IoT Edge-runtime
 keywords: ''
 author: kgremban
@@ -9,14 +9,15 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1522d9c9bc4fda178d8571fb57cb9c94ed1044ae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 8b8638d8fa428b1b867e3f126ac8b5cc992cc273
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567788"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095151"
 ---
-# <a name="update-the-iot-edge-runtime"></a>Bijwerken van de IoT Edge-runtime
+# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>De IoT Edge security-daemon en runtime bijwerken
 
 Zodra de IoT Edge-service worden nieuwe versies uitgebracht, moet u uw IoT Edge-apparaten als u wilt dat de nieuwste functies en verbeteringen in de beveiliging bij te werken. In dit artikel bevat informatie over het bijwerken van uw IoT Edge-apparaten wanneer een nieuwe versie beschikbaar is. 
 
@@ -63,7 +64,7 @@ De manier waarop de Edge agent en Edge hub containers te werken, is afhankelijk 
 
 Controleer de versie van de IoT Edge-agent en Edge hub-modules die zich momenteel op uw apparaat met de opdrachten `iotedge logs edgeAgent` of `iotedge logs edgeHub`. 
 
-  ![Versie van de container weergeven](./media/how-to-update-iot-edge/container-version.png)
+  ![Containerversie niet vinden in Logboeken](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>Informatie over IoT Edge-tags
 
