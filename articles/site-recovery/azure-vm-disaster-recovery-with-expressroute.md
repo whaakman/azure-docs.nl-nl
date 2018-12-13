@@ -93,7 +93,7 @@ Enterprise-implementaties hebben meestal verdeeld over meerdere Azure VNets, met
 - **Hub vNet**. Er is een hub vNet **bron Hub vNet**: 10.10.10.0/24.
     - Dit vNet hub fungeert als de gatekeeper.
     - Alle communicatie tussen subnetten zijn doorlopen van deze hub.
- - Hub vNet subnetten **. De hub vNet heeft twee subnetten:
+ - ****Hub vNet subnetten**. De hub vNet heeft twee subnetten:
      - **NVA-subnet**: 10.10.10.0/25. Dit subnet bevat een NVA (10.10.10.10).
      - **Gatewaysubnet**: 10.10.10.128/25. Dit subnet bevat een ExpressRoute-gateway verbonden met een ExpressRoute-verbinding die u routes naar de on-premises site via een persoonlijke peering routeringsdomein.
 - Het on-premises datacenter heeft een ExpressRoute-circuit-verbinding via een partner edge in Hong Kong.
