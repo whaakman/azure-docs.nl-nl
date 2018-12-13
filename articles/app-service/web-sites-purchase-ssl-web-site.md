@@ -1,5 +1,5 @@
 ---
-title: Kopen en configureren van een SSL-certificaat voor Azure App Service | Microsoft Docs
+title: Kopen en configureren van een SSL-certificaat van Azure - App Service | Microsoft Docs
 description: Leer hoe u een App Service-certificaat kopen en te binden aan uw App Service-app
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 67d27587e8a5f85eb339efb83e661c061b621ed1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959832"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268713"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Kopen en configureren van een SSL-certificaat voor Azure App Service
 
@@ -46,9 +47,9 @@ De volgorde van een App Service-certificaat te starten in de <a href="https://po
 
 Gebruik de volgende tabel om u te helpen u bij het configureren van het certificaat. Klik op **Create** als u klaar bent.
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |-|-|
-| Naam | Een beschrijvende naam voor uw App Service-certificaat. |
+| Name | Een beschrijvende naam voor uw App Service-certificaat. |
 | Hostnaam van domein zonder voorvoegsel | Deze stap is een van de belangrijkste onderdelen van het aankoopproces. Gebruik de root-domeinnaam die u hebt toegewezen aan uw app. Voer _niet_ voegt u vóór de naam van het domein met `www`. |
 | Abonnement | Het datacenter waar de web-app wordt gehost. |
 | Resourcegroep | De resourcegroep die het certificaat bevat. U kunt een nieuwe resourcegroep gebruiken of u kunt bijvoorbeeld dezelfde resourcegroep bevinden als uw App Service-app selecteren. |
@@ -67,9 +68,9 @@ Selecteer het certificaat in de [App Service-certificaten](https://portal.azure.
 
 In de **Key Vault-Status** pagina, klikt u op **Key Vault-opslagplaats** te maken van een nieuwe kluis of kies een bestaande kluis. Als u ervoor kiest om een nieuwe kluis te maken, gebruikt u de volgende tabel om u te helpen u bij het configureren van de kluis en klik op maken. Zie nieuwe Key Vault binnen hetzelfde abonnement en de resourcegroep-groep maken.
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |-|-|
-| Naam | Een unieke naam die bestaat uit voor alfanumerieke tekens en streepjes bevatten. |
+| Name | Een unieke naam die bestaat uit voor alfanumerieke tekens en streepjes bevatten. |
 | Resourcegroep | Selecteer dezelfde resourcegroep bevinden als uw App Service-certificaat als een aanbeveling. |
 | Locatie | Selecteer de dezelfde locatie als uw App Service-app. |
 | Prijscategorie | Zie voor meer informatie, [Azure Key Vault prijsinformatie](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -110,7 +111,7 @@ Nu het certificaat is geïmporteerd, moet u om dit te binden aan een toegewezen 
 
 Gebruik de volgende tabel om u te helpen u bij het configureren van de binding in de **SSL-bindingen** dialoogvenster, klikt u vervolgens op **Binding toevoegen**.
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |-|-|
 | Hostnaam | De domeinnaam om toe te voegen voor SSL-binding. |
 | Vingerafdruk van het persoonlijke certificaat | Het certificaat te binden. |
@@ -158,4 +159,4 @@ Als u wilt handmatig vernieuwen van het certificaat in plaats daarvan, klikt u o
 * [HTTPS afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [TLS 1.1/1.2 afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Een SSL-certificaat in de code van uw toepassing in Azure App Service gebruiken](app-service-web-ssl-cert-load.md)
-* [Veelgestelde vragen: App Service-certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [FAQ: App Service-certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

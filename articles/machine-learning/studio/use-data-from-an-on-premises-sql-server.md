@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: 059dd3d902409abfa80be2b7aac579a54de1868f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: dccea7c5d7967af2e81ab4728704a5a104a007b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090667"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269275"
 ---
-# <a name="perform-analytics-with-azure-machine-learning-using-an-on-premises-sql-server-database"></a>Analyses uitvoeren met Azure Machine Learning met behulp van een on-premises SQL Server-database
+# <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Analyses uitvoeren met Azure Machine Learning Studio en gebruik van een on-premises SQL Server-database
 
 Vaak ondernemingen die met on-premises gegevens werken wilt profiteren van de schaal en flexibiliteit van de cloud voor de machine learning-werkbelastingen uitvoeren. Maar ze niet willen hun huidige bedrijfsprocessen en werkstromen worden onderbroken door het verplaatsen van hun on-premises gegevens naar de cloud. Azure Machine Learning biedt nu ondersteuning voor lezen van uw gegevens vanuit een on-premises SQL Server-database en vervolgens training en scoren van een model met deze gegevens. U hebt niet meer handmatig kopiëren en synchroniseren van gegevens tussen de cloud en uw on-premises server. In plaats daarvan de **importgegevens** module in Azure Machine Learning Studio nu rechtstreeks vanuit uw on-premises SQL Server-database voor uw training en scoren van taken kan lezen.
 
@@ -36,7 +35,7 @@ In dit artikel biedt een overzicht van hoe u inkomend verkeer on-premises SQL se
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>De Data Factory zelf-hostende Integratieruntime installeren
 Voor toegang tot een on-premises SQL Server-database in Azure Machine Learning, die u wilt downloaden en installeren van de Data Factory zelfgehoste Integration Runtime, voorheen bekend als de Data Management Gateway. Wanneer u de verbinding in Machine Learning Studio configureren, hebt u de mogelijkheid om te downloaden en installeer de Integration Runtime (IR) met de **downloaden en registreer gegevensgateway** dialoogvenster die hieronder worden beschreven.

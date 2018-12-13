@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: d938b8a7551f77f00b7c18421f07972a508f21ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c95c40404bb52f739c407eca3c0d48be5e0a86e6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019792"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262432"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache voor Redis configureren
 Dit onderwerp beschrijft de configuraties die beschikbaar zijn voor uw Azure-Cache voor instanties van Redis. Dit onderwerp bevat ook de Redis-server standaardconfiguratie voor Azure Cache voor instanties van Redis.
@@ -46,7 +46,7 @@ U kunt bekijken en configureren van de volgende instellingen met behulp van de *
 * [Instellingen](#settings)
     * [Toegangssleutels](#access-keys)
     * [Geavanceerde instellingen](#advanced-settings)
-    * [Azure Cache voor Redis-Advisor](#redis-cache-advisor)
+    * [Azure Cache voor Redis-Advisor](#azure-cache-for-redis-advisor)
     * [Schalen](#scale)
     * [Redis-clusters](#cluster-size)
     * [Redis-gegevenspersistentie](#redis-data-persistence)
@@ -98,7 +98,7 @@ De **instellingen** sectie kunt u toegang tot en configureer de volgende instell
 
 * [Toegangssleutels](#access-keys)
 * [Geavanceerde instellingen](#advanced-settings)
-* [Azure Cache voor Redis-Advisor](#redis-cache-advisor)
+* [Azure Cache voor Redis-Advisor](#azure-cache-for-redis-advisor)
 * [Schalen](#scale)
 * [Redis-clusters](#cluster-size)
 * [Redis-gegevenspersistentie](#redis-data-persistence)
@@ -480,7 +480,7 @@ Kunt u veilig opdrachten uitgeven met uw Azure-Cache voor instanties van Redis m
 
 > [!IMPORTANT]
 > - De Redis-Console werkt niet met [VNET](cache-how-to-premium-vnet.md). Wanneer uw cache deel van een VNET uitmaakt, kan alleen clients in het VNET toegang krijgen tot de cache. Omdat Redis-Console wordt uitgevoerd in uw lokale browser, die zich buiten het VNET, wordt er geen verbinding met uw cache.
-> - Niet alle Redis-opdrachten worden ondersteund in Azure-Cache voor Redis. Voor een lijst van Redis-opdrachten die zijn uitgeschakeld voor Azure Cache voor Redis, Zie de vorige [Redis-opdrachten niet ondersteund in Azure Cache voor Redis](#redis-commands-not-supported-in-azure-redis-cache) sectie. Zie voor meer informatie over Redis-opdrachten [ http://redis.io/commands ](http://redis.io/commands).
+> - Niet alle Redis-opdrachten worden ondersteund in Azure-Cache voor Redis. Voor een lijst van Redis-opdrachten die zijn uitgeschakeld voor Azure Cache voor Redis, Zie de vorige [Redis-opdrachten niet ondersteund in Azure Cache voor Redis](#redis-commands-not-supported-in-azure-cache-for-redis) sectie. Zie voor meer informatie over Redis-opdrachten [ http://redis.io/commands ](http://redis.io/commands).
 > 
 > 
 

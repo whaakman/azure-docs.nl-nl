@@ -1,5 +1,5 @@
 ---
-title: Het maken en gebruiken van een interne Load Balancer met een App Service Environment | Microsoft Docs
+title: Maken en gebruiken van interne load balancer met App Service environment - Azure | Microsoft Docs
 description: Het maken en gebruiken van een as-omgeving met een ILB
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: fe447a655f579441be667d7555aa83faf2b9385d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957007"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310467"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Met behulp van een interne Load Balancer met een App Service Environment
 

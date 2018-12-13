@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: ccdee1963d3d37966f6784e7a7421c500d6a8a51
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2d1f96359512a3c2135909ebf69ec9ec3b801d61
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994217"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190557"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -48,11 +48,11 @@ De querytaal van Log Analytics is geschikt voor eenvoudige logboeken-query's, ma
 ## <a name="what-data-does-azure-monitor-collect"></a>Welke gegevens worden verzameld door Azure Monitor?
 Azure Monitor kunt u gegevens verzamelen uit een groot aantal bronnen. U kunt zien van de bewakingsgegevens voor uw toepassingen in lagen, variërend van uw toepassing, elk besturingssysteem en services die afhankelijk van, omlaag naar het platform zelf wordt geboden. Azure Monitor verzamelt gegevens van elk van de volgende lagen:
 
-- **Gegevens voor toepassingsbewaking**: gegevens over de prestaties en functionaliteit van de code u hebt geschreven, ongeacht het platform.
-- **Gastbesturingssysteem bewakingsgegevens**: gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Dit kan worden uitgevoerd in Azure, een andere cloud of on-premises. 
-- **Azure-resource bewakingsgegevens**: gegevens over de werking van een Azure-resource.
-- **Azure-abonnement bewakingsgegevens**: gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en de werking van Azure zelf. 
-- **Azure-tenant bewakingsgegevens**: gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory.
+- **Gegevens voor toepassingsbewaking**: Gegevens over de prestaties en functionaliteit van de code die u hebt geschreven, ongeacht het platform.
+- **Gastbesturingssysteem bewakingsgegevens**: Gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Dit kan worden uitgevoerd in Azure, een andere cloud of on-premises. 
+- **Azure-resource bewakingsgegevens**: Gegevens over de werking van een Azure-resource.
+- **Azure-abonnement bewakingsgegevens**: Gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en de werking van Azure zelf. 
+- **Azure-tenant bewakingsgegevens**: Gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory.
 
 Als u een Azure-abonnement en begin toevoegen van resources, zoals virtuele machines en web-apps maakt, wordt Azure Monitor gestart verzamelen van gegevens.  [Activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) opnemen wanneer resources worden gemaakt of gewijzigd. [Metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) uitgelegd hoe de resource wordt uitgevoerd en de resources die voor deze wordt gebruikt. 
 
@@ -96,7 +96,7 @@ Naast de mogelijkheid die u interactief controleren om gegevens te analyseren, m
 ### <a name="alerts"></a>Waarschuwingen
 [Waarschuwingen in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactief te waarschuwen voor kritieke situaties en mogelijk proberen corrigerende actie te ondernemen. Regels voor waarschuwingen op basis van metrische gegevens beschikt u over bijna realtime waarschuwingen op basis van numerieke waarden, terwijl regels op basis van Logboeken toestaan voor complexe logica voor gegevens uit meerdere bronnen.
 
-Waarschuwingsregels in Azure Monitor gebruiken [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md), die de unieke sets ontvangers en acties die kunnen worden gedeeld met meerdere regels bevatten. Op basis van uw behoeften, kunnen actiegroepen acties uitvoeren, zoals met behulp van webhooks om waarschuwingen externe acties te starten of om te integreren met uw ITSM-hulpprogramma's.
+Waarschuwingsregels in Azure Monitor gebruiken [actiegroepen](../azure-monitor/platform/action-groups.md), die de unieke sets ontvangers en acties die kunnen worden gedeeld met meerdere regels bevatten. Op basis van uw behoeften, kunnen actiegroepen acties uitvoeren, zoals met behulp van webhooks om waarschuwingen externe acties te starten of om te integreren met uw ITSM-hulpprogramma's.
 
 ![Waarschuwingen](media/overview/alerts.png)
 

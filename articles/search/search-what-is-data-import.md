@@ -1,6 +1,6 @@
 ---
-title: Gegevens importeren in Azure Search | Microsoft Docs
-description: Informatie over het uploaden van gegevens naar een index in Azure Search
+title: Gegevens importeren voor opname van gegevens naar een search-index - Azure Search
+description: Vul en gegevens uploaden naar een index in Azure Search uit externe gegevensbronnen.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249775"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314853"
 ---
-# <a name="indexing-in-azure-search"></a>Indexeren in Azure Search
+# <a name="indexing-external-data-for-queries-in-azure-search"></a>Externe gegevens voor query's in Azure Search indexeren
 > [!div class="op_single_selector"]
 > * [Overzicht](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -23,7 +24,7 @@ ms.locfileid: "51249775"
 > 
 > 
 
-In Azure Search worden query's uitgevoerd over uw inhoud die in een [zoekindex](search-what-is-an-index.md) is geladen. In dit artikel worden de twee basismethoden voor het laden van inhoud in een index behandeld: *push* uw gegevens naar de index via een programma of wijs een [Azure Search-indexeerfunctie](search-indexer-overview.md) aan op een ondersteunde gegevensbron om de gegevens *op te halen*.
+In Azure Search worden query's uitgevoerd over uw inhoud in geladen en opgeslagen in een [search-index](search-what-is-an-index.md). Dit artikel worden de twee basismethoden voor het invullen van een index behandeld: *push* uw gegevens in de index via een programma, of wijs een [Azure Search-indexeerfunctie](search-indexer-overview.md) op een ondersteunde gegevensbron om  *pull* in de gegevens.
 
 ## <a name="pushing-data-to-an-index"></a>Gegevens naar een index pushen
 Het pushmodel, dat wordt gebruikt voor het programmatisch verzenden van uw gegevens naar Azure Search, is de meest flexibele methode. Ten eerste heeft dit model geen beperkingen met betrekking tot het gegevensbrontype. Alle gegevenssets die bestaan uit JSON-documenten kunnen naar een Azure Search-index worden gepusht. Hierbij wordt ervan uitgegaan dat elk document in de gegevensset velden toewijst aan velden die in uw indexschema zijn gedefinieerd. Ten tweede heeft dit model geen beperkingen met betrekking tot de frequentie van de uitvoering. U kunt wijzigingen naar een index pushen zo vaak als u wilt. Voor toepassingen die een zeer lage latentie vereisen (bijvoorbeeld als zoekopdrachten gesynchroniseerd moeten zijn met dynamische inventarisatiedatabases) is het pushmodel de enige mogelijkheid.

@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7ea4a58f072071f60cf87d1e8817ae19658be5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037759"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310416"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure en Dynamics 365 Consulting Service-aanbieding
 
 <table> <tr> <td>In deze sectie wordt uitgelegd hoe u een consulting Services publiceren naar de Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> of de <a href="https://appsource.microsoft.com">AppSource-Marketplace</a>. Oplossingen op basis van Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, en <a href="https://powerapps.microsoft.com">PowerApps</a> komen in aanmerking wilt laten vermelden op AppSource. Andere aanbiedingen op basis van andere Microsoft- <a href="https://azure.microsoft.com/services">Azure-services</a> komen in aanmerking voor een vermelding op Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
 
-# <a name="publishing-benefits"></a>Publiceren voordelen
+## <a name="publishing-benefits"></a>Publiceren voordelen
 
 Publiceren naar een van de Microsoft-marktplaatsen heeft aanzienlijke voordelen:
 
@@ -36,13 +36,11 @@ Publiceren naar een van de Microsoft-marktplaatsen heeft aanzienlijke voordelen:
 - Uw services gepromoveerd door de Microsoft-teams voor veld en televerkoop ophalen.
 
 
-<a name="define-your-consulting-services-offer"></a>Uw aanbieding Consulting Services definiëren
--------------------------------------
+## <a name="define-your-consulting-services-offer"></a>Uw aanbieding Consulting Services definiëren
 
 Definieer uw verpakte advies serviceaanbieding. Richt u op de vaste bereik, vaste duur, geschatte, vaste prijs (of gratis) en voornamelijk pre-sales-georiënteerde aanbiedingen voor één klant. Selecteer herhaalbare verpakte engagements die populaire en geldig is op het nieuwe bedrijf stimuleren voor u zijn.
 
-<a name="publish-a-consulting-service-offer"></a>Een advies Service-aanbieding publiceren
-----------------------------------
+## <a name="publish-a-consulting-service-offer"></a>Een advies Service-aanbieding publiceren
 
 De volgende secties beschrijven het proces voor het publiceren van uw aanbieding Consulting Services
 
@@ -62,7 +60,7 @@ Voor het maken van een nieuwe aanbieding, voert u de volgende stappen uit:
 
 ### <a name="define-offer-settings"></a>Aanbieding instellingen definiëren
 
-Op het scherm Nieuw bieden is de eerste stap het maken van de identiteit van de aanbieding.  De identiteit van de aanbieding bestaat uit drie onderdelen: **aanbiedings-ID**, **uitgevers-ID**, en **naam**.  Elk van deze onderdelen worden behandeld in de volgende secties.
+Op het scherm Nieuw bieden is de eerste stap het maken van de identiteit van de aanbieding.  De identiteit van de aanbieding bestaat uit drie onderdelen: **Aanbiedings-ID**, **uitgevers-ID**, en **naam**.  Elk van deze onderdelen worden behandeld in de volgende secties.
 
 #### <a name="offer-id"></a>Aanbiedings-id
 
@@ -76,11 +74,11 @@ Zoals u in het voorbeeld, haalt de aanbiedings-ID toegevoegd aan de uitgevers-ID
 
 Deze id is gerelateerd aan uw account. Wanneer u bent aangemeld met uw organisatieaccount, worden de uitgevers-ID in de vervolgkeuzelijst weergegeven.
 
-#### <a name="name"></a>Naam
+#### <a name="name"></a>Name
 
 Deze tekenreeks vormt wat wordt weergegeven als de aanbiedingsnaam van de op AppSource of Azure Marketplace.
 
-**Belangrijk:** alleen de naam van de service hier invoeren. Geen duur en het type van de service.
+**Belangrijk:** Voer alleen de naam van de service hier. Geen duur en het type van de service.
 
 Het volgende voorbeeld door Edgewater Fullscope laat zien hoe de aanbiedingsnaam van de is samengesteld. De aanbiedingsnaam van de wordt weergegeven als:
 
@@ -98,12 +96,12 @@ De volgende lijst bevat enkele goed benoemde aanbieding namen:
 -   Essentials voor professionele diensten: 1 uur Briefing
 -   Cloudplatform voor migratie: 1 uur Briefing
 -   PowerApps en Microsoft Flow: 1 dag-Workshop
--   Azure Machine Learning-Services: 3-Wk PoC
+-   Azure Machine Learning-Services: 3-wk PoC
 -   Brick en klikt u op van een Retailanalyse oplossing: 1 uur Briefing
--   Gebruik uw eigen gegevens: 1 Wk-Workshop
--   Cloud-analyse: 3 dagen Workshop
--   Training voor Power BI: 3 dagen Workshop
--   Verkoop beheeroplossing: 1 Week implementatie
+-   Gebruik uw eigen gegevens: 1 wk-Workshop
+-   Cloud-analyse: 3 dagen-Workshop
+-   Training voor Power BI: 3 dagen-Workshop
+-   Verkoop Management-oplossing: 1 week-implementatie
 -   CRM-Snelstartgids: 1 dag-Workshop
 -   Dynamics 365 for Sales: 2-daagse evaluatie
 
@@ -131,28 +129,28 @@ De samenvatting van de aanbieding is een korte beschrijving van uw aanbieding di
 
 *Voorbeeld 1*
 
--   **Naam van aanbieding:** Cloudstatistieken: 3 dagen-Workshop
--   **Samenvatting van aanbieding:** overzicht van Microsoft Azure en Power BI, beoordeling van de huidige omgeving en mini POC.
+-   **Naam van aanbieding:** Cloud-analyse: 3 dagen-Workshop
+-   **Overzicht van aanbieding:** Overzicht van Microsoft Azure en Power BI, beoordeling van de huidige omgeving en mini POC.
 
 *Voorbeeld 2*
 
--   **Naam van aanbieding:** industriële Azure IoT: 30-daagse testen van Concept
--   **Samenvatting van aanbieding:** maken van een leider industriële verbonden product om apparaten in het veld een beveiligde verbinding met een Azure IoT Hub-oplossing met dashboards, rapporten en meldingen.
+-   **Naam van aanbieding:** Industriële Azure IoT: 30-daagse testen van Concept
+-   **Overzicht van aanbieding:** Maak een prototype industriële verbonden product om apparaten in het veld een beveiligde verbinding met een Azure IoT Hub-oplossing met dashboards, rapporten en meldingen.
 
 *Voorbeeld 3*
 
--   **Naam van aanbieding:** Professional Services: 1 uur Briefing
--   **Overzicht van aanbieding:** overzicht en demonstratie van vooraf geconfigureerde, Dynamics 365 wordt uitgebreid voor beheer van projecten, facturering en resources voor professionele diensten Operations oplossing bieden verbeterde.
+-   **Naam van aanbieding:** Professionele diensten: 1 uur Briefing
+-   **Overzicht van aanbieding:** Verbeterd beheer van projecten, facturering en resources voor professionele diensten overzicht en demonstratie van vooraf geconfigureerde, uitgebreide Dynamics 365 voor het leveren van de Operations-oplossing.
 
 *Voorbeeld 4*
 
--   **Naam van aanbieding:** Power BI in uw omgeving: 4-Hr-Workshop
--   **Samenvatting van aanbieding:** aan de slag met uw eerste dashboard en leer best practices. Voor maximaal 12 studenten die wordt uitgevoerd op locatie.
+-   **Naam van aanbieding:** Power BI in uw omgeving: 4-hr-Workshop
+-   **Overzicht van aanbieding:** Aan de slag met uw eerste dashboard en leer best practices. Voor maximaal 12 studenten die wordt uitgevoerd op locatie.
 
 *Voorbeeld 5*
 
--   **Naam van aanbieding:** Dynamics en projecten: evaluatie van 3 dagen
--   **Samenvatting van aanbieding:** vereisten te verzamelen en ERP-oplossing die is ontworpen voor professionele diensten ondernemingen en bedrijven project gebaseerde-evaluatie.
+-   **Naam van aanbieding:** Dynamics en projecten: Evaluatie van 3 dagen
+-   **Overzicht van aanbieding:** Vereisten voor het verzamelen en ERP-oplossing die is ontworpen voor professionele diensten ondernemingen en bedrijven project gebaseerde-evaluatie.
 
 ##### <a name="offer-description"></a>Beschrijving van aanbieding
 
@@ -168,11 +166,11 @@ De beschrijving van uw aanbieding kort te houden en voldoen aan het maximum aant
 
 Het volgende voorbeeld ziet u een goede beschrijving van de aanbieding en de bijbehorende naam en het Samenvatting:
 
-**Naam van aanbieding:** Cloudstatistieken: 3 dagen-Workshop
+**Naam van aanbieding:** Cloud-analyse: 3 dagen-Workshop
 
-**Samenvatting van aanbieding:** overzicht van Microsoft Azure en Power BI, beoordeling van de huidige omgeving en mini POC.
+**Overzicht van aanbieding:** Overzicht van Microsoft Azure en Power BI, beoordeling van de huidige omgeving en mini POC.
 
-**Beschrijving van aanbieding:** deze workshop 3 dagen is bedoeld voor technische en zakelijke leiders en on-site worden bewaard in de inrichting van de client.
+**Beschrijving van aanbieding:** Met deze workshop 3 dagen is bedoeld voor technische en zakelijke leiders en on-site worden bewaard in de inrichting van de client.
 
 ***Agenda***
 
@@ -236,11 +234,11 @@ Microsoft is uitsluitend op vaste bereik, vaste duur, geschatte of vaste prijs b
 
 De volgende vijf typen aanbiedingen zijn opgenomen:
 
--   **Evaluatie:** een evaluatie van de omgeving van een klant om te bepalen van de toepasselijkheid van een oplossing en een schatting van de kosten en het tijdstip opgeven.
--   **Briefing:** een inleiding tot een oplossing of een advies service voor het tekenen van de interesse van klanten met behulp van frameworks, demo's en voorbeelden van klanten. Briefings moeten worden uitgevoerd op locatie.
--   **Implementatie:** een volledige installatie die in een volledig werkende oplossing resulteert. Voor deze pilot, wordt aangeraden beperken tot oplossingen die geïmplementeerd in een week of minder worden kunnen.
--   **Testen van concept:** een beperkt bereik-implementatie om te bepalen als een oplossing voldoet aan de vereisten van de klant.
--   **Workshop:** een interactieve betrokkenheid die on-premises van een klant die opnemen kunnen trainingssessies, briefings, beoordelingen en demo's die zijn gebouwd op de gegevens van de klant of de omgeving wordt uitgevoerd.
+-   **Evaluatie:** Een evaluatie van de omgeving van een klant om te bepalen van de toepasselijkheid van een oplossing en een schatting van de kosten en het tijdstip opgeven.
+-   **Briefing:** Een inleiding tot een oplossing of een advies service voor het tekenen van de interesse van klanten met behulp van frameworks, demo's en voorbeelden van klanten. Briefings moeten worden uitgevoerd op locatie.
+-   **Implementatie:** Een volledige installatie die in een volledig werkende oplossing resulteert. Voor deze pilot, wordt aangeraden beperken tot oplossingen die geïmplementeerd in een week of minder worden kunnen.
+-   **Testen van concept:** De implementatie van een beperkt bereik om te bepalen als een oplossing voldoet aan de vereisten van de klant.
+-   **Workshop:** Een interactieve betrokkenheid die on-premises van een klant die opnemen kunnen trainingssessies, briefings, beoordelingen en demo's die zijn gebouwd op de gegevens van de klant of de omgeving wordt uitgevoerd.
 
 **Beschikbaarheid van het land/regio**
 

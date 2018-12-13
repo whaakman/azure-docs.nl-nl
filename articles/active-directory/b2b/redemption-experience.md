@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7819ed3e18092e8b7bdf52225e7025b4b6d8146a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: c0f384dafc4ba30eb3e735ee17ae051245378135
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981878"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254986"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samenwerking uitnodiging inwisselen
 
@@ -26,7 +26,7 @@ Als u wilt samenwerken met gebruikers van partnerorganisaties via Azure Active D
 
 ## <a name="redemption-through-a-direct-link"></a>Inschrijving via een directe koppeling
 
-Een gastuitnodiging kan uitnodigingen versturen van een gastgebruiker door het verzenden van een directe koppeling naar een gedeelde app. De code-ervaring is voor de gastgebruiker net zo gemakkelijk als aanmelden bij de app die met hen is gedeeld. Ze kunnen klikt u op een koppeling naar de app, controleren en de privacyvoorwaarden accepteren en vervolgens naadloos toegang krijgen tot de app. In de meeste gevallen moeten de gastgebruikers ook kunnen niet meer op de URL voor inschrijving in een uitnodiging via e-mail.
+Een gastuitnodiging kan uitnodigingen versturen van een gastgebruiker door het verzenden van een [directe koppeling naar een gedeelde app](../manage-apps/end-user-experiences.md#direct-sign-on-links). De code-ervaring is voor de gastgebruiker net zo gemakkelijk als aanmelden bij de app die met hen is gedeeld. Ze kunnen klikt u op een koppeling naar de app, controleren en de privacyvoorwaarden accepteren en vervolgens naadloos toegang krijgen tot de app. In de meeste gevallen moeten de gastgebruikers ook kunnen niet meer op de URL voor inschrijving in een uitnodiging via e-mail.
 
 Als u uitgenodigd gastgebruikers ook kunnen via de gebruikersinterface of u hebt gekozen voor het verzenden van de uitnodiging per e-mail als onderdeel van de PowerShell-ervaring voor inschrijving, ontvangt de uitgenodigde gebruiker nog steeds een uitnodiging via e-mail. Dit e-mailbericht is handig voor de volgende speciale gevallen:
 
@@ -51,7 +51,7 @@ Nadat een gastgebruiker zich heeft aangemeld voor toegang tot resources in een p
 
 ![Schermopname van gebruikersinstellingen in Toegangsvenster](media/redemption-experience/ConsentScreen.png) 
 
-Zie voor meer informatie over hoe u als tenantbeheerder aan de privacyverklaring van uw organisatie koppelen kunt [instructies: het toevoegen van privacy-informatie van uw organisatie in Azure Active Directory](https://aka.ms/adprivacystatement).
+Zie voor meer informatie over hoe u als tenantbeheerder aan de privacyverklaring van uw organisatie koppelen kunt [procedures: Privacy-informatie van uw organisatie toevoegen in Azure Active Directory](https://aka.ms/adprivacystatement).
 
 ## <a name="next-steps"></a>Volgende stappen
 

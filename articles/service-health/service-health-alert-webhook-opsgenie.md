@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 6e9d44c4b64e41b04c40d0c511a638e539752da4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 213bf0cc063fa1f756a6baeacc47aadec0857a7c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435023"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270515"
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>Service health waarschuwingen configureren met OpsGenie
 
@@ -48,15 +48,15 @@ Dit artikel ziet u hoe u Azure service health waarschuwingen met OpsGenie instel
 
 ## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Een waarschuwing met OpsGenie in Azure portal maken
 ### <a name="for-a-new-action-group"></a>Voor een nieuwe actiegroep:
-1. Volg de stappen 1 tot en met 8 in [een waarschuwing op een melding van de health service voor een nieuwe actiegroep maken met behulp van de Azure-portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+1. Volg de stappen 1 tot en met 8 in [een waarschuwing op een melding van de health service voor een nieuwe actiegroep maken met behulp van de Azure-portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 1. In de lijst van definiëren **acties**:
 
     a. **Actietype:** *Webhook*
 
-    b. **Details:** de OpsGenie **URL voor de integratie** u eerder hebt opgeslagen.
+    b. **Details:** De OpsGenie **URL voor de integratie** u eerder hebt opgeslagen.
 
-    c. **Naam:** van de Webhook-naam, alias of id.
+    c. **Naam:** De Webhook naam, alias of id.
 
 1. Selecteer **opslaan** wanneer u klaar bent om de waarschuwing te genereren.
 
@@ -71,14 +71,14 @@ Dit artikel ziet u hoe u Azure service health waarschuwingen met OpsGenie instel
 
     a. **Actietype:** *Webhook*
 
-    b. **Details:** de OpsGenie **URL voor de integratie** u eerder hebt opgeslagen.
+    b. **Details:** De OpsGenie **URL voor de integratie** u eerder hebt opgeslagen.
 
-    c. **Naam:** van de Webhook-naam, alias of id.
+    c. **Naam:** De Webhook naam, alias of id.
 
 1. Selecteer **opslaan** wanneer u klaar bent voor het bijwerken van de actiegroep.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testen van de integratie van webhooks via een HTTP POST-aanvraag
-1. Maak de nettolading van de service health die u wilt verzenden. U vindt een voorbeeld van de service health webhookpayload op [Webhooks voor Azure-activiteit waarschuwingen voor activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Maak de nettolading van de service health die u wilt verzenden. U vindt een voorbeeld van de service health webhookpayload op [Webhooks voor Azure-activiteit waarschuwingen voor activiteitenlogboeken](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Maak een HTTP POST-aanvraag als volgt:
 
@@ -95,6 +95,6 @@ Dit artikel ziet u hoe u Azure service health waarschuwingen met OpsGenie instel
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over het [configureren van de webhook-meldingen voor bestaande beheersystemen voor probleem](service-health-alert-webhook-guide.md).
-- Controleer de [activiteit log waarschuwing webhook-schema](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Controleer de [activiteit log waarschuwing webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Meer informatie over [health servicemeldingen](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Meer informatie over [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Meer informatie over [actiegroepen](../azure-monitor/platform/action-groups.md).

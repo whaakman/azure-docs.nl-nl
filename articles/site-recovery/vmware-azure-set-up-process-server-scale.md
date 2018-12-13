@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: 2ef08831706a018422ea3700c8eb63bd6f95c469
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834945"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253677"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Schaal voor failback met extra processervers
 
@@ -23,6 +23,9 @@ Wanneer u repliceert virtuele VMware-machines of fysieke servers naar Azure met 
 ### <a name="capacity-planning"></a>Capaciteitsplanning
 
 Zorg ervoor dat u hebt uitgevoerd [capaciteitsplanning](site-recovery-plan-capacity-vmware.md) voor VMware-replicatie. Dit helpt u om te bepalen hoe en wanneer u aanvullende processenservers te implementeren.
+
+>[!NOTE]
+Gebruik van een gekloonde onderdeel van de processerver wordt niet ondersteund. Volg de stappen in dit artikel voor elke PS scale-out.
 
 ### <a name="sizing-requirements"></a>Vereisten voor volumegrootte 
 

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/19/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 8b5b94c959ae9820cab338f3ee3317fb3ee166d6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c1e8f94a0131ace6354d070e932e414a1897260e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286598"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166299"
 ---
 # <a name="planning-for-maintenance-on-your-azure-sql-data-warehouse"></a>Planning voor onderhoud op uw Azure SQL datawarehouse
 
@@ -32,9 +32,9 @@ U ontvangt een melding voor elke geplande onderhoudsgebeurtenis. De onderhoudsge
 
 ## <a name="setting-up-alerts"></a>Instellen van waarschuwingen
 
-Wordt u aangeraden [Azure Monitor](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) gepland voor het instellen van waarschuwingen voor onderhoud. De waarschuwingen kunt u van plan bent voor het vereiste onderhoud om te beperken de gevolgen voor uw bedrijf. 
+Wordt u aangeraden [Azure Monitor](../azure-monitor/platform/alerts-activity-log-service-notifications.md) gepland voor het instellen van waarschuwingen voor onderhoud. De waarschuwingen kunt u van plan bent voor het vereiste onderhoud om te beperken de gevolgen voor uw bedrijf. 
 
-Als u meldingen instelt, gebruikt u deze [melden waarschuwing instructies](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+Als u meldingen instelt, gebruikt u deze [melden waarschuwing instructies](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het controleren van [uw workload controleren](sql-data-warehouse-manage-monitor.md).

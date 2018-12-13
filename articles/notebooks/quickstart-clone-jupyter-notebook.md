@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: e30057f773afe6ec625b811c6ca1447c519ceda7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c13650d53098c891b168cb88516dbee53f3da5cc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106325"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260246"
 ---
-# <a name="quickstart-clone-a-notebook"></a>Snelstartgids: Een notitieblok klonen
+# <a name="quickstart-clone-a-notebook"></a>Snelstartgids: Een notebook klonen
 
 Veel gegevensanalisten en ontwikkelaars slaan hun notitieblokken in [GitHub-opslagplaatsen](https://github.com), een gratis opslag en versiecontrole biedt voor veel andere projecttypen. GitHub wordt vaak gebruikt als middel om samen te werken op Jupyter-notebooks die lokaal worden uitgevoerd. In dergelijke gevallen kan elke samenwerker onderhoudt een lokale kopie van de opslagplaats en de notebooks op dat exemplaar wordt uitgevoerd.
 
@@ -34,19 +34,19 @@ Klonen wordt een kopie gemaakt van een GitHub-notebook in uw Azure-notitieblokke
 
     ![Mijn projecten koppeling boven aan het browservenster](media/quickstarts/my-projects-link.png)
 
-1. Op de **Mijn projecten** pagina, selecteert u de pijl-omhoog (sneltoets: U; de knop wordt weergegeven als **Github-opslagplaats uploaden** wanneer het browservenster wordt breed genoeg):
+1. Op de **Mijn projecten** pagina, selecteert u de pijl-omhoog (sneltoets: U; de knop wordt weergegeven als **GitHub-opslagplaats uploaden** wanneer het browservenster wordt breed genoeg):
 
-    ![Uploaden van Github-opslagplaats opdracht op de pagina Mijn projecten](media/quickstarts/upload-github-repo-command.png)
+    ![Uploaden van GitHub-opslagplaats opdracht op de pagina Mijn projecten](media/quickstarts/upload-github-repo-command.png)
 
-1. In de **Github-opslagplaats uploaden** die wordt weergegeven, invoeren of stel de volgende details en selecteer vervolgens **importeren**:
+1. In de **GitHub-opslagplaats uploaden** die wordt weergegeven, invoeren of stel de volgende details en selecteer vervolgens **importeren**:
 
     - **Github-opslagplaats**: Microsoft/cognitieve-services-notitieblokken (deze naam wordt de Jupyter-notebooks voor Azure Cognitive Services op gekloond [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
     - **Klonen recursief**: (uitgeschakeld)
-    - **Naam van het project**: Cognitive Services-kloon
+    - **Naam van het project**: Kloon van de cognitive Services
     - **Project-ID**: cognitive services-kloon
     - **Openbare**: (uitgeschakeld)
 
-    ![Github-opslagplaats pop-upvenster voor het verzamelen van informatie van de opslagplaats uploaden](media/quickstarts/upload-github-repo-popup.png)
+    ![GitHub-opslagplaats pop-upvenster voor het verzamelen van informatie van de opslagplaats uploaden](media/quickstarts/upload-github-repo-popup.png)
 
 1. Niet beschikbaar is even geduld terwijl het proces is voltooid; een opslagplaats klonen, kan een paar minuten duren.
 

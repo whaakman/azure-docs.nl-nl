@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 2d7b50eadc130900cbd69d579f5ebb2997ad46a0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 4d77f8aad07d2fd4b3e2c4ec42b5b0ec328f779d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872936"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269512"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
 
@@ -64,10 +64,10 @@ Voor één abonnement, er zijn enkele beperkingen met betrekking tot het aantal 
 |Elastische pool (per groep)|4|200|
 ||||
 
-Er is geen ingebouwde functionaliteit bulksgewijs terugzetten. De [Azure SQL Database: volledige Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is een voorbeeld van een manier om deze taak uitvoeren.
+Er is geen ingebouwde functionaliteit bulksgewijs terugzetten. De [Azure SQL Database: Volledige Serverherstelproces](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is een voorbeeld van een manier om deze taak uitvoeren.
 
 > [!IMPORTANT]
-> Als u wilt herstellen met behulp van geautomatiseerde back-ups, moet u lid zijn van de rol Inzender voor SQL Server in het abonnement of de eigenaar van het abonnement - Raadpleeg [RBAC: ingebouwde rollen](../role-based-access-control/built-in-roles.md). U kunt herstellen met behulp van Azure Portal, PowerShell of de REST-API. U kunt Transact-SQL niet gebruiken.
+> Als u wilt herstellen met behulp van geautomatiseerde back-ups, moet u lid zijn van de rol Inzender voor SQL Server in het abonnement of raadpleegt u de eigenaar van de abonnement - [RBAC: Ingebouwde rollen](../role-based-access-control/built-in-roles.md). U kunt herstellen met behulp van Azure Portal, PowerShell of de REST-API. U kunt Transact-SQL niet gebruiken.
 
 ## <a name="point-in-time-restore"></a>Terugzetten naar eerder tijdstip
 
@@ -129,7 +129,7 @@ Geo-restore is de standaardoptie voor herstel wanneer de database is niet beschi
 Point-in-time terugzetten op een secundaire geo-server is momenteel niet ondersteund. Point-in-time restore kan alleen op een primaire database worden uitgevoerd. Zie voor gedetailleerde informatie over het gebruik van geo-herstel te herstellen na een storing [herstellen na een storing](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Herstel vanuit back-ups is de meest eenvoudige noodhersteloplossingen die beschikbaar zijn in SQL Database met de langste Recovery Point Objective (RPO) en een schatting Recovery tijd (ERT). Geo-restore is voor oplossingen met behulp van de databases klein (bijvoorbeeld basis-servicelaag of klein formaat tenant-databases in elastische pools) vaak een redelijke DR-oplossing met een ERT van maximaal 12 uur (doorgaans veel minder). Voor oplossingen met behulp van grote databases en kortere vereist, moet u overwegen [Failover-groepen en actieve geo-replicatie](sql-database-geo-replication-overview.md). Actieve geo-replicatie biedt een veel lager RPO en ERT als alleen u moet start een failover naar een secundaire continu gerepliceerd. Zie voor meer informatie over opties voor bedrijfscontinuïteit, [overzicht van bedrijfscontinuïteit](sql-database-business-continuity.md).
+> Herstel vanuit back-ups is de meest eenvoudige noodhersteloplossingen die beschikbaar zijn in SQL Database met de langste Recovery Point Objective (RPO) en een schatting Recovery tijd (ERT). Geo-restore is voor oplossingen met behulp van de databases klein (bijvoorbeeld basis-servicelaag of klein formaat tenant-databases in elastische pools) vaak een redelijke DR-oplossing met een ERT van maximaal 12 uur (doorgaans veel minder). Voor oplossingen met behulp van grote databases en kortere vereist, moet u overwegen [actieve geo-replicatie](sql-database-active-geo-replication.md) of [automatische failovergroepen](sql-database-auto-failover-group.md). Actieve geo-replicatie biedt een veel lager RPO en ERT als alleen u moet start een failover naar een secundaire continu gerepliceerd. Automatische failovergroepen inschakelen automatische failover voor een groep databases. Zie voor meer informatie over opties voor bedrijfscontinuïteit, [overzicht van bedrijfscontinuïteit](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Geo-herstellen met behulp van de Azure-portal
 
@@ -143,7 +143,7 @@ Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uit
 
 - Een enkele of gegroepeerde als database wilt herstellen, Zie [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
 
-  | Cmdlet | Beschrijving |
+  | Cmdlet | Description |
   | --- | --- |
   | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Hiermee haalt u een of meer databases op. |
   | [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Hiermee haalt u een verwijderde database die u kunt herstellen op. |
@@ -159,7 +159,7 @@ Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uit
 
 Een enkele of gegroepeerde om database te herstellen met behulp van de REST-API:
 
-| API | Beschrijving |
+| API | Description |
 | --- | --- |
 | [REST (createMode = Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Hiermee herstelt u een database |
 | [Get maken of bijwerken van de Status van Database](https://docs.microsoft.com/rest/api/sql/operations) |De status geretourneerd tijdens een herstelbewerking |
@@ -177,4 +177,4 @@ Automatische back-ups beveiligen uw databases van gebruiker en toepassingsfouten
 - Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md).
 - Voor meer informatie over Azure SQL Database geautomatiseerde back-ups, Zie [geautomatiseerde back-ups van SQL-Database](sql-database-automated-backups.md).
 - Zie voor meer informatie over met een langetermijnbewaarperiode, [langetermijnretentie](sql-database-long-term-retention.md).
-- Zie voor meer informatie over opties voor sneller herstel, [Failover-groepen en actieve geo-replicatie](sql-database-geo-replication-overview.md).
+- Zie voor meer informatie over opties voor sneller herstel, [actieve geo-replicatie](sql-database-active-geo-replication.md) of [automatische failovergroepen](sql-database-auto-failover-group.md).

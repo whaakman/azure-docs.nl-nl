@@ -1,22 +1,24 @@
 ---
-title: Uitgaande verbindingen in Azure | Microsoft Docs
+title: Uitgaande verbindingen in Azure
+titlesuffix: Azure Load Balancer
 description: In dit artikel wordt uitgelegd hoe virtuele machines om te communiceren met het openbare internet-services in Azure mogelijk maakt.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: fdcc039eb71eaeea03aaae856a6d031d4c528669
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687568"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190965"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -38,7 +40,7 @@ Er zijn meerdere [scenario's voor uitgaande](#scenarios). U kunt deze scenario's
 
 Azure Load Balancer en verwante resources expliciet worden gedefinieerd als u [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Azure biedt momenteel drie verschillende methoden voor het bereiken van uitgaande connectiviteit voor Azure Resource Manager-resources. 
 
-| Scenario | Methode | IP-protocollen | Beschrijving |
+| Scenario | Methode | IP-protocollen | Description |
 | --- | --- | --- | --- |
 | [1. VM met een Instance Level Public IP-adres (met of zonder Load Balancer)](#ilpip) | SNAT, poort zich niet gebruikt. | TCP, UDP, ICMP, ESP | Azure maakt gebruik van het openbare IP-adres toegewezen aan de IP-configuratie van het exemplaar van de NIC. Het exemplaar heeft alle kortstondige poorten die beschikbaar zijn. |
 | [2. Een openbare Load Balancer die zijn gekoppeld aan een virtuele machine (geen Instance Level Public IP-adres op het exemplaar)](#lb) | SNAT met poort onechte (PAT) met behulp van de Load Balancer-front-ends | TCP, UDP |Azure deelt het openbare IP-adres van de openbare Load Balancer-front-ends met meerdere privé IP-adressen. Kortstondige poorten van de front-ends voor PAT maakt gebruik van Azure. |
@@ -46,7 +48,7 @@ Azure Load Balancer en verwante resources expliciet worden gedefinieerd als u [A
 
 Als u niet dat een virtuele machine om te communiceren met eindpunten buiten Azure in openbare IP-adresruimte wilt, kunt u netwerkbeveiligingsgroepen (nsg's) gebruiken om de toegang zo nodig te blokkeren. De sectie [uitgaande connectiviteit te voorkomen dat](#preventoutbound) nsg's vindt u meer details. Hulp bij het ontwerpen, implementeren en beheren van een virtueel netwerk zonder een uitgaande toegang is buiten het bereik van dit artikel.
 
-### <a name="ilpip"></a>Scenario 1: Virtuele machine met een Instance Level Public IP-adres
+### <a name="ilpip"></a>Scenario 1: VM met een Instance Level Public IP-adres
 
 In dit scenario wordt heeft de virtuele machine een exemplaar van het niveau van openbare IP (ILPIP) zijn toegewezen. Wat betreft uitgaande verbindingen zijn, het maakt niet uit of de virtuele machine verdeeld wordt, of niet. In dit scenario heeft voorrang op de andere. Wanneer een ILPIP wordt gebruikt, wordt de virtuele machine de ILPIP gebruikt voor alle uitgaande stromen.  
 
@@ -54,7 +56,7 @@ Een openbaar IP-adres toegewezen aan een virtuele machine is een 1:1-relatie (in
 
 Als uw toepassing veel uitgaande stromen initieert en u SNAT poortuitputting ondervindt, kunt u overwegen een [ILPIP SNAT beperkingen beperken](#assignilpip). Beoordeling [SNAT beheren uitputting](#snatexhaust) in zijn geheel toe.
 
-### <a name="lb"></a>Scenario 2: Netwerktaakverdeling VM zonder een Instance Level Public IP-adres
+### <a name="lb"></a>Scenario 2: Virtuele machine met Load Balancing zonder een Instance Level Public IP-adres
 
 In dit scenario wordt uitmaakt de virtuele machine deel van een openbare Load Balancer-back-endpool. De virtuele machine heeft geen openbaar IP-adres toegewezen. De Load Balancer-resource moet worden geconfigureerd met een load balancer-regel om een koppeling tussen het openbare IP-frontend met de back-endpool te maken.
 

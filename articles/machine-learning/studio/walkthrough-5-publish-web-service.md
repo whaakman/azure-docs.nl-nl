@@ -1,12 +1,11 @@
 ---
 title: 'Stap 5: Webservice implementeren - Azure Machine Learning Studio | Microsoft Docs'
-description: 'Stap 5 van het ontwikkelen van een voorspellende oplossing-overzicht: een Voorspellend experiment in Machine Learning Studio als een webservice implementeren.'
+description: 'Stap 5 van het ontwikkelen van een overzicht van de voorspellende oplossing: Een Voorspellend experiment in Machine Learning Studio implementeren als een webservice.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: b0da85625ab938ea050ec6ae7bb1d66b095370b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ab23636aa0480532606268efedcc76ea1ddd339a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077134"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253728"
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Kennismaken, stap 5: De Azure Machine Learning Studio-webservice implementeren
 Dit is de vijfde stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)
@@ -205,7 +204,7 @@ Voor het bewaken van de prestaties van uw webservice:
 4. Klik op de **Dashboard**
 
 - - -
-**Volgende stap: [toegang tot de webservice](walkthrough-6-access-web-service.md)**
+**Volgende: [De webservice openen](walkthrough-6-access-web-service.md)**
 
 [3]: ./media/walkthrough-5-publish-web-service/publish3.png
 [3a]: ./media/walkthrough-5-publish-web-service/publish3a.png

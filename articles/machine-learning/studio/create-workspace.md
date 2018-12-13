@@ -5,7 +5,6 @@ services: machine-learning
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
@@ -13,18 +12,18 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: fc201b91ba3e2e7ba0f880445542333e58ed4a8c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e6835afd66d054a79c422a35839d64ae89031de5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079820"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268254"
 ---
-# <a name="create-and-share-an-azure-machine-learning-workspace"></a>Een Azure Machine Learning-werkruimte maken en delen
+# <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Maken en delen van een Azure Machine Learning Studio-werkruimte
 
 Voor het gebruik van Azure Machine Learning Studio, moet u een Machine Learning Studio-werkruimte. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="to-create-a-workspace"></a>Een werkruimte maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/)
@@ -60,7 +59,7 @@ Nadat de werkruimte is geïmplementeerd, kunt u deze kunt openen in Machine Lear
     ![Open experimenten](./media/create-workspace/my-experiments.png)
 
 Zie voor meer informatie over het beheren van uw werkruimte [een Azure Machine Learning-werkruimte beheren](manage-workspace.md).
-Als er een probleem opgetreden bij het maken van uw werkruimte, Zie [Troubleshooting guide: maken en verbinding maken met een Machine Learning-werkruimte](troubleshooting-creating-ml-workspace.md).
+Als er een probleem opgetreden bij het maken van uw werkruimte, Zie [Troubleshooting guide: Maken en verbinding maken met een Machine Learning-werkruimte](troubleshooting-creating-ml-workspace.md).
 
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Delen van een Azure Machine Learning-werkruimte

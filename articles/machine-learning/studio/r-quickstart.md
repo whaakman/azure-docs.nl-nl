@@ -5,9 +5,8 @@ keywords: Quick Start, r-taal, de programmeertaal r, programmeren r-zelfstudie
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317667"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278658"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Beknopte zelfstudie voor de programmeertaal R voor Azure Machine Learning Studio
 
@@ -33,7 +32,7 @@ In deze snelstartgids helpt u snel starten uit te breiden Azure Machine Learning
 
 Microsoft Azure Machine Learning bevat veel krachtige machine learning en manipulatie modules. De krachtige R-taal heeft als lingua franca van analytics zijn beschreven. Analyse- en manipuleren in Azure Machine Learning kan worden uitgebreid met behulp van R. Deze combinatie biedt van de schaalbaarheid en een eenvoudige implementatie van Azure Machine Learning met de flexibiliteit en diepgaande analyse van R.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="forecasting-and-the-dataset"></a>Maken van prognoses en de gegevensset
 Prognose is een analysemethode veel werknemers en zeer nuttig. Algemene maakt gebruik van het bereik van het voorspellen van de verkoop van seizoensgebonden items, waarmee wordt bepaald optimale inventarisniveaus, om te voorspellen macro-economische variabelen. Prognose gebeurt meestal met time series-modellen.
@@ -61,7 +60,7 @@ Ik zal RStudio gebruiken om te ontwikkelen, testen en fouten opsporen in R-code 
 ### <a name="the-execute-r-script-module"></a>De module R-Script uitvoeren
 In Machine Learning Studio, R-scripts worden uitgevoerd binnen de [R-Script uitvoeren] [ execute-r-script] module. Een voorbeeld van de [R-Script uitvoeren] [ execute-r-script] module in Machine Learning Studio wordt weergegeven in afbeelding 1.
 
- ![Programmeertaal R: het uitvoeren van R-Script-module is geselecteerd in Machine Learning Studio][1]
+ ![R-programmeertaal: De R-Script uitvoeren-module in Machine Learning Studio geselecteerd][1]
 
 *Afbeelding 1. De Machine Learning Studio-omgeving met de R-Script uitvoeren-module die is geselecteerd.*
 
@@ -1211,7 +1210,7 @@ Deze code wordt uitgevoerd, wordt de uitvoer die wordt weergegeven in afbeelding
 
 Met deze resultaten zien we dat de seizoensgebonden factoren toe te voegen aan het model de RMS-fout aanzienlijk vermindert. De RMS-fout voor het trainen van gegevens is niet te verrassend een bit kleiner is dan voor de prognose.
 
-## <a id="appendixa"></a>BIJLAGE A:-Handleiding voor RStudio
+## <a id="appendixa"></a>BIJLAGE A: Handleiding voor RStudio
 RStudio is heel goed wordt gedocumenteerd, zodat in deze bijlage geef ik enkele koppelingen naar de belangrijke onderdelen van de RStudio-documentatie aan de slag te gaan.
 
 1. Projecten maken
@@ -1236,7 +1235,7 @@ Deze programmeren R-zelfstudie bevat informatie over de basisprincipes van wat u
 
 Er zijn veel boeken op R waarmee u aan de slag kunt. Hier volgen enkele die ik handig:
 
-* De illustratie van de R-programmering: een rondleiding van statistische softwareontwerp door Norman Matloff is een uitstekende inleiding in programmeren in R.  
+* De illustratie van de R-programmering: Een rondleiding van statistische softwareontwerp door Norman Matloff is een uitstekende inleiding in programmeren in R.  
 * R-Cookbook door Paul Teetor biedt een oplossing en probleem aanpak voor het gebruik van R.  
 * R in actie door Robert Kabacoff is een ander handig inleidende rapport. De website van de snelle R Basisnetwerk is een nuttig middel op http://www.statmethods.net/.
 * R-Inferno door Patrick Burns is een verrassend humoristische boek die met een aantal lastig en moeilijk onderwerpen die kunnen worden aangetroffen bij het programmeren in R. Het rapport is beschikbaar voor gratis op http://www.burns-stat.com/documents/books/the-r-inferno/.
@@ -1248,7 +1247,7 @@ Het boek inleidende Time Series met R door Paul Cowpertwait en Andrew Metcalfe b
 
 Sommige fantastische resources op internet:
 
-* DataCamp: DataCamp leert R in het gemak van uw browser met video lessen en codering oefeningen. Er zijn interactieve zelfstudies op de meest recente R technieken en pakketten. De gratis interactieve R-zelfstudie op te nemen https://www.datacamp.com/courses/introduction-to-r
+* DataCamp: DataCamp leert hoe u R in het gemak van uw browser met video lessen en codering oefeningen. Er zijn interactieve zelfstudies op de meest recente R technieken en pakketten. De gratis interactieve R-zelfstudie op te nemen https://www.datacamp.com/courses/introduction-to-r
 * Een handleiding op aan de slag met R van Programiz https://www.programiz.com/r-programming
 * Een snelle zelfstudie R door Kelly Black van Clarkson University http://www.cyclismo.org/tutorial/R/
 * Meer dan 60 R-resources zoals beschreven in http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html

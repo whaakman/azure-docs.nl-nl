@@ -1,22 +1,24 @@
 ---
-title: Uitgaande verbindingen in Azure (klassiek) | Microsoft Docs
+title: Uitgaande verbindingen in Azure (klassiek)
+titlesuffix: Azure Load Balancer
 description: Dit artikel wordt uitgelegd hoe Azure biedt de mogelijkheid cloudservices om te communiceren met services met openbare internet.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 5cb0647148d2cd90ad4cce6e16de30b72fff8429
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219661"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189996"
 ---
 # <a name="outbound-connections-classic"></a>Uitgaande verbindingen (klassiek)
 
@@ -35,7 +37,7 @@ Er zijn meerdere [scenario's voor uitgaande](#scenarios). U kunt deze scenario's
 
 Azure biedt drie verschillende methoden voor het bereiken van uitgaande connectiviteit klassieke implementaties.  Niet alle klassieke implementaties hebben alle drie scenario's die voor hen beschikbaar:
 
-| Scenario | Methode | IP-protocollen | Beschrijving | Web-Werkrol | IaaS | 
+| Scenario | Methode | IP-protocollen | Description | Web-Werkrol | IaaS | 
 | --- | --- | --- | --- | --- | --- |
 | [1. VM met een Instance Level Public IP-adres](#ilpip) | SNAT, poort zich niet gebruikt. | TCP, UDP, ICMP, ESP | Azure maakt gebruik van het openbare IP-adres toegewezen virtuele Machine. Het exemplaar heeft alle kortstondige poorten die beschikbaar zijn. | Nee | Ja |
 | [2. openbare load balancing-eindpunt](#publiclbendpoint) | SNAT met poort onechte (PAT) naar het openbare eindpunt | TCP, UDP | Azure heeft het openbare eindpunt van openbare IP-adres met meerdere privé-eindpunten. Azure maakt gebruik van kortstondige poorten van het openbare eindpunt voor PAT. | Ja | Ja |
@@ -54,7 +56,7 @@ Verschillende implementaties in de klassieke versie hebben verschillende functio
 
 De [algoritme dat wordt gebruikt voor het vooraf toewijzen van kortstondige poorten](#ephemeralports) voor PAT voor klassieke implementaties dezelfde als die voor implementaties van Azure Resource Manager-resource is.
 
-### <a name="ilpip"></a>Scenario 1: Virtuele machine met een Instance Level Public IP-adres
+### <a name="ilpip"></a>Scenario 1: VM met een Instance Level Public IP-adres
 
 In dit scenario wordt heeft de virtuele machine een exemplaar van het niveau van openbare IP (ILPIP) zijn toegewezen. Wat betreft uitgaande verbindingen zijn, het maakt niet uit of de virtuele machine heeft een eindpunt met gelijke of niet. In dit scenario heeft voorrang op de andere. Wanneer een ILPIP wordt gebruikt, wordt de virtuele machine de ILPIP gebruikt voor alle uitgaande stromen.  
 
@@ -74,7 +76,7 @@ SNAT poorten zijn vooraf toegewezen zoals beschreven in de [Understanding SNAT e
 
 Wanneer [meerdere openbare taakverdeling eindpunten](load-balancer-multivip.md) bestaat, een van deze openbare IP-adressen, een [kandidaat voor uitgaande stromen](#multivipsnat), en een willekeurig is geselecteerd.  
 
-### <a name="defaultsnat"></a>Scenario 3: Er is geen openbare IP-adres dat is gekoppeld
+### <a name="defaultsnat"></a>Scenario 3: Er is geen openbaar IP-adres dat is gekoppeld
 
 In dit scenario wordt maakt de virtuele machine of Worker-Webrol geen deel uit van een openbare load balancing-eindpunt.  En in het geval van een virtuele machine, het heeft geen een ILPIP-adres is toegewezen. Wanneer de virtuele machine een uitgaande stroom maakt, zet Azure privé IP-bronadres van de uitgaande stroom aan een openbare IP-adres. Het openbare IP-adres gebruikt voor deze uitgaande stroom kan niet worden geconfigureerd en worden niet meegeteld in openbare IP-resource-limiet van het abonnement.  Dit adres wordt automatisch toegewezen door Azure.
 

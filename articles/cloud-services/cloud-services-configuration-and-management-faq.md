@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fe096efba5419b283981f27e16c3e30a791412da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979196"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322667"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen met configuratie en beheer voor Azure Cloud Services: veelgestelde vragen
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuratie en problemen met voor Azure Cloud Services: Veelgestelde vragen (FAQ's)
 
 Dit artikel bevat veelgestelde vragen over problemen met configuratie en beheer voor [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). U kunt ook raadpleegt u de [VM-grootte voor Cloud Services-pagina](cloud-services-sizes-specs.md) voor informatie over de grootte.
 
@@ -53,7 +53,7 @@ Dit artikel bevat veelgestelde vragen over problemen met configuratie en beheer 
 **Machtigingen**
 
 - [Kan Microsoft Extern bureaublad naar de Cloud Service-exemplaren zonder toestemming van interne engineers?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Ik kan geen extern bureaublad voor Cloud Service-VM met behulp van het RDP-bestand. Ik ophalen volgende fout: Er is een verificatiefout opgetreden (Code: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Ik kan geen extern bureaublad voor Cloud Service-VM met behulp van het RDP-bestand. Ik u de volgende fout: Er is een verificatiefout opgetreden (Code: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Schalen**
 
@@ -170,7 +170,7 @@ U kunt de time-out opgeven in uw programma servicedefinitiebestand (csdef) als v
     </Endpoints>
   </WorkerRole>
 ```
-Zie [nieuw: kunnen worden geconfigureerd voor time-out bij inactief voor Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) voor meer informatie.
+Zie [nieuwe: Configureerbare Idle time-out voor Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) voor meer informatie.
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Hoe koppel ik een statisch IP-adres met mijn Cloudservice?
 Als u een statisch IP-adres instelt, moet u een gereserveerde IP-adres maken. Dit gereserveerde IP-adres kan worden gekoppeld aan een nieuwe Cloudservice of aan een bestaande implementatie. Zie de volgende documenten voor meer informatie:
@@ -190,7 +190,7 @@ Microsoft controleert voortdurend servers, netwerken en toepassingen voor het de
 Windows 10 en Windows Server 2016 worden geleverd met ondersteuning voor HTTP/2 zowel client als server aan. Als uw (browser)-client verbinding maakt met de IIS-server via TLS die onderhandelt over HTTP/2 via TLS-uitbreidingen, wordt u niet wilt een wijziging aanbrengt aan de serverzijde. Dit komt doordat via TLS, de h2-14-header op te geven gebruik van HTTP/2 worden standaard verzonden. Als de client daarentegen een Upgrade-header om te upgraden naar HTTP/2 verzendt wordt, moet u de wijziging onder aan de serverzijde om ervoor te zorgen dat de Upgrade werkt en u uiteindelijk een HTTP/2-verbinding maken. 
 
 1. Regedit.exe worden uitgevoerd.
-2. Blader naar de registersleutel: hkey_local_machine\software\microsoft\cryptography\mscep.
+2. Blader naar de registersleutel: Hkey_local_machine\software\microsoft\cryptography\mscep.
 3. Maak een nieuwe DWORD-waarde met de naam **DuoEnabled**.
 4. Stel de waarde ervan in op 1.
 5. Start de server opnieuw.
@@ -224,7 +224,7 @@ Zie [inzicht in de verschillende rollen in Azure](../role-based-access-control/r
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Kan Microsoft Extern bureaublad naar de Cloud Service-exemplaren zonder toestemming van interne engineers?
 Microsoft volgt een strikte proces dat niet toe interne technici met extern bureaublad in uw Cloud-services zonder schriftelijke toestemming (bijvoorbeeld e-mail of andere geschreven communicatie dat) van de eigenaar of de door hun benoemde persoon.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Ik kan geen extern bureaublad voor Cloud Service-VM met behulp van het RDP-bestand. Ik ophalen volgende fout: Er is een verificatiefout opgetreden (Code: 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Ik kan geen extern bureaublad voor Cloud Service-VM met behulp van het RDP-bestand. Ik u de volgende fout: Er is een verificatiefout opgetreden (Code: 0x80004005)
 
 Deze fout kan optreden als u het RDP-bestand van een virtuele machine die is gekoppeld aan Azure Active Directory. U lost dit probleem, de volgende stappen uit:
 
@@ -244,7 +244,7 @@ U kunt dit probleem omzeilen, kunt u Application Insights. Automatisch schalen b
 
 Zie voor meer informatie over het gebruik van een aangepaste meetwaarde via Application Insights voor het configureren van automatisch schalen op Cloud Services, [aan de slag met automatisch schalen door aangepaste metrische gegevens in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
 
-Zie voor meer informatie over het integreren van Azure Diagnostics met Application Insights voor Cloud Services [verzenden Cloud Service, virtuele Machine of Service Fabric diagnostische gegevens naar Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+Zie voor meer informatie over het integreren van Azure Diagnostics met Application Insights voor Cloud Services [verzenden Cloud Service, virtuele Machine of Service Fabric diagnostische gegevens naar Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 Zie voor meer informatie over het inschakelen van Application Insights voor Cloud Services, [Application Insights voor Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
@@ -318,7 +318,7 @@ Zoals wordt beschreven [hier](https://technet.microsoft.com/library/ee790567.asp
 |2 |Niet SNI-binding die gebruikmaakt van centrale certificaat Store|
 |3|SNI-binding die gebruikmaakt van centrale certificaat opslaan |
  
-**Methode 2: Code gebruiken**
+**Methode 2: Gebruik code**
 
 De SNI-binding kan ook worden geconfigureerd via de code in het opstarten van de rol, zoals beschreven op deze [blogbericht](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 

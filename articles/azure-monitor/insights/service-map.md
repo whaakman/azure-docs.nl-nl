@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 68c838481120dea7635ac5ea76859a8088d732fb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957347"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186494"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Service Map, kunt u uw servers weergeven in de manier waarop u kunt ze beschouwen: als onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen, binnenkomend en uitgaand verbinding latentie en poorten in alle via TCP verbonden architectuur, waarvoor geen configuratie vereist dan de installatie van een agent.
@@ -44,7 +43,7 @@ Hoewel de informatie wordt gecontroleerd en de oplossing is geïmplementeerd, u 
 
 U toegang tot Service Map in de Azure-portal van uw Log Analytics-werkruimte en selecteer de optie **oplossingen** in het linkerdeelvenster.<br><br> ![Selecteer optie voor oplossingen in de werkruimte](./media/service-map/select-solution-from-workspace.png).<br> Selecteer in de lijst met oplossingen **ServiceMap(workspaceName)** en in het Serviceoverzicht oplossing overzicht pagina klikt u op op de tegel Serviceoverzicht samenvatting.<br><br> ![De tegel samenvatting Serviceoverzicht](./media/service-map/service-map-summary-tile.png).
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Use-cases: maken van uw IT-afdeling verwerkt op de hoogte van afhankelijkheid
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Use-cases: Maken van uw IT-afdeling verwerkt op de hoogte van afhankelijkheid
 
 ### <a name="discovery"></a>Detectie
 Serviceoverzicht is een algemene verwijzing-kaart van afhankelijkheden automatisch gebaseerd op uw servers, processen en services van derden. Er wordt gedetecteerd en alle TCP-afhankelijkheden, identificeren verrassing verbindingen, externe externe systemen die u afhankelijk bent en afhankelijkheden van traditionele donkere gebieden van uw netwerk, zoals Active Directory-kaarten. Service Map detecteert mislukte netwerkverbindingen die uw beheerde systemen proberen te maken, zodat u identificeren van mogelijke onjuiste configuratie van server, serviceonderbreking en netwerkproblemen.
@@ -143,7 +142,7 @@ Klik op het menu van de drie puntjes naast de groepnaam van de in de lijst met g
 ## <a name="role-icons"></a>Rolpictogrammen
 Bepaalde processen bepaalde functies op machines bedienen: web-servers, toepassingsservers en -database. Serviceoverzicht annotates proces- en machinegrenzen vakken met Rolpictogrammen voor het identificeren van in een oogopslag de rol van een proces of de server wordt afgespeeld.
 
-| Functiepictogram | Beschrijving |
+| Functiepictogram | Description |
 |:--|:--|
 | ![Webserver](media/service-map/role-web-server.png) | Webserver |
 | ![App-server](media/service-map/role-application-server.png) | Toepassingsserver |
@@ -298,7 +297,7 @@ Records in deze tabellen zijn gegenereerd op basis van gegevens die zijn gerappo
 
 Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding records geen afzonderlijke fysieke netwerkverbindingen. Verbindingen van meerdere fysieke netwerk zijn gegroepeerd in een logische verbinding, die vervolgens wordt weergegeven in de bijbehorende tabel.  Betekenis, registreert in *VMConnection* tabel staan voor een logische groepering en niet de afzonderlijke fysieke verbindingen die zijn waargenomen. Fysieke netwerkverbinding delen dezelfde waarde voor de volgende kenmerken tijdens een interval van bepaalde één minuut worden samengevoegd in één logische record in *VMConnection*. 
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |Richting |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
 |Machine |De FQDN-naam van de computer |
@@ -310,7 +309,7 @@ Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding record
 
 Voor het account voor de impact van groepering, informatie over het aantal gegroepeerde fysieke verbindingen vindt u in de volgende eigenschappen van de record:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |LinksEstablished |Het aantal fysieke netwerkverbindingen die zijn gemaakt tijdens de rapportage venster |
 |LinksTerminated |Het aantal fysieke netwerkverbindingen die tijdens de rapportage venster zijn beëindigd |
@@ -321,7 +320,7 @@ Voor het account voor de impact van groepering, informatie over het aantal gegro
 
 Naast de verbinding aantal metrische gegevens, informatie over de hoeveelheid gegevens verzonden en ontvangen op een bepaalde logische verbinding of netwerkpoort zijn ook opgenomen in de volgende eigenschappen van de record:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |BytesSent |Totaal aantal bytes dat is verzonden tijdens het rapportage venster |
 |BytesReceived |Totaal aantal bytes dat is ontvangen tijdens het rapportage venster |
@@ -347,7 +346,7 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 #### <a name="geolocation"></a>Geolocatie
 *VMConnection* omvat ook geolocatie-informatie voor het externe einde van elke verbindingsrecord in de volgende eigenschappen van de record: 
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |RemoteCountry |De naam van het betreffende land RemoteIp hosten.  Bijvoorbeeld, *Verenigde Staten* |
 |RemoteLatitude |De breedtegraad geolocatie.  Bijvoorbeeld, *47.68* |
@@ -356,11 +355,11 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 #### <a name="malicious-ip"></a>Schadelijk IP
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 |MaliciousIp |Het adres RemoteIp |
 |IndicatorThreadType |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
-|Beschrijving |Beschrijving van de waargenomen bedreiging. |
+|Description |Beschrijving van de waargenomen bedreiging. |
 |TLPLevel |Niveau van stoplicht Protocol (TLP) is een van de gedefinieerde waarden, *wit*, *groen*, *oranje*, *Red*. |
 |Betrouwbaarheid |Waarden zijn *0-100*. |
 |Severity |Waarden zijn *0 – 5*, waarbij *5* is het meest ernstige en *0* is helemaal niet ernstig. Standaardwaarde is *3*.  |
@@ -373,7 +372,7 @@ Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL records
 Records met een type *ServiceMapComputer_CL* inventarisgegevens voor servers met Service Map agents hebt. Deze records hebben de eigenschappen in de volgende tabel:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -398,7 +397,7 @@ Records met een type *ServiceMapComputer_CL* inventarisgegevens voor servers met
 ### <a name="servicemapprocesscl-type-records"></a>Type ServiceMapProcess_CL records
 Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens voor TCP verbonden processen op servers met Service Map-agents. Deze records hebben de eigenschappen in de volgende tabel:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |

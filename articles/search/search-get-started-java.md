@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Azure Search in Java | Microsoft Docs
+title: Aan de slag met Azure Search in Java - Azure Search
 description: Een gehoste cloudtoepassing voor zoeken in Azure bouwen met de programmeertaal Java.
 services: search
 author: jj09
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec2018
+ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419296"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316960"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Aan de slag met Azure Search in Java
 > [!div class="op_single_selector"]
@@ -45,13 +46,13 @@ In deze toepassing zorgt het programma **SearchServlet.java** er met een [indexe
 ## <a name="about-the-program-files"></a>Over de programmabestanden
 In de volgende lijst worden de bestanden beschreven die relevant zijn voor dit voorbeeld.
 
-* Search.jsp: levert de gebruikersinterface
-* SearchServlet.java: biedt methoden (vergelijkbaar met een controller in MVC)
-* SearchServiceClient.java: verwerkt de HTTP-aanvragen
-* SearchServiceHelper.java: een helperklasse die statische methoden biedt
-* Document.Java: levert het gegevensmodel
-* Config.Properties: stelt de URL van de zoekservice en de API-sleutel in
-* Pom.XML: Een Maven-afhankelijkheid
+* Search.JSP: Levert de gebruikersinterface
+* SearchServlet.java: Biedt methoden (vergelijkbaar met een controller in MVC)
+* SearchServiceClient.java: HTTP-aanvragen worden verwerkt
+* SearchServiceHelper.java: Een helperklasse die statische methoden biedt
+* Document.Java: Levert het gegevensmodel
+* Config.Properties: Stelt de Search service-URL en api-sleutel
+* pom.XML: Een Maven-afhankelijkheid
 
 <a id="sub-2"></a>
 

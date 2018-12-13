@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 1c6012503c5300d64d17a4b8efc262fa91355c88
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: f661b9e7239e45cdc0e8501553f1b14100deaa98
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890106"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192245"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Oplossing status van agent in Azure
 De oplossing status van Agent in Azure kunt u meer informatie over voor alle van de agents die rapporteren rechtstreeks verbonden met Log Analytics, dat niet meer reageert zijn op de Log Analytics-werkruimte of vanuit een System Center Operations Manager-beheergroep en het verzenden van operationele de gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
@@ -46,7 +45,7 @@ De oplossing status van Agent toevoegen aan uw Log Analytics-werkruimte met behu
 ### <a name="supported-agents"></a>Ondersteunde agents
 De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing.
 
-| Verbonden bron | Ondersteund | Beschrijving |
+| Verbonden bron | Ondersteund | Description |
 | --- | --- | --- |
 | Windows-agents | Ja | Er worden heartbeat-gebeurtenissen verzameld van direct verbonden Windows-agents.|
 | Beheergroep System Center Operations Manager | Ja | Er worden elke 60 seconden heartbeat-gebeurtenissen verzameld van agents die rapporteren aan de beheergroep en deze worden vervolgens doorgestuurd naar Log Analytics. Er is geen directe verbinding tussen Operations Manager-agents en Log Analytics vereist. Gegevens van heartbeat-gebeurtenissen worden vanuit de beheergroep doorgestuurd naar de opslagplaats van Log Analytics.|
@@ -56,7 +55,7 @@ Wanneer u de oplossing aan uw Log Analytics-werkruimte toevoegt, de **agentstatu
 
 Klik op de tegel **Status van agent** om het **gelijknamige** dashboard te openen.  Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de tien belangrijkste gebeurtenissen naar aantal die overeenkomen met de criteria van die kolom voor de opgegeven periode. U kunt de volledige lijst met gebeurtenissen weergeven door linksonder elke kolom **Alles weergeven** te selecteren. Dit kan overigens ook door op de kolomkop te klikken.
 
-| Kolom | Beschrijving |
+| Kolom | Description |
 |--------|-------------|
 | Agent count over time | Een trend van het aantal agents gedurende een periode van zeven dagen voor Linux- en Windows-agents.|
 | Count of unresponsive agents | Een lijst met agents die in de afgelopen 24 uur geen heartbeat hebben verzonden.|
@@ -75,7 +74,7 @@ De oplossing voegt één type record in de Log Analytics-werkruimte.
 ### <a name="heartbeat-records"></a>Heartbeat-records
 Er wordt een record van het type **Heartbeat** gemaakt.  Deze records hebben de eigenschappen uit de volgende tabel.  
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Type | *Heartbeat*|
 | Categorie | De waarde is *Direct Agent*, *SCOM Agent* of *SCOM Management Server*.|
@@ -98,7 +97,7 @@ Elke agent die rapporteert aan een Operations Manager-beheerserver stuurt twee h
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records die zijn verzameld met deze oplossing.
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Het totale aantal agents |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Het aantal agents dat de afgelopen 24 uur niet heeft gereageerd |

@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 086bddb34017d41e3e7efe86531e3c849ccd80ab
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5f5c86a90325c9a6dcd521a97cb899b88b55198d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679933"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194263"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
-De VM's starten/stoppen buiten kantooruren oplossing wordt gestart en gestopt van uw Azure virtual machines op de gebruiker gedefinieerde schema's, biedt inzichten via Azure Log Analytics en optioneel e-mailberichten worden verzonden via [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md). Deze biedt ondersteuning voor zowel Azure Resource Manager en klassieke virtuele machines voor de meeste scenario's.
+De VM's starten/stoppen buiten kantooruren oplossing wordt gestart en gestopt van uw Azure virtual machines op de gebruiker gedefinieerde schema's, biedt inzichten via Azure Log Analytics en optioneel e-mailberichten worden verzonden via [actiegroepen](../azure-monitor/platform/action-groups.md). Deze biedt ondersteuning voor zowel Azure Resource Manager en klassieke virtuele machines voor de meeste scenario's.
 
 Deze oplossing biedt een automatiseringsoptie gedecentraliseerde van de lage kosten voor gebruikers die hun VM-kosten optimaliseren. Met deze oplossing kunt u het volgende doen:
 
@@ -79,7 +79,7 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
    - Geef de **ResourceGroup namen als doel**. Deze waarden zijn de namen van resourcegroepen met virtuele machines worden beheerd door deze oplossing. U kunt meer dan één naam invoeren en scheiden met een komma (waarden zijn niet hoofdlettergevoelig). Jokertekens worden ondersteund als de bewerking moet worden gericht op VM's in alle resourcegroepen in het abonnement. Deze waarde wordt opgeslagen in de **External_Start_ResourceGroupNames** en **External_Stop_ResourceGroupNames** variabelen.
    - Geef de **uitsluitingslijst VM (tekenreeks)**. Deze waarde is de naam van een of meer virtuele machines van de doelresourcegroep. U kunt meer dan één naam invoeren en scheiden met een komma (waarden zijn niet hoofdlettergevoelig). Gebruik een jokerteken wordt ondersteund. Deze waarde wordt opgeslagen in de **External_ExcludeVMNames** variabele.
    - Selecteer een **planning**. Deze waarde is een periodieke datum en tijd voor het starten en stoppen van de virtuele machines in de doel-resourcegroepen. Het schema is standaard geconfigureerd voor 30 minuten vanaf nu. Selecteren van een andere regio is niet beschikbaar. Zie voor meer informatie over het configureren van de planning voor de tijdzone van uw specifieke na het configureren van de oplossing [wijzigen van de planning voor opstarten en afsluiten](#modify-the-startup-and-shutdown-schedules).
-   - Voor het ontvangen van **e-mailmeldingen** uit een actiegroep, accepteer de standaardwaarde van **Ja** en geef een geldig e-mailadres. Als u selecteert **Nee** , maar besluit dat op een later tijdstip dat u wilt ontvangen van e-mailmeldingen, u kunt bijwerken de [actiegroep](../monitoring-and-diagnostics/monitoring-action-groups.md) die is gemaakt met geldige e-mailadressen gescheiden door een komma. U moet ook de volgende regels voor waarschuwingen inschakelen:
+   - Voor het ontvangen van **e-mailmeldingen** uit een actiegroep, accepteer de standaardwaarde van **Ja** en geef een geldig e-mailadres. Als u selecteert **Nee** , maar besluit dat op een later tijdstip dat u wilt ontvangen van e-mailmeldingen, u kunt bijwerken de [actiegroep](../azure-monitor/platform/action-groups.md) die is gemaakt met geldige e-mailadressen gescheiden door een komma. U moet ook de volgende regels voor waarschuwingen inschakelen:
 
      - AutoStop_VM_Child
      - Scheduled_StartStop_Parent
@@ -94,14 +94,14 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
 
 De oplossing bevat drie verschillende scenario's. Deze scenario's zijn:
 
-### <a name="scenario-1-startstop-vms-on-a-schedule"></a>Scenario 1: VM's volgens een schema starten/stoppen
+### <a name="scenario-1-startstop-vms-on-a-schedule"></a>Scenario 1: VM's starten/stoppen volgens een schema
 
 Dit scenario is de standaardconfiguratie wanneer u eerst de oplossing implementeert. U kunt bijvoorbeeld configureren om te stoppen alle virtuele machines in een abonnement als u werk in de avonduren is gepland, en ze te starten in de ochtend wanneer u in het bent. Wanneer u de schema's configureren **geplande StartVM** en **geplande StopVM** tijdens de implementatie van deze starten en stoppen van gerichte VM's. Configureren van deze oplossing als u wilt stoppen alleen virtuele machines wordt ondersteund, Zie [wijzigen van de planning voor opstarten en afsluiten](#modify-the-startup-and-shutdown-schedules) voor informatie over het configureren van een aangepaste planning.
 
 > [!NOTE]
 > De tijdzone is uw huidige tijdzone bij het configureren van de parameter van de tijd plannen. Het is echter opgeslagen in UTC-notatie in Azure Automation. U hoeft niet te doen een tijdzoneconversie als dit wordt afgehandeld tijdens de implementatie.
 
-U bepalen welke VM's zijn binnen het bereik door het configureren van de volgende variabelen: **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, en **External_ ExcludeVMNames**.
+U bepalen welke VM's binnen het bereik zijn door het configureren van de volgende variabelen: **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, en **External_ExcludeVMNames**.
 
 U kunt inschakelen die gericht is op de actie op basis van een abonnement en resourcegroep of die zijn gericht op een specifieke lijst met virtuele machines, maar niet beide.
 
@@ -120,7 +120,7 @@ U kunt inschakelen die gericht is op de actie op basis van een abonnement en res
 > [!NOTE]
 > De waarde voor **ResourceGroup doelnamen** wordt opgeslagen als de waarde voor beide **External_Start_ResourceGroupNames** en **External_Stop_ResourceGroupNames**. Voor meer granulatie, kunt u elk van deze variabelen om de doelgroep van verschillende resourcegroepen te wijzigen. Gebruik voor de startactie, **External_Start_ResourceGroupNames**, en voor actie bij stoppen, gebruikt u **External_Stop_ResourceGroupNames**. Virtuele machines worden automatisch toegevoegd aan het begin en stoppen van schema's.
 
-### <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a>Scenario 2: Starten/stoppen van VM's in de reeks met behulp van tags
+### <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a>Scenario 2: VM's starten/stoppen in de reeks met behulp van tags
 
 In een omgeving met twee of meer onderdelen op meerdere virtuele machines ondersteunen van een gedistribueerde werkbelasting, is de volgorde waarin de onderdelen zijn gestart en gestopt ondersteunende in volgorde belangrijk. U kunt dit scenario voltooien met de volgende stappen uit:
 
@@ -182,22 +182,22 @@ De volgende tabel bevat de runbooks die zijn geïmplementeerd in uw Automation-a
 
 Alle bovenliggende runbooks bevatten de _WhatIf_ parameter. Als de waarde **waar**, _WhatIf_ ondersteunt met gedetailleerde informatie over het exacte probleem moet het runbook worden uitgevoerd wanneer uitvoeren zonder de _WhatIf_ parameter en valideert de juiste virtuele machines worden het doel. Een runbook worden alleen de gedefinieerde acties uitgevoerd wanneer de _WhatIf_ parameter is ingesteld op **False**.
 
-|Runbook | Parameters | Beschrijving|
+|Runbook | Parameters | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Met de naam van het bovenliggende runbook. Dit runbook maakt waarschuwingen op basis van per-resource voor het scenario AutoStop.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Waar of ONWAAR  | Hiermee of Azure waarschuwingsregels op virtuele machines in de doelgroepen voor abonnement of resourcegroep bijgewerkt. <br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_.<br> *WhatIf* valideert de runbooklogica zonder uit te voeren.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: De waarde True of False  | Hiermee of Azure waarschuwingsregels op virtuele machines in de doelgroepen voor abonnement of resourcegroep bijgewerkt. <br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_.<br> *WhatIf* valideert de runbooklogica zonder uit te voeren.|
 |AutoStop_Disable | geen | Hiermee schakelt u AutoStop waarschuwingen en standaardschema.|
 |AutoStop_StopVM_Child | WebHookData | Met de naam van het bovenliggende runbook. Waarschuwingsregels aanroepen met dit runbook als u wilt stoppen van de virtuele machine.|
 |Bootstrap_Main | geen | Één keer gebruikt voor het instellen van de bootstrap-configuraties, zoals webhookURI, die doorgaans niet toegankelijk vanuit Azure Resource Manager. Dit runbook wordt automatisch verwijderd na de implementatie is voltooid.|
 |ScheduledStartStop_Child | VM-naam <br> Actie: Starten of stoppen <br> ResourceGroupName | Met de naam van het bovenliggende runbook. Een actie starten of stoppen voor de geplande stoppen wordt uitgevoerd.|
-|ScheduledStartStop_Parent | Actie: Starten of stoppen <br>VMList <br> WhatIf: Waar of ONWAAR | Deze instelling is van invloed op alle virtuele machines in het abonnement. Bewerk de **External_Start_ResourceGroupNames** en **External_Stop_ResourceGroupNames** gericht alleen uitvoeren op deze resourcegroepen. U kunt ook specifieke virtuele machines uitsluiten door het bijwerken van de **External_ExcludeVMNames** variabele.<br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_.<br> _WhatIf_ valideert de runbooklogica zonder uit te voeren.|
-|SequencedStartStop_Parent | Actie: Starten of stoppen <br> WhatIf: Waar of ONWAAR<br>VMList| Met de naam-tags maken **klikvolgorde** en **sequencestop** op elke virtuele machine waarvoor u te sequence starten/stoppen-activiteit wenst. De namen van deze tags zijn hoofdlettergevoelig. De waarde van de tag moet een positief geheel getal zijn (1, 2, 3) die overeenkomt met de volgorde waarin u wilt starten of stoppen. <br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_. <br> _WhatIf_ valideert de runbooklogica zonder uit te voeren. <br> **Houd er rekening mee**: virtuele machines, moeten zich binnen de resourcegroepen die zijn gedefinieerd als External_Start_ResourceGroupNames External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen. Ze beschikken over de juiste tags voor acties die moeten worden van kracht.|
+|ScheduledStartStop_Parent | Actie: Starten of stoppen <br>VMList <br> WhatIf: De waarde True of False | Deze instelling is van invloed op alle virtuele machines in het abonnement. Bewerk de **External_Start_ResourceGroupNames** en **External_Stop_ResourceGroupNames** gericht alleen uitvoeren op deze resourcegroepen. U kunt ook specifieke virtuele machines uitsluiten door het bijwerken van de **External_ExcludeVMNames** variabele.<br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_.<br> _WhatIf_ valideert de runbooklogica zonder uit te voeren.|
+|SequencedStartStop_Parent | Actie: Starten of stoppen <br> WhatIf: De waarde True of False<br>VMList| Met de naam-tags maken **klikvolgorde** en **sequencestop** op elke virtuele machine waarvoor u te sequence starten/stoppen-activiteit wenst. De namen van deze tags zijn hoofdlettergevoelig. De waarde van de tag moet een positief geheel getal zijn (1, 2, 3) die overeenkomt met de volgorde waarin u wilt starten of stoppen. <br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_. <br> _WhatIf_ valideert de runbooklogica zonder uit te voeren. <br> **Houd er rekening mee**: Virtuele machines moeten zich binnen de resourcegroepen die zijn gedefinieerd als External_Start_ResourceGroupNames External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen. Ze beschikken over de juiste tags voor acties die moeten worden van kracht.|
 
 ### <a name="variables"></a>Variabelen
 
 De volgende tabel bevat de variabelen die in uw Automation-account gemaakt. Alleen Wijzig variabelen die worden voorafgegaan door **externe**. Variabelen wijzigen voorafgegaan door **intern** zorgt ervoor dat ongewenste effecten.
 
-|Variabele | Beschrijving|
+|Variabele | Description|
 |---------|------------|
 |External_AutoStop_Condition | De conditionele operator vereist voor het configureren van de voorwaarde voordat een waarschuwing wordt geactiveerd. Acceptabele waarden zijn **groter dan**, **GreaterThanOrEqual**, **LessThan**, en **LessThanOrEqual**.|
 |External_AutoStop_Description | De waarschuwing op de virtuele machine stoppen als het CPU-percentage hoger is dan de drempelwaarde.|
@@ -221,7 +221,7 @@ De volgende tabel geeft een lijst van elk van de standaardschema's in uw Automat
 
 U moet alle schema's is niet inschakelen omdat dit mogelijk overlappende schema-acties maken. Het is raadzaam om te bepalen welke optimalisaties die u wilt uitvoeren en aanpassen. Zie de voorbeeldscenario's in de overzichtssectie voor verdere uitleg.
 
-|Schemanaam | Frequentie | Beschrijving|
+|Schemanaam | Frequentie | Description|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Om de 8 uur | Wordt uitgevoerd het AutoStop_CreateAlert_Parent runbook om de 8 uur, wat op zijn beurt voorkomt dat de waarden op basis van een virtuele machine in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen. U kunt ook kunt u een door komma's gescheiden lijst met virtuele machines met behulp van de parameter VMList.|
 |Scheduled_StopVM | Door de gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van _stoppen_ elke dag om de opgegeven tijd. Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door asset variabelen automatisch gestopt. Inschakelen van het bijbehorende schema **geplande StartVM**.|
@@ -235,7 +235,7 @@ Automation worden twee typen records gemaakt in de Log Analytics-werkruimte: taa
 
 ### <a name="job-logs"></a>Taaklogboeken
 
-|Eigenschap | Beschrijving|
+|Eigenschap | Description|
 |----------|----------|
 |Caller |  Wie de bewerking heeft gestart. Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken.|
 |Categorie | Classificatie van het type gegevens. Voor Automation is de waarde JobLogs.|
@@ -256,7 +256,7 @@ Automation worden twee typen records gemaakt in de Log Analytics-werkruimte: taa
 
 ### <a name="job-streams"></a>Taakstromen
 
-|Eigenschap | Beschrijving|
+|Eigenschap | Description|
 |----------|----------|
 |Caller |  Wie de bewerking heeft gestart. Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken.|
 |Categorie | Classificatie van het type gegevens. Voor Automation is de waarde JobStreams.|
@@ -279,7 +279,7 @@ Wanneer u een zoekopdracht in Logboeken waarmee categorierecords met uitvoert **
 
 De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords die worden verzameld met deze oplossing.
 
-|Query’s uitvoeren | Beschrijving|
+|Query’s uitvoeren | Description|
 |----------|----------|
 |Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | waar (RunbookName_s == "ScheduledStartStop_Parent") | waar (ResultType == "Voltooid")  | samenvatten |AggregatedValue = count() by ResultType, bin (TimeGenerated, 1 uur) | sorteren op TimeGenerated desc'' '|
 |Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | waar (RunbookName_s == "SequencedStartStop_Parent") | waar (ResultType == "Voltooid") | samenvatten |AggregatedValue = count() by ResultType, bin (TimeGenerated, 1 uur) | sorteren op TimeGenerated desc'' '|
@@ -309,7 +309,7 @@ Op de **StartStop_VM_Notification** pagina, klikt u op **details bewerken** onde
 
 ![De pagina van de oplossing Update Management Automation](media/automation-solution-vm-management/change-email.png)
 
-U kunt ook toevoegen aanvullende acties aan de actiegroep, voor meer informatie over actiegroepen, Zie [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md)
+U kunt ook toevoegen aanvullende acties aan de actiegroep, voor meer informatie over actiegroepen, Zie [actiegroepen](../azure-monitor/platform/action-groups.md)
 
 Hier volgt een voorbeeld van de e-mailbericht wordt verzonden wanneer de oplossing wordt afgesloten virtuele machines.
 

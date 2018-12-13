@@ -1,5 +1,5 @@
 ---
-title: Een externe Azure App Service-omgeving maken
+title: Maak een externe App Service environment - Azure
 description: Wordt uitgelegd hoe u een App Service-omgeving maken bij het maken van een app of een zelfstandige
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 6df708c97750c89c850c993d0e1a43ded01934a2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 98d534e20b8e4c6bf6bcc3f483f59b796dc85073
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959958"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274465"
 ---
 # <a name="create-an-external-app-service-environment"></a>Een externe App Service-omgeving maken #
 
@@ -64,27 +65,27 @@ Een as-omgeving maken bij het maken van een App Service-plan:
 
     ![Web-Apps maken][1]
 
-1. Selecteer uw abonnement. De app en de as-omgeving zijn gemaakt in dezelfde abonnementen.
+2. Selecteer uw abonnement. De app en de as-omgeving zijn gemaakt in dezelfde abonnementen.
 
-1. Selecteer of maak een resourcegroep. Met resourcegroepen kunt u gerelateerde Azure-resources beheren als één eenheid. Resourcegroepen zijn ook nuttig wanneer u regels voor toegangsbeheer op basis van rollen voor uw apps instellen. Zie voor meer informatie de [overzicht van Azure Resource Manager][ARMOverview].
+3. Selecteer of maak een resourcegroep. Met resourcegroepen kunt u gerelateerde Azure-resources beheren als één eenheid. Resourcegroepen zijn ook nuttig wanneer u regels voor toegangsbeheer op basis van rollen voor uw apps instellen. Zie voor meer informatie de [overzicht van Azure Resource Manager][ARMOverview].
 
-1. Selecteer uw besturingssysteem (Windows, Linux of Docker). 
+4. Selecteer uw besturingssysteem (Windows, Linux of Docker). 
 
-1. Selecteer het App Service-plan, en selecteer vervolgens **nieuw**. Linux-web-apps en web-apps voor Windows kunnen niet in de dezelfde App Service-Plan, maar kunnen zich in hetzelfde App Service Environment. 
+5. Selecteer het App Service-plan, en selecteer vervolgens **nieuw**. Linux-web-apps en web-apps voor Windows kunnen niet in de dezelfde App Service-Plan, maar kunnen zich in hetzelfde App Service Environment. 
 
     ![Nieuw App Service-plan][2]
 
-1. In de **locatie** vervolgkeuzelijst, selecteer de regio waar u wilt maken de as-omgeving. Als u een bestaande as-omgeving selecteert, wordt een nieuwe ASE is niet gemaakt. De App Service-plan is gemaakt in de as-omgeving die u hebt geselecteerd. 
+6. In de **locatie** vervolgkeuzelijst, selecteer de regio waar u wilt maken de as-omgeving. Als u een bestaande as-omgeving selecteert, wordt een nieuwe ASE is niet gemaakt. De App Service-plan is gemaakt in de as-omgeving die u hebt geselecteerd. 
 
-1. Selecteer **prijscategorie**, en kies een van de **geïsoleerd** prijzen van voorraadeenheden. Als u ervoor kiest een **geïsoleerd** SKU-kaart en een locatie die niet een as-omgeving, een nieuwe as-omgeving is gemaakt op die locatie. Selecteer eerst het proces voor het maken van een as-omgeving **Selecteer**. De **geïsoleerd** SKU is alleen beschikbaar in combinatie met een as-omgeving. U ook niet gebruiken andere prijzen SKU's in een as-omgeving anders dan **geïsoleerd**. 
+7. Selecteer **prijscategorie**, en kies een van de **geïsoleerd** prijzen van voorraadeenheden. Als u ervoor kiest een **geïsoleerd** SKU-kaart en een locatie die niet een as-omgeving, een nieuwe as-omgeving is gemaakt op die locatie. Selecteer eerst het proces voor het maken van een as-omgeving **Selecteer**. De **geïsoleerd** SKU is alleen beschikbaar in combinatie met een as-omgeving. U ook niet gebruiken andere prijzen SKU's in een as-omgeving anders dan **geïsoleerd**. 
 
     ![Geselecteerde prijscategorie][3]
 
-1. Voer de naam voor de as-omgeving. Deze naam wordt gebruikt in de adresseerbare naam voor uw apps. Als de naam van de ASE _appsvcenvdemo_, de domeinnaam is *. appsvcenvdemo.p.azurewebsites.net*. Als u een app met de naam maakt *mytestapp*, is het beschikbaar maken zonder op mytestapp.appsvcenvdemo.p.azurewebsites.net. U kunt witruimte in de naam van de gebruiken. Als u hoofdletters gebruikt, is de domeinnaam de totaal in kleine letters versie met die naam.
+8. Voer de naam voor de as-omgeving. Deze naam wordt gebruikt in de adresseerbare naam voor uw apps. Als de naam van de ASE _appsvcenvdemo_, de domeinnaam is *. appsvcenvdemo.p.azurewebsites.net*. Als u een app met de naam maakt *mytestapp*, is het beschikbaar maken zonder op mytestapp.appsvcenvdemo.p.azurewebsites.net. U kunt witruimte in de naam van de gebruiken. Als u hoofdletters gebruikt, is de domeinnaam de totaal in kleine letters versie met die naam.
 
     ![Naam van een nieuwe App Service-plan][4]
 
-1. Geef de details van Azure virtuele netwerken. Selecteer een **Maak een nieuwe** of **Selecteer een bestaande**. De optie voor het selecteren van een bestaand VNet is alleen beschikbaar als u een VNet in de geselecteerde regio hebt. Als u selecteert **nieuw**, voer een naam voor het VNet. Een nieuwe Resource Manager VNet met die naam is gemaakt. Hierbij de adresruimte `192.168.250.0/23` in de geselecteerde regio. Als u selecteert **bestaande selecteren**, moet u:
+9. Geef de details van Azure virtuele netwerken. Selecteer een **Maak een nieuwe** of **Selecteer een bestaande**. De optie voor het selecteren van een bestaand VNet is alleen beschikbaar als u een VNet in de geselecteerde regio hebt. Als u selecteert **nieuw**, voer een naam voor het VNet. Een nieuwe Resource Manager VNet met die naam is gemaakt. Hierbij de adresruimte `192.168.250.0/23` in de geselecteerde regio. Als u selecteert **bestaande selecteren**, moet u:
 
     a. Selecteer de VNet-Adresblok, als u meer dan één hebt.
 
@@ -94,7 +95,7 @@ Een as-omgeving maken bij het maken van een App Service-plan:
 
     d. Selecteer het bereik van de IP-subnet.
 
-1. Selecteer **maken** te maken van de as-omgeving. Dit proces maakt ook het App Service-plan en de app. De as-omgeving, App Service-plan en de app worden alle onder hetzelfde abonnement en dezelfde resourcegroep bevinden. Als de as-omgeving een afzonderlijke resourcegroep moet of als u een ILB as-omgeving nodig hebt, volgt u de stappen voor het maken van een as-omgeving op zichzelf.
+10. Selecteer **maken** te maken van de as-omgeving. Dit proces maakt ook het App Service-plan en de app. De as-omgeving, App Service-plan en de app worden alle onder hetzelfde abonnement en dezelfde resourcegroep bevinden. Als de as-omgeving een afzonderlijke resourcegroep moet of als u een ILB as-omgeving nodig hebt, volgt u de stappen voor het maken van een as-omgeving op zichzelf.
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Een as-omgeving en een Linux-web-app met een aangepaste Docker-installatiekopie samen maken
 

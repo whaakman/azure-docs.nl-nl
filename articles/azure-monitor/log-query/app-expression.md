@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 84d1a08cd8ec4aafcc382ca74987bc5486f673d7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: e83ba321a98e40f07ff82e68c7961c2a6a49076d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882703"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191832"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>de expressie App() in Log Analytics-query
 
@@ -34,9 +33,9 @@ De `app` expressie wordt gebruikt in een Log Analytics-query voor het ophalen va
 
 ## <a name="arguments"></a>Argumenten
 
-- *Id*: de app met behulp van een van de indelingen in de onderstaande tabel wordt geïdentificeerd.
+- *Id*: Hiermee geeft u de app met een van de indelingen in de onderstaande tabel.
 
-| Id | Beschrijving | Voorbeeld
+| Id | Description | Voorbeeld
 |:---|:---|:---|
 | Resourcenaam | Menselijke leesbare naam van de app (AKA "naam van onderdeel") | App("fabrikamapp") |
 | Gekwalificeerde naam | Volledige naam van de app in het formulier: "resourceGroup-subscriptionName/componentName" | App('AI-prototype/Fabrikam/fabrikamapp') |

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: spelluru
-ms.openlocfilehash: 047c4c37090db77f7a7a692604dd63c5effff9fa
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409758"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312875"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus-wachtrijen, -onderwerpen en -abonnementen
 
@@ -32,15 +32,15 @@ Met behulp van wachtrijen naar tussenliggende tussen producenten en consumenten,
 
 ### <a name="create-queues"></a>Wachtrijen maken
 
-Maken van wachtrijen met de [Azure-portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), of [Resource Manager-sjablonen](service-bus-resource-manager-namespace-queue.md). U gaat vervolgens verzenden en ontvangen van berichten met behulp van een [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object. 
+Maken van wachtrijen met de [Azure-portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), of [Resource Manager-sjablonen](service-bus-resource-manager-namespace-queue.md). U gaat vervolgens verzenden en ontvangen van berichten met behulp van een [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object.
 
-Als u wilt snel informatie over het maken van een wachtrij, en vervolgens verzenden en ontvangen van berichten naar en uit de wachtrij, Zie de [snelstartgidsen](service-bus-quickstart-portal.md) voor elke methode. Zie voor een meer diepgaande zelfstudie over het gebruik van wachtrijen, [aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md). 
+Als u wilt snel informatie over het maken van een wachtrij, en vervolgens verzenden en ontvangen van berichten naar en uit de wachtrij, Zie de [snelstartgidsen](service-bus-quickstart-portal.md) voor elke methode. Zie voor een meer diepgaande zelfstudie over het gebruik van wachtrijen, [aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md).
 
 Zie voor een voorbeeld werkt de [BasicSendReceiveUsingQueueClient voorbeeld](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) op GitHub.
 
 ### <a name="receive-modes"></a>Modi ontvangen
 
-Kunt u twee verschillende modi waarin Service Bus berichten ontvangt: *ReceiveAndDelete* of *PeekLock*. In de [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) modus, de receive-bewerking is één; dat wil zeggen, Service Bus de aanvraag ontvangt, wordt het bericht als verbruikt gemarkeerd en geeft dit terug aan de toepassing. **ReceiveAndDelete** modus is het eenvoudigste model en werkt het beste voor scenario's waarin de toepassing niet verwerken van een bericht tolereren kan als er een fout optreedt. Voor meer informatie over dit scenario, u hebt een scenario waarin de consument problemen met de aanvraag ontvangen en vervolgens vastloopt voordat deze wordt verwerkt. Omdat Service Bus het bericht als verbruikt, wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint gemarkeerd, ontbreekt het bericht dat voor het vastlopen is verbruikt.
+U kunt twee verschillende modi waarin Service Bus berichten ontvangt opgeven: *ReceiveAndDelete* of *PeekLock*. In de [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) modus, de receive-bewerking is één; dat wil zeggen, Service Bus de aanvraag ontvangt, wordt het bericht als verbruikt gemarkeerd en geeft dit terug aan de toepassing. **ReceiveAndDelete** modus is het eenvoudigste model en werkt het beste voor scenario's waarin de toepassing niet verwerken van een bericht tolereren kan als er een fout optreedt. Voor meer informatie over dit scenario, u hebt een scenario waarin de consument problemen met de aanvraag ontvangen en vervolgens vastloopt voordat deze wordt verwerkt. Omdat Service Bus het bericht als verbruikt, wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint gemarkeerd, ontbreekt het bericht dat voor het vastlopen is verbruikt.
 
 In [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) modus wordt de ontvangstbewerking twee fasen, wordt, waardoor het mogelijk toepassingen kunnen worden ondersteund die geen ontbrekende berichten kunnen tolereren. Wanneer de aanvraag wordt ontvangen door Service Bus, deze vindt het volgende bericht om te worden verbruikt, wordt vergrendeld om te voorkomen dat andere consumenten het ontvangen en vervolgens terugkeert naar de toepassing. Nadat de toepassing klaar is met het verwerken van bericht (of deze op betrouwbare wijze voor toekomstige verwerking slaat), is de tweede fase van het ontvangstproces voltooid door het aanroepen van [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) voor het ontvangen bericht. Wanneer Service Bus ziet de **CompleteAsync** aanroep, deze wordt het bericht als verbruikt gemarkeerd.
 
@@ -56,9 +56,9 @@ Ter vergelijking, de functionaliteit bericht verzenden van een wachtrij wordt to
 
 ### <a name="create-topics-and-subscriptions"></a>Maken van onderwerpen en abonnementen
 
-Het maken van een onderwerp is vergelijkbaar met het maken van een wachtrij, zoals beschreven in de vorige sectie. Vervolgens verzenden van berichten met de [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) klasse. Om berichten te ontvangen, maakt u een of meer abonnementen naar het onderwerp. Net als bij wachtrijen, berichten worden ontvangen van een abonnement met een [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) object in plaats van een [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object. Maak de abonnementsclient, waarbij de naam van het onderwerp, de naam van het abonnement en (optioneel) de modus ontvangen als parameters doorgegeven. 
+Het maken van een onderwerp is vergelijkbaar met het maken van een wachtrij, zoals beschreven in de vorige sectie. Vervolgens verzenden van berichten met de [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) klasse. Om berichten te ontvangen, maakt u een of meer abonnementen naar het onderwerp. Net als bij wachtrijen, berichten worden ontvangen van een abonnement met een [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) object in plaats van een [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object. Maak de abonnementsclient, waarbij de naam van het onderwerp, de naam van het abonnement en (optioneel) de modus ontvangen als parameters doorgegeven.
 
-Voor een volledige werken voorbeeld, Zie de [BasicSendReceiveUsingTopicSubscriptionClient voorbeeld](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) op Github.
+Voor een volledige werken voorbeeld, Zie de [BasicSendReceiveUsingTopicSubscriptionClient voorbeeld](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) op GitHub.
 
 ### <a name="rules-and-actions"></a>Regels en acties
 
@@ -66,14 +66,14 @@ In veel scenario's, moeten berichten met specifieke kenmerken op verschillende m
 
 Voor een volledige werken voorbeeld, Zie de [TopicSubscriptionWithRuleOperationsSample voorbeeld](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) op GitHub.
 
-Voor meer informatie over mogelijke filterwaarden, Zie de documentatie voor de [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) en [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) klassen. 
+Voor meer informatie over mogelijke filterwaarden, Zie de documentatie voor de [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) en [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) klassen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie de volgende geavanceerde onderwerpen voor meer informatie en voorbeelden van het gebruik van Service Bus-berichten:
 
 * [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
-* [Snelstartgids: Berichten verzenden en ontvangen met behulp van de Azure portal en .NET](service-bus-quickstart-portal.md)
-* [Zelfstudie: Update inventory met Azure portal en onderwerpen/abonnementen](service-bus-tutorial-topics-subscriptions-portal.md)
+* [Snelstartgids: Verzenden en berichten ontvangen met behulp van de Azure portal en .NET](service-bus-quickstart-portal.md)
+* [Zelfstudie: Bijwerken van de voorraad met behulp van Azure portal en onderwerpen/abonnementen](service-bus-tutorial-topics-subscriptions-portal.md)
 
 

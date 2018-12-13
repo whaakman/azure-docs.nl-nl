@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: e1d8f41c55ffd453507804b005d10620665b512c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f1588cac61d0cef821dc15019683f67c2962f049
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222016"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255377"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Toegang tot Azure Cosmos DB Cassandra API gegevens uit Azure Databricks
 
@@ -52,9 +52,9 @@ Dit artikel wordt beschreven hoe u in combinatie met Azure Cosmos DB Cassandra-A
 
 * **Azure Cosmos DB Cassandra-API-specifieke bibliotheek:** -een aangepaste verbinding factory is vereist voor het configureren van het beleid voor opnieuw proberen van de Cassandra-Spark-connector met Azure Cosmos DB Cassandra-API. Voeg de `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [maven-coördinaten](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) de bibliotheek koppelen aan het cluster.
 
-## <a name="sample-notebooks"></a>Voorbeeld-laptops
+## <a name="sample-notebooks"></a>Voorbeelden van notebooks
 
-Een lijst met Azure Databricks [voorbeeld notitieblokken](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) zijn beschikbaar in de Github-opslagplaats voor u om te downloaden. Deze voorbeelden bevatten informatie over het verbinding maken met Azure Cosmos DB Cassandra-API van Spark en andere CRUD-bewerkingen op de gegevens uitvoeren. U kunt ook [importeren van alle notitieblokken](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) cluster naar uw Databricks-werkruimte en de App uitvoeren. 
+Een lijst met Azure Databricks [voorbeeld notitieblokken](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) zijn beschikbaar in de GitHub-opslagplaats voor u om te downloaden. Deze voorbeelden bevatten informatie over het verbinding maken met Azure Cosmos DB Cassandra-API van Spark en andere CRUD-bewerkingen op de gegevens uitvoeren. U kunt ook [importeren van alle notitieblokken](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) cluster naar uw Databricks-werkruimte en de App uitvoeren. 
 
 ## <a name="accessing-azure-cosmos-db-cassandra-api-from-spark-scala-programs"></a>Toegang tot Azure Cosmos DB Cassandra-API van Spark Scala-programma 's
 
@@ -67,4 +67,4 @@ Hieronder vindt u koppelingen om u te helpen aan de slag voor het bouwen van Spa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aan de slag met [maken van een Cassandra-API-account, -database en een tabel](create-cassandra-api-account-java.md) met behulp van een Java-toepassing.
+Ga aan de slag met het [maken van een Cassandra-API-account, -database en een tabel](create-cassandra-api-account-java.md) met behulp van een Java-toepassing.

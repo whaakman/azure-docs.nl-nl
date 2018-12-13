@@ -1,5 +1,5 @@
 ---
-title: Aandachtspunten voor netwerken met een Azure App Service Environment
+title: Aandachtspunten voor netwerken met App Service Environment - Azure
 description: Het netwerkverkeer van de as-omgeving en hoe nsg's en udr's met de as-omgeving instellen
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: b39ff01fec9fa51f6e208728b5c8f78c68654484
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964880"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271008"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Aandachtspunten voor netwerken voor een App Service Environment #
 
@@ -26,8 +27,8 @@ ms.locfileid: "52964880"
 
  Azure [App Service-omgeving] [ Intro] is een implementatie van Azure App Service in een subnet in uw Azure-netwerk (VNet). Er zijn twee implementatietypen voor een App Service environment (ASE):
 
-- **Externe as-omgeving**: beschrijft de as-omgeving gehoste apps op internet toegankelijk is via het IP-adres. Zie voor meer informatie, [maken van een externe as-omgeving][MakeExternalASE].
-- **ILB as-omgeving**: wordt aangegeven dat de apps as-omgeving worden gehost op een IP-adres in uw VNet. Het interne eindpunt is een interne load balancer (ILB), vandaar dat het een ILB as-omgeving wordt genoemd. Zie voor meer informatie, [maken en gebruiken een ILB as-omgeving][MakeILBASE].
+- **Externe as-omgeving**: Beschrijft de as-omgeving gehoste apps op internet toegankelijk is via het IP-adres. Zie voor meer informatie, [maken van een externe as-omgeving][MakeExternalASE].
+- **ILB AS-OMGEVING**: Beschrijft de as-omgeving gehoste apps op een IP-adres in uw VNet. Het interne eindpunt is een interne load balancer (ILB), vandaar dat het een ILB as-omgeving wordt genoemd. Zie voor meer informatie, [maken en gebruiken een ILB as-omgeving][MakeILBASE].
 
 Er zijn twee versies van App Service-omgeving: ASEv1 en ASEv2. Zie voor meer informatie over ASEv1 [Inleiding tot App Service Environment v1][ASEv1Intro]. ASEv1 kan worden geïmplementeerd in een klassieke of Resource Manager-VNet. ASEv2 kan alleen worden geïmplementeerd in een Resource Manager VNet.
 
@@ -58,7 +59,7 @@ Dit geldt als u op een externe as-omgeving of in een ILB as-omgeving bent. Als u
 
 ## <a name="ase-subnet-size"></a>Grootte van de ASE-subnet ##
 
-De grootte van het subnet dat wordt gebruikt voor het hosten van een as-omgeving kan niet worden gewijzigd nadat de as-omgeving is geïmplementeerd.  De as-omgeving maakt gebruik van een adres voor elke infrastructuurrol ook als die voor elk exemplaar geïsoleerd App Service-plan.  Bovendien zijn er 5-adressen die door Azure Networking gebruikt voor elk subnet dat is gemaakt.  Een as-omgeving met geen App Service-plannen helemaal wordt 12 adressen gebruiken voordat u een app maakt.  Als het een ILB as-omgeving wordt het 13 adressen gebruiken voordat u een app in deze as-omgeving maken. Als u uw as-omgeving uitbreiden, kan infrastructuur rollen elke meervoud van 15 en 20 van uw App Service-plan-exemplaren worden toegevoegd.
+De grootte van het subnet die wordt gebruikt voor het hosten van een ASE, kan niet worden gewijzigd nadat de ASE is geïmplementeerd.  De as-omgeving maakt gebruik van een adres voor elke infrastructuurrol ook als die voor elk exemplaar geïsoleerd App Service-plan.  Bovendien zijn er 5-adressen die door Azure Networking gebruikt voor elk subnet dat is gemaakt.  Een as-omgeving met geen App Service-plannen helemaal wordt 12 adressen gebruiken voordat u een app maakt.  Als het een ILB as-omgeving wordt het 13 adressen gebruiken voordat u een app in deze as-omgeving maken. Als u uw as-omgeving uitbreiden, kan infrastructuur rollen elke meervoud van 15 en 20 van uw App Service-plan-exemplaren worden toegevoegd.
 
    > [!NOTE]
    > Niets anders kan zich in het subnet, maar de as-omgeving. Zorg dat u kiest een adresruimte waarmee voor toekomstige groei. U kunt geen deze instelling later wijzigen. We raden een grootte van `/24` met 256-adressen.
@@ -74,9 +75,9 @@ De as-omgeving binnenkomende toegang afhankelijkheden zijn:
 | Gebruiken | Vanaf | Handeling |
 |-----|------|----|
 | Beheer | Beheeradressen van App Service | ASE-subnet: 454, 455 |
-|  Interne communicatie as-omgeving | ASE-subnet: alle poorten | ASE-subnet: alle poorten
-|  Azure load balancer toegestaan binnenkomend verkeer | Azure Load Balancer | ASE-subnet: alle poorten
-|  App toegewezen IP-adressen | App toegewezen adressen | ASE-subnet: alle poorten
+|  Interne communicatie as-omgeving | ASE-subnet: Alle poorten | ASE-subnet: Alle poorten
+|  Azure load balancer toegestaan binnenkomend verkeer | Azure Load Balancer | ASE-subnet: Alle poorten
+|  App toegewezen IP-adressen | App toegewezen adressen | ASE-subnet: Alle poorten
 
 Het inkomend managementverkeer biedt opdracht en controle van de ASE naast het controleren van het systeem. De bronadressen voor dit verkeer worden vermeld in de [ASE Management adressen] [ ASEManagement] document. De netwerkconfiguratie van de beveiliging moet toegang vanaf alle IP-adressen op de poorten 454 en 455 is toegestaan. Als u toegang vanaf deze adressen blokkeert, wordt de as-omgeving wordt niet in orde en vervolgens worden onderbroken.
 
@@ -136,10 +137,10 @@ Zowel Functions als Web taken zijn afhankelijk van de SCM-site, maar worden onde
 
 Een as-omgeving heeft enkele IP-adressen rekening mee moet houden. Dit zijn:
 
-- **Inkomende openbare IP-adres**: gebruikt voor appverkeer in een externe as-omgeving en beheer van verkeer in zowel een externe as-omgeving en een ILB as-omgeving.
-- **Uitgaande openbare IP-adres**: gebruikt als de 'van'-IP voor uitgaande verbindingen van de as-omgeving die het VNet, die niet worden doorgestuurd naar beneden een VPN-verbinding.
-- **ILB IP-adres**: als u een ILB as-omgeving.
-- **SSL op basis van IP-adressen toegewezen App**: alleen mogelijk met een externe as-omgeving en het IP-gebaseerd SSL is geconfigureerd.
+- **Inkomende openbare IP-adres**: Gebruikt voor appverkeer in een externe as-omgeving en beheer van verkeer in zowel een externe as-omgeving en een ILB as-omgeving.
+- **Uitgaande openbare IP-adres**: Gebruikt als de 'van'-IP voor uitgaande verbindingen van de as-omgeving die het VNet, die niet worden doorgestuurd naar beneden een VPN-verbinding.
+- **ILB IP-adres**: Als u een ILB as-omgeving.
+- **SSL op basis van IP-adressen toegewezen App**: Alleen mogelijk met een externe as-omgeving en wanneer op basis van IP SSL is geconfigureerd.
 
 Deze IP-adressen zijn eenvoudig zichtbaar zijn in een ASEv2 in Azure portal vanuit de gebruikersinterface van de as-omgeving. Als u een ILB as-omgeving hebt, wordt het IP-adres voor de ILB wordt vermeld.
 

@@ -4,14 +4,14 @@ description: Veelgestelde vragen over Azure Migrate adressen
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: snehaa
-ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256372"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257791"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -40,15 +40,20 @@ Azure Migrate is een service voor beveiligingsbeoordeling die helpt u bij het de
 
 Azure Migrate is een hulpprogramma voor migratieplanning en Azure Site Recovery Deployment Planner is een hulpprogramma voor het plannen noodherstel (DR).
 
-**Migratie van VMware naar Azure**: als u van plan bent uw on-premises workloads migreren naar Azure, Azure Migrate gebruiken voor het plannen van de migratie. Azure Migrate beoordeelt on-premises werkbelastingen en biedt richtlijnen, inzichten en mechanismen om u te helpen bij het migreren naar Azure. Wanneer u klaar met uw migratieplan bent, kunt u services zoals Azure Site Recovery en Azure Database Migration Service de machines migreren naar Azure.
+**Migratie van VMware naar Azure**: Als u van plan bent uw on-premises workloads migreren naar Azure, Azure Migrate gebruiken voor het plannen van de migratie. Azure Migrate beoordeelt on-premises werkbelastingen en biedt richtlijnen, inzichten en mechanismen om u te helpen bij het migreren naar Azure. Wanneer u klaar met uw migratieplan bent, kunt u services zoals Azure Site Recovery en Azure Database Migration Service de machines migreren naar Azure.
 
 **Migratie van Hyper-V naar Azure**: Azure Migrate ondersteunt momenteel alleen evaluatie van virtuele VMware-machines voor migratie naar Azure. Ondersteuning voor Hyper-V is op de roadmap voor Azure Migrate. In de tussentijd kunt u Site Recovery Deployment Planner. Zodra de Hyper-V-ondersteuning is ingeschakeld in Azure Migrate, kunt u Azure Migrate kunt gebruiken voor het plannen van de migratie van Hyper-V-werkbelastingen.
 
-**Herstel na noodgevallen van VMware/Hyper-V naar Azure**: als u van plan bent om te doen, herstel na noodgeval (DR) op Azure met behulp van Azure Site Recovery (Site Recovery), gebruikt u Site Recovery Deployment Planner voor herstel na Noodgevallen plannen. Site Recovery Deployment Planner biedt een diepgaande, ASR-specifieke beoordeling van uw on-premises omgeving. Het biedt aanbevelingen die door Site Recovery voor geslaagde DR-bewerkingen, zoals replicatie, failover van uw virtuele machines vereist zijn.  
+**Herstel na noodgevallen van VMware/Hyper-V naar Azure**: Als u van plan bent om te doen, herstel na noodgeval (DR) op Azure met behulp van Azure Site Recovery (Site Recovery), gebruikt u Site Recovery Deployment Planner voor herstel na Noodgevallen plannen. Site Recovery Deployment Planner biedt een diepgaande, ASR-specifieke beoordeling van uw on-premises omgeving. Het biedt aanbevelingen die door Site Recovery voor geslaagde DR-bewerkingen, zoals replicatie, failover van uw virtuele machines vereist zijn.  
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Welke Azure-regio's worden ondersteund door Azure Migrate?
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Welke Azure-regio's worden ondersteund door Azure Migrate?
 
-Azure Migrate ondersteunt momenteel VS-Oost en West-Centraal VS als de locaties van migratie. Hoewel u alleen migration-projecten in West-Centraal VS en VS-Oost maken kunt, kunt u nog steeds uw machines voor beoordelen [doellocaties voor meerdere](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). De projectlocatie wordt alleen gebruikt voor het opslaan van de gedetecteerde gegevens.
+Azure Migrate ondersteunt momenteel Verenigde Staten en Azure Government als de project-locaties. Hoewel u alleen migration-projecten in deze regio's maken kunt, kunt u nog steeds uw machines voor beoordelen [doellocaties voor meerdere](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). De geografische locatie van project wordt alleen gebruikt voor het opslaan van de gedetecteerde metagegevens.
+
+**Geografie** | **De metagegevens van opslaglocatie**
+--- | ---
+Koppelt statussen zijn netwerk | West-Centraal VS of VS-Oost
+Azure Government | VS (overheid) - Virginia
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hoe worden de on-premises site, maakt verbinding met Azure Migrate?
 
@@ -130,16 +135,19 @@ Als u een omgeving die wordt gedeeld door tenants hebt en u niet wilt detecteren
 
 U kunt 1500 virtuele machines in een enkele migratieproject detecteren. Als u meer computers in uw on-premises-omgeving hebt [meer](how-to-scale-assessment.md) over hoe u een grote omgeving in Azure Migrate kunt detecteren.
 
-## <a name="assessment"></a>Evaluatie
+## <a name="assessment"></a>Beoordeling
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Ondersteuning voor Azure Migrate Enterprise Agreement (EA) op basis van kostenraming?
 
 Azure Migrate ondersteunt momenteel geen schatting van de kosten voor [Enterprise overeenkomst-aanbieding](https://azure.microsoft.com/offers/enterprise-agreement-support/). De oplossing is om te betalen per gebruik als de aanbieding en handmatig opgeven van het kortingspercentage (van toepassing op het abonnement) in het veld 'Korting' van de evaluatie-eigenschappen opgeven.
 
   ![Korting](./media/resources-faq/discount.png)
-  
+
 
 ## <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
+
+> [!NOTE]
+> De functie voor visualisatie van afhankelijkheden is niet beschikbaar in Azure Government.
 
 ### <a name="what-is-dependency-visualization"></a>Wat is visualisatie van afhankelijkheden?
 
@@ -151,7 +159,7 @@ Nee. Meer informatie over prijzen voor Azure Migrate vindt u [hier](https://azur
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>Moet ik niets voor visualisatie van afhankelijkheden te installeren?
 
-Voor het gebruik van visualisatie van afhankelijkheden, die u wilt downloaden en installeren van agents op elke on-premises computer die u wilt evalueren. 
+Voor het gebruik van visualisatie van afhankelijkheden, die u wilt downloaden en installeren van agents op elke on-premises computer die u wilt evalueren.
 
 - [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) moet worden geïnstalleerd op elke computer.
 - De [agent voor afhankelijkheden](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) moet worden geïnstalleerd op elke computer.

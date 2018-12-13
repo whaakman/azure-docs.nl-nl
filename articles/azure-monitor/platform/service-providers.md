@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.component: ''
-ms.openlocfilehash: 0c75926943ceb2e77335732445f56099961f7667
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6ac34df87c3138aa667e57f7112d31b306e4d9f5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099032"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191220"
 ---
 # <a name="log-analytics-for-service-providers"></a>Log Analytics voor serviceproviders
 Log Analytics kunt providers van beheerde services (MSP's), grote ondernemingen, onafhankelijke softwareleveranciers (ISV's) en hosting serviceproviders servers in van de klant on-premises of cloud-infrastructuur beheren en controleren. 
@@ -73,7 +72,7 @@ De derde architectuur combineren tussen de twee opties. Deze is gebaseerd op de 
 
 Er zijn twee opties voor het implementeren van de centrale locatie in Log Analytics:
 
-1. Centrale werkruimte: de serviceprovider kunt maken van een werkruimte in de tenant en gebruiken van een script dat gebruikmaakt van de [Query-API](https://dev.loganalytics.io/) met de [Data Collection API](../../azure-monitor/platform/data-collector-api.md) om de gegevens uit de verschillende werkruimten aan deze centrale locatie. Een andere optie, dan een script, is het gebruik [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+1. Centrale werkruimte: De serviceprovider kunt maken van een werkruimte in de tenant en gebruiken van een script dat gebruikmaakt van de [Query-API](https://dev.loganalytics.io/) met de [Data Collection API](../../azure-monitor/platform/data-collector-api.md) om de gegevens uit de verschillende werkruimten op een centrale locatie. Een andere optie, dan een script, is het gebruik [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 2. Power BI als een centrale locatie: Power BI kan fungeren als de centrale locatie als de verschillende werkruimten gegevens exporteren naar met behulp van de integratie tussen Log Analytics en [Power BI](../../azure-monitor/platform/powerbi.md). 
 

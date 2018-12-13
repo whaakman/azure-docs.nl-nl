@@ -1,5 +1,5 @@
 ---
-title: Een app integreren met een Azure-netwerk
+title: App integreren met Azure Virtual Network - Azure App Service
 description: Ziet u hoe u een app in Azure App Service verbinden met een nieuwe of bestaande Azure-netwerk
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
-ms.openlocfilehash: e086c187129799e499c7ac057b1755a35f1f2327
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971144"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273344"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
 Dit document beschrijft de functie voor integratie met virtueel netwerk Azure App Service en laat zien hoe u om in te stellen met apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuele netwerken van Azure] [ VNETOverview] (VNets) kunt u veel van uw Azure-resources in een niet-routeerbare internetnetwerk plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van VPN-technologieën. 
@@ -30,7 +31,7 @@ De Azure App Service heeft twee vormen.
 
 Dit document gaat via de VNet-integratiefunctie, deze is bedoeld voor gebruik in de App Service met meerdere tenants.  Als uw app in [App Service-omgeving][ASEintro], en vervolgens deze al in een VNet is en geen gebruik van de VNet-integratiefunctie vereist tot resources in hetzelfde VNet.
 
-VNet-integratie kunt uw web-app-toegang tot resources in uw virtuele netwerk, maar geen persoonlijke toegang verleend aan uw web-app vanuit het virtuele netwerk. Toegang tot de persoonlijke site verwijst naar het maken van uw app alleen toegankelijk is vanaf een particulier netwerk zoals uit binnen een virtueel Azure-netwerk. Toegang tot de persoonlijke site is alleen beschikbaar met een as-omgeving geconfigureerd met een interne Load Balancer (ILB). Beginnen met het artikel hier voor meer informatie over het gebruik van een ILB as-omgeving: [maken en gebruiken van een ILB as-omgeving][ILBASE]. 
+VNet-integratie kunt uw web-app-toegang tot resources in uw virtuele netwerk, maar geen persoonlijke toegang verleend aan uw web-app vanuit het virtuele netwerk. Toegang tot de persoonlijke site verwijst naar het maken van uw app alleen toegankelijk is vanaf een particulier netwerk zoals uit binnen een virtueel Azure-netwerk. Toegang tot de persoonlijke site is alleen beschikbaar met een as-omgeving geconfigureerd met een interne Load Balancer (ILB). Beginnen met het artikel hier voor meer informatie over het gebruik van een ILB as-omgeving: [Het maken en gebruiken van een ILB as-omgeving][ILBASE]. 
 
 VNet-integratie wordt vaak gebruikt om de toegang van apps met een databases en -services die worden uitgevoerd in uw VNet. Met VNet-integratie hoeft u geen een openbaar eindpunt beschikbaar maken voor toepassingen op uw virtuele machine maar kan de particuliere niet internet routeerbare adressen in plaats daarvan gebruikt. 
 
@@ -161,7 +162,7 @@ Er zijn drie gerelateerde kosten voor het gebruik van de functie voor VNet-integ
 * Kosten voor de gegevensoverdracht
 * Kosten van de VPN-Gateway.
 
-Uw apps moeten zich in een Standard, Premium of PremiumV2 App Service-Plan. U kunt meer details weergeven over deze kosten hier: [prijzen voor App Service][ASPricing]. 
+Uw apps moeten zich in een Standard, Premium of PremiumV2 App Service-Plan. U kunt meer details weergeven op de kosten die u hier: [App Service-prijzen][ASPricing]. 
 
 Er is een kosten in rekening gebracht voor uitgaande gegevens, zelfs als het VNet in hetzelfde Datacenter. Deze kosten worden beschreven in [Data Transfer prijsinformatie over][DataPricing]. 
 

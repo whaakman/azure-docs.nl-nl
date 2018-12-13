@@ -1,5 +1,5 @@
 ---
-title: Een Azure Search-index in de portal maken | Microsoft Docs
+title: Een Azure Search-index maken in Azure portal - Azure Search
 description: Informatie over het maken van een index voor Azure Search met behulp van ingebouwde portal index ontwerpfuncties.
 manager: cgronlun
 author: heidisteen
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 4bba8b41418dadad1b241d60ab0b7aeee4c046d7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990843"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316706"
 ---
 # <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Over het maken van een Azure Search-index met behulp van de Azure portal
 
@@ -74,7 +75,7 @@ Velden die worden gebruikt om zoekopdrachten te verfijnen, zijn onder andere **S
 
 Veldkenmerken bepalen hoe een veld wordt gebruikt, bijvoorbeeld of het wordt gebruikt voor zoeken in volledige tekst, facetnavigatie, sorteerbewerkingen, enzovoort. In de volgende tabel wordt elk kenmerk beschreven.
 
-|Kenmerk|Beschrijving|  
+|Kenmerk|Description|  
 |---------------|-----------------|  
 |**doorzoekbaar**|Zoeken in volledige tekst mogelijk, onderworpen aan lexicale analyse, zoals het afbreken van woorden tijdens het indexeren. Als u een doorzoekbaar veld instelt op een waarde als 'zonnige dag', wordt de waarde intern gesplitst in de afzonderlijke tokens 'zonnige' en 'dag'. Zie [Hoe zoeken in de volledige tekst werkt](search-lucene-query-architecture.md) voor meer informatie.|  
 |**filteren mogelijk**|Hier wordt naar verwezen in **$filter**-query's. Bij filterbare velden van het type `Edm.String` of `Collection(Edm.String)` worden woorden niet afgebroken, dus vergelijkingen gelden alleen voor exacte overeenkomsten. Als u zo'n veld bijvoorbeeld instelt op 'zonnige dag', worden er met `$filter=f eq 'sunny'` geen overeenkomsten gevonden, maar met `$filter=f eq 'sunny day'` wel. |  
@@ -95,7 +96,7 @@ API-documentatie voor Azure Search bevat voorbeelden van code met een eenvoudige
 
 Nadat u een Azure Search-index hebt gemaakt, kunt u doorgaan met de volgende stap: [het uploaden van doorzoekbare gegevens in de index](search-what-is-data-import.md).
 
-U kunt er ook voor kiezen om meer over indexen te leren. Naast de Veldenverzameling bevat een index ook analyses, suggesties, scoreprofielen en CORS-instellingen. De portal biedt tabbladen voor het definiëren van de meest voorkomende elementen: velden, analyses en suggesties. Als u andere elementen wilt maken of wijzigen, kunt u de REST API of de .NET SDK gebruiken.
+U kunt er ook voor kiezen om meer over indexen te leren. Naast de Veldenverzameling bevat een index ook analyses, suggesties, scoreprofielen en CORS-instellingen. De portal biedt tabbladen voor het definiëren van de meest voorkomende elementen: Velden, analyses en suggesties. Als u andere elementen wilt maken of wijzigen, kunt u de REST API of de .NET SDK gebruiken.
 
 ## <a name="see-also"></a>Zie ook
 

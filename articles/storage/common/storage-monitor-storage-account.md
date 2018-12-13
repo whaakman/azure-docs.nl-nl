@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc03a5f43ef65ec8feaccb82fc3d31debbc6e7b9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f7b73fa4d1f596e0221c2cec3c6c7417ceb767a4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523373"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275683"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Een opslagaccount in Azure portal controleren
 
@@ -98,7 +98,7 @@ U kunt waarschuwingen om u te waarschuwen wanneer drempels is bereikt voor metri
 3. Voer een **naam** en **beschrijving** voor uw nieuwe waarschuwingsregel.
 4. Selecteer de **Metric** voor die u wilt een waarschuwing, wordt een waarschuwing toevoegen **voorwaarde**, en een **drempelwaarde**. De drempelwaarde-eenheid Typ gewijzigd, afhankelijk van de metrische gegevens die u hebt gekozen. Bijvoorbeeld, "aantal" is het eenheidstype voor *ContainerCount*, terwijl de eenheid voor de *percentnetworkerror aan* meetwaarde is een percentage.
 5. Selecteer de **periode**. Metrische gegevens die bereiken of de drempelwaarde overschrijden, binnen de periode van een waarschuwing geactiveerd.
-6. (Optioneel) Configureer **e** en **Webhook** meldingen. Zie voor meer informatie over webhooks [een webhook configureren voor een Azure metrische waarschuwing](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Als u geen e-mailadres of webhook-meldingen configureert, wordt alleen in de Azure-portal waarschuwingen weergegeven.
+6. (Optioneel) Configureer **e** en **Webhook** meldingen. Zie voor meer informatie over webhooks [een webhook configureren voor een Azure metrische waarschuwing](../../azure-monitor/platform/alerts-webhooks.md). Als u geen e-mailadres of webhook-meldingen configureert, wordt alleen in de Azure-portal waarschuwingen weergegeven.
 
 ![Blade 'Een waarschuwingsregel toevoegen' in de Azure-portal](./media/storage-monitor-storage-account/add-alert-rule.png)
 

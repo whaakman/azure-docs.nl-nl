@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 65de18445f114f468dd42c5a7e7128dd2f63d44c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959821"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185855"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Runbooks met metrische waarschuwingen controleren
 
@@ -51,7 +51,7 @@ Navigeer in de Azure-portal naar uw Automation-Account. Onder **bewaking**, sele
 
 ### <a name="define-the-action-to-take"></a>De actie te ondernemen definiëren
 
-1. Selecteer onder **3. Actiegroep definiëren**, klikt u op **+ nieuwe actiegroep**. Een actiegroep is een groep van de acties die u in meer dan één waarschuwing gebruiken kunt. Deze kunnen bevatten, maar niet beperkt tot, e-mailmeldingen, runbooks, webhooks en nog veel meer. Raadpleeg [Actiegroepen maken en beheren](../monitoring-and-diagnostics/monitoring-action-groups.md) voor meer informatie over actiegroepen
+1. Selecteer onder **3. Actiegroep definiëren**, klikt u op **+ nieuwe actiegroep**. Een actiegroep is een groep van de acties die u in meer dan één waarschuwing gebruiken kunt. Deze kunnen bevatten, maar niet beperkt tot, e-mailmeldingen, runbooks, webhooks en nog veel meer. Raadpleeg [Actiegroepen maken en beheren](../azure-monitor/platform/action-groups.md) voor meer informatie over actiegroepen
 
 1. Voer in het vak **Naam van de actiegroep** een beschrijvende naam en een korte naam in. De korte naam wordt gebruikt in plaats van een volledige naam van de actiegroep als er meldingen via deze groep worden verzonden.
 

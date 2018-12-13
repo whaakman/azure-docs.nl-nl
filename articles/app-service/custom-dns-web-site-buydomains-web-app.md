@@ -1,5 +1,5 @@
 ---
-title: Een aangepaste domeinnaam voor Azure Web Apps kopen
+title: Aangepaste domeinnaam in Azure - App Service kopen
 description: Meer informatie over het aanschaffen van een aangepaste domeinnaam met een web-app in Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 48e0e68794e83739835d97aa8a2b26516c660357
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.custom: seodec18
+ms.openlocfilehash: 3f587b7e1b051b28d11ad84fcb2d02bd01315de5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345188"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256431"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Een aangepaste domeinnaam voor Azure Web Apps kopen
 
@@ -115,7 +116,7 @@ Het is belangrijk dat u alle vereiste velden met zo nauwkeurig mogelijk invullen
 
 Selecteer vervolgens de gewenste opties voor uw domein. Zie de volgende tabel voor een uitleg:
 
-| Instelling | Voorgestelde waarde | Beschrijving |
+| Instelling | Voorgestelde waarde | Description |
 |-|-|-|
 |Privacybescherming | Inschakelen | U meldt zich aan 'Privacy protection', dat van het aankoopbedrag uitmaakt deel _gratis_. Sommige domeinen op het hoogste niveau worden beheerd door registrars die geen ondersteuning voor privacybescherming, en ze worden weergegeven op de **privacybescherming** pagina. |
 | Standaard hostnamen toewijzen | **www** en **@** | Selecteer de gewenste hostnaambindingen, indien gewenst. Wanneer de naamswijziging domein aankoop voltooid is, wordt uw web-app toegankelijk op de geselecteerde hostnamen. Als de web-app zich achter [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), ziet u niet de optie voor het hoofddomein toewijzen (@), omdat het Traffic Manager biedt geen ondersteuning voor A-records. U kunt wijzigingen aanbrengen aan de hostnaam toewijzingen nadat de domein-aankoop is voltooid. |
@@ -153,7 +154,7 @@ Als u niet een of meer standaard hostnamen toewijzen aan uw web-app tijdens het 
 
 U kunt ook hostnamen in de App Service-domein toewijzen aan een andere web-app. De stappen, is afhankelijk van of de App Service-domein en de web-app tot hetzelfde abonnement behoren.
 
-- Ander abonnement: aangepaste DNS-records uit de App Service-domein naar de web-app, zoals een extern aangeschafte domein toewijzen. Zie voor meer informatie over het toevoegen van aangepaste DNS-namen aan een App Service-domein [aangepaste DNS-records beheren](#custom). Als u wilt een externe aangeschafte domein toewijzen aan een web-app, Zie [een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](app-service-web-tutorial-custom-domain.md). 
+- Ander abonnement: Kaart aangepaste DNS-records uit de App Service-domein naar de web-app als een extern aangeschafte-domein. Zie voor meer informatie over het toevoegen van aangepaste DNS-namen aan een App Service-domein [aangepaste DNS-records beheren](#custom). Als u wilt een externe aangeschafte domein toewijzen aan een web-app, Zie [een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](app-service-web-tutorial-custom-domain.md). 
 - Hetzelfde abonnement: Gebruik de volgende stappen.
 
 ### <a name="launch-add-hostname"></a>Start hostnaam toevoegen
@@ -280,4 +281,4 @@ Standaard stuurt App Service webaanvragen naar de hoofdmap van uw app-code. Om t
 
 ## <a name="more-resources"></a>Meer bronnen
 
-[Veelgestelde vragen: App Service-domein (preview) en aangepaste domeinen](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)
+[FAQ: App Service-domein (preview) en aangepaste domeinen](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

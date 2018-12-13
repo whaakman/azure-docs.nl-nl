@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c7fc6146db93938ed861c6302d2cd8f40b894977
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9fc31c85863a36333d36edca9089cd533b3222a1
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315103"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188823"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Gebruikersprivacy en Azure AD naadloze eenmalige aanmelding
 
@@ -67,5 +67,5 @@ Als logboekregistratie is ingeschakeld, kan dit product-logboeken genereren voor
 
 ## <a name="next-steps"></a>Volgende stappen
 * [De Microsoft Privacy controlebeleid op Vertrouwenscentrum](https://www.microsoft.com/trustcenter)
-- [**Problemen oplossen** ](tshoot-connect-sso.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen in te dienen.
+  - [**Problemen oplossen** ](tshoot-connect-sso.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
+  - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen in te dienen.

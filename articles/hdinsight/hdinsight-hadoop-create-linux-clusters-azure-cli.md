@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 03d51cfb03de071f63578717a65eeda4b119bf0d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497847"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191577"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Maken van HDInsight-clusters met behulp van de klassieke Azure-CLI
 
@@ -80,7 +80,7 @@ De volgende stappen moeten worden uitgevoerd vanaf de opdrachtregel, zoals Power
     * Vervang `groupname` met de naam van de resourcegroep.
     * Vervang `storagename` met de naam van het opslagaccount.
 
-     In de gegevens die wordt geretourneerd, sla de `key` waarde voor de `key1`.
+      In de gegevens die wordt geretourneerd, sla de `key` waarde voor de `key1`.
 
 6. Een HDInsight-cluster maken.
 
@@ -90,8 +90,8 @@ De volgende stappen moeten worden uitgevoerd vanaf de opdrachtregel, zoals Power
 
     * Vervang `Hadoop` met het clustertype dat u wilt maken. Bijvoorbeeld, `Hadoop`, `HBase`, `Kafka`, `Spark`, of `Storm`.
 
-     > [!IMPORTANT]
-     > HDInsight clusters worden geleverd in verschillende typen die overeenkomen met de werkbelasting of technologie die het cluster is afgestemd op. Er is geen ondersteunde methode om een cluster die meerdere typen, zoals Storm en HBase op één cluster combineert te maken.
+      > [!IMPORTANT]
+      > HDInsight clusters worden geleverd in verschillende typen die overeenkomen met de werkbelasting of technologie die het cluster is afgestemd op. Er is geen ondersteunde methode om een cluster die meerdere typen, zoals Storm en HBase op één cluster combineert te maken.
 
     * Vervang `location` met dezelfde locatie in de vorige stappen gebruikt.
 
@@ -105,12 +105,12 @@ De volgende stappen moeten worden uitgevoerd vanaf de opdrachtregel, zoals Power
 
     * Vervang `sshuser` en `sshuserpassword` met de gebruikersnaam en het wachtwoord die u gebruiken wilt bij het openen van het cluster via SSH
 
-    > [!IMPORTANT]
-    > In dit voorbeeld wordt een cluster met twee worker-knooppunten. U kunt ook het aantal worker-knooppunten wijzigen nadat de cluster is gemaakt door het uitvoeren van vergroten / verkleinen. Als u van plan bent over het gebruik van meer dan 32 worker-knooppunten, moet u de grootte van een hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB RAM-geheugen selecteren. U kunt de grootte van het hoofdknooppunt instellen met behulp van de `--headNodeSize` parameter tijdens het maken van clusters.
-    >
-    > Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
-
-    Het duurt enkele minuten voor het cluster maken van het proces is voltooid. Meestal ongeveer 15.
+      > [!IMPORTANT]
+      > In dit voorbeeld wordt een cluster met twee worker-knooppunten. U kunt ook het aantal worker-knooppunten wijzigen nadat de cluster is gemaakt door het uitvoeren van vergroten / verkleinen. Als u van plan bent over het gebruik van meer dan 32 worker-knooppunten, moet u de grootte van een hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB RAM-geheugen selecteren. U kunt de grootte van het hoofdknooppunt instellen met behulp van de `--headNodeSize` parameter tijdens het maken van clusters.
+      >
+      > Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
+      
+      Het duurt enkele minuten voor het cluster maken van het proces is voltooid. Meestal ongeveer 15.
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 

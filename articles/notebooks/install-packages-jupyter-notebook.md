@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ed57cb458cc1f71c5d6fd2475c54cc712257dd84
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5baa392d098b0b0e40986bc426c88785db025a29
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084869"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255282"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Installeren van pakketten van binnen een laptop
 
@@ -40,13 +40,13 @@ Als uitvoer van de opdracht geeft aan dat al door de voorwaarde is voldaan, word
 
 ## <a name="r"></a>R
 
-Pakketten in R kunnen worden geïnstalleerd vanuit CRAN of Github met de `install.packages` functie in een codecel:
+Pakketten in R kunnen worden geïnstalleerd vanuit CRAN of GitHub met de `install.packages` functie in een codecel:
 
 ```r
 install.packages("package_name")
 ```
 
-U kunt ook voorlopige versies en andere pakketten ontwikkeling installeren vanuit Github met behulp van de bibliotheek devtools:
+U kunt ook voorlopige versies en andere pakketten ontwikkeling installeren vanuit GitHub met behulp van de bibliotheek devtools:
 
 ```r
 options(unzip = 'internal')
@@ -73,5 +73,5 @@ Paket.Package
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Hoe: configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
-- [Hoe: een diavoorstelling](present-jupyter-notebooks-slideshow.md)
+- [Procedures: Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
+- [Procedures: Een diavoorstelling](present-jupyter-notebooks-slideshow.md)

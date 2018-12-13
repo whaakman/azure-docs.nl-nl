@@ -1,5 +1,5 @@
 ---
-title: Wederzijdse TLS-verificatie voor web-app configureren
+title: Wederzijdse TLS-verificatie - Azure App Service configureren
 description: Informatie over het configureren van uw web-app voor het gebruik van verificatie van clientcertificaten op TLS.
 services: app-service
 documentationcenter: ''
@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: 894a77be05de131ab122f18c62d209e9829357f9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.custom: seodec18
+ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056205"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252878"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Wederzijdse TLS-verificatie voor web-app configureren
 ## <a name="overview"></a>Overzicht
 U kunt toegang tot uw Azure-web-app beperken door in te schakelen van verschillende soorten verificatie voor deze. Een manier om dit te doen is om te verifiëren met behulp van een clientcertificaat als de aanvraag via TLS/SSL is. Dit mechanisme wordt TLS wederzijdse verificatie of verificatie en in dit artikel wordt beschreven hoe u uw web-app ingesteld voor het gebruik van verificatie van clientcertificaten clientcertificaat genoemd.
 
-> **Opmerking:** als u toegang uw site via HTTP en niet HTTPS tot, ontvangt u geen een clientcertificaat. Dus als uw toepassing clientcertificaten vereist moet u niet toestaan aanvragen voor uw toepassing via HTTP.
+> **Opmerking:** Als u toegang uw site via HTTP en niet HTTPS tot, ontvangt u geen een clientcertificaat. Dus als uw toepassing clientcertificaten vereist moet u niet toestaan aanvragen voor uw toepassing via HTTP.
 > 
 > 
 
@@ -51,7 +52,7 @@ Zorg ervoor dat u de waarde van "locatie" wijzigen waar uw web-app bevindt zich 
 
 U kunt ook https://resources.azure.com aan of de `clientCertEnabled` eigenschap `true`.
 
-> **Opmerking:** als u ARMClient vanuit Powershell uitvoert, moet u als escape voor de \@ symbool voor het JSON-bestand met een vorige tick '.
+> **Opmerking:** Als u ARMClient vanuit Powershell uitvoert, moet u als escape voor de \@ symbool voor het JSON-bestand met een vorige tick '.
 > 
 > 
 

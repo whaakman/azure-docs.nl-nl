@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: b52604fa19a5598e8aff5b8a1ea25e7361add553
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 22dab5ecaba71093056e9bb2f6843c19896f845d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997022"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323385"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure Cloud Services
 [Microsoft Azure Cloud-service-apps](https://azure.microsoft.com/services/cloud-services/) kunnen met [Application Insights][start] worden gecontroleerd op beschikbaarheid, prestaties, fouten en gebruik door gegevens uit de Application Insights-SDK's te combineren met [Azure Diagnotics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)-gegevens uit uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
@@ -95,14 +95,14 @@ Als u hebt besloten om een afzonderlijke Application Insights-resource voor elke
 
 Hiermee voegt u uw Application Insights-instrumentatiesleutels in de bestanden met de naam `ServiceConfiguration.*.cscfg` in. ([Voorbeeldcode](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-Als u het niveau van diagnostische gegevens die naar Application Insights worden verzonden, wilt variëren, kunt u dat doen [door de `.cscfg`-bestanden rechtstreeks](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) te bewerken.
+Als u het niveau van diagnostische gegevens die naar Application Insights worden verzonden, wilt variëren, kunt u dat doen [door de `.cscfg`-bestanden rechtstreeks](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) te bewerken.
 
 ## <a name="sdk"></a>De SDK installeren in elk project
 Deze optie voegt de mogelijkheid toe om aangepaste zakelijke telemetrie toe te voegen aan elke gewenste rol, voor een nadere analyse van de manier waarop uw toepassing werkt en wordt gebruikt.
 
 Gebruik Visual Studio om de Application Insights-SDK voor elk cloudtoepassingsproject te configureren.
 
-1. **Webrollen**: Klik met de rechtermuisknop op het project en kies **Application Insights configureren** of **Toevoegen > Application Insights Telemetry**.
+1. **Webrollen**: Met de rechtermuisknop op het project en kies **Application Insights configureren** of **toevoegen > Application Insights telemetry**.
 
 2. **Werkrollen**: 
  * Met de rechtermuisknop op het project en selecteer **NuGet-pakketten beheren**.
@@ -162,7 +162,7 @@ In webrollen worden door de aanvraagmodule automatisch gegevens over HTTP-aanvra
 
 U kunt de prestaties van aanroepen voor werkrollen vastleggen door ze op dezelfde manier bij te houden als HTTP-aanvragen. In Application Insights wordt met het telemetrietype Request een werkeenheid op een benoemde server gemeten die kan worden getimed en als onafhankelijk item kan slagen of mislukken. Hoewel HTTP-aanvragen automatisch worden vastgelegd door de SDK, kunt u uw eigen code invoegen voor het bijhouden van aanvragen voor werkrollen.
 
-Zie de twee voorbeeldwerkrollen die zijn geïnstrumenteerd voor het rapporteren van aanvragen: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) en [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
+Zie de twee voorbeeldwerkrollen geïnstrumenteerd voor het rapporteren van aanvragen: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) en [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## <a name="exceptions"></a>Uitzonderingen
 Zie [Uitzonderingen controleren in Application Insights](app-insights-asp-net-exceptions.md) als u wilt weten hoe u onverwerkte uitzonderingen kunt verzamelen van verschillende typen webtoepassingen.
@@ -203,7 +203,7 @@ Het is uiterst nuttig om bij het vaststellen van problemen precies te kunnen zie
 Dit doet u al volgt:
 
 * Stel de correlatie-id in een CallContext in, zoals [hier](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36) wordt weergegeven. In dit geval wordt de aanvraag-id gebruikt als de correlatie-id.
-* Voeg een aangepaste TelemetryInitializer-implementatie toe om de Operation.Id in te stellen op de correlatie-id die u hiervoor hebt ingesteld. Hier vindt u een voorbeeld: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
+* Voeg een aangepaste TelemetryInitializer-implementatie toe om de Operation.Id in te stellen op de correlatie-id die u hiervoor hebt ingesteld. Er is hier een voorbeeld: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
 * Voeg de aangepaste telemetrie-initializer toe. U kunt dat doen in het bestand ApplicationInsights.config of in de code zoals [hier](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Telemetrie op de client
@@ -230,7 +230,7 @@ Hebt u uw app ontwikkeld voor .NET 4.6? 4.6 wordt niet automatisch ondersteund i
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Het verzenden van gegevens van Azure Diagnostics naar Application Insights configureren](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Het verzenden van gegevens van Azure Diagnostics naar Application Insights configureren](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Het maken van Application Insights-resources automatiseren](app-insights-powershell.md)
 * [Azure Diagnostics automatiseren](app-insights-powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)

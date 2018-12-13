@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157357"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256669"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Systeemvereisten voor Azure Data Box-Gateway (Preview)
 
@@ -26,6 +26,19 @@ De systeemvereisten voor het virtuele apparaat Data Box-Gateway zijn onder ander
 
 > [!IMPORTANT]
 > Data Box Gateway is in de previewfase. Lees de [gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
+
+## <a name="specifications-for-the-virtual-device"></a>De specificaties voor het virtuele apparaat
+
+Het onderliggende hostsysteem voor de Data Box-Gateway kan besteden aan de volgende bronnen voor het inrichten van uw virtuele apparaat:
+
+| Specificaties                                          | Description              |
+|---------------------------------------------------------|--------------------------|
+| Virtuele processors (kernen)   | Minimaal 4 |            
+| Geheugen  | Minimaal 8 GB|
+| Beschikbaarheid|Eén knooppunt|
+| Disks| Besturingssysteemschijf: 250 GB <br> Gegevensschijf: Minimaal 2 TB, thin ingericht en moet worden ondersteund door SSD 's|
+| Netwerkinterfaces|1 of meer virtuele netwerkinterfaces|
+
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Ondersteund besturingssysteem voor clients die zijn verbonden met het apparaat
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 230318dc8e352a3adc970b13f20fa992954e3b15
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091091"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317386"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Een IoT-oplossing bouwen met behulp van Stream Analytics
 
@@ -33,7 +33,7 @@ Na het voltooien van deze oplossing, kunt u zich:
 U moet de volgende vereisten voor het voltooien van deze oplossing:
 * Een [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Scenario-Inleiding: "Hallo, gratis!"
+## <a name="scenario-introduction-hello-toll"></a>Inleiding in scenario: "Hallo, gratis!"
 Een station nummer is een algemene verschijnsel. U ondervindt ze op tal van autowegen, bruggen en tunnels over de hele wereld. Elk station nummer heeft meerdere nummer stands. Bij handmatige stands stoppen u om te betalen van de gratis naar een daarmee gepaard gaande. Bij geautomatiseerde stands scant een sensor boven op elke stand een RFID-kaart die wordt aangebracht op de voorruit van het voertuig als u het nummer tolloket doorgeven. Het is gemakkelijk om te visualiseren van het verstrijken van de door middel van deze stations nummer als een gebeurtenisstroom waarover interessante bewerkingen kunnen worden uitgevoerd.
 
 ! [Afbeelding van auto's op nummer stands] (media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
@@ -106,15 +106,15 @@ Hier volgt een korte beschrijving van de kolommen:
 | --- | --- |
 | LicensePlate |De sofi-nummer van het voertuig |
 | Registratie-id |Registratie-ID van het voertuig |
-| Vervallen |De registratiestatus van het voertuig: 0 of vehicle registratie actief is, 1 als de registratie is verlopen |
+| Vervallen |De registratiestatus van het voertuig: 0 als voertuig actieve is, 1 als de registratie is verlopen |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Stel de omgeving voor Azure Stream Analytics
 Voor deze oplossing, hebt u een Microsoft Azure-abonnement nodig. Als u een Azure-account hebt, kunt u [aanvragen van een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
 Zorg ervoor dat de stappen in de sectie 'Opschonen van uw Azure-account' aan het einde van dit artikel zodat u kunt het beste gebruik van uw Azure-tegoed.
 
-## <a name="deploy-the-sample"></a>Het voorbeeld implementeren 
-Er zijn verschillende bronnen die eenvoudig kunnen worden geïmplementeerd in een resourcegroep, samen met enkele klikken. De oplossingsdefinitie van de wordt gehost in github-opslagplaats op [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+## <a name="deploy-the-sample"></a>Het voorbeeld implementeren
+Er zijn verschillende bronnen die eenvoudig kunnen worden geïmplementeerd in een resourcegroep, samen met enkele klikken. De oplossingsdefinitie van de wordt gehost in GitHub-opslagplaats op [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>De sjabloon TollApp in Azure portal implementeren
 1. Voor het implementeren van de omgeving TollApp naar Azure, gebruikt u deze koppeling naar [TollApp Azure-sjabloon implementeren](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -123,11 +123,11 @@ Er zijn verschillende bronnen die eenvoudig kunnen worden geïmplementeerd in ee
 
 3. Kies het abonnement waarin de verschillende bronnen worden in rekening gebracht.
 
-4. Geef een nieuwe resourcegroep met een unieke naam, bijvoorbeeld `MyTollBooth`. 
+4. Geef een nieuwe resourcegroep met een unieke naam, bijvoorbeeld `MyTollBooth`.
 
 5. Selecteer een Azure-locatie.
 
-6. Geef een **Interval** als een aantal seconden. Deze waarde wordt gebruikt in de voorbeeld-web-app, hoe vaak om gegevens te verzenden naar Event Hub. 
+6. Geef een **Interval** als een aantal seconden. Deze waarde wordt gebruikt in de voorbeeld-web-app, hoe vaak om gegevens te verzenden naar Event Hub.
 
 7. **Controleer** om de voorwaarden en bepalingen te accepteren.
 
@@ -149,7 +149,7 @@ Er zijn verschillende bronnen die eenvoudig kunnen worden geïmplementeerd in ee
    - Een Azure Event Hub
    - Twee Web-Apps
 
-## <a name="examine-the-sample-tollapp-job"></a>Bekijk het voorbeeld TollApp taak 
+## <a name="examine-the-sample-tollapp-job"></a>Bekijk het voorbeeld TollApp taak
 1. Starten van de resourcegroep in de vorige sectie, selecteert u de Stream Analytics streaming-taak starten met de naam van de **tollapp** (de naam bevat willekeurige tekens uniek).
 
 2. Op de **overzicht** pagina van de taak, u ziet dat de **Query** vak om de query-syntaxis weer te geven.
@@ -195,7 +195,7 @@ Volg deze stappen voor het starten van de streaming-taak:
 
 6. Selecteer elke id om te controleren van het JSON-document. Let op elke tollid, windowend tijd en de telling van auto's in dit venster.
 
-7. Na een extra drie minuten een andere set met vier documenten die beschikbaar is, wordt één document per tollid. 
+7. Na een extra drie minuten een andere set met vier documenten die beschikbaar is, wordt één document per tollid.
 
 
 ## <a name="report-total-time-for-each-car"></a>Totale tijd voor elke auto rapport
@@ -229,9 +229,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 7. Op de **starttaak** venster **nu**.
 
 ### <a name="review-the-total-time-in-the-output"></a>De totale tijd in de uitvoer controleren
-Herhaal de stappen in de vorige sectie om te controleren van de CosmosDB-uitvoergegevens van de streaming-taak. Raadpleegt u de meest recente JSON-documenten. 
+Herhaal de stappen in de vorige sectie om te controleren van de CosmosDB-uitvoergegevens van de streaming-taak. Raadpleegt u de meest recente JSON-documenten.
 
-Dit document ziet u bijvoorbeeld een auto voorbeeld met een bepaalde licentie-element, de tijd entrytime en afsluiten en het DATEDIFF durationinminutes berekende veld weergegeven van de duur van de stand nummer als twee minuten: 
+Dit document ziet u bijvoorbeeld een auto voorbeeld met een bepaalde licentie-element, de tijd entrytime en afsluiten en het DATEDIFF durationinminutes berekende veld weergegeven van de duur van de stand nummer als twee minuten:
 ```JSON
 {
     "tollid": 4,
@@ -249,7 +249,7 @@ Dit document ziet u bijvoorbeeld een auto voorbeeld met een bepaalde licentie-el
 ```
 
 ## <a name="report-vehicles-with-expired-registration"></a>Rapport voertuigen met de registratie van verlopen
-Azure Stream Analytics kunt statische momentopnamen van de referentiegegevens samen te voegen met tijdelijke gegevensstromen. Om te demonstreren van deze mogelijkheid, het volgende Voorbeeldvraag te gebruiken. De invoer van de registratie is een vaste blob json-bestand met een lijst met het verlopen van licentie-codes. De referentiegegevens wordt lid van het licentie-element, vergeleken met elke vehicle doorgegeven via het nummer. 
+Azure Stream Analytics kunt statische momentopnamen van de referentiegegevens samen te voegen met tijdelijke gegevensstromen. Om te demonstreren van deze mogelijkheid, het volgende Voorbeeldvraag te gebruiken. De invoer van de registratie is een vaste blob json-bestand met een lijst met het verlopen van licentie-codes. De referentiegegevens wordt lid van het licentie-element, vergeleken met elke vehicle doorgegeven via het nummer.
 
 Als een commerciële voertuigen is geregistreerd bij het bedrijf nummer, kan deze de stand nummer passeren zonder te zijn gestopt voor inspectie. Gebruik de opzoektabel voor registratie voor het identificeren van alle commerciële voertuigen die registraties zijn verlopen.
 
@@ -264,7 +264,7 @@ WHERE Registration.Expired = '1'
 
 1. Herhaal de stappen in de vorige sectie om bij te werken van de TollApp streaming job query-syntaxis.
 
-2. Herhaal de stappen in de vorige sectie om te controleren van de CosmosDB-uitvoergegevens van de streaming-taak. 
+2. Herhaal de stappen in de vorige sectie om te controleren van de CosmosDB-uitvoergegevens van de streaming-taak.
 
 Voorbeelduitvoer:
 ```json
@@ -289,26 +289,26 @@ Als u wilt schalen de query met partities, bewerken de query-syntaxis in de volg
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
-FROM EntryStream 
-TIMESTAMP BY EntryTime 
+FROM EntryStream
+TIMESTAMP BY EntryTime
 PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
 Om omhoog te schalen naar meer streamingeenheden de streaming-taak:
 
-1. **Stop** de huidige taak. 
+1. **Stop** de huidige taak.
 
 2. Bijwerken van de query-syntaxis in de **combinatie Query** pagina en de wijzigingen opslaan.
 
 3. Selecteer onder de kop configureren op de streaming-taak **schaal**.
-   
+
 4. Schuif de **Streaming-eenheden** schuifregelaar van 1 tot en met 6. Streaming-eenheden definiëren de hoeveelheid rekenkracht die de taak kan ontvangen. Selecteer **Opslaan**.
 
-5. **Start** de streaming-taak ter illustratie van de schaal te vergroten. Azure Stream Analytics werk verdeeld over meer rekenresources en betere doorvoer, maar liefst partitioneren van het werk voor resources met behulp van de kolom die is aangeduid in de component PARTITION BY. 
+5. **Start** de streaming-taak ter illustratie van de schaal te vergroten. Azure Stream Analytics werk verdeeld over meer rekenresources en betere doorvoer, maar liefst partitioneren van het werk voor resources met behulp van de kolom die is aangeduid in de component PARTITION BY.
 
 ## <a name="monitor-the-job"></a>De taak bewaken
-De **MONITOR** gebied statistieken over de actieve taak bevat. Configuratie van de eerste keer is nodig voor het gebruik van het opslagaccount in dezelfde regio (naam nummer als de rest van dit document).   
+De **MONITOR** gebied statistieken over de actieve taak bevat. Configuratie van de eerste keer is nodig voor het gebruik van het opslagaccount in dezelfde regio (naam nummer als de rest van dit document).
 
 ![Azure Stream Analytics-taak controleren](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 

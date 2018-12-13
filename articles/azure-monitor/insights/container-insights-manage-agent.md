@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 03e67508aab57a825c851f2cb3d361c0aea63f72
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 566ab8d14ebce04a2cba208dd72efc3782d5ad41
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109822"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256295"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Over het beheren van de Azure-Monitor voor containers-agent
 Azure Monitor voor containers maakt gebruik van een beperkte versie van de Log Analytics-agent voor Linux. Na de eerste implementatie zijn routine of optionele taken die u wilt uitvoeren tijdens de levenscyclus. In dit artikel meer informatie over het handmatig bijwerken van de agent en verzameling van omgevingsvariabelen van een bepaalde container uitschakelen. 
@@ -62,9 +62,9 @@ De status is vergelijkbaar met het volgende voorbeeld, waarbij de waarde voor *o
     docker-cimprov 1.0.0.31
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Het uitschakelen van de variabele verzameling omgeving voor een container
-Azure Monitor voor containers verzamelt omgevingsvariabelen van containers die worden uitgevoerd in een schil en geeft deze weer in het eigenschappenvenster van de geselecteerde container in de **Containers** weergeven. U kunt dit gedrag beheren door het uitschakelen van de verzameling voor een specifieke container hetzij tijdens de implementatie van het AKS-cluster of na door in te stellen de omgevingsvariabele *AZMON_COLLECT_ENV*. Deze functie is beschikbaar via de agentversie – ciprod11292018 en hoger.  
+Azure Monitor voor containers verzamelt omgevingsvariabelen van containers die worden uitgevoerd in een schil en geeft deze weer in het eigenschappenvenster van de geselecteerde container in de **Containers** weergeven. U kunt dit gedrag beheren door het uitschakelen van de verzameling voor een specifieke container hetzij tijdens de implementatie van het AKS-cluster, of na door in te stellen de omgevingsvariabele *AZMON_COLLECT_ENV*. Deze functie is beschikbaar via de agentversie – ciprod11292018 en hoger.  
 
-U schakelt het verzamelen van omgevingsvariabelen voor een nieuwe of bestaande container, stel de variabele *AZMON_COLLECT_ENV* met een waarde van *False* voor uw Kubernetes-implementatie yaml-configuratiebestand.   
+U schakelt het verzamelen van omgevingsvariabelen voor een nieuwe of bestaande container, stel de variabele **AZMON_COLLECT_ENV** met een waarde van **False** in uw Kubernetes-implementatie yaml-configuratiebestand.   
 
 ```  
 - name: AZMON_COLLECT_ENV  
@@ -73,9 +73,9 @@ U schakelt het verzamelen van omgevingsvariabelen voor een nieuwe of bestaande c
 
 Voer de volgende opdracht uit om toe te passen van de wijziging naar uw AKS-container: `kubectl apply -f  <path to yaml file>`.
 
-Als u wilt controleren of wijzigen van de configuratie heeft invloed op, selecteer een container in de **Containers** weergeven in Azure Monitor voor containers en in het deelvenster eigenschap uit, vouw **omgevingsvariabelen**.  Alleen de gemaakte - variabele moet worden weergegeven in de sectie **AZMON_COLLECT_ENV = FALSE**. Voor alle andere containers, moet de sectie omgevingsvariabelen lijst met alle omgevingsvariabelen die zijn gedetecteerd.   
+Als u wilt controleren of wijzigen van de configuratie van kracht, selecteert u een container in de **Containers** weergeven in Azure Monitor voor containers en in het deelvenster eigenschap uit, vouw **omgevingsvariabelen**.  Alleen de gemaakte - variabele moet worden weergegeven in de sectie **AZMON_COLLECT_ENV = FALSE**. Voor alle andere containers, moet de sectie omgevingsvariabelen lijst met alle omgevingsvariabelen die zijn gedetecteerd.   
 
-Als u wilt opnieuw inschakelen van detectie van de omgevingsvariabelen, hetzelfde proces eerder van toepassing en wijzig de waarde van **False** naar **waar**, en voer vervolgens opnieuw de `kubectl` opdracht voor het bijwerken van de container.  
+Als u wilt opnieuw inschakelen van detectie van de omgevingsvariabelen, hetzelfde proces eerder van toepassing en wijzig de waarde van **False** naar **waar**, en voer de `kubectl` opdracht voor het bijwerken van de container.  
 
 ```  
 - name: AZMON_COLLECT_ENV  

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31ca79976ec2ecf2755b975749e9c9150c4a49e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441070"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272696"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Opmerkingen bij de release voor de openbare preview van Azure Active Directory B2C aangepast beleid
 De functieset aangepast beleid is nu beschikbaar voor evaluatie in openbare preview voor alle Azure Active Directory B2C (Azure AD B2C)-klanten. Deze functieset is gericht op ontwikkelaars Geavanceerd Identiteitsbeheer voor het bouwen van de meest complexe identiteitsoplossingen.  
@@ -25,10 +25,9 @@ Deze functieset vereist vandaag, ontwikkelaars het configureren van de Identity-
 ## <a name="features-included-in-this-public-preview"></a>Functies die zijn opgenomen in deze openbare preview
 Met de nieuwe functies geïntroduceerd in de openbare preview-versie, kunnen ontwikkelaars de volgende taken uitvoeren:<br>
 
-* De auteur en te uploaden, aangepaste verificatie gebruiker reizen met behulp van aangepast beleid. 
+* Maken en uploaden van aangepaste verificatie gebruiker reizen met behulp van aangepast beleid. 
    * Gebruikers reizen stapsgewijze als worden uitgewisseld tussen claims-providers wordt beschreven. 
-   * Definieer Voorwaardelijke vertakkingen in gebruiker reizen. 
-* Services REST API's in uw aangepaste verificatie gebruiker reizen integreren.  
+   * Definieer Voorwaardelijke vertakkingen in gebruiker reizen. * Services REST API's in uw aangepaste verificatie gebruiker reizen integreren.  
 * Federatie met id-providers die compatibel met de standaard OpenIDConnect zijn toevoegen. <br>
 * Federatie met id-providers die aan het SAML 2.0-protocol voldoen toevoegen. 
 
@@ -39,10 +38,10 @@ Met de nieuwe functies geïntroduceerd in de openbare preview-versie, kunnen ont
 * Service level agreements (Sla's) niet van toepassing op de nieuwe functies. <br>
 * Ondersteuningsaanvragen kunnen worden ingediend via reguliere ondersteuningskanalen. <br>
 * Er is geen toegezegde datum voor algemene beschikbaarheid.<br>
-* Goeddunken door ons, en voor welke reden dan ook, kunt Microsoft markeren en weigeren of scenario's en gebruiker reizen die groter zijn dan het bereik van het Handvest van de Azure AD B2C-product om te fungeren als een klant identiteits- en toegangsbeheer (CIAM) beheerplatform beperken.
+* Op naar eigen goeddunken, en voor welke reden dan ook, kunt Microsoft markeren en weigeren of scenario's en gebruiker reizen die groter zijn dan het bereik van het Handvest van de Azure AD B2C-product om te fungeren als een klant identiteits- en toegangsbeheer (CIAM) beheerplatform beperken.
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>De verantwoordelijkheden van aangepast beleid functieset ontwikkelaars
-Handmatige configuratie op lager niveau toegang verleent tot het onderliggende platform van Azure AD B2C en resulteert in het maken van een unieke, volledig aanpasbare vertrouwensrelatie-framework. De mogelijke permutaties van aangepaste id-providers, vertrouwensrelaties, integratie met externe services en stapsgewijze werkstromen plaats hogere eisen op het gebruiken van deze ontwikkelaars.
+Handmatige configuratie op lager niveau toegang verleent tot het onderliggende platform van Azure AD B2C en resulteert in het maken van een unieke, volledig aanpasbare vertrouwensrelatie-framework. De mogelijke permutaties van aangepaste id-providers, vertrouwensrelaties, integratie met externe services en stapsgewijze werkstromen plaats hogere eisen op het gebruiken van deze ontwikkelaars.
 
 Om volledig te profiteren van de openbare preview, is het raadzaam dat ontwikkelaars de functieset aangepast beleid gebruiken in overeenstemming zijn met de volgende richtlijnen:
 * Vertrouwd raken met de taal van de configuratie van de Identity-Ervaringsframework en het beheer van de sleutel/geheimen.
@@ -52,7 +51,7 @@ Om volledig te profiteren van de openbare preview, is het raadzaam dat ontwikkel
 * Blijf op de hoogte van nieuwe ontwikkelingen op het gebied van de id-providers en de services die u met integreert. Bijvoorbeeld, bijhouden van wijzigingen in de geheimen en van geplande en ongeplande wijzigingen in de service.
 * Actieve bewaking hebt ingesteld en de reactietijd van productie-omgevingen bewaken.
 * Neem contact op met e-mailadressen Houd in het Azure-abonnement bent en blijf te reageren op de Microsoft live-site-team e-mailberichten.
-* Maatregelen tijdig wanneer op de hoogte om dit te doen door het team van Microsoft live-site. 
+* Maatregelen tijdig wanneer op de hoogte om dit te doen door het team van Microsoft live-site. 
 
 ## <a name="features-by-stage-and-known-issues"></a>Functies van de fase en bekende problemen
 Aangepaste beleid/Identity-Ervaringsframework mogelijkheden zijn onder constante en snelle ontwikkeling.  Deze tabel is een index van de beschikbaarheid van de functies/component.
@@ -100,7 +99,7 @@ Interfaces met externe onderdelen en toepassingen
 |   Lokaal Account aanmelden, api.localaccountsignin |  | x |  |  |
 |   Lokaal Account aanmelden, api.localaccountsignup |  | x |  |  |
 |   MFA-pagina, api.phonefactor |  | x |  |  |
-|   Zelf een door de bevestigde-bijvoorbeeld sociaal account sig-up, api.selfasserted |  | x |  |  |
+|   Zelf een door de bevestigde-bijvoorbeeld sociaal account aanmelden, api.selfasserted |  | x |  |  |
 |   Zelf een profiel bijwerken door de bevestigde api.selfasserted.profileupdate |  | x |  |  |
 |   Geïntegreerde aanmelding of aanmeldingspagina, api.signuporsignin |  | x |  |  |
 

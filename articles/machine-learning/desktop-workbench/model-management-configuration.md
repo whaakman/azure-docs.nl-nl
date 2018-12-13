@@ -2,8 +2,8 @@
 title: Azure Machine Learning-Model Management installatie en configuratie | Microsoft Docs
 description: Dit document beschrijft de stappen en concepten betrokken bij het instellen en configureren van Modelbeheer in Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d10f61e6276b1ce0a0237e3cf2e35a68edf4a0cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968710"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257570"
 ---
 # <a name="model-management-setup"></a>Instellingen voor het beheer van model
 
@@ -91,7 +91,7 @@ Als u wilt starten, moet u uw implementatieomgeving instellen. De installatie va
 
 Bij het voltooien van de installatie van de omgeving:
 - U wordt gevraagd om aan te melden bij Azure. Als u wilt aanmelden, kunt u een webbrowser gebruiken om de pagina te openen https://aka.ms/devicelogin en voer de opgegeven code om te verifiëren.
-- U wordt gevraagd tijdens het verificatieproces voor een account te verifiëren met. Belangrijk: Selecteer een account dat beschikt over een geldig Azure-abonnement en voldoende machtigingen om resources te maken in het account. - Als de aanmelding voltooid is, de gegevens van uw abonnement wordt weergegeven en u wordt gevraagd of u doorgaan wilt met de geselecteerde-account.
+- U wordt gevraagd tijdens het verificatieproces voor een account te verifiëren met. Belangrijk: Selecteer een account dat beschikt over een geldig Azure-abonnement en voldoende machtigingen om resources te maken in het account. - Als de aanmelding voltooid is, de gegevens van uw abonnement wordt weergegeven en u wordt gevraagd of u wilt doorgaan met het geselecteerde account .
 
 ### <a name="environment-setup"></a>Omgeving instellen
 Als u wilt het installatieproces start, moet u de omgeving-provider registreren met de volgende opdracht:
@@ -114,7 +114,7 @@ De lokale omgeving setup-opdracht maakt de volgende bronnen in uw abonnement:
 - Een resourcegroep (indien niet opgegeven)
 - Een storage-account
 - Een Azure Container Registry (ACR)
-- Application Insights
+- Application insights
 
 Nadat de installatie is voltooid, stelt u de omgeving moet worden gebruikt met de volgende opdracht:
 
@@ -136,7 +136,7 @@ De setup-opdracht van de cluster-omgeving wordt gemaakt van de volgende bronnen 
 - Een storage-account
 - Een Azure Container Registry (ACR)
 - Een Kubernetes-implementatie op een Azure Container Service (ACS)-cluster
-- Application Insights
+- Application insights
 
 De resourcegroep, opslagaccount en ACR worden snel gemaakt. De ACS-implementatie kan maximaal 20 minuten duren. 
 

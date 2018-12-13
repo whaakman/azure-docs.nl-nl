@@ -9,14 +9,14 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5af80a387a8b07992a82dac39c23082069419b60
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: c7f3b2fc0e5cc75bccbaf075dc2e2a2be8c7801d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865910"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255955"
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: downloaden en opmerkingen bij de release
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -54,6 +54,16 @@ ms.locfileid: "52865910"
 * Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over relevante CosmosDatabases, CosmosContainers en CosmosItems klassen. 
 * Ondersteuning voor stromen. 
 * Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd. 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* Toegevoegd voor diagnostische gegevens direct/TCP-transport, TransportException, het type van een interne uitzondering van de SDK. Wanneer aanwezig is in de uitzondering berichten, dit type af te drukken als u meer informatie voor het oplossen van problemen met de netwerkverbinding van de client.
+
+* Toegevoegde nieuwe constructor beschikken overbelasting waarbij een HttpMessageHandler, een HTTP-handler stack moet worden gebruikt voor het verzenden van aanvragen van httpclient maakt (bijvoorbeeld HttpClientHandler).
+
+* Los de fout waar-header met null-waarden zijn niet correct worden verwerkt.
+
+* Verbeterde verzameling Cachevalidatie.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -106,7 +116,7 @@ ms.locfileid: "52865910"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* Fout verholpen die onder bepaalde omstandigheden race is bereikt, wordt die in onregelmatige resulteert "Microsoft.Azure.Documents.NotFoundException: de lezen-sessie is niet beschikbaar voor de invoer sessietoken" fouten bij het gebruik van de sessie consistentieniveau.
+* Fout verholpen die onder bepaalde omstandigheden race is bereikt, wordt die in onregelmatige resulteert "Microsoft.Azure.Documents.NotFoundException: De gelezen sessie is niet beschikbaar voor de invoer sessietoken"fouten bij het gebruik van de sessie consistentieniveau.
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -177,7 +187,7 @@ ms.locfileid: "52865910"
 * Problemen aan te brengen SDK beter bestand is tegen automatische failover onder bepaalde omstandigheden.
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
-* Oplossing voor een probleem waardoor af en toe een WebException: de externe naam kan niet worden omgezet.
+* Oplossing voor een probleem waardoor af en toe een WebException: Kan de externe naam niet omzetten.
 * De ondersteuning voor het lezen van een getypte document rechtstreeks door toe te voegen nieuwe overloads naar ReadDocumentAsync API toegevoegd.
 
 ### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1
@@ -210,7 +220,7 @@ ms.locfileid: "52865910"
 * Ondersteuning voor nieuwe klassen en methoden voor het verwerken van de [wijzigingenfeed](change-feed.md) van documenten binnen een verzameling.
 * Ondersteuning voor voortzetting van de partitie-overkoepelende query en een aantal verbeteringen voor prestaties voor partitie-overkoepelende query's.
 * Toevoeging van CreateDatabaseIfNotExistsAsync en CreateDocumentCollectionIfNotExistsAsync methoden.
-* LINQ-ondersteuning voor systeemfuncties: IsDefined-, IsNull- en IsPrimitive.
+* LINQ-ondersteuning voor systeemfuncties: IsDefined, IsNull- en IsPrimitive.
 * Oplossing voor automatische binplacing Microsoft.Azure.Documents.ServiceInterop.dll en DocumentDB.Spatial.Sql.dll assembly's naar de map bin van toepassing wanneer u het Nuget-pakket met projecten die mogelijk project.json.
 * Ondersteuning voor het verzenden van de client side ETW-traceringen die mogelijk nuttig zijn bij het opsporen van fouten in scenario's.
 
@@ -222,7 +232,7 @@ ms.locfileid: "52865910"
 * Oplossingen voor verschillende SDK-fouten.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Er is een probleem waardoor de volgende NotFoundException opgelost: de lezen-sessie is niet beschikbaar voor de invoer sessietoken. Deze uitzondering is opgetreden in sommige gevallen bij query's uitvoeren voor de leesregio van een geografisch gedistribueerde-account.
+* Er is een probleem waardoor de volgende NotFoundException opgelost: De gelezen sessie is niet beschikbaar voor de invoer sessietoken. Deze uitzondering is opgetreden in sommige gevallen bij query's uitvoeren voor de leesregio van een geografisch gedistribueerde-account.
 * De eigenschap ResponseStream in de klasse ResourceResponse, waarmee directe toegang tot de onderliggende stream van een antwoord weergegeven.
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
@@ -230,7 +240,7 @@ ms.locfileid: "52865910"
 * Er is een probleem dat de koptekst van een onjuist gevormd partitie heeft bij het gebruik van een aangepaste JsonSerializerSettings-object om gegevens te serialiseren opgelost.
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* Er is een probleem dat langlopende query's mislukken met fout veroorzaakt opgelost: verificatietoken is niet geldig op dit moment.
+* Er is een probleem dat langlopende query's mislukken met fout veroorzaakt opgelost: Autorisatietoken is niet geldig op dit moment.
 * Er is een probleem dat de oorspronkelijke SqlParameterCollection van cross-partitie boven/volgorde-by-query's verwijderd opgelost.
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
@@ -265,7 +275,7 @@ ms.locfileid: "52865910"
 * Geïmplementeerd [gepartitioneerde verzamelingen](partition-data.md) en [niveau van de gebruiker gedefinieerde prestaties](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Vaste]**  Uitvoeren van query's van Azure Cosmos DB-eindpunt genereert: ' System.Net.Http.HttpRequestException: fout bij het kopiëren van inhoud naar een stream'.
+* **[Vaste]**  Uitvoeren van query's van Azure Cosmos DB-eindpunt genereert: ' System.Net.Http.HttpRequestException: Fout bij het kopiëren van inhoud naar een stream'.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Uitgebreide LINQ ondersteunen met inbegrip van nieuwe operators voor wisselbestand, voorwaardelijke expressies en bereik van de vergelijking.
@@ -340,6 +350,7 @@ De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |07 december 2018 |--- |
 | [2.1.3](#2.1.3) |15 oktober 2018 |--- |
 | [2.1.2](#2.1.2) |04 oktober 2018 |--- |
 | [2.1.1](#2.1.1) |27 september 2018 |--- |

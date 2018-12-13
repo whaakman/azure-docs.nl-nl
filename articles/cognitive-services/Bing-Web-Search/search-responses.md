@@ -1,7 +1,7 @@
 ---
-title: Reacties op webzoekopdrachten - Bing webzoekopdrachten-API
+title: Bing webzoekopdrachten-API-reactie structuur en -antwoordsessie-typen
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over de typen antwoord en antwoorden van door de Bing webzoekopdrachten-API.
+description: Meer informatie over de antwoord-typen en -antwoorden die worden gebruikt door de Bing webzoekopdrachten-API.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
-ms.openlocfilehash: c7626f08dcfad76724a4d1f5d88fbd10c78c62c6
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec2018
+ms.openlocfilehash: 1d47d8e35a1be28b5610961c1b1c7b5d1492e871
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164765"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250488"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing webzoekopdrachten-API-reactie structuur en -antwoordsessie-typen  
 
@@ -287,7 +288,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 Een wiskundige expressie kan de volgende symbolen bevatten:
 
-|Symbool|Beschrijving|
+|Symbool|Description|
 |------------|-----------------|
 |+|Aanvulling|
 |-|Aftrekken|
@@ -295,13 +296,13 @@ Een wiskundige expressie kan de volgende symbolen bevatten:
 |*|Vermenigvuldigen|
 |^|Energiebeheer|
 |!|Faculteit|
-|.|decimaal|
+|.|Decimaal|
 |()|Prioriteit groeperen|
-|[]|Functie|
+|[]|Function|
 
 Een rekenkundige expressie mag de volgende constanten toe:
 
-|Symbool|Beschrijving|
+|Symbool|Description|
 |------------|-----------------|
 |PI|3,14159...|
 |Mate|Mate|
@@ -311,7 +312,7 @@ Een rekenkundige expressie mag de volgende constanten toe:
 
 Een rekenkundige expressie mag de volgende functies:
 
-|Symbool|Beschrijving|
+|Symbool|Description|
 |------------|-----------------|
 |WORTEL|Vierkantswortel|
 |SIN [x], Cos [x], Tan [x]<br />Csc [x], [x] Sec Cot [x]|Trigonometrische functies (met argumenten in radialen)|

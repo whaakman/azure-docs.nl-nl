@@ -12,65 +12,73 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 986741a68113da00800a18cb58648ac66b1de116
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978398"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322019"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur
 
-Dit artikel worden de architectuur van Azure SQL Database-connectiviteit en wordt uitgelegd hoe de verschillende onderdelen functie voor het verkeer naar uw exemplaar van Azure SQL Database. Onderdelen functie van deze Azure SQL Database-verbinding om te leiden van netwerkverkeer naar de Azure-database met clients die verbinding maken vanuit Azure en met clients die verbinding maakt vanaf buiten Azure. Dit artikel bevat ook voorbeelden van scripts om te wijzigen hoe de verbinding plaatsvindt, evenals de overwegingen met betrekking tot het wijzigen van de standaardinstellingen van de verbinding.
+Dit artikel wordt ook de Azure SQL Database connectiviteitsarchitectuur uitgelegd hoe de verschillende onderdelen functie voor het verkeer naar uw exemplaar van Azure SQL Database. Onderdelen functie van deze Azure SQL Database-verbinding om te leiden van netwerkverkeer naar de Azure-database met clients die verbinding maken vanuit Azure en met clients die verbinding maakt vanaf buiten Azure. Dit artikel bevat ook voorbeelden van scripts om te wijzigen hoe de verbinding plaatsvindt, evenals de overwegingen met betrekking tot het wijzigen van de standaardinstellingen van de verbinding.
+
+> [!IMPORTANT]
+> **[Toekomstige wijzigingen] Voor service-eindpunt-verbindingen met Azure SQL-servers, een `Default` connectiviteit gedrag wordt gewijzigd in `Redirect`.**
+>
+> Wijzigen is al vanaf 10 November 2019 voor regio's Zuid-Brazilië en West-Europa. Voor alle andere regio's wijziging worden van kracht vanaf 2 januari 2019.
+>
+> Om te voorkomen dat connectiviteit via een service-eindpunt belangrijke in bestaande omgevingen als gevolg van deze wijziging, gebruiken we telemetrie Doe het volgende:
+> - Voor servers die worden gedetecteerd die zijn toegankelijk via service-eindpunten voor de wijziging, schakelen we het verbindingstype voor `Proxy`.
+> - Voor alle andere servers, schakelen we de verbinding type zal worden overgeschakeld naar de `Redirect`.
+>
+> De invloed van service-eindpuntgebruikers in de volgende scenario's mogelijk nog steeds: 
+> - Toepassing verbinding maakt met een bestaande server niet regelmatig worden, zodat onze telemetrie is niet de informatie over deze toepassingen vastleggen 
+> - Logica voor automatische implementatie maakt een logische server, ervan uitgaande dat het standaardgedrag voor verbindingen met de service-eindpunt `Proxy` 
+>
+> Als verbindingen met de service-eindpunt kunnen niet worden gemaakt met Azure SQL-server, en u een vermoeden bestaat dat u worden beïnvloed door deze wijziging, Controleer of dat de verbindingstype expliciet is ingesteld op `Redirect`. Als dit het geval is, hebt u het openen van VM-firewallregels en Netwerkbeveiligingsgroep groepen (NSG) voor alle Azure-IP-adressen in de regio die deel uitmaken van Sql [servicetag](../virtual-network/security-overview.md#service-tags). Als dit niet een optie voor u is, schakelt u over server expliciet aan `Proxy`.
 
 ## <a name="connectivity-architecture"></a>Connectiviteitsarchitectuur
 
 Het volgende diagram biedt een overzicht op hoog niveau van de architectuur van Azure SQL Database-connectiviteit.
 
-![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/architecture-overview.png)
+![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
-De volgende stappen wordt beschreven hoe een verbinding met een Azure SQL-database via de Azure SQL Database-software load balancer (SLB) en de gateway van Azure SQL Database tot stand is gebracht.
+De volgende stappen wordt beschreven hoe een verbinding met een Azure SQL-database tot stand is gebracht:
 
-- Clients verbinding maken met de SLB, die een openbaar IP-adres is en luistert op poort 1433.
-- De SLB verzendt verkeer naar de Azure SQL Database-gateway.
-- De gateway, afhankelijk van de effectieve verbindingsbeleid, omleidingen of proxy het verkeer naar de juiste proxy-middleware.
-- De proxy-middleware verzendt het verkeer naar de juiste Azure SQL-database.
-
-> [!IMPORTANT]
-> Elk van deze onderdelen is denial-of-service (DDoS) beveiliging ingebouwde op het netwerk en de app-laag gedistribueerd.
+- Clients verbinding maken met de gateway, die een openbaar IP-adres is en luistert op poort 1433.
+- De gateway, afhankelijk van de effectieve verbindingsbeleid, omleidingen of proxy het verkeer naar de juiste database-cluster.
+- In de database is clusterverkeer doorgestuurd naar de juiste Azure SQL-database.
 
 ## <a name="connection-policy"></a>Verbindingsbeleid voor
 
 Azure SQL Database ondersteunt de volgende drie opties voor de beleidsinstelling voor de verbinding van een SQL Database-server:
 
-- **Omleiding (aanbevolen):** Clients tot stand brengen van verbindingen rechtstreeks naar het knooppunt waarop de database wordt gehost. Als connectiviteit wilt inschakelen, moeten de clients de uitgaande firewallregels voor alle Azure-IP-adressen in de regio toestaan (probeer dit met behulp van de Netwerkbeveiligingsgroep groepen (NSG) met [servicetags](../virtual-network/security-overview.md#service-tags)), niet alleen de Azure SQL Database-Gateway-IP-adressen. Omdat de pakketten Ga rechtstreeks naar de database, zijn latentie en doorvoer prestaties beter.
-- **Proxy:** In deze modus, alle verbindingen worden geproxied via de Azure SQL Database-gateways. Als connectiviteit wilt inschakelen, moet de client uitgaande firewallregels waarmee alleen de Azure SQL Database-Gateway-IP-adressen (doorgaans twee IP-adressen per regio) hebben. In deze modus kiezen kan leiden tot hogere latentie en lagere doorvoer, afhankelijk van de aard van de werkbelasting. Wij raden het verbindingsbeleid omleiden ten opzichte van de Proxy verbindingsbeleid voor de laagste latentie en de hoogste doorvoer.
-- **Standaard:** dit is de verbindingsbeleid van kracht op alle servers na het maken, tenzij u expliciet het verbindingsbeleid naar de Proxy- of omleidings wijzigen. De effectieve beleid, is afhankelijk van of verbindingen zijn afkomstig uit in Azure (Redirect) en buiten Azure (Proxy).
+- **Omleiding (aanbevolen):** Clients tot stand brengen van verbindingen rechtstreeks naar het knooppunt waarop de database wordt gehost. Als connectiviteit wilt inschakelen, moeten de clients de uitgaande firewallregels voor alle Azure-IP-adressen in de regio met behulp van de Netwerkbeveiligingsgroep groepen (NSG) met toestaan [servicetags](../virtual-network/security-overview.md#service-tags)), niet alleen de Azure SQL Database-gateway IP-adressen. Omdat de pakketten Ga rechtstreeks naar de database, zijn latentie en doorvoer prestaties beter.
+- **Proxy:** In deze modus worden alle verbindingen via proxy via de Azure SQL Database-gateways. Als connectiviteit wilt inschakelen, moet de client uitgaande firewallregels waarmee alleen de Azure SQL Database-gateway op een IP-adressen (doorgaans twee IP-adressen per regio) hebben. In deze modus kiezen kan leiden tot hogere latentie en lagere doorvoer, afhankelijk van de aard van de werkbelasting. We raden u aan de `Redirect` verbindingsbeleid via de `Proxy` verbindingsbeleid voor de laagste latentie en de hoogste doorvoer.
+- **Standaard:** Dit is de verbindingsbeleid van kracht op alle servers na het maken, tenzij u expliciet het verbindingsbeleid naar een alter `Proxy` of `Redirect`. De effectieve beleid is afhankelijk van of verbindingen zijn afkomstig uit in Azure (`Redirect`) en buiten Azure (`Proxy`).
 
 ## <a name="connectivity-from-within-azure"></a>Connectiviteit van in Azure
 
-Als u verbinding maakt vanaf binnen Azure op een server die zijn gemaakt na 10 November 2018 uw verbindingen hebben een verbindingsbeleid van **omleiden** standaard. Een beleid van **omleiden** betekent dat verbindingen wanneer de TCP-sessie is ingesteld op de Azure SQL-database, de clientsessie wordt vervolgens omgeleid naar de proxy-middleware met een wijziging in de bestemming virtueel IP-adres van die van de Azure De gateway van de SQL-Database met die van de proxy-middleware. Daarna worden alle volgende pakketten stromen rechtstreeks via de proxy-middleware, overslaan van de Azure SQL Database-gateway. Het volgende diagram illustreert dit netwerkverkeer.
+Als u in Azure verbinding vanaf maakt uw verbindingen hebben een verbindingsbeleid van `Redirect` standaard. Een beleid van `Redirect` betekent dat nadat de TCP-sessie met de Azure SQL database tot stand is gebracht, de clientsessie wordt vervolgens omgeleid naar de juiste database-cluster met een wijziging in de bestemming virtueel IP-adres van die van de Azure SQL Database-gateway met die van de cluster. Daarna worden alle volgende pakketten stromen rechtstreeks aan het cluster, overslaan van de Azure SQL Database-gateway. Het volgende diagram illustreert dit netwerkverkeer.
 
-![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
-
-> [!IMPORTANT]
-> Als u SQL Database-Server hebt gemaakt vóór 10 November 2018 worden het verbindingsbeleid naar expliciet is ingesteld **Proxy**. Wanneer u service-eindpunten gebruikt, is het raadzaam het verbindingsbeleid naar wijzigen **omleiden** voor betere prestaties. Als u het verbindingsbeleid naar wijzigt **omleiden**, dient niet voldoende zijn voor uitgaand verkeer toestaan op uw NSG naar Azure SQL Database-gateway IP-adressen die hieronder worden vermeld, moet u toestaan uitgaande voor alle Azure SQL Database-IP's. Dit kan worden bewerkstelligd met behulp van de servicetags NSG (Netwerkbeveiligingsgroepen). Zie voor meer informatie, [servicetags](../virtual-network/security-overview.md#service-tags).
+![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>De connectiviteit van buiten Azure
 
-Als u verbinding vanaf buiten Azure maakt, uw verbindingen hebben een verbindingsbeleid van **Proxy** standaard. Een beleid van **Proxy** betekent dat de TCP-sessie tot stand is gebracht via de Azure SQL Database-gateway en alle volgende pakketten stromen via de gateway. Het volgende diagram illustreert dit netwerkverkeer.
+Als u verbinding vanaf buiten Azure maakt, uw verbindingen hebben een verbindingsbeleid van `Proxy` standaard. Een beleid van `Proxy` betekent dat de TCP-sessie tot stand is gebracht via de Azure SQL Database-gateway en alle volgende pakketten stromen via de gateway. Het volgende diagram illustreert dit netwerkverkeer.
 
-![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database-gateway-IP-adressen
 
-Als u wilt verbinding maken met een Azure SQL database vanuit on-premises bronnen, die u wilt toestaan dat uitgaand netwerkverkeer naar de Azure SQL Database-gateway voor uw Azure-regio. Uw verbindingen worden alleen via de gateway gaan wanneer u verbinding maakt in de Proxy-modus, dit de standaardinstelling is bij het verbinden van on-premises bronnen.
+Als u wilt verbinding maken met een Azure SQL database vanuit on-premises bronnen, die u wilt toestaan dat uitgaand netwerkverkeer naar de Azure SQL Database-gateway voor uw Azure-regio. Uw verbindingen alleen verlopen via de gateway wanneer u verbinding maakt `Proxy` modus, dit de standaardinstelling is bij verbinding maakt vanaf on-premises resources.
 
 De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van de Azure SQL Database-gateway voor alle regio's van gegevens. Voor sommige regio's zijn er twee IP-adressen. In deze regio's, het primaire IP-adres is het huidige IP-adres van de gateway en het tweede IP-adres is een failover-IP-adres. De failover-adres is het adres waarop we uw server te houden van de van hoge servicebeschikbaarheid mogelijk verplaatsen. Voor deze regio's raden wij u uitgaand naar beide IP-adressen toestaat. Het tweede IP-adres is eigendom van Microsoft en luistert niet op alle services totdat deze is geactiveerd door Azure SQL Database om verbindingen te accepteren.
 
 | Naam regio | Primaire IP-adres | Secundaire IP-adres |
 | --- | --- |--- |
-| Australië - oost | 191.238.66.109 | 13.75.149.87 |
+| Australië - oost | 13.75.149.87 | 40.79.161.1 |
 | Australië - zuidoost | 191.239.192.109 | 13.73.109.251 |
 | Brazilië - zuid | 104.41.11.5 | |
 | Canada - midden | 40.85.224.249 | |
@@ -107,14 +115,14 @@ De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van 
 | US - west 2 | 13.66.226.202 | |
 ||||
 
-\* **Opmerking:** *VS-Oost 2* heeft ook een tertiaire IP-adres van `52.167.104.0`.
+\* **OPMERKING:** *VS-Oost 2* heeft ook een tertiaire IP-adres van `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL Database-verbindingsbeleid wijzigen
 
 U kunt het beleid van de Azure SQL Database-verbinding voor een Azure SQL Database-server wijzigen met de [connectiviteit beleid](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) opdracht.
 
-- Als het verbindingsbeleid is ingesteld op **Proxy**, alle netwerkverbindingen stroom van pakketten via de Azure SQL Database-gateway. Voor deze instelling moet u uitgaand verkeer op alleen de Azure SQL Database-gateway-IP toestaan. Met behulp van een instelling van **Proxy** heeft meer latentie dan een instelling van **omleiden**.
-- Als het instellen van het verbindingsbeleid **omleiden**, alle pakketten stroom rechtstreeks naar de proxy middleware netwerkverbindingen. Voor deze instelling is moet u uitgaand verkeer naar meerdere IP-adressen toestaan.
+- Als het verbindingsbeleid is ingesteld op `Proxy`, alle netwerkverbindingen stroom van pakketten via de Azure SQL Database-gateway. Voor deze instelling moet u uitgaand verkeer op alleen de Azure SQL Database-gateway-IP toestaan. Met behulp van een instelling van `Proxy` heeft meer latentie dan een instelling van `Redirect`.
+- Als het instellen van het verbindingsbeleid `Redirect`, alle netwerkverbindingen pakketten stroom rechtstreeks naar de databasecluster. Voor deze instelling is moet u uitgaand verkeer naar meerdere IP-adressen toestaan.
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>Script voor het wijzigen van instellingen van de verbinding via PowerShell
 
@@ -125,55 +133,17 @@ U kunt het beleid van de Azure SQL Database-verbinding voor een Azure SQL Databa
 De volgende PowerShell-script laat zien hoe het verbindingsbeleid wijzigen.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName <Subscription Name>
+# Get SQL Server ID
+$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
 
-# Azure Active Directory ID
-$tenantId = "<Azure Active Directory GUID>"
-$authUrl = "https://login.microsoftonline.com/$tenantId"
+# Set URI
+$id="$sqlserverid/connectionPolicies/Default"
 
-# Subscription ID
-$subscriptionId = "<Subscription GUID>"
+# Get current connection policy
+(Get-AzureRmResource -ResourceId $id).Properties.connectionType
 
-# Create an App Registration in Azure Active Directory.  Ensure the application type is set to NATIVE
-# Under Required Permissions, add the API:  Windows Azure Service Management API
-
-# Specify the redirect URL for the app registration
-$uri = "<NATIVE APP - REDIRECT URI>"
-
-# Specify the application id for the app registration
-$clientId = "<NATIVE APP - APPLICATION ID>"
-
-# Logical SQL Server Name
-$serverName = "<LOGICAL DATABASE SERVER - NAME>"
-
-# Resource Group where the SQL Server is located
-$resourceGroupName= "<LOGICAL DATABASE SERVER - RESOURCE GROUP NAME>"
-
-
-# Login and acquire a bearer token
-$AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
-$result = $AuthContext.AcquireToken(
-"https://management.core.windows.net/",
-$clientId,
-[Uri]$uri,
-[Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
-)
-
-$authHeader = @{
-'Content-Type'='application\json; '
-'Authorization'=$result.CreateAuthorizationHeader()
-}
-
-#Get current connection Policy
-Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method GET -Headers $authHeader
-
-#Set connection policy to Proxy
-$connectionType="Proxy" <#Redirect / Default are other options#>
-$body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
-
-# Apply Changes
-Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
+# Update connection policy
+Set-AzureRmResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script voor het wijzigen van instellingen van de verbinding via Azure CLI
@@ -184,9 +154,8 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 De volgende CLI-script laat zien hoe het verbindingsbeleid wijzigen.
 
 ```azurecli-interactive
-<pre>
 # Get SQL Server ID
-sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
 id="$sqlserverid/connectionPolicies/Default"
@@ -196,8 +165,6 @@ az resource show --ids $id
 
 # Update connection policy
 az resource update --ids $id --set properties.connectionType=Proxy
-
-</pre>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

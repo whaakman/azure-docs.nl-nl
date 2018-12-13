@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: ebb5fed079d674a0a8a590f7a955a2fe878807fd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 11f4ad4ff1e8e2eab688596d393e63009f7e5624
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090453"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255479"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Tekstanalysemodellen maken in Azure Machine Learning Studio
 U kunt Azure Machine Learning gebruiken om te bouwen en operationeel tekstanalysemodel. Aan de hand van deze modellen kunnen u oplossen, bijvoorbeeld document classificatie of sentiment-analyse.
@@ -34,7 +33,7 @@ In een tekst analyse-experiment zou u meestal:
 4. Beoordelen en valideren van het model
 5. Het model implementeren voor productie
 
-In deze zelfstudie leert u deze stappen terwijl we begeleiden door een Analytics-model van het sentiment met behulp van Amazon Book beoordelingen gegevensset (Zie het onderzoeksrapport "biografieën, Bollywood, waarna vakken en Blenders: aanpassing domein voor Sentimentclassificeringen ' door John Blitzer, Dredze en Fernando Pereira; markeren Koppeling van rekenkundige Linguistics (ACL), 2007.) Deze gegevensset bestaat uit revisie scores (1-2 of 4 en 5) en een vrije tekst. Het doel is om te voorspellen van de beoordeling-score: lage (1 - 2) of Hoog (4-5).
+In deze zelfstudie leert u deze stappen terwijl we begeleiden door een Analytics-model van het sentiment met behulp van Amazon Book beoordelingen gegevensset (Zie het onderzoeksrapport "biografieën, Bollywood, waarna vakken en Blenders: Domein aanpassing voor Sentimentclassificeringen' door John Blitzer, Dredze en Fernando Pereira; markeren Koppeling van rekenkundige Linguistics (ACL), 2007.) Deze gegevensset bestaat uit revisie scores (1-2 of 4 en 5) en een vrije tekst. Het doel is om te voorspellen van de beoordeling-score: lage (1 - 2) of Hoog (4-5).
 
 Hier vindt u experimenten in deze zelfstudie is besproken in Azure AI Gallery:
 
@@ -55,7 +54,7 @@ Wat gebeurt er als u wilt gebruiken een aangepaste lijst stopwoorden? U kunt in 
 
 Nadat de voorverwerking voltooid is, we de gegevens splitsen in trainen en testen sets.
 
-## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Stap 2: Numerieke functie vectoren uit vooraf verwerkte tekst extraheren
+## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Stap 2: Numerieke functie vectoren onttrekken aan vooraf verwerkte tekst
 Voor het bouwen van een model voor tekstgegevens, moet u doorgaans vrije tekst converteren naar numerieke functie vectoren. In dit voorbeeld gebruiken we [N-Gram-functies extraheren uit tekst](https://msdn.microsoft.com/library/azure/mt762916.aspx) module voor het transformeren van de gegevens naar deze indeling. Deze module wordt een kolom met spaties gescheiden woorden en berekent een woordenlijst met woorden of N-grammen van woorden die worden weergegeven in uw gegevensset. Vervolgens telt deze het aantal keren dat elk woord of N-gram, wordt weergegeven in elke record en vectoren functie maakt die wordt geteld. In deze zelfstudie, we N-gram grootte instellen op 2, zodat onze vectoren functie enkele woorden en combinaties van de twee volgende woorden bevatten.
 
 ![N-grammen extraheren](./media/text-analytics-module-tutorial/extract-ngrams.png)

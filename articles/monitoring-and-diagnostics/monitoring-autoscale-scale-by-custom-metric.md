@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 9df587d92b9e35db496c787186ff2945db7965ce
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ac4cf9c3fe270b3b2a6d499a90184e8d5274e765
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987812"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309668"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Aan de slag met automatisch schalen door aangepaste metrische gegevens in Azure
 In dit artikel wordt beschreven hoe u uw resource schalen door een aangepaste metrische gegevens in Azure portal.
 
 Automatisch schalen van Azure Monitor is alleen bedoeld voor [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/), en [API Management-services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
-# <a name="lets-get-started"></a>Hiermee kunnen aan de slag
+## <a name="lets-get-started"></a>Hiermee kunnen aan de slag
 In dit artikel wordt ervan uitgegaan dat u een web-app met application insights is geconfigureerd. Als u er nog geen hebt, kunt u [Application Insights instellen voor uw ASP.NET-website][1]
 
 - Open [Azure-portal][2]
@@ -28,7 +28,7 @@ In dit artikel wordt ervan uitgegaan dat u een web-app met application insights 
   ![Starten met Azure Monitor][3]
 - Klik op de instelling voor automatisch schalen om alle resources voor welke automatisch schalen van toepassing, samen met de huidige status van de functie voor automatisch schalen is weer te geven ![detecteren, automatisch schalen in Azure monitor][4]
 - Open 'voor automatisch schalen-blade in Azure Monitor en selecteer een resource die u wilt schalen
-> Opmerking: De onderstaande stappen gebruikt u een app service-plan dat is gekoppeld aan een web-app met app insights is geconfigureerd.
+> Opmerking: De onderstaande stappen gebruiken een app service-plan dat is gekoppeld aan een web-app met app insights is geconfigureerd.
 - U ziet dat het huidige aantal instanties 1 is in de blade van de instelling schaal voor de resource. Klik op 'Inschakelen voor automatisch schalen'.
   ![Instelling voor de nieuwe web-app schalen][5]
 - Geef een naam voor de schaalinstelling van de en het klikken op 'Een regel toevoegen'. U ziet de schaalopties regel die wordt geopend in een deelvenster context in de rechterkant. Standaard wordt de optie voor het schalen van uw aantal instanties met 1 als het CPU-percetage van de resource groter is dan 70%. De bron van metrische gegevens aan de bovenkant wijzigen in 'Application Insights', selecteert u de app insights-resource in de vervolgkeuzelijst 'Resource' en selecteer vervolgens de aangepaste metrische gegevens op basis van die u wilt schalen.
@@ -36,12 +36,12 @@ In dit artikel wordt ervan uitgegaan dat u een web-app met application insights 
 - Net als bij de stap hierboven, een scale-regel die wordt geschaald en de schaalaanpassingsaantal verlagen met 1 als de aangepaste metrische gegevens lager dan een drempel is toevoegen.
   ![Schaal op basis van cpu][7]
 - Stel u instantielimieten. Bijvoorbeeld, als u schalen tussen 2-5-exemplaren, afhankelijk van de aangepaste metrische fluctuaties wilt, ingesteld 'minimale' op '2', 'maximale' op '5' en 'default' op ' 2'
-> Opmerking: als er een probleem opgetreden bij het lezen van de metrische gegevens voor resources en de huidige capaciteit lager dan de standaardcapaciteit is, klikt u vervolgens voor de beschikbaarheid van de resource voor automatisch schalen wordt uitgeschaald op de standaardwaarde. Als de huidige capaciteit al hoger is dan de standaardcapaciteit, wordt niet automatisch schalen geschaald.
+> Opmerking: In het geval er een probleem opgetreden bij het lezen van de metrische gegevens voor resources en de huidige capaciteit lager dan de standaardcapaciteit is, wordt klikt u vervolgens voor de beschikbaarheid van de resource voor automatisch schalen uitgeschaald op de standaardwaarde. Als de huidige capaciteit al hoger is dan de standaardcapaciteit, wordt niet automatisch schalen geschaald.
 - Klik op 'Opslaan'
 
 Gefeliciteerd! U nu is gemaakt in uw instelling voor automatisch schalen schalen uw web-app op basis van een aangepaste meetwaarde.
 
-> Opmerking: De dezelfde stappen zijn van toepassing op aan de slag met een VMSS of cloud service-rol.
+> Opmerking: Dezelfde stappen zijn van toepassing aan de slag met een VMSS of cloud service-rol.
 
 <!--Reference-->
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net

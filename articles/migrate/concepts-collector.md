@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 5a542ae23bf500125fd08338b2efd30dd42d9a8d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840908"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255972"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -32,23 +32,23 @@ Het collector-apparaat continu is verbonden met het Azure Migrate-project en con
 - Dit model afhankelijk niet van de instellingen voor statistieken vCenter-Server om prestatiegegevens te verzamelen.
 - U kunt stoppen continue profilering op elk gewenst moment van de Collector.
 
-**Direct resultaat:** met het continue detectie-apparaat, wanneer de detectie voltooid is (het duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat de verzameling van prestatiegegevens wordt gestart wanneer u detectie, een vliegende start als u direct resultaat zoekt, moet u het criterium voor het instellen in de evaluatie als *zoals on-premises*. Voor beoordelingen op basis van prestaties, is het raadzaam om te wachten op ten minste een dag na de detectie voor betrouwbare aanbevolen groottes begon.
+**Direct resultaat:** Met het continue detectie-apparaat, wanneer de detectie voltooid is (het duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, en als u direct resultaat wilt, moet u het schaalcriterium in de evaluatie instellen als *as on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
 
 Alleen verzamelt prestatiegegevens continu het toestel, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
-- Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
+- Het toevoegen van items (virtuele machines, schijven, kernen enz.): Als gevolg van deze wijzigingen in de Azure-portal, kunt u stoppen van de detectie van het apparaat en probeer het opnieuw. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
 
-- Verwijderen van VM’s: vanwege de manier waarop het apparaat is ontworpen, wordt het verwijderen van VM’s niet doorgevoerd, zelfs niet als u de detectie stopt en opnieuw start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
+- Verwijderen van virtuele machines: Vanwege de manier waarop die het apparaat is ontworpen, het verwijderen van virtuele machines niet weergegeven, zelfs als u stopt en de detectie start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
 
 > [!NOTE]
-> Het apparaat voor eenmalige detectie is beëindigd als deze methode op vCenter-statistieken-instellingen van de Server voor prestaties punt van beschikbaarheid van gegevens vertrouwen en die worden verzameld gemiddelde prestatiemeteritems, wat leidde tot te voorzichtige schalen van VM's voor migratie naar Azure.
+> Ondersteuning van het apparaat voor eenmalige detectie is nu beëindigd omdat deze methode gebaseerd was op statistiekinstellingen van vCenter Server voor de beschikbaarheid van prestatiegegevenspunten en gemiddelde prestatiemeteritems verzamelde, wat leidde tot een te voorzichtige schaling van virtuele machines voor migratie naar Azure.
 
 ## <a name="deploying-the-collector"></a>Implementatie van de Collector
 
 U implementeert het Collector-apparaat met behulp van een OVF-sjabloon:
 
 - U downloaden de OVF-sjabloon van een Azure Migrate-project in Azure portal. U kunt het gedownloade bestand importeren met vCenter-Server voor het instellen van de virtuele machine van de Collector-apparaat.
-- Stelt u een VM met 4 kernen, 8 GB RAM-geheugen en één schijf van 80 GB van de OVF in VMware. Het besturingssysteem is Windows Server 2012 R2 (64 bits).
+- Stelt u een virtuele machine met 8 kernen, 16 GB RAM-geheugen en één schijf van 80 GB van de OVF in VMware. Het besturingssysteem is Windows Server 2016 (64 bits).
 - Wanneer u de Collector uitvoert, wordt een aantal controles uitgevoerd om ervoor te zorgen dat de Collector verbinding met het Azure Migrate maken kunt.
 
 - [Meer informatie](tutorial-assessment-vmware.md#create-the-collector-vm) over het maken van de Collector.
@@ -58,21 +58,25 @@ U implementeert het Collector-apparaat met behulp van een OVF-sjabloon:
 
 De Collector moet slagen voor een aantal controles om ervoor te zorgen deze verbinding kan maken met de Azure Migrate-service via internet en het uploaden van gegevens gedetecteerd.
 
-- **Controleer de internetverbinding**: de Collector verbinding kan maken met internet rechtstreeks of via een proxyserver.
+- **Controleer of de Azure-cloud**: De Collector moet weten van de Azure-cloud waarop u van plan bent om te migreren.
+    - Selecteer Azure Government als u van plan bent om te migreren naar Azure Government-cloud.
+    - Selecteer in de globale Azure als u van plan bent om te migreren naar commerciële Azure-cloud.
+    - Op basis van de cloud die u hier opgeeft, wordt het apparaat naar de respectieve eindpunten gedetecteerde metagegevens verzonden.
+- **Controleer de internetverbinding**: De Collector verbinding kan maken met internet rechtstreeks of via een proxyserver.
     - Het controleren van de vereisten controleert of de verbinding met [URL's voor vereiste en optionele](#connect-to-urls).
     - Als u een directe verbinding met internet hebt, is geen specifieke actie vereist is, dan ervoor te zorgen dat de Collector de vereiste URL's kan bereiken.
     - Als u verbinding via een proxy maakt, let dan op de [onderstaande vereisten](#connect-via-a-proxy).
-- **Tijdsynchronisatie controleren**: de Collector moeten worden gesynchroniseerd met de tijdserver op internet om te controleren of de aanvragen voor de service worden geverifieerd.
+- **Tijdsynchronisatie controleren**: De Collector moeten worden gesynchroniseerd met de tijdserver op internet om te controleren of de aanvragen voor de service worden geverifieerd.
     - De portal.azure.com url moet bereikbaar is vanaf de Collector zodat de tijd kan worden gevalideerd.
     - Als de machine is niet gesynchroniseerd, moet u de klok op de Collector-VM zodat deze overeenkomen met de huidige tijd verandert. Doen dit open een beheerder op de virtuele machine, voer **w32tm /tz** om te controleren of de tijdzone. Voer **w32tm/resync** de tijd te synchroniseren.
-- **Controleer de collector-service die wordt uitgevoerd**: de Azure Migrate Collector-service moet worden uitgevoerd op de Collector-VM.
+- **Controleer de collector-service die wordt uitgevoerd**:  De Azure Migrate Collector-service moet worden uitgevoerd op de Collector-VM.
     - Deze service wordt automatisch gestart wanneer de computer wordt opgestart.
     - Als de service niet actief is, start u deze in het Configuratiescherm.
     - De Collector-service maakt verbinding met vCenter-Server, de VM-metagegevens en de prestaties gegevens verzamelt en verzendt dit naar de service Azure Migrate.
-- **Controleren van VMware PowerCLI 6.5 is geïnstalleerd**: de VMware PowerCLI 6.5 PowerShell-module moet worden geïnstalleerd op de Collector-VM, zodat deze met de vCenter-Server communiceren kan.
+- **Controleren van VMware PowerCLI 6.5 is geïnstalleerd**: De VMware PowerCLI 6.5 PowerShell-module moet worden geïnstalleerd op de Collector-VM, zodat deze met de vCenter-Server communiceren kan.
     - Als de Collector toegang heeft tot de URL's die nodig zijn om de module te installeren, wordt deze installatie automatisch tijdens de implementatie van de Collector.
     - Als de Collector u de module tijdens de implementatie installeren kunt, moet u [handmatig installeren](#install-vwware-powercli-module-manually).
-- **Controleer de verbinding met vCenter-Server**: de Collector moeten kunnen vCenter-Server en query's uitvoeren voor virtuele machines, de metagegevens en prestatiemeteritems. [Vereisten controleren](#connect-to-vcenter-server) om verbinding te maken.
+- **Controleer de verbinding met vCenter-Server**: De Collector moeten kunnen vCenter-Server en query's uitvoeren voor virtuele machines, de metagegevens en prestatiemeteritems. [Vereisten controleren](#connect-to-vcenter-server) om verbinding te maken.
 
 
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Verbinding maken met internet via een proxy
@@ -107,7 +111,8 @@ De connectiviteitscontrole is gevalideerd door verbinding te maken met een lijst
 
 **URL** | **Details**  | **Het controleren van vereisten**
 --- | --- | ---
-*.portal.azure.com | Controleert de connectiviteit met de Azure-service en tijdsynchronisatie. | Toegang tot URL vereist.<br/><br/> Controle van vereisten mislukt als er geen verbinding.
+*.portal.azure.com | Van toepassing op Azure wereldwijd. Controleert de connectiviteit met de Azure-service en tijdsynchronisatie. | Toegang tot URL vereist.<br/><br/> Controle van vereisten mislukt als er geen verbinding.
+*. portal.azure.us | Alleen van toepassing op Azure Government. Controleert de connectiviteit met de Azure-service en tijdsynchronisatie. | Toegang tot URL vereist.<br/><br/> Controle van vereisten mislukt als er geen verbinding.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Voor het downloaden van de PowerShell-module voor vCenter PowerCLI. | Toegang tot URL's is optioneel.<br/><br/> Controle van vereisten wordt niet mislukken.<br/><br/> Installatie van de automatische module op de Collector-VM mislukt. U moet de module handmatig installeren.
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0890ce0342024229b99d92a2eddba5b49cc59595
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1410d61fed2dc98f5fa657541c3863e09b803166
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633934"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321780"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Schalen van Azure Service Fabric-clusters
 Een Service Fabric-cluster is een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster, heet een knooppunt. Clusters kunnen mogelijk duizenden knooppunten bevatten. Na het maken van een Service Fabric-cluster, kunt u het cluster horizontaal schalen (het aantal knooppunten wijzigen) of verticaal (de resources van de knooppunten wijzigen).  U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster.  Als het cluster wordt geschaald, wordt uw toepassingen automatisch ook schalen.
@@ -30,7 +30,7 @@ Waarom het cluster schalen? Toepassingsbehoeften veranderen verloop van tijd.  M
 Het aantal knooppunten in het cluster wordt gewijzigd.  Zodra de nieuwe knooppunten die zijn toegevoegd aan het cluster, de [Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md) verplaatst van services toe, waardoor er minder belasting van de bestaande knooppunten.  Als de resources van het cluster niet efficiënt worden gebruikt, kunt u ook het aantal knooppunten verminderen.  Als knooppunten het cluster laat, worden de services verplaatsen uit deze knooppunten en toeneemt op de resterende knooppunten.  Verlaag het aantal knooppunten in een cluster worden uitgevoerd in Azure kunt u geld besparen, omdat u voor het aantal VM's u gebruikt en niet de werkbelasting op deze virtuele machines betaalt.  
 
 - Voordelen: Oneindige schaal, in theorie.  Als uw toepassing is ontworpen voor schaalbaarheid, kunt u onbeperkte groei inschakelen door meer knooppunten toe te voegen.  De hulpmiddelen in cloudomgevingen kunt eenvoudig toevoegen of verwijderen van knooppunten, zodat het eenvoudig om aan te passen capaciteit is en u betaalt alleen voor de resources die u gebruikt.  
-- Nadelen: Toepassingen worden [ontworpen voor schaalbaarheid](service-fabric-concepts-scalability.md).  Databases van toepassingen en persistentie moet mogelijk extra architectuur werk zo goed te kunnen schalen.  [Betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md) in stateful Service Fabric-services, maken het echter veel gemakkelijker te schalen van uw toepassingsgegevens.
+- Nadelen: Toepassingen worden gebruikt, [ontworpen voor schaalbaarheid](service-fabric-concepts-scalability.md).  Databases van toepassingen en persistentie moet mogelijk extra architectuur werk zo goed te kunnen schalen.  [Betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md) in stateful Service Fabric-services, maken het echter veel gemakkelijker te schalen van uw toepassingsgegevens.
 
 Virtuele-machineschaalsets vormen een Azure compute-resource die u gebruiken kunt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype die is gedefinieerd in een Azure-cluster is [instellen als een afzonderlijke schaalset](service-fabric-cluster-nodetypes.md). Elk knooppunttype kan vervolgens worden geschaald of uit onafhankelijk van elkaar, hebben verschillende sets open poorten en verschillende capaciteitsstatistieken hebben. 
 
@@ -50,7 +50,7 @@ In veel scenario's, [schalen van een cluster handmatig of met regels voor automa
 - Handmatig schalen, moet u zich aanmeldt bij en aanvragen vergroten / verkleinen. Als vergroten / verkleinen vaak vereist of onvoorspelbare tijde is, is deze benadering mogelijk niet een goede oplossing.
 - Wanneer automatisch schalen regels een exemplaar van een virtuele-machineschaalset verwijdert, verwijder ze automatisch niet kennis van dat knooppunt uit de gekoppelde Service Fabric-cluster, tenzij het knooppunttype een duurzaamheidsniveau van Silver- of Gold heeft. Omdat de regels voor automatisch schalen werkt in de schaalset niveau (in plaats van op het niveau van de Service Fabric), kunnen regels voor automatisch schalen Service Fabric-knooppunten verwijderen zonder dat ze probleemloos afgesloten. Deze verwijdering ruwe knooppunt laat 'ghost' status van Service Fabric-knooppunt achter na schaal-in-bewerkingen. Een persoon (of een service), moet voor het periodiek opschonen van de status van het verwijderde knooppunt in het Service Fabric-cluster.
 - Verwijderde knooppunten ruimt een knooppunttype met een duurzaamheidsniveau van Gold of Silver automatisch zodat er geen extra opschonen nodig is.
-- Er is wel [veel metrische gegevens](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) wordt ondersteund door regels voor automatisch schalen, het is nog steeds een beperkte set. Als uw scenario aanroept voor het schalen op basis van bepaalde meetwaarde niet wordt gedekt in deze is ingesteld, klikt u vervolgens regels voor automatisch schalen niet mogelijk een goede optie.
+- Er is wel [veel metrische gegevens](../azure-monitor/platform/autoscale-common-metrics.md) wordt ondersteund door regels voor automatisch schalen, het is nog steeds een beperkte set. Als uw scenario aanroept voor het schalen op basis van bepaalde meetwaarde niet wordt gedekt in deze is ingesteld, klikt u vervolgens regels voor automatisch schalen niet mogelijk een goede optie.
 
 Hoe u het schalen van Service Fabric te benaderen, is afhankelijk van uw scenario. Als schalen niet gebruikelijk is, is de mogelijkheid toevoegen of verwijderen van knooppunten handmatig is waarschijnlijk voldoende. Voor complexere scenario's bieden regels voor automatisch schalen en SDK's die de mogelijkheid om programmatisch schalen een krachtige alternatieven.
 
@@ -66,7 +66,7 @@ Op basis van deze beperkingen, u kunt desgewenst [implementeren meer aangepaste 
 
 ## <a name="scaling-up-and-down-or-vertical-scaling"></a>Omhoog en omlaag schalen of verticaal schalen 
 Hiermee wijzigt u de resources (CPU, geheugen of opslag) van knooppunten in het cluster.
-- Voordelen: Software en toepassingsarchitectuur blijft hetzelfde.
+- Voordelen: Architectuur van software en de toepassing blijft hetzelfde.
 - Nadelen: Beperkte schaal, omdat er een limiet aan hoeveel u resources op afzonderlijke knooppunten kunt verhogen. Downtime, omdat u nemen fysieke of virtuele machines offline moet wilt toevoegen of verwijderen van resources.
 
 Virtuele-machineschaalsets vormen een Azure compute-resource die u gebruiken kunt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype die is gedefinieerd in een Azure-cluster is [instellen als een afzonderlijke schaalset](service-fabric-cluster-nodetypes.md). Vervolgens kan elk knooppunttype afzonderlijk worden beheerd.  Een knooppunttype schaal omhoog of omlaag omvat het wijzigen van de SKU van de virtuele machine-exemplaren in de schaalset. 

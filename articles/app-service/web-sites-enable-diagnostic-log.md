@@ -1,5 +1,5 @@
 ---
-title: Diagnostische logboekregistratie inschakelen voor web-apps in Azure App Service
+title: Diagnostische logboekregistratie inschakelen voor web-apps - Azure App Service
 description: Meer informatie over hoe u Diagnostische logboekregistratie inschakelen en instrumentatie kunt toevoegen aan uw toepassing, evenals hoe u toegang tot de gegevens die zijn vastgelegd door Azure.
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.custom: seodec18
+ms.openlocfilehash: 90f82dcdf60a3a7182f77b3fe028366e079bc2ec
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636955"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273796"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -63,6 +64,11 @@ Als u activeert **toepassingsdiagnose**, u er ook voor kiezen de **niveau**. Dez
 
 Voor **toepassingslogboeken**, kunt u de optie voor het systeem van bestand tijdelijk voor foutopsporing inschakelen. Deze optie nu schakelt automatisch in 12 uur. U kunt ook inschakelen op de optie blob storage een blobcontainer om te schrijven Logboeken om te selecteren.
 
+> [!NOTE]
+> Momenteel wordt alleen .NET-toepassingslogboeken kunnen worden geschreven naar de blob-opslag. Java, PHP, Node.js, Python toepassingslogboeken alleen kunnen worden opgeslagen op het bestandssysteem (zonder codewijzigingen om te schrijven logboeken naar de externe opslag).
+>
+>
+
 Voor **webserverlogboeken**, kunt u **opslag** of **bestandssysteem**. Selecteren **opslag** kunt u een opslagaccount en een blob-container die de logboeken worden geschreven om te selecteren. 
 
 Als u Logboeken op het bestandssysteem opslaat, kunnen de bestanden worden geopend door de FTP of gedownload als een Zip-archief met behulp van Azure CLI.
@@ -85,7 +91,7 @@ Hoewel beide opslaglocaties de dezelfde algemene informatie voor de vastgelegde 
 > Gegevens die zijn opgeslagen **blobopslag** kunnen alleen worden geopend met behulp van een storage-client of een toepassing die u rechtstreeks met deze systemen voor opslag werken kunt. Bijvoorbeeld, Visual Studio 2013 bevat een Opslagverkenner die kan worden gebruikt voor het verkennen van blob-opslag en HDInsight toegang tot de gegevens die zijn opgeslagen in blob-opslag. U kunt ook schrijven met een toepassing die toegang heeft tot Azure Storage met behulp van een van de [Azure-SDK's](https://azure.microsoft.com/downloads/).
 >
 
-## <a name="download"></a> Hoe: Logboeken downloaden
+## <a name="download"></a> Procedures: Logboeken downloaden
 Diagnostische gegevens die zijn opgeslagen in het bestandssysteem van de web-app is toegankelijk via FTP. Het kan ook worden gedownload als een Zip-archief met behulp van Azure CLI.
 
 De mapstructuur die de logboeken worden opgeslagen in is als volgt:
@@ -114,7 +120,7 @@ Deze opdracht slaat u de logboeken voor de web-app met de naam 'webappname' naar
 >
 >
 
-## <a name="how-to-view-logs-in-application-insights"></a>Hoe: weergeven in Application Insights-Logboeken
+## <a name="how-to-view-logs-in-application-insights"></a>Procedure: Logboeken weergeven in Application Insights
 Visual Studio Application Insights biedt hulpprogramma's voor het filteren en zoeken in Logboeken en voor de logboeken correleren met aanvragen en andere gebeurtenissen.
 
 1. De Application Insights SDK toevoegen aan uw project in Visual Studio.
@@ -126,7 +132,7 @@ Visual Studio Application Insights biedt hulpprogramma's voor het filteren en zo
 
 [Meer informatie over de prestaties bijhouden met Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="streamlogs"></a> Hoe: Stream Logboeken
+## <a name="streamlogs"></a> Procedures: Logboeken streamen
 Tijdens het ontwikkelen van een toepassing, is het vaak nuttig om te zien van logboekgegevens in near-real-time. U kunt de logboekinformatie voor streamen naar uw ontwikkelomgeving met behulp van Azure CLI.
 
 > [!NOTE]
@@ -157,7 +163,7 @@ Om te filteren op specifieke logboek typen, zoals HTTP, gebruikt u de **--pad** 
 >
 >
 
-## <a name="understandlogs"></a> Hoe: inzicht in Logboeken met diagnostische gegevens
+## <a name="understandlogs"></a> Procedures: Diagnostische logboeken begrijpen
 ### <a name="application-diagnostics-logs"></a>Application diagnostics-Logboeken
 Application diagnostics wordt informatie opgeslagen in een specifieke indeling voor .NET-toepassingen, afhankelijk van of het opslaan van logboeken naar de file system- of blob storage. 
 

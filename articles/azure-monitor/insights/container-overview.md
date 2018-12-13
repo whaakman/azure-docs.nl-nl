@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b5e8442e6d6762fda875460544aa4369e54d49b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 574b2ad048ca9572447b55885deb98415c3e3753
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889018"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183196"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Overzicht van de bewaking van Containers in Azure
 Met Azure, kunt u effectief bewaken en beheren van uw workloads op Azure met Kubernetes of Docker-containers geïmplementeerd. Het is belangrijk om te begrijpen hoe containers met meerdere microservice-toepassingen worden uitgevoerd om te kunnen leveren van een betrouwbare service op schaal en de controle-ondersteuningsabonnement. In dit artikel geeft een kort overzicht van het beheer en de bewakingsmogelijkheden in Azure om te begrijpen en die geschikt zijn gebaseerd op uw vereisten.

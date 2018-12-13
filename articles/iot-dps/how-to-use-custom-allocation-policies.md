@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9d75195656581021253b5787a8bfd46639cc1754
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458187"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323129"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Het gebruik van aangepaste toewijzingsbeleid
 
@@ -100,9 +100,9 @@ In deze sectie maakt u een nieuwe registratiegroep die gebruikmaakt van de aange
 
     **Type Attestation**: Selecteer **symmetrische sleutel**.
 
-    **Automatisch sleutels genereren**: dit selectievakje al moet worden gecontroleerd.
+    **Automatisch sleutels genereren**: Dit selectievakje moet nog worden gecontroleerd.
 
-    **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **aangepast (gebruik Azure-functie)**.
+    **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **aangepast (Gebruik de Azure-functie)**.
 
     ![Aangepaste toewijzing registratiegroep voor attestation-symmetrische sleutel toevoegen](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -111,11 +111,11 @@ In deze sectie maakt u een nieuwe registratiegroep die gebruikmaakt van de aange
 
     U moet deze stap uitvoeren voor zowel van uw afdelingen IoT-hubs.
 
-    **Abonnement**: als u meerdere abonnementen hebt, kiest u het abonnement waarin u de divisie IoT-hubs hebt gemaakt.
+    **Abonnement**: Als u meerdere abonnementen hebt, kiest u het abonnement waarin u de divisie IoT-hubs hebt gemaakt.
 
     **IoT-hub**: Selecteer een van de divisie hubs die u hebt gemaakt.
 
-    **Het toegangsbeleid**: kies **iothubowner**.
+    **Het toegangsbeleid**: Kies **iothubowner**.
 
     ![Koppeling van de divisie IoT-hubs met de provisioning-service](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
@@ -129,11 +129,11 @@ In deze sectie maakt u een nieuwe registratiegroep die gebruikmaakt van de aange
 
 7. Op **functie-App** maken dat wordt geopend en voer de volgende instellingen voor uw nieuwe functie en klik op pagina **maken**:
 
-    **App-naam**: Voer de naam van een unieke functie-app. **Contoso-functie-app-1098** wordt weergegeven als een voorbeeld.
+    **App-naam**: Voer een unieke functie-app-naam. **Contoso-functie-app-1098** wordt weergegeven als een voorbeeld.
 
     **Resourcegroep**: Selecteer **Use existing** en de **contoso-us-resource-group** te houden van alle resources die in dit artikel is gemaakt, samen.
 
-    **Application Insights**: voor deze oefening kunt u dit uitschakelen.
+    **Application Insights**: Voor deze oefening kunt u dit uitschakelen.
 
     ![De functie-app maken](./media/how-to-use-custom-allocation-policies/function-app-create.png)
 
@@ -390,7 +390,7 @@ Deze sectie is gericht op een Windows-werkstation. Zie voor een voorbeeld van ee
 4. Voer de volgende opdracht uit om een versie van de SDK te bouwen die specifiek is voor uw clientplatform voor ontwikkeling. Er wordt een Visual Studio-oplossing voor het gesimuleerde apparaat gegenereerd in de map `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Als `cmake` uw C++-compiler niet kan vinden, kunnen er fouten in de build optreden tijdens het uitvoeren van de bovenstaande opdracht. Als dit gebeurt, voert u deze opdracht uit bij de [Visual Studio-opdrachtprompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -398,7 +398,7 @@ Deze sectie is gericht op een Windows-werkstation. Zie voor een voorbeeld van ee
     Zodra het bouwen is voltooid, zijn de laatste paar uitvoerregels vergelijkbaar met de volgende uitvoer:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -526,12 +526,12 @@ De volgende tabel ziet u verwachte scenario's en de resultaten foutcodes die opt
 
 | Scenario | Registratieresultaat van Provisioning Service | Inrichting van de resultaten van de SDK |
 | -------- | --------------------------------------------- | ------------------------ |
-| De webhook geeft als resultaat 200 OK met iotHubHostName ingesteld op een geldige hostnaam van de IoT-hub | Resultaat van de status: toegewezen  | SDK retourneert PROV_DEVICE_RESULT_OK samen met informatie van de hub |
-| De webhook geeft als resultaat 200 OK met 'iotHubHostName' die aanwezig zijn in het antwoord, maar ingesteld op een lege tekenreeks of null zijn | Resultaat van de status: mislukt<br><br> Foutcode: CustomAllocationIotHubNotSpecified (400208) | SDK retourneert PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| De webhook retourneert een 401-niet gemachtigd | Resultaat van de status: mislukt<br><br>Foutcode: CustomAllocationUnauthorizedAccess (400209) | SDK retourneert PROV_DEVICE_RESULT_UNAUTHORIZED |
-| Een afzonderlijke inschrijving is gemaakt om het apparaat uitschakelen | Resultaat van de status: uitgeschakeld | SDK retourneert PROV_DEVICE_RESULT_DISABLED |
-| De webhook retourneert foutcode > = 429 | De DPS-indeling wordt opnieuw geprobeerd een aantal keer. Het beleid voor opnieuw proberen is momenteel:<br><br>&nbsp;&nbsp;-Aantal nieuwe pogingen: 10<br>&nbsp;&nbsp;-Eerste interval: 1s<br>&nbsp;&nbsp;-Verhoog: 9 's | SDK wordt fout negeren en een andere get-statusbericht indienen in de opgegeven tijd |
-| De webhook wordt elke andere statuscode geretourneerd | Resultaat van de status: mislukt<br><br>Foutcode: CustomAllocationFailed (400207) | SDK retourneert PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| De webhook geeft als resultaat 200 OK met iotHubHostName ingesteld op een geldige hostnaam van de IoT-hub | Resultaatstatus van het: Toegewezen  | SDK retourneert PROV_DEVICE_RESULT_OK samen met informatie van de hub |
+| De webhook geeft als resultaat 200 OK met 'iotHubHostName' die aanwezig zijn in het antwoord, maar ingesteld op een lege tekenreeks of null zijn | Resultaatstatus van het: Mislukt<br><br> Foutcode: CustomAllocationIotHubNotSpecified (400208) | SDK retourneert PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| De webhook retourneert een 401-niet gemachtigd | Resultaatstatus van het: Mislukt<br><br>Foutcode: CustomAllocationUnauthorizedAccess (400209) | SDK retourneert PROV_DEVICE_RESULT_UNAUTHORIZED |
+| Een afzonderlijke inschrijving is gemaakt om het apparaat uitschakelen | Resultaatstatus van het: Uitgeschakeld | SDK retourneert PROV_DEVICE_RESULT_DISABLED |
+| De webhook retourneert foutcode > = 429 | De DPS-indeling wordt opnieuw geprobeerd een aantal keer. Het beleid voor opnieuw proberen is momenteel:<br><br>&nbsp;&nbsp;-Aantal nieuwe pogingen: 10<br>&nbsp;&nbsp;-Eerste interval: 1s<br>&nbsp;&nbsp;-Interval: 9 's | SDK wordt fout negeren en een andere get-statusbericht indienen in de opgegeven tijd |
+| De webhook wordt elke andere statuscode geretourneerd | Resultaatstatus van het: Mislukt<br><br>Foutcode: CustomAllocationFailed (400207) | SDK retourneert PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen

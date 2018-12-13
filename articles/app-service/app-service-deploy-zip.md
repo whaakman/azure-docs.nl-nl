@@ -1,5 +1,5 @@
 ---
-title: Uw app implementeren in Azure App Service met een ZIP- of WAR-bestand | Microsoft Docs
+title: Code implementeren met een ZIP- of WAR-bestand - Azure App Service | Microsoft Docs
 description: Leer hoe u uw app implementeren in Azure App Service met een ZIP-bestand (of een WAR-bestand voor Java-ontwikkelaars).
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: b628ae0806febb3ffd4edaf71be45841aff38516
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 437f1aa631e058ee62bb3c08d2ad654c3d0666f3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423025"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259083"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Uw app implementeren in Azure App Service met een ZIP- of WAR-bestand
 

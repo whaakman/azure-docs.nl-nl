@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 2063198ab2a7b11e15528e81acb46ba16277782a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097638"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272164"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analyse van het traject van de klant met behulp van Azure Machine Learning Studio
 ## <a name="overview"></a>Overzicht
@@ -31,11 +30,11 @@ In dit artikel geeft een referentie-implementatie van een klantverloop analysis-
 Dit experiment is ontwikkeld en getest door Serge Berger, Gegevenswetenschapper Principal bij Microsoft en Roger Barga, voorheen Product Manager voor Microsoft Azure Machine Learning. De Azure-documentatieteam dank erkent hun ervaring en ze Bedankt voor het delen van deze whitepaper.
 
 > [!NOTE]
-> De gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van hoe u een machine learning-model voor verloop analyse bouwt: [Retail verloop model sjabloon](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
+> De gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van het bouwen van een machine learning-model voor verloop analyse: [Detailhandel verloop model sjabloon](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>Het probleem van klantverloop
 Bedrijven in de markt consumenten en in alle enterprise-sectoren hebben om op te lossen verloop. Soms verloop uitzonderlijk veel en is van invloed op beleidsbeslissingen. De traditionele oplossing is te hoog-neiging zullen zijn churners voorspellen en hun behoeften via een service concierge marketingcampagnes, of door het toepassen van speciale dispensaties. Deze methoden kunnen variëren branche branche. Ze kunnen zelfs binnen één bedrijfstak (bijvoorbeeld telecommunicatie) uit een cluster van bepaalde consumenten verschillen.
@@ -112,7 +111,7 @@ De volgende diagrammen ziet u de gegevens die is gebruikt.
  
 
 > Houd er rekening mee dat deze gegevens privé is; daarom het model en de gegevens kunnen niet worden gedeeld.
-> Zie, voor een vergelijkbaar model met behulp van de openbaar beschikbare gegevens, in dit voorbeeld een experiment uit in de [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [traject van de klant Telco](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Zie, voor een vergelijkbaar model met behulp van de openbaar beschikbare gegevens, in dit voorbeeld een experiment uit in de [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [Bij Telco](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Voor meer informatie over hoe u een verloop Analytics-model met behulp van Cortana Intelligence Suite kunt implementeren, wordt ook aangeraden [in deze video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) door Senior Program Manager Westerse Hyong Tok. 
 > 
@@ -168,7 +167,7 @@ Het volgende diagram van Wikipedia ziet u de relatie in een afbeelding levendige
 
 ![][8]
 
-*Afbeelding 10: Een afweging tussen nauwkeurigheid en precisie*
+*Afbeelding 10: Verhouding tussen de nauwkeurigheid en precisie*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Resultaten nauwkeurigheid en precisie voor boosted decision tree model
 Het volgende diagram wordt de onbewerkte resultaten van het scoring-met behulp van de Machine Learning-model voor de boosted decision tree-model, wat gebeurt er met de meest nauwkeurige tussen de vier modellen worden weergegeven:  
@@ -217,13 +216,13 @@ Dit document beschrijft een functionele aanpak voor het aanpakken van het algeme
  
 
 ## <a name="references"></a>Verwijzingen
-[1] predictive Analytics: buiten de voorspellingen W. McKnight Information Management, juli/augustus 2011 p.18-20.  
+[1] predictive Analytics: Naast de voorspellingen W. McKnight Information Management, juli/augustus 2011 p.18-20.  
 
-[2] Wikipedia-artikel: [nauwkeurigheid en precisie](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia-artikel: [Nauwkeurigheid en precisie](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [heldere-DM 1.0: stapsgewijze datamining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [HELDERE-DM 1.0: Stapsgewijze datamining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Marketing voor big Data: Houd contact met uw klanten effectiever en stimuleren van waarde](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Marketing voor big Data: Bied uw klanten effectiever en stimuleren van waarde](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Telco verloop model sjabloon](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Azure AI Gallery](http://gallery.cortanaintelligence.com/) 
  
@@ -231,7 +230,7 @@ Dit document beschrijft een functionele aanpak voor het aanpakken van het algeme
 ## <a name="appendix"></a>Bijlage
 ![][10]
 
-*Afbeelding 12: Een momentopname van een presentatie op verloop prototype*
+*Afbeelding 12: Momentopname van een presentatie op verloop prototype*
 
 [1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/azure-ml-customer-churn-scenario/churn-2.png

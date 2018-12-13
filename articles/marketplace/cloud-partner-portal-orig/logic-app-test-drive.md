@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 938472edf0c82da6f3e1fdaf4e6b052ac178bd8a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722969"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258199"
 ---
 <a name="logic-app-test-drive"></a>Logische App Test Drive
 ====================
@@ -29,7 +29,7 @@ Dit artikel is voor uitgevers die hun aanbieding op AppSource en hun testrit die
 <a name="how-to-build-a-logic-app-test-drive"></a>Over het bouwen van een logische App Test Drive
 -----------------------------------
 
-Test Drive-documentatie voor logische App Test Drives is momenteel nog steeds op github voor [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) en [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), gaat u er meer informatie.
+Test Drive-documentatie voor logische App Test Drives is momenteel nog steeds op GitHub voor [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) en [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), gaat u er meer informatie.
 
 <a name="how-to-publish-a-test-drive"></a>Het publiceren van een Test Drive
 ---------------------------
@@ -40,7 +40,7 @@ Nu dat u uw Test Drive gebouwd hebt, wordt dit gedeelte doorloopt samen met elk 
 
 Het eerste en belangrijkste veld is om te bepalen of u wilt testen van het formulier in met alle vereiste velden worden weergegeven voor u om in te vullen. Wanneer u selecteert **Nee,** het formulier wordt uitgeschakeld en als u opnieuw met de Test Drive uitgeschakeld publiceren, uw Test Drive wordt verwijderd uit de productie.
 
-*Houd er rekening mee*: als er een Test Drives actief gebruikt door gebruikers, deze Test Drives blijft actief totdat de sessie is verlopen.
+*Houd er rekening mee*: Als er een Test Drives actief gebruikt door gebruikers, blijft deze Test Drives actief totdat de sessie is verlopen.
 
 ### <a name="details"></a>Details
 
@@ -70,11 +70,11 @@ De volgende sectie om in te vullen is waar u uw logische App testen station conf
 
 - **Regio** - *[vereist veld]* de regio die u selecteert is waar u kiezen waar uw Test Drive logische App-resources worden geïmplementeerd.
 
-    *Opmerking:* als uw logische App een aangepaste resources die zijn opgeslagen in een regio heeft, controleert u of deze regio hier is geselecteerd. De beste manier om dit te doen is om te **volledig uw logische App lokaal op uw Azure-abonnement in de portal implementeren en controleren of deze werkt** voordat deze zich hier worden geschreven.
+    *Opmerking:* Als uw logische App een aangepaste resources die zijn opgeslagen in een regio, moet u dat die regio hier is geselecteerd. De beste manier om dit te doen is om te **volledig uw logische App lokaal op uw Azure-abonnement in de portal implementeren en controleren of deze werkt** voordat deze zich hier worden geschreven.
 
 - **Maximum aantal gelijktijdige Test Drives** - *[vereist veld]* nummer van Test Drive-exemplaren die al zijn geïmplementeerd en wacht op toegang tot per geselecteerde regio. Klanten kunnen onmiddellijk toegang krijgen tot deze Test Drives in plaats van dat moet worden gewacht voor een implementatie.
 
-    *Opmerking:* als u een webinar/klasse waar u al uw N aantal studenten uitvoert om een Test uitvoeren, is het raadzaam om te publiceren met N-aantal van Hot-exemplaren en vervolgens één keer de klasse is meer dan opnieuw te publiceren naar uw normale aantal Hot-exemplaren.
+    *Opmerking:* Als u een webinar/klasse waar u al uw N aantal studenten uitvoert om een Test uitvoeren, is het raadzaam om te publiceren met N-aantal van Hot-exemplaren en vervolgens één keer de klasse is meer dan opnieuw te publiceren naar uw normale aantal Hot-exemplaren.
 
 - **Test Drive duur (uren) -** *[vereist veld]* duur voor hoe lang de Test Drive blijft actief is, in \# uur. De Test Drive wordt automatisch beëindigd na afloop van deze periode.
 

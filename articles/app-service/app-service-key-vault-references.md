@@ -1,5 +1,5 @@
 ---
-title: Verwijzingen naar de Key Vault in App Service en Azure Functions | Microsoft Docs
+title: Verwijzingen naar Key Vault - Azure App Service | Microsoft Docs
 description: Conceptuele verwijzing en setup-handleiding voor Azure Key Vault-verwijzingen in Azure App Service en Azure Functions
 services: app-service
 author: mattchenderson
@@ -11,12 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 6f7a05638e9893c989276c61355a301e4a67a6ed
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 8add470048d3ead3f75ff85dd6f489d798af5e29
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52449954"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253439"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Verwijzingen van de Key Vault gebruiken voor App Service en Azure Functions (preview)
 
@@ -43,7 +44,7 @@ Om te kunnen lezen geheimen uit Key Vault, moet u een kluis hebt gemaakt en uw a
 De verwijzing naar een Key Vault heeft de vorm `@Microsoft.KeyVault({referenceString})`, waarbij `{referenceString}` wordt vervangen door een van de volgende opties:
 
 > [!div class="mx-tdBreakAll"]
-> | Referentie-tekenreeks                                                            | Beschrijving                                                                                                                                                                                 |
+> | Referentie-tekenreeks                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri =_secretUri_                                                       | De **SecretUri** moet de volledige data plane-URI van een geheim in Key Vault, met inbegrip van een versie, bijvoorbeeld https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName =_vaultName_; SecretName =_secretName_; SecretVersion =_secretVersion_ | De **VaultName** moet de naam van uw Key Vault-resource. De **SecretName** moet de naam van het geheim van het doel. De **SecretVersion** moet de versie van het geheim te gebruiken. |

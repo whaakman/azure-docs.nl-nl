@@ -4,15 +4,15 @@ description: In dit artikel bevat een overzicht van veelgestelde vragen bij het 
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 83216091c950593b16f158ea3d8df5a194ecee02
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.author: mayg
+ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869820"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256504"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -146,11 +146,14 @@ Ja. Downloaden van MySQL en plaats deze in de **C:\Temp\ASRSetup** map. Installe
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan ik te voorkomen dat het downloaden van MySQL, maar kunt Site Recovery installeren?
 Ja. Download het installatieprogramma van MySQL en plaats deze in de **C:\Temp\ASRSetup** map.  Bij het instellen van de virtuele machine van de configuratieserver, de voorwaarden accepteren en klik op **Download en installeer**, de portal wordt het installatieprogramma dat u hebt toegevoegd voor het installeren van MySQL gebruikt.
  
-### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>CanL ik de virtuele machine van de configuratieserver voor iets anders gebruiken?
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Kan ik de virtuele machine van de configuratieserver voor iets anders gebruiken?
 Nee, moet u de virtuele machine alleen gebruiken voor de configuratieserver. 
 
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Kan ik een configuratieserver klonen en voor het indelen van gebruiken?
+Nee, moet u een nieuwe configuratieserver om te voorkomen dat problemen met registratie instellen.
+
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Kan ik de kluis geregistreerd op de configuratieserver wijzigen?
-Nee. Nadat een kluis is geregistreerd bij de configuratieserver, kan niet worden gewijzigd.
+Nee. Nadat een kluis is geregistreerd bij de configuratieserver, kan niet worden gewijzigd. Beoordeling [in dit artikel](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) voor herregistratie stappen.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Ik kan de dezelfde configuratieserver voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers gebruiken
 Ja, maar houd er rekening mee dat de fysieke computer kan worden alleen mogelijk is naar een VMware-VM.

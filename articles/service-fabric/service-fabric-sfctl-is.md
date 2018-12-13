@@ -12,21 +12,21 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 53e49099fd3486d51f021528c9354cf32f4952d2
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: abc1e835fa153fc5d061cca5a3eb009931240332
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492786"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276329"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Query's uitvoeren en opdrachten worden verzonden naar de infrastructuur-service.
 
 ## <a name="commands"></a>Opdrachten
 
-|Command|Beschrijving|
+|Opdracht|Description|
 | --- | --- |
 | command | Hiermee wordt een opdracht met beheerdersrechten op de opgegeven infrastructuur voor Service-exemplaar. |
 | query | Hiermee wordt een alleen-lezen query op het opgegeven infrastructuur service-exemplaar. |
@@ -38,15 +38,15 @@ Voor clusters die u een of meer exemplaren van de Service-infrastructuur is geco
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --opdracht (vereist) | De tekst van de opdracht om te worden aangeroepen. De inhoud van de opdracht is specifiek voor infrastructuur. |
-| --service-id | De identiteit van de infrastructuur-service. <br><br> Dit is de volledige naam van de service infrastructuur zonder het 'infrastructuur'-URI-schema. Deze parameter is alleen vereist voor het cluster dat is meer dan één exemplaar van de infrastructuur-service die wordt uitgevoerd. |
+| --service-id | De identiteit van de infrastructuur-service. <br><br> Dit is de volledige naam van de service infrastructuur zonder de ' fabric\:' URI-schema. Deze parameter is alleen vereist voor het cluster dat is meer dan één exemplaar van de infrastructuur-service die wordt uitgevoerd. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -61,7 +61,7 @@ Voor clusters die u een of meer exemplaren van de Service-infrastructuur is geco
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --opdracht (vereist) | De tekst van de opdracht om te worden aangeroepen. De inhoud van de opdracht is specifiek voor infrastructuur. |
 | --service-id | De identiteit van de infrastructuur-service. <br><br> Dit is de volledige naam van de service infrastructuur zonder de ' fabric\:' URI-schema. Deze parameter is alleen vereist voor het cluster dat is meer dan één exemplaar van de infrastructuur-service die wordt uitgevoerd. |
@@ -69,7 +69,7 @@ Voor clusters die u een of meer exemplaren van de Service-infrastructuur is geco
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |

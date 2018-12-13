@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: c4325f0c9de0d945d1612a3ab4171a2bfe1be25b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106512"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164412"
 ---
 # <a name="create-and-clone-projects"></a>Projecten maken en klonen
 
@@ -42,7 +42,7 @@ Wat u op het dashboard kunt doen, is afhankelijk van of u bent aangemeld met het
 | **Verwijderen** | Eigenaar | Hiermee verwijdert u het geselecteerde project. Deze bewerking kan niet ongedaan worden gemaakt. |
 | **Terminal** | Eigenaar | Start de projectserver en vervolgens een nieuw browservenster geopend met de bash, terminal voor die server. |
 | **+ Nieuw Project** | Eigenaar | Hiermee maakt u een nieuw project. Zie [een nieuw project maken](#create-a-new-project). |
-| **Github-opslagplaats uploaden** | Eigenaar | Een project importeert vanuit GitHub. [Een project importeren vanuit GitHub](#import-a-project-from-github). |
+| **GitHub-opslagplaats uploaden** | Eigenaar | Een project importeert vanuit GitHub. [Een project importeren vanuit GitHub](#import-a-project-from-github). |
 | **Kloon** | Iedereen | Een geselecteerde project worden gekopieerd naar uw eigen account. Vraagt u zich kunt aanmelden in als dit nog niet. Zie [klonen van een project](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Verkrijgen van een badge starten
@@ -104,10 +104,10 @@ Voor het klonen van een project:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Voorbeeldnotitieblokken verkennen](azure-notebooks-samples.md)
-- [Hoe: configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
-- [Hoe: installatie van pakketten van binnen een laptop](install-packages-jupyter-notebook.md)
-- [Hoe: een diavoorstelling](present-jupyter-notebooks-slideshow.md)
-- [Hoe: werken met bestanden](work-with-project-data-files.md)
-- [Hoe: toegang tot gegevensbronnen](access-data-resources-jupyter-notebooks.md)
-- [Hoe: Azure Machine Learning-Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)
+- [Voorbeelden van notebooks verkennen](azure-notebooks-samples.md)
+- [Procedures: Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
+- [Procedures: Installeren van pakketten van binnen een laptop](install-packages-jupyter-notebook.md)
+- [Procedures: Een diavoorstelling](present-jupyter-notebooks-slideshow.md)
+- [Procedures: Werken met bestanden](work-with-project-data-files.md)
+- [Procedures: Toegang tot gegevensresources](access-data-resources-jupyter-notebooks.md)
+- [Procedures: Azure Machine Learning-Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)

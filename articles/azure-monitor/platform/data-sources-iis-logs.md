@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
-ms.comopnent: ''
-ms.openlocfilehash: 38f21a3d8f2bf1adcd224480223a37113b347e18
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 42509f98126ebb489fe17c58e6d58b37d7451cf0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838494"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189069"
 ---
 # <a name="iis-logs-in-log-analytics"></a>IIS-logboeken in Log Analytics
 Internet Information Services (IIS) slaat gebruikersactiviteit in logboekbestanden die kunnen worden verzameld door Log Analytics.  
@@ -43,7 +41,7 @@ Log Analytics verzamelt IIS-logboekvermeldingen van elke agent die telkens wanne
 ## <a name="iis-log-record-properties"></a>Record-eigenschappen van IIS-logboek
 IIS-logboekrecords zijn een type **W3CIISLog** en hebben de eigenschappen in de volgende tabel:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Computer |De naam van de computer waarop de gebeurtenis is verzameld. |
 | Overschrijving |IP-adres van de client. |
@@ -70,7 +68,7 @@ IIS-logboekrecords zijn een type **W3CIISLog** en hebben de eigenschappen in de 
 ## <a name="log-searches-with-iis-logs"></a>Zoekopdrachten in Logboeken met IIS-logboeken
 De volgende tabel bevat voorbeelden van Logboeken-query's die IIS logboekrecords ophalen.
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |:--- |:--- |
 | W3CIISLog |Alle IIS-logboek records. |
 | W3CIISLog &#124; waar scStatus 500 == |Alle IIS-logboek records met een status van het resultaat van 500. |

@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bcb448296313eedebb8f8389b320c5da5f1a80dd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ef86c9ee00fdd4673774640d33eec93e2ead876d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311785"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193090"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Gebruikersprivacy en Azure Active Directory Pass through-verificatie
 
@@ -72,7 +72,7 @@ Als u logboeken met betrekking tot de Pass through-verificatie-Agent, opent u de
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Logboekbestanden voor tracering van verificatie-Agent verwijderen
 
-Controleer regelmatig de inhoud van **%ProgramData%\Microsoft\Azure AD verbinding maken met verificatie Agent\Trace\**  en verwijder de inhoud van deze map om 48 uur. 
+Controleer regelmatig de inhoud van <strong>%ProgramData%\Microsoft\Azure AD verbinding maken met verificatie Agent\Trace\</ strong > en verwijder de inhoud van deze map om 48 uur. 
 
 >[!IMPORTANT]
 >Als de verificatie-Agent-service wordt uitgevoerd, wordt het niet mogelijk om te verwijderen van het huidige logboekbestand in de map. Stop de service voordat u doorgaat. Om te voorkomen dat een gebruiker aanmeldingen dat is toegestaan, u moet al zijn geconfigureerd voor Pass-through-verificatie [hoge beschikbaarheid](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).

@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3c33612ef76a572bd4bf63a5e7d6f05e36c7847b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081996"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271518"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Patronen verbeteren nauwkeurigheid
 Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende uitingen vergelijkbaar zijn.  Een patroon kunt u meer nauwkeurigheid voor een doel zonder op te geven veel meer uitingen krijgen. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Patronen oplossen lage intentie vertrouwen
-Houd rekening met een Human Resources-app die in de organisatie-grafiek ten opzichte van een werknemer-rapporten. Gezien de naam en de relatie van een werknemer, retourneert LUIS de werknemers die betrokken zijn. Houd rekening met een werknemer, Tom, met een manager naam Els en een team van onderliggende niveaus met de naam: Michael Rebecca en Carl.
+Houd rekening met een Human Resources-app die in de organisatie-grafiek ten opzichte van een werknemer-rapporten. Gezien de naam en de relatie van een werknemer, retourneert LUIS de werknemers die betrokken zijn. Houd rekening met een werknemer, Tom, met een manager naam Els en een team van onderliggende niveaus met de naam: Michael, Rebecca en Carl.
 
 ![Afbeelding van organigram](./media/luis-concept-patterns/org-chart.png)
 
@@ -43,6 +43,8 @@ Patronen gebruiken een combinatie van technologieën voor voorspelling. Instelle
 
 ## <a name="patterns-do-not-improve-entity-detection"></a>Patronen de detectie van de entiteit niet zijn verbeteren
 Hoewel patronen entiteiten, een patroon helpt niet bij het detecteren van de entiteit. Een patroon is alleen bedoeld om u te helpen bij het voorspellen met intents en rollen.  
+
+Niet verwacht te zien verbeterde entiteit voorspelling als u meerdere uitingen in een enkel patroon samenvouwen. Voor eenvoudige entiteiten moet worden gestart, moet u utterances toevoegen of lijst met entiteiten gebruiken anders die het patroon wordt niet gestart.
 
 ## <a name="patterns-use-entity-roles"></a>Patronen entiteit rollen gebruiken
 Als twee of meer entiteiten in een patroon contextueel zijn gerelateerd, patronen entiteit gebruiken [rollen](luis-concept-roles.md) contextuele gegevens over entiteiten extraheren. Dit is gelijk aan het hiërarchische entiteit kinderen, maar is **alleen** beschikbaar in de patronen. 

@@ -1,5 +1,5 @@
 ---
-title: Een ontwikkelomgeving configureren
+title: Python-ontwikkelomgeving instellen
 titleSuffix: Azure Machine Learning service
 description: Informatie over het configureren van een ontwikkelomgeving bij het werken met de Azure Machine Learning-service. In dit document leert u hoe u Conda-omgevingen gebruiken, configuratiebestanden maken en configureren van Jupyter Notebooks, Azure Notebooks, IDE's, code-editors en de virtuele Machine voor Datatechnologie.
 services: machine-learning
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6e2222d56ea37983b1efafedaac8e01058cb44fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 59f847dc38cddfd9185cfd169cf1ef34c744f8f7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098046"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192631"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -25,11 +25,11 @@ In dit document leert u hoe u een ontwikkelomgeving, zodat het werken met de Azu
 
 Dit document is gericht op de volgende specifieke omgevingen en hulpprogramma's:
 
-* [Azure-notitieblokken](#aznotebooks): Jupyter-Notebooks voor A-service die wordt gehost in de Azure-cloud. Het is __het gemakkelijkst__ manier om te beginnen, zoals de Azure Machine Learning-SDK is al geïnstalleerd.
-* [De Data Science Virtual Machine](#dsvm): A __vooraf geconfigureerde ontwikkeling/experimentele omgeving__ in de Azure cloud dat wil zeggen __ontworpen voor data science werk__ en kunnen worden geïmplementeerd op een Exemplaren op basis van CPU alleen VM-exemplaren of GPU. Python 3, Conda, Jupyter-Notebooks en de SDK van Azure Machine Learning zijn al geïnstalleerd. De virtuele machine wordt geleverd met populaire ML / deep learning-frameworks, hulpprogramma's en editors om ML-oplossingen te ontwikkelen. Is dit waarschijnlijk __de meest volledige__ ontwikkelomgeving voor ML op het Azure-platform.
-* [Jupyter-Notebooks](#jupyter): als u al Jupyter Notebooks, de SDK heeft enkele extra's die u moet installeren.
-* [Visual Studio Code](#vscode): als u Visual Studio Code, er zijn enkele nuttige extensies die u kunt installeren.
-* [Azure Databricks](#aml-databricks): een populaire data analytics-platform op basis van Apache Spark. Informatie over het verkrijgen van de Azure Machine Learning-SDK op uw cluster, zodat u modellen kunt implementeren.
+* [Azure-notitieblokken](#aznotebooks): Een Jupyter-Notebooks-service die wordt gehost in de Azure-cloud. Het is __het gemakkelijkst__ manier om te beginnen, zoals de Azure Machine Learning-SDK is al geïnstalleerd.
+* [De Data Science Virtual Machine](#dsvm): Een __vooraf geconfigureerde ontwikkeling/experimentele omgeving__ in de Azure cloud dat wil zeggen __ontworpen voor data science werk__ en kunnen worden geïmplementeerd op een van beide CPU alleen VM-exemplaren of GPU op basis van exemplaren. Python 3, Conda, Jupyter-Notebooks en de SDK van Azure Machine Learning zijn al geïnstalleerd. De virtuele machine wordt geleverd met populaire ML / deep learning-frameworks, hulpprogramma's en editors om ML-oplossingen te ontwikkelen. Is dit waarschijnlijk __de meest volledige__ ontwikkelomgeving voor ML op het Azure-platform.
+* [Jupyter-Notebooks](#jupyter): Als u al Jupyter Notebooks, is de SDK enkele extra's die u moet installeren.
+* [Visual Studio Code](#vscode): Als u Visual Studio Code gebruikt, zijn er enkele nuttige extensies die u kunt installeren.
+* [Azure Databricks](#aml-databricks): Een populair platform voor gegevensanalyse op basis van Apache Spark. Informatie over het verkrijgen van de Azure Machine Learning-SDK op uw cluster, zodat u modellen kunt implementeren.
 
 Als u al een Python 3-omgeving hebt, of alleen de basisstappen voor het installeren van de SDK wilt, Zie de [lokale computer](#local) sectie.
 
@@ -212,7 +212,7 @@ Voor het gebruik van Visual Studio Code voor de ontwikkeling, gebruikt u de volg
 
 1. Zie voor meer informatie over het gebruik van Visual Studio Code voor Python-ontwikkeling, de [aan de slag met Python vscode](https://code.visualstudio.com/docs/python/python-tutorial) document.
 
-1. Schakel de Conda-omgeving, opent u VS Code en gebruik vervolgens __Ctrl-Shift-P__ (Linux en Windows) of __opdracht-Shift-P__ (Mac) om op te halen de __opdracht palet__. Voer __Python: Select Interpreter__ en selecteer vervolgens de conda-omgeving.
+1. Schakel de Conda-omgeving, opent u VS Code en gebruik vervolgens __Ctrl-Shift-P__ (Linux en Windows) of __opdracht-Shift-P__ (Mac) om op te halen de __opdracht palet__. Voer __Python: Selecteer Interpreter__ en selecteer vervolgens de conda-omgeving.
 
 1. Om te valideren dat u de SDK kunt gebruiken, maakt u een nieuwe Python-bestand (.py) met de volgende code. Voer vervolgens het bestand:
 

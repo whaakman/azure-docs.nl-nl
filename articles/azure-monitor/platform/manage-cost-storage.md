@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 744a0f683f58aed98cea7bdef0b2a36af68ad2f1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1ea99c045d5f1bfaacaefab04322b2d4f1123c84
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097570"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183503"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren
 
@@ -77,20 +76,20 @@ De volgende stappen wordt beschreven hoe u een limiet voor het beheren van de ho
 5. Dagelijkse limiet is **OFF** standaard – klikt u op **ON** wilt inschakelen, en stelt de limiet voor het volume van gegevens in GB per dag.<br><br> ![Log Analytics configureren gegevenslimiet](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-limit-reached"></a>Ontvang een waarschuwing wanneer de limiet is bereikt
-Terwijl we een visuele hint aanwezig in Azure portal wanneer uw limiet drempelwaarde wordt voldaan, wordt dit gedrag niet per se uitlijnen voor het beheren van operationele problemen die onmiddellijke aandacht.  Voor het ontvangen van een waarschuwingsmelding, kunt u een nieuwe waarschuwingsregel maken in Azure Monitor.  Zie voor meer informatie, [maken, weergeven en beheren van waarschuwingen](../../monitoring-and-diagnostics/alert-metric.md).      
+Terwijl we een visuele hint aanwezig in Azure portal wanneer uw limiet drempelwaarde wordt voldaan, wordt dit gedrag niet per se uitlijnen voor het beheren van operationele problemen die onmiddellijke aandacht.  Voor het ontvangen van een waarschuwingsmelding, kunt u een nieuwe waarschuwingsregel maken in Azure Monitor.  Zie voor meer informatie, [maken, weergeven en beheren van waarschuwingen](../../azure-monitor/platform/alerts-metric.md).      
 
 Als u aan de slag te gaan, moet u hier de aanbevolen instellingen voor de waarschuwing zijn:
 
 * Doel: Selecteer uw Log Analytics-resource
 * De criteria: 
-   * Signaalnaam: aangepast zoeken in Logboeken
-   * Zoekquery: bewerking | waar Details 'overschrijding ' van het quotum heeft
-   * Op basis van: aantal resultaten
-   * Voorwaarde: Groter is dan
+   * Signaalnaam: Zoeken in aangepaste logboeken
+   * Zoekopdracht: Bewerking | waar Details 'overschrijding ' van het quotum heeft
+   * Op basis van: Aantal resultaten
+   * Voorwaarde: Groter dan
    * Drempelwaarde: 0
    * Periode: 5 (minuten)
-   * Frequentie: 5 (minuten)
-* Naam waarschuwingsregel: dagelijkse gegevenslimiet bereikt
+   * Frequentie van: 5 (minuten)
+* Naam waarschuwingsregel: Dagelijkse gegevenslimiet bereikt
 * Ernst: Waarschuwing (Sev 1)
 
 Zodra de waarschuwing is gedefinieerd en de limiet is bereikt, wordt een waarschuwing wordt geactiveerd en voert het antwoord dat is gedefinieerd in de actiegroep. Deze kennis van uw team via e-mail en SMS-berichten of acties met behulp van webhooks, Automation-runbooks automatiseren of [integreren met een externe ITSM-oplossing](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
@@ -103,10 +102,10 @@ De volgende stappen wordt beschreven hoe u configureren hoe lang logboek gegeven
 5. Verplaats de schuifregelaar om te vergroten of verkleinen het aantal dagen en klik vervolgens op in het deelvenster **OK**.  Als u van gebruikmaakt de *gratis* laag, kunt u zich niet wijzigen van de bewaartermijn voor gegevens en moet u upgraden naar de prijscategorie betaald als u wilt beheren met deze instelling.<br><br> ![Werkruimte behoud instelling wijzigen](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-**Vraag**: hoe los ik als Log Analytics is niet meer gegevens worden verzameld? 
-**Antwoord**: als u op de gratis laag prijzen zijn en meer dan 500 MB aan gegevens op een dag hebt verzonden, stopt met het verzamelen van gegevens voor de rest van de dag. De dagelijkse limiet wordt bereikt, is een veelvoorkomende reden die Log Analytics stopt het verzamelen van gegevens of gegevens lijkt te ontbreken.  
+**Vraag**: Hoe kan ik als Log Analytics niet meer van gegevens verzamelen is oplossen? 
+**antwoord**:  Als u op de gratis laag prijzen zijn en meer dan 500 MB aan gegevens op een dag hebt verzonden, stopt het verzamelen van gegevens voor de rest van de dag. De dagelijkse limiet wordt bereikt, is een veelvoorkomende reden die Log Analytics stopt het verzamelen van gegevens of gegevens lijkt te ontbreken.  
 Log Analytics maakt een gebeurtenis van het type bewerking wanneer het verzamelen van gegevens wordt gestart en gestopt.  
-Voer de volgende query in het zoekvak om te controleren als u de dagelijkse limiet is bereikt en er gegevens ontbreken: bewerking | waar OperationCategory == 'Status voor het verzamelen van gegevens'   
+Voer de volgende query in het zoekvak om te controleren als u de dagelijkse limiet is bereikt en er gegevens ontbreken: Bewerking | waar OperationCategory == 'Status voor het verzamelen van gegevens'   
 Wanneer het verzamelen van gegevens stopt, wordt de OperationStatus waarschuwing. Wanneer het verzamelen van gegevens wordt gestart, wordt de OperationStatus is voltooid.  
 De volgende tabel beschrijft de redenen die het verzamelen van gegevens gestopt en een voorgestelde actie voor het verzamelen van gegevens hervatten:  
 
@@ -120,8 +119,8 @@ De volgende tabel beschrijft de redenen die het verzamelen van gegevens gestopt 
 
 Log Analytics maakt gebruik van UTC-tijd. De tijd voor opnieuw instellen varieert tussen werkruimten om te voorkomen dat alle maximale werkruimten start ophalen van gegevens op hetzelfde moment. Als de werkruimte de dagelijkse limiet bereikt, verwerking wordt hervat nadat de tijd voor opnieuw instellen die zijn gedefinieerd in **dagelijkse limiet wordt ingesteld op**.<br><br> ![Log Analytics beperken UTC-tijdzone](media/manage-cost-storage/data-volume-mgmt-limit-utc.png)
 
-**Vraag**: hoe kan ik een melding wanneer het verzamelen van gegevens gestopt? 
-**Antwoord**: Gebruik de stappen *maken dagelijkse gegevenslimiet* waarschuwing wilt worden gewaarschuwd als het verzamelen van gegevens gestopt en volg de stappen gebruikt u de stappen bewerkingen voor regels voor waarschuwingen configureren van een e-mail, een webhook of een runbook toevoegen actie voor de waarschuwingsregel. 
+**Vraag**: Hoe kan ik de hoogte gesteld wanneer het verzamelen van gegevens wordt gestopt? 
+**antwoord**: Gebruik de stappen *maken dagelijkse gegevenslimiet* waarschuwing wilt worden gewaarschuwd als het verzamelen van gegevens gestopt en volg de stappen gebruikt u de stappen bewerkingen voor regels voor waarschuwingen configureren van een e-mail, webhook- of -actie voor de waarschuwingsregel toevoegen . 
 
 ## <a name="next-steps"></a>Volgende stappen  
 

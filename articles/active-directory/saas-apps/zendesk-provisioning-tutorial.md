@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 2dc965547511d27ed43a88c1f45b50593b30a937
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347933"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322769"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Zelfstudie: Zendesk voor het automatisch inrichten van gebruikers configureren
 
@@ -29,7 +29,7 @@ Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitg
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende vereisten hebt:
 
@@ -47,7 +47,7 @@ Voordat u Zendesk configureert voor automatisch gebruikers inrichten met Azure A
 
 1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op de **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory][1]
 
 2. Navigeer naar **bedrijfstoepassingen** > **alle toepassingen**.
 
@@ -55,7 +55,7 @@ Voordat u Zendesk configureert voor automatisch gebruikers inrichten met Azure A
     
 3. Als u wilt toevoegen Zendesk, klikt u op de **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Zendesk**.
 
@@ -77,6 +77,10 @@ Voordat u configureren en inschakelen van automatische inrichten van gebruikers,
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Belangrijke tips voor het toewijzen van gebruikers met Zendesk
 
+*    Zendesk-functies worden dynamisch en automatisch ingevuld in de gebruikersinterface van Azure portal vandaag nog. Voordat u Zendesk-rollen toewijzen aan gebruikers, moet een eerste synchronisatie is voltooid op basis van Zendesk om op te halen van de meest recente rollen in uw Zendesk-tenant.
+
+*    Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Zendesk voor het testen van uw eerste automatisch gebruikers inrichten van configuratie. Extra gebruikers en/of groepen kunnen worden toegewezen later als de tests geslaagd zijn.
+  
 *   Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Zendesk voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
 *   Bij het toewijzen van een gebruiker met Zendesk, moet u een geldige toepassingsspecifieke-rol (indien beschikbaar) in het dialoogvenster toewijzing selecteren. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
@@ -111,7 +115,7 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
     *   In de **geheim Token** veld, vul het token voor geheim zoals beschreven in stap 6.
 
     *   In de **domein** veld, vullen het subdomein van uw Zendesk-tenant.
-    Voorbeeld: voor een account met een tenant-URL van https://my-tenant.zendesk.com, zou uw subdomein **mijn tenant**.
+    Voorbeeld: Voor een account met een tenant-URL van https://my-tenant.zendesk.com, zou uw subdomein **mijn tenant**.
 
 6. De **geheim Token** voor uw Zendesk-account zich bevindt in **Admin > API > instellingen**. 
 
@@ -165,7 +169,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 ## <a name="connector-limitations"></a>Connector-beperkingen
 * Zendesk ondersteunt het gebruik van groepen voor gebruikers met alleen de rollen voor de Agent. Raadpleeg voor meer informatie, [van Zendesk-documentatie](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

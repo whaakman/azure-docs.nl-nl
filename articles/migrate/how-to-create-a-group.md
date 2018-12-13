@@ -6,16 +6,19 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 3f90fbb4ae30f8cc7730385730c39321974a94c4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c11d2f22fa08417107b0eecdd902b4521410b358
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850700"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252419"
 ---
 # <a name="group-machines-for-assessment"></a>Groepeer machines voor evaluatie
 
 In dit artikel wordt beschreven hoe u een groep machines voor evaluatie van [Azure Migrate](migrate-overview.md). Azure Migrate beoordeelt de machines in de groep om te controleren of ze geschikt voor migratie naar Azure, en biedt formaat- en kostenramingen voor het uitvoeren van de machine in Azure. Als u de machines die samen moeten worden gemigreerd, kunt u de groep handmatig maken in Azure migreren met behulp van de volgende methode. Als u niet zeker weet over de computers die moeten worden gegroepeerd, kunt u de functie voor visualisatie van afhankelijkheden in Azure Migrate gebruiken om groepen te maken. [Meer informatie.](how-to-create-group-machine-dependencies.md)
+
+> [!NOTE]
+> De functie voor visualisatie van afhankelijkheden is niet beschikbaar in Azure Government.
 
 ## <a name="create-a-group"></a>Een groep maken
 

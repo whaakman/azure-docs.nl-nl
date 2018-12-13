@@ -10,17 +10,15 @@ ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 42a72edd6f9915e45f57a29509f48b3e0b612de3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088031"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184940"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics
 
@@ -100,5 +98,5 @@ Gegevens van een activiteitenlogboek wordt alleen weergegeven *nadat* u uw activ
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Maak een [waarschuwing](../../monitoring-and-diagnostics/alert-metric.md) wanneer een bepaalde activiteit gebeurt.
+- Maak een [waarschuwing](../../azure-monitor/platform/alerts-metric.md) wanneer een bepaalde activiteit gebeurt.
 - Gebruik [zoeken in logboeken](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde gegevens uit uw activiteitenlogboeken weer te geven.

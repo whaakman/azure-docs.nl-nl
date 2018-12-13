@@ -1,12 +1,11 @@
 ---
-title: Opnieuw trainen van een bestaande voorspellende webservice - Azure Machine Learning Studio | Microsoft Docs
+title: Een bestaande webservice opnieuw trainen voorspellende Studio - Azure Machine Learning Studio | Microsoft Docs
 description: Informatie over het opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
@@ -16,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 8da3c5d5c79ce52f1f5176a8b3317ce2a0e0bc5f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d24cfd8dce42ee920c87fa2c3593a860468a6160
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311293"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250549"
 ---
-# <a name="retrain-an-existing-predictive-web-service"></a>Een bestaande voorspellende webservice opnieuw trainen
+# <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Een bestaand Voorspellend Azure Machine Learning Studio-webservice opnieuw trainen
+
 In dit document beschrijft de retraining voor het volgende scenario:
 
 * U hebt een opleidingsexperiment en een Voorspellend experiment die u hebt geïmplementeerd als een geoperationaliseerde webservice.
@@ -66,7 +66,7 @@ In dit voorbeeld gebruiken we C# om de retraining toepassing te maken. U kunt oo
 
 Om aan te roepen de retraining API's:
 
-1. Een C#-consoletoepassing maakt in Visual Studio: **nieuw** > **Project** > **Visual C#** > **Windows Klassieke bureaublad** > **consoletoepassing (.NET Framework)**.
+1. Maak een C# in Visual Studio-consoletoepassing: **Nieuwe** > **Project** > **Visual C#**   >  **Windows Classic Desktop**  >   **Console-App (.NET Framework)**.
 2. Aanmelden bij de portal voor Machine Learning-webservices.
 3. Klik op de web-service waarmee u werkt.
 4. Klik op **gebruiken**.

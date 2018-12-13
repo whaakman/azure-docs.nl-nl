@@ -1,5 +1,5 @@
 ---
-title: Beheerde identiteiten in App Service en Azure Functions | Microsoft Docs
+title: Beheerde identiteiten overzicht - Azure App Service | Microsoft Docs
 description: Conceptuele verwijzing en setup-handleiding voor het beheerde identiteiten in Azure App Service en Azure Functions
 services: app-service
 author: mattchenderson
@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 033667500f627a090c6ba6d686224126d217b833
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 40ae45eb401aeb302b2474cd181d29c0ee26c611
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971399"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254357"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Over het gebruik van beheerde identiteiten voor App Service en Azure Functions
 
@@ -158,7 +158,7 @@ Waar `<TENANTID>` en `<PRINCIPALID>` zijn vervangen door de GUID's. De eigenscha
 ## <a name="adding-a-user-assigned-identity-preview"></a>Toevoegen van een gebruiker toegewezen identiteit (preview)
 
 > [!NOTE] 
-> Gebruiker toegewezen identiteiten zijn momenteel in preview. Sovreign clouds zijn nog niet ondersteund.
+> Gebruiker toegewezen identiteiten zijn momenteel in preview. Onafhankelijke clouds zijn nog niet ondersteund.
 
 Het maken van een app met een gebruiker toegewezen identiteit is vereist dat u de identiteit maken en vervolgens de resource-id aan uw app-configuratie toevoegen.
 
@@ -283,7 +283,7 @@ Een app met een beheerde identiteit heeft twee omgevingsvariabelen gedefinieerd:
 De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u een token voor een resource, moet u een HTTP GET-aanvraag voor dit eindpunt, met inbegrip van de volgende parameters:
 
 > [!div class="mx-tdBreakAll"]
-> |Parameternaam|In|Beschrijving|
+> |Parameternaam|In|Description|
 > |-----|-----|-----|
 > |Bron|Query’s uitvoeren|De AAD-resource-URI van de resource voor een token moet worden opgehaald. Dit wordt mogelijk een van de [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) of een andere resource-URI.|
 > |API-versie|Query’s uitvoeren|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie die wordt ondersteund.|
@@ -294,12 +294,12 @@ De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u
 Een geslaagde respons met 200 OK bevat een JSON-hoofdtekst met de volgende eigenschappen:
 
 > [!div class="mx-tdBreakAll"]
-> |Naam van eigenschap|Beschrijving|
+> |Naam van eigenschap|Description|
 > |-------------|----------|
 > |access_token|Het aangevraagde toegangstoken. De aanroepende webservice kan dit token gebruiken om te verifiëren bij de ontvangende webservice.|
 > |expires_on|De tijd wanneer het toegangstoken is verlopen. De datum wordt weergegeven als het aantal seconden vanaf 1970-01-01T0:0:0Z UTC tot de vervaltijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache.|
 > |Bron|De App-ID-URI van de ontvangende webservice.|
-> |token_type|Geeft aan dat de waarde van het token. Het enige type die ondersteuning biedt voor Azure AD is Bearer. Zie voor meer informatie over het bearer-tokens [Framework van de OAuth 2.0 machtiging: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
+> |token_type|Geeft aan dat de waarde van het token. Het enige type die ondersteuning biedt voor Azure AD is Bearer. Zie voor meer informatie over het bearer-tokens [autorisatie Framework van de OAuth 2.0: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
 Deze reactie is hetzelfde als de [antwoord voor de AAD-service-naar-service toegang-tokenaanvraag](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).

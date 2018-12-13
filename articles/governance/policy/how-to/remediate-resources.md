@@ -1,5 +1,5 @@
 ---
-title: Herstellen van niet-compatibele resources met Azure Policy
+title: Niet-compatibele resources herstellen
 description: Deze instructies begeleidt u bij het herstel van resources die niet aan beleidsregels in Azure Policy voldoen.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 62b59fa5a7955d9cab41591606c595adae41ba9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 093b49bea167efb12b941f8f0baff6fbdae5be25
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103843"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312643"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Herstellen van niet-compatibele resources met Azure Policy
 

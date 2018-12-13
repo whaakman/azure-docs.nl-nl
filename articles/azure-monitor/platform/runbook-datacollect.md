@@ -10,16 +10,15 @@ ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: monitoring
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: ac0e004039465171c615bbd3c79f361ceb764166
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2ecb50bdf44b93e8620d6d98a98fc735da6e87c3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962247"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186715"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Gegevens verzamelen in Log Analytics met een Azure Automation-runbook
 U kunt een aanzienlijke hoeveelheid gegevens in Log Analytics verzamelt uit diverse bronnen, zoals [gegevensbronnen](../../azure-monitor/platform/agent-data-sources.md) op agents en ook [gegevens verzameld van Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Er zijn een's al waar moet u het verzamelen van gegevens die niet worden geopend via deze standaard bronnen.  In dergelijke gevallen kunt u de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API.  Een veelgebruikte methode voor het uitvoeren van deze gegevensverzameling wordt met behulp van een runbook in Azure Automation.   
@@ -66,7 +65,7 @@ De PowerShell Gallery kunt u echter een snelle optie voor het implementeren van 
 
 | Eigenschap | De waarde van de werkruimte-ID | Werkruimte-sleutelwaarde |
 |:--|:--|:--|
-| Naam | Werkruimte-id | WorkspaceKey |
+| Name | Werkruimte-id | WorkspaceKey |
 | Type | Reeks | Reeks |
 | Waarde | Plak in de werkruimte-ID van uw Log Analytics-werkruimte. | Plakken aan met de primaire of secundaire sleutel van uw Log Analytics-werkruimte. |
 | Versleuteld | Nee | Ja |
@@ -185,7 +184,7 @@ De meest voorkomende manier om een runbook die worden verzameld van bewakingsgeg
 
 | Eigenschap | Waarde |
 |:--|:--|
-| Naam | AutomationJobs-uur |
+| Name | AutomationJobs-uur |
 | Start | Selecteer altijd ten minste 5 minuten na de huidige tijd. |
 | Terugkeerpatroon | Terugkerend |
 | Herhalen elke | 1 uur |

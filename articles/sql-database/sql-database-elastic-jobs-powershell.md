@@ -5,19 +5,19 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: ''
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 36b03794f4b55af3de89f96ecee02f5542f40f01
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972096"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278454"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>SQL Database elastische taken met behulp van PowerShell (preview) maken en beheren
 
@@ -46,7 +46,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **taken voor Elastic 
 <table style="width:100%">
   <tr>
     <th>Objecttype</th>
-    <th>Beschrijving</th>
+    <th>Description</th>
     <th>Gerelateerde PowerShell-API 's</th>
   </tr>
   <tr>
@@ -193,8 +193,8 @@ De taak wordt uitgevoerd van Transact-SQL (T-SQL)-scripts of de toepassing van D
 
 Er zijn twee typen groepen die u kunt maken: 
 
-* [Shard-toewijzing](sql-database-elastic-scale-shard-map-management.md) groep: als een taak wordt verzonden naar het doel van een shard-toewijzing, de taak query's de shard-toewijzing om te bepalen van de huidige set met shards en maakt vervolgens onderliggende taken voor elke shard in de shard-toewijzing.
-* Verzamelgroep voor de aangepaste: een aangepaste set met databases. Wanneer een taak is gericht op een aangepaste verzameling, maakt het onderliggende taken voor elke database die momenteel in de volgende zelfgemaakte collectie.
+* [Shard-toewijzing](sql-database-elastic-scale-shard-map-management.md) groep: Als een taak wordt verzonden naar het doel van een shard-toewijzing, wordt de taak query's de shard-toewijzing om te bepalen van de huidige set met shards en maakt vervolgens onderliggende taken voor elke shard in de shard-toewijzing.
+* Aangepaste verzameling groep: Een aangepaste set met databases. Wanneer een taak is gericht op een aangepaste verzameling, maakt het onderliggende taken voor elke database die momenteel in de volgende zelfgemaakte collectie.
 
 ## <a name="to-set-the-elastic-database-jobs-connection"></a>Taken voor het instellen van de elastische Database verbinding
 Een verbinding moet worden ingesteld voor de taken *control database* voordat u met behulp van de taken API's. Deze cmdlet uitvoert, wordt een venster van de referentie naar het pop-aanvragen van de gebruikersnaam en wachtwoord die zijn gemaakt bij het installeren van de taken voor Elastic Database geactiveerd. Alle voorbeelden in dit onderwerp wordt ervan uitgegaan dat al deze eerste stap is uitgevoerd.
@@ -416,18 +416,18 @@ Uitvoeringsbeleidsregels toestaan op dit moment voor het definiëren van:
 
 * Naam: De id voor het uitvoeringsbeleid.
 * De time-out van de taak: Totale tijd voordat een taak wordt geannuleerd door de taken voor Elastic Database.
-* Eerste Interval voor opnieuw proberen: Interval moet worden gewacht voordat de eerste poging.
-* Maximaal Interval voor opnieuw proberen: De limiet van interval tussen nieuwe pogingen te gebruiken.
-* Interval voor uitstel coëfficiënt voor opnieuw proberen: Coëfficiënt die wordt gebruikt voor het berekenen van de volgende interval tussen nieuwe pogingen.  De volgende formule wordt gebruikt: (eerste Interval voor opnieuw proberen) * Math.pow ((Interval uitstel coëfficiënt) (nummer van de nieuwe pogingen) - 2). 
+* Interval voor eerste opnieuw proberen: Het interval moet worden gewacht voordat de eerste poging.
+* Interval voor maximale aantal nieuwe pogingen: De limiet van interval tussen nieuwe pogingen te gebruiken.
+* Interval voor uitstel coëfficiënt voor opnieuw proberen: De coëfficiënt gebruikt voor het berekenen van de volgende interval tussen nieuwe pogingen.  De volgende formule wordt gebruikt: (De eerste Interval voor opnieuw proberen) * Math.pow ((Interval uitstel coëfficiënt) (aantal nieuwe pogingen) - 2). 
 * Maximum aantal pogingen: Het maximale aantal nieuwe pogingen om uit te voeren in een job.
 
 Het standaard-uitvoeringsbeleid maakt gebruik van de volgende waarden:
 
 * Naam: Standaard-uitvoeringsbeleid
 * De time-out van de taak: 1 week
-* Eerste Interval voor opnieuw proberen: 100 milliseconden
-* Maximaal Interval voor opnieuw proberen: 30 minuten
-* De coëfficiënt Interval opnieuw proberen: 2
+* Interval voor eerste opnieuw proberen:  100 milliseconden
+* Interval voor maximale aantal nieuwe pogingen: 30 minuten
+* De coëfficiënt Interval voor opnieuw proberen: 2
 * Maximum aantal pogingen: 2.147.483.647
 
 Maak de gewenste uitvoeringsbeleid:
@@ -459,8 +459,8 @@ Taken voor elastic Database biedt ondersteuning voor annulering aanvragen van ta
 
 Er zijn twee verschillende manieren dat taken voor Elastic Database een annulering kan uitvoeren:
 
-1. Momenteel actieve taken annuleren: als een annulering wordt gedetecteerd, terwijl een taak wordt momenteel uitgevoerd, een annulering wordt geprobeerd binnen het momenteel wordt uitgevoerd aspect van de taak.  Bijvoorbeeld: als er een langlopende query's die momenteel wordt uitgevoerd wanneer een annulering wordt uitgevoerd, wordt er een poging tot annuleren van de query.
-2. Annuleren van nieuwe pogingen: als bij een annulering wordt gedetecteerd door de besturingselement-thread voordat een taak wordt gestart voor de uitvoering, de besturingselement-thread wordt voorkomen dat de taak en de aanvraag Declareer zoals geannuleerd.
+1. Annuleren momenteel actieve taken: Als een annulering wordt gedetecteerd, terwijl een taak wordt momenteel uitgevoerd, wordt bij een annulering worden uitgevoerd binnen het momenteel wordt uitgevoerd aspect van de taak.  Bijvoorbeeld: Als er een langlopende query's die momenteel wordt uitgevoerd wanneer een annulering wordt uitgevoerd, wordt er een poging tot annuleren van de query.
+2. Annuleren van nieuwe pogingen: Als bij een annulering wordt gedetecteerd door de besturingselement-thread voordat een taak voor uitvoering is gestart, wordt de besturingselement-thread te voorkomen dat de taak starten en Declareer van de aanvraag, zoals geannuleerd.
 
 Als een geannuleerde taken voor een bovenliggende taak is aangevraagd, wordt de aanvraag voor annulering voor de bovenliggende taak en alle bijbehorende onderliggende taken worden uitgevoerd.
 

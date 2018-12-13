@@ -8,15 +8,15 @@ editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
-ms.date: 5/04/2018
+ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2ae03dc41d4e5611b75b683975f26874187de1d0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 680a47dae057b68957c58bbaab1ec35407d67952
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136292"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268629"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Gegevens voor Azure Machine Learning verplaatsen naar een Azure SQL-database
 
@@ -39,7 +39,7 @@ De procedures die hier wordt beschreven, vereist dat u hebt:
 * Toegang tot een **Azure SQL Database**. Als u een Azure SQL-Database moet instellen [aan de slag met Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) bevat informatie over hoe u een nieuw exemplaar van een Azure SQL-Database inricht.
 * Geïnstalleerd en geconfigureerd **Azure PowerShell** lokaal. Zie voor instructies [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
-**Gegevens**: de migratie-processen worden gedemonstreerd met behulp van de [NYC Taxi gegevensset](http://chriswhong.com/open-data/foil_nyc_taxi/). De NYC Taxi-gegevensset bevat informatie over de reisgegevens en beurzen en is beschikbaar in Azure blob-opslag: [NYC Taxi gegevens](http://www.andresmh.com/nyctaxitrips/). Een voorbeeld en een beschrijving van deze bestanden zijn beschikbaar in [NYC Taxi Trips gegevensset beschrijving](sql-walkthrough.md#dataset).
+**Gegevens**: De migratie-processen worden gedemonstreerd met behulp van de [NYC Taxi gegevensset](http://chriswhong.com/open-data/foil_nyc_taxi/). De NYC Taxi-gegevensset bevat informatie over de reisgegevens en beurzen en is beschikbaar in Azure blob-opslag: [Gegevens over taxi's NYC](http://www.andresmh.com/nyctaxitrips/). Een voorbeeld en een beschrijving van deze bestanden zijn beschikbaar in [NYC Taxi Trips gegevensset beschrijving](sql-walkthrough.md#dataset).
 
 U kunt aanpassen van de procedures die hier wordt beschreven aan een set van uw eigen gegevens of volg de stappen beschreven met behulp van de NYC Taxi-gegevensset. Als u wilt uploaden de gegevensset NYC over taxi's in uw on-premises SQL Server-database, volgt u de procedure wordt beschreven in [bulksgewijs importeren van gegevens in SQL Server-Database](sql-walkthrough.md#dbload). Deze instructies zijn voor een SQL-Server op een Azure-Machine, maar de procedure voor het uploaden naar de on-premises SQL-Server is hetzelfde.
 

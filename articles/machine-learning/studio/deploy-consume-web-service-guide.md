@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a596fe572e31a330fa976470d31dc7d0de5b0398
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073734"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268424"
 ---
-# <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning-webservices: implementatie en verbruik
+# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio-webservices: Implementatie en verbruik
 U kunt Azure Machine Learning kunt gebruiken om machine learning-werkstromen en modellen als webservices te implementeren. Deze webservices kunnen vervolgens worden gebruikt voor het aanroepen van de machine learning-modellen van toepassingen via Internet wilt voorspellingen in realtime of in de batchmodus. Omdat de webservices RESTful zijn, kunt u deze aanroepen van verschillende programmeertalen en platforms, zoals .NET, Java, en toepassingen, zoals Excel.
 
 De volgende secties vindt u koppelingen naar scenario's, code en documentatie waarmee kunt u aan de slag.
@@ -37,7 +36,7 @@ De volgende koppelingen bieden algemene informatie over het implementeren van ee
 
 * Zie voor een overzicht over het implementeren van een nieuwe webservice die gebaseerd op Azure Resource Manager, [een nieuwe webservice implementeren](publish-a-machine-learning-web-service.md).
 * Zie voor een overzicht over het implementeren van een webservice, [een Azure Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
-* Zie voor een volledige uitleg over het maken en implementeren van een webservice [scenario stap 1: een Machine Learning-werkruimte maken](walkthrough-1-create-ml-workspace.md).
+* Zie voor een volledige uitleg over het maken en implementeren van een webservice [scenario stap 1: Een Machine Learning-werkruimte maken](walkthrough-1-create-ml-workspace.md).
 * Zie voor specifieke voorbeelden die een webservice implementeren:
 
   * [Kennismaken, stap 5: De Azure Machine Learning-webservice implementeren](walkthrough-5-publish-web-service.md)

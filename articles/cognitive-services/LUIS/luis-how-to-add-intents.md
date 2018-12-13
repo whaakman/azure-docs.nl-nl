@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 20d076e256143683b52cfaa713e25e4d31f0f3d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3e6064b4c202c36e4b63d6e06edfbf3149f6665f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098692"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139854"
 ---
 # <a name="add-intents"></a>Intents toevoegen 
 
@@ -58,7 +58,7 @@ Voorbeeld uitingen zijn voorbeelden van de tekst van de gebruiker vragen of opdr
 
 Een utterance in een doel kan een voorspelling van intentie verschil tussen het geselecteerde doel en de voorspelling score hebben. LUIS geeft aan dat dit verschil met een rood kader rond de **met het label bedoeling** op de rij van de voorbeeld-utterance. 
 
-![Schermafbeelding van de intenties pagina, met utterance gemarkeerd](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![Schermafbeelding van de intenties pagina, met utterance voorspelling discrepantie fouten](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 Selecteer in de bovenste navigatiebalk **Train**. Het verschil voorspellen is nu verdwenen.
 
@@ -107,7 +107,7 @@ De volgende acties kunnen worden uitgevoerd op een afzonderlijke utterance in he
 
 * Bewerken: de tekst van de utterance wijzigen
 * Verwijderen: Verwijder de utterance uit het doel. Als u nog steeds de utterance wilt, een betere methode is om te verplaatsen naar de **geen** intentie. 
-* Toevoegen van een patroon: een patroon kunt u een algemene utterance en markeren replaceable en ignorable tekst, waardoor de noodzaak van meer uitingen in het doel. 
+* Voeg een patroon: Een patroon kunt u een algemene utterance en markeren replaceable en ignorable tekst, waardoor de noodzaak van meer uitingen in het doel. 
 
 De **met het label bedoeling** kolom kunt u het doel van de utterance wijzigen.
 

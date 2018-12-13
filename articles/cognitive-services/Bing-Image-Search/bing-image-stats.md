@@ -1,7 +1,7 @@
 ---
-title: Bing afbeeldingen zoeken-analytics - Bing afbeeldingen zoeken-API
+title: Analytische gegevens toevoegen aan de Bing afbeeldingen zoeken-API
 titleSuffix: Azure Cognitive Services
-description: Beschrijft hoe u analyses verkrijgen voor de Bing afbeeldingen-API.
+description: Bing statistieken biedt analytics naar de Bing afbeeldingen zoeken-API. Analytics omvatten aanroepvolume, top queryreeksen en geografische verdeling.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 7940330d1bc32a5d1fef158998a9292c86f21154
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 576505e1a3b05666b350c0256e0c8364280bcd95
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888123"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249648"
 ---
-# <a name="how-to-get-analytics-for-the-bing-image-search-api"></a>Over het verkrijgen van analyses voor de Bing afbeeldingen zoeken-API
+# <a name="add-analytics-to-the-bing-image-search-api"></a>Analytische gegevens toevoegen aan de Bing afbeeldingen zoeken-API
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

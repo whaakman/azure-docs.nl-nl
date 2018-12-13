@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 225cb3d2f78f41bdb17763d13644c1d95bc62710
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c565ccf7ac04e2a3ba86e2fa256a05a9649d2de4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014698"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166146"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive query via het JDBC-stuurprogramma in HDInsight
 
@@ -90,7 +90,7 @@ SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoere
 
     * **Naam**: Hive
     * **Voorbeeld-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Extra klassepad**: Gebruik de knop toevoegen om toe te voegen van alle eerder hebt gedownload jar-bestanden
+    * **Extra klasse pad**: Gebruik de knop toevoegen om toe te voegen van alle eerder hebt gedownload jar-bestanden
     * **Naam klasse**: org.apache.hive.jdbc.HiveDriver
 
    ![stuurprogramma-dialoogvenster toevoegen](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
@@ -111,9 +111,9 @@ SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoere
 
         Vervang **CLUSTERNAME** door de naam van uw HDInsight-cluster.
 
-    * **Gebruikersnaam**: de accountnaam van de cluster-aanmelding voor uw HDInsight-cluster. De standaardwaarde is `admin`.
+    * **Gebruikersnaam**: Accountnaam van het cluster-aanmelding voor uw HDInsight-cluster. De standaardwaarde is `admin`.
 
-    * **Wachtwoord**: het wachtwoord voor de aanmeldingsaccount van het cluster.
+    * **wachtwoord**: Het wachtwoord voor de aanmeldingsaccount van het cluster.
 
  ![dialoogvenster alias toevoegen](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
@@ -140,7 +140,7 @@ Een voorbeeld van het gebruik van een Java-client query Hive in HDInsight is bes
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Onverwachte fout opgetreden bij het openen van een SQL-verbinding
 
-**Symptomen**: bij het verbinden met een HDInsight-cluster versie 3.3 of hoger is, verschijnt er een fout die is een onverwachte fout opgetreden. De stack-trace voor deze fout begint met de volgende regels:
+**Symptomen**: Bij het verbinden met een HDInsight-cluster versie 3.3 of hoger is, ontvangt u een fout die is een onverwachte fout opgetreden. De stack-trace voor deze fout begint met de volgende regels:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -148,9 +148,9 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**Oorzaak**: deze fout wordt veroorzaakt door een oudere versie commons codec.jar-bestand met SQuirreL opgenomen.
+**Oorzaak**: Deze fout wordt veroorzaakt door een oudere versie commons codec.jar-bestand met SQuirreL opgenomen.
 
-**Resolutie**: U kunt deze fout oplossen, gebruik de volgende stappen:
+**Resolutie**: U kunt deze fout oplossen, gebruik de volgende stappen uit:
 
 1. Download het commons codec jar-bestand van het HDInsight-cluster.
 

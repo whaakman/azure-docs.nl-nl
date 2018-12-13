@@ -12,18 +12,18 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb9332832f46dc5c39bf932ce91cd3d3f3d7354f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470656"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269614"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database-logische servers en hun beheer
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Wat is een logische Azure SQL-server
 
-Een logische server fungeert als een centraal beheerpunt voor meerdere één of [gegroepeerde](sql-database-elastic-pool.md) databases, [aanmeldingen](sql-database-manage-logins.md), [firewall-regels](sql-database-firewall-configure.md), [regelscontroleren](sql-database-auditing.md), [beleid voor detectie van bedreigingen](sql-database-threat-detection.md), en [failovergroepen](sql-database-geo-replication-overview.md). Een logische server kan zich in een andere regio dan de resourcegroep. De logische server moet bestaan voordat u de Azure SQL database kunt maken. Alle databases op een server worden gemaakt in dezelfde regio als de logische server.
+Een logische server fungeert als een centraal beheerpunt voor meerdere één of [gegroepeerde](sql-database-elastic-pool.md) databases, [aanmeldingen](sql-database-manage-logins.md), [firewall-regels](sql-database-firewall-configure.md), [regelscontroleren](sql-database-auditing.md), [beleid voor detectie van bedreigingen](sql-database-threat-detection.md), en [failovergroepen](sql-database-auto-failover-group.md) een logische server, kan zich in een andere regio dan de resourcegroep. De logische server moet bestaan voordat u de Azure SQL database kunt maken. Alle databases op een server worden gemaakt in dezelfde regio als de logische server.
 
 Een logische server is een logische constructie die zich onderscheidt van een SQL Server-exemplaar dat u al bekend mee in de on-premises wereld wellicht. Zo geeft de service SQL Database geen garanties met betrekking tot de locatie van de databases ten opzichte van hun logische servers en zijn er geen toegang of functies op exemplaarniveau zichtbaar. Een server in een SQL Database Managed Instance is daarentegen, vergelijkbaar met een SQL Server-exemplaar dat u al bekend mee in de on-premises wereld wellicht.
 
@@ -84,7 +84,7 @@ Voor het beheren van een bestaande database, gaat u naar de **SQL-databases** pa
 
 Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Zie voor het maken en beheren van elastische pools, [elastische pools](sql-database-elastic-pool.md).
 
-| Cmdlet | Beschrijving |
+| Cmdlet | Description |
 | --- | --- |
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Hiermee maakt u een database |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Een of meer databases opgehaald|
@@ -109,7 +109,7 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Azu
 
 Maken en beheren van Azure SQL-server, databases en firewalls met de [Azure CLI](/cli/azure), gebruikt u de volgende [SQL-Database van Azure CLI](/cli/azure/sql/db) opdrachten. Gebruik de [Cloud Shell](/azure/cloud-shell/overview) om de CLI in uw browser uit te voeren of [installeer](/cli/azure/install-azure-cli) de CLI op macOS, Linux of Windows. Zie voor het maken en beheren van elastische pools, [elastische pools](sql-database-elastic-pool.md).
 
-| Cmdlet | Beschrijving |
+| Cmdlet | Description |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Hiermee maakt u een database|
 |[AZ sql db list](/cli/azure/sql/db#az-sql-db-list)|Geeft een lijst van alle databases en datawarehouses in een server of alle databases in een elastische pool|
@@ -143,7 +143,7 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Tra
 > U kunt maken of verwijderen van een server met behulp van Transact-SQL.
 >
 
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
 |[DATABASE (Azure SQL Database) maken](/sql/t-sql/statements/create-database-azure-sql-database)|Hiermee maakt u een nieuwe database. U moet zijn verbonden met de hoofddatabase om een nieuwe database te maken.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Hiermee wijzigt u een Azure SQL database. |
@@ -162,13 +162,13 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Tra
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Hiermee verwijdert u de firewall op databaseniveau instellen van uw Azure SQL Database of SQL Data Warehouse. |
 
 > [!TIP]
-> Zie voor een snelstartgids met behulp van SQL Server Management Studio op Microsoft Windows, [Azure SQL Database: gebruikt SQL Server Management Studio om verbinding maken met en gegevens op te vragen](sql-database-connect-query-ssms.md). Zie voor een snelstartgids met behulp van Visual Studio Code op de Mac OS, Linux of Windows, [Azure SQL Database: Visual Studio-Code gebruiken om te verbinden en gegevens op te vragen](sql-database-connect-query-vscode.md).
+> Zie voor een snelstartgids met behulp van SQL Server Management Studio op Microsoft Windows, [Azure SQL Database: SQL Server Management Studio gebruiken om te verbinden en gegevens op te vragen](sql-database-connect-query-ssms.md). Zie voor een snelstartgids met behulp van Visual Studio Code op de Mac OS, Linux of Windows, [Azure SQL Database: Visual Studio Code gebruiken om te verbinden en gegevens op te vragen](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van de REST-API
 
 Als u wilt maken en beheren van Azure SQL-server, databases en firewalls, gebruikt u deze REST-API-aanvragen.
 
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
 |[Servers - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Hiermee of een nieuwe server bijgewerkt.|
 |[Servers - verwijderen](https://docs.microsoft.com/rest/api/sql/servers/delete)|Hiermee verwijdert u een SQL-server.|

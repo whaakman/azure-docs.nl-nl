@@ -1,5 +1,5 @@
 ---
-title: Documentatie voor cognitief zoeken (Azure Search) | Microsoft Docs
+title: Documentatie voor cognitief zoeken - Azure Search
 description: Een lijst met aantekeningen van artikelen, zelfstudies, voorbeelden en blog post met betrekking tot cognitive search workloads in Azure Search.
 services: search
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: bad73d2bf8bdf4adee4ce6e40550e506a35a2083
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165663"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314598"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Documentatie voor cognitief zoeken-workloads
 
@@ -24,7 +25,7 @@ De volgende artikelen zijn de volledige documentatie voor cognitief zoeken.
 
 ## <a name="getting-started"></a>Aan de slag
 + [Wat is cognitive search?](cognitive-search-concept-intro.md)
-+ [Snelstartgids: Probeer cognitief zoeken in de portal](cognitive-search-quickstart-blob.md)
++ [Snelstartgids: Probeer cognitive search in de portal](cognitive-search-quickstart-blob.md)
 + [Zelfstudie: Informatie over de cognitief zoeken-API 's](cognitive-search-tutorial-blob.md)
 + [Voorbeeld: een aangepaste vaardigheid maken](cognitive-search-create-custom-skill-example.md)
 

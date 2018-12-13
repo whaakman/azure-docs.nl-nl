@@ -1,5 +1,5 @@
 ---
-title: Een App in een App Service Environment schalen
+title: Een App schalen in een App Service Environment - Azure
 description: Een app schalen in een App Service Environment
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: 3b2f93c9763805377ed534d59b1025a5aa1a32e8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: c94e7f761dcbc7e05965e359d7f9a864335c9c6b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955527"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269342"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Apps schalen in een App Service-omgeving
 Er zijn gewoonlijk drie dingen die u kunt schalen in Azure App Service:
@@ -39,7 +40,7 @@ Wijzigen van een item wordt gedaan door de juiste gebruikersinterface die wordt 
 
 ![][1]
 
-U kan niet schalen van uw ASP dan het aantal beschikbare compute-resources in de groep met werkrollen waarin uw ASP zich bevindt.  Als u resources in die groep met werkrollen moet berekenen die u wilt ophalen van de ASE-beheerder om toe te voegen.  Voor informatie over het configureren van de as-omgeving opnieuw leest u de informatie hier: [het configureren van een App Service environment][HowtoConfigureASE].  U kunt ook om te profiteren van de functies van de as-omgeving voor automatisch schalen om toe te voegen capaciteit op basis van planning of metrische gegevens.  Voor meer informatie over het configureren van automatisch schalen voor de as-omgeving omgeving zelf Zie [voor automatisch schalen configureren voor een App Service Environment][ASEAutoscale].
+U kan niet schalen van uw ASP dan het aantal beschikbare compute-resources in de groep met werkrollen waarin uw ASP zich bevindt.  Als u resources in die groep met werkrollen moet berekenen die u wilt ophalen van de ASE-beheerder om toe te voegen.  Uw ASE Lees de informatie hier voor informatie om opnieuw te configureren: [Het configureren van een App Service environment][HowtoConfigureASE].  U kunt ook om te profiteren van de functies van de as-omgeving voor automatisch schalen om toe te voegen capaciteit op basis van planning of metrische gegevens.  Voor meer informatie over het configureren van automatisch schalen voor de as-omgeving omgeving zelf Zie [voor automatisch schalen configureren voor een App Service Environment][ASEAutoscale].
 
 Kunt u meerdere app service-plannen met behulp van de compute-resources uit verschillende worker-groepen maken of kunt u de dezelfde groep met werkrollen.  Bijvoorbeeld als u hebt (10) beschikbare compute-resources in Worker-groep 1, kunt u een app service-plan met behulp van rekenresources (6) maken en een tweede appservice-plan dat wordt gebruikt (4) compute-resources.
 

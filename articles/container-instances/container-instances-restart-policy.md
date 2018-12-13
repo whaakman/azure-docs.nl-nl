@@ -1,18 +1,18 @@
 ---
-title: Taken in containers uitvoeren in Azure Container Instances met beleid voor opnieuw opstarten
+title: Gebruik beleidsregels met taken in containers in Azure Container Instances opnieuw starten
 description: Informatie over het gebruik van Azure Container Instances voor het uitvoeren van taken die worden uitgevoerd tot voltooiing, zoals in de build-, test- of image-renderingtaken.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 12/10/2018
 ms.author: danlep
-ms.openlocfilehash: c9e3fadd5164ca0d770f36ba95c30db933efcd39
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853881"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321030"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Taken in containers uitvoeren met beleid voor opnieuw opstarten
 
@@ -24,9 +24,9 @@ De voorbeelden die zijn gepresenteerd in dit artikel gebruiken de Azure CLI. Heb
 
 ## <a name="container-restart-policy"></a>Beleid voor opnieuw opstarten van container
 
-Wanneer u een container in Azure Container Instances maken, kunt u een van drie instellingen voor het beleid opnieuw opgeven.
+Bij het maken van een [containergroep](container-instances-container-groups.md) in Azure Container Instances kunt u een van drie instellingen voor beleid voor het opnieuw.
 
-| Beleid voor opnieuw opstarten   | Beschrijving |
+| Beleid voor opnieuw opstarten   | Description |
 | ---------------- | :---------- |
 | `Always` | Containers in containergroep altijd opnieuw opgestart. Dit is de **standaard** instelling wordt toegepast wanneer er geen beleid voor opnieuw opstarten is opgegeven bij het maken van container. |
 | `Never` | Containers in containergroep nooit opnieuw opgestart. De containers maximaal één keer uitgevoerd. |
@@ -93,6 +93,24 @@ Uitvoer:
 
 In dit voorbeeld ziet u de uitvoer die het script naar de STDOUT verzonden. Uw taken in containers echter mogelijk in plaats daarvan de uitvoer schrijven naar de permanente opslag voor later gebruik. Bijvoorbeeld, voor een [Azure-bestandsshare](container-instances-mounting-azure-files-volume.md).
 
+## <a name="manually-stop-and-start-a-container-group"></a>Handmatig stoppen en starten van een containergroep
+
+Ongeacht het beleid opnieuw opstarten is geconfigureerd voor een [containergroep](container-instances-container-groups.md), kunt u handmatig stoppen en starten van een containergroep.
+
+* **Stop** - kunt u handmatig voorkomen dat een actieve containergroep op elk gewenst moment - bijvoorbeeld met behulp van de [az container stoppen] [ az-container-stop] opdracht. Voor bepaalde container-workloads, die u mogelijk wilt stoppen van een containergroep na een opgegeven periode op te slaan op kosten. 
+
+  Stoppen van een containergroep wordt beëindigd en wordt gerecycled de containers in de groep. Deze behoudt niet de containerstatus. 
+
+* **Start** : wanneer een containergroep is gestopt - ofwel omdat de containers op hun eigen beëindigd of u de groep handmatig gestopt - kunt u de [container start API](/rest/api/container-instances/containergroups/start) of handmatig starten van de containers in Azure-portal de groep. Als de installatiekopie van de container voor elke container wordt bijgewerkt, wordt een nieuwe afbeelding opgehaald. 
+
+  Starten van een containergroep begint met een nieuwe implementatie met de dezelfde containerconfiguratie. Deze actie kunt u snel opnieuw kunt gebruiken een bekende container groep-configuratie die naar verwachting werkt. U hoeft te maken van een nieuwe containergroep voor dezelfde werkbelasting uitvoeren.
+
+* **Opnieuw opstarten** -u kunt opnieuw een containergroep terwijl deze wordt uitgevoerd - bijvoorbeeld met behulp van de [az container opnieuw] [ az-container-restart] opdracht. Deze actie start alle containers in de containergroep. Als de installatiekopie van de container voor elke container wordt bijgewerkt, wordt een nieuwe afbeelding opgehaald. 
+
+  Opnieuw starten van een containergroep is handig als u wilt een implementatie-probleem op te lossen. Bijvoorbeeld, als een tijdelijke beperking wordt voorkomen uw containers uitgevoerd dat, opnieuw opstarten van de groep kan het probleem opgelost.
+
+Nadat u handmatig starten of opnieuw starten van een containergroep, de container groep wordt uitgevoerd op basis van de geconfigureerde beleid voor opnieuw opstarten.
+
 ## <a name="configure-containers-at-runtime"></a>Containers tijdens runtime configureren
 
 Wanneer u een containerexemplaar maakt, kunt u instellen de **omgevingsvariabelen**, evenals een aangepaste **vanaf de opdrachtregel** om uit te voeren wanneer de container wordt gestart. U kunt deze instellingen in uw batch-taken gebruiken om voor te bereiden van elke container met taak-specifieke configuratie.
@@ -103,9 +121,9 @@ Omgevingsvariabelen instellen in de container voor dynamische configuratie van d
 
 Bijvoorbeeld, kunt u het gedrag van het script in de container voorbeeld door de volgende omgevingsvariabelen op te geven bij het maken van de containerinstantie wijzigen:
 
-*NumWords*: het aantal woorden die worden verzonden naar de STDOUT.
+*NumWords*: Het aantal woorden die worden verzonden naar de STDOUT.
 
-*MinLength*: het minimale aantal tekens in een woord om te worden geteld. Hoe hoger de waarde wordt genegeerd voor veelvoorkomende woorden als 'van' en 'de'.
+*MinLength*: Het minimale aantal tekens in een woord om te worden geteld. Hoe hoger de waarde wordt genegeerd voor veelvoorkomende woorden als 'van' en 'de'.
 
 ```azurecli-interactive
 az container create \
@@ -131,6 +149,8 @@ Uitvoer:
  ('ROSENCRANTZ', 69),
  ('GUILDENSTERN', 54)]
 ```
+
+
 
 ## <a name="command-line-override"></a>Onderdrukking van de opdrachtregel
 
@@ -174,5 +194,7 @@ Zie voor meer informatie over het behouden van de uitvoer van de containers die 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

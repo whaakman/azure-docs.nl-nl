@@ -4,19 +4,21 @@ description: Beschrijft hoe u een evaluatie met behulp van machineafhankelijkhed
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e83ec29c5ff06e80c09b9328a7bfe545f3a0f6f3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8756809de4ec1a8150610027a8197f1bcae213f0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844818"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252501"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
 In dit artikel wordt beschreven hoe u een groep machines voor [Azure Migrate](migrate-overview.md) beoordelen door te visualiseren afhankelijkheden van machines. Doorgaans gebruikt u deze methode als u wilt beoordelen van groepen van virtuele machines met een hogere mate van vertrouwen door machineafhankelijkheden cross controleren voordat u een evaluatie uitvoert. Visualisatie van afhankelijkheden kunt u effectief plan uw migratie naar Azure. Hiermee kunt u ervoor zorgen dat er niets is overgebleven en onverwachte storingen niet wordt uitgevoerd wanneer u naar Azure migreert. U kunt alle onderling afhankelijk zijn systemen die tegelijk migreren en bepalen of een actief systeem gebruikers nog steeds bedient of een kandidaat is voor het buiten gebruik stellen in plaats van de migratie moeten detecteren.
 
+> [!NOTE]
+> De functie voor visualisatie van afhankelijkheden is niet beschikbaar in Azure Government.
 
 ## <a name="prepare-for-dependency-visualization"></a>Voorbereiden voor visualisatie van afhankelijkheden
 Azure Migrate maakt gebruik van de oplossing Serviceoverzicht in Log Analytics om in te schakelen visualisatie van afhankelijkheden van machines.
@@ -89,7 +91,7 @@ Meer informatie over de ondersteuning van de agent afhankelijkheid voor de [Wind
     - Processen die op de machine, kunt u elk VM-vak om de processen weer te geven uitbreiden
     - Eigenschappen, zoals Fully Qualified Domain Name, besturingssysteem, enzovoort van MAC-adres van elke machine die u kunt klikken op elke VM-vak om deze gegevens weer te geven
 
- ![Machineafhankelijkheden weergeven](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+      ![Machineafhankelijkheden weergeven](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. U kunt zoeken op afhankelijkheden verschillende tijdsduren door te klikken op de duur in het bereik tijdlabel. Het bereik is standaard een uur. U kunt het tijdsbereik wijzigen of geef de begin- en einddatums en duur.
 5. Nadat u hebt vastgesteld dat afhankelijke machines die u wilt groeperen, gebruikt u Ctrl + klikken om te selecteren van meerdere virtuele machines op de kaart en klikt u op **machines groeperen**.

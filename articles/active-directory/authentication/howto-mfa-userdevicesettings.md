@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: cf470ad14c27fd36cf60bb540e823b15fc58eded
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8d3ffa2664c747f5fbbd4269b23ae54850e0d750
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496901"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320996"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gebruikersinstellingen met Azure multi-factor Authentication in de cloud beheren
 
@@ -30,8 +30,8 @@ Deze instelling zorgt ervoor dat de gebruiker opnieuw het registratieproces te v
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Hoe gebruikers moeten opnieuw contactmethoden opgeven
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers en groepen** > **alle gebruikers**.
-3. Selecteer **multi-Factor Authentication**. De multi-factor authentication-pagina wordt geopend. 
+2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers** > **alle gebruikers**.
+3. Selecteer aan de rechterkant **multi-Factor Authentication** op de werkbalk. De multi-factor authentication-pagina wordt geopend. 
 4. Schakel het selectievakje naast de gebruiker of gebruikers die u wilt beheren. Een lijst met snelle stap opties worden weergegeven aan de rechterkant. 
 5. Selecteer **gebruikersinstellingen beheren**.
 6. Schakel het selectievakje voor **vereisen dat geselecteerde gebruikers opnieuw contactmethoden opgeven**.
@@ -44,8 +44,8 @@ Deze instelling verwijdert alle app-wachtwoorden die een gebruiker heeft gemaakt
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>App-wachtwoorden bestaande gebruikers verwijderen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers en groepen** > **alle gebruikers**.
-3. Selecteer **multi-Factor Authentication**. De multi-factor authentication-pagina wordt geopend. 
+2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers** > **alle gebruikers**.
+3. Selecteer aan de rechterkant **multi-Factor Authentication** op de werkbalk. De multi-factor authentication-pagina wordt geopend. 
 6. Schakel het selectievakje naast de gebruiker of gebruikers die u wilt beheren. Een lijst met snelle stap opties worden weergegeven aan de rechterkant. 
 7. Selecteer **gebruikersinstellingen beheren**.
 8. Schakel het selectievakje voor **verwijderen van alle bestaande app-wachtwoorden die worden gegenereerd door de geselecteerde gebruikers**.
@@ -62,8 +62,8 @@ De **terugzetten multi-factor authentication op alle onthouden apparaten** betek
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>MFA op alle onderbroken apparaten voor een gebruiker herstellen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers en groepen** > **alle gebruikers**.
-3. Selecteer **multi-Factor Authentication**. De multi-factor authentication-pagina wordt geopend. 
+2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers** > **alle gebruikers**.
+3. Selecteer aan de rechterkant **multi-Factor Authentication** op de werkbalk. De multi-factor authentication-pagina wordt geopend. 
 6. Schakel het selectievakje naast de gebruiker of gebruikers die u wilt beheren. Een lijst met snelle stap opties worden weergegeven aan de rechterkant. 
 7. Selecteer **gebruikersinstellingen beheren**.
 8. Schakel het selectievakje voor **terugzetten multi-factor authentication op alle onthouden apparaten**

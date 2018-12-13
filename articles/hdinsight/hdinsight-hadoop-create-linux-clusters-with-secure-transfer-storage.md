@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 07d6b07a583b8a8ce8b490333a87ff659f495e45
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: be379061f738ccee298c9a5aac88d3a95613f214
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866984"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193226"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop-cluster maken met veilige overdracht storage-accounts in Azure HDInsight
 
@@ -23,7 +23,7 @@ De functie [Veilige overdracht vereist](../storage/common/storage-require-secure
 ## <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u over de volgende onderdelen beschikken:
 
-* **Azure-abonnement**: voor het maken van een gratis proefaccount van één maand, bezoekt u [azure.microsoft.com/free](https://azure.microsoft.com/free).
+* **Azure-abonnement**: Voor het maken van een gratis proefaccount van één maand, blader naar [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **Een Azure-opslagaccount met veilige overdracht**. Zie [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) en [Veilige overdracht vereisen](../storage/common/storage-require-secure-transfer.md) voor instructies.
 * **Een Blob-container in het opslagaccount**. 
 
@@ -45,7 +45,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van een [Azure
     - Gebruik de korte naam voor het opslagaccount.
     - Zowel het opslagaccount als de blob-container moeten vooraf zijn gemaakt. 
 
-    Zie [Cluster maken](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) voor instructies. 
+      Zie [Cluster maken](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) voor instructies. 
 
 Als u een scriptactie gebruikt om uw eigen configuratiebestanden te verstrekken, moet u wasbs gebruiken in de volgende instellingen:
 

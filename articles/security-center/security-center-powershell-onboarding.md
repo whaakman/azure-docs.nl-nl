@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 650c767d6f8ef495bb19886980b6d45bfe53b32a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ce410e69427f29ce70f8b2136a08bd7e6d00113c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311174"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249689"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Onboarding van Azure Security Center met behulp van PowerShell automatiseren
 
@@ -65,7 +65,7 @@ Deze stappen moeten worden uitgevoerd voordat u de Security Center-cmdlets uitvo
         Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
-2.  Optioneel: Het dekkingsniveau (prijscategorie) van de abonnementen instellen (als niet is gedefinieerd, de prijscategorie is ingesteld op gratis):
+2.  Optioneel: Stel het dekkingsniveau (prijscategorie) van de abonnementen (als niet is gedefinieerd, de prijscategorie is ingesteld op gratis):
 
         Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzureRmSecurityPricing -Name "default" -PricingTier "Standard"
@@ -92,7 +92,7 @@ Deze stappen moeten worden uitgevoerd voordat u de Security Center-cmdlets uitvo
 6.  De standaard Security Center-beleid initiatief toewijzen:
 
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzureRmPolicySetDefinition -Name ' [Preview]: Enable Monitoring in Azure Security Center'
+        $Policy = Get-AzureRmPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
         New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 U nu is toegevoegd Azure Security Center met PowerShell.

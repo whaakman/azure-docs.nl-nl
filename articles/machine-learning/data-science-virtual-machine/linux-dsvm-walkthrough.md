@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 0c929bb569fb96dfdaa53f47036cc8f16251ad1c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105237"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190632"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Gegevenswetenschap met een Linux Data Science Virtual Machine in Azure
 Deze procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM uitvoert. De Linux Data Science Virtual Machine (DSVM) is een installatiekopie van een virtuele machine op Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning is beschikbaar. De belangrijke software-componenten zijn ingedeeld de [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie maakt het gemakkelijk om te beginnen gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk. U kunt eenvoudig opschalen van de virtuele machine, indien nodig, en stoppen wanneer deze niet in gebruik. Deze resource is zo flexibel en kostenefficiënt.
@@ -318,19 +318,19 @@ De distributie Anaconda in de DSVM wordt geleverd met een Jupyter-notebook, een 
 
 > [!NOTE]
 > Gebruik van de Python Package Manager (via de `pip` opdracht) van een Jupyter-notebook in de huidige kernel, de volgende opdracht kan worden gebruikt in de codecel, bijvoorbeeld:
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > Met het Conda-installatieprogramma (via de `conda` opdracht) van een Jupyter-notebook in de huidige kernel, de volgende opdracht kan worden gebruikt in de codecel, bijvoorbeeld:
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 
@@ -346,7 +346,7 @@ Verschillende voorbeeldnotitieblokken zijn al geïnstalleerd op de virtuele mach
 >
 
 ## <a name="rattle"></a>Rammelaar
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (de R analytische hulpprogramma om te leren eenvoudig) is een grafische R-hulpprogramma voor gegevensanalyse. Er is een intuïtieve interface waarmee u eenvoudig om te laden, verkennen, en gegevens transformeren en bouwen en evalueren van modellen.  Het artikel [Rattle: A Data Mining GUI voor R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) biedt een overzicht waarin ziet u de functies ervan.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (de R analytische hulpprogramma om te leren eenvoudig) is een grafische R-hulpprogramma voor gegevensanalyse. Er is een intuïtieve interface waarmee u eenvoudig om te laden, verkennen, en gegevens transformeren en bouwen en evalueren van modellen.  Het artikel [Rattle: Een Data Mining GUI voor R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) biedt een overzicht waarin ziet u de functies ervan.
 
 Installeren en Rammelaar starten met de volgende opdrachten:
 

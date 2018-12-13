@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: ''
-ms.openlocfilehash: 7227fd68f696e827a076005bcd116e222f23e9b0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: e910a953743e8b43f51add5a1e74b3d612b62ba8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882772"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190064"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure verbinden met ITSM-hulpprogramma's met behulp van IT Service Management-Connector
 
@@ -176,7 +175,7 @@ De volgende informatie ziet u voorbeelden van gegevens die worden verzameld door
 
 > Afhankelijk van het werkitemtype geïmporteerd in Log Analytics, **ServiceDesk_CL** bevat de volgende velden:
 
-**Werkitem:** **incidenten**  
+**Werkitem:** **Incidenten**  
 ServiceDeskWorkItemType_s="Incident"
 
 **Velden**
@@ -195,7 +194,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Toegewezen aan
 - Categorie
 - Titel
-- Beschrijving
+- Description
 - Gemaakt op
 - Datum gesloten
 - Datum opgelost
@@ -203,7 +202,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Computer
 
 
-**Werkitem:** **wijzigingsaanvragen**
+**Werkitem:** **Wijzigingsaanvragen**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
@@ -233,7 +232,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Geplande einddatum
 - Werk de begindatum
 - Werk einddatum
-- Beschrijving
+- Description
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Uitvoergegevens voor een ServiceNow-incident
@@ -280,7 +279,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Geplande einddatum |
 | WorkStartDate_t  | Werkelijke begindatum |
 | WorkEndDate_t | Werkelijke einddatum|
-| Description_s | Beschrijving |
+| Description_s | Description |
 | Computer  | Configuratie-Item |
 
 

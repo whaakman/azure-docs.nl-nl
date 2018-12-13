@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 57e3a444c9de951fdd974d98679908eb5a744ad1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 614a342dd28b711e3030c19f347fa432e3994a86
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099785"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257577"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Opnieuw trainen van een Azure Machine Learning Studio-model
 Uw model is getraind en opgeslagen als onderdeel van het proces voor uitoefening van machine learning-modellen in Azure Machine Learning. U vervolgens worden gebruikt om een voorspellende webservice te maken. De webservice kan vervolgens worden gebruikt in web sites, dashboards en mobiele apps. 
@@ -43,7 +42,7 @@ In deze scenario's biedt een programmeer-API een handige manier om toe te staan 
 > 
 
 ## <a name="end-to-end-workflow"></a>End-to-end werkstroom
-Het proces omvat de volgende onderdelen: een Trainingsexperiment en een Voorspellend Experiment die zijn gepubliceerd als een webservice. Om in te schakelen opnieuw trainen van een getraind model, moet het Trainingsexperiment worden gepubliceerd als een webservice met de uitvoer van een getraind model. Hierdoor kunnen de API-toegang tot het model voor het opnieuw trainen. 
+Het proces omvat de volgende onderdelen: Een Opleidingsexperiment en een Voorspellend Experiment die zijn gepubliceerd als een webservice. Om in te schakelen opnieuw trainen van een getraind model, moet het Trainingsexperiment worden gepubliceerd als een webservice met de uitvoer van een getraind model. Hierdoor kunnen de API-toegang tot het model voor het opnieuw trainen. 
 
 De volgende stappen gelden voor zowel nieuwe en klassieke webservices:
 

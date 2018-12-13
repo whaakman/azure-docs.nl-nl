@@ -8,22 +8,21 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828323"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187208"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Serviceoverzicht integratie met System Center Operations Manager
   > [!NOTE]
-  > Deze functie is beschikbaar als openbare preview.
+  > Deze functie is beschikbaar voor openbare preview.
   > 
   
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Serviceoverzicht kunt u om de manier waarop u deze zien als onderling verbonden systemen die kritieke services verlenen voor de servers weer te geven. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur, zonder configuratie vereist naast de installatie van een agent. Zie voor meer informatie de [Serviceoverzicht documentatie]( service-map.md).
@@ -92,17 +91,17 @@ Nadat de verbinding van de Log Analytics-werkruimte is gemaakt, een nieuwe map S
 ![Het deelvenster controle van Operations Manager](media/service-map-scom/scom-monitoring.png)
 
 De Serviceoverzicht-map bevat vier knooppunten:
-* **Actieve waarschuwingen**: geeft een lijst van alle actieve waarschuwingen over de communicatie tussen Operations Manager en Service Map.  Houd er rekening mee dat deze waarschuwingen niet zijn van Log Analytics waarschuwingen gesynchroniseerd wordt met Operations Manager. 
+* **Actieve waarschuwingen**: Geeft een lijst van alle actieve waarschuwingen over de communicatie tussen Operations Manager en Service Map.  Houd er rekening mee dat deze waarschuwingen niet zijn van Log Analytics waarschuwingen gesynchroniseerd wordt met Operations Manager. 
 
-* **Servers**: geeft een lijst van de bewaakte servers die zijn geconfigureerd om te synchroniseren van Serviceoverzicht.
+* **Servers**: Geeft een lijst van de bewaakte servers die zijn geconfigureerd om te synchroniseren van Serviceoverzicht.
 
     ![Het deelvenster Servers van Operations Manager-bewaking](media/service-map-scom/scom-monitoring-servers.png)
 
-* **Groepsweergaven van de afhankelijkheid van de computer**: geeft een lijst van alle computergroepen die vanuit de Service Map zijn gesynchroniseerd. U kunt klikken op een groep om een diagram van de gedistribueerde toepassing weer te geven.
+* **Computergroep afhankelijkheid weergaven**: Geeft een lijst van alle computergroepen die vanuit de Service Map zijn gesynchroniseerd. U kunt klikken op een groep om een diagram van de gedistribueerde toepassing weer te geven.
 
     ![Een diagram van de Operations Manager gedistribueerde toepassing](media/service-map-scom/scom-group-dad.png)
 
-* **Server afhankelijkheid weergaven**: geeft een lijst van alle servers die zijn gesynchroniseerd van Serviceoverzicht. U kunt klikken op elke server om een diagram van de gedistribueerde toepassing weer te geven.
+* **Server afhankelijkheid weergaven**: Geeft een lijst van alle servers die zijn gesynchroniseerd van Serviceoverzicht. U kunt klikken op elke server om een diagram van de gedistribueerde toepassing weer te geven.
 
     ![Een diagram van de Operations Manager gedistribueerde toepassing](media/service-map-scom/scom-dad.png)
 
@@ -121,10 +120,10 @@ Een regel, _Microsoft.SystemCenter.ServiceMapImport.Rule_, om op te halen regelm
 
 ![Het eigenschappenvenster van Operations Manager-onderdrukkingen](media/service-map-scom/scom-overrides.png)
 
-* **Ingeschakeld**: in- of uitschakelen van automatische updates. 
-* **IntervalMinutes**: opnieuw instellen van de tijd tussen de updates. Het standaardinterval is één uur. Als u synchroniseren server maps regelmatig wilt, kunt u de waarde wijzigen.
-* **TimeoutSeconds**: de hoeveelheid tijd voordat de time-out van de aanvraag opnieuw. 
-* **TimeWindowMinutes**: opnieuw instellen van het tijdvenster voor het opvragen van gegevens. Standaard is een venster 60 minuten. De toegestane maximumwaarde door Serviceoverzicht is 60 minuten.
+* **Ingeschakeld**: In- of uitschakelen van automatische updates. 
+* **IntervalMinutes**: Opnieuw instellen van de tijd tussen de updates. Het standaardinterval is één uur. Als u synchroniseren server maps regelmatig wilt, kunt u de waarde wijzigen.
+* **TimeoutSeconds**: De hoeveelheid tijd voordat de time-out van de aanvraag opnieuw. 
+* **TimeWindowMinutes**: Opnieuw instellen van het tijdvenster voor het opvragen van gegevens. Standaard is een venster 60 minuten. De toegestane maximumwaarde door Serviceoverzicht is 60 minuten.
 
 ## <a name="known-issues-and-limitations"></a>Bekende problemen en beperkingen
 

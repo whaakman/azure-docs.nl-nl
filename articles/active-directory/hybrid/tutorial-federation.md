@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Een omgeving met één AD-forest naar Azure federeren | Microsoft Docs'
+title: 'Zelfstudie: Federeren één AD-forest omgeving naar Azure | Microsoft Docs'
 description: Demonstreert hoe u het instellen van een hybride identiteit-omgeving gebruikmaakt van Federatie.
 services: active-directory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50868d32b35e77495965b9ee9d0023d23b43fd5a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b813a276c2047a41038408744637b3dd50aff863
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426380"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163511"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Zelfstudie: Een omgeving met één AD-forest naar de cloud federeren
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Zelfstudie: Een enkele AD-forestomgeving federeren in de cloud
 
 ![Maken](media/tutorial-federation/diagram.png)
 
@@ -39,7 +39,7 @@ De volgende zijn vereisten voor het voltooien van deze zelfstudie
 >
 >De scripts die worden gebruikt, maak een algemene Active Directory-omgeving voordat u Azure AD Connect installeert.  Ze zijn relevant voor alle van de zelfstudies.
 >
-> Kopieën van de PowerShell-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar op Github [hier](https://github.com/billmath/tutorial-phs).
+> Kopieën van de PowerShell-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar op GitHub [hier](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 Het eerste wat we moeten doen, om op te halen van onze hybride identiteit omgeving van en het uitvoeren is het maken van een virtuele machine die wordt gebruikt als onze on-premises Active Directory-server.  
@@ -87,7 +87,7 @@ Klaar bent met het bouwen van de virtuele machine, moet u om de installatie van 
 5. Klik op **nu installeren**.
 6. Voer uw licentiesleutel in en klikt u op **volgende**.
 7. Controleer ** ik accepteer de licentievoorwaarden en klik op **volgende**.
-8. Selecteer **aangepast: alleen Windows installeren (Geavanceerd)**
+8. Selecteer **aangepast:  Alleen Windows installeren (Geavanceerd)**
 9. Klik op **Volgende**
 10. Als de installatie is voltooid, start de virtuele machine, aanmelden en werken met Windows om te controleren of dat de virtuele machine is de meest recente updates.  Installeer de meest recente updates.
 

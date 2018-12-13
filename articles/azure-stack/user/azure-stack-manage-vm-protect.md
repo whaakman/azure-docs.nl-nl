@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963910"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191526"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Beveiligen van virtuele machines die worden geïmplementeerd in Azure Stack
 
@@ -55,8 +55,8 @@ Plan de strategie voor herstel van back-up en herstel na noodgevallen voor elke 
 
 |  | Globale Azure | Azure Stack geïmplementeerd in CSP-datacenter en worden beheerd door de CSP | Azure Stack geïmplementeerd in het datacenter van de klant en worden beheerd door de klant |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack geïmplementeerd in CSP-datacenter en worden beheerd door de CSP** | Gebruiker virtuele machines worden geïmplementeerd naar de CSP beheerd Azure Stack. Gebruiker virtuele machines zijn teruggezet vanuit een back-up of failover rechtstreeks naar Azure. | CSP werkt de primaire en secundaire exemplaren van Azure Stack in hun eigen datacenters. Gebruiker virtuele machines worden hersteld of failover tussen de twee exemplaren van Azure Stack. | CSP werkt Azure Stack in de primaire site. Datacenter van de klant is het doel voor herstel en failovers. |
-| **Azure Stack geïmplementeerd in het datacenter van de klant en worden beheerd door de klant** | Gebruiker virtuele machines worden geïmplementeerd naar de klant beheerd Azure Stack. Gebruiker virtuele machines zijn teruggezet vanuit een back-up of failover rechtstreeks naar Azure. | Klant werkt de primaire en secundaire exemplaren van Azure Stack in hun eigen datacenters. Gebruiker virtuele machines worden hersteld of failover tussen de twee exemplaren van Azure Stack. | Klant werkt Azure Stack in de primaire site. Van de CSP-datacenter is het doel voor herstel en failovers. |
+| **Azure Stack geïmplementeerd in CSP-datacenter en worden beheerd door de CSP** | Gebruiker virtuele machines worden geïmplementeerd naar de CSP beheerd Azure Stack.<br><br>Gebruiker virtuele machines zijn teruggezet vanuit een back-up of failover rechtstreeks naar Azure. | CSP werkt de primaire en secundaire exemplaren van Azure Stack in hun eigen datacenters.<br><br>Gebruiker virtuele machines worden hersteld of failover tussen de twee exemplaren van Azure Stack. | CSP werkt Azure Stack in de primaire site.<br><br>Datacenter van de klant is het doel voor herstel en failovers. |
+| **Azure Stack geïmplementeerd in het datacenter van de klant en worden beheerd door de klant** | Gebruiker virtuele machines worden geïmplementeerd naar de klant beheerd Azure Stack.<br><br>Gebruiker virtuele machines zijn teruggezet vanuit een back-up of failover rechtstreeks naar Azure. | Klant werkt Azure Stack in de primaire site.<br><br>Van de CSP-datacenter is het doel voor herstel en failovers. | Klant werkt de primaire en secundaire exemplaren van Azure Stack in hun eigen datacenters.<br><br>Gebruiker virtuele machines worden hersteld of failover tussen de twee exemplaren van Azure Stack. |
 
 ![Combinaties van bron-doel](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
@@ -81,9 +81,9 @@ De meest voorkomende bescherming-schema voor toepassingen op basis van een virtu
 
 Herstellen van de toepassing, moet een of meer virtuele machines herstellen naar de cloud of naar een nieuwe cloud. U kunt een cloud doelgroep in uw datacenter of in de openbare cloud. De cloud die u kiest, is volledig binnen uw beheer en is gebaseerd op uw vereisten voor privacy en de onafhankelijkheid van gegevens.
  
- - RTO: Downtime gemeten in uren
+ - RTO: Gemeten in uren downtime
  - RPO: Variabele gegevensverlies (afhankelijk van de back-upfrequentie)
- - Implementatietopologie: actief/passief
+ - Implementatietopologie: Actief/passief
 
 #### <a name="planning-your-backup-strategy"></a>Uw strategie voor back-up plannen
 
@@ -109,9 +109,9 @@ Met deze methode voert de toepassing wordt geïmplementeerd in een cloud en de v
 
 ![Replicatie-handmatige failover](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
- - RTO: Downtime gemeten in minuten
+ - RTO: Downtime, gemeten in minuten
  - RPO: Variabele preventie van gegevensverlies (afhankelijk van de replicatiefrequentie)
- - Implementatietopologie: actief/passief stand-by
+ - Implementatietopologie: Actief/passief stand-by
  
 ### <a name="high-availabilityautomatic-failover"></a>Hoge beschikbaarheid en automatische failover
 
@@ -121,9 +121,9 @@ In combinatie met schaalsets moet uw toepassing systeemeigen ondersteuning voor 
 
 Met deze benadering de toepassing slechts in één cloud actief is, maar de software geïmplementeerd op meerdere clouds. De andere clouds zijn in standby-modus Gereed voor de toepassing te starten wanneer de failover wordt geactiveerd.
 
- - RTO: Downtime gemeten in seconden
- - RPO: De minimaal gegevensverlies
- - Implementatietopologie: actief/actief stand-by
+ - RTO: Downtime, gemeten in seconden
+ - RPO: Minimaal gegevensverlies
+ - Implementatietopologie: Actief/actief stand-by
 
 ### <a name="fault-tolerance"></a>Fouttolerantie
 
@@ -135,14 +135,14 @@ Houd er rekening mee dat elke Azure Stack-cloud onafhankelijk van elkaar worden 
 
  - RTO: Er is geen downtime
  - RPO: Zonder verlies van gegevens
- - Implementatietopologie: actief/actief
+ - Implementatietopologie: Actief/actief
 
 ### <a name="no-recovery"></a>Er is geen recovery
 
 Sommige toepassingen in uw omgeving mogelijk geen bescherming tegen ongeplande downtime of gegevensverlies. Bijvoorbeeld, virtuele machines die worden gebruikt voor het ontwikkelen en testen normaal gesproken hoeft niet te worden hersteld. Het is uw beslissing doen zonder beveiliging voor een toepassing of een specifieke virtuele machine. Azure Stack biedt geen back-up of een replicatie van virtuele machines van de onderliggende infrastructuur. Net als bij Azure, moet u zich aanmelden voor de beveiliging voor elke VM in elk van uw abonnementen.
 
- - RTO: niet kan worden hersteld
- - RPO: De volledig gegevensverlies
+ - RTO: Niet kan worden hersteld
+ - RPO: Volledig gegevensverlies
 
 ## <a name="recommended-topologies"></a>Aanbevolen topologieën
 

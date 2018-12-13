@@ -1,6 +1,7 @@
 ---
-title: Het formaat en bijsnijden miniaturen van Bing - Bing afbeeldingen zoeken-API
-description: Informatie over het vergroten of verkleinen en bijgesneden miniaturen opgenomen in een reactie van de Bing afbeeldingen zoeken-API.
+title: Het formaat en bijsnijden miniatuurafbeeldingen - Bing afbeeldingen zoeken-API
+titleSuffix: Azure Cognitive Services
+description: Het formaat en bijsnijden de miniatuurafbeeldingen opgenomen in antwoorden van de Bing afbeeldingen zoeken-API.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: de82cc5554af91294dda3826dfb394cc94dbf3d0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 3bb360cd95dcbfb95464b2b259dcebfce7065256
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296224"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256381"
 ---
-# <a name="resizing-and-cropping-thumbnail-images"></a>Vergroten/verkleinen en bijsnijden miniatuurafbeeldingen
+# <a name="resize-and-crop-thumbnail-images"></a>Het formaat en miniatuurafbeeldingen bijsnijden
 
 Bij het verwerken van een zoekquery parameterselectie Bing miniaturen gegevens voor alle installatiekopieën in de [antwoord](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Deze informatie kan worden gebruikt voor weergave alle of een subset van de geretourneerde miniatuurweergaven. Als u een subset wordt weergegeven, bieden u een optie om de resterende installatiekopieën weer te geven.
 

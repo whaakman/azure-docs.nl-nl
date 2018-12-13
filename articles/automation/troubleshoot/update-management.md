@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van problemen met updatebeheer
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7339592833db148acb38ce378fe4cf261977dd72
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092624"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275644"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Oplossen van problemen met updatebeheer
 
@@ -45,6 +45,35 @@ Deze fout kan worden veroorzaakt door de volgende redenen:
 1. Ga naar, [netwerkplanning](../automation-hybrid-runbook-worker.md#network-planning) voor meer informatie over welke adressen en poorten moeten worden toegestaan voor het beheer van updates om te werken.
 2. Als u met behulp van een gekloonde installatiekopie, sysprep de installatiekopie van het eerste en de MMA-agent installeren na de gebeurtenis.
 
+### <a name="multi-tenant"></a>Scenario: U ontvangt een foutmelding gekoppelde abonnement bij het maken van een update-implementatie voor de machines in een andere Azure-tenant.
+
+#### <a name="issue"></a>Probleem
+
+U ontvangt de volgende fout bij het maken van een update-implementatie voor de machines in een andere Azure-tenant:
+
+```
+The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout treedt op wanneer u een update-implementatie met virtuele Azure-machines in een andere tenant opgenomen in een update-implementatie maakt.
+
+#### <a name="resolution"></a>Oplossing
+
+U moet de volgende oplossing gebruiken om op te halen ze gepland. U kunt de [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) cmdlet met de switch `-ForUpdate` een planning maken en gebruiken de [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) cmdlet en door te geven de machines in de andere tenant om de `-NonAzureComputer` parameter. Het volgende voorbeeld toont een voorbeeld van hoe u dit doet:
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
 ## <a name="windows"></a>Windows
 
 Als u problemen ondervindt tijdens een poging voor de Onboarding van de oplossing op een virtuele machine, controleert u de **Operations Manager** logboek voor systeemgebeurtenissen onder **logboeken toepassingen en Services** op de lokale computer voor gebeurtenissen met de gebeurtenis-ID **4502** en gebeurtenis-bericht met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
@@ -69,7 +98,7 @@ De machine is al vrijgegeven aan een andere werkruimte voor updatebeheer.
 
 Voer het opruimen van oude artefacten op de computer door [verwijderen van de hybride runbookgroep](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) en probeer het opnieuw.
 
-### <a name="machine-unable-to-communicate"></a>Scenario: Machine kan niet communiceren met de service is
+### <a name="machine-unable-to-communicate"></a>Scenario: Machine is kan niet communiceren met de service
 
 #### <a name="issue"></a>Probleem
 
@@ -113,7 +142,7 @@ De Hybrid Runbook Worker is niet een zelfondertekend certificaat genereren
 
 Controleer of systeemaccount leestoegang heeft tot map **C:\ProgramData\Microsoft\Crypto\RSA** en probeer het opnieuw.
 
-### <a name="nologs"></a>Scenario: Updatebeheer gegevens niet worden weergegeven in Log Analytics voor een virtuele machine
+### <a name="nologs"></a>Scenario: Beheergegevens die niet wordt weergegeven in Log Analytics voor een virtuele machine bijwerken
 
 #### <a name="issue"></a>Probleem
 
@@ -127,7 +156,7 @@ De Hybrid Runbook Worker moet mogelijk opnieuw worden geregistreerd en opnieuw g
 
 Volg de stappen in [Windows Hybrid Runbook Worker implementeren](../automation-windows-hrw-install.md) opnieuw installeren van de Hybrid Worker.
 
-### <a name="hresult"></a>Scenario: Machine wordt niet beoordeeld en ziet u een uitzondering van HResult
+### <a name="hresult"></a>Scenario: Machine wordt weergegeven als niet beoordeeld en ziet u een uitzondering van HResult
 
 #### <a name="issue"></a>Probleem
 
@@ -151,7 +180,7 @@ Dubbelklik op de uitzondering in rood om te zien van de gehele uitzonderingsberi
 
 ## <a name="linux"></a>Linux
 
-### <a name="scenario-update-run-fails-to-start"></a>Scenario: De Update-uitvoering niet kan worden gestart
+### <a name="scenario-update-run-fails-to-start"></a>Scenario: Update-uitvoering niet kan worden gestart
 
 #### <a name="issue"></a>Probleem
 
@@ -169,7 +198,7 @@ Maak een kopie van het volgende logboekbestand en handhaven voor het oplossen va
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
-### <a name="scenario-update-run-starts-but-encounters-errors"></a>Scenario: De Update-uitvoering wordt gestart, maar er een fout optreedt
+### <a name="scenario-update-run-starts-but-encounters-errors"></a>Scenario: Update-uitvoering wordt gestart, maar er een fout optreedt
 
 #### <a name="issue"></a>Probleem
 
@@ -181,7 +210,7 @@ Mogelijke oorzaken zijn:
 
 * Pakketbeheer is niet in orde
 * Specifieke pakketten kunnen leiden tot problemen met cloud op basis van patches
-* Andere redenen
+* Andere oorzaken
 
 #### <a name="resolution"></a>Oplossing
 

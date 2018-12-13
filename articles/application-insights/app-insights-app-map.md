@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 12/12/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 1ecdbdfb657d0372fea87c4260226f9de8ded9ce
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d1c95802889c80baf79eaf0a0af1e30d6bc3fdfd
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682500"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322274"
 ---
-# <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren gedistribueerde toepassingen
+# <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren van gedistribueerde toepassingen
 
 Overzicht van de toepassing kunt u spot knelpunten of fout hotspots voor alle onderdelen van de gedistribueerde toepassing. Elk knooppunt op de kaart vertegenwoordigt een toepassingsonderdeel of de bijbehorende afhankelijkheden; en health KPI heeft en de status van waarschuwingen. U kunt de via elk onderdeel klikken voor meer gedetailleerde diagnostische gegevens, zoals Application Insights-gebeurtenissen. Als uw app gebruikmaakt van Azure-services, kunt u ook verder klikken naar Azure diagnostics, zoals SQL Database Advisor-aanbevelingen.
 
@@ -38,7 +38,7 @@ U ziet de volledige toepassing-topologie voor meerdere niveaus van gerelateerde 
 
 Deze ervaring wordt gestart met progressieve detectie van de onderdelen. Wanneer u eerst het toepassingsoverzicht laadt, wordt een set van query's worden geactiveerd voor het detecteren van de onderdelen die betrekking hebben op dit onderdeel. Een knop in de linkerbovenhoek wordt bijgewerkt met het aantal onderdelen in uw toepassing zodra ze worden gedetecteerd. 
 
-Op 'Toewijzingsonderdelen bijwerken' klikt, wordt de kaart met alle onderdelen die zijn gedetecteerd tot vernieuwd.
+Op 'Toewijzingsonderdelen bijwerken' klikt, wordt de kaart met alle onderdelen die zijn gedetecteerd tot vernieuwd. Dit kan een minuut laden duren afhankelijk van de complexiteit van uw toepassing.
 
 Deze detectiestap is niet vereist als alle onderdelen van rollen binnen één Application Insights-resource. Het initiële laden voor dergelijke toepassing hebben alle onderdelen daarvan.
 
@@ -60,7 +60,7 @@ Selecteer **mislukte pogingen onderzoeken** om te starten van het deelvenster me
 
 ### <a name="investigate-performance"></a>Prestaties onderzoeken
 
-Om op te lossen prestaties problemen Selecteer **prestaties onderzoeken**
+Selecteer voor het oplossen van problemen met prestaties, **prestaties onderzoeken**.
 
 ![Schermafdruk van knop prestaties onderzoeken](media/app-insights-app-map/investigate-performance.png)
 
@@ -68,7 +68,7 @@ Om op te lossen prestaties problemen Selecteer **prestaties onderzoeken**
 
 ### <a name="go-to-details"></a>Naar de details gaan
 
-Selecteer **Ga naar details** verkennen van de end-to-end-transactie-ervaring die weergaven die worden uitgevoerd op het niveau van de call stack kunt bieden.
+Selecteer **Ga naar details** verkennen van de end-to-end-transactie-ervaring is gereed om terug te het niveau van de call stack weergaven kan bieden.
 
 ![Schermafbeelding van de knop Ga voor meer informatie](media/app-insights-app-map/go-to-details.png)
 
@@ -76,7 +76,7 @@ Selecteer **Ga naar details** verkennen van de end-to-end-transactie-ervaring di
 
 ### <a name="view-in-analytics"></a>Weergeven in Analytics
 
-Query's uitvoeren en uw toepassingen gegevens verder klikken onderzoeken **weergeven in analytics**.
+Als u wilt opvragen en de gegevens van uw toepassingen verder te onderzoeken, klikt u op **weergeven in analytics**.
 
 ![Schermafbeelding van de weergave in de knop analytics](media/app-insights-app-map/view-in-analytics.png)
 
@@ -84,21 +84,128 @@ Query's uitvoeren en uw toepassingen gegevens verder klikken onderzoeken **weerg
 
 ### <a name="alerts"></a>Waarschuwingen
 
-Als u wilt weergeven van actieve waarschuwingen en de onderliggende regels die ervoor zorgen de waarschuwingen dat moet deze worden geactiveerd, selecteer **waarschuwingen**.
+Als u wilt weergeven van actieve waarschuwingen en de onderliggende regels die ervoor zorgen dat de waarschuwingen worden geactiveerd, selecteer **waarschuwingen**.
 
 ![Schermafbeelding van de knop waarschuwingen](media/app-insights-app-map/alerts.png)
 
 ![Schermafbeelding van de analytics-ervaring](media/app-insights-app-map/alerts-view.png)
 
-## <a name="video"></a>Video
+## <a name="set-cloudrolename"></a>Set cloud_RoleName
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+Overzicht van de toepassing maakt gebruik van de `cloud_RoleName` eigenschap om de onderdelen op de kaart te identificeren. De Application Insights-SDK wordt automatisch toegevoegd de `cloud_RoleName` eigenschap in op de telemetrie die is verzonden door onderdelen. Bijvoorbeeld, de SDK wordt toegevoegd een naam van website of servicenaam die rol moet de `cloud_RoleName` eigenschap. Er zijn echter gevallen waar kunt u de standaardwaarde overschrijven. Cloud_RoleName overschrijven en wat wordt weergegeven op de kaart van de toepassing wijzigen:
 
-## <a name="feedback"></a>Feedback
-Geef feedback via de portal feedbackoptie.
+### <a name="net"></a>.NET
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here
+                telemetry.Context.Cloud.RoleName = "RoleName";
+            }
+        }
+    }
+}
+```
+
+**De initialisatiefunctie laden**
+
+In ApplicationInsights.config:
+
+```xml
+    <ApplicationInsights>
+      <TelemetryInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="CustomInitializer.Telemetry.MyTelemetryInitializer, CustomInitializer"/>
+        ...
+      </TelemetryInitializers>
+    </ApplicationInsights>
+```
+
+Een alternatieve methode is het instantiëren van de initialisatiefunctie in code, bijvoorbeeld in Global.aspx.cs:
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+### <a name="nodejs"></a>Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+appInsights.defaultClient.context.tags["ai.cloud.role"] = "your role name";
+appInsights.defaultClient.context.tags["ai.cloud.roleInstance"] = "your role instance";
+```
+
+### <a name="alternate-method-for-nodejs"></a>Alternatieve methode voor Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+
+appInsights.defaultClient.addTelemetryProcessor(envelope => {
+    envelope.tags["ai.cloud.role"] = "your role name";
+    envelope.tags["ai.cloud.roleInstance"] = "your role instance"
+});
+```
+
+### <a name="java"></a>Java
+
+Als u Spring Boot aan de Application Insights Spring Boot starter gebruiken, wordt de enige vereiste wijziging is het instellen van uw aangepaste naam voor de toepassing in de application.properties-bestand.
+
+`spring.application.name=<name-of-app>`
+
+De Spring Boot starter wordt cloudRoleName automatisch toegewezen aan de opgegeven waarde voor de eigenschap spring.application.name.
+
+Voor meer informatie over Java correlatie- en cloudRoleName configureren voor niet-SpringBoot toepassingen afhandeling dit [sectie](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) op correlatie.
+
+### <a name="clientbrowser-side-javascript"></a>Browser-client-side-JavaScript
+
+```javascript
+appInsights.queue.push(() => {
+appInsights.context.addTelemetryInitializer((envelope) => {
+  envelope.tags["ai.cloud.role"] = "your role name";
+  envelope.tags["ai.cloud.roleInstance"] = "your role instance";
+});
+});
+```
+
+Zie voor meer informatie over het onderdrukken van de eigenschap cloud_RoleName met telemetrie initializers, [eigenschappen toevoegen: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+Als u problemen bij het ophalen van Toepassingsoverzicht ondervindt naar behoren werkt, probeert u deze stappen:
+
+1. Zorg ervoor dat u een officieel ondersteunde SDK. Niet-ondersteunde/community SDK's bieden mogelijk geen ondersteuning voor correlatie.
+
+    Verwijzen naar dit [artikel](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) voor een lijst met ondersteunde SDK's.
+
+2. Alle onderdelen van een upgrade uitvoert naar de nieuwste versie van de SDK.
+
+3. Als u Azure Functions met C#, een upgrade uitvoeren naar [functies V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+
+4. Controleer of [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) correct is geconfigureerd.
+
+## <a name="portal-feedback"></a>Portal feedback
+Als u feedback wilt, gebruikt u de feedbackoptie van de portal.
 
 ![Installatiekopie van het MapLink-1](./media/app-insights-app-map/13.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Azure Portal](https://portal.azure.com)
+* [Informatie over correlatie](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)

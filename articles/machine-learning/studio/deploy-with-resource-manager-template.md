@@ -1,12 +1,11 @@
 ---
-title: Implementeren met Azure Resource Manager - Azure Machine Learning Studio-werkruimte | Microsoft Docs
+title: Studio-werkruimte met Azure Resource Manager - Azure Machine Learning Studio implementeren | Microsoft Docs
 description: Over het implementeren van een werkruimte voor Azure Machine Learning met behulp van Azure Resource Manager-sjabloon
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
 ms.service: machine-learning
@@ -15,15 +14,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/05/2018
-ms.openlocfilehash: e3836e3c299b2dff1252c0bceaec5266fc54b2e8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 02/05/2018
+ms.openlocfilehash: ac9cecd07d600189f0fb08771b0992d49236aea9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074603"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268917"
 ---
-# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Machine Learning-werkruimte implementeren met Azure Resource Manager
+# <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Machine Learning Studio-werkruimte met behulp van Azure Resource Manager implementeren
 
 Met behulp van een Azure Resource Manager-sjabloon voor de implementatie u tijd bespaart doordat u een schaalbare manier om te implementeren met elkaar verbonden onderdelen met een validatie en mechanisme voor opnieuw proberen. Als u Azure Machine Learning-werkruimtes instelt, bijvoorbeeld, moet u een Azure storage-account voor het eerst configureert en implementeert u uw werkruimte. Stel dit handmatig doen voor honderden werkruimten. Eenvoudiger alternatief is het gebruik van een Azure Resource Manager-sjabloon om een Azure Machine Learning-werkruimte en alle afhankelijkheden ervan te implementeren. In dit artikel gaat u door dit stapsgewijze proces. Zie voor een goed overzicht van Azure Resource Manager [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 

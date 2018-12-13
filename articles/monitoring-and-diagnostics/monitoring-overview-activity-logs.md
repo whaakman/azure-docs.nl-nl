@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: d75df381f1afc17d291fe0a477078acb3435019c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 46b00e102cbf5e981ac7036de65232e869dc9651
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958131"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272695"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Abonnement-activiteit controleren met de Azure-activiteitenlogboek
 
@@ -21,7 +21,7 @@ De **Azure Activity Log** is een abonnementlogboek die biedt inzicht in gebeurte
 
 ![Activiteiten logboeken en andere typen logboeken ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
-Afbeelding 1: Activiteitenlogboeken vs andere typen logboeken
+Afbeelding 1: Activiteiten logboeken en andere typen logboeken
 
 Het activiteitenlogboek wijkt af van [diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md). Activiteitenlogboeken bevatten gegevens over de bewerkingen op een resource van buitenaf (de "controlelaag"). Logboeken met diagnostische gegevens worden gegenereerd door een resource en geef informatie op over de werking van die resource (de "gegevenslaag').
 
@@ -33,14 +33,14 @@ Het activiteitenlogboek wijkt af van [diagnostische logboeken](monitoring-overvi
 U kunt gebeurtenissen ophalen uit het activiteitenlogboek is opgenomen met Azure portal, CLI, PowerShell-cmdlets en REST-API van Azure Monitor.
 
 > [!NOTE]
-> [De nieuwere waarschuwingen](monitoring-overview-alerts.md) bieden een betere ervaring wanneer het maken en beheren van de activiteit zich waarschuwingsregels.  [Meer informatie](alert-activity-log.md).
+> [De nieuwere waarschuwingen](monitoring-overview-alerts.md) bieden een betere ervaring wanneer het maken en beheren van de activiteit zich waarschuwingsregels.  [Meer informatie](../azure-monitor/platform/alerts-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>Categorieën in het activiteitenlogboek
 Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor volledige informatie over de schema's van deze categorieën [Raadpleeg dit artikel](monitoring-activity-log-schema.md). Deze omvatten:
 * **Administratieve** -deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie bewerkingen uitgevoerd via Resource Manager. Voorbeelden van de typen gebeurtenissen u in deze categorie ziet zijn 'virtuele machine maken' en 'netwerkbeveiligingsgroep verwijderen' elke actie op die door een gebruiker of een toepassing met behulp van Resource Manager is gemodelleerd als een bewerking op een bepaald resourcetype. Als het bewerkingstype schrijven, verwijderen of actie is, worden de records van de begin- en het slagen of mislukken van deze bewerking worden opgenomen in de beheercategorie. De beheercategorie omvat ook eventuele wijzigingen in de op rollen gebaseerd toegangsbeheer in een abonnement.
-* **Servicestatus** -deze categorie bevat de record van de service health incidenten die hebben plaatsgevonden in Azure. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "SQL Azure in VS-Oost ondervindt uitvaltijd." Service health-gebeurtenissen worden geleverd in vijf soorten: actie vereist, telefonische herstel, Incident, onderhoud, informatie of beveiliging, en wordt alleen weergegeven als u een resource in het abonnement dat wordt beïnvloed door de gebeurtenis.
-* **Resource Health** -deze categorie bevat de record van een resource health-gebeurtenissen die hebben plaatsgevonden naar uw Azure-resources. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Virtuele Machine health-status gewijzigd in niet beschikbaar." Resource health-gebeurtenissen kunnen een van de vier health-statussen vertegenwoordigen: beschikbaar is, niet beschikbaar, gedegradeerd en onbekend. Resource health-gebeurtenissen kunnen ook worden gecategoriseerd als Platform die gebruiker geïnitieerd of.
+* **Servicestatus** -deze categorie bevat de record van de service health incidenten die hebben plaatsgevonden in Azure. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "SQL Azure in VS-Oost ondervindt uitvaltijd." Er zijn vijf soorten service health-gebeurtenissen: Actie vereist, telefonische herstel, Incident, onderhoud, informatie of beveiliging, en wordt alleen weergegeven als u een resource in het abonnement dat wordt beïnvloed door de gebeurtenis.
+* **Resource Health** -deze categorie bevat de record van een resource health-gebeurtenissen die hebben plaatsgevonden naar uw Azure-resources. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Virtuele Machine health-status gewijzigd in niet beschikbaar." Resource health-gebeurtenissen kunnen gelden voor een van de vier health-statussen: Beschikbaar, niet beschikbaar is, verminderde en onbekend. Resource health-gebeurtenissen kunnen ook worden gecategoriseerd als Platform die gebruiker geïnitieerd of.
 * **Waarschuwing** -deze categorie bevat de record van alle activeringen van de Azure-waarschuwingen. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "CPU-percentage op myVM is meer dan 80 voor de afgelopen vijf minuten." Een reeks systemen die Azure hebben een waarschuwingen concept--u kunt een regel voor een definiëren en een melding ontvangen wanneer er voorwaarden overeenkomen met die regel. Telkens wanneer een ondersteunde Azure Waarschuwingstype 'wordt geactiveerd,' of de voorwaarden wordt voldaan voor het genereren van een melding, een record van de activering wordt ook gepusht naar deze categorie van het activiteitenlogboek.
 * **Automatisch schalen** -deze categorie bevat de record van alle gebeurtenissen die betrekking hebben op de werking van de engine voor automatisch schalen op basis van alle instellingen voor automatisch schalen die u hebt gedefinieerd in uw abonnement. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Schalen via automatisch schalen van de actie is mislukt". Automatisch schalen gebruik, u kunt automatisch omhoog of omlaag schalen op basis van tijd van de dag en/of load (metrische) gegevens met behulp van een instelling voor automatisch schalen van het aantal exemplaren in een ondersteunde resourcetype. Wanneer de voorwaarden wordt voldaan aan omhoog of omlaag schalen, de begin- en geslaagde of mislukte gebeurtenissen worden opgenomen in deze categorie.
 * **Aanbeveling** -deze categorie bevat aanbevelingsgebeurtenissen die van Azure Advisor.
@@ -57,7 +57,7 @@ Hier volgen enkele dingen die u met het activiteitenlogboek kunt doen:
 
 
 * Vragen en weer te geven in de **Azure-portal**.
-* [Een waarschuwing op een gebeurtenis voor activiteitenlogboek maken.](monitoring-activity-log-alerts.md)
+* [Een waarschuwing op een gebeurtenis voor activiteitenlogboek maken.](../azure-monitor/platform/activity-log-alerts.md)
 * [Stream het naar een **Event Hub** ](monitoring-stream-activity-logs-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
 * Analyseren in Power BI met behulp van de [ **Power BI-inhoudspakket**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Opslaan naar een **Opslagaccount** voor archivering of handmatige inspectie](monitoring-archive-activity-log.md). U kunt opgeven de bewaartermijn (in dagen) met behulp van de **Logboekprofiel**.
@@ -140,9 +140,9 @@ Get-AzureRmLogProfile
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
-| Eigenschap | Vereist | Beschrijving |
+| Eigenschap | Vereist | Description |
 | --- | --- | --- |
-| Naam |Ja |Naam van uw logboekprofiel. |
+| Name |Ja |Naam van uw logboekprofiel. |
 | StorageAccountId |Nee |Resource-ID van het Opslagaccount waarnaar het activiteitenlogboek moeten worden opgeslagen. |
 | serviceBusRuleId |Nee |Service Bus-regel-ID voor de Service Bus-naamruimte hebt gemaakt in eventhubs hebben. Een tekenreeks zijn met deze indeling is: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Locatie |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. |

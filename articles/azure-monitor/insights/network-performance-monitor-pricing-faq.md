@@ -9,19 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.component: ''
-ms.openlocfilehash: 9e9fdfce9dbb165227f88e9f72bc219dce8f3307
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a4e5440a9b8b6ce36d8472463b35201f39d3ac5a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428688"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192784"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Prijswijzigingen voor Azure Network Performance Monitor
 
@@ -39,8 +37,8 @@ De volgende secties worden de prijswijzigingen voor de NPM-onderdelen.
 **Hoe is het gebruik van de Prestatiemeter in rekening gebracht in het oude model?**
 
 De facturering voor NPM is gebaseerd op het gebruik en het verbruik van twee onderdelen:
-* **Knooppunten**: alle synthetische transacties afkomstig zijn en eindigen op de knooppunten. Knooppunten worden ook aangeduid als agents of Microsoft Beheeragents.
-* **Gegevens**: de resultaten van de verschillende netwerktests zijn opgeslagen in de Azure Log Analytics-opslagplaats.
+* **Knooppunten**: Alle synthetische transacties afkomstig zijn en eindigen op de knooppunten. Knooppunten worden ook aangeduid als agents of Microsoft Beheeragents.
+* **Gegevens**: De resultaten van de verschillende netwerktests worden opgeslagen in de Azure Log Analytics-opslagplaats.
 
 De factuur is berekend op basis van het aantal knooppunten en het volume van gegenereerde gegevens onder het oude model. 
 
@@ -121,5 +119,5 @@ Raadpleeg de [Verbindingscontrole](https://azure.microsoft.com/pricing/details/n
 
 ## <a name="references"></a>Verwijzingen
 
-[Meld u Analytics Veelgestelde vragen over tarieven](https://azure.microsoft.com/pricing/details/log-analytics/): veelgestelde vragen over de de sectie bevat informatie over de gratis laag, per knooppunt en andere informatie over prijsinformatie.
+[Log Analytics-Veelgestelde vragen over prijzen](https://azure.microsoft.com/pricing/details/log-analytics/): De sectie Veelgestelde vragen over bevat informatie over de gratis laag, per knooppunt prijzen en andere informatie over prijsinformatie.
 

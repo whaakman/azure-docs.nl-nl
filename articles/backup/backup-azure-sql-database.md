@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: f6271e8de6be0bcfab7ade4c9e90a69482e7905e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d38fc727ed7e9e3c47d2fcb9af7894f8a2a7c7a7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878207"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262330"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Back-up van SQL Server-databases naar Azure
 
@@ -117,8 +117,8 @@ Als deze voorwaarden in uw omgeving bestaan, blijven [back-up configureren voor 
 
 Voor alle bewerkingen moet de SQL-virtuele machine verbinding met Azure openbare IP-adressen. SQL VM-bewerkingen (zoals databasedetectie, back-ups configureren, back-ups, herstelpunten herstellen, enzovoort) uitvallen zonder dat de verbinding met het openbare IP-adressen. Gebruik een van de volgende opties voor een duidelijk pad voor back-upverkeer:
 
-- De Azure-datacenter-IP-bereiken van geaccepteerde: aan lijst met geaccepteerde IP-bereiken met de Azure-datacenter, gebruiken de [Download Center-pagina voor meer informatie over de IP-bereiken en instructies](https://www.microsoft.com/download/details.aspx?id=41653).
-- Een HTTP-proxy-server implementeren om verkeer te routeren: wanneer u back-up van een SQL-database in een virtuele machine, de back-upextensie op de virtuele machine maakt gebruik van de HTTPS-API's voor het verzenden van opdrachten voor beheer met Azure Backup en gegevens naar Azure Storage. De Backup-extensie gebruikt ook Azure Active Directory (Azure AD) voor verificatie. De back-upextensie verkeer omleiden voor deze drie services via de HTTP-proxy. De extensie's het enige onderdeel dat geconfigureerd voor toegang tot het openbare internet.
+- Het Azure-datacenter geaccepteerde IP-bereiken: Aan lijst met geaccepteerde IP-bereiken met de Azure-datacenter, gebruiken de [Download Center-pagina voor meer informatie over de IP-bereiken en instructies](https://www.microsoft.com/download/details.aspx?id=41653).
+- Een HTTP-proxy-server om verkeer te routeren implementeren: Wanneer u back-up van een SQL-database in een virtuele machine, gebruikt de back-upextensie op de virtuele machine de HTTPS-API's voor het verzenden van opdrachten voor beheer met Azure Backup en gegevens naar Azure Storage. De Backup-extensie gebruikt ook Azure Active Directory (Azure AD) voor verificatie. De back-upextensie verkeer omleiden voor deze drie services via de HTTP-proxy. De extensie's het enige onderdeel dat geconfigureerd voor toegang tot het openbare internet.
 
 De balans tussen de opties zijn beheerbaarheid, gedetailleerde controle en kosten.
 
@@ -345,9 +345,9 @@ Beveiliging voor een SQL-database configureren:
 
 Een back-upbeleid definieert een matrix met wanneer back-ups worden gemaakt en hoe lang ze worden bewaard. Met Azure Backup voor het plannen van de drie typen van back-up voor SQL-databases:
 
-* Volledige back-up: een volledige databaseback-up een back-up van de gehele database. Een volledige back-up bevat alle gegevens in een specifieke database of een set bestandsgroepen of bestanden en voldoende Logboeken om die gegevens te herstellen. U kunt maximaal, een volledige back-up per dag activeren. U kunt een volledige back-up te nemen in een interval van dagelijks of wekelijks.
-* Differentiële back-up: een differentiële back-up is gebaseerd op de meest recente, de vorige volledige gegevens back-up. Een differentiële back-up legt alleen de gegevens die zijn gewijzigd nadat de volledige back-up. U kunt maximaal één differentiële back-up per dag activeren. U kunt een volledige back-up en een differentiële back-up niet configureren op dezelfde dag.
-* Transactielogboekback-up: een logboekback-up kunt punt in tijd herstel tot een specifieke seconde. Maximaal, kunt u configureren transactionele logboekback-ups om de 15 minuten.
+* Volledige back-up: Een volledige databaseback-up een back-up van de gehele database. Een volledige back-up bevat alle gegevens in een specifieke database of een set bestandsgroepen of bestanden en voldoende Logboeken om die gegevens te herstellen. U kunt maximaal, een volledige back-up per dag activeren. U kunt een volledige back-up te nemen in een interval van dagelijks of wekelijks.
+* Differentiële back-up: Een differentiële back-up is gebaseerd op de meest recente, de vorige volledige gegevens back-up. Een differentiële back-up legt alleen de gegevens die zijn gewijzigd nadat de volledige back-up. U kunt maximaal één differentiële back-up per dag activeren. U kunt een volledige back-up en een differentiële back-up niet configureren op dezelfde dag.
+* Transactielogboekback-up: Een logboekback-up kunt punt in tijd herstel tot een specifieke seconde. Maximaal, kunt u configureren transactionele logboekback-ups om de 15 minuten.
 
 Van het beleid gemaakt in de Recovery Services-kluis niveau. Meerdere kluizen het dezelfde back-upbeleid kunnen gebruiken, maar u moet het back-upbeleid toepassen op elke kluis. Wanneer u een back-upbeleid maakt, is de dagelijkse volledige back-up de standaardinstelling. Als u een volledige back-ups wekelijks optreden als u wilt configureren, kunt u een differentiële back-up, maar alleen toevoegen. De volgende procedure wordt uitgelegd hoe u een back-upbeleid voor een SQL Server-exemplaar maakt in een virtuele machine van Azure.
 
@@ -455,8 +455,8 @@ U kunt ook een specifieke volledige of differentiële back-up te herstellen naar
     ![Selecteer Restore DB](./media/backup-azure-sql-database/restore-db-button.png)
 
     Wanneer de **herstellen** menu wordt geopend, de **configuratie herstellen** menu ook wordt geopend. De **configuratie herstellen** menu is de eerste stap bij het configureren van de herstelbewerking. Gebruik dit menu om te selecteren waar u de gegevens herstelt. De opties zijn:
-    - **Alternatieve locatie**: de database herstellen naar een alternatieve locatie en de oorspronkelijke brondatabase behouden.
-    - **DB overschrijven**: de gegevens te herstellen naar hetzelfde exemplaar van SQL Server als de oorspronkelijke bron. Het effect van deze optie is om de oorspronkelijke database te overschrijven.
+    - **Alternatieve locatie**: De database herstellen naar een alternatieve locatie en de oorspronkelijke brondatabase behouden.
+    - **DB overschrijven**: De gegevens te herstellen naar hetzelfde exemplaar van SQL Server als de oorspronkelijke bron. Het effect van deze optie is om de oorspronkelijke database te overschrijven.
 
     > [!Important]
     > Als de geselecteerde database bij een AlwaysOn-beschikbaarheidsgroep hoort, niet de database worden overschreven door SQL Server toegestaan. In dit geval wordt alleen de **alternatieve locatie** optie is ingeschakeld.
@@ -798,19 +798,15 @@ De volgende sectie bevat aanvullende informatie over back-up van SQL database.
 ### <a name="can-i-throttle-the-speed-of-the-sql-server-backup-policy"></a>Kan ik de snelheid van het SQL Server-back-upbeleid beperken?
 
 Ja. De snelheid waarmee het back-upbeleid voor het minimaliseren van de impact op een exemplaar van SQL Server wordt uitgevoerd, kunt u beperken.
-
 De instelling te wijzigen:
-
-1. Open op de SQL Server-exemplaar in de map C:\Program Files\Azure werkbelasting Backup\bin de **TaskThrottlerSettings.json** bestand.
-
-2. Wijzig in het bestand TaskThrottlerSettings.json de **DefaultBackupTasksThreshold** instellen op een lagere waarde (bijvoorbeeld 5).
+1. Op de SQL Server-exemplaar in de *map C:\Program Files\Azure werkbelasting Backup\bin*, maken de **ExtensionSettingsOverrides.json** bestand.
+2. In de **ExtensionSettingsOverrides.json** bestand, wijzig de **DefaultBackupTasksThreshold** instellen op een lagere waarde (bijvoorbeeld 5) <br>
+  ` {"DefaultBackupTasksThreshold": 5}`
 
 3. Sla uw wijzigingen op. Sluit het bestand.
-
-4. Open op de SQL Server-exemplaar **Taakbeheer**. Start opnieuw op de **Service van Azure-back-Workload Coordinator**.
+4. Open op de SQL Server-exemplaar **Taakbeheer**. Start opnieuw op de **AzureWLBackupCoordinatorSvc** service.
 
 ### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Kan ik een volledige back-up van een secundaire replica uitvoeren?
-
 Nee. Deze functie wordt niet ondersteund.
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>Waarschuwingen in de geslaagde back-uptaken maken?

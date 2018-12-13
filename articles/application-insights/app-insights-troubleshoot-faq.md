@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0e934a629edc41ce09cad810b0d3b9b88e36c6d6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996524"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323351"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -26,7 +26,7 @@ ms.locfileid: "52996524"
 
 * [.NET app](app-insights-asp-net-troubleshoot-no-data.md)
 * [Bewaken van een app al actief](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java-web-app](app-insights-java-troubleshoot.md)
 
 *Kan ik ophalen geen gegevens uit mijn server*
@@ -118,7 +118,7 @@ Van [client webpagina's](app-insights-javascript.md):
 
 Uit andere bronnen, als u ze configureren:
 
-* [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Docker-containers](app-insights-docker.md)
 * [Tabellen importeren in Analytics](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
@@ -138,7 +138,7 @@ Meer informatie voor [ASP.NET](app-insights-api-filtering-sampling.md) of [Java]
 We controleren of het IP-adres (IPv4 of IPv6) van de webclient met behulp van [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Telemetrie van de browser: We verzamelen van de afzender IP-adres.
-* Servertelemetrie: de Application Insights-module verzamelt IP-adres van de client. Het is niet verzameld als `X-Forwarded-For` is ingesteld.
+* Servertelemetrie: De module Application Insights verzamelt IP-adres van de client. Het is niet verzameld als `X-Forwarded-For` is ingesteld.
 
 U kunt configureren dat de `ClientIpHeaderTelemetryInitializer` overnemen van het IP-adres van een andere koptekst. In sommige systemen, bijvoorbeeld, wordt deze verplaatst door een proxy, load balancer of een CDN `X-Originating-IP`. [Meer informatie](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 

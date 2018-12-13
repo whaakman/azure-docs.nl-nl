@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 526c89a83a102c80bf1ddb5a5d950b0367a9cd69
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b929608d64e747d6e768da4ee6627f9e6b09a83a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076369"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270080"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Azure Machine Learning Studio webserviceparameters gebruiken
 Een Azure Machine Learning-webservice wordt gemaakt door het publiceren van een experiment met modules met configureerbare parameters. In sommige gevallen kunt u het gedrag van de module niet wijzigen terwijl de webservice wordt uitgevoerd. *Web-Parameters van de Service* zodat u deze taak. 
@@ -30,7 +29,7 @@ Een veelvoorkomend voorbeeld is het instellen van de [importgegevens] [ reader] 
 
 U kunt Parameters van de Web Service en deze koppelen aan een of meer moduleparameters in uw experiment, en kunt u opgeven of ze verplicht of optioneel zijn. De gebruiker van de webservice kan vervolgens waarden opgeven voor deze parameters wanneer ze de webservice aanroept. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="how-to-set-and-use-web-service-parameters"></a>Het instellen en Webserviceparameters gebruiken
 U definieert een Parameter van Web Service door te klikken op het pictogram naast de parameter voor een module en selecteer 'Instellen als web Serviceparameter'. Hiermee maakt u een nieuwe Web Service-Parameter en verbindt u deze met deze module-parameter. Als de webservice wordt geopend, vervolgens de gebruiker kan een waarde opgeven voor de Web Service-Parameter en wordt toegepast op de module-parameter.

@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 1c80bd8d7290e49b6ddeca067e0b17aebf1f024e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 674a26b9c8eb5fe8f44b416b5296b61c6678d2cd
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882734"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186171"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview-versie)
 Dit artikel ziet u hoe u de API HTTP Data Collector gebruikt om gegevens te verzenden naar Log Analytics van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Log Analytics.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -48,14 +47,14 @@ Voor het gebruik van de API HTTP Data Collector, maakt u een POST-aanvraag met d
 | Inhoudstype |application/json |
 
 ### <a name="request-uri-parameters"></a>Aanvraag-URI-parameters
-| Parameter | Beschrijving |
+| Parameter | Description |
 |:--- |:--- |
 | Klant-id |De unieke id voor de Log Analytics-werkruimte. |
 | Resource |De naam van de API-resource: / api/logs. |
 | API-versie |De versie van de API voor gebruik met deze aanvraag. Het is momenteel, 2016-04-01. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
-| Header | Beschrijving |
+| Header | Description |
 |:--- |:--- |
 | Autorisatie |De autorisatie-handtekening. Later in dit artikel, kunt u lezen over het maken van een HMAC-SHA256-header. |
 | Log-Type |Geef het recordtype van de gegevens die wordt verzonden. Het logboektype ondersteunt momenteel alleen alfanumerieke tekens. Het ondersteunt geen numerieke waarden of speciale tekens bevatten. De maximale grootte voor deze parameter is 100 tekens. |
@@ -178,7 +177,7 @@ De HTTP-statuscode 200 betekent dat de aanvraag is ontvangen voor verwerking. Hi
 
 Deze tabel bevat de volledige reeks statuscodes die de service kan worden geretourneerd:
 
-| Code | Status | Foutcode | Beschrijving |
+| Code | Status | Foutcode | Description |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |De aanvraag is geaccepteerd. |
 | 400 |Ongeldig verzoek |InactiveCustomer |De werkruimte is gesloten. |

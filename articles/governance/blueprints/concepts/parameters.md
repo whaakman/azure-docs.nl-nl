@@ -1,5 +1,5 @@
 ---
-title: Het maken van dynamische blauwdrukken via parameters in Azure blauwdrukken
+title: Parameters voor het maken van dynamische blauwdrukken gebruiken
 description: Meer informatie over statische en dynamische parameters en hoe ze worden gemaakt met dynamische blauwdrukken.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f6485b01c391ba336799ceb35ee67402b3603585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eef85fe92682eb3a6fd1dbc036cf547b163db97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093748"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310314"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Het maken van dynamische blauwdrukken via parameters
 
@@ -51,13 +52,13 @@ Een parameterwaarde die is gedefinieerd in de definitie van een blauwdruk heet e
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Statische parameters instelt in de portal
 
-1. Klik op **alle services** en het zoeken en selecteren **beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
+1. Klik op **Alle services** en selecteer **Beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
 
 1. Selecteer **Blauwdrukdefinities** op de pagina aan de linkerkant.
 
 1. Klik op een bestaande blauwdruk en klik vervolgens op **blauwdruk bewerken** of klik op **+ maken blauwdruk** en vul de informatie op de **basisbeginselen** tabblad.
 
-1. Klik op **volgende: artefacten** of klik op de **artefacten** tabblad.
+1. Klik op **volgende: Artefacten** of klik op de **artefacten** tabblad.
 
 1. Artefacten toegevoegd aan de blauwdruk waarvoor parameteropties weergeven **X van Y-parameters ingevuld** in de **Parameters** kolom. Klik op de rij artefact om de parameters van het artefact te bewerken.
 
@@ -168,7 +169,7 @@ Het tegenovergestelde van een statische parameter is een **dynamische parameter*
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Dynamische parameters instellen in de portal
 
-1. Klik op **alle services** en het zoeken en selecteren **beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
+1. Klik op **Alle services** en selecteer **Beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
 
 1. Selecteer **Blauwdrukdefinities** op de pagina aan de linkerkant.
 

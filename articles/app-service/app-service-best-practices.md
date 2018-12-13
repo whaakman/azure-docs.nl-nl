@@ -1,5 +1,5 @@
 ---
-title: Aanbevolen procedures voor Azure App Service
+title: Aanbevolen procedures - Azure App Service
 description: Informatie over aanbevolen procedures en probleemoplossing voor Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ff79680c00a394790ba56db9ab4b237f06c677e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240627"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261820"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Aanbevolen procedures voor Azure App Service
 In dit artikel bevat een overzicht van aanbevolen procedures voor het gebruik van [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -38,7 +39,7 @@ U ziet u wanneer u een app verbruikt meer geheugen dan verwacht als aangegeven m
 ## <a name="CPUresources"></a>Wanneer apps gebruiken meer CPU nodig is dan verwacht
 Wanneer u ziet dat een app verbruikt meer CPU nodig is dan verwacht of ervaringen herhaalde CPU pieken zoals wordt aangegeven via aanbevelingen voor bewaking of service, kunt u omhoog of uitschalen van het App Service-plan. Als uw toepassing stateful is, is omhoog schalen de enige optie, terwijl als uw toepassing is staatloze, vergroten/verkleinen out meer flexibiliteit en mogelijkheden voor hogere schaal biedt. 
 
-U kunt deze video bekijken voor meer informatie over 'stateful' vs 'stateless' toepassingen: [plannen van een schaalbare End-to-End toepassing met meerdere lagen in Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Zie voor meer informatie over opties voor het schalen en automatisch schalen van App Service, [een Web-App schalen in Azure App Service](web-sites-scale.md).  
+Bekijk deze video voor meer informatie over 'stateful' vs 'stateless' toepassingen: [Planning van een schaalbare End-to-End-toepassing met meerdere lagen op Microsoft Azure-Web-App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Zie voor meer informatie over opties voor het schalen en automatisch schalen van App Service, [een Web-App schalen in Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Wanneer de socket resources zijn uitgeput
 Een veelvoorkomende reden voor uitput uitgaande TCP-verbindingen is het gebruik van clientbibliotheken, die niet worden geïmplementeerd om TCP-verbindingen opnieuw te gebruiken, of wanneer een hoger niveau protocol zoals HTTP - keepalive niet wordt gebruikt. Raadpleeg de documentatie voor elk van de bibliotheken waarnaar wordt verwezen door de apps in uw App Service-Plan om te controleren of ze zijn geconfigureerd of geopend in de programmacode voor efficiënte hergebruik van uitgaande verbindingen. Volg ook de bibliotheekhulp-documentatie voor het maken van goede en release of opschoning om te voorkomen dat verbindingen lekken. Hoewel deze bibliotheken client verificaties uitgevoerd worden, kan invloed worden verholpen door uitschalen naar meerdere exemplaren.

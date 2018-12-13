@@ -1,7 +1,7 @@
 ---
 title: Eindpunt van de regioC#
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Via een programma zoeken regio met de eindpuntsleutel en toepassing publiceren-ID van LUIS.
+description: Met C#, zoeken naar publiceren regio met de eindpuntsleutel en toepassing-ID van LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 39e0451594d0c394589b3e833ffc61f195791ba6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016024"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165160"
 ---
 # <a name="find-endpoint-region-with-c"></a>Eindpunt-gebied met C# zoeken 
 Als u de LUIS-app-ID en de LUIS abonnements-ID hebt, kunt u welke regio u moet gebruiken voor eindpunt query's kunt vinden.
 
 > [!NOTE] 
-> De volledige C#-oplossing is beschikbaar via de [ **LUIS-Samples** Github-opslagplaats](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> De volledige C# oplossing is beschikbaar via de [ **LUIS-Samples** GitHub-opslagplaats](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS-eindpunt querystrategie
 Elke query LUIS-eindpunt is vereist:
@@ -33,7 +33,7 @@ Elke query LUIS-eindpunt is vereist:
 
 Als de query van LUIS-eindpunt maakt gebruik van het juiste eindpunt sleutel- en app-ID, maar de verkeerde regio, wordt de responscode 401. De 401-aanvraag wordt niet meegerekend mee voor het abonnementenquotum. Deze aanvraag omzetten in een strategie te vragen voor alle regio's om de juiste regio. De juiste regio is de enige aanvraag die een statuscode 2xx retourneert. 
 
-|responscode|Parameters|
+|Antwoordcode|Parameters|
 |--|--|
 |2xx|juiste eindpuntsleutel<br>juiste app-ID<br>regio van de juiste host|
 |401|juiste eindpuntsleutel<br>juiste app-ID<br>_onjuiste_ hostregio|

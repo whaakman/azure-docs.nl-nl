@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 2310f007697cf1acbdbc907d4562853a2717eb5d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2f984eb8cb09e5d65c4a366b827f695c739003f3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097121"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163818"
 ---
 # <a name="about-expressroute-direct-preview"></a>Over ExpressRoute Direct (Preview)
 
-ExpressRoute Direct biedt u de verbinding rechtstreeks in het wereldwijde netwerk van Microsoft op peeringlocaties strategisch verdeeld over de hele wereld. ExpressRoute Direct biedt twee 100-Gbps-connectiviteit, die ondersteuning biedt voor actief/actief-verbindingen op schaal.
+ExpressRoute Direct biedt de mogelijkheid om rechtstreeks in het wereldwijde netwerk van Microsoft op peeringlocaties strategisch verdeeld over de hele wereld verbinding te maken. ExpressRoute Direct biedt twee 100-Gbps-connectiviteit, die ondersteuning biedt voor actief/actief-verbindingen op schaal.
 
 Belangrijke functies van ExpressRoute Direct bevatten, maar niet beperkt tot:
 
 * Massale gegevensopname in services als Storage en Cosmos DB
-* Fysieke isolatie voor branches die worden geregeld en nodig toegewezen en geïsoleerd connectiviteit, zoals: bankieren-, overheids- en detailhandel
+* Fysieke isolatie voor branches die worden geregeld en vereisen toegewezen en geïsoleerd verbinding, zoals: Bankieren-, overheids- en detailhandel
 * Gedetailleerde controle van circuitdistributie op basis van bedrijfsonderdelen
 
 > [!IMPORTANT]

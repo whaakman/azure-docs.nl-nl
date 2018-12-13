@@ -11,19 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239080"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164395"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
 
 Azure SQL Database kunt u gemakkelijk volledig beheerde PaaS-database-engine die past bij de behoeften van uw prestaties en kosten kunt kopen. Afhankelijk van het implementatiemodel van Azure SQL Database, kunt u de aankopen model dat aansluit bij uw behoeften:
+- [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) (aanbevolen) waarmee u de exacte hoeveelheid opslagcapaciteit kiezen en compute die u nodig hebt voor uw workload.
+- [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) kunt u de berekenings- en pakketten met gelijke taakverdeling voor veelvoorkomende workloads gebundeld.
 
-- [Logische servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) biedt twee aankopen modellen voor berekening, opslag en i/o-resources: een [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en een [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). Binnen deze aankoopmodel kunt u kiezen [enkelvoudige databases](sql-database-single-databases-manage.md) of [elastische pools](sql-database-elastic-pool.md).
+Verschillende aankopen modellen zijn beschikbaar in Azure SQL Database-implementatiemodellen:
+- [Logische servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) bieden beide [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). Binnen deze aankoopmodel kunt u kiezen [enkelvoudige databases](sql-database-single-databases-manage.md) of [elastische pools](sql-database-elastic-pool.md).
 - [Beheerde exemplaren](sql-database-managed-instance.md) in enige aanbieding van Azure SQL Database de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -51,7 +54,7 @@ Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk reken- en opslagresour
 
 > [!IMPORTANT]
 > Reken-, IOs-, gegevens en opslaan van Logboeken worden in rekening gebracht per database of elastische pool. Back-ups opslag wordt in rekening gebracht per elke database. Raadpleeg voor meer informatie van Managed Instance kosten [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-> **Beperkingen regio:** het vCore-aanschafmodel is nog niet beschikbaar in de volgende regio's: West-Europa, Frankrijk-centraal, UK-Zuid, UK-West en Australië-Zuidoost.
+> **De volgende beperkingen regio:** Het vCore-aanschafmodel is nog niet beschikbaar in de volgende regio's: West-Europa, Frankrijk-centraal, VK Zuid, UK-West en Australië-Zuidoost.
 
 Als uw database of elastische pool meer dan 300 DTU conversie naar vCore verbruikt kan uw kosten verlagen. U kunt converteren met behulp van uw API van keuze of de Azure-portal, zonder uitvaltijd. Conversie is echter niet vereist. Als het DTU-aankoopmodel voldoet aan uw prestaties en zakelijke vereisten, moet u deze blijven gebruiken. Als u converteren van het DTU-model naar het vCore-model wilt, moet u de grootte van de compute met behulp van de volgende vuistregel: elke 100 DTU in Standard-laag moet ten minste 1 vCore in de categorie Algemeen gebruik; elke 125 DTU in Premium-laag moet ten minste 1 vCore in de laag bedrijfskritiek.
 

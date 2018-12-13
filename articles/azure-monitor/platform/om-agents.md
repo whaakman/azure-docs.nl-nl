@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 1988f5790b719acf4e5dad1a378139c8d74b56f9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 133e617cd6bac1155ba22276887cf0790221e9de
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995331"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186970"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager verbinden met Log Analytics
 Voor het onderhouden van uw bestaande investeringen in [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) en uitgebreide mogelijkheden met Log Analytics gebruiken, kunt u Operations Manager integreren met uw Log Analytics-werkruimte. Zo profiteert u van de mogelijkheden van Log Analytics, maar kunt u Operations Manager nog steeds gebruiken voor het volgende:
@@ -103,19 +102,19 @@ Na het voltooien van de volgende stappen uit om te integreren in Log Analytics, 
 1. Selecteer de werkruimte **Beheer** in de Operations Manager-console.
 1. Vouw het knooppunt Operations Management Suite uit en klik op **Verbinding**.
 1. Klik op de koppeling **Registreren bij Operations Management Suite**.
-1. Voer op de pagina **Wizard Operations Management Suite voorbereiden: verificatie** het e-mailadres of telefoonnummer en het wachtwoord in van het beheerdersaccount dat is gekoppeld aan uw OMS-abonnement, en klik op **Aanmelden**.
+1. Op de **Wizard Operations Management Suite voorbereiden: Verificatie** pagina, voer het e-mailadres of telefoonnummer en het wachtwoord van de administrator-account dat is gekoppeld aan uw OMS-abonnement en op **aanmelden**.
 
    >[!NOTE]
    >OMS wordt nu aangeduid als Log Analytics.
    
-1. Nadat u bent geverifieerd, op de **Wizard Operations Management Suite voorbereiden: werkruimte selecteren** pagina, wordt u gevraagd om uw Azure-tenant, abonnement en Log Analytics-werkruimte te selecteren. Als u meerdere werkruimten hebt, selecteert u in de keuzelijst de werkruimte die u bij de Operations Manager-beheergroep wilt registreren, en klikt u op **Volgende**.
+1. Nadat u bent geverifieerd, op de **Wizard Operations Management Suite voorbereiden: Selecteer werkruimte** pagina, wordt u gevraagd om uw Azure-tenant, abonnement en Log Analytics-werkruimte te selecteren. Als u meerdere werkruimten hebt, selecteert u in de keuzelijst de werkruimte die u bij de Operations Manager-beheergroep wilt registreren, en klikt u op **Volgende**.
    
    > [!NOTE]
    > Operations Manager ondersteunt slechts één Log Analytics-werkruimte tegelijk. De verbinding en de computers die bij de vorige Log Analytics-werkruimte waren geregistreerd, worden verwijderd.
    > 
    > 
-1. Controleer de instellingen op de pagina **Wizard Operations Management Suite voorbereiden: samenvatting**. Als deze juist zijn, klikt u op **Maken**.
-1. Op de pagina **Wizard Operations Management Suite voorbereiden: voltooien** klikt u op **Sluiten**.
+1. Op de **Wizard Operations Management Suite voorbereiden: Samenvatting** pagina, bevestig de instellingen en als ze juist zijn, klikt u op **maken**.
+1. Op de **Wizard Operations Management Suite voorbereiden: Voltooien** pagina, klikt u op **sluiten**.
 
 ### <a name="add-agent-managed-computers"></a>Door een agent beheerde computers toevoegen
 Na het configureren van integratie met uw Log Analytics-werkruimte, wordt alleen een verbinding tot stand met de service, er worden geen gegevens worden verzameld van de agents die rapporteren aan de beheergroep. Dit zal niet worden uitgevoerd tot nadat u hebt geconfigureerd welke specifieke door agents beheerde computers verzamelen van gegevens voor Log Analytics. U kunt de computerobjecten afzonderlijk selecteren of een groep met Windows-computerobjecten selecteren. U kunt geen groep met objecten van een andere klasse selecteren, zoals logische schijven of SQL-databases.
@@ -133,7 +132,7 @@ Voer de volgende stappen uit als een interne proxyserver tussen de beheergroep e
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
 1. Vouw Operations Management Suite uit en klik op **Verbindingen**.
 1. Klik in de weergave OMS-verbinding op **Proxyserver configureren**.
-1. Selecteer op de pagina **Wizard Operations Management Suite: proxyserver** de optie **Een proxyserver gebruiken voor toegang tot Operations Management Suite** en typ de URL met het poortnummer, bijvoorbeeld http://corpproxy:80, en klik op **Voltooien**.
+1. Op **Wizard Operations Management Suite: Proxyserver** weergeeft, schakelt **een proxyserver gebruiken voor toegang tot de Operations Management Suite**, en typ vervolgens de URL het poortnummer, bijvoorbeeld http://corpproxy:80 en klik vervolgens op **voltooien** .
 
 Als uw proxyserver verificatie is vereist, moet u de volgende stappen voor het configureren van referenties en instellingen die moet worden doorgegeven aan beheerde computers die in de beheergroep met Log Analytics-rapporten uitvoeren.
 
@@ -171,7 +170,7 @@ Als u wilt doorgaan na uw bestaande wijzigingsproces voor een besturingselement 
 1. Ga als volgt de **Wizard van Log Analytics voorbereiden** en voer de e-mailadres of telefoonnummer getal en het wachtwoord van de administrator-account dat is gekoppeld aan uw nieuwe Log Analytics-werkruimte.
    
    > [!NOTE]
-   > Op de pagina **Wizard Operations Management Suite voorbereiden: werkruimte selecteren** wordt de bestaande werkruimte weergegeven die momenteel wordt gebruikt.
+   > De **Wizard Operations Management Suite voorbereiden: Selecteer werkruimte** pagina geeft de bestaande werkruimte die wordt gebruikt.
    > 
    > 
 

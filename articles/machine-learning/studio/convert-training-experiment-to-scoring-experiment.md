@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: c08d098c5df968d15ff236121dc641dd53b27157
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ef54281b91147060e9c00bcc6e45e0db0fb8933a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102177"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273099"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Over het voorbereiden van uw model voor implementatie in Azure Machine Learning Studio
 
@@ -29,11 +28,11 @@ Azure Machine Learning Studio biedt u de hulpmiddelen die u nodig hebt voor het 
 
 U doet dit door u Studio kunt gebruiken om u te maken van een experiment - met de naam een *trainingsexperiment* - waar u trainen, beoordelen en uw model bewerken. Wanneer u tevreden bent, krijgt uw model klaar om te implementeren door te converteren van uw trainingsexperiment op een *Voorspellend experiment* dat geconfigureerd voor de score gebruikersgegevens.
 
-U ziet een voorbeeld van dit proces in [scenario: een predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md).
+U ziet een voorbeeld van dit proces in [scenario: Predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md).
 
 In dit artikel wordt een dieper ingaan op de details van hoe een opleidingsexperiment wordt geconverteerd naar een Voorspellend experiment en hoe die Voorspellend experiment is geïmplementeerd. Door de volgende details, kunt u informatie over het configureren van uw geïmplementeerd model zodat het efficiëntere.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Overzicht 
 

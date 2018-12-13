@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 738e78e608dbd819f24125799a1e8d48859f1aa0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f445e7544891d85ab37f1f6e80e1855580b3b570
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043599"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272760"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -39,7 +39,7 @@ Aanbevelingen voor prestaties worden weergegeven in de tabel die vergelijkbaar i
 
 Aanbevelingen worden gesorteerd op hun mogelijke invloed op de prestaties in de volgende categorieën:
 
-| Impact | Beschrijving |
+| Impact | Description |
 |:--- |:--- |
 | Hoog |Aanbevelingen voor hoge impact moeten de meeste impact prestaties bieden. |
 | Middelgroot |Normale impact aanbevelingen voor moeten de prestaties verbeteren, maar niet aanzienlijk. |
@@ -124,7 +124,7 @@ Aanbevelingen die zich in een **in behandeling**, **Validating**, of **succes** 
 ## <a name="monitoring-operations"></a>Controlebewerkingen
 Toepassen van een aanbeveling mogelijk niet onmiddellijk plaatsvindt. De portal bevat informatie over de status van de aanbeveling. Hier volgen de mogelijke statussen die een index, kan zich in:
 
-| Status | Beschrijving |
+| Status | Description |
 |:--- |:--- |
 | In behandeling |Aanbeveling opdracht is ontvangen en gepland voor uitvoering van toepassing. |
 | In uitvoering |De aanbeveling is toegepast. |

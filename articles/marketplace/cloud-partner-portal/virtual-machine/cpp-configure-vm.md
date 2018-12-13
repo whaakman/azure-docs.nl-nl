@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1db8c99b1bd3f9bbb768572ca1f5f7a4e1e0de4
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639694"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183468"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configureer de VM wordt gehost op Azure
 
@@ -28,14 +28,14 @@ In dit artikel wordt uitgelegd hoe u het formaat van, bijwerken en een virtuele 
 
 ## <a name="sizing-the-vhds"></a>Grootte van de VHD 's
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Als u een van de virtuele machines die vooraf zijn geconfigureerd met een besturingssysteem (en eventueel extra services) hebt geselecteerd, wordt u al een standaard Azure-VM-grootte, verzameld zoals beschreven in [VM-SKU's tabblad](./cpp-skus-tab.md).  Dit is de aanbevolen methode.  Echter, als u een besturingssysteem handmatig installeert, klikt u vervolgens u moet het formaat van uw primaire VHD in uw VM-installatiekopie:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Als u een van de virtuele machines die vooraf zijn geconfigureerd met een besturingssysteem (en eventueel extra services) hebt geselecteerd, wordt u al een standaard Azure-VM-grootte, verzameld zoals beschreven in [VM-SKU's tabblad](./cpp-skus-tab.md).  Uw oplossing beginnen met een vooraf geconfigureerde besturingssysteem is de aanbevolen methode.  Echter, als u een besturingssysteem handmatig installeert, klikt u vervolgens u moet het formaat van uw primaire VHD in uw VM-installatiekopie:
 
 - Voor Windows, het besturingssysteem VHD moet worden gemaakt als een 127-128 GB vaste indeling VHD. 
 - Voor Linux, deze VHD moet worden gemaakt als een 30-50 GB vaste indeling VHD.
 
 Als de fysieke grootte kleiner is dan 127-128 GB is, moet de VHD schaars zijn. De basis Windows en SQL Server-installatiekopieën die zijn opgegeven al aan deze vereisten voldoet, dus veranderen niet de indeling of de grootte van de verkregen VHD. 
 
-Gegevensschijven mogen even groot zijn als 1 TB. Bij het bepalen van de schijfgrootte, houd er rekening mee dat klanten VHD's binnen een installatiekopie kunnen niet op het moment van implementatie aangepast. VHD's met gegevensschijven moeten worden gemaakt als een vaste indeling VHD. Ze moeten ook schaars zijn. Gegevensschijven kunnen in eerste instantie leeg zijn of gegevens bevatten.
+Gegevensschijven mogen even groot zijn als 1 TB. Bij het bepalen van de grootte, houd er rekening mee dat klanten VHD's binnen een installatiekopie kunnen niet op het moment van implementatie aangepast. VHD's met gegevensschijven moeten worden gemaakt als een vaste indeling VHD. Ze moeten ook schaars zijn. Gegevensschijven kunnen in eerste instantie leeg zijn of gegevens bevatten.
 
 
 ## <a name="install-the-most-current-updates"></a>Installeer de meest recente updates
@@ -49,7 +49,7 @@ Updates zijn vaak voor Linux-distributies, gedownload en geïnstalleerd via een 
 
 ## <a name="perform-additional-security-checks"></a>Extra beveiligingscontroles uitvoeren
 
-U moet een hoge mate van beveiliging behouden voor uw oplossing-installatiekopieën in de Azure Marketplace.  Het volgende artikel vindt u een controlelijst met beveiligingsconfiguraties en procedures om te helpen u bij deze doelstelling: [aanbevelingen voor beveiliging voor Azure Marketplace-installatiekopieën](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Sommige van deze aanbevelingen zijn specifiek voor Linux-installatiekopieën, maar het meest van toepassing op alle VM-installatiekopie. 
+U moet een hoge mate van beveiliging behouden voor uw oplossing-installatiekopieën in de Azure Marketplace.  Het volgende artikel vindt u een controlelijst met beveiligingsconfiguraties en procedures om te helpen u bij deze doelstelling: [Aanbevelingen voor beveiliging voor Azure Marketplace-installatiekopieën](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Sommige van deze aanbevelingen zijn specifiek voor Linux-installatiekopieën, maar het meest van toepassing op alle VM-installatiekopie. 
 
 
 ## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Aangepaste configuratie en geplande taken uitvoeren
@@ -95,8 +95,8 @@ Proces in twee stappen te volgen, wordt een Linux-VM generaliseren en opnieuw te
 
 Het maken van kopieën van virtuele machine is vaak handig is voor back-up, testen, aangepaste failover of taakverdeling, verschillende configuraties van een oplossing bieden, enzovoort. Zie voor meer informatie over het dupliceren en downloaden van een primaire VHD, zodat een niet-beheerde kloon:
 
-- Virtuele Linux-machine: [downloaden van een Linux VHD van Azure](../../../virtual-machines/linux/download-vhd.md)
-- Windows virtuele machine: [downloaden van een Windows VHD vanuit Azure](../../../virtual-machines/windows/download-vhd.md)
+- Virtuele Linux-machine: [Een Linux VHD van Azure downloaden](../../../virtual-machines/linux/download-vhd.md)
+- Windows VM: [Een Windows VHD vanuit Azure downloaden](../../../virtual-machines/windows/download-vhd.md)
 
 
 ## <a name="next-steps"></a>Volgende stappen

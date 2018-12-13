@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494285"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165794"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark-streaming (DStream)-voorbeeld met Apache Kafka in HDInsight
 
@@ -59,15 +59,15 @@ Hoewel u een Azure-netwerk, Kafka, maken kunt en Spark-clusters handmatig, is he
 
     * **Locatie**: Selecteer een locatie geografisch dicht bij u.
 
-    * **Clusternaam baseren**: deze waarde wordt gebruikt als basisnaam voor de Spark en Kafka-clusters. Bijvoorbeeld, voeren **hdistreaming** maakt u een Spark-cluster met de naam __spark-hdistreaming__ en een Kafka-cluster met de naam **kafka-hdistreaming**.
+    * **Clusternaam baseren**: Deze waarde wordt gebruikt als basisnaam voor de Spark en Kafka-clusters. Bijvoorbeeld, voeren **hdistreaming** maakt u een Spark-cluster met de naam __spark-hdistreaming__ en een Kafka-cluster met de naam **kafka-hdistreaming**.
 
-    * **Gebruikersnaam voor aanmelding cluster**: de beheerdersnaam voor de Spark en Kafka-clusters.
+    * **Gebruikersnaam voor aanmelding cluster**: De beheerdersnaam voor de Spark en Kafka-clusters.
 
-    * **Cluster-wachtwoord voor Clusteraanmelding**: het beheerderswachtwoord voor de Spark en Kafka-clusters.
+    * **Cluster-wachtwoord voor Clusteraanmelding**: Het beheerderswachtwoord voor de Spark en Kafka-clusters.
 
-    * **SSH-gebruikersnaam**: de SSH-gebruiker maken voor de Spark en Kafka-clusters.
+    * **SSH-gebruikersnaam**: De SSH-gebruiker maken voor de Spark en Kafka-clusters.
 
-    * **SSH-wachtwoord**: het wachtwoord voor de SSH-gebruiker voor de Spark en Kafka-clusters.
+    * **SSH wachtwoord**: Het wachtwoord voor de SSH-gebruiker voor de Spark en Kafka-clusters.
 
 3. Lees de **voorwaarden** en schakel vervolgens het selectievakje **Ik ga akkoord met de bovenstaande voorwaarden** in.
 

@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 68ca8593dea93faf076ffb5d99ec7bcad210a810
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ee0de5d03de29adddd8f77efbe7491603cc0e4c4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141829"
+ms.locfileid: "53188789"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -375,14 +374,14 @@ De volgende tabel bevat de codenummers en voorgestelde oplossingen.
 
 | Code | Description | Oplossing |
 |:--|:--|:--|
-| 0x17 | Het installatieprogramma bibliotheek vereist een Windows-update die is niet geïnstalleerd. | Zoek in de meest recente bibliotheek installer-logboekbestand.<br><br>Als een verwijzing naar "Windows8.1-KB2999226-x64.msu" wordt gevolgd door een regel "fout 0x80240017: kan niet worden uitgevoerd MSU-pakket," u hebt de vereisten voor het installeren van KB2999226. Volg de instructies in de sectie vereisten van [universeel C Runtime in Windows](https://support.microsoft.com/kb/2999226). Mogelijk moet u Windows Update uitvoeren en meerdere keren opnieuw om de vereiste onderdelen installeren.<br><br>Voer het installatieprogramma van Microsoft Dependency agent opnieuw uit. |
+| 0x17 | Het installatieprogramma bibliotheek vereist een Windows-update die is niet geïnstalleerd. | Zoek in de meest recente bibliotheek installer-logboekbestand.<br><br>Als een verwijzing naar "Windows8.1-KB2999226-x64.msu" wordt gevolgd door een regel "fout 0x80240017: Kan niet uitvoeren MSU-pakket,"hebt u niet de vereisten voor het installeren van KB2999226. Volg de instructies in de sectie vereisten van [universeel C Runtime in Windows](https://support.microsoft.com/kb/2999226). Mogelijk moet u Windows Update uitvoeren en meerdere keren opnieuw om de vereiste onderdelen installeren.<br><br>Voer het installatieprogramma van Microsoft Dependency agent opnieuw uit. |
 
 ### <a name="post-installation-issues"></a>Na de installatie problemen
 #### <a name="server-doesnt-appear-in-service-map"></a>Server niet wordt weergegeven in het Serviceoverzicht
 Als uw agent-installatie van afhankelijkheid is voltooid, maar u kunt uw server in de oplossing Serviceoverzicht niet ziet:
 * Is de agent voor afhankelijkheden zijn geïnstalleerd? U kunt dit controleren door te controleren of de service is geïnstalleerd en uitgevoerd.<br><br>
-**Windows**: zoek naar de service met de naam 'Microsoft Dependency agent'.<br>
-**Linux**: zoeken naar de actieve verwerken "microsoft--agent voor afhankelijkheden."
+**Windows**: Zoek naar de service met de naam 'Microsoft Dependency agent'.<br>
+**Linux**: Zoek naar het proces dat wordt uitgevoerd "microsoft--agent voor afhankelijkheden."
 
 * Weet u op de [gratis prijscategorie van Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Het gratis abonnement kunt u maximaal vijf unieke Service Map-servers. Alle volgende servers zijn weergegeven niet in het Serviceoverzicht, zelfs als de voorafgaande vijf niet meer gegevens worden verzonden.
 
@@ -390,7 +389,7 @@ Als uw agent-installatie van afhankelijkheid is voltooid, maar u kunt uw server 
 
         Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
-Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt uw Log Analytics-Agent naar behoren werkt en communiceren met Log Analytics. Als dit niet het geval is, controleert u de agent op uw server: [Log Analytics-agent voor het oplossen van Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) of [Log Analytics-agent voor het oplossen van Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
+Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt uw Log Analytics-Agent naar behoren werkt en communiceren met Log Analytics. Als dat niet het geval is, controleert u de agent op uw server: [Log Analytics-agent voor het oplossen van Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) of [Log Analytics-agent voor het oplossen van Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Server wordt weergegeven in het Serviceoverzicht, maar er zijn geen processen is
 Als u uw server in het Serviceoverzicht ziet, maar er geen gegevens verwerken of verbinding, die aangeeft dat de agent voor afhankelijkheden geïnstalleerd en actief is, maar het kernelstuurprogramma zijn niet geladen. 

@@ -1,5 +1,5 @@
 ---
-title: Entiteit erkenning cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
+title: Entiteit erkenning cognitief zoeken vaardigheid - Azure Search
 description: Verschillende typen entiteiten extraheren uit tekst in een Azure Search cognitief zoeken-pijplijn.
 services: search
 manager: pablocas
@@ -10,19 +10,23 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 7599ab7eb7a6ff247548d988c57bdc6c501a5a6b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 9745934891cd7ba99fa821377318e38134b7d2a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52449945"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311861"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Entiteit herkenning van cognitieve vaardigheden
 
 De **entiteit erkenning** vaardigheid entiteiten van verschillende typen geëxtraheerd uit tekst. 
 
 > [!NOTE]
-> Cognitief zoeken is een openbare preview. Het uitvoeren van vaardighedensets, het extraheren van afbeeldingen en normaliseren worden momenteel gratis aangeboden. De prijzen voor deze mogelijkheden worden op een later moment bekend gemaakt. 
+> Vanaf December 21 mei 2018, kunt u zich een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Hierdoor kunnen we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum ook in rekening voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijven worden aangeboden zonder extra kosten.
+>
+> De uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijsstelling wordt in rekening gebracht op de preview-prijzen en wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). Informatie over [meer](cognitive-search-attach-cognitive-services.md).
+
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.EntityRecognitionSkill
@@ -34,7 +38,7 @@ De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten do
 
 Parameters zijn hoofdlettergevoelig en zijn optioneel.
 
-| Parameternaam     | Beschrijving |
+| Parameternaam     | Description |
 |--------------------|-------------|
 | categorieën    | Matrix van categorieën die moeten worden geëxtraheerd.  Mogelijke categorietypen: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Als er geen categorie is opgegeven, worden alle typen worden geretourneerd.|
 |defaultLanguageCode |  De taalcode van de invoertekst. De volgende talen worden ondersteund: `de, en, es, fr, it`|
@@ -44,17 +48,17 @@ Parameters zijn hoofdlettergevoelig en zijn optioneel.
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Voer een naam in      | Beschrijving                   |
+| Voer een naam in      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | Optioneel. De standaardwaarde is `"en"`.  |
 | tekst          | De tekst die moet worden geanalyseerd.          |
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
 
-**Houd er rekening mee**: niet alle categorieën van de entiteit voor alle talen worden ondersteund.
+**HOUD ER REKENING MEE**: Niet alle categorieën van de entiteit worden ondersteund voor alle talen.
 Alleen _en_, _es_ ondersteuning voor extractie van `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` typen.
 
-| Naam van de uitvoer     | Beschrijving                   |
+| Naam van de uitvoer     | Description                   |
 |---------------|-------------------------------|
 | personen      | Een matrix met tekenreeksen waarbij elke tekenreeks de naam van een persoon vertegenwoordigt. |
 | locaties  | Een matrix met tekenreeksen waarbij elke tekenreeks een locatie vertegenwoordigt. |
@@ -64,7 +68,7 @@ Alleen _en_, _es_ ondersteuning voor extractie van `"Quantity"`, `"Datetime"`, `
 | URL 's | Een matrix met tekenreeksen, waarbij elke tekenreeks een URL vertegenwoordigt |
 | e-mails | Een matrix met tekenreeksen, waarbij elke tekenreeks een e-mailbericht vertegenwoordigt |
 | namedEntities | Een matrix van complexe typen die de volgende velden bevatten: <ul><li>category</li> <li>waarde (de naam van de werkelijke entiteit)</li><li>offset (de locatie waar deze is gevonden in de tekst)</li><li>vertrouwen (wordt niet gebruikt voor nu. Wordt ingesteld op een waarde van-1)</li></ul> |
-| entiteiten | Een matrix van complexe typen die uitgebreide informatie over de entiteiten die zijn geëxtraheerd uit tekst, met de volgende velden bevat <ul><li> naam (de naam van de werkelijke entiteit. Hiermee wordt een formulier "genormaliseerde")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (een koppeling naar Wikipedia-pagina voor de entiteit)</li><li>bingId</li><li>type (de categorie van de entiteit herkend)</li><li>subType (alleen beschikbaar voor bepaalde categorieën, dit biedt een meer granual weergave van het entiteitstype)</li><li> komt overeen met (een complexe verzameling met)<ul><li>tekst (de onbewerkte tekst voor de entiteit)</li><li>offset (de locatie waar deze is gevonden)</li><li>lengte (de lengte van de entiteit onbewerkte tekst)</li></ul></li></ul> |
+| entiteiten | Een matrix van complexe typen die uitgebreide informatie over de entiteiten die zijn geëxtraheerd uit tekst, met de volgende velden bevat <ul><li> naam (de naam van de werkelijke entiteit. Hiermee wordt een formulier "genormaliseerde")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (een koppeling naar Wikipedia-pagina voor de entiteit)</li><li>bingId</li><li>type (de categorie van de entiteit herkend)</li><li>subType (alleen beschikbaar voor bepaalde categorieën, dit biedt een meer gedetailleerd overzicht van het entiteitstype)</li><li> komt overeen met (een complexe verzameling met)<ul><li>tekst (de onbewerkte tekst voor de entiteit)</li><li>offset (de locatie waar deze is gevonden)</li><li>lengte (de lengte van de entiteit onbewerkte tekst)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Van voorbeelddefinitie
 

@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9303f20d84547dee62e7012e0dca50f47ad54083
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839582"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259151"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -23,11 +23,11 @@ ms.locfileid: "52839582"
 
 Alleen verzamelt prestatiegegevens continu het toestel continue detectie, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
-- Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
+- Het toevoegen van items (virtuele machines, schijven, kernen enz.): Als gevolg van deze wijzigingen in de Azure-portal, kunt u stoppen van de detectie van het apparaat en probeer het opnieuw. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
 
    ![Detectie stoppen](./media/troubleshooting-general/stop-discovery.png)
 
-- Verwijderen van VM’s: vanwege de manier waarop het apparaat is ontworpen, wordt het verwijderen van VM’s niet doorgevoerd, zelfs niet als u de detectie stopt en opnieuw start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
+- Verwijderen van virtuele machines: Vanwege de manier waarop die het apparaat is ontworpen, het verwijderen van virtuele machines niet weergegeven, zelfs als u stopt en de detectie start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Maken van het project migratie is mislukt met fout *aanvragen moeten kopteksten voor gebruikersidentiteiten bevatten*
 
@@ -41,23 +41,31 @@ Als u zich niet aan het evaluatierapport exporteren vanuit de portal, kunt u met
 
 1. Installeer *armclient* op uw computer (als deze nog niet al geïnstalleerd):
 
-a. Voer de volgende opdracht in een beheerder opdrachtprompt-venster:  *@powershell - NoProfile - ExecutionPolicy Bypass - opdracht 'iex ((New-Object System.Net.WebClient). DownloadString('https://chocolatey.org/install.ps1')) "& & ingesteld"PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"*
+  a. Voer de volgende opdracht in een beheerder opdrachtprompt-venster: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-b.In een beheerder Windows PowerShell-venster de volgende opdracht uitvoeren: *choco armclient installeren*
+  b. Voer de volgende opdracht in een beheerder Windows PowerShell-venster: ```choco install armclient```
 
 2.  De download-URL ophalen voor het evaluatierapport met behulp van REST-API van Azure migreren
 
-a.  Voer de volgende opdracht in een beheerder Windows PowerShell-venster: *armclient aanmelding* Hiermee opent u de Azure-aanmelding pop-upvenster waarin u wilt aanmelden bij Azure.
+  a.    Voer de volgende opdracht in een beheerder Windows PowerShell-venster: ```armclient login```
 
-b.  Voer in het dezelfde PowerShell-venster de volgende opdracht uit om op te halen van de download-URL voor het evaluatierapport (Vervang de URI-parameters met de juiste waarden, voorbeeld-API-hieronder aanvragen)
+  Hiermee opent u de Azure-aanmelding pop-upvenster waarin u wilt aanmelden bij Azure.
 
-       *armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02*
+  b.    Voer in het dezelfde PowerShell-venster de volgende opdracht uit om op te halen van de download-URL voor het evaluatierapport (Vervang de URI-parameters met de juiste waarden, voorbeeld-API-hieronder aanvragen)
 
-Voorbeeld van een aanvraag en de uitvoer:
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-PS C:\WINDOWS\system32 > armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2 018_12_16_21/downloadUrl? api-versie 2018-02-02 = {" assessmentReportUrl":"https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r","expirationTime":" 2018-11-20T22:09:30.5681954 + 05:30 "
+       Voorbeeld van een aanvraag en de uitvoer:
+
+       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+018_12_16_21/downloadUrl?api-version=2018-02-02
+{
+  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Kopieer de URL uit het antwoord en open het in een browser voor het downloaden van het evaluatierapport.
+
 4. Nadat u het rapport hebt gedownload, kunt u Excel gebruiken om te bladeren naar de map gedownload en open het bestand in Excel om dit te bekijken.
 
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Prestatiegegevens voor schijven en netwerken adapters wordt weergegeven als nullen
@@ -74,7 +82,7 @@ Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voo
 
 ## <a name="collector-errors"></a>Fouten in de logboekverzamelaar
 
-### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Implementatie van Azure Migrate Collector is mislukt met de fout: het opgegeven manifestbestand is ongeldig: ongeldig OVF manifest vermelding.
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Implementatie van Azure Migrate Collector is mislukt met de fout: Het opgegeven manifestbestand is ongeldig: Ongeldige OVF manifest vermelding.
 
 1. Controleer of als Azure Migrate Collector OVA-bestand correct is gedownload door het controleren van de hash-waarde. Raadpleeg het [artikel](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) om de hash-waarde te controleren. Als de hash-waarde niet overeen komt, het OVA-bestand opnieuw te downloaden en de implementatie opnieuw probeert.
 2. Als deze nog steeds mislukt en u VMware vSphere Client gebruikt om de OVF te implementeren, kunt u proberen deze te implementeren via de vSphere Web Client. Als het nog steeds mislukt, probeer het met andere webbrowser.
@@ -112,7 +120,7 @@ Zorg ervoor dat u hebt gekopieerd en geplakt van de juiste informatie. Installee
 7. Controleer of dat de agent verbinding met het project maken kunt. Als dit niet, Controleer de instellingen. Als de agent verbinding kunt maken, maar de collector niet kan, moet u contact op met ondersteuning.
 
 
-### <a name="error-802-date-and-time-synchronization-error"></a>Fout 802: Datum en tijd synchronisatiefout
+### <a name="error-802-date-and-time-synchronization-error"></a>Fout 802: Datum en tijd synchronisatie-fout
 
 De klok van de server mogelijk out van de synchronisatie met de huidige tijd door meer dan vijf minuten. De kloktijd op de collector-VM zodat deze overeenkomen met de huidige tijd, als volgt wijzigen:
 
@@ -138,7 +146,7 @@ Dit probleem kan optreden vanwege een probleem met de installatie van VMware Pow
 
 ### <a name="error-unabletoconnecttoserver"></a>Fout UnableToConnectToServer
 
-Kan geen verbinding maken met vCenter-server 'Servernaam.com:9443' vanwege een fout: Er is geen eindpunt dat luistert op https://Servername.com:9443/sdk waarop het bericht kan worden geaccepteerd.
+Kan geen verbinding maken met vCenter-Server 'Servernaam.com:9443' vanwege fout: Er is geen eindpunt dat luistert op https://Servername.com:9443/sdk die het bericht kan accepteren.
 
 Als u de nieuwste versie van het collector-apparaat worden uitgevoerd, zo niet, upgrade van het apparaat kan controleren de [meest recente versie](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
 
@@ -150,6 +158,10 @@ Als het probleem wordt nog steeds in de meest recente versie gebeurt, kan het zi
 4. Controleer tot slot of de vCenter-server actief is.
 
 ## <a name="dependency-visualization-issues"></a>Problemen met visualisatie van afhankelijkheden
+
+### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>Ik kan vinden van de functie voor visualisatie van afhankelijkheden voor Azure Government-projecten.
+
+Azure Migrate afhankelijk is van de Service Map voor de functie voor visualisatie van afhankelijkheden en aangezien Serviceoverzicht momenteel niet beschikbaar in Azure Government is, deze functionaliteit is niet beschikbaar in Azure Government.
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Kan ik de Microsoft Monitoring Agent (MMA) en de agent voor afhankelijkheden op mijn on-premises VM's geïnstalleerd, maar de afhankelijkheden worden nu weergegeven in de Azure Migrate-portal.
 

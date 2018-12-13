@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976856"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317522"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -41,7 +41,7 @@ Met de Batch-service definieert u Azure-rekenresources om uw toepassingen parall
 * [Basisprincipes van Batch](../../batch/batch-technical-overview.md)
 * [Overzicht van de functies van Batch](../../batch/batch-api-basics.md)
 
-(Optioneel) voor meer informatie over Batch, Zie [de Batch-documentatnion](https://docs.microsoft.com/en-us/azure/batch/).
+(Optioneel) voor meer informatie over Batch, Zie [de Batch-documentatnion](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Waarom Azure Data Factory?
 Een Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de verplaatsing en transformatie van gegevens wordt beheerd en geautomatiseerd. Data Factory kunt u beheerde gegevenspijplijnen maken die gegevens verplaatsen van on-premises en gegevensarchieven naar een centrale gegevensopslagplaats in de cloud. Een voorbeeld is de Azure Blob-opslag. U kunt Data Factory gebruiken om te verwerken/transformeren gegevens met behulp van services zoals Azure HDInsight en Azure Machine Learning. U kunt ook gegevenspijplijnen om uit te voeren op een geplande wijze (bijvoorbeeld elk uur, dagelijks en wekelijks) plannen. U kunt controleren en beheren van de pijplijnen in een oogwenk om problemen te identificeren en actie ondernemen.
@@ -51,7 +51,7 @@ Een Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de ver
 * [Inleiding tot Data Factory](data-factory-introduction.md)
 * [Uw eerste pijplijn bouwen](data-factory-build-your-first-pipeline.md)   
 
-(Optioneel) voor meer informatie over Data Factory, Zie [de documentatie voor Data Factory](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
+(Optioneel) voor meer informatie over Data Factory, Zie [de documentatie voor Data Factory](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory en Batch samen
 Data Factory bevat ingebouwde activiteiten. Bijvoorbeeld, de Copy-activiteit wordt gebruikt om te kopiëren en verplaatsen van gegevens van een brongegevensarchief naar een doelgegevensarchief. De Hive-activiteit wordt gebruikt om gegevens te verwerken met behulp van Hadoop-clusters (HDInsight) op Azure. Zie voor een lijst van ondersteunde transformatieactiviteiten, [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md).
@@ -84,7 +84,7 @@ De volgende lijst beschrijft de basisstappen van het proces. De oplossing bevat 
 ## <a name="implementation-of-the-sample-solution"></a>Implementatie van de Voorbeeldoplossing
 De Voorbeeldoplossing is opzettelijk eenvoudig. Het is ontworpen om u te laten zien u hoe u Data Factory en Batch samen met proces-gegevenssets. De oplossing telt het aantal exemplaren van de zoekterm "Microsoft" in invoerbestanden die zijn ingedeeld in een tijdreeks. Deze vervolgens weergeeft het aantal dat moet worden uitvoerbestanden.
 
-**Tijd:** als u bekend met de basisprincipes van Azure Data Factory en Batch bent en de volgende vereisten hebt voltooid, deze oplossing een tot twee uur duurt.
+**Tijd:** Als u bekend met de basisprincipes van Azure Data Factory en Batch bent en de volgende vereisten hebt voltooid, wordt in deze oplossing een tot twee uur duurt.
 
 ### <a name="prerequisites"></a>Vereisten
 #### <a name="azure-subscription"></a>Azure-abonnement
@@ -155,7 +155,7 @@ Installeer Visual Studio 2012 of later om de aangepaste activiteit Batch moet wo
 ### <a name="create-the-custom-activity"></a>De aangepaste activiteit maken
 De data factory aangepaste activiteit vormt de kern van de Voorbeeldoplossing van dit. De Voorbeeldoplossing maakt gebruik van Batch om uit te voeren van de aangepaste activiteit. Zie voor meer informatie over het ontwikkelen van aangepaste activiteiten en deze gebruiken in data factory-pijplijnen [aangepaste activiteiten gebruiken in een data factory-pijplijn](data-factory-use-custom-activities.md).
 
-Voor het maken van een aangepaste .NET-activiteit die u kunt gebruiken in een data factory-pijplijn, maakt u een .NET-klassebibliotheekproject met een klasse die de IDotNetActivity-interface implementeert. Deze interface is slechts één methode: uitvoeren. Dit is de handtekening van de methode:
+Voor het maken van een aangepaste .NET-activiteit die u kunt gebruiken in een data factory-pijplijn, maakt u een .NET-klassebibliotheekproject met een klasse die de IDotNetActivity-interface implementeert. Deze interface heeft slechts één methode: Uitvoeren. Dit is de handtekening van de methode:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -523,7 +523,7 @@ Een taak wordt gemaakt voor elke activiteit die wordt uitgevoerd. In dit voorbee
 
 De volgende procedure bevat aanvullende informatie.
 
-#### <a name="step-1-create-the-data-factory"></a>Stap 1: Maak de data factory
+#### <a name="step-1-create-the-data-factory"></a>Stap 1: De data factory maken
 1. Nadat u zich aanmeldt bij de [Azure-portal](https://portal.azure.com/), de volgende stappen uit:
 
    a. Selecteer **nieuw** in het menu links.
@@ -546,7 +546,7 @@ De volgende procedure bevat aanvullende informatie.
 
    ![Pagina Data factory](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>Stap 2: Maak gekoppelde services
+#### <a name="step-2-create-linked-services"></a>Stap 2: Gekoppelde services maken
 Gekoppelde services worden gegevensarchieven of compute-services aan een data factory. In deze stap koppelt u uw opslagaccount en de Batch-account aan uw data factory.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maken
@@ -595,7 +595,7 @@ In deze stap maakt u een gekoppelde service voor uw Batch-account dat wordt gebr
 
 1. Selecteer in de opdrachtbalk **Implementeren** om de gekoppelde service te implementeren.
 
-#### <a name="step-3-create-datasets"></a>Stap 3: Maak gegevenssets
+#### <a name="step-3-create-datasets"></a>Stap 3: Gegevenssets maken
 In deze stap maakt u gegevenssets voor invoer-en uitvoergegevens.
 
 #### <a name="create-the-input-dataset"></a>De invoergegevensset maken
@@ -932,9 +932,9 @@ U kunt dit voorbeeld voor meer informatie over Data Factory en Batch-functies ku
 
 1. Voeg de volgende submappen in `inputfolder`: 2015-11-16-05, 2015-11-16-06 201-11-16-07-2011-11-16-08 en 2015-11-16-09. Plaats de invoerbestanden in deze mappen. Wijzigen van de eindtijd voor de pijplijn uit `2015-11-16T05:00:00Z` naar `2015-11-16T10:00:00Z`. In de **Diagram** weergeven, dubbelklikt u op **InputDataset** en bevestigt u dat de invoersegmenten gereed zijn. Dubbelklik op **OutputDataset** om te zien van de status van de uitvoersegmenten. Als deze zich in de **gereed** staat, controleert u de map voor uitvoer voor de uitvoerbestanden.
 
-1. Vergroten of verkleinen van de **gelijktijdigheid** instelling om te begrijpen hoe dit van invloed is op de prestaties van uw oplossing, met name de verwerking die wordt uitgevoerd op Batch. Voor meer informatie over de **gelijktijdigheid** stellen, Zie ' stap 4: maken en uitvoeren van de pijplijn met een aangepaste activiteit. "
+1. Vergroten of verkleinen van de **gelijktijdigheid** instelling om te begrijpen hoe dit van invloed is op de prestaties van uw oplossing, met name de verwerking die wordt uitgevoerd op Batch. Voor meer informatie over de **gelijktijdigheid** stellen, Zie ' stap 4: Maken en uitvoeren van de pijplijn met een aangepaste activiteit."
 
-1. Een pool maken met nieuwere/oudere **maximum aantal taken per VM**. Gekoppelde gebruikt u de nieuwe groep die u hebt gemaakt, het bijwerken van de Batch-service in de data factory-oplossing. Voor meer informatie over de **maximum aantal taken per VM** stellen, Zie ' stap 4: maken en uitvoeren van de pijplijn met een aangepaste activiteit. "
+1. Een pool maken met nieuwere/oudere **maximum aantal taken per VM**. Gekoppelde gebruikt u de nieuwe groep die u hebt gemaakt, het bijwerken van de Batch-service in de data factory-oplossing. Voor meer informatie over de **maximum aantal taken per VM** stellen, Zie ' stap 4: Maken en uitvoeren van de pijplijn met een aangepaste activiteit."
 
 1. Maak een Batch-pool met de **voor automatisch schalen** functie. Automatisch schalen rekenknooppunten in een Batch-pool is de dynamische aanpassing van de verwerkingscapaciteit die worden gebruikt door uw toepassing. 
 
@@ -956,13 +956,13 @@ U kunt dit voorbeeld voor meer informatie over Data Factory en Batch-functies ku
 
 1. In de Voorbeeldoplossing is de **Execute** methode roept de **berekenen** methode waarmee een segment invoergegevens om te produceren van een uitvoergegevenssegment wordt verwerkt. Kunt u uw eigen methode voor het verwerken van invoergegevens en vervang de **berekenen** methode aanroepen in de **Execute** methode met een aanroep naar de methode.
 
-### <a name="next-steps-consume-the-data"></a>Volgende stappen: de gegevens gebruiken
+### <a name="next-steps-consume-the-data"></a>Volgende stappen: De gegevens gebruiken
 Nadat u gegevens verwerken, kunt u deze gebruiken met onlineprogramma's zoals Power BI. Hier vindt u koppelingen naar informatie waarmee u inzicht in de Power BI en het gebruik ervan in Azure:
 
 * [Een gegevensset in Power BI verkennen](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Aan de slag met Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 * [Gegevens vernieuwen in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Azure en Power BI: basisoverzicht](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure en Power BI: Basisoverzicht](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Verwijzingen
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 80a32335b8b9b89bdc5bf53cbed994d78a6ca81e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017600"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311317"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -29,7 +29,7 @@ Azure is een compleet cloudplatform dat u kunt uw bestaande toepassingen hosten,
 
 U kunt uw toepassingen in Azure hosten, begin klein en eenvoudig uw toepassing schalen als uw vraag van klanten groeit. Azure biedt ook de betrouwbaarheid die nodig voor hoge beschikbaarheid-toepassingen is, waaronder zelfs failover tussen verschillende regio's. De [Azure-portal](https://portal.azure.com) kunt u eenvoudig alle uw Azure-services te beheren. U kunt uw services ook programmatisch beheren met behulp van service-API's en sjablonen.
 
-**Wie dit**: in deze handleiding bevat een inleiding tot het Azure-platform voor ontwikkelaars van toepassingen. Het biedt richtlijnen en de richting die u nodig hebt om te beginnen het bouwen van nieuwe toepassingen in Azure of bestaande toepassingen naar Azure migreert.
+**Wie dit**: Deze handleiding bevat een inleiding tot het Azure-platform voor ontwikkelaars van toepassingen. Het biedt richtlijnen en de richting die u nodig hebt om te beginnen het bouwen van nieuwe toepassingen in Azure of bestaande toepassingen naar Azure migreert.
 
 ## <a name="where-do-i-start"></a>Waar moet ik beginnen?
 
@@ -62,7 +62,7 @@ App Service is ontworpen met DevOps in gedachten. Ondersteunt verschillende hulp
 
 U kunt uw bestaande toepassingen naar App Service kunt migreren met behulp van de [online migratiehulpprogramma](https://www.migratetoazure.net/).
 
->**Wanneer u**: web-App Service gebruiken als u wilt migreren van bestaande toepassingen naar Azure, en wanneer u een volledig beheerd platform voor hosting nodig hebt voor uw web-apps. U kunt ook een App Service gebruiken wanneer u nodig hebt voor de ondersteuning van mobiele clients of REST-API's beschikbaar met uw app.
+>**Wanneer u**: App Service gebruiken wanneer u bij het migreren van bestaande web-apps naar Azure, en wanneer moet u een volledig beheerd platform voor het hosten van uw web-apps. U kunt ook een App Service gebruiken wanneer u nodig hebt voor de ondersteuning van mobiele clients of REST-API's beschikbaar met uw app.
 
 >**Aan de slag**: App Service kunt u eenvoudig maken en implementeren van uw eerste [web-app](../../app-service/app-service-web-get-started-dotnet.md), [mobiele app](../../app-service-mobile/app-service-mobile-ios-get-started.md), of [API-app](../../app-service/app-service-web-tutorial-rest-api.md).
 
@@ -74,7 +74,7 @@ Als een infrastructuur als een serviceprovider (IaaS) kunt met Azure u om te imp
 
 Vanwege de mate van controle die u met VM's hebt, kunt u een breed scala aan server-workloads uitvoeren op Azure die niet passen in een PaaS-model. Deze werkbelastingen omvatten database-servers, Windows Server Active Directory en Microsoft SharePoint. Zie voor meer informatie de documentatie voor virtuele Machines voor [Linux](/azure/virtual-machines/linux/) of [Windows](/azure/virtual-machines/windows/).
 
->**Wanneer u**: virtuele Machines gebruiken wanneer u volledig wilt beheren via de infrastructuur van uw toepassingen of werkbelastingen van on-premises toepassingen migreren naar Azure zonder wijzigingen aanbrengen.
+>**Wanneer u**: Gebruik virtuele Machines als u volledige controle wilt over de infrastructuur van uw toepassingen of werkbelastingen van on-premises toepassingen migreren naar Azure zonder wijzigingen aanbrengen.
 
 >**Aan de slag**: Maak een [Linux-VM](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) of [Windows VM](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) vanuit Azure portal.
 
@@ -82,9 +82,9 @@ Vanwege de mate van controle die u met VM's hebt, kunt u een breed scala aan ser
 
 In plaats van u zorgen te maken over het bouwen en beheren van een complete toepassing of de infrastructuur voor het uitvoeren van uw code. Wat gebeurt er als u kan alleen uw code te schrijven en deze uitvoeren als reactie op gebeurtenissen of volgens een schema?  [Azure Functions](../../azure-functions/functions-overview.md) is een 'serverloze'-stijl-aanbieding waarmee u alleen de code schrijven die u nodig hebt. Met Functions, worden code-uitvoering wordt geactiveerd door HTTP-aanvragen, webhooks, cloud service-gebeurtenissen of volgens een schema. U kunt de code in uw ontwikkeling taal naar keuze, zoals C\#, F\#, Node.js, Python of PHP. U betaalt alleen voor de tijd dat uw code wordt uitgevoerd, en Azure kan worden geschaald naar behoefte met facturering op basis van gebruik.
 
->**Wanneer u**: Azure Functions gebruiken wanneer u de code die door andere Azure-services wordt geactiveerd door gebeurtenissen op basis van de web of volgens een planning hebt. U kunt ook functies gebruiken wanneer u niet nodig voor de overhead van een volledige gehoste project of hebt als u wilt dat alleen te betalen voor de tijd dat uw code wordt uitgevoerd. Zie voor meer informatie, [overzicht van Azure Functions](../../azure-functions/functions-overview.md).
+>**Wanneer u**: Gebruik Azure Functions wanneer u de code die door andere Azure-services wordt geactiveerd door gebeurtenissen op basis van de web of volgens een planning hebt. U kunt ook functies gebruiken wanneer u niet nodig voor de overhead van een volledige gehoste project of hebt als u wilt dat alleen te betalen voor de tijd dat uw code wordt uitgevoerd. Zie voor meer informatie, [overzicht van Azure Functions](../../azure-functions/functions-overview.md).
 
->**Aan de slag**: de functies Quick Start-zelfstudie te volgen [uw eerste functie maken](../../azure-functions/functions-create-first-azure-function.md) vanuit de portal.
+>**Aan de slag**: De functies Quick Start-zelfstudie te volgen [uw eerste functie maken](../../azure-functions/functions-create-first-azure-function.md) vanuit de portal.
 
 >**Probeer het nu**: Azure Functions kunt u de code uitvoeren zonder te hoeven aanmelden voor een Azure-account. Probeer het nu op en [maken van uw eerste Azure-functie](https://tryappservice.azure.com/).
 
@@ -92,11 +92,11 @@ In plaats van u zorgen te maken over het bouwen en beheren van een complete toep
 
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u eenvoudig te bouwen, verpakken, implementeren en beheren van schaalbare en betrouwbare microservices. Het biedt ook mogelijkheden voor uitgebreide Toepassingsbeheer voor het inrichten, implementeren, bewaken, upgraden/patchen en verwijderen van geïmplementeerde toepassingen. Apps die worden uitgevoerd op een gedeelde groep machines, kunnen klein beginnen en schaalt naar honderden of duizenden machines zo nodig.
 
-Service Fabric ondersteunt WebAPI met Open Web Interface voor .NET (OWIN) en ASP.NET Core. Het biedt SDK's voor het bouwen van services op Linux in zowel .NET Core als Java. Zie voor meer informatie over Service Fabric, de [documentatie voor Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/).
+Service Fabric ondersteunt WebAPI met Open Web Interface voor .NET (OWIN) en ASP.NET Core. Het biedt SDK's voor het bouwen van services op Linux in zowel .NET Core als Java. Zie voor meer informatie over Service Fabric, de [documentatie voor Service Fabric](https://docs.microsoft.com/azure/service-fabric/).
 
->**Wanneer u:** Service Fabric is een goede keuze wanneer u het maken van een toepassing of een bestaande toepassing voor het gebruik van een microservice-architectuur te herschrijven. Service Fabric gebruikt wanneer u meer controle over en directe toegang tot de onderliggende infrastructuur nodig hebt.
+>**Wanneer te gebruiken:** Service Fabric is een goede keuze wanneer u het maken van een toepassing of een bestaande toepassing voor het gebruik van een microservice-architectuur te herschrijven. Service Fabric gebruikt wanneer u meer controle over en directe toegang tot de onderliggende infrastructuur nodig hebt.
 
->**Aan de slag:** [uw eerste Azure Service Fabric-toepassing maken](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+>**Aan de slag:** [Uw eerste Azure Service Fabric-toepassing maken](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Verbeter uw toepassingen met Azure-services
 
@@ -106,22 +106,22 @@ Naast de hosting van toepassingen, biedt Azure service-aanbiedingen die de funct
 
 De meeste toepassingen gegevens moeten worden opgeslagen, dus ongeacht hoe u besluit om uw toepassing in Azure te hosten, kunt u een of meer van de volgende services voor opslag en gegevens.
 
--   **Azure Cosmos DB**: een wereldwijd gedistribueerde, multi-model databaseservice waarmee u kunt de doorvoer en opslag elastisch schalen naar een willekeurig aantal geografische regio's met een uitgebreide SLA. 
-    >**Wanneer u:** wanneer uw toepassing moet de document-, tabel- of grafiekdatabases, met inbegrip van MongoDB-databases met meerdere duidelijk gedefinieerde consistentiemodellen. 
+-   **Azure Cosmos DB**: Een wereldwijd gedistribueerde, multi-model databaseservice waarmee u kunt de doorvoer en opslag elastisch schalen naar een willekeurig aantal geografische regio's met een uitgebreide SLA. 
+    >**Wanneer te gebruiken:** Wanneer uw toepassing moet document-, tabel- of grafiekdatabases, met inbegrip van MongoDB-databases met meerdere duidelijk gedefinieerde consistentiemodellen. 
 
-    >**Aan de slag**: [bouwen van een web-app van Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Als u een MongoDB-ontwikkelaar bent, Zie [bouwen van een MongoDB-web-app met Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Aan de slag**: [Bouw een web-app van Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Als u een MongoDB-ontwikkelaar bent, Zie [bouwen van een MongoDB-web-app met Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
--   **Azure Storage**: biedt een duurzame, maximaal beschikbare opslag voor blobs, wachtrijen, bestanden en andere soorten niet-gerelateerde gegevens. Storage vormt de basis van de opslag voor virtuele machines.
+-   **Azure Storage**: Biedt een duurzame, maximaal beschikbare opslag voor blobs, wachtrijen, bestanden en andere soorten niet-gerelateerde gegevens. Storage vormt de basis van de opslag voor virtuele machines.
 
-    >**Wanneer u**: wanneer uw app niet-relationele gegevens, zoals de sleutel / waarde-paren (tabellen), slaat blobs, bestanden shares of berichten (wachtrijen).
+    >**Wanneer u**: Wanneer uw app worden opgeslagen van niet-relationele gegevens, zoals de sleutel / waarde-paren (tabellen), blobs, bestandsshares of berichten (wachtrijen).
 
     >**Aan de slag**: Kies een van deze typen opslag: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tabellen](../../cosmos-db/table-storage-how-to-use-dotnet.md), [wachtrijen](../../storage/queues/storage-dotnet-how-to-use-queues.md), of [bestanden](../../storage/files/storage-dotnet-how-to-use-files.md).
 
--   **Azure SQL Database**: een Azure-versie van de Microsoft SQL Server-engine voor het opslaan van relationele gegevens in tabelvorm in de cloud. SQL Database biedt voorspelbare prestaties, schaalbaarheid zonder uitvaltijd, bedrijfscontinuïteit en gegevensbeveiliging.
+-   **Azure SQL Database**: Een Azure-versie van de Microsoft SQL Server-engine voor het opslaan van relationele gegevens in tabelvorm in de cloud. SQL Database biedt voorspelbare prestaties, schaalbaarheid zonder uitvaltijd, bedrijfscontinuïteit en gegevensbeveiliging.
 
-    >**Wanneer u**: wanneer opslag van gegevens met de referentiële integriteit aannemen, transactionele ondersteuning en ondersteuning in uw toepassing is vereist voor TSQL-query's.
+    >**Wanneer u**: Wanneer uw toepassing vereist voor opslag van gegevens met referentiële integriteit, transactionele ondersteuning en ondersteuning voor TSQL-query's.
 
-    >**Aan de slag**: [een SQL-database maken in enkele minuten met behulp van de Azure-portal](../../sql-database/sql-database-get-started.md).
+    >**Aan de slag**: [Een SQL-database maken in enkele minuten met behulp van de Azure-portal](../../sql-database/sql-database-get-started.md).
 
 
 U kunt [Azure Data Factory](../../data-factory/introduction.md) te verplaatsen van bestaande on-premises gegevens naar Azure. Als u nog niet klaar bent om gegevens te verplaatsen naar de cloud, [hybride verbindingen](../../biztalk-services/integration-hybrid-connection-overview.md) in BizTalk Services kunt u verbinding maken met uw App Service app met on-premises bronnen die worden gehost. U kunt ook verbinding maken met Azure gegevens en services van uw on-premises toepassingen.
@@ -132,41 +132,41 @@ Docker-containers, een vorm van OS-virtualisatie, kunnen u toepassingen implemen
 
 Azure biedt verschillende manieren voor het gebruik van containers in uw toepassingen.
 
--   **Azure Docker VM-extensie**: Hiermee kunt u uw virtuele machine met Docker-hulpprogramma's om te fungeren als een Docker-host configureren.
+-   **Azure Docker VM-extensie**: Kunt u uw virtuele machine met Docker-hulpprogramma's om te fungeren als een Docker-host configureren.
 
-    >**Wanneer u**: als u wilt genereren van consistente containerimplementaties voor uw toepassingen op een virtuele machine, of wanneer u wilt gebruiken [Docker Compose](https://docs.docker.com/compose/overview/).
+    >**Wanneer u**: Als u wilt genereren van consistente containerimplementaties voor uw toepassingen op een virtuele machine, of wanneer u wilt gebruiken [Docker Compose](https://docs.docker.com/compose/overview/).
 
-    >**Aan de slag**: [een Docker-omgeving maken in Azure met behulp van de Docker VM-extensie](../../virtual-machines/virtual-machines-linux-dockerextension.md).
+    >**Aan de slag**: [Een Docker-omgeving maken in Azure met behulp van de Docker VM-extensie](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
--   **Azure Container Service**: kunt u maken, configureren en beheren van een cluster van virtuele machines die vooraf zijn geconfigureerd voor het uitvoeren van beperkte toepassingen. Zie voor meer informatie over Container Service, [Kennismaking met Azure Container Service](../../container-service/container-service-intro.md).
+-   **Azure Containerservice**: Hiermee kunt u maken, configureren en beheren van een cluster van virtuele machines die vooraf zijn geconfigureerd voor het uitvoeren van beperkte toepassingen. Zie voor meer informatie over Container Service, [Kennismaking met Azure Container Service](../../container-service/container-service-intro.md).
 
-    >**Wanneer u**: als u wilt bouwen kant- en schaalbare omgevingen die aanvullende tools voor planning en beheer bieden, of wanneer u een Docker Swarm-cluster implementeert.
+    >**Wanneer u**: Wanneer u moet naar build gereed is voor productie, schaalbare omgevingen die extra planning bieden en beheerprogramma's, of wanneer u een Docker Swarm-cluster implementeert.
 
-    >**Aan de slag**: [een Container Service-cluster implementeren](../../container-service/dcos-swarm/container-service-deployment.md).
+    >**Aan de slag**: [Een Container Service-cluster implementeren](../../container-service/dcos-swarm/container-service-deployment.md).
 
--   **Docker Machine**: kunt u installeren en beheren van een Docker-Engine op virtuele hosts met behulp van docker-machine-opdrachten.
+-   **Docker Machine**: U kunt installeren en een Docker-Engine op virtuele hosts beheren met behulp van docker-machine-opdrachten.
 
-    >**Wanneer u**: als u wilt snel prototype een app met het maken van een enkele Docker-host.
+    >**Wanneer u**: Als u wilt snel prototype een app door het maken van een enkele Docker-host.
 
--   **Aangepaste Docker-installatiekopie voor App Service**: kunt u Docker-containers uit een container registry of een klant-container gebruiken wanneer u een web-app op Linux implementeert.
+-   **Aangepaste Docker-installatiekopie voor App Service**: Kunt u Docker-containers uit een container registry of een klant-container gebruiken wanneer u een web-app op Linux implementeert.
 
-    >**Wanneer u**: bij het implementeren van een web-app op Linux met een Docker-installatiekopie.
+    >**Wanneer u**: Bij het implementeren van een web-app op Linux met een Docker-installatiekopie.
 
-    >**Aan de slag**: [gebruiken een aangepaste Docker-installatiekopie voor App Service on Linux](../../app-service/containers/quickstart-docker-go.md).
+    >**Aan de slag**: [Een aangepaste Docker-installatiekopie gebruiken voor App Service on Linux](../../app-service/containers/quickstart-docker-go.md).
 
 ### <a name="authentication"></a>Verificatie
 
 Is het cruciaal niet alleen weten wie uw toepassingen gebruikt, maar ook om te voorkomen dat onbevoegde toegang tot uw resources. Azure biedt verschillende manieren om uw app-clients te verifiëren.
 
--   **Azure Active Directory (Azure AD)**: Microsoft multitenant, cloud-gebaseerde identiteits- en toegangsbeheer management-service. U kunt eenmalige aanmelding (SSO) aan uw toepassingen toevoegen door te integreren met Azure AD. U kunt toegang krijgen tot de eigenschappen van de map met behulp van de Azure AD Graph-API rechtstreeks of de Microsoft Graph API. U kunt integreren met Azure AD-ondersteuning voor OAuth 2.0 machtiging framework en Open ID Connect met behulp van native HTTP-/ REST-eindpunten en de multiplatform Azure AD-verificatiebibliotheken.
+-   **Azure Active Directory (Azure AD)**: De Microsoft multitenant, cloud-gebaseerde identiteits- en toegangsbeheer management-service. U kunt eenmalige aanmelding (SSO) aan uw toepassingen toevoegen door te integreren met Azure AD. U kunt toegang krijgen tot de eigenschappen van de map met behulp van de Azure AD Graph-API rechtstreeks of de Microsoft Graph API. U kunt integreren met Azure AD-ondersteuning voor OAuth 2.0 machtiging framework en Open ID Connect met behulp van native HTTP-/ REST-eindpunten en de multiplatform Azure AD-verificatiebibliotheken.
 
-    >**Wanneer u**: als u een SSO-ervaring bieden wilt, werken met gegevens op basis van een grafiek of verificatie van gebruikers op basis van een domein.
+    >**Wanneer u**: Als u een SSO-ervaring bieden wilt, werken met gegevens op basis van een grafiek of verificatie van gebruikers op basis van een domein.
 
     >**Aan de slag**: Zie voor meer informatie, de [ontwikkelaarsgids van Azure Active Directory](../../active-directory/develop/v1-overview.md).
 
--   **App Service-verificatie**: wanneer u App Service voor het hosten van uw app kunt u ook ondersteuning voor ingebouwde verificatie voor Azure AD, samen met sociale id-providers, zoals Facebook, Google, Microsoft en Twitter.
+-   **App Service-verificatie**: Wanneer u App Service voor het hosten van uw app kunt u ook ondersteuning voor ingebouwde verificatie voor Azure AD, samen met sociale id-providers, zoals Facebook, Google, Microsoft en Twitter.
 
-    >**Wanneer u**: als u verificatie inschakelen in een App Service-app wilt met behulp van Azure AD, sociale id-providers, of beide.
+    >**Wanneer u**: Als u verificatie inschakelen in een App Service-app wilt met behulp van Azure AD, sociale id-providers, of beide.
 
     >**Aan de slag**: Zie voor meer informatie over verificatie in App Service, [verificatie en autorisatie in Azure App Service](../../app-service/app-service-authentication-overview.md).
 
@@ -176,21 +176,21 @@ Zie voor meer informatie over aanbevolen procedures voor beveiliging in Azure, [
 
 Met uw toepassing en worden uitgevoerd in Azure, moet u kunnen zijn voor het bewaken van prestaties, Bekijk voor problemen en Zie hoe klanten uw app gebruiken. Azure biedt verschillende controle-opties.
 
--   **Visual Studio Application Insights**: een Azure gehoste uitbreidbare Analyseservice die is geïntegreerd met Visual Studio voor het bewaken van uw live web-apps. Dit biedt u de gegevens die u moet het continu verbeteren de prestaties en bruikbaarheid van uw apps, of ze worden gehost op Azure of niet.
+-   **Visual Studio Application Insights**: Een Azure gehoste uitbreidbare Analyseservice die is geïntegreerd met Visual Studio voor het bewaken van uw live web-apps. Dit biedt u de gegevens die u moet het continu verbeteren de prestaties en bruikbaarheid van uw apps, of ze worden gehost op Azure of niet.
 
-    >**Aan de slag**: Volg de [Application Insights-zelfstudie](../../application-insights/app-insights-overview.md).
+    >**Aan de slag**: Ga als volgt de [Application Insights-zelfstudie](../../application-insights/app-insights-overview.md).
 
--   **Azure Monitor**: een service die u helpt bij het visualiseren, query's uitvoeren, routeren, archiveren en reageren op de metrische gegevens en logboeken die worden gegenereerd door uw Azure-infrastructuur en resources. Monitor biedt de weergaven van gegevens dat u in de Azure-portal ziet en is van één bron voor het bewaken van Azure-resources.
+-   **Azure Monitor**: Een service die u helpt bij het visualiseren, query's uitvoeren, routeren, archiveren en reageren op de metrische gegevens en logboeken die worden gegenereerd door uw Azure-infrastructuur en resources. Monitor biedt de weergaven van gegevens dat u in de Azure-portal ziet en is van één bron voor het bewaken van Azure-resources.
  
-    >**Aan de slag**: [aan de slag met Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
+    >**Aan de slag**: [Aan de slag met Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
 ### <a name="devops-integration"></a>Integratie met DevOps
 
 Of het de inrichting van virtuele machines of publiceren van uw WebApps met continue integratie, Azure kan worden geïntegreerd met de meeste van de populaire DevOps-hulpprogramma's. Met ondersteuning voor hulpprogramma's zoals Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps en anderen, kunt u werken met de hulpprogramma's die u al hebt en uw bestaande ervaring te maximaliseren.
 
->**Nu uitproberen:** [uitproberen verschillende van de DevOps-integraties](https://azure.microsoft.com/try/devops/).
+>**Probeer het nu:** [Probeer enkele van de DevOps-integraties](https://azure.microsoft.com/try/devops/).
 
->**Aan de slag**: DevOps-opties voor een App Service-app, Zie [continue implementatie in Azure App Service](../../app-service/app-service-continuous-deployment.md).
+>**Aan de slag**: Zie voor DevOps-opties voor een App Service-app [continue implementatie in Azure App Service](../../app-service/app-service-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Azure-regio's
@@ -205,9 +205,9 @@ Een van de voordelen van het gebruik van Azure is dat u uw toepassingen met vers
 
 Hoewel dit onwaarschijnlijk, is het niet onmogelijk voor een heel datacenter off vanwege een gebeurtenis, zoals een natuurramp of Internet-fout. Dit is een aanbevolen procedure voor de host belangrijke zakelijke toepassingen in meer dan één datacenter voor een maximale beschikbaarheid. Met behulp van meerdere regio's kan ook Verminder de latentie voor globale gebruikers en extra mogelijkheden voor flexibiliteit bieden bij het bijwerken van toepassingen.
 
-Een aantal services, zoals virtuele machines en Services van de App, [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) ondersteuning voor meerdere regio's met failover tussen regio's voor de ondersteuning van hoge beschikbaarheid zakelijke toepassingen inschakelen. Zie voor een voorbeeld [Azure-referentiearchitectuur: een webtoepassing uitvoeren in meerdere regio's](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+Een aantal services, zoals virtuele machines en Services van de App, [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) ondersteuning voor meerdere regio's met failover tussen regio's voor de ondersteuning van hoge beschikbaarheid zakelijke toepassingen inschakelen. Zie voor een voorbeeld [Azure-referentiearchitectuur: Een webtoepassing uitvoeren in meerdere regio's](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
->**Wanneer u**: wanneer u een enterprise- en hoge beschikbaarheid van de toepassingen die van een failover- en replicatie profiteren hebt.
+>**Wanneer u**: Wanneer u enterprise en toepassingen met hoge beschikbaarheid die baat bij een failover- en replicatie hebben hebt.
 
 ## <a name="how-do-i-manage-my-applications-and-projects"></a>Hoe kan ik mijn toepassingen en projecten beheren?
 
@@ -217,9 +217,9 @@ Azure biedt een uitgebreide set ervaringen voor u maken en beheren van uw Azure-
 
 Azure biedt twee manieren voor het beheren van uw toepassingen en services vanaf de opdrachtregel met behulp van Bash, Terminal, de opdrachtprompt of de opdrachtregel-hulpprogramma naar keuze. Meestal kunt u de dezelfde taken uitvoeren vanaf de opdrachtregel, zoals in de Azure-portal, zoals het maken en configureren van virtuele machines, virtuele netwerken, web-apps en andere services.
 
--   [Azure-opdrachtregelinterface (CLI)](../../xplat-cli-install.md): kunt u verbinding maken met een Azure-abonnement en de verschillende taken in Azure-resources vanaf de opdrachtregel-programma.
+-   [Azure-opdrachtregelinterface (CLI)](../../xplat-cli-install.md): Hiermee kunt u verbinding maken met een Azure-abonnement en programma-verschillende steeds terugkerende taken in Azure-resources vanaf de opdrachtregel.
 
--   [Azure PowerShell](../../powershell-install-configure.md): biedt een reeks modules met cmdlets waarmee u Azure-resources beheren met behulp van Windows PowerShell.
+-   [Azure PowerShell](../../powershell-install-configure.md): Biedt een reeks modules met cmdlets waarmee u Azure-resources beheren met behulp van Windows PowerShell.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -251,9 +251,9 @@ Azure Resource Manager bevat naast logisch groeperen en beheren van gerelateerde
 
 U kunt deze implementaties ontwikkelen met behulp van een Azure Resource Manager-sjabloon een document JSON-indeling is. Sjablonen kunt u een implementatie definiëren en beheren van uw toepassingen met behulp van de declaratieve sjablonen in plaats van scripts. De sjablonen kunnen werken voor verschillende omgevingen, zoals testen, Faseren en productie. Met behulp van sjablonen, kunt u bijvoorbeeld een knop toevoegen aan een GitHub-opslagplaats die u implementeert u de code in de opslagplaats naar een set Azure-services met één klik.
 
->**Wanneer u**: gebruik van Resource Manager-sjablonen wanneer u een implementatie op basis van een sjabloon wilt gebruiken voor uw app die u programmatisch beheren kunt met behulp van REST-API's, de Azure CLI en Azure PowerShell.
+>**Wanneer u**: Gebruik resourcemanager-sjablonen wanneer u een implementatie op basis van een sjabloon wilt gebruiken voor uw app die u programmatisch beheren kunt met behulp van REST-API's, de Azure CLI en Azure PowerShell.
 
->**Aan de slag**: om te beginnen met behulp van sjablonen, Zie [Authoring Azure Resource Manager-sjablonen](../../resource-group-authoring-templates.md).
+>**Aan de slag**: Om te beginnen met behulp van sjablonen, Zie [Authoring Azure Resource Manager-sjablonen](../../resource-group-authoring-templates.md).
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>Inzicht in accounts, abonnementen en facturering
 
@@ -281,15 +281,15 @@ Azure Resource Explorer is een uitstekend hulpprogramma voor het visualiseren va
 
 Wanneer u toegang tot Azure-resources toestaan, maar het is altijd een aanbevolen procedure zodat gebruikers beschikken over de minimale bevoegdheden die is vereist voor het uitvoeren van een bepaalde taak.
 
--   **Op rollen gebaseerd toegangsbeheer (RBAC)**: In Azure, u kunt toegang verlenen tot gebruikersaccounts (principals) bij een opgegeven bereik: abonnement, resourcegroep of afzonderlijke resources. Met RBAC kunt u een set met resources implementeren in een resourcegroep en machtigingen verlenen aan een specifieke gebruiker of groep. Ook kunt u de toegang beperken tot alleen de resources die deel uitmaken van de doelresourcegroep. U kunt ook toegang verlenen tot een enkele resource, zoals een virtuele machine of virtuele netwerk. Om toegang te verlenen, kunt u een rol toewijzen aan de gebruiker, groep of service-principal. Er zijn veel vooraf gedefinieerde rollen, en u kunt ook uw eigen aangepaste rollen definiëren. Zie voor meer informatie, [wat is op rollen gebaseerd toegangsbeheer (RBAC)?](../../role-based-access-control/overview.md).
+-   **Op rollen gebaseerd toegangsbeheer (RBAC)**: In Azure, verleent u toegang tot accounts voor gebruikers (principals) bij een opgegeven bereik: abonnement, resourcegroep of afzonderlijke resources. Met RBAC kunt u een set met resources implementeren in een resourcegroep en machtigingen verlenen aan een specifieke gebruiker of groep. Ook kunt u de toegang beperken tot alleen de resources die deel uitmaken van de doelresourcegroep. U kunt ook toegang verlenen tot een enkele resource, zoals een virtuele machine of virtuele netwerk. Om toegang te verlenen, kunt u een rol toewijzen aan de gebruiker, groep of service-principal. Er zijn veel vooraf gedefinieerde rollen, en u kunt ook uw eigen aangepaste rollen definiëren. Zie voor meer informatie, [wat is op rollen gebaseerd toegangsbeheer (RBAC)?](../../role-based-access-control/overview.md).
 
-    >**Wanneer u**: wanneer u over Geavanceerd toegangsbeheer voor gebruikers en groepen of als u wilt maken van een gebruiker een eigenaar van een abonnement nodig hebt.
+    >**Wanneer u**: Wanneer moet u over Geavanceerd toegangsbeheer voor gebruikers en groepen, of wanneer u moet een gebruiker of een eigenaar van een abonnement maken.
 
     >**Aan de slag**: Zie voor meer informatie, [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md).
 
--   **Service-principalobjecten**: naast het verlenen van toegang aan beveiligings-gebruikersprincipals en groepen, kunt u dezelfde toegang verlenen aan een service-principal.
+-   **Service-principalobjecten**: Naast het verlenen van toegang aan beveiligings-gebruikersprincipals en groepen, kunt u dezelfde toegang verlenen aan een service-principal.
 
-    > **Wanneer u**: wanneer u programmatisch beheren van Azure-resources of verlenen van toegang voor toepassingen. Zie voor meer informatie, [een Active Directory-toepassing en service-principal](../../active-directory/develop/howto-create-service-principal-portal.md).
+    > **Wanneer u**: Wanneer u programmatisch beheren van Azure-resources of verlenen van toegang voor toepassingen. Zie voor meer informatie, [een Active Directory-toepassing en service-principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Tags
 

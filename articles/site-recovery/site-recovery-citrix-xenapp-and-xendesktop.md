@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 4df7975d4d52e00cce7b57c6f207eb6cb9ea3be3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847895"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310508"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>instellen van herstel na noodgevallen voor een meerlagige Citrix XenApp en XenDesktop-implementaties
 
@@ -130,17 +130,17 @@ Een herstelplan groepen samen virtuele machines met dezelfde vereisten voor fail
 
 1. De XenApp onderdeel virtuele machines in het herstelplan toevoegen.
 2. Klik op de plannen voor herstel -> + het herstelplan. Geef een intuïtieve naam voor het herstelplan te gaan.
-3. Voor virtuele VMware-machines: bron selecteren als processerver VMware, doel als Microsoft Azure, en het implementatiemodel Resource Manager en klik op items selecteren.
-4. Voor Hyper-V virtuele machines: bron selecteren als VMM-server, gericht op Microsoft Azure, en als Resource Manager-implementatiemodel en klik op items selecteren en selecteer vervolgens de implementatie XenApp VM's.
+3. Voor virtuele VMware-machines: Selecteer de bron als processerver VMware, doel als Microsoft Azure, en het implementatiemodel Resource Manager en klik op items selecteren.
+4. Voor Hyper-V virtuele machines: Bron selecteren als VMM-server, doel als Microsoft Azure, en als Resource Manager-implementatiemodel en klik op items selecteren en selecteer vervolgens de implementatie XenApp VM's.
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>VM's toevoegt aan de failover-groepen
 
 Herstelplannen kunnen worden aangepast om toe te voegen, failover-groepen voor specifieke opstartvolgorde te wijzigen, scripts of handmatige acties. De volgende groepen moeten worden toegevoegd aan het herstelplan.
 
 1. Failover Group1: AD DNS
-2. Failover-Group2: SQL Server-VM 's
-2. Failover groep3: VDA Master-installatiekopie VM
-3. Failover Group4: Delivery Controller en StoreFront-server-VM 's
+2. Failover-Group2: SQL Server-VM's
+2. Failover groep3: Virtuele machine VDA Master-installatiekopie
+3. Failover-Group 4: Controller voor de levering en StoreFront-server-VM 's
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Scripts toe te voegen aan het herstelplan te gaan
@@ -150,15 +150,16 @@ Scripts kunnen worden uitgevoerd vóór of na een specifieke groep van een herst
 Het aangepaste herstelplan ziet eruit als het hieronder:
 
 1. Failover Group1: AD DNS
-2. Failover-Group2: SQL Server-VM 's
-3. Failover groep3: VDA Master-installatiekopie VM
+2. Failover-Group2: SQL Server-VM's
+3. Failover groep3: Virtuele machine VDA Master-installatiekopie
 
    >[!NOTE]     
    >Stap 4, 6 en 7 met handmatige of script acties zijn van toepassing op slechts een on-premises XenApp > omgeving met MCS/PV's catalogussen.
 
-4. Actie voor het handmatig of script van groep 3: afsluiten master VDA VM de Master VDA VM na een failover naar Azure is in een status running doorbrengt. Voor het maken van nieuwe MCS-catalogi met behulp van Azure die als host fungeert, de hoofd VDA-VM is vereist om te worden gestopt (de toegewezen) staat. Afsluiten van de virtuele machine van Azure-portal.
+4. Groep 3 handmatig of script actie: Master VDA VM afgesloten.
+De Master VDA VM na een failover naar Azure bevindt zich in een status running doorbrengt. Voor het maken van nieuwe MCS-catalogi met behulp van Azure die als host fungeert, de hoofd VDA-VM is vereist om te worden gestopt (de toegewezen) staat. Afsluiten van de virtuele machine van Azure-portal.
 
-5. Failover Group4: Delivery Controller en StoreFront-server-VM 's
+5. Failover-Group 4: Controller voor de levering en StoreFront-server-VM 's
 6. Groep3 handmatig of script actie 1:
 
     ***Azure RM-hostverbinding toevoegen***

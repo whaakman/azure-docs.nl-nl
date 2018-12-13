@@ -1,12 +1,11 @@
 ---
-title: Overzicht van Azure Standard Load Balancer | Microsoft Docs
+title: Wat is Azure Standard Load Balancer?
+titlesuffix: Azure Load Balancer
 description: Overzicht van Azure Standard Load Balancer-functies
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 845f991085a4427ab4f4301cab1dc60215374554
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161638"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185763"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer Standard
 
@@ -40,7 +39,7 @@ Een belangrijk aspect is het bereik van het virtuele netwerk voor de resource.  
 Resources voor Load Balancer zijn waarin u hoe Azure de infrastructuur met meerdere tenants voor het scenario dat u wilt maken moet programma kunt express-objecten.  Er is geen directe relatie tussen resources voor Load Balancer en de werkelijke infrastructuur; het maken van een Load Balancer-exemplaar niet maken, capaciteit is altijd beschikbaar en er zijn geen lid is of schalen van vertragingen te houden. 
 
 >[!NOTE]
-> Azure biedt een reeks volledig beheerde oplossingen voor uw scenario's voor taakverdeling.  Als u voor beëindiging van TLS ('SSL-offload') of per toepassing HTTP/HTTPS-laag aanvraagverwerking zoeken wilt, raadpleegt u [Application Gateway](../application-gateway/application-gateway-introduction.md).  Als u voor globale DNS-taakverdeling, Controleer [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Uw end-to-end scenario's kunnen profiteren van deze oplossingen worden gecombineerd als nodig is.
+> Azure biedt een reeks volledig beheerde oplossingen voor uw scenario's voor taakverdeling.  Als u voor beëindiging van TLS ('SSL-offload') of per toepassing HTTP/HTTPS-laag aanvraagverwerking zoeken wilt, raadpleegt u [Application Gateway](../application-gateway/application-gateway-introduction.md).  Raadpleeg [Traffic Manager](../traffic-manager/traffic-manager-overview.md) als u op zoek bent naar wereldwijde DNS-taakverdeling.  Uw end-to-end scenario's kunnen profiteren van deze oplossingen worden gecombineerd als nodig is.
 
 ## <a name="why-use-standard-load-balancer"></a>Waarom Standard Load Balancer gebruiken?
 
@@ -49,7 +48,7 @@ Met behulp van Standard Load Balancer kunt u de schaal van uw toepassingen aanpa
 Bekijk de onderstaande tabel voor een overzicht van de verschillen tussen Standard Load Balancer en Basic Load Balancer:
 
 >[!NOTE]
-> Nieuwe ontwerpen vaststellen Standard Load Balancer. 
+> Nieuwe ontwerpen moeten Standard Load Balancer kunnen faciliteren. 
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
@@ -58,7 +57,7 @@ Beoordeling [Servicelimieten voor Load Balancer](https://aka.ms/lblimits), evena
 
 ### <a name="backend"></a>Back-endpool
 
-Standard Load Balancer-back-end-pools is uitgebreid tot alle bronnen van de virtuele machine in een virtueel netwerk.  Mag maximaal 1000 back-end-exemplaren.  Een back-end-exemplaar is een IP-configuratie een eigenschap van een NIC-bron is.
+Standard Load Balancer-back-end-pools uitbreiden naar de bron van elke virtuele machine in een virtueel netwerk.  Mag maximaal 1000 back-end-exemplaren.  Een back-end-exemplaar is een IP-configuratie een eigenschap van een NIC-bron is.
 
 De back-endpool kan bevatten zelfstandige virtuele machines, beschikbaarheidssets of virtuele-machineschaalsets.  U kunt ook de resources in de back-endpool combineren. U kunt maximaal 150 resources in de back-endpool per Load Balancer-resource combineren.
 
@@ -88,7 +87,7 @@ Beoordeling [gedetailleerde bespreking van de Beschikbaarheidszones gerelateerde
 
 Standard Load Balancer biedt multi-dimensionale metrische gegevens via Azure Monitor.  Deze metrische gegevens kunnen worden gefilterd, gegroepeerd en uitgesplitst voor een opgegeven dimensie.  Beschikt over de huidige en historische informatie over prestaties en status van uw service.  Resource Health wordt ook ondersteund.  Hieronder volgt een kort overzicht van ondersteunde diagnostische gegevens:
 
-| Gegevens | Beschrijving |
+| Gegevens | Description |
 | --- | --- |
 | VIP-beschikbaarheid | Load Balancer Standard continu gebruik maakt van het gegevenspad van binnen een regio aan de Load Balancer front-end helemaal tot aan de SDN-stack die ondersteuning biedt voor uw virtuele machine. Als in orde exemplaren blijven, volgt de meting hetzelfde pad als verkeer met netwerktaakverdeling van uw toepassing. Het gegevenspad die wordt gebruikt door uw klanten wordt ook gevalideerd. De meting is zichtbaar voor uw toepassing en niet van invloed op andere bewerkingen.|
 | Beschikbaarheid van DIP | Load Balancer Standard maakt gebruik van een gedistribueerde health service de status van het toepassingseindpunt van uw op basis van uw configuratie-instellingen controleert te scannen. Met deze metriek bevat een statistische functie of groep per eindpunt gefilterd-weergave van alle afzonderlijke gevallen-eindpunten in de Load Balancer.  U kunt zien hoe de Load Balancer de status van uw toepassing, zoals aangegeven door de configuratie van de health test bekijkt.
@@ -103,9 +102,9 @@ Beoordeling [gedetailleerde beschrijving van de diagnostische gegevens van Stand
 
 Standard Load Balancer biedt ondersteuning voor een nieuw type regel.  
 
-U kunt de load balancer-regels voor het maken van de schaal van uw toepassing en worden zeer betrouwbare configureren. Bij het gebruik van een HA-poorten-taakverdelingsregel, standaardversie van Load Balancer biedt per stroom taakverdeling op elke kortstondige poort van een interne standaardversie van Load Balancer van front-end-IP-adres.  De functie is handig voor andere scenario's waarin het niet praktisch of ongewenste als afzonderlijke poorten wilt opgeven.
+U kunt regels voor taakverdeling om de schaal van uw toepassing en worden zeer betrouwbare configureren. Wanneer u een regel voor taakverdeling HA-poorten, biedt standaardversie van Load Balancer per stroom taakverdeling op elke kortstondige poort van een interne standaardversie van Load Balancer van front-end-IP-adres.  De functie is handig voor andere scenario's waarin het niet praktisch of ongewenste als afzonderlijke poorten wilt opgeven.
 
-Een regel voor taakverdeling van HA-poorten kunt u actief-passief of actief-actief n + 1-scenario's voor Network Virtual Appliances en andere toepassingen waarvoor grote bereik van poorten voor inkomend verkeer te maken.  Een statustest kan worden gebruikt om te bepalen welke back-ends die nieuwe stromen moet worden ontvangen.  Een Netwerkbeveiligingsgroep kunt u een scenario voor het bereik van poort worden geëmuleerd.
+Een regel voor taakverdeling HA-poorten kunt u actief-passief of actief-actief n + 1-scenario's voor Network Virtual Appliances en andere toepassingen waarvoor grote bereik van poorten voor inkomend verkeer te maken.  Een statustest kan worden gebruikt om te bepalen welke back-ends die nieuwe stromen moet worden ontvangen.  Een Netwerkbeveiligingsgroep kunt u een scenario voor het bereik van poort worden geëmuleerd.
 
 >[!IMPORTANT]
 > Als u van plan bent te gebruiken een virtueel netwerkapparaat, neem contact op met de leverancier voor informatie over of hun product is getest met HA-poorten en volgt u de specifieke hulp voor implementatie. 
@@ -120,7 +119,7 @@ Zie voor meer informatie over nsg's en hoe u deze wilt toepassen voor uw scenari
 
 ### <a name="outbound"></a> Uitgaande verbindingen
 
-Load Balancer biedt ondersteuning voor scenario's voor binnenkomend en uitgaand.  Standard Load Balancer is heel anders voor de basisversie van Load Balancer met betrekking tot uitgaande verbindingen.
+Load Balancer biedt ondersteuning voor scenario's voor binnenkomend en uitgaand.  Standard Load Balancer is heel anders dan Basic Load Balancer met betrekking tot uitgaande verbindingen.
 
 Bron Network Address Translation (SNAT) wordt gebruikt om interne, persoonlijke IP-adressen in het virtuele netwerk worden toegewezen aan het openbare IP-adressen op de Load Balancer-front-ends.
 
@@ -138,7 +137,7 @@ Dit zijn de belangrijkste basisprincipes te onthouden bij het werken met de stan
 Als u meer SNAT poorten wilt omdat u verwacht of zijn al ondervindt hoge eisen voor uitgaande verbindingen, kunt u ook incrementele SNAT poort inventaris toevoegen door extra front-ends, regels en back-endpools naar dezelfde virtuele machine configureren resources.
 
 #### <a name="control-which-frontend-is-used-for-outbound"></a>Welke front-end wordt gebruikt voor het besturingselement uitgaande
-Als u beperken uitgaande verbindingen wilt naar alleen afkomstig zijn van een specifieke frontend-IP-adres, kunt u eventueel uitgaande SNAT op de regel die de uitgaande toewijzing wordt uitgedrukt uitschakelen.
+Als u beperken uitgaande verbindingen wilt naar alleen afkomstig zijn van een specifieke frontend-IP-adres, kunt u eventueel uitgaande SNAT op de regel die de toewijzing van het uitgaande uitschakelen.
 
 #### <a name="control-outbound-connectivity"></a>Uitgaande connectiviteit van besturingselement
 Standard Load Balancer bestaat in de context van het virtuele netwerk.  Een virtueel netwerk is een geïsoleerde, particuliere netwerk.  Tenzij een koppeling met een openbaar IP-adres bestaat, worden openbare verbinding is niet toegestaan.  U kunt bereiken [VNet-Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) omdat ze van en lokaal naar uw virtuele netwerk zijn.  Als u wilt om uitgaande verbinding naar een bestemming buiten het virtuele netwerk te maken, hebt u twee opties:
@@ -154,7 +153,7 @@ Uitgaande connectiviteit van de bron van een virtuele machine die niet zijn geko
 Beoordeling [gedetailleerde discussie over uitgaande verbindingen](load-balancer-outbound-connections.md).
 
 ### <a name="multife"></a>Meerdere frontends
-Load Balancer biedt ondersteuning voor meerdere regels met meerdere front-ends.  Standard Load Balancer breidt deze uitgaande scenario's.  Uitgaande scenario's zijn in feite de omgekeerde waarde van een binnenkomende regel voor taakverdeling.  De binnenkomende regel voor taakverdeling ook maakt een koppelen voor uitgaande verbindingen. Standaardversie van Load Balancer maakt gebruik van alle front-ends die zijn gekoppeld aan de bron van een virtuele machine via een regel voor taakverdeling.  Bovendien een parameter voor de load balancing regel en kunt u een regel voor taakverdeling voor de toepassing van de uitgaande connectiviteit, waardoor de selectie van specifieke front-ends met inbegrip van geen onderdrukken.
+Load Balancer biedt ondersteuning voor meerdere regels met meerdere front-ends.  Standard Load Balancer breidt deze uitgaande scenario's.  Uitgaande scenario's zijn in feite de omgekeerde waarde van een binnenkomende regel voor taakverdeling.  De binnenkomende regel voor taakverdeling maakt ook een koppelen voor uitgaande verbindingen. Standaardversie van Load Balancer maakt gebruik van alle front-ends die zijn gekoppeld aan de bron van een virtuele machine via een regel voor taakverdeling.  Bovendien een parameter voor de regel voor taakverdeling en kunt u een regel voor taakverdeling voor de toepassing van de uitgaande connectiviteit, waardoor de selectie van specifieke front-ends met inbegrip van geen onderdrukken.
 
 Ter vergelijking: Basic Load Balancer wordt een enkele front willekeurig geselecteerd en er is geen mogelijkheid om te bepalen welke is geselecteerd.
 
@@ -162,7 +161,7 @@ Beoordeling [gedetailleerde discussie over uitgaande verbindingen](load-balancer
 
 ### <a name="operations"></a> Beheerbewerkingen
 
-Standard Load Balancer resources aanwezig zijn op een geheel nieuwe infrastructuurplatform.  Hierdoor is aanzienlijk sneller beheerbewerkingen voor standaard-SKU's en voltooiing tijden zijn meestal minder dan 30 seconden per standaard SKU-resource.  Houd er rekening mee dat als back-endpools in omvang toeneemt, de duur vereist voor back-end pool ook vergroten verandert.
+Standard Load Balancer resources aanwezig zijn op een geheel nieuwe infrastructuurplatform.  Hierdoor kunnen sneller beheerbewerkingen voor standaard-SKU's en voltooiing tijden zijn meestal minder dan 30 seconden per standaard SKU-resource.  Als back-endpools in omvang toeneemt, de duur die nodig is voor back-end pool verandert ook toename.
 
 U kunt Standard Load Balancer resources wijzigen en een Standard openbaar IP-adres van een virtuele machine verplaatsen naar een andere veel sneller.
 
@@ -211,7 +210,7 @@ Standard Load Balancers zijn beschikbaar met een SLA van 99,99%.  Controleer de 
 
 ## <a name="pricing"></a>Prijzen
 
-Standaardversie van Load Balancer is een gebracht product op basis van het aantal geconfigureerde regels en alle inkomende en uitgaande gegevens verwerkte voor taakverdeling. Voor Standard Load Balancer informatie over de prijzen, gaat u naar de [Load Balancer prijzen](https://aka.ms/lbpricing) pagina.
+Standaardversie van Load Balancer is een in rekening gebracht op basis van het aantal regels voor taakverdeling geconfigureerd-product en alle inkomende en uitgaande gegevens verwerkt. Voor Standard Load Balancer informatie over de prijzen, gaat u naar de [Load Balancer prijzen](https://aka.ms/lbpricing) pagina.
 
 ## <a name="limitations"></a>Beperkingen
 
@@ -221,8 +220,8 @@ Standaardversie van Load Balancer is een gebracht product op basis van het aanta
 - Load Balancer-front-ends zijn niet toegankelijk voor wereldwijde vnet-peering.
 - [Bewerkingen in het abonnement verplaatsen](../azure-resource-manager/resource-group-move-resources.md) worden niet ondersteund voor Standard SKU LB en PIP-resources.
 - Webwerkrollen zonder dat u een VNet en andere Microsoft-platform-services kunnen worden geopend als alleen een interne standaardversie van Load Balancer wordt gebruikt vanwege een neveneffect van hoe het pre-VNet-services en andere platform functie services. U moet niet afhankelijk zijn van dit als de desbetreffende service zelf of het onderliggende platform kan zonder kennisgeving worden gewijzigd. U moet altijd wordt ervan uitgegaan dat u wilt maken [uitgaande connectiviteit](load-balancer-outbound-connections.md) expliciet indien gewenst bij het gebruik van een interne Standard Load Balancer alleen.
-- Load Balancer is een TCP of UDP-product voor taakverdeling en doorsturen via poort voor deze specifieke IP-protocollen.  Taakverdelingsregels en inkomende NAT-regels worden ondersteund voor TCP en UDP en wordt niet ondersteund voor andere IP-protocollen met inbegrip van ICMP. Load Balancer niet beëindigt, reageren of anders communiceren met de nettolading van een UDP of TCP-stroom. Het is niet een proxy. Succesvolle validatie van de verbinding met een front-plaats in-band moet uitvoeren met hetzelfde protocol gebruikt in een load balancing of inkomende NAT-regel (TCP of UDP) _en_ moet ten minste één van uw virtuele machines een antwoord genereren voor een client om te zien van een reactie van een front-end.  Niet ontvangen van een in-band-antwoord van de Load Balancer-front-geeft aan dat er waren geen virtuele machines kunnen reageren.  Het is niet mogelijk om te communiceren met een Load Balancer front-end zonder een virtuele machine kunnen reageren.  Dit geldt ook voor uitgaande verbindingen waar [poort maskerade SNAT](load-balancer-outbound-connections.md#snat) wordt alleen ondersteund voor TCP en UDP-; geen andere IP-protocollen met inbegrip van ICMP ook mislukken.  Toewijzen van een openbaar IP-adres op exemplaarniveau te beperken.
-- In tegenstelling tot openbare Load Balancers waardoor [uitgaande verbindingen](load-balancer-outbound-connections.md) bij het overstappen van privé-IP-adressen binnen het virtuele netwerk naar openbare IP-adressen, interne Load Balancers niet doen vertalen uitgaande afkomstig is verbindingen met de front-end van een interne Load Balancer als beide zijn in privé-IP-adresruimte.  Hiermee voorkomt u mogelijkheden voor uitputting van SNAT in unieke interne IP-adresruimte waarbij vertaling niet vereist is.  Een neveneffect is dat als een uitgaande stroom vanuit een virtuele machine in de back-end-adrespool probeert een webfront-end van de interne Load Balancer in die groep zich bevindt flow _en_ is toegewezen naar zichzelf, beide zijden van de stroom komen niet overeen en de stroom mislukt .  Als de stroom niet terug naar dezelfde virtuele machine in de back-end-pool die de stroom aan de front-end hebt gemaakt toegewezen is, wordt de stroom slaagt.   Wanneer de stroom wordt toegewezen aan zichzelf de uitgaande stroom lijkt te zijn afkomstig uit de virtuele machine aan de front-end en de bijbehorende inkomende stroom lijkt te zijn afkomstig uit de virtuele machine naar zichzelf. Uit oogpunt van het Gastbesturingssysteem, niet overeenkomen met de binnenkomende en uitgaande delen van dezelfde stroom in de virtuele machine. Deze helften van dezelfde stroom wordt niet herkend als deel van dezelfde stroom als de bron- en doelserver komen niet overeen voor de TCP-stack.  Wanneer de stroom wordt toegewezen aan andere VM's in de back-endpool, komt overeen met de halve van de stroom en de stroom is de virtuele machine kan reageren.  Het symptoom voor dit scenario is onregelmatige verbindingstime-outs. Er zijn enkele algemene oplossingen voor het bereiken van dit scenario op betrouwbare wijze (die afkomstig zijn van stromen van een back-end-pool naar de back-end-pools respectieve interne Load Balancer front-) waaronder beide invoegen van een derde partij proxy achter de interne Load Balancer of [met behulp van de stijlregels DSR](load-balancer-multivip-overview.md).  Terwijl u een openbare Load Balancer gebruiken kunt om te beperken, het resulterende scenario is de kans op [SNAT bronuitputting](load-balancer-outbound-connections.md#snat) en moeten worden vermeden, tenzij zorgvuldig worden beheerd.
+- Load Balancer is een TCP- of UDP-product voor taakverdeling en Port Forwarding voor deze specifieke IP-protocollen.  Taakverdelingsregels en inkomende NAT-regels worden ondersteund voor TCP en UDP en worden niet ondersteund voor andere IP-protocollen, met inbegrip van ICMP. Load Balancer beëindigt de nettolading van een UDP- of TCP-stroom niet, reageert er niet op of communiceert er op geen enkele andere ander manier mee. Het is geen proxy. Succesvolle validatie van de verbinding met een front-plaats in-band moet uitvoeren met hetzelfde protocol gebruikt in een load balancing of inkomende NAT-regel (TCP of UDP) _en_ moet ten minste één van uw virtuele machines een antwoord genereren voor een client om te zien van een reactie van een front-end.  Niet ontvangen van een in-band-antwoord van de Load Balancer-front-geeft aan dat er waren geen virtuele machines kunnen reageren.  Het is niet mogelijk om te communiceren met een Load Balancer front-end zonder een virtuele machine kunnen reageren.  Dit geldt ook voor uitgaande verbindingen waar [poortmaskering SNAT](load-balancer-outbound-connections.md#snat) alleen wordt ondersteund voor TCP en UDP; andere IP-protocollen, waaronder ICMP, werken ook niet.  Wijs een openbaar IP-adres op instantieniveau toe om dit op te lossen.
+- In tegenstelling tot openbare Load Balancers waardoor [uitgaande verbindingen](load-balancer-outbound-connections.md) bij het overstappen van privé-IP-adressen binnen het virtuele netwerk naar openbare IP-adressen, interne Load Balancers niet doen vertalen uitgaande afkomstig is verbindingen met de front-end van een interne Load Balancer als beide zijn in privé-IP-adresruimte.  Hiermee voorkomt u mogelijkheden voor uitputting van SNAT in unieke interne IP-adresruimte waarbij vertaling niet vereist is.  Een neveneffect is dat als een uitgaande stroom vanuit een virtuele machine in de back-end-adrespool probeert een webfront-end van de interne Load Balancer in die groep zich bevindt flow _en_ is toegewezen naar zichzelf, beide zijden van de stroom komen niet overeen en de stroom mislukt .  Als de stroom niet terug naar dezelfde virtuele machine in de back-end-pool die de stroom aan de front-end hebt gemaakt toegewezen is, wordt de stroom slaagt.   Wanneer de stroom wordt toegewezen aan zichzelf de uitgaande stroom lijkt te zijn afkomstig uit de virtuele machine aan de front-end en de bijbehorende inkomende stroom lijkt te zijn afkomstig uit de virtuele machine naar zichzelf. Vanuit het oogpunt van het gastbesturingssysteem gezien, komen de inkomende en uitgaande delen van dezelfde flow in de virtuele machine niet overeen. De TCP-stack herkent deze niet als twee helften van dezelfde stroom, omdat de bron en de bestemming niet overeenkomen.  Wanneer de stroom wordt toegewezen aan andere VM's in de back-endpool, komt overeen met de halve van de stroom en de stroom is de virtuele machine kan reageren.  Het symptoom voor dit scenario is onregelmatige verbindingstime-outs. Er zijn enkele algemene oplossingen voor het bereiken van dit scenario op betrouwbare wijze (die afkomstig zijn van stromen van een back-end-pool naar de back-end-pools respectieve interne Load Balancer front-) waaronder beide invoegen van een derde partij proxy achter de interne Load Balancer of [met behulp van de stijlregels DSR](load-balancer-multivip-overview.md).  Als oplossing hiervoor zou u een openbare Load Balancer kunnen gebruiken, maar het scenario dat daar het resultaat van is, is gevoelig voor [SNAT-uitputting](load-balancer-outbound-connections.md#snat) en moet worden vermeden, tenzij dit nauwkeurig wordt beheerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

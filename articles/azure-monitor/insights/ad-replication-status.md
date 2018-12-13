@@ -10,17 +10,15 @@ ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 7a8f2fc0d8b9f023e20cf8c4d4939aa3094a13e8
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890174"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184115"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Status van de Active Directory-replicatie met Log Analytics controleren
 
@@ -51,7 +49,7 @@ Als u niet wilt dat uw domeincontrollers rechtstreeks verbinden met Log Analytic
 2. [De Windows-computer verbinden met Log Analytics](../../azure-monitor/platform/om-agents.md) of [verbinding maken met behulp van uw bestaande Operations Manager-omgeving naar Log Analytics](../../azure-monitor/platform/om-agents.md), als deze nog niet is verbonden.
 3. Stel de volgende registersleutel op die computer:
 
-   * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
+   * Sleutel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management groepen\<ManagementGroupName > \Solutions\ADReplication**
    * Waarde: **IsTarget**
    * Waardegegevens: **true**
 
@@ -119,32 +117,32 @@ U kunt ook klikken op **exporteren** de resultaten exporteren naar Excel. Export
 ![geëxporteerde AD-replicatie status fouten in Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>Veelgestelde vragen over AD-replicatiestatus
-**V: hoe vaak wordt AD status replicatiegegevens bijgewerkt?**
-A: de gegevens worden elke vijf dagen bijgewerkt.
+**VRAAG: Hoe vaak wordt AD status replicatiegegevens bijgewerkt?**
+A: De gegevens worden elke vijf dagen bijgewerkt.
 
-**Vraag: is er een manier om te configureren hoe vaak deze gegevens worden bijgewerkt?**
-A: niet op dit moment.
+**VRAAG: Is er een manier om te configureren hoe vaak deze gegevens worden bijgewerkt?**
+A: Momenteel niet.
 
-**V: ik moet mijn domeincontrollers toevoegen aan mijn Log Analytics-werkruimte als u wilt bekijken van de replicatiestatus?**
+**VRAAG: Moet ik mijn domeincontrollers toevoegen aan mijn Log Analytics-werkruimte als u wilt bekijken van de replicatiestatus?**
 A: Nee, slechts één domeincontroller moet worden toegevoegd. Als u meerdere domeincontrollers in uw Log Analytics-werkruimte hebt, worden gegevens van al deze wordt verzonden naar Log Analytics.
 
-**V: ik wilt niet dat alle domeincontrollers toevoegen aan mijn werkruimte voor logboekanalyse. Kan ik nog steeds de AD-replicatiestatus-oplossing gebruiken?**
+**VRAAG: Ik wil niet alle domeincontrollers toevoegen aan mijn werkruimte voor logboekanalyse. Kan ik nog steeds de AD-replicatiestatus-oplossing gebruiken?**
 A: Ja. U kunt de waarde van een registersleutel te kunnen instellen. Zie [om in te schakelen van een niet-domeincontroller AD-gegevens te verzenden naar Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-**V: Wat is de naam van het proces dat het verzamelen van gegevens wordt?**
+**VRAAG: Wat is de naam van het proces dat het verzamelen van gegevens wordt?**
 A: AdvisorAssessment.exe
 
-**V: hoe lang duurt het voordat gegevens worden verzameld?**
-A: gegevens verzameling tijd is afhankelijk van de grootte van de Active Directory-omgeving, maar duurt normaal gesproken minder dan 15 minuten.
+**VRAAG: Hoe lang duurt het voordat gegevens worden verzameld?**
+A: Gegevens verzameling tijd is afhankelijk van de grootte van de Active Directory-omgeving, maar duurt normaal gesproken minder dan 15 minuten.
 
-**V: welk type gegevens worden verzameld?**
-A: replicatiegegevens worden verzameld via in LDAP.
+**VRAAG: Welk type gegevens worden verzameld?**
+A: Replicatiegegevens worden verzameld via in LDAP.
 
-**V: is er een manier om te configureren wanneer gegevens worden verzameld?**
-A: niet op dit moment.
+**VRAAG: Is er een manier om te configureren wanneer gegevens worden verzameld?**
+A: Momenteel niet.
 
-**V: voor welke machtigingen heb ik nodig voor het verzamelen van gegevens?**
-A: normale gebruikersmachtigingen voor Active Directory zijn voldoende.
+**VRAAG: Welke machtigingen heb ik nodig voor het verzamelen van gegevens?**
+A: Normale gebruikersmachtigingen voor Active Directory zijn voldoende.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Problemen met gegevens verzamelen
 Als u wilt verzamelen van gegevens, moet het AD-replicatiestatus-oplossingenpakket ten minste één domeincontroller worden verbonden met uw Log Analytics-werkruimte. Totdat u verbinding maakt met een domeincontroller, er een bericht weergegeven dat aangeeft dat **nog steeds gegevens worden verzameld**.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 410e9df588ad4aba52d1d69349f5df67fa1826a3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 013b63d0eb2cc69893dcb4075c1ca26a31ef2474
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100936"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277978"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>De infrastructuur van uw extern bureaublad-Gateway met behulp van de extensie voor Network Policy Server (NPS) en Azure AD integreren
 
@@ -24,6 +24,9 @@ Dit artikel bevat informatie voor het integreren van uw infrastructuur voor exte
 De Network Policy Server (NPS)-extensie voor Azure klanten kunnen ter bescherming van de Remote Authentication Dial-In User Service (RADIUS)-clientauthenticatie met behulp van Azure cloud-gebaseerde [multi-factor Authentication (MFA)](multi-factor-authentication.md). Deze oplossing biedt verificatie in twee stappen voor het toevoegen van een tweede beveiligingslaag aan gebruikersaanmeldingen en transacties.
 
 In dit artikel bevat stapsgewijze instructies voor het integreren van de NPS-infrastructuur met Azure MFA met behulp van de NPS-extensie voor Azure. Hierdoor kunnen beveiligde verificatie voor gebruikers die zich aanmelden bij een extern bureaublad-Gateway.
+
+> [!NOTE]
+> In dit artikel mag niet worden gebruikt met MFA-Server-implementaties die alleen Azure MFA (cloudservice).
 
 De Network Policy and Access Services (NPS) biedt organisaties de mogelijkheid om het volgende te doen:
 
@@ -68,10 +71,10 @@ In deze sectie worden de vereisten die nodig zijn voordat de integratie van Azur
 
 ### <a name="remote-desktop-services-rds-infrastructure"></a>Extern bureaublad-Services (RDS)-infrastructuur
 
-U moet beschikken over een werkende Remote Desktop Services (RDS)-infrastructuur op locatie. Als u dit niet doet, dan kunt u deze infrastructuur snel maken in Azure met behulp van de volgende snelstartgids-sjabloon: [maken Sessieverzameling met extern bureaublad-implementatie](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
+U moet beschikken over een werkende Remote Desktop Services (RDS)-infrastructuur op locatie. Als u dit niet doet, kunt u snel deze infrastructuur in Azure met behulp van de volgende snelstartgids-sjabloon maken: [Implementatie van extern bureaublad-Sessieverzameling maken](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
 
 Als u Maak handmatig een extern bureaublad-services on-premises infrastructuur snel voor testdoeleinden wenst, volg de stappen voor het implementeren van een. 
-**Meer informatie**: [RDS implementeren met Azure-snelstartgids](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) en [Basic RDS Infrastructuurimplementatie](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
+**Meer informatie**: [Extern bureaublad-services implementeren met Azure-snelstartgids](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) en [Basic RDS Infrastructuurimplementatie](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
 ### <a name="azure-mfa-license"></a>Azure MFA-licentie
 
@@ -83,7 +86,7 @@ De NPS-extensie is vereist voor Windows Server 2008 R2 SP1 of hoger met de NPS-f
 
 ### <a name="network-policy-and-access-services-nps-role"></a>Rol voor netwerkbeleid en -toegang tot Services (NPS)
 
-De functieservice NPS biedt de RADIUS-server en client-functionaliteit, evenals de health-service voor beleid voor netwerktoegang. Deze functie moet worden geïnstalleerd op ten minste twee computers in uw infrastructuur: de extern bureaublad-Gateway en een lidserver of domeincontroller. De rol is standaard al aanwezig op de computer is geconfigureerd als extern bureaublad-Gateway.  U moet ook installeren de functie NPS op ten minste op een andere computer, zoals een lidserver of domeincontroller.
+De functieservice NPS biedt de RADIUS-server en client-functionaliteit, evenals de health-service voor beleid voor netwerktoegang. Deze functie moet worden geïnstalleerd op ten minste twee computers in uw infrastructuur: Extern bureaublad-Gateway en een lidserver of domeincontroller. De rol is standaard al aanwezig op de computer is geconfigureerd als extern bureaublad-Gateway.  U moet ook installeren de functie NPS op ten minste op een andere computer, zoals een lidserver of domeincontroller.
 
 Voor informatie over het installeren van de NPS-rolservice service WindowsServer 2012 of ouder, Zie [installeren van een NAP-statusbeleidsserver](https://technet.microsoft.com/library/dd296890.aspx). Zie voor een beschrijving van aanbevolen procedures voor NPS, met inbegrip van de aanbeveling voor het installeren van NPS op een domeincontroller [aanbevolen procedures voor NPS](https://technet.microsoft.com/library/cc771746).
 

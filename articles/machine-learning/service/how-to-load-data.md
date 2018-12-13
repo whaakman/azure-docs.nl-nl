@@ -1,5 +1,5 @@
 ---
-title: Gegevens laden en prep met de Data Prep Python-SDK
+title: 'Belasting: dataprep Python-SDK'
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het laden van gegevens met Azure Machine Learning Data Prep SDK. U kunt verschillende soorten gegevens laden, gegevens-bestandstypen en parameters opgeven of de slimme lezen SDK-functionaliteit gebruiken voor het automatisch detecteren bestandstype.
 services: machine-learning
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0d7561c0dc89fb47f88ca6e54616736067262391
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9d3b72e62c778d02b25b082643e0de4c6cc09a60
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095056"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190761"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
 

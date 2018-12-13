@@ -1,5 +1,5 @@
 ---
-title: Geografisch gedistribueerde schaal met App Service-omgevingen
+title: Geografisch gedistribueerde schaal met App Service-omgevingen - Azure
 description: Leer hoe u apps met behulp van geo-distributie met Traffic Manager en App Service-omgevingen horizontaal te schalen.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.openlocfilehash: bc85139dfa3589baf6505fac2269f8755dcaddc8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.custom: seodec18
+ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213245"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273864"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Geografisch gedistribueerde schaal met App Service-omgevingen
 ## <a name="overview"></a>Overzicht
@@ -42,18 +43,18 @@ De rest van dit onderwerp worden de stappen beschreven die betrokken zijn bij he
 ## <a name="planning-the-topology"></a>Planning van de topologie
 Voordat u het opzetten van een distributed app footprint kunt zo u een aantal onderdelen gestroomlijnder wanneer u gegevens hebt.
 
-* **Het aangepaste domein voor de app:** wat is de naam van het aangepaste domein dat klanten toegang tot de app wordt gebruikt?  Voor de voorbeeld-app de aangepaste domeinnaam is *www.scalableasedemo.com*
-* **Traffic Manager-domein:** een domeinnaam moet worden gekozen bij het maken van een [Azure Traffic Manager-profiel][AzureTrafficManagerProfile].  Deze naam wordt gecombineerd met de *trafficmanager.net* achtervoegsel voor het registreren van een domein-item dat wordt beheerd door Traffic Manager.  Voor de voorbeeld-app, is het de naam van de gekozen *schaalbare-as-omgeving-demo*.  De volledige domeinnaam die wordt beheerd door Traffic Manager is daardoor *schaalbare-as-omgeving-demo.trafficmanager.net*.
-* **Strategie voor het schalen van de app-voetafdruk:** wordt de voetafdruk van de toepassing worden verdeeld over meerdere App Service-omgevingen in één regio?  Meerdere regio's?  Een en-combineren van beide methoden?  De beslissing moet worden gebaseerd op de verwachtingen van waaruit klantenverkeer wordt uitgevoerd, evenals hoe goed de rest van de back-endinfrastructuur voor ondersteuning van van een app kunt schalen.  Bijvoorbeeld, met een 100% staatloze toepassingen, kan een app worden zeer geschaald met behulp van een combinatie van meerdere App Service-omgevingen per Azure-regio, vermenigvuldigd met App Service-omgevingen in meerdere Azure-regio's.  Klanten met 15 + openbare Azure-regio's beschikbaar om de verkeersbelasting, kunnen echt een footprint wereldwijd grootschalige toepassingen bouwen.  Voor de voorbeeldapp die wordt gebruikt voor dit artikel, zijn drie App Service-omgevingen gemaakt in één Azure-regio (Zuid-centraal VS).
-* **Naamgevingsregels voor de App Service-omgevingen:** voor elke App Service-omgeving moet een unieke naam.  Meer dan één of twee App Service-omgevingen is het handig om een naamconventie gebruikt voor het identificeren van elke App Service-omgeving.  Een eenvoudige naamconventie is voor de voorbeeld-app gebruikt.  De namen van de drie App Service-omgevingen zijn *fe1ase*, *fe2ase*, en *fe3ase*.
-* **Naamgevingsregels voor de apps:** omdat meerdere exemplaren van de app worden geïmplementeerd, een naam is vereist voor elk exemplaar van de geïmplementeerde app.  Een beetje bekende maar zeer handige functie van App Service-omgevingen is dat de naam van de dezelfde app kan worden gebruikt voor meerdere App Service-omgevingen.  Omdat elke App Service-omgeving een unieke domeinachtervoegsel heeft, kunnen ontwikkelaars kiezen om exact dezelfde naam van de app opnieuw te gebruiken in elke omgeving.  Bijvoorbeeld een ontwikkelaar van apps met de naam als volgt kan hebben: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, enzovoort.  Voor de voorbeeld-app echter elk exemplaar van de app heeft ook een unieke naam.  De namen van de app-exemplaar gebruikt *webfrontend1*, *webfrontend2*, en *webfrontend3*.
+* **Het aangepaste domein voor de app:**  Wat is de aangepaste domeinnaam dat klanten toegang tot de app wordt gebruikt?  Voor de voorbeeld-app de aangepaste domeinnaam is *www.scalableasedemo.com*
+* **Traffic Manager-domein:**  De naam van een domein moet worden gekozen bij het maken van een [Azure Traffic Manager-profiel][AzureTrafficManagerProfile].  Deze naam wordt gecombineerd met de *trafficmanager.net* achtervoegsel voor het registreren van een domein-item dat wordt beheerd door Traffic Manager.  Voor de voorbeeld-app, is het de naam van de gekozen *schaalbare-as-omgeving-demo*.  De volledige domeinnaam die wordt beheerd door Traffic Manager is daardoor *schaalbare-as-omgeving-demo.trafficmanager.net*.
+* **Strategie voor het schalen van de app-voetafdruk:**  De footprint van de toepassing worden verdeeld over meerdere App Service-omgevingen in één regio?  Meerdere regio's?  Een en-combineren van beide methoden?  De beslissing moet worden gebaseerd op de verwachtingen van waaruit klantenverkeer wordt uitgevoerd, evenals hoe goed de rest van de back-endinfrastructuur voor ondersteuning van van een app kunt schalen.  Bijvoorbeeld, met een 100% staatloze toepassingen, kan een app worden zeer geschaald met behulp van een combinatie van meerdere App Service-omgevingen per Azure-regio, vermenigvuldigd met App Service-omgevingen in meerdere Azure-regio's.  Klanten met 15 + openbare Azure-regio's beschikbaar om de verkeersbelasting, kunnen echt een footprint wereldwijd grootschalige toepassingen bouwen.  Voor de voorbeeldapp die wordt gebruikt voor dit artikel, zijn drie App Service-omgevingen gemaakt in één Azure-regio (Zuid-centraal VS).
+* **De naamconventie voor de App Service-omgevingen:**  Elke App Service-omgeving moet een unieke naam.  Meer dan één of twee App Service-omgevingen is het handig om een naamconventie gebruikt voor het identificeren van elke App Service-omgeving.  Een eenvoudige naamconventie is voor de voorbeeld-app gebruikt.  De namen van de drie App Service-omgevingen zijn *fe1ase*, *fe2ase*, en *fe3ase*.
+* **De naamconventie voor de apps:**  Omdat meerdere exemplaren van de app worden geïmplementeerd, wordt een naam vereist voor elk exemplaar van de geïmplementeerde app.  Een beetje bekende maar zeer handige functie van App Service-omgevingen is dat de naam van de dezelfde app kan worden gebruikt voor meerdere App Service-omgevingen.  Omdat elke App Service-omgeving een unieke domeinachtervoegsel heeft, kunnen ontwikkelaars kiezen om exact dezelfde naam van de app opnieuw te gebruiken in elke omgeving.  Bijvoorbeeld een ontwikkelaar van apps met de naam als volgt kan hebben: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, enzovoort.  Voor de voorbeeld-app echter elk exemplaar van de app heeft ook een unieke naam.  De namen van de app-exemplaar gebruikt *webfrontend1*, *webfrontend2*, en *webfrontend3*.
 
 ## <a name="setting-up-the-traffic-manager-profile"></a>Instellen van Traffic Manager-profiel
 Als meerdere exemplaren van een app worden geïmplementeerd op meerdere App Service-omgevingen, kunnen de afzonderlijke app-exemplaren met Traffic Manager worden geregistreerd.  Voor de voorbeeld-app een Traffic Manager-profiel is nodig voor *schaalbare-as-omgeving-demo.trafficmanager.net* die klanten kunnen routeren naar een van de volgende exemplaren van de door u geïmplementeerde app:
 
-* **webfrontend1.fe1ase.p.azurewebsites.NET:** een exemplaar van de voorbeeld-app geïmplementeerd op de eerste App Service-omgeving.
-* **webfrontend2.fe2ase.p.azurewebsites.NET:** een exemplaar van de voorbeeld-app geïmplementeerd op de tweede App Service-omgeving.
-* **webfrontend3.fe3ase.p.azurewebsites.NET:** een exemplaar van de voorbeeld-app geïmplementeerd op de derde App Service-omgeving.
+* **webfrontend1.fe1ase.p.azurewebsites.NET:**  Een exemplaar van de voorbeeld-app geïmplementeerd op de eerste App Service-omgeving.
+* **webfrontend2.fe2ase.p.azurewebsites.NET:**  Een exemplaar van de voorbeeld-app geïmplementeerd op de tweede App Service-omgeving.
+* **webfrontend3.fe3ase.p.azurewebsites.NET:**  Een exemplaar van de voorbeeld-app geïmplementeerd op de derde App Service-omgeving.
 
 De eenvoudigste manier om het registreren van meerdere Azure App Service-eindpunten, alle actieve in de **dezelfde** Azure-regio, is met de Powershell [ondersteuning voor Azure Resource Manager Traffic Manager] [ ARMTrafficManager].  
 

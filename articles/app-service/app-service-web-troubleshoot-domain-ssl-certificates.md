@@ -1,5 +1,5 @@
 ---
-title: Problemen met domein en SSL-certificaat oplossen in Azure-web-apps | Microsoft Docs
+title: Problemen oplossen met domein en SSL-certificaten - Azure App Service | Microsoft Docs
 description: Problemen met domein en SSL-certificaat oplossen in Azure-web-apps
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 5c5bdb8fad60a2e4196c2c9f74764e27cec5ba62
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 726bc78532cfe621eb3f3787aa05a7a54571a8c3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970770"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251603"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Problemen met domein en SSL-certificaat oplossen in Azure-web-apps
 
@@ -74,11 +75,11 @@ Dit probleem kan optreden voor het gebruik van de volgende redenen:
 
 - De App Service-plan is gratis of gedeeld. Deze Prijscategorieën ondersteuning geen voor SSL. 
 
-    **Oplossing**: de App Service-plan voor web-app een upgrade uitvoert naar Standard.
+    **Oplossing**: De App Service-plan voor web-app een upgrade uitvoert naar Standard.
 
 - Het abonnement beschikt niet over een geldige creditcard.
 
-    **Oplossing**: een geldige creditcard aan uw abonnement toevoegt. 
+    **Oplossing**: Een geldige creditcard aan uw abonnement toevoegt. 
 
 - Het abonnement biedt geen ondersteuning voor een App Service-certificaat, zoals Microsoft Student aanschaffen.  
 
@@ -87,9 +88,9 @@ Dit probleem kan optreden voor het gebruik van de volgende redenen:
 - Het abonnement bereikt de limiet van aankopen die zijn toegestaan op een abonnement.
 
     **Oplossing**: App Service-certificaten hebben een limiet van 10 certificaat aankopen voor het abonnement betalen per gebruik en EA. Voor andere abonnementstypen is de limiet van 3. Als u wilt de limiet te verhogen, neem contact op met [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Het App Service-certificaat is gemarkeerd als fraude. U hebt ontvangen van de volgende strekking weergegeven: 'uw certificaat is gemarkeerd voor mogelijke fraude. De aanvraag wordt momenteel onderzocht. Als het certificaat niet gebruikt binnen 24 uur wordt, neem contact op met ondersteuning voor Azure."
+- Het App Service-certificaat is gemarkeerd als fraude. U hebt ontvangen het volgende foutbericht: 'Uw certificaat is gemarkeerd voor mogelijke fraude. De aanvraag wordt momenteel onderzocht. Als het certificaat niet gebruikt binnen 24 uur wordt, neem contact op met ondersteuning voor Azure."
 
-    **Oplossing**: als het certificaat is gemarkeerd als fraude en na 24 uur niet is opgelost, volgt u deze stappen:
+    **Oplossing**: Als het certificaat is gemarkeerd als fraude en na 24 uur niet is opgelost, volgt u deze stappen:
 
     1. Meld u aan bij [Azure Portal](https://portal.azure.com).
     2. Ga naar **App Service-certificaten**, en selecteer het certificaat.
@@ -124,7 +125,7 @@ U kunt afdwingen dat een synchronisatie van het certificaat:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer **App Service-certificaten**, en selecteer vervolgens het certificaat.
 2. Selecteer **opnieuw versleutelen en synchroniseren**, en selecteer vervolgens **synchronisatie**. De synchronisatie duurt enige tijd om te voltooien. 
-3. Wanneer de synchronisatie is voltooid, ziet u de volgende melding: "Zijn bijgewerkt alle resources met het nieuwste certificaat."
+3. Als de synchronisatie is voltooid, ziet u de volgende melding: "Zijn bijgewerkt alle resources met het nieuwste certificaat."
 
 ### <a name="domain-verification-is-not-working"></a>Domeinverificatie werkt niet 
 
@@ -163,17 +164,17 @@ Dit probleem doet zich voor een van de volgende redenen:
 
 - Er is geen creditcard is geregistreerd op het Azure-abonnement of de creditcard is ongeldig.
 
-    **Oplossing**: een geldige creditcard aan uw abonnement toevoegt.
+    **Oplossing**: Een geldige creditcard aan uw abonnement toevoegt.
 
 - U bent niet de eigenaar van het abonnement, zodat u bent niet gemachtigd om aan te schaffen van een domein.
 
-    **Oplossing**: [toewijzen van de rol van eigenaar](../role-based-access-control/role-assignments-portal.md) aan uw account. Of neem contact op met de beheerder van het abonnement om machtiging voor het kopen van een domein.
+    **Oplossing**: [De rol van eigenaar toewijzen](../role-based-access-control/role-assignments-portal.md) aan uw account. Of neem contact op met de beheerder van het abonnement om machtiging voor het kopen van een domein.
 - U hebt de limiet voor het aanschaffen van domeinen in uw abonnement bereikt. De huidige limiet is 20.
 
-    **Oplossing**: voor het aanvragen van een uitbreiding van de limiet, neem contact op met [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+    **Oplossing**: Om aan te vragen een uitbreiding van de limiet, neem contact op met [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Het type Azure-abonnement biedt geen ondersteuning voor de aanschaf van een App Service-domein.
 
-    **Oplossing**: uw Azure-abonnement upgraden naar een ander abonnementstype, zoals een abonnement met betalen per gebruik.
+    **Oplossing**: Uw Azure-abonnement upgraden naar een ander abonnementstype, zoals een abonnement met betalen per gebruik.
 
 ### <a name="you-cant-add-a-host-name-to-a-web-app"></a>U kunt een hostnaam niet toevoegen aan een web-app 
 
@@ -187,10 +188,10 @@ Dit probleem doet zich voor een van de volgende redenen:
 
 - U bent niet gemachtigd om toe te voegen een hostnaam.
 
-    **Oplossing**: vraagt u om toestemming te geven om toe te voegen een naam voor de beheerder van het abonnement.
+    **Oplossing**: Vraag de beheerder van het abonnement u om toestemming te geven de hostnaam van een toe te voegen.
 - Uw domeineigendom kan niet worden geverifieerd.
 
-    **Oplossing**: controleren of uw CNAME- of een record correct is geconfigureerd. Als u wilt een aangepast domein toewijzen aan web-app, een CNAME-record of een A-record te maken. Als u een hoofddomein gebruiken wilt, moet u een en TXT-records:
+    **Oplossing**: Controleren of uw CNAME- of een record correct is geconfigureerd. Als u wilt een aangepast domein toewijzen aan web-app, een CNAME-record of een A-record te maken. Als u een hoofddomein gebruiken wilt, moet u een en TXT-records:
 
     |Recordtype|Host|Wijs|
     |------|------|-----|

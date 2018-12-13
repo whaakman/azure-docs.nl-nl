@@ -1,5 +1,5 @@
 ---
-title: Continue implementatie in Azure App Service | Microsoft Docs
+title: Continue implementatie - Azure App Service | Microsoft Docs
 description: Meer informatie over hoe u continue implementatie voor Azure App Service kunt inschakelen.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 9fd25e8730bf98c8fccf1e77436b8f2f480c7cca
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 79f544a9cec24ef84ad9e64e80cabe45dbb6d1d6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966548"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257286"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Continue implementatie in Azure App Service
 Dit artikel leest u hoe u continue implementatie voor [Azure App Service](app-service-web-overview.md). App Service kunt u continue implementatie vanuit BitBucket, GitHub, en [Azure DevOps Services](https://www.visualstudio.com/team-services/) door te halen in de meest recente updates van uw bestaande opslagplaats in een van deze services.

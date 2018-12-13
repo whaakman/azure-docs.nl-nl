@@ -1,5 +1,5 @@
 ---
-title: Voorbereiden voor een SSL IP-adres wijzigen - Azure
+title: Voorbereiden voor SSL IP-adres wijzigen - Azure App Service
 description: Als uw SSL-IP-adres wordt gebruikt om te worden gewijzigd, leert u wat te doen zodat uw app blijft gewoon werken na de wijziging.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: e8558b4c3c7dafca8d4fff7e2aae0597a66c031d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576539"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270787"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Voorbereiden voor een SSL IP-adres wijzigen
 
@@ -31,7 +32,7 @@ Als u een melding dat het wijzigen van het SSL-IP-adres van uw app in Azure App 
 
 4.  Onder de **instellingen** kop, klikt u op **SSL-instellingen** in het linkernavigatievenster.
 
-5. Selecteer de host-record in de sectie SSL-bindingen. Kies in de editor die wordt geopend, **SNI SSL** op de **SSL-Type** vervolgkeuzelijst en klik op **toevoegen Binding**. Wanneer u de bewerkingsbericht ziet, is de bestaande IP-adres vrijgegeven.
+1. Selecteer de host-record in de sectie SSL-bindingen. Kies in de editor die wordt geopend, **SNI SSL** op de **SSL-Type** vervolgkeuzelijst en klik op **toevoegen Binding**. Wanneer u de bewerkingsbericht ziet, is de bestaande IP-adres vrijgegeven.
 
 6.  In de **SSL-bindingen** sectie, selecteer de dezelfde hostrecord met het certificaat opnieuw. Kies in de editor die wordt geopend, ditmaal **IP gebaseerd SSL** op de **SSL-Type** vervolgkeuzelijst en klik op **Binding toevoegen**. Wanneer u de bewerkingsbericht ziet, kunt u een nieuw IP-adres hebt aangeschaft.
 

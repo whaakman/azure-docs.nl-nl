@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: fb0a67a9b3b556a85a2b28989fe15dfeea1f0d72
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d42d05046f4ef133aa3dfb52bbe4e2b72255ccce
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099580"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322889"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -69,7 +69,7 @@ In plaats daarvan gebruikt u de meest recente preview-versie van AzCopy ( [AzCop
 
 ## <a name="oauth-authentication"></a>OAuth-verificatie
 
-Services zoals Azure Databricks, HDInsight en Azure Data Factory integreren niet nog met Azure Active Directory (Azure AD) OAuth bearer-token verificatie.
+Services zoals HDInsight en Azure Data Factory integreren niet nog met Azure Active Directory (Azure AD) OAuth bearer-token verificatie.
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 

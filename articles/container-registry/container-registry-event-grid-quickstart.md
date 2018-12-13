@@ -7,14 +7,15 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: 60248da2bbdac751845a40720f8967203c562b4a
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 48fd64908a5cb2488d58f3c078e0ccb17419352f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085735"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260240"
 ---
-# <a name="quickstart-send-container-registry-events-to-event-grid"></a>Snelstartgids: Verzenden container registry-gebeurtenissen naar Event Grid
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Snelstartgids: Gebeurtenissen van privécontainerregister verzenden naar Event Grid
 
 Azure Event Grid is een volledig beheerde service voor gebeurtenisroutering die uniform gebeurtenisverbruik verbruik van een publish-subscribe-model. In deze Quick Start, kunt u de Azure CLI gebruiken om te abonneren op gebeurtenissen van het register en implementeer een Voorbeeldwebtoepassing voor het ontvangen van de gebeurtenissen, vervolgens een containerregister maken. Ten slotte het activeren van containerinstallatiekopie `push` en `delete` gebeurtenissen en bekijk de nettolading van de gebeurtenis in de voorbeeldtoepassing.
 
@@ -212,7 +213,7 @@ Gefeliciteerd! Als u ziet de `ImagePushed` en `ImageDeleted` gebeurtenissen, het
 
 Als u klaar bent met de resources die u in deze Quick Start hebt gemaakt, kunt u ze verwijderen met de volgende Azure CLI-opdracht. Wanneer u een resourcegroep verwijdert, worden alle resources die deze bevat permanent verwijderd.
 
-**WAARSCHUWING**: deze bewerking is niet ongedaan worden gemaakt. Zorg ervoor dat u niet meer nodig hebt van de resources in de groep voordat u de opdracht uitvoert.
+**WAARSCHUWING**: Deze bewerking is niet ongedaan worden gemaakt. Zorg ervoor dat u niet meer nodig hebt van de resources in de groep voordat u de opdracht uitvoert.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57fda5ea9fdafffd0267f749016ed97b8fc06e15
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1d2a1be55f00b1b31609f44bd0187fd839340773
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847113"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185119"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Azure Automation-resources toe te voegen aan een oplossing voor beheer (Preview)
 > [!NOTE]
@@ -76,7 +75,7 @@ Alle runbooks die worden gebruikt door de oplossing in het oplossingsbestand zod
 
 De eigenschappen voor runbooks worden in de volgende tabel beschreven.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | runbookType |Hiermee geeft u de typen van het runbook. <br><br> Script - PowerShell-script <br>PowerShell - PowerShell-werkstroom <br> GraphPowerShell - grafische PowerShell-script-runbook <br> GraphPowerShellWorkflow - grafische PowerShell workflow-runbook |
 | logProgress |Hiermee geeft u op of [voortgang van de records](../../automation/automation-runbook-output-and-messages.md) voor het runbook moet worden gegenereerd. |
@@ -112,7 +111,7 @@ Taakresources zijn een type **Microsoft.Automation/automationAccounts/jobs** en 
 
 De eigenschappen van automation-taken worden beschreven in de volgende tabel.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Runbook |De naam van één entiteit met de naam van het runbook te starten. |
 | parameters |De entiteit voor elke parameterwaarde vereist voor het runbook. |
@@ -143,7 +142,7 @@ De naam van de resource van een taak moet een GUID die doorgaans door een parame
 
 De eigenschappen voor certificaten resources worden in de volgende tabel beschreven.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | base64Value |Base 64-waarde voor het certificaat. |
 | vingerafdruk |Vingerafdruk van het certificaat. |
@@ -170,7 +169,7 @@ De eigenschappen voor certificaten resources worden in de volgende tabel beschre
 
 De eigenschappen voor de referentie-resources worden in de volgende tabel beschreven.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Gebruikersnaam |Gebruikersnaam voor de referentie. |
 | wachtwoord |Wachtwoord voor de referentie. |
@@ -198,7 +197,7 @@ De eigenschappen voor de referentie-resources worden in de volgende tabel beschr
 
 De eigenschappen voor schema-resources worden in de volgende tabel beschreven.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | description |Optionele beschrijving voor de planning. |
 | startTime |Hiermee geeft u de begintijd van een planning als een datum/tijd-object. Een tekenreeks kan worden opgegeven als deze kan worden geconverteerd naar een geldige datum/tijd. |
@@ -241,7 +240,7 @@ Taak plannen resources koppelen een runbook met een schema.  Ze hebben een type 
 
 De eigenschappen voor taakschema's worden in de volgende tabel beschreven.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Schemanaam |Één **naam** entiteit met de naam van de planning. |
 | runbooknaam  |Één **naam** entiteit met de naam van het runbook.  |
@@ -268,7 +267,7 @@ De eigenschappen voor taakschema's worden in de volgende tabel beschreven.
 
 De eigenschappen voor variabele resources worden in de volgende tabel beschreven.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | description | Optionele beschrijving voor de variabele. |
 | IsEncrypted | Hiermee geeft u op of de variabele moet worden versleuteld. |
@@ -280,9 +279,9 @@ De eigenschappen voor variabele resources worden in de volgende tabel beschreven
 
 Als u de aanvankelijke waarde voor de variabele instelt, moet deze worden geconfigureerd als het juiste gegevenstype.  De volgende tabel bevat en de syntaxis van de verschillende gegevenstypen die zijn toegestaan.  Houd er rekening mee dat in JSON-waarden worden verwacht op altijd tussen aanhalingstekens worden geplaatst met geen speciale tekens binnen de aanhalingstekens.  Bijvoorbeeld, een string-waarde door aanhalingstekens rond de tekenreeks zou worden opgegeven (met behulp van het escape-teken (\\)) terwijl een numerieke waarde met één set met aanhalingstekens zou worden opgegeven.
 
-| Gegevenstype | Beschrijving | Voorbeeld | Wordt omgezet in |
+| Gegevenstype | Description | Voorbeeld | Wordt omgezet in |
 |:--|:--|:--|:--|
-| tekenreeks   | Waarde tussen dubbele aanhalingstekens.  | "\"Hallo wereld\"" | "Hallo wereld" |
+| string   | Waarde tussen dubbele aanhalingstekens.  | "\"Hallo wereld\"" | "Hallo wereld" |
 | numerieke  | Een numerieke waarde met enkele aanhalingstekens.| "64" | 64 |
 | booleaans  | **de waarde True** of **false** tussen aanhalingstekens.  Houd er rekening mee dat deze waarde een kleine letter moet. | "true" | true |
 | datum/tijd | Geserialiseerde date-waarde.<br>U kunt de cmdlet ConvertTo Json in PowerShell gebruiken voor het genereren van deze waarde voor een bepaalde datum.<br>Voorbeeld: get-date "5/24/2017 13:14:57" \| ConvertTo Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
@@ -308,7 +307,7 @@ Uw oplossing hoeft niet te definiëren [algemene modules](../../automation/autom
 
 De eigenschappen voor de module resources worden in de volgende tabel beschreven.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | contentLink |Hiermee geeft u de inhoud van de module. <br><br>URI - Uri voor de inhoud van de module.  Dit is een ps1-bestand voor runbooks met PowerShell en het Script en een geëxporteerde grafisch runbook-bestand voor een Graph-runbook.  <br> versie - versie van de module voor uw eigen bijhouden. |
 

@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 411ffd9479c3f686495de21b60ef0a811915c260
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e81b87a6cbaddf61492fa1fc41e66950eb7ce1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834567"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191618"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal
 
@@ -31,7 +31,7 @@ Als ongebruikelijke activiteiten die op niet-geautoriseerde toegang tot een aant
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Gebruikers bekijken voor wie wordt aangegeven dat ze risico lopen
 
-U kunt gebruikers die zijn gemarkeerd voor risico via bekijken de [gebruikers lopen risico rapport](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) in Azure portal. Als u geen Azure AD hebt, kunt u zich van gratis bij [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
+U kunt gebruikers die zijn gemarkeerd voor risico via bekijken de [gebruikers lopen risico rapport](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) in Azure portal. Als u geen Azure AD hebt, kunt u zich van gratis bij [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
 
 Van de gebruikers die zijn gemarkeerd voor risico's rapport, kunt u de volgende acties voor elke gebruiker uitvoeren:
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 02412f2ac4ff6ce0394ad46e03ae4c89f924624f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b552918f6b415bcd55c7c27c80ff721df77ca99f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016398"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276074"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ondersteunde resources voor metrische waarschuwingen in Azure Monitor
 
-Azure Monitor nu ondersteunt een [nieuwe metrische Waarschuwingstype](monitoring-overview-alerts.md) die heeft aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](monitoring-overview-alerts-classic.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset.
+Azure Monitor nu ondersteunt een [nieuwe metrische Waarschuwingstype](monitoring-overview-alerts.md) die heeft aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](../azure-monitor/platform/alerts-classic.overview.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset.
 
 
 U kunt de nieuwere metrische waarschuwingen ook gebruiken voor populaire Log Analytics-Logboeken als metrische gegevens hebt uitgepakt. Raadpleeg voor meer informatie, [metrische waarschuwingen voor logboeken](monitoring-metric-alerts-logs.md).
@@ -35,7 +35,7 @@ Dit is de volledige lijst met Azure monitor metrische bronnen die worden onderst
 |Microsoft.ApiManagement/service     | Ja        | [API Management](monitoring-supported-metrics.md#microsoftapimanagementservice)|
 |Microsoft.Automation/automationAccounts     |     Ja   | [Automation-Accounts](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
 |Microsoft.Batch/batchAccounts | N/A| [Batch-Accounts](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
-|Microsoft.Cache/Redis     |    N/A     |[Azure Redis-Cache](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.Cache/Redis     |    N/A     |[Azure Cache voor Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.CognitiveServices/accounts     |    N/A     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines     |    N/A     | [Virtuele machines](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Virtuele-machineschaalsets](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
@@ -69,7 +69,7 @@ Dit is de volledige lijst met Azure monitor metrische bronnen die worden onderst
 
 ## <a name="payload-schema"></a>De nettolading van schema
 
-De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle in de buurt van nieuwere metrische waarschuwingen wanneer een op de juiste wijze geconfigureerde [actiegroep](monitoring-action-groups.md) wordt gebruikt:
+De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle in de buurt van nieuwere metrische waarschuwingen wanneer een op de juiste wijze geconfigureerde [actiegroep](../azure-monitor/platform/action-groups.md) wordt gebruikt:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":
@@ -122,5 +122,5 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle in 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over de nieuwe [ervaring waarschuwingen](monitoring-overview-alerts.md).
-* Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure](monitor-alerts-unified-log.md).
+* Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure](../azure-monitor/platform/alerts-unified-log.md).
 * Meer informatie over [waarschuwingen in Azure](monitoring-overview-alerts.md).

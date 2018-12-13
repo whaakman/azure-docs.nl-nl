@@ -1,5 +1,5 @@
 ---
-title: Geautomatiseerde machine learning-experimenten configureren
+title: Geautomatiseerde ML-experimenten maken
 titleSuffix: Azure Machine Learning service
 description: Geautomatiseerde machine learning, kiest een algoritme voor u en genereert een model dat gereed is voor implementatie. Meer informatie over de opties die u kunt met geautomatiseerde machine learning-experimenten configureren.
 author: nacharya1
@@ -11,22 +11,22 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e1dd0cf995d7d9c263e49735decc5573107b1add
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f5237ab2b6970772e1f08264bb44223640c33a37
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140163"
+ms.locfileid: "53187259"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Geautomatiseerde machine learning-experimenten configureren
 
 Geautomatiseerde machine learning, kiest een algoritme en hyperparameters voor u en genereert een model dat gereed is voor implementatie. Er zijn diverse opties, kunt u geautomatiseerde machine learning-experimenten configureren. In deze handleiding leert u hoe u diverse configuratie-instellingen te definiëren.
 
-Voor voorbeelden van een geautomatiseerde voor machine learning gebruikt, raadpleegt u [zelfstudie: een model classificatie met geautomatiseerde machine learning te trainen](tutorial-auto-train-models.md) of [trainen van modellen met geautomatiseerde machine learning in de cloud](how-to-auto-train-remote.md).
+Voor voorbeelden van een geautomatiseerde voor machine learning gebruikt, raadpleegt u [zelfstudie: Een model classificatie met geautomatiseerde machine learning te trainen](tutorial-auto-train-models.md) of [trainen van modellen met geautomatiseerde machine learning in de cloud](how-to-auto-train-remote.md).
 
 Configuratie-opties zijn beschikbaar in geautomatiseerde machine learning:
 
-* Selecteer het type experiment: classificatie, regressie of prognose
+* Selecteer het type experiment: Classificatie, regressie of prognoses
 * De gegevensbron, indelingen en ophalen van gegevens
 * Kies uw compute-doel: lokale of externe
 * Geautomatiseerde machine learning-experiment-instellingen
@@ -219,7 +219,7 @@ Eigenschap |  Description | Standaardwaarde
 `iteration_timeout_minutes` |   Beperkt de hoeveelheid tijd (minuten) een bepaalde iteratie nodig. Als een iteratie hoger is dan de opgegeven hoeveelheid, wordt die iteratie wordt geannuleerd. Als dat niet ingesteld, worden de iteratie blijft actief totdat deze is voltooid. |   Geen
 `n_cross_validations`   |Aantal cross-validatie splitsingen.| Geen
 `validation_size`   |Grootte van de validatie is ingesteld als percentage van alle training-voorbeeld.|  Geen
-`preprocess` | Waar/onwaar <br/>De waarde True schakelt experimenteren om uit te voeren voorverwerking van de invoer. Hieronder volgt een subset van voorverwerking<li>Ontbrekende gegevens: Imputes de ontbrekende gegevens-numerieke met gemiddelde, tekst met de meeste exemplaar </li><li>Categorische waarden: Als het gegevenstype en het aantal unieke numerieke waarden minder dan 5 procent, omgezet in een hot-codering is </li><li>Enzovoort voor controle van de volledige lijst [de GitHub-opslagplaats](https://aka.ms/aml-notebooks)</li><br/>Opmerking: als gegevens sparse is u niet gebruiken voorverwerken = true |  False | 
+`preprocess` | Waar/onwaar <br/>De waarde True schakelt experimenteren om uit te voeren voorverwerking van de invoer. Hieronder volgt een subset van voorverwerking<li>Ontbrekende gegevens: De ontbrekende gegevens-numerieke met gemiddelde, tekst met de meeste exemplaar imputes </li><li>Categorische waarden: Als gegevens van het type Numeriek en het aantal unieke waarden is minder dan 5 procent, omgezet in een hot-codering </li><li>Enzovoort voor controle van de volledige lijst [de GitHub-opslagplaats](https://aka.ms/aml-notebooks)</li><br/>Opmerking: als gegevens sparse is u niet gebruiken voorverwerken = true |  False | 
 `blacklist_models`  | Geautomatiseerde machine learning-experiment heeft veel verschillende algoritmen die er wordt geprobeerd. Configureren als u wilt uitsluiten van bepaalde algoritmen van het experiment. Dit is handig als u zich bewust bent verifiëringsalgoritme (s) werken niet goed voor uw gegevensset. Met uitzondering van de algoritmen kunt bespaart u compute-resources en trainingstijd.<br/>Toegestane waarden voor classificatie<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Toegestane waarden voor regressie<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Toegestane waarden voor de prognose<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Geen
 `whitelist_models`  | Geautomatiseerde machine learning-experiment heeft veel verschillende algoritmen die er wordt geprobeerd. Configureren om op te nemen van bepaalde algoritmen voor het experiment. Dit is handig als u zich bewust bent dat verifiëringsalgoritme (s) voor uw gegevensset werken. <br/>Toegestane waarden voor classificatie<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Toegestane waarden voor regressie<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Toegestane waarden voor de prognose<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Geen
 `verbosity` |Hiermee bepaalt u het niveau van logboekregistratie met gegevens wordt de meest uitgebreide en kritieke die de minste. Uitbreidingsniveau heeft dezelfde waarden, zoals gedefinieerd in de python-pakket voor logboekregistratie. Toegestane waarden zijn:<br/><li>logging.INFO</li><li>logboekregistratie. WAARSCHUWING</li><li>logboekregistratie. FOUT</li><li>logboekregistratie. KRITIEKE</li>  | logging.INFO</li> 
@@ -244,8 +244,8 @@ Als u `preprocess=True`, de volgende gegevens voorverwerkingsstappen automatisch
     *   Voor numerieke functies, rekenen ontbrekende waarden met gemiddelde van waarden in de kolom.
     *   Rekenen ontbrekende waarden met de meest voorkomende waarde voor de categorische functies.
 1.  Extra functies genereren
-    * Voor datum/tijd-functies: jaar, maand, dag, dag van week, dag van jaar, kwartaal, de Week van het jaar, uur, minuut, seconde.
-    * Voor tekst-functies: Term frequentie op basis van word unigram, bi-g en drie-gram, aantal vectorizer.
+    * Voor datum/tijd-functies: Jaar, maand, dag, dag van week, dag van jaar, kwartaal, de Week van het jaar, uur, minuut, seconde.
+    * Voor tekst-functies: De frequentie van de termijn is op basis van word unigram, bi-g en drie-gram, aantal vectorizer.
 1.  Transformaties en coderingen
     * Numerieke functies met heel weinig unieke waarden die worden omgezet in categorische functies.
     * Afhankelijk van de kardinaliteit van categorische functies uitvoeren label coderings- of -(hashing) een hot-codering.

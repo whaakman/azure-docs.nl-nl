@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: da3edf7bc17240dabcb5519317f38bdb468be9f2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099984"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257390"
 ---
-# <a name="retrain-machine-learning-studio-models-programmatically"></a>Machine Learning Studio-modellen programmatisch opnieuw trainen
+# <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Azure Machine Learning Studio-modellen programmatisch opnieuw trainen
 In dit scenario leert u hoe u programmatisch opnieuw trainen een Azure Machine Learning Studio web service via C# en de service Machine Learning Batch Execution.
 
 Nadat u het model hebt retrained, heeft de volgende scenario's laten zien hoe het model in uw voorspellende webservice bijwerken:
@@ -36,14 +35,14 @@ Zie voor een overzicht van de retraining proces [opnieuw trainen van een Machine
 Als u beginnen met uw bestaande nieuwe Azure Resource Manager gebaseerde webservice wilt, Zie [een bestaande voorspellende webservice opnieuw trainen](retrain-existing-resource-manager-based-web-service.md).
 
 ## <a name="create-a-training-experiment"></a>Een opleidingsexperiment maken
-In dit voorbeeld gaat u "voorbeeld 5: trainen, testen, evalueren voor binaire classificatie: volwassenen gegevensset ' van de Microsoft Azure Machine Learning-voorbeelden. 
+In dit voorbeeld gaat u "voorbeeld 5: Trainen, testen, evalueren voor binaire classificatie: Volwassenen gegevensset' van de Microsoft Azure Machine Learning-voorbeelden. 
 
 Het experiment maken:
 
 1. Meld u aan bij Microsoft Azure Machine Learning Studio. 
 2. Klik op de rechterbenedenhoek van het dashboard, **nieuw**.
 3. Selecteer in de Microsoft-Samples voorbeeld 5.
-4. Wijzig de naam van het experiment, aan de bovenkant van het experimentcanvas, selecteert u de naam van het experiment "voorbeeld 5: trainen, testen, evalueren voor binaire classificatie: volwassenen gegevensset '.
+4. Wijzig de naam van het experiment, aan de bovenkant van het experimentcanvas, selecteert u de naam van het experiment "voorbeeld 5: Trainen, testen, evalueren voor binaire classificatie: Volwassenen gegevensset'.
 5. Type telling Model.
 6. Aan de onderkant van het experimentcanvas, klikt u op **uitvoeren**.
 7. Klik op **instellen webservice** en selecteer **webservice opnieuw trainen**. 
@@ -93,7 +92,7 @@ In dit voorbeeld gebruikt u C# de retraining toepassing maken. U kunt ook de voo
 
 Om aan te roepen de Retraining API's:
 
-1. Een C#-consoletoepassing maakt in Visual Studio: **nieuw** > **Project** > **Visual C#** > **Windows Klassieke bureaublad** > **consoletoepassing (.NET Framework)**.
+1. Maak een C# in Visual Studio-consoletoepassing: **Nieuwe** > **Project** > **Visual C#**   >  **Windows Classic Desktop**  >   **Console-App (.NET Framework)**.
 2. Aanmelden bij de portal van de Machine Learning-webservice.
 3. Als u met een klassieke webservice werkt, klikt u op **klassieke webservices**.
    1. Klik op de webservice die u met werkt.
@@ -159,7 +158,7 @@ Zie het volgende voorbeeld:
 
 ![Uitvoer opnieuw trainen][6]
 
-Diagram 4: Opnieuw trainen van uitvoer.
+Diagram 4: Opnieuw trainen uitvoer.
 
 ## <a name="evaluate-the-retraining-results"></a>De Retraining resultaten evalueren
 Wanneer u de toepassing uitvoert, wordt in de uitvoer de URL en SAS-token nodig voor toegang tot de resultaten van evaluatie van bevat.

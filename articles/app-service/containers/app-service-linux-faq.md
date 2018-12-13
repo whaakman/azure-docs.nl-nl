@@ -1,5 +1,5 @@
 ---
-title: Azure App Service on Linux Veelgestelde vragen over | Microsoft Docs
+title: App Service on Linux FAQ - Azure | Microsoft Docs
 description: Azure App Service on Linux Veelgestelde vragen over.
 keywords: Azure appservice, web-app, veelgestelde vragen over, linux, oss, web-app voor containers, meerdere containers, multicontainer
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
-ms.openlocfilehash: 94e61cf5bf4f629dfd776cf9ea2ae54233e91dc6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 7fe9fd68e03fc36f5aac5d6c27c07896715af906
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417579"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261157"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux Veelgestelde vragen
 
@@ -74,7 +75,7 @@ Ja, moet u een app-instelling met de naam instellen `WEBSITE_WEBDEPLOY_USE_SCM` 
 
 Als uw Linux-web-app niet Git-implementatie, kies een van de volgende opties om de toepassingscode van uw te implementeren:
 
-- Gebruik de functie continue levering (Preview): U kunt de broncode van uw app opslaan in een Azure DevOps Git-repo of een GitHub-opslagplaats naar Azure onafgebroken levering gebruikt. Zie voor meer informatie, [continue levering configureren voor Linux-web-app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Gebruik de functie continue levering (Preview): U kunt de broncode van uw app opslaan in een Azure DevOps Git-repo of GitHub-opslagplaats naar Azure onafgebroken levering gebruikt. Zie voor meer informatie, [continue levering configureren voor Linux-web-app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Gebruik de [ZIP API implementeren](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Gebruik deze API [SSH in uw web-app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) en Ga naar de map waar u om uw code te implementeren. Voer de volgende code:
 

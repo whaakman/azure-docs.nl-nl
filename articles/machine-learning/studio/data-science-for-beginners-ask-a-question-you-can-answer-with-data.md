@@ -4,10 +4,9 @@ description: Leer hoe u een vraag sharp data science in Gegevenswetenschap voor 
 keywords: problemen met Data science, data science vragen, formuleren vragen, regressie vragen, vragen over classificatie, sharp vraag
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310834"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250974"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Stel een vraag die u met gegevens kunt beantwoorden
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Gegevenswetenschap voor Beginners-serie
@@ -38,18 +37,18 @@ Als u optimaal te profiteren van de serie, bekijk ze allemaal. [Ga naar de lijst
 ## <a name="other-videos-in-this-series"></a>Andere video's in deze serie
 *Gegevenswetenschap voor Beginners* is een korte inleiding over data Science in vijf korte video's.
 
-* Video 1: [gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-* Video 2: [zijn uw gegevens gereed voor gegevenswetenschap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Video 1: [Gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: [Zijn uw gegevens gereed voor gegevenswetenschap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
 * Video 3: Stel een vraag die u met gegevens kunt beantwoorden
-* Video 4: [een antwoord met een eenvoudig model voorspellen](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-* Video 5: [werk van anderen als u wilt doen, wetenschappelijke gegevens kopiëren](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 4: [Een antwoord met een eenvoudig model voorspellen](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Video 5: [Kopiëren van het werk van anderen hiervoor gegevenswetenschap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
 ## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcript: Stel een vraag die u met gegevens kunt beantwoorden
 Welkom bij de derde video in de reeks "Gegevenswetenschap voor Beginners."  
 
 In dit voorbeeld krijgt u tips voor het formuleren van een vraag die u met gegevens kunt beantwoorden.
 
-U kunt meer buiten deze video krijgen als u eerst de twee eerdere video's in deze serie bekijken: 'de wetenschap 5 vragen kunt beantwoorden' en 'Is uw gegevens is gereed voor gegevenswetenschap?'
+U kunt meer buiten deze video krijgen als u eerst de twee eerdere video's in deze serie bekijken: 'De wetenschap 5 vragen kunt beantwoorden' en 'Is uw gegevens is gereed voor gegevenswetenschap?'
 
 ## <a name="ask-a-sharp-question"></a>Een sharp vraag stellen
 We hebben het gehad over hoe gegevenswetenschap het proces is van het gebruik van namen (ook wel categorieën of labels) en cijfers voor een antwoord op een vraag te voorspellen. Maar mag niet alleen alle vragen; Er moet een *sharp vraag.*
@@ -62,7 +61,7 @@ Als u een vraag wilt stellen vaag zijn, zoals 'Wat er gebeurt met mijn voorraad?
 
 Maar als u een vraag sharp, zoals "Wat is van mijn aandeel verkoopprijs volgende week? ', de genie kan niet help, maar geeft u een specifieke zijn beantwoord en een verkoopprijs te voorspellen.
 
-## <a name="examples-of-your-answer-target-data"></a>Voorbeelden van het antwoord: gericht op gegevens
+## <a name="examples-of-your-answer-target-data"></a>Voorbeelden van het antwoord: Doelgegevens
 Controleer nadat u bij het formuleren van de vraag of u voorbeelden van het antwoord in uw gegevens hebt.
 
 Als de vraag "Wat van mijn aandeel verkoopprijs worden volgende week?" vervolgens hebben we om ervoor te zorgen dat onze gegevens omvat de geschiedenis aandelenkoersen.

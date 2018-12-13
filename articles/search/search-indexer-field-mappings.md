@@ -1,6 +1,6 @@
 ---
-title: Veldtoewijzingen in indexeerfuncties in Azure Search
-description: Azure Search-indexeerfunctie veldtoewijzingen voor verschillen in de veldnamen en gegevensweergaven configureren
+title: Veldtoewijzingen voor automatisch indexeren met indexeerfuncties - Azure Search
+description: Azure Search-indexeerfunctie veldtoewijzingen voor verschillen in de veldnamen en gegevensweergaven configureren.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 01edc7001ec463cb16d8b6c715794b0028508143
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 94a7274c0e950661d118ad5421e7c763fe555434
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404715"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312694"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Veldtoewijzingen in indexeerfuncties in Azure Search
 Bij het gebruik van Azure Search-indexeerfuncties vindt van tijd tot tijd u uzelf in situaties waarin de invoergegevens niet helemaal overeen met het schema van de doelindex. In deze gevallen kunt u **veldtoewijzingen** het transformeren van uw gegevens in de gewenste vorm.
@@ -134,7 +135,7 @@ Als u geen dat een opgeeft `parameters`, klikt u vervolgens de standaardwaarde v
 <a name="base64details"></a>
 
 ### <a name="details-of-base64-encoding-and-decoding"></a>Details van base64 coderen en decoderen
-Azure Search ondersteunt twee base64-codering: HttpServerUtility URL token en URL-safe base64-codering zonder opvulling. U moet de dezelfde codering gebruiken als de toewijzing van functies als u wilt coderen van een documentsleutel voor het zoeken van, een waarde die moet worden gedecodeerd door de indexeerfunctie coderen of een veld door de indexeerfunctie gecodeerde decoderen.
+Azure Search ondersteunt twee base64-codering: HttpServerUtility URL-token en URL-safe base64-codering zonder opvulling. U moet de dezelfde codering gebruiken als de toewijzing van functies als u wilt coderen van een documentsleutel voor het zoeken van, een waarde die moet worden gedecodeerd door de indexeerfunctie coderen of een veld door de indexeerfunctie gecodeerde decoderen.
 
 Als `useHttpServerUtilityUrlTokenEncode` of `useHttpServerUtilityUrlTokenDecode` parameters voor het coderen en decoderen van respectievelijk zijn ingesteld op `true`, klikt u vervolgens `base64Encode` gedraagt zich als [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) en `base64Decode` gedraagt zich als [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 

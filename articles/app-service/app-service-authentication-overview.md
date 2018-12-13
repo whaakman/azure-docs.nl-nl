@@ -1,5 +1,5 @@
 ---
-title: Verificatie en autorisatie in Azure App Service | Microsoft Docs
+title: Verificatie en autorisatie - Azure App Service | Microsoft Docs
 description: Voor conceptuele verwijzing in en overzicht van de verificatie / autorisatie-functie voor Azure App Service
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 27726f261b2d9c88f1544a6e66ea352fbb98d253
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: add470aec1b19a8862a17d4a5a84bc221b8582b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685664"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250872"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
 
@@ -91,8 +92,8 @@ Als u verificatie en autorisatie met een van deze providers inschakelt, is het e
 
 De verificatie-stroom is hetzelfde voor alle providers, maar is afhankelijk van of u wilt aanmelden met de SDK van de provider:
 
-- Zonder de SDK-provider: de toepassing delegeert federatieve aanmelding naar App Service. Dit is meestal het geval is bij de browser-apps, die de aanmeldingspagina van de provider voor de gebruiker kan opleveren. De code de aanmeldprocedure beheert, zodat deze wordt ook wel genoemd _server gerichte stroom_ of _server flow_. Dit geldt voor web-apps. Dit geldt ook voor systeemeigen apps waarmee gebruikers bij het gebruik van de client-SDK van de Mobile Apps, omdat de SDK een weergave webpagina gebruikers zich aanmelden met App Service-verificatie wordt geopend. 
-- Met de SDK-provider: de toepassing zich gebruikers in de provider handmatig en klikt u vervolgens verzendt het verificatietoken naar App Service voor validatie. Dit is meestal het geval is bij de browser zonder apps, die de aanmeldingspagina van de provider voor de gebruiker kan niet aanwezig. De toepassingscode beheert het aanmeldingsproces, zodat deze wordt ook wel genoemd _client omgeleid stroom_ of _clientstroom_. Dit geldt voor de REST-API's, [Azure Functions](../azure-functions/functions-overview.md), en JavaScript-browser-clients, evenals web-apps die meer flexibiliteit in de aanmeldprocedure. Dit geldt ook voor systeemeigen mobiele apps waarmee gebruikers in met behulp van de SDK van de provider.
+- Zonder de SDK-provider: De toepassing delegeert federatieve aanmelding naar App Service. Dit is meestal het geval is bij de browser-apps, die de aanmeldingspagina van de provider voor de gebruiker kan opleveren. De code de aanmeldprocedure beheert, zodat deze wordt ook wel genoemd _server gerichte stroom_ of _server flow_. Dit geldt voor web-apps. Dit geldt ook voor systeemeigen apps waarmee gebruikers bij het gebruik van de client-SDK van de Mobile Apps, omdat de SDK een weergave webpagina gebruikers zich aanmelden met App Service-verificatie wordt geopend. 
+- Met de SDK-provider: De toepassing handmatig gebruikers in de provider zich en vervolgens verzendt het verificatietoken naar App Service voor validatie. Dit is meestal het geval is bij de browser zonder apps, die de aanmeldingspagina van de provider voor de gebruiker kan niet aanwezig. De toepassingscode beheert het aanmeldingsproces, zodat deze wordt ook wel genoemd _client omgeleid stroom_ of _clientstroom_. Dit geldt voor de REST-API's, [Azure Functions](../azure-functions/functions-overview.md), en JavaScript-browser-clients, evenals web-apps die meer flexibiliteit in de aanmeldprocedure. Dit geldt ook voor systeemeigen mobiele apps waarmee gebruikers in met behulp van de SDK van de provider.
 
 > [!NOTE]
 > Een andere REST-API-aanroepen vanuit een vertrouwde browserapp in App Service aanroepen in App Service of [Azure Functions](../azure-functions/functions-overview.md) kan worden geverifieerd met behulp van de flow-server omgeleid. Zie voor meer informatie, [aanpassen verificatie en autorisatie in App Service](app-service-authentication-how-to.md).
@@ -150,7 +151,7 @@ Provider-specifieke-handleidingen:
 * [Uw app voor het gebruik van Google-aanmelding configureren][Google]
 * [Uw app voor het gebruik van Microsoft-Account-aanmelding configureren][MSA]
 * [Het configureren van uw app aanmelding met Twitter][Twitter]
-* [Hoe: aangepaste verificatie voor uw toepassing gebruiken][custom-auth]
+* [Procedures: Aangepaste verificatie voor uw toepassing gebruiken][custom-auth]
 
 [AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md

@@ -1,6 +1,6 @@
 ---
-title: Indexen in Azure Search | Microsoft Docs
-description: Meer informatie over indexconcepten in Azure Search en hoe indexen worden gebruikt.
+title: Definitie van de index en concepten - Azure Search
+description: Inleiding tot indexconcepten in Azure Search en hoe indexen worden gebruikt.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: cc2c56d4463203aa2561e820540acdfff651d80a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: e1ff28434dab4e63e10d6b14eb671260650d4ada
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793399"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317063"
 ---
 # <a name="indexes-in-azure-search"></a>Indexen in Azure Search
 > [!div class="op_single_selector"]
@@ -32,7 +33,7 @@ Wanneer u documenten toevoegt of uploadt en zoekopdrachten naar Azure Search ver
 Bij het definiëren van het schema moet u de naam, het type en de kenmerken van elk veld in de index opgeven. Het veldtype classificeert de gegevens die in dat veld worden opgeslagen. Kenmerken worden ingesteld op afzonderlijke velden om op te geven hoe het veld wordt gebruikt. De volgende tabellen bevatten de typen en kenmerken die u kunt opgeven.
 
 ### <a name="field-types"></a>Veldtypen
-| Type | Beschrijving |
+| Type | Description |
 | --- | --- |
 | *Edm.String* |Tekst die van tokens kan worden voorzien om te zoeken in de volledige tekst (woordafbreking, afleiding, enzovoort). |
 | *Collection(Edm.String)* |Een lijst met tekenreeksen die van tokens kan worden voorzien om te zoeken in de volledige tekst. Er is geen theoretische bovengrens voor het aantal items in een verzameling, maar de bovengrens van 16 MB voor de nettolading geldt voor alle verzamelingen. |
@@ -46,7 +47,7 @@ Bij het definiëren van het schema moet u de naam, het type en de kenmerken van 
 Gedetailleerdere informatie over ondersteunde Azure-Search[-gegevenstypen vindt u hier](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="field-attributes"></a>Veldkenmerken
-| Kenmerk | Beschrijving |
+| Kenmerk | Description |
 | --- | --- |
 | *Sleutel* |Een tekenreeks met de unieke id van elk document. Deze reeks wordt gebruikt om op te zoeken. Elke index moet een sleutel hebben. Slechts één veld kan de sleutel zijn en het type moet zijn ingesteld op Edm.String. |
 | *Ophalen mogelijk* |Hiermee geeft u op of een veld in een zoekresultaat kan worden geretourneerd. |

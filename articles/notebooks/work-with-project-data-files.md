@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b0b52fc32b2895fdcd994bad5bfc73dbf938add2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ae50581404dceb7b59b2ca145207f7d4ade23440
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102075"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309243"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Werken met gegevensbestanden in Azure Notebook-projecten
 
@@ -46,13 +46,13 @@ U kunt bestanden overbrengen naar een project van het projectdashboard of binnen
 
     ![Uploaden vanaf URL pop-upvenster](media/quickstarts/upload-from-url-popup.png)
 
-    - **Vanaf computer**: slepen en neerzetten van bestanden in het pop-upvenster of selecteer **bestanden kiezen**, en blader vervolgens naar en selecteer de gegevensbestanden die u wilt importeren. U kunt verwijderen of een willekeurig aantal bestanden van elk type en de indeling kiezen omdat het is aan de code in het notitieblok opent u het bestand en parseren van de gegevens.
+    - **Vanaf computer**: Sleep en zet deze neer bestanden in het pop-upvenster of selecteer **bestanden kiezen**, en blader vervolgens naar en selecteer de gegevensbestanden die u wilt importeren. U kunt verwijderen of een willekeurig aantal bestanden van elk type en de indeling kiezen omdat het is aan de code in het notitieblok opent u het bestand en parseren van de gegevens.
 
     ![Uploaden vanaf computer pop-upvenster](media/quickstarts/upload-from-computer-popup.png)
 
 1. Zodra geïmporteerd, bestanden worden weergegeven op het projectdashboard en is toegankelijk vanuit notebook code met behulp van relatieve padnamen naar de map met.
 
-### <a name="import-files-from-the-data-menu-in-a-notebook"></a>Bestanden importeren in het menu van de gegevens in een notitieblok
+### <a name="import-files-from-the-file-menu-in-a-notebook"></a>Bestanden importeren in het menu bestand in een notitieblok
 
 1. Binnen een actieve laptop, selecteer de **bestand** > **uploaden** opdracht:
 
@@ -62,7 +62,7 @@ U kunt bestanden overbrengen naar een project van het projectdashboard of binnen
 
 1. In de **Uploadstatus** pop-upbericht verschijnt, selecteer een **doelmap** uit de vervolgkeuzelijst:
 
-    - Sessie-map (*~/* ): bestanden in de huidige sessie van de notebook wordt geüpload, maar maakt geen bestanden in het project. De map van de sessie is een peer in de projectmap, maar niet bewaard is gebleven na de sessie wordt beëindigd. Voorvoegsel voor toegang tot sessiebestanden in code, de bestandsnamen met het relatieve pad *... /*.
+    - Sessie-map (*~/* ): Uploads van bestanden in de huidige sessie van de notebook maar bestanden in het project niet maken. De map van de sessie is een peer in de projectmap, maar niet bewaard is gebleven na de sessie wordt beëindigd. Voorvoegsel voor toegang tot sessiebestanden in code, de bestandsnamen met het relatieve pad *... /*.
 
         Met behulp van de sessie-map, is het handig om te experimenten en voorkomt u dat het project met bestanden die u kan of mogelijk niet op lange termijn. U kunt bestanden ook uploaden naar de sessie-map die dezelfde naam hebben tot bestanden in het project zonder conflicten veroorzaken, en zonder dat om de bestandsnamen te wijzigen. Bijvoorbeeld: Stel dat u één versie van hebt *data.csv* in het project al, maar wilt om te experimenteren met een andere versie van *data.csv*. Door het bestand te uploaden naar de map van de sessie, kunt u de notebook met behulp van gegevens in het geüploade bestand uitvoeren (naar wordt verwezen in met behulp van code *... /Data.csv*) in plaats van de gegevens in het bestand van het project.
 

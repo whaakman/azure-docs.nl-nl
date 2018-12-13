@@ -1,5 +1,5 @@
 ---
-title: Geavanceerd gebruik van verificatie en autorisatie in Azure App Service | Microsoft Docs
+title: Geavanceerd gebruik van verificatie en autorisatie - Azure App Service | Microsoft Docs
 description: Laat zien hoe u verificatie en autorisatie in App Service aanpassen en gebruikers- en andere tokens ophalen.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 67d08379d98873fa88ef20b5cc8c87163c067e3a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685324"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310450"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Geavanceerd gebruik van verificatie en autorisatie in Azure App Service
 
@@ -179,10 +180,10 @@ Verzenden van uw clientcode (zoals een mobiele app of in de browser JavaScript),
 
 Wanneer het toegangstoken van de provider is verlopen, moet u de gebruiker verifiëren. U kunt verlopen van het token voorkomen door het maken van een `GET` aanroep naar de `/.auth/refresh` eindpunt van uw toepassing. Indien aangeroepen, wordt de toegangstokens te geven in het tokenarchief voor de geverifieerde gebruiker in App Service automatisch vernieuwd. De volgende aanvragen voor tokens door code van de app verkrijgen de vernieuwd tokens. Maar het tokenarchief voor tokenvernieuwing om te werken, moet bevatten [vernieuwingstokens](https://auth0.com/learn/refresh-tokens/) voor uw provider. De manier om vernieuwingstokens door elke provider worden beschreven, maar de volgende lijst bevat een korte samenvatting:
 
-- **Google**: toevoegen een `access_type=offline` query-tekenreeksparameter aan uw `/.auth/login/google` API-aanroep. Als u met behulp van de Mobile Apps SDK, kunt u de parameter toevoegen aan een van de `LogicAsync` overloads (Zie [Google vernieuwen Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook**: biedt geen vernieuwingstokens. Lange levensduur hebben tokens verlopen binnen 60 dagen (Zie [Facebook vervaldatum en -extensie van toegangstokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter-**: toegangstokens niet verlopen (Zie [Twitter OAuth Veelgestelde vragen over het](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
-- **Microsoft-Account**: wanneer [verificatie-instellingen voor Microsoft-Account configureren](app-service-mobile-how-to-configure-microsoft-authentication.md), selecteer de `wl.offline_access` bereik.
+- **Google**: Toevoeg-een `access_type=offline` query-tekenreeksparameter aan uw `/.auth/login/google` API-aanroep. Als u met behulp van de Mobile Apps SDK, kunt u de parameter toevoegen aan een van de `LogicAsync` overloads (Zie [Google vernieuwen Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: Biedt geen vernieuwingstokens. Lange levensduur hebben tokens verlopen binnen 60 dagen (Zie [Facebook vervaldatum en -extensie van toegangstokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
+- **Twitter-**: Toegangstokens niet verlopen (Zie [Twitter OAuth Veelgestelde vragen over het](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Microsoft-Account**: Wanneer [verificatie-instellingen voor Microsoft-Account configureren](app-service-mobile-how-to-configure-microsoft-authentication.md), selecteer de `wl.offline_access` bereik.
 - **Azure Active Directory**: In [ https://resources.azure.com ](https://resources.azure.com), de volgende stappen uit:
     1. Aan de bovenkant van de pagina, selecteer **lezen/schrijven**.
     1. Navigeer in de browser links naar **abonnementen** > **_\<abonnement\_naam_**   >  **resourceGroups** > _**\<resource\_groep\_naam >**_   >  **providers** > **Microsoft.Web** > **sites** > _**\<app \_naam >**_ > **config** > **authsettings**. 
@@ -243,4 +244,4 @@ Klik op **bewerken**, de volgende eigenschap wijzigen en klik vervolgens op **pl
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Verifiëren en autoriseren van gebruikers end-to-end (Windows)](app-service-web-tutorial-auth-aad.md)
-> [zelfstudie: verifiëren en autoriseren van gebruikers end-to-end (Linux)](containers/tutorial-auth-aad.md)
+> [zelfstudie: Verifiëren en autoriseren van gebruikers end-to-end (Linux)](containers/tutorial-auth-aad.md)

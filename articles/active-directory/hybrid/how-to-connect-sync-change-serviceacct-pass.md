@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect-synchronisatie: het Azure AD Connect Sync-serviceaccount wijzigen | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie:  De Azure AD Connect Sync-serviceaccount wijzigen | Microsoft Docs'
 description: Dit document onderwerp beschrijft de versleutelingssleutel en hoe u deze afbreken nadat het wachtwoord is gewijzigd.
 services: active-directory
 keywords: Azure AD sync-serviceaccount en het wachtwoord
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a0cdaa54d0da58a02cbe9fcda36cbaff6b1fab4a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747249"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184896"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Het wachtwoord voor de Azure AD Connect sync-serviceaccount wijzigen
 Als u het wachtwoord voor de Azure AD Connect sync-serviceaccount wijzigen, zich de Synchronization Service niet kunnen starten goed totdat u hebt de versleutelingssleutel afgebroken en het wachtwoord voor de Azure AD Connect sync-serviceaccount opnieuw geïnitialiseerd. 
@@ -39,12 +39,12 @@ Eerst moet u het wachtwoord bij de Windows Service Control Manager te wijzigen. 
 
 
 - Als u de synchronisatieservice niet starten in Windows Service Control Manager probeert, ontvangt u de fout '**Windows kan de Microsoft Azure AD Sync-service niet starten op de lokale Computer**'. **Fout 1069: De service is niet gestart vanwege een fout met aanmelding.** "
-- In Windows-Logboeken, het logboek voor systeemgebeurtenissen bevat een fout opgetreden bij het **gebeurtenis-ID 7038** en het bericht '**de ADSync-service is niet aanmelden, net als bij het huidige ingestelde wachtwoord vanwege de volgende fout: de gebruiker naam of het wachtwoord is onjuist.** "
+- In Windows-Logboeken, het logboek voor systeemgebeurtenissen bevat een fout opgetreden bij het **gebeurtenis-ID 7038** en het bericht '**de ADSync-service zich niet aanmelden bij het huidige ingestelde wachtwoord vanwege de volgende fout is: De gebruikersnaam of wachtwoord is onjuist.** "
 
 Ten tweede onder bepaalde omstandigheden, kan als het wachtwoord is bijgewerkt, de synchronisatieservice niet meer ophalen de versleutelingssleutel via DPAPI. De synchronisatieservice kan zonder de versleutelingssleutel, de wachtwoorden die vereist zijn voor het synchroniseren van on-premises AD en Azure AD niet ontsleutelen.
 U ziet fouten, zoals:
 
-- Onder Windows Service Control Manager als u probeert te starten van de synchronisatieservice en de versleutelingssleutel, kan niet worden opgehaald mislukt met fout "**Windows kan de Microsoft Azure AD-synchronisatie niet starten op de lokale Computer.** Controleer het gebeurtenislogboek van systeem voor meer informatie. **Als dit een niet-Microsoft-service, neem contact op met de leverancier van de service en Raadpleeg servicespecifieke foutcode \*\*-21451857952**\*\*."
+- Onder Windows Service Control Manager als u probeert om de synchronisatie-Service te starten en deze kan niet van de versleutelingssleutel ophalen, worden deze mislukt met fout "<strong>Windows kan de Microsoft Azure AD-synchronisatie niet starten op de lokale Computer. Controleer het gebeurtenislogboek van systeem voor meer informatie. Als dit een niet-Microsoft-service, neem contact op met de leverancier van de service en Raadpleeg servicespecifieke foutcode-21451857952</strong>. "
 - In Windows-Logboeken, het logboek voor toepassingsgebeurtenissen bevat een fout opgetreden bij het **gebeurtenis-ID 6028** en het volgende foutbericht *"**de versleutelingssleutel van de server kan niet worden geopend.**"*
 
 Volg de procedures in om ervoor te zorgen dat u geen deze fouten ontvangt, [wordt de versleutelingssleutel van de Azure AD Connect Sync afgebroken](#abandoning-the-azure-ad-connect-sync-encryption-key) bij het wijzigen van het wachtwoord.
@@ -121,6 +121,6 @@ Nu dat de Synchronization Service toegang tot de versleutelingssleutel en de wac
 ## <a name="next-steps"></a>Volgende stappen
 **Overzichtsonderwerpen**
 
-* [Azure AD Connect-synchronisatie: inzicht in en synchronisatie aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
 
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634503"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322427"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Zelfstudie: Samanage configureren voor het automatisch inrichten van gebruikers
 
@@ -46,7 +46,7 @@ Voordat u Samanage configureert voor automatisch gebruikers inrichten met Azure 
 
 1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op de **Azure Active Directory** pictogram.
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory][1]
 
 2. Navigeer naar **bedrijfstoepassingen** > **alle toepassingen**.
 
@@ -54,7 +54,7 @@ Voordat u Samanage configureert voor automatisch gebruikers inrichten met Azure 
 
 3. Als u wilt toevoegen Samanage, klikt u op de **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Samanage**.
 
@@ -76,7 +76,9 @@ Voordat u configureren en inschakelen van automatische inrichten van gebruikers,
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Belangrijke tips voor het toewijzen van gebruikers aan Samanage
 
-*   Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Samanage voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+*    Samanage functies worden dynamisch en automatisch ingevuld in de gebruikersinterface van Azure portal vandaag nog. Voordat u Samanage rollen toewijzen aan gebruikers, moet u een eerste synchronisatie is voltooid op basis van Samanage naar de nieuwste functies in uw tenant Samanage ophalen.
+
+*    Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Samanage voor het testen van uw eerste automatisch gebruikers inrichten van configuratie. Extra gebruikers en/of groepen kunnen worden toegewezen later als de tests geslaagd zijn.
 
 *   Wanneer een gebruiker aan Samanage toewijzen, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
 

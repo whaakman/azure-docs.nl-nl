@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
-ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091808"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309264"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Inzicht in facturering voor Azure CDN
 
@@ -40,7 +40,7 @@ Een regio voor facturering is een geografische gebied gebruikt om te bepalen wel
 
 Zie voor meer informatie over point-of-presence (POP)-regio's [Azure CDN POP-locaties op regio](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Bijvoorbeeld, een pop-server zich bevindt in Mexico is in de regio Noord-Amerika en daarom is opgenomen in zone 1. 
 
-Zie voor meer informatie over de prijzen voor Azure CDN [prijzen van Content Delivery Network](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+Zie voor meer informatie over de prijzen voor Azure CDN [prijzen van Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>Hoe worden de levering van kosten per regio berekend?
 De regio voor facturering van Azure CDN is gebaseerd op de locatie van de bronserver leveren van de inhoud voor de eindgebruiker. De bestemming (fysieke locatie) van de client wordt niet beschouwd als de regio voor facturering.
@@ -55,19 +55,19 @@ Met behulp van Azure CDN ook leidt tot enige kosten voor het gebruik van de serv
 
 Als u voor de inhoud van uw Azure Blob-opslag als de oorsprong gebruikt, worden er ook de volgende kosten voor opslag voor de cache opvullingen:
 
-- Werkelijke GB gebruikt: de werkelijke opslag van uw bronobjecten.
+- Werkelijke GB gebruikt: De werkelijke opslag van uw bronobjecten.
 
-- Overdrachten in GB: de hoeveelheid gegevens die zijn overgebracht naar het vullen van de caches van het CDN.
+- Overdrachten in GB: De hoeveelheid gegevens overgebracht naar het vullen van de caches van het CDN.
 
-- Transacties: indien nodig om in te vullen van de cache.
+- Transacties: Indien nodig om in te vullen van de cache.
 
 Zie voor meer informatie over de facturering voor Azure Storage, [inzicht in Azure Storage Billing-bandbreedte, transacties en capaciteit](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
 Als u *leveren van services die worden gehost*, u kosten in rekening gebracht als volgt:
 
-- Azure-rekentijd: de rekenprocessen die als de oorsprong fungeren.
+- Azure-rekentijd: De compute-exemplaren die als de oorsprong fungeren.
 
-- Azure-rekenen overdracht: de gegevens worden overgedragen van de compute-exemplaren om in te vullen van de Azure CDN-cache.
+- Azure-rekenen overdracht: De gegevens worden overgedragen van de compute-exemplaren om in te vullen van de Azure CDN-cache.
 
 Als de client gebruikt de byte-bereikaanvragen (ongeacht de oorsprong service), de volgende overwegingen zijn van toepassing:
 
@@ -78,11 +78,11 @@ Als de client gebruikt de byte-bereikaanvragen (ongeacht de oorsprong service), 
 ## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Hoeveel overdrachtactiviteit plaatsvindt voor de ondersteuning van de cache?
 Telkens wanneer die een CDN pop-locatie moet invullen van de cache, wordt een aanvraag naar de oorsprong van het object in de cache worden opgeslagen. Als gevolg hiervan is de oorsprong leidt tot een factureerbare transactie op elke cachemisser. Het aantal missers in cache is afhankelijk van een aantal factoren:
 
-- Hoe gecachet kan worden de inhoud is: als de inhoud hoge TTL heeft (time-to-live) / vervaldatum waardeert en is regelmatig geopend, zodat deze blijft populair zijn in de cache en vervolgens het overgrote deel van de belasting wordt verwerkt door het CDN. Een typische goede Cachetreffer verhouding is ook dat meer dan 90%, wat betekent dat er minder dan 10% van de aanvragen van clients hebben om terug te keren naar de oorsprong, voor een cache ontbreekt of het object vernieuwen.
+- Hoe gecachet kan worden de inhoud is: Als de inhoud hoge TTL heeft (time-to-live) / vervaldatum waardeert en is wordt regelmatig geopend, zodat deze blijft populair zijn in de cache en vervolgens het overgrote deel van de belasting verwerkt door het CDN. Een typische goede Cachetreffer verhouding is ook dat meer dan 90%, wat betekent dat er minder dan 10% van de aanvragen van clients hebben om terug te keren naar de oorsprong, voor een cache ontbreekt of het object vernieuwen.
 
-- Het aantal knooppunten moet het object te laden: telkens wanneer een knooppunt een object van de oorsprong laadt, worden er een factureerbare transactie accountkosten. Als gevolg hiervan resulteert meer globale inhoud (toegankelijk vanaf meer knooppunten) in meer gefactureerde transacties.
+- Het aantal knooppunten moeten het object te laden: Telkens wanneer die een knooppunt een object van de oorsprong laadt, worden er accountkosten een factureerbare transactie. Als gevolg hiervan resulteert meer globale inhoud (toegankelijk vanaf meer knooppunten) in meer gefactureerde transacties.
 
-- De invloed van de TTL: een hogere TTL-waarde voor een object betekent dat nodig is om te worden opgehaald uit de oorsprong minder vaak. Het betekent ook clients zoals browsers, kunnen het object langer, waardoor de transacties naar het CDN kan verminderen in de cache.
+- De invloed van de TTL-waarde: Een hogere TTL-waarde voor een object betekent dat nodig is om te worden opgehaald uit de oorsprong minder vaak. Het betekent ook clients zoals browsers, kunnen het object langer, waardoor de transacties naar het CDN kan verminderen in de cache.
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Hoe kan ik mijn kosten meest effectief beheren?
 De langste TTL mogelijk instellen voor uw inhoud. 

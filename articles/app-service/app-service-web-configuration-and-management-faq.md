@@ -1,5 +1,5 @@
 ---
-title: Veelgestelde vragen over de configuratie voor Azure WebApps | Microsoft Docs
+title: Veelgestelde vragen voor configuratie - Azure App Service | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over problemen met configuratie en beheer voor de functie Web Apps van Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: b98b0ea68e91bad2a62f40d3dc611308f1bed2de
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c2758084331a487d65235b70bed803a74d0a34b5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967739"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322530"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuratie en beheer Veelgestelde vragen voor Web-Apps in Azure
 
@@ -138,7 +138,7 @@ WebJob-logboeken bekijken:
 6. Selecteer de **in-/ uitschakelen uitvoer** knop.
 7. Selecteer de downloadkoppeling.
 
-## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Ik wil hybride verbindingen met SQL Server gebruiken. Waarom zie ik het bericht ' System.OverflowException: rekenkundige bewerking heeft geresulteerd in een overloop '?
+## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Ik wil hybride verbindingen met SQL Server gebruiken. Waarom zie ik het bericht ' System.OverflowException: Rekenkundige bewerking heeft geresulteerd in een overloop'?
 
 Als u hybride verbindingen gebruiken voor toegang tot SQL Server, een Microsoft .NET-update op 10 mei 2016, kan leiden tot verbindingen mislukken. U kunt dit bericht ziet:
 
@@ -296,7 +296,7 @@ Er is de snelste manier om te zien welke versie van Microsoft .NET die in App Se
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Waarom werkt de functie voor automatisch schalen niet zoals verwacht?
 
-Als voor automatisch schalen van Azure nog niet geschaald in of de web-app-exemplaar uitgeschaalde zoals u verwacht, kunt u uitvoeren in een scenario waarin kiezen we opzettelijk niet om te schalen om te voorkomen dat een oneindige lus vanwege "op en neer." Dit gebeurt meestal wanneer er geen een voldoende marge tussen de drempelwaarden voor scale-out en schaal. Als u wilt weten hoe om te voorkomen dat 'op en neer' en voor meer informatie over andere aanbevolen procedures voor automatisch schalen, Zie [aanbevolen procedures voor automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-best-practices.md#autoscale-best-practices).
+Als voor automatisch schalen van Azure nog niet geschaald in of de web-app-exemplaar uitgeschaalde zoals u verwacht, kunt u uitvoeren in een scenario waarin kiezen we opzettelijk niet om te schalen om te voorkomen dat een oneindige lus vanwege "op en neer." Dit gebeurt meestal wanneer er geen een voldoende marge tussen de drempelwaarden voor scale-out en schaal. Als u wilt weten hoe om te voorkomen dat 'op en neer' en voor meer informatie over andere aanbevolen procedures voor automatisch schalen, Zie [aanbevolen procedures voor automatisch schalen](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Waarom voor automatisch schalen soms schaalt slechts gedeeltelijk?
 

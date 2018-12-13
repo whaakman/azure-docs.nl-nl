@@ -1,5 +1,5 @@
 ---
-title: Over het maken van een App Service Environment v1
+title: Over het maken van een App Service Environment v1 - Azure
 description: Beschrijving van het maken van de stroom voor een app service environment v1
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 289ff76e533497a731a4fc51b3e54101a9d34a68
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1cfe8dae750cb113dd5346bfba261099fd3b6044
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958363"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276737"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Over het maken van een App Service Environment v1 
 
@@ -55,21 +56,21 @@ Voor het maken van een App Service Environment v1, kunt u zoeken naar de Azure M
 4. Controleer uw selecties Virtueelnetwerk en de locatie. U kunt een nieuw VNet maken of selecteren van een bestaande VNet. Als u een nieuw VNet selecteren en vervolgens kunt u een naam en locatie. De nieuwe VNet heeft de adresbereik 192.168.250.0/23 en een subnet met de naam **standaard** die is gedefinieerd als 192.168.250.0/24. U kunt ook gewoon een reeds bestaande klassieke of Resource Manager VNet selecteren. De VIP-Type-selectie bepaalt of de as-omgeving kan rechtstreeks worden benaderd vanaf het internet (extern) of als deze een interne Load Balancer (ILB) gebruikt. Voor meer informatie over deze lezen [met behulp van een interne Load Balancer met een App Service Environment][ILBASE]. Als u een VIP-type van externe kunt u hoeveel externe IP-adressen het systeem wordt gemaakt met IPSSL ter selecteren. Als u interne selecteert vervolgens moet u om op te geven van het subdomein dat door de as-omgeving wordt gebruikt. As-omgevingen kunnen worden geïmplementeerd in virtuele netwerken die gebruikmaken van *beide* openbare-adressen, *of* RFC1918 adresruimten (dat wil zeggen particuliere adressen). Als u wilt gebruiken een virtueel netwerk met een openbare-adresbereik, moet u het VNet vooraf maken. Wanneer u een bestaand VNet selecteert moet u een nieuw subnet maken tijdens het maken van as-omgeving. **U kunt een vooraf gemaakte subnet niet gebruiken in de portal. Als u uw ASE met een resource manager-sjabloon maakt, kunt u een as-omgeving met een bestaand subnet.** Een ASE maken van een voor het sjabloongebruik de informatie hier [het maken van een App Service Environment uit sjabloon] [ ILBAseTemplate] en hier [een ILB App Service Environment maken met sjabloon] [ASEfromTemplate].
 
 ### <a name="details"></a>Details
-Een as-omgeving is gemaakt met 2 Front-Ends en twee 2 werkers beschikken. De Front-Ends fungeren als de HTTP/HTTPS-eindpunten en verkeer verzenden naar de werknemers die zijn de functies die uw apps hosten. U kunt het aantal aanpassen nadat de as-omgeving is gemaakt en kan zelfs stelt u de regels voor automatisch schalen op deze resourcegroepen. Ga voor meer informatie over het handmatig schalen, beheren en controleren van een App Service Environment naar: [een App Service Environment configureren][ASEConfig] 
+Een as-omgeving is gemaakt met 2 Front-Ends en twee 2 werkers beschikken. De Front-Ends fungeren als de HTTP/HTTPS-eindpunten en verkeer verzenden naar de werknemers die zijn de functies die uw apps hosten. U kunt het aantal aanpassen nadat de as-omgeving is gemaakt en kan zelfs stelt u de regels voor automatisch schalen op deze resourcegroepen. Voor meer informatie over het handmatig schalen, beheren en controleren van een App Service Environment gaat u naar: [Een App Service Environment configureren][ASEConfig] 
 
 Alleen de één as-omgeving kan bestaan in het subnet dat wordt gebruikt door de as-omgeving. Het subnet kan niet worden gebruikt voor iets anders dan de as-omgeving
 
 ### <a name="after-app-service-environment-v1-creation"></a>Na het maken van App Service Environment v1
 Na het maken van de as-omgeving kunt u aanpassen:
 
-* Aantal Front-Ends (minimum: 2)
-* Aantal werknemers (minimum: 2)
+* Aantal Front-Ends (minimale: 2)
+* Aantal werknemers (minimale: 2)
 * Aantal IP-adressen beschikbaar voor IP SSL
 * COMPUTE resource-grootten die worden gebruikt door de Front-Ends of werkrollen (P2-Front-End minimale grootte is)
 
-Er zijn meer informatie over handmatige schalen, beheer en bewaking van App Service-omgevingen hier: [een App Service Environment configureren][ASEConfig] 
+Er zijn meer informatie over handmatige schalen, beheer en bewaking van App Service-omgevingen hier: [Een App Service Environment configureren][ASEConfig] 
 
-Voor meer informatie over automatisch schalen is een handleiding hier: [voor automatisch schalen configureren voor een App Service Environment][ASEAutoscale]
+Er is een handleiding hier voor meer informatie over automatisch schalen: [Automatisch schalen configureren voor een App Service Environment][ASEAutoscale]
 
 Er zijn extra afhankelijkheden die niet beschikbaar voor aanpassing, zoals de database en opslag. Dit zijn verwerkt door Azure en worden geleverd met het systeem. De opslagruimte op het systeem ondersteunt maximaal 500 GB voor de hele App Service-omgeving en de database wordt aangepast aan de door Azure indien nodig door de schaal van het systeem.
 

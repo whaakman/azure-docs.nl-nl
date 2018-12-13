@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: d579a9b628ac515877c1977f700940547e96f0c0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 378516066e3b4a3436a2952616ea877d9a49d5d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726607"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255309"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Micrometer gebruiken met Azure Application Insights-SDK voor Java
 Micrometer bewaking metingen metrische toepassingsgegevens voor JVM-gebaseerde toepassing code en kunt u de gegevens exporteren naar uw favoriete bewakingssystemen. In dit artikel leert u hoe u Micrometer met Application Insights voor zowel Spring Boot en Spring Boot-toepassingen.
@@ -228,7 +228,7 @@ Stappen:
 
 Raadpleeg voor meer informatie over metrische gegevens, de [Micrometer documentatie](https://micrometer.io/docs/).
 
-Andere voorbeeldcode voor het maken van verschillende soorten metrische gegevens kunt u vinden in[de officiële Micrometer Github-opslagplaats](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Andere voorbeeldcode voor het maken van verschillende soorten metrische gegevens kunt u vinden in[de officiële Micrometer GitHub-opslagplaats](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 ## <a name="how-to-bind-additional-metrics-collection"></a>Het koppelen van aanvullende metrische gegevens verzamelen
 
@@ -242,7 +242,7 @@ Maak een bean van de respectieve metrische categorie. Stel dat we Guava moeten m
         Return new GuavaCacheMetrics();
     }
 ```
-Er zijn verschillende metrische gegevens die niet standaard zijn ingeschakeld, maar in de bovenstaande wijze kan worden gebonden. Raadpleeg voor een volledige lijst [de officiële Micrometer Github-opslagplaats](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
+Er zijn verschillende metrische gegevens die niet standaard zijn ingeschakeld, maar in de bovenstaande wijze kan worden gebonden. Raadpleeg voor een volledige lijst [de officiële Micrometer GitHub-opslagplaats](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
 
 ### <a name="non-spring-apps"></a>Niet-Spring-apps
 Voeg de volgende bindingcode voor het configuratiebestand:

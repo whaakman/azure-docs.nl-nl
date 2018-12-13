@@ -4,9 +4,8 @@ description: 'De syntaxis voor de Net # neurale netwerken specificatietaal, same
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315304"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272232"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Handleiding voor het Net # neurale-netwerkspecificatie voor Azure Machine Learning Studio
 
@@ -29,7 +28,7 @@ NET # is een door Microsoft ontwikkelde taal die wordt gebruikt om netwerkarchit
 
 In deze context kunt u een specificatie Net #-architectuur:
 
-+ Alle neutrale netwerkmodules in Microsoft Azure Machine Learning Studio: [Neural Network-Multiklasse](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), en [Neural Network-regressie](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Alle neutrale netwerkmodules in Microsoft Azure Machine Learning Studio: [Multiklassen Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), en [Neural Network regressie](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
 + Neural network-functies in MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) en [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)voor de taal R en [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) voor Python.
 
 
@@ -39,7 +38,7 @@ In dit artikel beschrijft de basisconcepten en de syntaxis die nodig zijn voor h
 + De syntaxis en trefwoorden van de Net #-specificatietaal
 + Voorbeelden van aangepaste neurale netwerken die zijn gemaakt met Net # 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="neural-network-basics"></a>Neural network-basisbeginselen
 
@@ -114,7 +113,7 @@ output Result[2] from Hidden all;
 ```
 
 + Het product van de dimensies is het aantal knooppunten in de laag. In dit voorbeeld zijn er twee dimensies [5,20], wat betekent dat er 100 knooppunten zijn in de laag.
-+ De lagen kunnen worden gedeclareerd in willekeurige volgorde, met één uitzondering: als er meer dan één invoer laag is gedefinieerd, de volgorde van de functies in de ingevoerde gegevens moet overeenkomen met de volgorde waarin ze zijn gedeclareerd.
++ De lagen kunnen worden gedeclareerd in willekeurige volgorde, met één uitzondering: Als meer dan één invoer laag is gedefinieerd, moet de volgorde van de functies in de ingevoerde gegevens overeenkomen met de volgorde waarin ze zijn gedeclareerd.
 
 Als u wilt opgeven dat het aantal knooppunten in een laag automatisch worden bepaald, gebruikt u de `auto` trefwoord. De `auto` sleutelwoord heeft verschillende effecten, afhankelijk van de laag:
 
@@ -219,7 +218,7 @@ Er zijn twee sets van eigenschappen die regelen opvulling, de eigenschappen word
     
     Als de waarde voor een dimensie ONWAAR is, worden de kernels gedefinieerd, zodat het aantal knooppunten aan beide zijden die worden weggelaten hetzelfde (maximaal een verschil van 1 wordt). De standaardwaarde van dit kenmerk is een tuple met alle onderdelen die gelijk is aan de waarde False.
 
-+ **UpperPad** en **LowerPad**: (optioneel) Geef meer controle over de hoeveelheid opvulling te gebruiken. **Belangrijk:** deze kenmerken kunnen worden gedefinieerd als en alleen als de **opvulling** eigenschap hierboven is ***niet*** gedefinieerd. De waarden moet tuples integer-waarde met een lengte die de specifikaci van de bundel. Wanneer deze kenmerken zijn opgegeven, wordt "dummy" knooppunten worden toegevoegd aan het einde van het onderste en bovenste van elke dimensie van de invoer-laag. Het aantal knooppunten die zijn toegevoegd aan het einde van het onderste en bovenste in elke dimensie wordt bepaald door **LowerPad**[i] en **UpperPad**[i] respectievelijk. 
++ **UpperPad** en **LowerPad**: (optioneel) Geef meer controle over de hoeveelheid opvulling te gebruiken. **Belangrijk:** Deze kenmerken kunnen worden gedefinieerd als en alleen als de **opvulling** eigenschap hierboven is ***niet*** gedefinieerd. De waarden moet tuples integer-waarde met een lengte die de specifikaci van de bundel. Wanneer deze kenmerken zijn opgegeven, wordt "dummy" knooppunten worden toegevoegd aan het einde van het onderste en bovenste van elke dimensie van de invoer-laag. Het aantal knooppunten die zijn toegevoegd aan het einde van het onderste en bovenste in elke dimensie wordt bepaald door **LowerPad**[i] en **UpperPad**[i] respectievelijk. 
 
     Om ervoor te zorgen dat de kernels alleen naar 'echte' knooppunten en niet naar "dummy" knooppunten overeenkomen, moeten de volgende voorwaarden worden voldaan:
       - Elk onderdeel van **LowerPad** moet strikt minder dan `KernelShape[d]/2`. 
@@ -375,7 +374,7 @@ U kunt de verkorte vorm alleen als de lagen één bundel bevatten. In het algeme
 
 Deze sectie bevat enkele voorbeelden van hoe u Net # kunt verborgen lagen toevoegen, het definiëren van de manier waarop verborgen lagen met andere lagen communiceren en convolutional netwerken bouwen.
 
-### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Een eenvoudige aangepaste neural network definiëren: 'Hallo wereld'-voorbeeld
+### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Definieer een eenvoudig aangepaste neurale netwerk: 'Hallo wereld'-voorbeeld
 
 Dit eenvoudige voorbeeld ziet u hoe u een neuraal netwerk-model met één verborgen laag maken.
 

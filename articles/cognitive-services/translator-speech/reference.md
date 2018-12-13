@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c7e14e2c2d6d38055304610c805a6bede10a6828
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679287"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259423"
 ---
 # <a name="translator-speech-api"></a>Translator Speech-API
 
@@ -34,7 +34,7 @@ Voor toegang tot de Translator Text-API u moet [zich registreren voor Microsoft 
 
 De abonnementssleutel gebruiken om te verifiëren. De Translator Speech-API ondersteunt twee modi van verificatie:
 
-* **Met behulp van een toegangstoken:** verkrijgen In uw toepassing, een toegangstoken van de service voor beveiligingstokens. Uw abonnementssleutel Translator Speech-API gebruiken om te verkrijgen van een toegangstoken van de verificatieservice voor Azure Cognitive Services. Het toegangstoken is geldig voor 10 minuten. Een nieuw toegangstoken verkrijgen om de 10 minuten, en houd met behulp van dezelfde toegang token voor herhaalde aanvragen binnen deze 10 minuten.
+* **Met behulp van een toegangstoken:** In uw toepassing, een toegangstoken te verkrijgen van de service voor beveiligingstokens. Uw abonnementssleutel Translator Speech-API gebruiken om te verkrijgen van een toegangstoken van de verificatieservice voor Azure Cognitive Services. Het toegangstoken is geldig voor 10 minuten. Een nieuw toegangstoken verkrijgen om de 10 minuten, en houd met behulp van dezelfde toegang token voor herhaalde aanvragen binnen deze 10 minuten.
 
 * **Met behulp van een abonnementssleutel rechtstreeks:** In uw toepassing, kunt u uw abonnementssleutel doorgegeven als een waarde in `Ocp-Apim-Subscription-Key` header.
 
@@ -49,7 +49,7 @@ Uw abonnementssleutel en het toegangstoken behandelen als geheimen die moeten wo
 ## <a name="5-process-the-results"></a>5. De resultaten verwerken
 **De resultaten van de service wordt gestreamd verwerken.** De indeling van gedeeltelijke resultaten, de laatste resultaten en Text to Speech audio segmenten worden beschreven in de documentatie van de `/speech/translate` bewerking hieronder.
 
-Gebruik van de Translator Speech-API aan te tonen codevoorbeelden zijn beschikbaar via de [Microsoft Translator Github-site](https://github.com/MicrosoftTranslator).
+Gebruik van de Translator Speech-API aan te tonen codevoorbeelden zijn beschikbaar via de [Microsoft Translator GitHub-site](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Opmerkingen bij de implementatie
 
@@ -97,8 +97,8 @@ Een definitieve spraak herkenningsresultaat wordt aan het einde van een utteranc
 
 * `type`: Constante voor het identificeren van het type van het resultaat van de tekenreeks. De waarde is definitief voor de laatste resultaten.
 * `id`: De id die is toegewezen aan het herkenningsresultaat tekenreeks.
-* `recognition`: De herkende tekst in de source-taal. De tekst is mogelijk een lege tekenreeks in het geval van een false erkenning.
-* `translation`: De herkende tekst wordt vertaald in de doel-taal.
+* `recognition`: Herkende tekst in de source-taal. De tekst is mogelijk een lege tekenreeks in het geval van een false erkenning.
+* `translation`: Herkende tekst wordt vertaald in de doel-taal.
 * `audioTimeOffset`: Time-offset van het begin van de spraakherkenning in tikken (1 maatstreepjes = 100 nanoseconden). De offset is ten opzichte van het begin van streaming.
 * `audioTimeSize`: De duur in tikken (100 nanoseconden) van de opname.
 * `audioStreamPosition`: Byte-offset van het begin van de opname. De offset is ten opzichte van het begin van de stroom.
@@ -128,8 +128,8 @@ Een gedeeltelijke resultaten wordt van de service naar de client met behulp van 
 
 * `type`: Constante voor het identificeren van het type van het resultaat van de tekenreeks. De waarde is gedeeltelijk voor gedeeltelijke resultaten.
 * `id`: De id die is toegewezen aan het herkenningsresultaat tekenreeks.
-* `recognition`: De herkende tekst in de source-taal.
-* `translation`: De herkende tekst wordt vertaald in de doel-taal.
+* `recognition`: Herkende tekst in de source-taal.
+* `translation`: Herkende tekst wordt vertaald in de doel-taal.
 * `audioTimeOffset`: Time-offset van het begin van de spraakherkenning in tikken (1 maatstreepjes = 100 nanoseconden). De offset is ten opzichte van het begin van streaming.
 * `audioTimeSize`: De duur in tikken (100 nanoseconden) van de opname.
 * `audioStreamPosition`: Byte-offset van het begin van de opname. De offset is ten opzichte van het begin van de stroom.
@@ -152,7 +152,7 @@ Het uiteindelijke resultaat van een voorbeeld is als volgt:
 }
 ```
 
-### <a name="text-to-speech"></a>Tekst-naar-spraak
+### <a name="text-to-speech"></a>Tekst naar spraak
 Wanneer de Text to Speech-functie is ingeschakeld (Zie `features` parameter hieronder), een definitieve resultaat wordt gevolgd door de audio van de gesproken vertaalde tekst. Audiogegevens is gesegmenteerde overdrachtscodering en van de service verzonden naar de client als een reeks Websocket-berichten van het type Binary. Een client kan het einde van de stroom detecteren door het controleren van de bit FIN van elk bericht. Het laatste binaire bericht heeft de FIN bit is ingesteld op een aan het einde van de stroom. De indeling van de stroom, is afhankelijk van de waarde van de `format` parameter.
 
 ### <a name="closing-the-connection"></a>De verbinding wordt gesloten
@@ -165,30 +165,30 @@ Wanneer een clienttoepassing is voltooid met het streamen van audio en het laats
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Waarde|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Waarde|Description|Parametertype|Gegevenstype|
 |:---|:---|:---|:---|:---|
-|API-versie|1.0|De versie van de API die is aangevraagd door de client. Toegestane waarden zijn: `1.0`.|query   |tekenreeks|
-|uit|(leeg)   |Hiermee geeft u de taal van de binnenkomende spraak. De waarde is een van de taal-id's van de `speech` bereik in het antwoord van de API talen.|query|tekenreeks|
-|tot|(leeg)|Hiermee geeft u de taal voor het vertalen van de getranscribeerde tekst in. De waarde is een van de taal-id's van de `text` bereik in het antwoord van de API talen.|query|tekenreeks|
-|database|(leeg)   |Door komma's gescheiden reeks functies die door de client is geselecteerd. Beschikbare functies zijn onder andere:<ul><li>`TextToSpeech`: Hiermee wordt aangegeven dat de service moet de vertaalde audio van de laatste vertaalde zin houden.</li><li>`Partial`: Hiermee wordt aangegeven dat de service moet tussenliggende herkenningsresultaten terwijl de audio is streaming naar de service.</li><li>`TimingInfo`: Hiermee wordt aangegeven dat de service moet timinginformatie die is gekoppeld aan elke herkenning.</li></ul>Als u bijvoorbeeld een client geeft `features=partial,texttospeech` voor het ontvangen van gedeeltelijke resultaten en tekst naar spraak, maar er zijn geen klokinformatie. Houd er rekening mee dat de laatste resultaten altijd worden gestreamd naar de client.|query|tekenreeks|
-|Stem|(leeg)|Geeft aan welke stem te gebruiken voor de Text to Speech rendering van de vertaalde tekst. De waarde is een van de stem-id van de scope tts in het antwoord van de API talen. Als een stem is niet opgegeven dat het systeem wordt automatisch een kiezen wanneer de Text to Speech-functie is ingeschakeld.|query|tekenreeks|
-|Indeling|(leeg)|Hiermee geeft u de indeling van de Text to Speech audiostream geretourneerd door de service. De volgende opties zijn beschikbaar:<ul><li>`audio/wav`: Wave audiostream. Client moet de WAV-header gebruiken om de audio-indeling correct worden geïnterpreteerd. WAV-audio voor tekst naar spraak is 16-bits, één kanaal PCM met een samplefrequentie van 24 of 16kHz.</li><li>`audio/mp3`: Audio MP3-stream.</li></ul>De standaardwaarde is `audio/wav`.|query|tekenreeks|
-|ProfanityAction    |(leeg)    |Hiermee geeft u op hoe de service profanities herkend in de gesproken tekst moet verwerken. Geldige acties zijn:<ul><li>`NoAction`: Profanities zijn ongewijzigd worden gelaten.</li><li>`Marked`: Profanities vervangen door een markering. Zie `ProfanityMarker` parameter.</li><li>`Deleted`: Profanities worden verwijderd. Bijvoorbeeld, als het woord `"jackass"` wordt beschouwd als een grof taalgebruik, de woordgroep `"He is a jackass."` wordt `"He is a .".`</li></ul>De standaardwaarde is gemarkeerd.|query|tekenreeks|
-|ProfanityMarker|(leeg)    |Hiermee geeft u op hoe gedetecteerde profanities worden afgehandeld wanneer `ProfanityAction` is ingesteld op `Marked`. Geldige opties zijn:<ul><li>`Asterisk`: Profanities zijn vervangen door de tekenreeks `***`. Bijvoorbeeld, als het woord `"jackass"` wordt beschouwd als een grof taalgebruik, de woordgroep `"He is a jackass."` wordt `"He is a ***.".`</li><li>`Tag`: Scheldwoorden worden omringd door een grof taalgebruik XML-code. Bijvoorbeeld, als het woord `"jackass"` wordt beschouwd als een grof taalgebruik, de woordgroep `"He is a jackass."` wordt `"He is a <profanity>jackass</profanity>."`.</li></ul>De standaardwaarde is `Asterisk`.|query|tekenreeks|
-|Autorisatie|(leeg)  |Hiermee geeft u de waarde van het bearer-token van de client. Gebruik het voorvoegsel `Bearer` gevolgd door de waarde van de `access_token` waarde die wordt geretourneerd door de token authentication-service.|koptekst   |tekenreeks|
-|OCP-Apim-Subscription-Key|(leeg)|Vereist als de `Authorization` -header is niet opgegeven.|koptekst|tekenreeks|
-|access_token|(leeg)   |Alternatieve manier om door te geven van een geldige OAuth-toegangstoken. Het bearer-token is meestal voorzien van koptekst `Authorization`. Sommige bibliotheken websocket toegestaan clientcode om in te stellen headers niet. In dit geval is, kan de client gebruiken de `access_token` queryparameter om door te geven van een geldig token. Bij het gebruik van een toegangstoken om te verifiëren, als `Authorization` header niet is ingesteld, klikt u vervolgens `access_token` moet worden ingesteld. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd. Clients moeten een methode alleen gebruiken om het token.|query|tekenreeks|
-|abonnement-sleutel|(leeg)   |Alternatieve manier om door te geven abonnementssleutel. Sommige bibliotheken websocket toegestaan clientcode om in te stellen headers niet. In dit geval is, kan de client gebruiken de `subscription-key` queryparameter om door te geven van een sleutel geldig abonnement. Bij het gebruik van de abonnementssleutel van een om te verifiëren, als `Ocp-Apim-Subscription-Key` header is niet ingesteld, wordt abonnement-sleutel moet worden ingesteld. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd. Clients moeten een methode alleen gebruiken om door te geven de `subscription key`.|query|tekenreeks|
-|X-ClientTraceId    |(leeg)    |Een client gegenereerde GUID gebruikt voor het traceren van een aanvraag. Voor het juiste oplossen van problemen, moeten clients voorzien van elke aanvraag een nieuwe waarde en aangemeld.<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-ClientTraceId`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|tekenreeks|
-|X-CorrelationId|(leeg)    |Een client gegenereerde id gebruikt voor het correleren van meerdere kanalen in een gesprek. Meerdere spraak vertaling sessies kunnen worden gemaakt om in te schakelen gesprekken tussen gebruikers. In dergelijke scenario gebruik alle spraak vertaling sessies dezelfde correlatie-ID aan de kanalen met elkaar verbinden. Dit vereenvoudigt het tracering en diagnostische gegevens. De id moet voldoen: `^[a-zA-Z0-9-_.]{1,64}$`<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-CorrelationId`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|tekenreeks|
-|X-ClientVersion|(leeg)    |Hiermee geeft u de versie van de clienttoepassing. Voorbeeld: '2.1.0.123'.<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-ClientVersion`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|tekenreeks|
-|X-OsPlatform|(leeg)   |Hiermee geeft u de naam en versie van het besturingssysteem dat op de clienttoepassing wordt uitgevoerd. Voorbeelden: "Android 5.0", 'iOs 8.1.3', ' Windows 8.1 ".<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-OsPlatform`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|tekenreeks|
+|API-versie|1.0|De versie van de API die is aangevraagd door de client. Toegestane waarden zijn: `1.0`.|query   |string|
+|uit|(leeg)   |Hiermee geeft u de taal van de binnenkomende spraak. De waarde is een van de taal-id's van de `speech` bereik in het antwoord van de API talen.|query|string|
+|tot|(leeg)|Hiermee geeft u de taal voor het vertalen van de getranscribeerde tekst in. De waarde is een van de taal-id's van de `text` bereik in het antwoord van de API talen.|query|string|
+|database|(leeg)   |Door komma's gescheiden reeks functies die door de client is geselecteerd. Beschikbare functies zijn onder andere:<ul><li>`TextToSpeech`: Hiermee wordt aangegeven dat de service moet de vertaalde audio van de laatste vertaalde zin houden.</li><li>`Partial`: Hiermee wordt aangegeven dat de service moet tussenliggende herkenningsresultaten terwijl de audio is streaming naar de service.</li><li>`TimingInfo`: Hiermee wordt aangegeven dat de service moet timinginformatie die is gekoppeld aan elke herkenning.</li></ul>Als u bijvoorbeeld een client geeft `features=partial,texttospeech` voor het ontvangen van gedeeltelijke resultaten en tekst naar spraak, maar er zijn geen klokinformatie. Houd er rekening mee dat de laatste resultaten altijd worden gestreamd naar de client.|query|string|
+|Stem|(leeg)|Geeft aan welke stem te gebruiken voor de Text to Speech rendering van de vertaalde tekst. De waarde is een van de stem-id van de scope tts in het antwoord van de API talen. Als een stem is niet opgegeven dat het systeem wordt automatisch een kiezen wanneer de Text to Speech-functie is ingeschakeld.|query|string|
+|Indeling|(leeg)|Hiermee geeft u de indeling van de Text to Speech audiostream geretourneerd door de service. De volgende opties zijn beschikbaar:<ul><li>`audio/wav`: Golf audiostream. Client moet de WAV-header gebruiken om de audio-indeling correct worden geïnterpreteerd. WAV-audio voor tekst naar spraak is 16-bits, één kanaal PCM met een samplefrequentie van 24 of 16kHz.</li><li>`audio/mp3`: Audio MP3-stream.</li></ul>De standaardwaarde is `audio/wav`.|query|string|
+|ProfanityAction    |(leeg)    |Hiermee geeft u op hoe de service profanities herkend in de gesproken tekst moet verwerken. Geldige acties zijn:<ul><li>`NoAction`: Profanities zijn ongewijzigd worden gelaten.</li><li>`Marked`: Profanities vervangen door een markering. Zie `ProfanityMarker` parameter.</li><li>`Deleted`: Profanities worden verwijderd. Bijvoorbeeld, als het woord `"jackass"` wordt beschouwd als een grof taalgebruik, de woordgroep `"He is a jackass."` wordt `"He is a .".`</li></ul>De standaardwaarde is gemarkeerd.|query|string|
+|ProfanityMarker|(leeg)    |Hiermee geeft u op hoe gedetecteerde profanities worden afgehandeld wanneer `ProfanityAction` is ingesteld op `Marked`. Geldige opties zijn:<ul><li>`Asterisk`: Profanities zijn vervangen door de tekenreeks `***`. Bijvoorbeeld, als het woord `"jackass"` wordt beschouwd als een grof taalgebruik, de woordgroep `"He is a jackass."` wordt `"He is a ***.".`</li><li>`Tag`: Grof taalgebruik worden omringd door een grof taalgebruik XML-code. Bijvoorbeeld, als het woord `"jackass"` wordt beschouwd als een grof taalgebruik, de woordgroep `"He is a jackass."` wordt `"He is a <profanity>jackass</profanity>."`.</li></ul>De standaardwaarde is `Asterisk`.|query|string|
+|Autorisatie|(leeg)  |Hiermee geeft u de waarde van het bearer-token van de client. Gebruik het voorvoegsel `Bearer` gevolgd door de waarde van de `access_token` waarde die wordt geretourneerd door de token authentication-service.|koptekst   |string|
+|OCP-Apim-Subscription-Key|(leeg)|Vereist als de `Authorization` -header is niet opgegeven.|koptekst|string|
+|access_token|(leeg)   |Alternatieve manier om door te geven van een geldige OAuth-toegangstoken. Het bearer-token is meestal voorzien van koptekst `Authorization`. Sommige bibliotheken websocket toegestaan clientcode om in te stellen headers niet. In dit geval is, kan de client gebruiken de `access_token` queryparameter om door te geven van een geldig token. Bij het gebruik van een toegangstoken om te verifiëren, als `Authorization` header niet is ingesteld, klikt u vervolgens `access_token` moet worden ingesteld. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd. Clients moeten een methode alleen gebruiken om het token.|query|string|
+|abonnement-sleutel|(leeg)   |Alternatieve manier om door te geven abonnementssleutel. Sommige bibliotheken websocket toegestaan clientcode om in te stellen headers niet. In dit geval is, kan de client gebruiken de `subscription-key` queryparameter om door te geven van een sleutel geldig abonnement. Bij het gebruik van de abonnementssleutel van een om te verifiëren, als `Ocp-Apim-Subscription-Key` header is niet ingesteld, wordt abonnement-sleutel moet worden ingesteld. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd. Clients moeten een methode alleen gebruiken om door te geven de `subscription key`.|query|string|
+|X-ClientTraceId    |(leeg)    |Een client gegenereerde GUID gebruikt voor het traceren van een aanvraag. Voor het juiste oplossen van problemen, moeten clients voorzien van elke aanvraag een nieuwe waarde en aangemeld.<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-ClientTraceId`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|string|
+|X-CorrelationId|(leeg)    |Een client gegenereerde id gebruikt voor het correleren van meerdere kanalen in een gesprek. Meerdere spraak vertaling sessies kunnen worden gemaakt om in te schakelen gesprekken tussen gebruikers. In dergelijke scenario gebruik alle spraak vertaling sessies dezelfde correlatie-ID aan de kanalen met elkaar verbinden. Dit vereenvoudigt het tracering en diagnostische gegevens. De id moet voldoen: `^[a-zA-Z0-9-_.]{1,64}$`<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-CorrelationId`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|string|
+|X-ClientVersion|(leeg)    |Hiermee geeft u de versie van de clienttoepassing. Voorbeeld: '2.1.0.123'.<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-ClientVersion`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|string|
+|X-OsPlatform|(leeg)   |Hiermee geeft u de naam en versie van het besturingssysteem dat op de clienttoepassing wordt uitgevoerd. Voorbeelden: "Android 5.0", 'iOs 8.1.3', ' Windows 8.1 ".<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-OsPlatform`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
 
 |HTTP-statuscode|Reden|Het Reactiemodel|Headers|
 |:--|:--|:--|:--|
-|101    |WebSocket-upgrade.|Voorbeeldwaarde van model <br/> Object {}|X-RequestId<br/>Een waarde van de aanvraag voor het oplossen van problemen te identificeren.<br/>tekenreeks|
+|101    |WebSocket-upgrade.|Voorbeeldwaarde van model <br/> Object {}|X-RequestId<br/>Een waarde van de aanvraag voor het oplossen van problemen te identificeren.<br/>string|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters om ervoor te zorgen dat geldig zijn. Het antwoordobject bevat een gedetailleerde beschrijving van de fout.|||
 |401    |Niet gemachtigd. Zorg ervoor dat referenties zijn ingesteld, of ze geldig zijn en dat uw abonnement op Azure Data markt goede status met een saldo beschikbaar is.|||
 |500    |Er is een fout opgetreden. Als de fout zich blijft voordoen, het rapport met trace-client-id (X-ClientTraceId) of aanvraag-id (X-RequestId).|||

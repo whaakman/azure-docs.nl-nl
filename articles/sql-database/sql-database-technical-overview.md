@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256932"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270005"
 ---
 # <a name="the-azure-sql-database-service"></a>De service Azure SQL Database
 
@@ -60,7 +60,7 @@ Met SQL Database, elke database is geïsoleerd van elkaar en draagbaar, elk met 
 
 Microsoft SQL Database biedt een [op DTU gebaseerd aankoopmodel](sql-database-service-tiers-dtu.md) of het [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
-- Het op DTU gebaseerde aankoopmodel biedt een combinatie van berekenen, geheugen en i/o-resources in drie servicelagen voor lichte tot zware workloads van databases: Basic, Standard en Premium. COMPUTE-grootten in elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
+- Het op DTU gebaseerde aankoopmodel biedt een combinatie van rekenkracht, geheugen en i/o-resources in drie Servicelagen voor lichte tot zware workloads van databases: Basic, Standard en Premium. COMPUTE-grootten in elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
 - Met het op vCore gebaseerde aankoopmodel kunt u het aantal vCores, de hoeveelheid of het geheugen, en de hoeveelheid en de snelheid van de opslag kiezen.
 
 U kunt uw eerste app ontwikkelen op een kleine, één database tegen lage kosten per maand in de categorie Algemeen gebruik-service en wijzig vervolgens de servicelaag handmatig of via een programma op elk gewenst moment in de servicelaag van zakelijke essentieel om te voldoen aan de behoeften van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
@@ -93,9 +93,9 @@ Maar hoe kunt u de relatieve prestaties van individuele databases en elastische 
 
 Daarnaast kan SQL Database [metrische gegevens en diagnostische logboeken verzenden](sql-database-metrics-diag-logging.md) die de bewaking vergemakkelijken. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
 
-- **Azure Storage**: voor het archiveren van grote hoeveelheden telemetriegegevens voor een lage prijs
-- **Azure Event Hub**: voor het integreren van SQL Database-telemetrie in uw eigen bewakingsoplossing of actieve pijplijnen
-- **Azure Log Analytics**: voor een ingebouwde bewakingsoplossing met functionaliteit voor rapportages, waarschuwingen en risicobeperking.
+- **Azure Storage**: Voor het archiveren van grote hoeveelheden telemetriegegevens voor een lage prijs
+- **Azure Event Hub**: Voor het integreren van SQL Database-telemetrie in uw eigen bewakingsoplossing of actieve pijplijnen
+- **Azure Log Analytics**: Voor een ingebouwde bewakingsoplossing met rapportages, waarschuwingen en risicobeperking mogelijkheden.
 
     ![architectuur](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -109,10 +109,10 @@ De toonaangevende serviceovereenkomst [(SLA)](https://azure.microsoft.com/suppor
 - **[Point-in-time-herstelbewerkingen](sql-database-recovery-using-backups.md)**:
 
   SQL Database ondersteunt herstel naar ieder bepaald tijdstip dankzij de automatische bewaarperiode voor back-up.
-- **[Actieve geo-replicatie](sql-database-geo-replication-overview.md)**:
+- **[Actieve geo-replicatie](sql-database-active-geo-replication.md)**:
 
   SQL-Database kunt u maximaal vier leesbare secundaire databases configureren in ofwel de dezelfde of een wereldwijd gedistribueerde Azure-datacenters.  Als u bijvoorbeeld een SaaS-toepassing hebt met een catalogusdatabase met een groot volume aan gelijktijdige alleen-lezen transacties, kunt u actieve geo-replicatie gebruiken om het lezen wereldwijd te schalen en knelpunten weg te nemen die ontstaan door de lees-workloads op de primaire database.
-- **[Failover-groepen](sql-database-geo-replication-overview.md)**:
+- **[Automatische failovergroepen](sql-database-auto-failover-group.md)**:
 
   SQL-Database kunt u hoge beschikbaarheid en taakverdeling op wereldwijde schaal, inclusief transparante geo-replicatie en failover van omvangrijke sets databases en elastische pools. Dankzij failover-groepen en actieve geo-replicatie kunt u wereldwijd gedistribueerde SaaS-toepassingen maken met een minimale overhead aan beheer, doordat u alle complexe bewaking, routering en failover-indeling overlaat aan SQL Database.
 - **[Zone-redundante databases](sql-database-high-availability.md)**:
@@ -135,8 +135,8 @@ Veel van onze partners die [multitenant SaaS-apps](sql-database-design-patterns-
 
 Er zijn twee automatisch afstemmingsmethoden [in SQL Database](sql-database-automatic-tuning.md):
 
-- **Automatisch indexbeheer**: hiermee worden indexen geïdentificeerd die moeten worden toegevoegd aan of verwijderd uit uw database.
-- **Automatische abonnementcorrectie**: hiermee worden abonnementen met problemen geïdentificeerd en prestatieproblemen met SQL-abonnementen opgelost (binnenkort beschikbaar, nu al beschikbaar in SQL Server 2017).
+- **Automatisch indexbeheer**: Hiermee worden indexen geïdentificeerd die moeten worden toegevoegd in uw database indexen die moeten worden verwijderd.
+- **Automatische abonnementcorrectie**: Identificeert worden abonnementen met problemen geïdentificeerd en prestatieproblemen SQL-abonnementen opgelost (binnenkort beschikbaar, al beschikbaar in SQL Server 2017).
 
 ### <a name="adaptive-query-processing"></a>Verwerking van adaptieve query’s
 
@@ -197,11 +197,11 @@ SQL Database ondersteunt het maken van toepassingen met Python, Java, Node.js, P
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Contact met het technische team van SQL Server
 
-- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): stel hier uw vragen over databasebeheer
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): stel hier uw vragen over ontwikkeling
-- [MSDN-forums](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): stel hier uw technische vragen
-- [Feedback](https://aka.ms/sqlfeedback): hier kunt u bugs rapporteren en functies aanvragen
-- [Reddit](https://www.reddit.com/r/SQLServer/): vragen en antwoorden voor SQL Server
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Stel vragen over databasebeheer
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Stel vragen over ontwikkeling
+- [MSDN-Forums](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Technische vragen
+- [Feedback](https://aka.ms/sqlfeedback): Rapporteer bugs en functies aanvragen
+- [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server bespreken
 
 ## <a name="next-steps"></a>Volgende stappen
 

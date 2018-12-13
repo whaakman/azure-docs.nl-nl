@@ -1,7 +1,7 @@
 ---
-title: Externe compute-doelen instellen voor automatische ML
+title: Geautomatiseerde ML externe compute-doelen
 titleSuffix: Azure Machine Learning service
-description: In dit artikel wordt uitgelegd hoe u modellen met behulp van geautomatiseerde machine learning op een Data Science Virtual machine (DSVM) externe compute-doel met Azure Machine Learning-service bouwen
+description: Informatie over het bouwen van modellen met behulp van geautomatiseerde machine learning op een Data Science Virtual machine (DSVM) externe compute-doel met Azure Machine Learning-service
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e8761b0671de38e7934df56847a5d0a7eafd3649
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 18b2b3df2748392b12b60517604478b120871754
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097701"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256057"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Trainen van modellen met geautomatiseerde machine learning in de cloud
 
@@ -41,7 +41,7 @@ ws = Workspace.from_config()
 
 De DSVM maakt in uw werkruimte (`ws`) als deze nog niet bestaat. Als de DSVM is eerder hebt gemaakt, deze code wordt overgeslagen het proces voor het maken en laadt de details van de bestaande resource in de `dsvm_compute` object.  
 
-**Geschatte tijd**: het maken van de virtuele machine duurt ongeveer 5 minuten.
+**Geschatte tijd**: Het maken van de virtuele machine duurt ongeveer 5 minuten.
 
 ```python
 from azureml.core.compute import DsvmCompute
@@ -250,12 +250,12 @@ Logboeken zoeken op de DSVM onder `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 Uitleg bij modelgegevens ophalen, kunt u gedetailleerde informatie over de implementatiemodellen transparantie in wat wordt uitgevoerd op de back-end te vergroten. In dit voorbeeld moet u uitleg over model alleen voor de beste passend model uitvoeren. Als u voor alle modellen in de pijplijn uitvoert, wordt dit aanzienlijke uitvoeringstijd leiden. Modelgegevens uitleg bevat:
 
-* shape_values: de uitleg over gegevens die worden gegenereerd door de shape lib
-* expected_values: de verwachte waarde van het model voor het instellen van X_train gegevens toegepast.
-* overall_summary: de waarden van model level functie belang in aflopende volgorde gesorteerd
-* overall: de onderdeelnamen die is gesorteerd in dezelfde volgorde als in overall_summary
-* per_class_summary: de klasse niveau functie belang waarden in aflopende volgorde gesorteerd. Alleen beschikbaar voor het geval van classificatie
-* per_class: de onderdeelnamen die in dezelfde volgorde als in per_class_summary gesorteerd. Alleen beschikbaar voor het geval van classificatie
+* shap_values: De uitleg over gegevens die worden gegenereerd door de shapegegevens lib
+* expected_values: De verwachte waarde van het model voor het instellen van X_train gegevens toegepast.
+* overall_summary: Het model level functie belang waarden in aflopende volgorde gesorteerd
+* overall: De functienamen van de in dezelfde volgorde als in overall_summary gesorteerd
+* per_class_summary: De klasse niveau functie belang waarden in aflopende volgorde gesorteerd. Alleen beschikbaar voor het geval van classificatie
+* per_class: De functienamen in dezelfde volgorde als in per_class_summary gesorteerd. Alleen beschikbaar voor het geval van classificatie
 
 Gebruik de volgende code om te selecteren van de beste pijplijn uit uw iteraties. De `get_output` methode retourneert de beste uitvoering en het model voor de laatste aanroep past.
 
@@ -268,7 +268,7 @@ Importeren van de `retrieve_model_explanation` functioneren en worden uitgevoerd
 ```python
 from azureml.train.automl.automlexplainer import retrieve_model_explanation
 
-shape_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
+shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
     retrieve_model_explanation(best_run)
 ```
 

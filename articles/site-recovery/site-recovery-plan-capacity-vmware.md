@@ -4,15 +4,15 @@ description: Dit artikel om de capaciteit plannen en schaal gebruiken bij het in
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: nisoneji
-ms.openlocfilehash: 2d418282120ee24a5b5492c18593165fba2c6c12
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: f724837e8cce733680b98a5df5690e6a8dfbf6ee
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839412"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258845"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Plannen van capaciteit en schaalbaarheid voor noodherstel van VMware naar Azure
 
@@ -26,7 +26,7 @@ Informatie verzamelen over uw replicatieomgeving door het uitvoeren van de [Azur
 
 **Onderdeel** | **Details** |
 --- | --- | ---
-**Replicatie** | **Maximale dagelijkse veranderingssnelheid:** een beveiligde virtuele machine kan alleen een processerver gebruiken en een één processerver kan verwerken een dagelijkse wijziging beoordelen tot 2 TB. 2 TB is dus dat de maximale dagelijkse veranderingssnelheid van gegevens die wordt ondersteund voor een beveiligde machine.<br/><br/> **Maximale doorvoer:** een gerepliceerde machine kan deel uitmaken van een opslagaccount in Azure. Een standard storage-account kan een maximum van 20.000 aanvragen per seconde verwerken, en het is raadzaam het aantal i/o-bewerkingen per seconde (IOPS) te behouden tussen een broncomputer 20.000. Bijvoorbeeld, als u een bronmachine met 5 schijven, en elke schijf 120 IOPS (8 kB grootte) op de broncomputer genereert, is klikt u vervolgens het binnen de door Azure per schijf-IOPS-limiet van 500. (Het aantal vereiste opslagaccounts voor is gelijk aan de totale bronmachine IOP's, gedeeld door 20.000.)
+**Replicatie** | **Maximale dagelijkse veranderingssnelheid:** Een beveiligde virtuele machine kan alleen een processerver gebruiken en een één processerver kan verwerken een dagelijkse wijziging beoordelen tot 2 TB. 2 TB is dus dat de maximale dagelijkse veranderingssnelheid van gegevens die wordt ondersteund voor een beveiligde machine.<br/><br/> **Maximale doorvoer:** Een gerepliceerde machine kan deel uitmaken van een opslagaccount in Azure. Een standard storage-account kan een maximum van 20.000 aanvragen per seconde verwerken, en het is raadzaam het aantal i/o-bewerkingen per seconde (IOPS) te behouden tussen een broncomputer 20.000. Bijvoorbeeld, als u een bronmachine met 5 schijven, en elke schijf 120 IOPS (8 kB grootte) op de broncomputer genereert, is klikt u vervolgens het binnen de door Azure per schijf-IOPS-limiet van 500. (Het aantal vereiste opslagaccounts voor is gelijk aan de totale bronmachine IOP's, gedeeld door 20.000.)
 **Configuratieserver** | De configuratieserver moet kunnen zijn voor het afhandelen van het dagelijkse tarief capaciteit voor wijzigen voor alle workloads die worden uitgevoerd op beveiligde machines en moet voldoende bandbreedte continu om gegevens te repliceren naar Azure Storage.<br/><br/> Als een best practice, zoekt u de configuratieserver op hetzelfde netwerk- en LAN-segment als de machines die u wilt beveiligen. Deze kan zich bevinden op een ander netwerk, maar machines die u wilt beveiligen moet zichtbaarheid van laag-3-netwerk toe.<br/><br/> Aanbevelingen voor de grootte voor de configuratieserver worden samengevat in de tabel in de volgende sectie.
 **Processerver** | De eerste processerver is standaard geïnstalleerd op de configuratieserver. U kunt extra processervers om te schalen van uw omgeving kunt implementeren. <br/><br/> De processerver ontvangt replicatiegegevens van beveiligde machines en optimaliseert met caching, compressie en codering. Vervolgens verzendt de gegevens naar Azure. De proces-server-machine moet voldoende bronnen zijn voor deze taken uitvoeren.<br/><br/> De processerver maakt gebruik van een cache op basis van een schijf. Gebruik een afzonderlijke cacheschijf 600 GB of meer om gegevenswijzigingen die zijn opgeslagen in het geval van een knelpunt netwerk of een storing te verwerken.
 
@@ -74,14 +74,14 @@ De manier waarop u uw servers schalen, is afhankelijk van uw voorkeur voor een s
 
 Nadat u hebt gebruikt de [het hulpprogramma Deployment Planner](site-recovery-deployment-planner.md) voor het berekenen van de bandbreedte die u nodig hebt voor replicatie (initiële replicatie en klikt u vervolgens delta), kunt u de hoeveelheid bandbreedte die wordt gebruikt voor replicatie met behulp van een aantal opties beheren:
 
-* **Bandbreedte beperken**: VMware-verkeer dat wordt gerepliceerd naar Azure, verloopt via een specifiek proces-server. U kunt de bandbreedte op de machines die worden uitgevoerd als processervers beperken.
+* **Bandbreedte beperken**: VMware-verkeer dat wordt gerepliceerd naar Azure wordt gerouteerd via een specifiek proces. U kunt de bandbreedte op de machines die worden uitgevoerd als processervers beperken.
 * **Bandbreedte van invloed zijn op**: U kunt de bandbreedte die wordt gebruikt voor replicatie via diverse registersleutels beïnvloeden:
   * De **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** registerwaarde Hiermee geeft u het aantal threads die worden gebruikt voor gegevensoverdracht (initiële replicatie of deltareplicatie) van een schijf. Hoe hoger de waarde, hoe meer netwerkbandbreedte er voor replicatie wordt gebruikt.
   * De **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** Hiermee geeft u het aantal threads die worden gebruikt voor gegevensoverdracht tijdens een failback.
 
 ### <a name="throttle-bandwidth"></a>Bandbreedte beperken
 
-1. Open de Azure Backup MMC-module op de computer die fungeert als de processerver. Een snelkoppeling voor back-up is standaard beschikbaar zijn op het bureaublad of in de volgende map: C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+1. Open de Azure Backup MMC-module op de computer die fungeert als de processerver. Een snelkoppeling voor back-up is standaard beschikbaar zijn op het bureaublad of in de volgende map: C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
 2. Klik in de module op **Eigenschappen wijzigen**.
 
     ![Schermopname van Azure Backup MMC-module optie voor het wijzigen van eigenschappen](./media/site-recovery-vmware-to-azure/throttle1.png)

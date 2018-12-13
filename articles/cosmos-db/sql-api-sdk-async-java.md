@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: fadefe09f9f744fabe0f0f3f3cb519b3abb50b41
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 635eb1d373867d238c570c805943df4fe29da1b3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098880"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253609"
 ---
-# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: releaseopmerkingen en resources
+# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -45,7 +45,7 @@ De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door
 
 <tr><td>**Voorbeeld van code**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 
-<tr><td>**Tips voor prestaties**</td><td>[Github Leesmij-bestand](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
+<tr><td>**Tips voor prestaties**</td><td>[GitHub Leesmij-bestand](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
 <tr><td>**Minimaal ondersteunde runtime**</td><td>[JDK 8](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
@@ -63,7 +63,7 @@ De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Een NFE opgelost in het pad voor schrijven probeer het opnieuw.
 * Eindpunt management, een bug NFE vast.
-* Kwetsbaar afhankelijkheden bijgewerkt ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Kwetsbaar afhankelijkheden bijgewerkt ([GitHub #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
 * Ondersteuning toegevoegd voor Netty netwerk logboekregistratie voor het oplossen van problemen.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
@@ -72,16 +72,16 @@ De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Er is ondersteuning toegevoegd voor de Proxy.
 * Ondersteuning toegevoegd voor bronautorisatie token.
-* Een probleem opgelost in grote partitiesleutels verwerken ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* Een probleem opgelost in grote partitiesleutels verwerken ([GitHub #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
 * Documentatie is verbeterd.
 * De SDK is geherstructureerd in gedetailleerdere modules.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
-* Een probleem opgelost voor niet-Engelse landinstellingen ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Een probleem opgelost voor niet-Engelse landinstellingen ([GitHub #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
 * Toegevoegde helpermethoden in Conflict Resource.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* Org.json afhankelijkheid vervangen door jackson vanwege prestatieredenen en licentieverlening ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Org.json afhankelijkheid vervangen door jackson vanwege prestatieredenen en licentieverlening ([GitHub #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
 * Afgeschafte OfferV2 klasse is verwijderd.
 * Toegevoegde accessor-methode voor het aanbod klasse voor de inhoud van de doorvoer.
 * Een methode in Document/Resource org.json typen gewijzigd om terug te keren een jackson objecttype retourneren.
@@ -94,18 +94,18 @@ De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door
 * Er is ondersteuning toegevoegd voor de unieke Index beleid.
 * Ondersteuning toegevoegd voor het beperken van de reactie voortzetting van token grootte in de opties voor invoer.
 * Ondersteuning toegevoegd voor partitie splitsen in meerdere Partitiequery.
-* Een probleem opgelost in Json-serialisatie voor tijdstempel ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Een probleem opgelost in Json-serialisatie voor tijdstempel ([GitHub #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
 * Een bug opgelost in Json-serialisatie voor enum.
-* Een probleem opgelost bij het beheren van documenten van de grootte van 2MB ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
-* Afhankelijkheid com.fasterxml.jackson.core:jackson-databind bijgewerkt naar 2.9.5 vanwege een fout ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
-* Afhankelijkheid van een upgrade uitgevoerd naar 0.8.0.17 vanwege een bug rxjava-extra's ([rxjava extra: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* Een probleem opgelost bij het beheren van documenten van de grootte van 2MB ([GitHub #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Afhankelijkheid com.fasterxml.jackson.core:jackson-databind bijgewerkt naar 2.9.5 vanwege een fout ([jackson databind: GitHub #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Afhankelijkheid van een upgrade uitgevoerd naar 0.8.0.17 vanwege een bug rxjava-extra's ([rxjava-extra's: GitHub #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
 * De beschrijving van de metagegevens in het pom-bestand bijgewerkt in verband met inline met de rest van documentatie zijn.
-* Syntaxis van de gebruikerservaring ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+* Syntaxis van de gebruikerservaring ([GitHub #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([GitHub #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Toegevoegde ondersteuning voor back-druk in de query.
 * Ondersteuning toegevoegd voor partitie-id sleutelbereik in de query.
-* Oplossing voor het toestaan van grotere vervolgtoken in de aanvraagheader (bugfix github #24).
+* Oplossing voor het toestaan van grotere vervolgtoken in de aanvraagheader (bugfix GitHub # 24 uur per dag).
 * Een upgrade uitgevoerd naar 4.1.22.Final om ervoor te zorgen JVM-netty afhankelijkheid afgesloten nadat de hoofdthread is voltooid.
 * Om te voorkomen dat sessietoken wordt doorgegeven bij het lezen van de master-resources oplossen.
 * Meer voorbeelden toegevoegd.

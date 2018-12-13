@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 60d19f6d598c6090e0dc00c61817a0f8aed35003
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889494"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273932"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
@@ -109,7 +109,7 @@ U kunt optimaliseren of verwijderen van query's met betrekking tot de clerks met
 
 U kunt ook de werkbelasting beperken door optimaliseren of te verdelen over meerdere databases. Of u uw werkbelasting tussen meerdere databases kunt verdelen. Als deze oplossingen niet mogelijk is, kunt u overwegen de prijscategorie van uw SQL database-abonnement te verhogen van de hoeveelheid geheugenresources beschikbaar zijn voor de database te verhogen.
 
-Zie voor meer suggesties voor probleemoplossing, [geheugen verleent meditation: de verwarrende SQL Server-geheugen consument met veel namen](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Zie voor meer suggesties voor probleemoplossing, [geheugen verleent meditation: De verwarrende SQL Server-geheugen consument met veel namen](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Vergrendelen
 
@@ -227,7 +227,7 @@ Dit patroon detecteerbare prestaties geeft aan dat de prestatieniveau van een da
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
-De logboekbestanden met diagnostische gegevens levert tempDB conflicten details. Gebruik de informatie als startpunt voor het oplossen van problemen. Er zijn twee dingen die u voor het verlichten van dit soort conflicten en verhoogt de doorvoer van de algemene workload kunt voortzetten: U kunt stoppen met behulp van de tijdelijke tabellen. U kunt ook tabellen geoptimaliseerd voor geheugen gebruiken. 
+De logboekbestanden met diagnostische gegevens levert tempDB conflicten details. Gebruik de informatie als startpunt voor het oplossen van problemen. Er zijn twee dingen die u kunt een om te verlichten van dit soort conflicten en verhoogt de doorvoer van de algemene workload: U kunt stoppen met behulp van de tijdelijke tabellen. U kunt ook tabellen geoptimaliseerd voor geheugen gebruiken. 
 
 Zie voor meer informatie, [Inleiding tot tabellen geoptimaliseerd voor geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 

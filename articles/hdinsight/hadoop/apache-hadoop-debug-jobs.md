@@ -1,5 +1,5 @@
 ---
-title: 'Fouten opsporen in Apache Hadoop in HDInsight: logboekbestanden weergeven en interpreteer foutberichten - Azure '
+title: 'Fouten opsporen in een Apache Hadoop: Logboekbestanden weergeven en interpreteer foutberichten - Azure HDInsight'
 description: Meer informatie over de foutberichten die u mogelijk ontvangt bij het beheren van HDInsight met behulp van PowerShell en de stappen die u kunt nemen om te herstellen.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: c997b2644be3798629afce6d826c53b1d9492597
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d52a9411863962528eb0693f735ca0c4ee4c9991
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017011"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166503"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop-logboeken analyseren
 
@@ -72,7 +72,7 @@ Power Query kan worden geïnstalleerd vanaf [Microsoft Power Query voor Excel](h
    
     ![HDInsight Hadoop-logboeken die zijn opgeslagen in Azure Table storage](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. Met de rechtermuisknop op de tabel hadoopservicelog in de **Navigator** deelvenster en selecteer **bewerken**. Vier kolommen wordt weergegeven. Verwijder desgewenst, de **partitiesleutel**, **rijsleutel**, en **Timestamp** kolommen door ze te selecteren en vervolgens te klikken op **kolommen verwijderen** uit de opties in het lint.
-6. Klik op het uitvouwpictogram in de kolom inhoud om te kiezen van de kolommen die u wilt importeren in de Excel-spreadsheet. Voor deze demonstratie, ik heb geselecteerd TraceLevel en ComponentName: geeft me basisinformatie op te geven waarop onderdelen problemen had.
+6. Klik op het uitvouwpictogram in de kolom inhoud om te kiezen van de kolommen die u wilt importeren in de Excel-spreadsheet. Ik heb geselecteerd voor deze demonstratie TraceLevel en ComponentName: Geeft me basisinformatie op te geven waarop onderdelen problemen had.
    
     ![HDInsight Hadoop-logboeken kiezen kolommen](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
 7. Klik op **OK** om de gegevens te importeren.
@@ -132,27 +132,27 @@ De foutberichten die is gespecificeerd in deze sectie vindt u aan zodat de gebru
 Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als deze wordt gebruikt voor het beheren van HDInsight-clusters. Andere foutberichten die mogelijk optreden, maar er zijn minder gedetailleerd vanwege de beperkingen met betrekking tot de corrigerende acties mogelijk in deze context. Andere foutberichten vindt u in de context waarin de risicobeperking duidelijk is. 
 
 ### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
-* **Beschrijving**: Geef de details van de Azure SQL database voor ten minste één onderdeel om te kunnen gebruiken van aangepaste instellingen voor Hive en Oozie metastores.
-* **Risicobeperking**: de gebruiker moet een geldige SQL Azure-metastore opgeven en de aanvraag opnieuw proberen.  
+* **Beschrijving**: Geef informatie over de Azure SQL database voor ten minste één onderdeel om te kunnen gebruiken van aangepaste instellingen voor Hive en Oozie metastores.
+* **Risicobeperking**: De gebruiker moet een geldige SQL Azure-metastore opgeven en de aanvraag opnieuw proberen.  
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
-* **Beschrijving**: kan geen cluster maken in de regio *nameOfYourRegion*. Gebruik een geldige HDInsight-regio en de aanvraag opnieuw proberen.
-* **Risicobeperking**: klant moet maken van het cluster de regio die momenteel worden ondersteund: Zuidoost-Azië, West-Europa, Noord-Europa, VS-Oost of VS-West.  
+* **Beschrijving**: Kan geen cluster maken in de regio *nameOfYourRegion*. Gebruik een geldige HDInsight-regio en de aanvraag opnieuw proberen.
+* **Risicobeperking**: Klant moet maken van het cluster de regio die momenteel worden ondersteund: Zuidoost-Azië, West-Europa, Noord-Europa, VS-Oost of VS-West.  
 
 ### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
-* **Beschrijving**: de server kan de aangevraagde cluster-record niet vinden.  
-* **Risicobeperking**: Voer de bewerking opnieuw uit.
+* **Beschrijving**: De server kan de aangevraagde cluster-record niet vinden.  
+* **Risicobeperking**: De bewerking opnieuw proberen.
 
 ### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
 * **Beschrijving**: Cluster DNS-naam *yourDnsName* is ongeldig. Controleer of de naam begint en eindigt met alfanumerieke tekens en mag alleen '-' speciaal teken  
 * **Risicobeperking**: Zorg ervoor dat u een geldige DNS-naam hebt gebruikt voor het cluster dat begint en eindigt met alfanumerieke tekens en bevat geen speciale tekens dan het streepje '-' en voer de bewerking vervolgens opnieuw uit.
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
-* **Beschrijving**: de naam van Cluster *yourClusterName* is niet beschikbaar. Kies een andere naam.  
-* **Risicobeperking**: de gebruiker moet opgeven van een clusternaam die uniek is en niet bestaat en probeer het opnieuw. Als de gebruiker via de Portal, de gebruikersinterface wordt ze hierover te informeren als de naam van een cluster al wordt gebruikt tijdens de stappen maken.
+* **Beschrijving**: De naam van cluster *yourClusterName* is niet beschikbaar. Kies een andere naam.  
+* **Risicobeperking**: De gebruiker moet opgeven van een clusternaam die uniek is en niet bestaat en probeer het opnieuw. Als de gebruiker via de Portal, de gebruikersinterface wordt ze hierover te informeren als de naam van een cluster al wordt gebruikt tijdens de stappen maken.
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
-* **Beschrijving**: Cluster-wachtwoord is ongeldig. Wachtwoord moet ten minste 10 tekens lang zijn en moet ten minste één cijfer, hoofdletter, kleine letter en speciaal teken zonder spaties bevatten en mag niet de gebruikersnaam als onderdeel hiervan.  
+* **Beschrijving**: Wachtwoord voor het cluster is ongeldig. Wachtwoord moet ten minste 10 tekens lang zijn en moet ten minste één cijfer, hoofdletter, kleine letter en speciaal teken zonder spaties bevatten en mag niet de gebruikersnaam als onderdeel hiervan.  
 * **Risicobeperking**: Geef een geldig clusterwachtwoord op en probeer het opnieuw.
 
 ### <a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
@@ -164,151 +164,151 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 * **Risicobeperking**: Geef een geldige gebruikersnaam van de DNS-cluster en voer de bewerking opnieuw uit.
 
 ### <a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
-* **Beschrijving**: de naam van de Container in URI *yourcontainerURI* en DNS-naam *yourDnsName* in de aanvraag hoofdtekst moet hetzelfde zijn.  
-* **Risicobeperking**: Zorg ervoor dat de naam van de container en uw DNS-naam hetzelfde zijn, en voer de bewerking opnieuw uit.
+* **Beschrijving**: De containernaam van de in URI *yourcontainerURI* en DNS-naam *yourDnsName* in de aanvraag hoofdtekst moet hetzelfde zijn.  
+* **Risicobeperking**: Zorg ervoor dat de naam van de container en uw DNS-naam hetzelfde zijn, en probeer het opnieuw.
 
 ### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
-* **Beschrijving**: ongeldige clusterconfiguratie. Kan niet alle gegevens Knooppuntdefinities in de grootte van knooppunt vinden.  
-* **Risicobeperking**: Voer de bewerking opnieuw uit.
+* **Beschrijving**: Ongeldige clusterconfiguratie. Kan niet alle gegevens Knooppuntdefinities in de grootte van knooppunt vinden.  
+* **Risicobeperking**: De bewerking opnieuw proberen.
 
 ### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
-* **Beschrijving**: verwijderen van de implementatie is mislukt voor het Cluster  
-* **Risicobeperking**: opnieuw proberen te verwijderen.
+* **Beschrijving**: Verwijderen van de implementatie is mislukt voor het Cluster  
+* **Risicobeperking**: Opnieuw proberen te verwijderen.
 
 ### <a id="DnsMappingNotFound"></a>DnsMappingNotFound
-* **Beschrijving**: fout in de configuratie-Service. Vereiste DNS-toewijzingsgegevens niet gevonden.  
-* **Risicobeperking**: cluster verwijderen en een nieuw cluster maken.
+* **Beschrijving**: Fout bij het configureren van de service. Vereiste DNS-toewijzingsgegevens niet gevonden.  
+* **Risicobeperking**: Cluster verwijderen en een nieuw cluster maken.
 
 ### <a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
-* **Beschrijving**: dubbele cluster container maken-poging. Record bestaat voor *nameOfYourContainer* maar Etags komen niet overeen.
+* **Beschrijving**: Poging om dubbele cluster container maken. Record bestaat voor *nameOfYourContainer* maar Etags komen niet overeen.
 * **Risicobeperking**: Geef een unieke naam voor de container en probeer het opnieuw maken.
 
 ### <a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
-* **Beschrijving**: gehoste service *nameOfYourHostedService* bevat al een cluster. Een gehoste service kan niet meerdere clusters bevatten  
-* **Risicobeperking**: het cluster in een andere gehoste service hosten.
+* **Beschrijving**: De gehoste service *nameOfYourHostedService* bevat al een cluster. Een gehoste service kan niet meerdere clusters bevatten  
+* **Risicobeperking**: Het cluster in een andere gehoste service hosten.
 
 ### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
-* **Beschrijving**: de server kan de status van de implementatie van het cluster niet bijwerken.  
-* **Risicobeperking**: Voer de bewerking opnieuw uit. Als dit herhaaldelijk gebeurt, moet u contact op met CSS.
+* **Beschrijving**: De server kan de status van de implementatie van het cluster niet bijwerken.  
+* **Risicobeperking**: De bewerking opnieuw proberen. Als dit herhaaldelijk gebeurt, moet u contact op met CSS.
 
 ### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
 * **Beschrijving**: Cluster *yourClusterName* is verwijderd als onderdeel van onderhoud. Maak een nieuwe het cluster.
 * **Risicobeperking**: Maak het cluster opnieuw.
 
 ### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
-* **Beschrijving**: ongeldige clusterconfiguratie. De configuratie van de vereiste hoofdknooppunt is niet gevonden in de grootte van.
-* **Risicobeperking**: Voer de bewerking opnieuw uit.
+* **Beschrijving**: Ongeldige clusterconfiguratie. De configuratie van de vereiste hoofdknooppunt is niet gevonden in de grootte van.
+* **Risicobeperking**: De bewerking opnieuw proberen.
 
 ### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
-* **Beschrijving**: kan niet worden gemaakt van de gehoste service *nameOfYourHostedService*. Probeer de aanvraag.  
-* **Risicobeperking**: de aanvraag opnieuw.
+* **Beschrijving**: Kan niet worden gemaakt van de gehoste service *nameOfYourHostedService*. Probeer de aanvraag.  
+* **Risicobeperking**: De aanvraag opnieuw.
 
 ### <a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
-* **Beschrijving**: gehoste Service *nameOfYourHostedService* heeft al een productie-implementatie. Een gehoste service kan niet meerdere productie-implementaties bevatten. De aanvraag met een andere clusternaam op opnieuw proberen.
-* **Risicobeperking**: gebruik een andere clusternaam op en probeer de aanvraag opnieuw.
+* **Beschrijving**: De gehoste Service *nameOfYourHostedService* heeft al een productie-implementatie. Een gehoste service kan niet meerdere productie-implementaties bevatten. De aanvraag met een andere clusternaam op opnieuw proberen.
+* **Risicobeperking**: Gebruik een andere clusternaam op en probeer de aanvraag opnieuw.
 
 ### <a id="HostedServiceNotFound"></a>HostedServiceNotFound
-* **Beschrijving**: gehoste Service *nameOfYourHostedService* voor het cluster kan niet worden gevonden.  
-* **Risicobeperking**: als het cluster zich in de foutstatus, verwijderen en probeer het vervolgens opnieuw.
+* **Beschrijving**: De gehoste Service *nameOfYourHostedService* voor het cluster kan niet worden gevonden.  
+* **Risicobeperking**: Als het cluster zich in de foutstatus, verwijderen en probeer het vervolgens opnieuw.
 
 ### <a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
-* **Beschrijving**: gehoste Service *nameOfYourHostedService* heeft geen gekoppelde implementatie.  
-* **Risicobeperking**: als het cluster zich in de foutstatus, verwijderen en probeer het vervolgens opnieuw.
+* **Beschrijving**: De gehoste Service *nameOfYourHostedService* heeft geen gekoppelde implementatie.  
+* **Risicobeperking**: Als het cluster zich in de foutstatus, verwijderen en probeer het vervolgens opnieuw.
 
 ### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
-* **Beschrijving**: de abonnements-id *yourSubscriptionId* heeft geen kerngeheugens links-cluster maakt *yourClusterName*. Vereist: *resourcesRequired*, beschikbaar: *resourcesAvailable*.  
-* **Risicobeperking**: resources in uw abonnement vrij te maken of de beschikbare resources voor het abonnement te verhogen en probeer het opnieuw maken van het cluster.
+* **Beschrijving**: De abonnements-id *yourSubscriptionId* heeft geen kerngeheugens links-cluster maakt *yourClusterName*. Vereist: *resourcesRequired*, beschikbaar: *resourcesAvailable*.  
+* **Risicobeperking**: Resources in uw abonnement vrij te maken of de beschikbare resources voor het abonnement te verhogen en probeer het opnieuw maken van het cluster.
 
 ### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
-* **Beschrijving**: abonnements-ID *yourSubscriptionId* heeft geen quota voor een nieuwe HostedService cluster maken *yourClusterName*.  
-* **Risicobeperking**: resources in uw abonnement vrij te maken of de beschikbare resources voor het abonnement te verhogen en probeer het opnieuw maken van het cluster.
+* **Beschrijving**: Abonnements-ID *yourSubscriptionId* heeft geen quota voor een nieuwe HostedService cluster maken *yourClusterName*.  
+* **Risicobeperking**: Resources in uw abonnement vrij te maken of de beschikbare resources voor het abonnement te verhogen en probeer het opnieuw maken van het cluster.
 
 ### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
-* **Beschrijving**: de server heeft een interne fout. Probeer de aanvraag.  
-* **Risicobeperking**: de aanvraag opnieuw.
+* **Beschrijving**: Er is een interne fout opgetreden op de server. Probeer de aanvraag.  
+* **Risicobeperking**: De aanvraag opnieuw.
 
 ### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
-* **Beschrijving**: Azure-opslaglocatie *dataRegionName* is geen geldige locatie. Controleer of dat de regio juist is en de aanvraag opnieuw proberen.
+* **Beschrijving**: Azure Storage-locatie *dataRegionName* is geen geldige locatie. Controleer of dat de regio juist is en de aanvraag opnieuw proberen.
 * **Risicobeperking**: Selecteer een locatie voor de opslag die ondersteuning biedt voor HDInsight, Controleer of het cluster CO-locatie is en probeer het opnieuw.
 
 ### <a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
-* **Beschrijving**: ongeldige VM-grootte voor gegevensknooppunten. Alleen de grootte van de grote virtuele machine wordt ondersteund voor alle gegevensknooppunten.  
-* **Risicobeperking**: Geef de grootte van het ondersteunde knooppunt voor het gegevensknooppunt en probeer het opnieuw.
+* **Beschrijving**: Ongeldige VM-grootte voor gegevensknooppunten. Alleen de grootte van de grote virtuele machine wordt ondersteund voor alle gegevensknooppunten.  
+* **Risicobeperking**: Geef de knooppuntgrootte van de ondersteunde voor op het gegevensknooppunt en voer de bewerking opnieuw uit.
 
 ### <a id="InvalidNodeSizeForHeadNode"></a>InvalidNodeSizeForHeadNode
-* **Beschrijving**: ongeldige VM-grootte voor het hoofdknooppunt. Alleen 'zijn VM-grootte wordt ondersteund voor het hoofdknooppunt.  
+* **Beschrijving**: Ongeldige VM-grootte voor het hoofdknooppunt. Alleen 'zijn VM-grootte wordt ondersteund voor het hoofdknooppunt.  
 * **Risicobeperking**: Geef de grootte van het ondersteunde knooppunt voor het hoofdknooppunt en probeer het opnieuw
 
 ### <a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
-* **Beschrijving**: abonnements-ID *yourSubscriptionId* gebruikte heeft geen voldoende machtigingen voor het uitvoeren van de verwijderbewerking voor cluster *yourClusterName*.  
-* **Risicobeperking**: als het cluster zich in de foutstatus, zet het neer en probeer het opnieuw.  
+* **Beschrijving**: Abonnements-ID *yourSubscriptionId* gebruikte heeft geen voldoende machtigingen voor het uitvoeren van de verwijderbewerking voor cluster *yourClusterName*.  
+* **Risicobeperking**: Als het cluster zich in de foutstatus, zet het neer in en probeer het opnieuw.  
 
 ### <a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
-* **Beschrijving**: naam van de externe opslag account blob-container *yourContainerName* is ongeldig. Zorg ervoor dat de naam begint met een letter en bevat alleen kleine letters, cijfers en streepjes.  
+* **Beschrijving**: Naam van de externe opslag account blob-container *yourContainerName* is ongeldig. Zorg ervoor dat de naam begint met een letter en bevat alleen kleine letters, cijfers en streepjes.  
 * **Risicobeperking**: Geef een geldige blob-container op en probeer het opnieuw.
 
 ### <a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
-* **Beschrijving**: configuratie voor het externe opslagaccount *yourStorageAccountName* is vereist om details van de geheime sleutel moet worden ingesteld.  
+* **Beschrijving**: Configuratie voor het externe opslagaccount *yourStorageAccountName* is vereist om details van de geheime sleutel moet worden ingesteld.  
 * **Risicobeperking**: Geef een geldige geheime sleutel voor het opslagaccount en voer de bewerking opnieuw uit.
 
 ### <a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
 * **Beschrijving**: Version-kopwaarde *yourVersionHeader* is geen geldige notatie jjjj-mm-dd.  
-* **Risicobeperking**: Geef een geldige indeling voor de versie-header en de aanvraag opnieuw proberen.
+* **Risicobeperking**: Geef een geldige indeling voor de versie-header en probeer de aanvraag.
 
 ### <a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
-* **Beschrijving**: ongeldige clusterconfiguratie. Configuratie van meer dan één hoofdknooppunt gevonden.  
-* **Risicobeperking**: de configuratie te bewerken, zodat deze slechts één hoofdknooppunt is opgegeven.
+* **Beschrijving**: Ongeldige clusterconfiguratie. Configuratie van meer dan één hoofdknooppunt gevonden.  
+* **Risicobeperking**: De configuratie wijzigen zodat deze slechts één hoofdknooppunt is opgegeven.
 
 ### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
-* **Beschrijving**: de bewerking kan niet worden voltooid binnen de toegestane tijd of het maximale aantal nieuwe pogingen probeert mogelijk. Probeer de aanvraag.  
-* **Risicobeperking**: de aanvraag opnieuw.
+* **Beschrijving**: De bewerking kan niet worden voltooid binnen de toegestane tijd of het maximaal aantal nieuwe pogingen mogelijk. Probeer de aanvraag.  
+* **Risicobeperking**: De aanvraag opnieuw.
 
 ### <a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
 * **Beschrijving**: Parameter *yourParameterName* mag niet null of leeg zijn.  
 * **Risicobeperking**: Geef een geldige waarde voor de parameter.
 
 ### <a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
-* **Beschrijving**: een of meer van de cluster-invoer voor het maken van aanvraag is niet geldig. Zorg ervoor dat de ingevoerde waarden correct zijn en de aanvraag opnieuw proberen.  
+* **Beschrijving**: Een of meer van de cluster-invoer voor het maken van aanvraag is niet geldig. Zorg ervoor dat de ingevoerde waarden correct zijn en de aanvraag opnieuw proberen.  
 * **Risicobeperking**: Zorg ervoor dat de ingevoerde waarden correct zijn en de aanvraag opnieuw proberen.
 
 ### <a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
-* **Beschrijving**: regio mogelijkheid niet beschikbaar voor de regio *yourRegionName* en abonnements-ID *yourSubscriptionId*.  
-* **Risicobeperking**: een regio te selecteren die ondersteuning biedt voor HDInsight-clusters. De openbaar ondersteunde regio's zijn: Zuidoost-Azië, West-Europa, Noord-Europa, VS-Oost of VS-West.
+* **Beschrijving**: Mogelijkheid van de regio niet beschikbaar voor de regio *yourRegionName* en abonnements-ID *yourSubscriptionId*.  
+* **Risicobeperking**: Geef een regio die ondersteuning biedt voor HDInsight-clusters. De openbaar ondersteunde regio's zijn: Zuidoost-Azië, West-Europa, Noord-Europa, VS-Oost of VS-West.
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 * **Beschrijving**: Storage-account *yourStorageAccountName* is in de regio *currentRegionName*. Deze moet gelijk zijn aan het cluster de regio *yourClusterRegionName*.  
-* **Risicobeperking**: Geef een opslagaccount in dezelfde regio waarin het cluster zich bevindt of als uw gegevens zich al in de storage-account, een nieuw cluster maken in dezelfde regio als het bestaande storage-account. Als u van de Portal gebruikmaakt, wordt de gebruikersinterface van dit probleem vooraf kennis.
+* **Risicobeperking**: Geef een opslagaccount in dezelfde regio als uw cluster zich in of als uw gegevens zich al in de storage-account, een nieuw cluster maken in dezelfde regio als het bestaande storage-account. Als u van de Portal gebruikmaakt, wordt de gebruikersinterface van dit probleem vooraf kennis.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
-* **Beschrijving**: de abonnements-ID opgegeven *yourSubscriptionId* is niet actief.  
-* **Risicobeperking**: uw abonnement opnieuw activeren of een nieuw geldig abonnement.
+* **Beschrijving**: Abonnements-ID opgegeven *yourSubscriptionId* is niet actief.  
+* **Risicobeperking**: Uw abonnement opnieuw activeren op of maak een nieuw geldig abonnement.
 
 ### <a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
-* **Beschrijving**: abonnements-ID *yourSubscriptionId* kan niet worden gevonden.  
+* **Beschrijving**: Abonnements-ID *yourSubscriptionId* kan niet worden gevonden.  
 * **Risicobeperking**: Controleer of uw abonnements-ID geldig is en probeer het opnieuw.
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
-* **Beschrijving**: kan niet worden omgezet DNS *yourDnsUrl*. Controleer of dat de volledig gekwalificeerde URL voor de blobeindpunt is opgegeven.  
+* **Beschrijving**: Kan niet worden omgezet DNS *yourDnsUrl*. Controleer of dat de volledig gekwalificeerde URL voor de blobeindpunt is opgegeven.  
 * **Risicobeperking**: Geef een geldige blob-URL. De URL moet worden volledig geldig is, met inbegrip van beginnen met *http://* en eindigt op *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
-* **Beschrijving**: kan niet verifiëren van de locatie van de resource *yourDnsUrl*. Controleer of dat de volledig gekwalificeerde URL voor de blobeindpunt is opgegeven.  
+* **Beschrijving**: Kan niet verifiëren van de locatie van de resource *yourDnsUrl*. Controleer of dat de volledig gekwalificeerde URL voor de blobeindpunt is opgegeven.  
 * **Risicobeperking**: Geef een geldige blob-URL. De URL moet worden volledig geldig is, met inbegrip van beginnen met *http://* en eindigt op *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
-* **Beschrijving**: versie mogelijkheid niet beschikbaar zijn voor versie *specifiedVersion* en abonnements-ID *yourSubscriptionId*.  
+* **Beschrijving**: Versie-mogelijkheid is niet beschikbaar zijn voor versie *specifiedVersion* en abonnements-ID *yourSubscriptionId*.  
 * **Risicobeperking**: Kies een versie die beschikbaar is en probeer het opnieuw.
 
 ### <a id="VersionNotSupported"></a>VersionNotSupported
-* **Beschrijving**: versie *specifiedVersion* niet ondersteund.
+* **Beschrijving**: Versie *specifiedVersion* niet ondersteund.
 * **Risicobeperking**: Kies een versie die wordt ondersteund en probeer het opnieuw.
 
 ### <a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
-* **Beschrijving**: versie *specifiedVersion* is niet beschikbaar in Azure-regio *specifiedRegion*.  
+* **Beschrijving**: Versie *specifiedVersion* is niet beschikbaar in Azure-regio *specifiedRegion*.  
 * **Risicobeperking**: Kies een versie die wordt ondersteund in de regio die is opgegeven en probeer het opnieuw.
 
 ### <a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
-* **Beschrijving**: ongeldige clusterconfiguratie. Vereiste WASB-accountconfiguratie niet gevonden in externe accounts.  
+* **Beschrijving**: Ongeldige clusterconfiguratie. Vereiste WASB-accountconfiguratie niet gevonden in externe accounts.  
 * **Risicobeperking**: Controleer of het account bestaat en correct is opgegeven in configuratie en probeer het opnieuw.
 
 ## <a name="next-steps"></a>Volgende stappen

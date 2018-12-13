@@ -1,5 +1,5 @@
 ---
-title: Een app in Azure herstellen
+title: App - Azure App Service herstellen
 description: Leer hoe u uw app terugzetten vanuit een back-up.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 69e0e8282ee0b8503fe11a57b8ba6037247822dd
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.custom: seodec18
+ms.openlocfilehash: 603a6bab75c4a5da4425bcc57d2cc5ccda728636
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160498"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274116"
 ---
 # <a name="restore-an-app-in-azure"></a>Een app in Azure herstellen
 Dit artikel leest u hoe u een app in herstellen [Azure App Service](../app-service/app-service-web-overview.md) die u eerder hebt back-up (Zie [maakt u een Back-up van uw app in Azure](web-sites-backup.md)). U kunt uw app met de daaraan gekoppelde databases op verzoek herstellen naar een vorige versie, of een nieuwe app maken op basis van back-ups van uw oorspronkelijke app. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
@@ -91,7 +92,7 @@ U kunt back-upbeheer met scripts automatiseren met behulp van de [Azure CLI](/cl
 Zie voor voorbeelden:
 
 - [Azure CLI-voorbeelden](app-service-cli-samples.md)
-- [Azure PowerShell-voorbeelden](app-service-powershell-samples.md)
+- [Voorbeelden van Azure PowerShell](app-service-powershell-samples.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: fe854c6a33a950f9f937118b6048d547f1a2fe37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 63eb5f39d5ac8ba6c92a2b500766bc538959595c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245763"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274187"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure-waarschuwingen op gebeurtenissen voor migreren naar waarschuwingen voor activiteitenlogboek
 
@@ -92,18 +92,18 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 
 Elke waarschuwing wordt gescheiden door een gestreepte lijn en details omvatten de resource-ID van de waarschuwing en de specifieke regel die worden bewaakt.
 
-Deze functionaliteit is overgegaan naar [waarschuwingen voor activiteitenlogboeken Azure Monitor](monitoring-activity-log-alerts.md). Deze nieuwe waarschuwingen kunnen u een voorwaarde instellen op gebeurtenissen in activiteitenlogboeken en een melding ontvangen wanneer een nieuwe gebeurtenis overeenkomt met de voorwaarde. Ze bieden ook verschillende verbeteringen van waarschuwingen over gebeurtenissen:
-* U kunt uw groep geadresseerden voor meldingen ('acties') opnieuw gebruiken voor veel waarschuwingen via [actiegroepen](monitoring-action-groups.md), waardoor de complexiteit van het wijzigen van wie een waarschuwing moet ontvangen.
+Deze functionaliteit is overgegaan naar [waarschuwingen voor activiteitenlogboeken Azure Monitor](../azure-monitor/platform/activity-log-alerts.md). Deze nieuwe waarschuwingen kunnen u een voorwaarde instellen op gebeurtenissen in activiteitenlogboeken en een melding ontvangen wanneer een nieuwe gebeurtenis overeenkomt met de voorwaarde. Ze bieden ook verschillende verbeteringen van waarschuwingen over gebeurtenissen:
+* U kunt uw groep geadresseerden voor meldingen ('acties') opnieuw gebruiken voor veel waarschuwingen via [actiegroepen](../azure-monitor/platform/action-groups.md), waardoor de complexiteit van het wijzigen van wie een waarschuwing moet ontvangen.
 * U kunt een melding ontvangen rechtstreeks op uw telefoon met SMS met Actiegroepen.
-* U kunt [waarschuwingen voor activiteitenlogboeken maken met Resource Manager-sjablonen](alert-activity-log.md).
+* U kunt [waarschuwingen voor activiteitenlogboeken maken met Resource Manager-sjablonen](../azure-monitor/platform/alerts-activity-log.md).
 * U kunt voorwaarden maken met grotere flexibiliteit en complexiteit om te voldoen aan uw specifieke behoeften.
 * Meldingen worden sneller geleverd.
  
 ## <a name="how-to-migrate"></a>Migreren
  
 Voor het maken van een nieuwe activiteit Log waarschuwing, kunt u:
-* Ga als volgt [onze handleiding voor het maken van een waarschuwing in Azure portal](monitoring-activity-log-alerts.md)
-* Meer informatie over het [een waarschuwing met behulp van Resource Manager-sjabloon maken](alert-activity-log.md)
+* Ga als volgt [onze handleiding voor het maken van een waarschuwing in Azure portal](../azure-monitor/platform/activity-log-alerts.md)
+* Meer informatie over het [een waarschuwing met behulp van Resource Manager-sjabloon maken](../azure-monitor/platform/alerts-activity-log.md)
  
 Waarschuwingen over gebeurtenissen voor dat u eerder hebt gemaakt wordt niet automatisch worden gemigreerd naar waarschuwingen voor activiteitenlogboeken. U moet de voorgaande PowerShell-script gebruiken om de waarschuwingen op gebeurtenissen voor dat u momenteel hebt geconfigureerd en deze handmatig opnieuw als waarschuwingen voor activiteitenlogboeken maken weergeven. Dit moet worden uitgevoerd vóór 1 oktober, waarna waarschuwingen over gebeurtenissen niet langer zichtbaar is in uw Azure-abonnement. Andere typen waarschuwingen van Azure, met inbegrip van Azure Monitor metrische waarschuwingen, Application Insights-waarschuwingen en Log Analytics-waarschuwingen worden niet beïnvloed door deze wijziging. Als u vragen hebt, kunt u boeken in de opmerkingen hieronder.
 
@@ -111,8 +111,8 @@ Waarschuwingen over gebeurtenissen voor dat u eerder hebt gemaakt wordt niet aut
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [activiteitenlogboek](monitoring-overview-activity-logs.md)
-* Configureer [waarschuwingen voor activiteitenlogboeken via Azure portal](monitoring-activity-log-alerts.md)
-* Configureer [waarschuwingen voor activiteitenlogboeken via Resource Manager](alert-activity-log.md)
-* Controleer de [activiteit log waarschuwing webhook-schema](monitoring-activity-log-alerts-webhook.md)
+* Configureer [waarschuwingen voor activiteitenlogboeken via Azure portal](../azure-monitor/platform/activity-log-alerts.md)
+* Configureer [waarschuwingen voor activiteitenlogboeken via Resource Manager](../azure-monitor/platform/alerts-activity-log.md)
+* Controleer de [activiteit log waarschuwing webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Meer informatie over [servicemeldingen](monitoring-service-notifications.md)
-* Meer informatie over [actiegroepen](monitoring-action-groups.md)
+* Meer informatie over [actiegroepen](../azure-monitor/platform/action-groups.md)

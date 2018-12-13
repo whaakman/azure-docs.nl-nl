@@ -1,7 +1,7 @@
 ---
-title: Bing afbeeldingen zoeken-API voor afbeeldingen, GIF - ophalen
+title: Zoeken naar GIF-afbeeldingen met behulp van de Bing afbeeldingen zoeken-API
 titleSuffix: Azure Cognitive Services
-description: Het gebruik van de Bing afbeeldingen zoeken-API voor meer informatie over GIF-afbeeldingen.
+description: De Bing afbeeldingen zoeken-API gebruiken om te zoeken naar GIF-afbeeldingen op Internet.
 services: cognitive-services
 author: MikeDodaro
 manager: cgronlun
@@ -10,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 82a096ccc1ead9bfb542663ae193539fc227c1fb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.custom: seodec2018
+ms.openlocfilehash: 7536452d3ed0030b34e4f30deba56d6d8ae1957c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870244"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249308"
 ---
-# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>Zoeken naar GIF-afbeeldingen met behulp van de Bing afbeeldingen zoeken-API
+# <a name="search-for-gif-images"></a>GIF-afbeeldingen zoeken 
 
-De Bing afbeeldingen zoeken-API kunt u ook over de hele Web voor de meest relevante GIF-afbeeldingen zoeken.  Ontwikkelaars kunnen aantrekkelijke GIF-bestanden in verschillende scenario's voor conversatie integreren. 
+De Bing afbeeldingen zoeken-API kunt u ook over de hele Web voor de meest relevante GIF-afbeeldingen zoeken.  Ontwikkelaars kunnen aantrekkelijke GIF-bestanden in verschillende scenario's voor conversatie integreren. 
 
 De volgende URL is een query voor GIF-animaties.
 ````
@@ -206,5 +207,5 @@ De code wordt de volgende resultaten als JSON-objecten:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Snelstartgids voor C#](quickstarts/csharp.md)
+- [Snelstart voor C#](quickstarts/csharp.md)
 - [Zelfstudie afbeeldingen zoeken-toepassing voor één pagina](tutorial-bing-image-search-single-page-app.md)

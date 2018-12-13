@@ -1,6 +1,6 @@
 ---
-title: Facet filters in Azure Search | Microsoft Docs
-description: Filtercriteria door gebruiker beveiligings-id, taal, geografische locatie of numerieke waarden te verminderen zoekresultaten op query's in Azure Search, een gehoste cloud search-service op Microsoft Azure.
+title: Facetfilters om de zoeknavigatie te in apps - Azure Search
+description: Filtercriteria door gebruiker beveiligings-id, geo-locatie of numerieke waarden te verminderen van de zoekresultaten op query's in Azure Search, een gehoste cloud search-service op Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,35 +8,36 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3f2cfea52d3c3f4bfc75364d0662a4218219152d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792406"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314802"
 ---
-# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Het bouwen van een filter facet in Azure Search 
+# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Over het bouwen van een filter facet in Azure Search 
 
-Meervoudige navigatie wordt gebruikt voor te filteren op de resultaten van de query in een zoekopdracht-app, waarbij de toepassing biedt UI-besturingselementen voor bereik zoeken op groepen van documenten (bijvoorbeeld categorieën of merken) en Azure Search biedt de structuur van de gegevens back-de ervaring. In dit artikel, controleert u snel de basisstappen voor het maken van een back-ups maken van de zoekfunctie die u wilt bieden meervoudige navigatie-structuur. 
+Meervoudige navigatie wordt gebruikt voor zelfgestuurd filteren op de resultaten van de query in een app zoeken, waarbij uw toepassing biedt UI-besturingselementen voor scoping zoeken naar groepen van documenten (bijvoorbeeld, categorieën of merken) en Azure Search biedt de gegevensstructuur voor de back-ups maken de ervaring. In dit artikel de basisstappen voor het maken van een facetnavigatiestructuur back-ups maken van de zoekervaring die u wilt bieden snel te controleren. 
 
 > [!div class="checklist"]
-> * Kies de velden voor het filteren en facetten
-> * Kenmerken instellen op het veld
-> * De index en gegevens laden bouwen
-> * Facet filters toevoegen aan een query
-> * Resultaten verwerken
+> * Kies de velden voor het filteren en op meerdere niveaus
+> * Kenmerken in het veld instellen
+> * Bouw de index en gegevens laden
+> * Facetfilters toevoegen aan een query
+> * Resultaten worden gestuurd
 
-Facetten zijn dynamisch en geretourneerde van een query. Zoekresultaten doen om met hen de facetcategorieën gebruikt om de resultaten te bladeren. Als u niet bekend bent met facetten, is het volgende voorbeeld een afbeelding van een facetnavigatiestructuur.
+Facetten zijn dynamisch en geretourneerd in een query. De reacties op webzoekopdrachten doen om met hen de facetcategorieën gebruikt om te navigeren van de resultaten. Als u niet bekend bent met de facetten, is het volgende voorbeeld een afbeelding van een facetnavigatiestructuur.
 
   ![](./media/search-filters-facets/facet-nav.png)
 
-Nieuw voor meervoudige navigatie en wilt meer informatie? Zie [facetnavigatie implementeren in Azure Search](search-faceted-navigation.md).
+Nieuw voor meervoudige navigatie en u meer informatie? Zie [facetnavigatie implementeren in Azure Search](search-faceted-navigation.md).
 
 ## <a name="choose-fields"></a>Velden kiezen
 
-Facetten kunnen via één waardevelden, alsmede verzamelingen worden berekend. Velden die het beste werkt voor meervoudige navigatie hebben lage kardinaliteit: een klein aantal afzonderlijke waarden die in de gehele documenten in uw zoekopdracht corpus (bijvoorbeeld, een lijst met kleuren, landen of merken) worden herhaald. 
+Facetten kunnen worden berekend voor één waardevelden, evenals de verzamelingen. Velden die het beste in facetnavigatie werken hebben lage kardinaliteit: een klein aantal afzonderlijke waarden die in de gehele documenten in uw zoekverzameling (bijvoorbeeld een lijst met kleuren, landen of merknamen) worden herhaald. 
 
-Facetten is ingeschakeld op basis van veld wanneer u de index maken door de volgende kenmerken in te stellen op TRUE: `filterable`, `facetable`. Alleen filterbare velden kunnen als facet worden gebruikt.
+Op meerdere niveaus op basis van de door veld is ingeschakeld wanneer u de index maken met de volgende kenmerken instellen op TRUE: `filterable`, `facetable`. Alleen filterbare velden kunnen als facet worden gebruikt.
 
 Alle [veldtype](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) die mogelijk worden gebruikt in meervoudige navigatie is gemarkeerd als 'geschikt voor facetten':
 
@@ -44,18 +45,18 @@ Alle [veldtype](https://docs.microsoft.com/rest/api/searchservice/supported-data
 + Edm.DateTimeOffset
 + Edm.Boolean
 + Edm.Collections
-+ Numerieke veldtypen: Edm.Int32, Edm.Int64, Edm.Double
++ Numeriek veldtypen: Edm.Int32, Edm.Int64, Edm.Double
 
-U kunt Edm.GeographyPoint niet gebruiken in meervoudige navigatie. Facetten zijn samengesteld uit menselijke leesbare tekst of cijfers. Als zodanig worden facetten niet ondersteund voor de geo-coördinaten. U moet een veld of regio aan facet per locatie.
+U kunt Edm.GeographyPoint in meervoudige navigatie gebruiken. Facetten zijn samengesteld uit menselijke leesbare tekst of cijfers. Facetten zijn daarom niet ondersteund voor geo-coördinaten. U moet een stad of regio veld facet per locatie.
 
 ## <a name="set-attributes"></a>Kenmerken instellen
 
-Indexkenmerken die bepalen hoe een veld wordt gebruikt, worden toegevoegd aan afzonderlijke velddefinities in de index. In het volgende voorbeeld velden met een lage kardinaliteit nuttig voor facetten, bestaan uit: categorie (hotel, motel, hostel), faciliteiten en classificaties. 
+Indexkenmerken die bepalen hoe een veld wordt gebruikt, worden toegevoegd aan afzonderlijke velddefinities in de index. In het volgende voorbeeld wordt de velden met een lage kardinaliteit, nuttig voor facetten, bestaan uit: categorie (hotel, motel, hostel), faciliteiten en classificaties. 
 
-In de .NET API moeten filterkenmerken expliciet worden ingesteld. In de REST-API worden facetten en filteren ingeschakeld standaard, wat betekent dat u hoeft alleen de kenmerken expliciet zijn ingesteld dat als u deze wilt uit te schakelen. Hoewel dit niet technisch vereist is, weergegeven we de afschrijvingen in het volgende voorbeeld van de REST voor educatieve doeleinden. 
+Filterkenmerken moeten expliciet worden ingesteld in de .NET-API. In de REST-API, onderverdeling en filteren van standaard, wat betekent dat u hoeft alleen de kenmerken van expliciet instellen dat als u wilt uitschakelen ingeschakeld. Maar dit geen technisch vereist is, laten we zien de afschrijvingen in het volgende voorbeeld van de REST voor educatieve doeleinden. 
 
 > [!Tip]
-> Als een best practice voor prestaties en opslagoptimalisatie uitschakelen facetten voor velden die nooit mogen worden gebruikt als een beperkingsfacet. In het bijzonder tekenreeksvelden voor singleton-waarden, zoals een naam-ID of product moeten worden ingesteld op 'Geschikt voor facetten': ONWAAR om te voorkomen dat hun onbedoeld (en ongeschikt) gebruiken in meervoudige navigatie.
+> Als een best practice voor prestaties en opslagoptimalisatie van uitschakelen op meerdere niveaus voor velden die moeten nooit worden gebruikt als een facet. In het bijzonder tekenreeksvelden voor singleton-waarden, zoals een naam-ID of product moeten worden ingesteld op "Geschikt voor facetten": false om te voorkomen dat hun per ongeluk niet effectief gebruiken () in meervoudige navigatie.
 
 
 ```http
@@ -79,15 +80,15 @@ In de .NET API moeten filterkenmerken expliciet worden ingesteld. In de REST-API
 ```
 
 > [!Note]
-> De definitie van de index is gekopieerd uit [een Azure Search index maken met de REST-API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Het is identiek zijn, met uitzondering van minder belangrijke verschillen in de velddefinities. Kenmerken Filterbaar en geschikt voor facetten worden expliciet op categorie, tags, parkingIncluded, smokingAllowed en classificatievelden toegevoegd. In de praktijk, krijgt u Filterbaar en geschikt voor facetten voor op Edm.String Edm.Boolean en Edm.Int32 veldtypen vrij. 
+> Deze definitie van de index wordt opgehaald uit [maken van een Azure Search-index met behulp van de REST-API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Het is vrijwel identiek, met uitzondering van minder belangrijke verschillen in de velddefinities. Kenmerken filteren mogelijk en geschikt voor facetten worden expliciet op categorie, labels, parkingIncluded, smokingAllowed en classificatievelden toegevoegd. U krijgt Filterbaar en geschikt voor facetten voor gratis op Edm.String Edm.Boolean en Edm.Int32 veldtypen in de praktijk. 
 
-## <a name="build-and-load-an-index"></a>Opbouwen en laden van een index
+## <a name="build-and-load-an-index"></a>Bouw en een index laden
 
-Een stap tussenliggende (en mogelijk duidelijk) is die u hebt voor [bouwen en de index te vullen](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) voordat u een query formuleren. We deze stap voor de volledigheid worden vermeld. Een manier om te bepalen of de index beschikbaar is, is door het controleren van de lijst van de indexen de [portal](https://portal.azure.com).
+Een stap tussenliggende (en mogelijk voor de hand liggende) is die u hebt voor [bouwen en de index te vullen](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) voordat u een query te formuleren. We deze stap voor de volledigheid worden vermeld. Een manier om te bepalen of de index beschikbaar is, is door het controleren van de lijst indexen de [portal](https://portal.azure.com).
 
-## <a name="add-facet-filters-to-a-query"></a>Facet filters toevoegen aan een query
+## <a name="add-facet-filters-to-a-query"></a>Facetfilters toevoegen aan een query
 
-In de toepassingscode, maakt u een query waarmee alle onderdelen van een geldige query, zoals zoeken expressies, facetten, filters, score berekenen profielen – iets gebruikt voor een aanvraag formuleren. Het volgende voorbeeld wordt een aanvraag die facet navigatie op basis van het type accommodatie, beoordeling en andere faciliteiten worden gemaakt.
+In de code van de toepassing, een query waarmee alle onderdelen van een geldige query, met inbegrip van uitdrukkingen zoeken, facetten, filters, score profielen – iets gebruikt voor het formuleren van een aanvraag te maken. Het volgende voorbeeld wordt een aanvraag die facet navigatie op basis van het type accommodatie, beoordeling en andere faciliteiten worden gemaakt.
 
 ```csharp
 SearchParameters sp = new SearchParameters()
@@ -100,31 +101,31 @@ SearchParameters sp = new SearchParameters()
 
 ### <a name="return-filtered-results-on-click-events"></a>Gefilterde resultaten op klikt u op gebeurtenissen
 
-De filterexpressie verwerkt de gebeurtenis click van de facetwaarde van. Een categorie-beperkingsfacet opgegeven, te klikken op de categorie 'motel' wordt geïmplementeerd via een `$filter` expressie die aanpassingen van dat type selecteert. Wanneer een gebruiker op 'motels' om aan te geven dat alleen motels moeten worden weergegeven, de volgende query de toepassing verzendt bevat een $filter = categorie eq 'motels'.
+De filterexpressie verwerkt de gebeurtenis click van de facetwaarde. Een categorie-facet opgegeven, te klikken op de categorie "motel" wordt geïmplementeerd via een `$filter` expressie die faciliteiten van dat type selecteert. Wanneer een gebruiker op 'motels' om aan te geven dat alleen motels moeten worden weergegeven, de volgende query die de toepassing verzendt $filter bevat = categorie eq 'motels'.
 
-Als een gebruiker een waarde in de categorie-facet selecteert, het volgende codefragment categorie toegevoegd aan het filter.
+Het volgende codefragment wordt categorie aan het filter toegevoegd als een gebruiker een waarde in de categorie-facet selecteert.
 
 ```csharp
 if (categoryFacet != "")
   filter = "category eq '" + categoryFacet + "'";
 ```
-Met de REST API, zou de aanvraag worden gelede als `$filter=category eq 'c1'`. Als u een veld meerdere waarden maken categorie, gebruikt u de volgende syntaxis: `$filter=category/any(c: c eq 'c1')`
+Met behulp van de REST-API, de aanvraag zou worden gelede als `$filter=category eq 'c1'`. Categorie een veld meerdere waarden maken, gebruiken de volgende syntaxis: `$filter=category/any(c: c eq 'c1')`
 
 ## <a name="tips-and-workarounds"></a>Tips en tijdelijke oplossingen
 
-### <a name="initialize-a-page-with-facets-in-place"></a>Initialiseren van een pagina met facetten die zijn geïmplementeerd
+### <a name="initialize-a-page-with-facets-in-place"></a>Een pagina met de facetten erin initialiseren
 
-Als u initialiseren van een pagina met facetten die zijn geïmplementeerd wilt, kunt u een query als onderdeel van de initialisatie van de pagina naar de pagina met de structuur van een initiële facet seed verzenden.
+Als u een pagina met de facetten erin initialiseren wilt, kunt u een query als onderdeel van de initialisatie van de pagina seeding van de pagina met de structuur van een eerste facet te verzenden.
 
 ### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Een facetnavigatiestructuur asynchroon van gefilterde resultaten behouden
 
-Een van de uitdagingen met facet navigatie in Azure Search is dat facetten bestaan voor de huidige resultaten alleen. In de praktijk wordt het meestal een vaste set van facetten behouden, zodat de gebruiker in omgekeerde volgorde navigeren kan, nalopen stappen uit om te verkennen alternatieve paden via zoeken in de inhoud. 
+Een van de uitdagingen met facet navigatie in Azure Search is dat facetten voor de huidige resultaten alleen bestaat. In de praktijk is het gebruikelijk dat een vaste set facetten behouden, zodat de gebruiker in omgekeerde volgorde navigeren kan, nalopen stappen voor het alternatieve pad in zoeken in de inhoud te verkennen. 
 
-Hoewel dit een algemene gebruiksvoorbeeld is, is het niet iets de facetnavigatiestructuur biedt momenteel out-of-the-box. Ontwikkelaars willen statische facetten doorgaans de beperking omzeilen door uitgifte van twee gefilterde query's: één binnen het bereik van de resultaten, de andere gebruikt voor het maken van een statische lijst met facetten voor navigatie doeleinden.
+Hoewel dit een gebruikelijk is, is het niet iets dat de facetnavigatiestructuur biedt momenteel out-of-the-box. Ontwikkelaars die statische facetten doorgaans willen de beperking omzeilen door uitgifte van twee gefilterde query's: één binnen het bereik van de resultaten, de andere gebruikt voor het maken van een statische lijst facetten voor navigatie doeleinden.
 
 ## <a name="see-also"></a>Zie ook
 
 + [Filters in Azure Search](search-filters.md)
 + [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [REST-API documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [REST-API voor Search-documenten](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

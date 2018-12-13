@@ -4,21 +4,20 @@ description: Een afdrukbaar machine learning-overzichtskaart helpt u bij de juis
 keywords: overzichtskaart algoritmen, referentiemateriaal voor, machine learning-algoritme
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 307a2d442fc8cf82630b111b6ea73e180c740c64
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 7ddc3a9829dc05ac1c1df450091789e4cad2b2f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307407"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274500"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-overzichtskaart voor Azure Machine Learning Studio
 
@@ -26,11 +25,11 @@ De **Azure Machine Learning Algorithm Cheat Sheet** helpt u bij het kiezen van h
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) heeft een grote bibliotheek met algoritmen van de ***regressie***, ***classificatie***, ***clustering***, en  ***detectie van afwijkingen*** families. Elk is erop gericht om een ander type machine learning-probleem.
 
-## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Download: Machine learning-overzichtskaart algoritmen
+## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Downloaden: Machine learning-overzichtskaart algoritmen
 
-**Het referentiemateriaal voor hier downloaden: [Machine Learning Algorithm Cheat blad (11 x 17.)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+**Het referentiemateriaal voor hier downloaden: [Machine Learning-overzichtskaart (11 x 17.)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Machine learning-overzichtskaart: meer informatie over het kiezen van een Machine Learning-algoritme.][cheat-sheet]
+![Machine learning-overzichtskaart algoritmen: Leer hoe u een Machine Learning-algoritme kiezen.][cheat-sheet]
 
 [cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
@@ -43,7 +42,7 @@ Downloaden en afdrukken van het Machine Learning Studio-algoritme referentiemate
 
 * De aangeboden in deze overzichtskaart suggesties zijn bij benadering regels van de miniatuur. Sommige kunt worden verbogen en sommige flagrantly kunt worden geschonden. Dit is bedoeld om een beginpunt voorstellen. Wees niet bang voor het uitvoeren van een man competitie tussen verschillende algoritmen voor uw gegevens. Er is gewoon geen vervanging voor informatie over de beginselen van elk algoritme en inzicht in het systeem dat uw gegevens gegenereerd.
 
-* Elke machine learning-algoritme heeft een eigen stijl of *inductieve vertekening*. Verschillende algoritmen is wellicht beter voor een specifiek probleem, en één algoritme mogelijk beter geschikt dan andere. Maar het is niet altijd mogelijk tevoren weten wat het meest geschikt is. In dergelijke gevallen worden verschillende algoritmes samen weergegeven in het referentiemateriaal voor. Een geschikte strategie zou worden omgezet naar één algoritme, en als de resultaten nog niet voldoende zijn, probeer de andere. Hier volgt een voorbeeld van de [Azure AI Gallery](http://gallery.azure.ai/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [vergelijken ROC classificaties: Letter erkenning](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+* Elke machine learning-algoritme heeft een eigen stijl of *inductieve vertekening*. Verschillende algoritmen is wellicht beter voor een specifiek probleem, en één algoritme mogelijk beter geschikt dan andere. Maar het is niet altijd mogelijk tevoren weten wat het meest geschikt is. In dergelijke gevallen worden verschillende algoritmes samen weergegeven in het referentiemateriaal voor. Een geschikte strategie zou worden omgezet naar één algoritme, en als de resultaten nog niet voldoende zijn, probeer de andere. Hier volgt een voorbeeld van de [Azure AI Gallery](http://gallery.azure.ai/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [Vergelijk ROC classificaties: Herkenning letter](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 * Er zijn drie hoofdcategorieën van machine learning: **onder supervisie learning**, **leren zonder supervisie**, en **bekrachtigingen**.
 
@@ -73,7 +72,7 @@ Downloaden en afdrukken van het Machine Learning Studio-algoritme referentiemate
 
 * Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <!-- Module References -->
 [a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list

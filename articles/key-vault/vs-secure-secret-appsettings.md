@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625450"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252090"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Geheime toepassingsinstellingen voor een webtoepassing veilig opslaan
 
 ## <a name="overview"></a>Overzicht
 In dit artikel wordt beschreven hoe u veilig opslaan geheime toepassing configuratie-instellingen voor Azure-toepassingen.
 
-Alle webservers traditioneel Toepassingsconfiguratie instellingen worden opgeslagen in de configuratiebestanden zoals Web.config. Met deze procedure leidt tot het inchecken van geheime instellingen zoals cloudreferenties naar openbare bronbeheersystemen zoals Github. Ondertussen kan het lastig zijn om te volgen best practice bij beveiliging wordt vanwege de overhead vereist voor het wijzigen van de broncode en opnieuw configureren van instellingen voor het ontwikkelen.
+Alle webservers traditioneel Toepassingsconfiguratie instellingen worden opgeslagen in de configuratiebestanden zoals Web.config. Met deze procedure leidt tot het inchecken van geheime instellingen zoals cloudreferenties naar openbare bronbeheersystemen zoals GitHub. Ondertussen kan het lastig zijn om te volgen best practice bij beveiliging wordt vanwege de overhead vereist voor het wijzigen van de broncode en opnieuw configureren van instellingen voor het ontwikkelen.
 
 Hulpprogramma's en framework-bibliotheken worden om er zeker van te zijn ontwikkelingsproces is beveiligd, om op te slaan geheime toepassingsinstellingen veilig met minimale of geen wijziging in de code gegevensbron gemaakt.
 

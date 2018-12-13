@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: f7d1b5774e41761c7c332b0b38371979ca9d30cd
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 1283f84b4a45f5eedc98e6b16e5277e5347be1a4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679678"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270243"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS Protection Standard met behulp van de Azure-portal beheren
 
@@ -43,7 +43,7 @@ Het maken van meer dan één abonnement is niet vereist voor de meeste organisat
 
     |Instelling        |Waarde                                              |
     |---------      |---------                                          |
-    |Naam           | myDdosProtectionPlan                              |
+    |Name           | myDdosProtectionPlan                              |
     |Abonnement   | Selecteer uw abonnement.                         |
     |Resourcegroep | Selecteer **nieuw** en voer *myResourceGroup* |
     |Locatie       | US - oost                                           |
@@ -97,7 +97,7 @@ Kunt u een van de beschikbare DDoS protection metrische gegevens om u te waarsch
 
     |Instelling                  |Waarde                                                                                               |
     |---------                |---------                                                                                           |
-    |Naam                     | myDdosAlert                                                                                        |
+    |Name                     | myDdosAlert                                                                                        |
     |Abonnement             | Selecteer het abonnement dat u meldingen wilt ontvangen voor het openbare IP-adres bevat.        |
     |Resourcegroep           | Selecteer de resourcegroep die u meldingen wilt ontvangen voor het openbare IP-adres bevat.      |
     |Resource                 | Selecteer het openbare IP-adres dat u meldingen wilt ontvangen voor het openbare IP-adres bevat. DDoS bewaakt openbare IP-adressen toegewezen aan bronnen binnen een virtueel netwerk. Als u niet alle resources met openbare IP-adressen in het virtuele netwerk hebt, moet u eerst een resource maken met een openbaar IP-adres. U kunt het openbare IP-adres van alle resources die zijn geïmplementeerd via Resource Manager (niet klassiek) die worden vermeld in bewaken [virtueel netwerk voor Azure-services](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), met uitzondering van Azure App Service-omgevingen en Azure VPN-Gateway. Als u wilt doorgaan met deze zelfstudie, kunt u snel maken een [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machine.                   |
@@ -114,7 +114,7 @@ Kunt u een van de beschikbare DDoS protection metrische gegevens om u te waarsch
 
 Als u wilt een DDoS-aanval voor het valideren van de waarschuwing simuleren, Zie [valideren DDoS detectie](#validate-ddos-detection).
 
-U kunt ook meer informatie over [configureren van webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [logische apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor het maken van waarschuwingen.
+U kunt ook meer informatie over [configureren van webhooks](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [logische apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor het maken van waarschuwingen.
 
 ## <a name="use-ddos-protection-telemetry"></a>DDoS protection telemetrie gebruiken
 
@@ -129,9 +129,9 @@ Telemetrie voor een aanval wordt geboden via Azure Monitor in realtime. De telem
 
 De namen van de metrische gegevens te presenteren typen pakketten, en het aantal bytes versus pakketten, met een eenvoudige constructie van de tagnamen van de op elke metrische gegevens als volgt:
 
-- **Naam van de tag verloren gegane** (bijvoorbeeld **inkomende pakketten verwijderd DDoS**): het aantal pakketten verwijderd/verwijderd door het systeem van DDoS protection.
-- **Naam van de tag doorgestuurde** (bijvoorbeeld **inkomende pakketten doorgestuurd DDoS**): het aantal pakketten die worden doorgestuurd door het DDoS-systeem naar de bestemming VIP-verkeer dat niet is gefilterd.
-- **Er is geen naam van de tag** (bijvoorbeeld **inkomende pakketten DDoS**): het totale aantal pakketten die afkomstig in het reinigen systeem zijn – die de som van de pakketten verwijderd en wordt doorgestuurd.
+- **Naam van de tag verloren gegane** (bijvoorbeeld **inkomende pakketten verwijderd DDoS**): Het aantal pakketten verwijderd/verwijderd door het systeem van DDoS protection.
+- **Naam van de tag doorgestuurde** (bijvoorbeeld **inkomende pakketten doorgestuurd DDoS**): Het aantal pakketten die worden doorgestuurd door het DDoS-systeem naar de bestemming VIP-verkeer dat niet is gefilterd.
+- **Er is geen naam van de tag** (bijvoorbeeld **inkomende pakketten DDoS**): Het totale aantal pakketten die afkomstig in het reinigen systeem zijn – die de som van de pakketten genegeerd en wordt doorgestuurd.
 
 Zie voor het simuleren van een DDoS-aanval voor het valideren van telemetrie, [valideren DDoS detectie](#validate-ddos-detection).
 
@@ -156,9 +156,9 @@ Aanval risicobeperking rapporten maakt gebruik van de gegevens voor het protocol
 5. Selecteer **openbaar IP-adres** voor **resourcetype**, selecteer vervolgens de specifieke openbare IP-adres u zich wilt aanmelden metrische gegevens voor.
 6. Selecteer **diagnostische gegevens voor het verzamelen van het logboek DDoSMitigationReports inschakelen** en selecteer vervolgens zo veel van de volgende opties die u nodig hebt:
 
-    - **Archiveren naar een opslagaccount**: gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream naar een event hub**: kan de ontvanger van een logboek om op te halen met behulp van een Azure Event Hub Logboeken. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Verzenden naar Log Analytics**: schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archiveren naar een opslagaccount**: Gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream naar een event hub**: Hiermee kunt u een ontvanger logboekbestanden te verzamelen van logboeken met behulp van een Azure Event Hub. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Verzenden naar Log Analytics**: Schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Zowel de incrementele en na aanval risicobeperking-rapporten bevatten de volgende velden
 - Aanvalsvectoren
@@ -178,9 +178,9 @@ Aanval risicobeperking Flow Logboeken kunt u bekijken van het verwijderde verkee
 5. Selecteer **openbaar IP-adres** voor **resourcetype**, selecteer vervolgens de specifieke openbare IP-adres u zich wilt aanmelden metrische gegevens voor.
 6. Selecteer **diagnostische gegevens voor het verzamelen van het logboek DDoSMitigationFlowLogs inschakelen** en selecteer vervolgens zo veel van de volgende opties die u nodig hebt:
 
-    - **Archiveren naar een opslagaccount**: gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream naar een event hub**: kan de ontvanger van een logboek om op te halen met behulp van een Azure Event Hub Logboeken. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Verzenden naar Log Analytics**: schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archiveren naar een opslagaccount**: Gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream naar een event hub**: Hiermee kunt u een ontvanger logboekbestanden te verzamelen van logboeken met behulp van een Azure Event Hub. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Verzenden naar Log Analytics**: Schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Als u wilt de gegevens van de logboeken stroom bekijken in Azure analytics-dashboard, kunt u het voorbeelddashboard van importeren https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Logboeken van de stroom heeft de volgende velden: 
@@ -206,7 +206,7 @@ Microsoft is een partnerschap aangegaan met [BreakingPoint Cloud](https://www.ix
 
 Met DDoS-beschermingsplannen wilt werken, moet uw account worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is toegewezen de nodige acties die worden vermeld in de volgende tabel:
 
-| Bewerking                                            | Naam                                     |
+| Bewerking                                            | Name                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Lezen van een DDoS-beschermingsplan              |
 | Microsoft.Network/ddosProtectionPlans/write       | Maken of bijwerken van een DDoS-beschermingsplan  |

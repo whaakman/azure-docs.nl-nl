@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: d2dda25c63a6e4a73205b9e4a830a211d025b3ed
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688144"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164715"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Opmerkingen bij de SQL-resource provider 1.1.30.0 release
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Deze releaseopmerkingen beschrijven de verbeteringen en bekende problemen in SQL resource provider-versie 1.1.30.0.
 
@@ -58,15 +58,29 @@ Deze versie van de resourceprovider van Azure Stack SQL omvat de volgende verbet
 
 - **SQL-SKU's kan een uur duren om te worden weergegeven in de portal**. Het kan een uur duren voor zojuist gemaakte SKU's zijn zichtbaar voor gebruik bij het maken van nieuwe SQL-databases. 
 
-    **Tijdelijke oplossing**: geen.
+    **Tijdelijke oplossing**: Geen.
 
 - **SQL-aanmeldingen hergebruikt**. Bij het maken van een nieuwe SQL Meld u aan met de dezelfde gebruikersnaam als een bestaande aanmelding onder hetzelfde abonnement, leidt dat dezelfde aanmeldgegevens en het bestaande wachtwoord. 
 
-    **Tijdelijke oplossing**: gebruik van verschillende gebruikersnamen op bij het maken van nieuwe aanmeldingen onder hetzelfde abonnement of aanmeldingen kan maken met de dezelfde gebruikersnaam onder verschillende abonnementen.
+    **Tijdelijke oplossing**: Gebruik verschillende gebruikersnamen op bij het maken van nieuwe aanmeldingen onder hetzelfde abonnement of aanmeldingen kan maken met de dezelfde gebruikersnaam onder verschillende abonnementen.
 
 - **Gedeelde SQL-aanmeldingen gegevensinconsistentie veroorzaken**. Als een SQL-aanmelding wordt gedeeld voor meerdere SQL-databases onder hetzelfde abonnement, ontstaan het aanmeldingswachtwoord wijzigen gegevensinconsistenties.
 
-    **Tijdelijke oplossing**: gebruik altijd verschillende logins voor verschillende databases onder hetzelfde abonnement.
+    **Tijdelijke oplossing**: Gebruik altijd verschillende logins voor verschillende databases onder hetzelfde abonnement.
+
+- **Vereiste voor ondersteuning van TLS 1.2**. Als u probeert te implementeren of bijwerken van de SQL-resourceprovider vanaf een computer waarop TLS 1.2 niet is ingeschakeld, kan de bewerking mislukken. Voer de volgende PowerShell-opdracht op de computer die wordt gebruikt om te implementeren of bijwerken van de resource-provider om te controleren dat TLS 1.2 wordt geretourneerd als ondersteund:
+
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  Als **Tls12** is niet opgenomen in de uitvoer van de opdracht, TLS 1.2 is niet ingeschakeld op de computer.
+
+    **Tijdelijke oplossing**: Voer de volgende PowerShell-opdracht uit te schakelen van TLS 1.2 en start vervolgens de implementatie van resource provider of werk script vanuit dezelfde PowerShell-sessie:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Bekende problemen voor Cloud-beheerders die Azure Stack
 Raadpleeg de documentatie in de [opmerkingen bij de Release van de Azure Stack](azure-stack-servicing-policy.md).

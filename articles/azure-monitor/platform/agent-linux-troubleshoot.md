@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 8da42ee6db4b9ec76fa97e94a77076ed347e2952
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1f772e1a3e5b3e121b968d358166e9018c80d573
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080671"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192686"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Het oplossen van problemen met de Log Analytics-agent voor Linux 
 
@@ -187,7 +185,7 @@ Onder de uitvoer-invoegtoepassing, verwijder opmerkingen bij de volgende sectie 
 2. Controleer of dat u de nieuwste versie van de Log Analytics-agent voor Linux hebt geïnstalleerd.  De nieuwste versie wordt nu waarschuwt u als tijdverschilbereik wordt veroorzaakt door het onboarding-fout.
 3. Reonboard met behulp van de juiste werkruimte-ID en Werkruimtesleutel na de installatie-instructies eerder in dit artikel.
 
-## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Probleem: Ziet u een 500 en 404-fout in het logboekbestand direct na de onboarding
+## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Probleem: U ziet een 500 en 404-fout in het logboekbestand direct na de onboarding
 Dit is een bekend probleem dat zich op de eerste uploaden van gegevens van Linux in een Log Analytics-werkruimte voordoet. Dit heeft geen invloed op gegevens die worden verzonden of service-ervaring.
 
 ## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Probleem: U ziet geen gegevens in Azure portal
@@ -254,7 +252,7 @@ Deze fout geeft aan dat de Linux Diagnostic-extensie (LAD) naast de Log Analytic
 1. Verwijder de Linux Diagnostic-extensie (LAD).
 2. Verwijder bestanden van de Linux Diagnostic-extensie van de machine als deze aanwezig zijn in de volgende locatie: `/var/lib/waagent/Microsoft.Azure.Diagnostics.LinuxDiagnostic-<version>/` en `/var/opt/microsoft/omsagent/LAD/`.
 
-## <a name="issue-you-cannot-see-data-any-nagios-data"></a>Probleem: U kunt geen gegevens Nagios gegevens ziet 
+## <a name="issue-you-cannot-see-data-any-nagios-data"></a>Probleem: U zien geen gegevens alle Nagios-gegevens 
 
 ### <a name="probable-causes"></a>Waarschijnlijke oorzaken
 * Omsagent gebruiker heeft geen machtigingen om te lezen uit Nagios-logbestand
@@ -295,7 +293,7 @@ Deze fout geeft aan dat de Linux Diagnostic-extensie (LAD) naast de Log Analytic
 5. In sommige distributiesystemen Azure omid OMI-server-daemon niet wordt gestart nadat de virtuele machine opnieuw wordt opgestart. Dit leidt er geen Audit voor wijzigingen bijhouden of UpdateManagement oplossing-gerelateerde gegevens weergegeven. De tijdelijke oplossing is om handmatig te starten omi-server door te voeren `sudo /opt/omi/bin/service_control restart`.
 6. Na de upgrade handmatig OMI-pakket naar een nieuwere versie, is het handmatig opnieuw worden gestart om Log Analytics-agent blijven werken. Deze stap is vereist voor sommige distributies waar OMI-server niet automatisch wordt gestart nadat het is bijgewerkt. Voer `sudo /opt/omi/bin/service_control restart` OMI opnieuw starten.
 7. Als u DSC-resource ziet *klasse is niet gevonden* fout in omsconfig.log, voeren `sudo /opt/omi/bin/service_control restart`.
-8. In sommige gevallen, wanneer de Log Analytics-agent voor Linux kan niet met de service Log Analytics communiceren gegevens op de agent is back-ups op de volledige buffergrootte: 50 MB. De agent moet opnieuw worden gestart met de volgende opdracht `/opt/microsoft/omsagent/bin/service_control restart`.
+8. In sommige gevallen, wanneer de Log Analytics-agent voor Linux kan niet met de service Log Analytics communiceren is gegevens op de agent back-ups op de volledige buffergrootte: 50 MB. De agent moet opnieuw worden gestart met de volgende opdracht `/opt/microsoft/omsagent/bin/service_control restart`.
 
     >[!NOTE]
     >Dit probleem is opgelost in Agent versie 1.1.0-28 of hoger
@@ -347,7 +345,7 @@ Deze fout geeft aan dat de Linux Diagnostic-extensie (LAD) naast de Log Analytic
     sudo service crond start
     ```
 
-## <a name="issue-when-configuring-collection-from-the-portal-for-syslog-or-linux-performance-counters-the-settings-are-not-applied"></a>Probleem: Bij het configureren van het verzamelen van de portal voor Syslog- of Linux-prestatiemeteritems, de instellingen worden niet toegepast
+## <a name="issue-when-configuring-collection-from-the-portal-for-syslog-or-linux-performance-counters-the-settings-are-not-applied"></a>Probleem: Bij het configureren van het verzamelen van de portal voor Syslog- of Linux-prestatiemeteritems, worden de instellingen niet toegepast
 
 ### <a name="probable-causes"></a>Waarschijnlijke oorzaken
 * De Log Analytics-agent voor Linux is niet doorgevoerd. de meest recente configuratie
@@ -380,7 +378,7 @@ Deze fout geeft aan dat de Linux Diagnostic-extensie (LAD) naast de Log Analytic
 
 2. Controleer of de `omsconfig` agent kan communiceren met de Log Analytics-service met de volgende opdracht `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Met deze opdracht retourneert de configuratie die agent ontvangt van de service, waaronder instellingen voor Syslog-, Linux-prestatiemeteritems en aangepaste logboeken. Als deze opdracht mislukt, voert u de volgende opdracht `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Met deze opdracht zorgt ervoor dat de agent omsconfig om te communiceren met de Log Analytics-service en de meest recente configuratie op te halen.
 
-**Achtergrond:** in plaats van de Log Analytics-agent voor Linux wordt uitgevoerd als een bevoegde gebruiker - `root`, de agent wordt uitgevoerd als de `omsagent` gebruiker. In de meeste gevallen moet de expliciete machtiging worden verleend aan deze gebruiker in volgorde van bepaalde bestanden worden gelezen. Toestemming te verlenen voor `omsagent` gebruiker, voer de volgende opdrachten uit:
+**Achtergrond:** In plaats van de Log Analytics-agent voor Linux wordt uitgevoerd als een bevoegde gebruiker - `root`, de agent wordt uitgevoerd als de `omsagent` gebruiker. In de meeste gevallen moet de expliciete machtiging worden verleend aan deze gebruiker in volgorde van bepaalde bestanden worden gelezen. Toestemming te verlenen voor `omsagent` gebruiker, voer de volgende opdrachten uit:
 
 1. Voeg de `omsagent` gebruiker aan een specifieke groep `sudo usermod -a -G <GROUPNAME> <USERNAME>`
 2. Universele leestoegang tot het vereiste bestand `sudo chmod -R ugo+rx <FILE DIRECTORY>`
@@ -401,7 +399,7 @@ sudo sh ./onboard_agent.sh --purge
 
 U kunt reonboard nadat u de `--purge` optie
 
-## <a name="log-analytics-agent-extension-in-the-azure-portal-is-marked-with-a-failed-state-provisioning-failed"></a>Log Analytics agent-extensie in de Azure-portal is gemarkeerd met een mislukte status: inrichten is mislukt
+## <a name="log-analytics-agent-extension-in-the-azure-portal-is-marked-with-a-failed-state-provisioning-failed"></a>Log Analytics agent-extensie in de Azure-portal is gemarkeerd met een mislukte status: Inrichten is mislukt
 
 ### <a name="probable-causes"></a>Waarschijnlijke oorzaken
 * Log Analytics-agent is verwijderd uit het besturingssysteem

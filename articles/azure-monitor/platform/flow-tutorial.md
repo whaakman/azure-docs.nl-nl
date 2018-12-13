@@ -11,13 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 63f9417a65fbe3141907dc7d7d64da06eec7e93f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 441064d6cbb5b3b2fae77caef3125c8db3467553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882415"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187446"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Log Analytics processen automatiseren met de connector voor Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kunt u geautomatiseerde werkstromen met behulp van honderden acties voor verschillende services maken. Uitvoer van een actie kan worden gebruikt als invoer voor andere zodat u kunt maken van de integratie tussen verschillende services.  De Azure Log Analytics-connector voor Microsoft Flow kunt u werkstromen kunnen opzetten waarmee gegevens opgehaald door bits-zoekopdrachten in Logboeken in Log Analytics bevatten.
@@ -27,7 +26,7 @@ Bijvoorbeeld, kunt u Microsoft Flow-Log Analytics-gegevens in een e-mailmelding 
 De in dit artikel leert u hoe u een stroom maken die de resultaten van een logboekzoekopdracht Log Analytics automatisch via e-mail, slechts één voorbeeld verzonden van hoe u Log Analytics in Microsoft Flow kunt gebruiken. 
 
 
-## <a name="step-1-create-a-flow"></a>Stap 1: Een stroom maken
+## <a name="step-1-create-a-flow"></a>Stap 1: Stroom maken
 1. Aanmelden bij [Microsoft Flow](https://flow.microsoft.com), en selecteer **mijn stromen**.
 2. Klik op **+ maken met een lege App**.
 
@@ -57,7 +56,7 @@ De in dit artikel leert u hoe u een stroom maken die de resultaten van een logbo
 
 2. Selecteer **HTML-tabel** voor de **grafiektype**.<br><br>![Log Analytics-actie](media/flow-tutorial/flow03.png)
 
-## <a name="step-5-configure-the-flow-to-send-email"></a>Stap 5: De stroom om e-mail te verzenden configureren
+## <a name="step-5-configure-the-flow-to-send-email"></a>Stap 5: Configureren van de stroom om e-mail te verzenden
 
 1. Klik op **nieuwe stap**, en klik vervolgens op **+ een actie toevoegen**.
 2. Zoeken naar **Office 365 Outlook**.

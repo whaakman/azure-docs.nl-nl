@@ -1,5 +1,5 @@
 ---
-title: Lokale Git-implementatie op de Azure App Service
+title: Implementeren vanuit lokale Git-repo - Azure App Service
 description: Informatie over het inschakelen van lokale Git-implementatie in Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: a4c96ea75bae69fa5a1af13e4e8b908759817e95
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 242eb906c95b373b2edd538be5f06756cac1e8c9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959322"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256503"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 
@@ -157,23 +158,23 @@ Hier volgen algemene fouten of problemen bij het publiceren naar een App Service
 ---
 **Symptoom**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
 
-**Oorzaak**: deze fout kan optreden als de app niet actief en werkend.
+**Oorzaak**: Deze fout kan optreden als de app niet actief en werkend.
 
-**Resolutie**: de app in Azure portal te starten. GIT-implementatie is niet beschikbaar wanneer de Web-App is gestopt.
+**Resolutie**: De app te starten in Azure portal. GIT-implementatie is niet beschikbaar wanneer de Web-App is gestopt.
 
 ---
 **Symptoom**: `Couldn't resolve host 'hostname'`
 
-**Oorzaak**: deze fout kan optreden als de gegevens hebt ingevoerd bij het maken van de 'azure' remote onjuist is.
+**Oorzaak**: Deze fout kan optreden als de gegevens hebt ingevoerd bij het maken van de 'azure' remote onjuist is.
 
 **Resolutie**: Gebruik de `git remote -v` opdracht om een lijst van alle remotes, samen met de bijbehorende URL. Controleer of dat de URL voor de externe 'azure' juist is. Indien nodig, verwijderen en opnieuw maken van deze externe met behulp van de juiste URL.
 
 ---
 **Symptoom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**Oorzaak**: deze fout kan optreden als u geen dat een vertakking tijdens opgeeft `git push`, of als u dit nog niet hebt ingesteld de `push.default` waarde in de `.gitconfig`.
+**Oorzaak**: Deze fout kan optreden als u geen dat een vertakking tijdens opgeeft `git push`, of als u dit nog niet hebt ingesteld de `push.default` waarde in de `.gitconfig`.
 
-**Resolutie**: uitvoeren `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
+**Resolutie**: Voer `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
 
 ```bash
 git push azure master
@@ -182,9 +183,9 @@ git push azure master
 ---
 **Symptoom**: `src refspec [branchname] does not match any.`
 
-**Oorzaak**: deze fout kan optreden als u probeert te pushen naar een vertakking dan master in de 'azure' remote.
+**Oorzaak**: Deze fout kan optreden als u probeert te pushen naar een vertakking dan master in de 'azure' remote.
 
-**Resolutie**: uitvoeren `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
+**Resolutie**: Voer `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
 
 ```bash
 git push azure master
@@ -193,9 +194,9 @@ git push azure master
 ---
 **Symptoom**: `RPC failed; result=22, HTTP code = 5xx.`
 
-**Oorzaak**: deze fout kan optreden als u probeert een grote git-opslagplaats pushen via HTTPS.
+**Oorzaak**: Deze fout kan optreden als u probeert een grote git-opslagplaats pushen via HTTPS.
 
-**Resolutie**: wijzigen van de git-configuratie op de lokale computer naar de postBuffer groter maken
+**Resolutie**: Wijzigen van de git-configuratie op de lokale computer naar de postBuffer groter maken
 
 ```bash
 git config --global http.postBuffer 524288000
@@ -204,9 +205,9 @@ git config --global http.postBuffer 524288000
 ---
 **Symptoom**: `Error - Changes committed to remote repository but your web app not updated.`
 
-**Oorzaak**: deze fout kan optreden als u een Node.js-app met implementeert een _package.json_ -bestand dat aanvullende vereiste modules specificeert.
+**Oorzaak**: Deze fout kan optreden als u een Node.js-app met implementeert een _package.json_ -bestand dat aanvullende vereiste modules specificeert.
 
-**Resolutie**: extra berichten met "npm ERR!" voordat u deze fout moet worden vastgelegd en kunt aanvullende context te bieden over de fout. Hier volgen enkele bekende oorzaken van deze fout en de bijbehorende 'npm ERR!" Bericht:
+**Resolutie**: Extra berichten met "npm ERR!" voordat u deze fout moet worden vastgelegd en kunt aanvullende context te bieden over de fout. Hier volgen enkele bekende oorzaken van deze fout en de bijbehorende 'npm ERR!" Bericht:
 
 * **Onjuist gevormd package.json-bestand**: npm ERR! Afhankelijkheden kan niet worden gelezen.
 * **Systeemeigen module die een binaire distributie voor Windows geen**:

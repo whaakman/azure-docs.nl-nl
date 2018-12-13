@@ -9,17 +9,15 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: eccd81d50c93c2fdeb67e2536a0afa879c08a1b4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 32a88d5446d1825b454f64fcca8548e1eb5ea434
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970268"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192614"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Azure-activiteitenlogboeken verzamelen in Log Analytics voor meerdere abonnementen
 
@@ -128,9 +126,9 @@ Voor het ophalen van de naam en verbindingsreeks van de event hub volgt u de sta
 
     ![Logische app maken](media/collect-activity-logs-subscriptions/create-logic-app.png)
 
-   |Instelling | Beschrijving  |
+   |Instelling | Description  |
    |:---|:---|
-   | Naam           | Unieke naam voor de logische app. |
+   | Name           | Unieke naam voor de logische app. |
    | Abonnement   | Selecteer het Azure-abonnement dat de logische app gaat bevatten. |
    | Resourcegroep | Selecteer een bestaande Azure-resourcegroep of maak een nieuwe voor de logische app. |
    | Locatie       | Selecteer de regio van het datacenter voor het implementeren van uw logische app. |
@@ -303,11 +301,11 @@ De actie [Azure Log Analytics-gegevensverzamelaar](https://docs.microsoft.com/co
 
     ![De actie Gegevens verzenden configureren](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Instelling        | Waarde           | Beschrijving  |
+   |Instelling        | Waarde           | Description  |
    |---------------|---------------------------|--------------|
    |JSON-aanvraagtekst  | **Uitvoer** van de actie **Opstellen** | Haalt de records van de hoofdtekst van de actie Opstellen op. |
    | Aangepaste logboeknaam | AzureActivity | Naam van de aangepaste logboektabel die moet worden gemaakt in Log Analytics voor het opslaan van de geïmporteerde gegevens. |
-   | Het veld Gegenereerde tijd | tijd | Selecteer het JSON-veld niet voor **time** - typ alleen het woord 'time'. Als u het JSON-veld selecteert, plaatst de ontwerpfunctie de actie **Gegevens verzenden** in een *Voor elk*-lus, en dat is niet iets dat u wilt. |
+   | Het veld Gegenereerde tijd | time | Selecteer het JSON-veld niet voor **time** - typ alleen het woord 'time'. Als u het JSON-veld selecteert, plaatst de ontwerpfunctie de actie **Gegevens verzenden** in een *Voor elk*-lus, en dat is niet iets dat u wilt. |
 
 
 

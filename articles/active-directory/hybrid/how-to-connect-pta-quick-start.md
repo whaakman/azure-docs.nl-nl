@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 831e5bff412f80f2140f6fd1b935a57bd412ccba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582734"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188126"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass through-verificatie: Snel starten
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) Pass through-verificatie kunnen uw gebruikers 
 
 Volg deze instructies voor het implementeren van Pass through-verificatie voor uw tenant:
 
-## <a name="step-1-check-the-prerequisites"></a>Stap 1: Controleer de vereisten
+## <a name="step-1-check-the-prerequisites"></a>Stap 1: Vereisten controleren
 
 Zorg ervoor dat de volgende vereisten voldaan is.
 
@@ -58,13 +58,13 @@ Zorg ervoor dat de volgende vereisten voldaan is.
 4. Als er een firewall tussen uw servers en Azure AD, configureert u de volgende items:
    - Zorg ervoor dat de verificatie-Agents kunt aanbrengen *uitgaande* aanvragen voor Azure AD via de volgende poorten:
 
-    | Poortnummer | Hoe deze wordt gebruikt |
-    | --- | --- |
-    | **80** | De certificaatintrekkingslijsten (CRL's) downloaden tijdens het valideren van het SSL-certificaat |
-    | **443** | Alle uitgaande communicatie met de service worden verwerkt |
-    | **8080** (optioneel) | Verificatie-Agents rapporteren hun status om de tien minuten via poort 8080, als poort 443 niet beschikbaar is. Deze status wordt weergegeven op de Azure AD-portal. Poort 8080 is _niet_ gebruikt voor gebruikersaanmeldingen. |
-
-    Als uw firewall-regels op basis van de oorspronkelijke gebruikers afgedwongen, opent u deze poorten voor verkeer via Windows-services die worden uitgevoerd als een netwerkservice.
+     | Poortnummer | Hoe deze wordt gebruikt |
+     | --- | --- |
+     | **80** | De certificaatintrekkingslijsten (CRL's) downloaden tijdens het valideren van het SSL-certificaat |
+     | **443** | Alle uitgaande communicatie met de service worden verwerkt |
+     | **8080** (optioneel) | Verificatie-Agents rapporteren hun status om de tien minuten via poort 8080, als poort 443 niet beschikbaar is. Deze status wordt weergegeven op de Azure AD-portal. Poort 8080 is _niet_ gebruikt voor gebruikersaanmeldingen. |
+     
+     Als uw firewall-regels op basis van de oorspronkelijke gebruikers afgedwongen, opent u deze poorten voor verkeer via Windows-services die worden uitgevoerd als een netwerkservice.
    - Als u uw firewall of proxyserver kan DNS-whitelist, lijst met toegestane adressen verbindingen met  **\*. msappproxy.net** en  **\*. servicebus.windows.net**. Als dit niet het geval is, kunt u toegang tot de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653), die elke week worden bijgewerkt.
    - De verificatie-Agents moeten toegang hebben tot **login.windows.net** en **login.microsoftonline.com** voor registratie. Open uw firewall voor ook deze URL's.
    - Blokkering voor validatie van het servercertificaat, de volgende URL's: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, en  **www.Microsoft.com:80**. Aangezien deze URL's voor validatie van het servercertificaat met andere Microsoft-producten worden gebruikt mogelijk hebt u al deze URL's geblokkeerd.
@@ -78,11 +78,11 @@ Inschakelen van Pass-through-verificatie via [Azure AD Connect](whatis-hybrid-id
 
 Als u Azure AD Connect voor het eerst installeert, kiest u de [aangepaste installatiepad](how-to-connect-install-custom.md). Op de **aanmelden van gebruikers** pagina, kies **Pass through-verificatie** als de **aanmelding methode**. Bewerking is voltooid, wordt een Pass through-verificatie-Agent geïnstalleerd op dezelfde server als Azure AD Connect. Bovendien is de functie voor Pass through-verificatie ingeschakeld op uw tenant.
 
-![Azure AD Connect: Aanmelden van gebruikers](./media/how-to-connect-pta-quick-start/sso3.png)
+![Azure AD Connect: Gebruikersaanmelding](./media/how-to-connect-pta-quick-start/sso3.png)
 
 Als u Azure AD Connect al hebt geïnstalleerd met behulp van de [snelle installatie](how-to-connect-install-express.md) of de [aangepaste installatie](how-to-connect-install-custom.md) pad, selecteer de **aanmelden van gebruikers wijzigen** taak in Azure AD Verbinding maken en selecteer vervolgens **volgende**. Selecteer vervolgens **Pass through-verificatie** als de methode aanmelden. Een Pass through-verificatie-Agent is geïnstalleerd op dezelfde server als Azure AD Connect is gelukt, en de functie is ingeschakeld op uw tenant.
 
-![Azure AD Connect: Aanmelden van gebruikers wijzigen](./media/how-to-connect-pta-quick-start/changeusersignin.png)
+![Azure AD Connect: Gebruikersaanmelding wijzigen](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
 >Pass through-verificatie is een functie op tenantniveau. Het inschakelen van is van invloed op de aanmelding voor gebruikers in _alle_ de beheerde domeinen in uw tenant. Als u van Active Directory Federation Services (AD FS) naar Pass-through-verificatie overstapt, moet u ten minste 12 uur vóór het afsluiten van de AD FS-infrastructuur wacht. Deze wachttijd is om ervoor te zorgen dat gebruikers houden bij Exchange ActiveSync tijdens de overgang aanmelden kunnen. Voor meer informatie over het migreren van AD FS naar Pass-through-verificatie, Bekijk onze gedetailleerde implementatieplan gepubliceerd [hier](https://aka.ms/adfstoptadpdownload).
@@ -97,9 +97,9 @@ Volg deze instructies om te controleren of u Pass-through-verificatie juist hebt
 4. Controleer de **Pass through-verificatie** functie wordt weergegeven als **ingeschakeld**.
 5. Selecteer **Pass through-verificatie**. De **Pass through-verificatie** deelvenster worden de servers waarop de verificatie-Agents zijn geïnstalleerd.
 
-![Azure Active Directory-beheercentrum: Azure AD Connect-deelvenster](./media/how-to-connect-pta-quick-start/pta7.png)
+![Azure Active Directory-beheercentrum: Deelvenster in de Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 
-![Azure Active Directory-beheercentrum: deelvenster Pass through-verificatie](./media/how-to-connect-pta-quick-start/pta8.png)
+![Azure Active Directory-beheercentrum: Deelvenster voor Pass through-verificatie](./media/how-to-connect-pta-quick-start/pta8.png)
 
 In deze fase, kunnen gebruikers van de beheerde domeinen in uw tenant kunnen aanmelden met behulp van Pass through-verificatie. Gebruikers van federatieve domeinen blijven echter aan te melden met behulp van AD FS of een andere federatieprovider die u eerder hebt geconfigureerd. Als u een domein via federatieve converteert beheerd, start alle gebruikers van dat domein automatisch aanmelden met behulp van Pass through-verificatie. De functie voor Pass through-verificatie, heeft geen invloed op gebruikers alleen in de cloud.
 
@@ -117,9 +117,9 @@ Volg deze instructies om de verificatie-Agent-software te downloaden:
 3. Selecteer **Azure AD Connect**, selecteer **Pass through-verificatie**, en selecteer vervolgens **-Agent downloaden**.
 4. Selecteer de **voorwaarden accepteren en downloaden** knop.
 
-![Azure Active Directory-beheercentrum: de knop verificatie-Agent downloaden](./media/how-to-connect-pta-quick-start/pta9.png)
+![Azure Active Directory-beheercentrum: De knop verificatie-Agent downloaden](./media/how-to-connect-pta-quick-start/pta9.png)
 
-![Azure Active Directory-beheercentrum: deelvenster van de Agent downloaden](./media/how-to-connect-pta-quick-start/pta10.png)
+![Azure Active Directory-beheercentrum: Deelvenster van de Agent downloaden](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
 >U kunt ook rechtstreeks [downloaden van de verificatie-agentsoftware](https://aka.ms/getauthagent). Lees en accepteer de verificatie-Agent [servicevoorwaarden](https://aka.ms/authagenteula) _voordat_ installeren.
@@ -143,11 +143,11 @@ Ten tweede kunt u maken en uitvoeren van een script zonder toezicht implementati
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Migreren van AD FS naar Pass-through-verificatie](https://aka.ms/adfstoptadp) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
-- [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): informatie over het configureren van de functie Smart Lockout op uw tenant om te beveiligen van gebruikersaccounts.
-- [Huidige beperkingen](how-to-connect-pta-current-limitations.md): informatie over welke scenario's met de Pass-through-verificatie worden ondersteund en welke niet.
-- [Technische details](how-to-connect-pta-how-it-works.md): informatie over de werking van de functie voor Pass through-verificatie.
-- [Veelgestelde vragen over](how-to-connect-pta-faq.md): vind antwoorden op veelgestelde vragen.
-- [Problemen oplossen](tshoot-connect-pass-through-authentication.md): informatie over het oplossen van veelvoorkomende problemen met de functie voor Pass through-verificatie.
-- [Grondig onderzoek van beveiliging](how-to-connect-pta-security-deep-dive.md): technische informatie over de functie voor Pass through-verificatie.
-- [Azure AD naadloze eenmalige aanmelding](how-to-connect-sso.md): meer informatie over deze aanvullende functie.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): de Azure Active Directory-Forum gebruiken om nieuwe functieaanvragen.
+- [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): Informatie over het configureren van de functie Smart Lockout op uw tenant om te beveiligen van gebruikersaccounts.
+- [Huidige beperkingen](how-to-connect-pta-current-limitations.md): Informatie over welke scenario's met de Pass-through-verificatie worden ondersteund en welke niet.
+- [Technische details](how-to-connect-pta-how-it-works.md): Informatie over de werking van de functie voor Pass through-verificatie.
+- [Veelgestelde vragen over](how-to-connect-pta-faq.md): Vind antwoorden op veelgestelde vragen.
+- [Problemen oplossen](tshoot-connect-pass-through-authentication.md): Informatie over het oplossen van veelvoorkomende problemen met de functie voor Pass through-verificatie.
+- [Grondig onderzoek van beveiliging](how-to-connect-pta-security-deep-dive.md): Technische informatie over de functie voor Pass through-verificatie ophalen.
+- [Naadloze eenmalige aanmelding voor Azure AD](how-to-connect-sso.md): Meer informatie over deze aanvullende functie.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): De Active Directory-Forum van Azure gebruiken om nieuwe functieaanvragen.

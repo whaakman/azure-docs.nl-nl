@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 0d728d81a29c5520938c8553c026727c0f94cc43
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 12/10/2018
+ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957000"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272861"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Prestaties bewaken en afstemmen
 
@@ -85,7 +85,91 @@ Als u vaststelt dat er een prestatieprobleem is uitgevoerd met betrekking tot, w
 > [!IMPORTANT]
 > Zie voor een verzameling een T-SQL-query's deze DMV's gebruiken voor het oplossen van problemen met het gebruik van de CPU, [prestatieproblemen identificeren CPU](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
+### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>Query's met de parameter-gevoelige query uitvoering plan problemen oplossen
+
+Probleem met de parameter gevoelige plan (PSP) verwijst naar een scenario waarbij het queryoptimalisatieprogramma genereert een plan voor het uitvoeren van query die is geoptimaliseerd voor een specifieke parameterwaarde (of een set waarden) en het in de cache-abonnement is niet optimaal zijn voor de parameterwaarden die worden gebruikt in opeenvolgende uitvoeringen. Plannen voor niet-optimale kunnen vervolgens leiden tot prestatieproblemen van query's en de algehele doorvoer verslechtering van de werkbelasting.
+
+Er zijn verschillende oplossingen die worden gebruikt voor het oplossen van problemen, elk met een bijbehorende optimalisatie- en nadelen:
+
+- Gebruik de [COMPILEREN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint in elke query kan worden uitgevoerd. Deze tijdelijke oplossing wisselt lokale compilatietijd van transacties en hogere CPU voor een hogere kwaliteit van het abonnement. Met behulp van de `RECOMPILE` optie is vaak niet mogelijk voor workloads waarvoor een hoge doorvoer.
+- Gebruik de [optie (OPTIMALISEREN voor...) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint voor de onderdrukking van de feitelijke parameter-waarde met een typische parameterwaarde die een goed genoeg plan voor de meeste mogelijkheden voor parameter-waarde produceert.   Deze optie vereist een goed begrip van de optimale parameterwaarden en bijbehorende plan kenmerken.
+- Gebruik [optie (OPTIMALISEREN voor onbekend)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint voor de onderdrukking van de werkelijke parameterwaarde ruil met behulp van het gemiddelde van de vector dichtheid. Een andere manier om dit te doen is door de binnenkomende parameterwaarden vastleggen in lokale variabelen en vervolgens met behulp van de lokale variabelen binnen de predicaten in plaats van de parameters zelf. De gemiddelde dichtheid moet *goed genoeg* met deze specifieke oplossing.
+- Uitschakelen van de parameter bekijken met de [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint.
+- Gebruik de [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint om te voorkomen dat gecompileerd in de cache. Deze oplossing wordt ervan uitgegaan dat de *goede enough* algemene plan is al in de cache. U kunt ook automatisch bijwerken van statistieken uitschakelen om te kunnen verminderen de kans op het goede plan wordt verwijderd en een nieuw ongeldig plan wordt gecompileerd.
+- Afdwingen van het abonnement met behulp van expliciet [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) queryhint (door expliciet op te geven, door in te stellen van een specifiek plan met behulp van de Query Store of door in te schakelen [automatisch afstemmen](sql-database-automatic-tuning.md).
+- De enkele procedure vervangen door een geneste set procedures die kunnen worden gebruikt op basis van voorwaardelijke logica en de bijbehorende parameterwaarden.
+- Maak dynamische tekenreeks uitvoering alternatieven voor de proceduredefinitie van een statische.
+
+Zie voor meer informatie over het oplossen van dit soort problemen:
+
+- Dit [Pluk een parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) blogbericht
+- Dit [parameter probleem en tijdelijke oplossingen bekijken](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) blogbericht
+- Dit [elephant en muis parameter bekijken](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blogbericht
+- Dit [dynamische sql ten opzichte van de kwaliteit van de planning voor query's met parameters](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blogbericht
+
+### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Het compileren activiteit vanwege onjuiste parameterisering oplossen
+
+Wanneer een query letterlijke waarden heeft, de database-engine kiest voor het automatisch voorzien van de instructie of een gebruiker kan deze expliciet voorzien om te reduceren aantal compileert. Een groot aantal compileert van een query met behulp van de hetzelfde patroon, maar andere letterlijke waarden kan leiden tot intensief CPU-gebruik. Op dezelfde manier als u een query die nog steeds letterlijke tekenreeksen zijn slechts gedeeltelijk voorzien, heeft de database-engine geen parameter van het verder.  Hieronder volgt een voorbeeld van een gedeeltelijk geparameteriseerde query:
+
+```sql
+select * from t1 join t2 on t1.c1=t2.c1
+where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+```
+
+In het voorgaande voorbeeld `t1.c1` duurt `@p1` maar `t2.c2` blijft houden GUID als letterlijke waarde. In dit geval, als u de waarde voor wijzigt `c2`, de query wordt beschouwd als een andere query en een nieuwe verzameling wordt uitgevoerd. De oplossing is ook voorzien van de GUID compilaties in het voorgaande voorbeeld, verminderen.
+
+De volgende query geeft het aantal query's op queryhash om te bepalen als een query goed met parameters of niet:
+
+```sql
+   SELECT  TOP 10  
+      q.query_hash
+      , count (distinct p.query_id ) AS number_of_distinct_query_ids
+      , min(qt.query_sql_text) AS sampled_query_text
+   FROM sys.query_store_query_text AS qt
+      JOIN sys.query_store_query AS q
+         ON qt.query_text_id = q.query_text_id
+      JOIN sys.query_store_plan AS p 
+         ON q.query_id = p.query_id
+      JOIN sys.query_store_runtime_stats AS rs 
+         ON rs.plan_id = p.plan_id
+      JOIN sys.query_store_runtime_stats_interval AS rsi
+         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+   WHERE
+      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+      AND query_parameterization_type_desc IN ('User', 'None')
+   GROUP BY q.query_hash
+   ORDER BY count (distinct p.query_id) DESC
+```
+
+### <a name="resolve-problem-queries-or-provide-more-resources"></a>Opgelost probleem query's of geef andere bronnen
+
 Wanneer u het probleem hebt geïdentificeerd, kunt u de probleem-query's af te stemmen of upgrade uitvoeren voor de compute-grootte of servicelaag om de capaciteit van uw Azure SQL-database te begrijpen van de CPU-vereisten te vergroten. Zie voor informatie over het schalen van resources voor individuele databases, [schalen van één database-resources in Azure SQL Database](sql-database-single-database-scale.md) en voor het schalen van resources voor elastische pools, Zie [resources voor elastische pool schalen in Azure SQL Database](sql-database-elastic-pool-scale.md). Zie voor meer informatie over het omhoog schalen van een beheerd exemplaar [resourcelimieten voor Instance-level](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+
+### <a name="determine-if-running-issues-due-to-increase-workload-volume"></a>Bepalen of het uitvoeren van toepassingsproblemen vanwege een toename van de werkbelasting volume
+
+Een toename in de toepassingsverkeer en werkbelasting kunt rekening voor hogere CPU-gebruik, maar u moet zorgvuldig om dit probleem goed vast te stellen. Beantwoord deze vragen om te bepalen als inderdaad een toename van de CPU veroorzaakt door de werkbelasting volume worden gewijzigd wordt in een hoog CPU-scenario:
+
+1. Zijn de query's van de toepassing de oorzaak van het hoge CPU-probleem?
+2. Voor de hoogste CPU verbruikt query's (die kunnen worden geïdentificeerd):
+
+   - Bepalen of er meerdere uitvoering plannen die zijn gekoppeld aan dezelfde query zijn. Als dit het geval is, te bepalen waarom.
+   - Bepaal voor query's met hetzelfde abonnement worden uitgevoerd, als de uitvoertijd consistent zijn en het aantal uitvoeringen verhoogd. Zo ja, zijn er waarschijnlijk prestatieproblemen vanwege een toename van de werkbelasting.
+
+Om samen te vatten, als het queryplan kan worden uitgevoerd anders niet uitvoeren, maar CPU-gebruik verhoogd samen met het aantal uitvoeringen, is er waarschijnlijk een probleem van de prestaties met betrekking tot toename van de werkbelasting.
+
+Het is niet altijd eenvoudig te sluiten er is een wijziging voor het volume van werkbelasting die vraagt om een probleem met de CPU.   Factoren om te overwegen: 
+
+- **Resourcegebruik gewijzigd**
+
+  Neem bijvoorbeeld een scenario waarbij de CPU wordt verhoogd tot 80% voor een lange periode.  CPU-gebruik alleen betekent niet werkbelasting volume gewijzigd.  Uitvoeringsplan regressie en distributie van gegevenswijzigingen kunnen ook bijdragen aan meer Resourcegebruik zelfs als de toepassing exact dezelfde werkbelasting uitvoeren van is een query uitvoeren.
+
+- **Nieuwe query wordt weergegeven**
+
+   Een toepassing kan een nieuwe set query's op verschillende tijdstippen station.
+
+- **Aantal aanvragen worden verhoogd of verlaagd**
+
+   Dit scenario is de meest opvallende meting van de werkbelasting. Het aantal query's komt niet altijd in meer Resourcegebruik van de overeen. Met deze metriek is echter nog steeds een aanzienlijke signaal ervan uitgaande dat andere factoren zijn niet gewijzigd.
 
 ## <a name="waiting-related-performance-issues"></a>Problemen met prestaties met betrekking tot wachten
 
@@ -94,6 +178,13 @@ Als u er zeker van bent dat u niet een hoge CPU, die wordt uitgevoerd met betrek
 - De [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) voorziet in statistieken per query Wacht na verloop van tijd. In Query Store, zijn wacht typen gecombineerd tot wacht categorieën. De toewijzing van de categorieën wait moet worden gewacht typen is beschikbaar in [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) retourneert informatie over alle wacht geconfronteerd threads die tijdens de bewerking wordt uitgevoerd. Deze geaggregeerde weergave kunt u prestatieproblemen met Azure SQL Database en met specifieke query's en batches.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) retourneert informatie over de wachtrij wacht van taken die op een resource wachten.
+
+In scenario's met hoge CPU, de Query Store en wacht statistieken zijn niet altijd aan de CPU-gebruik voor deze twee redenen:
+
+- Hoge CPU in beslag nemen query's mogelijk nog steeds uitgevoerd en de query's zijn nog niet klaar
+- De hoge CPU in beslag nemen query's worden uitgevoerd wanneer een failover is opgetreden
+
+Query Store en wacht statistieken bij te houden dynamische beheerweergaven alleen resultaten weergeven voor query's is voltooid en is een time-out en gegevens voor instructies dat momenteel wordt uitgevoerd (tot ze voltooid), worden niet weergegeven.  De dynamische Beheerweergave [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) kunt u query's dat momenteel wordt uitgevoerd en de bijbehorende werknemer bijhouden.
 
 Zoals u in het vorige diagram, zijn de meest voorkomende wacht:
 

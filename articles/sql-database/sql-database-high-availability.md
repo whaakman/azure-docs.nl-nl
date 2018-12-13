@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 0b2fa1541eafa3acf28690005a6d40fac76deba6
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 9d80f4e7422d881393c8e626ddfc75c4067ef1e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353472"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250345"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 
@@ -55,7 +55,7 @@ Azure SQL-database in de premium-model, kan worden geïntegreerd reken- en op é
 
 ![Cluster met knooppunten voor database-engine](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-Zowel de SQL-database engine-proces en de onderliggende mdf/ldf-bestanden worden geplaatst op hetzelfde knooppunt met lage latentie aan uw workload biedt lokaal gekoppelde SSD-opslag. Hoge beschikbaarheid is geïmplementeerd met behulp van technologie die vergelijkbaar is met SQL Server [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Elke database is een cluster van de databaseknooppunten met één primaire database, die toegankelijk is voor de workload van een klant en een drie secundaire processen met kopieën van gegevens. Het primaire knooppunt pushes voortdurend de wijzigingen op secundaire knooppunten om ervoor te zorgen dat de gegevens beschikbaar op secundaire replica's, zijn als het primaire knooppunt om een bepaalde reden vastloopt. Failover wordt verwerkt door de SQL Server Database Engine – één secundaire replica wordt het primaire knooppunt en een nieuwe secundaire replica is gemaakt om ervoor te zorgen voldoende knooppunten in het cluster. De werkbelasting wordt automatisch omgeleid naar de nieuwe primaire knooppunt.
+Zowel de SQL-database engine-proces en de onderliggende mdf/ldf-bestanden worden geplaatst op hetzelfde knooppunt met lage latentie aan uw workload biedt lokaal gekoppelde SSD-opslag. Hoge beschikbaarheid is geïmplementeerd met behulp van technologie die vergelijkbaar is met SQL Server [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Elke database is een cluster van de databaseknooppunten met één primaire database, die toegankelijk is voor de workload van een klant en een drie secundaire processen met kopieën van gegevens. Het primaire knooppunt pushes voortdurend de wijzigingen op secundaire knooppunten om ervoor te zorgen dat de gegevens beschikbaar op secundaire replica's, zijn als het primaire knooppunt om een bepaalde reden vastloopt. Failover wordt verwerkt door de Azure Service Fabric: één secundaire replica wordt het primaire knooppunt en een nieuwe secundaire replica is gemaakt om ervoor te zorgen voldoende knooppunten in het cluster. De werkbelasting wordt automatisch omgeleid naar de nieuwe primaire knooppunt.
 
 Bovendien bedrijfskritiek cluster beschikt over een ingebouwde [Read Scale-Out](sql-database-read-scale-out.md) mogelijkheid waarmee u kunt gratis van kosten in rekening gebracht ingebouwde alleen-lezen-knooppunt kan worden gebruikt voor het kenmerk alleen-lezen query's uitvoeren (bijvoorbeeld rapporten) die niet van invloed op prestaties van uw primaire workload.
 

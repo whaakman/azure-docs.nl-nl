@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 393b90395698c18fdbd4fc8ba4d8bc79bd6287be
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 15a528bfdc1f23c932d1206dbca4b05af8bd58ba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495184"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186698"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Over het verkrijgen van Azure multi-factor Authentication
 
@@ -29,7 +29,7 @@ Als het gaat om het beveiligen van uw accounts, moet verificatie in twee stappen
 
 De volgende tabel beschrijft de verschillen tussen de drie versies van multi-factor authentication:
 
-| Versie | Beschrijving |
+| Versie | Description |
 | --- | --- |
 | Multi-factor Authentication voor Office 365 |Deze versie werkt met Office 365-toepassingen en wordt beheerd via de Office 365-portal. Beheerders kunnen [beveiligen van Office 365-resources met verificatie in twee stappen](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Deze versie is onderdeel van Office 365-abonnement. |
 | Multi-factor Authentication voor Azure AD-beheerders | Gebruikers die zijn toegewezen de rol globale beheerder van Azure AD in Azure AD-tenants kunt verificatie in twee stappen zonder extra kosten.|
@@ -87,17 +87,17 @@ Wanneer u een Azure multi-factor Authentication-Provider gebruikt, zijn er twee 
 
 1. **Per ingeschakelde gebruiker** - voor ondernemingen die verificatie in twee stappen voor een vast aantal werknemers die regelmatig verificatie moeten inschakelen. Facturering per gebruiker is gebaseerd op het aantal gebruikers dat is ingeschakeld voor MFA in uw Azure AD-tenant en uw Azure MFA-Server. Als gebruikers zijn ingeschakeld voor MFA in zowel Azure AD en Azure MFA-Server en domein synchroniseren (Azure AD Connect) is ingeschakeld, en we tellen het grotere set van gebruikers. Als synchronisatie van domein is niet ingeschakeld, wordt dat we de som van alle gebruikers die zijn ingeschakeld voor MFA in Azure AD tellen en Azure MFA-Server. Facturering is Pro rata berekend en dagelijks gerapporteerd aan de Commerce-systeem.
 
-  > [!NOTE]
-  > Facturering-voorbeeld 1: U 5000 gebruikers momenteel ingeschakeld voor MFA hebt. Het systeem MFA deelt dit getal door 31 en 161.29 gebruikers van rapporten voor die dag. Morgen dat u 15 meer gebruikers, zodat het systeem MFA 161.77 gebruikers voor die dag rapporten. Aan het einde van de factureringscyclus, wordt het totale aantal gebruikers in rekening gebracht op basis van uw Azure-abonnement maximaal toegevoegd rond 5000.
-  >
-  > Facturering-voorbeeld 2: U hebt een combinatie van gebruikers met licenties en gebruikers zonder, zodat u beschikt over een per gebruiker Azure MFA-Provider om het verschil. Er zijn 4500 Enterprise Mobility + Security-licenties in uw tenant, maar 5000 gebruikers dat is ingeschakeld voor MFA. Uw Azure-abonnement wordt gefactureerd voor 500 gebruikers, pro rata berekend en dagelijks gerapporteerd als 16.13 gebruikers.
-  >
+   > [!NOTE]
+   > Facturering-voorbeeld 1: U hebt 5000 gebruikers dat is ingeschakeld voor MFA vandaag nog. Het systeem MFA deelt dit getal door 31 en 161.29 gebruikers van rapporten voor die dag. Morgen dat u 15 meer gebruikers, zodat het systeem MFA 161.77 gebruikers voor die dag rapporten. Aan het einde van de factureringscyclus, wordt het totale aantal gebruikers in rekening gebracht op basis van uw Azure-abonnement maximaal toegevoegd rond 5000.
+   >
+   > Facturering-voorbeeld 2: U hebt een combinatie van gebruikers met licenties en gebruikers zonder, zodat u beschikt over een per gebruiker Azure MFA-Provider om het verschil. Er zijn 4500 Enterprise Mobility + Security-licenties in uw tenant, maar 5000 gebruikers dat is ingeschakeld voor MFA. Uw Azure-abonnement wordt gefactureerd voor 500 gebruikers, pro rata berekend en dagelijks gerapporteerd als 16.13 gebruikers.
+   >
 
 1. **Per verificatie** - voor ondernemingen die verificatie in twee stappen voor een grote groep met gebruikers die niet vaak nodig verificatie inschakelen. Facturering is gebaseerd op het aantal aanvragen verificatie in twee stappen, ongeacht of deze verificaties slagen of wordt geweigerd. Deze factureringsmethode wordt weergegeven op uw gebruik van Azure-instructie in de packs van 10 verificaties en elke dag wordt gerapporteerd.
 
-  > [!NOTE]
-  > Facturering-voorbeeld 3: vandaag, de 3,105 aanvragen voor de verificatie in twee stappen voor het ontvangen van de Azure MFA-service. Uw Azure-abonnement, wordt in rekening gebracht voor 310.5 packs voor verificatie.
-  >
+   > [!NOTE]
+   > Facturering voorbeeld 3: De Azure MFA-service ontvangen vandaag de dag 3,105 verificatie in twee stappen verwerken. Uw Azure-abonnement, wordt in rekening gebracht voor 310.5 packs voor verificatie.
+   >
 
 Het is belangrijk te weten dat u kunt licenties hebt, maar nog steeds wordt gefactureerd voor de configuratie op basis van verbruik. Als u een per authenticatie Azure MFA-Provider hebt ingesteld, wordt u gefactureerd voor elke aanvraag van de verificatie in twee stappen ook die door gebruikers die licenties hebben uitgevoerd. Als u een per gebruiker Azure MFA-Provider hebt ingesteld op een domein dat niet is gekoppeld aan uw Azure AD-tenant, wordt u gefactureerd per ingeschakelde gebruiker, zelfs als uw gebruikers licenties in Azure AD hebben.
 

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: 0e316bf06cc6e2915adca5e7961083e6668bbfc1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.date: 12/11/2018
+ms.openlocfilehash: 644a3a2fe6bce6ccc99b0c1c99ea07b129676653
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889120"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320843"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
@@ -42,6 +42,9 @@ Nadat u een server maakt, het aantal vCores, hardware genereren en prijzen laag 
 ## <a name="compute-generations-and-vcores"></a>Bewerkingen voor COMPUTE en vCores
 
 COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU van de onderliggende hardware. Op dit moment, kunt u kiezen uit twee bewerkingen voor compute, Gen 4 en Gen 5. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell)-processors voor 2,4 GHz. Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2,3 GHz-processors. Gen 4 en Gen 5 zijn beschikbaar in de volgende regio's ('X' geeft aan beschikbaar).
+
+> [!IMPORTANT]
+> Vanaf 12 December 2018, is nieuwe klanten niet mogelijk om in te richten compute generatie 4 servers in Brazilië-Zuid, Canada-centraal, Canada-Oost, Zuidoost-Azië, VS-Oost 2, centraal-India, West-India, Japan-West, Noord-centraal VS, VS-West. Bewerking voor compute 4 servers worden gemigreerd om de bewerking 5 vanaf 1 februari 2019 in deze regio's voor compute eerder hebt gemaakt.
 
 | **Azure-regio** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|

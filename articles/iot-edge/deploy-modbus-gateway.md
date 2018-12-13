@@ -9,37 +9,37 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 51c1a9a6fe997249f543348c95c0c02dfa47ceaf
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e929ddec084c4abbdb572943f11f135cddd49045
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101616"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254840"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Modbus TCP-apparaten verbinden via de gateway van een IoT Edge-apparaat
 
-Als u IoT-apparaten die gebruikmaken van Modbus TCP- of RTU-protocollen wilt verbinden met een Azure IoT-hub, gebruik dan een IoT Edge-apparaat als een gateway. Het gatewayapparaat leest de gegevens van uw Modbus-apparaten en geeft deze gegevens met behulp van een ondersteund protocol door aan de cloud. 
+Als u IoT-apparaten die gebruikmaken van Modbus TCP- of RTU-protocollen wilt verbinden met een Azure IoT-hub, gebruik dan een IoT Edge-apparaat als een gateway. Het gatewayapparaat leest de gegevens van uw Modbus-apparaten en geeft deze gegevens met behulp van een ondersteund protocol door aan de cloud.
 
 ![Modbus-apparaten maken verbinding met IoT Hub via Edge-gateway](./media/deploy-modbus-gateway/diagram.png)
 
-Dit artikel gaat over hoe u uw eigen containerinstallatiekopie maakt voor een Modbus-module (u kunt ook een kant- en-klaar voorbeeld gebruiken) en deze vervolgens implementeert op het IoT Edge-apparaat dat als uw gateway zal fungeren. 
+Dit artikel gaat over hoe u uw eigen containerinstallatiekopie maakt voor een Modbus-module (u kunt ook een kant- en-klaar voorbeeld gebruiken) en deze vervolgens implementeert op het IoT Edge-apparaat dat als uw gateway zal fungeren.
 
-In dit artikel wordt ervan uitgegaan dat u het Modbus-protocol TCP gebruikt. Zie voor meer informatie over hoe u de module configureert ter ondersteuning van Modbus RTU, de [Azure IoT Edge Modbus-module](https://github.com/Azure/iot-edge-modbus) project op Github. 
+In dit artikel wordt ervan uitgegaan dat u het Modbus-protocol TCP gebruikt. Zie voor meer informatie over hoe u de module configureert ter ondersteuning van Modbus RTU, de [Azure IoT Edge Modbus-module](https://github.com/Azure/iot-edge-modbus) project op GitHub.
 
 ## <a name="prerequisites"></a>Vereisten
-* Een Azure IoT Edge-apparaat. Voor een overzicht van hoe u er een instelt, raadpleegt u [Deploy Azure IoT Edge on a simulated device in Windows](quickstart.md) (Azure IoT Edge implementeren op een gesimuleerd apparaat in Windows) of [Linux](quickstart-linux.md). 
+* Een Azure IoT Edge-apparaat. Voor een overzicht van hoe u er een instelt, raadpleegt u [Deploy Azure IoT Edge on a simulated device in Windows](quickstart.md) (Azure IoT Edge implementeren op een gesimuleerd apparaat in Windows) of [Linux](quickstart-linux.md).
 * De verbindingsreeks van de primaire sleutel voor het IoT Edge-apparaat.
 * Een fysiek of gesimuleerd Modbus-apparaat dat Modbus TCP ondersteunt.
 
 ## <a name="prepare-a-modbus-container"></a>Een Modbus-container voorbereiden
 
-Als u de functionaliteit van de Modbus-gateway wilt testen, heeft Microsoft een voorbeeldmodule die u kunt gebruiken. Als u de voorbeeldmodule wilt gebruiken, gaat u naar de sectie [De oplossing uitvoeren](#run-the-solution) en voert u de volgende URI van de installatiekopie in: 
+Als u de functionaliteit van de Modbus-gateway wilt testen, heeft Microsoft een voorbeeldmodule die u kunt gebruiken. Als u de voorbeeldmodule wilt gebruiken, gaat u naar de sectie [De oplossing uitvoeren](#run-the-solution) en voert u de volgende URI van de installatiekopie in:
 
 ```URL
 mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
-Als u wilt uw eigen module maken en aanpassen voor uw omgeving, er is een open-source [Azure IoT Edge Modbus-module](https://github.com/Azure/iot-edge-modbus) project op Github. Volg de instructies in dit project om uw eigen containerinstallatiekopie te maken. Als u uw eigen containerinstallatiekopie hebt gemaakt, raadpleegt u [Develop and deploy a C# IoT Edge module](tutorial-csharp-module.md) (Een C# IoT Edge-module ontwikkelen en implementeren) voor instructies over hoe u containerinstallatiekopieën publiceert naar een register en een aangepaste module implementeert op uw apparaat. 
+Als u wilt uw eigen module maken en aanpassen voor uw omgeving, er is een open-source [Azure IoT Edge Modbus-module](https://github.com/Azure/iot-edge-modbus) project op GitHub. Volg de instructies in dit project om uw eigen containerinstallatiekopie te maken. Als u uw eigen containerinstallatiekopie hebt gemaakt, raadpleegt u [Develop and deploy a C# IoT Edge module](tutorial-csharp-module.md) (Een C# IoT Edge-module ontwikkelen en implementeren) voor instructies over hoe u containerinstallatiekopieën publiceert naar een register en een aangepaste module implementeert op uw apparaat.
 
 
 ## <a name="run-the-solution"></a>De oplossing uitvoeren
@@ -54,14 +54,14 @@ Als u wilt uw eigen module maken en aanpassen voor uw omgeving, er is een open-s
    5. Kopieer de volgende JSON naar het tekstvak. Wijzig de waarde van **SlaveConnection** in het IPv4-adres van uw Modbus-apparaat.
 
       ```JSON
-      {  
+      {
         "properties.desired":{
           "PublishInterval":"2000",
           "SlaveConfigs":{
             "Slave01":{
               "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
               "Operations":{
-                "Op01":{  
+                "Op01":{
                   "PollingInterval": "1000",
                   "UnitId":"1",
                   "StartAddress":"400001",
@@ -77,7 +77,7 @@ Als u wilt uw eigen module maken en aanpassen voor uw omgeving, er is een open-s
 
    6. Selecteer **Opslaan**.
 5. Terug in de stap **Modules toevoegen** selecteert u **Volgende**.
-7. In de stap **Routes opgeven** kopieert u de volgende JSON naar het tekstvak. Deze route verzendt alle berichten die door de Modbus-module worden verzameld naar IoT Hub. In deze route is 'modbusOutput' het eindpunt dat de Modbus-module gebruikt om gegevens uit te voeren, en is 'upstream' een speciale bestemming die Edge Hub vertelt dat berichten naar IoT Hub moeten worden verzonden. 
+7. In de stap **Routes opgeven** kopieert u de volgende JSON naar het tekstvak. Deze route verzendt alle berichten die door de Modbus-module worden verzameld naar IoT Hub. In deze route is 'modbusOutput' het eindpunt dat de Modbus-module gebruikt om gegevens uit te voeren, en is 'upstream' een speciale bestemming die Edge Hub vertelt dat berichten naar IoT Hub moeten worden verzonden.
    ```JSON
    {
     "routes": {
@@ -86,8 +86,8 @@ Als u wilt uw eigen module maken en aanpassen voor uw omgeving, er is een open-s
    }
    ```
 
-8. Selecteer **Volgende**. 
-9. Selecteer in de stap **Implementatie beoordelen** de optie **Verzenden**. 
+8. Selecteer **Volgende**.
+9. Selecteer in de stap **Implementatie beoordelen** de optie **Verzenden**.
 10. Ga terug naar de detailpagina van het apparaat en selecteer **Vernieuwen**. U ziet nu de nieuwe **modbus** module samen met de IoT Edge-runtime wordt uitgevoerd.
 
 ## <a name="view-data"></a>Gegevens weergeven
@@ -96,7 +96,7 @@ U bekijkt als volgt de gegevens die via de modbus-module lopen:
 docker logs -f modbus
 ```
 
-U kunt ook de telemetriegegevens bekijken die het apparaat verzendt door de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) te gebruiken. 
+U kunt ook de telemetriegegevens bekijken die het apparaat verzendt door de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) te gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

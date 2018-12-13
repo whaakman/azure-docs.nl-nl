@@ -1,5 +1,5 @@
 ---
-title: Aangepaste weergaven van Share Azure Time Series Insights delen via geparameteriseerde URL's | Microsoft Docs
+title: Azure Time Series Insights-URL's - aangepaste weergaven van Share Azure Time Series Insights met geparameteriseerde URL's | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u geparameteriseerde URL's samenstelt in Azure Time Series Insights, zodat een aangepaste weergave eenvoudig kan worden gedeeld.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 5b43ba4c3f88c678b160e8aec442fa92b4822a3d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628797"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274357"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 
@@ -70,7 +71,7 @@ Met de parameter `timeSeriesDefinitions=<collection of term objects>` geeft u de
   - De kolomnaam van de *meting*.
 - "predicate":"<string>"
   - De *where*-component voor filteren aan de serverzijde.
--  "useSum":"true"
+- "useSum":"true"
   - Dit is een optionele parameter waarin het gebruik van een som voor uw meting wordt aangegeven.  Houd er rekening mee dat als "Events" de geselecteerde meting is, standaard "count" wordt geselecteerd.  Als "Events" niet is geselecteerd, wordt standaard "average" geselecteerd.  
 
 De parameter multiChartStack=<true/false> maakt stapeling in het diagram mogelijk en de parameter multiChartSameScale=<true/false> maakt dezelfde schaling van de Y-as mogelijk voor verschillende onderdelen binnen een optionele parameter.  

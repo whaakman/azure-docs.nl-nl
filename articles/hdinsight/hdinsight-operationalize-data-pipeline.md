@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93c2808dc244a86f7a58aa65d649e9c3e8c17f7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109968"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251705"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Een pijplijn voor gegevensanalyse operationeel maken
 
@@ -24,7 +24,7 @@ Dit artikel wordt beschreven hoe u om uw gegevenspijplijnen voor herhaalbaarheid
 
 In het volgende scenario is de ingevoerde gegevens een plat bestand met een batch van vertragingen van vluchtgegevens gedurende één maand. Deze vluchtgegevens vertragingen van omvatten informatie zoals de bron en doel luchthaven, de mijl alleen gesynchroniseerd, de vertrek en aankomst tijden, enzovoort. Het doel met deze pijplijn is om samen te vatten dagelijkse luchtvaartmaatschappij prestaties, waarbij elke luchtvaartmaatschappij één rij voor elke dag met de gemiddelde vertrek- en vertragingen in minuten, en het totaal aantal kilometers alleen gesynchroniseerd die dag heeft.
 
-| JAAR | MAAND | DAY_OF_MONTH | PROVIDER |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
+| YEAR | MONTH | DAY_OF_MONTH | PROVIDER |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2017 | 1 | 3 | AA | 10.142229 | 7.862926 | 2644539 |
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
@@ -156,7 +156,7 @@ Als u wilt de webconsole Oozie gebruiken om de status van uw coordinator en werk
 
 ### <a name="configure-hive"></a>Hive configureren
 
-1. Download een voorbeeld van de CSV-bestand met vluchtgegevens van vertragingen van gedurende één maand. Download het ZIP-bestand `2017-01-FlightData.zip` uit de [HDInsight Github-opslagplaats](https://github.com/hdinsight/hdinsight-dev-guide) en pak het uit in het CSV-bestand `2017-01-FlightData.csv`. 
+1. Download een voorbeeld van de CSV-bestand met vluchtgegevens van vertragingen van gedurende één maand. Download het ZIP-bestand `2017-01-FlightData.zip` uit de [HDInsight GitHub-opslagplaats](https://github.com/hdinsight/hdinsight-dev-guide) en pak het uit in het CSV-bestand `2017-01-FlightData.csv`. 
 
 2. Kopieer dit CSV-bestand tot de Azure Storage-account dat is gekoppeld aan uw HDInsight-cluster op en plaats deze in de `/example/data/flights` map.
 
@@ -553,7 +553,7 @@ Zoals u ziet, wordt de meerderheid van de coördinator alleen configuratie-infor
 
     Een coördinator is verantwoordelijk voor het plannen van acties in de `start` en `end` datumbereik, op basis van het interval dat is opgegeven door de `frequency` kenmerk. Elke geplande actie op zijn beurt de werkstroom wordt uitgevoerd zoals geconfigureerd. In het definitie van de coördinator hierboven, is de coördinator geconfigureerd voor het uitvoeren van acties vanaf 1 januari 2017 tot en met 5 januari 2017. De frequentie is ingesteld op 1 dag door de [Oozie expressietaal](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequentie expressie `${coord:days(1)}`. Dit resulteert in de coördinator plannen van een actie (en dus de werkstroom) één keer per dag. Voor datumbereiken die zich in het verleden, zoals in dit voorbeeld wordt de actie om uit te voeren zonder vertraging worden gepland. Het begin van de datum van waaruit een actie is gepland voor uitvoering heet de *nominale tijd*. Bijvoorbeeld, voor het verwerken van de gegevens voor 1 januari 2017 de coördinator wordt gepland actie met een nominaal bedrag tijd van 2017-01-01T00:00:00 GMT.
 
-* Punt 2: binnen het datumbereik van de werkstroom, de `dataset` element geeft aan waar de gegevens voor een bepaald datumbereik zoeken in HDFS en configureert u hoe Oozie bepaalt of de gegevens beschikbaar zijn voor verwerking.
+* Punt 2: Binnen het datumbereik van de werkstroom, de `dataset` element geeft aan waar de gegevens voor een bepaald datumbereik zoeken in HDFS en configureert u hoe Oozie bepaalt of de gegevens beschikbaar zijn voor verwerking.
 
     ```
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -582,7 +582,7 @@ De drie punten in de voorgaande combineren om een situatie waarin de coördinato
 
 * Punt 2: Oozie gezocht naar gegevens die beschikbaar zijn in `sourceDataFolder/2017-01-FlightData.csv`.
 
-* Punt 3: Als Oozie dat bestand wordt gevonden, plant een exemplaar van de werkstroom die de gegevens te voor 01-01-2017 verwerken. Oozie voordat de verwerking van voor 2017-01-02. Deze evaluatie wordt herhaald tot maar niet inclusief 01-2017-05.
+* Punt 3: Wanneer Oozie dat bestand vindt, plant u een exemplaar van de werkstroom die de gegevens te voor 01-01-2017 verwerken. Oozie voordat de verwerking van voor 2017-01-02. Deze evaluatie wordt herhaald tot maar niet inclusief 01-2017-05.
 
 Zoals met werkstromen, de configuratie van een coördinator is gedefinieerd in een `job.properties` -bestand, dat een superset is van de instellingen die door de werkstroom.
 

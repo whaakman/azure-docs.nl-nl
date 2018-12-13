@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 023df222ee2e9ca6af1398dd70767938e61c90b7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ea81cb52b8492e429903de15a9ff0156c91abae2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824100"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309583"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -30,7 +30,7 @@ Voordat u een import-taak voor het overdragen van gegevens naar Azure Blob-opsla
 - Schijven van voldoende [ondersteunde typen](storage-import-export-requirements.md#supported-disks). 
 - Een Windows-systeem met een [ondersteunde besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems). 
 - Het inschakelen van BitLocker op het Windows-systeem. Zie [BitLocker inschakelen](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Download de WAImportExport versie 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) op het Windows-systeem. Pak deze uit naar de standaardmap `waimportexportv1`. Bijvoorbeeld `C:\WaImportExportV1`.
+- [Download de WAImportExport versie 1](https://aka.ms/waiev1) op het Windows-systeem. Pak deze uit naar de standaardmap `waimportexportv1`. Bijvoorbeeld `C:\WaImportExportV1`.
 - Een FedEx/DHL-account hebben.  
     - Het account moet geldig zijn, saldo moet hebben en moet return verzending mogelijkheden hebben.
     - Een nummer voor de taak uitvoer gegenereerd.
@@ -64,7 +64,7 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
     
     De parameters die worden gebruikt worden in de volgende tabel beschreven:
 
-    |Optie  |Beschrijving  |
+    |Optie  |Description  |
     |---------|---------|
     |/j:     |De naam van het logboekbestand met de extensie jrn. Er wordt een logboekbestand gegenereerd per station. U wordt aangeraden dat u het serienummer van de schijf als de naam van het logboek gebruiken.         |
     |/ID:     |De sessie-ID. Gebruik een unieke sessie voor elk exemplaar van de opdracht.      |
@@ -138,7 +138,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Stap 5: Controleer of het uploaden van gegevens naar Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Stap 5: De gegevensupload naar Azure controleren
 
 De taak volgen om te voltooien. Nadat de taak voltooid is, moet u controleren of uw gegevens daadwerkelijk is geüpload naar Azure. Verwijder de on-premises gegevens alleen nadat u hebt gecontroleerd dat het uploaden is voltooid.
 

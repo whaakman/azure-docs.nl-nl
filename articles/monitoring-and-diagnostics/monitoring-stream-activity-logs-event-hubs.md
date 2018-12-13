@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8a932ac06b58a8e683e326f082a3a2c038dba66
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011830"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273700"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream het Azure-activiteitenlogboek naar Eventhubs
 U kunt streamen de [Azure Activity Log](monitoring-overview-activity-logs.md) in bijna realtime voor elke toepassing door een van beide:
@@ -24,8 +24,8 @@ U kunt streamen de [Azure Activity Log](monitoring-overview-activity-logs.md) in
 ## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>U kunt doen met het activiteitenlogboek en Event Hubs
 Hier vindt u de streaming-mogelijkheden kunt gebruiken voor het activiteitenlogboek op twee manieren:
 
-* **Stream naar de logboeken en telemetrie systemen van derden**: gedurende een periode, Azure Event Hubs streamen wordt het mechanisme voor het doorgeven van het activiteitenlogboek is opgenomen in de siem's van derden en meld u analytics-oplossingen.
-* **Een aangepaste Telemetrie-en logboekregistratie platform**: als u al beschikken over een platform op maat gemaakte telemetrie of na te denken over het bouwen van een zijn, het zeer schaalbare publish-subscribe aard van Event Hubs kunt u het activiteitenlogboek flexibel opnemen. Zie voor meer informatie, [Dan Rosanova van video over het gebruik van Event Hubs in een wereldwijde schaal telemetrie-platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+* **Stream naar de logboeken en telemetrie systemen van derden**: Na verloop van tijd, Azure Event Hubs streamen, worden het mechanisme voor het doorgeven van het activiteitenlogboek is opgenomen in de siem's van derden en meld u analytics-oplossingen.
+* **Een aangepaste Telemetrie-en logboekregistratie platform**: Als u al beschikken over een platform op maat gemaakte telemetrie of na te denken over het bouwen van een zijn, het zeer schaalbare publish-subscribe aard van Event Hubs kunt u het activiteitenlogboek flexibel opnemen. Zie voor meer informatie, [Dan Rosanova van video over het gebruik van Event Hubs in een wereldwijde schaal telemetrie-platform](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Streaming van het activiteitenlogboek inschakelen
 U kunt het inschakelen van het activiteitenlogboek streamen via programmacode of via de portal. In beide gevallen die u kiest een Event Hubs-naamruimte en een gedeeld toegangsbeleid voor die naamruimte. Een event hub met de naam insights-logs-operationallogs wordt gemaakt in die naamruimte als de eerste nieuwe activiteitenlogboekgebeurtenis plaatsvindt. 
@@ -101,5 +101,5 @@ Het schema voor het activiteitenlogboek is beschikbaar in [abonnement activiteit
 ## <a name="next-steps"></a>Volgende stappen
 * [Het activiteitenlogboek naar een opslagaccount archiveren](monitoring-archive-activity-log.md)
 * [Lees het overzicht van de Azure-activiteitenlogboek](monitoring-overview-activity-logs.md)
-* [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](monitor-alerts-unified-log-webhook.md)
+* [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](../azure-monitor/platform/alerts-log-webhook.md)
 

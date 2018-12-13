@@ -1,5 +1,5 @@
 ---
-title: Een referentiegegevensset toevoegen aan uw Azure Time Series Insights-omgeving
+title: Azure Time Series Insights verwijzen naar gegevens - hoe een referentiegegevensset toevoegen aan uw Azure Time Series Insights-omgeving | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u een referentiegegevensset aan het verbeteren van de gegevens in uw Azure Time Series Insights-omgeving.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: de5f4735e7dde7a3e631d14c83d42ccb9fd5c9db
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364734"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273830"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Een referentiegegevensset voor uw Time Series Insights-omgeving met behulp van de Azure portal maken
 
@@ -59,9 +60,9 @@ Referentiegegevens is niet met terugwerkende kracht gekoppeld. Dit betekent dat 
    - Plak de gegevens in de teksteditor. Selecteer **verwijzingsgegevens parseren** knop.
    - Selecteer **bestand kiezen** knop voor het toevoegen van gegevens uit een lokale tekstbestand. 
 
-   Plak bijvoorbeeld CSV-gegevens: ![geplakt CSV-gegevens](media/add-reference-data-set/csv_data_pasted.png)
+   Plak bijvoorbeeld CSV-gegevens: ![Geplakte CSV-gegevens](media/add-reference-data-set/csv_data_pasted.png)
 
-   Plak bijvoorbeeld JSON-matrix-gegevens: ![plakken JSON-gegevens](media/add-reference-data-set/json_data_pasted.png)
+   Plak bijvoorbeeld JSON-matrix-gegevens: ![Plak de JSON-gegevens](media/add-reference-data-set/json_data_pasted.png)
 
    Als er een fout bij het parseren van de gegevenswaarden, de fout in het rood weergegeven aan de onderkant van de pagina, zoals `CSV parsing error, no rows extracted`.
 

@@ -4,9 +4,9 @@ description: Een gedetailleerde procedure voor het maken van een predictive anal
 keywords: kredietrisico, predictive analytics-oplossing, risico-evaluatie
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
+ms.author: garye
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: edbcd1ae128969bb10436afb1dc800c42e69f8c9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: fce8f03adfad348c9daddf3c2a225d6df29552d7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089816"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252496"
 ---
-# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Walkthrough: Een voorspellende oplossing voor kredietrisicobeoordeling in Azure Machine Learning Studio ontwikkelen
+# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Overzicht: Ontwikkelen van voorspellende oplossing voor kredietrisicobeoordeling in Azure Machine Learning Studio
 
 In deze rondleiding gaan we uitgebreid in op het ontwikkelingsproces van een predictive analytics-oplossing in Machine Learning Studio. We zetten een eenvoudig model op in Machine Learning Studio en implementeren dit vervolgens als Azure Machine Learning-webservice, zodat het model voorspellingen kan doen met nieuwe gegevens. 
 
 In deze rondleiding gaan we ervan uit dat u Machine Learning Studio al minstens één keer hebt gebruikt en dat u enig inzicht hebt in de concepten van machine learning. Er wordt niet van uitgegaan dat u een expert bent.
 
-Als u **Azure Machine Learning Studio** nog nooit eerder hebt gebruikt, doet u er verstandig aan te beginnen met de zelfstudie [Uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio](create-experiment.md). In die zelfstudie doorloopt u Machine Learning Studio voor de eerste keer. U ziet hoe u modules naar uw experiment sleept, ze aan elkaar koppelt, het experiment uitvoert en de resultaten weergeeft. Een ander hulpmiddel dat handig kan zijn wanneer u aan de slag gaat, is een diagram met een overzicht van de mogelijkheden van Machine Learning Studio. U kunt dit hier downloaden en afdrukken: [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md).
+Als u **Azure Machine Learning Studio** nog nooit eerder hebt gebruikt, doet u er verstandig aan te beginnen met de zelfstudie [Uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio](create-experiment.md). In die zelfstudie doorloopt u Machine Learning Studio voor de eerste keer. U ziet hoe u modules naar uw experiment sleept, ze aan elkaar koppelt, het experiment uitvoert en de resultaten weergeeft. Een ander hulpmiddel dat handig kan zijn wanneer u aan de slag gaat, is een diagram met een overzicht van de mogelijkheden van Machine Learning Studio. U kunt downloaden en van hieruit afdrukken: [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md).
  
 Als u geen ervaring hebt met machine learning in het algemeen, bekijk dan eerst onze informatieve videoserie. Deze heet [Wetenschappelijke gegevens voor beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) en geeft u met alledaagse taal en concepten een uitgebreide inleiding tot machine learning.
 
@@ -58,4 +58,4 @@ Voer de volgende stappen uit als u deze oplossing voor kredietrisicobeoordeling 
 > [!TIP] 
 > In de [Azure AI Gallery](https://gallery.cortanaintelligence.com) vindt u een werkende kopie van het experiment dat we in deze rondleiding hebt ontwikkeld. Ga naar **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** en klik op **Open in Studio** om een kopie van het experiment naar uw Machine Learning Studio-werkruimte te downloaden.
 > 
-> Deze rondleiding is gebaseerd op een vereenvoudigde versie van het voorbeeldexperiment [Binary Classification: Credit risk prediction](https://go.microsoft.com/fwlink/?LinkID=525270), dat eveneens beschikbaar is in de [galerij](http://gallery.cortanaintelligence.com/).
+> In dit scenario is gebaseerd op een vereenvoudigde versie van het voorbeeldexperiment [binaire classificatie: Credit risk prediction](https://go.microsoft.com/fwlink/?LinkID=525270), dat eveneens beschikbaar in de [galerie](http://gallery.cortanaintelligence.com/).

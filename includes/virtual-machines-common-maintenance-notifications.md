@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 609389460ab18ba947130e64dbe7b599574816a5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981440"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53215942"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Gepland voor onderhoud in de portal van de virtuele machines weergeven
 
@@ -29,9 +29,9 @@ U kunt gebruiken de Azure-portal en zoek naar virtuele machines die zijn gepland
 
 4. Selecteer en voeg de volgende kolommen:
 
-   **Onderhoud**: toont de onderhoudsstatus voor de virtuele machine. Hier volgen de mogelijke waarden:
+   **Onderhoud**: Geeft de onderhoudsstatus voor de virtuele machine. Hier volgen de mogelijke waarden:
       
-      | Waarde | Beschrijving |
+      | Waarde | Description |
       |-------|-------------|
       | Nu beginnen | De virtuele machine is in de selfservice-onderhoud-venster waarmee u het onderhoud zelf initiëren. Zie hieronder voor het starten van onderhoud op de virtuele machine. | 
       | Gepland | Er is onderhoud gepland voor uw virtuele machine, zonder mogelijkheid dit onderhoud zelf te starten. U kunt meer over het onderhoudsvenster door te selecteren van het onderhoud - geplande venster in deze weergave of door te klikken op de virtuele machine. | 
@@ -41,15 +41,15 @@ U kunt gebruiken de Azure-portal en zoek naar virtuele machines die zijn gepland
       | - | Uw virtuele machine maakt geen deel uit van een geplande onderhoudsgolf. |
       
 
-   **Onderhoud - venster selfservice**: het tijdvenster ziet wanneer u zelf onderhoud op uw virtuele machines starten kunt.
+   **Onderhoud - venster selfservice**: Het tijdvenster ziet wanneer u zelf onderhoud op uw virtuele machines starten kunt.
    
-   **Onderhoud - venster voor geplande**: bevat het tijdvenster wanneer Azure uw virtuele machine blijft om te kunnen voltooien onderhoud. 
+   **Onderhoud - venster voor geplande**: Geeft het tijdvenster als Azure uw virtuele machine om te kunnen voltooien onderhoud wordt onderhouden. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Meldingen en waarschuwingen in de portal
 
-Een schema voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de abonnement-eigenaar en mede-eigenaars-groep. U kunt extra ontvangers en kanalen toevoegen aan deze communicatie met het maken van Azure-activiteit waarschuwingen. Zie voor meer informatie, [waarschuwingen voor activiteitenlogboek maken voor servicemeldingen](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+Een schema voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de abonnement-eigenaar en mede-eigenaars-groep. U kunt extra ontvangers en kanalen toevoegen aan deze communicatie met het maken van Azure-activiteit waarschuwingen. Zie voor meer informatie, [waarschuwingen voor activiteitenlogboek maken voor servicemeldingen](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 Zorg ervoor dat u de **gebeurtenistype** als **gepland onderhoud** en **Services** als **Virtual Machine Scale Sets** en/of **Virtuele Machines**
     

@@ -1,5 +1,5 @@
 ---
-title: Beheren en implementeren van modellen
+title: Beheren, registreren, implementeren en bewaken van ML-modellen
 titleSuffix: Azure Machine Learning service
 description: Informatie over het gebruik van Azure Machine Learning-Service te implementeren, beheren en bewaken van uw modellen voor het continu te verbeteren. U kunt de modellen die u met Azure Machine Learning-Service is getraind op uw lokale computer of uit andere bronnen kunt implementeren.
 services: machine-learning
@@ -7,22 +7,22 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: hjerez
-ms.author: hjerez
+author: chris-lauren
+ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec0ab07d6bd35557e173641fbfbbc3621ad0ede2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097552"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250197"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Beheren, implementeren en bewaken van modellen met Azure Machine Learning-Service
 
 In dit artikel leert u hoe u Azure Machine Learning-Service te implementeren, beheren en bewaken van uw modellen voor het continu te verbeteren. U kunt de modellen die u met Azure Machine Learning, getraind op uw lokale computer of uit andere bronnen kunt implementeren. 
 
-Het volgende diagram illustreert de werkstroom van de volledige implementatie: [ ![implementatiewerkstroom voor Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+Het volgende diagram illustreert de werkstroom van de volledige implementatie: [ ![Implementatiewerkstroom voor Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 De implementatiewerkstroom bevat de volgende stappen uit:
 1. **Registreer het model** in een register, gehost in uw Service voor Azure Machine Learning-werkruimte
@@ -35,14 +35,14 @@ Elke stap kan worden uitgevoerd, onafhankelijk van elkaar of als onderdeel van e
 [ !['Azure Machine Learning continue integratie/continue implementatie (CI/CD) cyclus'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 
-## <a name="step-1-register-model"></a>Stap 1: Registreren model
+## <a name="step-1-register-model"></a>Stap 1: Model registreren
 
 Het register model houdt van alle modellen in de Service van Azure Machine Learning-werkruimte.
 Modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model met dezelfde naam als een bestaande resourcegroep registreren in het register wordt het versienummer verhoogd. U kunt ook aanvullende metagegevenstags opgeven tijdens de registratie die kan worden gebruikt bij het zoeken naar voor modellen.
 
 U kunt modellen die worden gebruikt door een installatiekopie niet verwijderen.
 
-## <a name="step-2-register-image"></a>Stap 2: Registreer installatiekopie
+## <a name="step-2-register-image"></a>Stap 2: Registreren van installatiekopie
 
 Afbeeldingen toestaan voor de implementatie van betrouwbare model, samen met alle onderdelen die nodig zijn voor het gebruik van het model. Een installatiekopie bevat de volgende items:
 
@@ -58,7 +58,7 @@ Azure Machine Learning biedt ondersteuning voor de meest populaire frameworks, m
 Als uw werkruimte is gemaakt, zijn dus andere verschillende andere Azure-resources gebruikt door deze werkruimte.
 Alle objecten die worden gebruikt voor het maken van de installatiekopie worden opgeslagen in de Azure storage-account in uw werkruimte. De installatiekopie is gemaakt en opgeslagen in Azure Container Registry. U kunt aanvullende metagegevenstags opgeven bij het maken van de installatiekopie, die ook door het installatiekopieregister worden opgeslagen en kunnen worden opgevraagd om de afbeelding te zoeken.
 
-## <a name="step-3-deploy-image"></a>Stap 3: Implementatie van installatiekopie
+## <a name="step-3-deploy-image"></a>Stap 3: Installatiekopie implementeren
 
 U kunt geregistreerde installatiekopieën implementeren naar de cloud of naar edge-apparaten. Het implementatieproces maakt de resources die nodig zijn om te controleren, taakverdeling en automatisch schalen uw model. Toegang tot de geïmplementeerde services kan worden beveiligd met verificatie op basis van door te geven van de activa beveiliging tijdens de implementatie. U kunt ook een bestaande implementatie voor het gebruik van een nieuwe installatiekopie bijwerken.
 

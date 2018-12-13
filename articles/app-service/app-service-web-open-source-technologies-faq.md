@@ -1,5 +1,5 @@
 ---
-title: Open-source technologieën Veelgestelde vragen over de Azure-web-apps | Microsoft Docs
+title: Open-source technologieën Veelgestelde vragen - Azure App Service | Microsoft Docs
 description: Krijg antwoorden op veelgestelde vragen over open-source technologieën in de functie Web Apps van Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 19168f965f2a98a1dc3f94ae0b029449865a9582
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ac80cd5ee1c530736666338e8bc3763b110c688c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971342"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255530"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Open-source technologieën Veelgestelde vragen over de Web-Apps in Azure
 
@@ -113,7 +114,7 @@ Zie voor meer informatie over het installeren van Django [een Django-app impleme
 
 Voor Azure Marketplace en aangepaste implementaties:
 
-* Locatie van de map: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
+* Locatie van map: D:\home\site\wwwroot\bin\apache-Tomcat-8.0.33\logs
 * Bestanden van belang:
     * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
@@ -124,7 +125,7 @@ Voor Azure Marketplace en aangepaste implementaties:
 
 Voor portal **App-instellingen** implementaties:
 
-* Locatie van de map: D:\home\LogFiles
+* Locatie van map: D:\home\LogFiles
 * Bestanden van belang:
     * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
@@ -189,7 +190,7 @@ Als u onlangs naar Azure hebt gemigreerd, kan WordPress omleiden naar de oude do
 
 WordPress vriend + is een Azure-Site-extensie die u gebruiken kunt om bij te werken van de omleidings-URL rechtstreeks in de database. Zie voor meer informatie over het gebruik van WordPress vriend + [WordPress hulpprogramma's en MySQL-migratie met WordPress vriend +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
 
-U kunt ook als u liever handmatig bijwerken van de omleidings-URL met behulp van SQL-query's of PHPMyAdmin, Zie [WordPress: omleiden naar de URL van de verkeerde](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
+U kunt ook als u liever handmatig bijwerken van de omleidings-URL met behulp van SQL-query's of PHPMyAdmin, Zie [WordPress: Omleiden naar de URL van de verkeerde](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Hoe kan ik mijn WordPress aanmelden wachtwoord wijzigen?
 
@@ -204,7 +205,7 @@ Als u zelf WordPress vergrendeld na de installatie van een invoegtoepassing onla
 U hebt meerdere opties voor het migreren van de MySQL-database die verbonden met uw WordPress-website:
 
 * Ontwikkelaars: Gebruik de [-opdrachtprompt of PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Niet-Ontwikkelaars: [WordPress vriend +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* Niet-ontwikkelaars: Gebruik [WordPress vriend +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Hoe u helpen u WordPress beter te beveiligen?
 

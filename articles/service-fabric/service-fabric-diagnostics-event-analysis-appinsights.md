@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291042"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322786"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Gebeurtenis analyses en visualisatie met Application Insights
 
@@ -54,7 +54,7 @@ Als u wilt de mogelijkheden van de Application Insights-portal verder verkennen,
 >[!NOTE]
 >Dit is alleen van toepassing op Windows-clusters op dit moment.
 
-Er zijn twee primaire manieren om gegevens te verzenden vanuit WAD naar Azure Application Insights, waarmee wordt bereikt door een sink Application Insights toe te voegen aan de configuratie WAD, zoals beschreven in [in dit artikel](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Er zijn twee primaire manieren om gegevens te verzenden vanuit WAD naar Azure Application Insights, waarmee wordt bereikt door een sink Application Insights toe te voegen aan de configuratie WAD, zoals beschreven in [in dit artikel](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Een Application Insights-Instrumentatiesleutel toevoegen bij het maken van een cluster in Azure portal
 
@@ -88,7 +88,7 @@ Toevoegen in de 'WadCfg' van de Resource Manager-sjabloon, een 'Sink' door de vo
 
 In zowel de voorgaande codefragmenten, is de naam 'Application Insights' gebruikt om te beschrijven van de sink. Dit is geen vereiste en als de naam van de sink is opgenomen in een 'put', kunt u de naam van de instellen op een willekeurige tekenreeks.
 
-Op dit moment logboeken van het cluster weergegeven als **traceringen** in Application Insights-Logboeken. Omdat de meeste van de traceringen die afkomstig zijn van het platform van niveau 'Ter informatie' zijn, kunt u ook overwegen wijzigen van de sink-configuratie voor het verzenden van alleen logboeken van het type "Critical" of "Error". Dit kan worden gedaan door 'Kanalen' toevoegen aan uw sink, zoals geïllustreerd in [in dit artikel](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Op dit moment logboeken van het cluster weergegeven als **traceringen** in Application Insights-Logboeken. Omdat de meeste van de traceringen die afkomstig zijn van het platform van niveau 'Ter informatie' zijn, kunt u ook overwegen wijzigen van de sink-configuratie voor het verzenden van alleen logboeken van het type "Critical" of "Error". Dit kan worden gedaan door 'Kanalen' toevoegen aan uw sink, zoals geïllustreerd in [in dit artikel](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Als u een onjuiste Application Insights-sleutel in de portal of in het Resource Manager-sjabloon, moet u de sleutel handmatig te wijzigen en bijwerken van het cluster / opnieuw te implementeren.

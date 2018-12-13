@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2beb5aa7218df25a1af87411d9481d30b259c353
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409251"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256723"
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
@@ -185,7 +185,7 @@ Core analytics logboeken worden elk uur gegenereerd en de gegevens worden verzam
 
 **Beschrijving van de velden:**
 
-|Waarde|Beschrijving|
+|Waarde|Description|
 |-------|---------|
 |Abonnements-id    |ID van de Azure-abonnement in Guid-indeling.|
 |Naam van brongroep |De naam van de resourcegroep waartoe de CDN-resources behoren.|
@@ -202,7 +202,7 @@ Als u eenvoudig toegang krijgen tot basisanalyse, wordt voorbeeldcode voor een h
 
 Dit is hoe u het hulpprogramma kunt gebruiken:
 
-1.  Ga naar de github-koppeling: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  Ga naar de GitHub-koppeling: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  De code downloaden.
 3.  Volg de instructies om te compileren en configureren.
 4.  Het hulpprogramma uitvoeren.
@@ -319,7 +319,7 @@ Microsoft biedt momenteel core analytics Logboeken alleen die metrische gegevens
 De volgende tabel bevat een overzicht van metrische gegevens beschikbaar zijn in de core analytics-logboeken voor **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, en **Azure CDN Standard/Premium van Verizon**. Niet alle metrische gegevens zijn beschikbaar van alle providers, hoewel deze verschillen minimaal zijn. De tabel geeft ook aan of een bepaalde meetwaarde beschikbaar via een provider is. De metrische gegevens zijn beschikbaar voor de CDN-eindpunten die verkeer op deze hebben.
 
 
-|Gegevens                     | Beschrijving | Microsoft | Verizon | Akamai |
+|Gegevens                     | Description | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Totaal aantal treffers in de aanvraag tijdens deze periode. | Ja | Ja |Ja |
 | RequestCountHttpStatus2xx | Telling van alle aanvragen dat heeft geresulteerd in een 2xx HTTP-code (bijvoorbeeld 200, 202). | Ja | Ja |Ja |

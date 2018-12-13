@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: b5bf9a0e9cbbcf2a4144255ac0bfbd4bd48e956c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d266ee48a4248584ae22a9ba678d516fe28cd712
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104462"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259712"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Deep Learning en AI-frameworks
-De [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) en de [Deep Learning VM](https://aka.ms/dsvm/deeplearning) ondersteunt een aantal frameworks voor deep learning bij het opbouwen van kunstmatige intelligentie (AI)-toepassingen met Voorspellend en cognitieve functionaliteit, zoals afbeeldingen en language understanding. 
+De [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) en de [Deep Learning VM](https://aka.ms/dsvm/deeplearning) ondersteunt een aantal frameworks voor deep learning bij het opbouwen van kunstmatige intelligentie (AI)-toepassingen met Voorspellend en cognitieve functionaliteit, zoals afbeeldingen en language understanding.
 
 Hier volgen de details voor alle deep learning-frameworks beschikbaar is op de DSVM.
 
@@ -37,8 +37,7 @@ Hier volgen de details voor alle deep learning-frameworks beschikbaar is op de D
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Microsoft Cognitive Toolkit (CNTK) in Python 3.5 is geïnstalleerd op [Linux en Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) en Python 3.6 op [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).   |
 | Koppelingen naar voorbeelden      | Voorbeeld van Jupyter notebooks zijn opgenomen.     |
 | Meer hulpprogramma's op de DSVM      | Keras      |
-| Hoe kan ik gebruik / uitvoeren?    | * Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/>
- * In Jupyter: Verbinding maken met [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) of [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), open vervolgens de map CNTK voor voorbeelden. |
+| Hoe kan ik gebruik / uitvoeren?    | * Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/> * In Jupyter: Verbinding maken met [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) of [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), open vervolgens de map CNTK voor voorbeelden. |
 
 ## <a name="tensorflow"></a>TensorFlow
 
@@ -49,8 +48,7 @@ Hier volgen de details voor alle deep learning-frameworks beschikbaar is op de D
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | TensorFlow in Python 3.5 is geïnstalleerd op [Linux en Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) en Python 3.6 op [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).  |
 | Koppelingen naar voorbeelden      | Voorbeeld van Jupyter notebooks zijn opgenomen.     |
 | Meer hulpprogramma's op de DSVM      | Keras      |
-| Hoe kan ik gebruik / uitvoeren?    | * Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/>
- * In Jupyter: Verbinding maken met [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) of [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), open vervolgens de map TensorFlow voor voorbeelden.  |
+| Hoe kan ik gebruik / uitvoeren?    | * Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/> * In Jupyter: Verbinding maken met [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) of [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), open vervolgens de map TensorFlow voor voorbeelden.  |
 
 ## <a name="horovod"></a>Horovod
 
@@ -72,8 +70,7 @@ Hier volgen de details voor alle deep learning-frameworks beschikbaar is op de D
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | TensorFlow in Python 3.5 is geïnstalleerd op [Linux en Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) en Python 3.6 op [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Koppelingen naar voorbeelden      | https://github.com/fchollet/keras/tree/master/examples      |
 | Meer hulpprogramma's op de DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
-| Hoe kan ik gebruik / uitvoeren?    | * Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/>
- * In Jupyter: Voorbeelden downloaden uit de Github-locatie, verbinding maken met [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) of [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), opent u de voorbeeld-map. |
+| Hoe kan ik gebruik / uitvoeren?    | * Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/> * In Jupyter: Voorbeelden downloaden uit de GitHub-locatie, verbinding maken met [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) of [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), opent u de voorbeeld-map. |
 
 ## <a name="caffe"></a>Caffe
 
@@ -85,7 +82,8 @@ Hier volgen de details voor alle deep learning-frameworks beschikbaar is op de D
 | Overschakelen naar Python 2.7 | Voer `source activate root` uit. |
 | Koppelingen naar voorbeelden      | Voorbeelden zijn opgenomen in `/opt/caffe/examples`.      |
 | Meer hulpprogramma's op de DSVM      | Caffe2      |
-### <a name="how-to-use--run-it"></a>Hoe kan ik gebruik / uitvoeren?  
+
+### <a name="how-to-use--run-it"></a>Hoe kan ik gebruik / uitvoeren?
 
 X2Go Meld u aan bij uw virtuele machine, en vervolgens start een nieuwe terminal en voer gebruiken
 
@@ -99,7 +97,7 @@ Er wordt een nieuw browservenster geopend met voorbeeldnotitieblokken.
 
 Binaire bestanden zijn in /opt/caffe/build/install/bin geïnstalleerd.
 
-Geïnstalleerde versie van Caffe vereist Python 2.7 en werkt niet met Python 3.5 standaard geactiveerd. Voer `source activate root` om over te schakelen Anaconda-omgeving. 
+Geïnstalleerde versie van Caffe vereist Python 2.7 en werkt niet met Python 3.5 standaard geactiveerd. Voer `source activate root` om over te schakelen Anaconda-omgeving.
 
 ## <a name="caffe2"></a>Caffe2
 
@@ -122,8 +120,7 @@ Geïnstalleerde versie van Caffe vereist Python 2.7 en werkt niet met Python 3.5
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Chainer is geïnstalleerd in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). ChainerRL en ChainerCV opdrachtprompts ook geïnstalleerd.   |
 | Koppelingen naar voorbeelden      | Voorbeeldnotitieblokken zijn opgenomen in JupyterHub. |
 | Meer hulpprogramma's op de DSVM      | Caffe      |
-| Hoe kan ik gebruik / uitvoeren?  | * Op de terminal: activeert de [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) omgeving, worden uitgevoerd _python_, chainer vervolgens te importeren. <br/>
-* In JupyterHub: [verbinding maken met JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), navigeer naar de map Chainer voorbeeldnotitieblokken vinden.
+| Hoe kan ik gebruik / uitvoeren?  | * Op de terminal: activeert de [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) omgeving, worden uitgevoerd _python_, chainer vervolgens te importeren. <br/> * In JupyterHub: [verbinding maken met JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), navigeer naar de map Chainer voorbeeldnotitieblokken vinden.
 
 
 ## <a name="deep-water"></a>Diep Water
@@ -136,7 +133,7 @@ Geïnstalleerde versie van Caffe vereist Python 2.7 en werkt niet met Python 3.5
 | Koppelingen naar voorbeelden      | Voorbeeldnotitieblokken zijn opgenomen in JupyterHub.      |
 | Meer hulpprogramma's op de DSVM      | H2O, Sparkling Water      |
 
-### <a name="how-to-use--run-it"></a>Hoe kan ik gebruik / uitvoeren?  
+### <a name="how-to-use--run-it"></a>Hoe kan ik gebruik / uitvoeren?
 
 CUDA 8 moet diep Water waarbij cuDNN 5.1. Dit is niet in het bibliotheekpad standaard als andere frameworks voor deep learning CUDA-9 en cuDNN-7. CUDA 8 + cuDNN 5.1 gebruiken voor Deep Water:
 
@@ -158,8 +155,7 @@ Diep Water gebruiken:
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | MXNet is geïnstalleerd in `C:\dsvm\tools\mxnet` op Windows en `/dsvm/tools/mxnet` op Linux. Python-bindingen in Python 3.5 zijn geïnstalleerd op [Linux en Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) en Python 3.6 op [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). R-bindingen worden ook geïnstalleerd op Ubuntu.   |
 | Koppelingen naar voorbeelden      | Voorbeeld van Jupyter notebooks zijn opgenomen.    |
 | Meer hulpprogramma's op de DSVM      | Keras      |
-| Hoe kan ik gebruik / uitvoeren?    | * Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/>
- * In Jupyter: Verbinding maken met [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) of [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), open vervolgens de map mxnet voor voorbeelden.  |
+| Hoe kan ik gebruik / uitvoeren?    | * Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/> * In Jupyter: Verbinding maken met [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) of [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), open vervolgens de map mxnet voor voorbeelden.  |
  | Opmerkingen bij de bouwen | MXNet wordt samengesteld uit de bron op Linux. Deze versie bevat CUDA-, cuDNN-, NCCL en MKL. |
 
 ## <a name="nvidia-digits"></a>NVIDIA CIJFERS
@@ -169,7 +165,8 @@ Diep Water gebruiken:
 | Wat is het?   | Deep learning-systeem van NVIDIA snel deep learning-modellen te trainen      |
 | Ondersteunde DSVM-edities      | Ubuntu     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | CIJFERS is geïnstalleerd in `/dsvm/tools/DIGITS` en vindt u een service met de naam _cijfers_.   |
-### <a name="how-to-use--run-it"></a>Hoe kan ik gebruik / uitvoeren?  
+
+### <a name="how-to-use--run-it"></a>Hoe kan ik gebruik / uitvoeren?
 
 Meld u aan bij de virtuele machine met X2Go. Start de service op een terminal:
 
@@ -198,12 +195,7 @@ De service duurt ongeveer een minuut om te starten. Start een webbrowser en navi
 | Ondersteunde DSVM-edities      | Ubuntu     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Theano in Python 2.7 is geïnstalleerd (_hoofdmap_), evenals Python 3.5 (_py35_) omgeving.   |
 | Meer hulpprogramma's op de DSVM      | Keras      |
-| Hoe kan ik gebruik / uitvoeren?    | * Op een terminal activeren de Python-versie u wilt (root of py35), uitvoeren van python en theano importeren. <br/> 
-* In Jupyter, selecteert u de Python 2.7 of 3,5 kernel en theano importeren.  
-<br/>
-Als tijdelijke oplossing voor een recente MKL bug, moet u eerst de MKL threading laag instellen:<br/><br/>
-_exporteren van MKL_THREADING_LAYER GNU =_
-|
+| Hoe kan ik gebruik / uitvoeren?    | * Op een terminal activeren de Python-versie u wilt (root of py35), uitvoeren van python en theano importeren. <br/> * In Jupyter, selecteert u de Python 2.7 of 3,5 kernel en theano importeren.  <br/>Als tijdelijke oplossing voor een recente MKL bug, moet u eerst de MKL threading laag instellen:<br/><br/>_exporteren van MKL_THREADING_LAYER GNU =_|
 
 
 
@@ -226,9 +218,8 @@ _exporteren van MKL_THREADING_LAYER GNU =_
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | PyTorch is geïnstalleerd in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Koppelingen naar voorbeelden      | Voorbeeld van Jupyter notebooks zijn opgenomen en kunnen ook voorbeelden te vinden in /dsvm/samples/pytorch.      |
 | Meer hulpprogramma's op de DSVM      | Torch      |
-| Over het gebruik / uitvoeren | 
-* Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/>
- * In Jupyter: Verbinding maken met [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), open vervolgens de map PyTorch voor voorbeelden.  |
+| Over het gebruik / uitvoeren |
+* Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/> * In Jupyter: Verbinding maken met [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), open vervolgens de map PyTorch voor voorbeelden.  |
 
 ## <a name="mxnet-model-server"></a>MXNet Model-Server
 

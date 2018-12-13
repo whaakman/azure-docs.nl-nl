@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure App Service-diagnostics | Microsoft Docs
+title: Overzicht van diagnostische gegevens - Azure App Service | Microsoft Docs
 description: Meer informatie over hoe u problemen kunt oplossen met uw web-app met App Service-diagnostics.
 keywords: appservice, azure appservice, diagnostische gegevens, ondersteuning, web-app, het oplossen van problemen zelfhulp
 services: app-service
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 7ad205c75a02b496abe2cb910c7eb459cdb16c97
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.custom: seodec18
+ms.openlocfilehash: a8b256f43d8e4103404ab4276431ceb06d9ed36a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969235"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255139"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Overzicht van Azure App Service-diagnostics 
 
@@ -66,5 +67,5 @@ Omdat veel app problemen zijn met betrekking tot problemen in uw toepassingscode
 
 Als u wilt weergeven in Application Insights-uitzonderingen en afhankelijkheden, selecteert u de **Web-App omlaag** of **Web-App langzaam** snelkoppelingen tegel. 
 
-![Application Insights](./media/app-service-diagnostics/AppInsights6.png)
+![Application insights](./media/app-service-diagnostics/AppInsights6.png)
 

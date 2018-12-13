@@ -1,5 +1,5 @@
 ---
-title: Veelgestelde vragen over de implementatie voor Azure WebApps | Microsoft Docs
+title: Veelgestelde vragen voor implementatie - Azure App Service | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over de implementatie voor de functie Web Apps van Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748439"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262109"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Veelgestelde vragen over de implementatie voor Web-Apps in Azure
 
@@ -39,7 +40,7 @@ Zie voor meer informatie, [uw app implementeren in App Service](app-service-depl
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Ik zie een foutbericht wanneer ik probeer om vanuit Visual Studio te implementeren. Hoe kan ik dit oplossen?
 
-Als u het volgende bericht ziet, kunt u een oudere versie van de SDK: ' Fout tijdens de implementatie voor de resource 'YourResourceName' in de resourcegroep 'YourResourceGroup': MissingRegistrationForLocation: het abonnement is niet geregistreerd voor de brontype 'onderdelen' op de locatie 'VS-midden'. Opnieuw te registreren voor deze provider om toegang te krijgen tot deze locatie." 
+Als u het volgende bericht ziet, is het mogelijk dat u een oudere versie van de SDK worden gebruikt: "Fout tijdens de implementatie voor de resource 'YourResourceName' in de resourcegroep 'YourResourceGroup': MissingRegistrationForLocation: Het abonnement is niet geregistreerd voor het brontype 'onderdelen' op de locatie 'VS-midden'. Opnieuw te registreren voor deze provider om toegang te krijgen tot deze locatie." 
 
 U kunt deze fout oplossen door een upgrade uitvoert naar de [nieuwste SDK](https://azure.microsoft.com/downloads/). Als u dit bericht ziet en u de nieuwste SDK hebt, moet u een ondersteuningsaanvraag indienen.
 

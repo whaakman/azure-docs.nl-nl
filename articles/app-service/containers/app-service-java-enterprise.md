@@ -1,5 +1,5 @@
 ---
-title: Java Enterprise-ondersteuning voor Azure App Service on Linux | Microsoft Docs
+title: Ondersteuning voor Java Enterprise op Linux - Azure App Service | Microsoft Docs
 description: Developer's guide voor het implementeren van Java Enterprise-apps met behulp van Wildfly met Azure App Service on Linux.
 keywords: Azure appservice, web-app, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: b632ef49f49768c86b7a7ce2efc601f036532a29
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: e473326e9f337bfb2fd1202bc3b76e468dd6015e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017583"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315074"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java ondernemingsgids voor App Service onder Linux
 
@@ -81,7 +82,7 @@ Volg dezelfde procedure die hierboven worden beschreven in de sectie Modules ins
 2. Volg de stappen overzicht in '-Modules en afhankelijkheden' maakt en uploadt uw XML-module descriptor, JBoss CLI-script, opstartscript en JDBC JAR-afhankelijkheid.
 
 
-Meer informatie over het configureren van Wildfly met [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://dev.mysql.com/doc/connector-j/5.1/connector-j-usagenotes-jboss.html), en [SQL-Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) beschikbaar is. U kunt deze aangepaste instructies samen met de algemene benadering hierboven gegevensbrondefinities toevoegen aan uw server.
+Meer informatie over het configureren van Wildfly met [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), en [SQL-Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) beschikbaar is. U kunt deze aangepaste instructies samen met de algemene benadering hierboven gegevensbrondefinities toevoegen aan uw server.
 
 ## <a name="messaging-providers"></a>Messaging-providers
 

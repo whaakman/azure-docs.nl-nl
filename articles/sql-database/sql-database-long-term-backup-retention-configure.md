@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: eab0c1339030ffeb14c4fe39a70178fdf5f13a22
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 33086be2c85e44b81a9f444a10a683e54f8612f7
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871095"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164446"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Langetermijnretentie voor Azure SQL Database beheren
 
@@ -173,7 +173,7 @@ $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 > [!IMPORTANT]
-> Back-up is niet-omkeerbare LTR te verwijderen. U kunt meldingen instellen over elke verwijderen in Azure Monitor door te filteren op bewerking 'Hiermee verwijdert u een back-up bewaren lange termijn'. Het activiteitenlogboek bevat informatie over de identiteit en wanneer de aanvraag heeft ingediend. Zie [waarschuwingen voor activiteitenlogboek maken](../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md) voor gedetailleerde instructies.
+> Back-up is niet-omkeerbare LTR te verwijderen. U kunt meldingen instellen over elke verwijderen in Azure Monitor door te filteren op bewerking 'Hiermee verwijdert u een back-up bewaren lange termijn'. Het activiteitenlogboek bevat informatie over de identiteit en wanneer de aanvraag heeft ingediend. Zie [waarschuwingen voor activiteitenlogboek maken](../azure-monitor/platform/alerts-activity-log.md) voor gedetailleerde instructies.
 >
 
 ### <a name="restore-from-ltr-backups"></a>Herstellen vanuit back-ups van links naar rechts

@@ -1,5 +1,5 @@
 ---
-title: Een Azure App Service-omgeving gebruiken
+title: Gebruik App Service environment - Azure
 description: Over het maken, publiceren en apps in een Azure App Service environment schalen
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 5f2959183e1741c8e37db92ede249d83bb3d53a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964693"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274714"
 ---
 # <a name="use-an-app-service-environment"></a>Een App Service-omgeving gebruiken #
 
@@ -26,10 +27,10 @@ ms.locfileid: "52964693"
 
 Azure App Service Environment is een implementatie van Azure App Service in een subnet in de Azure-netwerk van een klant. Deze bestaat uit:
 
-- **Front-ends**: de front-ends zijn waar de HTTP/HTTPS in een App Service environment (ASE) wordt beëindigd.
-- **Werknemers**: de werknemers zijn de resources die uw apps hosten.
-- **Database**: de database bevat informatie die u de omgeving definieert.
-- **Opslag**: de opslag wordt gebruikt voor het hosten van de klant gepubliceerde apps.
+- **Front-ends**: De front-ends zijn waar de HTTP/HTTPS in een App Service environment (ASE) wordt beëindigd.
+- **Werknemers**: De werknemers zijn de resources die uw apps hosten.
+- **Database**: De database bevat informatie die u de omgeving definieert.
+- **Opslag**: De opslag wordt gebruikt voor het hosten van de klant gepubliceerde apps.
 
 > [!NOTE]
 > Er zijn twee versies van App Service-omgeving: ASEv1 en ASEv2. In ASEv1 moet u de resources beheren, voordat u ze kunt gebruiken. Zie voor meer informatie over het configureren en beheren van ASEv1, [configureren van een App Service environment v1][ConfigureASEv1]. De rest van dit artikel is gericht op ASEv2.
@@ -51,7 +52,7 @@ Een web-app maken in een as-omgeving:
 
 1. Selecteer **een resource maken** > **Web en mobiel** > **Web-App**.
 
-1. Voer een naam voor de web-app. Als u al een App Service-plan in een as-omgeving hebt geselecteerd, geeft de domeinnaam op voor de app de domeinnaam van de as-omgeving.
+2. Voer een naam voor de web-app. Als u al een App Service-plan in een as-omgeving hebt geselecteerd, geeft de domeinnaam op voor de app de domeinnaam van de as-omgeving.
 
     ![Web-app-naam selecteren][1]
 
@@ -70,7 +71,7 @@ Een web-app maken in een as-omgeving:
 
     b. Voer de naam van uw App Service-plan.
 
-    c. Selecteer de as-omgeving in de **locatie** vervolgkeuzelijst. Die als host fungeert voor een Linux-app in een as-omgeving is alleen ingeschakeld in 6 regio's, op dit moment: **VS-West, VS-Oost, West-Europa, Noord-Europa, Australië-Oost, Zuidoost-Azië.** 
+    c. Selecteer de as-omgeving in de **locatie** vervolgkeuzelijst. Die als host fungeert voor een Linux-app in een as-omgeving is alleen ingeschakeld in 6 regio's, op het moment dat: **VS-West, VS-Oost, West-Europa, Noord-Europa, Australië-Oost, Zuidoost-Azië.** 
 
     d. Selecteer een **geïsoleerd** prijscategorie. Selecteer **Selecteer**.
 

@@ -1,5 +1,5 @@
 ---
-title: Een App Service-plan in Azure beheren | Microsoft Docs
+title: Beheren van App Service-plan - Azure | Microsoft Docs
 description: Leer hoe u verschillende taken voor het beheren van een App Service-plan uit te voeren.
 keywords: appservice, azure appservice, schaal, app service-plan, wijzigen, maken, beheren, beheer
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 8f8e5f3d184073a73ca30764542dc56e45974120
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166063"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262126"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Een App Service-plan in Azure beheren
 
@@ -35,7 +36,7 @@ U kunt een lege App Service-plan maken of u kunt een plan maken als onderdeel va
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer **nieuw** > **Web en mobiel**, en selecteer vervolgens **Web-App** of een ander soort App Service-app.
 
-1. Selecteer een bestaand App Service-plan of maak een plan voor de nieuwe app.
+2. Selecteer een bestaand App Service-plan of maak een plan voor de nieuwe app.
 
    ![Een app maken in Azure portal.][createWebApp]
 

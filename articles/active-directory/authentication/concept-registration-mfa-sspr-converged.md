@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 44a5b32b68b0365e957d97a516f0d767e6501c0f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: dbced5cfa2a47dc2fdcf630d62104bb7ba8e7bc0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630321"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186647"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Geconvergeerde registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication (openbare preview)
 
@@ -74,6 +74,8 @@ Gebruikers zien op deze pagina eerder geregistreerde verificatiemethoden en onde
 Auditlogboeken voor deze nieuwe ervaring bestaan onder de categorie verificatiemethoden van het auditlogboek.  
 
 ## <a name="known-issues"></a>Bekende problemen
+
+We hebben een bug geïdentificeerd met geconvergeerd registratie waar B2B-gastgebruikers die zijn ingeschakeld voor geconvergeerde registratie kan niet worden geregistreerd voor MFA. Wanneer ze worden doorgestuurd naar de registratiepagina, de paginafouten af. Onze ontwikkelaars zich bewust bent van dit probleem en werken als u wilt bieden een oplossing. Nu is de aanbeveling voor het maken van een groep en alle B2B-gebruikers uitsluiten van die groep.
 
 **Standaardmethode voor MFA is ingesteld op telefonische oproep wanneer een gebruiker een telefoon registreert met behulp van de SMS-bericht**
 

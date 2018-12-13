@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: cd9b0a117439f603e4820cb2dec2984aa2d68e73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a711b80471da0677c5e2d0dd0ee5e371e5a16f75
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074329"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268643"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Batch voorspellingen uitvoeren op grote gegevenssets met Azure Machine Learning-service
 
@@ -31,7 +31,7 @@ In de volgende stappen maakt u een [machine learning-pijplijn](concept-ml-pipeli
 
 ## <a name="prerequisites"></a>Vereisten
 
-- U hebt een Azure-abonnement nodig. Als u nog geen Azure-abonnement hebt, maakt u een  [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
+- Als u geen Azure-abonnement hebt, een gratis account maken voordat u begint. Probeer de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree) vandaag nog.
 
 - Configureer uw ontwikkelomgeving voor het installeren van de SDK van Azure Machine Learning. Zie voor meer informatie, [een ontwikkelomgeving configureren voor Azure Machine Learning](how-to-configure-environment.md).
 

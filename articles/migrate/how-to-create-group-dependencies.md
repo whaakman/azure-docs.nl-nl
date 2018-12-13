@@ -4,14 +4,14 @@ description: Beschrijft hoe u een evaluatie met afhankelijkheidstoewijzing groep
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 3b75e8607c85f79bb64c57c2154115c41ebe8366
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835501"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255258"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Een groep met afhankelijkheidstoewijzing groep verfijnen
 
@@ -24,6 +24,9 @@ In dit artikel wordt beschreven hoe u een groep verfijnen door te visualiseren a
 
 ## <a name="prepare-for-dependency-visualization"></a>Voorbereiden voor visualisatie van afhankelijkheden
 Azure Migrate maakt gebruik van de oplossing Serviceoverzicht in Log Analytics om in te schakelen visualisatie van afhankelijkheden van machines.
+
+> [!NOTE]
+> De functie voor visualisatie van afhankelijkheden is niet beschikbaar in Azure Government.
 
 ### <a name="associate-a-log-analytics-workspace"></a>Een Log Analytics-werkruimte koppelen
 Als u wilt gebruikmaken van de visualisatie van afhankelijkheden, moet u een Log Analytics-werkruimte, nieuwe of bestaande koppelen met een Azure Migrate-project. U kunt alleen maken of koppelen van een werkruimte in hetzelfde abonnement waar het migratieproject is gemaakt.

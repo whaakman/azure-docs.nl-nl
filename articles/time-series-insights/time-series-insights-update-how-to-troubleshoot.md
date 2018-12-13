@@ -1,6 +1,6 @@
 ---
-title: Hoe u problemen vaststellen en oplossen van de Azure Time Series Insights (Preview) | Microsoft Docs
-description: Informatie over hoe u problemen vaststellen en oplossen met de Azure Time Series Insights (Preview)
+title: Azure Time Series Insights Preview - problemen vaststellen en oplossen | Microsoft Docs
+description: Lees hoe u problemen vaststellen en oplossen met de Azure Time Series Insights-Preview.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,107 +9,107 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4fdb7cf0007af5f92794ebe5f616c1c8a28af0e4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: e35439c80dea8ac47033464eeb57f7e9859fdcf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099650"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275292"
 ---
-# <a name="how-to-diagnose-and-troubleshoot"></a>Hoe u problemen vaststellen en oplossen
+# <a name="diagnose-and-troubleshoot"></a>Problemen vaststellen en oplossen
 
-In dit artikel bevat een overzicht van enkele veelvoorkomende problemen die optreden werken met uw Azure Time Series Insights (TSI)-omgeving. Het artikel beschrijft ook mogelijke oorzaken en oplossingen voor elk.
+In dit artikel bevat een overzicht van enkele veelvoorkomende problemen die optreden mogelijk wanneer u met uw Azure Time Series Insights Preview-omgeving werkt. Het artikel wordt ook beschreven mogelijke oorzaken en oplossingen voor elk probleem.
 
-## <a name="problem-i-cant-find-my-environment-in-the-time-series-insights-preview-explorer"></a>Probleem: kan ik mijn omgeving vinden in de Verkenner van Time Series Insights (Preview)
+## <a name="problem-i-cant-find-my-environment-in-the-time-series-insights-preview-explorer"></a>Probleem: Ik kan mijn omgeving niet vinden in de Verkenner van Time Series Insights Preview
 
-Dit kan gebeuren als u geen machtigingen voor toegang tot de TSI-omgeving. Gebruikers moeten 'Lezer' toegangsniveau van de rol om hun TSI-omgeving weer te geven. U kunt controleren of de huidige toegangsniveaus en aanvullende toegang verlenen door naar de sectie beleid voor gegevenstoegang in de TSI-resource in te gaan [Azure Portal](https://portal.azure.com/).
+Dit probleem kan optreden als u geen machtigingen hebt voor toegang tot de Time Series Insights-omgeving. Gebruikers moeten een rol toegang reader-niveau om hun Time Series Insights-omgeving weer te geven. Als u wilt controleren of de huidige toegangsniveaus en aanvullende toegang verlenen, gaat u naar de sectie beleid voor gegevenstoegang op de Time Series Insights-resource in de [Azure-portal](https://portal.azure.com/).
 
-  ![environment][1]
+  ![Omgeving][1]
 
-## <a name="problem-no-data-is-seen-in-the-time-series-insights-preview-explorer"></a>Probleem: Er worden geen gegevens zien is in de Verkenner van Time Series Insights (Preview)
+## <a name="problem-no-data-is-seen-in-the-time-series-insights-preview-explorer"></a>Probleem: Er zijn geen gegevens zien is in de Verkenner van Time Series Insights Preview
 
-Er zijn enkele veelvoorkomende redenen waarom u ziet mogelijk niet de gegevens in de [(Preview) van Azure TSI-Verkenner](https://insights.timeseries.azure.com/preview):
+Er zijn enkele veelvoorkomende redenen waarom u ziet mogelijk niet de gegevens in de [Azure Time Series Insights Preview explorer](https://insights.timeseries.azure.com/preview).
 
-1. De bron van gebeurtenis kan niet worden ontvangen van gegevens.
+- Uw gebeurtenisbron, mogelijk niet ontvangen van gegevens.
 
-    Controleer of de bron van gebeurtenis (Event Hub of IoT Hub) is ontvangt gegevens van uw tags / -exemplaren. U kunt dit doen door te navigeren naar de overzichtspagina van uw resource in Azure portal.
+    Controleer of dat uw gebeurtenisbron, die een event hub of een IoT-hub, gegevens van uw labels of instanties ontvangt. Om te controleren, gaat u naar de overzichtspagina van uw resource in Azure portal.
 
     ![dashboard-inzichten][2]
 
-1. Uw gebeurtenisgegevens van de bron is niet in JSON-indeling
+- Uw gebeurtenisgegevens van de bron is niet in JSON-indeling.
 
-    Azure TSI ondersteunt alleen JSON-gegevens. Zie voor voorbeelden van JSON, [ondersteund JSON-vormen](./how-to-shape-query-json.md).
+    Time Series Insights ondersteunt alleen JSON-gegevens. Zie voor voorbeelden van JSON, [ondersteund JSON-vormen](./how-to-shape-query-json.md).
 
-1. De sleutel van de bron gebeurtenis ontbreekt een vereiste machtiging
+- De sleutel van de bron gebeurtenis ontbreekt een vereiste machtiging.
 
-    * Voor een IoT-Hub moet u de sleutel met de service ontbreekt de connect machtiging opgeven.
+    * Voor een IoT-hub, moet u de sleutel die is opgeven **service verbinding maken met** machtiging.
 
-    ![configuratie][3]
+    ![Configuratie][3]
 
-    * Zoals wordt weergegeven in de voorgaande afbeelding is een van de beleidsregels *iothubowner* en service zou moeten werken, omdat beide service ontbreekt de connect machtiging.
-    * Voor een event hub moet u de sleutel met de machtiging luisteren opgeven.
+    * Zoals wordt weergegeven in de voorgaande afbeelding, beide van de beleidsregels **iothubowner** en **service** werken omdat ze hebben **service verbinding maken met** machtiging.
+    * Voor een event hub, moet u de sleutel die is opgeven **luisteren** machtiging.
   
-    ![machtigingen][4]
+    ![Machtigingen][4]
 
-    * Zoals wordt weergegeven in de voorgaande afbeelding is een van de beleidsregels **lezen** en **beheren** zou moeten werken, omdat beide **luisteren** machtiging.
+    * Zoals wordt weergegeven in de voorgaande afbeelding, beide van de **lezen** en **beheren** -beleid werkt omdat ze hebben **luisteren** machtiging.
 
-1. De consumentengroep opgegeven is niet exclusief voor TSI
+- De consumentengroep opgegeven is niet exclusief voor Time Series Insights.
 
-    Tijdens de registratie van een IoT-Hub of Event Hub, moet u de consumentengroep die moet worden gebruikt voor het lezen van de gegevens opgeven. De consumergroep moet niet worden gedeeld. Als de consumergroep wordt gedeeld, verbroken de onderliggende Event Hub automatisch een van de lezers willekeurig. Geef een unieke consumergroep voor TSI om uit te lezen.
+    Tijdens de registratie van een IoT-hub of event hub, moet u de consumentengroep die wordt gebruikt om de gegevens te lezen opgeven. Deel geen de consumergroep. Als de consumergroep wordt gedeeld, verbroken de onderliggende event hub automatisch een van de lezers in willekeurige volgorde. Geef een unieke consumergroep voor Time Series Insights om uit te lezen.
 
-1. Uw Time Series-ID-eigenschap die is opgegeven op het moment van de inrichting is onjuist, ontbreekt of null zijn
+- Uw Time Series-ID-eigenschap die is opgegeven op het moment van de inrichting is onjuist, ontbreekt of null zijn.
 
-    Dit kan gebeuren als de **Time Series-ID** eigenschap is niet juist geconfigureerd op het moment van de omgeving inrichten. Raadpleeg de [aanbevolen procedures voor het kiezen van een Time Series-ID](./time-series-insights-update-how-to-id.md). Op dit moment kunt u een bestaande Time Series Insights-update-omgeving voor het gebruik van een andere niet bijwerken **Time Series-ID**.
+    Dit probleem kan optreden als de eigenschap Time Series-ID is onjuist geconfigureerd op het moment van de omgeving inrichten. Zie voor meer informatie, [aanbevolen procedures voor het kiezen van een Time Series-ID](./time-series-insights-update-how-to-id.md). Op dit moment kunt bijwerken u een bestaande Time Series Insights-omgeving voor het gebruik van een andere tijd reeks id niet
 
-## <a name="problem-some-data-is-shown-but-some-is-missing"></a>Probleem: Sommige gegevens worden weergegeven, maar sommige ontbreekt
+## <a name="problem-some-data-shows-but-some-is-missing"></a>Probleem: Sommige gegevens bevat, maar sommige ontbreekt
 
-1. U mag verzenden van gegevens zonder dat de Time Series-ID
+Verzendt u mogelijk gegevens zonder dat de Time Series-ID.
 
-    Deze fout kan optreden bij het verzenden van gebeurtenissen zonder de Time Series-ID-veld in de nettolading. Zie [ondersteund JSON-vormen](./how-to-shape-query-json.md) voor meer informatie.
+- Dit probleem kan optreden wanneer u gebeurtenissen zonder de Time Series-ID-veld in de nettolading verzenden. Zie voor meer informatie, [ondersteund JSON-vormen](./how-to-shape-query-json.md).
 
-1. Dit kan gebeuren omdat uw omgeving wordt beperkt.
+- Dit probleem kan optreden omdat uw omgeving wordt beperkt.
 
     > [!NOTE]
-    > Op dit moment ondersteunt Azure TSI een maximale opname-tarief van 6 MBps.
+    > Op dit moment ondersteunt Time Series Insights een maximale opname-tarief van 6 Mbps.
 
-## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Probleem: Instelling van mijn gebeurtenisbron timestamp eigenschap name niet werkt
+## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Probleem: Mijn gebeurtenisbron Timestamp eigenschap de naam van instelling werkt niet
 
 Zorg ervoor dat de naam en waarde aan de volgende regels voldoet:
 
-* De **Timestamp** naam is hoofdlettergevoelig.
-* De **Timestamp** eigenschapswaarde die afkomstig van de bron van gebeurtenis, als een JSON-tekenreeks, moet de indeling hebben `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Een voorbeeld van een tekenreeks is die is `“2008-04-12T12:53Z”`.
+* Naam van de Tijdstempeleigenschap is hoofdlettergevoelig.
+* De waarde van de Timestamp eigenschap die afkomstig zijn uit uw gebeurtenisbron, als een JSON-tekenreeks, heeft de indeling `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Een voorbeeld van een tekenreeks is die is `“2008-04-12T12:53Z”`.
 
-De eenvoudigste manier om ervoor te zorgen dat de naam van de tijdstempeleigenschap is vastgelegd en correct werkt, is met de TSI-Verkenner. Gebruik de grafiek om te selecteren van een bepaalde tijd nadat u de naam van de tijdstempeleigenschap opgegeven binnen de TSI-Verkenner. Met de rechtermuisknop op de selectie en kies de **gebeurtenissen onderzoeken** optie. De eerste kolom header moet uw **Timestamp** eigenschapsnaam en deze moet een `($ts)` naast het woord `Timestamp`, in plaats van:
+De eenvoudigste manier om ervoor te zorgen dat de naam van de Tijdstempeleigenschap is vastgelegd en correct werkt, is met de Verkenner van Time Series Insights Preview. Gebruik de grafiek om te selecteren van een bepaalde tijd nadat u de naam van de Tijdstempeleigenschap opgegeven binnen de Verkenner van Time Series Insights Preview. Met de rechtermuisknop op de selectie en selecteer de **gebeurtenissen onderzoeken** optie. De koptekst van de eerste kolom is de naam van de Tijdstempeleigenschap. Deze moet hebben `($ts)` naast het woord `Timestamp`, in plaats van:
 
-* `(abc)`, die aangeeft dat het TSI lezen van de gegevenswaarden als tekenreeksen
-* Pictogram van de agenda, die wijzen op dat TSI leest de datum/tijd-gegevenswaarde
-* `#`, de gegevenswaarden die aangeeft dat het TSI wordt gelezen als een geheel getal zijn
+* `(abc)`, waarmee wordt aangegeven dat Time Series Insights de gegevenswaarden als tekenreeksen leest.
+* Pictogram Agenda, waarmee wordt aangegeven dat Time Series Insights de datum/tijd-gegevenswaarde leest.
+* `#`, waarmee wordt aangegeven dat Time Series Insights de gegevenswaarden worden gelezen als een geheel getal zijn.
 
-Als de **Timestamp** eigenschap niet expliciet is opgegeven, wordt gebruik van de IoT-Hub of Event Hub een gebeurtenis **Wachtrijduur** als de standaard-tijdstempel.
+Als de eigenschap Timestamp niet expliciet is opgegeven, worden de IoT-hub of event hub Wachtrijduur van een gebeurtenis wordt gebruikt als de standaard-tijdstempel.
 
-## <a name="problem-i-cant-edit-or-view-my-time-series-model"></a>Probleem: die ik kan bewerken of weergeven van mijn Time Series-Model
+## <a name="problem-i-cant-edit-or-view-my-time-series-model"></a>Probleem: Ik kan bewerken of weergeven van mijn Time Series-Model
 
-1. U maakt mogelijk gebruik van een Time Series Insights S1 of S2-omgeving
+- U kunt toegang tot een Time Series Insights S1 of S2-omgeving.
 
-   Time Series-modellen worden alleen ondersteund in **PAYG** omgevingen. Zie voor meer informatie over hoe u toegang tot uw S1/S2-omgeving vanuit de Verkenner van Time Series Insights Preview [visualiseren van gegevens in de Verkenner](./time-series-insights-update-explorer.md).
+   Time Series-modellen worden alleen ondersteund in omgevingen met betalen per gebruik. Zie voor meer informatie over hoe u toegang tot uw S1/S2-omgeving vanuit de Verkenner van Time Series Insights Preview [visualiseren van gegevens in de Verkenner](./time-series-insights-update-explorer.md).
 
-   ![toegang][5]
+   ![Access][5]
 
-1. U bent niet gemachtigd om te bekijken en bewerken van het model
+- U mogelijk niet gemachtigd om te bekijken en bewerken van het model.
 
-   Gebruikers moeten niveau toegangsrechten van een "bijdrager" om te bewerken en weergeven van de Time Series-Model. U kunt controleren of de huidige toegangsniveaus en aanvullende toegang verlenen door naar de sectie beleid voor gegevenstoegang voor uw Time Series Insights-resource in Azure Portal te gaan.
+   Gebruikers moeten toegang op Inzender-niveau bewerken en weergeven van de Time Series-Model. Controleer of de huidige toegangsniveaus en aanvullende toegang verlenen, gaat u naar de sectie beleid voor gegevenstoegang voor uw Time Series Insights-resource in Azure portal.
 
-## <a name="problem-all-my-instances-in-time-series-insights-preview-explorer-dont-have-a-parent"></a>Probleem: Alle exemplaren in de Verkenner van Time Series Insights (Preview) geen bovenliggend item hebben
+## <a name="problem-all-my-instances-in-the-time-series-insights-preview-explorer-dont-have-a-parent"></a>Probleem: Alle exemplaren in de Verkenner van Time Series Insights Preview hebben geen bovenliggend item
 
-Dit kan gebeuren als uw omgeving beschikt niet over een **Tijdreeksmodel** hiërarchie gedefinieerd. Raadpleeg dit artikel voor meer informatie over [over het werken met Time Series-modellen](./time-series-insights-update-how-to-tsm.md).
+Dit probleem kan optreden als uw omgeving beschikt niet over een hiërarchie Time Series-Model is gedefinieerd. Zie voor meer informatie, [werken met Time Series-modellen](./time-series-insights-update-how-to-tsm.md).
 
-  ![TSM][6]
+  ![Time Series-modellen][6]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lezen [over het werken met Time Series-modellen](./time-series-insights-update-how-to-tsm.md).
-
-Lezen [ondersteund JSON-vormen](./how-to-shape-query-json.md).
+- Lezen [werken met Time Series-modellen](./time-series-insights-update-how-to-tsm.md).
+- Lezen [ondersteund JSON-vormen](./how-to-shape-query-json.md).
 
 <!-- Images -->
 [1]: media/v2-update-diagnose-and-troubleshoot/environment.png

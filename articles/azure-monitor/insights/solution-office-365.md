@@ -9,16 +9,15 @@ editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 1e819f819561c5fac722ca6954a10d80a482b5cd
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: cc2fe3c71a3da58a00a3b3c65e709f2e371872e8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889358"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185202"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -51,15 +50,15 @@ Voordat u deze procedure begint, moet u de volgende informatie verzamelen.
 
 Van uw Log Analytics-werkruimte:
 
-- Naam van de werkruimte: de werkruimte waar de Office 365-gegevens worden verzameld.
-- De naam van resourcegroep: de resourcegroep met de werkruimte.
-- Azure-abonnement-ID: het abonnement met de werkruimte.
+- Werkruimtenaam: De werkruimte waar de Office 365-gegevens worden verzameld.
+- Resourcegroepnaam: De resourcegroep met de werkruimte.
+- Azure-abonnement-ID: Het abonnement met de werkruimte.
 
 Vanuit uw Office 365-abonnement:
 
 - Gebruikersnaam: E-mailadres van een Administrator-account.
-- Tenant-ID: De unieke ID voor Office 365-abonnement.
-- Client-ID: 16-tekenreeks die staat voor Office 365-client.
+- Tenant-id: De unieke ID voor Office 365-abonnement.
+- Client-ID: de tekenreeks 16 tekens met Office 365-client.
 - Clientgeheim: Gecodeerde tekenreeks die nodig zijn voor verificatie.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Een Office 365-toepassing maken in Azure Active Directory
@@ -492,7 +491,7 @@ Klik op de **Office 365** tegel om te openen de **Office 365** dashboard.
 
 Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de bovenste tien waarschuwingen per aantal die overeenkomen met criteria voor het opgegeven bereik en het tijdsbereik van die kolom. U kunt een logboekzoekopdracht waarmee de volledige lijst door te klikken op Zie alle aan de onderkant van de kolom of door te klikken op de kolomkop uitvoeren.
 
-| Kolom | Beschrijving |
+| Kolom | Description |
 |:--|:--|
 | Bewerkingen | Bevat informatie over de actieve gebruikers in uw alle bewaakte Office 365-abonnementen. Ook mogelijk om het aantal activiteiten die na verloop van tijd plaatsvinden te zien.
 | Exchange | U kunt de uitsplitsing van Exchange Server-activiteiten, zoals toevoegen-machtiging of Set-postvak. |
@@ -509,7 +508,7 @@ Alle records gemaakt in de Log Analytics-werkruimte door de Office 365-oplossing
 ### <a name="common-properties"></a>Algemene eigenschappen
 De volgende eigenschappen gelden voor alle Office 365-records.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | Het IP-adres van het apparaat dat werd gebruikt toen de activiteit is geregistreerd. Het IP-adres wordt weergegeven in een IPv4- of IPv6-adresindeling. |
@@ -526,7 +525,7 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-basis
 De volgende eigenschappen gelden voor alle Azure Active Directory-records.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -537,7 +536,7 @@ De volgende eigenschappen gelden voor alle Azure Active Directory-records.
 ### <a name="azure-active-directory-account-logon"></a>Aanmelding bij Azure Active Directory-Account
 Deze records worden gemaakt wanneer een Active Directory-gebruiker zich probeert aan te melden.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
@@ -550,7 +549,7 @@ Deze records worden gemaakt wanneer een Active Directory-gebruiker zich probeert
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Deze records worden gemaakt wanneer wijzigen of toevoegingen worden aangebracht in Azure Active Directory-objecten.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -567,7 +566,7 @@ Deze records worden gemaakt wanneer wijzigen of toevoegingen worden aangebracht 
 ### <a name="data-center-security"></a>Datacenter-beveiliging
 Deze records worden gemaakt vanuit Data Center Security audit-gegevens.  
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | EffectiveOrganization | De naam van de tenant die de uitbreiding van bevoegdheden/cmdlet is gericht op. |
 | ElevationApprovedTime | De tijdstempel voor wanneer de uitbreiding is goedgekeurd. |
@@ -582,7 +581,7 @@ Deze records worden gemaakt vanuit Data Center Security audit-gegevens.
 ### <a name="exchange-admin"></a>Exchange-beheerder
 Deze records worden gemaakt wanneer er wijzigingen zijn aangebracht aan de configuratie van Exchange.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -596,7 +595,7 @@ Deze records worden gemaakt wanneer er wijzigingen zijn aangebracht aan de confi
 ### <a name="exchange-mailbox"></a>Exchange-postvak
 Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaan bij de Exchange-postvakken.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -618,7 +617,7 @@ Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaa
 ### <a name="exchange-mailbox-audit"></a>Controle van Exchange-postvak
 Deze records worden gemaakt wanneer een controlevermelding postvak wordt gemaakt.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -632,7 +631,7 @@ Deze records worden gemaakt wanneer een controlevermelding postvak wordt gemaakt
 ### <a name="exchange-mailbox-audit-group"></a>Exchange-postvak Audit-groep
 Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaan bij de Exchange-groepen.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -650,7 +649,7 @@ Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaa
 ### <a name="sharepoint-base"></a>SharePoint-basis
 Deze eigenschappen gelden voor alle records van SharePoint.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -666,7 +665,7 @@ Deze eigenschappen gelden voor alle records van SharePoint.
 ### <a name="sharepoint-schema"></a>SharePoint-Schema
 Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht in SharePoint.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -678,7 +677,7 @@ Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht i
 ### <a name="sharepoint-file-operations"></a>SharePoint-bestandsbewerkingen
 Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -698,7 +697,7 @@ Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords die worden verzameld door deze oplossing.
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 | --- | --- |
 |Telling van alle bewerkingen op uw Office 365-abonnement |OfficeActivity &#124; count() by bewerking samenvatten |
 |Gebruik van SharePoint-sites|OfficeActivity &#124; waar OfficeWorkload = ~ 'sharepoint' &#124; count() by SiteUrl samenvatten | sorteren op aantal asc|

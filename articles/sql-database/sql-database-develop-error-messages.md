@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251812"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317454"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL Database-clienttoepassingen: Database-verbindingsfouten en andere problemen
 
@@ -35,9 +35,9 @@ Het is raadzaam dat uw clientprogramma logica voor opnieuw proberen heeft, zodat
 Fouten van tijdelijke fouten manifest doorgaans als een van de volgende foutberichten van uw client-programma's:
 
 * Database &lt;db_name&gt; op server &lt;Azure_instance&gt; is momenteel niet beschikbaar. Probeer opnieuw verbinding later opnieuw. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID van &lt;type session_id&gt;
-* Database &lt;db_name&gt; op server &lt;Azure_instance&gt; is momenteel niet beschikbaar. Probeer opnieuw verbinding later opnieuw. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID van &lt;type session_id&gt;. (Microsoft SQL Server, Error: 40613)
+* Database &lt;db_name&gt; op server &lt;Azure_instance&gt; is momenteel niet beschikbaar. Probeer opnieuw verbinding later opnieuw. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID van &lt;type session_id&gt;. (Microsoft SQL Server, fout: 40613)
 * Een bestaande verbinding is geforceerd gesloten door de externe host.
-* System.Data.Entity.Core.EntityCommandExecutionException: Er is een fout opgetreden tijdens het uitvoeren van de opdrachtdefinitie. Zie de binnenste uitzondering voor meer informatie. ---> System.Data.SqlClient.SqlException: Er is een fout op transportniveau opgetreden bij het ontvangen van de resultaten van de server. (provider: sessieprovider, fout: 19 - fysieke verbinding kan niet worden gebruikt)
+* System.Data.Entity.Core.EntityCommandExecutionException: Er is een fout opgetreden tijdens het uitvoeren van de opdrachtdefinitie. Zie de binnenste uitzondering voor meer informatie. ---> System.Data.SqlClient.SqlException: Er is een op transportniveau-fout opgetreden bij het ontvangen van de resultaten van de server. (provider: Sessieprovider, fout: 19 - fysieke verbinding kan niet worden gebruikt)
 * Een verbindingspoging naar een secundaire database is mislukt omdat de database momenteel herconfiguratie wordt en is bezet toepassen van de nieuwe pagina's, terwijl in het midden van een actieve transactie op de primaire database. 
 
 Zie voor voorbeelden van de programmacode van logica voor opnieuw proberen:
@@ -50,7 +50,7 @@ Een bespreking van de *blokkerende periode* voor clients die gebruikmaken van AD
 ### <a name="transient-fault-error-codes"></a>Foutcodes voor tijdelijke fouten
 De volgende fouten tijdelijk zijn en opnieuw moeten worden uitgevoerd in de logica van toepassingen: 
 
-| Foutcode | Severity | Beschrijving |
+| Foutcode | Severity | Description |
 | ---:| ---:|:--- |
 | 4060 |16 |Kan database niet openen "%.&#x2a;ls" aangevraagd door de aanmelding. De aanmelding is mislukt. |
 | 40197 |17 |De service heeft een fout bij het verwerken van uw aanvraag aangetroffen. Probeer het opnieuw. Foutcode %d.<br/><br/>U ontvangt deze foutmelding wanneer de service niet beschikbaar vanwege de software of hardware-upgrades, problemen met de hardware of andere problemen met betrekking tot failover is. De foutcode (%d) dat is ingesloten in het bericht van fout 40197 bevat aanvullende informatie over het soort fout of een failover die is opgetreden. Enkele voorbeelden van de fout codes zijn ingesloten in het bericht van fout 40197 zijn 40020, 40143 40166 en 40540.<br/><br/>Automatisch opnieuw verbinding te maken met uw SQL Database-server, maakt u verbinding met een goede kopie van uw database. Uw toepassing moet 40197, foutenlogboek de ingesloten foutcode (%d) in het bericht voor het oplossen van problemen ontdekken en probeer het opnieuw verbinding maken met SQL-Database, totdat de resources beschikbaar zijn en de verbinding opnieuw wordt ingesteld. |
@@ -64,7 +64,7 @@ De volgende fouten tijdelijk zijn en opnieuw moeten worden uitgevoerd in de logi
 ## <a name="database-copy-errors"></a>Fouten in de database kopiëren
 De volgende fouten kunnen worden aangetroffen tijdens het kopiëren van een database in Azure SQL Database. Zie [Een Azure SQL Database kopiëren](sql-database-copy.md) voor meer informatie.
 
-| Foutcode | Severity | Beschrijving |
+| Foutcode | Severity | Description |
 | ---:| ---:|:--- |
 | 40635 |16 |Client met IP-adres "%.&#x2a;ls" is tijdelijk uitgeschakeld. |
 | 40637 |16 |Maken van database-exemplaar is momenteel uitgeschakeld. |
@@ -92,10 +92,10 @@ Verwante onderwerpen:
 
 * Meer gedetailleerde informatie is hier beschikbaar: [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md).
 
-| Foutcode | Severity | Beschrijving |
+| Foutcode | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |Resource-ID: %d. De limiet voor %s voor de database is %d en is bereikt. Zie voor meer informatie, [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Resource-ID: %d. De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie voor meer informatie, [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637). Anders probeer het later opnieuw.<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Resource-ID: %d. De limiet voor %s voor de database is %d en is bereikt. Zie voor meer informatie, [SQL Database-resourcebeperkingen voor één en gepoolde databases](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Resource-ID: %d. De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie voor meer informatie, [SQL Database-resourcebeperkingen voor één en gepoolde databases](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). Anders probeer het later opnieuw.<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |De database heeft het groottequotum bereikt. Partitioneer of verwijder gegevens, verwijder indexen of Raadpleeg de documentatie voor mogelijke oplossingen. |
 | 40549 |16 |Sessie is beëindigd omdat er een langlopende transactie. Probeer uw transactie te verkorten. |
 | 40550 |16 |De sessie is beëindigd omdat er te veel vergrendelingen heeft verkregen. Probeer het lezen of minder rijen in één transactie te wijzigen. |
@@ -106,10 +106,10 @@ Verwante onderwerpen:
 ## <a name="elastic-pool-errors"></a>Elastische pool-fouten
 De volgende fouten zijn met betrekking tot het maken en gebruiken van elastische pools:
 
-| Foutcode | Severity | Beschrijving | Corrigerende maatregelen |
+| Foutcode | Severity | Description | Corrigerende maatregelen |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |De opslag van de elastische pool is bereikt. Het opslaggebruik voor de elastische groep kan niet groter zijn dan (%d) MB/s. Er wordt geprobeerd gegevens te schrijven naar een database wanneer de limiet voor opslag van de elastische pool is bereikt. |Houd rekening met het aantal dtu's van toenemende en/of toe te voegen opslag aan de elastische pool indien mogelijk om te verhogen van de limiet voor opslag verminderen de opslag die wordt gebruikt door afzonderlijke databases binnen de elastische pool of databases verwijderen uit de elastische groep. |
-| 10929 | 16 |De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637) voor hulp. Anders probeer het later opnieuw. DTU / vCore-minimum per database. DTU / vCore maximum per database. Het totale aantal gelijktijdige werknemers (aanvragen) voor alle databases in de elastische groep probeert te overschrijden de limiet voor groep van toepassingen. |Vergroot het aantal dtu's of vCores van de elastische pool indien mogelijk om de limiet van de werknemer verhogen of databases uit de elastische pool te verwijderen. |
+| 10929 | 16 |De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie [SQL Database-resourcebeperkingen voor één en gepoolde databases](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) voor hulp. Anders probeer het later opnieuw. DTU / vCore-minimum per database. DTU / vCore maximum per database. Het totale aantal gelijktijdige werknemers (aanvragen) voor alle databases in de elastische groep probeert te overschrijden de limiet voor groep van toepassingen. |Vergroot het aantal dtu's of vCores van de elastische pool indien mogelijk om de limiet van de werknemer verhogen of databases uit de elastische pool te verwijderen. |
 | 40844 | 16 |Database '%ls' op Server '%ls' is een '%ls' edition-database in een elastische pool en een relatie doorlopend kopiëren kan hebben.  |N/A |
 | 40857 | 16 |Elastische pool niet vinden voor de server: '%ls', naam elastische groep: '%ls'. Opgegeven elastische pool bestaat niet in de opgegeven server. | Geef een geldige elastische pool-naam. |
 | 40858 | 16 |Elastische pool '%ls' bestaat al in de server: '%ls'. Opgegeven elastische pool bestaat al in de opgegeven logische server. | Geef de naam van een nieuwe elastische pool. |
@@ -139,12 +139,12 @@ Verwante onderwerpen:
 ## <a name="general-errors"></a>Algemene fouten
 De volgende fouten vallen niet in de vorige categorieën.
 
-| Foutcode | Severity | Beschrijving |
+| Foutcode | Severity | Description |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) is niet een geldige naam omdat deze ongeldige tekens bevat. |
 | 18452 |14 |Aanmelding mislukt. De aanmelding is afkomstig uit een niet-vertrouwd domein en kan niet worden gebruikt met Windows authentication.%.&#x2a;ls (Windows-aanmeldingen worden niet ondersteund in deze versie van SQL Server.) |
 | 18456 |14 |Aanmelden is mislukt voor gebruiker ' %. &#x2a;ls'.%. &#x2a;ls %. &#x2a;ls (de aanmelding is mislukt voor gebruiker ' %.&#x2a; ls'.) |
-| 18470 |14 |Aanmelding mislukt voor gebruiker '%.&#x2a;ls'. Reden: Het account is disabled.%.&#x2a;ls |
+| 18470 |14 |Aanmelding mislukt voor gebruiker '%.&#x2a;ls'. Reden: Het account is disabled.%. &#x2a;ls |
 | 40014 |16 |Meerdere databases kunnen niet worden gebruikt in dezelfde transactie. |
 | 40054 |16 |Tabellen zonder geclusterde index worden niet ondersteund in deze versie van SQL Server. Maak een geclusterde index en probeer het opnieuw. |
 | 40133 |15 |Deze bewerking wordt niet ondersteund in deze versie van SQL Server. |

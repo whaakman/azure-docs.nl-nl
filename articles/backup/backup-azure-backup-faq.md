@@ -1,6 +1,6 @@
 ---
 title: Veelgestelde vragen over Azure Backup
-description: 'Antwoorden op veelgestelde vragen over de functies van Azure Backup, waaronder de Recovery Services-kluis, waarvan een back-up kan worden gemaakt, hoe het werkt, versleuteling en limieten. '
+description: 'Antwoorden op veelgestelde vragen over: Functies van Azure Backup Recovery Services-kluizen, wat back-up kan, hoe het werkt, versleuteling en limieten. '
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261663"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262262"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -235,8 +235,8 @@ Ja. Gegevens worden versleuteld op de on-premises virtuele machine met AES256. D
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Worden de back-upgegevens op Azure ook versleuteld?
 
 Ja. De gegevens in Azure is versleuteld in rust.
-- Versleuteling op opnieuw instellen wordt geleverd met de wachtwoordzin die u opgeeft wanneer back-up op Azure voor on-premises back-up.
-- Voor virtuele Azure-machines zijn gegevens versleuteld-op-opnieuw instellen met behulp van Storage Service Encryption (SSE).
+- Versleuteling-at-rest wordt geleverd met de wachtwoordzin die u opgeeft wanneer back-up op Azure voor on-premises back-up.
+- Voor virtuele Azure-machines zijn gegevens versleuteld-at-rest met behulp van Storage Service Encryption (SSE).
 
 De back-upgegevens worden nooit door Microsoft ontsleuteld.
 

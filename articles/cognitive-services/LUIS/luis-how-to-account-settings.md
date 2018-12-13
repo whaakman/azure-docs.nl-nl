@@ -1,7 +1,7 @@
 ---
 title: Instellingen beheren
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: LUIS-website gebruiken voor het beheren van instellingen van uw account.
+description: LUIS-website gebruiken om de instellingen van uw account en het authoring sleutel die wordt gebruikt voor al uw apps te beheren.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: a6a92fa32d7877baa5132134bdce66ce04017a77
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: bd6ae88834b45e9e154eb1e5e3ba921f403c7eaa
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092059"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138742"
 ---
 # <a name="manage-account-and-authoring-key"></a>Account en het ontwerpen van sleutel beheren
 De twee belangrijkste stukjes informatie voor een LUIS-account zijn het gebruikersaccount en de sleutel schrijven. Uw aanmeldingsgegevens wordt beheerd op [account.microsoft.com](https://account.microsoft.com). Uw authoring sleutel wordt beheerd via de [LUIS](luis-reference-regions.md) website **instellingen** pagina. 

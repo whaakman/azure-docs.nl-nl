@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 0098d532f09ca2fa7ef4434add90729a15809ac5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087453"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164378"
 ---
 # <a name="troubleshoot-input-connections"></a>Invoer-verbindingsproblemen oplossen
 
@@ -47,7 +48,7 @@ U kunt de volgende stappen voor het analyseren van de invoer gebeurtenissen in d
 
 2. De tegel invoer details geeft een lijst van waarschuwingen met informatie over elk probleem. De waarschuwing voorbeeld bevat de partitie, offset en volgnummers waarbij er ongeldige JSON-gegevens. 
 
-   ![Waarschuwing met offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   ![Stream Analytics-waarschuwing met offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
    
 3. Als u wilt zoeken in de JSON-gegevens met de juiste indeling, voert u de CheckMalformedEvents.cs code die beschikbaar zijn in de [opslagplaats met GitHub-voorbeelden](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Deze code leest de partitie-ID, verschuiving en de gegevens die zich in deze offset af te drukken. 
 
@@ -89,9 +90,9 @@ Als uw streaming-querysyntaxis verwijst meerdere keren naar dezelfde invoer Even
 
 Scenario's waarin het aantal lezers per partitie is groter dan de Event Hubs-limiet van vijf omvatten het volgende:
 
-* Meerdere SELECT-instructies: als u meerdere SELECT-instructies die naar verwijzen **dezelfde** event hub-invoer, elke SELECT-instructie zorgt ervoor dat een nieuwe ontvanger moet worden gemaakt.
-* UNION: Wanneer u een SAMENVOEGING gebruikt, is het mogelijk dat meerdere invoergegevens die naar verwijzen de **dezelfde** event hub- en consumer-groep.
-* SELF-join: Wanneer u een SELF JOIN-bewerking gebruikt, is het mogelijk om te verwijzen naar de **dezelfde** gebeurtenishub meerdere keren.
+* Meerdere SELECT-instructies: Als u meerdere SELECT-instructies die naar verwijzen **dezelfde** event hub-invoer, elke SELECT-instructie zorgt ervoor dat een nieuwe ontvanger moet worden gemaakt.
+* UNION: Wanneer u een SAMENVOEGING gebruikt, is het mogelijk om meerdere invoergegevens die naar verwijzen de **dezelfde** event hub- en consumer-groep.
+* SELF-JOIN: Wanneer u een SELF JOIN-bewerking gebruikt, is het mogelijk om te verwijzen naar de **dezelfde** gebeurtenishub meerdere keren.
 
 De volgende procedures kunnen u scenario's waarin het aantal lezers per partitie is groter dan de Event Hubs-limiet van vijf.
 
@@ -101,7 +102,7 @@ De WITH-clausule Hiermee geeft u een tijdelijke naam resultatenset die kan worde
 
 Bijvoorbeeld, in plaats van deze query:
 
-```
+```SQL
 SELECT foo 
 INTO output1
 FROM inputEventHub
@@ -114,7 +115,7 @@ FROM inputEventHub
 
 Gebruik deze query:
 
-```
+```SQL
 WITH data AS (
    SELECT * FROM inputEventHub
 )

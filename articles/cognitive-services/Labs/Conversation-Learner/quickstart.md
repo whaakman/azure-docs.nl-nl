@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bc0cf0900ec9f87c75091b3bf219d92e0859aa1f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282136"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166129"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Maak een Conversatiecursist-model met behulp van Node.js
 
@@ -164,11 +164,11 @@ Dit maakt gebruik van de standaardconfiguratie, waarmee u uw bot lokaal uitvoere
 
 - Voeg aan uw vragen op [Stack Overflow](https://stackoverflow.com) met 'microsoft cognitive'
 - Een functie aanvragen op onze [User Voice-pagina](https://aka.ms/conversation-learner-uservoice)
-- Open een probleem op onze [github-opslagplaats](https://github.com/Microsoft/ConversationLearner-Samples)
+- Open een probleem op onze [GitHub-opslagplaats](https://github.com/Microsoft/ConversationLearner-Samples)
 
 ## <a name="contributing"></a>Bij te dragen
 
-Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Open Source-gedragscode) van toepassing. Zie voor meer informatie de [Code van Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op met [ opencode@microsoft.com ](mailto:opencode@microsoft.com) aanvullende vragen of opmerkingen hebt.
+Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Open Source-gedragscode) van toepassing. Raadpleeg voor meer informatie de [Microsoft Open Source Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Veelgestelde vragen over de Microsoft Open Source-gedragscode). Als u aanvullende vragen of opmerkingen hebt, neemt u contact op met [opencode@microsoft.com](mailto:opencode@microsoft.com).
 
 ## <a name="source-repositories"></a>Bron-opslagplaatsen
 

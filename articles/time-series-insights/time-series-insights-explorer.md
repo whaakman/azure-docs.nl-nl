@@ -1,5 +1,5 @@
 ---
-title: Verken gegevens met behulp van de Azure Time Series Insights-Verkenner | Microsoft Docs
+title: Azure Time Series Insights explorer gegevens verkennen - gegevens met behulp van de Verkenner van Azure Time Series Insights verkennen | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u gebruik van Azure Time Series Insights explorer in uw webbrowser om snel een globale weergave van uw big data te bekijken en valideren van uw IoT-omgeving.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364225"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273133"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 In dit artikel behandelt de verschillende functies en opties die beschikbaar zijn binnen de Time Series Insights explorer web-app. U gebruikt Verkenner van Time Series Insights in uw webbrowser om visualisaties van uw gegevens te maken.
@@ -55,15 +56,15 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron aan uw T
 
 5. Vervolgens ziet u een diagram met een telling van alle gebeurtenissen tijdens de geselecteerde periode.  U hebt hier een aantal besturingselementen:
 
-    **Deelvenster Editor voorwaarden**: de term-ruimte is waar u uw omgeving een query.  Deze aan de linkerkant van het scherm kunnen gevonden 
-      - **Meting**: dit alle numerieke kolommen (verdubbeld) vervolgkeuzelijst wordt weergegeven
-      - **Splitsen door**: deze vervolgkeuzelijst bevat categorische kolommen (tekenreeksen)
+    **Deelvenster Editor voorwaarden**:  De term-ruimte is waar u uw omgeving een query.  Deze aan de linkerkant van het scherm kunnen gevonden 
+      - **Meting**:  Deze vervolgkeuzelijst bevat alle numerieke kolommen (verdubbeld)
+      - **Splitsen op basis van**: Deze vervolgkeuzelijst bevat categorische kolommen (tekenreeksen)
       - U kunt inschakelen stapsgewijze interpolatie, minimale en maximale weergeven en aanpassen van de y-as van het Configuratiescherm volgende om door te meten.  Bovendien kunt u aanpassen of gegevens die worden weergegeven een aantal, gemiddelde of som van de gegevens is.
       - U kunt maximaal vijf voorwaarden om weer te geven op de dezelfde x-as toevoegen.  Gebruik de **kopiëren naar beneden** om een extra term toevoegen of klik op de **toevoegen** om toe te voegen een nieuwe term.
      
         ![Deelvenster termen-Editor](media/time-series-insights-explorer/explorer2.png)
 
-      - **Predikaat**: het predicaat kunt u snel uw om gebeurtenissen te filteren met behulp van de set met operanden hieronder vermeld. Als u een zoekopdracht door selecteren/te klikken uitvoeren, het predicaat wordt automatisch bijwerken op basis van die zoekopdracht.      Ondersteunde Operandtypen zijn onder andere:
+      - **Predikaat**:  Het predicaat kunt u snel uw om gebeurtenissen te filteren met behulp van de set met operanden hieronder vermeld. Als u een zoekopdracht door selecteren/te klikken uitvoeren, het predicaat wordt automatisch bijwerken op basis van die zoekopdracht.      Ondersteunde Operandtypen zijn onder andere:
 
          |Bewerking  |Ondersteunde typen  |Opmerkingen  |
          |---------|---------|---------|
@@ -102,7 +103,7 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron aan uw T
 
    ![Heatmap](media/time-series-insights-explorer/explorer6.png)
 
-12. **Gebeurtenissen**: wanneer u gebeurtenissen bij het selecteren van verkennen of met de rechtermuisknop op hierboven, het deelvenster gebeurtenissen beschikbaar wordt gesteld.  Hier ziet u alle van de ruwe gebeurtenissen en de gebeurtenissen exporteren als JSON- of CSV-bestanden. Houd er rekening mee dat alle onbewerkte gegevens worden opgeslagen door Time Series Insights.
+12. **Gebeurtenissen**:  Als u ervoor kiest gebeurtenissen bij het selecteren van verkennen of met de rechtermuisknop op hierboven, het deelvenster gebeurtenissen beschikbaar wordt gesteld.  Hier ziet u alle van de ruwe gebeurtenissen en de gebeurtenissen exporteren als JSON- of CSV-bestanden. Houd er rekening mee dat alle onbewerkte gegevens worden opgeslagen door Time Series Insights.
 
    ![Gebeurtenissen](media/time-series-insights-explorer/explorer7.png)
 
@@ -110,7 +111,7 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron aan uw T
 
    - **Patronen**: deze functie proactief de meest statistisch significant patronen in een regio voor de geselecteerde gegevens. Dit neemt u niet hoeft te kijken naar duizenden gebeurtenissen om te begrijpen welke patronen meest garandeert u tijd en energie. Time Series Insights verder kunt u gaat u rechtstreeks naar deze statistisch significant patronen om door te gaan met het uitvoeren van een analyse. Deze functie is ook handig voor het onderzoeken van daarmee van historische gegevens. 
 
-   - **Kolomstatistieken**: kolomstatistieken bieden voor grafieken en tabellen die gegevens uit een kolom van de geselecteerde gegevensreeks in de geselecteerde periode opdelen.  
+   - **Kolomstatistieken**:  Kolomstatistieken bieden voor grafieken en tabellen die gegevens uit een kolom van de geselecteerde gegevensreeks in de geselecteerde periode opdelen.  
  
       ![STATISTIEKEN](media/time-series-insights-explorer/explorer8.png) 
 

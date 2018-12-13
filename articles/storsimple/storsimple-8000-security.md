@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ded3c89774c39b5edee02b9e3c6807ce75ff16a4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566190"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193906"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple-beveiliging en gegevensbescherming
 
@@ -55,7 +55,7 @@ Alleen geautoriseerde StorSimple-apparaten kunnen aanmelden bij de StorSimple De
 
 ![serviceregistratiesleutel](./media/storsimple-security/ServiceRegistrationKey.png)
 
-Voor meer informatie over hoe een serviceregistratiesleutel ophalen, gaat u naar [stap 2: de serviceregistratiesleutel ophalen](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
+Voor meer informatie over hoe een serviceregistratiesleutel ophalen, gaat u naar [stap 2: De serviceregistratiesleutel ophalen](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
 De serviceregistratiesleutel is een lange sleutel met meer dan 100 tekens. U kunt de sleutel kopiëren en opslaan in een tekstbestand op een veilige locatie, zodat u deze gebruiken kunt om extra apparaten zo nodig. Als u de serviceregistratiesleutel is verbroken nadat u uw eerste apparaat hebt geregistreerd, kunt u een nieuwe sleutel genereren van de StorSimple Device Manager-service. Dit wordt niet van invloed op de werking van bestaande apparaten.
 
@@ -210,10 +210,10 @@ StorSimple maakt gebruik van de volgende versleutelingsalgoritmen gegevens die z
 De StorSimple Device Manager voor zowel fysieke als virtuele serie verzamelt persoonlijke gegevens in de volgende belangrijke gevallen:
 
 - Ontvang een waarschuwing gebruikersinstellingen waar e-mailadres van gebruikers zijn geconfigureerd. Deze informatie kan worden weergegeven en worden uitgeschakeld door de beheerder. Dit geldt voor de apparaten uit de StorSimple 8000-serie en de virtuele StorSimple-matrices.
- * Als u wilt weergeven en schakelt u de instellingen voor de StorSimple 8000-serie, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Als u wilt weergeven en schakelt u de instellingen voor StorSimple Virtual Array, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+  * Als u wilt weergeven en schakelt u de instellingen voor de StorSimple 8000-serie, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+  * Als u wilt weergeven en schakelt u de instellingen voor StorSimple Virtual Array, volg de stappen in [weergeven en beheren van waarschuwingen voor StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
 - Gebruikers die toegang krijgen tot de gegevens die zich bevinden op de shares. Een lijst met gebruikers die toegang de sharegegevens tot krijgen wordt weergegeven en kan worden weergegeven. Deze lijst wordt ook verwijderd wanneer de shares wordt verwijderd. Dit geldt alleen voor virtuele StorSimple-matrices.
- * Om weer te geven van de lijst met gebruikers die toegang tot of naar een share verwijdert, voert u de stappen in [shares op de StorSimple Virtual Array beheren](storsimple-virtual-array-manage-shares.md)
+  * Om weer te geven van de lijst met gebruikers die toegang tot of naar een share verwijdert, voert u de stappen in [shares op de StorSimple Virtual Array beheren](storsimple-virtual-array-manage-shares.md)
 
 Bekijk het Microsoft-privacybeleid in het [Vertrouwenscentrum](https://www.microsoft.com/trustcenter) voor meer informatie.
 
@@ -221,65 +221,65 @@ Bekijk het Microsoft-privacybeleid in het [Vertrouwenscentrum](https://www.micro
 
 Hier volgen enkele vragen en antwoorden over de beveiliging en Microsoft Azure StorSimple.
 
-**V:** mijn service ermee is geknoeid. Wat moet de volgende stappen?
+**VRAAG:** Mijn service wordt aangetast. Wat moet de volgende stappen?
 
-**A:** u onmiddellijk de versleutelingssleutel voor servicegegevens en de opslagaccountsleutels voor het opslagaccount dat wordt gebruikt voor cloudlagen gegevens moet wijzigen. Voor instructies gaat u naar:
+**A:** U moet onmiddellijk de versleutelingssleutel voor servicegegevens en de opslagaccountsleutels voor het opslagaccount dat wordt gebruikt voor cloudlagen gegevens te wijzigen. Voor instructies gaat u naar:
 
 * [Wijzigen van de versleutelingssleutel voor servicegegevens](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Sleutelroulatie van storage-accounts](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
-**V:** ik heb een nieuwe StorSimple-apparaat dat is de serviceregistratiesleutel wordt gevraagd. Hoe ik ophalen?
+**VRAAG:** Ik heb een nieuwe StorSimple-apparaat dat is de serviceregistratiesleutel wordt gevraagd. Hoe ik ophalen?
 
-**A:** deze sleutel is gemaakt tijdens het maken van de StorSimple Device Manager-service. Wanneer u de StorSimple Device Manager-service verbinding maken met het apparaat gebruikt, kunt u de pagina snel starten met service kunt gebruiken om te bekijken of de serviceregistratiesleutel opnieuw genereren. Een nieuwe serviceregistratiesleutel genereren, heeft dit geen invloed op bestaande geregistreerde apparaten. Voor instructies gaat u naar:
+**A:** Deze sleutel is gemaakt tijdens het maken van de StorSimple Device Manager-service. Wanneer u de StorSimple Device Manager-service verbinding maken met het apparaat gebruikt, kunt u de pagina snel starten met service kunt gebruiken om te bekijken of de serviceregistratiesleutel opnieuw genereren. Een nieuwe serviceregistratiesleutel genereren, heeft dit geen invloed op bestaande geregistreerde apparaten. Voor instructies gaat u naar:
 
 * [Weergeven of de serviceregistratiesleutel opnieuw genereren](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
 
-**V:** ik mijn versleutelingssleutel voor servicegegevens verloren. Wat moet ik doen?
+**VRAAG:** Kan ik mijn versleutelingssleutel voor servicegegevens is verbroken. Wat moet ik doen?
 
-**A:** contact op met Microsoft ondersteuning. Ze kunnen zich aanmelden bij een ondersteuningssessie op uw apparaat en hulp bij het ophalen van de sleutel (op voorwaarde dat ten minste één apparaat online is). Onmiddellijk nadat u de versleutelingssleutel voor servicegegevens hebt verkregen, moet u wijzigen om ervoor te zorgen dat de nieuwe sleutel alleen bij u bekend is. Voor instructies gaat u naar:
+**A:** Neem contact op met Microsoft Ondersteuning. Ze kunnen zich aanmelden bij een ondersteuningssessie op uw apparaat en hulp bij het ophalen van de sleutel (op voorwaarde dat ten minste één apparaat online is). Onmiddellijk nadat u de versleutelingssleutel voor servicegegevens hebt verkregen, moet u wijzigen om ervoor te zorgen dat de nieuwe sleutel alleen bij u bekend is. Voor instructies gaat u naar:
 
 * [Wijzigen van de versleutelingssleutel voor servicegegevens](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**V:** gemachtigd een apparaat voor een service gegevens codering belangrijke wijziging, maar het proces voor sleutel niet is gestart. Wat moet ik doen?
+**VRAAG:**  Ik een apparaat voor een service-versleuteling sleutel gegevenswijziging geautoriseerd, maar is het proces voor sleutel niet gestart. Wat moet ik doen?
 
-**A:** als de time-outperiode is verlopen, moet u opnieuw autoriseren van het apparaat voor de service gegevens codering belangrijke wijziging en het proces opnieuw starten.
+**A:** Als de time-outperiode is verlopen, moet u opnieuw autoriseren van het apparaat voor de service gegevens codering belangrijke wijziging en het proces opnieuw starten.
 
-**V:** ik de versleutelingssleutel voor servicegegevens gewijzigd, maar ik kan niet voor het bijwerken van de andere apparaten binnen vier uur. Heb ik opnieuw te starten?
+**VRAAG:**  Ik heb de versleutelingssleutel voor servicegegevens gewijzigd, maar ik kan niet voor het bijwerken van de andere apparaten binnen vier uur. Heb ik opnieuw te starten?
 
-**A:** de 4 uur tijd is alleen voor het starten van de wijziging. Nadat u het updateproces op de geautoriseerde StorSimple-apparaat gestart, is de autorisatie geldig totdat alle apparaten worden bijgewerkt.
+**A:** De periode van 4 uur is alleen voor het starten van de wijziging. Nadat u het updateproces op de geautoriseerde StorSimple-apparaat gestart, is de autorisatie geldig totdat alle apparaten worden bijgewerkt.
 
-**V:** onze StorSimple-beheerder heeft het bedrijf heeft verlaten. Wat moet ik doen?
+**VRAAG:** Onze StorSimple-beheerder heeft het bedrijf verlaten. Wat moet ik doen?
 
-**A:** wijzigen en opnieuw instellen van de wachtwoorden die toegang tot het StorSimple-apparaat en het wijzigen van de service-gegevensversleuteling sleutel om ervoor te zorgen dat de nieuwe informatie is niet bekend bij niet-geautoriseerd personeel. Voor instructies gaat u naar:
+**A:** Wijzigen en de wachtwoorden die toegang tot het StorSimple-apparaat geven opnieuw instellen en wijzigen van de versleutelingssleutel voor servicegegevens om ervoor te zorgen dat de nieuwe informatie niet bekend is niet-geautoriseerd personeel. Voor instructies gaat u naar:
 
 * [De StorSimple Device Manager-service gebruiken om uw storsimple-wachtwoorden wijzigen](storsimple-8000-change-passwords.md)
 * [Wijzigen van de versleutelingssleutel voor servicegegevens](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [CHAP configureren voor uw StorSimple-apparaat](storsimple-8000-configure-chap.md)
 
-**V:** ik wil het wachtwoord voor StorSimple Snapshot Manager naar een host die verbinding met het StorSimple-apparaat maakt geven, maar het wachtwoord is niet beschikbaar. Wat kan ik doen?
+**VRAAG:** Ik wil het wachtwoord voor StorSimple Snapshot Manager naar een host die verbinding met het StorSimple-apparaat maakt geven, maar het wachtwoord is niet beschikbaar. Wat kan ik doen?
 
-**A:** als u het wachtwoord vergeten bent, moet u een nieuwe maken. Vervolgens moet u alle bestaande gebruikers te informeren dat het wachtwoord is gewijzigd en dat ze hun clients voor het gebruik van het nieuwe wachtwoord moeten bijwerken. Voor instructies gaat u naar:
+**A:** Als u het wachtwoord vergeten bent, moet u een nieuwe maken. Vervolgens moet u alle bestaande gebruikers te informeren dat het wachtwoord is gewijzigd en dat ze hun clients voor het gebruik van het nieuwe wachtwoord moeten bijwerken. Voor instructies gaat u naar:
 
 * [Wijzig het wachtwoord voor StorSimple Snapshot Manager](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)
 * [Een apparaat verifiëren](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**V:** het certificaat voor externe toegang tot de Windows PowerShell voor StorSimple op het apparaat is gewijzigd. Hoe kan ik mijn RAS-clients bijwerken?
+**VRAAG:** Het certificaat voor externe toegang tot de Windows PowerShell voor StorSimple is gewijzigd op het apparaat. Hoe kan ik mijn RAS-clients bijwerken?
 
-**A:** kunt u het nieuwe certificaat downloaden van de StorSimple Device Manager-service en geef vervolgens deze moet worden geïnstalleerd in het certificaatarchief van de RAS-clients. Voor instructies gaat u naar:
+**A:** U kunt het nieuwe certificaat downloaden van de StorSimple Device Manager-service, en deze vervolgens opgeven in het certificaatarchief van de RAS-clients kunnen worden geïnstalleerd. Voor instructies gaat u naar:
 
 * [De cmdlet Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
-**V:** zijn mijn gegevens beveiligd als de service StorSimple Device Manager is geknoeid?
+**VRAAG:** Wordt mijn gegevens beveiligd als de StorSimple Device Manager-service is geknoeid?
 
-**A:** Service configuratiegegevens worden altijd versleuteld door de openbare sleutel in een webbrowser bekijkt. Omdat de service heeft geen toegang tot de persoonlijke sleutel, is de service niet mogelijk geen gegevens zien. Als de service StorSimple Device Manager is geknoeid, zijn er geen gevolgen als er geen sleutels die zijn opgeslagen in de StorSimple Device Manager-service zijn.
+**A:** Configuratiegegevens van de service wordt altijd versleuteld door de openbare sleutel in een webbrowser bekijkt. Omdat de service heeft geen toegang tot de persoonlijke sleutel, is de service niet mogelijk geen gegevens zien. Als de service StorSimple Device Manager is geknoeid, zijn er geen gevolgen als er geen sleutels die zijn opgeslagen in de StorSimple Device Manager-service zijn.
 
-**V:** als iemand zich toegang verschaft tot het certificaat voor versleuteling, worden mijn gegevens worden aangetast?
+**VRAAG:** Als iemand zich toegang verschaft tot het certificaat voor versleuteling, worden mijn gegevens worden aangetast?
 
-**A:** Microsoft Azure gegevensversleutelingssleutel van de klant (PFX-bestand) in een versleutelde indeling opgeslagen. Omdat het .pfx-bestand is versleuteld en de StorSimple-service beschikt niet over de versleutelingssleutel voor servicegegevens voor het ontsleutelen van het pfx-bestand, wordt er bij het gewoon de toegang tot het pfx-bestand niet alle geheimen beschikbaar.
+**A:** Microsoft Azure worden de gegevensversleutelingssleutel van de klant (PFX-bestand) in een versleutelde indeling opgeslagen. Omdat het .pfx-bestand is versleuteld en de StorSimple-service beschikt niet over de versleutelingssleutel voor servicegegevens voor het ontsleutelen van het pfx-bestand, wordt er bij het gewoon de toegang tot het pfx-bestand niet alle geheimen beschikbaar.
 
-**V:** wat er gebeurt als een overheidsinstantie Microsoft voor mijn gegevens vraagt?
+**VRAAG:** Wat gebeurt er als een overheidsinstantie Microsoft voor mijn gegevens vraagt?
 
-**A:** omdat alle gegevens worden versleuteld op de service en de persoonlijke sleutel wordt gehouden met het apparaat, de overheidsinstantie de klant moet vragen voor de gegevens.
+**A:** Omdat alle gegevens worden versleuteld op de service en de persoonlijke sleutel wordt gehouden met het apparaat, moet de overheidsinstantie vraag van de klant voor de gegevens.
 
 
 

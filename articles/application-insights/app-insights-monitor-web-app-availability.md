@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a5177293b24ec400714d8f87be4198a76d59214a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 11a421a30508774d976def8d5836451743ecb6ea
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878717"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270379"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -49,11 +49,11 @@ Open de blade Beschikbaarheid en voeg een test toe.
 ![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **De URL** kan iedere webpagina zijn die u wilt testen, maar deze moet zichtbaar zijn vanaf het openbare internet. De URL kan een queryreeks bevatten. Zo kunt u bijvoorbeeld oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
-* **Parseren van afhankelijke aanvragen**: als deze optie is ingeschakeld, vraagt de test om afbeeldingen, scripts, stijlbestanden en andere bestanden die deel van de geteste webpagina uitmaken. De opgenomen reactietijd is inclusief de tijd die nodig is om deze bestanden op te halen. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test. Als de optie niet is ingeschakeld, vraagt de test alleen het bestand op van de URL die u hebt opgegeven.
+* **Afhankelijke aanvragen parseren**: Als deze optie is ingeschakeld, vraagt de test om afbeeldingen, scripts, Stijlbestanden en andere bestanden die deel van de webpagina uitmaken. De opgenomen reactietijd is inclusief de tijd die nodig is om deze bestanden op te halen. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test. Als de optie niet is ingeschakeld, vraagt de test alleen het bestand op van de URL die u hebt opgegeven.
 
-* **Nieuwe pogingen inschakelen**: als deze optie is ingeschakeld, wordt de test, als de test is mislukt, na een korte periode opnieuw uitgevoerd. Fouten worden pas gerapporteerd als er drie opeenvolgende pogingen mislukken. Daaropvolgende tests worden vervolgens met de gebruikelijke testfrequentie uitgevoerd. Volgende pogingen worden tijdelijk uitgesteld tot er weer een test slaagt. Deze regel wordt onafhankelijk toegepast op elke testlocatie. Deze optie wordt aangeraden. Gemiddeld verdwijnt ongeveer 80% van de fouten na het opnieuw proberen.
+* **Nieuwe pogingen inschakelen**:  Als deze optie is ingeschakeld, als de test mislukt, wordt deze na een korte periode opnieuw uitgevoerd. Fouten worden pas gerapporteerd als er drie opeenvolgende pogingen mislukken. Daaropvolgende tests worden vervolgens met de gebruikelijke testfrequentie uitgevoerd. Volgende pogingen worden tijdelijk uitgesteld tot er weer een test slaagt. Deze regel wordt onafhankelijk toegepast op elke testlocatie. Deze optie wordt aangeraden. Gemiddeld verdwijnt ongeveer 80% van de fouten na het opnieuw proberen.
 
-* **Testfrequentie**: stel in hoe vaak de test wordt uitgevoerd vanaf elke testlocatie. Met een standaardfrequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.
+* **Testfrequentie**: Hiermee stelt u op hoe vaak de test wordt uitgevoerd vanaf elke testlocatie. Met een standaardfrequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.
 
 * **Testlocaties** zijn de plaatsen van waaraf onze servers webaanvragen verzenden naar uw URL. Onze minimum aantal aanbevolen testlocaties is vijf om te zorgen dat u problemen in uw website van netwerkproblemen onderscheiden kunt. U kunt maximaal 16 locaties selecteren.
 
@@ -63,13 +63,13 @@ Open de blade Beschikbaarheid en voeg een test toe.
 
 * **Criteria voor succes**:
 
-    **Timeout van de test**: verlaag deze waarde om te worden gewaarschuwd over trage reacties. De test wordt als mislukt beschouwd als er binnen deze periode geen reactie van uw site is ontvangen. Als u **Parse onafhankelijke aanvragen** hebt geselecteerd, moeten alle afbeeldingen, stijlbestanden, scripts en andere afhankelijke resources binnen deze periode worden ontvangen.
+    **Time-out van de test**: Verlaag deze waarde om te worden gewaarschuwd over trage reacties. De test wordt als mislukt beschouwd als er binnen deze periode geen reactie van uw site is ontvangen. Als u **Parse onafhankelijke aanvragen** hebt geselecteerd, moeten alle afbeeldingen, stijlbestanden, scripts en andere afhankelijke resources binnen deze periode worden ontvangen.
 
-    **HTTP-antwoord**: de geretourneerde statuscode die staat voor een geslaagde test. 200 is de code die aangeeft dat er een normale webpagina is geretourneerd.
+    **HTTP-antwoord**: De geretourneerde statuscode die voor een geslaagde test staat. 200 is de code die aangeeft dat er een normale webpagina is geretourneerd.
 
     **Inhoudsovereenkomst**: een tekenreeks, zoals 'Welkom!' Er wordt getest of er in elke respons een exacte (hoofdlettergevoelige) overeenkomst wordt gevonden. Het moet een eenvoudige tekenreeks zijn, zonder jokertekens. Als uw pagina-inhoud wordt gewijzigd, moet u deze tekenreeks mogelijk ook bijwerken.
 
-* **Voor waarschuwingslocatie**: We raden aan een minimum van 3/5 locaties. De optimale relatie tussen waarschuwingslocatie en het aantal testlocaties **waarschuwingslocatie** = **aantal testlocaties** - 2, met een minimum van vijf testen locaties.
+* **Voor waarschuwingslocatie**: U wordt aangeraden een minimum van 3/5 locaties. De optimale relatie tussen waarschuwingslocatie en het aantal testlocaties **waarschuwingslocatie** = **aantal testlocaties** - 2, met een minimum van vijf testen locaties.
 
 ## <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld een verkoopwebsite bewaakt, kunt u testen of het toevoegen van items aan de winkelwagen goed werkt.
@@ -160,8 +160,8 @@ Selecteer een bepaalde test of locatie, of verklein de periode om meer resultate
 
 Naast de onbewerkte resultaten kunt u twee metrische beschikbaarheidsgegevens gebruiken in Metrics Explorer: 
 
-1. Beschikbaarheid: percentage van de tests die zijn geslaagd, bekeken over alle testuitvoeringen. 
-2. Testduur: gemiddelde testduur van alle testuitvoeringen.
+1. Beschikbaarheid: Percentage van de tests zijn geslaagd, bekeken over alle testuitvoeringen. 
+2. Testduur: Gemiddelde testduur over alle testuitvoeringen.
 
 U kunt filters toepassen op de testnaam of -locatie om trends van een bepaalde test en/of locatie te analyseren.
 
@@ -202,7 +202,7 @@ De X van Y-locaties waarschuwingsregel is standaard ingeschakeld in de [nieuwe w
 
 ![Ontwikkel-ervaring](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-**Belangrijke**: met de [nieuwe geïntegreerde waarschuwingen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), de voorkeuren waarschuwingsregel ernst en meldingen met [actiegroepen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **moet** geconfigureerd in de waarschuwingen optreden. Zonder de volgende stappen maakt u alleen in de portal meldingen ontvangt. 
+**Belangrijke**: Met de [nieuwe geïntegreerde waarschuwingen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), de voorkeuren waarschuwingsregel ernst en meldingen met [actiegroepen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **moet** geconfigureerd in de ervaring voor waarschuwingen. Zonder de volgende stappen maakt u alleen in de portal meldingen ontvangt. 
 
 1. Na het opslaan van de beschikbaarheidstest, klik op de nieuwe testnaam om naar de details ervan te gaan. Klik op 'waarschuwing bewerken' ![bewerken na het opslaan](./media/app-insights-monitor-web-app-availability/editaftersave.png)
 
@@ -217,7 +217,7 @@ De X van Y-locaties waarschuwingsregel is standaard ingeschakeld in de [nieuwe w
 ### <a name="alert-on-availability-metrics"></a>Waarschuwing op basis van metrische gegevens over beschikbaarheid
 Met behulp van de [nieuwe geïntegreerde waarschuwingen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), kunt u waarschuwingen over de beschikbaarheid van gesegmenteerde statistische en duur van de metrische gegevens ook testen:
 
-1. Selecteer een Application Insights-resource in de ervaring voor metrische gegevens en een beschikbaarheid van metrische waarde selecteren: ![selectie van de metrische gegevens over beschikbaarheid](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+1. Selecteer een Application Insights-resource in de ervaring voor metrische gegevens en een beschikbaarheid van metrische waarde selecteren:  ![Selectie van de metrische gegevens over beschikbaarheid](./media/app-insights-monitor-web-app-availability/selectmetric.png)
 
 2. Optie in het menu, u naar de nieuwe ervaring waarin u kunt selecteren specifieke tests of locaties gaat voor het instellen van de waarschuwingsregel op waarschuwingen configureren. U kunt ook de actiegroepen voor deze waarschuwingsregel hier configureren.
     ![Configuratie van de beschikbaarheid van waarschuwingen](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
@@ -281,7 +281,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
 ## <a name="automation"></a>Automation
 * Gebruik [PowerShell-scripts om automatisch een beschikbaarheidstest in te stellen](app-insights-powershell.md#add-an-availability-test).
-* Stel een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
+* Stel een [webhook](../azure-monitor/platform/alerts-webhooks.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 
 ## <a name="qna"></a> FAQ
 
@@ -309,7 +309,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
     De fout 'Schending van protocol... CR moet worden gevolgd door LF' geeft een probleem met de server (of afhankelijkheden) aan. Dit gebeurt wanneer onjuist gevormde headers zijn ingesteld in het antwoord. Dit kan worden veroorzaakt door load balancers of CDN's. Meer in het bijzonder maken enkele headers mogelijk geen gebruik CRLF om het einde van de regel aan te geven, wat in strijd is met de HTTP-specificatie en waardoor validatie op het niveau van .NET-WebRequest mislukt. Controleer het antwoord om headers te signaleren die mogelijk fouten bevatten.
     
-    Opmerking: de URL mislukt mogelijk niet in browsers die een beperkte validatie van HTTP-headers hebben. Zie dit blogbericht voor een gedetailleerde uitleg van dit probleem: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+    Opmerking: De URL mislukt mogelijk niet in browsers die een soepelere validatie van HTTP-headers. Zie dit blogbericht voor een gedetailleerde uitleg van dit probleem: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
 * *Ik zie geen gerelateerde telemetriegegevens van de server om testfouten vast te stellen*
     

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: 22a22789f7eed6402d7bf3abd3b356dbcb4caa37
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134877"
+ms.locfileid: "53166639"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modellering van documentgegevens van het voor NoSQL-databases
 
@@ -38,7 +38,7 @@ Voordat we dieper te veel verder, laat het ons weer een paar stappen uitvoeren e
 
 Bij het werken met relationele databases, hebben we geleerd jaar te normaliseren, normaliseren, normaliseren.
 
-Normaal gesproken normaliseren van uw gegevens omvat het nemen van een entiteit, zoals een persoon, en de belangrijke omlaag voor de afzonderlijke onderdelen van de gegevens. In het bovenstaande voorbeeld hebben van een persoon meerdere records met gegevens van de contactpersoon, evenals de meerdere-adresrecords. We nog een stap verder gaan en contactgegevens onderverdeeld per verdere extraheren algemene velden, zoals een type. Hetzelfde adres, heeft elke record hier een type, zoals *Start* of *Business* 
+Doorgaans normaliseren van uw gegevens omvat het maken van een entiteit, zoals een persoon en splitsen in afzonderlijke stukken van gegevens. In het bovenstaande voorbeeld hebben van een persoon meerdere records van de details van contactpersonen, evenals de meerdere-adresrecords. We nog een stap verder gaan en contactgegevens onderverdeeld per verdere extraheren algemene velden, zoals een type. Hetzelfde adres, heeft elke record hier een type, zoals *Start* of *Business* 
 
 De begeleiden premises wanneer de gegevens normaliseren wordt **te voorkomen dat opslaan van redundante gegevens** op elk vastleggen en in plaats daarvan verwijst naar gegevens. In dit voorbeeld om te lezen van een persoon, met al hun gegevens van de contactpersoon en -adressen, moet u met JOINS effectief Verzamel uw gegevens tijdens de uitvoering.
 

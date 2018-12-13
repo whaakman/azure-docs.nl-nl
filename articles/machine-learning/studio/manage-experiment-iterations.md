@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
@@ -16,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: a95004a24a9b136708f948f6a2697563216506fb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ebcae3e8e8f13904936dbe122f285a01a2a71459
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086024"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270447"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Iteraties van experimenten beheren in Azure Machine Learning Studio
 Het ontwikkelen van een predictive Analytics-model is in een iteratief proces - als u de verschillende functies en parameters van uw experiment wijzigt, worden de resultaten geconvergeerd tot u tevreden bent u een getraind en doeltreffend model hebt. Sleutel voor dit proces is het bijhouden van de verschillende iteraties van uw experiment parameters en configuraties.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 U kunt eerdere uitvoeringen van uw experimenten bekijken op elk gewenst moment om te kunnen verstrekken, bezoekt, en uiteindelijk bevestigen of vorige veronderstellingen verfijnen. Wanneer u een experiment uitvoert, Machine Learning Studio de houdt een geschiedenis bij van de uitvoering, met inbegrip van de gegevensset, module en verbinding met de poort en parameters. Dit overzicht bevat ook resultaten, runtime-gegevens, zoals de begin- en stoptijden, logboekberichten en uitvoeringsstatus. U kunt kijken weer een van deze wordt uitgevoerd op elk gewenst moment om te controleren van de tijdlijn van uw experiment en tussenliggende resultaten genereren. U kunt zelfs een vorige uitvoering van uw experiment gebruiken om te starten in een nieuwe fase van de query en detectie van het pad voor het maken van eenvoudige, complexe of zelfs ensembles modellering van oplossingen.
 

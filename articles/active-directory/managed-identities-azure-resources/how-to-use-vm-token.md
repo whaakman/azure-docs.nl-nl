@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 9c1c833046c7dff0f26621be57768021dc036846
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 0355b8cf19209509dca2f3cac93c7abb92a63990
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888984"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323317"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM aan een toegangstoken verkrijgen 
 
@@ -51,6 +51,7 @@ Een clienttoepassing kan aanvragen beheerde identiteiten voor Azure-resources [a
 | [Een met behulp van HTTP-token verkrijgen](#get-a-token-using-http) | Protocoldetails van het voor beheerde identiteiten voor Azure-resources token-eindpunt |
 | [Een token met de Microsoft.Azure.Services.AppAuthentication-clientbibliotheek voor .NET ophalen](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Voorbeeld van het gebruik van de bibliotheek Microsoft.Azure.Services.AppAuthentication vanuit een .NET-client
 | [Een met C#-token verkrijgen](#get-a-token-using-c) | Voorbeeld van het gebruik van beheerde identiteiten voor Azure-resources REST-eindpunt van een C#-client |
+| [Een token met behulp van Java ophalen](#get-a-token-using-java) | Voorbeeld van het gebruik van beheerde identiteiten voor Azure-resources REST-eindpunt van een Java-client |
 | [Een token met behulp van Go ophalen](#get-a-token-using-go) | Voorbeeld van het gebruik van beheerde identiteiten voor Azure-resources REST-eindpunt van een Go-client |
 | [Een token met Azure PowerShell ophalen](#get-a-token-using-azure-powershell) | Voorbeeld van het gebruik van beheerde identiteiten voor Azure-resources REST-eindpunt van een PowerShell-client |
 | [Ophalen van een token met CURL](#get-a-token-using-curl) | Voorbeeld van het gebruik van beheerde identiteiten voor Azure-resources REST-eindpunt van een client Bash/CURL |
@@ -68,7 +69,7 @@ Voorbeeld van een aanvraag met behulp van het eindpunt van Azure Instance Metada
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
-| Element | Beschrijving |
+| Element | Description |
 | ------- | ----------- |
 | `GET` | De HTTP-term, die aangeeft dat u wilt ophalen van gegevens uit het eindpunt. In dit geval een OAuth-toegangstoken. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | De beheerde identiteit voor Azure-resources-eindpunt voor de Instance Metadata Service. |
@@ -85,7 +86,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Element | Beschrijving |
+| Element | Description |
 | ------- | ----------- |
 | `GET` | De HTTP-term, die aangeeft dat u wilt ophalen van gegevens uit het eindpunt. In dit geval een OAuth-toegangstoken. | 
 | `http://localhost:50342/oauth2/token` | De beheerde identiteiten voor het eindpunt van de Azure-resources, waarbij 50342 is de standaardpoort en kan worden geconfigureerd. |
@@ -111,7 +112,7 @@ Content-Type: application/json
 }
 ```
 
-| Element | Beschrijving |
+| Element | Description |
 | ------- | ----------- |
 | `access_token` | Het aangevraagde toegangstoken. Bij het aanroepen van een beveiligde REST-API, het token is ingesloten in de `Authorization` headerveld aanvraag als een token 'bearer', zodat de API voor verificatie van de oproepende functie. | 
 | `refresh_token` | Niet gebruikt door beheerde identiteiten voor Azure-resources. |
@@ -172,6 +173,50 @@ catch (Exception e)
     string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
 }
 
+```
+
+## <a name="get-a-token-using-java"></a>Een token met behulp van Java ophalen
+
+Gebruik deze [JSON bibliotheek](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) om op te halen van een token met behulp van Java.
+
+```Java
+import java.io.*;
+import java.net.*;
+import com.fasterxml.jackson.core.*;
+ 
+class GetMSIToken {
+    public static void main(String[] args) throws Exception {
+ 
+        URL msiEndpoint = new URL("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+        HttpURLConnection con = (HttpURLConnection) msiEndpoint.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("Metadata", "true");
+ 
+        if (con.getResponseCode()!=200) {
+            throw new Exception("Error calling managed identity token endpoint.");
+        }
+ 
+        InputStream responseStream = con.getInputStream();
+ 
+        JsonFactory factory = new JsonFactory();
+        JsonParser parser = factory.createParser(responseStream);
+ 
+        while(!parser.isClosed()){
+            JsonToken jsonToken = parser.nextToken();
+ 
+            if(JsonToken.FIELD_NAME.equals(jsonToken)){
+                String fieldName = parser.getCurrentName();
+                jsonToken = parser.nextToken();
+ 
+                if("access_token".equals(fieldName)){
+                    String accesstoken = parser.getValueAsString();
+                    System.out.println("Access Token: " + accesstoken.substring(0,5)+ "..." + accesstoken.substring(accesstoken.length()-5));
+                    return;
+                }
+            }
+        }
+    }
+}
 ```
 
 ## <a name="get-a-token-using-go"></a>Een token met behulp van Go ophalen
@@ -316,7 +361,7 @@ De beheerde identiteit voor Azure-resources eindpunt signalen fouten via het sta
 
 Als er een fout optreedt, bevat de bijbehorende HTTP-antwoordtekst JSON met details van de fout:
 
-| Element | Beschrijving |
+| Element | Description |
 | ------- | ----------- |
 | error   | Fout-id. |
 | error_description | Uitgebreide beschrijving van de fout. **Beschrijvingen van de fouten kunnen op elk gewenst moment wijzigen. Geen code die vertakkingen op basis van waarden in de beschrijving van de fout schrijven.**|

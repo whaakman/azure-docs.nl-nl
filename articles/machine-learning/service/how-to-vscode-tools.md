@@ -1,5 +1,6 @@
 ---
-title: Aan de slag met Azure Machine Learning voor Visual Studio Code
+title: Gebruik Visual Studio Code met
+titleSuffix: Azure Machine Learning service
 description: Informatie over het installeren van Azure Machine Learning voor Visual Studio Code en een eenvoudig experiment maken in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c5d7d3c10b9c8c191144e1e396d28fc53f813623
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012671"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269584"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Aan de slag met Azure Machine Learning voor Visual Studio Code
 
@@ -24,11 +25,13 @@ Gebruik de Azure Machine Learning-extensie in Visual Studio code de Azure Machin
 
 ## <a name="prerequisite"></a>Vereiste
 
+
++ Als u geen Azure-abonnement hebt, een gratis account maken voordat u begint. Probeer de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree) vandaag nog.
+
 + Visual Studio Code moet worden geïnstalleerd. VS Code is een toegankelijke, krachtige broncode-editor die wordt uitgevoerd op het bureaublad. Het wordt geleverd met ingebouwde ondersteuning voor Python en meer.  [Informatie over het installeren van VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
 + [Python 3.5 of hoger installeren](https://www.anaconda.com/download/).
 
-+ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
 
 ## <a name="install-the-azure-machine-learning-for-vs-code-extension"></a>De Azure Machine Learning voor VS Code-extensie installeren
 

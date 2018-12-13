@@ -1,5 +1,5 @@
 ---
-title: Hybride verbindingen van Azure App Service | Microsoft Docs
+title: Hybride verbindingen - Azure App Service | Microsoft Docs
 description: Over het maken en hybride verbindingen gebruiken voor toegang tot resources in afzonderlijke netwerken
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
-ms.openlocfilehash: cdfe1a35dbbf8fa048e0b0ca24f06bb0e73bde61
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968307"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258012"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybride verbindingen van Azure App Service #
 
@@ -136,7 +137,7 @@ Wanneer u de UI HCM start, is het eerste wat dat u ziet een tabel met een lijst 
 Een of meer hybride verbindingen toevoegen aan uw HCM:
 
 1. Start de HCM-gebruikersinterface.
-1. Selecteer **configureren van een andere hybride verbinding**.
+2. Selecteer **configureren van een andere hybride verbinding**.
 ![Schermafbeelding van nieuwe hybride verbindingen configureren][8]
 
 1. Meld u aan met uw Azure-account.
@@ -197,7 +198,7 @@ Het JSON-object dat is gekoppeld aan een hybride verbinding ziet eruit zoals:
       }
     }
 
-Een manier om deze informatie te gebruiken, is met de armclient, die u kunt ophalen uit de [ARMClient] [ armclient] github-project. Hier volgt een voorbeeld van een bestaande hybride verbinding toevoegen aan uw web-app. Maak een JSON-bestand per het bovenstaande schema, zoals:
+Een manier om deze informatie te gebruiken, is met de armclient, die u kunt ophalen uit de [ARMClient] [ armclient] GitHub-project. Hier volgt een voorbeeld van een bestaande hybride verbinding toevoegen aan uw web-app. Maak een JSON-bestand per het bovenstaande schema, zoals:
 
     {
       "name": "relay-demo-hc",

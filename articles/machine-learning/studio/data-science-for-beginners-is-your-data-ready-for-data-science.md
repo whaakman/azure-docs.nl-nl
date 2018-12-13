@@ -4,10 +4,9 @@ description: Vier criteria uw gegevens moet voldoen om te worden gereed voor geg
 keywords: relevante gegevens, gegevens worden geëvalueerd, voorbereiden van gegevens, gegevens criteria, gegevens gereed
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 3408130e97b6b38de58300244f884257c179230c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2a9101ed510c617df81f422aea92ca1ef2b28cd8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092878"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261225"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Zijn gegevens gereed voor gegevenswetenschap?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Gegevenswetenschap voor Beginners-serie
@@ -38,13 +37,13 @@ Als u optimaal te profiteren van de serie, bekijk ze allemaal. [Ga naar de lijst
 ## <a name="other-videos-in-this-series"></a>Andere video's in deze serie
 *Gegevenswetenschap voor Beginners* is een korte inleiding over data Science in vijf korte video's.
 
-* Video 1: [gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-* Video 2: Zijn de gegevens gereed voor gegevenswetenschap?
-* Video 3: [een vraag stellen u met gegevens kunt beantwoorden](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-* Video 4: [een antwoord met een eenvoudig model voorspellen](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-* Video 5: [werk van anderen als u wilt doen, wetenschappelijke gegevens kopiëren](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 1: [Gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: Zijn gegevens gereed voor gegevenswetenschap?
+* Video 3: [Een vraag stellen u met gegevens kunt beantwoorden](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Video 4: [Een antwoord met een eenvoudig model voorspellen](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Video 5: [Kopiëren van het werk van anderen hiervoor gegevenswetenschap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
-## <a name="transcript-is-your-data-ready-for-data-science"></a>Transcript: Zijn de gegevens gereed voor gegevenswetenschap?
+## <a name="transcript-is-your-data-ready-for-data-science"></a>Transcript: Zijn gegevens gereed voor gegevenswetenschap?
 Welkom bij de "Zijn uw gegevens gereed voor gegevenswetenschap?" de tweede video in de reeks *Gegevenswetenschap voor Beginners*.  
 
 Voordat gegevenswetenschap u de antwoorden die u wilt geeft, moet u hieraan een hoge kwaliteit grondstoffen om te werken met. Net als bij het maken van een pizza, hoe beter de onderdelen die u met, hoe beter de uiteindelijke product begint. 

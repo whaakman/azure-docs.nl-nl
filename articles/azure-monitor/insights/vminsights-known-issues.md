@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2018
 ms.author: magoedte
-ms.openlocfilehash: d720a7401b9ed1188a01d3cc2cc9ec7b66b640ce
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b2a60ddee58a7a9c37582085132ee8a1df767cb4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091542"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190353"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Bekende problemen met Azure Monitor voor virtuele machines (preview)
 
@@ -60,7 +59,7 @@ De volgende volgen bekende problemen met de functie voor Health:
 - Wijzigingen in de configuratie, zoals het bijwerken van een drempelwaarde, wordt er maximaal 30 minuten duren, zelfs als de portal of Workload Monitor API kan ze onmiddellijk bijwerken. 
 - Afzonderlijke processor en het logische processor op de gezondheid van criteria zijn niet beschikbaar in Windows. Totale CPU-gebruik is beschikbaar voor Windows-VM's. 
 - Regels voor waarschuwingen die zijn gedefinieerd voor elk criterium status worden niet weergegeven in de Azure-portal. U kunt inschakelen of uitschakelen van een statuswaarschuwing voor de regel alleen in de [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager). 
-- U kunt geen toewijzen een [Azure Monitor actiegroep](../../monitoring-and-diagnostics/monitoring-action-groups.md) voor de gezondheid van waarschuwingen in Azure portal. U kunt alleen de melding instelling API het configureren van een actiegroep wordt geactiveerd wanneer een statuswaarschuwing wordt geactiveerd. Op dit moment kunt u actiegroepen op basis van een virtuele machine toewijzen zodat alle *statusmeldingen* dezelfde actiegroepen op basis van de VM-trigger wordt geactiveerd. In tegenstelling tot traditionele Azure-waarschuwingen is er geen concept van een aparte actiegroep voor elke status waarschuwingsregel. Bovendien worden alleen actiegroepen die zijn geconfigureerd voor e-mailadres of SMS-berichten ondersteund wanneer de gezondheid van waarschuwingen worden geactiveerd. 
+- U kunt geen toewijzen een [Azure Monitor actiegroep](../../azure-monitor/platform/action-groups.md) voor de gezondheid van waarschuwingen in Azure portal. U kunt alleen de melding instelling API het configureren van een actiegroep wordt geactiveerd wanneer een statuswaarschuwing wordt geactiveerd. Op dit moment kunt u actiegroepen op basis van een virtuele machine toewijzen zodat alle *statusmeldingen* dezelfde actiegroepen op basis van de VM-trigger wordt geactiveerd. In tegenstelling tot traditionele Azure-waarschuwingen is er geen concept van een aparte actiegroep voor elke status waarschuwingsregel. Bovendien worden alleen actiegroepen die zijn geconfigureerd voor e-mailadres of SMS-berichten ondersteund wanneer de gezondheid van waarschuwingen worden geactiveerd. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk voor meer informatie over de vereisten en -methoden voor het inschakelen van bewaking van uw virtuele machines, [implementeert Azure Monitor voor virtuele machines](vminsights-onboard.md).

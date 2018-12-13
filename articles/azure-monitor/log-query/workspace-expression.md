@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 2909f586ce102b319ca9dfeea191c7812e3f6b06
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 24a737a728b0a249fda76cbff481bea284ac24aa
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882721"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53182941"
 ---
 # <a name="workspace-expression-in-log-analytics-query"></a>de expressie Workspace() in Log Analytics-query
 
@@ -32,9 +31,9 @@ De `workspace` expressie wordt gebruikt in een Log Analytics-query voor het opha
 
 ## <a name="arguments"></a>Argumenten
 
-- *Id*: identificeert de werkruimte met behulp van een van de indelingen in de onderstaande tabel.
+- *Id*: Hiermee geeft u de werkruimte met behulp van een van de indelingen in de onderstaande tabel.
 
-| Id | Beschrijving | Voorbeeld
+| Id | Description | Voorbeeld
 |:---|:---|:---|
 | Resourcenaam | Menselijke leesbare naam van de werkruimte (AKA "naam van onderdeel") | Workspace("contosoretail") |
 | Gekwalificeerde naam | Volledige naam van de werkruimte in de vorm: "resourceGroup-subscriptionName/componentName" | Workspace('Contoso/ContosoResource/ContosoWorkspace') |

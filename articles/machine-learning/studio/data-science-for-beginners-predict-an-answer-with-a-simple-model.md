@@ -4,10 +4,9 @@ description: Het maken van een eenvoudige regressiemodel om te voorspellen van e
 keywords: een model, eenvoudig model, voorspellen, eenvoudige regressiemodel maken
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 155b853ef46c54fbb6e230573b860189bacc0d64
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e2c49b9da215c038cfa47689f11da22b2dffc2dc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092924"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253572"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Met een eenvoudig model een antwoord voorspellen
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Gegevenswetenschap voor Beginners-serie
@@ -38,13 +37,13 @@ Als u optimaal te profiteren van de serie, bekijk ze allemaal. [Ga naar de lijst
 ## <a name="other-videos-in-this-series"></a>Andere video's in deze serie
 *Gegevenswetenschap voor Beginners* is een korte inleiding over data Science in vijf korte video's.
 
-* Video 1: [gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-* Video 2: [zijn uw gegevens gereed voor gegevenswetenschap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Video 3: [een vraag stellen u met gegevens kunt beantwoorden](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-* Video 4: Een antwoord met een eenvoudig model voorspellen
-* Video 5: [werk van anderen als u wilt doen, wetenschappelijke gegevens kopiëren](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 1: [Gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: [Zijn uw gegevens gereed voor gegevenswetenschap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Video 3: [Een vraag stellen u met gegevens kunt beantwoorden](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Video 4: Met een eenvoudig model een antwoord voorspellen
+* Video 5: [Kopiëren van het werk van anderen hiervoor gegevenswetenschap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
-## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcript: Een antwoord met een eenvoudig model voorspellen
+## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcript: Met een eenvoudig model een antwoord voorspellen
 Welkom bij de vierde video in de 'Data Science voor Beginners"reeks. In dit voorbeeld we een eenvoudig model bouwen en maken van een voorspelling.
 
 Een *model* is een vereenvoudigde verhaal over onze gegevens. Ik leert u wat ik wil maar zeggen.
@@ -66,7 +65,7 @@ We hebben daadwerkelijk gemaakt met een kleine gegevensset hier: een tabel. U zi
 * En als we zien, heeft **voldoende** gegevens ons vragen te beantwoorden
 
 ## <a name="ask-a-sharp-question"></a>Een sharp vraag stellen
-Nu we onze vraag op een sharp manier gaat opleveren: "hoeveel kost het kopen van een ruit 1.35 karaat?"
+Nu u we onze vraag op een sharp manier inhouden: "Hoeveel kost het kopen van een ruit 1.35 karaat?"
 
 De lijst met beschikt niet over een ruit 1.35 Dakje in, zodat we het gebruik van de rest van onze gegevens op een antwoord op de vraag hebt.
 
@@ -97,9 +96,9 @@ Het feit dat alle punten gaan niet precies door de regel is OK. Gegevenswetensch
 Omdat we willen de vraag worden beantwoord *hoeveel?* dit heet een *regressie*. En omdat we maken gebruik van een rechte lijn, is het een *lineaire regressie*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Het antwoord vinden met behulp van het gegevensmodel
-Nu we een model hebben en we onze vraag willen: hoeveel kost een ruit 1.35 karaat?
+Nu hebben we een model en we willen onze vraag: Hoeveel kost een ruit 1.35 karaat?
 
-Om te beantwoorden onze vraag, wij 1.35 carats krijgen en een verticale lijn. Wanneer deze de modelregel kruist krijgen we van een horizontale lijn op de as dollar. Dit recht op 10.000 bij aankomt. Tijdperk! Het antwoord is: een ruit 1.35 karaat kost ongeveer $10.000.
+Om te beantwoorden onze vraag, wij 1.35 carats krijgen en een verticale lijn. Wanneer deze de modelregel kruist krijgen we van een horizontale lijn op de as dollar. Dit recht op 10.000 bij aankomt. Tijdperk! Het antwoord is: Een 1.35 karaat ruit kosten over $10.000.
 
 ![Het antwoord vinden op het model](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
@@ -108,7 +107,7 @@ Het is natuurlijk zich afvragen hoe nauwkeurig is van deze voorspelling. Het is 
 
 ![Betrouwbaarheidsinterval](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Nu we iets over ons betrouwbaarheidsinterval kunnen zeggen: We vertrouwen dat de prijs van een ruit 1.35 karaat ongeveer $10.000 is -, maar kan het zijn slechts $8.000 en is het mogelijk wel $12.000 kunnen zeggen.
+Nu kunnen we iets zeggen over onze betrouwbaarheidsinterval:  We kunnen vertrouwen zeggen dat de prijs van een ruit 1.35 karaat ongeveer $10.000 is -, maar kan het zijn slechts $8.000 en is het mogelijk wel $12.000.
 
 ## <a name="were-done-with-no-math-or-computers"></a>We klaar, zonder math of computers
 We hebben gedaan, wat gegevenswetenschappers te verkopen te doen, en door te tekenen we gebruikten:

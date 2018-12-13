@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6dc66e551c1bce94b473a356cf4648e5c2353a2b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433786"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271297"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Service health waarschuwingen configureren met ServiceNow
 
@@ -154,15 +154,15 @@ Dit artikel ziet u hoe u waarschuwingen van Azure service health integreert met 
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Een waarschuwing met behulp van ServiceNow in Azure portal maken
 ### <a name="for-a-new-action-group"></a>Voor een nieuwe actiegroep:
-1. Volg de stappen 1 tot en met 8 in [in dit artikel](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) een waarschuwing wilt maken met een nieuwe actiegroep.
+1. Volg de stappen 1 tot en met 8 in [in dit artikel](../azure-monitor/platform/alerts-activity-log-service-notifications.md) een waarschuwing wilt maken met een nieuwe actiegroep.
 
 1. In de lijst van definiëren **acties**:
 
     a. **Actietype:** *Webhook*
 
-    b. **Details:** de ServiceNow **URL voor de integratie** u eerder hebt opgeslagen.
+    b. **Details:** De ServiceNow **URL voor de integratie** u eerder hebt opgeslagen.
 
-    c. **Naam:** van de Webhook-naam, alias of id.
+    c. **Naam:** De Webhook naam, alias of id.
 
 1. Selecteer **opslaan** wanneer u klaar bent om de waarschuwing te genereren.
 
@@ -177,14 +177,14 @@ Dit artikel ziet u hoe u waarschuwingen van Azure service health integreert met 
 
     a. **Actietype:** *Webhook*
 
-    b. **Details:** de ServiceNow **URL voor de integratie** u eerder hebt opgeslagen.
+    b. **Details:** De ServiceNow **URL voor de integratie** u eerder hebt opgeslagen.
 
-    c. **Naam:** van de Webhook-naam, alias of id.
+    c. **Naam:** De Webhook naam, alias of id.
 
 1. Selecteer **opslaan** wanneer u klaar bent voor het bijwerken van de actiegroep.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testen van de integratie van webhooks via een HTTP POST-aanvraag
-1. Maak de nettolading van de service health die u wilt verzenden. U vindt een voorbeeld van de service health webhookpayload op [Webhooks voor Azure-activiteit waarschuwingen voor activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Maak de nettolading van de service health die u wilt verzenden. U vindt een voorbeeld van de service health webhookpayload op [Webhooks voor Azure-activiteit waarschuwingen voor activiteitenlogboeken](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Maak een HTTP POST-aanvraag als volgt:
 
@@ -201,6 +201,6 @@ Dit artikel ziet u hoe u waarschuwingen van Azure service health integreert met 
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over het [configureren van de webhook-meldingen voor bestaande beheersystemen voor probleem](service-health-alert-webhook-guide.md).
-- Controleer de [activiteit log waarschuwing webhook-schema](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Controleer de [activiteit log waarschuwing webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Meer informatie over [health servicemeldingen](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Meer informatie over [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Meer informatie over [actiegroepen](../azure-monitor/platform/action-groups.md).

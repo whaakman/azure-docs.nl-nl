@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Voorbereiden op back-up van virtuele machines'
+title: 'Azure Backup: Back-up maken van virtuele machines voorbereiden'
 description: Zorg ervoor dat uw omgeving is voorbereid voor de back-ups van virtuele machines in Azure.
 services: backup
 author: rayne-wiselman
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422793"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255071"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Voorbereiden op back-up van virtuele Azure-machines
 
@@ -34,12 +34,12 @@ Als deze voorwaarden al in uw omgeving bestaat, gaat u verder met de [maakt u ee
 
 ## <a name="supported-operating-systems-for-backup"></a>Ondersteunde besturingssystemen voor back-up
 
- * **Linux**: Azure Backup biedt ondersteuning voor [een lijst met distributies die Azure ondersteunt](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), met uitzondering van CoreOS Linux- en 32-bits besturingssysteem. Zie voor de lijst met Linux-besturingssystemen die ondersteuning voor het herstellen van bestanden, [bestanden herstellen vanuit back-up van virtuele machine](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: Azure Backup ondersteunt [een lijst met distributies die Azure ondersteunt](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), met uitzondering van CoreOS Linux- en 32-bits besturingssysteem. Zie voor de lijst met Linux-besturingssystemen die ondersteuning voor het herstellen van bestanden, [bestanden herstellen vanuit back-up van virtuele machine](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > Andere bring-your-own-Linux-distributies mogelijk werken, als de VM-agent beschikbaar op de virtuele machine is en ondersteuning voor Python aanwezig. Deze distributies worden echter niet ondersteund.
     >
- * **Windows Server**, **Windows client**: versies ouder dan Windows Server 2008 R2 of Windows 7, worden niet ondersteund.
+ * **Windows Server**, **Windows client**:  Versies ouder dan Windows Server 2008 R2 of Windows 7, worden niet ondersteund.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Beperkingen bij het back-up en herstellen van een virtuele machine
@@ -177,14 +177,14 @@ Voor de Backup-extensie om te werken, de Azure [VM-agent](../virtual-machines/ex
 
 De volgende informatie is bedoeld voor situaties waarin u *niet* met behulp van een virtuele machine gemaakt op basis van de Azure Marketplace. **U kunt bijvoorbeeld een virtuele machine gemigreerd uit een on-premises datacenter. In dat geval moet de VM-agent worden geïnstalleerd om de virtuele machine te beschermen.**
 
-**Houd er rekening mee**: nadat de VM-agent is geïnstalleerd, moet u ook Azure PowerShell gebruiken om bij te werken van de eigenschap ProvisionGuestAgent zodat Azure de virtuele machine heeft de agent is geïnstalleerd.
+**Houd er rekening mee**: Nadat de VM-agent is geïnstalleerd, moet u ook Azure PowerShell gebruiken om bij te werken van de eigenschap ProvisionGuestAgent zodat Azure dat de virtuele machine heeft de agent is geïnstalleerd.
 
 Als u problemen met back-ups van de Azure-VM hebt, gebruikt u de volgende tabel om te controleren of de Azure VM-agent correct is geïnstalleerd op de virtuele machine. De tabel bevat aanvullende informatie over de VM-agent voor Windows en Linux-machines.
 
 | **Bewerking** | **Windows** | **Linux** |
 | --- | --- | --- |
-| De VM-agent installeren |Download en installeer de [agent-MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. |<li> Installeer de meest recente [Linux-agent](../virtual-machines/extensions/agent-linux.md). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. U wordt aangeraden de installatie van agent vanuit de opslagplaats van uw distributie. We **wordt niet aanbevolen** installeren Linux VM-agent rechtstreeks vanuit github.  |
-| De VM-agent bijwerken |Om de VM-agent bij te werken hoeft u alleen de [binaire bestanden voor de VM-agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) opnieuw te installeren. <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies voor het [bijwerken van de Linux VM-agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het is raadzaam om de agent vanuit de opslagplaats van uw distributie bijwerken. We **wordt niet aanbevolen** bijwerken Linux VM-agent rechtstreeks vanuit github.<br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
+| De VM-agent installeren |Download en installeer de [agent-MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. |<li> Installeer de meest recente [Linux-agent](../virtual-machines/extensions/agent-linux.md). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. U wordt aangeraden de installatie van agent vanuit de opslagplaats van uw distributie. We **wordt niet aanbevolen** installeren Linux VM-agent rechtstreeks vanuit GitHub.  |
+| De VM-agent bijwerken |Om de VM-agent bij te werken hoeft u alleen de [binaire bestanden voor de VM-agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) opnieuw te installeren. <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies voor het [bijwerken van de Linux VM-agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het is raadzaam om de agent vanuit de opslagplaats van uw distributie bijwerken. We **wordt niet aanbevolen** bijwerken Linux VM-agent rechtstreeks vanuit GitHub.<br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
 | De installatie van de VM-agent valideren |<li>Ga naar de map *C:\WindowsAzure\Packages* in de Azure VM. <li>Het bestand WaAppAgent.exe moet hier aanwezig zijn.<li> Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. In het veld Productversie moet versie 2.6.1198.718 of hoger worden weergegeven. |N/A |
 
 ### <a name="backup-extension"></a>Backup-extensie

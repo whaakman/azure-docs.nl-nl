@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: db4208c8fef27d2e2085e63ba3a986456d0544bf
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: fe24307f7ed01c64217bcb1f9f7645a30bce7f44
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429113"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322820"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Azure Diagnostics-extensie voor Windows-VM 's
 
@@ -37,7 +37,7 @@ De Azure Diagnostics-extensie is vereist dat de virtuele doelmachine is verbonde
 
 ## <a name="extension-schema"></a>Extensieschema
 
-[De Azure Diagnostics-extensie schema en de eigenschap waarden worden beschreven in dit document.](../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
+[De Azure Diagnostics-extensie schema en de eigenschap waarden worden beschreven in dit document.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
@@ -80,12 +80,12 @@ Gegevens over de status van extensie-implementaties kunnen worden opgehaald uit 
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-[Raadpleeg dit artikel](../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md) voor een uitgebreidere gids voor probleemoplossing voor de Azure Diagnostics-extensie.
+[Raadpleeg dit artikel](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md) voor een uitgebreidere gids voor probleemoplossing voor de Azure Diagnostics-extensie.
 
 ### <a name="support"></a>Ondersteuning
 
 Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnemen met de Azure-experts op het [forums voor Azure MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). U kunt ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer Get-ondersteuning. Voor meer informatie over het gebruik van ondersteuning voor Azure, de [Veelgestelde vragen over Microsoft Azure-ondersteuning](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over de Azure Diagnostics-extensie](../../monitoring-and-diagnostics/azure-diagnostics.md)
-* [Raadpleeg de extensieschema en versies](../../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+* [Meer informatie over de Azure Diagnostics-extensie](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [Raadpleeg de extensieschema en versies](../../azure-monitor/platform/diagnostics-extension-schema.md)

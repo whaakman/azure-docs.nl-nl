@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284877"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185066"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory Pass through-verificatie grondig onderzoek van beveiliging
 
@@ -41,7 +41,7 @@ Dit zijn de sleutelbeveiliging aspecten van deze functie:
 - Alleen standaard poorten (80 en 443) worden gebruikt voor uitgaande communicatie tussen de verificatie-Agents en Azure AD. U hoeft niet te openen van poorten voor inkomend verkeer op uw firewall. 
   - Poort 443 wordt gebruikt voor alle geverifieerde uitgaande communicatie.
   - Poort 80 wordt alleen voor het downloaden van de certificaatintrekkingslijsten (CRL's) gebruikt om ervoor te zorgen dat geen van de certificaten die worden gebruikt door deze functie is ingetrokken.
-  - Zie voor de volledige lijst van de netwerkvereisten [Azure Active Directory Pass through-verificatie: snel starten](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
+  - Zie voor de volledige lijst van de netwerkvereisten [Azure Active Directory Pass through-verificatie: Quick start-](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 - Wachtwoorden die gebruikers tijdens het aanmelden opgeven worden versleuteld in de cloud voordat de verificatie-Agents voor on-premises ermee akkoord bent gegaan voor validatie op basis van Active Directory.
 - Het HTTPS-kanaal tussen Azure AD en de on-premises Authentication-Agent is beveiligd met behulp van wederzijdse verificatie.
 - Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA), [blokkeren van verouderde](../conditional-access/conditions.md) en door [ gefilterd op wachtwoord beveiligingsaanvallen](../authentication/howto-password-smart-lockout.md).
@@ -49,10 +49,10 @@ Dit zijn de sleutelbeveiliging aspecten van deze functie:
 ## <a name="components-involved"></a>Onderdelen betrokken
 
 Raadpleeg voor algemene informatie over operationele, Azure AD-service en de beveiliging van gegevens, de [Trust Center](https://azure.microsoft.com/support/trust-center/). De volgende onderdelen betrokken zijn wanneer u Pass-through-verificatie voor aanmelding bij de gebruiker gebruikt:
-- **Azure AD-STS**: een stateless beveiligingstokenservice (STS) waarmee aanmeldingsaanvragen worden verwerkt en verstrekt beveiligingstokens aan gebruikers browsers, clients of services zoals vereist.
-- **Azure Service Bus**: biedt cloudcommunicatie met berichtenverzending en relays communicatie waarmee u verbinding maken met on-premises oplossingen met de cloud.
-- **Azure AD Connect Authentication-Agent**: een on-premises-component die luistert naar en reageert op aanvragen van wachtwoord-validatie.
-- **Azure SQL Database**: bevat informatie over van uw tenant verificatie-Agents, inclusief de codes metagegevens en versleuteling.
+- **Azure AD-STS**: Een stateless beveiligingstokenservice (STS) waarmee aanmeldingsaanvragen worden verwerkt en verstrekt beveiligingstokens aan gebruikers browsers, clients of services zoals vereist.
+- **Azure Servicebus**: Biedt cloudcommunicatie met berichtenverzending en relays communicatie waarmee u verbinding maken met on-premises oplossingen met de cloud.
+- **Azure AD Connect Authentication-Agent**: Een on-premises-component die luistert naar en reageert op aanvragen van wachtwoord-validatie.
+- **Azure SQL Database**: Bevat informatie over van uw tenant verificatie-Agents, inclusief de codes metagegevens en versleuteling.
 - **Active Directory**: On-premises Active Directory, waar de accounts van uw gebruikers en hun wachtwoorden worden opgeslagen.
 
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>Installatie en registratie van de verificatie-Agents
@@ -97,8 +97,8 @@ De verificatie-Agents gebruiken de volgende stappen uit om u te registreren met 
 5. Vervolgens Azure AD zich aanmeldt en verzendt het certificaat van een digitale identiteit weer in de verificatie-Agent.
     - De basis-CA in Azure AD wordt gebruikt om het certificaat ondertekent. 
 
-     >[!NOTE]
-     > Deze CA is _niet_ opslaan in de Windows vertrouwde basiscertificeringsinstanties.
+      > [!NOTE]
+      > Deze CA is _niet_ opslaan in de Windows vertrouwde basiscertificeringsinstanties.
     - De CA wordt alleen gebruikt door de functie voor Pass through-verificatie. De CA wordt alleen gebruikt om zich CSR's tijdens de registratie van verificatie-Agent.
     -  Geen van de andere Azure AD-services gebruik van deze CA.
     - De certificaathouder (DN-naam of DN-naam) is ingesteld op uw tenant-ID. Deze DN-naam is een GUID die de unieke identificatie van uw tenant. Deze DN het bereik van het certificaat voor gebruik met uw tenant.
@@ -207,11 +207,11 @@ Voor automatisch bijwerken een verificatie-Agent:
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Huidige beperkingen](how-to-connect-pta-current-limitations.md): informatie over welke scenario's worden ondersteund en welke niet.
-- [Quick start-](how-to-connect-pta-quick-start.md): aan de slag op Azure AD Pass-through-verificatie.
+- [Huidige beperkingen](how-to-connect-pta-current-limitations.md): Informatie over welke scenario's worden ondersteund en welke niet.
+- [Quick start-](how-to-connect-pta-quick-start.md): Aan de slag op Azure AD Pass-through-verificatie.
 - [Migreren van AD FS naar Pass-through-verificatie](https://aka.ms/adfstoptadpdownload) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
-- [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): de mogelijkheid Smart Lockout configureren op uw tenant om te beveiligen van gebruikersaccounts.
+- [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): De functie Smart Lockout configureren op uw tenant om te beveiligen van gebruikersaccounts.
 - [Hoe het werkt](how-to-connect-pta-how-it-works.md): Leer de basisprincipes van de werking van Azure AD Pass-through-verificatie.
-- [Veelgestelde vragen over](how-to-connect-pta-faq.md): vind antwoorden op veelgestelde vragen.
-- [Problemen oplossen](tshoot-connect-pass-through-authentication.md): informatie over het oplossen van veelvoorkomende problemen met de functie voor Pass through-verificatie.
-- [Azure AD naadloze eenmalige aanmelding](how-to-connect-sso.md): meer informatie over deze aanvullende functie.
+- [Veelgestelde vragen over](how-to-connect-pta-faq.md): Vind antwoorden op veelgestelde vragen.
+- [Problemen oplossen](tshoot-connect-pass-through-authentication.md): Informatie over het oplossen van veelvoorkomende problemen met de functie voor Pass through-verificatie.
+- [Naadloze eenmalige aanmelding voor Azure AD](how-to-connect-sso.md): Meer informatie over deze aanvullende functie.

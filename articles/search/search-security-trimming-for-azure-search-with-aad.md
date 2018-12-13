@@ -1,19 +1,20 @@
 ---
-title: Beveiligingsfilters voor Azure Search-resultaten met behulp van Active Directory-identiteiten trimming | Microsoft Docs
-description: Toegangsbeheer voor Azure Search-inhoud met beveiligingsfilters en Active Directory-identiteiten.
-author: revitalbarletz
+title: Beveiligingsfilters waaruit resultaten met behulp van Active Directory-id's - Azure Search
+description: Toegangsbeheer voor Azure Search-inhoud met beveiligingsfilters en identiteiten van Azure Active Directory (AAD).
+author: brjohnstmsft
 manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
-ms.author: revitalb
-ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: 2d1ac36341ef47ac95317c583005b675f31f1265
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684628"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308818"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Beveiligingsfilters voor Azure Search-resultaten met behulp van Active Directory-identiteiten bijsnijden
 
@@ -92,12 +93,12 @@ User user = new User()
 User newUser = await graph.Users.Request().AddAsync(user);
 ```
 
-### <a name="step-3-associate-user-and-group"></a>Stap 3: Gebruikers en groepen koppelen
+### <a name="step-3-associate-user-and-group"></a>Stap 3: Koppelen van gebruikers en groepen
 ```csharp
 await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
-### <a name="step-4-cache-the-groups-identifiers"></a>Stap 4: De id's van groepen in de Cache
+### <a name="step-4-cache-the-groups-identifiers"></a>Stap 4: De groepen-id's in de cache
 (Optioneel) als u wilt de netwerklatentie beperken, kunt u de cache de gebruikersgroep koppelingen zodat wanneer u een zoekaanvraag verzendt, groepen worden geretourneerd uit de cache opslaan van een retour naar AAD. U kunt [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) voor het verzenden van een afzonderlijke Http-aanvraag met meerdere gebruikers en het bouwen van de cache.
 
 Microsoft Graph is ontworpen voor het verwerken van een groot aantal aanvragen. Als een groot aantal aanvragen optreedt, wordt in Microsoft Graph de aanvraag met de statuscode HTTP 429 mislukt. Zie voor meer informatie, [Microsoft Graph beperking](https://developer.microsoft.com/graph/docs/concepts/throttling).
@@ -164,7 +165,7 @@ private static async Task<List<string>> GetGroupIdsForUser(string userPrincipalN
 }
 ``` 
 
-### <a name="step-2-compose-the-search-request"></a>Stap 2: De search-aanvraag opstellen
+### <a name="step-2-compose-the-search-request"></a>Stap 2: Opstellen van de zoekaanvraag
 
 Ervan uitgaande dat u het lidmaatschap van groepen van de gebruiker hebt, kunt u de zoekopdracht met de juiste filterwaarden uitgeven.
 

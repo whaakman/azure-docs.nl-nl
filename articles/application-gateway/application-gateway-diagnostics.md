@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d8c652d75b01b3a13ef06475190ad81980f31e44
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427162"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270362"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-endstatus, diagnostische logboeken en metrische gegevens voor Application Gateway
 
 Met behulp van Azure Application Gateway, kunt u resources kunt controleren op de volgende manieren:
 
-* [Back-endstatus](#back-end-health): Application Gateway biedt de mogelijkheid voor het controleren van de status van de servers in de back-end-adresgroepen via Azure portal en PowerShell. U vindt hier ook de status van de back-end-pools tot en met de prestaties van diagnostische logboeken.
+* [Back-endstatus](#back-end-health): Application Gateway biedt de mogelijkheid om te controleren van de status van de servers in de back-end-adresgroepen via Azure portal en PowerShell. U vindt hier ook de status van de back-end-pools tot en met de prestaties van diagnostische logboeken.
 
 * [Logboeken](#diagnostic-logging): Logboeken toestaan voor prestaties, toegang en andere gegevens worden opgeslagen of gebruikt vanaf een resource voor bewakingsdoeleinden.
 
@@ -107,9 +107,9 @@ U kunt verschillende soorten logboeken in Azure gebruiken om te beheren en probl
 
 U hebt drie opties voor het opslaan van uw logboeken:
 
-* **Opslagaccount**: opslagaccounts kunnen het best worden gebruikt wanneer logboeken voor een langere periode worden opgeslagen en moeten kunnen worden bekeken wanneer dat nodig is.
-* **Event Hubs**: Event Hubs zijn een geweldige optie voor integratie met andere SIEM-hulpprogramma’s (Security Information and Event Management) om waarschuwingen over uw resources te krijgen.
-* **Log Analytics**: Log Analytics kan het best worden gebruikt voor algemene realtime bewaking van uw toepassing of voor het bekijken van trends.
+* **Storage-account**: Storage-accounts zijn beste worden gebruikt voor Logboeken als Logboeken worden opgeslagen voor een langere duur en gecontroleerd wanneer dit nodig is.
+* **Eventhubs**: Eventhubs zijn een goede optie voor het integreren met andere security information en event management (SEIM) hulpprogramma's voor waarschuwingen over uw resources.
+* **Log Analytics**: Log Analytics is best gebruikt voor algemene realtime-controle van uw toepassing of trends kijken.
 
 ### <a name="enable-logging-through-powershell"></a>Schakel logboekregistratie in via PowerShell
 
@@ -167,14 +167,14 @@ Standaard genereert Azure het activiteitenlogboek. De logboeken worden gedurende
 De access-logboek is gegenereerd, alleen als u deze op elk toepassingsgateway-exemplaar, zoals beschreven in de voorgaande stappen hebt ingeschakeld. De gegevens worden opgeslagen in de storage-account dat u hebt opgegeven toen u de logboekregistratie hebt ingeschakeld. Elke toegang van Application Gateway is vastgelegd in JSON-indeling, zoals wordt weergegeven in het volgende voorbeeld:
 
 
-|Waarde  |Beschrijving  |
+|Waarde  |Description  |
 |---------|---------|
 |instanceId     | Toepassingsgateway-exemplaar dat de aanvraag wordt uitgevoerd.        |
 |Client-IP     | Oorspronkelijke IP-adres voor de aanvraag.        |
 |enterpriseclient     | Oorspronkelijke poort voor de aanvraag.       |
 |HttpMethod     | HTTP-methode die wordt gebruikt door de aanvraag.       |
 |requestUri     | De URI van de aanvraag ontvangen.        |
-|RequestQuery     | **Server doorgestuurd**: exemplaar van de Back-end-groep die de aanvraag is verzonden.</br>**X-AzureApplicationGateway-logboek-ID**: correlatie-ID die wordt gebruikt voor de aanvraag. Het kan worden gebruikt voor het oplossen van problemen met verkeer op de back-endservers. </br>**STATUS van de SERVER**: HTTP-responscode die Application Gateway van de back-end ontvangen.       |
+|RequestQuery     | **Server doorgestuurd**: Back-end-pool-exemplaar dat de aanvraag is verzonden.</br>**X-AzureApplicationGateway-logboek-ID**: Correlatie-ID die wordt gebruikt voor de aanvraag. Het kan worden gebruikt voor het oplossen van problemen met verkeer op de back-endservers. </br>**STATUS VAN DE SERVER**: HTTP-responscode die Application Gateway van de back-end ontvangen.       |
 |UserAgent     | Gebruikersagent van de header van de HTTP-aanvraag.        |
 |httpStatus     | HTTP-statuscode is geretourneerd naar de client van Application Gateway.       |
 |httpVersion     | HTTP-versie van de aanvraag.        |
@@ -211,7 +211,7 @@ De access-logboek is gegenereerd, alleen als u deze op elk toepassingsgateway-ex
 Het logboekbestand voor prestaties is gegenereerd, alleen als u deze op elk toepassingsgateway-exemplaar, zoals beschreven in de voorgaande stappen hebt ingeschakeld. De gegevens worden opgeslagen in de storage-account dat u hebt opgegeven toen u de logboekregistratie hebt ingeschakeld. De prestatielogboekgegevens wordt gegenereerd in intervallen van 1 minuut. De volgende gegevens worden geregistreerd:
 
 
-|Waarde  |Beschrijving  |
+|Waarde  |Description  |
 |---------|---------|
 |instanceId     |  Toepassingsgateway-exemplaar waarvoor gegevens wordt gegenereerd. Er is één rij per exemplaar voor een toepassingsgateway met meerdere instanties.        |
 |HealthyHostCount     | Het aantal veilige hosts in de back-endpool.        |
@@ -248,7 +248,7 @@ Het logboekbestand voor prestaties is gegenereerd, alleen als u deze op elk toep
 De firewall-logboek is gegenereerd, alleen als u deze voor elke application gateway, zoals beschreven in de voorgaande stappen hebt ingeschakeld. Dit logboek is ook vereist dat de web application firewall is geconfigureerd in een toepassingsgateway. De gegevens worden opgeslagen in de storage-account dat u hebt opgegeven toen u de logboekregistratie hebt ingeschakeld. De volgende gegevens worden geregistreerd:
 
 
-|Waarde  |Beschrijving  |
+|Waarde  |Description  |
 |---------|---------|
 |instanceId     | Toepassingsgateway-exemplaar voor de firewall van welke gegevens wordt gegenereerd. Er is één rij per exemplaar voor een toepassingsgateway met meerdere instanties.         |
 |client-IP     |   Oorspronkelijke IP-adres voor de aanvraag.      |
@@ -298,8 +298,8 @@ De firewall-logboek is gegenereerd, alleen als u deze voor elke application gate
 
 U kunt activiteitenlogboekgegevens bekijken en analyseren via een van de volgende methoden:
 
-* **Azure-hulpprogramma’s**: Haal informatie uit het activiteitenlogboek op via Azure PowerShell, de Azure CLI, de Azure REST-API of de Azure-portal. In het artikel [Activiteitsbewerkingen met Resource Manager](../azure-resource-manager/resource-group-audit.md) staan stapsgewijze instructies voor elke methode.
-* **Power BI**: Als u nog geen [Power BI](https://powerbi.microsoft.com/pricing)-account hebt, kunt u het gratis uitproberen. Door het [inhoudspakket voor Azure-activiteitenlogboeken voor Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) te gebruiken, kunt u uw gegevens analyseren met vooraf geconfigureerde dashboards die u kunt gebruiken zoals geleverd of kunt aanpassen.
+* **Azure-hulpprogramma's**: Informatie ophalen uit het activiteitenlogboek via Azure PowerShell, de Azure CLI, de Azure REST API of de Azure-portal. In het artikel [Activiteitsbewerkingen met Resource Manager](../azure-resource-manager/resource-group-audit.md) staan stapsgewijze instructies voor elke methode.
+* **Power BI**: Als u nog geen een [Power BI](https://powerbi.microsoft.com/pricing) -account, kunt u proberen deze gratis. Door het [inhoudspakket voor Azure-activiteitenlogboeken voor Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) te gebruiken, kunt u uw gegevens analyseren met vooraf geconfigureerde dashboards die u kunt gebruiken zoals geleverd of kunt aanpassen.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Bekijk en analyseer de toegang, prestaties en firewall-Logboeken
 
@@ -357,7 +357,7 @@ Het volgende voorbeeld wordt beschreven hoe u een waarschuwingsregel die een e-m
 
 2. Op de **regel toevoegen** blade, vul de naam van de voorwaarde, en op de hoogte stellen secties en klikt u op **OK**.
 
-   * In de **voorwaarde** selector, selecteert u een van de vier waarden: **groter is dan**, **groter dan of gelijk**, **minder dan**, of **Kleiner dan of gelijk zijn aan**.
+   * In de **voorwaarde** selector, selecteert u een van de vier waarden: **Groter dan**, **groter dan of gelijk**, **minder dan**, of **kleiner dan of gelijk zijn aan**.
 
    * In de **periode** selector, selecteer een periode van vijf minuten tot zes uur.
 
@@ -375,7 +375,7 @@ Een lijst met waarschuwingen wordt weergegeven nadat u een waarschuwing voor met
 
 Zie voor meer informatie over waarschuwingsmeldingen, [meldingen van waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-Voor meer informatie over webhooks en hoe u ze kunt gebruiken met waarschuwingen, gaat u naar [een webhook configureren voor een Azure metrische waarschuwing](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Voor meer informatie over webhooks en hoe u ze kunt gebruiken met waarschuwingen, gaat u naar [een webhook configureren voor een Azure metrische waarschuwing](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

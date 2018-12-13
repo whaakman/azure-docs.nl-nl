@@ -1,21 +1,22 @@
 ---
 title: Veelgestelde vragen (FAQ) - Bing webzoekopdrachten-API
 titleSuffix: Azure Cognitive Services
-description: Vind antwoorden op veelgestelde vragen over de Bing webzoekopdrachten-API.
+description: Vind antwoorden op veelgestelde vragen over het gebruik van de Bing webzoekopdrachten-API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 2d43a73d93b24599b28af849ee9d1532441ef6bc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.author: aahi
+ms.custom: seodec2018
+ms.openlocfilehash: 9098ddc780e6adefa8430fe601e3f4d06634972a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233549"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252980"
 ---
 # <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 

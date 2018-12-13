@@ -1,5 +1,5 @@
 ---
-title: Toepassingsprestaties Veelgestelde vragen voor Azure WebApps | Microsoft Docs
+title: Toepassingsprestaties Veelgestelde vragen - Azure App Service | Microsoft Docs
 description: Krijg antwoorden op veelgestelde vragen over beschikbaarheid, prestaties en toepassingsproblemen in de functie Web Apps van Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 00563b93a3601ba6299c479c49375fd252841f79
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 62039d379861e9981eb1bf556a78e85fc64e2478
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748116"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255190"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Toepassingsprestaties Veelgestelde vragen voor Web-Apps in Azure
 
@@ -166,7 +167,7 @@ WebJobs is ontworpen voor verwerking op de achtergrond. U kunt doen zoveel achte
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET Core-toepassingen die worden gehost in App Service soms reageert niet. Hoe kan ik dit probleem oplossen?
 
-Een bekend probleem met een eerdere [Kestrel versie](https://github.com/aspnet/KestrelHttpServer/issues/1182) kan leiden tot een ASP.NET Core 1.0-app die wordt gehost in App Service tijdelijk niet meer reageert. Ook ziet u mogelijk dit bericht: 'de opgegeven CGI-toepassing is een fout opgetreden en de server het proces beëindigd.'
+Een bekend probleem met een eerdere [Kestrel versie](https://github.com/aspnet/KestrelHttpServer/issues/1182) kan leiden tot een ASP.NET Core 1.0-app die wordt gehost in App Service tijdelijk niet meer reageert. U kunt ook dit bericht ziet: "De opgegeven CGI-toepassing is een fout opgetreden en de server het proces beëindigd."
 
 Dit probleem is opgelost in versie 1.0.2 Kestrel. Deze versie is opgenomen in de ASP.NET Core 1.0.3-update. U lost dit probleem, moet dat u uw app-afhankelijkheden voor het gebruik van Kestrel 1.0.2 bijwerken. U kunt ook kunt u een van de twee oplossingen die worden beschreven in het blogbericht [problemen met trage prestaties van ASP.NET Core 1.0 in App Service WebApps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
 

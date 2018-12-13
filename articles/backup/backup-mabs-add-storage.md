@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: fa19cdbb6c51248b5361ba747829c4f9e617ce6a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865383"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251110"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Opslag toevoegen aan Azure Backup Server
 
-Azure Backup Server V2 en later wordt geleverd met System Center 2016 Data Protection Manager Modern Backup Storage. Modern Backup Storage biedt besparing in opslag van 50 procent, back-ups die drie keer sneller en efficiënter opslag. Het biedt ook werkbelastingbewuste opslag.
+Azure Backup Server V2 en hoger ondersteunt het Modern Backup Storage biedt besparing in opslag van 50 procent, back-ups die zijn drie keer sneller en efficiënter opslag. Het biedt ook werkbelastingbewuste opslag.
 
 > [!NOTE]
 > Voor het gebruik van Modern Backup Storage, moet u back-up Server V2 of V3 uitvoeren op Windows Server 2016 of V3 op Windows Server 2019.
@@ -75,7 +75,7 @@ Met werkbelastingbewuste opslag kunt u de volumes die bij voorkeur bepaalde soor
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-U kunt de werkbelastingbewuste opslag instellen met behulp van de PowerShell-cmdlet Update-DPMDiskStorage, waarbij de eigenschappen van een volume in de opslaggroep op een Data Protection Manager-server.
+U kunt de werkbelastingbewuste opslag instellen met behulp van de PowerShell-cmdlet Update-DPMDiskStorage, waarbij de eigenschappen van een volume in de opslaggroep op een Azure Backup-Server. 
 
 Syntaxis:
 

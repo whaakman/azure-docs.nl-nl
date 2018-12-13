@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: 7f1950afc8e84f0bfeba7d51aa68ee126db38e2e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d7a48dcb56d2bed0e84714087bb9fda3fae65fc1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075128"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273779"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Het gebruik van een Azure Machine Learning Studio-webservice
 
@@ -33,7 +32,7 @@ U kunt meer informatie over het maken en implementeren van een Machine Learning-
 * Zie voor meer informatie over het implementeren van een webservice [een Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
 * Voor meer informatie over Machine Learning in het algemeen, gaat u naar de [Machine Learning-documentatiecentrum](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Overzicht
 Met de webservice Azure Machine Learning communiceert een externe toepassing met een Machine Learning scoremodel werkstromen in realtime. Aanroep van een Machine Learning-webservice retourneert voorspellingsresultaten naar een externe toepassing. Als u een Machine Learning-webservice aanroepen, moet u een API-sleutel die wordt gemaakt wanneer u een voorspelling implementeert doorgeven. De Machine Learning-webservice is gebaseerd op REST, een populaire architectuur voor webprogrammering.
@@ -102,13 +101,13 @@ Verbinding maken met een Machine Learning-webservice, het **Microsoft.AspNet.Web
 
 **Microsoft.AspNet.WebApi.Client NuGet in Visual Studio installeren**
 
-1. Publiceren van de gegevensset downloaden uit UCI: volwassenen 2 klasse gegevensset-webservice.
+1. Het publiceren van de gegevensset downloaden uit UCI: Volwassene 2 klasse gegevensset-webservice.
 2. Klik op **Hulpprogramma's** > **NuGet Package Manager** > **Package Manager-console**.
 3. Kies **Install-Package Microsoft.AspNet.WebApi.Client**.
 
 **Het codevoorbeeld uitvoeren**
 
-1. Publiceren ' voorbeeld 1: downloaden van de gegevensset van UCI: volwassene 2 klasse gegevensset "experiment, deel van de Machine Learning-voorbeeld-verzameling.
+1. Publiceren ' voorbeeld 1: Gegevensset van UCI downloaden: Gegevensset van de klasse 2 volwassene"experiment, onderdeel van de Machine Learning-voorbeeld-verzameling.
 2. ApiKey toewijzen met de sleutel van een webservice. Zie **ophalen van een Azure Machine Learning-autorisatiesleutel** hierboven.
 3. Toewijzen serviceUri aan de aanvraag-URI.
 
@@ -204,7 +203,7 @@ Voor verbinding met een Machine Learning-webservice, gebruikt u de **urllib2** -
 
 **Het codevoorbeeld uitvoeren**
 
-1. Implementeren "voorbeeld 1: downloaden van de gegevensset van UCI: volwassene 2 klasse gegevensset" experiment, deel van de Machine Learning-voorbeeld-verzameling.
+1. Implementeren "voorbeeld 1: Gegevensset van UCI downloaden: Gegevensset van de klasse 2 volwassene"experiment, onderdeel van de Machine Learning-voorbeeld-verzameling.
 2. ApiKey toewijzen met de sleutel van een webservice. Zie de **ophalen van een Azure Machine Learning-autorisatiesleutel** sectie in de buurt van het begin van dit artikel.
 3. Toewijzen serviceUri aan de aanvraag-URI.
 

@@ -10,30 +10,28 @@ ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 53837573daef56bad12f627400f7db1ccd1c26cf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836964"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186800"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Naslaggids voor tegels in Log Analytics-ontwerper
 Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
 
 Zie voor meer informatie over Designer bekijken:
 
-* [Designer weergeven](view-designer.md): biedt een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
-* [Naslaginformatie voor visualisatieonderdelen](view-designer-parts.md): biedt een Naslaggids voor de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
+* [Designer weergeven](view-designer.md): Biedt een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
+* [Naslaginformatie voor visualisatieonderdelen](view-designer-parts.md): Biedt een Naslaggids voor de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
 
 
 De beschikbare Weergaveontwerper-tegels worden in de volgende tabel beschreven:  
 
-| Tegel | Beschrijving |
+| Naast elkaar | Description |
 |:--- |:--- |
 | [Number](#number-tile) |Het aantal records uit een query. |
 | [Twee getallen](#two-numbers-tile) |Het aantal records uit twee verschillende query's. |
@@ -49,10 +47,10 @@ De **getal** tegel zowel het aantal records uit een logbestand-query en een labe
 
 ![Een tegel getal](media/view-designer-tiles/tile-number.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
+| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **tegel** | |
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
 | Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
@@ -67,10 +65,10 @@ Deze tegel toont het aantal records uit twee verschillende logboeken-query's en 
 
 ![Twee getallen tegel](media/view-designer-tiles/tile-two-numbers.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
+| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **Eerste tegel** | |
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
 | Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
@@ -88,10 +86,10 @@ De **ring** tegel geeft één getal met een overzicht van de kolom van een waard
 
 ![Ring-tegel](media/view-designer-tiles/tile-donut.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
+| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **ringdiagram** | |
 | Query’s uitvoeren |De query die wordt uitgevoerd voor de ring. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. |
 | **ringdiagram** |**> Center** |
@@ -112,10 +110,10 @@ Deze tegel is een lijndiagram met meerdere reeksen uit een logboekquery na verlo
 
 ![Regel grafiek en een bijschrift tegel](media/view-designer-tiles/tile-line-chart.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
+| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **Lijndiagram** | |
 | Query’s uitvoeren |De query die wordt uitgevoerd voor het lijndiagram. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. Als de query gebruikt de *interval* de x-as-trefwoord wordt gebruikt voor dit tijdsinterval. Als de query geen gebruik maakt van de *interval* #trefwoord, de x-as wordt per uur intervallen. |
 | **Lijndiagram** |**> Y-as** |
@@ -133,16 +131,16 @@ Deze tegel is zowel een regel die meerdere reeksen uit een logbestand query's ui
 
 ![Regel grafiek en een bijschrift tegel](media/view-designer-tiles/tile-line-chart-callout.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
+| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **Lijndiagram** | |
 | Query’s uitvoeren |De query die wordt uitgevoerd voor het lijndiagram. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. Als de query gebruikt de *interval* de x-as-trefwoord wordt gebruikt voor dit tijdsinterval. Als de query geen gebruik maakt van de *interval* #trefwoord, de x-as wordt per uur intervallen. |
 | **Lijndiagram** |**> Bijschrift** |
 | Titel van bijschrift | De tekst die wordt weergegeven boven de waarde van bijschrift. |
 | Reeksnaam |De eigenschapswaarde voor de reeks moet worden gebruikt als de waarde van bijschrift. Als er geen reeks is opgegeven, worden alle records van de query worden gebruikt. |
-| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: de waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Maximale: De maximumwaarde van de intervallen die zijn opgenomen in de grafiek.</li><li>Min.: De minimale waarde van de tijden die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
+| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Max.: De maximale waarde van de tijden die zijn opgenomen in de grafiek.</li><li>Min.: De minimumwaarde van de tijden die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
 | **Lijndiagram** |**> Y-as** |
 | Logaritmische schaal gebruiken |Selecteer deze koppeling naar een logaritmische schaal gebruiken voor de y-as. |
 | Eenheden |Geef de eenheden voor de waarden moeten worden geretourneerd door de query. Deze informatie wordt gebruikt op gegevenslabels weergegeven die wijzen op de typen en, optioneel, om te converteren van de waarden. De *eenheid* type Hiermee geeft u de categorie van de eenheid en definieert de beschikbare *huidige eenheid* waarden. Als u een waarde in *converteren naar*, de numerieke waarden worden geconverteerd van de *huidige eenheid* type de *converteren naar* type. |
@@ -158,20 +156,20 @@ De **twee tijdlijnen** tegel toont de resultaten van de twee logboeken-query's n
 
 ![Twee tijdlijnen tegel](media/view-designer-tiles/tile-two-timelines.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 |:--- |:--- |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
+| Name |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
+| Description |De tekst die wordt weergegeven onder de naam van de tegel. |
 | Eerste grafiek | |
 | Legenda |De tekst die wordt weergegeven onder het bijschrift voor de eerste reeks. |
 | Kleur |De kleur die wordt gebruikt voor de kolommen in de eerste reeks. |
 | Grafiekquery |De query die wordt uitgevoerd voor de eerste reeks. Het aantal records via elk tijdsinterval wordt vertegenwoordigd door de grafiekkolommen. |
-| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: de waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Maximale: De maximumwaarde van de intervallen die zijn opgenomen in de grafiek.</li></ul> |
+| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Max.: De maximale waarde van de tijden die zijn opgenomen in de grafiek.</li></ul> |
 | **Tweede grafiek** | |
 | Legenda |De tekst die wordt weergegeven onder het bijschrift voor de tweede reeks. |
 | Kleur |De kleur die wordt gebruikt voor de kolommen in de tweede reeks. |
 | Grafiekquery |De query die wordt uitgevoerd voor de tweede reeks. Het aantal records via elk tijdsinterval wordt vertegenwoordigd door de grafiekkolommen. |
-| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: de waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Maximale: De maximumwaarde van de intervallen die zijn opgenomen in de grafiek. |
+| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Max.: De maximale waarde van de tijden die zijn opgenomen in de grafiek. |
 | **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
 | Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
 | Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |

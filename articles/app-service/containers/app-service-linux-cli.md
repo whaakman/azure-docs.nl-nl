@@ -1,5 +1,5 @@
 ---
-title: Web App for Containers met behulp van Azure CLI beheren | Microsoft Docs
+title: Web App for Containers met behulp van Azure CLI - Azure App Service beheren | Microsoft Docs
 description: Web App for Containers met behulp van Azure CLI beheren.
 keywords: Azure appservice, web-app, cli, linux, oss
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 024ca5bcf9c1f82f07656691d6ef5358ca3d5111
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.custom: seodec18
+ms.openlocfilehash: 0b125903493712dca3b8c8c3a9ce663f9e1b408c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998488"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257638"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Web App for Containers met behulp van Azure CLI beheren
 
@@ -105,7 +106,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Wat is Azure App Service on Linux?](app-service-linux-intro.md)
-* [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Azure-CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloudshell (Preview)](../../cloud-shell/overview.md)
 * [Faseringsomgevingen in Azure App Service instellen](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Doorlopende implementatie met WebApp for Containers](app-service-linux-ci-cd.md)

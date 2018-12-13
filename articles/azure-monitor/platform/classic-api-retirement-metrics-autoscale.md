@@ -7,13 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 450eac3613df18997c5b0f9189555555da20cfcf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1ea8fddf2b4e75abba38f011a271aada848a8cb5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585532"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192189"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor buiten gebruik stellen van klassieke implementatiemodel API's voor metrische gegevens en voor automatisch schalen
 
@@ -76,9 +75,9 @@ Er is geen directe impact op uw Azure-services of hun workloads.
 
 De aanroepen voor het klassieke API's die eerder vermeld mislukken en retourneren foutberichten ongeveer de volgende query:
 
-Voor automatisch schalen: *deze API is afgeschaft. De Azure portal, de SDK van Azure Monitor, PowerShell, CLI of Resource Manager-sjablonen gebruiken voor het beheren van instellingen voor automatisch schalen*.  
+Voor automatisch schalen: *Deze API is afgeschaft. De Azure portal, de SDK van Azure Monitor, PowerShell, CLI of Resource Manager-sjablonen gebruiken voor het beheren van instellingen voor automatisch schalen*.  
 
-Voor metrische gegevens: *deze API is afgeschaft. Gebruik de Azure portal, Azure Monitor-SDK, PowerShell, CLI aan query voor metrische gegevens*.
+Voor metrische gegevens: *Deze API is afgeschaft. Gebruik de Azure portal, Azure Monitor-SDK, PowerShell, CLI aan query voor metrische gegevens*.
 
 ## <a name="email-notifications"></a>E-mailmeldingen
 

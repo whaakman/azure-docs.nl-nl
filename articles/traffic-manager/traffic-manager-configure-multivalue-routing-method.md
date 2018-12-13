@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: d9a0342332c2483b859e916b50fd05c9cb1e3395
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986760"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187362"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Routeringsmethode voor met meerdere waarden configureren in Traffic Manager
 
@@ -39,14 +39,15 @@ Maak een Traffic Manager-profiel met gebruikersverkeer verwezen door deze te ver
 
 1. Selecteer linksboven in het scherm de optie **Een resource maken** > **Netwerken** > **Traffic Manager-profiel** > **Maken**.
 2. In **Traffic Manager-profiel**, invoeren of selecteren, de volgende informatie, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **maken**:
+    
     | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
-    | Naam                   | Deze naam moet uniek zijn binnen de zone trafficmanager.net en resulteert in de DNS-naam, trafficmanager.net, die wordt gebruikt voor het openen van uw Traffic Manager-profiel.                                   |
+    | Name                   | Deze naam moet uniek zijn binnen de zone trafficmanager.net en resulteert in de DNS-naam, trafficmanager.net, die wordt gebruikt voor het openen van uw Traffic Manager-profiel.                                   |
     | Routeringsmethode          | Selecteer de **met meerdere waarden** routeringsmethode.                                       |
     | Abonnement            | Selecteer uw abonnement.                          |
     | Resourcegroep          | Selecteer *myResourceGroupTM1*. |
     | Locatie                | Deze instelling verwijst naar de locatie van de resourcegroep en heeft geen invloed op het Traffic Manager-profiel dat wereldwijd wordt geïmplementeerd.                              |
-    |
+    
   
     ![Een Traffic Manager-profiel maken](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
@@ -61,7 +62,7 @@ Twee IP-adressen als externe eindpunten toevoegen aan meerdere waarden Traffic M
     | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
     | Type                    | Extern eindpunt                                   |
-    | Naam           | myEndpoint1                                        |
+    | Name           | myEndpoint1                                        |
     | Volledig gekwalificeerde domeinnaam (FQDN) of IP           | Typ het openbare IP-adres van het eindpunt dat u wilt toevoegen aan dit Traffic Manager-profiel                         |
     |        |           |
 

@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: c423438e5c8088dba5b9d71e8e50a2e9de1371c6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fe4da412aa779e9861446f8dcbb8a807c282c7c6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104928"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268900"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Veelgestelde vragen over Microsoft Cortana Intelligence-wedstrijden
 **Wat is Cortana Intelligence-wedstrijden?**
@@ -70,7 +69,7 @@ De competitie-platform op dit moment biedt geen ondersteuning voor deelname aan 
 
 Competities zijn gratis deelnemen aan. Dit doet, moet u echter de toegang tot een Azure Machine Learning-werkruimte om deel te nemen. U kunt een gratis werkruimte zonder een creditcard is geregistreerd door gewoon zich heeft aangemeld met een geldig Microsoft-account of een Office 365-account maken. Als u al een Azure- of Cortana Intelligence Suite-klant bent, kunt u maken en gebruiken van een Standard-werkruimte onder hetzelfde Azure-abonnement. Als u een Azure-abonnement kopen wilt, gaat u naar de [Azure-prijzen](https://azure.microsoft.com/pricing) pagina. Houd er rekening mee dat de standaardtarieven toepast bij het gebruik van een Standard-werkruimte te experimenten te maken. Zie voor meer informatie, [informatie over de prijzen van Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 **Wat zijn openbare en persoonlijke scores?**
 

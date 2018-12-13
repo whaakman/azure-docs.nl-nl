@@ -12,27 +12,27 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 93478e5d13ef649b86ebc047f4e53f1486e2ff68
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c2bb1c0147d38b4286e2cdfb2d161eaa0704e393
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493950"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271484"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Query's uitvoeren en beheren van partities voor elke service.
 
 ## <a name="commands"></a>Opdrachten
 
-|Command|Beschrijving|
+|Opdracht|Description|
 | --- | --- |
 | verlies van gegevens | Deze API wordt verlies van gegevens voor de opgegeven partitie veroorzaken. |
 | status van gegevens verloren gaan | Hiermee haalt u de voortgang van een partitie gegevens verloren gaan bewerking aan de slag met de API StartDataLoss. |
-| status | Hiermee haalt u de status van de opgegeven Service Fabric-partitie. |
+| gezondheidszorg | Hiermee haalt u de status van de opgegeven Service Fabric-partitie. |
 | informatie | Hiermee haalt u de informatie over een Service Fabric-partitie. |
-| lijst | Hiermee haalt u de lijst met partities van een Service Fabric-service. |
+| list | Hiermee haalt u de lijst met partities van een Service Fabric-service. |
 | laden | Hiermee haalt u de gegevens laden van de opgegeven Service Fabric-partitie. |
 | load-reset | Hiermee stelt u de huidige belasting van een Service Fabric-partitie. |
 | quorum-verlies | Induceert quorumverlies voor een bepaalde stateful service-partitie. |
@@ -47,13 +47,14 @@ Query's uitvoeren en beheren van partities voor elke service.
 ## <a name="sfctl-partition-data-loss"></a>sfctl partitie-verlies van gegevens
 Deze API wordt verlies van gegevens voor de opgegeven partitie veroorzaken.
 
-Er wordt een aanroep naar de API OnDataLossAsync van de partitie geactiveerd.  Deze API wordt verlies van gegevens voor de opgegeven partitie veroorzaken. Er wordt een aanroep naar de API OnDataLoss van de partitie geactiveerd. Werkelijke gegevensverlies is afhankelijk van de opgegeven DataLossMode. <br> PartialDataLoss - alleen een quorum van replica's zijn verwijderd en OnDataLoss wordt geactiveerd voor de partitie maar feitelijke gegevens verloren gaan, is afhankelijk van de aanwezigheid van de replicatie die onderweg zijn. <br>FullDataLoss - alle replica's zijn verwijderd, dus alle gegevens verloren zijn gegaan en OnDataLoss wordt geactiveerd. <br>Deze API moet alleen worden aangeroepen met een stateful service als het doel. Aanroepen van deze API met een systeemservice van het als het doel wordt niet aanbevolen. 
-> [!NOTE]
+Er wordt een aanroep naar de API OnDataLossAsync van de partitie geactiveerd.  Deze API wordt verlies van gegevens voor de opgegeven partitie veroorzaken. Er wordt een aanroep naar de API OnDataLoss van de partitie geactiveerd. Werkelijke gegevensverlies is afhankelijk van de opgegeven DataLossMode.  <br> -PartialDataLoss - alleen een quorum van replica's zijn verwijderd en OnDataLoss wordt geactiveerd voor de partitie maar feitelijke gegevens verloren gaan, is afhankelijk van de aanwezigheid van de replicatie die onderweg zijn.  <br> -FullDataLoss - alle replica's worden verwijderd zodat alle gegevens verloren zijn gegaan en OnDataLoss wordt geactiveerd. Deze API moet alleen worden aangeroepen met een stateful service als het doel. Aanroepen van deze API met een systeemservice van het als het doel wordt niet aanbevolen.
+
+> [!NOTE] 
 > Nadat deze API is aangeroepen, kan niet ongedaan gemaakt. Aanroepen van CancelOperation wordt alleen voorkomen dat kan worden uitgevoerd en het opschonen van interne systeemstatus. Deze opnieuw gegevens niet als de opdracht zich ver genoeg om te leiden tot gegevensverlies. Roep de API GetDataLossProgress met dezelfde bewerkings-ID informatie geretourneerd over de bewerking aan de slag met deze API.
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --gegevens-verlies-modus (vereist) | Deze opsomming is doorgegeven aan de API StartDataLoss om aan te geven welk type gegevens verloren gaan om te veroorzaken. |
 | --bewerking-id (vereist) | Een GUID die een aanroep van deze API identificeert.  Deze informatie wordt doorgegeven aan de bijbehorende GetProgress-API. |
@@ -63,7 +64,7 @@ Er wordt een aanroep naar de API OnDataLossAsync van de partitie geactiveerd.  D
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -78,7 +79,7 @@ Hiermee haalt u de voortgang van een bewerking voor het verlies van gegevens aan
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --bewerking-id (vereist) | Een GUID die een aanroep van deze API identificeert.  Deze informatie wordt doorgegeven aan de bijbehorende GetProgress-API. |
 | --partitie-id (vereist) | De identiteit van de partitie. |
@@ -87,7 +88,7 @@ Hiermee haalt u de voortgang van een bewerking voor het verlies van gegevens aan
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -102,7 +103,7 @@ EventsHealthStateFilter gebruiken voor het filteren van de verzameling van healt
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --partitie-id (vereist) | De identiteit van de partitie. |
 | --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling van HealthEvent-objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van de bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is worden vervolgens alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
@@ -112,7 +113,7 @@ EventsHealthStateFilter gebruiken voor het filteren van de verzameling van healt
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -127,14 +128,14 @@ Hiermee haalt u de informatie over de opgegeven partitie. Het antwoord bevat de 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --partitie-id (vereist) | De identiteit van de partitie. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -149,7 +150,7 @@ Het antwoord bevat de partitie-ID, partitionering schema-informatie, sleutels di
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
@@ -157,7 +158,7 @@ Het antwoord bevat de partitie-ID, partitionering schema-informatie, sleutels di
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -172,14 +173,14 @@ Retourneert informatie over de belasting van een opgegeven partitie. Het antwoor
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --partitie-id (vereist) | De identiteit van de partitie. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -194,14 +195,14 @@ Hiermee stelt de huidige belasting van een Service Fabric-partitie op de standaa
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --partitie-id (vereist) | De identiteit van de partitie. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -216,7 +217,7 @@ Deze API is handig voor een tijdelijke quorum verliezen situatie op uw service. 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --bewerking-id (vereist) | Een GUID die een aanroep van deze API identificeert.  Deze informatie wordt doorgegeven aan de bijbehorende GetProgress-API. |
 | --partitie-id (vereist) | De identiteit van de partitie. |
@@ -227,7 +228,7 @@ Deze API is handig voor een tijdelijke quorum verliezen situatie op uw service. 
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -242,7 +243,7 @@ Hiermee haalt u de voortgang van een quorum-verlies-bewerking aan de slag met St
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --bewerking-id (vereist) | Een GUID die een aanroep van deze API identificeert.  Deze informatie wordt doorgegeven aan de bijbehorende GetProgress-API. |
 | --partitie-id (vereist) | De identiteit van de partitie. |
@@ -251,7 +252,7 @@ Hiermee haalt u de voortgang van een quorum-verlies-bewerking aan de slag met St
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -266,14 +267,14 @@ Met deze bewerking moet alleen worden uitgevoerd als bekend is dat de replica's 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --partitie-id (vereist) | De identiteit van de partitie. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -288,13 +289,13 @@ Met deze bewerking moet alleen worden uitgevoerd als bekend is dat de replica's 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -309,22 +310,22 @@ Rapporteert de status van de opgegeven Service Fabric-partitie. Het rapport moet
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --health-eigenschap (vereist) | De eigenschap van de gegevens over de servicestatus. <br><br> Een entiteit kan statusrapporten voor de verschillende eigenschappen hebben. De eigenschap is een tekenreeks en niet een vaste-opsomming waarmee de journalist flexibiliteit voor het categoriseren van de voorwaarde staat dat het rapport wordt geactiveerd. Bijvoorbeeld, een Rapportagefout met SourceId "LocalWatchdog" die de status van de beschikbare schijfruimte op een knooppunt kunt controleren, zodat deze eigenschap "AvailableDisk" op dat knooppunt rapporteren kunt. De dezelfde journalist kan het knooppunt-connectiviteit, bewaken, zodat het een eigenschap 'Connectiviteit' op hetzelfde knooppunt rapporteren kan. In de winkel de gezondheid van worden deze rapporten behandeld als afzonderlijke health-gebeurtenissen voor het opgegeven knooppunt. Samen met de bron-id identificatie de eigenschap unieke van de gegevens over de servicestatus. |
 | --status (vereist) | Mogelijke waarden zijn\: 'Ongeldige', 'Ok', 'Waarschuwing', 'Fout', 'Onbekend'. |
 | --partitie-id (vereist) | De identiteit van de partitie. |
-| --bron-id (vereist) | De naam van de bron waarmee het onderdeel watchdog-client-systeem dat de statusgegevens gegenereerd uniek wordt geïdentificeerd. |
+| --bron-id (vereist) | De naam van de bron die de watchdog-client-systeem component aangeduid die de gezondheidsinformatie gegenereerd. |
 | --Beschrijving | De beschrijving van de gegevens over de servicestatus. <br><br> Hiermee geeft u vrije tekst die wordt gebruikt om toe te voegen menselijke leesbare informatie over het rapport. De maximumlengte voor de beschrijving is 4096 tekens. Als de opgegeven tekenreeks langer is, worden deze automatisch afgekapt. Wanneer afgekapt, de laatste tekens van de beschrijving van de markering van een '[Truncated]' bevatten en totale grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers die moet worden afgekapt is opgetreden. Houd er rekening mee dat wanneer afgekapt, de beschrijving van minder dan 4096 tekens uit de oorspronkelijke reeks heeft. |
-| --direct | Een markering waarmee wordt aangegeven of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
+| --direct | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
 | --verwijderen wanneer verlopen | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
 | --volgnummer: | Het volgnummer voor dit statusrapport als een numerieke tekenreeks. <br><br> Het volgnummer van het rapport wordt gebruikt door de health store voor het detecteren van verouderde rapporten. Indien niet opgegeven, is een volgnummer automatisch gegenereerd door de client health wanneer een rapport wordt toegevoegd. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld gebruikt voor het opgeven van de duur van de ISO8601-notatie. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
+| --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld wordt ISO8601-notatie gebruikt voor het opgeven van de duur. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -339,7 +340,7 @@ Deze API is handig voor het testen van failover. Als u gebruikt voor het doel va
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --bewerking-id (vereist) | Een GUID die een aanroep van deze API identificeert.  Deze informatie wordt doorgegeven aan de bijbehorende GetProgress-API. |
 | --partitie-id (vereist) | De identiteit van de partitie. |
@@ -349,7 +350,7 @@ Deze API is handig voor het testen van failover. Als u gebruikt voor het doel va
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -364,7 +365,7 @@ Hiermee haalt u de voortgang van een PartitionRestart aan de slag met StartParti
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --bewerking-id (vereist) | Een GUID die een aanroep van deze API identificeert.  Deze informatie wordt doorgegeven aan de bijbehorende GetProgress-API. |
 | --partitie-id (vereist) | De identiteit van de partitie. |
@@ -373,7 +374,7 @@ Hiermee haalt u de voortgang van een PartitionRestart aan de slag met StartParti
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |
@@ -388,14 +389,14 @@ Hiermee haalt u de naam van de service voor de opgegeven partitie. Een 404-fout 
 
 ### <a name="arguments"></a>Argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --partitie-id (vereist) | De identiteit van de partitie. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
-|Argument|Beschrijving|
+|Argument|Description|
 | --- | --- |
 | --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
 | --help -h | In dit help-bericht en afsluiten weergeven. |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6f538fa821e546d12c5a2bdb9585cc85871241fa
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 010fd442419f57f8b53705be8d3f49fdb84e28fd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094149"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262449"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Voorbeelden van toepassings- en servicemanifesten voor toepassingen met meerdere containers
 Hier volgen enkele voorbeelden van de toepassing en service manifesten voor een Service Fabric-toepassing met meerdere containers. Het doel van deze voorbeelden is om weer te geven welke instellingen zijn beschikbaar en het gebruik ervan. Deze toepassing en service manifesten zijn gebaseerd op de [voorbeeld van Windows Server 2016 Container](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifesten.
@@ -295,7 +295,7 @@ Hiermee geeft u een beleid voor het activeren van de hosts van de container. Zie
 Referenties voor de container-installatiekopieopslagplaats naar pull installatiekopieën uit. Zie voor meer informatie, [RepositoryCredentials-Element](service-fabric-service-model-schema-elements.md#RepositoryCredentialsElementRepositoryCredentialsTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="portbinding-element"></a>PortBinding-Element
-Hiermee geeft u op welke eindpuntresource verbinding maken met de beschikbaar gemaakte container-poort. Zie voor meer informatie, [PortBinding-Element](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+Hiermee geeft u op welke eindpuntresource verbinding maken met de beschikbaar gemaakte container-poort. Zie voor meer informatie, [PortBinding-Element](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInServicePackageContainerPolicyTypecomplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="volume-element"></a>Volume-Element
 Hiermee geeft u het volume worden gebonden aan de container. Zie voor meer informatie, [Volume-Element](service-fabric-service-model-schema-elements.md#VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
@@ -313,7 +313,7 @@ De containerinstallatiekopie die overeenkomt met de OS-buildversienummer moet wo
  Zie voor meer informatie, [EnvironmentOverrides-Element](service-fabric-service-model-schema-elements.md#EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable-Element
-Omgevingsvariabele. Zie voor meer informatie, [EnvironmentVariable-Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+Omgevingsvariabele. Zie voor meer informatie, [EnvironmentVariable-Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="certificateref-element"></a>CertificateRef-Element
 Hiermee geeft u informatie over een X509 certificaat dat moet worden blootgesteld aan de containeromgeving. Het certificaat moet worden geïnstalleerd in het LocalMachine-archief van alle clusterknooppunten.
@@ -356,7 +356,7 @@ De opslagplaats en de installatiekopie op https://hub.docker.com of Azure Contai
 Omgevingsvariabelen doorgeven aan de container of exe-bestand.  Zie voor meer informatie, [omgevingsvariabelen Element](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable-Element
-Omgevingsvariabele. Zie voor meer informatie, [EnvironmentVariable-Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+Omgevingsvariabele. Zie voor meer informatie, [EnvironmentVariable-Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage-Element
 Declareert u een map met de naam van het kenmerk Name, die een Settings.xml bestand bevat. Dit bestand bevat secties van de gebruiker gedefinieerde, sleutel / waarde-paar instellingen die het proces tijdens de uitvoering lezen kan. Tijdens een upgrade als alleen de ConfigPackage-versie is gewijzigd, klikt u vervolgens het proces dat wordt uitgevoerd is niet opnieuw opgestart. In plaats daarvan een retouraanroep hoogte gebracht van het proces dat configuratie-instellingen hebt gewijzigd, zodat ze kunnen dynamisch worden geladen. Zie voor meer informatie, [ConfigPackage-Element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
@@ -403,7 +403,7 @@ Een door komma's gescheiden lijst met opdrachten doorgeven aan de container. Zie
 Omgevingsvariabelen doorgeven aan de container of exe-bestand.  Zie voor meer informatie, [omgevingsvariabelen Element](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable-Element
-Omgevingsvariabele. Zie voor meer informatie, [EnvironmentVariable-Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+Omgevingsvariabele. Zie voor meer informatie, [EnvironmentVariable-Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage-Element
 Declareert u een map met de naam van het kenmerk Name, die een Settings.xml bestand bevat. Dit bestand bevat secties van de gebruiker gedefinieerde, sleutel / waarde-paar instellingen die het proces tijdens de uitvoering lezen kan. Tijdens een upgrade als alleen de ConfigPackage-versie is gewijzigd, klikt u vervolgens het proces dat wordt uitgevoerd is niet opnieuw opgestart. In plaats daarvan een retouraanroep hoogte gebracht van het proces dat configuratie-instellingen hebt gewijzigd, zodat ze kunnen dynamisch worden geladen. Zie voor meer informatie, [ConfigPackage-Element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)

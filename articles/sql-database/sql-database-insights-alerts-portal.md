@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 56beb9779b0dde7074a2f49fab156c8b6e6577b3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870177"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273338"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure portal gebruiken om waarschuwingen te maken voor Azure SQL Database en Data Warehouse
 
@@ -38,8 +38,8 @@ Een waarschuwing als u wilt de volgende handelingen uit wanneer deze wordt geact
 U kunt configureren en informatie over met behulp van regels voor waarschuwingen
 
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Opdrachtregelinterface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [Opdrachtregelinterface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Een waarschuwingsregel maken op een metrische waarde met de Azure-portal
@@ -48,7 +48,7 @@ U kunt configureren en informatie over met behulp van regels voor waarschuwingen
    
      ![Bewaking](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW alleen**: klik op de **DWU-gebruik** graph. Selecteer **klassieke waarschuwingen weergeven**
+   - **ALLEEN SQL DW**: Klik op de **DWU-gebruik** graph. Selecteer **klassieke waarschuwingen weergeven**
 
 3. Selecteer de **metrische waarschuwing toevoegen (klassiek)** knop en vul de velden in.
    
@@ -116,6 +116,6 @@ Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Bekijk een overzicht van Azure-bewaking](../monitoring-and-diagnostics/monitoring-overview.md) met inbegrip van de typen gegevens die u kunt verzamelen en controleren.
-* Meer informatie over [configureren van webhooks in waarschuwingen](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+* Meer informatie over [configureren van webhooks in waarschuwingen](../azure-monitor/platform/alerts-webhooks.md).
 * Krijgen een [overzicht van diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) en verzamelen van gedetailleerde metrische gegevens voor hoge frequentie op uw service.
 * Krijgen een [overzicht van metrische gegevens verzameling](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) om ervoor te zorgen dat uw service beschikbaar is en reageert.

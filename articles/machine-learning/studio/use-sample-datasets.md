@@ -4,9 +4,8 @@ description: Beschrijvingen van de gegevenssets die worden gebruikt in de voorbe
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308831"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270481"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>De voorbeeldgegevenssets in Azure Machine Learning Studio gebruiken
 [top]: #machine-learning-sample-datasets
@@ -34,7 +33,7 @@ De rest van deze voorbeelden van gegevenssets zijn beschikbaar in uw werkruimte 
 U kunt een van deze gegevenssets gebruiken in uw eigen experiment door deze te slepen naar het experimentcanvas.
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <table>
 
@@ -48,9 +47,9 @@ U kunt een van deze gegevenssets gebruiken in uw eigen experiment door deze te s
   <td>
 Een subset van de database 1994 telling, met behulp van volwassenen werken via de leeftijd van 16 met een aangepaste inkomsten index > 100.
 <p></p>
-<b>Gebruik:</b> classificeren van mensen met behulp van demografische gegevens om te voorspellen of een persoon jaaromzet van meer dan 50 K per jaar.
+<b>Gebruik:</b> Classificeren van mensen met behulp van demografische gegevens om te voorspellen of een persoon jaaromzet van meer dan 50K per jaar.
 <p></p>
-<b>Gerelateerde Research:</b> Kohavi, r, Becker, B., (1996). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: De universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
+<b>Gerelateerde Research:</b> Kohavi, r, Becker, B., (1996). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
 </tr>
 
 <tr>
@@ -69,9 +68,9 @@ Informatie over auto's door merk en model, met inbegrip van de prijs, functies, 
 <p></p>
 De risicoscore is in eerste instantie gekoppeld automatisch prijs. Vervolgens wordt het werkelijke risico's in een proces dat bekend is dat zowel actuarissen als symboling aangepast. Een waarde van + 3 geeft aan dat de automatische riskante, en een waarde van-3 dat deze waarschijnlijk veilig is.
 <p></p>
-<b>Gebruik:</b> voorspellen van de risicoscore van functies, met behulp van regressie of tests van multivariate classificatie. 
+<b>Gebruik:</b> Voorspel de risicoscore van functies, met behulp van regressie of een multidimensionale indeling. 
 <p></p>
-<b>Gerelateerde Research:</b> Schlimmer, J.C. (1987). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: De universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
+<b>Gerelateerde Research:</b> Schlimmer, J.C. (1987). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
 </tr>
 
 <tr>
@@ -100,9 +99,9 @@ Een subset van gegevens uit de database van de donateurs bloed van de bloed tran
 <p></p>
 Donateurs gegevens omvatten de maanden sinds de laatste donatie), en frequentie, of het totale aantal donaties, de tijd sinds de laatste donatie en hoeveelheid gedoneerd bloed.
 <p></p>
-<b>Gebruik:</b> het doel is om te voorspellen via classificatie of de donateurs gedoneerd bloed in maart 2007, waarbij 1 geeft aan een donateurs tijdens de doelperiode en 0 dat een niet-donateurs. 
+<b>Gebruik:</b> Het doel is om te voorspellen via classificatie of de donateurs gedoneerd bloed in maart 2007, waarbij 1 geeft aan een donateurs tijdens de doelperiode en 0 dat een niet-donateurs. 
 <p></p>
-<b>Gerelateerde Research:</b> Yeh, I.C., (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: De universiteit van Californië, van Schoolgegevens en computerwetenschappen
+<b>Gerelateerde Research:</b> Yeh, I.C., (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen
 <p></p>
 Yeh, ik-Cheng, Yang, King-Jang en Appclassifica, label-PN-roaming, "Knowledge discovery op RFM-model met behulp van Bernoulli reeks,"Expert bedrijfssystemen met behulp van toepassingen, 2008 <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -113,9 +112,9 @@ Yeh, ik-Cheng, Yang, King-Jang en Appclassifica, label-PN-roaming, "Knowledge di
   <td>
 Een van drie kanker productspecifieke gegevenssets geleverd door het Oncology Institute die vaak in de documentatie over machine learning wordt weergegeven. Diagnostische gegevens met de functies van een laboratorium-analyse van ongeveer 300 weefsel voorbeelden combineert.
 <p></p>
-<b>Gebruik:</b> classificeren van het type van kanker, op basis van 9 kenmerken, waarvan sommige zijn lineair en andere categorische. 
+<b>Gebruik:</b> Classificeren van het type van kanker, op basis van 9 kenmerken, waarvan sommige zijn lineair en sommige categorische zijn. 
 <p></p>
-<b>Gerelateerde Research:</b> Wohlberg, W.H., adres, W.N. & Mangasarian, O.L. (1995). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: De universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
+<b>Gerelateerde Research:</b> Wohlberg, W.H., adres, W.N. & Mangasarian, O.L. (1995). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
 </tr>
 
 <tr>
@@ -166,9 +165,9 @@ Labels van de KDD Cup 2009 klant relatie voorspelling uitdaging (<a href="http:/
   <td>
 Een verzameling van gesimuleerde energie-profielen, op basis van 12 ander gebouw vormen. De gebouwen van elkaar worden onderscheiden door acht functies. Dit omvat ruit gebied, de ruit gebied distributie en de afdrukstand.
 <p></p>
-<b>Gebruik:</b> regressie of classificatie gebruiken voor het voorspellen van de energie-efficiëntie classificatie op basis van een van twee antwoorden in de werkelijke waarden. Is voor de ROC-indeling, ronde de variabele antwoord op het dichtstbijzijnde gehele getal. 
+<b>Gebruik:</b> Regressie of classificatie gebruiken voor het voorspellen van de energie-efficiëntie classificatie op basis van een van twee antwoorden in de werkelijke waarden. Is voor de ROC-indeling, ronde de variabele antwoord op het dichtstbijzijnde gehele getal. 
 <p></p>
-<b>Gerelateerde Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: De universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
+<b>Gerelateerde Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
 </tr>
 
 <tr>
@@ -181,7 +180,7 @@ De gegevensset bevat informatie over de periode van April-oktober 2013. Voordat 
   <li>De gegevensset is gefilterd zodat alleen de 70 drukste luchthavens in de Verenigde Staten</li>
   <li>Geannuleerde vluchten zijn gelabeld als meer dan 15 minuten vertraagd</li>
   <li>Omgereden vluchten zijn gefilterd.</li>
-  <li>De volgende kolommen zijn geselecteerd: jaar, maand, DayofMonth, DayOfWeek, provider, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, geannuleerd</li>
+  <li>De volgende kolommen zijn geselecteerd: Jaar, maand, DayofMonth, DayOfWeek, provider, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, geannuleerd</li>
 </ul>
 </td>
 </tr>
@@ -191,9 +190,9 @@ De gegevensset bevat informatie over de periode van April-oktober 2013. Voordat 
   <td>
 Records van het vliegtuig flight ontvangsten en afwijkingen in de Verenigde Staten van oktober 2011.
 <p></p>
-<b>Gebruik:</b> voorspellen van vertragingen van vluchten vertragingen. 
+<b>Gebruik:</b> Flight vertragingen te voorspellen. 
 <p></p>
-<b>Gerelateerde Research:</b> van VS afdeling van transport <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
+<b>Gerelateerde Research:</b> Van VS afdeling van transport <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
   </td>
 </tr>
 
@@ -202,9 +201,9 @@ Records van het vliegtuig flight ontvangsten en afwijkingen in de Verenigde Stat
   <td>
 Bevat gegevens van de weersomstandigheden, zoals temperatuur en vochtigheid indexen en windsnelheid. De gegevens is afkomstig uit een gebied van noordoosten van Portugal, gecombineerd met records van forest wordt geactiveerd.
 <p></p>
-<b>Gebruik:</b> dit is een taak moeilijk regressie, waarbij het doel is om te voorspellen van het gebrande gebied van bosbranden. 
+<b>Gebruik:</b> Dit is een taak die moeilijk regressie, waarbij het doel is om te voorspellen van het gebrande gebied van bosbranden. 
 <p></p>
-<b>Gerelateerde Research:</b> Cortez, s., & Morais, A. (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: De universiteit van Californië, van Schoolgegevens en computerwetenschappen
+<b>Gerelateerde Research:</b> Cortez, s., & Morais, A. (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen
 <p></p>
 [Cortez en Morais, 2007] P. Cortez en A. Morais. Een Data Mining benadering voor het voorspellen bosbranden Meteorological gegevens gebruiken. In J. Neves, M. f kan zijn. Santos en J. Machado Eds., nieuwe Trends in kunstmatige intelligentie, procedures van de 13 EPIA 2007 - Portugees Conferentie van kunstmatige intelligentie, December Guimarães, Portugal, p. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Beschikbaar op: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
@@ -231,9 +230,9 @@ De gegevensset bevat informatie over films die zijn geclassificeerd in tweets va
   <td>
 Dit is mogelijk de beste bekende database kunnen worden gevonden in de documentatie van de spraakherkenning patroon. De gegevensset is relatief klein, met 50 voorbeelden van petal metingen van drie iris die.
 <p></p>
-<b>Gebruik:</b> de soort iris uit de metingen.  
+<b>Gebruik:</b> Het type iris van de metingen te voorspellen.  
 <p></p>
-<b>Gerelateerde Research:</b> Fisher, R.A. (1988). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: De universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
+<b>Gerelateerde Research:</b> Fisher, R.A. (1988). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
 </tr>
 
 <tr>
@@ -250,9 +249,9 @@ Deze gegevensset is een enigszins gewijzigde versie van de gegevensset die is ge
 <p></p>
 De gegevens van het verbruik stimuleren voor verschillende auto's in mijl per gallon bevat. Dit omvat ook informatie zoals het aantal cilinders, engine verplaatsing, paardenkracht, totaal gewicht en versnelling.
 <p></p>
-<b>Gebruik:</b> voorspellen brandstof economie op basis van drie waarden discrete kenmerken en vijf doorlopende kenmerken. 
+<b>Gebruik:</b> Voorspel brandstof economie op basis van drie waarden discrete kenmerken en vijf doorlopende kenmerken. 
 <p></p>
-<b>Gerelateerde Research:</b> StatLib, Carnegie Mellon University (1993). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: De universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
+<b>Gerelateerde Research:</b> StatLib, Carnegie Mellon University (1993). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
 </tr>
 
 <tr>
@@ -260,9 +259,9 @@ De gegevens van het verbruik stimuleren voor verschillende auto's in mijl per ga
   <td>
 Een subset van gegevens uit de National Institute of Diabetes en spijsverteringskanaal en nier ziekten database. De gegevensset is zich richten op belangrijke vrouwelijke patiënten van Pima Indiase erfgoed gefilterd. De gegevens bevatten medische gegevens, zoals glucose en of niveaus, evenals levensstijl factoren.
 <p></p>
-<b>Gebruik:</b> voorspellen of het onderwerp diabetes (binaire classificatie) heeft. 
+<b>Gebruik:</b> Voorspel of het onderwerp diabetes (binaire classificatie) heeft. 
 <p></p>
-<b>Gerelateerde Research:</b> Sigillito, V. (1990). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, CA: De universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
+<b>Gerelateerde Research:</b> Sigillito, V. (1990). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen </td>
 </tr>
 
 <tr>
@@ -270,7 +269,7 @@ Een subset van gegevens uit de National Institute of Diabetes en spijsverterings
   <td>
 Een set van metagegevens over klanten, waaronder demografische gegevens en voorkeuren.
 <p></p>
-<b>Gebruik:</b> deze gegevensset gebruikt in combinatie met de andere twee restaurant gegevenssets, trainen en testen van een systeem recommender. 
+<b>Gebruik:</b> Deze gegevensset gebruikt in combinatie met de andere twee restaurant gegevenssets, trainen en testen van een systeem recommender. 
 <p></p>
 <b>Gerelateerde Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen.
   </td>
@@ -281,7 +280,7 @@ Een set van metagegevens over klanten, waaronder demografische gegevens en voork
   <td>
 Een set van metagegevens over restaurants en hun functies, zoals food, doen-stijl, en locatie.
 <p></p>
-<b>Gebruik:</b> deze gegevensset gebruikt in combinatie met de andere twee restaurant gegevenssets, trainen en testen van een systeem recommender. 
+<b>Gebruik:</b> Deze gegevensset gebruikt in combinatie met de andere twee restaurant gegevenssets, trainen en testen van een systeem recommender. 
 <p></p>
 <b>Gerelateerde Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen.
   </td>
@@ -292,7 +291,7 @@ Een set van metagegevens over restaurants en hun functies, zoals food, doen-stij
   <td>
 Bevat de classificaties die zijn opgegeven door gebruikers restaurants op een schaal van 0 tot 2.
 <p></p>
-<b>Gebruik:</b> deze gegevensset gebruikt in combinatie met de andere twee restaurant gegevenssets, trainen en testen van een systeem recommender. 
+<b>Gebruik:</b> Deze gegevensset gebruikt in combinatie met de andere twee restaurant gegevenssets, trainen en testen van een systeem recommender. 
 <p></p>
 <b>Gerelateerde Research:</b> Bache, K. en Lichman, M. (2013). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen.
   </td>
@@ -303,11 +302,11 @@ Bevat de classificaties die zijn opgegeven door gebruikers restaurants op een sc
   <td>
 Deze gegevensset bevat een reeks records uit staal aanhechten proefversies. Deze bevat de fysieke kenmerken (breedte, dikte, type (spoel, blad, enzovoort) van de resulterende stalen typen.
 <p></p>
-<b>Gebruik:</b> voorspellen een van twee numerieke klassenkenmerken; hardheid of sterkte. U kunt ook correlatie tussen kenmerken analyseren.
+<b>Gebruik:</b> Een van twee numerieke klassenkenmerken; voorspellen hardheid of sterkte. U kunt ook correlatie tussen kenmerken analyseren.
 <p></p>
 Stalen cursusopdrachten gaat u als volgt een standaard set gedefinieerd door SAE en andere organisaties. U op zoek bent naar een specifieke "Geavanceerde" (de klassevariabele) en wilt weten over de waarden die nodig zijn. 
 <p></p>
-<b>Gerelateerde Research:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: De universiteit van Californië, van Schoolgegevens en computerwetenschappen
+<b>Gerelateerde Research:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universiteit van Californië, van Schoolgegevens en computerwetenschappen
 <p></p>
 Een nuttig handleiding voor het staal cursusopdrachten vindt u hier: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -322,9 +321,9 @@ Het doel van de simulatie is voor het verbeteren van de nauwkeurigheid van volle
 <p></p>
 De gegevens zijn vooraf verwerkte een lang cluster maakt met de lange as is gericht op het midden van de camera. De kenmerken van deze ellips (ook wel Hillas parameters) zijn een van de parameters van de afbeelding die kunnen worden gebruikt voor discriminatie.
 <p></p>
-<b>Gebruik:</b> voorspellen of afbeelding van Welkom signaal of achtergrond ruis vertegenwoordigt.
+<b>Gebruik:</b> Voorspel of afbeelding van Welkom signaal of achtergrond ruis vertegenwoordigt.
 <p></p>
-<b>Opmerkingen:</b> eenvoudige classificatie nauwkeurigheid is sinds het classificeren van een gebeurtenis achtergrond signaal is slechter dan een signaalgebeurtenis als achtergrond voor het classificeren niet zinvol is voor deze gegevens. Voor een vergelijking van verschillende classificaties, moet de ROC-grafiek worden gebruikt. De kans op een gebeurtenis van de achtergrond accepteren als signaal minder dan een van de volgende drempelwaarden zijn moet: 0,01, 0,02, 0,05, 0.1 of 0.2.
+<b>Opmerkingen:</b> Eenvoudige classificatie nauwkeurigheid is sinds het classificeren van een gebeurtenis achtergrond signaal is slechter dan een signaalgebeurtenis als achtergrond voor het classificeren niet zinvol is voor deze gegevens. Voor een vergelijking van verschillende classificaties, moet de ROC-grafiek worden gebruikt. De kans op een gebeurtenis van de achtergrond accepteren als signaal minder dan een van de volgende drempelwaarden zijn moet: 0,01, 0,02, 0,05, 0.1 of 0.2.
 <p></p>
 Houd er ook rekening mee dat het aantal achtergrond-gebeurtenissen (voor hadronic douches h) is onderschat. In real-metingen vertegenwoordigt de klasse uur of ruis het merendeel van de gebeurtenissen. 
 <p></p>
@@ -341,7 +340,7 @@ De weergegevens bevat informatie over observaties uit luchthaven weer stations, 
   <li>Weerstation-id's zijn toegewezen aan de bijbehorende luchthaven id 's</li>
   <li>Weather stations die niet zijn gekoppeld aan de 70 drukste luchthavens zijn gefilterd.</li>
   <li>De datumkolom is splitsen in afzonderlijke kolommen voor jaar, maand en dag</li>
-  <li>De volgende kolommen zijn geselecteerd: AirportID, jaar, maand, dag, tijd, tijdzone, SkyCondition, zichtbaarheid, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, Windsnelheid, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
+  <li>De volgende kolommen zijn geselecteerd: AirportID, jaar, maand, dag, tijd, tijdzone, SkyCondition, zichtbaarheid, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, windsnelheid, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li>
 </ul>
   </td>
 </tr>

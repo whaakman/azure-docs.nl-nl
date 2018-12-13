@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 37d57b0dc381f0ed2edf1f3debb76e5b54eae157
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093825"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187310"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Compatibiliteitsniveau voor Azure Stream Analytics-taken
  
@@ -38,34 +38,34 @@ De volgende belangrijke wijzigingen zijn geïntroduceerd in compatibiliteitsnive
 
 * **Service Bus-XML-indeling**  
 
-  * **vorige versies:** Azure Stream Analytics gebruikt DataContractSerializer, zodat de inhoud van het bericht XML-tags opgenomen. Bijvoorbeeld:
+  * **Vorige versies:** Azure Stream Analytics gebruikt DataContractSerializer, zodat de inhoud van het bericht XML-tags opgenomen. Bijvoorbeeld:
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId": "1", "temperatuur": 64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId": "1", "temperatuur": 64\}\u0001 
 
-  * **huidige versie:** inhoud van het bericht bevat de stream rechtstreeks met geen andere labels. Bijvoorbeeld:
+  * **huidige versie:** De inhoud van het bericht bevat de stream rechtstreeks met geen andere labels. Bijvoorbeeld:
   
-   {"SensorId": "1", "temperatuur": 64} 
+    {"SensorId": "1", "temperatuur": 64} 
  
 * **Permanente hoofdlettergevoeligheid voor veldnamen**  
 
-  * **vorige versies:** veldnamen zijn gewijzigd in kleine letters wanneer verwerkt door de Azure Stream Analytics-engine. 
+  * **Vorige versies:** Veldnamen zijn gewijzigd in kleine letters wanneer verwerkt door de Azure Stream Analytics-engine. 
 
   * **huidige versie:** hoofdlettergevoeligheid voor veldnamen worden bewaard wanneer ze worden verwerkt door de Azure Stream Analytics-engine. 
 
-  > [!NOTE] 
-  > Permanente hoofdlettergevoeligheid is nog niet beschikbaar voor Stream Analytics-taken die worden gehost met behulp van Edge-omgeving. Als gevolg hiervan, worden alle veldnamen geconverteerd naar kleine letters, als de taak voor edge-apparaten wordt gehost. 
+    > [!NOTE] 
+    > Permanente hoofdlettergevoeligheid is nog niet beschikbaar voor Stream Analytics-taken die worden gehost met behulp van Edge-omgeving. Als gevolg hiervan, worden alle veldnamen geconverteerd naar kleine letters, als de taak voor edge-apparaten wordt gehost. 
 
 * **FloatNaNDeserializationDisabled**  
 
-  * **vorige versies:** CREATE TABLE-opdracht heeft geen filter voor gebeurtenissen met NaN (Not a Number. Bijvoorbeeld oneindig, -oneindig) in een FLOAT-kolom typt, omdat deze buiten het bereik beschreven voor deze getallen zijn.
+  * **Vorige versies:** CREATE TABLE-opdracht heeft geen filter voor gebeurtenissen met NaN (Not a Number. Bijvoorbeeld oneindig, -oneindig) in een FLOAT-kolom typt, omdat deze buiten het bereik beschreven voor deze getallen zijn.
 
   * **huidige versie:** CREATE TABLE kunt u een sterke schema opgeven. De Stream Analytics-engine valideert dat de gegevens aan dit schema voldoen. De opdracht kunt u gebeurtenissen met NaN waarden filteren met dit model. 
 
 * **Schakel automatische upcast voor datum/tijd-tekenreeksen in JSON.**  
 
-  * **vorige versies:** de JSON-parser zou automatisch opgewaardeerd tekenreeks waarden met de datum/tijdzone-informatie naar DateTime typt en vervolgens converteren naar UTC. Dit leidde tot verlies van informatie over de tijdzone.
+  * **Vorige versies:** De JSON-parser zou automatisch opgewaardeerd tekenreekswaarden met datum/tijdzone-informatie naar DateTime-type en deze vervolgens converteren naar UTC. Dit leidde tot verlies van informatie over de tijdzone.
 
-  * **huidige versie:** bestaat niet meer automatisch opgewaardeerd van tekenreekswaarden met datum/tijdzone-informatie naar DateTime-type. Als gevolg hiervan, wordt informatie over de tijdzone bewaard. 
+  * **huidige versie:** Er is niet meer automatisch opgewaardeerd van tekenreekswaarden met datum/tijdzone-informatie naar DateTime-type. Als gevolg hiervan, wordt informatie over de tijdzone bewaard. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure Stream Analytics-invoer oplossen](stream-analytics-troubleshoot-input.md)

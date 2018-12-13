@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 208e021dd9025ffff92ed46749346cfb53d0b080
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002489"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166605"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Veelgestelde vragen over het netwerk Prestatiemeter-oplossing
 
@@ -147,7 +147,7 @@ Een hop reageert niet op een traceroute in een of meer van de onderstaande scena
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>De oplossing toont 100% verlies, maar er een verbinding tussen de bron en bestemming is
 Dit kan gebeuren als de firewall van de host of de tussenliggende firewall (netwerkfirewall of Azure NSG) de communicatie tussen de bronagent en de bestemming via de poort die wordt gebruikt blokkeren is voor het bewaken van NPM (standaard de poort is 8084, tenzij de de klant is gewijzigd. dit).
 
-* Als u wilt controleren of de communicatie over de vereiste poort niet door de hostfirewall wordt geblokkeerd, geven de status van de bron- als doelknooppunten uit de volgende weergave: Network Performance Monitor -> configuratieserver -> knooppunten. 
+* Om te controleren of de communicatie over de vereiste poort niet door de hostfirewall wordt geblokkeerd, raadpleegt u de status van de bron- als doelknooppunten uit de volgende weergave: Network Performance Monitor -> configuratieserver -> knooppunten. 
   Als ze niet in orde zijn, instructies en neemt u corrigerende maatregelen. Als de knooppunten in orde zijn, verplaatst naar de stap b. hieronder.
 * Gebruik om te controleren of een tussenliggende firewall of Azure NSG de communicatie over de vereiste poort niet blokkeert, de derde partij PsPing hulpprogramma via de onderstaande instructies volgen:
   * psping hulpprogramma is beschikbaar als download [hier](https://technet.microsoft.com/sysinternals/psping.aspx) 
@@ -161,17 +161,8 @@ Dit kan gebeuren als de firewall van de host of de tussenliggende firewall (netw
 Als de netwerkpaden tussen A naar B van de netwerkpaden tussen B naar A afwijken kunnen, kunnen verschillende waarden voor verlies en latentie worden waargenomen.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Waarom wordt mijn ExpressRoute-circuits en -peeringverbindingen niet gedetecteerd?
-Dit kan gebeuren als uw circuit en de peering-verbindingen worden verdeeld over meerdere abonnementen. NPM detecteert alleen deze ExpressRoute privé-peeringverbindingen waarin de VNETs die zijn verbonden met de ExpressRoute zich in hetzelfde abonnement als het account dat is gekoppeld met de NPM-werkruimte. Bovendien NPM worden gedetecteerd die Microsoft-peeringverbindingen in die het verbonden ExpressRoute-circuit zich in hetzelfde abonnement als het account dat is gekoppeld met de NPM-werkruimte. Dit kan worden verduidelijkt in het onderstaande voorbeeld:
+NPM detecteert nu ExpressRoute-circuits en -peeringverbindingen in alle abonnementen waartoe de gebruiker toegang heeft. Alle abonnementen waar uw Express Route-resources zijn gekoppeld en schakel de bewaking voor elke gedetecteerde bron kiezen. NPM zoekt connection-objecten bij het detecteren van een privé-peering, dus controleer geven als een VNET is gekoppeld aan uw peering.
 
- Als u 2 VNETS - VNET A in abonnement A en VNET B in abonnement B respectievelijk, verbonden met een ExpressRoute in abonnement bovendien C. is er een andere VNET - VNET C in het abonnement C. De ER is ook MS peering in abonnement C. 
-
-Vervolgens
-
-* Als de NPM-werkruimte is gekoppeld aan een abonnement, klikt u vervolgens kunt u zich alleen connectiviteit via ER tot VNET A bewaken.
-* Als de NPM-werkruimte is gekoppeld aan het abonnement B, klikt u vervolgens kunt u zich alleen connectiviteit via ER aan VNET B bewaken.
-* Als de NPM-werkruimte is gekoppeld aan C-abonnement, klikt u vervolgens kunt u zich voor het bewaken van connectiviteit via ER aan VNET C, evenals MS-peering.
-
-De ondersteuning voor abonnementen is binnenkort beschikbaar. Hierna kunt u zich voor het bewaken van al uw persoonlijke ExpressRoute en Microsoft-peeringverbindingen in verschillende abonnementen zitten, van een werkruimte.
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>De functie ER Monitor heeft een diagnostisch bericht 'Verkeer wordt niet doorgegeven via een circuit'. Wat houdt dat in?
 
 Er is een scenario waarin er is een goede verbinding tussen de on-premises en Azure-knooppunten, maar het verkeer gaat niet via de ExpressRoute-circuit dat is geconfigureerd om te worden bewaakt door NPM. 

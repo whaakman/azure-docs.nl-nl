@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3264a94c26339bc99a82ebd6770a3cae7d8ab3fb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d4f1a76fe587a34448cf218dbfef10f6b0e2ea46
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086768"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133469"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Gegevens over het gebruik van LUIS-service van Azure Cloud Shell
 De Azure-portal kunt u PowerShell-cmdlets gebruiken om te werken met LUIS-resources. 
@@ -35,7 +35,7 @@ Wanneer u de Azure portal cloudshell gebruikt, bent u altijd op de meest recente
 
 Gebruik de **Cloud Shell openen** knop Cloud Shell openen of open een browser met [ https://shell.azure.com ](https://shell.azure.com). Selecteer Power Shell als de omgeving. Als u een Azure Storage-account niet hebt, moet u er een maken. 
 
-<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
+<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" alt="Start powershell" /></a>
 
 ## <a name="luis-endpoint-usage-information"></a>LUIS informatie over het gebruik van het eindpunt
 
@@ -43,7 +43,7 @@ De PowerShell-cmdlet 6.x `Get-AzureRmCognitiveServicesAccountUsage`, biedt infor
 
 De syntaxis van de opdracht is:
 
-```
+```powershell
 Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName my-resource-group -Name my-luis-service-name
 ```
 
@@ -51,7 +51,7 @@ In het volgende voorbeeld wordt de naam van de resourcegroep is `luis-westus-rg`
 
 De cmdlet retourneert informatie over het gebruik van 16 van 10.000 eindpunt treffers in een periode van 30 dagen met de periode eindigt op 7 juni gebruikt:
 
-```
+```powershell
 CurrentValue  : 16
 Name          : LUIS.Calls
 Limit         : 10000

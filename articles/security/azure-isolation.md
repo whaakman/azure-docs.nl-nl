@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239046"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310994"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolatie in de openbare Cloud van Azure
 ##  <a name="introduction"></a>Inleiding
@@ -149,9 +149,7 @@ Het Azure compute-platform is gebaseerd op machine netwerkvirtualisatie, wat wil
 
 Elk knooppunt heeft ook een speciale basis-VM, die het Host-besturingssysteem wordt uitgevoerd. De grens van een kritieke is de isolatie van de basis-VM op basis van de Gast-VM's en de Gast-VM's van elkaar, beheerd door de hypervisor en de basis-besturingssysteem. De hypervisor/root OS koppeling maakt gebruik van Microsofts tientallen jaren ervaring besturingssysteem en meer recente learning van Microsoft Hyper-V voor sterke isolatie van Gast-VM's.
 
-Voor het Azure-platform wordt gebruikgemaakt van een gevirtualiseerde omgeving. Gebruikersexemplaren functioneren als zelfstandige virtuele machines die geen toegang tot een fysieke host-server en deze isolatie wordt afgedwongen met behulp van de fysieke processor-bevoegdheidsniveaus (ring-0/ring 3).
-
-Ring 0 is het niveau met de meeste bevoegdheden en ring 3 het niveau met de minste bevoegdheden. Het gastbesturingssysteem wordt uitgevoerd in een Ring 1 met minder bevoegdheden en toepassingen worden uitgevoerd in de minste bevoegdheden Ring 3. Deze virtualisatie van fysieke resources leidt tot een duidelijke scheiding tussen het gastbesturingssysteem en de hypervisor, wat zorgt voor een extra veiligheidsbarrière tussen de twee.
+Voor het Azure-platform wordt gebruikgemaakt van een gevirtualiseerde omgeving. Gebruikersexemplaren functioneren als zelfstandige virtuele machines die geen toegang tot een fysieke host-server.
 
 De Azure-hypervisor fungeert als een microkernel en geeft de aanvragen voor alle hardware van virtuele machines voor gasten op de host voor verwerking met behulp van een gedeeld-Geheugeninterface VMBus genoemd. Dit voorkomt dat gebruikers onbeperkt toegang krijgen tot het systeem om gegevens te lezen en te schrijven of programma’s uit te voeren en vermindert de risico’s die kleven aan het delen van systeemresources.
 
@@ -187,7 +185,7 @@ Standaard worden alle verkeer wordt geblokkeerd als een virtuele machine is gema
 
 Er zijn twee categorieën regels die zijn geprogrammeerd:
 
--   **Regels van configuratie of de infrastructuur van de computer:** standaard wordt alle communicatie geblokkeerd. Er zijn uitzonderingen om toe te staan een virtuele machine te verzenden en ontvangen van DHCP en DNS-verkeer. Virtuele machines kunnen ook verkeer verzenden naar het 'openbare' internet en verkeer verzenden naar andere virtuele machines binnen hetzelfde Azure-netwerk en de activeringsserver van het besturingssysteem. De virtuele machines lijst met toegestane uitgaande bestemmingen bevat geen Azure-routersubnetten, Azure-beheer en andere eigenschappen van Microsoft.
+-   **Machine-configuratie of een infrastructuur regels:** Standaard wordt alle communicatie geblokkeerd. Er zijn uitzonderingen om toe te staan een virtuele machine te verzenden en ontvangen van DHCP en DNS-verkeer. Virtuele machines kunnen ook verkeer verzenden naar het 'openbare' internet en verkeer verzenden naar andere virtuele machines binnen hetzelfde Azure-netwerk en de activeringsserver van het besturingssysteem. De virtuele machines lijst met toegestane uitgaande bestemmingen bevat geen Azure-routersubnetten, Azure-beheer en andere eigenschappen van Microsoft.
 
 -   **Configuratiebestand van de rol:** Hiermee definieert u de binnenkomende toegangsbeheerlijsten (ACL's) op basis van het servicemodel van de tenant.
 
@@ -256,7 +254,7 @@ Het Disk Encryption-oplossing voor Windows is gebaseerd op [Microsoft BitLocker-
 De oplossing ondersteunt de volgende scenario's voor IaaS-VM's als ze zijn ingeschakeld in Microsoft Azure:
 -   Integratie met Azure Key Vault
 
--   Standard-laag virtuele machines: A, D, DS, G, GS, enzovoort, reeks IaaS-VM's
+-   Standard-laag virtuele machines: A, D, DS, G, GS, enzovoort, reeks IaaS-VM 's
 
 -   Inschakelen van versleuteling op Windows en Linux IaaS-VM 's
 
@@ -295,7 +293,7 @@ SQL Database is een relationele database-service in de Microsoft Cloud op basis 
 
 [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) Database is een cloud-gebaseerde relationele database-service die is gebouwd op SQL Server-technologieën. Het biedt een maximaal beschikbare, schaalbare, multitenant databaseservice die wordt gehost door Microsoft in de cloud.
 
-Vanuit het perspectief van een toepassing SQL Azure biedt de volgende hiërarchie: elk niveau heeft een-op-veel-containment van onderliggende niveaus.
+Perspectief SQL Azure biedt vanuit een toepassing de volgende hiërarchie: Elk niveau heeft een-op-veel-containment van onderliggende niveaus.
 
 ![SQL Azure-toepassingsmodel](./media/azure-isolation/azure-isolation-fig10.png)
 
@@ -344,7 +342,7 @@ Azure-implementatie heeft meerdere lagen van netwerkisolatie. Het volgende diagr
 
 ![Netwerken isolatie](./media/azure-isolation/azure-isolation-fig13.png)
 
-**Isolatie van verkeer:** A [virtueel netwerk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) is de verkeersisolatiegrens op het Azure-platform. Virtuele machines (VM's) in één virtueel netwerk kan niet communiceren rechtstreeks op virtuele machines in een ander virtueel netwerk, zelfs als beide virtuele netwerken worden gemaakt van dezelfde klant. Isolatie is een belangrijke eigenschap die ervoor zorgt dat de klant-VM's en communicatie blijft privé binnen een virtueel netwerk.
+**Isolatie van verkeer:** Een [virtueel netwerk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) is de verkeersisolatiegrens op het Azure-platform. Virtuele machines (VM's) in één virtueel netwerk kan niet communiceren rechtstreeks op virtuele machines in een ander virtueel netwerk, zelfs als beide virtuele netwerken worden gemaakt van dezelfde klant. Isolatie is een belangrijke eigenschap die ervoor zorgt dat de klant-VM's en communicatie blijft privé binnen een virtueel netwerk.
 
 [Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) biedt een extra isolatielaag met in het virtuele netwerk op basis van IP-bereik. IP-adressen in het virtuele netwerk, kunt u een virtueel netwerk verdelen in meerdere subnetten voor organisatie- en beveiligingsdoeleinden. Tussen VM's en PaaS-rolexemplaren die in (dezelfde of verschillende) subnetten in een VNET zijn geïmplementeerd, is communicatie mogelijk zonder extra configuratie. U kunt ook configureren [netwerkbeveiligingsgroep (nsg's)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) wilt toestaan of weigeren van netwerkverkeer naar een VM-exemplaar op basis van regels die zijn geconfigureerd in de toegangsbeheerlijst (ACL) van de NSG. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet.
 

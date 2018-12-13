@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24ffe9eded908c82750ce5a6d6fbe87991bdae72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 03a7454aec43963a093dc0d7fcc347dac3ef5d43
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872841"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192920"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Ontwerpen en bouwen van een oplossing in Azure (Preview)
 > [!NOTE]
@@ -58,7 +57,7 @@ U moet alle query's waarvan u denkt is handig om de gebruiker dat, zelfs als ze 
 
 Als het probleem kan mogelijk worden opgelost met een geautomatiseerd proces, zult u doorgaans een runbook maken in Azure Automation om uit te voeren van dit herstel.  De meeste Azure-services kunnen worden beheerd met [cmdlets](/powershell/azure/overview) die het runbook wilt gebruikmaken van dergelijke functies kunnen worden uitgevoerd.
 
-Als uw oplossing externe functionaliteit in reactie op een waarschuwing vereist, dan kunt u een [antwoord voor webhook](../../monitoring-and-diagnostics/alert-metric.md).  Hiermee kunt u een externe webservice verzenden van gegevens uit de waarschuwing niet aanroepen.
+Als uw oplossing externe functionaliteit in reactie op een waarschuwing vereist, dan kunt u een [antwoord voor webhook](../../azure-monitor/platform/alerts-metric.md).  Hiermee kunt u een externe webservice verzenden van gegevens uit de waarschuwing niet aanroepen.
 
 ### <a name="views"></a>Weergaven
 Weergaven in Log Analytics worden gebruikt voor het visualiseren van gegevens uit de opslagplaats van Log Analytics.  Elke oplossing bevatten doorgaans één weergave met een [tegel](../../azure-monitor/platform/view-designer-tiles.md) die wordt weergegeven op de belangrijkste dashboard van de gebruiker.  De weergave mag een willekeurig aantal [visualisatie delen](../../azure-monitor/platform/view-designer-parts.md) voor verschillende visualisaties van de verzamelde gegevens voor de gebruiker.

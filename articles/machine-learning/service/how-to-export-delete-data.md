@@ -1,7 +1,7 @@
 ---
 title: Exporteren of verwijderen van gegevens in de werkruimte
 titleSuffix: Azure Machine Learning service
-description: U kunt in Azure Machine Learning, exporteren of verwijderen van uw werkruimte met de Azure portal, CLI, SDK en geverifieerde REST-API's. In dit artikel ziet u hoe u.
+description: Informatie over het exporteren of verwijderen van uw werkruimte met de Azure portal, CLI, SDK en geverifieerde REST-API's.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,12 +11,12 @@ author: ph-com
 ms.author: pahusban
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0979c531c90b67cedce544ff2eb6f7aceeb84a44
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 81215058095acfeedd320025457feec73d3b0d23
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093774"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192342"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exporteren of uw gegevens in de werkruimte voor Machine Learning-service verwijderen 
 

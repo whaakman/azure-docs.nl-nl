@@ -1,5 +1,5 @@
 ---
-title: Met behulp van de machine learning CLI-extensie
+title: Machine learning-CLI-extensie
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over de Azure Machine Learning CLI-extensie voor de Azure CLI. De Azure-CLI is een opdrachtregelprogramma voor meerdere platformen die u kunt werken met resources in de Azure-cloud. De Machine Learning-extensie kunt u werken met de Azure Machine Learning-Service.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e1e94c2301cdbacf2ade037fe04cc8359ed06598
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e16506773e38f1732a55161cdd58ffb7523602d4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078188"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277281"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Gebruik de CLI-extensie voor Azure Machine Learning-service
 
@@ -42,10 +42,10 @@ De CLI is geen vervanging voor de SDK van Azure Machine Learning. Het is een aan
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-> [!NOTE]
-> Voor het gebruik van de CLI, moet u een Azure-abonnement hebben. Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
+* Voor het gebruik van de CLI, moet u een Azure-abonnement hebben. Als u geen Azure-abonnement hebt, een gratis account maken voordat u begint. Probeer de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree) vandaag nog.
+
+* De [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="install-the-extension"></a>De extensie installeren
 

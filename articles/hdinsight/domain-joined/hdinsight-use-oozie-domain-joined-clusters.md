@@ -1,22 +1,23 @@
 ---
-title: Apache Hadoop Oozie-werkstromen in Azure HDInsight-clusters met Enterprise-beveiligingspakket
-description: Gebruik Oozie met Hadoop in een Linux gebaseerde HDInsight Enterprise-beveiligingspakket. Informatie over het definiëren van een Oozie-workflow en het verzenden van een Oozie-taak.
+title: Beveiligde Apache Oozie-werkstromen met een Enterprise-beveiligingspakket - Azure HDInsight
+description: Beveiligen met behulp van de Enterprise-beveiligingspakket van Azure HDInsight Apache Oozie-werkstromen. Informatie over het definiëren van een Oozie-workflow en het verzenden van een Oozie-taak.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: mamccrea
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 298277b720045c06d78f1c4964de2246dac22f08
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d0bc48e07efeaf8f09f177367da0570cf3c250ec
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633662"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165143"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Voer Apache Oozie in HDInsight Hadoop clusters met Enterprise-beveiligingspakket
+
 Apache Oozie is een werkstroom en coördinatie systeem waarmee Apache Hadoop-taken worden beheerd. Oozie is geïntegreerd met de Hadoop-stack en ondersteunt de volgende taken:
 - Apache MapReduce
 - Apache Pig
@@ -26,6 +27,7 @@ Apache Oozie is een werkstroom en coördinatie systeem waarmee Apache Hadoop-tak
 U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
 
 ## <a name="prerequisite"></a>Vereiste
+
 - Een Azure HDInsight Hadoop-cluster met Enterprise Security Package (ESP). Zie [configureren HDInsight-clusters met ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
@@ -224,8 +226,11 @@ nano workflow.xml
    Dit eigenschappenbestand moet aanwezig zijn lokaal bij het uitvoeren van Oozie-taken.
 
 ## <a name="create-custom-hive-scripts-for-oozie-jobs"></a>Aangepaste Hive-scripts voor Oozie-taken maken
+
 U kunt de twee Hive-scripts voor Hive-server 1 en 2, zoals wordt weergegeven in de volgende secties van de Hive-server maken.
+
 ### <a name="hive-server-1-file"></a>Hive server 1 bestand
+
 1.  Maken en bewerken van een bestand voor Hive-server 1 acties:
     ```bash
     nano countrowshive1.hql
@@ -244,6 +249,7 @@ U kunt de twee Hive-scripts voor Hive-server 1 en 2, zoals wordt weergegeven in 
     ```
 
 ### <a name="hive-server-2-file"></a>Hive server 2-bestand
+
 1.  Maken en bewerken van een veld voor Hive server 2-acties:
     ```bash
     nano countrowshive2.hql
@@ -262,11 +268,13 @@ U kunt de twee Hive-scripts voor Hive-server 1 en 2, zoals wordt weergegeven in 
     ```
 
 ## <a name="submit-oozie-jobs"></a>Oozie-taken verzenden
+
 Oozie-taken voor clusters met ESP verzenden is als het verzenden van taken Oozie in niet-ESP-clusters.
 
 Zie voor meer informatie, [gebruik Oozie met Hadoop om te definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="results-from-an-oozie-job-submission"></a>Resultaten van een Oozie taken verzenden
+
 Oozie-taken worden uitgevoerd voor de gebruiker. Dus controleren zowel Apache YARN en Apache Ranger logboeken tonen de taken worden uitgevoerd als de geïmiteerde gebruiker. De opdrachtregelinterface-uitvoer van een taak Oozie lijkt op de volgende code:
 
 
@@ -304,6 +312,7 @@ Oozie-taken worden uitgevoerd voor de gebruiker. Dus controleren zowel Apache YA
 De controlelogboeken Ranger Hive server 2-acties weergeven Oozie uitvoeren van de actie voor de gebruiker. De weergaven Ranger en YARN zijn alleen zichtbaar voor de cluster-beheerder.
 
 ## <a name="configure-user-authorization-in-oozie"></a>Gebruikersautorisatie in Oozie configureren
+
 Oozie op zichzelf heeft een configuratie voor het autorisatie van gebruikers die de gebruikers van stoppen of verwijderen van andere gebruikers taken kan blokkeren. Instellen zodat deze configuratie de `oozie.service.AuthorizationService.security.enabled` naar `true`. 
 
 Zie voor meer informatie, [Oozie-installatie en configuratie](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
@@ -311,6 +320,7 @@ Zie voor meer informatie, [Oozie-installatie en configuratie](https://oozie.apac
 Voor onderdelen, zoals Hive-server 1 waar de Ranger-invoegtoepassing is niet beschikbaar of wordt ondersteund, is het alleen grofkorrelige HDFS-autorisatie mogelijk. Fijnmazig autorisatie is alleen beschikbaar via Ranger-invoegtoepassingen.
 
 ## <a name="get-the-oozie-web-ui"></a>De web-UI van Oozie ophalen
+
 De Oozie-webgebruikersinterface biedt webgebaseerde inzicht in de status van Oozie-taken op het cluster. Als u de web-UI, moet u de volgende stappen uitvoeren in ESP clusters:
 
 1. Voeg een [edge-knooppunt](../hdinsight-apps-use-edge-node.md) en in te schakelen [SSH Kerberos-verificatie](../hdinsight-hadoop-linux-use-ssh-unix.md).

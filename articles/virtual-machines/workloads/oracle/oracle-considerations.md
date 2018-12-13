@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 6435c866f6cdf5abea3862a718579f3a6e4d7378
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.custom: seodec18
+ms.openlocfilehash: 50e5dfa21cf7a8f7203e7d96640e3cf5215130a6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493061"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191458"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Oracle-oplossingen en de implementatie ervan op Microsoft Azure
 In dit artikel bevat informatie over de vereiste informatie op verschillende Oracle-oplossingen op Microsoft Azure implementeren. Deze oplossingen zijn gebaseerd op de virtuele Machine-installatiekopieën die zijn gepubliceerd door Oracle op Azure Marketplace. Als u een lijst met beschikbare installatiekopieën, voer de volgende opdracht:
@@ -57,7 +58,7 @@ Oracle biedt actieve Oracle DB 12.1 Standard en Enterprise-edities ondersteuning
 Gekoppelde schijven, is afhankelijk van de Azure Blob storage-service. Elke standard-schijf is geschikt voor een theoretisch maximum van ongeveer 500 invoer/uitvoer-bewerkingen per seconde (IOPS). Onze premium-aanbod voor schijf heeft de voorkeur voor databaseworkloads met hoge prestaties en kan maar liefst tot 5000 IOP's per schijf. Terwijl u één schijf kunt als die voldoet aan uw prestatiebehoeften - u de effectieve IOPS-prestaties verbeteren kunt als u meerdere gekoppelde schijven, de gegevens verdeeld over deze, en gebruik vervolgens Oracle automatische Storage Management (ASM). Zie [automatische opslag van Oracle-overzicht](http://www.oracle.com/technetwork/database/index-100339.html) voor Oracle ASM specifieke informatie. Voor een voorbeeld van hoe u kunt installeren en configureren van Oracle Asm installeren op een Linux Azure VM - kunt u proberen de [installeren en configureren van Oracle geautomatiseerde Storage Management](configure-oracle-asm.md) zelfstudie.
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle echte toepassingscluster (Oracle RAC)
-Oracle RAC is ontworpen voor het beperken van het uitvallen van één knooppunt in een cluster met meerdere knooppunten on-premises configuratie. Afhankelijk van twee on-premises technologieën die niet ingebouwd in grootschalige openbare cloudomgevingen zijn: gedeelde schijf en netwerk-multicast. Als uw databaseoplossing vereist dat Oracle RAC in Azure, moet u 3e partij software om deze technologieën.  Een **Microsoft Azure Certified** aanbieding met de naam [FlashGrid knooppunt voor Oracle RAC](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-racnode?tab=Overview) is beschikbaar in de Azure Marketplace, gepubliceerd door FlashGrid Inc. Zie voor meer informatie over deze oplossing en hoe dit werkt in Azure, de [FlashGrid oplossingenpagina](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle RAC is ontworpen voor het beperken van het uitvallen van één knooppunt in een cluster met meerdere knooppunten on-premises configuratie. Afhankelijk van twee on-premises technologieën die niet ingebouwd in grootschalige openbare cloudomgevingen zijn: gedeelde schijf en netwerk-multicast. Als uw databaseoplossing vereist dat Oracle RAC in Azure, moet u 3e partij software om deze technologieën. Zie voor meer informatie over Oracle RAC's de [FlashGrid oplossingenpagina](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Overwegingen voor hoge beschikbaarheid en noodherstel herstel
 Als u Oracle-Databases in Azure, bent u verantwoordelijk voor het implementeren van een hoge beschikbaarheid en noodherstel hersteloplossing om te voorkomen uitvaltijd. 

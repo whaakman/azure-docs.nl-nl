@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7137d43805065a8f29aa8fcf5307dd5b8947b345
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c45023a462a5c01dfde806d7abbb9714aaf09b85
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101344"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189469"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
 
@@ -60,7 +60,7 @@ Voordat u logboekregistratie en het verzenden van een experiment toevoegt, moet 
                resource_group = <<resource_group>>)
    ```
   
-## <a name="option-1-use-startlogging"></a>Optie 1: Start_logging gebruiken
+## <a name="option-1-use-startlogging"></a>Optie 1: Gebruik start_logging
 
 **start_logging** maakt u een interactieve uitvoeren voor gebruik in scenario's zoals laptops. Alle metrische gegevens die zijn vastgelegd tijdens de sessie worden toegevoegd aan de uitvoerregistratie in het experiment.
 
@@ -122,7 +122,7 @@ Het volgende voorbeeld traint een eenvoudig model sklearn Ridge lokaal in een lo
 
 Het script wordt beëindigd met ```run.complete()```, die de uitvoering wordt gemarkeerd als voltooid.  Deze functie wordt meestal gebruikt in interactieve scenario's.
 
-## <a name="option-2-use-scriptrunconfig"></a>Optie 2: ScriptRunConfig gebruiken
+## <a name="option-2-use-scriptrunconfig"></a>Optie 2: Gebruik ScriptRunConfig
 
 **ScriptRunConfig** is een klasse voor het instellen van configuraties voor het script wordt uitgevoerd. Met deze optie kunt u de code voor bewaking om te worden geïnformeerd over voltooiing of het opvragen van een visual widget voor het bewaken van toevoegen.
 
@@ -330,9 +330,9 @@ Een verwarringsmatrix wordt gebruikt om te beschrijven van de prestaties van een
 
 Voor problemen met de classificatie biedt Azure Machine Learning automatisch een verwarringsmatrix voor elk model dat is gebouwd. Voor elke verwarringsmatrix ziet geautomatiseerde ML u de labels correct ingedeeld als groen en onjuist ingedeeld labels als rood. De grootte van de cirkel geeft het aantal steekproeven in die bin. Bovendien vindt u de frequentie-telling van elk label voorspelde en elk label waar in de aangrenzende staafdiagrammen. 
 
-Voorbeeld 1: Een classificeringsmodel met slechte nauwkeurigheid ![een classificeringsmodel met slechte nauwkeurigheid](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+Voorbeeld 1: Een model classificatie met slechte nauwkeurigheid ![een classificeringsmodel met slechte nauwkeurigheid](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
 
-Voorbeeld 2: Een classificeringsmodel met hoge nauwkeurigheid (ideaal) ![een classificeringsmodel met hoge nauwkeurigheid](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+Voorbeeld 2: Een model classificatie met hoge nauwkeurigheid (ideaal) ![een classificeringsmodel met hoge nauwkeurigheid](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
 
 
 #### <a name="precision-recall-chart"></a>Precisie-/ oproepdiagram grafiek
@@ -341,17 +341,17 @@ U kunt de precisie-/ oproepdiagram curven voor elk model om te bepalen welk mode
 
 De term die precisie vertegenwoordigt die mogelijkheid voor een classificatie voor alle instanties juist label. Intrekken vertegenwoordigt de mogelijkheid voor een classificatie om alle exemplaren van een bepaald label te vinden. De precisie-/ oproepdiagram curve ziet u de relatie tussen deze twee concepten. Het model zou in het ideale geval zijn 100% nauwkeurigheid en 100% nauwkeurigheid.
 
-Voorbeeld 1: Een classificeringsmodel met lage precisie en lage intrekken ![een classificeringsmodel met lage precisie en lage intrekken](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+Voorbeeld 1: Een model classificatie met lage precisie en lage intrekken ![een classificeringsmodel met lage precisie en lage intrekken](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
 
-Voorbeeld 2: Een classificeringsmodel met ~ 100% nauwkeurigheid en ~ 100% intrekken (ideaal) ![een classificatie model hoge precisie en intrekken](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+Voorbeeld 2: Een model classificatie met ~ 100% nauwkeurigheid en ~ 100% intrekken (ideaal) ![een classificatie model hoge precisie en intrekken](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
 
 #### <a name="roc"></a>ROC
 
 Ontvanger operationele kenmerken (of ROC) is een diagram van de labels correct ingedeeld versus de onjuist ingedeeld labels voor een bepaald model. De ROC-curve zijn minder informatieve als training modellen op gegevenssets met hoge vertekening, zoals deze niet in de ONWAAR positief labels weergegeven wordt.
 
-Voorbeeld 1: Een classificeringsmodel met lage waarde true labels en hoge false labels ![classificeringsmodel met lage waarde true labels en hoge false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+Voorbeeld 1: Een model classificatie met lage waarde true labels en hoge false labels ![classificeringsmodel met lage waarde true labels en hoge false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
 
-Voorbeeld 2: Een classificeringsmodel met hoge waarde true labels en lage waarde false labels ![een classificatie-model met hoge waarde true labels en lage waarde false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+Voorbeeld 2: Een model classificatie met hoge waarde true labels en lage waarde false labels ![een classificatie-model met hoge waarde true labels en lage waarde false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
 
 #### <a name="lift-curve"></a>Lift-curve
 
@@ -359,7 +359,7 @@ U kunt de lift van het model automatisch gemaakt met Azure Machine Learning aan 
 
 Lift-grafieken worden gebruikt voor het evalueren van de prestaties van een model voor classificatie. Hier ziet u hoeveel beter kunt u verwachten doen met een model in vergelijking met zonder een model. 
 
-Voorbeeld 1: Model functioneert slechter dan een willekeurige selectie model ![een classificatie-model dat slechter dan een willekeurige selectie model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+Voorbeeld 1: Model functioneert met slechter dan een willekeurige selectie model ![een classificatie-model dat slechter dan een willekeurige selectie model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
 
 Voorbeeld 2: Model beter presteert dan een willekeurige selectie model ![een classificatie-model dat beter presteert](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
 
@@ -369,9 +369,9 @@ Een diagram kolomopslag evalueert de prestaties van een model classificatie op b
 
 Met de cumulatieve winsten grafiek kunt u de classificatie afsluitdatum met behulp van een percentage dat overeenkomt met een gewenste winst uit het model kiezen. Deze informatie geeft een andere manier om de resultaten in de bijbehorende lift-grafiek kijken.
 
-Voorbeeld 1: Een classificeringsmodel met minimale winst ![een classificatie-model met minimale winst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+Voorbeeld 1: Een model classificatie met minimale winst ![een classificatie-model met minimale winst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
 
-Voorbeeld 2: Een classificeringsmodel met aanzienlijke winst ![een classificatie-model met aanzienlijke winst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+Voorbeeld 2: Een model classificatie met aanzienlijke winst ![een classificatie-model met aanzienlijke winst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
 
 #### <a name="calibration-plot"></a>Kalibreren tekengebied
 
@@ -381,7 +381,7 @@ Een diagram kalibreren wordt gebruikt om het vertrouwen van een Voorspellend mod
 
 Voorbeeld 1: Een meer goed geijkte model ![ meer goed geijkte model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
 
-Voorbeeld 2: Een sprake van redundante confident model ![een model te veel confident](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+Voorbeeld 2: Een model te veel confident ![een model te veel confident](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
 
 ### <a name="regression"></a>Regressie
 Voor elke regressiemodel u bouwen met behulp van de geautomatiseerde machine learning-mogelijkheden van Azure Machine Learning, ziet u de volgende grafieken: 

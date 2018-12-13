@@ -1,5 +1,5 @@
 ---
-title: Back-up maken van uw app in Azure
+title: Back-up van app - Azure App Service
 description: Informatie over het maken van back-ups van uw apps in Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 8035a704a76d8f6287addff9c5503eb93f8e04fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 95fc4567248ca8201174494eee2da5922b7d0f0e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227838"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269223"
 ---
 # <a name="back-up-your-app-in-azure"></a>Back-up maken van uw app in Azure
 De functie back-up en herstel in [Azure App Service](app-service-web-overview.md) kunt u eenvoudig back-ups maken, handmatig of volgens een schema. U kunt de app op een momentopname van een eerdere status herstellen door overschrijft de bestaande app of het herstellen naar een andere app. 
@@ -75,7 +76,7 @@ De volgende databaseoplossingen worden ondersteund door back-up:
 
 2. In de **back-up** pagina, klikt u op **configureren**
 ![klikt u op configureren](./media/web-sites-backup/ClickConfigure1.png)
-3. In de **back-upconfiguratie** pagina, klikt u op **opslag: niet geconfigureerd** het configureren van een storage-account.
+3. In de **back-upconfiguratie** pagina, klikt u op **opslag: Niet geconfigureerd** het configureren van een storage-account.
    
     ![Opslagaccount kiezen][ChooseStorageAccount]
 4. Kies uw back-upbestemming door het selecteren van een **Opslagaccount** en **Container**. Het opslagaccount moet behoren tot hetzelfde abonnement als de app die u wilt back-up. Als u wilt, kunt u een nieuw opslagaccount of een nieuwe container maken in de respectievelijke pagina's. Wanneer u klaar bent, klikt u op **Selecteer**.

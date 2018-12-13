@@ -14,12 +14,12 @@ ms.date: 10/12/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 1e8f5728697e63737ec44fedd8ed336366241f66
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6a175fb888237e5e4de445df6331ffb370839b8c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310739"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163018"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory cmdlets voor het configureren van groepsinstellingen
 In dit artikel bevat instructies voor het gebruik van Azure Active Directory (Azure AD) PowerShell-cmdlets voor groepen maken en bijwerken. Deze inhoud geldt alleen voor Office 365-groepen (ook wel gecombineerde groepen). 
@@ -27,7 +27,7 @@ In dit artikel bevat instructies voor het gebruik van Azure Active Directory (Az
 > [!IMPORTANT]
 > Sommige instellingen voor nodig een Azure Active Directory Premium P1-licentie. Zie voor meer informatie de [sjablooninstellingen](#template-settings) tabel.
 
-Voor meer informatie over hoe u om te voorkomen dat gebruikers die geen beheerder van het maken van beveiligingsgroepen instellen `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` zoals beschreven in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+Voor meer informatie over hoe u om te voorkomen dat gebruikers die geen beheerder van het maken van beveiligingsgroepen instellen `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` zoals beschreven in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Office 365-groepen instellingen worden geconfigureerd met behulp van een object-instellingen en een SettingsTemplate-object. In eerste instantie wordt er geen instellingenobjecten in uw directory omdat uw directory is geconfigureerd met de standaardinstellingen. Als u wilt de standaardinstellingen wijzigen, moet u een nieuwe instellingenobject met behulp van een sjabloon instellingen maken. Instellingen voor sjablonen zijn gedefinieerd door Microsoft. Er zijn verschillende sjablonen met verschillende instellingen. Office 365-groep om instellingen te configureren voor uw directory, moet u de sjabloon met de naam 'Group.Unified' gebruiken. Gebruik de sjabloon met de naam 'Group.Unified.Guest' voor informatie over het configureren van instellingen voor Office 365-groep op één groep. Deze sjabloon wordt gebruikt voor het beheren van toegang voor gasten voor een Office 365-groep. 
 
@@ -46,7 +46,7 @@ Deze stappen maakt u instellingen op het niveau van de map die van toepassing op
 1. In de DirectorySettings-cmdlets, moet u de ID van de SettingsTemplate die u wilt gebruiken. Als u deze ID niet weet, wordt de lijst van alle instellingen voor sjablonen in deze cmdlet geretourneerd:
   
   ```powershell
-  PS C:> Get-AzureADDirectorySettingTemplate
+  Get-AzureADDirectorySettingTemplate
   ```
   Deze cmdlet-aanroep retourneert alle sjablonen die beschikbaar zijn:
   
@@ -94,20 +94,20 @@ Hier vindt u de instellingen die zijn gedefinieerd in de Group.Unified SettingsT
 
 | **Instelling** | **Beschrijving** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Type: Boolean-waarde<li>Standaard: True |De vlag die aangeeft of Office 365-groep maken in de map is toegestaan door niet-beheerders. Deze instelling is niet vereist voor een Azure Active Directory Premium P1-licentie.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Standaard: ' " |GUID van de beveiligingsgroep waarvan de leden kunnen Office 365-groepen maken, zelfs wanneer EnableGroupCreation == false. |
-|  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Standaard: ' " |Een koppeling naar de groepsgebruik. |
-|  <ul><li>ClassificationDescriptions<li>Type: String<li>Standaard: ' " | Een door komma's gescheiden lijst met beschrijvingen van de classificatie. De waarde van ClassificationDescriptions is alleen geldig in deze indeling:
+|  <ul><li>EnableGroupCreation<li>Type: Booleaans<li>Standaard: True |De vlag die aangeeft of Office 365-groep maken in de map is toegestaan door niet-beheerders. Deze instelling is niet vereist voor een Azure Active Directory Premium P1-licentie.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Type: Reeks<li>Standaard: ' " |GUID van de beveiligingsgroep waarvan de leden kunnen Office 365-groepen maken, zelfs wanneer EnableGroupCreation == false. |
+|  <ul><li>UsageGuidelinesUrl<li>Type: Reeks<li>Standaard: ' " |Een koppeling naar de groepsgebruik. |
+|  <ul><li>ClassificationDescriptions<li>Type: Reeks<li>Standaard: ' " | Een door komma's gescheiden lijst met beschrijvingen van de classificatie. De waarde van ClassificationDescriptions is alleen geldig in deze indeling:
   $setting ["ClassificationDescriptions"] = 'Classificatie: beschrijving, classificatie: Description', waarbij de classificatie komt overeen met de tekenreeksen in de ClassificationList.|
-|  <ul><li>DefaultClassification<li>Type: String<li>Standaard: ' " | De classificatie die moet worden gebruikt als de Standaardclassificatie voor een groep als niets is opgegeven.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Standaard: ' " | Tekenreeks met een maximale lengte van 64 tekens die de naamconventie die is geconfigureerd voor Office 365-groepen definieert. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen](groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Type: String<li>Standaard: ' " | Door komma's gescheiden tekenreeks van zinnen die gebruikers niet mogen gebruiken in namen of aliassen. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Type: Boolean-waarde<li>Standaard: "False" | Gebruik geen
-|  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Boolean-waarde<li>Standaard: False | Booleaanse waarde waarmee wordt aangegeven of een gastgebruiker moet een eigenaar van de groepen kan worden. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean-waarde<li>Standaard: True | Booleaanse waarde waarmee wordt aangegeven of een gastgebruiker toegang tot inhoud voor Office 365-groepen kan hebben.  Deze instelling is niet vereist voor een Azure Active Directory Premium P1-licentie.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Standaard: ' " | De url van een koppeling naar de richtlijnen voor het gebruik van Gast. |
-|  <ul><li>AllowToAddGuests<li>Type: Boolean-waarde<li>Standaard: True | Een Booleaanse waarde die aangeeft of gasten toevoegen aan deze map is toegestaan of niet.|
-|  <ul><li>ClassificationList<li>Type: String<li>Standaard: ' " |Een door komma's gescheiden lijst van geldige classificatiewaarden die kunnen worden toegepast op Office 365-groepen. |
+|  <ul><li>DefaultClassification<li>Type: Reeks<li>Standaard: ' " | De classificatie die moet worden gebruikt als de Standaardclassificatie voor een groep als niets is opgegeven.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>Type: Reeks<li>Standaard: ' " | Tekenreeks met een maximale lengte van 64 tekens die de naamconventie die is geconfigureerd voor Office 365-groepen definieert. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Type: Reeks<li>Standaard: ' " | Door komma's gescheiden tekenreeks van zinnen die gebruikers niet mogen gebruiken in namen of aliassen. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen](groups-naming-policy.md). |
+| <ul><li>EnableMSStandardBlockedWords<li>Type: Booleaans<li>Standaard: "False" | Gebruik geen
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Booleaans<li>Standaard: False | Booleaanse waarde waarmee wordt aangegeven of een gastgebruiker moet een eigenaar van de groepen kan worden. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Type: Booleaans<li>Standaard: True | Booleaanse waarde waarmee wordt aangegeven of een gastgebruiker toegang tot inhoud voor Office 365-groepen kan hebben.  Deze instelling is niet vereist voor een Azure Active Directory Premium P1-licentie.|
+|  <ul><li>GuestUsageGuidelinesUrl<li>Type: Reeks<li>Standaard: ' " | De url van een koppeling naar de richtlijnen voor het gebruik van Gast. |
+|  <ul><li>AllowToAddGuests<li>Type: Booleaans<li>Standaard: True | Een Booleaanse waarde die aangeeft of gasten toevoegen aan deze map is toegestaan of niet.|
+|  <ul><li>ClassificationList<li>Type: Reeks<li>Standaard: ' " |Een door komma's gescheiden lijst van geldige classificatiewaarden die kunnen worden toegepast op Office 365-groepen. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Instellingen op het niveau van de map lezen
 Deze stappen lezen instellingen op het niveau van de map die van toepassing op alle Office-groepen in de map zijn.

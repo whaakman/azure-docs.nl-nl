@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 583a84fd943f6dab63f94e2811e21853e6e5f6a1
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0023b8aa5d4f79af397b937030c5308a970af991
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959168"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187497"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Een actiegroep maken met een Resource Manager-sjabloon
 In dit artikel leest u hoe u een [Azure Resource Manager-sjabloon](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) actiegroepen configureren. Met behulp van sjablonen, kunt u automatisch actiegroepen die opnieuw kunnen worden gebruikt in bepaalde typen waarschuwingen instellen. Deze actiegroepen ervoor te zorgen dat de juiste partijen worden gewaarschuwd wanneer een waarschuwing wordt geactiveerd.
@@ -164,6 +164,6 @@ Voor het maken van een actiegroep die u met behulp van Resource Manager-sjabloon
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [actiegroepen](monitoring-action-groups.md).
+* Meer informatie over [actiegroepen](../azure-monitor/platform/action-groups.md).
 * Meer informatie over [waarschuwingen](monitoring-overview-alerts.md).
-* Informatie over het toevoegen [waarschuwingen met behulp van Resource Manager-sjabloon](alert-activity-log.md).
+* Informatie over het toevoegen [waarschuwingen met behulp van Resource Manager-sjabloon](../azure-monitor/platform/alerts-activity-log.md).

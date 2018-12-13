@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: ddf749dd033771ae9bad09f4548c277c279c2bb5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839361"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186120"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing System Center Operations Manager Health Check (Preview)
 
@@ -99,7 +97,7 @@ Nu dat de Run As-account is gemaakt, moet de doel-beheerservers in de beheergroe
 2. Op de **distributie** tabblad **toevoegen** voor de **selecteerde computers** en toe te voegen van de beheerserver voor het distribueren van het account.  Klik op **OK** tweemaal de wijzigingen wilt opslaan.
 3. Onder **Run As-configuratie**, klikt u op **profielen**.
 4. Zoek de *SCOM-evaluatie profiel*.
-5. Naam van het profiel moet zijn: *Microsoft System Center Advisor SCOM-evaluatie Run As-profiel*.
+5. Naam van het profiel moet zijn: *SCOM-evaluatie voor Microsoft System Center Advisor Run As-profiel*.
 6. Met de rechtermuisknop op en de eigenschappen ervan bijwerken en toevoegen van de onlangs gemaakte uitvoeren als-Account u eerder hebt gemaakt.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>SQL-script om gedetailleerde machtigingen voor het uitvoeren als-account te verlenen
@@ -161,8 +159,8 @@ De Microsoft System Center Advisor SCOM beoordeling uitvoeren evaluatie van de r
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>De regel voor een specifieke beheerserver inschakelen
 
 1. In de **ontwerpen** werkruimte van de Operations Manager Operations-console, zoekt u de regel *Microsoft System Center Advisor SCOM-evaluatie evaluatie van de regel uitvoeren* in de **regels** deelvenster.
-2. In de lijst met zoekresultaten de optie met de tekst *Type: beheerserver*.
-3. Met de rechtermuisknop op de regel en klik vervolgens op **onderdrukkingen** > **voor een specifiek object van klasse: beheerserver**.
+2. In de lijst met zoekresultaten de optie met de tekst *Type: Beheerserver*.
+3. Met de rechtermuisknop op de regel en klik vervolgens op **onderdrukkingen** > **voor een specifiek object van klasse: Beheerserver**.
 4.  Selecteer in de beschikbare lijst met beheerservers, de beheerserver waar de regel moet worden uitgevoerd.  Dit moet u eerder hebt geconfigureerd om te koppelen van de uitvoeren als-account met dezelfde beheerserver.
 5.  Zorg ervoor dat u de waarde voor overschrijven om te wijzigen **waar** voor de **ingeschakeld** parameterwaarde.<br><br> ![parameter overschrijven](./media/scom-assessment/rule.png)
 
@@ -173,8 +171,8 @@ De Microsoft System Center Advisor SCOM beoordeling uitvoeren evaluatie van de r
 De evaluatie is standaard geconfigureerd voor het uitvoeren van elke 10.080 minuten (of zeven dagen). De waarde moet een minimumwaarde van 1440 minuten (of één dag), kunt u negeren. De waarde vertegenwoordigt de minimumtijd kloof tussen opeenvolgende evaluatie wordt uitgevoerd. Als u wilt overschrijven het interval, gebruik de volgende stappen.
 
 1. In de **ontwerpen** werkruimte van de Operations Manager-console, zoekt u de regel *Microsoft System Center Advisor SCOM-evaluatie evaluatie van de regel uitvoeren* in de **regels** de sectie.
-2. In de lijst met zoekresultaten de optie met de tekst *Type: beheerserver*.
-3. Met de rechtermuisknop op de regel en klik vervolgens op **de regel onderdrukken** > **voor alle objecten van klasse: beheerserver**.
+2. In de lijst met zoekresultaten de optie met de tekst *Type: Beheerserver*.
+3. Met de rechtermuisknop op de regel en klik vervolgens op **de regel onderdrukken** > **voor alle objecten van klasse: Beheerserver**.
 4. Wijzig de **Interval** parameterwaarde uw gewenste intervalwaarde. In het onderstaande voorbeeld is de waarde ingesteld op 1440 minuten (één dag).<br><br> ![interval voor parameter](./media/scom-assessment/interval.png)<br>  
 
     Als de waarde is ingesteld op minder dan 1440 minuten, klikt u vervolgens de regel wordt uitgevoerd in een interval van één dag. In dit voorbeeld de regel de intervalwaarde wordt genegeerd en wordt uitgevoerd met een frequentie van één dag.

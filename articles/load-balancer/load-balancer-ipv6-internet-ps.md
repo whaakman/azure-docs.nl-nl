@@ -1,23 +1,25 @@
 ---
-title: Een internetgerichte load balancer maken met IPv6 - PowerShell | Microsoft Docs
+title: Een internetgerichte load balancer maken met IPv6 - PowerShell
+titlesuffix: Azure Load Balancer
 description: Informatie over het maken van een internetgerichte load balancer met IPv6 voor Resource Manager met behulp van PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
 keywords: IPv6-, azure-load balancer, dual-stack, openbaar IP-adres, systeemeigen IPv6-, mobiele, iot
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 71164899de9e4351e2da5ce469f0d7ae0373829f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: c62ef62a4a16f78003087347548c12793d61b10f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741331"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162406"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Maken van een internetgerichte load balancer met IPv6 voor Resource Manager met behulp van PowerShell
 

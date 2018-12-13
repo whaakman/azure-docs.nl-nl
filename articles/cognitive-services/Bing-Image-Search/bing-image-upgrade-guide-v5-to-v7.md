@@ -1,7 +1,7 @@
 ---
-title: Een upgrade uitvoeren voor Bing afbeeldingen zoeken-API versie 5 naar versie 7 - Bing afbeeldingen zoeken-API
+title: Een upgrade uitvoeren voor Bing afbeeldingen zoeken-API versie 5 naar versie 7
 titleSuffix: Azure Cognitive Services
-description: Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van de Bing afbeeldingen zoeken-API. Deze handleiding gebruiken om te bepalen van de onderdelen van uw toepassing die u nodig hebt om bij te werken voor het gebruik van versie 7.
+description: Deze upgrade handleiding beschrijft de wijzigingen tussen 5 en versie 7 van de Bing afbeeldingen zoeken-API. Deze handleiding gebruiken om te bepalen van de onderdelen van uw toepassing die u nodig hebt om bij te werken voor het gebruik van versie 7.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,14 +11,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 53713a629dbe2682ef393a3a5dbf7845b5075591
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2192e3d2a344a31717c59c813123ed0c807a2841
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296359"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256550"
 ---
-# <a name="image-search-api-upgrade-guide"></a>Handleiding voor van afbeeldingen zoeken-API bijwerken
+# <a name="bing-image-search-api-upgrade-guide"></a>Bing afbeeldingen zoeken-API Upgradehandleiding
 
 Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van de Bing afbeeldingen zoeken-API. Deze handleiding gebruiken om te bepalen van de onderdelen van uw toepassing die u nodig hebt om bij te werken voor het gebruik van versie 7.
 
@@ -39,7 +39,7 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 
 - De foutcodes v5 vervangen door de volgende mogelijke `code` en `subCode` waarden.
 
-|Code|De subCode|Beschrijving
+|Code|De subCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. Het antwoord bevat deze fouten als de HTTP-statuscode 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.

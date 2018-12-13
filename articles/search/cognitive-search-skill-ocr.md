@@ -1,6 +1,6 @@
 ---
-title: OCR cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
-description: Haal de tekst uit-bestanden in een Azure Search verrijking-pijplijn.
+title: OCR cognitief zoeken vaardigheid - Azure Search
+description: Haal de tekst uit bestanden met behulp van optische tekenherkenning (OCR) in een Azure Search verrijking-pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 97d594a232c3576d0a0163b2d6847f06328bcd7b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 097fd93955a4ca3fd96ae6452fa3b503b029ffc3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167508"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313221"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR cognitieve vaardigheden
 
@@ -29,13 +30,18 @@ De **OCR** vaardigheid haalt tekst op uit de afbeeldingsbestanden. Ondersteunde 
 + . GIF-BESTAND
 
 > [!NOTE]
-> Cognitief zoeken is een openbare preview. Uitvoering van vaardigheden en uitpakken van de installatiekopie en normalisering worden momenteel gratis aangeboden. Op een later tijdstip, worden de prijzen van deze mogelijkheden aangekondigd. 
+> Vanaf December 21 mei 2018, kunt u zich een Cognitive Services-resource koppelen aan een Azure Search-vaardigheden. Hierdoor kunnen we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum ook in rekening voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijven worden aangeboden zonder extra kosten.
+>
+> De uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijsstelling wordt in rekening gebracht op de preview-prijzen en wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). Informatie over [meer](cognitive-search-attach-cognitive-services.md).
+>
+>  De kwalificatie OCR wordt toegewezen aan de volgende functionaliteit van cognitive services: Wanneer textExtractionAlgorithm is ingesteld op 'handgeschreven', de ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) functionaliteit wordt gebruikt.
+>  Wanneer textExtractionAlgorithm is ingesteld op 'afdrukken', de ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) functionaliteit wordt gebruikt voor andere talen dan Engels. Voor Engels, de nieuwe ['Herkennen tekst'](../cognitive-services/computer-vision/concept-recognizing-text.md) functionaliteit voor gedrukte tekst wordt gebruikt.
 
 ## <a name="skill-parameters"></a>Kwalificatie parameters
 
 Parameters zijn hoofdlettergevoelig.
 
-| Parameternaam     | Beschrijving |
+| Parameternaam     | Description |
 |--------------------|-------------|
 | detectOrientation | Hiermee kunt automatische detectie van de afdrukstand. <br/> Geldige waarden: true / false.|
 |defaultLanguageCode | <p>  De taalcode van de invoertekst. Enkele ondersteunde talen: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Tsjechië) <br/>da (Denemarken) <br/>NL (Nederlands) <br/>NL-(Engels) <br/>Fi (Fins)  <br/>FR (Frans) <br/>  de (Duits) <br/>EL (Grieks) <br/> hu (Hongaars) <br/> Deze (Italiaans) <br/>  Japan (Japans) <br/> Ko (Koreaans) <br/> NB (Noors) <br/>   PL (Pools) <br/> PT (Portugees) <br/>  RU (Russisch) <br/>  ES (Spaans) <br/>  SV (Zweeds) <br/>  TR (Turks) <br/> ar (Arabisch) <br/> ro (Roemeens) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Slowakije). <br/>  UNK (onbekend) <br/><br/> Als de taal niet opgegeven of null zijn is, is de taal autodetected. </p> |
@@ -43,13 +49,13 @@ Parameters zijn hoofdlettergevoelig.
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Voer een naam in      | Beschrijving                                          |
+| Voer een naam in      | Description                                          |
 |---------------|------------------------------------------------------|
 | image         | Complexe Type. Momenteel wordt alleen werkt met "/ document/normalized_images"-veld, die worden geproduceerd door de indexeerfunctie Azure Blob als ```imageAction``` is ingesteld op ```generateNormalizedImages```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
 
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
-| Naam van de uitvoer     | Beschrijving                   |
+| Naam van de uitvoer     | Description                   |
 |---------------|-------------------------------|
 | tekst          | Tekst zonder opmaak is geëxtraheerd uit de afbeelding.   |
 | layoutText    | Complexe type dat beschrijft de geëxtraheerde tekst, evenals de locatie waar de tekst is gevonden.|
@@ -126,7 +132,7 @@ Parameters zijn hoofdlettergevoelig.
 }
 ```
 
-## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Voorbeeld: Samenvoegen uit ingesloten afbeeldingen met de inhoud van het document geëxtraheerde tekst.
+## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Voorbeeld: Samenvoegen van ingesloten afbeeldingen met de inhoud van het document geëxtraheerde tekst.
 
 Een veelvoorkomende use-case voor tekst samenvoegen is de mogelijkheid om samen te voegen van de tekstweergave van installatiekopieën (tekst uit een OCR-vaardigheden of het bijschrift van een installatiekopie) in het veld inhoud van een document. 
 

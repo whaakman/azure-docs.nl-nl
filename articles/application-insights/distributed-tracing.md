@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9594ccd0449cf68a63c770cfdee03f255aa2beae
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: aa163d215f4b9c396585dbba63883a3d1beff457
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638372"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164259"
 ---
 # <a name="what-is-distributed-tracing"></a>Wat is gedistribueerd traceren?
 
-De opkomst van moderne cloud- en microservicesarchitecturen heeft geleid tot eenvoudige, onafhankelijk implementeerbare services waarmee u kosten verlagen kunnen terwijl u hogere beschikbaarheid en doorvoer. Maar terwijl deze verplaatsingen van het type afzonderlijke services gemakkelijker te begrijpen als geheel gemaakt hebben, hebben ze algehele systemen moeilijker reden over en fouten opsporen aangebracht.
+De opkomst van moderne cloud en [microservices](http://azure.com/microservices) architecturen heeft geleid tot eenvoudige, onafhankelijk implementeerbare services waarmee u kunnen kosten verlagen terwijl u hogere beschikbaarheid en doorvoer. Maar terwijl deze verplaatsingen van het type afzonderlijke services gemakkelijker te begrijpen als geheel gemaakt hebben, hebben ze algehele systemen moeilijker reden over en fouten opsporen aangebracht.
 
 In monolithische architecturen hebben we verkregen gebruikt om het foutopsporing met call-stacks. Call-stacks zijn schitterende hulpprogramma's voor het weergeven van de stroom van de uitvoering (methode een aangeroepen methode B, C methode genoemd), samen met details en parameters over elk van deze aanroepen. Dit is ideaal voor monolieten of services die worden uitgevoerd op een enkel proces, maar hoe we fouten bij de aanroep is voor de Procesgrens van een, niet alleen een verwijzing op de lokale stack? 
 

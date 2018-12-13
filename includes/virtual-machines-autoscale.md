@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7bafc30bbf8661f7054e49c36af420507f37c989
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226698"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326478"
 ---
-U kunt eenvoudig [automatisch schalen](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) uw [virtuele machines (VM's)](../articles/virtual-machines/windows/overview.md) bij het gebruik [virtuele-machineschaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) en de [functie voor automatisch schalen van Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Uw virtuele machines moeten lid zijn van een schaalset automatisch worden geschaald. In dit artikel bevat informatie waarmee u beter te begrijpen hoe u uw virtuele machines met behulp van automatische en handmatige methoden verticaal en horizontaal schalen.
+U kunt eenvoudig [automatisch schalen](../articles/azure-monitor/platform/autoscale-best-practices.md) uw [virtuele machines (VM's)](../articles/virtual-machines/windows/overview.md) bij het gebruik [virtuele-machineschaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) en de [functie voor automatisch schalen van Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Uw virtuele machines moeten lid zijn van een schaalset automatisch worden geschaald. In dit artikel bevat informatie waarmee u beter te begrijpen hoe u uw virtuele machines met behulp van automatische en handmatige methoden verticaal en horizontaal schalen.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Horizontaal of verticaal schalen
 
@@ -35,7 +35,7 @@ U kunt automatisch schalen inschakelen bij het maken van de schaalset met behulp
  
 ### <a name="metrics"></a>Metrische gegevens
 
-De functie voor automatisch schalen van Azure Monitor kunt u voor het schalen van het aantal actieve VM's omhoog of omlaag op basis van [metrische gegevens](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Standaard voorzien VM's in eenvoudige metrische gegevens voor de host op schijf-, netwerk- en CPU-gebruik. Wanneer u het verzamelen van diagnostische gegevens met de diagnostische extensie configureert, wordt extra Gast OS-prestatiemeteritems voor de schijf, de CPU en geheugen beschikbaar komen.
+De functie voor automatisch schalen van Azure Monitor kunt u voor het schalen van het aantal actieve VM's omhoog of omlaag op basis van [metrische gegevens](../articles/azure-monitor/platform/autoscale-common-metrics.md). Standaard voorzien VM's in eenvoudige metrische gegevens voor de host op schijf-, netwerk- en CPU-gebruik. Wanneer u het verzamelen van diagnostische gegevens met de diagnostische extensie configureert, wordt extra Gast OS-prestatiemeteritems voor de schijf, de CPU en geheugen beschikbaar komen.
 
 ![Metrische criteria](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -49,7 +49,7 @@ Als de toepassing nodig heeft om te schalen op basis van metrische gegevens die 
  
 ### <a name="notifications"></a>Meldingen
 
-U kunt [activeerbare](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) zodat specifieke web URL's zijn met de naam of e-mailberichten worden verzonden op basis van de regels voor automatisch schalen die u maakt. Webhooks kunt u de Azure-waarschuwingen doorsturen naar andere systemen voor na verwerking of aangepaste meldingen.
+U kunt [activeerbare](../articles/azure-monitor/platform/autoscale-webhook-email.md) zodat specifieke web URL's zijn met de naam of e-mailberichten worden verzonden op basis van de regels voor automatisch schalen die u maakt. Webhooks kunt u de Azure-waarschuwingen doorsturen naar andere systemen voor na verwerking of aangepaste meldingen.
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>Handmatig schalen van virtuele machines in een schaalset
 

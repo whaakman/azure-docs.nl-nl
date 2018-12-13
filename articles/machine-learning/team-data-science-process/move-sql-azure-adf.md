@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 87aa1c30bb567c6820e2d9ecacfc3f8cd2338339
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a1bb841c1218be0a418583af8ca95b2dff2f67d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137766"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309498"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een on-premises SQL server naar SQL Azure met Azure Data Factory
 
@@ -24,7 +24,7 @@ In dit artikel laat zien hoe gegevens uit een on-premises SQL Server-Database ve
 
 Zie voor een tabel met een overzicht van verschillende opties voor het verplaatsen van gegevens naar een Azure SQL Database, [gegevens verplaatsen naar een Azure SQL Database voor Azure Machine Learning](move-sql-azure.md).
 
-## <a name="intro"></a>Inleiding: Wat is er ADF en wanneer moet deze worden gebruikt om gegevens te migreren?
+## <a name="intro"></a>Introductie: Wat is ADF en wanneer moet deze worden gebruikt om gegevens te migreren?
 Azure Data Factory is een volledig beheerde cloud-gebaseerde service voor gegevensintegratie die wordt georganiseerd en de verplaatsing en transformatie van gegevens worden geautomatiseerd. Het belangrijkste concept in het model ADF is de pijplijn. Een pijplijn is een logische groepering van activiteiten, die elk de acties die worden uitgevoerd op de gegevens die zijn opgenomen in gegevenssets definieert. Gekoppelde services worden gebruikt om de informatie die nodig zijn voor Data Factory verbinding maken met de gegevensbronnen die worden gedefinieerd.
 
 Met ADF, kunnen bestaande services voor gegevensverwerking bestaan in gegevenspijplijnen die maximaal beschikbaar en beheerd in de cloud. Deze gegevens-pipelines voor het opnemen, voorbereiden, transformeren, analyseren en publiceren van gegevens kunnen worden gepland en ADF beheert en orkestreert de complexe gegevens en de verwerking van afhankelijkheden. Oplossingen kunnen snel worden gebouwd en geïmplementeerd in de cloud, verbinding te maken van een groeiend aantal on-premises en cloudgegevensbronnen.
@@ -43,7 +43,7 @@ We instellen een ADF-pijplijn waarmee twee gegevens migratieactiviteiten stelt h
 * gegevens kopiëren van de Azure Blob Storage-account naar een Azure SQL Database.
 
 > [!NOTE]
-> De stappen die hier zijn aangepast van de meer gedetailleerde zelfstudie die door het team ADF weergegeven: [gegevens kopiëren van een on-premises SQL Server-database naar Azure Blob-opslag](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal/) verwijzingen naar de relevante secties van dit onderwerp vindt u bij van toepassing.
+> De stappen die hieronder zijn gebaseerd op de gedetailleerdere zelfstudie die door het team ADF: [Gegevens kopiëren van een on-premises SQL Server-database naar Azure Blob-opslag](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) verwijzingen naar de relevante secties van dit onderwerp vindt u indien van toepassing.
 >
 >
 
@@ -71,7 +71,7 @@ De instructies voor het maken van een nieuwe Azure Data Factory en een resourceg
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installeren en configureren van Azure Data Factory Integration Runtime 
 De Integration Runtime is een klant beheerde gegevensintegratie-infrastructuur door Azure Data Factory gebruikt om u te bieden mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Deze runtime heette voorheen 'Data Management Gateway'. 
 
-Om in te stellen, [volgt u de instrutions voor het maken van een pijplijn](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Om in te stellen, [volgt u de instrutions voor het maken van een pijplijn](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Maak gekoppelde services verbinding maken met de gegevensbronnen
 De informatie die nodig zijn voor Azure Data Factory verbinding maken met een Gegevensresource definieert de gekoppelde service. We hebben drie resources in dit scenario waarvoor gekoppelde services nodig zijn:

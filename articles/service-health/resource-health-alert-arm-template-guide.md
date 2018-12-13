@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: ac1b9dbbb5739dd015c0bda5f1ea82fe26bb0c70
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625943"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184094"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource health waarschuwingen configureren met Resource Manager-sjablonen
 
@@ -32,7 +32,7 @@ Azure Resource Health houdt die u geïnformeerd over de huidige en historische s
 Volg de instructies op deze pagina, moet u van tevoren een aantal dingen instellen:
 
 1. U moet installeren de [Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
-2. U moet [maken of een actiegroep hergebruiken](../monitoring-and-diagnostics/monitoring-action-groups.md) geconfigureerd om u te waarschuwen
+2. U moet [maken of een actiegroep hergebruiken](../azure-monitor/platform/action-groups.md) geconfigureerd om u te waarschuwen
 
 ## <a name="instructions"></a>Instructies
 1. Met behulp van PowerShell, meld u aan bij Azure met behulp van uw account en selecteer het abonnement dat u wilt communiceren
@@ -233,7 +233,7 @@ Als u wilt worden gewaarschuwd voor alle vier fasen van de health-gebeurtenissen
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>De Resource Health waarschuwingen om te voorkomen dat 'Onbekend' gebeurtenissen aanpassen
 
-Azure Resource Health kunt melden aan u de meest recente status van uw resources door voortdurend controleren of ze met behulp van test runners-up. De relevante gerapporteerde health-statussen zijn: 'Beschikbaar', 'Niet beschikbaar' en 'Gedegradeerd'. Echter in situaties waarin de runner en de Azure-resource kan niet communiceren, de status van een 'Onbekende' Status gerapporteerd voor de resource en die wordt beschouwd als een 'Active' health-gebeurtenis.
+Azure Resource Health kunt melden aan u de meest recente status van uw resources door voortdurend controleren of ze met behulp van test runners-up. De relevante gerapporteerde health-statussen zijn: 'Beschikbaar', 'Niet beschikbaar' en 'Verminderde'. Echter in situaties waarin de runner en de Azure-resource kan niet communiceren, de status van een 'Onbekende' Status gerapporteerd voor de resource en die wordt beschouwd als een 'Active' health-gebeurtenis.
 
 Echter, wanneer een resource meldt 'Onbekend', is het waarschijnlijk dat de status niet is gewijzigd sinds de laatste nauwkeurige rapport. Als u wilt verwijderen van waarschuwingen voor 'Onbekende' gebeurtenissen, kunt u deze logica kunt opgeven in de sjabloon:
 
@@ -435,4 +435,4 @@ Meer informatie over Resource Health:
 -  [Resourcetypen en statuscontroles die beschikbaar zijn via Azure Resource Health](resource-health-checks-resource-types.md)
 
 Service Health waarschuwingen maken:
--  [Waarschuwingen voor de status van de Service configureren](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Waarschuwingen voor de status van de Service configureren](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

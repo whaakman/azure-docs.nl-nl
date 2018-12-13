@@ -7,34 +7,33 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: 2261b8fa496beaf2a14c9b949047b6a5cbc6ea32
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292290"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253201"
 ---
 # <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
 
-In dit artikel leest u hoe u een video uploadt met Azure Video Indexer. De Video Indexer API biedt twee opties voor uploaden: 
+Tijdens het uploaden van video's met Video Indexer-API, hebt u twee opties voor uploaden: 
 
 * uw video uploaden via een URL (aanbevolen),
 * het videobestand verzenden als een bytematrix in de aanvraagbody.
 * Gebruik bestaande Azure Media Services-assets door de [asset-id](https://docs.microsoft.com/azure/media-services/latest/assets-concept) op te geven (alleen ondersteund in betaalde accounts).
 
-In het artikel ziet u hoe u de API [Video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) gebruikt voor het uploaden en indexeren van uw video's op basis van een URL. De voorbeeldcode in het artikel bevat de opmerkingen in de code die laten zien hoe u de bytematrix uploadt.  
+In het artikel ziet u hoe u de API [Video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) gebruikt voor het uploaden en indexeren van uw video's op basis van een URL. De voorbeeldcode in het artikel bevat de opmerkingen in de code die laten zien hoe u de bytematrix uploadt. <br/>In het artikel komen enkele van de parameters aan bod die u op de API kunt instellen om het proces en de uitvoer van de API te wijzigen.
 
-In het artikel komen enkele van de parameters aan bod die u op de API kunt instellen om het proces en de uitvoer van de API te wijzigen.
-
-> [!Note]
-> Wanneer u een Video Indexer-account maakt, kunt u kiezen uit een gratis proefversie (waarmee u een bepaald aantal gratis minuten indexering krijgt) of een betaalde optie (zonder quotumlimiet). <br/>Bij de gratis proefversie biedt Video Indexer websitegebruikers maximaal 600 minuten aan gratis indexering en API-gebruikers maximaal 2400 minuten gratis indexering. Met de betaalde versie maakt u een Video Indexer-account dat is [gekoppeld aan uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt zowel voor de geïndexeerde minuten als voor kosten verbonden aan het Media-account. 
+Zodra uw video is geüpload, codeert Video Indexer, eventueel de video (besproken in het artikel). Wanneer u een Video Indexer-account maakt, kunt u kiezen uit een gratis proefversie (waarmee u een bepaald aantal gratis minuten indexering krijgt) of een betaalde optie (zonder quotumlimiet). Bij de gratis proefversie biedt Video Indexer websitegebruikers maximaal 600 minuten aan gratis indexering en API-gebruikers maximaal 2400 minuten gratis indexering. Met de betaalde versie maakt u een Video Indexer-account dat is [gekoppeld aan uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt zowel voor de geïndexeerde minuten als voor kosten verbonden aan het Media-account. 
 
 ## <a name="uploading-considerations"></a>Aandachtspunten voor uploaden
     
 - Bij het uploaden van uw video op basis van de URL (aanbevolen) moet het eindpunt worden beveiligd met TLS 1.2 (of hoger)
-- De optie bytematrix is beperkt tot 2 GB en er treedt een time-out op na 30 minuten
+- De grootte voor het uploaden met de URL-optie is beperkt tot 10GB
+- De grootte voor het uploaden met de optie byte-matrix is beperkt tot 2GB 
+- De optie van de matrix byte er een time-out na 30 minuten
 - De URL die is opgegeven in de parameter `videoURL`moet worden gecodeerd
 
 > [!Tip]
@@ -57,15 +56,15 @@ Een URL die wordt gebruikt om de klant (met een POST-aanvraag) op de hoogte te s
 - Statuswijziging indexering: 
     - Eigenschappen:    
     
-        |Naam|Beschrijving|
+        |Name|Description|
         |---|---|
         |id|De video-id|
         |state|De videostatus|  
     - Voorbeeld: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Personen geïdentificeerd in de video:
-    - Eigenschappen
+    - Properties
     
-        |Naam|Beschrijving|
+        |Name|Description|
         |---|---|
         |id| De video-id|
         |faceId|De gezichts-id die wordt weergegeven in de video-index|
@@ -91,7 +90,7 @@ De prijs is afhankelijk van de geselecteerde optie voor indexering.
 
 ### <a name="priority"></a>priority
 
-Video's worden geïndexeerd door Video Indexer op basis van de prioriteit. Gebruik de parameter **priority** voor het specificeren van de indexeringsprioriteit. De volgende waarden zijn geldig: **Laag**, **Normaal** (standaard) en **Hoog**.
+Video's worden geïndexeerd door Video Indexer op basis van de prioriteit. Gebruik de parameter **priority** voor het specificeren van de indexeringsprioriteit. De volgende waarden zijn geldig: **Lage**, **normaal** (standaard), en **hoge**.
 
 De parameter **priority** wordt alleen ondersteund voor betaalde accounts.
 
@@ -281,7 +280,7 @@ public class AccountContractSlim
 
 De statuscodes in de volgende tabel kunnen worden geretourneerd door de uploadbewerking.
 
-|Statuscode|ErrorType (in hoofdtekst van antwoord)|Beschrijving|
+|Statuscode|ErrorType (in hoofdtekst van antwoord)|Description|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|Dezelfde video wordt al verwerkt in het opgegeven account.|
 |400|VIDEO_ALREADY_FAILED|Dezelfde video kon minder dan twee uur geleden niet worden verwerkt in het opgegeven account. API-clients moeten ten minste twee uur wachten voordat ze een video opnieuw uploaden.|

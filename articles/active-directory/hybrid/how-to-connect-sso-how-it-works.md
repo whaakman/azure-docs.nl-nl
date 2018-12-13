@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 236a9dac64fa98b9db68a610de097c1deba3e7ee
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 54b614e49bc7c03325ebeada60232fca861874e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970418"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193073"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory naadloze eenmalige aanmelding: technische details
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory naadloze eenmalige aanmelding: Technische details
 
 Dit artikel vindt u technische gegevens in de werking van de functie Azure Active Directory naadloze eenmalige aanmelding (naadloze eenmalige aanmelding).
 
@@ -58,8 +58,8 @@ De stroom aanmelden via een webbrowser is als volgt:
 2. Als de gebruiker is niet al aangemeld, wordt de gebruiker omgeleid naar de aanmeldingspagina van Azure AD.
 3. De gebruiker typt in hun gebruikersnaam in de Azure AD-aanmeldingspagina.
 
-  >[!NOTE]
-  >Voor [bepaalde toepassingen](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), stappen 2 en 3 worden overgeslagen.
+   >[!NOTE]
+   >Voor [bepaalde toepassingen](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), stappen 2 en 3 worden overgeslagen.
 
 4. Met behulp van JavaScript op de achtergrond, uitdagingen Azure AD voor de browser, via een 401-niet-geautoriseerde respons, voor een Kerberos-ticket.
 5. De browser, vraagt een ticket op zijn beurt uit Active Directory voor de `AZUREADSSOACC` computeraccount (die staat voor Azure AD).

@@ -10,17 +10,15 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 5294d5919b6d4d80c61e183866409123a9edbb60
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082660"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194229"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Verbinding maken met computers zonder toegang tot het Internet met behulp van de Log Analytics-gateway
 Dit document wordt beschreven hoe u communicatie configureren met Azure Automation en Log Analytics met behulp van de Log Analytics-gateway als direct verbonden of Operations Manager bewaakt computers geen toegang tot Internet hebben.  De Log Analytics-gateway, die een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding maken, kan gegevens verzamelen en te verzenden naar Azure Automation en Log Analytics namens hen.  
@@ -89,8 +87,8 @@ De volgende tabel ziet u het ondersteunde aantal agents een gatewayserver commun
 
 |Gateway |Ongeveer aantal agents ondersteund|  
 |--------|----------------------------------|  
-|-CPU: Intel XEON processor E5-2660 v3 \@ 2,6 GHz 2 kernen<br> -Geheugen: 4 GB<br> -Netwerk bandbreedte: 1 Gbps| 600|  
-|-CPU: Intel XEON processor E5-2660 v3 \@ 2,6 GHz 4 Cores<br> -Geheugen: 8 GB<br> -Netwerk bandbreedte: 1 Gbps| 1000|  
+|-CPU: Intel XEON processor E5-2660 v3 \@ 2,6 GHz 2 kernen<br> -Geheugen: 4 GB<br> -De netwerkbandbreedte: 1 Gbps| 600|  
+|-CPU: Intel XEON processor E5-2660 v3 \@ 2,6 GHz 4 Cores<br> -Geheugen: 8 GB<br> -De netwerkbandbreedte: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>De Log Analytics-gateway downloaden
 
@@ -136,7 +134,7 @@ Zie voor informatie over het ontwerpen en implementeren van een Windows Server 2
 1. Meld u aan de Windows-server die deel uitmaakt van het NLB-cluster met een Administrator-account.  
 1. Beheer van netwerktaakverdeling in Serverbeheer openen, klikt u op **extra**, en klik vervolgens op **beheer van netwerktaakverdeling**.
 1. Als u wilt verbinding maken met een Log Analytics gateway-server met de Microsoft Monitoring Agent is geïnstalleerd, met de rechtermuisknop op het IP-adres van het cluster en klik vervolgens op **Host aan Cluster toevoegen**.<br><br> ![Network Load Balancing Manager – toevoegen Host aan Cluster](./media/gateway/nlb02.png)<br> 
-1. Voer het IP-adres van de gateway-server waarmee u verbinding wilt maken.<br><br> ![Network Load Balancing Manager – Host aan Cluster toevoegen: verbinding maken](./media/gateway/nlb03.png) 
+1. Voer het IP-adres van de gateway-server waarmee u verbinding wilt maken.<br><br> ![Network Load Balancing Manager – toevoegen Host aan Cluster: Verbinding maken](./media/gateway/nlb03.png) 
     
 ## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Log Analytics-agent en Operations Manager-beheergroep configureren
 De volgende sectie bevat instructies over het configureren van rechtstreeks verbonden zijn met Log Analytics-agents, een beheergroep van Operations Manager of Azure Automation Hybrid Runbook Workers met de Log Analytics-gateway om te communiceren met Azure Automation- of logboekpad Analytics.  
@@ -183,7 +181,7 @@ Voor grote of complexe omgevingen wilt u misschien alleen bepaalde servers (of g
 1. Open de Operations Manager-console en selecteer de **ontwerpen** werkruimte.  
 1. Selecteer in de werkruimte ontwerpen **regels** en klikt u op de **bereik** op de werkbalk Operations Manager. Als deze knop niet beschikbaar is, controleert u om ervoor te zorgen dat u een object, geen map, dat is geselecteerd in het deelvenster bewaking hebt. De **bereik Management Pack-objecten** in het dialoogvenster geeft een lijst van algemene gerichte klassen, groepen of objecten. 
 1. Type **Health-Service** in de **zoekt** veld en selecteer deze in de lijst.  Klik op **OK**.  
-1. Zoek de regel **Advisor Proxy-instelling van regel** en in de werkbalk van de Operations-console op **onderdrukkingen** en wijs vervolgens **overschrijven de Rule\For een specifiek object van klasse: Health-Service**  en selecteer een specifiek object in de lijst.  Desgewenst kunt u een aangepaste groep met het object health-service van de servers die u wilt toepassen met deze onderdrukking aan en klikt u vervolgens de onderdrukking wordt toegepast aan die groep.
+1. Zoek de regel **Advisor Proxy-instelling van regel** en in de werkbalk van de Operations-console op **onderdrukkingen** en wijs vervolgens **overschrijven de Rule\For een specifiek object van klasse: Health-Service** en selecteer een specifiek object in de lijst.  Desgewenst kunt u een aangepaste groep met het object health-service van de servers die u wilt toepassen met deze onderdrukking aan en klikt u vervolgens de onderdrukking wordt toegepast aan die groep.
 1. In de **Onderdrukkingseigenschappen** in het dialoogvenster, klikt u op om een vinkje in de **overschrijven** kolom naast de **WebProxyAddress** parameter.  In de **Onderdrukkingswaarde** en voer de URL van de Log Analytics gateway server ervoor te zorgen dat u met Start de `http://` voorvoegsel.  
 
     >[!NOTE]
@@ -256,7 +254,7 @@ Met behulp van cmdlets kunt u taken die nodig zijn om bij te werken van de Log A
 1. Als er geen fout is opgetreden in de vorige stap, de module is geïmporteerd en de cmdlets kunnen worden gebruikt. Type `Get-Module OMSGateway`
 1. Nadat u wijzigingen aanbrengt met behulp van de cmdlets, zorg ervoor dat u de Gateway-service opnieuw opstarten.
 
-Als u een fout optreedt in stap 3, wordt de module is niet geïmporteerd. De fout kan optreden wanneer PowerShell is niet gevonden de module. U vindt deze in van de Gateway-installatiepad: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
+Als u een fout optreedt in stap 3, wordt de module is niet geïmporteerd. De fout kan optreden wanneer PowerShell is niet gevonden de module. U vindt deze in het installatiepad van de Gateway: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
 | **Cmdlet** | **Parameters** | **Beschrijving** | **Voorbeeld** |
 | --- | --- | --- | --- |  

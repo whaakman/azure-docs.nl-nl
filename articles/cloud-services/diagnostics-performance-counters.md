@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: d3aeb930dcb325aebc8c6b0a9dfde3602312618b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001460"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322940"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Verzamelen van prestatiemeteritems voor uw Azure-Cloudservice
 
@@ -127,7 +127,7 @@ De Azure Diagnostics-extensie voor Cloud Services kunt dat u opgeven welke prest
 
 De prestatiemeteritems die u wenst te verzamelen die zijn gedefinieerd in de **diagnostics.wadcfgx** bestand. Open dit bestand (dit is gedefinieerd per rol) in Visual Studio en zoek de **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Toevoegen van een nieuwe **PerformanceCounterConfiguration** element als een onderliggend element. Dit element heeft twee kenmerken: `counterSpecifier` en `sampleRate`. De `counterSpecifier` kenmerk bepaalt welke meteritem instellen (beschreven in de vorige sectie) voor het verzamelen van prestaties van het systeem. De `sampleRate` waarde geeft aan hoe vaak deze waarde moet worden doorzocht. Als geheel, alle prestatiemeteritems worden overgedragen naar Azure op basis van de bovenliggende `PerformanceCounters` van element `scheduledTransferPeriod` waarde van het kenmerk.
 
-Voor meer informatie over de `PerformanceCounters` schema-element, Zie de [Azure Diagnostics-Schema](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element).
+Voor meer informatie over de `PerformanceCounters` schema-element, Zie de [Azure Diagnostics-Schema](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element).
 
 De periode die is gedefinieerd door de `sampleRate` kenmerk gebruikt, typt u de duur van de XML-gegevens om aan te geven hoe vaak het prestatiemeteritem moet worden doorzocht. In het volgende voorbeeld wordt de snelheid wordt ingesteld op `PT3M`, wat betekent dat `[P]eriod[T]ime[3][M]inutes`: om de drie minuten.
 
@@ -297,4 +297,4 @@ Zoals eerder is vermeld, de prestatiemeteritems die u wenst te verzamelen zijn g
 - [Application Insights voor Azure Cloudservices](../application-insights/app-insights-cloudservices.md#performance-counters)
 - [Systeemprestatiemeteritems in Application Insights](../application-insights/app-insights-performance-counters.md)
 - [Een pad voor prestatiemeteritems op te geven](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Azure Diagnostics-Schema - prestatiemeteritems](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)
+- [Azure Diagnostics-Schema - prestatiemeteritems](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 03c561001999245b55e6e76b02f8916d0b2d619f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 167f0fd9e06e731a6a2fef15d762d8815f5d4f9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963229"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189979"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
 Bron van de aangepaste logboeken in Log Analytics kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog. Zodra de verzameld, kunt u het parseren van de gegevens in afzonderlijke velden in uw query's of extraheer de gegevens die tijdens de verzameling die moet worden afzonderlijke velden.
@@ -80,7 +78,7 @@ Bijvoorbeeld, een toepassing kan een logboekbestand elke dag maken met de datum 
 
 De volgende tabel bevat voorbeelden van geldige patronen om op te geven van de verschillende logboekbestanden.
 
-| Beschrijving | Pad |
+| Description | Pad |
 |:--- |:--- |
 | Alle bestanden in *C:\Logs* met de extensie .txt op Windows-agent |C:\Logs\\\*.txt |
 | Alle bestanden in *C:\Logs* met een naam die begint met logboek- en een .txt-extensie op Windows-agent |C:\Logs\log\*.txt |
@@ -125,7 +123,7 @@ De volledige inhoud van de logboekvermelding worden geschreven naar één eigens
 ## <a name="custom-log-record-properties"></a>Het aangepaste logboek record-eigenschappen
 Aangepaste logboekrecords zijn een type met de naam van het logboek dat u opgeeft en de eigenschappen in de volgende tabel.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | TimeGenerated |Datum en tijd waarop de record is verzameld door Log Analytics.  Als het logboek een scheidingsteken wordt gebruikt op basis van tijd is dit de tijd die worden verzameld van de vermelding. |
 | SourceSystem |Type van de record van agent is verzameld. <br> OpsManager – Windows-agent, rechtstreeks verbinding maken of System Center Operations Manager <br> Linux: alle Linux-agents |

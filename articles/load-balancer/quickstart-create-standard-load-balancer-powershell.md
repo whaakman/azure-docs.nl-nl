@@ -1,5 +1,6 @@
 ---
-title: 'Snelstart: Een Standard Load Balancer maken - Azure PowerShell | Microsoft Docs'
+title: 'Snelstartgids: Een Standard Load Balancer maken - Azure PowerShell'
+titlesuffix: Azure Load Balancer
 description: In deze snelstart vindt u meer informatie over het maken van een Standard Load Balancer met behulp PowerShell
 services: load-balancer
 documentationcenter: na
@@ -13,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
-ms:custom: mvc
-ms.openlocfilehash: e4e66d18f9dcb7f020cdb881226f6e47118e5186
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms:custom: seodec18
+ms.openlocfilehash: 0db575ee6c04c0fb4639ea2e9e095200da781fe8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578549"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256312"
 ---
-# <a name="get-started"></a>Snelstart: Een Standard Load Balancer maken met behulp van Azure PowerShell
+# <a name="get-started"></a>Snelstartgids: Maken van een Standard Load Balancer met behulp van Azure PowerShell
 In deze snelstart vindt u meer informatie over het maken van een Standard Load Balancer met behulp Azure PowerShell. U test de load balancer door twee virtuele machines (VM's) te implementeren waarop een Windows-server wordt uitgevoerd en waarbij de taken van een webapp gelijkelijk over de VM's worden verdeeld. Zie [Wat is Standard Load Balancer](load-balancer-standard-overview.md) voor meer informatie over Standard Load Balancer.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]

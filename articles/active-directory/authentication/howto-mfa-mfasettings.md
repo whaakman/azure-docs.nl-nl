@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 772807fc0a1378eea662a7c4a7e3c720d7092bef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7bd63dc991500f1d7f68169342b9612c1b303a07
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013011"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320655"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -39,7 +39,7 @@ Sommige van deze instellingen gelden voor MFA-Server en/of de Azure MFA.
 | [Instellingen van telefoongesprekken](#phone-call-settings) | Configureer instellingen met betrekking tot telefoongesprekken en begroeting voor cloud en on-premises omgevingen. |
 | Providers | Hiermee wordt een bestaande verificatieproviders weergegeven dat u mogelijk hebt gekoppeld aan uw account. Nieuwe verificatieproviders kunnen niet worden gemaakt vanaf 1 September 2018 |
 
-## <a name="manage-mfa-server"></a>MFA-Server beheren
+## <a name="manage-mfa-server"></a>MFA-server beheren
 
 Instellingen in deze sectie zijn alleen voor MFA-Server.
 
@@ -87,8 +87,8 @@ Configureer de _fraudewaarschuwing_ functie zodat uw gebruikers frauduleuze prob
 
 ### <a name="configuration-options"></a>Configuratie-opties
 
-* **Gebruiker blokkeren wanneer fraude wordt gemeld**: als een gebruiker fraude wordt gemeld, hun account gedurende 90 dagen of tot een beheerder beter hun account zicht is geblokkeerd. Een beheerder kan aanmeldingen met behulp van het rapport bekijken en passende maatregelen nemen om toekomstige fraude te voorkomen. Een beheerder kan vervolgens [deblokkeren](#unblock-a-user) account van de gebruiker.
-* **Code voor het melden van fraude tijdens de eerste begroeting**: wanneer gebruikers een telefonische oproep om uit te voeren van verificatie in twee stappen ontvangen, ze normaal gesproken drukt u op **#** om te bevestigen het aanmelden. Fraude, de gebruiker krijgt een code voor te drukken **#**. Deze code is **0** standaard, maar u kunt deze aanpassen.
+* **Gebruiker blokkeren wanneer fraude wordt gemeld**: Als een gebruiker fraude wordt gemeld, wordt hun account geblokkeerd gedurende 90 dagen of tot een beheerder beter hun account zicht. Een beheerder kan aanmeldingen met behulp van het rapport bekijken en passende maatregelen nemen om toekomstige fraude te voorkomen. Een beheerder kan vervolgens [deblokkeren](#unblock-a-user) account van de gebruiker.
+* **Code voor het melden van fraude tijdens de eerste begroeting**: Wanneer gebruikers een telefonische oproep om uit te voeren van verificatie in twee stappen ontvangen, ze normaal gesproken drukt u op **#** om te bevestigen het aanmelden. Fraude, de gebruiker krijgt een code voor te drukken **#**. Deze code is **0** standaard, maar u kunt deze aanpassen.
 
    >[!NOTE]
    >De standaard gesproken begroetingen van Microsoft vertelt u gebruikers op **0#** een fraudewaarschuwing te verzenden. Als u wilt gebruiken een andere waarde dan **0**, vastleggen en uploaden van uw eigen aangepaste gesproken begroetingen met de juiste instructies voor uw gebruikers.
@@ -257,12 +257,15 @@ Gebruikers kunnen ook app-wachtwoorden maken na de registratie. De app-wachtwoor
 
 De _goedgekeurde IP-adressen_ functie van Azure multi-factor Authentication wordt gebruikt door beheerders van een beheerde of een federatieve-tenant. De functie omzeilt verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet. De functie is beschikbaar met de volledige versie van Azure multi-factor Authentication en niet de gratis versie voor beheerders. Zie voor meer informatie over het ophalen van de volledige versie van Azure multi-factor Authentication [Azure multi-factor Authentication](multi-factor-authentication.md).
 
+> [!NOTE]
+> MFA vertrouwde IP-adressen en voorwaardelijke toegang benoemde locaties werken alleen met IPV4-adressen.
+
 Als uw organisatie de NPS-extensie implementeert voor MFA on-premises toepassingen Houd er rekening mee wordt altijd het IP-adres van bron naar de NPS-server de verificatie probeert stromen via worden weergegeven.
 
 | Azure AD-tenant-type | Vertrouwde IP-adressen functieopties |
 |:--- |:--- |
-| Managed |**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven.|
-| Federatief |**Alle federatieve gebruikers**: alle federatieve gebruikers die zich aanmelden vanaf binnen de organisatie kunnen verificatie in twee stappen overslaan. De gebruikers omzeilen verificatie met behulp van een claim dat is uitgegeven door Active Directory Federation Services (AD FS).<br/>**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven. |
+| Managed |**Specifieke IP-adressen**: Beheerders opgeven voor een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet.|
+| Federatief |**Alle federatieve gebruikers**: Alle federatieve gebruikers die zich aanmelden vanaf binnen de organisatie kunnen verificatie in twee stappen overslaan. De gebruikers omzeilen verificatie met behulp van een claim dat is uitgegeven door Active Directory Federation Services (AD FS).<br/>**Specifieke IP-adressen**: Beheerders opgeven voor een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet. |
 
 De goedgekeurde IP-adressen overslaan werkt alleen in het bedrijfsintranet. Als u selecteert de **alle federatieve gebruikers** optie en een gebruiker zich aanmeldt via buiten het bedrijfsintranet, de gebruiker heeft om te verifiëren met behulp van verificatie in twee stappen. Het proces is hetzelfde, zelfs als de gebruiker een AD FS claim geeft. 
 
@@ -293,11 +296,11 @@ Ongeacht of de goedgekeurde IP-adressen-functie is ingeschakeld, is verificatie 
 3. Selecteer **vertrouwde IP's voor MFA configureren**.
 4. Op de **Service-instellingen** pagina onder **goedgekeurde IP-adressen**, kiezen uit een van de volgende twee opties:
 
-   * **Voor aanvragen van federatieve gebruikers die afkomstig zijn van mijn intranet**: als u wilt deze optie kiest, schakel het selectievakje in. Alle federatieve gebruikers die aanmelden met het bedrijfsnetwerk verificatie in twee stappen overslaan met behulp van een claim dat is uitgegeven door AD FS. Zorg ervoor dat AD FS een regel voor het toevoegen van de intranet-claim op het juiste verkeer. Als de regel niet bestaat, maakt u de volgende regel in AD FS:
+   * **Voor aanvragen van federatieve gebruikers die afkomstig zijn van mijn intranet**: Als u wilt deze optie kiest, schakel het selectievakje in. Alle federatieve gebruikers die aanmelden met het bedrijfsnetwerk verificatie in twee stappen overslaan met behulp van een claim dat is uitgegeven door AD FS. Zorg ervoor dat AD FS een regel voor het toevoegen van de intranet-claim op het juiste verkeer. Als de regel niet bestaat, maakt u de volgende regel in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Voor aanvragen van een specifiek bereik van openbare IP-adressen**: als u wilt deze optie kiest, voert u de IP-adressen in het tekstvak met behulp van de CIDR-notatie.
+   * **Voor aanvragen van een specifiek bereik van openbare IP-adressen**: Als u wilt deze optie kiest, voert u de IP-adressen in het tekstvak met behulp van de CIDR-notatie.
       * Gebruik voor IP-adressen die zich in het bereik xxx.xxx.xxx.1 via xxx.xxx.xxx.254 notatie, zoals **xxx.xxx.xxx.0/24**.
       * Gebruik voor één IP-adres, de notatie, zoals **xxx.xxx.xxx.xxx/32**.
       * Voer maximaal 50 IP-adresbereiken. Gebruikers die zich aanmelden vanaf deze IP-adressen overslaan verificatie in twee stappen.
@@ -312,11 +315,11 @@ Ongeacht of de goedgekeurde IP-adressen-functie is ingeschakeld, is verificatie 
 4. Selecteer onder multi-factor Authentication, **service-instellingen**.
 5. Op de **Service-instellingen** pagina onder **goedgekeurde IP-adressen**, kiest u een (of beide) van de volgende twee opties:
 
-   * **Voor aanvragen van federatieve gebruikers op mijn intranet**: als u wilt deze optie kiest, schakel het selectievakje in. Alle federatieve gebruikers die aanmelden met het bedrijfsnetwerk verificatie in twee stappen overslaan met behulp van een claim dat is uitgegeven door AD FS. Zorg ervoor dat AD FS een regel voor het toevoegen van de intranet-claim op het juiste verkeer. Als de regel niet bestaat, maakt u de volgende regel in AD FS:
+   * **Voor aanvragen van federatieve gebruikers op mijn intranet**: Als u wilt deze optie kiest, schakel het selectievakje in. Alle federatieve gebruikers die aanmelden met het bedrijfsnetwerk verificatie in twee stappen overslaan met behulp van een claim dat is uitgegeven door AD FS. Zorg ervoor dat AD FS een regel voor het toevoegen van de intranet-claim op het juiste verkeer. Als de regel niet bestaat, maakt u de volgende regel in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Voor aanvragen van een opgegeven bereik van IP-subnetten**: als u wilt deze optie kiest, voert u de IP-adressen in het tekstvak met behulp van de CIDR-notatie.
+   * **Voor aanvragen van een opgegeven bereik van IP-subnetten**: Als u wilt deze optie kiest, voert u de IP-adressen in het tekstvak met behulp van de CIDR-notatie.
       * Gebruik voor IP-adressen die zich in het bereik xxx.xxx.xxx.1 via xxx.xxx.xxx.254 notatie, zoals **xxx.xxx.xxx.0/24**.
       * Gebruik voor één IP-adres, de notatie, zoals **xxx.xxx.xxx.xxx/32**.
       * Voer maximaal 50 IP-adresbereiken. Gebruikers die zich aanmelden vanaf deze IP-adressen overslaan verificatie in twee stappen.
@@ -385,6 +388,6 @@ De functie vermindert het aantal verificaties op web-apps, waarbij elke keer nor
 
 Nadat u de multi-factor Authentication onthouden functie hebt ingeschakeld, gebruikers een apparaat als vertrouwd als kunnen markeren ze zich aanmelden door te selecteren **niet opnieuw vragen**.
 
-# <a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
-[Azure AD-aanmeldingspagina huisstijl aanpassen](..\fundamentals\customize-branding.md)
+[Azure AD-aanmeldingspagina huisstijl aanpassen](../fundamentals/customize-branding.md)

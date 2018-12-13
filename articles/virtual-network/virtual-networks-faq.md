@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 49f7e0b19f454e37e70774f3a675bd5094687114
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 686985c705b4026ccc26238fc5919296c98d5cb7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967075"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277519"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -137,12 +137,12 @@ Nee. U kunt een aangepaste DNS-achtervoegsel opgeven voor uw vnet's.
 Ja. Alle netwerkinterfaces (NIC) die zijn gekoppeld aan een virtuele machine geïmplementeerd via het Resource Manager-implementatiemodel moeten zijn verbonden met een VNet. Virtuele machines die worden geïmplementeerd via het klassieke implementatiemodel kunnen optioneel worden verbonden met een VNet.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Wat zijn de verschillende typen IP-adressen die ik aan virtuele machines toewijzen kan?
-* **Persoonlijk:** toegewezen aan elke NIC in elke virtuele machine. Het adres wordt toegewezen met behulp van de methode statisch of dynamisch. Privé-IP-adressen worden toegewezen uit het bereik dat u hebt opgegeven in de subnet-instellingen van uw VNet. Resources die zijn geïmplementeerd via het klassieke implementatiemodel kunnen IP-adressen zijn toegewezen, zelfs als ze niet met een VNet verbonden bent. Het gedrag van de toewijzingsmethode is verschillend, afhankelijk van of een resource is geïmplementeerd met resourcemanager of klassieke implementatiemodel: 
+* **Persoonlijke:** Toegewezen aan elke NIC in elke virtuele machine. Het adres wordt toegewezen met behulp van de methode statisch of dynamisch. Privé-IP-adressen worden toegewezen uit het bereik dat u hebt opgegeven in de subnet-instellingen van uw VNet. Resources die zijn geïmplementeerd via het klassieke implementatiemodel kunnen IP-adressen zijn toegewezen, zelfs als ze niet met een VNet verbonden bent. Het gedrag van de toewijzingsmethode is verschillend, afhankelijk van of een resource is geïmplementeerd met resourcemanager of klassieke implementatiemodel: 
 
-  - **Resource Manager**: een privé IP-adres toegewezen met de dynamische of statische methode blijft toegewezen aan een virtuele machine (Resource Manager) totdat de resource wordt verwijderd. Het verschil is dat u het adres om toe te wijzen bij het gebruik van statische selecteren en Azure bij het gebruik van dynamische kiest. 
-  - **Klassieke**: een privé IP-adres toegewezen met de dynamische methode kan worden gewijzigd wanneer een virtuele machine (klassiek) virtuele machine opnieuw wordt opgestart nadat zij gestopt (toewijzing opgeheven). Als u nodig hebt om ervoor te zorgen dat de privé IP-adres voor een resource die is geïmplementeerd via het klassieke implementatiemodel nooit gewijzigd, moet u een privé IP-adres toewijzen met de statische methode.
+  - **Resource Manager**: Een privé IP-adres toegewezen met de dynamische of statische methode blijft toegewezen aan een virtuele machine (Resource Manager), totdat de resource wordt verwijderd. Het verschil is dat u het adres om toe te wijzen bij het gebruik van statische selecteren en Azure bij het gebruik van dynamische kiest. 
+  - **Klassieke**: Een privé IP-adres toegewezen met de dynamische methode kan worden gewijzigd wanneer een virtuele machine (klassiek) virtuele machine opnieuw wordt opgestart nadat zij gestopt (toewijzing opgeheven). Als u nodig hebt om ervoor te zorgen dat de privé IP-adres voor een resource die is geïmplementeerd via het klassieke implementatiemodel nooit gewijzigd, moet u een privé IP-adres toewijzen met de statische methode.
 
-* **Openbaar:** (optioneel) toegewezen aan de NIC's die zijn gekoppeld aan virtuele machines die worden geïmplementeerd via het Azure Resource Manager-implementatiemodel. Het adres kan worden toegewezen met de statische of dynamische toewijzingsmethode. Alle virtuele machines en Cloud Services-rolexemplaren die worden geïmplementeerd via het klassieke implementatiemodel bestaan binnen een cloudservice die is toegewezen een *dynamische*, openbare virtuele IP-adres (VIP)-adres. Een openbare *statische* IP-adres, met de naam een [gereserveerde IP-adres](virtual-networks-reserved-public-ip.md), kunnen desgewenst worden toegewezen als een VIP-adres. U kunt openbare IP-adressen toewijzen aan afzonderlijke virtuele machines of Cloud Services-rolinstanties zijn geïmplementeerd via het klassieke implementatiemodel. Deze adressen heten [niveau openbare IP-exemplaar (ILPIP](virtual-networks-instance-level-public-ip.md) -adressen en kunnen dynamisch worden toegewezen.
+* **Openbaar:** (Optioneel) toegewezen aan de NIC's die zijn gekoppeld aan virtuele machines die worden geïmplementeerd via het Azure Resource Manager-implementatiemodel. Het adres kan worden toegewezen met de statische of dynamische toewijzingsmethode. Alle virtuele machines en Cloud Services-rolexemplaren die worden geïmplementeerd via het klassieke implementatiemodel bestaan binnen een cloudservice die is toegewezen een *dynamische*, openbare virtuele IP-adres (VIP)-adres. Een openbare *statische* IP-adres, met de naam een [gereserveerde IP-adres](virtual-networks-reserved-public-ip.md), kunnen desgewenst worden toegewezen als een VIP-adres. U kunt openbare IP-adressen toewijzen aan afzonderlijke virtuele machines of Cloud Services-rolinstanties zijn geïmplementeerd via het klassieke implementatiemodel. Deze adressen heten [niveau openbare IP-exemplaar (ILPIP](virtual-networks-instance-level-public-ip.md) -adressen en kunnen dynamisch worden toegewezen.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Kan ik een privé IP-adres reserveren voor een virtuele machine die ik op een later tijdstip wilt maken?
 Nee. U kunt een privé IP-adres kan niet reserveren. Als een privé IP-adres beschikbaar is, wordt deze toegewezen aan een rol of VM-exemplaar van de DHCP-server. De virtuele machine kan of mogelijk niet de optie die u wilt dat het privé IP-adres toegewezen aan. U kunt echter de privé IP-adres van een gemaakte VM wijzigen op alle beschikbare privé IP-adres.
@@ -326,7 +326,7 @@ Als u wilt beveiligen in Azure-services naar meerdere subnetten binnen een virtu
 Als u wilt controleren of het filteren van het verkeer dat bestemd is voor een Azure-service vanuit een virtueel netwerk, kunt u een virtueel netwerkapparaat in het virtuele netwerk kunt implementeren. U kunt service-eindpunten toepassen op het subnet waarin het virtuele netwerkapparaat geïmplementeerd en beveiligde Azure-serviceresources alleen naar dit subnet via VNet-ACL's is. In dit scenario kan ook nuttig zijn als u wilt toegang tot Azure-service vanaf uw virtuele netwerk te beperken tot specifieke Azure-resources met behulp van virtueel-netwerkapparaatfilters. Zie [Egress with network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Uitgaand verkeer met virtueel-netwerkapparaten) voor meer informatie.
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>Wat gebeurt er wanneer u een Azure-service-account met virtueel netwerk toegangsbeheerlijst (ACL) ingeschakeld van buiten het VNet?
-De HTTP 404-fout is geretourneerd.
+De HTTP 403- of HTTP 404-fout is geretourneerd.
 
 ### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-service-account-in-another-region"></a>Zijn de subnetten van een virtueel netwerk hebt gemaakt in verschillende regio's die toegang hebben tot een Azure-service-account in een andere regio? 
 Ja, voor het merendeel van de Azure-services, virtuele netwerken die zijn gemaakt in verschillende regio's hebben toegang tot Azure-services in een andere regio via de VNet-service-eindpunten. Bijvoorbeeld, een Azure Cosmos DB-account is in VS-West of VS-Oost en virtuele netwerken in meerdere regio's zijn, het virtuele netwerk toegang tot Azure Cosmos DB. Storage en SQL zijn uitzonderingen en regionale van aard zijn en zowel het virtuele netwerk en de Azure-service moeten zich in dezelfde regio bevinden.
@@ -366,7 +366,7 @@ Er is geen limiet voor het totale aantal VNet-service-eindpunten in een virtueel
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|
-|Met Azure Key Vault|    128|
+|Met Azure Key Vault|    127|
 |Azure Cosmos DB|   64|
 |Azure Event Hub|   128|
 |Azure Service Bus| 128|

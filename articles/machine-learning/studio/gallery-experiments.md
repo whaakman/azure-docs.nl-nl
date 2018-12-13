@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -16,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 74791c3dce543ae9c0489a6c6124e4edba9204d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 12fb45b00848e5e34760ccb0691998c1f72237b8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096958"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269281"
 ---
-# <a name="discover-experiments-in-azure-ai-gallery"></a>Detecteren van experimenten in Azure AI Gallery
+# <a name="discover-azure-machine-learning-studio-experiments-in-azure-ai-gallery"></a>Azure Machine Learning Studio-experimenten in Azure AI Gallery detecteren
 
 [Azure AI Gallery](http://gallery.cortanaintelligence.com) heeft een aantal [experimenten](https://gallery.cortanaintelligence.com/experiments) die zijn ontwikkeld [Azure Machine Learning Studio](https://studio.azureml.net). Experimenten variëren van snelle proof of concept experimenten die een specifieke machine learning-technieken, naar volledig ontwikkelde oplossingen voor problemen met complexe machine learning laten zien.
 
 > [!NOTE]
-> Een ***experimenteren*** is van een canvas in Machine Learning Studio die u gebruiken kunt om samen te stellen van een predictive Analytics-model. U kunt het model maken door verbinding te maken van gegevens met verschillende analytische modules. U kunt verschillende ideeën probeert, proefuitvoeringen doen en uiteindelijk uw model als een webservice in Azure implementeren. Zie voor een voorbeeld van het maken van een eenvoudige experiment [Machine learning-zelfstudie: uw eerste experiment maken in Azure Machine Learning Studio](create-experiment.md). Zie voor een uitgebreider overzicht van het maken van een predictive analytics-oplossing, [scenario: een predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md).
+> Een ***experimenteren*** is van een canvas in Machine Learning Studio die u gebruiken kunt om samen te stellen van een predictive Analytics-model. U kunt het model maken door verbinding te maken van gegevens met verschillende analytische modules. U kunt verschillende ideeën probeert, proefuitvoeringen doen en uiteindelijk uw model als een webservice in Azure implementeren. Zie voor een voorbeeld van het maken van een eenvoudige experiment [Machine learning-zelfstudie: Uw eerste experiment maken in Azure Machine Learning Studio](create-experiment.md). Zie voor een uitgebreider overzicht van het maken van een predictive analytics-oplossing, [scenario: Predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md).
 >
 >
 
@@ -82,7 +81,7 @@ Wanneer u zich bij de galerie aanmelden, worden u lid zijn van de galerie-commun
 3. Wanneer u bent klaar om te publiceren van uw experiment in de galerie, in de lijst met acties onder het experimentcanvas selecteert **publiceren naar de galerie**.
 
     ![Selecteer 'Publiceren naar de galerie'](./media/gallery-experiments/publish-experiment-to-gallery.png)
-4. Op de **Experiment beschrijving** pagina, voer een titel en tags. Controleer de titel en tags beschrijvende. Markeer de technieken die u hebt gebruikt of het werkelijke probleem oplossen. Een voorbeeld van een experiment beschrijvende titel is ' binaire classificatie: Twitter-Sentimentanalyse. "
+4. Op de **Experiment beschrijving** pagina, voer een titel en tags. Controleer de titel en tags beschrijvende. Markeer de technieken die u hebt gebruikt of het werkelijke probleem oplossen. Een voorbeeld van een experiment beschrijvende titel is ' binaire classificatie: Twitter-Sentimentanalyse."
 
     ![Voer de titel en labels voor publicatie](./media/gallery-experiments/experiment-description.png)
 5. In de **samenvatting** voert u een overzicht van uw experiment. Een korte beschrijving van het probleem dat het experiment is opgelost en hoe u nadert.
@@ -189,4 +188,4 @@ Druk op de Tab-toets nadat u een label, om in te voeren van een andere code invo
 
 **[Ga naar de galerie](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300707"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257373"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
@@ -64,7 +64,7 @@ Grafiek biedt alleen ondersteuning voor integratie met één Active Directory-fo
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-|Parameter|Beschrijving|Voorbeeld|
+|Parameter|Description|Voorbeeld|
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN-naam van het doel van Active Directory-forest<br>dat u integreren wilt met|Contoso.com|
 |CustomADAdminCredentials|Een gebruiker met de machtiging lezen voor LDAP|YOURDOMAIN\graphservice|
@@ -129,9 +129,9 @@ Graph-service in Azure Stack maakt gebruik van de volgende protocollen en poorte
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-|Parameter|Beschrijving|Voorbeeld|
+|Parameter|Description|Voorbeeld|
 |---------|---------|---------|
-|CustomAdfsName|De naam van de claimprovider. <cr>Lijkt op die manier op de startpagina van de AD FS.|Contoso|
+|CustomAdfsName|De naam van de claimprovider.<br>Op die manier op de startpagina van de AD FS wordt deze weergegeven.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Federatieve metagegevens van koppeling|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -168,7 +168,7 @@ Vanaf versie 1807, gebruik deze methode als een van de volgende voorwaarden vold
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
 
-|Parameter|Beschrijving|Voorbeeld|
+|Parameter|Description|Voorbeeld|
 |---------|---------|---------|
 |CustomAdfsName|De naam van de claimprovider. Op die manier op de startpagina van de AD FS wordt deze weergegeven.|Contoso|
 |CustomADFSFederationMetadataFileContent|De metagegevens van inhoud|$using: federationMetadataFileContent|
@@ -215,7 +215,7 @@ Voor deze procedure gebruikt u een computer die kan communiceren met de bevoorre
 
 Microsoft biedt een script waarmee de relying party-trust, met inbegrip van de claimregels transformatie worden geconfigureerd. Gebruik het script is optioneel als u de opdrachten handmatig kunt uitvoeren.
 
-U kunt de helper-script uit downloaden [hulpprogramma's voor Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) op Github.
+U kunt de helper-script uit downloaden [hulpprogramma's voor Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) op GitHub.
 
 Als u besluit de opdrachten handmatig uitvoeren, volgt u deze stappen:
 

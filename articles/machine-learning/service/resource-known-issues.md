@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 45eb24bb8a49fb59ae44533e59b2760940ee5c1a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4a4f1691162ab9c9fbd5bc8802ecf7ebc4894d74
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097698"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193668"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
  
@@ -24,9 +24,9 @@ Dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten opgetreden b
 
 ## <a name="sdk-installation-issues"></a>Problemen met de SDK-installatie
 
-**Foutmelding: 'PyYAML' niet verwijderen** 
+**Foutbericht: 'PyYAML' verwijderen niet** 
 
-Azure Machine Learning-SDK voor Python: PyYAML is een project distutils geïnstalleerd. We kan geen nauwkeurig bepalen welke bestanden deel uitmaken van deze in het geval van een gedeeltelijke verwijderen. Gebruik het volgende om door te gaan met het installeren van de SDK tijdens deze fout negeren:
+Azure Machine Learning-SDK voor Python: PyYAML is een geïnstalleerde distutils-project. We kan geen nauwkeurig bepalen welke bestanden deel uitmaken van deze in het geval van een gedeeltelijke verwijderen. Gebruik het volgende om door te gaan met het installeren van de SDK tijdens deze fout negeren:
 ```Python 
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```

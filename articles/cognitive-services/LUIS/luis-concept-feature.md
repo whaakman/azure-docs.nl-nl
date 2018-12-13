@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 57ad7d680d83e13d9aff1d55a52ab982c585df76
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080194"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271382"
 ---
-# <a name="phrase-list-features-in-luis"></a>Woordgroep lijst met functies in LUIS
+# <a name="phrase-list-features-in-your-luis-app"></a>Woordgroep lijst met functies in uw LUIS-app
 
 In machine learning, een *functie* is een onderscheidende eigenschap of kenmerk van de gegevens die uw systeem toetsenbordinvoer. 
 
@@ -32,9 +32,17 @@ Een woordgroepenlijst wordt toegevoegd aan het vocabulaire van het domein van de
 ## <a name="how-to-use-phrase-lists"></a>Het gebruik van een lijst met woorden
 In de Human Resource-app [eenvoudige entiteit zelfstudie](luis-quickstart-primary-and-secondary-data.md), de app gebruikt een **taak** taaktypen zoals programmeur roofer en secretary woordgroepenlijst. Als u een van deze waarden als een entiteit hebt geleerd van een machine label, leren LUIS te herkennen de andere. 
 
-Een woordgroepenlijst kan niet onderling verwisselbaar of niet-verwisselbaar. Een *uitwisselbaar* woordgroepenlijst is voor waarden die synoniemen worden, en een *niet uitwisselbaar* woordgroepenlijst is bedoeld voor waarden die niet van synoniemen, maar nog steeds een extra signaal in de app moeten. 
+Een woordgroepenlijst kan niet onderling verwisselbaar of niet-verwisselbaar. Een *uitwisselbaar* woordgroepenlijst is voor waarden die synoniemen worden, en een *niet uitwisselbaar* woordgroepenlijst is bedoeld als een app specifieke vocabulaire lijst. Als u de lijst met Apps vocabulaire woordgroep toenemen, merkt u misschien enkele termen vele vormen (synoniemen). Lichten deze in een andere zin-lijst die is uitwisselbaar. 
+
+|Lijsttype|Doel|
+|--|--|
+|Verwisselbaar|Synoniemen of woorden dat, wanneer gewijzigd in een ander woord in de lijst, de dezelfde intentie en entiteiten extraheren hebben.|
+|Niet-verwisselbaar|App vocabulaire, specifiek zijn voor uw app, meer, zodat er dan in het algemeen andere woorden in die taal.|
+
+Woordgroep bevat niet alleen hulp bij de detectie van de entiteit, maar ook intentie classificatie wanneer niet-verwisselbaar zinvol zoals het toevoegen van buiten het vocabulaire woorden die niet bekend zijn in het Engels.
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+
 ## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Woordgroep geeft een lijst van de help eenvoudige uitwisselbaar entiteiten identificeren
 Verwisselbaar woordgroep lijsten zijn een goede manier om af te stemmen van de prestaties van uw LUIS-app. Als uw app problemen bij het voorspellen van uitingen met de juiste intent of entiteiten herkennen heeft, moet u bedenken dat de uitingen ongebruikelijke woorden of woorden die mogelijk niet-eenduidige in betekenis bevatten. Deze woorden zijn goede kandidaten om op te nemen in een woordgroepenlijst met.
 
@@ -44,7 +52,7 @@ Een woordgroepenlijst is niet een instructie aan LUIS uit te voeren strikte die 
 Toevoegen van een woordgroepenlijst vormt een alternatief voor het toevoegen van meer voorbeeld uitingen aan een doel. 
 
 ## <a name="an-interchangeable-phrase-list"></a>Een woordgroepenlijst met uitwisselbaar
-Een woordgroepenlijst uitwisselbaar gebruiken wanneer de lijst met woorden of fasen maakt een klasse of groep. Een voorbeeld is een lijst van maanden, zoals "Januari", 'Februari', 'Maart'; of namen, zoals 'John', 'Primaire', 'Frank'.  Deze lijsten zijn verwisselbaar in dat de utterance zou worden gelabeld met hetzelfde doel of entiteit als een ander woord in de woordgroepenlijst met zijn gebruikt. Bijvoorbeeld, als 'de agenda weergeven voor januari"heeft dezelfde intentie als 'Toon de agenda voor februari' en vervolgens de woorden moeten zich op een verwisselbare-lijst. 
+Een woordgroepenlijst uitwisselbaar gebruiken als de lijst met woorden of fasen maakt u een klasse of groep. Een voorbeeld is een lijst van maanden, zoals "Januari", 'Februari', 'Maart'; of namen, zoals 'John', 'Primaire', 'Frank'.  Deze lijsten zijn verwisselbaar in dat de utterance zou worden gelabeld met hetzelfde doel of entiteit als een ander woord in de woordgroepenlijst met zijn gebruikt. Bijvoorbeeld, als 'de agenda weergeven voor januari"heeft dezelfde intentie als 'Toon de agenda voor februari' en vervolgens de woorden moeten zich op een verwisselbare-lijst. 
 
 ## <a name="a-non-interchangeable-phrase-list"></a>Een woordgroepenlijst met niet-verwisselbaar
 Gebruik een woordgroepenlijst met niet-verwisselbaar voor niet-hoczoekmogelijkheden woorden of zinsdelen die kunnen worden gegroepeerd in uw domein. 

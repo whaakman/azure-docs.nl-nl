@@ -1,12 +1,11 @@
 ---
-title: Meerdere modellen van één experiment - Azure Machine Learning Studio maken | Microsoft Docs
+title: Meerdere modellen maken vanaf een Studio-experiment - Azure Machine Learning Studio | Microsoft Docs
 description: PowerShell gebruiken voor het maken van meerdere Machine Learning-modellen en web-service-eindpunten met dezelfde algoritme, maar met verschillende trainingdatasets.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: b6e54fb7fe852ca4e12dc9a9e0f63eac2382c5c8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f54f9f9ff4b55ef1e2e68f61b709cef6635dc231
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093012"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250260"
 ---
-# <a name="use-powershell-to-create-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell gebruiken voor het maken van modellen en web-service-eindpunten van een experiment
+# <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell gebruiken voor Studio-modellen en webservice-eindpunten van een experiment maken
 
 Hier volgt een veelvoorkomend probleem voor machine learning: U wilt Maak veel modellen die dezelfde werkstroom training en gebruikmaken van dezelfde algoritme. Maar u wilt dat ze hebben verschillende trainingdatasets als invoer. In dit artikel laat zien u hoe u dit doet op schaal in Azure Machine Learning Studio met slechts één experiment.
 

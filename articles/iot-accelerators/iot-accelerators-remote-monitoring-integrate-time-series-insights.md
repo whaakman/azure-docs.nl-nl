@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 3ae41ff4cf501a58668d25b16027029f6bae4749
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e6dcbf9d185b45c18261e47e9d575adf40812611
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317484"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253813"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integreer Azure Time Series Insights met Externe bewaking
 
@@ -212,7 +212,7 @@ Configureren van de omgeving van `basic` implementatie voor de bijgewerkte micro
 
 1. Navigeer naar **instellingen** > **sleutels** en maak vervolgens een nieuwe sleutel voor uw toepassing. Zorg ervoor dat u de waarde van de sleutel kopiëren naar veilige locatie.
 
-1. Haal de [meest recente docker compose yaml-bestand](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) van Github-opslagplaats met behulp van de meest recente code. 
+1. Haal de [meest recente docker compose yaml-bestand](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) van GitHub-opslagplaats met behulp van de meest recente code. 
 
 1. Voeg SSH toe aan de virtuele machine met de volgende stappen die worden beschreven op [maken en gebruiken van SSH-sleutels](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 

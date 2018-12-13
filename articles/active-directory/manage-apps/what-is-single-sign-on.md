@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: b2eff49f94dfcd67cb9741055520d990429051cd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098556"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322701"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 Leer hoe u de meest geschikte eenmalige aanmelding methode kiezen bij het configureren van toepassingen in Azure Active Directory (Azure AD). 
@@ -67,7 +67,7 @@ Zie configureren van een toepassing voor SAML gebaseerde eenmalige aanmelding [c
 Zie voor meer informatie over de werking van het SAML-protocol [eenmalige aanmelding in de SAML-protocol](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="password-based-sso"></a>Wachtwoord gebaseerde SSO
-Met wachtwoord gebaseerde aanmelding, is de toepassing wordt geverifieerd op de toepassing met een gebruikersnaam en wachtwoord. Eindgebruikers zich aanmelden bij de toepassing de eerste keer dat ze het willen openen. Na de eerste aanmelding levert Azure Active Directory de gebruikersnaam en het wachtwoord voor de toepassing. 
+Met wachtwoord gebaseerde aanmelding, eindgebruikers zich bij de eerste keer dat ze toegang krijgen tot de toepassing met een gebruikersnaam en wachtwoord. Na de eerste aanmelding levert Azure Active Directory de gebruikersnaam en het wachtwoord voor de toepassing. 
 
 Maakt gebruik van het bestaande verificatieproces geleverd door de toepassing op basis van wachtwoorden eenmalige aanmelding. Wanneer u wachtwoord eenmalige aanmelding voor een toepassing inschakelen, wordt Azure AD worden verzameld en worden veilig opgeslagen gebruikersnamen en wachtwoorden voor de toepassing. Gebruikersreferenties worden opgeslagen in een versleutelde status in de map. 
 
@@ -177,6 +177,6 @@ Zie [Azure Active Directory-edities](../fundamentals/active-directory-whatis.md)
 * [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Zelfstudie voor het configureren van eenmalige aanmelding](configure-single-sign-on-portal.md)
 * [Inleiding tot beheer van toegang tot toepassingen](what-is-access-management.md)
-* Downloadkoppeling: [implementatieplan voor eenmalige aanmelding](https://aka.ms/SSODeploymentPlan).
+* Downloadkoppeling: [Implementatieplan voor eenmalige aanmelding](https://aka.ms/SSODeploymentPlan).
 
 

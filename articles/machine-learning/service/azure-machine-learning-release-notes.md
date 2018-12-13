@@ -1,5 +1,5 @@
 ---
-title: Nieuwe functies
+title: Wat is er nieuw in de release?
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over de meest recente updates voor Azure Machine Learning-service.
 services: machine-learning
@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea9f8e07b627b7f3554e390063d61ef984f30dad
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 73f4aeb77124c21a07771ab080b88a56231e50da
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105135"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185712"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service. 
 
-## <a name="2018-12-04-general-availability"></a>2018-12-04: algemene beschikbaarheid
+## <a name="2018-12-04-general-availability"></a>2018-12-04: Algemene beschikbaarheid
 
 Azure Machine Learning-service is nu algemeen beschikbaar.
 
@@ -235,9 +235,9 @@ Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informa
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (preview-versie vernieuwen)
 
-Een nieuwe, volledig vernieuwd release van Azure Machine Learning: meer informatie over deze release: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+Volledig vernieuwd een nieuwe versie van Azure Machine Learning: Meer informatie over deze release: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>Opmerkingen bij de oudere: september 2017 - juni 2018
+## <a name="older-notes-sept-2017---jun-2018"></a>Oudere opmerkingen: September 2017 - juni 2018
 ### <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
 
 Met deze versie van Azure Machine Learning, kunt u het volgende doen:

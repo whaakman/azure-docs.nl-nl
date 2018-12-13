@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6aa13096b61fc1bf44d370b3d7dcc01a0df74e8d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258451"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321338"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -283,7 +283,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    Als de opslagplaats is beschadigd, Zie [WMI: beschadiging van de opslagplaats, of niet](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
+    Als de opslagplaats is beschadigd, Zie [WMI: Beschadiging van de opslagplaats, of niet](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
 5. Zorg ervoor dat alle andere toepassingen geen gebruik van de poort 3389 maakt. Deze poort wordt gebruikt voor de RDP-service in Azure. U kunt uitvoeren **netstat - anob** om te zien welke poorten zijn in gebruikt op de virtuele machine:
 
@@ -377,7 +377,7 @@ Zie voor meer informatie over het maken van een virtuele machine van een gespeci
 - [Een virtuele machine maken vanaf een gespecialiseerde schijf](create-vm-specialized.md)
 - [Een virtuele machine maken vanaf een gespecialiseerde VHD-schijf](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Als u maken van een gegeneraliseerde installatiekopie wilt, moet u sysprep uitvoeren. Zie voor meer informatie over Sysprep [Sysprep gebruiken: een inleiding](https://technet.microsoft.com/library/bb457073.aspx). 
+Als u maken van een gegeneraliseerde installatiekopie wilt, moet u sysprep uitvoeren. Zie voor meer informatie over Sysprep [Sysprep gebruiken: Een inleiding](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Biedt ondersteuning voor deze generalisatie niet elke rol of de toepassing die geïnstalleerd op een Windows-computer. Dus voordat u deze procedure uitvoert, Zie het volgende artikel om ervoor te zorgen dat de rol van die computer wordt ondersteund door sysprep. Voor meer informatie, [Sysprep-ondersteuning voor serverfuncties](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -409,7 +409,7 @@ De volgende instellingen hebben geen invloed op de VHD uploaden. Echter, wordt a
 *  Nadat de virtuele machine is gemaakt in Azure, wordt u aangeraden dat u het wisselbestand op het stationsvolume 'Tijdelijke plaatsen' om prestaties te verbeteren. U kunt instellen dit als volgt:
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile" -Type MultiString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
     ```
 Als er een gegevensschijf die is gekoppeld aan de virtuele machine, is de stationsletter van het volume van de tijdelijke schijf doorgaans "D." Deze aanwijzing mogelijk verschillen, afhankelijk van het aantal beschikbare stations en de instellingen die u aanbrengt.
 

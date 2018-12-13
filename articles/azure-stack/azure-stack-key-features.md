@@ -12,38 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 21a6eeb4b0a83574be4c5c996e43d9867c3249d0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959023"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185729"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Belangrijke functies en concepten in Azure Stack
 Als u geen ervaring met Microsoft Azure Stack, kunnen deze voorwaarden en beschrijvingen van functies in kwestie nuttig zijn.
 
 ## <a name="personas"></a>Persona's
-Er zijn twee soorten gebruikers voor Microsoft Azure Stack, de cloud-operator (provider) en de tenant (consument).
+Er zijn twee soorten gebruikers voor Microsoft Azure Stack, de Operator en de gebruiker.
 
-* Een **cloud operator** kunnen Azure Stack configureren en beheren van aanbiedingen, plannen, services, quota en prijzen voor resources voor hun tenants.  Cloudoperators ook capaciteit beheren en reageren op waarschuwingen.  
-* Een **tenant** (ook wel een gebruiker genoemd)-services die de beheerder van de cloud biedt verbruikt. Tenants kunnen inrichten, bewaken en beheren van services die ze zich hebt geabonneerd, zoals Web-Apps, opslag en virtuele Machines.
+* Een Azure Stack **Operator** Azure Stack kunt configureren met het beheren van aanbiedingen, plannen, services, quota en prijzen van resources voor hun tenant om gebruikers te bieden. Operators ook capaciteit beheren en reageren op waarschuwingen.  
+* Een Azure Stack **gebruiker** (ook wel een tenant genoemd)-services die de Operator biedt verbruikt. Gebruikers kunnen inrichten, bewaken en beheren van services die ze zich hebt geabonneerd, zoals web-apps, opslag en virtuele machines.
 
 ## <a name="portal"></a>Portal
-De primaire methoden van de interactie met Microsoft Azure Stack zijn de beheerdersportal, gebruikersportal en PowerShell.
+De primaire methoden van de interactie met Microsoft Azure Stack zijn de beheerportal, gebruikersportal en PowerShell.
 
-De Azure Stack-portals zijn elk ondersteund door een afzonderlijke exemplaren van Azure Resource Manager.  Een cloud-operator gebruikt de beheerdersportal voor het beheren van Azure Stack, en voor zaken als tenant aanbiedingen maken.  De gebruikersportal (ook wel de tenantportal genoemd) biedt een selfservice-ervaring voor gebruik van cloudresources, zoals virtuele machines, opslagaccounts en Web-Apps. Zie voor meer informatie, [met behulp van de Azure Stack-beheerder en gebruiker portals](azure-stack-manage-portals.md).
+De Azure Stack-portals zijn elk ondersteund door een afzonderlijke exemplaren van Azure Resource Manager. Een Operator maakt gebruik van de beheerportal voor het beheren van Azure Stack, en voor zaken als tenant aanbiedingen maken. De gebruikersportal (ook wel de tenantportal genoemd) biedt een selfservice-ervaring voor gebruik van cloudresources, zoals virtuele machines, opslagaccounts en web-apps. Zie voor meer informatie, [met behulp van de Azure Stack-beheerder en gebruiker portals](azure-stack-manage-portals.md).
 
 ## <a name="identity"></a>Identiteit 
-Azure Stack maakt gebruik van Azure Active Directory (AAD) of Active Directory Federation Services (AD FS) als een id-provider.  
+Azure Stack maakt gebruik van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) als een id-provider.  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory is van Microsoft cloud-gebaseerde, multitenant-id-provider.  De meeste hybride scenario's Azure Active Directory gebruiken als het identiteitsarchief.
+Azure AD is van Microsoft cloud-gebaseerde, multitenant-id-provider. De meeste scenario's voor hybride Azure AD gebruiken als het identiteitsarchief.
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federation Services
-U kunt kiezen voor het gebruik van Active Directory Federation Services (AD FS) voor niet-verbonden implementaties van Azure Stack.  Azure Stack, resourceproviders en andere toepassingen werken ongeveer dezelfde manier met AD FS als ze dit met Azure Active Directory doen. Azure Stack bestaat uit een eigen instantie van de AD FS en Active Directory en een Active Directory Graph API. Azure Stack Development Kit ondersteunt de volgende AD FS-scenario's:
+U kunt kiezen voor het gebruik van Active Directory Federation Services (AD FS) voor niet-verbonden implementaties van Azure Stack. Azure Stack-resourceproviders en andere toepassingen, werkt ongeveer dezelfde manier met AD FS als ze dit met Azure AD doen. Azure Stack bestaat uit een eigen Active Directory-exemplaar en een Active Directory Graph API. Azure Stack Development Kit ondersteunt de volgende AD FS-scenario's:
 
 - Meld u aan de implementatie met behulp van AD FS.
 - Een virtuele machine maken met geheimen in Key Vault
@@ -93,9 +93,9 @@ Voor de beheerder een Providerabonnement standaard gemaakt tijdens de implementa
 Met behulp van Azure Resource Manager, kunt u werken met de infrastructuurresources van uw in een model op basis van een sjabloon, declaratieve.   Het biedt één interface die u gebruiken kunt om te implementeren en beheren van de oplossingsonderdelen van uw. Zie voor volledige informatie over en richtlijnen, de [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Resourcegroepen
-Resourcegroepen zijn verzamelingen van resources, services en toepassingen, en elke resource heeft een type, zoals virtuele machines, virtuele netwerken, openbare IP-adressen, opslagaccounts en websites. Elke resource moet zich in een resourcegroep en zodat resourcegroepen logisch indelen van bronnen, zoals door de werkbelasting of locatie.  In Microsoft Azure Stack worden-resources, zoals plannen en aanbiedingen ook beheerd in resourcegroepen.
+Resourcegroepen zijn verzamelingen van resources, services en toepassingen, en elke resource heeft een type, zoals virtuele machines, virtuele netwerken, openbare IP-adressen, opslagaccounts en websites. Elke resource moet zich in een resourcegroep en zodat resourcegroepen logisch indelen van bronnen, zoals door de werkbelasting of locatie. In Azure Stack, worden resources, zoals plannen en aanbiedingen ook beheerd in resourcegroepen.
 
-In tegenstelling tot [Azure](../azure-resource-manager/resource-group-move-resources.md), u kunt geen resources wilt verplaatsen tussen resourcegroepen. Wanneer u de eigenschappen van een resource of resourcegroep in de Azure Stack-beheerportal weergeven, de *verplaatsen* knop lichter gekleurd en niet beschikbaar is. 
+In tegenstelling tot [Azure](../azure-resource-manager/resource-group-move-resources.md), u kunt Azure Stack-resources niet verplaatsen tussen resourcegroepen. Wanneer u de eigenschappen van een resource of resourcegroep in de Azure Stack-beheerportal weergeven, de *verplaatsen* knop lichter gekleurd en niet beschikbaar is. Bovendien het gebruik van de **resourcegroep wijzigen** of **abonnement wijzigen** acties op basis van de resourcegroep of de eigenschappen van de resourcegroep-item wordt ook niet ondersteund. Alle downloadpogingen verplaatsen bewerkingen mislukken.
  
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 Met Azure Resource Manager kunt u een sjabloon (in JSON-indeling) die de implementatie en configuratie van uw toepassing worden gedefinieerd. Deze sjabloon wordt aangeduid als een Azure Resource Manager-sjabloon en biedt een declaratieve manier om implementatie te definiëren. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus van uw app de app herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd.
@@ -103,7 +103,7 @@ Met Azure Resource Manager kunt u een sjabloon (in JSON-indeling) die de impleme
 ## <a name="resource-providers-rps"></a>Resourceproviders (RPs)
 Resourceproviders zijn webservices die de basis voor alle op basis van Azure IaaS vormen en PaaS-services. Azure Resource Manager, is afhankelijk van verschillende RPs voor toegang tot services.
 
-Er zijn vier fundamentele RPs: netwerk-, opslag-, reken- en Key Vault. Elk van deze RPs helpt u bij het configureren en beheren van de bijbehorende resources. Service-beheerders kunnen ook nieuwe aangepaste resourceproviders toevoegen.
+Er zijn vier fundamentele RPs: Netwerk-, opslag-, reken- en Key Vault. Elk van deze RPs helpt u bij het configureren en beheren van de bijbehorende resources. Service-beheerders kunnen ook nieuwe aangepaste resourceproviders toevoegen.
 
 ### <a name="compute-rp"></a>COMPUTE RP
 De Compute Resource Provider (CRP) kunnen Azure Stack tenants hun eigen virtuele machines maken. De CRP biedt de mogelijkheid om te maken van virtuele machines, evenals de extensies voor virtuele machines. De virtuele Machine-extensie-service helpt u bij IaaS-mogelijkheden bieden voor Windows en Linux-machines.  Als u bijvoorbeeld kunt u de CRP een Linux-machine inrichten en Bash-scripts uitvoeren tijdens de implementatie van het configureren van de virtuele machine.
@@ -129,7 +129,7 @@ Azure Queue Storage biedt uitwisseling van berichten tussen toepassingsonderdele
 De KeyVault RP biedt beheer en controle van geheimen zoals wachtwoorden en certificaten. Als u bijvoorbeeld kunt een tenant de RP KeyVault gebruiken voor beheerderswachtwoorden of sleutels tijdens de implementatie van de virtuele machine.
 
 ## <a name="high-availability-for-azure-stack"></a>Hoge beschikbaarheid voor Azure Stack
-*Is van toepassing op: Azure Stack 1802 of hogere versies*
+*Van toepassing op: Azure Stack 1802 of hogere versies*
 
 Virtuele machines worden voor het bereiken van hoge beschikbaarheid van een systeem van de productie multi-VM in Azure, geplaatst in een beschikbaarheidsset die zich ze in verschillende foutdomeinen en updatedomeinen verspreidt. Op deze manier [virtuele machines die worden geïmplementeerd in beschikbaarheidssets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) zijn fysiek geïsoleerd van elkaar op afzonderlijke server rekken om toe te staan voor fout tolerantie, zoals wordt weergegeven in het volgende diagram:
 
@@ -150,7 +150,7 @@ Voor virtuele-machineschaalsets, een beschikbaarheidsset maakt intern met een st
 ## <a name="role-based-access-control-rbac"></a>Op rollen gebaseerd toegangsbeheer (RBAC)
 U kunt RBAC systeemtoegang verlenen tot gemachtigde gebruikers, groepen en services door het toewijzen van rollen bij een abonnement, resourcegroep of afzonderlijke resourceniveau gebruiken. Elke rol definieert het toegangsniveau dat een gebruiker, groep of service voor Microsoft Azure Stack-resources heeft.
 
-Azure RBAC heeft drie fundamentele rollen die betrekking hebben op alle resourcetypen: eigenaar, Inzender en lezer. Eigenaar heeft volledige toegang tot alle bronnen, waaronder het recht op toegang aan anderen delegeren. Inzender kunt maken en beheren van alle typen Azure-resources, maar kan geen toegang om anderen te verlenen. Lezer kan alleen bestaande Azure-resources weergeven. De rest van de RBAC-rollen in Azure kunt beheer van specifieke Azure-resources. Bijvoorbeeld, de rol Inzender voor virtuele machines kunt maken en beheren van virtuele machines, maar staat niet toe dat beheer van het virtuele netwerk of het subnet waarmee de virtuele machine verbinding maakt.
+Azure RBAC heeft drie fundamentele rollen die betrekking hebben op alle resourcetypen: Eigenaar, Inzender en lezer. Eigenaar heeft volledige toegang tot alle bronnen, waaronder het recht op toegang aan anderen delegeren. Inzender kunt maken en beheren van alle typen Azure-resources, maar kan geen toegang om anderen te verlenen. Lezer kan alleen bestaande Azure-resources weergeven. De rest van de RBAC-rollen in Azure kunt beheer van specifieke Azure-resources. Bijvoorbeeld, de rol Inzender voor virtuele machines kunt maken en beheren van virtuele machines, maar staat niet toe dat beheer van het virtuele netwerk of het subnet waarmee de virtuele machine verbinding maakt.
 
 ## <a name="usage-data"></a>Gebruiksgegevens
 Microsoft Azure Stack verzamelt en verzamelt gebruiksgegevens over alle resourceproviders en verzendt naar Azure voor verwerking door Azure commerce. De gebruiksgegevens worden verzameld in Azure Stack kan worden weergegeven via een REST-API. Er is een Azure-consistente Tenant-API, evenals Provider en gedelegeerd Provider API's om gegevens over gebruik voor alle abonnementen van de tenant. Deze gegevens kunnen worden gebruikt om te integreren met een extern hulpprogramma of de service voor facturering of chargeback. Wanneer gebruik is verwerkt door Azure commerce, kan deze worden weergegeven in de Azure-factureringsportal.

@@ -4,14 +4,14 @@ description: Hierin wordt beschreven hoe u grote aantallen on-premises virtuele 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: b0965d50781ac3bb6c62338a2c6f17317306d249
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 809d892c6238441f5a0bd93382acd7a783a4f0e9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835536"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260715"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -19,18 +19,21 @@ Azure Migrate heeft een limiet van 1500 machines per project, in dit artikel wor
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **VMware**: VM's die u wilt migreren, moet worden beheerd door vCenter-Server versie 5.5, 6.0 of 6.5. Daarnaast moet u één ESXi-host met versie 5.0 of hoger voor het implementeren van de collector-VM.
-- **vCenter-account**: U hebt een alleen-lezen-account voor toegang tot de vCenter-Server nodig. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
-- **Machtigingen**: In de vCenter-Server, moet u machtigingen voor het maken van een virtuele machine door het importeren van een bestand in OVA-indeling.
-- **Instellingen voor statistieken**: deze vereiste is alleen van toepassing op de [eenmalige detectie model](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods). Voor detectie van eenmalige-model, moeten de instellingen voor statistieken voor de vCenter-Server worden ingesteld op niveau 3 voordat u begint met implementatie. Het statistiekniveau van de is ingesteld op 3 voor elk van de dag, week en maand verzameling intervallen. Als het niveau lager dan 3 voor elk van de drie verzameling intervallen is, werkt de beoordeling wel, maar de prestatiegegevens voor appopslag en netwerken worden niet verzameld. De aanbevelingen voor de grootte wordt vervolgens worden gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.
+- **VMware**: De virtuele machines die u wilt migreren, moeten worden beheerd door vCenter-Server versie 5.5, 6.0 of 6.5. Daarnaast moet u één ESXi-host met versie 5.0 of hoger voor het implementeren van de collector-VM.
+- **vCenter-account**: U moet een alleen-lezen-account voor toegang tot de vCenter-Server. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
+- **Machtigingen**: In de vCenter-Server moet u machtigingen voor het maken van een virtuele machine door het importeren van een bestand in OVA-indeling.
+- **Instellingen voor statistieken**: Deze vereiste is alleen van toepassing op de [eenmalige detectie model](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) die nu is afgeschaft. Voor detectie van eenmalige-model, moeten de instellingen voor statistieken voor de vCenter-Server worden ingesteld op niveau 3 voordat u begint met implementatie. Het statistiekniveau van de is ingesteld op 3 voor elk van de dag, week en maand verzameling intervallen. Als het niveau lager dan 3 voor elk van de drie verzameling intervallen is, werkt de beoordeling wel, maar de prestatiegegevens voor appopslag en netwerken worden niet verzameld. De aanbevelingen voor de grootte wordt vervolgens worden gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.
+
+> [!NOTE]
+> Ondersteuning van het apparaat voor eenmalige detectie is nu beëindigd omdat deze methode gebaseerd was op statistiekinstellingen van vCenter Server voor de beschikbaarheid van prestatiegegevenspunten en gemiddelde prestatiemeteritems verzamelde, wat leidde tot een te voorzichtige schaling van virtuele machines voor migratie naar Azure.
 
 ### <a name="set-up-permissions"></a>Machtigingen instellen
 
 Azure Migrate heeft toegang nodig tot de VMware-servers, zodat de virtuele machines automatisch kunnen worden gedetecteerd voor evaluatie. De VMware-account heeft de volgende machtigingen nodig:
 
-- Gebruikerstype: ten minste een alleen-lezen-gebruiker
-- Machtigingen: Datacentrumobject –> Doorgeven naar onderliggend object, rol=Alleen-lezen
-- Details: gebruiker wordt toegewezen op datacentrumniveau, en heeft toegang tot alle objecten in het datacentrum.
+- Gebruikerstype: Ten minste een alleen-lezen-gebruiker
+- Machtigingen: Datacentrumobject –> doorgeven naar onderliggend object, rol=Alleen-lezen
+- Details: Gebruiker wordt toegewezen op datacentrumniveau, en heeft toegang tot alle objecten in het datacentrum.
 - Wijs om de toegang te beperken de rol Geen toegang met het object Doorgeven naar onderliggend object toe aan de onderliggende objecten (vSphere-hosts, gegevensopslag, VM's en netwerken).
 
 Als u in een omgeving met tenants implementeert, als volgt één manier om in te stellen deze:
@@ -55,7 +58,7 @@ Op basis van het aantal virtuele machines die u van plan bent om te detecteren, 
 In het geval van eenmalige discovery (nu afgeschaft), de detectie werkt in een fire en vergeet model, zodra een detectie wordt uitgevoerd, kunt u de dezelfde collector kunt gebruiken voor het verzamelen van gegevens uit een andere vCenter-Server of verzenden naar een andere migration-project.
 
 > [!NOTE]
-> Het apparaat voor eenmalige detectie is beëindigd als deze methode op vCenter-statistieken-instellingen van de Server voor prestaties punt van beschikbaarheid van gegevens vertrouwen en die worden verzameld gemiddelde prestatiemeteritems, wat leidde tot te voorzichtige schalen van VM's voor migratie naar Azure. Het verdient aanbeveling om te verplaatsen naar het apparaat voor eenmalige detectie.
+> Ondersteuning van het apparaat voor eenmalige detectie is nu beëindigd omdat deze methode gebaseerd was op statistiekinstellingen van vCenter Server voor de beschikbaarheid van prestatiegegevenspunten en gemiddelde prestatiemeteritems verzamelde, wat leidde tot een te voorzichtige schaling van virtuele machines voor migratie naar Azure. Het verdient aanbeveling om te verplaatsen naar het apparaat voor eenmalige detectie.
 
 Plan uw detecties en evaluaties op basis van de volgende beperkingen:
 
@@ -76,18 +79,18 @@ Afhankelijk van uw scenario, kunt u uw ontdekkingen kunnen splitsen, zoals voorg
 ### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Meerdere vCenter-Servers met maximaal 1500 VM 's
 Als u meerdere vCenter-Servers in uw omgeving hebt en het totale aantal virtuele machines minder dan 1500 is, kunt u de volgende benadering op basis van uw scenario:
 
-**Continue detectie:** in het geval van continu detectie één apparaat kan worden verbonden met alleen een enkel project. Daarom moet u een apparaat voor elk van de vCenter-Servers implementeert en maakt u een project voor elk apparaat en elke trigger detecties dienovereenkomstig.
+**Continue detectie:** In het geval van continu detectie, kan een apparaat worden verbonden met alleen een enkel project. Daarom moet u een apparaat voor elk van de vCenter-Servers implementeert en maakt u een project voor elk apparaat en elke trigger detecties dienovereenkomstig.
 
-**Eenmalige discovery (nu afgeschaft):** kunt u een één-collector en een enkele migration-project voor het detecteren van alle virtuele machines voor alle vCenter-Servers. Omdat de collector eenmalige detectie een VMware vCenter Server op een tijdstip detecteert, kunt u de dezelfde collector uitvoeren op alle de vCenter-Servers elkaar en de collector verwijzen naar hetzelfde migratieproject. Als alle detecties voltooid zijn, kunt u vervolgens evaluaties voor de machines maken.
+**Eenmalige discovery (nu afgeschaft):** U kunt een één-collector en een enkele migration-project gebruiken voor het detecteren van alle virtuele machines voor alle vCenter-Servers. Omdat de collector eenmalige detectie een VMware vCenter Server op een tijdstip detecteert, kunt u de dezelfde collector uitvoeren op alle de vCenter-Servers elkaar en de collector verwijzen naar hetzelfde migratieproject. Als alle detecties voltooid zijn, kunt u vervolgens evaluaties voor de machines maken.
 
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Meerdere vCenter-Servers met meer dan 1500 VM 's
 
 Als u meerdere vCenter-Servers met minder dan 1500 virtuele machines per vCenter-Server, maar meer dan 1500 VM's voor alle vCenter-Servers hebt, moet u meerdere migration-projecten (één migration-project kan bevatten alleen 1500 VM's) maken. U kunt dit doen door het maken van een migratieproject per vCenter-Server en de detecties splitsen.
 
-**Continue detectie:** moet u meerdere collector-apparaten (één voor elke vCenter-Server) maken en verbinden met elk apparaat een project en trigger detectie dienovereenkomstig.
+**Continue detectie:** U moet meerdere collector-apparaten (één voor elke vCenter-Server) maken en verbinden met elk apparaat een project en trigger detectie dienovereenkomstig.
 
-**Eenmalige discovery (nu afgeschaft):** kunt u één collector voor het detecteren van elke vCenter-Server (achter elkaar). Als u wilt dat de detecties te starten op hetzelfde moment, kunt u ook meerdere apparaten implementeren en de detecties parallel worden uitgevoerd.
+**Eenmalige discovery (nu afgeschaft):** U kunt één collector gebruiken voor het detecteren van elke vCenter-Server (achter elkaar). Als u wilt dat de detecties te starten op hetzelfde moment, kunt u ook meerdere apparaten implementeren en de detecties parallel worden uitgevoerd.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Meer dan 1500 machines in een enkele vCenter-Server
 
@@ -95,7 +98,7 @@ Als u meer dan 1500 virtuele machines in een enkele vCenter-Server hebt, moet u 
 
 **Continue detectie:** In dit geval moet u twee collector toestellen maken voor de eerste collector, geef het bereik als Map1 en verbinden met de eerste migratieproject. U kunt parallel te leren kennen Folder2 met behulp van de tweede collector-apparaat en deze verbinden met de tweede migration-project.
 
-**Eenmalige discovery (nu afgeschaft):** kunt u de dezelfde collector voor het activeren van zowel de detecties. In de eerste detectie kunt u Map1 opgeven als het bereik en wijst u deze naar de eerste migratieproject zodra de eerste detectie is voltooid, kunt u de dezelfde collector gebruikt, wijzigen van het bereik in projectdetails Folder2 en migratie naar de tweede migration-project en de tweede detectie doen.
+**Eenmalige discovery (nu afgeschaft):** U kunt de dezelfde collector gebruiken voor het activeren van zowel de detecties. In de eerste detectie kunt u Map1 opgeven als het bereik en wijst u deze naar de eerste migratieproject zodra de eerste detectie is voltooid, kunt u de dezelfde collector gebruikt, wijzigen van het bereik in projectdetails Folder2 en migratie naar de tweede migration-project en de tweede detectie doen.
 
 ### <a name="multi-tenant-environment"></a>Multitenant-omgeving
 
@@ -124,20 +127,20 @@ Azure Migrate maakt een on-premises virtuele machine die het collector-apparaat 
 Als u meerdere projecten hebt, moet u het collector-apparaat slechts één keer downloaden met vCenter-Server. Na het downloaden en instellen van het apparaat, u deze voor elk project uitvoeren en u de unieke project-ID en sleutel opgeven.
 
 1. Klik in het Azure Migrate-project op **Aan de slag** > **Detecteren en evalueren** > **Machines detecteren**.
-2. In **machines detecteren**, klikt u op **downloaden** voor het downloaden van het apparaat.
+2. Klik in **Machines detecteren** op **Downloaden** om het apparaat te downloaden.
 
-    Het apparaat Azure Migrate communiceert met de vCenter-Server en -profielen continu de on-premises omgeving voor het verzamelen van gegevens over het gebruik van realtime voor elke virtuele machine. Piek-items voor elke metrische gegevens (CPU-gebruik, geheugengebruik enz.) worden verzameld. Dit model is voor het verzamelen van prestatiegegevens niet afhankelijk van de instellingen voor statistieken in vCenter Server. U kunt de continue profilering op elk gewenst moment stoppen vanaf het apparaat.
+    Het Azure Migrate-apparaat communiceert met vCenter Server en profileert continu de on-premises omgeving om realtime gebruiksgegevens voor elke virtuele machine te verzamelen. Het apparaat verzamelt piektellers voor elk metrisch gegeven (CPU-gebruik, geheugengebruik, enzovoort). Dit model is voor het verzamelen van prestatiegegevens niet afhankelijk van de instellingen voor statistieken in vCenter Server. U kunt de continue profilering op elk gewenst moment stoppen vanaf het apparaat.
 
     > [!NOTE]
-    > Het apparaat voor eenmalige detectie is beëindigd als deze methode op vCenter-statistieken-instellingen van de Server voor prestaties punt van beschikbaarheid van gegevens vertrouwen en die worden verzameld gemiddelde prestatiemeteritems, wat leidde tot te voorzichtige schalen van VM's voor migratie naar Azure.
+    > Ondersteuning van het apparaat voor eenmalige detectie is nu beëindigd omdat deze methode gebaseerd was op statistiekinstellingen van vCenter Server voor de beschikbaarheid van prestatiegegevenspunten en gemiddelde prestatiemeteritems verzamelde, wat leidde tot een te voorzichtige schaling van virtuele machines voor migratie naar Azure.
 
-    **Direct resultaat:** met het continue detectie-apparaat, wanneer de detectie is voltooid (duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat de verzameling van prestatiegegevens wordt gestart wanneer u detectie, een vliegende start als u direct resultaat zoekt, moet u het criterium voor het instellen in de evaluatie als *zoals on-premises*. Voor beoordelingen op basis van prestaties, is het raadzaam om te wachten op ten minste een dag na de detectie voor betrouwbare aanbevolen groottes begon.
+    **Direct resultaat:** Met het continue detectie-apparaat, wanneer de detectie is voltooid (duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, en als u direct resultaat wilt, moet u het schaalcriterium in de evaluatie instellen als *as on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
 
     Houd er rekening mee dat het apparaat alleen continu prestatiegegevens verzamelt, het detecteert niet elke configuratiewijziging in de on-premises omgeving (dat wil zeggen het toevoegen/verwijderen van VM’s, toevoegen van schijven, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
-    - Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
+    - Het toevoegen van items (virtuele machines, schijven, kernen enz.): Als gevolg van deze wijzigingen in de Azure-portal, kunt u stoppen van de detectie van het apparaat en probeer het opnieuw. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
 
-    - Verwijderen van VM’s: vanwege de manier waarop het apparaat is ontworpen, wordt het verwijderen van VM’s niet doorgevoerd, zelfs niet als u de detectie stopt en opnieuw start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
+    - Verwijderen van virtuele machines: Vanwege de manier waarop die het apparaat is ontworpen, het verwijderen van virtuele machines niet weergegeven, zelfs als u stopt en de detectie start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
 
 3. In **projectreferenties kopiëren**, kopieert u de ID en de sleutel voor het project. U hebt deze nodig tijdens de configuratie van collector.
 
@@ -166,7 +169,7 @@ MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
 SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
 SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
-#### <a name="one-time-discovery-deprecated-now"></a>Eenmalige discovery (nu afgeschaft)
+#### <a name="one-time-discovery-deprecated-now"></a>Eenmalige detectie (nu beëindigd)
 
 Voor OVA-versie 1.0.9.15 (vrijgegeven op 23-10-2018)
 
