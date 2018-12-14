@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2827461ee78be8d8976ec23e59d489213eb94e31
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0bbf67f728f7090c89d379f7b63474788d70a46c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316018"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338597"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Uw beveiligingspositie verbeteren met Azure Security Center
 Dit artikel helpt u uw beveiligingspositie verbeteren. De bewakingsmogelijkheden in Azure Security Center gebruikt om te controleren of de resourcebeveiliging van uw als nauwe als mogelijke en monitor naleving van beleid.
@@ -27,7 +27,7 @@ Dit artikel helpt u uw beveiligingspositie verbeteren. De bewakingsmogelijkheden
 ## <a name="how-do-you-strengthen-your-security-posture"></a>Hoe u uw beveiligingspositie?
 Bij het woord bewaking wordt misschien gesuggereerd dat er wordt gewacht tot een gebeurtenis plaatsvindt en dat er dan op de situatie wordt gereageerd. Versterking van uw beveiligingspostuur verwijst naar het met een proactieve strategie waarbij uw resources voor het identificeren van systemen die niet voldoen aan de standaarden van de organisatie of aanbevolen procedures worden gecontroleerd.
 
-Nadat u een [beveiligingsbeleid](security-center-azure-policy.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar. Afhankelijk van het aantal virtuele machines en computers waarop de agent is geïnstalleerd, kan het een uur of langer duren voordat informatie is verzameld over configuratie van de VM's en de computer, zoals de status van de beveiligingsupdates en de configuratie van het besturingssysteem. U vindt een volledige lijst van problemen en manieren om uw netwerk beveiligen en herstellen van risico's in de **aanbevelingen** tegel.
+Nadat u een [beveiligingsbeleid](tutorial-security-policy.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar. Afhankelijk van het aantal virtuele machines en computers waarop de agent is geïnstalleerd, kan het een uur of langer duren voordat informatie is verzameld over configuratie van de VM's en de computer, zoals de status van de beveiligingsupdates en de configuratie van het besturingssysteem. U vindt een volledige lijst van problemen en manieren om uw netwerk beveiligen en herstellen van risico's in de **aanbevelingen** tegel.
 
 U kunt de beveiligingsstatus van uw resources en eventuele problemen per resourcetype bekijken:
 
@@ -49,8 +49,8 @@ Zie [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-
 ## <a name="see-also"></a>Zie ook
 In dit artikel hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md): leer hoe u beveiligingsinstellingen configureert in Azure Security Center.
-* [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
-* [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
-* [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
+* [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md): Leer hoe u beveiligingsinstellingen configureert in Azure Security Center.
+* [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md): Informatie over het beheren van en reageren op beveiligingswaarschuwingen.
+* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): Meer informatie over het bewaken van de status van uw partneroplossingen.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md): Raadpleeg de veelgestelde vragen over het gebruik van de service.
+* [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/): Raadpleeg de blogberichten over beveiliging en naleving in Azure.

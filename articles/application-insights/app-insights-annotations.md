@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f852b04c2c666519f10e5e3bb148c50dae7add00
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d725c42a758a44fa872138dfaef7e1c05e4b688f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682517"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385683"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Aantekeningen op grafieken met metrische gegevens in Application Insights
 
 Aantekeningen op [Metrics Explorer](app-insights-metrics-explorer.md) grafieken weergeven waar u een nieuwe build of andere belangrijke gebeurtenis hebt geïmplementeerd. Ze maken het gemakkelijk om te zien of uw wijzigingen geen effect op de prestaties van uw toepassing heeft. Ze automatisch kunnen worden gemaakt door de [systeem bouwen voor Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). U kunt ook maken met aantekeningen voor het markeren van een gebeurtenis die u met wilt [ze worden gemaakt vanuit PowerShell](#create-annotations-from-powershell).
 
 > [!NOTE]
-> In dit artikel bevat de afgeschafte **klassieke metrische gegevens ervaring**. Aantekeningen zijn alleen beschikbaar in de klassieke ervaring en  **[werkmappen](app-insights-usage-workbooks.md)**. Voor meer informatie over de currrent metrische gegevens-ervaring, kunt u raadplegen [in dit artikel](../monitoring-and-diagnostics/monitoring-metric-charts.md).
+> In dit artikel bevat de afgeschafte **klassieke metrische gegevens ervaring**. Aantekeningen zijn alleen beschikbaar in de klassieke ervaring en  **[werkmappen](app-insights-usage-workbooks.md)**. Voor meer informatie over de currrent metrische gegevens-ervaring, kunt u raadplegen [in dit artikel](../azure-monitor/platform/metrics-charts.md).
 
 ![Voorbeeld van aantekeningen met zichtbaar correlatie met serverreactietijd](./media/app-insights-annotations/00.png)
 

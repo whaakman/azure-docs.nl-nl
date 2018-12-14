@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
-ms.openlocfilehash: 4535b141d177e49567d99a88d0c3883f5ddf746a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 839c8bfe6748c1aeaf7c8804ef4388cf8a623bdb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956803"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337832"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center en Azure SQL Database-service
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) helpt u bedreigingen te voorkomen, te detecteren en erop te reageren. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
@@ -60,14 +60,14 @@ U kunt een beleid om weer te geven van de aanbevelingen voor SQL-controle en tra
 Als u wilt een beveiligingsbeleid instellen, selecteert u de **beleid** tegel op de blade Security Center. Op de **beveiligingsbeleid** blade, selecteer het abonnement dat u wilt inschakelen het beveiligingsbeleid. Selecteer **beleid ter preventie van** en schakel **op** de aanbevelingen voor beveiliging die u wilt gebruiken voor dit abonnement.
 ![Beveiligingsbeleid][3]
 
-Zie voor meer informatie, [beveiligingsbeleid instellen](security-center-azure-policy.md).
+Zie voor meer informatie, [beveiligingsbeleid instellen](tutorial-security-policy.md).
 
 ## <a name="manage-security-recommendation"></a>Beveiligingsaanbeveling beheren
 De beveiligingsstatus van uw Azure-bronnen worden regelmatig door Security Center gecontroleerd. Wanneer met Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen gedaan. Deze aanbevelingen begeleiden u bij het configureren van de benodigde besturingselementen.
 
 Nadat u een beveiligingsbeleid hebt ingesteld, analyseert Security Center de beveiligingsstatus van uw resources om mogelijke beveiligingsproblemen te identificeren. De aanbevelingen worden weergegeven in de vorm van een tabel waarin elke regel één bepaalde aanbeveling vertegenwoordigt. Gebruik de volgende tabel als referentie om te begrijpen van de beschikbare aanbevelingen voor Azure SQL Database, en elke aanbeveling heeft als u deze toepast. Wanneer u een aanbeveling selecteert, wordt u gaat naar een artikel waarin wordt uitgelegd hoe u de aanbeveling kunt implementeren in Security Center.
 
-| Aanbeveling | Beschrijving |
+| Aanbeveling | Description |
 | --- | --- |
 | [Controle en detectie van bedreigingen op SQL-servers inschakelen](security-center-enable-auditing-on-sql-servers.md) |Hiermee wordt aanbevolen dat u controle en detectie van bedreigingen voor SQL Database-servers inschakelen. (Alleen SQL Database-service. Bevat geen Microsoft SQL Server op uw virtuele machines wordt uitgevoerd.) |
 | [Controle en detectie van bedreigingen op SQL-databases inschakelen](security-center-enable-auditing-on-sql-databases.md) |Hiermee wordt aanbevolen dat u controle en detectie van bedreigingen voor SQL Database-databases inschakelen. (Alleen SQL Database-service. Bevat geen Microsoft SQL Server op uw virtuele machines wordt uitgevoerd.) |
@@ -85,7 +85,7 @@ Volg de stappen in [detectie van bedreigingen op SQL-Database in Azure portal](.
 Zie voor meer informatie over aanbevelingen, [aanbevelingen voor beveiliging beheren](security-center-recommendations.md).
 
 ## <a name="monitor-security-health"></a>Beveiligingsstatus controleren
-Nadat u een [beveiligingsbeleid](security-center-azure-policy.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen.  U vindt de beveiligingsstatus van uw resources in de **resourcebeveiligingsstatus** tegel. Wanneer u klikt op **gegevens** in de **resourcebeveiligingsstatus** tegel, het **gegevensbronnen** blade geopend met de SQL-aanbevelingen voor problemen zoals controle en transparent data versleuteling is niet ingeschakeld. Ook bevat de blade aanbevelingen voor de algemene integriteitsstatus van de database.
+Nadat u een [beveiligingsbeleid](tutorial-security-policy.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen.  U vindt de beveiligingsstatus van uw resources in de **resourcebeveiligingsstatus** tegel. Wanneer u klikt op **gegevens** in de **resourcebeveiligingsstatus** tegel, het **gegevensbronnen** blade geopend met de SQL-aanbevelingen voor problemen zoals controle en transparent data versleuteling is niet ingeschakeld. Ook bevat de blade aanbevelingen voor de algemene integriteitsstatus van de database.
 ![Beveiligingsstatus van de resource][6]
 
 Zie voor meer informatie, [Security health monitoring](security-center-monitoring.md).

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023743"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342235"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 
@@ -47,7 +47,7 @@ Controleer de pagina app-aanvraag machtigingen en klik op **accepteren**.
 
 Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens in en klikt u op **opslaan**. De volgende tabel bevat een beschrijving van de beschikbare velden.
 
-|Eigenschap  |Beschrijving  |
+|Eigenschap  |Description  |
 |---------|---------|
 |Naam van de bron-besturingselement     | Een beschrijvende naam voor broncodebeheer        |
 |Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
@@ -56,13 +56,13 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 |Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks         |
 |Automatisch synchroniseren     | Hiermee schakelt u in- of uitschakelen van automatische synchronisatie wanneer een wijziging wordt aangebracht in de opslagplaats voor bronbeheer         |
 |Runbook publiceren     | Indien ingesteld op **op**nadat runbooks zijn gesynchroniseerd vanuit broncodebeheer ze automatisch worden gepubliceerd.         |
-|Beschrijving     | Een tekstveld om meer duidelijkheid te geven        |
+|Description     | Een tekstveld om meer duidelijkheid te geven        |
 
 ![Overzicht van de bron-besturingselement](./media/source-control-integration/source-control-summary.png)
 
 ## <a name="syncing"></a>Synchroniseren...
 
-Automatische synchronisatie configureren bij het configureren van integratie van broncodebeheer, de initiële synchronisatie wordt automatisch gestart. Als automatische synchronisatie niet is ingesteld, selecteert u de bron uit de tabel op de **besturingselement (Preview) voor de gegevensbron** pagina. Klik op **synchronisatie starten** om de synchronisatieproces te starten.  
+Automatische synchronisatie configureren bij het configureren van integratie van broncodebeheer, de initiële synchronisatie wordt automatisch gestart. Als automatische synchronisatie niet is ingesteld, selecteert u de bron uit de tabel op de **besturingselement (Preview) voor de gegevensbron** pagina. Klik op **synchronisatie starten** om de synchronisatieproces te starten.
 
 U ziet de status van de huidige synchronisatietaak of vorige waarden door te klikken op de **taken synchroniseren** tabblad. Op de **broncodebeheer** vervolgkeuzelijst, selecteer een bron-besturingselement.
 
@@ -109,7 +109,7 @@ Broncodebeheer vereist minimale machtigingen voor persoonlijke toegangstokens. D
 
 ### <a name="github"></a>GitHub
 
-|Bereik  |Beschrijving  |
+|Bereik  |Description  |
 |---------|---------|
 |**opslagplaats**     |         |
 |status van-opslagplaats:     | Commit-toegangsstatus         |

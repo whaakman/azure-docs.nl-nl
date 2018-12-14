@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 7de2257a5e351cc1c2eac83a0fd0095807ae4afa
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: cf2dd013b0d6f8867129d2d53311af21af5a1fe2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320758"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385326"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Bewakingsgegevens van Azure gebruiken
 
@@ -29,7 +29,7 @@ In het Azure-platform, zijn we bijeenbrengt bewakingsgegevens op één plek met 
 | Metrische opslaggegevens | Metrische gegevens | Azure Storage | <ul><li>**Storage-tabel:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Factureringsgegevens | Metrische gegevens | Alle Azure-services | <ul><li>**REST-API:** [Azure-Resource gebruiks- en RateCard API 's](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Activiteitenlogboek | Gebeurtenissen | Alle Azure-services | <ul><li>**REST-API:** [Azure Monitor gebeurtenissen API](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Storage blob of event hub:** [Logboekprofiel](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
-| Diagnostische logboeken van Azure Monitor | Gebeurtenissen | [Bekijk hier de lijst](monitoring-diagnostic-logs-schema.md) | <ul><li>**Storage blob of event hub:** [Diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
+| Diagnostische logboeken van Azure Monitor | Gebeurtenissen | [Bekijk hier de lijst](../azure-monitor/platform/tutorial-dashboards.md) | <ul><li>**Storage blob of event hub:** [Diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
 | COMPUTE Gast OS-Logboeken (bv. IIS, ETW, syslogs) | Gebeurtenissen | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) en Linux-Machines (v2), [Cloudservices](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**- Of blob Storage-tabel:** [Windows- of Linux Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-storage.md)</li><li>**Event hub:** [Windows Azure diagnostics](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)</li></ul> |
 | App Service-Logboeken | Gebeurtenissen | App-services | <ul><li>**Bestand, tabel of blob-opslag:** [Diagnostische gegevens van web-app](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Opslaglogboeken | Gebeurtenissen | Azure Storage | <ul><li>**Storage-tabel:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
@@ -39,7 +39,7 @@ In het Azure-platform, zijn we bijeenbrengt bewakingsgegevens op één plek met 
 | Status van resources | Status | Ondersteunde services | <ul><li>**REST-API:** [Resourcestatus REST-API](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Metrische waarschuwingen van Azure Monitor | Meldingen | [Bekijk hier de lijst](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [Azure metrische waarschuwingen](../azure-monitor/platform/alerts-webhooks.md)</li></ul> |
 | Waarschuwingen van Azure Monitor Activity-Log | Meldingen | Alle Azure-services | <ul><li>**Webhook:** Waarschuwingen van Azure Activity Log</li></ul> |
-| Meldingen over automatisch schalen | Meldingen | [Bekijk hier de lijst](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Automatisch schalen melding webhook-schema voor nettolading](../azure-monitor/platform/autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
+| Meldingen over automatisch schalen | Meldingen | [Bekijk hier de lijst](../azure-monitor/platform/autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Automatisch schalen melding webhook-schema voor nettolading](../azure-monitor/platform/autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
 | Zoekquery waarschuwingen voor activiteitenlogboeken | Meldingen | Log Analytics | <ul><li>**Webhook:** [Webhookactie voor waarschuwingsregels](../monitoring-and-diagnostics/../azure-monitor/platform/alerts-log-webhook.md)</li></ul> |
 | Application Insights metrische waarschuwingen | Meldingen | Application Insights | <ul><li>**Webhook:** [Application Insights-waarschuwingen](../application-insights/app-insights-alerts.md)</li></ul> |
 | Application Insights-webtests | Meldingen | Application Insights | <ul><li>**Webhook:** [Application Insights-waarschuwingen](../application-insights/app-insights-alerts.md)</li></ul> |

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 98380cc5b9daff314283ac4e45e5edf7b5601e1b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: fefbdffdeb3db86447038a3b3d4d24e8c7cd3803
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642296"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340433"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Externe gebeurtenissen in duurzame functies (Azure Functions) verwerken
 
@@ -25,7 +25,7 @@ Orchestrator-functies hebben de mogelijkheid om te wachten en luisteren naar ext
 
 De [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) methode kunt u een orchestrator-functie voor het asynchroon wacht en luisteren naar een externe gebeurtenis. De luisterende orchestrator-functie verklaart de *naam* van de gebeurtenis en de *vorm van de gegevens* het verwacht te ontvangen.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -44,7 +44,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -90,7 +90,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -133,7 +133,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -155,15 +155,17 @@ module.exports = df.orchestrator(function*(context) {
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) gewacht voor onbepaalde tijd op sommige invoer.  De functie-app kan worden veilig verwijderd tijdens het wachten. Als een gebeurtenis voor dit exemplaar orchestration binnenkomt, wordt automatisch geactiveerd en onmiddellijk de gebeurtenis wordt verwerkt.
 
 > [!NOTE]
-> Als uw functie-app gebruikmaakt van het verbruik van plan bent, geen kosten worden berekend terwijl een orchestrator-functie is in afwachting van een taak uit `WaitForExternalEvent`, ongeacht hoe lang deze moet wachten.
+> Als uw functie-app gebruikmaakt van het verbruik van plan bent, geen kosten worden berekend terwijl een orchestrator-functie is in afwachting van een taak in de `WaitForExternalEvent` (.NET) of `waitForExternalEvent` (JavaScript), ongeacht hoe lang deze moet wachten.
 
 In .NET, als de nettolading van de gebeurtenis kan niet worden omgezet in het verwachte type `T`, wordt er een uitzondering gegenereerd.
 
 ## <a name="send-events"></a>Gebeurtenissen verzenden
 
-De [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) -methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse verzendt de gebeurtenissen die `WaitForExternalEvent` wacht.  De `RaiseEventAsync` methode duurt *eventName* en *eventData* als parameters. Gegevens van de gebeurtenis moet JSON-geserialiseerd.
+De [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) -methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse verzendt de gebeurtenissen die `WaitForExternalEvent` (.NET) of `waitForExternalEvent` wacht op (JavaScript).  De `RaiseEventAsync` methode duurt *eventName* en *eventData* als parameters. Gegevens van de gebeurtenis moet JSON-geserialiseerd.
 
 Hieronder volgt een voorbeeld van de wachtrij geactiveerde functie die een gebeurtenis 'Goedkeuring' worden verzonden naar een exemplaar van de orchestrator-functie. De orchestration-exemplaar-ID zijn afkomstig uit de hoofdtekst van bericht uit de wachtrij.
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("ApprovalQueueProcessor")]
@@ -175,38 +177,24 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
-In JavaScript zullen we hebben om aan te roepen een rest api voor het activeren van een gebeurtenis waarvoor de duurzame functie wordt gewacht.
-De code hieronder maakt gebruik van het pakket '-aanvraag. De onderstaande methode kan worden gebruikt om een gebeurtenis voor elk exemplaar duurzame functie verhogen
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
-```js
-function raiseEvent(instanceId, eventName) {
-        var url = `<<BASE_URL>>/runtime/webhooks/durabletask/instances/${instanceId}/raiseEvent/${eventName}?taskHub=DurableFunctionsHub`;
-        var body = <<BODY>>
-            
-        return new Promise((resolve, reject) => {
-            request({
-                url,
-                json: body,
-                method: "POST"
-            }, (e, response) => {
-                if (e) {
-                    return reject(e);
-                }
+```javascript
+const df = require("durable-functions");
 
-                resolve();
-            })
-        });
-    }
+module.exports = async function(context, instanceId) {
+    const client = df.getClient(context);
+    await client.raiseEvent(instanceId, "Approval", true);
+};
 ```
 
-<< BASE_URL >> is de basis-url van de uw functie-app. Als u code lokaal uitvoert, wordt deze er ongeveer als ziet http://localhost:7071 of in Azure als https://<<functionappname>>. azurewebsites.net
-
-
-Intern, `RaiseEventAsync` enqueues een bericht dat wordt opgehaald door de orchestrator-functie voor wachten.
+Intern, `RaiseEventAsync` (.NET) of `raiseEvent` (JavaScript) enqueues een bericht dat wordt opgehaald door de orchestrator-functie voor wachten.
 
 > [!WARNING]
 > Als er geen orchestration-exemplaar met de opgegeven *exemplaar-ID* of als het exemplaar niet op de opgegeven wachten is *gebeurtenisnaam*, het gebeurtenisbericht wordt verwijderd. Zie voor meer informatie over dit gedrag, de [GitHub-probleem](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+
+> [!WARNING]
+> Bij het ontwikkelen van lokaal in JavaScript, moet u de omgevingsvariabele instellen `WEBSITE_HOSTNAME` naar `localhost:<port>`, bijvoorbeeld. `localhost:7071` gebruik van methoden op `DurableOrchestrationClient`. Zie voor meer informatie over deze vereiste de [GitHub-probleem](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -218,4 +206,3 @@ Intern, `RaiseEventAsync` enqueues een bericht dat wordt opgehaald door de orche
 
 > [!div class="nextstepaction"]
 > [Een voorbeeld dat wordt gewacht menselijke tussenkomst uitvoeren](durable-functions-phone-verification.md)
-

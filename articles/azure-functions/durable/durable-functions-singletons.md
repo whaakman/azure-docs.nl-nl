@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 58e5b06d613ee3e3311b58af64abd2411c637449
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b083b9a09b478ca5ad68e19d3a2133fb529da851
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642611"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342949"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-orchestrators in duurzame functies (Azure Functions)
 
@@ -23,7 +23,9 @@ Voor achtergrondtaken of actor-stijl-indelingen, u vaak nodig om ervoor te zorge
 
 ## <a name="singleton-example"></a>Singleton-voorbeeld
 
-De volgende C#-voorbeeld ziet u een HTTP-trigger-functie waarmee een Taakindeling voor singleton-achtergrond. De code zorgt ervoor dat slechts één exemplaar bestaat voor een opgegeven exemplaar-ID.
+De volgende C# en een HTTP-trigger-functie waarmee een singleton achtergrond-Taakindeling enkele voorbeelden van JavaScript. De code zorgt ervoor dat slechts één exemplaar bestaat voor een opgegeven exemplaar-ID.
+
+### <a name="c"></a>C#
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -54,7 +56,39 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-Exemplaar-id's willekeurig zijn gegenereerd standaard GUID's. Maar in dit geval de exemplaar-ID van de URL in de routegegevens wordt doorgegeven. De code roept [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) om te controleren als er al een exemplaar met de opgegeven ID is uitgevoerd. Als dit niet het geval is, is een exemplaar gemaakt met die ID.
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+modules.exports = async function(context, req) {
+    const client = df.getClient(context);
+
+    const instanceId = req.params.instanceId;
+    const functionName = req.params.functionsName;
+
+    // Check if an instance with the specified ID already exists.
+    const existingInstance = await client.getStatus(instanceId);
+    if (!existingInstance) {
+        // An instance with the specified ID doesn't exist, create one.
+        const eventData = req.body;
+        await client.startNew(functionName, instanceId, eventData);
+        context.log(`Started orchestration with ID = '${instanceId}'.`);
+        return client.createCheckStatusResponse(req, instanceId);
+    } else {
+        // An instance with the specified ID exists, don't create one.
+        return {
+            status: 409,
+            body: `An instance with ID '${instanceId}' already exists.`,
+        };
+    }
+};
+```
+
+Exemplaar-id's willekeurig zijn gegenereerd standaard GUID's. Maar in dit geval de exemplaar-ID van de URL in de routegegevens wordt doorgegeven. De code roept [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) of `getStatus` (JavaScript) om te controleren als er al een exemplaar met de opgegeven ID is uitgevoerd. Als dit niet het geval is, is een exemplaar gemaakt met die ID.
+
+> [!WARNING]
+> Bij het ontwikkelen van lokaal in JavaScript, moet u de omgevingsvariabele instellen `WEBSITE_HOSTNAME` naar `localhost:<port>`, bijvoorbeeld. `localhost:7071` gebruik van methoden op `DurableOrchestrationClient`. Zie voor meer informatie over deze vereiste de [GitHub-probleem](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 > [!NOTE]
 > Er is een mogelijke racevoorwaarde in dit voorbeeld. Als twee exemplaren van **HttpStartSingle** uitvoeren gelijktijdig, het resultaat kan worden twee verschillende gemaakt exemplaren van de singleton, die de andere worden overschreven. Dit kan neveneffecten hebben, afhankelijk van uw vereisten. Daarom is het belangrijk om ervoor te zorgen dat geen twee aanvragen gelijktijdig deze triggerfunctie kunnen uitvoeren.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 36724c0934a68fa8b19b7fc69581275192f4ed36
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 2347d82b8c2f5a08b944577e5b06cde3b68617b3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321320"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385003"
 ---
 # <a name="understand-autoscale-settings"></a>Inzicht in instellingen voor automatisch schalen
 Instellingen voor automatisch schalen kunt u ervoor zorgen dat u hebt de juiste hoeveelheid resources die worden uitgevoerd om de wisselende belasting van uw toepassing te voldoen. U kunt de instellingen voor automatisch schalen op basis van metrische gegevens die wijzen op belasting of prestaties of trigger wordt geactiveerd op een geplande datum en tijd configureren. In dit artikel wordt een gedetailleerde Kijk op de anatomie van een instelling voor automatisch schalen. Het artikel begint met het schema en de eigenschappen van een instelling en klikt u vervolgens helpt bij de verschillende profieltypen die kunnen worden geconfigureerd. Ten slotte het artikel wordt beschreven hoe de functie voor automatisch schalen in Azure evalueert profiel om uit te voeren op een bepaald moment.
@@ -305,7 +305,7 @@ Bijvoorbeeld: Stel dat er wordt een virtuele-machineschaalset met een huidige ca
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over automatisch schalen door te verwijzen naar het volgende:
 
-* [Overzicht van automatisch schalen](monitoring-overview-autoscale.md)
+* [Overzicht van automatisch schalen](../azure-monitor/platform/autoscale-overview.md)
 * [Azure Monitor voor automatisch schalen de algemene metrische gegevens](../azure-monitor/platform/autoscale-common-metrics.md)
 * [Aanbevolen procedures voor automatisch schalen van Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
 * [Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en webhook waarschuwingsmeldingen](../azure-monitor/platform/autoscale-webhook-email.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 911b8051530daca57fe26fb22c6dc1be845c6d6d
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: e1482b4238211db45a7f317d874bbb3a8c974cb2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321423"
+ms.locfileid: "53337900"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Blob- en wachtrijgegevens met RBAC (Preview)
 
@@ -27,11 +27,11 @@ Een Azure AD-identiteit is mogelijk een gebruiker, groep of toepassingsservice-p
 
 Azure Storage ondersteunt zowel ingebouwde als aangepaste RBAC-rollen. Azure Storage biedt deze ingebouwde RBAC-rollen voor gebruik met Azure AD:
 
-- [Gegevensbijdrager voor Blob (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
-- [Gegevenslezer voor Opslagblob (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
-- [Storage Blob de eigenaar van gegevens (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
-- [Gegevensbijdrager voor wachtrij (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
-- [Gegevenslezer voor Opslagwachtrij (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
+- [Eigenaar van gegevens (Preview) voor Blob Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview): Gebruik voor het instellen van ACL's en het eigendom voor Azure Data Lake Storage Gen2 (preview). Zie voor meer informatie, [toegangsbeheer in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
+- [Gegevensbijdrager voor Blob (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview): Gebruiken om machtigingen voor lezen/schrijven/verwijderen naar Blob storage-resources te verlenen.
+- [Gegevenslezer voor Opslagblob (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview): Gebruiken om Blob storage-resources alleen-lezen machtigingen te verlenen.
+- [Gegevensbijdrager voor wachtrij (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview): Gebruiken om de machtigingen lezen, schrijven en verwijderen in Azure-wachtrijen te verlenen.
+- [Gegevenslezer voor Opslagwachtrij (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview): Gebruiken om Azure-wachtrijen alleen-lezen machtigingen te verlenen.
 
 Voor meer informatie over hoe u de ingebouwde rollen voor Azure Storage zijn gedefinieerd, Zie [begrijpen roldefinities](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 
@@ -45,10 +45,10 @@ Een RBAC-rol toewijzen aan een Azure-identiteit om machtigingen aan containers o
 
 |Bereik|De eigenaar van de BLOB-gegevens|Inzender voor BLOB-gegevens|Gegevenslezer voor opslagblob|Inzender voor wachtrij Data|Gegevenslezer voor opslagwachtrij|
 |---|---|---|---|---|---|
-|Abonnementsniveau|Lees-/ schrijftoegang tot alle containers en blobs in het abonnement|Lees-/ schrijftoegang tot alle containers en blobs in het abonnement| Leestoegang tot alle containers en blobs in het abonnement|Lees-/ schrijftoegang tot alle wachtrijen in het abonnement|Leestoegang tot alle wachtrijen in het abonnement|
-|Het niveau van resourcegroep|Lees-/ schrijftoegang tot alle containers en blobs in de resourcegroep|Lees-/ schrijftoegang tot alle containers en blobs in de resourcegroep|Leestoegang tot alle containers en blobs in de resourcegroep|Lees-/ schrijftoegang tot alle wachtrijen in de resourcegroep|Leestoegang tot alle wachtrijen in de resourcegroep|
-|Niveau van de Storage-account|Lees-/ schrijftoegang tot alle containers en blobs in de storage-account|Lees-/ schrijftoegang tot alle containers en blobs in de storage-account|Leestoegang tot alle containers en blobs in de storage-account|Lees-/ schrijftoegang tot alle wachtrijen in de storage-account|Leestoegang tot alle wachtrijen in de storage-account|
-|Het niveau van de container/wachtrij|Toegang tot de opgegeven container en de blobs voor lezen/schrijven|Toegang tot de opgegeven container en de blobs voor lezen/schrijven|Leestoegang tot de opgegeven container en de blobs|Lees-/ schrijftoegang tot de opgegeven wachtrij|Leestoegang tot de opgegeven wachtrij|
+|Abonnementsniveau|ACL's voor Data Lake Storage-resources in het abonnement en het eigendom instellen|Toegang tot alle containers en blobs in het abonnement lezen, schrijven en verwijderen| Leestoegang tot alle containers en blobs in het abonnement|Toegang tot alle wachtrijen in het abonnement lezen, schrijven en verwijderen|Leestoegang tot alle wachtrijen in het abonnement|
+|Het niveau van resourcegroep|Eigendom en de ACL's voor Data Lake Storage-resources in de resourcegroep instellen|Toegang tot alle containers en blobs in de resourcegroep lezen, schrijven en verwijderen|Leestoegang tot alle containers en blobs in de resourcegroep|Toegang tot alle wachtrijen in de resourcegroep lezen, schrijven en verwijderen|Leestoegang tot alle wachtrijen in de resourcegroep|
+|Niveau van de Storage-account|Eigendom en de ACL's voor Data Lake Storage-resources in de storage-account instellen|Toegang tot alle containers en blobs in de storage-account lezen, schrijven en verwijderen|Leestoegang tot alle containers en blobs in de storage-account|Toegang tot alle wachtrijen in de storage-account lezen, schrijven en verwijderen|Leestoegang tot alle wachtrijen in de storage-account|
+|Container/wachtrij/systeem bestandsniveau|Instellen van ACL's en het eigendom voor Data Lake Storage-resources in het bestandssysteem|Toegang tot de opgegeven container en de blobs lezen, schrijven en verwijderen|Leestoegang tot de opgegeven container en de blobs|Lezen/schrijven/verwijderen toegang tot de opgegeven wachtrij|Leestoegang tot de opgegeven wachtrij|
 
 > [!NOTE]
 > Als een eigenaar van uw Azure Storage-account, zijn u machtigingen voor toegang tot gegevens niet automatisch toegewezen. U moet zelf expliciet een RBAC-rol toewijzen voor Azure Storage. U kunt deze op het niveau van uw abonnement, resourcegroep, opslagaccount, of een container of een wachtrij toewijzen.

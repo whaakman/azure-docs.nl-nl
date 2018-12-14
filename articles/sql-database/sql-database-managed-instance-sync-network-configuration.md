@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 03/07/2018
-ms.openlocfilehash: d5de908166e8de1d45a36f97aee8934653e59623
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e488fc7e568fc94f9a0744c12122b605f37f8152
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163157"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339668"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Configuratie van netwerken voor Azure App Service-hostingabonnement synchroniseren
 
@@ -47,4 +47,4 @@ U bent nu klaar om te proberen voor uw verbinding met uw beheerde exemplaar opni
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het configureren van uw VNet voor beheerd exemplaar [beheerd exemplaar VNet-configuratie](sql-database-managed-instance-vnet-configuration.md).
+- Zie voor meer informatie over het configureren van uw VNet voor beheerd exemplaar [beheerd exemplaar VNet architectuur](sql-database-managed-instance-connectivity-architecture.md) en [het configureren van bestaande VNet](sql-database-managed-instance-configure-vnet-subnet.md).

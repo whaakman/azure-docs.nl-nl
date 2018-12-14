@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: bcd9b006c5451cb2d251cd5ff9e6ae5e0bd17f3c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 49d6e2ded2ad4b2e5bb0ee30c323b1f459422437
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634010"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338393"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Maken van verbinding Microsoft Advanced Threat Analytics met Azure Security Center
 Dit document helpt u bij het configureren van de integratie tussen Microsoft Advanced Threat Analytics en Azure Security Center.
@@ -68,7 +68,7 @@ Zodra u klaar bent met de installatie, de integratie is voltooid en u wordt moge
 In dit document hebt u geleerd hoe u verbinding maken met Microsoft ATA met Security Center. Zie de volgende artikelen voor meer informatie over Security Center:
 
 * [Azure Active Directory Identity Protection koppelen aan Azure Security Center](security-center-aadip-integration.md)
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+* [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) : Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.
 * [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) : informatie over het beheren van en reageren op beveiligingswaarschuwingen.

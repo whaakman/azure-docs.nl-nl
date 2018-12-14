@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 88a4c6dbe9311a054c6ed93df0005d32e6d21672
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: fa5c3d65daa86a678ec278bc49759e1de7da7f0c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271790"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386533"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Doorlopende bewaking met Azure Monitor
 
@@ -64,13 +64,13 @@ Continue integratie / continue implementatie kunt u automatisch integreren en wi
 
 - Gebruik [Azure pijplijnen](/azure/devops/pipelines) continue implementatie implementeren en automatiseren van uw hele proces van code doorvoeren naar productie op basis van uw CI/CD-tests.
 - Gebruik [kwaliteit Gates](/devops/pipelines/release/approvals/gates) om te integreren in uw vóór de implementatie of na de implementatie controleren. Dit zorgt ervoor dat u voldoet aan de health/prestatie metrische gegevens (KPI's) als uw toepassingen van dev naar productie en eventuele verschillen in de infrastructuur-omgeving verplaatsen of schaal uw KPI's niet nadelig beïnvloedt.
-- [Afzonderlijke exemplaren van de controle behouden](../application-insights/app-insights-separate-resources.md) tussen de verschillende omgevingen, zoals ontwikkelen, testen, Canarische en productie. Dit zorgt ervoor dat de verzamelde gegevens relevant voor de gekoppelde toepassingen en infrastructuur is. Als u nodig hebt voor het correleren van gegevens tussen omgevingen, kunt u [meerdere resource-grafieken in Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) of maak [cross-resource-query's in Log Analytics](log-query/cross-workspace-query.md).
+- [Afzonderlijke exemplaren van de controle behouden](../application-insights/app-insights-separate-resources.md) tussen de verschillende omgevingen, zoals ontwikkelen, testen, Canarische en productie. Dit zorgt ervoor dat de verzamelde gegevens relevant voor de gekoppelde toepassingen en infrastructuur is. Als u nodig hebt voor het correleren van gegevens tussen omgevingen, kunt u [meerdere resource-grafieken in Metrics Explorer](../azure-monitor/platform/metrics-charts.md) of maak [cross-resource-query's in Log Analytics](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Bruikbare waarschuwingen maken met acties
 Een essentieel onderdeel van de bewaking wordt beheerders van actuele en voorspelde problemen proactief hoogte. 
 
-- Maak [waarschuwingen in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) op basis van Logboeken en metrische gegevens voor het identificeren van voorspelbare fout Staten. U hebt een doel van het maken van alle waarschuwingen bruikbare wat betekent dat ze werkelijke kritieke situaties vertegenwoordigen en gezocht tot fout-positieven. Gebruik [dynamische drempelwaarden](platform/alerts-dynamic-thresholds.md) automatisch wilt berekenen basislijnen op metrische gegevens in plaats van uw eigen statische drempelwaarden te definiëren. 
+- Maak [waarschuwingen in Azure Monitor](../azure-monitor/platform/alerts-overview.md) op basis van Logboeken en metrische gegevens voor het identificeren van voorspelbare fout Staten. U hebt een doel van het maken van alle waarschuwingen bruikbare wat betekent dat ze werkelijke kritieke situaties vertegenwoordigen en gezocht tot fout-positieven. Gebruik [dynamische drempelwaarden](platform/alerts-dynamic-thresholds.md) automatisch wilt berekenen basislijnen op metrische gegevens in plaats van uw eigen statische drempelwaarden te definiëren. 
 - Het definiëren van acties voor waarschuwingen gebruik van de meest efficiënte manier om uw beheerders te informeren. Beschikbare [acties voor melding](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) SMS, e-mail, pushmeldingen te verzenden of spraakoproepen zijn.
 - Gebruik Geavanceerde bewerkingen voor het [verbinding maken met uw ITSM-hulpprogramma](platform/itsmc-overview.md) of andere systemen waarschuwingen te beheren via [webhooks](platform/activity-log-alerts-webhook.md).
 - Herstellen van situaties geïdentificeerd in waarschuwingen ook met [Azure Automation-runbooks](../automation/automation-webhooks.md) of [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) die kunnen worden gestart vanuit een waarschuwing met behulp van webhooks. 

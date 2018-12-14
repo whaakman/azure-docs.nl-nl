@@ -10,24 +10,24 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/07/2018
-ms.openlocfilehash: a3580c2939f03e6ede6341e7afb293e7f7c5f885
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.date: 12/13/2018
+ms.openlocfilehash: 2eb263c6776453c4cae217168af969221485bfa3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016126"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386788"
 ---
-# <a name="service-and-tools-for-data-migration"></a>Service en -hulpprogramma's voor migratie van gegevens
+# <a name="services-and-tools-available-for-data-migration-scenarios"></a>Services en hulpprogramma's voor migratiescenario's waarbij gegevens
 
 In dit artikel bevat een matrix van de Microsoft en de services van derden en de hulpprogramma's om u te helpen met verschillende database en migratiescenario's waarbij gegevens en speciale taken beschikbaar.
 
-De volgende tabellen identificeren de service en de hulpprogramma's die u gebruiken kunt om te plannen is voor migratie van gegevens en om te voltooien van de verschillende stadia.
+De volgende tabellen identificeren van de service en de hulpprogramma's die u gebruiken kunt om te plannen is voor migratie van gegevens en om te voltooien van de verschillende fasen.
 
 > [!NOTE]
 > In de volgende tabellen staan voor items die zijn gemarkeerd met een sterretje (*) hulpprogramma's van derden.
 
-## <a name="business-justification-stage"></a>Zakelijke reden fase
+## <a name="business-justification-phase"></a>Zakelijke reden fase
 
 | **Bron** | **Doel** | **Ontdek /**<br/>**Inventaris** | **Doel en SKU**<br/>**Aanbeveling** | **Totale Eigendomskosten/rendement op investering opleveren en**<br/>**Bedrijfsscenario** |
 | --- | --- | --- | --- | --- |
@@ -41,15 +41,17 @@ De volgende tabellen identificeren de service en de hulpprogramma's die u gebrui
 | Oracle | Azure DB voor PostgreSQL |  |  |  |
 | MongoDB | Cosmos DB | [Cloudamize *](https://www.cloudamize.com/) | [Cloudamize *](https://www.cloudamize.com/) |  |
 | Cassandra | Cosmos DB |  |  |  |
-| Extern bureaublad-services/on-premises MySQL | Azure DB voor MySQL |  |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
-| Extern bureaublad-services/on-premises PostgreSQL | Azure DB voor PostgreSQL |  |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | MySQL | Azure SQL DB, MI-VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [Cloud-Atlas *](https://www.unifycloud.com/cloud-migration-tool/) | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
+| MySQL | Azure DB voor MySQL | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
+| RDS MySQL | Azure DB voor MySQL |  |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
+| PostgreSQL | Azure DB voor PostgreSQL | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
+| Extern bureaublad-services PostgreSQL | Azure DB voor PostgreSQL |  |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | DB2 | Azure SQL DB, MI-VM |  |  |  |
 | Access | Azure SQL DB, MI-VM |  |  |  |
 | Sybase | Azure SQL DB, MI-VM |  |  |  |
 | | | | | |
 
-## <a name="pre-migration-stage"></a>De fase vóór de migratie
+## <a name="pre-migration-phase"></a>De fase vóór de migratie
 
 | **Bron** | **Doel** | **Toegang tot de App-gegevens**<br/>**Laag-evaluatie** | **Database**<br/>**Evaluatie** | **Prestaties**<br/>**Evaluatie** |
 | --- | --- | --- | --- | --- |
@@ -63,15 +65,17 @@ De volgende tabellen identificeren de service en de hulpprogramma's die u gebrui
 | Oracle | Azure DB voor PostgreSQL |  |  |  |
 | MongoDB | Cosmos DB |  | [Cloudamize *](https://www.cloudamize.com/) | [Cloudamize *](https://www.cloudamize.com/) |
 | Cassandra | Cosmos DB |  |  |  |
-| Extern bureaublad-services/on-premises MySQL | Azure DB voor MySQL |  |  |  |
-| Extern bureaublad-services/on-premises PostgreSQL | Azure DB voor PostgreSQL |  |  |  |
 | MySQL | Azure SQL DB, MI-VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Cloud-Atlas *](https://www.unifycloud.com/cloud-migration-tool/) |  |
+| MySQL | Azure DB voor MySQL |  |  |  |
+| RDS MySQL | Azure DB voor MySQL |  |  |  |
+| PostgreSQL | Azure DB voor PostgreSQL |  |  |  |
+| Extern bureaublad-services PostgreSQL | Azure DB voor PostgreSQL |  |  |  |
 | DB2 | Azure SQL DB, MI-VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Access | Azure SQL DB, MI-VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase | Azure SQL DB, MI-VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | | | | | |
 
-## <a name="migration-stage"></a>Migratie-fase
+## <a name="migration-phase"></a>Migratiefase
 
 | **Bron** | **Doel** | **schema** | **Gegevens**<br/>**(Offline)** | **Gegevens**<br/>**(Online)** |
 | --- | --- | --- | --- | --- |
@@ -85,15 +89,17 @@ De volgende tabellen identificeren de service en de hulpprogramma's die u gebrui
 | Oracle | Azure DB voor PostgreSQL |  |  |  |
 | MongoDB | Cosmos DB | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/)<br/>[Imanis gegevens *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/)<br/>[Imanis gegevens *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Cloudamize *](https://www.cloudamize.com/)<br/>[Imanis gegevens *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf)<br/>[Realtimeplatform *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Cassandra | Cosmos DB | [Imanis gegevens *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Imanis gegevens *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Imanis gegevens *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) |
-| Extern bureaublad-services/on-premises MySQL | Azure DB voor MySQL | [MySQL-dump *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Realtimeplatform *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| Extern bureaublad-services/on-premises PostgreSQL | Azure DB voor PostgreSQL | [PG dump *](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Realtimeplatform *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | MySQL | Azure SQL DB, MI-VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Realtimeplatform *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| MySQL | Azure DB voor MySQL | [MySQL-dump *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Realtimeplatform *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| RDS MySQL | Azure DB voor MySQL | [MySQL-dump *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Realtimeplatform *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| PostgreSQL | Azure DB voor PostgreSQL | [PG dump *](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Realtimeplatform *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| Extern bureaublad-services PostgreSQL | Azure DB voor PostgreSQL | [PG dump *](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Realtimeplatform *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | DB2 | Azure SQL DB, MI-VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Realtimeplatform *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Access | Azure SQL DB, MI-VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
 | Sybase | Azure SQL DB, MI-VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Realtimeplatform *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | | | | | |
 
-## <a name="post-migration-stage"></a>De fase na de migratie
+## <a name="post-migration-phase"></a>De fase na de migratie
 
 | **Bron** | **Doel** | **Optimaliseren** |
 | --- | --- | --- |
@@ -107,9 +113,11 @@ De volgende tabellen identificeren de service en de hulpprogramma's die u gebrui
 | Oracle | Azure DB voor PostgreSQL |  |
 | MongoDB | Cosmos DB | [Cloudamize *](https://www.cloudamize.com/) |
 | Cassandra | Cosmos DB |  |
-| Extern bureaublad-services/on-premises MySQL | Azure DB voor MySQL |  |
-| Extern bureaublad-services/on-premises PostgreSQL | Azure DB voor PostgreSQL |  |
 | MySQL | Azure SQL DB, MI-VM |  |
+| MySQL | Azure DB voor MySQL |  |
+| RDS MySQL | Azure DB voor MySQL |  |
+| PostgreSQL | Azure DB voor PostgreSQL |  |
+| Extern bureaublad-services PostgreSQL | Azure DB voor PostgreSQL |  |
 | DB2 | Azure SQL DB, MI-VM |  |
 | Access | Azure SQL DB, MI-VM |  |
 | Sybase | Azure SQL DB, MI-VM |  |

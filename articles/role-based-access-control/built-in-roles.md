@@ -15,12 +15,12 @@ ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f2143d15156c8f69430610eac2f467c5a6887300
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d6696d9bdd69b085b9c9ac0804da68cd91612f35
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017814"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386958"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -76,8 +76,8 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [DevTest Labs-gebruiker](#devtest-labs-user) | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
 | [Inzender voor DNS-Zone](#dns-zone-contributor) | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
 | [Inzender voor het DocumentDB-Account](#documentdb-account-contributor) | Kan Azure Cosmos DB-accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
-| [EventGrid EventSubscription Inzender (Preview)](#eventgrid-eventsubscription-contributor-preview) | Kunt u bewerkingen in het abonnement EventGrid gebeurtenis beheren. |
-| [EventGrid EventSubscription Reader (Preview)](#eventgrid-eventsubscription-reader-preview) | Hiermee kunt u gebeurtenisabonnementen EventGrid lezen. |
+| [EventGrid EventSubscription Inzender (Preview)](#eventgrid-eventsubscription-contributor-preview) | Hiermee kunt u bewerkingen van abonnementen voor EventGrid-gebeurtenissen beheren. |
+| [EventGrid EventSubscription Reader (Preview)](#eventgrid-eventsubscription-reader-preview) | Hiermee kunt u abonnementen voor EventGrid-gebeurtenissen lezen. |
 | [HDInsight Domain Services-Inzender](#hdinsight-domain-services-contributor) | Kan bewerkingen met betrekking tot domeinservices lezen, maken, wijzigen en verwijderen die nodig zijn voor HDInsight Enterprise-beveiligingspakket |
 | [Inzender voor het Account van de intelligente systemen](#intelligent-systems-account-contributor) | Hiermee beheert u Intelligent Systems-accounts, maar kunt u niet de toegang tot de accounts beheren. |
 | [Inzender voor Key Vault](#key-vault-contributor) | Hiermee kunt u sleutelkluizen beheren, maar niet de toegang hiertoe. |
@@ -92,9 +92,9 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Operator beheerde identiteit](#managed-identity-operator) | Door gebruiker toegewezen identiteit maken en toewijzen |
 | [Beheergroep-Inzender](#management-group-contributor) | Rol Inzender beheergroep |
 | [Lezer van de beheergroep](#management-group-reader) | Rol Lezer beheergroep |
-| [Controlebijdrager](#monitoring-contributor) | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Controlebijdrager](#monitoring-contributor) | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Uitgever van de metrische gegevens controleren](#monitoring-metrics-publisher) | Hiermee kunnen metrische gegevens tegen Azure-resources worden gepubliceerd |
-| [Controlelezer](#monitoring-reader) | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Controlelezer](#monitoring-reader) | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Inzender voor netwerken](#network-contributor) | Hiermee beheert u netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
 | [Nieuwe Relic APM-Account Inzender](#new-relic-apm-account-contributor) | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
 | [Lezer en toegang tot gegevens](#reader-and-data-access) | Hiermee kunt u Alles weergeven, maar kunt u verwijderen of te maken van een storage-account of een ingesloten resource niet. Er kunnen ook toegang tot alle gegevens in een opslagaccount verleend via toegang tot opslagaccountsleutels lezen/schrijven. |
@@ -102,9 +102,9 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Inzender voor Resourcebeleid (Preview)](#resource-policy-contributor-preview) | (Preview) Gebruikers gevuld vanuit EA, met rechten voor het maken/wijzigen voor resourcebeleid, supportticket maken en het lezen van resources/hiërarchie. |
 | [Inzender voor Scheduler-taak](#scheduler-job-collections-contributor) | Hiermee beheert u Scheduler-taakverzamelingen, maar kunt u niet de toegang tot de verzamelingen beheren. |
 | [Inzender voor Search-Services](#search-service-contributor) | Hiermee beheert u Search-services, maar kunt u niet de toegang tot de services beheren. |
-| [Beveiligingsbeheerder](#security-admin) | In Security Center alleen: kunt weergeven beveiligingsbeleid, security status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, waarschuwingen en aanbevelingen negeren |
+| [Beveiligingsbeheerder](#security-admin) | In Security Center: Kan weergeven beveiligingsbeleid, security-status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
 | [Beveiligingsbeheer (verouderd)](#security-manager-legacy) | Dit is een verouderde rol. Gebruik in plaats hiervan beveiligingsbeheerder |
-| [Beveiligingslezer](#security-reader) | In Security Center alleen: aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven |
+| [Beveiligingslezer](#security-reader) | In Security Center: Aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven |
 | [Site Recovery-Inzender](#site-recovery-contributor) | Hiermee kunt u de Site Recovery-service beheren, maar geen kluizen maken of rollen toewijzen |
 | [Site Recovery-Operator](#site-recovery-operator) | Hiermee kunt u failover en fallback uitvoeren, maar geen andere beheerbewerkingen voor Site Recovery |
 | [Site Recovery-lezer](#site-recovery-reader) | Hiermee kunt u de Site Recovery-status weergeven maar geen andere beheerbewerkingen voor Site Recovery uitvoeren |
@@ -114,7 +114,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Inzender voor opslagaccounts](#storage-account-contributor) | Hiermee kunt u opslagaccounts beheren, maar niet de toegang. |
 | [Storage-Account servicerol Sleuteloperator](#storage-account-key-operator-service-role) | Sleuteloperators voor opslagaccounts kunnen een lijst met sleutels voor opslagaccounts maken en de sleutels opnieuw genereren |
 | [Gegevensbijdrager voor Blob (Preview)](#storage-blob-data-contributor-preview) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
-| [Storage Blob de eigenaar van gegevens (Preview)](#storage-blob-data-owner-preview) | Kunt u lezen, schrijven, verwijderen en POSIX beheerder toegang tot Azure Storage-blobcontainers en -gegevens |
+| [Storage Blob de eigenaar van gegevens (Preview)](#storage-blob-data-owner-preview) | Hiermee wordt lees-, schrijf-, verwijder- en POSIX-superusertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
 | [Gegevenslezer voor Opslagblob (Preview)](#storage-blob-data-reader-preview) | Hiermee wordt leestoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
 | [Gegevensbijdrager voor wachtrij (Preview)](#storage-queue-data-contributor-preview) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-wachtrijen en -wachtrijberichten verleend. |
 | [Gegevenslezer voor Opslagwachtrij (Preview)](#storage-queue-data-reader-preview) | Hiermee wordt leestoegang verleend voor Azure Storage-wachtrijen en -wachtrijberichten. |
@@ -149,7 +149,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Authorization/*/Delete | Functies en roltoewijzingen verwijderen niet |
 > | Microsoft.Authorization/*/Write | Kan de rollen en roltoewijzingen niet maken |
 > | Microsoft.Authorization/elevateAccess/Action | Hiermee wordt oproepende functie de rechten van Administrator voor gebruikerstoegang gegeven voor het tenantbereik |
-> | Microsoft.Blueprint/blueprintAssignments/write | Maken of bijwerken van alle blauwdrukartefacten |
+> | Microsoft.Blueprint/blueprintAssignments/write | Alle blauwdrukartefacten maken of bijwerken |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Alle blauwdrukartefacten verwijderen |
 
 ## <a name="reader"></a>Lezer
@@ -348,7 +348,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Beschrijving** | Referentieactie voor clusterbeheer weergeven. |
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Acties** |  |
-> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lijst van de referentie clusterAdmin van een beheerde cluster |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Hiermee wordt de clusterAdmin-referentie van een beheerd cluster weergegeven |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Clustergebruikersrol voor Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
@@ -357,7 +357,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Beschrijving** | Referentieactie voor clustergebruiker weergeven. |
 > | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Acties** |  |
-> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lijst van de referentie clusterUser van een beheerde cluster |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Hiermee wordt de clusterUser-referentie van een beheerd cluster weergegeven |
 
 ## <a name="azure-stack-registration-owner"></a>Eigenaar Azure Stack-registratie
 > [!div class="mx-tableFixed"]
@@ -940,11 +940,11 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Inzender (Preview)
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>Inzender van abonnement voor EventGrid-gebeurtenissen (preview)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Kunt u bewerkingen in het abonnement EventGrid gebeurtenis beheren. |
+> | **Beschrijving** | Hiermee kunt u bewerkingen van abonnementen voor EventGrid-gebeurtenissen beheren. |
 > | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -957,11 +957,11 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Reader (Preview)
+## <a name="eventgrid-eventsubscription-reader-preview"></a>Lezer van abonnement voor EventGrid-gebeurtenissen (preview)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Hiermee kunt u gebeurtenisabonnementen EventGrid lezen. |
+> | **Beschrijving** | Hiermee kunt u abonnementen voor EventGrid-gebeurtenissen lezen. |
 > | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1190,11 +1190,11 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Acties** |  |
 > | Microsoft.Management/managementGroups/read | Lijst met beheergroepen omwille van de geverifieerde gebruiker. |
 
-## <a name="monitoring-contributor"></a>Controlebijdrager
+## <a name="monitoring-contributor"></a>Bijdrager voor bewaking
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Beschrijving** | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
@@ -1221,7 +1221,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 
-## <a name="monitoring-metrics-publisher"></a>Publisher voor metrische gegevens bewaken
+## <a name="monitoring-metrics-publisher"></a>Uitgever van metrische gegevens voor bewaking
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1234,11 +1234,11 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | Metrische gegevens schrijven |
 
-## <a name="monitoring-reader"></a>Controlelezer
+## <a name="monitoring-reader"></a>Lezer voor bewaking
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Beschrijving** | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Acties** |  |
 > | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
@@ -1348,7 +1348,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | In Security Center alleen: kunt weergeven beveiligingsbeleid, security status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, waarschuwingen en aanbevelingen negeren |
+> | **Beschrijving** | In Security Center: Kan weergeven beveiligingsbeleid, security-status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1394,7 +1394,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | In Security Center alleen: aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven |
+> | **Beschrijving** | In Security Center: Aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1470,7 +1470,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Alle beveiligbare Items lezen |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Herstelpunt toepassen |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Failover doorvoeren |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Geplande Failover |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Geplande failover |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Lezen van alle beveiligde Items |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Lezen van alle herstelpunten voor replicatie |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Replicatie herstellen |
@@ -1697,11 +1697,11 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Hiermee wordt een blob of een lijst met blobs geretourneerd |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Hiermee wordt het resultaat van het schrijven van een blob geretourneerd |
 
-## <a name="storage-blob-data-owner-preview"></a>Storage Blob de eigenaar van gegevens (Preview)
+## <a name="storage-blob-data-owner-preview"></a>Gegevenseigenaar opslag-blob (preview-versie)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Kunt u lezen, schrijven, verwijderen en POSIX beheerder toegang tot Azure Storage-blobcontainers en -gegevens |
+> | **Beschrijving** | Hiermee wordt lees-, schrijf-, verwijder- en POSIX-superusertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Hiermee wordt het resultaat van het verwijderen van een container geretourneerd |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: acbb54da9cf52a73acf11b43d702675544bcc5fa
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873798"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339515"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Maak een Back-up van SQL Server op Azure oplossen
 
@@ -78,13 +78,13 @@ De volgende tabellen worden geordend op foutcode.
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
 | Kan geen back-up maken omdat het transactielogboek voor de gegevensbron vol is. | De ruimte in database transactionele logboek is vol. | U kunt dit probleem oplossen, raadpleegt u de [documentatie bij SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Deze SQL-database biedt geen ondersteuning voor de gevraagde type back-up. | Secundaire replica's altijd op AG bieden geen ondersteuning voor volledige en differentiële back-ups. | <ul><li>Als u een ad-hoc back-up hebt geactiveerd, activeert u de back-ups op het primaire knooppunt.</li><li>Als de back-up is gemaakt door het beleid, zorg er dan voor dat het primaire knooppunt is geregistreerd. Voor het registreren van het knooppunt [Volg de stappen voor het detecteren van een SQL Server-database](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> | 
+| Deze SQL-database biedt geen ondersteuning voor de gevraagde type back-up. | Secundaire replica's altijd op AG bieden geen ondersteuning voor volledige en differentiële back-ups. | <ul><li>Als u een ad-hoc back-up hebt geactiveerd, activeert u de back-ups op het primaire knooppunt.</li><li>Als de back-up is gemaakt door het beleid, zorg er dan voor dat het primaire knooppunt is geregistreerd. Voor het registreren van het knooppunt [Volg de stappen voor het detecteren van een SQL Server-database](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Herstellen van fouten
 
 De volgende foutcodes worden weergegeven bij het herstellen taken mislukken.
 
-### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite 
+### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
@@ -107,7 +107,7 @@ De volgende foutcodes worden weergegeven bij het herstellen taken mislukken.
 
 De volgende foutcodes zijn voor registratiefouten.
 
-### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError 
+### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
@@ -124,6 +124,16 @@ De volgende foutcodes zijn voor registratiefouten.
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
 | Azure Backup-service maakt gebruik van Azure VM-gastagent voor het uitvoeren van back-up, maar guest-agent is niet beschikbaar op de doelserver. | Gastagent is niet ingeschakeld of niet in orde is | [Installeren van de VM-gastagent](../virtual-machines/extensions/agent-windows.md) handmatig. |
+
+## <a name="configure-backup-failures"></a>Back-up fouten configureren
+
+De volgende fout codes zijn voor configureren back-up maken van de fouten.
+
+### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
+
+| Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
+|---|---|---|
+| Automatische beveiliging kunt u lezen wat is verwijderd of is niet meer geldig. | Wanneer u automatische beveiliging op een SQL-exemplaar inschakelt **back-up configureren** taken worden uitgevoerd voor alle databases in dat exemplaar. Als u automatische beveiliging uitschakelt terwijl de taken worden uitgevoerd, dan zal de **In uitvoering** taken worden geannuleerd met deze foutcode. | Schakel automatische beveiliging opnieuw naar de resterende databases beveiligen. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

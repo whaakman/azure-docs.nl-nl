@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 12/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5205d7797e7d45266a4f54b842ad56f353abc6d6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a36868e5bab64883036e0f93352bea5341ff7fe7
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252986"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384044"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -41,7 +41,7 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 
 ### <a name="on-premises-active-directory"></a>On-premises Active Directory
 * Het AD-schema-versie en forest-functionaliteitsniveau moet WindowsServer 2003 of hoger. Domeincontrollers kunnen elke versie wordt uitgevoerd, zolang de schema- en forest niveau vereisten wordt voldaan.
-* Als u van plan bent om de functie te gebruiken **wachtwoord terugschrijven**, en vervolgens de domeincontrollers op Windows Server 2008 (met de meest recente SP) of hoger zijn moet. Als uw DC's op 2008 (pre-R2 worden), dan moet u ook toepassen [hotfix KB2386717](https://support.microsoft.com/kb/2386717).
+* Als u van plan bent om de functie te gebruiken **wachtwoord terugschrijven**, en vervolgens de domeincontrollers op Windows Server 2008 R2 of hoger zijn moet.
 * De domeincontroller die wordt gebruikt door Azure AD moet beschrijfbaar zijn. Het is **niet ondersteund** het gebruik van een RODC (alleen-lezen domeincontroller) en Azure AD Connect niet voldoet aan alle omleidingen schrijven.
 * Is het **niet ondersteund** gebruik van on-premises forests/domeinen met behulp van "gestippeld" (de naam van een punt bevat ".") NetBIOS-namen.
 * Het verdient [de Active Directory-Prullenbak inschakelen](how-to-connect-sync-recycle-bin.md).
@@ -49,8 +49,8 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect-server
 * Azure AD Connect kan niet worden geïnstalleerd op Small Business Server of Windows Server Essentials voordat 2019 (Windows Server Essentials 2019 wordt ondersteund). De server moet gebruikmaken van Windows Server standard of hoger.
 * De Azure AD Connect-server moet een volledige GUI geïnstalleerd hebben. Het is **niet ondersteund** te installeren op server core.
-* Azure AD Connect moet worden geïnstalleerd op Windows Server 2008 of hoger. Deze server kan een domeincontroller of lidserver zijn als met express-instellingen. Als u aangepaste instellingen, de server kan ook worden zelfstandige en hoeft niet te worden toegevoegd aan een domein.
-* Als u Azure AD Connect op Windows Server 2008 of Windows Server 2008 R2 installeert, Controleer of de meest recente hotfixes toepassen van Windows Update. De installatie kan niet beginnen met een niet-gepatchte server.
+* Azure AD Connect moet worden geïnstalleerd op Windows Server 2008 R2 of hoger. Deze server kan een domeincontroller of lidserver zijn als met express-instellingen. Als u aangepaste instellingen, de server kan ook worden zelfstandige en hoeft niet te worden toegevoegd aan een domein.
+* Als u Azure AD Connect op Windows Server 2008 R2 installeert, Controleer of de meest recente hotfixes toepassen van Windows Update. De installatie kan niet beginnen met een niet-gepatchte server.
 * Als u van plan bent om de functie te gebruiken **Wachtwoordsynchronisatie**, en vervolgens de Azure AD Connect-server moet zich op Windows Server 2008 R2 SP1 of hoger.
 * Als u van plan bent te gebruiken een **groep beheerd serviceaccount**, en vervolgens de Azure AD Connect-server moet zich op Windows Server 2012 of hoger.
 * De Azure AD Connect-server moet hebben [.NET Framework 4.5.1](#component-prerequisites) of hoger en [Microsoft PowerShell 3.0](#component-prerequisites) of hoger is geïnstalleerd.
@@ -77,7 +77,7 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 * Als u firewalls op het Intranet en u moet poorten openen tussen de Azure AD Connect-servers en domeincontrollers, vervolgens worden [Azure AD Connect poorten](reference-connect-ports.md) voor meer informatie.
 * Als uw proxy of firewall beperken welke URL's kunnen worden geopend, wordt de URL's die zijn gedocumenteerd in [Office 365-URL's en IP-adresbereiken](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) moet worden geopend.
   * Als u de Microsoft Cloud in Duitsland of de Microsoft Azure Government-cloud gebruikt, Zie [overwegingen met betrekking tot Azure AD Connect sync-service-exemplaren](reference-connect-instances.md) voor URL's.
-* Azure AD Connect (versie 1.1.614.0 en na) maakt standaard gebruik van TLS 1.2 voor het versleutelen van communicatie tussen de synchronisatie-engine en Azure AD. Als TLS 1.2 is niet beschikbaar in het onderliggende besturingssysteem, terugvalt Azure AD Connect incrementeel op het oudere protocollen (TLS 1.1 en TLS 1.0). Azure AD Connect uitvoeren onder Windows Server 2008 gebruikt bijvoorbeeld TLS 1.0, omdat Windows Server 2008 biedt geen ondersteuning voor TLS 1.1 of TLS 1.2.
+* Azure AD Connect (versie 1.1.614.0 en na) maakt standaard gebruik van TLS 1.2 voor het versleutelen van communicatie tussen de synchronisatie-engine en Azure AD. Als TLS 1.2 is niet beschikbaar in het onderliggende besturingssysteem, terugvalt Azure AD Connect incrementeel op het oudere protocollen (TLS 1.1 en TLS 1.0).
 * Voorafgaand aan versie 1.1.614.0, Azure AD Connect standaard TLS 1.0 gebruikt voor het versleutelen van communicatie tussen de synchronisatie-engine en Azure AD. Als u wilt wijzigen in TLS 1.2, volg de stappen in [TLS 1.2 inschakelen voor Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
 * Als u een uitgaande proxy om verbinding te maken met Internet, de volgende instelling in de **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** bestand moet worden toegevoegd voor de installatiewizard en Azure AD Connect-synchronisatie om te kunnen verbinding maken met Internet en Azure AD. Deze tekst moet worden opgegeven aan de onderkant van het bestand. In deze code &lt;PROXYADRESS&gt; de werkelijke proxy IP-adres of de hostnaam naam vertegenwoordigt.
 
@@ -113,7 +113,7 @@ Zie MSDN voor meer informatie over de [proxy Element standaard](https://msdn.mic
 Zie voor meer informatie als u problemen met de connectiviteit, [connectiviteitsproblemen](tshoot-connect-connectivity.md).
 
 ### <a name="other"></a>Overige
-* Optioneel: Een testgebruikersaccount om te controleren of de synchronisatie.
+* Optioneel: Een gebruikersaccount voor de test om te controleren of de synchronisatie.
 
 ## <a name="component-prerequisites"></a>Vereisten voor onderdelen
 ### <a name="powershell-and-net-framework"></a>PowerShell en .net Framework
@@ -122,18 +122,16 @@ Azure AD Connect, is afhankelijk van Microsoft PowerShell en .NET Framework 4.5.
 * Windows Server 2012R2
   * Microsoft PowerShell is standaard geïnstalleerd. Er is geen actie vereist.
   * .NET framework 4.5.1 en latere releases worden aangeboden via Windows Update. Zorg ervoor dat u de meest recente updates hebt geïnstalleerd met Windows Server in het Configuratiescherm.
-* Windows Server 2008 R2 en WindowsServer 2012
+* Windows Server 2008 R2 en Windows Server 2012
   * De nieuwste versie van Microsoft PowerShell is beschikbaar in **Windows Management Framework 4.0**, beschikbaar op [Microsoft Download Center](https://www.microsoft.com/downloads).
   * .NET framework 4.5.1 en latere versies zijn beschikbaar op [Microsoft Download Center](https://www.microsoft.com/downloads).
-* Windows Server 2008
-  * De nieuwste ondersteunde versie van PowerShell is beschikbaar in **Windows Management Framework 3.0**, beschikbaar op [Microsoft Download Center](https://www.microsoft.com/downloads).
-  * .NET framework 4.5.1 en latere versies zijn beschikbaar op [Microsoft Download Center](https://www.microsoft.com/downloads).
+
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>TLS 1.2 inschakelen voor Azure AD Connect
 Voorafgaand aan versie 1.1.614.0, Azure AD Connect standaard TLS 1.0 gebruikt voor het versleutelen van de communicatie tussen de synchronisatie-engine-server en Azure AD. U kunt dit wijzigen door het configureren van .net-toepassingen kunnen gebruikmaken van TLS 1.2 standaard op de server. Meer informatie over TLS 1.2 kan worden gevonden [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. TLS 1.2 kan niet worden ingeschakeld op Windows Server 2008. U moet Windows Server 2008R2 of hoger. Zorg ervoor dat u de .net 4.5.1 hotfix voor uw besturingssysteem geïnstalleerd hebben, Zie [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Mogelijk hebt u deze hotfix of een latere versie is al geïnstalleerd op uw server.
-2. Als u Windows Server 2008R2, Controleer of dat TLS 1.2 is ingeschakeld. TLS 1.2 moeten al zijn ingeschakeld op de server van Windows Server 2012 en latere versies.
+1. TLS 1.2 kan niet worden ingeschakeld voordat u Windows Server 2008 R2 of hoger. Zorg ervoor dat u de .net 4.5.1 hotfix voor uw besturingssysteem geïnstalleerd hebben, Zie [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Mogelijk hebt u deze hotfix of een latere versie is al geïnstalleerd op uw server.
+2. Als u Windows Server 2008 R2 gebruikt, Controleer of dat TLS 1.2 is ingeschakeld. TLS 1.2 moeten al zijn ingeschakeld op de server van Windows Server 2012 en latere versies.
    ```
    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
@@ -204,9 +202,9 @@ De onderstaande tabel ziet u de minimale vereisten voor de Azure AD Connect sync
 
 De minimale vereisten voor computers met AD FS of Web Application Servers is het volgende:
 
-* CPU: Dual-core 1,6 GHz of hoger
+* CPU: Dual-core, 1,6 GHz of hoger
 * GEHEUGEN: 2 GB of hoger
-* Virtuele machines van Azure: Configuratie A2 of hoger
+* Azure-VM: Configuratie van a2 of hoger
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory](whatis-hybrid-identity.md).

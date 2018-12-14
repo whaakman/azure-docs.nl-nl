@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 97f1c9e16ae6be9e6bece69d0923f6290a8cd072
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024712"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339260"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device-SDK voor C
 
@@ -75,11 +75,11 @@ Er zijn verschillende open-source-hulpprogramma's voor het beheren van uw IoT-hu
 
 * Een Windows-toepassing met de naam [apparatenverkenner](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Een platformoverschrijdende Visual Studio Code-extensie met de naam [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+* Een platformoverschrijdende Visual Studio Code-extensie met de naam [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit).
 
 * Een Python platformoverschrijdende CLI met de naam [de IoT-extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
-Deze zelfstudie wordt gebruikgemaakt van de grafische *apparatenverkenner* hulpprogramma. U kunt de *Azure IoT Toolkit-extensie voor VS Code* als u in VS Code ontwikkelt. U kunt ook de *de IoT-extensie voor Azure CLI 2.0* hulpprogramma als u liever een CLI-hulpprogramma te gebruiken.
+Deze zelfstudie wordt gebruikgemaakt van de grafische *apparatenverkenner* hulpprogramma. U kunt de *Azure IoT Hub Toolkit-extensie voor VS Code* als u in VS Code ontwikkelt. U kunt ook de *de IoT-extensie voor Azure CLI 2.0* hulpprogramma als u liever een CLI-hulpprogramma te gebruiken.
 
 Het hulpprogramma device explorer gebruikt de Azure IoT-service-bibliotheken voor het uitvoeren van verschillende functies op IoT-Hub, zoals het toevoegen van apparaten. Als u het hulpprogramma device explorer op een apparaat, krijgt u een verbindingsreeks voor uw apparaat. U hebt deze verbindingsreeks om uit te voeren van de voorbeeldtoepassingen nodig.
 
@@ -410,7 +410,7 @@ END_NAMESPACE(WeatherStation);
 
 De **beginnen\_NAAMRUIMTE** en **END\_NAAMRUIMTE** macro's beide duren voordat de naamruimte van het model als een argument. Verwacht wordt dat alles tussen deze macro's is de definitie van het model of modellen en de gegevensstructuren die gebruikmaken van de modellen.
 
-In dit voorbeeld wordt één model met de naam **ContosoAnemometer**. Dit model definieert twee soorten gegevens die uw apparaat naar IoT Hub verzenden kunt: **DeviceId** en **windsnelheid**. Het definieert ook drie acties (berichten) die uw apparaat kan ontvangen: **TurnFanOn**, **TurnFanOff**, en **SetAirResistance**. Elk gegevenselement heeft een type en elke actie heeft een naam (en optioneel een set parameters).
+In dit voorbeeld wordt één model met de naam **ContosoAnemometer**. Dit model definieert twee soorten gegevens die uw apparaat naar IoT Hub verzenden kunt: **Apparaat-id** en **windsnelheid**. Het definieert ook drie acties (berichten) die uw apparaat kan ontvangen: **TurnFanOn**, **TurnFanOff**, en **SetAirResistance**. Elk gegevenselement heeft een type en elke actie heeft een naam (en optioneel een set parameters).
 
 De gegevens en acties die zijn gedefinieerd in het model definiëren van een API-gebied die u kunt gebruiken om berichten te verzenden naar IoT Hub en reageren op berichten die naar het apparaat verzonden. Door een voorbeeld van het gebruik van dit model best begrijpen.
 

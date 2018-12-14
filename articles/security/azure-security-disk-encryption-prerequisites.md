@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/13/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55226204d148239b7c32d1abc6f61fddcfc5b913
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 116f1f0a93c09ed751f0720ae74a2c24df7541eb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104958"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342507"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption
 
@@ -28,16 +28,16 @@ Voordat u Azure Disk Encryption op Azure IaaS Virtual Machines voor de ondersteu
 ## <a name="bkmk_OSs"></a> Ondersteunde besturingssystemen
 Azure Disk Encryption wordt ondersteund op de volgende besturingssystemen:
 
-- Windows Server-versies: WindowsServer 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016.
+- Windows Server-versies: Windows Server 2008 R2, WindowsServer 2012, Windows Server 2012 R2 en WindowsServer 2016.
     - Voor Windows Server 2008 R2 moet u .NET Framework 4.5 zijn geïnstalleerd voordat u versleuteling in Azure inschakelen. Installeer de aanmeldhulp vanaf Windows bijwerken met de optionele update voor Microsoft .NET Framework 4.5.2 voor Windows Server 2008 R2 x64 64-systemen ([KB2901983](https://support.microsoft.com/kb/2901983)).    
-- Windows-clientversies: Windows 8-clients en Windows 10-client.
+- Versies van Windows-client: Client voor Windows 8 en Windows 10-client.
 - Azure Disk Encryption is alleen ondersteund op bepaalde Azure-galerie op basis van Linux-server-distributies en versies. Voor de lijst met ondersteunde versies, raadpleegt u de [Veelgestelde vragen over Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 - Azure Disk Encryption is vereist dat uw sleutelkluis en de virtuele machines zich in de dezelfde Azure-regio en het abonnement bevinden. Configureren van de resources in verschillende regio's, zorgt ervoor dat een fout opgetreden bij het inschakelen van de Azure Disk Encryption-functie.
 
 ## <a name="bkmk_LinuxPrereq"></a> Aanvullende vereisten voor Linux Iaas-VM 's 
 
 - Azure Disk Encryption voor Linux is vereist voor 7 GB aan RAM-geheugen op de virtuele machine om te schakelen van OS-schijfversleuteling op [installatiekopieën ondersteund](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Zodra het versleutelingsproces voor OS-schijf voltooid is, kan de virtuele machine worden geconfigureerd om te worden uitgevoerd met minder geheugen.
-- Voordat u versleuteling inschakelt, moeten de gegevensschijven moeten worden versleuteld goed worden weergegeven in/etc/fstab. Gebruik een permanente blok apparaatnaam op voor deze vermelding als apparaat namen in de indeling '/ dev/sdX' kunnen niet worden gebruikt om te worden gekoppeld aan dezelfde schijf tijdens opnieuw opstarten, met name als versleuteling wordt toegepast. Zie voor meer informatie over dit probleem: [wijzigingen van de apparaatnaam Linux-VM oplossen](../virtual-machines/linux/troubleshoot-device-names-problems.md)
+- Voordat u versleuteling inschakelt, moeten de gegevensschijven moeten worden versleuteld goed worden weergegeven in/etc/fstab. Gebruik een permanente blok apparaatnaam op voor deze vermelding als apparaat namen in de indeling '/ dev/sdX' kunnen niet worden gebruikt om te worden gekoppeld aan dezelfde schijf tijdens opnieuw opstarten, met name als versleuteling wordt toegepast. Zie voor meer informatie over dit gedrag: [Wijzigingen van de apparaatnaam Linux-VM oplossen](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Zorg ervoor dat de/etc/fstab-instellingen juist zijn geconfigureerd voor koppelen. Deze instellingen configureren, uitvoeren van de opdracht mount- of opnieuw opstarten van de virtuele machine en activeren van de beschadigingsgebeurtenissen op die manier. Zodra dat is voltooid, controleert u de uitvoer van de opdracht lsblk om te controleren dat de schijf nog steeds is gekoppeld. 
     - Als het bestand/etc/fstab niet naar behoren het station koppelen voordat versleuteling is ingeschakeld, kunnen Azure Disk Encryption correct koppelen niet mogelijk.
     - De Azure Disk Encryption-proces worden de mount-gegevens uit/etc/fstab en in een eigen configuratiebestand als onderdeel van het versleutelingsproces verplaatst. Geen worden zorgen om te zien van de vermelding ontbreekt in/etc/fstab nadat gegevens stationsversleuteling is voltooid.
@@ -58,7 +58,7 @@ Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven k
 **Groepsbeleid:**
  - De Azure Disk Encryption-oplossing maakt gebruik van de externe BitLocker-sleutelbeveiliging voor Windows IaaS-VM's. Voor virtuele machines van een domein, niet een Groepsbeleid TPM beveiligingstoepassingen afdwingen pushen. Zie voor meer informatie over het groepsbeleid voor "Toestaan BitLocker zonder een compatibele TPM" [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  BitLocker-Groepsbeleid op virtuele machines van een domein voor de aangepaste omvat de volgende instelling: [configureren gebruiker opslag van bitlocker-herstelgegevens -> toestaan 256-bits herstelsleutel](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption mislukt wanneer u aangepaste instellingen voor Groepsbeleid voor Bitlocker niet compatibel zijn. Het nieuwe beleid toepassen op virtuele machines die niet de juiste instelling hebben, en vervolgens opnieuw te starten is mogelijk vereist afdwingen dat het nieuwe beleid om bij te werken (gpupdate.exe/Force).  
+-  BitLocker-Groepsbeleid op virtuele machines van een domein voor de aangepaste moet zijn onder andere de volgende instelling: [Configureren van opslag van de gebruiker van bitlocker-herstelgegevens > toestaan 256-bits herstelsleutel](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption mislukt wanneer u aangepaste instellingen voor Groepsbeleid voor Bitlocker niet compatibel zijn. Het nieuwe beleid toepassen op virtuele machines die niet de juiste instelling hebben, en vervolgens opnieuw te starten is mogelijk vereist afdwingen dat het nieuwe beleid om bij te werken (gpupdate.exe/Force).  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -195,40 +195,40 @@ Het Azure-platform moet toegang hebben tot de sleutels of geheimen in uw key vau
 ### <a name="bkmk_KVperPSH"></a> Sleutelkluis set geavanceerde toegangsbeleid met Azure PowerShell
  Gebruik de key vault PowerShell-cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) om in te schakelen schijfversleuteling voor de key vault.
 
-  - **Key Vault inschakelen voor schijfversleuteling:** EnabledForDiskEncryption is vereist voor Azure Disk encryption.
+  - **Key Vault voor schijfversleuteling inschakelen:** EnabledForDiskEncryption is vereist voor Azure Disk encryption.
       
      ```azurepowershell-interactive 
      Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDiskEncryption
      ```
 
-  - **Key Vault inschakelen voor implementatie, indien nodig:** kunnen de Microsoft.Compute-resourceprovider geheimen ophalen uit deze key vault wanneer deze sleutelkluis wordt verwezen in de resources worden gemaakt, bijvoorbeeld bij het maken van een virtuele machine.
+  - **Key Vault inschakelen voor implementatie, indien nodig:** Kan de Microsoft.Compute-resourceprovider geheimen ophalen uit deze key vault wanneer deze sleutelkluis wordt verwezen in de resources worden gemaakt, bijvoorbeeld bij het maken van een virtuele machine.
 
      ```azurepowershell-interactive
       Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDeployment
      ```
 
-  - **Key Vault inschakelen voor sjabloonimplementatie, indien nodig:** kunnen Azure Resource Manager geheimen ophalen uit deze key vault wanneer deze sleutelkluis wordt verwezen in de sjabloonimplementatie van een.
+  - **Key Vault inschakelen voor sjabloonimplementatie, indien nodig:** Hiermee kunt Azure Resource Manager geheimen ophalen uit deze key vault wanneer deze sleutelkluis wordt verwezen in de sjabloonimplementatie van een.
 
      ```azurepowershell-interactive             
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment`
+     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> Sleutelkluis set geavanceerde toegangsbeleid met de Azure CLI
 Gebruik [az keyvault update](/cli/azure/keyvault#az-keyvault-update) om in te schakelen schijfversleuteling voor de key vault. 
 
- - **Key Vault inschakelen voor schijfversleuteling:** ingeschakeld voor disk encryption is vereist. 
+ - **Key Vault voor schijfversleuteling inschakelen:** Ingeschakeld-voor-schijf-versleuteling is vereist. 
 
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-disk-encryption "true"
      ```  
 
- - **Key Vault inschakelen voor implementatie, indien nodig:** kunnen de Microsoft.Compute-resourceprovider geheimen ophalen uit deze key vault wanneer deze sleutelkluis wordt verwezen in de resources worden gemaakt, bijvoorbeeld bij het maken van een virtuele machine.
+ - **Key Vault inschakelen voor implementatie, indien nodig:** Kan de Microsoft.Compute-resourceprovider geheimen ophalen uit deze key vault wanneer deze sleutelkluis wordt verwezen in de resources worden gemaakt, bijvoorbeeld bij het maken van een virtuele machine.
 
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-deployment "true"
      ``` 
 
- - **Key Vault inschakelen voor sjabloonimplementatie, indien nodig:** toestaan Resource Manager geheimen ophalen uit de kluis.
+ - **Key Vault inschakelen voor sjabloonimplementatie, indien nodig:** Toestaan dat Resource Manager geheimen ophalen uit de kluis.
      ```azurecli-interactive  
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-template-deployment "true"
      ```

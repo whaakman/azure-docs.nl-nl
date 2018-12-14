@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 94358ffde697b8122e65aefcbe1dd97385ca5b3a
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 1dca3621b31d74d2ae40156672009b15ba30e3f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52621807"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339532"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Gegevens kopiëren van Dynamics AX met behulp van Azure Data Factory (Preview)
 
@@ -55,14 +55,14 @@ Volg deze stappen voor het gebruik van service-principal verificatie:
 
 De volgende eigenschappen worden ondersteund voor de Dynamics AX gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap moet worden ingesteld op **DynamicsAX**. |Ja |
 | url | Het Dynamics AX (of Dynamics 365 Finance and Operations)-exemplaar OData-eindpunt. |Ja |
 | servicePrincipalId | Opgeven van de toepassing client-ID. | Ja |
 | servicePrincipalKey | Geef de sleutel van de toepassing. Dit veld als markeert een **SecureString** voor het veilig opslaan in de Data Factory of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | tenant | De tenantgegevens (domain name of tenant-ID) opgeven in uw toepassing zich bevindt. Deze ophalen door de muis in de rechterbovenhoek van de Azure-portal. | Ja |
-| aadResourceId | Geef de resource die u aanvraagt autorisatie. | Ja |
+| aadResourceId | Geef de AAD-resource die u hebt aangevraagd voor autorisatie. Bijvoorbeeld, als uw Dynamics-URL `https://sampledynamics.sandbox.operations.dynamics.com/data/`, de bijbehorende AAD-resource is meestal `https://sampledynamics.sandbox.operations.dynamics.com`. | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) gebruiken om te verbinden met het gegevensarchief. U kunt Azure Integration Runtime of een zelf-hostende Integration Runtime (als het gegevensarchief bevindt zich in een particulier netwerk). Indien niet opgegeven, wordt de standaard Azure Integration Runtime wordt gebruikt. |Nee |
 
 **Voorbeeld**
@@ -80,7 +80,7 @@ De volgende eigenschappen worden ondersteund voor de Dynamics AX gekoppelde serv
                 "value": "<service principal key>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<Dynamics AX resource url>"
+            "aadResourceId": "<AAD resource, e.g. https://sampledynamics.sandbox.operations.dynamics.com>"
         }
     },
     "connectVia": {
@@ -99,7 +99,7 @@ Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het def
 
 Om gegevens te kopiëren van Dynamics AX, stel de **type** eigenschap van de gegevensset in **DynamicsAXResource**. De volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de gegevensset moet worden ingesteld op **DynamicsAXResource**. | Ja |
 | pad | Het pad naar de Dynamics AX OData-entiteit. | Ja |
@@ -132,10 +132,10 @@ Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het def
 
 Om gegevens te kopiëren van Dynamics AX, stel de **bron** type in de Kopieeractiviteit naar **DynamicsAXSource**. De volgende eigenschappen worden ondersteund in de Kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Kopieeractiviteit-bron moet worden ingesteld op **DynamicsAXSource**. | Ja |
-| query | OData-queryopties voor het filteren van gegevens. Voorbeeld: `"?$select=Name,Description&$top=5"`.<br/><br/>**Houd er rekening mee**: de connector worden gegevens gekopieerd van de gecombineerde URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Zie voor meer informatie, [OData-URL-onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
+| query | OData-queryopties voor het filteren van gegevens. Voorbeeld: `"?$select=Name,Description&$top=5"`.<br/><br/>**Houd er rekening mee**: De connector worden gegevens gekopieerd van de gecombineerde URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Zie voor meer informatie, [OData-URL-onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
 
 **Voorbeeld**
 

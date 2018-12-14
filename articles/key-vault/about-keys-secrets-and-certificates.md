@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: c5677dc07326fa16960e0d748f88e26f259c0485
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262268"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384782"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 
 Azure Key Vault kunt Microsoft Azure-toepassingen en gebruikers kunnen opslaan en gebruiken van verschillende gegevenstypen geheim/sleutel:
 
-- Cryptografische sleutels: biedt ondersteuning voor meerdere sleuteltypen en algoritmen, en maakt het gebruik van Hardware Security Modules (HSM) voor hoge waarde sleutels. 
+- Cryptografische sleutels: Biedt ondersteuning voor meerdere typen sleutelbestand en algoritmen, en kunt het gebruik van Hardware Security Modules (HSM) voor hoge waarde sleutels. 
 - Geheimen: Biedt een veilige opslag van geheimen zoals wachtwoorden en tekenreeksen voor databaseverbindingen.
-- Certificaten: Ondersteunt certificaten die zijn gebaseerd op de sleutels en geheimen en toevoegen van een functie voor automatische verlenging.
-- Azure Storage: Sleutels van een Azure Storage-account voor u kunt beheren. Intern, Key Vault kan de sleutels (sync) met een Azure Storage-Account weergeven en opnieuw te genereren (roteren) periodiek de sleutels. 
+- Certificaten: Biedt ondersteuning voor certificaten die zijn gebaseerd op de sleutels en geheimen en toevoegen van een functie voor automatische verlenging.
+- Azure Storage: Kan de sleutels van een Azure Storage-account voor u beheren. Intern, Key Vault kan de sleutels (sync) met een Azure Storage-Account weergeven en opnieuw te genereren (roteren) periodiek de sleutels. 
 
 Zie voor meer algemene informatie over Key Vault [wat is Azure Key Vault?](/azure/key-vault/key-vault-whatis)
 
@@ -89,15 +89,15 @@ Waar:
 
 Cryptografische sleutels in Key Vault worden weergegeven als JSON-Websleutel [JWK]-objecten. De base JWK/JWA specificaties zijn ook uitgebreid zodat sleuteltypen uniek is voor de implementatie van de Key Vault. Sleutels die gebruikmaken van HSM's van specifieke pakketten importeert, kunt u bijvoorbeeld veilige vervoer van sleutels die alleen kan worden gebruikt in Key Vault HSM's.  
 
-- **'Soft' sleutels**: een sleutel verwerkt in software door Key Vault, maar is in rust versleuteld met behulp van een systeemsleutel die zich in een HSM. Clients kunnen importeren van een bestaande sleutel voor RSA of EG (Elliptic Curve) of Key Vault genereren een vraag.
-- **"Vaste" sleutels**: een sleutel verwerkt in een HSM (Hardware Security Module). Deze sleutels worden beveiligd in een van de Key Vault HSM-Beveiligingswerelden (Er is een Beveiligingswereld per Geografie isolatie onderhouden). Clients kunnen een RSA of EG sleutel in zachte formulier of door het exporteren van een compatibel apparaat van de HSM importeren. Clients kunnen ook aanvragen voor Key Vault om een sleutel te genereren. Dit sleuteltype voegt de T-kenmerk toe aan de JWK ophalen voor het uitvoeren van de HSM-sleutelmateriaal.
+- **'Soft' sleutels**: Een sleutel verwerkt in software door Key Vault, maar is in rust versleuteld met behulp van een systeemsleutel die zich in een HSM. Clients kunnen importeren van een bestaande sleutel voor RSA of EG (Elliptic Curve) of Key Vault genereren een vraag.
+- **"Vaste" sleutels**: Een sleutel verwerkt in een HSM (Hardware Security Module). Deze sleutels worden beveiligd in een van de Key Vault HSM-Beveiligingswerelden (Er is een Beveiligingswereld per Geografie isolatie onderhouden). Clients kunnen een RSA of EG sleutel in zachte formulier of door het exporteren van een compatibel apparaat van de HSM importeren. Clients kunnen ook aanvragen voor Key Vault om een sleutel te genereren. Dit sleuteltype voegt de T-kenmerk toe aan de JWK ophalen voor het uitvoeren van de HSM-sleutelmateriaal.
 
      Zie voor meer informatie over geografische grenzen [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 Key Vault ondersteunt RSA- en elliptische-sleutels. 
 
 -   **EG**: 'Soft' elliptische-sleutel.
--   **EG HSM**: "Harde" elliptische-sleutel.
+-   **EG HSM**: "Vaste" elliptische-sleutel.
 -   **RSA**: 'Soft' RSA-sleutel.
 -   **RSA-HSM**: "Vaste" RSA-sleutel.
 
@@ -105,7 +105,7 @@ Key Vault ondersteunt RSA-sleutels van de grootte 2048, 3072 en 4096. Key Vault 
 
 ### <a name="cryptographic-protection"></a>Cryptografische beveiliging
 
-De cryptografische modules die Key Vault gebruikt, of HSM of software zijn gevalideerd voor FIPS (Federal Information Processing Standards). U hoeft te doen niets om uit te voeren in de FIPS-modus. Sleutels **gemaakt** of **geïmporteerd** als HSM-beveiliging worden verwerkt binnen een HSM, gevalideerd voor FIPS 140-2 Level 2 of hoger. Sleutels **gemaakt** of **geïmporteerd** als softwarebeveiliging, worden verwerkt in de cryptografische modules die zijn gevalideerd voor FIPS 140-2 Level 1 of hoger. Zie voor meer informatie, [sleutels en sleuteltypen](#keys-and-key-types).
+De cryptografische modules die Key Vault gebruikt, of HSM of software zijn gevalideerd voor FIPS (Federal Information Processing Standards). U hoeft te doen niets om uit te voeren in de FIPS-modus. Sleutels **gemaakt** of **geïmporteerd** als HSM-beveiliging worden verwerkt binnen een HSM, gevalideerd voor FIPS 140-2 Level 2. Sleutels **gemaakt** of **geïmporteerd** als softwarebeveiliging, worden verwerkt in de cryptografische modules die zijn gevalideerd voor FIPS 140-2 Level 1. Zie voor meer informatie, [sleutels en sleuteltypen](#keys-and-key-types).
 
 ###  <a name="ec-algorithms"></a>EG algoritmen
  De volgende algoritme-id's worden ondersteund met de EG en EG-HSM-sleutels in Key Vault. 
@@ -113,7 +113,7 @@ De cryptografische modules die Key Vault gebruikt, of HSM of software zijn geval
 #### <a name="curve-types"></a>Curve-typen
 
 -   **P-256** -curve van het NIST p-256, gedefinieerd op [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256_K** -de seconde curve SECP256K1, gedefinieerd op [SEC 2: Elliptic Curve domeinparameters aanbevolen](http://www.secg.org/sec2-v2.pdf).
+-   **P-256_K** -de seconde curve SECP256K1, gedefinieerd op [SEC 2: Aanbevolen Elliptic Curve domeinparameters](http://www.secg.org/sec2-v2.pdf).
 -   **P-384** -curve van het NIST P-384, gedefinieerd op [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** -curve van het NIST p-521 gedefinieerd op [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -143,23 +143,23 @@ De cryptografische modules die Key Vault gebruikt, of HSM of software zijn geval
 
 Key Vault ondersteunt de volgende bewerkingen voor sleutels objecten:  
 
--   **Maak**: Hiermee kan een client een sleutel te maken in Key Vault. De waarde van de sleutel wordt gegenereerd door Key Vault en opgeslagen, en naar de client niet is vrijgegeven. Asymmetrische sleutels kunnen worden gemaakt in Key Vault.  
--   **Importeren**: Hiermee kan een client aan een bestaande sleutel importeert naar Key Vault. Asymmetrische sleutels kunnen worden geïmporteerd in Key Vault met behulp van een aantal methoden die andere pakketten in een JWK-constructie. 
--   **Update**: Hiermee kan een client met voldoende machtigingen voor het wijzigen van de metagegevens (belangrijke kenmerken) die zijn gekoppeld aan een sleutel die eerder zijn opgeslagen in Key Vault.  
--   **Verwijder**: Hiermee kan een client met voldoende machtigingen voor het verwijderen van een sleutel uit Key Vault.  
--   **Lijst met**: kan een lijst van alle sleutels in een opgegeven Key Vault-client.  
--   **Versies weergeven**: kan een lijst van alle versies van een opgegeven sleutel in een opgegeven Key Vault-client.  
--   **Ophalen**: Hiermee kan een client om op te halen van de openbare gedeelten van een opgegeven sleutel in een Key Vault.  
+-   **Maak**: Kan een client een sleutel te maken in Key Vault. De waarde van de sleutel wordt gegenereerd door Key Vault en opgeslagen, en naar de client niet is vrijgegeven. Asymmetrische sleutels kunnen worden gemaakt in Key Vault.  
+-   **Importeren**: Kan een client een bestaande sleutel importeert naar Key Vault. Asymmetrische sleutels kunnen worden geïmporteerd in Key Vault met behulp van een aantal methoden die andere pakketten in een JWK-constructie. 
+-   **Update**: Kan een client met voldoende machtigingen voor het wijzigen van de metagegevens (belangrijke kenmerken) die zijn gekoppeld aan een sleutel die eerder zijn opgeslagen in Key Vault.  
+-   **Verwijder**: Kan een client met voldoende machtigingen voor het verwijderen van een sleutel uit Key Vault.  
+-   **Lijst met**: Hiermee kunt u een lijst van alle sleutels in een opgegeven Key Vault-client.  
+-   **Versies weergeven**: Hiermee kunt u een lijst van alle versies van een opgegeven sleutel in een opgegeven Key Vault-client.  
+-   **Ophalen**: Kan een client ophalen van de openbare gedeelten van een opgegeven sleutel in een Key Vault.  
 -   **Back-up**: Hiermee exporteert u een sleutel in een beveiligde vorm.  
--   **Herstellen**: een back-up sleutel geïmporteerd.  
+-   **Herstellen**: Hiermee importeert u een eerder back-ups van sleutel.  
 
 Zie voor meer informatie, [belangrijke bewerkingen in de Key Vault REST API-verwijzing](/rest/api/keyvault).  
 
 Zodra een sleutel is gemaakt in Key Vault, kunnen de volgende cryptografische bewerkingen worden uitgevoerd met behulp van de sleutel:  
 
--   **Aanmelden en controleer of**: strikt met deze bewerking is 'aanmelding hash' of 'verifiëren hash', zoals Key Vault biedt geen ondersteuning voor hashing van inhoud als onderdeel van het maken van de handtekening. Toepassingen moeten hash van de gegevens lokaal zijn ondertekend en vervolgens die Key Vault-aanmelding de hash-aanvragen. Verificatie van de ondertekende hashes wordt ondersteund als een bewerking gemak voor toepassingen die mogelijk geen toegang tot [public] sleutelmateriaal. Voor optimale toepassingsprestaties, controleert u of dat bewerkingen lokaal worden uitgevoerd.  
--   **Versleuteling op sleutel / Wrapping**: een sleutel die is opgeslagen in Key Vault kan worden gebruikt om een andere sleutel, meestal de sleutel van een symmetrische versleuteling van de inhoud (CEK) te beveiligen. Wanneer de sleutel in Key Vault asymmetrische is, wordt key-versleuteling gebruikt. Bijvoorbeeld: RSA-OAEP en de sleutel INPAKKEN/UNWRAPKEY-bewerkingen zijn gelijk aan het coderen/decoderen. Wanneer de sleutel in Key Vault symmetrische is, wordt wrapping sleutel gebruikt. Bijvoorbeeld: AES-KW. De sleutel INPAKKEN-bewerking wordt ondersteund voor toepassingen die mogelijk geen toegang tot [public] sleutelmateriaal gemakkelijker te maken. Voor de beste toepassingsprestaties, moeten de sleutel INPAKKEN operations lokaal worden uitgevoerd.  
--   **Versleutelen en ontsleutelen van**: een sleutel die is opgeslagen in Key Vault kan worden gebruikt om te versleutelen of ontsleutelen van één blok van gegevens. De grootte van het blok wordt bepaald door het type sleutel en de geselecteerde versleutelingsalgoritme. De bewerking versleutelen is opgegeven voor het gemak voor toepassingen die mogelijk geen toegang tot [public] sleutelmateriaal. Voor de beste toepassingsprestaties, versleutelen bewerkingen moeten lokaal worden uitgevoerd.  
+-   **Meld u aan en controleer of**: Deze bewerking is er strikt, voor dat 'aanmelding hash' of 'verifiëren hash', zoals Key Vault biedt geen ondersteuning voor hashing van inhoud als onderdeel van het maken van de handtekening. Toepassingen moeten hash van de gegevens lokaal zijn ondertekend en vervolgens die Key Vault-aanmelding de hash-aanvragen. Verificatie van de ondertekende hashes wordt ondersteund als een bewerking gemak voor toepassingen die mogelijk geen toegang tot [public] sleutelmateriaal. Voor optimale toepassingsprestaties, controleert u of dat bewerkingen lokaal worden uitgevoerd.  
+-   **Sleutel voor versleuteling / Wrapping**: Een sleutel die is opgeslagen in Key Vault kan worden gebruikt om een andere sleutel, meestal de sleutel van een symmetrische versleuteling van de inhoud (CEK) te beveiligen. Wanneer de sleutel in Key Vault asymmetrische is, wordt key-versleuteling gebruikt. Bijvoorbeeld: RSA-OAEP en de sleutel INPAKKEN/UNWRAPKEY-bewerkingen zijn gelijk aan het coderen/decoderen. Wanneer de sleutel in Key Vault symmetrische is, wordt wrapping sleutel gebruikt. Bijvoorbeeld: AES-KW. De sleutel INPAKKEN-bewerking wordt ondersteund voor toepassingen die mogelijk geen toegang tot [public] sleutelmateriaal gemakkelijker te maken. Voor de beste toepassingsprestaties, moeten de sleutel INPAKKEN operations lokaal worden uitgevoerd.  
+-   **Versleutelen en ontsleutelen van**: Een sleutel die is opgeslagen in Key Vault kan worden gebruikt om te versleutelen of ontsleutelen van één blok van gegevens. De grootte van het blok wordt bepaald door het type sleutel en de geselecteerde versleutelingsalgoritme. De bewerking versleutelen is opgegeven voor het gemak voor toepassingen die mogelijk geen toegang tot [public] sleutelmateriaal. Voor de beste toepassingsprestaties, versleutelen bewerkingen moeten lokaal worden uitgevoerd.  
 
 Tijdens het WRAPKEY/sleutel uitpakken met behulp van asymmetrische sleutels lijken misschien overbodige (zoals de bewerking gelijk aan het coderen/decoderen is), het gebruik van verschillende bewerkingen is belangrijk. Het verschil biedt functionaliteit voor semantische en autorisatie scheiding van deze bewerkingen en consistentie op basis van andere typen sleutels worden ondersteund door de service.  
 
@@ -175,7 +175,7 @@ Naast het sleutelmateriaal, kunnen de volgende kenmerken worden opgegeven. In ee
 
 - *ingeschakeld*: Booleaans, optioneel, de standaardwaarde is **waar**. Hiermee geeft u op of de sleutel ingeschakeld en bruikbaar voor cryptografische bewerkingen is. De *ingeschakeld* kenmerk wordt gebruikt in combinatie met *nbf* en *exp*. Wanneer een bewerking plaatsvindt tussen *nbf* en *exp*, wordt alleen worden toegestaan als *ingeschakeld* is ingesteld op **waar**. Bewerkingen buiten de *nbf* / *exp* venster zijn automatisch toegestaan, met uitzondering van bepaalde bewerkingstypen onder [bepaalde voorwaarden](#date-time-controlled-operations).
 - *NBF*: IntDate, optioneel, standaard is nu. De *nbf* (niet voor) kenmerk wordt de tijd waarbinnen moet de sleutel niet worden gebruikt voor cryptografische bewerkingen, met uitzondering van bepaalde bewerkingstypen onder [bepaalde voorwaarden](#date-time-controlled-operations). De verwerking van de *nbf* kenmerk vereist dat de huidige datum en tijd moeten na of gelijk aan de niet-vóór de datum/tijd die worden vermeld in de *nbf* kenmerk. Key Vault kan bieden voor enkele kleine eenheidsprofiel normaal gesproken niet meer dan een paar minuten, ter compensatie van klok scheeftrekken. De waarde moet een getal met een IntDate-waarde.  
-- *EXP*: IntDate, optioneel, standaard 'altijd' is. De *exp* (verlooptijd) kenmerk identificeert de verlooptijd op of na die de sleutel mag niet worden gebruikt voor cryptografische bewerking, met uitzondering van bepaalde bewerkingstypen onder [bepaalde voorwaarden](#date-time-controlled-operations). De verwerking van de *exp* kenmerk is vereist dat de huidige datum en tijd zijn moet voordat de vervaldatum van de datum/tijd die worden vermeld in de *exp* kenmerk. Key Vault kan bieden voor enkele kleine eenheidsprofiel doorgaans niet meer dan een paar minuten, ter compensatie van klok scheeftrekken. De waarde moet een getal met een IntDate-waarde.  
+- *EXP*: IntDate, optioneel, standaard is 'altijd'. De *exp* (verlooptijd) kenmerk identificeert de verlooptijd op of na die de sleutel mag niet worden gebruikt voor cryptografische bewerking, met uitzondering van bepaalde bewerkingstypen onder [bepaalde voorwaarden](#date-time-controlled-operations). De verwerking van de *exp* kenmerk is vereist dat de huidige datum en tijd zijn moet voordat de vervaldatum van de datum/tijd die worden vermeld in de *exp* kenmerk. Key Vault kan bieden voor enkele kleine eenheidsprofiel doorgaans niet meer dan een paar minuten, ter compensatie van klok scheeftrekken. De waarde moet een getal met een IntDate-waarde.  
 
 Er zijn aanvullende kenmerken voor alleen-lezen die zijn opgenomen in elke reactie met belangrijke kenmerken:  
 
@@ -206,26 +206,26 @@ Toegangsbeheer voor sleutels die worden beheerd door Key Vault is opgegeven op h
 De volgende machtigingen kunnen worden verleend, op een per gebruiker / service-principal uit te voeren, in de access control entry sleutels in een kluis. Deze machtigingen spiegelen nauw de bewerkingen die zijn toegestaan op een sleutel-object:  
 
 - Machtigingen voor sleutelbeheerbewerkingen
-  - *ophalen*: het openbare deel van een sleutel, plus de kenmerken lezen
-  - *lijst met*: de sleutels of versies van een sleutel die zijn opgeslagen in een key vault
-  - *Update*: de kenmerken voor een sleutel bijwerken
-  - *Maak*: nieuwe sleutels maken
-  - *importeren*: importeren van een sleutel in een key vault
-  - *Verwijder*: de sleutel object verwijderen
-  - *herstellen*: een verwijderde sleutel herstellen
-  - *back-up*: Maak een Back-up van een sleutel in een key vault
-  - *herstellen*: een back-ups herstellen van de sleutel tot een key vault
+  - *ophalen*: Het openbare deel van een sleutel, plus de kenmerken lezen
+  - *lijst met*: De sleutels of versies van een sleutel die zijn opgeslagen in een key vault
+  - *Update*: De kenmerken voor een sleutel bijwerken
+  - *Maak*: Nieuwe sleutels maken
+  - *Importeren*: Een sleutel te importeren naar een sleutelkluis
+  - *Verwijder*: Het belangrijkste object verwijderen
+  - *herstellen*: Een verwijderde sleutel herstellen
+  - *back-up*: Back-up van een sleutel in een key vault
+  - *herstellen*: Een back-ups herstellen van de sleutel tot een key vault
 
 - Machtigingen voor cryptografische bewerkingen
-  - *ontsleutelen*: de sleutel gebruiken om op te heffen van een reeks bytes
-  - *versleutelen*: de sleutel gebruiken om te beveiligen van een willekeurige volgorde van de bytes
-  - *sleutel uitpakken*: de sleutel gebruiken om op te heffen verpakt symmetrische sleutels
-  - *sleutel inpakken*: de sleutel gebruiken om een symmetrische sleutel te beveiligen
-  - *Controleer of*: de sleutel gebruiken om te controleren of verwerkingen  
+  - *ontsleutelen*: Gebruik de sleutel voor het opheffen van een reeks bytes
+  - *versleutelen*: Gebruik de sleutel voor het beveiligen van een willekeurige volgorde van de bytes
+  - *sleutel uitpakken*: De sleutel gebruiken om op te heffen verpakte symmetrische sleutels
+  - *sleutel inpakken*: Gebruik de sleutel voor het beveiligen van een symmetrische sleutel
+  - *Controleer of*: De sleutel gebruiken om te controleren of verwerkingen  
   - *Meld u*: Gebruik de sleutel aan te melden verwerkingen
     
 - Machtigingen voor beschermde bewerkingen
-  - *opschonen*: verwijderen (definitief verwijderen) een verwijderde sleutel
+  - *opschonen*: Verwijderen (definitief verwijderen) een verwijderde sleutel
 
 Zie voor meer informatie over het werken met sleutels [belangrijke bewerkingen in de Key Vault REST API-verwijzing](/rest/api/keyvault). Zie voor informatie over het tot stand brengen van machtigingen, [kluizen: maken of bijwerken](/rest/api/keyvault/vaults/createorupdate) en [kluizen: Update-toegangsbeleid](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
@@ -265,16 +265,16 @@ Toegangsbeheer voor geheimen in Key Vault wordt beheerd, is opgegeven op het niv
 De volgende machtigingen kunnen worden gebruikt, op basis van per-principal, in de access control entry geheimen in een kluis en nauw mirror van de bewerkingen die zijn toegestaan op een geheim object:  
 
 - Machtigingen voor geheimenbeheerbewerkingen
-  - *ophalen*: een geheim lezen  
-  - *lijst met*: de geheimen of versies van een geheim opgeslagen in een Key Vault  
-  - *Stel*: een geheim maken  
-  - *Verwijder*: een geheim verwijderen  
-  - *herstellen*: herstellen van een verwijderde geheim
-  - *back-up*: Maak een Back-up van een geheim in een key vault
-  - *herstellen*: een back-ups herstellen van een key vault-geheim
+  - *ophalen*: Een geheim lezen  
+  - *lijst met*: De geheimen of versies van een geheim opgeslagen in een Key Vault  
+  - *Stel*: Een geheim maken  
+  - *Verwijder*: Een geheim verwijderen  
+  - *herstellen*: Herstellen van een verwijderde geheim
+  - *back-up*: Back-up van een geheim in een key vault
+  - *herstellen*: Een back-ups herstellen van een key vault-geheim
 
 - Machtigingen voor beschermde bewerkingen
-  - *opschonen*: verwijderen (definitief verwijderen) een verwijderde geheim
+  - *opschonen*: Verwijderen (definitief verwijderen) een verwijderde geheim
 
 Zie voor meer informatie over het werken met geheimen [geheime bewerkingen in de Key Vault REST API-verwijzing](/rest/api/keyvault). Zie voor informatie over het tot stand brengen van machtigingen, [kluizen: maken of bijwerken](/rest/api/keyvault/vaults/createorupdate) en [kluizen: Update-toegangsbeleid](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
@@ -350,7 +350,7 @@ Wanneer een Key Vault-certificaat helemaal is gemaakt, wordt een beleid moet wor
 
 Op hoog niveau bevat een certificaatbeleid de volgende informatie:  
 
--   Eigenschappen van het certificaat X509: bevat de naam van het onderwerp alternatieve namen voor onderwerpen en andere eigenschappen gebruikt voor het maken van een x509 certificaataanvraag.  
+-   Eigenschappen van het X509 certificaat: Bevat de naam van het onderwerp alternatieve namen voor onderwerpen en andere eigenschappen gebruikt voor het maken van een x509 certificaataanvraag.  
 -   Sleuteleigenschappen: bevat belangrijke type sleutellengte, kan worden geëxporteerd, en velden voor sleutels opnieuw te gebruiken. Deze velden vertelt u key vault voor het genereren van een sleutel.  
 -   Eigenschappen van geheim: eigenschappen van geheim, zoals het inhoudstype van adresseerbare geheim voor het genereren van de geheime waarde voor het ophalen van certificaat als een geheim bevat.  
 -   De levensduur van acties: bevat de levensduur van acties voor het certificaat KV. Elke actie voor de levensduur bevat:  
@@ -359,7 +359,7 @@ Op hoog niveau bevat een certificaatbeleid de volgende informatie:
 
      - Actie: op te geven actietype – *emailContacts* of *automatisch verlengen*  
 
--   Uitgever: De Parameters van over de uitgever van het certificaat te gebruiken om certificaten te verlenen x509.  
+-   Uitgever: Parameters voor de uitgever van het certificaat te gebruiken om certificaten te verlenen x509.  
 -   Kenmerken van beleid: bevat kenmerken die zijn gekoppeld aan het beleid  
 
 #### <a name="x509-to-key-vault-usage-mapping"></a>X509 toewijzing voor gebruik van Key Vault
@@ -422,24 +422,24 @@ Als het beleid van het certificaat is ingesteld op automatische verlenging, word
  De volgende machtigingen kunnen worden gebruikt, op basis van per-principal, in de access control entry geheimen in een key vault en nauw mirrors de bewerkingen die zijn toegestaan op een geheim object:  
 
 - Machtigingen voor certificate management-bewerkingen
-  - *ophalen*: de huidige certificaatversie van het of een willekeurige versie van een certificaat ophalen 
-  - *lijst met*: de huidige certificaten of versies van een certificaat  
-  - *Update*: een certificaat bijwerken
-  - *Maak*: een Key Vault-certificaat maken
-  - *importeren*: certificaat materiaal in een Key Vault-certificaat importeren
-  - *Verwijder*: een certificaat, het beleid en alle versies ervan verwijderen  
-  - *herstellen*: herstellen van een certificaat is verwijderd
-  - *back-up*: Maak een Back-up van een certificaat in een key vault
-  - *herstellen*: een certificaat van een back-up herstellen naar een key vault
-  - *managecontacts*: certificaatcontactpersonen Key Vault beheren  
-  - *manageissuers*: Key Vault beheren instanties/certificaatverleners
-  - *getissuers*: ophalen van een certificaat instanties/uitgevers van certificaten
-  - *listissuers*: overzicht van een certificaat instanties/uitgevers van certificaten  
-  - *setissuers*: maken of bijwerken van een Key Vault-certificaat instanties/uitgevers van certificaten  
-  - *deleteissuers*: verwijderen van een Key Vault-certificaat instanties/uitgevers van certificaten  
+  - *ophalen*: De huidige certificaatversie van het of een willekeurige versie van een certificaat ophalen 
+  - *lijst met*: De huidige certificaten of versies van een certificaat  
+  - *Update*: Een certificaat bijwerken
+  - *Maak*: Een Key Vault-certificaat maken
+  - *Importeren*: Certificaat materiaal in een Key Vault-certificaat importeren
+  - *Verwijder*: Een certificaat, het beleid en alle versies ervan verwijderen  
+  - *herstellen*: Herstellen van een certificaat is verwijderd
+  - *back-up*: Back-up van een certificaat in een key vault
+  - *herstellen*: Een certificaat van een back-up herstellen naar een key vault
+  - *managecontacts*: Key Vault-certificaatcontactpersonen beheren  
+  - *manageissuers*: Key Vault instanties/certificaatverleners beheren
+  - *getissuers*: Ophalen van een certificaat instanties/uitgevers van certificaten
+  - *listissuers*: Lijst van een certificaat instanties/uitgevers van certificaten  
+  - *setissuers*: Maken of bijwerken van een Key Vault-certificaat instanties/uitgevers van certificaten  
+  - *deleteissuers*: Verwijderen van een Key Vault-certificaat instanties/uitgevers van certificaten  
  
 - Machtigingen voor beschermde bewerkingen
-  - *opschonen*: verwijderen (definitief verwijderen) een certificaat is verwijderd
+  - *opschonen*: Verwijderen (definitief verwijderen) een certificaat is verwijderd
 
 Zie voor meer informatie de [certificaatbewerkingen in de Key Vault REST API-verwijzing](/rest/api/keyvault). Zie voor informatie over het tot stand brengen van machtigingen, [kluizen: maken of bijwerken](/rest/api/keyvault/vaults/createorupdate) en [kluizen: Update-toegangsbeleid](/rest/api/keyvault/vaults/updateaccesspolicy).
 
@@ -459,22 +459,22 @@ Zie voor meer informatie, [Azure Key Vault-Opslagaccountsleutels](key-vault-ovw-
 De volgende machtigingen kunnen worden gebruikt wanneer een gebruiker of de principal-toepassing autoriseren bewerkingen op een beheerde storage-account uit te voeren:  
 
 - Machtigingen voor een beheerd opslagaccount en SaS-definition-bewerkingen
-  - *ophalen*: informatie ophalen over een storage-account 
-  - *lijst met*: lijst met opslagaccounts die worden beheerd door een Key Vault
-  - *Update*: een storage-account bijwerken
-  - *Verwijder*: een storage-account verwijderen  
-  - *herstellen*: een verwijderd opslagaccount te herstellen
-  - *back-up*: Maak een Back-up van een storage-account
-  - *herstellen*: een opslagaccount van een back-up herstellen naar een Key Vault
-  - *Stel*: maken of bijwerken van een storage-account
-  - *regeneratekey*: een opgegeven sleutelwaarde voor een opslagaccount opnieuw genereren
-  - *getsas*: informatie over de definitie van een SAS voor een opslagaccount
-  - *listsas*: overzicht van opslag-SAS-definities voor een opslagaccount
-  - *deletesas*: een SAS-definitie van een storage-account verwijderen
-  - *setsas*: maken of bijwerken van een nieuwe SAS-definitie/kenmerken voor een opslagaccount
+  - *ophalen*: Hiermee haalt u informatie over een storage-account 
+  - *lijst met*: Lijst met opslagaccounts beheerd door een Key Vault
+  - *Update*: Een storage-account bijwerken
+  - *Verwijder*: Een opslagaccount verwijderen  
+  - *herstellen*: Herstellen van een verwijderd opslagaccount
+  - *back-up*: Back-up van een storage-account
+  - *herstellen*: Een opslagaccount van een back-up herstellen naar een Key Vault
+  - *Stel*: Maken of bijwerken van een storage-account
+  - *regeneratekey*: Opnieuw genereren van een opgegeven sleutelwaarde voor een opslagaccount
+  - *getsas*: Informatie over de definitie van een SAS voor een opslagaccount ophalen
+  - *listsas*: Lijst met opslag SAS-definities voor een opslagaccount
+  - *deletesas*: Een SAS-definitie van een storage-account verwijderen
+  - *setsas*: Maken of bijwerken van een nieuwe SAS-definitie/kenmerken voor een opslagaccount
 
 - Machtigingen voor beschermde bewerkingen
-  - *opschonen*: verwijderen (definitief verwijderen) een beheerd opslagaccount
+  - *opschonen*: Verwijderen (definitief verwijderen) een beheerd opslagaccount
 
 Zie voor meer informatie de [opslag accountbewerkingen in de Key Vault REST API-verwijzing](/rest/api/keyvault). Zie voor informatie over het tot stand brengen van machtigingen, [kluizen: maken of bijwerken](/rest/api/keyvault/vaults/createorupdate) en [kluizen: Update-toegangsbeleid](/rest/api/keyvault/vaults/updateaccesspolicy).
 

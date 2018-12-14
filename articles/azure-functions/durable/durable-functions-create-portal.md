@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 3381939e296009b0fd58366f7fff410ea01d1206
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a79faa1dc5a28e5e2ac37ea164c341b855b3bb80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864023"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339719"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Duurzame functies met behulp van de Azure portal maken
 
@@ -24,17 +24,43 @@ De [duurzame functies](durable-functions-overview.md) -extensie voor Azure Funct
 >[!NOTE]
 >
 >* Als u ontwikkelt duurzame functies in C#, kunt u overwegen in plaats daarvan [ontwikkeling in Visual Studio 2017](durable-functions-create-first-csharp.md).
-* Als u duurzame functies in JavaScript ontwikkelt, moet u in plaats daarvan overwegen **Visual Studio Code ontwikkelen**.
->
->Het maken van duurzame functies wordt met behulp van JavaScript nog niet ondersteund in de portal. Visual Studio Code in plaats daarvan gebruikt.
+* Als u duurzame functies in JavaScript ontwikkelt, moet u in plaats daarvan overwegen [Visual Studio Code ontwikkelen](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
 
-U moet een functie-app voor het hosten van de uitvoering van elke functie hebben. Een functie-app kunt u uw functies groeperen in een logische eenheid voor eenvoudiger beheer, implementeren en delen van resources. U moet maken een C# functie-app, omdat de JavaScript-sjablonen zijn nog niet ondersteund voor duurzame functies.  
+U moet een functie-app voor het hosten van de uitvoering van elke functie hebben. Een functie-app kunt u uw functies groeperen in een logische eenheid voor eenvoudiger beheer, implementeren en delen van resources. U kunt een .NET- of JavaScript-app maken.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-Gemaakte functie-app maakt standaard gebruik van versie 2.x van de Azure Functions-runtime. De extensie duurzame functies werkt voor beide versies 1.x en 2.x van de Azure Functions-runtime. Sjablonen zijn echter alleen beschikbaar wanneer die gericht is op versie 2.x van de runtime.
+Gemaakte functie-app maakt standaard gebruik van versie 2.x van de Azure Functions-runtime. De extensie duurzame functies werkt voor beide versies 1.x en 2.x van de Azure Functions-runtime in C#, en versie 2.x in JavaScript. Sjablonen zijn echter alleen beschikbaar wanneer die gericht is op versie 2.x van de runtime, ongeacht de gekozen taal.
+
+## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Installeer het durable-functions npm-pakket (alleen voor JavaScript)
+
+Als u JavaScript duurzame functies maakt, moet u voor het installeren van de [ `durable-functions` npm-pakket](https://www.npmjs.com/package/durable-functions).
+
+1. Selecteer uw functie-app-naam, gevolgd door **platformfuncties**, klikt u vervolgens **geavanceerde hulpmiddelen (Kudu)**.
+
+   ![Functies van het platform functies kiezen Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+
+2. Selecteer in de Kudu-console, **Foutopsporingsconsole** vervolgens **CMD**.
+
+   ![Kudu-console voor foutopsporing](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+3. Directory-structuur van uw functie-app-bestand moet worden weergegeven. Navigeer naar de map `site/wwwroot`. Van daaruit, uploadt u een `package.json` bestand door te slepen en neer te zetten in het venster van de directory bestand. Een voorbeeld van een `package.json` lager is dan:
+
+    ```json
+    {
+      "dependencies": {
+        "durable-functions": "^1.1.2"
+      }
+    }
+    ```
+
+   ![Kudu uploaden package.json](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+4. Zodra uw `package.json` is geüpload, worden uitgevoerd de `npm install` opdracht uit vanaf de Kudu-Console voor extern kan worden uitgevoerd.
+
+   ![Kudu uitvoeren npm-installatie](./media/durable-functions-create-portal/kudu-npm-install.png)
 
 ## <a name="create-an-orchestrator-function"></a>Een orchestrator-functie maken
 
@@ -92,7 +118,7 @@ Gemaakte functie-app maakt standaard gebruik van versie 2.x van de Azure Functio
         }
     ```
 
-1. Aanroepen blijven de `statusQueryGetUri` eindpunt totdat de status gewijzigd in **voltooid**, en ziet u een antwoord weergegeven zoals in het volgende voorbeeld: 
+1. Aanroepen blijven de `statusQueryGetUri` eindpunt totdat de status gewijzigd in **voltooid**, en ziet u een antwoord weergegeven zoals in het volgende voorbeeld:
 
     ```json
     {
@@ -113,4 +139,4 @@ Uw eerste duurzame functie is nu actief en werkend in Azure.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over algemene functiepatronen voor duurzame](durable-functions-overview.md)
+> [Meer informatie over algemene patronen van duurzame functies](durable-functions-overview.md)

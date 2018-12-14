@@ -14,22 +14,22 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: efdc1cda9b52b6b79a3ccdcfd16542f7cb4b891a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838545"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341895"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-opslag: verschillen en overwegingen
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-opslag: Verschillen en overwegingen
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Azure Stack-opslag is de set met opslag cloudservices in Microsoft Azure Stack. Azure Stack-opslag biedt blob, table, queue en functionaliteit voor Gebruikersaccountbeheer met Azure-consistente semantiek.
 
 In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschillen met Azure Storage-services. Het is ook een lijst met aandachtspunten bij het implementeren van Azure Stack. Zie voor meer informatie over belangrijke verschillen tussen de globale Azure en Azure Stack, de [belangrijke overwegingen met betrekking tot](azure-stack-considerations.md) artikel.
 
-## <a name="cheat-sheet-storage-differences"></a>Overzichtskaart: opslag verschillen
+## <a name="cheat-sheet-storage-differences"></a>Overzichtskaart: Opslag-verschillen
 
 | Functie | Azure (wereldwijd) | Azure Stack |
 | --- | --- | --- |
@@ -41,6 +41,7 @@ In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschille
 |Managed Disks|Premium en standaard worden ondersteund|Als u versie 1808 of hoger ondersteund.
 |Blobnaam|1024 tekens (2048 bytes)|880 tekens (1,760 bytes)
 |Maximale grootte voor blok-blob|4.75 TB (100 MB X 50.000 blokken)|4.75 TB (100 MB x 50.000 blokken) voor de update 1802 of een nieuwere versie. 50.000 x 4 MB (CA. 195 GB) voor eerdere versies.
+|Pagina-blob-momentopname kopiëren|Back-up Azure niet-beheerde VM-schijven die zijn gekoppeld aan een actieve virtuele machine die wordt ondersteund|Nog niet ondersteund.
 |Pagina blob-momentopname van incrementele kopie|Premium en standard-pagina in Azure blobs ondersteund|Nog niet ondersteund.
 |Opslaglagen voor blob-opslag|Hot, cool en archive storage-lagen.|Nog niet ondersteund.
 Voorlopig verwijderen voor blob-opslag|Preview|Nog niet ondersteund.
@@ -62,21 +63,21 @@ Azure Storage service-API's:
 
 1802 bijwerken of hoger:
 
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [07-2015-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [07-2015-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Vorige versies:
 
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure Storage-services beheer-API's:
 
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 ## <a name="sdk-versions"></a>SDK-versies
 
@@ -86,7 +87,7 @@ Azure Stack-storage ondersteunt de volgende clientbibliotheken:
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET           | Van 6.2.0 naar 8.7.0.          | NuGet-pakket:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | bestand App.config              |
 | Java           | Van 4.1.0 naar 6.1.0           | Maven-pakket:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Verbindingsinstellingen voor tekenreeks      |
-| Node.js        | Van 1.1.0 naar 2.7.0           | Koppeling van NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Bijvoorbeeld: Voer ' npm installeren azure-storage@2.7.0")<br> <br>Release van Github:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | De declaratie van de service-exemplaar |
+| Node.js        | Van 1.1.0 naar 2.7.0           | Koppeling van NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Bijvoorbeeld: Voer ' npm installeren azure-storage@2.7.0")<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | De declaratie van de service-exemplaar |
 | C++            | Van 2.4.0 naar 3.1.0           | NuGet-pakket:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Verbindingsinstellingen voor tekenreeks      |
 | PHP            | Van 0.15.0 naar 1.0.0          | Release van GitHub:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Via Composer installeren (Zie hieronder voor meer informatie)                                                                                                                                                                                                                  | Verbindingsinstellingen voor tekenreeks      |
 | Python         | Van 0.30.0 naar 1.0.0          | Release van GitHub:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | De declaratie van de service-exemplaar |

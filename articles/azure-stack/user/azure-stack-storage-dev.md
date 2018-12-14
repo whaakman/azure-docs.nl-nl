@@ -9,23 +9,23 @@ ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a914a95831176a51cc6b5e2c5bf69ef1ad60bcc0
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035911"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341555"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Aan de slag met hulpprogramma's voor opslagontwikkeling Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Microsoft Azure Stack biedt een set met storage-services met blob, table en queue storage.
 
 Gebruik dit artikel als richtlijn om aan de slag met hulpprogramma's voor opslagontwikkeling Azure Stack. U vindt meer gedetailleerde informatie en voorbeelden van code in de bijbehorende Azure storage-zelfstudies.
 
-> [!NOTE]  
-> Er zijn bekende verschillen tussen Azure Stack-opslag en Azure-opslag, met inbegrip van specifieke vereisten voor elk platform. Er zijn bijvoorbeeld specifieke-clientbibliotheken en specifieke eindpunt achtervoegsel vereisten voor Azure Stack. Zie voor meer informatie, [Azure Stack-opslag: verschillen en overwegingen](azure-stack-acs-differences.md).
+> [!NOTE]
+> Er zijn bekende verschillen tussen Azure Stack-opslag en Azure-opslag, met inbegrip van specifieke vereisten voor elk platform. Er zijn bijvoorbeeld specifieke-clientbibliotheken en specifieke eindpunt achtervoegsel vereisten voor Azure Stack. Zie voor meer informatie, [Azure Stack-opslag: Verschillen en overwegingen](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Azure-clientbibliotheken
 
@@ -37,7 +37,7 @@ De ondersteunde versies van de REST-API voor Azure Stack-opslag zijn 17-04-2017,
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 8.7.0 | Nuget-pakket:<br>https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0 | bestand App.config |
 | Java | 6.1.0 | Maven-pakket:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | Verbindingsinstellingen voor tekenreeks |
-| Node.js | 2.7.0 | Koppeling van NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Voer: `npm install azure-storage@2.7.0`)<br> <br>Release van Github:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | De declaratie van de service-exemplaar |
+| Node.js | 2.7.0 | Koppeling van NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Voer: `npm install azure-storage@2.7.0`)<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | De declaratie van de service-exemplaar |
 | C++ | 3.1.0 | Nuget-pakket:<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | Verbindingsinstellingen voor tekenreeks |
 | PHP | 1.0.0 | Release van GitHub:<br>Algemene: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>Wachtrij:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Tabel: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Installeren via de Composer (voor meer informatie, [Zie de onderstaande details](#install-php-client-via-composer---current).) | Verbindingsinstellingen voor tekenreeks |
 | Python | 1.0.0 | Release van GitHub:<br>Algemene:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>BLOB:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Wachtrij:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | De declaratie van de service-exemplaar |
@@ -66,7 +66,7 @@ Te installeren via de Composer: (nemen blob voorbeeld).
 |---------|---------|---------|---------|
 |.NET     |6.2.0|Nuget-pakket:<br>[https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0](https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)<br><br>Release van GitHub:<br>[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|bestand App.config|
 |Java|4.1.0|Maven-pakket:<br>[http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0)<br><br>Release van GitHub:<br> [https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0](https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0)|Verbindingsinstellingen voor tekenreeks|
-|Node.js     |1.1.0|Koppeling van NPM:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(uitvoeren: `npm install azure-storage@1.1.0)`<br><br>Release van Github:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|De declaratie van de service-exemplaar||C++|2.4.0|Nuget-pakket:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>Release van GitHub:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Verbindingsinstellingen voor tekenreeks|
+|Node.js     |1.1.0|Koppeling van NPM:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(uitvoeren: `npm install azure-storage@1.1.0)`<br><br>Release van GitHub:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|De declaratie van de service-exemplaar||C++|2.4.0|Nuget-pakket:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>Release van GitHub:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Verbindingsinstellingen voor tekenreeks|
 |C++|2.4.0|Nuget-pakket:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>Release van GitHub:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Verbindingsinstellingen voor tekenreeks|
 |PHP|0.15.0|Release van GitHub:<br>[https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0](https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0)<br><br>Via Composer installeren (Zie hieronder voor meer informatie)|Verbindingsinstellingen voor tekenreeks|
 |Python     |0.30.0|PIP-pakket:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Uitvoeren: `pip install -v azure-storage==0.30.0)`<br><br>Release van GitHub:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|De declaratie van de service-exemplaar|

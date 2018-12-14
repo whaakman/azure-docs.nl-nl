@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 956ffb298301aef914221a8d2e623b19191909c0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2be11f97882a7c6353b214886ce6c5a3a66add89
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095360"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339107"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -251,7 +251,7 @@ Het beveiligingsbeleid ingeschakeld in Azure Security Center station beveiliging
 ### <a name="who-can-modify-a-security-policy"></a>Wie kan een beveiligingsbeleid alleen wijzigen?
 Als u wilt een beveiligingsbeleid alleen wijzigen, moet u een beveiligingsbeheerder of een eigenaar of bijdrager van het abonnement zijn.
 
-Zie voor informatie over het configureren van een beveiligingsbeleid, [beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md).
+Zie voor informatie over het configureren van een beveiligingsbeleid, [beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md).
 
 ### <a name="what-is-a-security-recommendation"></a>Wat is een beveiligingsaanbeveling?
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer de potentiële beveiligingsproblemen worden geïdentificeerd, worden aanbevelingen worden gemaakt. De aanbevelingen begeleiden u bij het proces van het configureren van het vereiste besturingselement. Een aantal voorbeelden:

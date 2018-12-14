@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 75410b1338909f98a01b02c0ff86be9b81ab3faf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 80a2cea90d8d1d2dd43207fa504e601b216714cc
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250910"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343476"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -54,7 +54,7 @@ Vervolgens stream logboeken naar uw console met `az webapp log tail`:
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-Zie voor meer informatie, [Streaminglogboeken met de Azure CLI](/azure/app-service/web-sites-enable-diagnostic-log#streaming-with-azure-command-line-interface).
+Zie voor meer informatie, [Streaminglogboeken met de Azure CLI](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
 
 ### <a name="app-logging"></a>App-registratie
 

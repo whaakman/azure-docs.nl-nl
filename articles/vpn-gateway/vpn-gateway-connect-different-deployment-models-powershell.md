@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f133af5ec077821607bf3e942c8a931808d34fc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953584"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337529"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Virtuele netwerken van verschillende implementatiemodellen verbinden met PowerShell
 
@@ -34,7 +34,7 @@ De volgende stappen helpen u bij de instellingen die nodig zijn voor het configu
 
 ### <a name="pre"></a>Vereisten
 
-* Beide VNets zijn al gemaakt. Als u maken van een virtueel netwerk van resource manager wilt, raadpleegt u [maken van een virtueel netwerk](../virtual-network/quick-create-powershell.md#create-a-virtual-network). Zie voor het maken van een klassiek virtueel netwerk, [maken van een klassiek VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
+* Beide VNets zijn al gemaakt. Als u maken van een virtueel netwerk van resource manager wilt, raadpleegt u [maken van een resourcegroep en een virtueel netwerk](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Zie voor het maken van een klassiek virtueel netwerk, [maken van een klassiek VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * De adresbereiken voor de VNets niet met elkaar overlappen of overlapt met een van de bereiken voor andere verbindingen die de gateways kunnen worden verbonden met.
 * U kunt de meest recente PowerShell-cmdlets hebben geïnstalleerd. Zie [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie. Zorg ervoor dat u zowel de SM (Service Management) en de Resource Manager (DB)-cmdlets installeren. 
 
@@ -263,7 +263,7 @@ In deze sectie maakt werken u met het klassieke VNet. U kunt de tijdelijke aandu
 ## <a name="connect"></a>Sectie 4: Maak een verbinding tussen de gateways
 Het maken van een verbinding tussen de gateways is PowerShell vereist. Mogelijk moet u uw Azure-Account voor het gebruik van de klassieke versie van de PowerShell-cmdlets toevoegen. Om dit te doen, gebruik **Add-AzureAccount**.
 
-1. Stel uw gedeelde sleutel in de PowerShell-console. Raadpleeg voordat u de cmdlets uitvoert, het netwerkconfiguratiebestand dat u hebt gedownload voor de exacte namen die Azure verwacht om te zien. Bij het opgeven van de naam van een VNet die spaties bevat, gebruikt u enkele aanhalingstekens rond de waarde.<br><br>In het volgende voorbeeld **- VNetName** is de naam van het klassieke VNet en **- LocalNetworkSiteName** is de naam die u hebt opgegeven voor de lokale netwerksite. De **- SharedKey** is een waarde die u genereert en opgeven. In het voorbeeld hebben we 'abc123' gebruikt, maar u kunt genereren en ingewikkeldere gebruiken. Het belangrijkste is dat de waarde die u hier opgeeft, dezelfde waarde die u in de volgende stap opgeeft bij het maken van de verbinding moet zijn. Moet worden weergegeven in het rendement **Status: geslaagd**.
+1. Stel uw gedeelde sleutel in de PowerShell-console. Raadpleeg voordat u de cmdlets uitvoert, het netwerkconfiguratiebestand dat u hebt gedownload voor de exacte namen die Azure verwacht om te zien. Bij het opgeven van de naam van een VNet die spaties bevat, gebruikt u enkele aanhalingstekens rond de waarde.<br><br>In het volgende voorbeeld **- VNetName** is de naam van het klassieke VNet en **- LocalNetworkSiteName** is de naam die u hebt opgegeven voor de lokale netwerksite. De **- SharedKey** is een waarde die u genereert en opgeven. In het voorbeeld hebben we 'abc123' gebruikt, maar u kunt genereren en ingewikkeldere gebruiken. Het belangrijkste is dat de waarde die u hier opgeeft, dezelfde waarde die u in de volgende stap opgeeft bij het maken van de verbinding moet zijn. Moet worden weergegeven in het rendement **Status: Geslaagde**.
 
   ```azurepowershell
   Set-AzureVNetGatewayKey -VNetName ClassicVNet `

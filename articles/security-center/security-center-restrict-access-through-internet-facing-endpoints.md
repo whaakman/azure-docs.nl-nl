@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 487b9d8d02909913f251ae7547d75669fa90f8d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a1677e2c5518fec4412adb87cd058571bd435dd4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313297"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338480"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Toegang beperken via internetgerichte eindpunten in Azure Security Center
 Azure Security Center wordt aanbevolen dat u de toegang via internetgerichte eindpunten beperken als een van uw Netwerkbeveiligingsgroepen (nsg's) heeft een of meer binnenkomende regels waarmee toegang via 'een' bron-IP-adres. Toegang tot 'een' te openen, mogelijk kwaadwillende personen om toegang te krijgen tot uw resources. Security Center wordt aanbevolen dat u deze regels voor binnenkomende verbindingen om te beperken van toegang tot bron-IP-adressen die toegang nodig hebt.
@@ -60,7 +60,7 @@ In dit artikel hebt u geleerd hoe u voor het implementeren van de aanbeveling va
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
+* [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md): leer hoe aanbevelingen u helpen uw Azure-resources te beveiligen.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.

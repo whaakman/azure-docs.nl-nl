@@ -1,5 +1,5 @@
 ---
-title: Over Text to Speech - spraakservices
+title: Over Text to Speech-Service voor spraak
 titleSuffix: Azure Cognitive Services
 description: De Text to Speech-API biedt meer dan 75 stemmen in meer dan 45 talen en landen. Voor het gebruik van standard spraakstijlen, hoeft u alleen de stem-naam met een aantal andere parameters opgeven bij het aanroepen van de Speech-Service.
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 42e9a7e02bbe7efeab4ea0d8ee5d9876b68a7565
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b06864e08f6edf52e4c96c33c88bba9f8ef4e859
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100647"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343204"
 ---
 # <a name="about-the-text-to-speech-api"></a>Over de Text to Speech-API
 
-De **tekst naar spraak** (Text-to-Speech)-API van de spraak-service zet invoertekst in natuurlijk klinkende spraak (ook wel genoemd *spraaksynthese*).
+De **tekst naar spraak** (Text-to-Speech) API invoertekst converteert naar natuurlijk klinkende spraak (ook wel genoemd *spraaksynthese*).
 
-Voor het genereren van spraak, verzendt uw toepassing HTTP POST-aanvragen naar de Speech-service. Daar tekst is spraaksynthese human klinkende en geretourneerd als een geluidsbestand. Een aantal stemmen en talen worden ondersteund.
+Voor het genereren van spraak, verzendt uw toepassing HTTP POST-aanvragen naar de Text to Speech-API. Daar tekst is spraaksynthese human klinkende en geretourneerd als een geluidsbestand. Een aantal stemmen en talen worden ondersteund.
 
 In welke spraak synthese wordt toegepast scenario's omvatten:
 
@@ -30,15 +30,21 @@ In welke spraak synthese wordt toegepast scenario's omvatten:
 
 * *Reageert in scenario's multitasking:* **tekst naar spraak** kunnen mensen kunnen worden opgevangen belangrijke informatie snel en probleemloos tijdens het verkeer of anders buiten een handige lezen van de omgeving. Navigatie is een algemene toepassing op dit gebied.
 
-* *Verbetering van leren met meerdere modi:* verschillende mensen meer beste op verschillende manieren. Online learning experts heeft aangetoond dat de spraak- en samen bieden gegevens gemakkelijker helpen kan te leren en te behouden.
+* *Verbetering van leren met meerdere modi:* Verschillende mensen Leer best op verschillende manieren. Online learning experts heeft aangetoond dat de spraak- en samen bieden gegevens gemakkelijker helpen kan te leren en te behouden.
 
-* *Leveren van intuïtieve bots of assistenten:* de mogelijkheid om te communiceren een integraal onderdeel van een intelligente chatbot of een virtuele assistent kan zijn. Steeds meer bedrijven zijn chat bots om aantrekkelijke klant een service ervaringen voor hun klanten te ontwikkelen. Stem wordt een andere dimensie toegevoegd doordat de antwoorden van de bot wilt aurally ontvangen (bijvoorbeeld via de telefoon).
+* *Intuïtieve bots of assistenten leveren:* De mogelijkheid om te communiceren, kan een integraal onderdeel van een intelligente chatbot of een virtuele assistent zijn. Steeds meer bedrijven zijn chat bots om aantrekkelijke klant een service ervaringen voor hun klanten te ontwikkelen. Stem wordt een andere dimensie toegevoegd doordat de antwoorden van de bot wilt aurally ontvangen (bijvoorbeeld via de telefoon).
 
 ## <a name="voice-support"></a>Voice-ondersteuning
 
-De Microsoft **tekst naar spraak** service biedt meer dan 75 stemmen in meer dan 45 talen en landen. Voor het gebruik van deze standaard 'spraakstijlen', moet u alleen de naam van de gesproken met een aantal andere parameters opgeven wanneer u een van de service REST-API aanroept. Zie voor de details van de stemmen wordt ondersteund, [ondersteunde talen](language-support.md#text-to-speech).
+De Microsoft **tekst naar spraak** service biedt meer dan 75 stemmen in meer dan 45 talen en landen. Voor het gebruik van deze standaard 'spraakstijlen', moet u alleen de naam van de gesproken met een aantal andere parameters opgeven wanneer u een van de service REST-API aanroept. Zie voor meer informatie over ondersteunde talen, landinstellingen en stemmen [ondersteunde talen](language-support.md#text-to-speech).
 
-Als u een unieke stem voor uw toepassing wilt, kunt u [aangepaste spraakstijlen](how-to-customize-voice-font.md) uit uw eigen voorbeelden van spraak.
+### <a name="neural-voices"></a>Neurale stemmen
+
+Neurale tekst naar spraak kan worden gebruikt om de interacties met chatbots en virtuele assistenten natuurlijker en aantrekkelijke digitale teksten, zoals e-books converteren naar audiobooks en verbeteren van de in de auto-navigatiesystemen. Met de menselijke natuurlijke prosody en duidelijke afbakening van woorden, is Neural TTS aanzienlijk verminderd, luistert intensief gebruik wanneer u met AI-systemen communiceren. Zie voor meer informatie over neurale stemmen [ondersteunde talen](language-support.md#text-to-speech).
+
+### <a name="custom-voices"></a>Aangepaste stemmen
+
+Spraak-naar-spraak aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk maken: een *spraakstijl.* Voor het maken van uw spraakstijl, moet u een studio-opname maken en uploaden van de bijbehorende scripts als de trainingsgegevens. De service maakt vervolgens een unieke stem-model dat is afgestemd op de opname. U kunt zijn spraakstijl gebruiken om na te bootsen spraak. Zie voor meer informatie, [aangepaste spraakstijlen](how-to-customize-voice-font.md).
 
 ## <a name="api-capabilities"></a>API-functies
 
@@ -57,5 +63,7 @@ Veel van de mogelijkheden van de **tekst naar spraak** API, met name wat betreft
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
-* [Zie how to bootsen spraak via de REST-API](how-to-text-to-speech.md)
+* [Neem een abonnement op spraak-gratis Services](https://azure.microsoft.com/try/cognitive-services/)
+* [Snelstartgids: Converteren van tekst naar spraak, Python](quickstart-python-text-to-speech.md)
+* [Snelstartgids: Converteren van tekst naar spraak, .NET Core](quickstart-dotnet-text-to-speech.md)
+* [Naslaginformatie over REST API](rest-apis.md)

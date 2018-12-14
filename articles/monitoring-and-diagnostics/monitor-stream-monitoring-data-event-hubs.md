@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 3bf2135e7d4cb0e34d6e38e8673d5d69f262979c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a65611c1e84bdd01bac525012553e6cd7c7fc4e4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322394"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386856"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -58,7 +58,7 @@ Voor het verzenden van gegevens uit de Azure Active Directory-logboek in een Eve
 
 ## <a name="azure-subscription-monitoring-data"></a>Azure-abonnement door gegevens te controleren
 
-Azure-abonnement door gegevens te controleren is beschikbaar in de [Azure-activiteitenlogboek](./monitoring-overview-activity-logs.md). Hierin zijn de maken, bijwerken en verwijderen van bewerkingen van Resource Manager, de wijzigingen in [Azure-servicestatus](../service-health/service-health-overview.md) die mogelijk van invloed op bronnen in uw abonnement, de [resourcestatus](../service-health/resource-health-overview.md) status overgangen en diverse andere soorten gebeurtenissen op abonnementsniveau. [Dit artikel worden alle categorieën van gebeurtenissen die worden weergegeven in de Azure-activiteitenlogboek](./monitoring-activity-log-schema.md).
+Azure-abonnement door gegevens te controleren is beschikbaar in de [Azure-activiteitenlogboek](./monitoring-overview-activity-logs.md). Hierin zijn de maken, bijwerken en verwijderen van bewerkingen van Resource Manager, de wijzigingen in [Azure-servicestatus](../service-health/service-health-overview.md) die mogelijk van invloed op bronnen in uw abonnement, de [resourcestatus](../service-health/resource-health-overview.md) status overgangen en diverse andere soorten gebeurtenissen op abonnementsniveau. [Dit artikel worden alle categorieën van gebeurtenissen die worden weergegeven in de Azure-activiteitenlogboek](./../azure-monitor/platform/activity-log-schema.md).
 
 ### <a name="activity-log-data"></a>Gegevens van een activiteitenlogboek
 
@@ -117,7 +117,7 @@ Routering van uw bewakingsgegevens naar een event hub met Azure Monitor kunt u e
 * **Syslog-server** : als u wilt dat Azure Monitor om gegevens te streamen rechtstreeks naar een syslog-server, kunt u uitchecken [deze GitHub-opslagplaats](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Het activiteitenlogboek naar een opslagaccount archiveren](monitoring-archive-activity-log.md)
+* [Het activiteitenlogboek naar een opslagaccount archiveren](../azure-monitor/platform/archive-activity-log.md)
 * [Lees het overzicht van de Azure-activiteitenlogboek](monitoring-overview-activity-logs.md)
 * [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](../azure-monitor/platform/alerts-log-webhook.md)
 

@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 7ce11b3e54a8770a2b3d53e335afc57f52d3d14e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b74c3d355a720948c22e90b1792dcd6139c101ea
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425306"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338206"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Woordenlijst voor Azure Active Directory-ontwikkelaars
 
@@ -41,7 +41,7 @@ Zie [Azure AD-tokenverwijzing] [ AAD-Tokens-Claims] voor meer informatie.
 
 ## <a name="application-id-client-id"></a>toepassings-id (client-id)
 
-De unieke id Azure AD-problemen naar de registratie van een toepassing die een bepaalde toepassing en de bijbehorende configuraties. Deze toepassings-id ([client-id](https://tools.ietf.org/html/rfc6749#page-15)) wordt gebruikt bij het uitvoeren van verificatie-aanvragen en is opgegeven voor de verificatiebibliotheken in de van ontwikkelingstijd. De toepassings-id (client-id) is niet een geheim. 
+De unieke id Azure AD-problemen naar de registratie van een toepassing die een bepaalde toepassing en de bijbehorende configuraties. Deze toepassings-id ([client-id](https://tools.ietf.org/html/rfc6749#page-15)) wordt gebruikt bij het uitvoeren van verificatie-aanvragen en is opgegeven voor de verificatiebibliotheken in de van ontwikkelingstijd. De toepassings-id (client-id) is niet een geheim.
 
 ## <a name="application-manifest"></a>toepassingsmanifest
 
@@ -102,7 +102,7 @@ Zie [naslaginformatie over Azure AD-tokens] [ AAD-Tokens-Claims] voor meer infor
 
 ## <a name="client-application"></a>Clienttoepassing
 
-Zoals gedefinieerd door de [OAuth2-autorisatie-Framework][OAuth2-Role-Def], een toepassing die beveiligde resourceaanvragen namens de [resource-eigenaar](#resource-owner). De term 'client' betekent niet dat een bepaalde hardware-implementatie-eigenschappen (bijvoorbeeld of de toepassing wordt uitgevoerd op een server, een desktop of andere apparaten). 
+Zoals gedefinieerd door de [OAuth2-autorisatie-Framework][OAuth2-Role-Def], een toepassing die beveiligde resourceaanvragen namens de [resource-eigenaar](#resource-owner). De term 'client' betekent niet dat een bepaalde hardware-implementatie-eigenschappen (bijvoorbeeld of de toepassing wordt uitgevoerd op een server, een desktop of andere apparaten).
 
 Een clienttoepassing aanvragen [autorisatie](#authorization) van de eigenaar van een resource om deel te nemen een [autorisatie voor oauth2](#authorization-grant) flow en mogelijk toegang tot API's / gegevens uit de naam van de resource-eigenaar. De OAuth2-autorisatie-Framework [definieert u twee soorten clients][OAuth2-Client-Types], 'vertrouwelijk' en 'openbare', op basis van de mogelijkheid om te onderhouden van de vertrouwelijkheid van de referenties van de client. Toepassingen kunnen worden geïmplementeerd een [webclient (vertrouwelijke)](#web-client) die wordt uitgevoerd op een webserver, een [native client (openbaar)](#native-client) geïnstalleerd op een apparaat of een [client op basis van gebruiker-agent (openbaar)](#user-agent-based-client)die wordt uitgevoerd in de browser van een apparaat.
 
@@ -118,7 +118,7 @@ Een [OpenID Connect] [ OpenIDConnect-ID-Token] [beveiligingstoken](#security-tok
 
 Zie [naslaginformatie over Azure AD-tokens] [ AAD-Tokens-Claims] voor meer informatie.
 
-## <a name="microsoft-identity-platform"></a>Microsoft identity-platform
+## <a name="microsoft-identity-platform"></a>Microsoft-identiteitsplatform
 
 Het Microsoft Identity Platform bouwt voort op de identiteitsservice en het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Met het Microsoft Identity Platform kunnen ontwikkelaars toepassingen maken waarbij gebruikers zich met alle Microsoft-identiteiten kunnen aanmelden en waarmee tokens worden opgehaald voor het aanroepen van Microsoft Graph, andere Microsoft-API's of API's die door ontwikkelaars zijn gemaakt. Het is een volledig functionele-platform, dat uit een authentication-service, bibliotheken, registratie van toepassingen en configuratie, volledige ontwikkelaarsdocumentatie, codevoorbeelden en andere inhoud voor ontwikkelaars bestaat. Het Microsoft Identity Platform biedt ondersteuning voor standaardprotocollen als OAuth 2.0 en OpenID Connect. Zie [over Microsoft identity-platform](about-microsoft-identity-platform.md) voor meer informatie.
 
@@ -151,7 +151,7 @@ Zoals gedefinieerd door de [OAuth2-autorisatie-Framework][OAuth2-Role-Def], een 
 
 Zoals gedefinieerd door de [OAuth2-autorisatie-Framework][OAuth2-Role-Def], een server die is host van beveiligde bronnen, kunnen accepteren en erop reageren beveiligde resourceaanvragen door [client toepassingen](#client-application) die aanwezig zijn een [toegangstoken](#access-token). Ook wel bekend als een beveiligde resource-server of een resourcetoepassing.
 
-Een resource-server API's en dwingt de toegang tot de beveiligde bronnen via af [scopes](#scopes) en [rollen](#roles), met behulp van OAuth 2.0 machtiging Framework. Voorbeelden zijn de Azure AD Graph-API die toegang biedt tot de gegevens van de Azure AD-tenant en de Office 365-API die toegang bieden tot gegevens, zoals e-mail en agenda. Beide zijn ook toegankelijk via de [Microsoft Graph API][Microsoft-Graph]. 
+Een resource-server API's en dwingt de toegang tot de beveiligde bronnen via af [scopes](#scopes) en [rollen](#roles), met behulp van OAuth 2.0 machtiging Framework. Voorbeelden zijn de Azure AD Graph-API die toegang biedt tot de gegevens van de Azure AD-tenant en de Office 365-API die toegang bieden tot gegevens, zoals e-mail en agenda. Beide zijn ook toegankelijk via de [Microsoft Graph API][Microsoft-Graph].
 
 Net als een clienttoepassing configuratie van de identiteit van de resourcetoepassing wordt tot stand gebracht [registratie](#application-registration) bieden zowel de toepassing en service-principal-object in een Azure AD-tenant. Sommige Microsoft geleverde API's, zoals de Azure AD Graph-API hebt beschikbaar gesteld in alle tenants tijdens het inrichten van service-principals vooraf geregistreerd.
 
@@ -181,7 +181,7 @@ Wanneer u registreren/update een toepassing in de [Azure-portal][AZURE-portal], 
 
 Zie voor meer informatie, [toepassing en Service-Principal-objecten][AAD-App-SP-Objects].
 
-## <a name="sign-in"></a>aanmelden
+## <a name="sign-in"></a>aanmelding
 
 Het proces van een [clienttoepassing](#client-application) verificatie door eindgebruikers wordt gestart en vastleggen van gerelateerde staat voor het verkrijgen van een [beveiligingstoken](#security-token) en bereik van de toepassingssessie naar deze staat. Status kunnen bestaan uit artefacten, zoals informatie over gebruikersprofielen en gegevens die zijn afgeleid van token claims.
 
@@ -219,7 +219,7 @@ Een type [clienttoepassing](#client-application) dat alle code op een webserver,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De [ontwikkelaarsgids van Azure AD] [ AAD-Dev-Guide] is de landingspagina voor alle Azure AD-ontwikkeling-onderwerpen met betrekking tot, inclusief een overzicht van [toepassingsintegratie] [ AAD-How-To-Integrate] en de basisprincipes van [Azure AD-verificatie en scenario's voor ondersteunde verificatie][AAD-Auth-Scenarios]. U vindt hier ook codevoorbeelden en zelfstudies voor het snel gebruiksklaar op verkrijgen [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+De [ontwikkelaarsgids van Azure AD] [ AAD-Dev-Guide] is de landingspagina voor alle Azure AD-ontwikkeling-onderwerpen met betrekking tot, inclusief een overzicht van [toepassingsintegratie] [ AAD-How-To-Integrate] en de basisprincipes van [Azure AD-verificatie en scenario's voor ondersteunde verificatie][AAD-Auth-Scenarios]. U vindt hier ook codevoorbeelden en zelfstudies voor het snel gebruiksklaar op verkrijgen [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Gebruik de volgende sectie met opmerkingen uw feedback en help om te verfijnen en vorm van deze inhoud, met inbegrip van aanvragen voor definities van nieuwe of bestaande toepassingen bijwerken!
 

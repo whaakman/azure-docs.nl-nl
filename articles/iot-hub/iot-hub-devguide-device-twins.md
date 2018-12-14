@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 558bf0eb6ab4abb4ad16910ebe36fdb7c1e19374
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7f66c87322aadafaa7167dff4190de6d08e5d18d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310926"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338410"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaatdubbels in IoT Hub
 
@@ -179,9 +179,9 @@ De back-end van de oplossing is van invloed op het dubbele apparaat met behulp v
 
 * **Dubbele meldingen ontvangen**. Met deze bewerking kunt de back-end oplossing om te worden geïnformeerd wanneer het dubbele wordt gewijzigd. Om dit te doen, moet uw IoT-oplossing een route te maken en in te stellen de gegevensbron gelijk zijn aan *twinChangeEvents*. Standaard bestaat geen dergelijke routes vooraf, zodat er geen dubbele meldingen worden verzonden. Als de wijzigingssnelheid te hoog is, of om andere redenen, zoals interne fouten, worden de IoT-Hub slechts één melding alle wijzigingen bevat verzonden. Als uw toepassing moet betrouwbare controle en logboekregistratie van alle tussenliggende statussen, moet u apparaat-naar-cloud-berichten. Het meldingsbericht dubbele bevat eigenschappen en de hoofdtekst.
 
-   - Eigenschappen
+   - Properties
 
-   | Naam | Waarde |
+   | Name | Waarde |
    | --- | --- |
    $content-type | application/json |
    $iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
@@ -382,4 +382,4 @@ Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, Zie
 
 * [Het gebruik van de apparaatdubbel](iot-hub-node-node-twin-getstarted.md)
 * [Apparaatdubbeleigenschappen gebruiken](tutorial-device-twins.md)
-* [Apparaatbeheer met Azure IoT Toolkit voor Visual Studio Code](iot-hub-device-management-iot-toolkit.md)
+* [Apparaatbeheer met Azure IoT Hub-Toolkit voor Visual Studio Code](iot-hub-device-management-iot-toolkit.md)

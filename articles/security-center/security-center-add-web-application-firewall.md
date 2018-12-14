@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7b633b1787fc34658a84a2810de6673f9530cbf3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5e6d7dffb831e4e6541b5ef91cfc4ae4bbe88167
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310647"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343136"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Een web application firewall toevoegen in Azure Security Center
 Azure Security Center kan raden u aan een web application firewall (WAF) via een Microsoft-partner voor het beveiligen van uw webtoepassingen. In dit document wordt u via een voorbeeld van hoe u deze aanbeveling toepast.
@@ -46,7 +46,9 @@ Security Center raadt aan dat u een WAF om te helpen beschermen tegen aanvallen 
 
 6. **Nieuwe Web Application Firewall** wordt geopend, waar u kunt uitvoeren **VM-configuratie** stappen en geef **WAF-informatie**. Selecteer **VM-configuratie**.
 7. Onder **VM-configuratie**, u vereiste informatie op voor de virtuele machine die wordt uitgevoerd de WAF instellen.
+
    ![VM-configuratie][4]
+   
 8. Ga terug naar **nieuwe Web Application Firewall** en selecteer **WAF-informatie**. Onder **WAF-informatie**, configureren van de WAF zelf. Stap 7 kunt u het configureren van de virtuele machine waarop de WAF wordt uitgevoerd en stap 8 kunt u voor het inrichten van de WAF zelf.
 
 ## <a name="finalize-application-protection"></a>Toepassingsbeveiliging voltooien
@@ -73,7 +75,7 @@ Dit document hebt u geleerd hoe u voor het implementeren van de aanbeveling van 
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) --informatie over het bewaken van de status van uw Azure-resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) --Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.

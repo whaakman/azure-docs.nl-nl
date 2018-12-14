@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2ed5791b352ee4b19f707e52bc6f8f78e1f0e5b5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8c0e90436cf030f1280b3c50f3fdc91c7429d542
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635302"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340297"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Azure Active Directory Identity Protection koppelen aan Azure Security Center
 Dit document helpt u bij het configureren van de integratie tussen Azure Active Directory (AD) Identity Protection en Azure Security Center.
@@ -48,7 +48,7 @@ Wanneer u klaar bent met deze configuratie, de Azure AD Identity Protection-oplo
 In dit document hebt u geleerd hoe u verbinding maken met Azure AD Identity Protection met Security Center. Zie de volgende artikelen voor meer informatie over Security Center:
 
 * [Microsoft Advanced Threat Analytics koppelen aan Azure Security Center](security-center-ata-integration.md)
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+* [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) : Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.
 * [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) : informatie over het beheren van en reageren op beveiligingswaarschuwingen.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316987"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337594"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection met Azure Security Center
 
@@ -27,19 +27,19 @@ Deze wijziging heeft uitgebreide mogelijkheden voor eindpunt detectie en reactie
 
 Azure Security Center-klanten kunnen nu gebruikmaken van functies van Windows Defender ATP:
 
-- **Volgende generatie post inbreuk detectie sensoren**: Windows Defender ATP sensoren voor Windows-servers een groot scala aan gedragsalgoritmen signalen verzamelen.
+- **Volgende generatie post inbreuk detectie sensoren**: Windows Defender ATP sensoren voor Windows-servers verzamelen een groot scala aan gedragsalgoritmen signalen.
 
 - **Detectie van Analytics gebaseerde, met behulp van de cloud post inbreuk**: Windows Defender ATP aangepast snel veranderende bedreigingen. Het maakt gebruik van geavanceerde analyses en big data. Windows Defender ATP wordt versterkt door de kracht van de Intelligent Security Graph met signalen voor Windows, Azure en Office voor het detecteren van onbekende bedreigingen. Het biedt praktische waarschuwingen en kunt u snel reageren.
 
-- **Bedreigingsinformatie**: Windows Defender ATP identificeert aanvaller hulpprogramma's, technieken en procedures. Wanneer wordt deze gedetecteerd, worden waarschuwingen gegenereerd. Maakt gebruik van gegevens die zijn gegenereerd door Microsoft threat jagers en beveiligingsteams, aangevuld door intelligence geleverd door partners.
+- **Bedreigingsinformatie**: Windows Defender ATP geeft aanvaller hulpprogramma's, technieken en procedures. Wanneer wordt deze gedetecteerd, worden waarschuwingen gegenereerd. Maakt gebruik van gegevens die zijn gegenereerd door Microsoft threat jagers en beveiligingsteams, aangevuld door intelligence geleverd door partners.
 
 Deze mogelijkheden zijn nu beschikbaar in Azure Security Center:
 
-- **Automatische onboarding**: de Windows Defender ATP-sensor is automatisch ingeschakeld voor Windows-servers die toegevoegd aan Azure Security Center zijn.
+- **Automatische onboarding**: De Windows Defender ATP-sensor is automatisch ingeschakeld voor Windows-servers die toegevoegd aan Azure Security Center zijn.
 
-- **Enkel glazen**: het Azure Security Center-console bevat Windows Defender ATP-meldingen.
+- **Enkel glazen**: De Azure Security Center-console bevat Windows Defender ATP-waarschuwingen.
 
-- **Gedetailleerde machine onderzoek**: Azure Security Center-klanten toegang tot Windows Defender ATP-console op een gedetailleerd onderzoek uitvoert om het bereik van een schending bloot.
+- **Gedetailleerde machine onderzoek**: Azure Security Center-klanten hebben toegang tot Windows Defender ATP-console op een gedetailleerd onderzoek uitvoert om het bereik van een schending bloot.
 
 ![Azure Security Center, een lijst met waarschuwingen en algemene informatie over elke waarschuwing weergeven](media/security-center-wdatp/image1.png)
 
@@ -105,6 +105,6 @@ Voor het genereren van een goedaardig Windows Defender ATP-Testwaarschuwing:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md): informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
-- [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md): Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
-- [Beveiligingsstatus controleren in Azure Security Center](security-center-monitoring.md): meer informatie over het controleren van de status van uw Azure-resources.
+- [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md): Informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+- [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md): Leer hoe aanbevelingen u helpen bij uw Azure-resources te beveiligen.
+- [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): Meer informatie over het controleren van de status van uw Azure-resources.

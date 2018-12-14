@@ -9,27 +9,26 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 8fe1c9b2749f805cc0c546ed3355e457551f24f9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 69a2e189fc425369e357fd52685c2f48609e947b
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011093"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386924"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Data Lake Store gebruiken met Azure HDInsight-clusters
 
 Als u gegevens wilt analyseren in een HDInsight-cluster, kunt u de gegevens opslaan in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) of beide. Met beide opslagopties kunt u de HDInsight-clusters die worden gebruikt voor berekeningen, veilig verwijderen zonder dat er gebruikersgegevens verloren gaan.
 
-In dit artikel wordt beschreven hoe Data Lake Store werkt met HDInsight-clusters. Zie [Azure Storage gebruiken met Azure HDInsight-clusters](hdinsight-hadoop-use-blob-storage.md) voor informatie over de werking van Azure Storage met HDInsight-clusters. Zie [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Hadoop-clusters maken in HDInsight) voor meer informatie over het maken van HDInsight-clusters.
+In dit artikel wordt beschreven hoe Data Lake Store werkt met HDInsight-clusters. Zie [Azure Storage gebruiken met Azure HDInsight-clusters](hdinsight-hadoop-use-blob-storage.md) voor informatie over de werking van Azure Storage met HDInsight-clusters. Zie voor meer informatie over het maken van een HDInsight-cluster [Apache Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-> [!NOTE]
+> [!NOTE]  
 > De toegang tot Data Lake Store verloopt altijd via een beveiligd kanaal, zodat er geen `adls`-bestandssysteemschemanaam is. U gebruikt altijd `adl`.
-> 
 
 
 ## <a name="availability-for-hdinsight-clusters"></a>Beschikbaarheid voor HDInsight-clusters
 
-Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Wanneer u het HDInsight-cluster maakt, kunt u in Azure Storage een blobcontainer opgeven als het standaardbestandssysteem. Met HDInsight 3.5 en latere versies kunt u ook Azure Storage of Azure Data Lake Store als het standaardbestandssysteem selecteren met een paar uitzonderingen. 
+Apache Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Wanneer u het HDInsight-cluster maakt, kunt u in Azure Storage een blobcontainer opgeven als het standaardbestandssysteem. Met HDInsight 3.5 en latere versies kunt u ook Azure Storage of Azure Data Lake Store als het standaardbestandssysteem selecteren met een paar uitzonderingen. 
 
 HDInsight-clusters kunnen Data Lake Store op twee manieren gebruiken:
 
@@ -47,7 +46,7 @@ Op dit moment ondersteunt slechts een deel van de HDInsight-clustertypen/-versie
 | HDInsight-versie 3.2 | Nee | Ja | |
 | Storm | | |U kunt Data Lake Store gebruiken om gegevens te schrijven op basis van een Storm-topologie. U kunt Data Lake Store ook gebruiken voor referentiegegevens die vervolgens kunnen worden gelezen door een Storm-topologie.|
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight HBase wordt niet ondersteund met Azure Data Lake Storage Gen 1
 
 Het gebruik van Data Lake Store als extra opslagaccount heeft geen invloed op de prestaties of de mogelijkheid om te lezen of schrijven naar Azure-opslag vanuit het cluster.
@@ -94,9 +93,9 @@ Een Data Lake Store-account als extra toevoegen en het toevoegen van meerdere Da
 
 ## <a name="configure-data-lake-store-access"></a>Toegang tot Data Lake Store configureren
 
-Voor het configureren van toegang tot de Data Lake Store vanuit uw HDInsight-cluster moet u een Azure Active Directory (Azure AD) service-principal hebben. Alleen een Azure AD-beheerder kan een service-principal maken. De service-principal moet worden gemaakt met een certificaat. Zie voor meer informatie [Snelstartgids: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) en [Service-principal maken met zelfondertekend certificaat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
+Voor het configureren van toegang tot de Data Lake Store vanuit uw HDInsight-cluster moet u een Azure Active Directory (Azure AD) service-principal hebben. Alleen een Azure AD-beheerder kan een service-principal maken. De service-principal moet worden gemaakt met een certificaat. Zie voor meer informatie, [Quick Start: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md), en [service-principal maken met zelfondertekend certificaat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
-> [!NOTE]
+> [!NOTE]  
 > Als u Azure Data Lake Store als extra opslag voor HDInsight-cluster wilt gebruiken, is het raadzaam dat te doen terwijl u het cluster maakt zoals beschreven in dit artikel. Azure Data Lake Store als extra opslagruimte toevoegen aan een bestaand HDInsight-cluster is een scenario dat niet wordt ondersteund.
 >
 
@@ -193,8 +192,8 @@ Zie voor meer informatie:
 * [Snelstartgids: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Use Azure PowerShell to create an HDInsight cluster with Data Lake Store (as additional storage)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md) (HDInsight-cluster maken met Data Lake Store (als extra opslag) met behulp van Azure PowerShell)
 * [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
-* [Hive gebruiken met HDInsight][hdinsight-use-hive]
-* [Pig gebruiken met HDInsight][hdinsight-use-pig]
+* [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
+* [Apache Pig gebruiken met HDInsight][hdinsight-use-pig]
 * [Handtekeningen voor gedeelde toegang van Azure Storage gebruiken om de toegang tot gegevens te beperken met HDInsight][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md

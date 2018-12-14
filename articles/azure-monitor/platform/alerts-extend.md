@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7896a205cd281f0d11724f6f549b9aa247180bac
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2028b9555ec20fc5e97511a2a908351b66aec216
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285016"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385496"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
 
@@ -27,7 +27,7 @@ Er zijn enkele voordelen van het maken en beheren van waarschuwingen in Azure po
 
 - In tegenstelling tot in de Operations Management Suite-portal, waar kunnen alleen 250 waarschuwingen worden gemaakt en weergegeven, heeft Azure-waarschuwingen geen dergelijke beperking.
 - Van Azure-waarschuwingen, kunt u beheren, opsommen en weergeven van alle Waarschuwingstypen. Eerder, u kunt alleen doen voor Log Analytics-waarschuwingen.
-- U kunt toegang beperken tot gebruikers kunnen alleen voor bewaking en waarschuwingen, met behulp van de [rol van Azure Monitor](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+- U kunt toegang beperken tot gebruikers kunnen alleen voor bewaking en waarschuwingen, met behulp van de [rol van Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
 - In de Azure-waarschuwingen, kunt u [actiegroepen](../../azure-monitor/platform/action-groups.md). Hiermee kunt u meer dan één actie voor elke waarschuwing. U kunt SMS, verzenden van een telefoongesprek, een Azure Automation-runbook aanroepen, een webhook aanroepen en configureren van een Connector IT Service Management (ITSM). 
 
 ## <a name="process-of-extending-your-alerts"></a>Proces voor het uitbreiden van uw waarschuwingen
@@ -52,7 +52,7 @@ Nadat uw waarschuwingen worden uitgebreid naar Azure-waarschuwingen, ze nog stee
 Wanneer u probeert te bewerken van een bestaande waarschuwing of een nieuwe waarschuwing maken in de Operations Management Suite-portal, wordt u automatisch omgeleid naar Azure-waarschuwingen.  
 
 > [!NOTE]
-> Zorg ervoor dat de machtigingen worden toegewezen aan de personen die u wilt toevoegen of bewerken van waarschuwingen correct zijn toegewezen in Azure. Zie voor meer informatie over welke machtigingen u wilt verlenen, [machtigingen voor het gebruik van Azure Monitor en waarschuwingen](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).  
+> Zorg ervoor dat de machtigingen worden toegewezen aan de personen die u wilt toevoegen of bewerken van waarschuwingen correct zijn toegewezen in Azure. Zie voor meer informatie over welke machtigingen u wilt verlenen, [machtigingen voor het gebruik van Azure Monitor en waarschuwingen](../../azure-monitor/platform/roles-permissions-security.md).  
 > 
 
 U kunt doorgaan met het maken van waarschuwingen van de [Log Analytics API](../../azure-monitor/platform/api-alerts.md) en [Log Analytics-Resourcesjabloon](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Als u dit doet, moet u actiegroepen opnemen.
@@ -60,5 +60,5 @@ U kunt doorgaan met het maken van waarschuwingen van de [Log Analytics API](../.
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over de hulpmiddelen voor het [initiëren waarschuwingen van Log Analytics uitbreiden naar Azure](alerts-extend-tool.md).
-* Meer informatie over de [ervaren Azure-waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Meer informatie over de [ervaren Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
 * Meer informatie over het maken van [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](alerts-unified-log.md).

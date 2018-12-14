@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 427c3601d6a4ca65407a98d54b0206cde9af4235
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643276"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343153"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Het uitvoeren van duurzame functies als WebJobs
 
@@ -35,7 +35,7 @@ Voltooi de stappen in dit artikel:
 
 * [Installeer Visual Studio 2017 versie: 15,6 of hoger](https://docs.microsoft.com/visualstudio/install/) met de **Azure-ontwikkeling** werkbelasting.
 
-  Als u al van Visual Studio hebt maar geen die werkbelasting, het toevoegen van de werkbelasting door te selecteren **Tools > hulpprogramma's en onderdelen**. 
+  Als u al van Visual Studio hebt maar geen die werkbelasting, het toevoegen van de werkbelasting door te selecteren **Tools > hulpprogramma's en onderdelen**.
 
   (U kunt [Visual Studio Code](https://code.visualstudio.com/) in plaats daarvan, maar sommige van de instructies zijn specifiek voor Visual Studio.)
 
@@ -43,7 +43,7 @@ Voltooi de stappen in dit artikel:
 
 ## <a name="webjobs-sdk-versions"></a>WebJobs-SDK-versies
 
-In dit artikel wordt uitgelegd hoe u voor het ontwikkelen van een WebJobs SDK 2.x-project (gelijk aan Azure Functions-versie 1.x). Voor informatie over versie 3.x, Zie [WebJobs SDK 3.x](#webjobs-sdk-3x) verderop in dit artikel. 
+In dit artikel wordt uitgelegd hoe u voor het ontwikkelen van een WebJobs SDK 2.x-project (gelijk aan Azure Functions-versie 1.x). Voor informatie over versie 3.x, Zie [WebJobs SDK 3.x](#webjobs-sdk-3x) verderop in dit artikel.
 
 ## <a name="create-console-app"></a>Console-app maken
 
@@ -190,9 +190,9 @@ In deze sectie biedt een overzicht van het uitvoeren van de [voorbeeldproject](h
 
 1. Als u zien van Logboeken in Application Insights wilt wanneer u lokaal uitvoeren:
 
-  a. Maak een Application Insights-resource, app-type **algemene**.
+    a. Maak een Application Insights-resource, app-type **algemene**.
 
-  b. Sla de instrumentatiesleutel in de *App.config* bestand.
+    b. Sla de instrumentatiesleutel in de *App.config* bestand.
 
 1. Voer het project.
 
@@ -216,8 +216,8 @@ De belangrijkste wijziging geïntroduceerd door 3.x is het gebruik van .NET Core
 
 1. Kies de prerelease versie 3.x van de volgende pakketten:
 
-  * `Microsoft.Azure.WebJobs.Extensions`
-  * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
+    * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
 1. Wijziging `Main` methode code voor het ophalen van de verbindingsreeks voor opslag en de Application Insights-instrumentatiesleutel uit een *appsettings.json* -bestand, met behulp van de configuratie van .NET Core framework.  Hier volgt een voorbeeld:
 
@@ -235,7 +235,7 @@ De belangrijkste wijziging geïntroduceerd door 3.x is het gebruik van .NET Core
            var config = new JobHostConfiguration();
 
            config.DashboardConnectionString = "";
-           config.StorageConnectionString = 
+           config.StorageConnectionString =
                appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
            var instrumentationKey =
                appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
@@ -258,4 +258,3 @@ De belangrijkste wijziging geïntroduceerd door 3.x is het gebruik van .NET Core
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over de WebJobs SDK, [over het gebruik van de WebJobs SDK](../../app-service/webjobs-sdk-how-to.md).
-

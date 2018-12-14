@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/10/2018
+ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 6aa13096b61fc1bf44d370b3d7dcc01a0df74e8d
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321338"
+ms.locfileid: "53338699"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -73,6 +73,16 @@ Voer alle opdrachten in de volgende stappen uit op de virtuele machine die u van
     ```PowerShell
     netsh winhttp reset proxy
     ```
+
+    Als de virtuele machine nodig hebt om te werken met eventuele specifieke proxy, moet u een proxy-uitzondering toevoegen aan het Azure-IP-adres ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+)), zodat de virtuele machine verbonden met de Azure is:
+    ```
+    $proxyAddress="<your proxy server>"
+    $proxyBypassList="<your list of bypasses>;168.63.129.16"
+
+    netsh winhttp set proxy $proxyAddress $proxyBypassList
+    ```
+
 3. De schijf SAN-beleid instellen op [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell

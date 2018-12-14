@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 04dbc5c60e802e7861b9e2a98c51446281b7ae3f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: da866145f9c1ad39987b0f9a4449d4e5ff7f18f5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320604"
+ms.locfileid: "53337118"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
@@ -53,7 +53,7 @@ Oudere klassiek bewaking en waarschuwingen wordt buiten gebruik gesteld op 30 ju
 - Oudere (klassiek) platform en aangepaste metrische gegevens voor Application Insights, evenals waarschuwingen op deze als op dit moment beschikbaar zijn via [waarschuwingen (klassiek) sectie](../azure-monitor/platform/alerts-classic.overview.md) van Azure portal en toegankelijk als [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
 - Oudere (klassiek) Foutafwijkingen waarschuwing momenteel beschikbaar als [Slimme detectie in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) in de Azure-portal; met waarschuwingen geconfigureerd wordt weergegeven in [waarschuwingen (klassiek) sectie](../azure-monitor/platform/alerts-classic.overview.md) van Azure Portal
 
-Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bijbehorende [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [Azure portal-pagina](../azure-monitor/platform/alerts-classic-portal.md), en [ Resource-sjabloon](monitoring-enable-alerts-using-template.md) bruikbaar blijven tot het einde van juni 2019. 
+Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bijbehorende [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [Azure portal-pagina](../azure-monitor/platform/alerts-classic-portal.md), en [ Resource-sjabloon](../azure-monitor/platform/alerts-enable-template.md) bruikbaar blijven tot het einde van juni 2019. 
 
 Aan het einde van juni 2019, in Azure Monitor:
 
@@ -76,4 +76,4 @@ In dit artikel worden de details met betrekking tot de nieuwe Azure-bewaking en 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over de [nieuwe geïntegreerde Azure Monitor](../azure-monitor/overview.md).
-* Meer informatie over de nieuwe [Azure-waarschuwingen](monitoring-overview-alerts.md).
+* Meer informatie over de nieuwe [Azure-waarschuwingen](../azure-monitor/platform/alerts-overview.md).

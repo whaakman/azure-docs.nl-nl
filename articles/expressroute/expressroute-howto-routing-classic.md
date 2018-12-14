@@ -1,18 +1,19 @@
 ---
-title: 'Routering (peering) voor een ExpressRoute-circuit configureren: Azure: klassieke | Microsoft Docs'
+title: 'Configureren voor een circuit - ExpressRoute-peering: Azure: klassiek | Microsoft Docs'
 description: Dit artikel begeleidt u stapsgewijs door de procedure voor het maken en inrichten van de persoonlijke, openbare en Microsoft-peering van een ExpressRoute-circuit. In dit artikel leest u hoe u de status controleert en peerings voor uw circuit bijwerkt of verwijdert.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/27/2018
-ms.author: cherylmc;ganesr
-ms.openlocfilehash: d4d53d2f365e06c58dcbbb70ea168128c364fbfd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/11/2018
+ms.author: cherylmc
+ms.custom: seodec18
+ms.openlocfilehash: fbf97c984a00d6bdd7f79c26094ae36348e00236
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165217"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342031"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Peering voor een ExpressRoute-circuit (klassiek) maken en wijzigen
 > [!div class="op_single_selector"]
@@ -25,7 +26,7 @@ ms.locfileid: "52165217"
 > * [PowerShell (klassiek)](expressroute-howto-routing-classic.md)
 > 
 
-In dit artikel leidt u door de stappen voor het maken en beheren van routeringsconfiguratie voor een ExpressRoute-circuit met behulp van PowerShell en het klassieke implementatiemodel. In de volgende stappen ziet u ook hoe u de status van een peering voor een ExpressRoute-circuit controleert en peerings bijwerkt of verwijdert en de inrichting ervan ongedaan maakt. U kunt een, twee of alle drie de peerings (Azure privé, Azure openbaar en Microsoft) voor een ExpressRoute-circuit configureren. U kunt peerings configureren in elke gewenste volgorde. U moet er echter wel voor zorgen dat u de configuratie van elke peering een voor een voltooit. 
+In dit artikel begeleidt u bij de stappen voor het maken en beheren van configuratie-peering/routering voor een ExpressRoute-circuit met behulp van PowerShell en het klassieke implementatiemodel. In de volgende stappen ziet u ook hoe u de status van een peering voor een ExpressRoute-circuit controleert en peerings bijwerkt of verwijdert en de inrichting ervan ongedaan maakt. U kunt een, twee of alle drie de peerings (Azure privé, Azure openbaar en Microsoft) voor een ExpressRoute-circuit configureren. U kunt peerings configureren in elke gewenste volgorde. U moet er echter wel voor zorgen dat u de configuratie van elke peering een voor een voltooit. 
 
 Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met serviceproviders die services voor Layer 2-connectiviteit bieden. Als u een serviceprovider die beheerde laag-3-services (meestal een IPVPN, zoals MPLS), uw connectiviteitsprovider configureren en beheren van routering voor u.
 
@@ -328,9 +329,9 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
    * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
    * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of dat er geen bij andere peering in het circuit dezelfde VLAN-ID gebruikt.
    * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-   * Geadverteerde voorvoegsels: u moet een lijst verstrekken van alle voorvoegsels die u via de BGP-sessie wilt adverteren. Alleen openbare IP-adresvoorvoegsels worden geaccepteerd. Als u van plan bent om een set voorvoegsels te verzenden, kunt u een door komma's gescheiden lijst verzenden. Deze voorvoegsels moeten voor u zijn geregistreerd in een RIR/IRR.
-   * Klant-ASN: als u voorvoegsels adverteert die niet zijn geregistreerd op het AS-nummer van de peering, kunt u het AS-nummer opgeven waarop ze zijn geregistreerd. **Optioneel**.
-   * Naam van routeringsregister: u kunt het RIR/IRR opgeven waarbij het AS-nummer en de voorvoegsels zijn geregistreerd.
+   * Geadverteerde voorvoegsels: U kunt een lijst van alle voorvoegsels die u van plan bent om te adverteren via de BGP-sessie moet opgeven. Alleen openbare IP-adresvoorvoegsels worden geaccepteerd. Als u van plan bent om een set voorvoegsels te verzenden, kunt u een door komma's gescheiden lijst verzenden. Deze voorvoegsels moeten voor u zijn geregistreerd in een RIR/IRR.
+   * Klant-ASN: Als u voorvoegsels adverteert die niet zijn geregistreerd op de AS-nummer peering, kunt u het AS-nummer waaraan ze zijn geregistreerd. **Optioneel**.
+   * Naam van Routeringsregister: U kunt het RIR / IRR op basis waarvan het AS-nummer en de voorvoegsels zijn geregistreerd.
    * Een MD5-hash, als u er een wilt gebruiken. **Optioneel.**
      
   Voer de volgende cmdlet voor het configureren van Microsoft-peering voor uw circuit:

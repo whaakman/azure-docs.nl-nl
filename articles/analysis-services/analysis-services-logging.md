@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a7098e5ee5f6a7f45507f93771409595f79debf5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f3a3261fa1b7aa2075a05d7b87ea3fc29c5b9fab
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083679"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385870"
 ---
 # <a name="setup-diagnostic-logging"></a>Registratie in diagnoselogboek instellen
 
@@ -140,7 +140,7 @@ Meer informatie over het [diagnostische instellingen wijzigen met behulp van de 
 
 ### <a name="resource-manager-template"></a>Resource Manager-sjabloon
 
-Meer informatie over het [diagnostische instellingen bij het maken van resource inschakelen met behulp van Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
+Meer informatie over het [diagnostische instellingen bij het maken van resource inschakelen met behulp van Resource Manager-sjabloon](../azure-monitor/platform/diagnostic-logs-stream-template.md). 
 
 ## <a name="manage-your-logs"></a>Uw logboeken beheren
 

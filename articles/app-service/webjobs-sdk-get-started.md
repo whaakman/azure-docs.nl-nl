@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 95fd44d5865eb804cb91d7adc2cc17bb5f957b5c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275207"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339804"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -396,7 +396,7 @@ In deze sectie maakt uitvoeren u de volgende taken voor het instellen van Applic
 
 In deze sectie uitvoeren u lokaal opnieuw om te controleren dat logboekregistratie gegevens nu naar Application Insights evenals garantie voor de console zullen.
 
-1. Gebruik **Server Explorer** in Visual Studio om een wachtrijbericht te maken, de dezelfde manier waarop u hebt [eerdere](#trigger-the-function), met uitzondering van Voer *Hello App Insights!* Als de berichttekst.
+1. Gebruik **Server Explorer** in Visual Studio om een wachtrijbericht te maken, de dezelfde manier waarop u hebt [eerdere](#trigger-the-function-in-azure), met uitzondering van Voer *Hello App Insights!* Als de berichttekst.
 
 1. Voer het project.
 

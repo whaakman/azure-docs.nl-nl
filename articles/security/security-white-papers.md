@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 214598291e69acfec2064738f798a48180ad05a6
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bb23dd98768c4aaa343082bbc2caae43071a5e1f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322992"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385666"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security technische documenten
 | | |
@@ -41,3 +41,5 @@ ms.locfileid: "53322992"
 |[Isolatie in de openbare cloud van Azure](azure-isolation.md)|Geeft een overzicht van hoe Azure biedt isolatie tegen schadelijke en niet-kwaadwillende gebruikers. Fungeert als richtlijn voor het ontwerpen van oplossingen voor cloudopslag door verschillende isolatie-opties biedt voor architecten. Primaire focus is op de klantgerichte beveiligingsbesturingselementen en probeert niet te adres Sla's, prijzen modellen en overwegingen met betrekking tot DevOps-praktijken.|
 |[Overzicht van Azure-naleving](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Deze downloadbare document worden de Azure compliance-aanbiedingen, met inbegrip van officiële certificeringen, verklaringen, validaties, machtigingen en beoordelingen die worden geproduceerd door onafhankelijke externe controle ondernemingen, evenals de contractuele wijzigingen zelfcontroles en documenten die richtlijnen voor klanten die door Microsoft zijn geproduceerd. <br/> Elke aanbieding beschrijving Staten welke Azure klantgerichte services binnen het bereik voor de evaluatie en vindt u koppelingen naar downloadbare resources om u te helpen van klanten met hun eigen verplichtingen.|
 |[Beveiligingsbeheer in Azure](azure-security-management.md)|Worden problemen beschreven in de externe toegang van Azure-resources. De aard van de cloud eisen RAS-beheer en daarom beveiliging is cruciaal. Bevat informatie over algemene beveiligingsrichtlijnen, clientconfiguratie, aanbevolen procedures en operationele principes en procedures. |
+|[Beveiligingsoverwegingen voor Azure Active Directory](https://aka.ms/aaddatawhitepaper) | De downloadbare document wordt uitgelegd dat de verschillende onderdelen van Azure Active Directory en de interactie met elkaar. Het bevat een overzicht van hoe de verschillende onderdelen beveiligen, beveiligen, versleutelen of hash-hun gegevens die onderweg zijn (bijvoorbeeld via Internet) en hoe deze wordt beveiligd in rust. Hierin wordt uitgelegd de verschillende locaties voor Azure AD-datacenter en de interactie met on-premises directory's, evenals de stromen naar en van Azure AD. Ten slotte wordt de operationele procedures, door het technische team van Azure AD gebruikt om te beheren en beveiligen van de service beschreven.|
+

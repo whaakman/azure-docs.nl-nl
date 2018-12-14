@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313980"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338512"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Bestandsintegriteit controleren in Azure Security Center
 Informatie over het configureren van bestand integriteit controleren (FIM) in Azure Security Center gebruikt deze stapsgewijze kennismaking.
@@ -138,7 +138,7 @@ De **wijzigingen** tabblad (Zie hieronder) bevat alle wijzigingen in de werkruim
 
   **Configuratie van de werkruimte** wordt geopend drie tabbladen: **Windows-register**, **Windows bestanden**, en **Linux-bestanden**. Elk tabblad geeft een lijst van de entiteiten die u in die categorie kunt bewerken. Voor elke entiteit die worden vermeld, Security Center wordt geïdentificeerd als FIM is ingeschakeld (true) of niet (ONWAAR) is ingeschakeld.  De entiteit bewerken, kunt u in- of uitschakelen van FIM.
 
-  ![Configuratie van de werkruimte][12]
+  ![Werkruimteconfiguratie][12]
 
 2. Selecteer een identityprotection. In dit voorbeeld wordt een item hebt geselecteerd onder Windows-register. **Voor het bijhouden van wijzigingen bewerken** wordt geopend.
 
@@ -205,7 +205,7 @@ U kunt FIM uitschakelen. FIM maakt gebruik van de oplossing wijzigingen bijhoude
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd bestand integriteit controleren (FIM) in Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Beveiligingsbeleid instellen](security-center-azure-policy.md) --informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+* [Beveiligingsbeleid instellen](tutorial-security-policy.md) --informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 * [Aanbevelingen voor beveiliging beheren](security-center-recommendations.md) --Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
 * [Beveiligingsstatus bewaken](security-center-monitoring.md)--informatie over het bewaken van de status van uw Azure-resources.
 * [Beheren en erop reageren op beveiligingswaarschuwingen](security-center-managing-and-responding-alerts.md)--informatie over het beheren van en reageren op beveiligingswaarschuwingen.

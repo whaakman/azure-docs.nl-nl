@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 19ea4892bc39d1d577455bb1c21824d6f5f5e9db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ee1e70e58c2f6dd15ae48c15373d4b1dc58f9328
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956410"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384986"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostische logboekregistratie voor een netwerkbeveiligingsgroep
 
 Een netwerkbeveiligingsgroep (NSG) bevat regels die verkeer naar een subnet van een virtueel netwerk, de netwerkinterface of beide toestaan of weigeren. Wanneer u Diagnostische logboekregistratie voor een NSG inschakelt, kunt u zich aanmelden met de volgende categorieën van informatie:
 
-* **Gebeurtenis:** vermeldingen worden geregistreerd voor welke NSG regels worden toegepast op virtuele machines, op basis van MAC-adres. De status van deze regels worden elke 60 seconden worden verzameld.
-* **Regel teller:** bevat vermeldingen voor het aantal keren dat elke NSG-regel is toegepast om te weigeren of verkeer toestaan.
+* **Gebeurtenis:** Vermeldingen worden geregistreerd voor welke NSG regels worden toegepast op virtuele machines, op basis van MAC-adres. De status van deze regels worden elke 60 seconden worden verzameld.
+* **Teller voor regel:** Bevat vermeldingen voor het aantal keren dat elke NSG-regel is toegepast om te weigeren of verkeer toestaan.
 
 Logboeken met diagnostische gegevens zijn alleen beschikbaar voor nsg's die zijn geïmplementeerd via het Azure Resource Manager-implementatiemodel. U kunt Diagnostische logboekregistratie voor Netwerkbeveiligingsgroepen die zijn geïmplementeerd via het klassieke implementatiemodel niet inschakelen. Zie voor een beter begrip van de twee modellen, [inzicht krijgen in Azure-implementatiemodellen](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -50,7 +50,7 @@ U kunt de [Azure Portal](#azure-portal), [PowerShell](#powershell), of de [Azure
 
     | Instelling                                                                                     | Waarde                                                          |
     | ---------                                                                                   |---------                                                       |
-    | Naam                                                                                        | De naam van uw keuze.  Bijvoorbeeld: *myNsgDiagnostics*      |
+    | Name                                                                                        | De naam van uw keuze.  Bijvoorbeeld: *myNsgDiagnostics*      |
     | **Archiveren naar een opslagaccount**, **Stream naar een event hub**, en **verzenden naar Log Analytics** | U kunt zo veel bestemmingen als u kiest. Zie voor meer informatie over elk [melden bestemmingen](#log-destinations).                                                                                                                                           |
     | LOGBOEK                                                                                         | Selecteer een van beide of beide logboekcategorieën. Zie voor meer informatie over de gegevens die zijn geregistreerd voor elke categorie, [categorieën zich](#log-categories).                                                                                                                                             |
 6. Logboeken bekijken en analyseren. Zie voor meer informatie, [weergeven en logboeken analyseren](#view-and-analyze-logs).
@@ -88,7 +88,7 @@ Set-AzureRmDiagnosticSetting `
   -Enabled $true
 ```
 
-Als u alleen gegevens voor één categorie of de andere, in plaats van beide vastleggen wilt, voegt u toe de `-Categories` optie naar de vorige opdracht, gevolgd door *NetworkSecurityGroupEvent* of *NetworkSecurityGroupRuleCounter*. Als u zich wilt aanmelden met een andere [bestemming](#log-destinations) dan een Log Analytics-werkruimte, gebruikt u de juiste parameters voor een Azure [opslagaccount](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Als u alleen gegevens voor één categorie of de andere, in plaats van beide vastleggen wilt, voegt u toe de `-Categories` optie naar de vorige opdracht, gevolgd door *NetworkSecurityGroupEvent* of *NetworkSecurityGroupRuleCounter*. Als u zich wilt aanmelden met een andere [bestemming](#log-destinations) dan een Log Analytics-werkruimte, gebruikt u de juiste parameters voor een Azure [opslagaccount](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Logboeken bekijken en analyseren. Zie voor meer informatie, [weergeven en logboeken analyseren](#view-and-analyze-logs).
 
@@ -123,14 +123,14 @@ az monitor diagnostic-settings create \
 
 Als u geen een bestaande werkruimte hebt, kunt u maken met behulp van één de [Azure-portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Er zijn twee categorieën van logboekregistratie die kunt u Logboeken voor inschakelen. 
 
-Als u wilt dat alleen om gegevens voor één categorie of het andere te registreren, moet u de categorie die u niet wilt dat om gegevens te registreren in de vorige opdracht verwijderen. Als u zich wilt aanmelden met een andere [bestemming](#log-destinations) dan een Log Analytics-werkruimte, gebruikt u de juiste parameters voor een Azure [opslagaccount](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Als u wilt dat alleen om gegevens voor één categorie of het andere te registreren, moet u de categorie die u niet wilt dat om gegevens te registreren in de vorige opdracht verwijderen. Als u zich wilt aanmelden met een andere [bestemming](#log-destinations) dan een Log Analytics-werkruimte, gebruikt u de juiste parameters voor een Azure [opslagaccount](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Logboeken bekijken en analyseren. Zie voor meer informatie, [weergeven en logboeken analyseren](#view-and-analyze-logs).
 
 ## <a name="log-destinations"></a>Logboek bestemmingen
 
 Diagnostische gegevens kan zijn:
-- [Naar een Azure Storage-account geschreven](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), voor controle of handmatige controle. U kunt de bewaartijd (in dagen) met behulp van de instellingen voor resourcediagnose opgeven.
+- [Naar een Azure Storage-account geschreven](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), voor controle of handmatige controle. U kunt de bewaartijd (in dagen) met behulp van de instellingen voor resourcediagnose opgeven.
 - [Gestreamd naar een Event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor opname van een service van derden of aangepaste analytics-oplossing, zoals Power BI.
 - [Geschreven naar Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
@@ -201,7 +201,7 @@ Het logboek van de teller regel bevat informatie over elke regel toegepast op re
 Zie voor informatie over het weergeven van diagnostische logboekgegevens, [diagnostische logboeken van Azure-overzicht](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u diagnostische gegevens verzenden:
 - **Log Analytics**: U kunt de [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) oplossing voor het verbeterde inzicht te krijgen. De oplossing biedt visualisaties voor NSG-regels die verkeer per MAC-adres van de netwerkinterface in een virtuele machine toestaan of weigeren.
-- **Azure Storage-account**: gegevens worden geschreven naar een bestand PT1H.json. U vindt de:
+- **Azure Storage-account**: Gegevens worden geschreven naar een bestand PT1H.json. U vindt de:
     - Gebeurtenislogboek in het volgende pad: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
     - Logboek voor regel prestatiemeteritems in het volgende pad: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 

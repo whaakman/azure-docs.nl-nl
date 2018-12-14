@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: a0d2ab305f0ca819b8dba573a9570ff03682a947
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c239464a37637b21504227951d917977cfea6726
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875005"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343952"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>Bibliotheek voor .NET bulksgewijs Executor: informatie downloaden 
+# <a name="net-bulk-executor-library-download-information"></a>.NET bulksgewijs Executor-bibliotheek: Informatie downloaden 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -27,7 +27,7 @@ ms.locfileid: "52875005"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resourceprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [Bulksgewijs Executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulksgewijs Executor - Java](sql-api-sdk-bulk-executor-java.md)
 

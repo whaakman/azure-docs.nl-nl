@@ -8,26 +8,26 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 12/07/2018
 ms.author: glenga
-ms.openlocfilehash: 00735293d8fa8c6056f1ecf89fd312fe4b90bcac
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 78011e799fb4ddaf89fb1fd24c1f2a313ef49ba5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642702"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338104"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Duurzame functies publiceren naar Azure Event Grid (preview)
 
-In dit artikel laat zien hoe het instellen van duurzame functies van Azure voor het publiceren van gebeurtenissen in de orchestration levensduur (zoals gemaakt, voltooide en mislukte) op een aangepast [Azure Event Grid-onderwerp](https://docs.microsoft.com/azure/event-grid/overview). 
+In dit artikel laat zien hoe het instellen van duurzame functies voor het publiceren van gebeurtenissen in de orchestration levensduur (zoals gemaakt, voltooide en mislukte) op een aangepast [Azure Event Grid-onderwerp](https://docs.microsoft.com/azure/event-grid/overview).
 
 Hier volgen enkele scenario's waarin deze functie handig is:
 
-* **DevOps-scenario's, zoals blue/green implementaties**: U wilt weten of er taken worden uitgevoerd voordat u implementeert de [side-by-side-implementatiestrategie](https://docs.microsoft.com/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
+* **DevOps-scenario's, zoals blue/green implementaties**: U wilt weten of er taken worden uitgevoerd voordat u implementeert de [side-by-side-implementatiestrategie](durable-functions-versioning.md#side-by-side-deployments).
 
 * **Geavanceerde ondersteuning voor controle en diagnose**: U kunt bijhouden van orchestration statusinformatie in een externe opslag die is geoptimaliseerd voor query's, zoals SQL-database of cosmos DB.
 
-* **Activiteit op de achtergrond langlopende**: als u duurzame functies voor een activiteit op de achtergrond langlopende, deze functie helpt u de huidige status.
+* **Activiteit op de achtergrond langlopende**: Als u duurzame functies voor een activiteit op de achtergrond langlopende, wordt deze functie helpt u om te weten de huidige status.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -39,12 +39,12 @@ Hier volgen enkele scenario's waarin deze functie handig is:
 
 Maak een Event Grid-onderwerp voor het verzenden van gebeurtenissen van duurzame functies. De volgende instructies laten zien hoe u een onderwerp maakt met behulp van Azure CLI. Raadpleeg de volgende artikelen voor meer informatie over hoe u doet dit met behulp van PowerShell of Azure portal:
 
-* [EventGrid Quickstarts: Aangepaste een gebeurtenis maken - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
-* [EventGrid Quickstarts: Een aangepaste gebeurtenis - Azure portal maken](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
+* [EventGrid snelstartgidsen: Maken van aangepaste gebeurtenissen - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
+* [EventGrid snelstartgidsen: Een aangepaste gebeurtenis - Azure portal maken](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de opdracht `az group create`. Event Grid ondersteunt op dit moment niet alle regio's. Zie voor meer informatie over welke regio's worden ondersteund, de [overzicht van Event Grid](https://docs.microsoft.com/azure/event-grid/overview). 
+Maak een resourcegroep met de opdracht `az group create`. Event Grid ondersteunt op dit moment niet alle regio's. Zie voor meer informatie over welke regio's worden ondersteund, de [overzicht van Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -55,7 +55,7 @@ az group create --name eventResourceGroup --location westus2
 Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenis te posten. Vervang `<topic_name>` door een unieke naam voor het onderwerp. Naam van het onderwerp moet uniek zijn omdat deze niet langer een DNS-vermelding.
 
 ```bash
-az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup 
+az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
 ```
 
 ## <a name="get-the-endpoint-and-key"></a>Het eindpunt en de sleutel ophalen
@@ -119,7 +119,7 @@ Een functie-App maken. Het is raadzaam te zoeken in dezelfde regio als de Event 
 
 ### <a name="create-an-event-grid-trigger-function"></a>Een activeringsfunctie voor Event Grid maken
 
-Maak een functie voor het ontvangen van de van levenscyclusgebeurtenissen. Selecteer **aangepaste functie**. 
+Maak een functie voor het ontvangen van de van levenscyclusgebeurtenissen. Selecteer **aangepaste functie**.
 
 ![Selecteer een maken een aangepaste functie aan.](./media/durable-functions-event-publishing/functions-portal.png)
 
@@ -131,7 +131,7 @@ Voer de naam van de functie en selecteer vervolgens `Create`.
 
 ![De Trigger Gebeurtenisraster maken.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
 
-Een functie met de volgende code wordt gemaakt: 
+Een functie met de volgende code wordt gemaakt:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -153,11 +153,11 @@ Selecteer `Event Grid Topics` voor **Onderwerptype**. Selecteer de resourcegroep
 
 ![Hiermee wordt een Event Grid-abonnement gemaakt.](./media/durable-functions-event-publishing/eventsubscription.png)
 
-U bent nu klaar om te ontvangen van gebeurtenissen in de levensduur. 
+U bent nu klaar om te ontvangen van gebeurtenissen in de levensduur.
 
-## <a name="create-durable-functions-to-send-the-events"></a>Duurzame functies voor het verzenden van de gebeurtenissen maken.
+## <a name="create-durable-functions-to-send-the-events"></a>Duurzame functies voor het verzenden van de gebeurtenissen maken
 
-Start de foutopsporing op uw lokale computer in uw project duurzame functies.  De volgende code is hetzelfde als de sjabloon voor de duurzame functies. U hebt al geconfigureerd `host.json` en `local.settings.json` op uw lokale computer. 
+Start de foutopsporing op uw lokale computer in uw project duurzame functies.  De volgende code is hetzelfde als de sjabloon voor de duurzame functies. U hebt al geconfigureerd `host.json` en `local.settings.json` op uw lokale computer.
 
 ```csharp
 using System.Collections.Generic;
@@ -217,7 +217,7 @@ Zie de logboeken van de functie die u hebt gemaakt in Azure portal.
 ```
 2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
 2018-04-20T09:28:21.104 [Info] {
-    "id": "054fe385-c017-4ce3-b38a-052ac970c39d",    
+    "id": "054fe385-c017-4ce3-b38a-052ac970c39d",
     "subject": "durable/orchestrator/Running",
     "data": {
         "hubName": "DurableFunctionsHub",
@@ -258,18 +258,18 @@ Zie de logboeken van de functie die u hebt gemaakt in Azure portal.
 
 De volgende lijst wordt het schema van de levenscyclus van gebeurtenissen beschreven:
 
-* **id**: de unieke id voor de Event Grid-gebeurtenis.
-* **onderwerp**: pad naar het onderwerp van de gebeurtenis. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` worden `Running`, `Completed`, `Failed`, en `Terminated`.  
-* **gegevens**: duurzame functies specifieke Parameters.
-    * **hubName**: [TaskHub](https://docs.microsoft.com/azure/azure-functions/durable-functions-task-hubs) naam.
-    * **Functienaam**: de naam van de Orchestrator-functie.
-    * **instanceId**: instanceId duurzame functies.
-    * **reden**: aanvullende gegevens die zijn gekoppeld aan de traceringsgebeurtenis. Zie voor meer informatie, [diagnostische gegevens in duurzame functies (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-diagnostics)
-    * **runtimeStatus**: Status van de Orchestration-Runtime. Actieve, voltooid, is mislukt, geannuleerd. 
+* **Id**: De unieke id voor de Event Grid-gebeurtenis.
+* **Onderwerp**: Pad naar het onderwerp van de gebeurtenis. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` worden `Running`, `Completed`, `Failed`, en `Terminated`.  
+* **Gegevens**: Duurzame functies specifieke Parameters.
+  * **hubName**: [TaskHub](durable-functions-task-hubs.md) naam.
+  * **Functienaam**: Naam van de orchestrator-functie.
+  * **instanceId**: Duurzame functies instanceId.
+  * **reden**: Aanvullende gegevens die zijn gekoppeld aan de traceringsgebeurtenis. Zie voor meer informatie, [diagnostische gegevens in duurzame functies (Azure Functions)](durable-functions-diagnostics.md)
+  * **runtimeStatus**: Status van de Orchestration-Runtime. Actieve, voltooid, is mislukt, geannuleerd.
 * **type gebeurtenis**: "orchestratorEvent"
-* **eventTime**: tijd van de gebeurtenis (UTC).
-* **dataVersion**: versie van het schema van de gebeurtenis levenscyclus.
-* **metadataVersion**: versie van de metagegevens.
+* **eventTime**: Tijd van de gebeurtenis (UTC).
+* **dataVersion**: De versie van het schema van de gebeurtenis levenscyclus.
+* **metadataVersion**:  De versie van de metagegevens.
 * **onderwerp**: EventGrid onderwerp resource.
 
 ## <a name="how-to-test-locally"></a>Lokaal testen

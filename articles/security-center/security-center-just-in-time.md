@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6281b79e374db164bbd11b602e92336162cae089
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5c42c0d5597e1e14bbb7814ad635abcd086db804
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841758"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339039"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Beheer van de virtuele machine toegang met just-in-time
 
@@ -49,7 +49,11 @@ Wanneer een gebruiker vraagt om toegang tot een virtuele machine, controleert Se
 >
 >
 
-## <a name="using-jit-access-in-azure-security-center"></a>Met behulp van JIT-toegang in Azure Security Center
+U kunt toegang tot JIT via:
+- [Met behulp van JIT-toegang in Azure Security Center](#jit-asc)
+- [Met behulp van JIT-toegang in een Azure VM-beheerblade](#jit-vm)
+
+## Met behulp van JIT-toegang in Azure Security Center <a name="jit-asc"></a>
 
 1. Open het dashboard van **Security Center**.
 
@@ -121,7 +125,7 @@ Bewerk een bestaand just-in-time-beleid van een virtuele machine als volgt:
 3. Onder **JIT-VM-configuratie**, kunt u de bestaande instellingen van een al beveiligde poort bewerken of toevoegen van een nieuwe aangepaste poort. Zie voor meer informatie, [een just-in-time-toegangsbeleid configureren](#jit-config). 
   ![JIT-vm-toegang](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="using-jit-access-in-an-azure-vm-blade"></a>Met behulp van JIT-toegang in een Azure VM-beheerblade
+## Met behulp van JIT-toegang in een Azure VM-beheerblade <a name="jit-vm"></a>
 
 Voor uw gemak, kunt u verbinding maken met een virtuele machine met behulp van JIT rechtstreeks vanuit binnen de VM-blade in Azure.
 
@@ -187,7 +191,7 @@ Deze toewijst *acties* aan de rol:
 -    Op het bereik van een abonnement of resourcegroep of een virtuele machine:
    - Microsoft.Compute/virtualMachines/write 
 
-Stel deze bevoegdheden om in te schakelen van een gebruiker kan aanvragen met succes JIT-toegang tot een virtuele machine: deze toewijst *acties* aan de gebruiker:
+Stel deze bevoegdheden om in te schakelen van een gebruiker kan aanvragen met succes JIT-toegang tot een virtuele machine: Deze toewijst *acties* aan de gebruiker:
 -   Op het bereik van een abonnement of resourcegroep die is gekoppeld aan de virtuele machine:
    - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiëren/actie
 -    Op het bereik van een abonnement of resourcegroep of een virtuele machine:
@@ -264,7 +268,7 @@ In dit artikel hebt u geleerd hoe just-in-time-VM-toegang in Security Center hel
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-- [Beveiligingsbeleid instellen](security-center-azure-policy.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+- [Beveiligingsbeleid instellen](tutorial-security-policy.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 - [Aanbevelingen voor beveiliging beheren](security-center-recommendations.md) : Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
 - [Beveiligingsstatus bewaken](security-center-monitoring.md) : informatie over het bewaken van de status van uw Azure-resources.
 - [Beheren en erop reageren op beveiligingswaarschuwingen](security-center-managing-and-responding-alerts.md) : informatie over het beheren van en reageren op beveiligingswaarschuwingen.

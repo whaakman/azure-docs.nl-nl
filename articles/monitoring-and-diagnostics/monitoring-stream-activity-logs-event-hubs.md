@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: c8a932ac06b58a8e683e326f082a3a2c038dba66
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ac3b87f8db89df4b766fee1a27707877a2d12ba3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273700"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383354"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream het Azure-activiteitenlogboek naar Eventhubs
 U kunt streamen de [Azure Activity Log](monitoring-overview-activity-logs.md) in bijna realtime voor elke toepassing door een van beide:
@@ -99,7 +99,7 @@ Als een logboekprofiel al bestaat, moet u eerst de bestaande logboekprofiel verw
 Het schema voor het activiteitenlogboek is beschikbaar in [abonnement activiteiten met de Azure-activiteitenlogboek](monitoring-overview-activity-logs.md). Elke gebeurtenis in een matrix met JSON-blobs met de naam is *records*.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Het activiteitenlogboek naar een opslagaccount archiveren](monitoring-archive-activity-log.md)
+* [Het activiteitenlogboek naar een opslagaccount archiveren](../azure-monitor/platform/archive-activity-log.md)
 * [Lees het overzicht van de Azure-activiteitenlogboek](monitoring-overview-activity-logs.md)
 * [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](../azure-monitor/platform/alerts-log-webhook.md)
 

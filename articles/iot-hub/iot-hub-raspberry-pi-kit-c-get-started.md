@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 20c26c5daa66edd7705e850f14a79a2cbe2964fc
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: edbdd12ed292ac2e2953219d6f50da8e6c5c995f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515672"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343085"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi verbinden met Azure IoT Hub (C)
 
@@ -69,7 +69,7 @@ De volgende items zijn optioneel:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -209,6 +209,6 @@ Hier ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die wor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd. Zie voor de berichten die uw Raspberry Pi naar uw IoT-hub of verzenden berichten naar uw Raspberry Pi verzonden de [gebruik Azure IoT Toolkit-extensie voor Visual Studio-Code voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd. Zie voor de berichten die uw Raspberry Pi naar uw IoT-hub of verzenden berichten naar uw Raspberry Pi verzonden de [gebruik Azure IoT Hub Toolkit-extensie voor Visual Studio-Code voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: a4c4017d7fa798559817c281d159148ec675d158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281350"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386499"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Query uitvoeren op Azure Log Analytics voor het bewaken van HDInsight-clusters
 
@@ -46,7 +46,7 @@ Informatie over het zoeken naar specifieke metrische gegevens voor uw HDInsight-
 
 5. In het linkerdeelvenster onder **Type**, selecteer een metrische waarde die u wilt gaan verdiepen in en selecteer vervolgens **toepassen**. De volgende schermafbeelding ziet u de `metrics_resourcemanager_queue_root_default_CL` type is geselecteerd.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Mogelijk moet u selecteert de **[+] meer** om te zoeken van de metrische gegevens die u zoekt. Ook de **toepassen** knop aan de onderkant van de lijst is, zodat u omlaag schuiven moet om het te bekijken.
 
     U ziet dat de query in het tekstvak is gewijzigd in een weergegeven in het gemarkeerde in de volgende schermafbeelding:
@@ -115,7 +115,7 @@ Om te bewerken of verwijderen van een bestaande waarschuwing:
 1. De Log Analytics-werkruimte openen vanuit de Azure-portal.
 2. Selecteer in het menu links **waarschuwing**.
 3. Selecteer de waarschuwing die u wilt bewerken of verwijderen.
-4. U hebt de volgende opties: **opslaan**, **negeren**, **uitschakelen**, en **verwijderen**.
+4. U hebt de volgende opties: **Sla**, **negeren**, **uitschakelen**, en **verwijderen**.
 
     ![HDInsight Log Analytics alert delete bewerken](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 

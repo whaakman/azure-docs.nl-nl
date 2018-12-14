@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: dc7cfb4df768fb7554bc7b5c772a6a778a8a793a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008110"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384192"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>.NET-oplossingen migreren voor HDInsight op Linux gebaseerde HDInsight op basis van Windows
 
@@ -26,7 +26,7 @@ Mono versie 4.2.1 is opgenomen in HDInsight versie 3.6. Zie voor meer informatie
 
 Zie voor meer informatie over de compatibiliteit tussen Mono en .NET de [Mono-compatibiliteit (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) document.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Het SCP.NET-framework is compatibel met Mono. Zie voor meer informatie over het gebruik van SCP.NET met Mono [Gebruik Visual Studio om C#-topologieën ontwikkelen voor Apache Storm op HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="automated-portability-analysis"></a>Draagbaarheid van geautomatiseerde analyse
@@ -47,7 +47,7 @@ De [.NET draagbaarheid Analyzer](https://marketplace.visualstudio.com/items?item
 
     ![Draagbaarheid analyzer resultaten dialoogvenster](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De analyzer kan niet alle problemen met uw oplossing catch. Bijvoorbeeld, een bestandspad van `c:\temp\file.txt` wordt beschouwd als OK als Mono wordt uitgevoerd op Windows. Hetzelfde pad is niet geldig voor een Linux-platform.
 
 ## <a name="manual-portability-analysis"></a>Handmatige draagbaarheid analyse
@@ -64,12 +64,12 @@ Als u de oplossing met behulp van de aanbevelingen van de .NET draagbaarheid Ana
 
 Zie de volgende documenten voor meer informatie over het verkrijgen van toegang tot logboeken:
 
-* [Toegang tot YARN-toepassingslogboeken in een HDInsight-cluster op basis van Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Toegang tot Apache Hadoop YARN-toepassingslogboeken op Linux gebaseerde HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Gebruik C# met MapReduce in HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [C#-door gebruiker gedefinieerde functies gebruiken met Hive en Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Gebruik C# door de gebruiker gedefinieerde functies met Apache Hive en Apache Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [C#-topologieën ontwikkelen voor Storm op HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [Ontwikkel C# topologieën voor Apache Storm op HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

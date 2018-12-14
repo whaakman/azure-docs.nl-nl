@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7af8015e424b4a9169a9b80ed5e7070a8fa6de1c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643318"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342569"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Monitor-scenario in duurzame functies - weer watcher-voorbeeld
 
@@ -32,7 +32,7 @@ In dit voorbeeld controleert de huidige weersomstandigheden van een locatie en e
 * Monitors kunnen beëindigen wanneer bepaalde voorwaarde wordt voldaan, of worden afgesloten met een ander proces.
 * Monitors kunnen duren voordat de parameters. Het voorbeeld laat zien hoe hetzelfde proces weer bewaking kan worden toegepast op alle aangevraagde locatie en telefoonnummer.
 * Monitors zijn schaalbaar. Omdat elke monitor een orchestration-exemplaar is, kunnen meerdere beeldschermen worden gemaakt zonder te hoeven maken van nieuwe functies of meer code moet worden gedefinieerd.
-* Monitors integreren in grotere werkstromen eenvoudig. Een monitor kan bestaan uit een deel van een meer complexe orchestration-functie of een [onderliggende orchestration](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
+* Monitors integreren in grotere werkstromen eenvoudig. Een monitor kan bestaan uit een deel van een meer complexe orchestration-functie of een [onderliggende orchestration](durable-functions-sub-orchestrations.md).
 
 ## <a name="configuring-twilio-integration"></a>Twilio-integratie configureren
 
@@ -59,7 +59,7 @@ Dit artikel wordt uitgelegd dat de volgende functies in de voorbeeld-app:
 * `E3_SendGoodWeatherAlert`: Een activiteit-functie waarmee een SMS-bericht via Twilio wordt verzonden.
 
 De volgende secties worden de configuratie en de code die worden gebruikt voor C#-scripts en JavaScript. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
- 
+
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Het weer bewaking orchestration (Visual Studio Code en Azure portal voorbeeldcode)
 
 De **E3_Monitor** functie gebruikmaakt van de standaard *function.json* voor orchestrator-functies.
@@ -72,7 +72,7 @@ Dit is de code die de functie implementeert:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -83,7 +83,7 @@ Deze orchestrator-functie worden de volgende acties uitgevoerd:
 3. Aanroepen **E3_GetIsClear** om te bepalen of er duidelijk skies beschikbaar op de aangevraagde locatie zijn.
 4. Als het weer uitgeschakeld is, roept **E3_SendGoodWeatherAlert** een SMS-bericht verzenden naar het aangevraagde telefoonnummer.
 5. Hiermee maakt u een duurzame timer als u wilt doorgaan met de indeling op basis van de volgende pollinginterval. Het voorbeeld wordt een waarde vastgelegde kort te houden.
-6. Verder wordt uitgevoerd totdat de [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) passen de verlooptijd van de monitor of een SMS-bericht is verzonden.
+6. Verder wordt uitgevoerd totdat de [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (C#) of `currentUtcDateTime` (JavaScript) geeft de verlooptijd van de monitor of een SMS-bericht wordt verzonden.
 
 Meerdere exemplaren van orchestrator kunnen tegelijkertijd worden uitgevoerd door het verzenden van meerdere **MonitorRequests**. De locatie voor het bewaken van en het telefoonnummer voor het verzenden van een SMS-bericht om te kunnen worden opgegeven.
 
@@ -107,7 +107,7 @@ En dit is de implementatie. Als de POCOs gebruikt voor gegevensoverdracht, logic
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +121,7 @@ En hier is de code die de SMS-bericht verzonden:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -134,8 +134,9 @@ POST https://{host}/orchestrators/E3_Monitor
 Content-Length: 77
 Content-Type: application/json
 
-{ "Location": { "City": "Redmond", "State": "WA" }, "Phone": "+1425XXXXXXX" }
+{ "location": { "city": "Redmond", "state": "WA" }, "phone": "+1425XXXXXXX" }
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
@@ -144,9 +145,6 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
-
-   > [!NOTE]
-   > JavaScript orchestration starter functies kunnen niet op dit moment instantiebeheer URI's retourneren. Deze mogelijkheid wordt toegevoegd in een latere versie.
 
 De **E3_Monitor** exemplaar wordt gestart en de huidige weersomstandigheden voor de aangevraagde locatie een query uitgevoerd. Als het weer uitgeschakeld is, wordt een functie van de activiteit voor het verzenden van een waarschuwing; anders wordt een timer ingesteld. Wanneer de timer verloopt, wordt de indeling wordt hervat.
 
@@ -168,7 +166,7 @@ U kunt zien van de orchestration-activiteit door te kijken naar de functie besch
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-De indeling wordt [beëindigen](durable-functions-instance-management.md#terminating-instances) zodra de time-out bereikt of wissen is skies worden gedetecteerd. U kunt ook `TerminateAsync` binnen een andere functie of aanroepen de **terminatePostUri** HTTP POST-webhook waarnaar wordt verwezen in het 202-antwoord vervangen hierboven `{text}` met de reden voor beëindiging:
+De indeling wordt [beëindigen](durable-functions-instance-management.md#terminating-instances) zodra de time-out bereikt of wissen is skies worden gedetecteerd. U kunt ook `TerminateAsync` (.NET) of `terminate` (JavaScript) binnen een andere functie of aanroepen van de **terminatePostUri** HTTP POST-webhook waarnaar wordt verwezen in het 202-antwoord vervangen hierboven `{text}` met de reden voor beëindigen:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d0c61f6e905ca109f3f178996a08f353c36e7880
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316614"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337203"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center beheren
 Dit document helpt u bij het gebruik van de aanbevelingen in Azure Security Center kunt u uw Azure-resources beveiligen.
@@ -34,13 +34,13 @@ De beveiligingsstatus van uw Azure-bronnen worden regelmatig door Security Cente
 
 ## <a name="implementing-security-recommendations"></a>Beveiligingsaanbevelingen implementeren
 ### <a name="set-recommendations"></a>Set-aanbevelingen
-In [beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md), leert u het:
+In [beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md), leert u het:
 
 * Beveiligingsbeleid configureren.
 * Schakel het verzamelen van gegevens.
 * Kies welke aanbevelingen om te zien als onderdeel van uw beveiligingsbeleid.
 
-Aanbevelingen van huidige beleidscentrum om de systeemupdates, basislijnregels, anti-malware-programma's, [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) op subnetten en netwerkinterfaces, controleren voor SQL database, transparent data encryption voor SQL database, Apps en web application firewalls.  [Beveiligingsbeleid instellen](security-center-azure-policy.md) bevat een beschrijving van elke optie aanbeveling.
+Aanbevelingen van huidige beleidscentrum om de systeemupdates, basislijnregels, anti-malware-programma's, [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) op subnetten en netwerkinterfaces, controleren voor SQL database, transparent data encryption voor SQL database, Apps en web application firewalls.  [Beveiligingsbeleid instellen](tutorial-security-policy.md) bevat een beschrijving van elke optie aanbeveling.
 
 ### <a name="monitor-recommendations"></a>Monitor voor aanbevelingen
 Nadat er een beveiligingsbeleid is ingesteld, wordt met Security Center de beveiligingsstatus van de Azure-resources geanalyseerd om potentiële beveiligingsproblemen op te sporen. De **aanbevelingen** tegel onder **overzicht** kunt u het totale aantal aanbevelingen geïdentificeerd door Security Center weten.
@@ -55,16 +55,16 @@ U kunt filteren, aanbevelingen. Als u wilt de aanbevelingen filteren, selecteert
 
 De aanbevelingen worden weergegeven in tabelindeling, waarbij elke regel één bepaalde aanbeveling vertegenwoordigt. De kolommen van deze tabel zijn:
 
-* **BESCHRIJVING**: de aanbeveling en wat er moet gebeuren om deze op te lossen.
-* **RESOURCE**: geeft een lijst van de resources die deze aanbeveling van toepassing is.
+* **BESCHRIJVING**: Verklaart de aanbeveling en wat er moet gebeuren om deze op te lossen.
+* **RESOURCE**: Geeft een lijst van de resources die deze aanbeveling van toepassing is.
 * **STATUS**: Beschrijving van de huidige status van de aanbeveling:
-  * **Open**: de aanbeveling nog niet is opgelost.
-  * **Bezig**: de aanbeveling wordt momenteel toegepast op de resources en er is geen actie te ondernemen.
-  * **Opgelost**: de aanbeveling is al voltooid (in dit geval wordt de regel is lichter gekleurd).
-* **ERNST**: hiermee wordt de ernst van deze bepaalde aanbeveling beschreven:
-  * **Hoge**: een beveiligingsprobleem bestaat een belangrijke resource (zoals een toepassing, een virtuele machine of een netwerkbeveiligingsgroep) en dit probleem vereist uw aandacht.
-  * **Gemiddeld**: een beveiligingsprobleem bestaat en niet-kritieke of extra stappen zijn vereist om dit te dichten of om een proces te voltooien.
-  * **Lage**: Er bestaat een beveiligingsprobleem die moet worden opgelost, maar geen onmiddellijke aandacht vereist. (Standaard lage aanbevelingen worden niet weergegeven, maar u kunt filteren op lage aanbevelingen als u wilt zien.)
+  * **Open**: De aanbeveling niet is nog opgelost.
+  * **Bezig**: De aanbeveling wordt momenteel toegepast op de resources en er is geen actie te ondernemen.
+  * **Opgelost**: De aanbeveling is al voltooid (in dit geval wordt de regel is lichter gekleurd).
+* **ERNST**: Hierin wordt de ernst van deze bepaalde aanbeveling beschreven:
+  * **Hoge**: Een beveiligingslek in de bestaat een belangrijke resource (zoals een toepassing, een virtuele machine of een netwerkbeveiligingsgroep) en aandacht vereist.
+  * **Gemiddeld**: Een beveiligingslek en niet-kritieke of extra stappen zijn vereist om dit te dichten of om een proces te voltooien.
+  * **Lage**: Een beveiligingslek dat moet worden opgelost, maar geen onmiddellijke aandacht vereist. (Standaard lage aanbevelingen worden niet weergegeven, maar u kunt filteren op lage aanbevelingen als u wilt zien.)
 
 Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare aanbevelingen en wat elke doet als u deze toepast.
 
@@ -73,7 +73,7 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 >
 >
 
-| Aanbeveling | Beschrijving |
+| Aanbeveling | Description |
 | --- | --- |
 | [Gegevensverzameling voor abonnementen inschakelen](security-center-enable-data-collection.md) |Hiermee wordt aanbevolen dat u gegevensverzameling in het beveiligingsbeleid voor elk van uw abonnementen en alle virtuele Azure-machines (VM's) en niet-Azure-computers inschakelen. |
 | [Beveiligingsconfiguraties herstellen](security-center-remediate-os-vulnerabilities.md) |Hiermee wordt aanbevolen dat u de configuraties voor het besturingssysteem met de aanbevolen configuratie van beveiligingsregels, bijvoorbeeld uitlijnen, niet toestaan dat wachtwoorden worden opgeslagen. |
@@ -135,7 +135,7 @@ Selecteer een aanbeveling in de tabel van de bovenstaande aanbevelingen, en door
 ## <a name="next-steps"></a>Volgende stappen
 In dit document, kunt u kennisgemaakt met aanbevelingen voor beveiliging in Security Center. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+* [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.
 * [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) : informatie over het beheren van en reageren op beveiligingswaarschuwingen.
 * [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.

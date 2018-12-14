@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90bba26bf1fd941085568cacd4d005f10eaed1b8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005390"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384191"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Ontwikkeling van scriptacties met HDInsight
 
 Informatie over het aanpassen van uw HDInsight-cluster met behulp van Bash-scripts. Scriptacties zijn een manier om aan te passen HDInsight tijdens of na het maken van clusters.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="what-are-script-actions"></a>Wat zijn scriptacties
@@ -43,7 +43,7 @@ Zie voor meer informatie over het gebruik van deze methoden om toe te passen scr
 
 Wanneer u een aangepast script voor een HDInsight-cluster ontwikkelt, zijn er enkele aanbevolen procedures waarmee u rekening moet houden:
 
-* [Doel van de Hadoop-versie](#bPS1)
+* [Doel van de Apache Hadoop-versie](#bPS1)
 * [Doel van de versie van het besturingssysteem](#bps10)
 * [Stabiele koppelingen naar scriptbronnen](#bPS2)
 * [Gebruik vooraf gecompileerde bronnen](#bPS4)
@@ -54,10 +54,10 @@ Wanneer u een aangepast script voor een HDInsight-cluster ontwikkelt, zijn er en
 * [ASCII-bestanden opslaan met LF regeleinden](#bps8)
 * [Logica voor opnieuw proberen gebruiken om te herstellen van tijdelijke fouten](#bps9)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Scriptacties moeten worden voltooid binnen 60 minuten of het proces is mislukt. Het script wordt uitgevoerd tijdens het inrichten van knooppunt, samen met andere processen instellen en configureren. Concurrentie voor resources, zoals CPU-tijd of netwerk bandbreedte kan ertoe leiden dat het script duurt langer dan het geval in uw ontwikkelingsomgeving is voltooien.
 
-### <a name="bPS1"></a>Doel van de Hadoop-versie
+### <a name="bPS1"></a>Doel van de Apache Hadoop-versie
 
 Verschillende versies van HDInsight hebben verschillende versies van Hadoop-services en onderdelen worden geïnstalleerd. Als het script wordt een specifieke versie van een service of het onderdeel verwacht, moet u het script alleen gebruiken met de versie van HDInsight met de vereiste onderdelen. U vindt informatie over de onderdeel-versies die zijn opgenomen in HDInsight met behulp van de [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md) document.
 
@@ -110,7 +110,7 @@ Het script en de bijbehorende resources moeten blijven beschikbaar tijdens de le
 
 De aanbevolen procedure is om te downloaden en te archiveren alles in een Azure Storage-account voor uw abonnement.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Het opslagaccount dat wordt gebruikt, moet het standaardopslagaccount voor het cluster of een openbaar, alleen-lezen-container op een andere storage-account.
 
 Bijvoorbeeld, de voorbeelden die is geleverd door Microsoft worden opgeslagen in de [ https://hdiconfigactions.blob.core.windows.net/ ](https://hdiconfigactions.blob.core.windows.net/) storage-account. Deze locatie is een openbaar, alleen-lezen-container onderhouden door het HDInsight-team.
@@ -129,12 +129,12 @@ Bijvoorbeeld, dat een script dat Hiermee wijzigt u configuratiebestanden niet du
 
 Linux gebaseerde HDInsight-clusters bieden twee hoofdknooppunten die actief zijn binnen het cluster en scriptacties uitgevoerd op beide knooppunten. Als de onderdelen die u installeert slechts één hoofdknooppunt verwacht, moet u niet de onderdelen installeren op beide hoofdknooppunten.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Services die worden geleverd als onderdeel van HDInsight zijn ontworpen voor failover tussen de twee hoofdknooppunten, indien nodig. Deze functionaliteit is niet uitgebreid naar aangepaste onderdelen zijn geïnstalleerd via scriptacties. Als u hoge beschikbaarheid voor aangepaste onderdelen nodig hebt, moet u uw eigen failover-mechanisme implementeren.
 
 ### <a name="bPS6"></a>Configureren van de aangepaste onderdelen voor het gebruik van Azure Blob-opslag
 
-Onderdelen die u op het cluster installeert wellicht een standaardconfiguratie die gebruikmaakt van Hadoop Distributed File System (HDFS)-opslag. HDInsight maakt gebruik van Azure Storage of Data Lake Store als standaardopslag. Beide bieden een HDFS compatibele-bestandssysteem dat gegevens actief blijft zelfs als het cluster wordt verwijderd. U wilt configureren van onderdelen die u installeert voor het gebruik van WASB of ADL in plaats van HDFS.
+Onderdelen die u op het cluster installeert wellicht een standaardconfiguratie die gebruikmaakt van Apache Hadoop Distributed File System (HDFS)-opslag. HDInsight maakt gebruik van Azure Storage of Data Lake Store als standaardopslag. Beide bieden een HDFS compatibele-bestandssysteem dat gegevens actief blijft zelfs als het cluster wordt verwijderd. U wilt configureren van onderdelen die u installeert voor het gebruik van WASB of ADL in plaats van HDFS.
 
 Voor de meeste bewerkingen hoeft u niet om op te geven van het bestandssysteem. Bijvoorbeeld, kopieert de volgende de giraph-examples.jar bestand uit het lokale bestandssysteem aan het cluster:
 
@@ -148,8 +148,8 @@ In dit voorbeeld wordt de `hdfs` opdracht transparant maakt gebruik van de stand
 
 HDInsight-logboeken die worden geschreven naar de STDOUT en STDERR-scriptuitvoer. U kunt deze informatie met behulp van de Ambari-Webgebruikersinterface kunt weergeven.
 
-> [!NOTE]
-> Ambari is alleen beschikbaar als het cluster is gemaakt. Als u een scriptactie tijdens het maken van een cluster, en mislukt het maken, Zie de sectie probleemoplossing [aanpassen HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) voor andere manieren om toegang tot geregistreerde gegevens.
+> [!NOTE]  
+> Apache Ambari is alleen beschikbaar als het cluster is gemaakt. Als u een scriptactie tijdens het maken van een cluster, en mislukt het maken, Zie de sectie probleemoplossing [aanpassen HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) voor andere manieren om toegang tot geregistreerde gegevens.
 
 De meeste hulpprogramma's en installatiepakketten schrijven al gegevens naar STDOUT en STDERR, maar u kunt aanvullende logboekregistratie toevoegen. Gebruiken voor het verzenden van tekst naar STDOUT, `echo`. Bijvoorbeeld:
 
@@ -216,7 +216,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>Help-methoden voor aangepaste scripts
 
-Script actie helpermethoden zijn hulpprogramma's die u gebruiken kunt tijdens het schrijven van aangepaste scripts. Deze methoden zijn opgenomen in de[ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) script. Gebruik de volgende om te downloaden en ze als onderdeel van uw script gebruiken:
+Script actie helpermethoden zijn hulpprogramma's die u gebruiken kunt tijdens het schrijven van aangepaste scripts. Deze methoden zijn opgenomen in de [ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) script. Gebruik de volgende om te downloaden en ze als onderdeel van uw script gebruiken:
 
 ```bash
 # Import the helper method module.
@@ -225,7 +225,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 De volgende hulpprogramma's beschikbaar voor gebruik in uw script:
 
-| Helper-gebruik | Beschrijving |
+| Helper-gebruik | Description |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Downloadt een bestand van de bron-URI naar het opgegeven pad. Standaard wordt er een bestaand bestand niet overschreven. |
 | `untar_file TARFILE DESTDIR` |Haalt een tar-bestand (met behulp van `-xf`) naar de doelmap. |
@@ -278,16 +278,16 @@ Scripts die worden gebruikt voor het aanpassen van een cluster moeten worden opg
 
 * Een __openbaar leesbare URI__. Bijvoorbeeld, een URL naar gegevens die zijn opgeslagen in OneDrive, Dropbox of andere bestandshostingservice.
 
-* Een __Azure Data Lake Store-account__ dat is gekoppeld aan het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Store met HDInsight [Quick Start: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Een __Azure Data Lake Store-account__ dat is gekoppeld aan het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Store met HDInsight [Quick Start: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > De service-principal die HDInsight gebruikt voor toegang tot Data Lake Store moet leestoegang hebben tot het script.
 
 Resources die worden gebruikt door het script moeten ook openbaar beschikbaar zijn.
 
 De bestanden opslaan in een Azure Storage-account of een Azure Data Lake Store biedt snel toegang, als zowel binnen het Azure-netwerk.
 
-> [!NOTE]
+> [!NOTE]  
 > De URI-indeling die wordt gebruikt om te verwijzen naar het script verschilt afhankelijk van de service wordt gebruikt. Voor storage-accounts die zijn gekoppeld aan het HDInsight-cluster, gebruikt u `wasb://` of `wasbs://`. Gebruik voor openbaar leesbare URI's, `http://` of `https://`. Gebruik voor Data Lake Store, `adl://`.
 
 ### <a name="checking-the-operating-system-version"></a>De versie van besturingssysteem controleren
@@ -332,8 +332,8 @@ Zie voor meer informatie over het gebruik van elke methode [over het gebruik van
 Microsoft biedt voorbeelden van scripts om onderdelen te installeren op een HDInsight-cluster. Zie de volgende koppelingen voor meer voorbeeld scriptacties.
 
 * [Installeren en Hue gebruiken op HDInsight-clusters](hdinsight-hadoop-hue-linux.md)
-* [Solr installeren en gebruiken op HDInsight-clusters](hdinsight-hadoop-solr-install-linux.md)
-* [Giraph installeren en gebruiken op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md)
+* [Installeren en gebruiken van Apache Solr op HDInsight-clusters](hdinsight-hadoop-solr-install-linux.md)
+* [Installeren en Apache Giraph gebruikt op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md)
 * [Installeren of upgraden van Mono op HDInsight-clusters](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>Problemen oplossen
@@ -342,13 +342,13 @@ Hier volgen de fouten die optreden kunnen bij het gebruik van scripts die u hebt
 
 **Fout**: `$'\r': command not found`. Soms wordt gevolgd door `syntax error: unexpected end of file`.
 
-*Oorzaak*: deze fout wordt veroorzaakt wanneer de regels in een script CRLF eindigen. UNIX-systemen verwacht alleen LF als het einde van regel.
+*Oorzaak*: Deze fout wordt veroorzaakt wanneer de regels in een script CRLF eindigen. UNIX-systemen verwacht alleen LF als het einde van regel.
 
 Dit probleem treedt meestal wanneer het script is geschreven in een Windows-omgeving, zoals CRLF is een algemene regel beëindigen voor veel teksteditors op Windows.
 
-*Resolutie*: als deze optie in een teksteditor, selecteert u Unix-indeling of LF voor het einde van regel. U kunt ook de volgende opdrachten gebruiken voor een Unix-systeem de CRLF wijzigen in een LF:
+*Resolutie*: Als deze optie in een teksteditor, selecteert u de Unix-indeling of LF voor het einde van regel. U kunt ook de volgende opdrachten gebruiken voor een Unix-systeem de CRLF wijzigen in een LF:
 
-> [!NOTE]
+> [!NOTE]  
 > De volgende opdrachten zijn grofweg gelijk in dat ze moeten de regeleinden CRLF LF wijzigen. Selecteer een op basis van de hulpprogramma's die beschikbaar zijn op uw systeem.
 
 | Opdracht | Opmerkingen |
@@ -360,9 +360,9 @@ Dit probleem treedt meestal wanneer het script is geschreven in een Windows-omge
 
 **Fout**: `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Oorzaak*: deze fout treedt op wanneer het script is opgeslagen als UTF-8 met een Byte Order Mark (BOM).
+*Oorzaak*: Deze fout treedt op wanneer het script is opgeslagen als UTF-8 met een Byte Order Mark (BOM).
 
-*Resolutie*: sla het bestand als ASCII- of als UTF-8 zonder een stuklijst. U kunt ook de volgende opdracht uit op een Linux- of Unix-systeem te maken van een bestand zonder de stuklijst:
+*Resolutie*: Sla het bestand als ASCII-, of als UTF-8 zonder een stuklijst. U kunt ook de volgende opdracht uit op een Linux- of Unix-systeem te maken van een bestand zonder de stuklijst:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 

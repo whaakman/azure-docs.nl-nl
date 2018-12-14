@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 5e671c4eb47b56adf62a23791c403257c2538973
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 87df2731d45ffa51bc2fd298aa1b678b10e38515
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018924"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344326"
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -91,7 +91,7 @@ HTTPS wordt de verificatie geïmplementeerd door te nemen van een geldig token i
 
 Gebruikersnaam (apparaat-id is hoofdlettergevoelig): `iothubname.azure-devices.net/DeviceId`
 
-Wachtwoord (u kunt genereren van een SAS-token met de [apparatenverkenner](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) hulpprogramma, de CLI-opdracht voor gegevensextensies [az iot hub genereren-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), of de [Azure IoT Toolkit-extensie voor Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)):
+Wachtwoord (u kunt genereren van een SAS-token met de [apparatenverkenner](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) hulpprogramma, de CLI-opdracht voor gegevensextensies [az iot hub genereren-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), of de [Azure IoT Hub Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit-extensie)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -134,15 +134,15 @@ Het beveiligingstoken heeft de volgende indeling:
 
 Hier volgen de verwachte waarden:
 
-| Waarde | Beschrijving |
+| Waarde | Description |
 | --- | --- |
-| {handtekening} |Een tekenreeks van de HMAC-SHA256 handtekening van het formulier: `{URL-encoded-resourceURI} + "\n" + expiry`. **Belangrijke**: de sleutel is gedecodeerd op basis van base64 en gebruikt als sleutel voor het uitvoeren van de HMAC-SHA256-berekening. |
+| {handtekening} |Een tekenreeks van de HMAC-SHA256 handtekening van het formulier: `{URL-encoded-resourceURI} + "\n" + expiry`. **Belangrijke**: De sleutel is gedecodeerd op basis van base64 en gebruikt als sleutel voor het uitvoeren van de HMAC-SHA256-berekening. |
 | {resourceURI} |URI-voorvoegsel (per segment) van de eindpunten die toegankelijk zijn met dit token, beginnend met de hostnaam van de IoT-hub (Er is geen protocol). Bijvoorbeeld: `myHub.azure-devices.net/devices/device1` |
 | {expiry} |UTF8-tekenreeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |
 | {URL-encoded-resourceURI} |Lagere aanvraag-URL-codering van de resource-URI van de kleine letters |
 | {policyName} |De naam van het beleid voor gedeelde toegang waarvoor dit token verwijst. Ontbrekende als verwijst het token naar apparaatregister referenties. |
 
-**Houd er rekening mee op het voorvoegsel van**: de URI-voorvoegsel wordt berekend per segment en niet door het teken. Bijvoorbeeld `/a/b` is een voorvoegsel voor `/a/b/c` , maar niet voor `/a/bc`.
+**Houd er rekening mee op het voorvoegsel van**: Het URI-voorvoegsel wordt berekend per segment en niet door het teken. Bijvoorbeeld `/a/b` is een voorvoegsel voor `/a/b/c` , maar niet voor `/a/bc`.
 
 Het volgende Node.js-fragment toont een functie met de naam **generateSasToken** die het token van de invoer berekent `resourceUri, signingKey, policyName, expiresInMins`. De volgende secties bevatten informatie over het initialiseren van de verschillende soorten invoer voor de verschillende token use cases.
 
@@ -272,7 +272,7 @@ Het resultaat, waarmee de toegang tot alle functionaliteit voor device1 worden v
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Het is mogelijk voor het genereren van een SAS-token met de [apparatenverkenner](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) hulpprogramma, de CLI-opdracht voor gegevensextensies [az iot hub genereren-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), of de [Azure IoT Toolkit-extensie voor Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+> Het is mogelijk voor het genereren van een SAS-token met de [apparatenverkenner](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) hulpprogramma, de CLI-opdracht voor gegevensextensies [az iot hub genereren-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), of de [Azure IoT Hub Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### <a name="use-a-shared-access-policy"></a>Een beleid voor gedeelde toegang gebruiken
 

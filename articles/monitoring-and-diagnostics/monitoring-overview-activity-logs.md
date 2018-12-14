@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 46b00e102cbf5e981ac7036de65232e869dc9651
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9b2566458bc32f9b1d7a36790fbdd5fbb2419ec1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272695"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384289"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Abonnement-activiteit controleren met de Azure-activiteitenlogboek
 
@@ -33,11 +33,11 @@ Het activiteitenlogboek wijkt af van [diagnostische logboeken](monitoring-overvi
 U kunt gebeurtenissen ophalen uit het activiteitenlogboek is opgenomen met Azure portal, CLI, PowerShell-cmdlets en REST-API van Azure Monitor.
 
 > [!NOTE]
-> [De nieuwere waarschuwingen](monitoring-overview-alerts.md) bieden een betere ervaring wanneer het maken en beheren van de activiteit zich waarschuwingsregels.  [Meer informatie](../azure-monitor/platform/alerts-activity-log.md).
+> [De nieuwere waarschuwingen](../azure-monitor/platform/alerts-overview.md) bieden een betere ervaring wanneer het maken en beheren van de activiteit zich waarschuwingsregels.  [Meer informatie](../azure-monitor/platform/alerts-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>Categorieën in het activiteitenlogboek
-Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor volledige informatie over de schema's van deze categorieën [Raadpleeg dit artikel](monitoring-activity-log-schema.md). Deze omvatten:
+Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor volledige informatie over de schema's van deze categorieën [Raadpleeg dit artikel](../azure-monitor/platform/activity-log-schema.md). Deze omvatten:
 * **Administratieve** -deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie bewerkingen uitgevoerd via Resource Manager. Voorbeelden van de typen gebeurtenissen u in deze categorie ziet zijn 'virtuele machine maken' en 'netwerkbeveiligingsgroep verwijderen' elke actie op die door een gebruiker of een toepassing met behulp van Resource Manager is gemodelleerd als een bewerking op een bepaald resourcetype. Als het bewerkingstype schrijven, verwijderen of actie is, worden de records van de begin- en het slagen of mislukken van deze bewerking worden opgenomen in de beheercategorie. De beheercategorie omvat ook eventuele wijzigingen in de op rollen gebaseerd toegangsbeheer in een abonnement.
 * **Servicestatus** -deze categorie bevat de record van de service health incidenten die hebben plaatsgevonden in Azure. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "SQL Azure in VS-Oost ondervindt uitvaltijd." Er zijn vijf soorten service health-gebeurtenissen: Actie vereist, telefonische herstel, Incident, onderhoud, informatie of beveiliging, en wordt alleen weergegeven als u een resource in het abonnement dat wordt beïnvloed door de gebeurtenis.
 * **Resource Health** -deze categorie bevat de record van een resource health-gebeurtenissen die hebben plaatsgevonden naar uw Azure-resources. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Virtuele Machine health-status gewijzigd in niet beschikbaar." Resource health-gebeurtenissen kunnen gelden voor een van de vier health-statussen: Beschikbaar, niet beschikbaar is, verminderde en onbekend. Resource health-gebeurtenissen kunnen ook worden gecategoriseerd als Platform die gebruiker geïnitieerd of.
@@ -48,7 +48,7 @@ Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor voll
 * **Beleid** -deze categorie bevat niet alle gebeurtenissen; dit is gereserveerd voor toekomstig gebruik. 
 
 ## <a name="event-schema-per-category"></a>Gebeurtenisschema per categorie
-[Zie dit artikel voor informatie over de gebeurtenisschema in het activiteitenlogboek per categorie.](monitoring-activity-log-schema.md)
+[Zie dit artikel voor informatie over de gebeurtenisschema in het activiteitenlogboek per categorie.](../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>U kunt doen met het activiteitenlogboek
 Hier volgen enkele dingen die u met het activiteitenlogboek kunt doen:
@@ -60,7 +60,7 @@ Hier volgen enkele dingen die u met het activiteitenlogboek kunt doen:
 * [Een waarschuwing op een gebeurtenis voor activiteitenlogboek maken.](../azure-monitor/platform/activity-log-alerts.md)
 * [Stream het naar een **Event Hub** ](monitoring-stream-activity-logs-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
 * Analyseren in Power BI met behulp van de [ **Power BI-inhoudspakket**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Opslaan naar een **Opslagaccount** voor archivering of handmatige inspectie](monitoring-archive-activity-log.md). U kunt opgeven de bewaartermijn (in dagen) met behulp van de **Logboekprofiel**.
+* [Opslaan naar een **Opslagaccount** voor archivering of handmatige inspectie](../azure-monitor/platform/archive-activity-log.md). U kunt opgeven de bewaartermijn (in dagen) met behulp van de **Logboekprofiel**.
 * Deze opvragen via PowerShell-Cmdlet, CLI of REST-API.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Query uitvoeren op het activiteitenlogboek in Azure portal

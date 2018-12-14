@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2018
+ms.date: 12/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: f46837751901015fd80d3ecc7a620878cadb3f12
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317871"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343867"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Beveiligen van App Service met Azure Security Center
 Dit artikel helpt u Azure Security Center gebruiken om te controleren en beveiligen van uw toepassingen toevoegen aan App Service.
 
-App Service kunt u bouwen en hosten van webtoepassingen in de programmeertaal van uw keuze zonder dat infrastructuur worden beheerd. App Service biedt automatisch schalen en hoge beschikbaarheid, ondersteuning voor zowel Windows en Linux, evenals geautomatiseerde implementaties vanuit GitHub, Visual Studio Team Services of een gitopslagplaats. 
+App Service kunt u bouwen en hosten van webtoepassingen in de programmeertaal van uw keuze zonder dat infrastructuur worden beheerd. App Service biedt automatisch schalen en hoge beschikbaarheid, ondersteuning voor zowel Windows en Linux, evenals geautomatiseerde implementaties vanuit GitHub, Azure DevOps of een gitopslagplaats. 
 
 Door beveiligingslekken in webtoepassingen zijn vaak misbruikt door aanvallers, omdat ze een gemeenschappelijke en dynamische interface voor bijna elke organisatie op het Internet hebben. Aanvragen voor toepassingen die worden uitgevoerd op App Service gaat via verschillende gateways die zijn geïmplementeerd in Azure-datacenters overal ter wereld, die verantwoordelijk is voor de routering van elke aanvraag naar de desbetreffende toepassing. 
 
@@ -34,7 +34,7 @@ Security Center maakt gebruik van de schaal van de cloud om te bepalen van aanva
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt controleren en beveiligen van uw App Service, moet u een App Service-plan dat is gekoppeld aan toegewezen machines hebben. Deze abonnementen zijn: Basic, Standard, Premium, geïsoleerd of Linux. Azure Security Center biedt geen ondersteuning voor de abonnementen gratis, gedeeld of verbruik. Zie voor meer informatie, [App Service-abonnementen](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Als u wilt controleren en beveiligen van uw App Service, moet u een App Service-plan dat is gekoppeld aan toegewezen machines hebben. Deze abonnementen zijn: Basic, Standard, Premium, geïsoleerd, of Linux. Azure Security Center biedt geen ondersteuning voor de abonnementen gratis, gedeeld of verbruik. Zie voor meer informatie, [App Service-abonnementen](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 ## <a name="security-center-protection"></a>Security Center-beveiliging
 
@@ -63,8 +63,8 @@ Herhaal dit proces en in-/ uitschakelen als wilt uitschakelen bewaking en aanbev
 ## <a name="see-also"></a>Zie ook
 In dit artikel hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md): leer hoe u beveiligingsinstellingen configureert in Azure Security Center.
-* [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
-* [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
-* [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
+* [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md): Leer hoe u beveiligingsinstellingen configureert in Azure Security Center.
+* [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md): Informatie over het beheren van en reageren op beveiligingswaarschuwingen.
+* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): Meer informatie over het bewaken van de status van uw partneroplossingen.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md): Raadpleeg de veelgestelde vragen over het gebruik van de service.
+* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): Raadpleeg de blogberichten over beveiliging en naleving in Azure.

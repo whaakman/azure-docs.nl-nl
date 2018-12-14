@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad6ddacad322e4c2f952591be786d46cbcb95a21
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7af204ad76cb04c3d71c5108948be4036be1d1e4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642688"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338835"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timers in duurzame functies (Azure Functions)
 
 [Duurzame functies](durable-functions-overview.md) biedt *duurzame timers* voor gebruik in orchestrator-functies voor het implementeren van vertragingen of voor het instellen van time-outs op async-acties. Duurzame timers moeten worden gebruikt in de orchestrator-functies in plaats van `Thread.Sleep` en `Task.Delay` (C#) of `setTimeout()` en `setInterval()` (JavaScript).
 
-U maakt een duurzame timer door het aanroepen van de [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) methode in [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). De methode retourneert een taak die wordt hervat op een opgegeven datum en tijd.
+U maakt een duurzame timer door het aanroepen van de [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) -methode van [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) in .NET of de `createTimer` -methode van `DurableOrchestrationContext` in JavaScript. De methode retourneert een taak die wordt hervat op een opgegeven datum en tijd.
 
 ## <a name="timer-limitations"></a>Beperkingen van timer
 
@@ -29,13 +29,13 @@ Bij het maken van een timer die verloopt: 30: 00 uur, de onderliggende duurzame 
 
 > [!NOTE]
 > * Duurzame timers kunnen niet langer dan zeven dagen vanwege beperkingen in Azure Storage. Er wordt gewerkt aan een [functieaanvraag om uit te breiden timers langer dan 7 dagen](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Gebruik altijd [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) in plaats van `DateTime.UtcNow` zoals wordt weergegeven in de onderstaande voorbeelden bij het berekenen van een relatieve deadline van een duurzame timer.
+> * Gebruik altijd [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) in plaats van `DateTime.UtcNow` in .NET en `currentUtcDateTime` in plaats van `Date.now` of `Date.UTC` in JavaScript, zoals wordt weergegeven in de onderstaande voorbeelden bij het berekenen van een relatieve deadline van een duurzame timer .
 
 ## <a name="usage-for-delay"></a>Gebruik voor vertraging
 
 Het volgende voorbeeld wordt het gebruik van duurzame timers voor het uitstellen van uitvoering. Het voorbeeld verleent een facturering melding elke dag van tien dagen.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript"></a>Javascript
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 ```js
 const df = require("durable-functions");
@@ -68,13 +68,13 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Vermijd oneindige lus in de orchestrator-functies. Zie voor meer informatie over het implementeren van oneindige lus scenario's veilig en efficiënt [oneindige indelingen](durable-functions-eternal-orchestrations.md). 
+> Vermijd oneindige lus in de orchestrator-functies. Zie voor meer informatie over het implementeren van oneindige lus scenario's veilig en efficiënt [oneindige indelingen](durable-functions-eternal-orchestrations.md).
 
 ## <a name="usage-for-timeout"></a>Gebruik voor time-out
 
 In dit voorbeeld laat zien hoe u van duurzame timers voor het implementeren van time-outs.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -105,7 +105,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript"></a>Javascript
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 ```js
 const df = require("durable-functions");
@@ -142,4 +142,3 @@ Zie voor een meer diepgaande voorbeeld van het implementeren van time-outs in de
 
 > [!div class="nextstepaction"]
 > [Meer informatie over het verhogen en de verwerking van externe gebeurtenissen](durable-functions-external-events.md)
-

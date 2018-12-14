@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 768c26ad4d7eead2fcd81b9d9ea9270e1181bd91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277434"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339209"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor  
 
@@ -26,7 +26,7 @@ Dit artikel leest u hoe het instellen van waarschuwingen met behulp van de inter
 De term **Logboekwaarschuwingen** om te beschrijven van waarschuwingen met waar signaal aangepaste query op basis van [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) of [Application Insights](../../application-insights/app-insights-analytics.md). Meer informatie over functies, -terminologie en typen van [Logboekwaarschuwingen - overzicht](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
-> Populaire logboekgegevens van [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) is nu ook beschikbaar op de metrische platform in Azure Monitor. Voor de detailweergave [metrische waarschuwingen voor logboeken](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)
+> Populaire logboekgegevens van [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) is nu ook beschikbaar op de metrische platform in Azure Monitor. Voor de detailweergave [metrische waarschuwingen voor logboeken](../../azure-monitor/platform/alerts-metric-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Waarschuwingen beheren vanuit Azure portal
 

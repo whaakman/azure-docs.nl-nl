@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: b84a2c19fa7eda94e55d9bc473d9864e6d9c0193
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079780"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386441"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics gebruiken voor het HDInsight-clusters controleren
 
@@ -39,7 +39,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
   Zie voor instructies over het maken van een HDInsight-cluster [aan de slag met Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Het verdient aanbeveling om zowel het HDInsight-cluster en de Log Analytics-werkruimte in dezelfde regio voor betere prestaties. Azure Log Analytics is niet beschikbaar in alle Azure-regio's.
 
 ## <a name="enable-log-analytics-by-using-the-portal"></a>Log Analytics met behulp van de portal inschakelen

@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 8eb23528391ffeccdad6ba92345d28b31e18f0a3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: cf315718377210e13a6634c0eaf8caab158bcc4d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322098"
+ms.locfileid: "53342218"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Begrijpen hoe metriek werk waarschuwingen in Azure Monitor
 
-Metrische waarschuwingen in Azure Monitor hierop worden gebaseerd multi-dimensionale metrische gegevens. Deze metrische gegevens mogelijk platform metrische gegevens, [aangepaste metrische gegevens](../../azure-monitor/platform/metrics-custom-overview.md), [populaire logboeken van Log Analytics wordt geconverteerd naar metrische gegevens](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md), standaard metrische gegevens van Application Insights. Metrische waarschuwingen evalueren met regelmatige intervallen om te controleren of voorwaarden op een of meer metriek tijdreeksen ' True ' zijn en een melding wanneer de evaluaties wordt voldaan. Metrische waarschuwingen zijn stateful, dat wil zeggen, ze alleen verzenden van meldingen wanneer de status verandert.
+Metrische waarschuwingen in Azure Monitor hierop worden gebaseerd multi-dimensionale metrische gegevens. Deze metrische gegevens mogelijk platform metrische gegevens, [aangepaste metrische gegevens](../../azure-monitor/platform/metrics-custom-overview.md), [populaire logboeken van Log Analytics wordt geconverteerd naar metrische gegevens](../../azure-monitor/platform/alerts-metric-logs.md), standaard metrische gegevens van Application Insights. Metrische waarschuwingen evalueren met regelmatige intervallen om te controleren of voorwaarden op een of meer metriek tijdreeksen ' True ' zijn en een melding wanneer de evaluaties wordt voldaan. Metrische waarschuwingen zijn stateful, dat wil zeggen, ze alleen verzenden van meldingen wanneer de status verandert.
 
 ## <a name="how-do-metric-alerts-work"></a>De werking van metrische waarschuwingen
 
@@ -85,7 +85,7 @@ U kunt het bereik van de bewaking met een één waarschuwing voor metrische gege
 - alle virtuele machines (in een Azure-regio) in een of meer resourcegroepen in een abonnement
 - alle virtuele machines (in een Azure-regio) in één abonnement
 
-Het maken van regels voor metrische waarschuwingen die meerdere resources bewaken wordt momenteel niet ondersteund via Azure portal. U kunt deze regels via maken [Azure Resource Manager-sjablonen](../../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). U ontvangt afzonderlijke meldingen voor elke virtuele machine. 
+Het maken van regels voor metrische waarschuwingen die meerdere resources bewaken wordt momenteel niet ondersteund via Azure portal. U kunt deze regels via maken [Azure Resource Manager-sjablonen](../../azure-monitor/platform/alerts-metric-create-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). U ontvangt afzonderlijke meldingen voor elke virtuele machine. 
 
 ## <a name="typical-latency"></a>Normale latentie
 
@@ -134,5 +134,5 @@ Als u bent al gebruikmaken van de klassieke metrische waarschuwingen en informat
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Meer informatie over het maken, weergeven en beheren van metrische waarschuwingen in Azure](alerts-metric.md)
-- [Informatie over het implementeren van metrische waarschuwingen met behulp van Azure Resource Manager-sjablonen](../../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md)
+- [Informatie over het implementeren van metrische waarschuwingen met behulp van Azure Resource Manager-sjablonen](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Meer informatie over actiegroepen](action-groups.md)

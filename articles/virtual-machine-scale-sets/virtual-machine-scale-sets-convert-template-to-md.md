@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739563"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339872"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Een sjabloon voor schaalsets converteren naar een schaalsetsjabloon voor beheerde schijf
 
@@ -126,7 +126,7 @@ Er is geen expliciete eigenschap in de configuratie van de schaalset of beheerde
 
 ## <a name="data-disks"></a>Gegevensschijven
 
-Met de bovenstaande wijzigingen schijf scale set gebruikt managed disks voor het besturingssysteem, maar hoe zit het met gegevensschijven? Toevoegen om toe te voegen gegevensschijven, de eigenschap 'dataDisks' onder 'storageProfile' op hetzelfde niveau als 'osDisk'. De waarde van de eigenschap is een JSON-lijst met objecten, die allemaal eigenschappen 'lun' (dit moet uniek zijn per gegevensschijf op een virtuele machine), 'createOption' ('lege' is momenteel de enige ondersteunde optie), en "diskSizeGB" (de grootte van de schijf in gigabytes; moet groter zijn dan 0 en kleiner dan 1024) zoals in het volgende voorbeeld: 
+Met de bovenstaande wijzigingen schijf scale set gebruikt managed disks voor het besturingssysteem, maar hoe zit het met gegevensschijven? Toevoegen om toe te voegen gegevensschijven, de eigenschap 'dataDisks' onder 'storageProfile' op hetzelfde niveau als 'osDisk'. De waarde van de eigenschap is een JSON-lijst met objecten, die allemaal eigenschappen 'lun' (dit moet uniek zijn per gegevensschijf op een virtuele machine), 'createOption' ('lege' is momenteel de enige ondersteunde optie), en "diskSizeGB" (de grootte van de schijf in gigabytes; moet groter zijn dan 0 en kleiner dan 1024) zoals in het volgende voorbeeld:
 
 ```
 "dataDisks": [
@@ -144,7 +144,7 @@ Zie voor meer informatie over het gebruik van gegevensschijven met schaalsets, [
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Bijvoorbeeld met behulp van schaalsets, Resource Manager-sjablonen zoeken "vmss" in de [github-opslagplaats voor Azure-Snelstartsjablonen](https://github.com/Azure/azure-quickstart-templates).
+Bijvoorbeeld met behulp van schaalsets, Resource Manager-sjablonen zoeken "vmss" in de [Azure Quickstart-sjablonen GitHub-opslagplaats](https://github.com/Azure/azure-quickstart-templates).
 
 Bekijk voor algemene informatie over de [belangrijkste landingspagina voor schaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

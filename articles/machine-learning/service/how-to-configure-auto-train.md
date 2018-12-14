@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5237ab2b6970772e1f08264bb44223640c33a37
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 67995b4cc9c212f1798a37b54873bd349ac36576
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187259"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384918"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Geautomatiseerde machine learning-experimenten configureren
 
@@ -232,8 +232,9 @@ Eigenschap |  Description | Standaardwaarde
 `run_configuration` |   RunConfiguration-object.  Gebruikt voor extern worden uitgevoerd. |Geen
 `data_script`  |    Pad naar een bestand met de methode get_data.  Vereist voor extern worden uitgevoerd.   |Geen
 `model_explainability` | _Optionele_ True/False <br/>  De waarde True schakelt experimenteren om uit te voeren van belang van de functie voor elke iteratie. U kunt explain_model() methode ook gebruiken op een specifieke versie op de functie belang op aanvraag inschakelen voor deze herhaling nadat experiment voltooid is. | False
-`enable_ensembling`|Vlag waarmee een iteratie ensembling inschakelen nadat de iteraties hebt voltooid.|
-`ensemble_iterations`|Het aantal iteraties waarin we een gemonteerd pijplijn moet deel uitmaken van de laatste ensembles kiezen.|
+`enable_ensembling`|Vlag waarmee een iteratie ensembling inschakelen nadat de iteraties hebt voltooid.| True 
+`ensemble_iterations`|Het aantal iteraties waarin we een gemonteerd pijplijn moet deel uitmaken van de laatste ensembles kiezen.| 15
+`experiment_timeout_minutes`| Beperkt de hoeveelheid tijd (minues) die de hele experiment uitvoeren kunt nemen | Geen
 
 ## <a name="data-pre-processing-and-featurization"></a>Gegevens vooraf verwerken en parametrisatie
 

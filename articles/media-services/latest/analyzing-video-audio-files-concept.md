@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 6d2e87c50eba293df7c5130ea6bf192ed7f83277
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679814"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344309"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video-en audiobestanden analyseren
 
 Azure Media Services v3 kunt u voor het extraheren van inzichten uit uw video en audio bestanden met Video Indexer via AMS v3 analyzer voorinstellingen (beschreven in dit artikel). Als u meer gedetailleerde inzichten wilt, gebruikt u Video Indexer rechtstreeks. Als u het verschil wilt weten tussen het gebruik van instellingen van Video Indexer en Media Services, raadpleegt u het [vergelijkingsdocument](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-Voor het analyseren van uw inhoud met behulp van Media Services v3 voorinstellingen, maakt u een **transformeren** en het verzenden van een **taak** die gebruikmaakt van een van deze standaardinstellingen: **AudioAnalyzerPreset** of **VideoAnalyzerPreset**. Het volgende artikel ziet u hoe u **VideoAnalyzerPreset**: [zelfstudie: analyseren van video's met Azure Media Services](analyze-videos-tutorial-with-api.md).
+Voor het analyseren van uw inhoud met behulp van Media Services v3 voorinstellingen, maakt u een **transformeren** en het verzenden van een **taak** die gebruikmaakt van een van deze standaardinstellingen: **AudioAnalyzerPreset** of **VideoAnalyzerPreset**. Het volgende artikel ziet u hoe u **VideoAnalyzerPreset**: [Zelfstudie: Analyseren van video's met Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > Wanneer u voorinstellingen voor een Video of Audio Analyzer gebruikt, moet u de Azure-portal gebruiken om uw account in te stellen op 10 S3 Door media gereserveerde eenheden. Zie [Mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md) voor meer informatie.
@@ -33,8 +33,7 @@ Media Services ondersteunt momenteel de volgende ingebouwde analyzer voorinstell
 
 |**Vooraf ingestelde naam**|**Scenario**|**Details**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Audio analyseren|De definitie van een vooraf gedefinieerde set op basis van AI analysis-bewerkingen, met inbegrip van spraaktranscriptie toepassing. De vooraf ingestelde ondersteunt momenteel de verwerking van inhoud met een één audiotrack.<br/>U kunt de taal voor de nettolading van de audio opgeven in de invoer met behulp van de BCP-47-indeling van 'taal tag-regio' (bijvoorbeeld ' en-US'). 'en-US', "en-GB", "es-ES", 'es-MX'
-fr-FR, it-IT, ja-JP, pt-BR, zh-CN, 'nl-nl', 'ar-bijvoorbeeld', ru-RU, 'Hallo-IN'. Als de taal niet is opgegeven of is ingesteld op Null, wordt automatische taaldetectie worden gebruikt. De functie voor automatische taalherkenning ondersteunt momenteel het Engels, Chinees, Frans, Duits, Italiaans, Japans, Spaans, Russisch en Portugees. De functie voor automatische taalherkenning werkt het beste met audio-opnamen met duidelijk aanmerkelijke spraak. Als automatische taaldetectie niet vinden van de taal, wordt de transcriptie teruggegaan naar het Engels.|
+|**AudioAnalyzerPreset**|Audio analyseren|De definitie van een vooraf gedefinieerde set op basis van AI analysis-bewerkingen, met inbegrip van spraaktranscriptie toepassing. De vooraf ingestelde ondersteunt momenteel de verwerking van inhoud met een één audiotrack. U kunt de taal voor de nettolading van de audio in de invoer met behulp van de BCP-47-indeling van 'taal tag-regio' opgeven. Ondersteunde talen zijn Engels ('en-US' en "en-GB"), Spaans ('es-ES' en 'es-MX'), Frans ('fr-FR'), Italiaans ('it-IT'), Japans ('ja-JP'), Portugees ('pt-BR'), Chinees ('zh-CN'), Duits ('nl-nl'), Arabisch ('ar-bijvoorbeeld'), Russisch ('ru-RU'), Hindi ("Hallo-IN' ), en Koreaans ('ko-KR').<br/><br/> Als de taal is niet opgegeven of is ingesteld op null-waarde, automatische taaldetectie worden gebruikt. De functie voor automatische taalherkenning ondersteunt momenteel het Engels, Chinees, Frans, Duits, Italiaans, Japans, Spaans, Russisch en Portugees. De functie voor automatische taalherkenning werkt het beste met audio-opnamen met duidelijk aanmerkelijke spraak. Als automatische taaldetectie niet vinden van de taal, terugvallen de transcriptie naar het Engels.|
 |**VideoAnalyzerPreset**|Analyse van audio en video|Inzichten (uitgebreide metagegevens) wordt geëxtraheerd uit de audio en video en voert een bestand met JSON-indeling. U kunt opgeven of u alleen audio inzicht wilt bij het verwerken van een videobestand. Zie voor meer informatie, [analyseren video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
@@ -62,7 +61,7 @@ De uitvoer bevat een JSON-bestand (insights.json) met de inzichten die zijn gevo
 
 ### <a name="transcript"></a>transcript
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De regel-ID.|
 |tekst|Het transcript zelf.|
@@ -100,7 +99,7 @@ Voorbeeld:
 
 ### <a name="ocr"></a>OCR
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De OCR-regel-ID.|
 |tekst|De tekst.|
@@ -143,7 +142,7 @@ Voorbeeld:
 
 ### <a name="faces"></a>gezichten
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De face-ID.|
 |naam|De naam van pictogramtitel. 'Onbekende #0', een geïdentificeerde beroemdheden of een persoon met de klant kan zijn.|
@@ -188,7 +187,7 @@ Voorbeeld:
 
 ### <a name="shots"></a>foto 's
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|Id van de schermopname.|
 |Hoofdframes|Een lijst met belangrijke frames in beeld (elk heeft een ID en een lijst met instanties tijdsbereik). Belangrijkste frames-exemplaren beschikken over een thumbnailId veld met de miniatuur van het sleutelframes-id.|
@@ -245,7 +244,7 @@ Voorbeeld:
 
 ### <a name="statistics"></a>statistieken
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |CorrespondenceCount|Het aantal berichten in de video.|
 |WordCount|Het aantal woorden per spreker.|
@@ -258,7 +257,7 @@ Voorbeeld:
 
 Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/negatieve). Bijvoorbeeld, 0-0.1, 0.1 0.2.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De id van de gevoelsscore.|
 |averageScore |Het gemiddelde van alle scores van alle exemplaren van dat type sentiment - positieve/neutraal/negatieve|
@@ -293,7 +292,7 @@ Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/
 
 ### <a name="labels"></a>labels
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De label-ID.|
 |naam|De labelnaam (bijvoorbeeld 'Computer', 'Tv-programma's ').|
@@ -352,7 +351,7 @@ Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/
 
 ### <a name="keywords"></a>trefwoorden
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|Het sleutelwoord-ID.|
 |tekst|De tekst trefwoord.|
@@ -403,7 +402,7 @@ Het blok visualContentModeration bevat tijdsbereik die Video Indexer hebben moge
 
 Video's die zijn gevonden voor volwassenen of ongepaste inhoud mogelijk beschikbaar voor alleen persoonlijke weergave. Gebruikers hebben de optie voor het verzenden van een aanvraag voor een menselijke beoordeling van de inhoud in dit geval kan het kenmerk IsAdult het resultaat van de menselijke beoordeling bevat.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De id van de visual inhoudstoezicht.|
 |adultScore|De erotiekscore (van content moderator).|

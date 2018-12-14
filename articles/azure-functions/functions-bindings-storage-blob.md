@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: b48b60390887ea7356385954a81fa51ded2b1fb8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: efccea36dd94120934b1a9729f583e0596316bc7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270668"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338563"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -182,7 +182,7 @@ module.exports = function(context) {
 
 ### <a name="trigger---python-example"></a>Trigger - Python-voorbeeld
 
-Het volgende voorbeeld ziet u een blobtrigger binding in een *function.json* bestand en [Python-code](functions-reference-python.md) die gebruikmaakt van de binding. De functie wordt een logboek geschreven wanneer een blob wordt toegevoegd of bijgewerkt in de `samples-workitems` container.
+Het volgende voorbeeld ziet u een blobtrigger binding in een *function.json* bestand en [Python-code](functions-reference-python.md) die gebruikmaakt van de binding. De functie wordt een logboek geschreven wanneer een blob wordt toegevoegd of bijgewerkt in de `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 Hier volgt de *function.json* bestand:
 
@@ -319,8 +319,8 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | Moet worden ingesteld op `blobTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. Uitzonderingen worden vermeld in de [gebruik](#trigger---usage) sectie. |
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven. | 
-|**Pad** | **BlobPath** |De container om te controleren.  Kan een [patroon voor de blob](#trigger---blob-name-patterns). | 
-|**verbinding** |**verbinding**| De naam van een app-instelling met de [opslagverbindingsreeks](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [alleen-blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**Pad** | **BlobPath** |De [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) om te controleren.  Kan een [patroon voor de blob](#trigger---blob-name-patterns). | 
+|**verbinding** | **verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [Blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -690,7 +690,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Uitzonderingen worden vermeld in de [gebruik](#input---usage) sectie. |
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven.|
 |**Pad** |**BlobPath** | Het pad naar de blob. |
-|**verbinding** |**verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [alleen-blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**verbinding** |**verbinding**| De naam van een app-instelling met de [opslagverbindingsreeks](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [alleen-blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |N.v.t. | **Toegang** | Geeft aan of u wordt lezen of schrijven. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -974,7 +974,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | Moet worden ingesteld op `blob`. |
 |**direction** | N.v.t. | Moet worden ingesteld op `out` voor een Uitvoerbinding. Uitzonderingen worden vermeld in de [gebruik](#output---usage) sectie. |
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de blob in functiecode aan te geven.  Ingesteld op `$return` om te verwijzen naar de geretourneerde waarde van de functie.|
-|**Pad** |**BlobPath** | Het pad naar de blob. |
+|**Pad** |**BlobPath** | Het pad naar de blobco. |
 |**verbinding** |**verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet zijn voor een algemeen opslagaccount, niet een [alleen-blob storage-account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |N.v.t. | **Toegang** | Geeft aan of u wordt lezen of schrijven. |
 

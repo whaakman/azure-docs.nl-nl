@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 9ee835978325968e1a61633ca868ed091b5b2484
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3313d7490ed9a2f51831c76148a54b7ecf19d3b3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192512"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338801"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview) solution in Log Analytics
 
@@ -163,7 +163,7 @@ Zoekopdrachten opslaan is een standaardfunctie in Log Analytics en kunt u alle q
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Waarschuwingen van query's maken
-Nadat u uw query's hebt gemaakt, wilt u mogelijk de query's gebruiken om u te waarschuwen wanneer specifieke gebeurtenissen plaatsvinden. Zie [waarschuwingen in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) voor informatie over het maken van waarschuwingen. Zie voor meer voorbeelden van query's en voorbeelden van andere waarschuwingen, de [Monitor VMware met behulp van Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogbericht.
+Nadat u uw query's hebt gemaakt, wilt u mogelijk de query's gebruiken om u te waarschuwen wanneer specifieke gebeurtenissen plaatsvinden. Zie [waarschuwingen in Log Analytics](../../azure-monitor/platform/alerts-overview.md) voor informatie over het maken van waarschuwingen. Zie voor meer voorbeelden van query's en voorbeelden van andere waarschuwingen, de [Monitor VMware met behulp van Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogbericht.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Wat moet ik doen op de ESXi host instellen? Wat zijn de gevolgen heeft dit op mijn huidige omgeving?
@@ -206,4 +206,4 @@ Kunnen er meerdere redenen zijn:
 ## <a name="next-steps"></a>Volgende stappen
 * Gebruik [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics om gedetailleerde VMware weer te geven gegevens te hosten.
 * [Maak uw eigen dashboards](../../azure-monitor/platform/dashboards.md) VMware hostgegevens weergeven.
-* [Waarschuwingen maken](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) wanneer specifieke VMware host gebeurtenissen plaatsvinden.
+* [Waarschuwingen maken](../../azure-monitor/platform/alerts-overview.md) wanneer specifieke VMware host gebeurtenissen plaatsvinden.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.openlocfilehash: 271d7518094982dcd1e973a7d51b231beae92b78
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 613001c8495ba6c6a259063b8d8d3bce21b66960
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185900"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336411"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Een aangepast dashboard voor gebruik in Log Analytics maken
 
@@ -86,4 +86,4 @@ Als u wilt verwijderen van een tegel, gaat u naar de weergave van mijn Dashboard
 ![Een tegel verwijderen](./media/dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Maak [waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics om meldingen te genereren en problemen kunt oplossen.
+* Maak [waarschuwingen](../../azure-monitor/platform/alerts-overview.md) in Log Analytics om meldingen te genereren en problemen kunt oplossen.

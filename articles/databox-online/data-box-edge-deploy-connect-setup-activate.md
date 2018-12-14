@@ -1,5 +1,5 @@
 ---
-title: Verbinding maken, configureren en Azure Data Box Edge moet worden geactiveerd in Azure portal | Microsoft Docs
+title: Verbinding maken, configureren en activeren van een Azure Data Box-Edge-apparaat in Azure portal | Microsoft Docs
 description: Derde zelfstudie voor het implementeren van Data Box Edge u verbinding maken en instellen op, en activeer uw fysieke apparaat.
 services: databox
 author: alkohli
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3d6742bec54e612b5dca6d9ef6c4f67a33929448
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f4ca513e3c2e2345dc0005b95ddb7927c0164ffe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166573"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383014"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-edge-preview"></a>Zelfstudie: Verbinding maken, instellen, activeren van Azure Data Box Edge (Preview) 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Zelfstudie: Verbinding maken, het instellen en het activeren van Azure Data Box Edge (preview) 
 
-Deze zelfstudie wordt beschreven hoe u verbinding maakt voor het instellen en activeren van uw gegevens in het Edge-apparaat met behulp van de lokale webgebruikersinterface. 
+Deze zelfstudie wordt beschreven hoe u verbinding kunt maken, instellen en uw Azure Data Box-Edge-apparaat activeren met behulp van de lokale webgebruikersinterface. 
 
 De installatie en activering kan duren ongeveer 20 minuten om te voltooien. 
 
@@ -26,103 +26,122 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Verbinding maken met een fysiek apparaat
-> * Instellen van en het fysieke apparaat activeren
+> * Instellen en het fysieke apparaat activeren
 
 > [!IMPORTANT]
-> Data Box Edge is beschikbaar als preview. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
+> Data Box Edge is in de preview-fase. Voordat u bestellen en deze oplossing implementeert, controleert u de [Azure servicevoorwaarden voor Preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u configureren en van uw gegevens in Edge instellen, zorg ervoor dat:
+Voordat u configureren en van uw gegevens in het Edge-apparaat instellen, zorg ervoor dat:
 
 * U hebt het fysieke apparaat geïnstalleerd zoals beschreven in [Data Box-Edge installeren](data-box-edge-deploy-install.md).
 * U hebt de activeringssleutel van de gegevens in het Edge-service die u hebt gemaakt voor het beheren van de gegevens in het Edge-apparaat. Ga voor meer informatie naar [voorbereidingen voor het implementeren van Azure Data Box Edge](data-box-edge-deploy-prep.md).
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Verbinding maken met de installatie van de lokale web-UI 
 
-1. Configureer de Ethernet-adapter op de computer die u gebruikt voor het verbinding maken met het Edge-apparaat met een statisch IP-adres 192.168.100.5 en subnet 255.255.255.0.
-2. Verbind de computer op poort 1 op uw apparaat. 
-3. Open een browservenster en de toegang tot de lokale webgebruikersinterface van het apparaat op https://192.168.100.10. Deze actie duurt een paar minuten nadat u hebt ingeschakeld op het apparaat. 
-4. Er is een fout of een waarschuwing die aangeeft dat er een probleem met het beveiligingscertificaat van de website is. Klik op **doorgaan naar deze webpagina**. (Deze stappen kunnen afwijken op basis van de browser die wordt gebruikt.)
+1. Configureer de Ethernet-adapter op uw computer verbinding maken met het Edge-apparaat met een statisch IP-adres 192.168.100.5 en subnet 255.255.255.0.
+
+1. Verbind de computer op poort 1 op uw apparaat. 
+
+1. Open een browservenster en de toegang tot de lokale webgebruikersinterface van het apparaat op https://192.168.100.10.  
+    Deze actie duurt een paar minuten nadat u hebt ingeschakeld op het apparaat. 
+
+    Er is een fout of een waarschuwing die aangeeft dat er een probleem met het beveiligingscertificaat van de website is. 
    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
+    ![Foutbericht voor website security-certificaat](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
 
-2. Aanmelden bij de webgebruikersinterface van uw apparaat. Is het standaardwachtwoord *Wachtwoord1*. 
+1. Selecteer **doorgaan naar deze webpagina**.  
+    Deze stappen kunnen afwijken afhankelijk van de browser die u gebruikt.
+
+1. Aanmelden bij de webgebruikersinterface van uw apparaat. Is het standaardwachtwoord *Wachtwoord1*. 
    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
+    ![Gegevens in het Edge-apparaat aanmeldingspagina opgeven](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
-3. U wordt gevraagd het beheerderswachtwoord voor het apparaat te wijzigen. Typ in een nieuw wachtwoord op dat tussen 8 en 16 tekens bevat. Het wachtwoord moet 3 van de volgende tekens bevatten: hoofdletters, kleine letters, cijfers en speciale tekens.
+1. Wijzig het beheerderswachtwoord voor het apparaat bij de prompt.  
+    Het nieuwe wachtwoord moet bestaan uit 8 tot 16 tekens. Deze moet drie van de volgende tekens bevatten: hoofdletters, kleine letters, cijfers en speciale tekens.
 
-U kunt nu op de **Dashboard** van uw apparaat.
+U kunt nu op het dashboard van uw apparaat.
 
 ## <a name="set-up-and-activate-the-physical-device"></a>Instellen en het fysieke apparaat activeren
  
-1. Vanuit het dashboard, kunt u verschillende instellingen vereist voor het configureren en het fysieke apparaat registreren bij de gegevens in het Edge-service gaan. De **apparaatnaam**, **netwerkinstellingen**, **Web proxyinstellingen**, en **tijdinstellingen** zijn optioneel. De enige vereiste instellingen zijn **Cloudinstellingen**.
+Uw dashboard vindt u de verschillende instellingen die nodig zijn om te configureren en het fysieke apparaat registreren bij de gegevens in het Edge-service. De **apparaatnaam**, **netwerkinstellingen**, **Web proxyinstellingen**, en **tijdinstellingen** zijn optioneel. De enige vereiste instellingen zijn **Cloudinstellingen**.
    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
+![De gegevens in het Edge-device-dashboard](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
-2. In de **apparaatnaam** pagina, een beschrijvende naam voor uw apparaat configureren. De beschrijvende naam kan 1 tot en met 15 tekens lang zijn en mag letters, cijfers en afbreekstreepjes bevatten.
+1. Selecteer in het linkerdeelvenster **apparaatnaam**, en voer vervolgens een beschrijvende naam voor uw apparaat.  
+    De beschrijvende naam moet tussen 1 tot 15 tekens bevatten en mag letters, cijfers en afbreekstreepjes bevatten.
 
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
+    ![De pagina 'Apparaatnaam'](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
-3. (Optioneel) Configureer uw **netwerkinstellingen**. Op het fysieke apparaat ziet u zes netwerkinterfaces. POORT 1 en 2 van de poort zijn 1 Gbps-netwerkinterfaces. POORT 3, 4 poort, poort 5 en 6 voor poort zijn alle netwerkinterfaces van 25 Gbps. POORT 1 wordt automatisch geconfigureerd als alleen-management-poort, poort 2 tot en met 6 poort zijn alle gegevenspoorten. De **netwerkinstellingen** pagina, zoals hieronder weergegeven.
+1. (Optioneel) Selecteer in het linkerdeelvenster **netwerkinstellingen** en configureer vervolgens de instellingen.  
+    Zijn zes netwerkinterfaces op uw fysieke apparaat. POORT 1 en 2 van de poort zijn 1 Gbps-netwerkinterfaces. POORT 3, 4 poort, poort 5 en 6 voor poort zijn alle netwerkinterfaces van 25 Gbps. POORT 1 wordt automatisch geconfigureerd als alleen-management-poort en poort 2 tot en met 6 poort zijn alle gegevenspoorten. De **netwerkinstellingen** pagina, zoals hieronder weergegeven.
     
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
+    ![De pagina "Instellingen voor netwerkapparaten"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
-    Houd er rekening mee bij het configureren van netwerkinstellingen:
+    Als u de netwerkinstellingen configureren, houd er rekening mee:
 
     - Als DHCP is ingeschakeld in uw omgeving, worden netwerkinterfaces automatisch geconfigureerd. Een IP-adres, subnet, gateway en DNS worden automatisch toegewezen.
     - Als DHCP niet is ingeschakeld, kunt u statische IP-adressen kunt toewijzen, indien nodig.
     - U kunt uw netwerk-interface configureren als IPv4.
    
-4. (Optioneel) Configureer uw webproxyserver. Hoewel webproxyconfiguratie optioneel is, als u een webproxy gebruikt kunt u alleen het hier configureert.
+1. (Optioneel) Selecteer in het linkerdeelvenster **Web proxyinstellingen**, en configureer vervolgens uw webproxyserver. Hoewel de configuratie van uw webproxy is optioneel, als u een webproxy gebruikt kunt u deze alleen op deze pagina configureren.
    
-   ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
+   ![De pagina 'Web proxy-instellingen'](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
-   In de **Web proxy** pagina:
+   Op de **Web proxyinstellingen** pagina, de volgende handelingen uit:
    
-   1. Geef de **Web-URL van proxy** in deze indeling: `http://host-IP address or FDQN:Port number`. HTTPS-URL's worden niet ondersteund.
-   2. Geef **verificatie** als **Basic** of **geen**.
-   3. Als u verificatie gebruikt, moet u ook voor een **gebruikersnaam** en **wachtwoord**.
-   4. Klik op **toepassen** om te valideren en de geconfigureerde web proxy-instellingen toepassen.
+   a. In de **Web-URL van proxy** voert u de URL in deze indeling: `http://host-IP address or FDQN:Port number`. HTTPS-URL's worden niet ondersteund.
 
-5. (Optioneel) Configureer de tijdinstellingen voor uw apparaat, zoals tijdzone en de primaire en secundaire NTP-servers. NTP-servers zijn vereist, omdat het apparaat de tijd synchroniseren moet zodat deze kan worden geverifieerd met uw cloud-serviceproviders.
-    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
-    
-    In de **tijdinstellingen** pagina:
-    
-    1. Selecteer in de vervolgkeuzelijst de **tijdzone** op basis van de geografische locatie waar het apparaat wordt geïmplementeerd. De standaardtijdzone voor uw apparaat is PST. Het apparaat zal deze tijdzone gebruiken voor alle geplande bewerkingen.
-    2. Geef een **primaire NTP-server** voor uw apparaat in of accepteer de standaardwaarde van time.windows.com. Zorg ervoor dat in uw netwerk NTP-verkeer kan worden doorgegeven van uw datacenter naar internet.
-    3. Geef eventueel een **secundaire NTP-server** voor uw apparaat.
-    4. Klik op **toepassen** om te valideren en de geconfigureerde time-instellingen toepassen.
+   b. Onder **verificatie**, selecteer **geen** of **NTLM**.
 
-6. In de **Cloudinstellingen** pagina en het activeren van uw apparaat en de gegevens in het Edge-service in Azure portal.
-    
-    1. Voer de **activeringscode** die u hebt verkregen [ophalen van de activeringscode](data-box-edge-deploy-prep.md#get-the-activation-key) voor gegevens in Edge.
+   c. Als u verificatie gebruikt, voert u een gebruikersnaam en wachtwoord.
 
-    2. Klik op **Toepassen**. 
+   d. Als u wilt valideren en de geconfigureerde web proxy-instellingen toepassen, selecteert u **instellingen toepassen**.
+
+1. (Optioneel) Selecteer in het linkerdeelvenster **tijdinstellingen**, en configureer vervolgens de tijdzone en de primaire en secundaire NTP-servers voor uw apparaat.  
+    NTP-servers zijn vereist, omdat het apparaat de tijd synchroniseren moet zodat deze kan worden geverifieerd met uw cloud-serviceproviders.
+    
+    ![De pagina "Tijdinstellingen"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
+    
+    Op de **tijdinstellingen** pagina, de volgende handelingen uit:
+    
+    a. In de **tijdzone** vervolgkeuzelijst, selecteert u de tijdzone die overeenkomt met de geografische locatie waar het apparaat wordt geïmplementeerd.  
+        De standaardtijdzone voor uw apparaat is PST. Het apparaat zal deze tijdzone gebruiken voor alle geplande bewerkingen.
+
+    b. In de **primaire NTP-server** vak, voer de primaire server voor uw apparaat of accepteer de standaardwaarde van time.windows.com.  
+        Zorg ervoor dat uw netwerk NTP-verkeer kan worden doorgegeven van uw datacenter met het internet toestaat.
+
+    c. (Optioneel) in de **secundaire NTP-server** voert u een secundaire server voor uw apparaat.
+
+    d. Als u wilt valideren en de geconfigureerde time-instellingen toepassen, selecteert u **toepassen**.
+
+6. Selecteer in het linkerdeelvenster **Cloudinstellingen**, en vervolgens uw apparaat en de gegevens in het Edge-service in Azure portal te activeren.
+    
+    a. In de **activeringscode** voert de activeringscode die u hebt verkregen in [ophalen van de activeringscode](data-box-edge-deploy-prep.md#get-the-activation-key) voor gegevens in Edge.
+
+    b. Selecteer **Toepassen**. 
        
-         ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
+    ![De pagina 'cloudinstellingen'](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
     
-    3. Nadat het apparaat wordt geactiveerd, krijgt u met connectiviteitsopties modus. Deze instellingen zijn geconfigureerd als u wilt werken met het apparaat in gedeeltelijk niet-verbonden of niet-verbonden modus. 
+    Nadat het apparaat wordt geactiveerd, krijgt u met connectiviteitsopties modus. Deze instellingen zijn geconfigureerd als u wilt werken met het apparaat in gedeeltelijk niet-verbonden of niet-verbonden modus. 
 
-        ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)    
+    ![De bevestiging van het 'Cloud instellingen' activering](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)    
 
 Installatie van het apparaat is voltooid. U kunt nu bestandsshares toevoegen op het apparaat.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over gegevens in het Edge-onderwerpen, zoals:
+In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Verbinding maken met een fysiek apparaat
-> * Instellen van en het fysieke apparaat activeren
+> * Instellen en het fysieke apparaat activeren
 
 
-Ga naar de volgende zelfstudie voor meer informatie over het overbrengen van gegevens met uw gegevens in Edge.
+Voor meer informatie over het overdragen van gegevens met uw gegevens in het Edge-apparaat, Zie:
 
 > [!div class="nextstepaction"]
 > [Gegevens overdragen met gegevens in Edge](./data-box-edge-deploy-add-shares.md).

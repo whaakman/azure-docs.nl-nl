@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3bebdfea34cea9d0b0b5c19489ce51bf25f60af9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 152b9a7fdac91865baa8a2c20c632e7a228be62f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189724"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340756"
 ---
 # <a name="data-sources-in-log-analytics"></a>Gegevensbronnen in Log Analytics
 Log Analytics verzamelt gegevens van uw verbonden bronnen en slaat ze op in uw Log Analytics-werkruimte.  De gegevens die worden verzameld van elke wordt gedefinieerd door de gegevensbronnen die u configureert.  Gegevens in Log Analytics wordt opgeslagen als een set records.  Elke gegevensbron maakt van een bepaald type-records met elk type met een eigen set eigenschappen.
@@ -67,4 +67,4 @@ Alle gegevens die zijn verzameld door Log Analytics is in de werkruimte opgeslag
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [oplossingen](../../azure-monitor/insights/solutions.md) die functionaliteit toevoegen aan Log Analytics en ook gegevens verzamelen in de werkruimte.
 * Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
-* Configureer [waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) om proactief te waarschuwen u van kritieke gegevens die worden verzameld van gegevensbronnen en oplossingen.
+* Configureer [waarschuwingen](../../azure-monitor/platform/alerts-overview.md) om proactief te waarschuwen u van kritieke gegevens die worden verzameld van gegevensbronnen en oplossingen.

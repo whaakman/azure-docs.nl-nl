@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e7840bb3ac6449009b843bb74cc19b960b492205
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 649086c6c3279652b3708b5968969570801ebbc1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310144"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385343"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -140,7 +140,7 @@ Wanneer u op de implementatie, is het proces enigszins verschillen afhankelijk v
 * [Azure Container Instances](#aci)
 * [Azure Kubernetes-Services](#aks)
 * [Project Brainwave (veld-programmable gate arrays)](#fpga)
-* [Azure IoT Edge-apparaten](#iot)
+* [Azure IoT Edge-apparaten](#iotedge)
 
 ### <a id="aci"></a> Implementeren in Azure Container Instances
 
@@ -259,27 +259,102 @@ Een Azure IoT Edge-apparaat is een op Linux of Windows-apparaat waarop de Azure 
 
 Azure IoT Edge-modules zijn geïmplementeerd op het apparaat van een containerregister. Wanneer u een installatiekopie uit het model maakt, wordt deze opgeslagen in de containerregister voor uw werkruimte.
 
-Gebruik de volgende stappen uit om op te halen van de container registerreferenties voor de werkruimte van uw Azure Machine Learning-service:
+#### <a name="set-up-your-environment"></a>Uw omgeving instellen
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/signin/index).
+* Een ontwikkelomgeving. Zie voor meer informatie de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
 
-1. Ga naar de werkruimte van uw Azure Machine Learning-service en selecteer __overzicht__. Om te gaan naar de container registry-instellingen, selecteer de __register__ koppeling.
+* Een [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in uw Azure-abonnement. 
 
-    ![Een afbeelding van de container-register-item](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+* Een getraind model. Zie voor een voorbeeld van hoe u een model te trainen, de [een model van de installatiekopie classificatie met Azure Machine Learning te trainen](tutorial-train-models-with-aml.md) document. Er is een vooraf getrainde model beschikbaar op de [AI-werkset voor Azure IoT Edge-GitHub-opslagplaats](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-1. Selecteer één keer in het containerregister **toegangssleutels** en schakel vervolgens de gebruiker met beheerdersrechten.
+#### <a name="prepare-the-iot-device"></a>De IoT-apparaat voorbereiden
+U moet een IoT-hub maken en registreren van een apparaat of opnieuw gebruiken met [met dit script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister).
 
-    ![Een installatiekopie van het scherm van de sleutels toegang](./media/how-to-deploy-and-where/findaccesskey.png)
+``` bash
+ssh <yourusername>@<yourdeviceip>
+sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
+sudo chmod +x createNregister
+sudo ./createNregister <The Azure subscriptionID you wnat to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+```
 
-1. Sla de waarden voor **aanmeldingsserver**, **gebruikersnaam**, en **wachtwoord**. 
+Opslaan van de resulterende verbindingsreeks na "cs": '{deze tekenreeks kopiëren}'.
 
-Zodra u de referenties hebt, gebruikt u de stappen in de [implementeren Azure IoT Edge-modules van de Azure-portal](../../iot-edge/how-to-deploy-modules-portal.md) document naar de installatiekopie implementeert op uw apparaat. Bij het configureren van de __registerinstellingen__ gebruiken voor het apparaat, de __aanmeldingsserver__, __gebruikersnaam__, en __wachtwoord__ voor uw werkruimte container registry.
+Initialiseren van uw apparaat door het downloaden van [met dit script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) in een UbuntuX64 IoT edge-knooppunt of DSVM om uit te voeren van de volgende opdrachten:
+
+```bash
+ssh <yourusername>@<yourdeviceip>
+sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
+sudo chmod +x installIoTEdge
+sudo ./installIoTEdge
+```
+
+Het IoT Edge-knooppunt is gereed voor het ontvangen van de verbindingsreeks voor uw IoT-Hub. Zoek de regel ```device_connection_string:``` en plak de verbindingsreeks van bovenstaande tussen de aanhalingstekens.
+
+U kunt ook meer informatie over het registreren van uw apparaat en installeer de IoT-runtime stap voor stap door het [Quick Start: Uw eerste IoT Edge-module implementeren op een apparaat met Linux x64](../../iot-edge/quickstart-linux.md) document.
+
+
+#### <a name="get-the-container-registry-credentials"></a>De container registerreferenties ophalen
+Als u wilt een IoT Edge-module implementeert op uw apparaat, moet Azure IoT de referenties voor de container registry om docker-installatiekopieën in Azure Machine Learning-service worden opgeslagen.
+
+U kunt gemakkelijk de vereiste container registerreferenties op twee manieren ophalen:
+
++ **In de Azure-Portal**:
+
+  1. Meld u aan bij [Azure Portal](https://portal.azure.com/signin/index).
+
+  1. Ga naar de werkruimte van uw Azure Machine Learning-service en selecteer __overzicht__. Om te gaan naar de container registry-instellingen, selecteer de __register__ koppeling.
+
+     ![Een afbeelding van de container-register-item](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+
+  1. Selecteer één keer in het containerregister **toegangssleutels** en schakel vervolgens de gebruiker met beheerdersrechten.
+ 
+     ![Een installatiekopie van het scherm van de sleutels toegang](./media/how-to-deploy-and-where/findaccesskey.png)
+
+  1. Sla de waarden voor **aanmeldingsserver**, **gebruikersnaam**, en **wachtwoord**. 
+
++ **Met een Python-script**:
+
+  1. Gebruik het volgende Python-script na de code die u hierboven hebt uitgevoerd om een container te maken:
+
+     ```python
+     # Getting your container details
+     container_reg = ws.get_details()["containerRegistry"]
+     reg_name=container_reg.split("/")[-1]
+     container_url = "\"" + image.image_location + "\","
+     subscription_id = ws.subscription_id
+     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
+     from azure.mgmt import containerregistry
+     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
+     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
+     username = result.username
+     password = result.passwords[0].value
+     print('ContainerURL{}'.format(image.image_location))
+     print('Servername: {}'.format(reg_name))
+     print('Username: {}'.format(username))
+     print('Password: {}'.format(password))
+     ```
+  1. Sla de waarden voor de ContainerURL, servername, gebruikersnaam en wachtwoord. 
+
+     Deze referenties zijn nodig voor de IoT Edge Apparaattoegang tot afbeeldingen in uw persoonlijke containerregister.
+
+#### <a name="deploy-the-model-to-the-device"></a>Het model op het apparaat implementeren
+
+U kunt eenvoudig een model implementeren door het uitvoeren van [met dit script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel) en het geven van de volgende informatie uit de bovenstaande stappen: containerregister naam, gebruikersnaam, wachtwoord, afbeeldings-url voor locatie, naam van de gewenste implementatie, de naam van de IoT Hub, en de apparaat-ID u hebt gemaakt. U kunt dit doen in de virtuele machine door de volgende stappen: 
+
+```bash 
+wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
+sudo chmod +x deploymodel
+sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
+```
+
+U kunt ook u kunt de stappen in de [implementeren Azure IoT Edge-modules van de Azure-portal](../../iot-edge/how-to-deploy-modules-portal.md) document naar de installatiekopie implementeert op uw apparaat. Bij het configureren van de __registerinstellingen__ gebruiken voor het apparaat, de __aanmeldingsserver__, __gebruikersnaam__, en __wachtwoord__ voor uw werkruimte container registry.
 
 > [!NOTE]
 > Als u niet bekend met Azure IoT bent, ziet u de volgende documenten voor meer informatie over aan de slag met de service:
 >
 > * [Snelstartgids: Uw eerste IoT Edge-module implementeert op een Linux-apparaat](../../iot-edge/quickstart-linux.md)
 > * [Snelstartgids: Uw eerste IoT Edge-module implementeert op een Windows-apparaat](../../iot-edge/quickstart.md)
+
 
 ## <a name="testing-web-service-deployments"></a>Testen van de webservice-implementaties
 

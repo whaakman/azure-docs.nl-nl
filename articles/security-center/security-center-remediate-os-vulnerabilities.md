@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317492"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344139"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Beveiligingsconfiguraties in Azure Security Center herstellen
 Azure Security Center analyseert dagelijks het besturingssysteem (OS) van uw virtuele machines (VM's) en de computers voor een configuratie die kan de virtuele machines en computers die meer kwetsbaar voor aanvallen. Security Center raadt aan dat u beveiligingsproblemen oplossen wanneer de configuratie van het besturingssysteem komt niet overeen met de aanbevolen configuratie van beveiligingsregels en er configuratiewijzigingen aanbevolen om deze beveiligingsproblemen te verhelpen.
@@ -42,23 +42,23 @@ In dit voorbeeld bevat informatie over de aanbeveling 'Beveiligingsconfiguraties
 
   Het bovenste gedeelte van het dashboard wordt weergegeven:
 
-  - **Mislukte regels op ernst**: het totale aantal regels dat de configuratie van het besturingssysteem in uw virtuele machines en computers, onderverdeeld op basis van ernst is mislukt.
-  - **Mislukte regels per type**: het totale aantal regels dat de configuratie van het besturingssysteem in uw virtuele machines en computers, opgedeeld per type is mislukt.
-  - **Mislukte regels Windows**: het totale aantal regels is mislukt door de configuraties van uw Windows-besturingssysteem.
-  - **Mislukte regels Linux**: het totale aantal regels is mislukt door de configuraties van uw Linux-besturingssysteem.
+  - **Mislukte regels op ernst**: Het totale aantal regels dat de configuratie van het besturingssysteem in uw virtuele machines en computers, onderverdeeld op basis van ernst is mislukt.
+  - **Mislukte regels per type**: Het totale aantal regels dat de configuratie van het besturingssysteem in uw virtuele machines en computers, opgedeeld per type is mislukt.
+  - **Mislukte regels Windows**: Het totale aantal regels is mislukt door de configuraties van uw Windows-besturingssysteem.
+  - **Mislukte regels Linux**: Het totale aantal regels is mislukt door de configuraties van uw Linux-besturingssysteem.
 
   Het onderste gedeelte van het dashboard geeft een lijst van alle mislukte regels voor uw virtuele machines en computers en de ernst van de ontbrekende update. De lijst bevat de volgende elementen:
 
-  - **CCEID**: de CCE unieke id voor de regel. Unieke id's toewijzen aan configuratieregels gebruikt Security Center Common Configuration Enumeration (CCE).
-  - **Naam**: de naam van de regel die is mislukt.
-  - **Regeltype**: de *registersleutel*, *beveiligingsbeleid*, *controlebeleid*, of *IIS* regeltype.
-  - **Nee. VM's en computers**: het totale aantal virtuele machines en computers die de mislukte regel van toepassing op.
-  - **Ernst van regel**: waarde van de CCE *kritieke*, *belangrijk*, of *waarschuwing*.
-  - **Status**: de huidige status van de aanbeveling:
+  - **CCEID**: De CCE unieke id voor de regel. Unieke id's toewijzen aan configuratieregels gebruikt Security Center Common Configuration Enumeration (CCE).
+  - **Naam**: De naam van de regel die is mislukt.
+  - **Regeltype**: De *registersleutel*, *beveiligingsbeleid*, *controlebeleid*, of *IIS* regeltype.
+  - **Nee. VM's en computers**: Het totale aantal virtuele machines en computers die de mislukte regel van toepassing op.
+  - **Ernst van regel**: De waarde CCE *kritieke*, *belangrijk*, of *waarschuwing*.
+  - **status**: De huidige status van de aanbeveling:
 
-    - **Open**: de aanbeveling is nog niet opgelost.
-    - **Bezig**: de aanbeveling wordt momenteel toegepast op de resources en er is geen actie te ondernemen.
-    - **Opgelost**: de aanbeveling is toegepast. Als het probleem is opgelost, wordt de vermelding lichter gekleurd weergegeven.
+    - **Open**: De aanbeveling is nog niet opgelost.
+    - **Bezig**: De aanbeveling wordt momenteel toegepast op de resources en er is geen actie te ondernemen.
+    - **Opgelost**: De aanbeveling is toegepast. Als het probleem is opgelost, wordt de vermelding lichter gekleurd weergegeven.
 
 3. Als u wilt weergeven van de details van een regel die is mislukt, selecteert u deze in de lijst.
 
@@ -66,17 +66,17 @@ In dit voorbeeld bevat informatie over de aanbeveling 'Beveiligingsconfiguraties
 
    De gedetailleerde weergave bevat de volgende informatie:
 
-   - **Naam**: de naam van de regel.
-   - **CCIED**: de CCE unieke id voor de regel.
-   - **Versie van het besturingssysteem**: versie van het besturingssysteem van de virtuele machine of computer.
-   - **Ernst van regel**: waarde van de CCE *kritieke*, *belangrijk*, of *waarschuwing*.
-   - **Volledige beschrijving**: de beschrijving van de regel.
-   - **Beveiligingslek met betrekking tot**: de uitleg van beveiligingsproblemen of het risico als de regel wordt niet toegepast.
-   - **Mogelijke impact**: de bedrijfsimpact wanneer de regel wordt toegepast.
-   - **Tegenmaatregel**: de herstelstappen.
-   - **Verwachte waarde**: de waarde die wordt verwacht wanneer Security Center de configuratie van het besturingssysteem van de virtuele machine op basis van de regel analyseert.
-   - **Werkelijke waarde**: de waarde die wordt geretourneerd na een analyse van uw configuratie van het besturingssysteem van de virtuele machine op basis van de regel.
-   - **Regel bewerking**: de regelbewerking die door Security Center wordt gebruikt tijdens de analyse van uw configuratie van het besturingssysteem van de virtuele machine op basis van de regel.
+   - **Naam**: De naam van de regel.
+   - **CCIED**: De CCE unieke id voor de regel.
+   - **Versie van het besturingssysteem**: De versie van het besturingssysteem van de virtuele machine of computer.
+   - **Ernst van regel**: De waarde CCE *kritieke*, *belangrijk*, of *waarschuwing*.
+   - **Volledige beschrijving**: De beschrijving van de regel.
+   - **Beveiligingslek met betrekking tot**: De uitleg van beveiligingsproblemen of het risico als de regel wordt niet toegepast.
+   - **Mogelijke impact**: De impact op bedrijf wanneer de regel wordt toegepast.
+   - **Tegenmaatregel**: De herstelstappen.
+   - **Verwachte waarde**: De waarde die wordt verwacht wanneer Security Center de configuratie van het besturingssysteem van de virtuele machine op basis van de regel analyseert.
+   - **Werkelijke waarde**: De waarde die wordt geretourneerd na een analyse van uw configuratie van het besturingssysteem van de virtuele machine op basis van de regel.
+   - **Regel bewerking**: De regelbewerking die door Security Center wordt gebruikt tijdens de analyse van uw configuratie van het besturingssysteem van de virtuele machine op basis van de regel.
 
 4. Selecteer aan de bovenkant van het venster van de gedetailleerde weergave, **zoeken**.  
   Zoeken wordt een lijst met werkruimten die virtuele machines en computers met de geselecteerde beveiligingsgroep configuraties mismatch hebt geopend. De werkruimteselectie wordt alleen weergegeven als de geselecteerde regel van toepassing op meerdere virtuele machines die zijn verbonden met verschillende werkruimten.
@@ -101,7 +101,7 @@ De specifieke configuraties die worden bewaakt, Zie [lijst met aanbevolen config
 Zie voor meer informatie over Security Center, de volgende bronnen:
 
 * Zie voor een lijst met ondersteunde Windows en Linux-VM's, [ondersteunde platforms in Azure Security Center](security-center-os-coverage.md).
-* Zie voor informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen, [beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md).
+* Zie voor informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen, [beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md).
 * Zie voor meer informatie hoe aanbevelingen u helpen bij uw Azure-resources beveiligen, [aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md).
 * Zie voor meer informatie over het bewaken van de status van uw Azure-resources, [beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md).
 * Zie voor meer informatie over het beheren en reageren op beveiligingswaarschuwingen, [beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: de9186faa9c6228f1938a94016ef449ce8bb1899
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313436"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335928"
 ---
 # <a name="permissions-in-azure-security-center"></a>Machtigingen in Azure Security Center
 
@@ -29,8 +29,8 @@ Security Center beoordeelt de configuratie van uw resources om beveiligingsprobl
 
 Naast deze rollen zijn er twee specifieke Security Center-rollen:
 
-* **Beveiligingslezer**: een gebruiker die deel uitmaakt van deze rol heeft rechten om Security Center te bekijken. De gebruiker kunt weergeven, aanbevelingen, waarschuwingen, een beveiligingsbeleid en beveiliging, maar kan geen wijzigingen aanbrengen.
-* **Beveiligingsbeheerder**: een gebruiker die deel uitmaakt van deze rol heeft dezelfde toegangsrechten als de Beveiligingslezer kan ook het beveiligingsbeleid bijwerken en negeren van waarschuwingen en aanbevelingen.
+* **Beveiligingslezer**: Een gebruiker die deel uitmaakt van deze rol heeft rechten om Security Center te bekijken. De gebruiker kunt weergeven, aanbevelingen, waarschuwingen, een beveiligingsbeleid en beveiliging, maar kan geen wijzigingen aanbrengen.
+* **Beveiligingsbeheerder**: Een gebruiker die deel uitmaakt van deze rol kan heeft dezelfde toegangsrechten als de lezer van de beveiliging en ook het beveiligingsbeleid bijwerken en negeren van waarschuwingen en aanbevelingen.
 
 > [!NOTE]
 > De beveiligingsrollen Beveiligingslezer en Beveiligingsbeheerder, hebben toegang alleen in Security Center. De beveiligingsrollen hebt geen toegang tot andere servicegebieden van Azure, zoals Storage, Web & Mobile of Internet of Things.
@@ -59,7 +59,7 @@ De volgende tabel geeft de rollen en toegestane acties in Security Center. Een X
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel wordt uitgelegd hoe Security Center maakt gebruik van RBAC machtigingen toewijzen aan gebruikers en de toegestane acties voor elke rol geïdentificeerd. Nu dat u bekend met de roltoewijzingen die nodig zijn bent voor het bewaken van de beveiligingsstatus van uw abonnement, beveiligingsbeleid, bewerken en toepassen van aanbevelingen, informatie over hoe u:
 
-- [Beveiligingsbeleid instellen in Security Center](security-center-azure-policy.md)
+- [Beveiligingsbeleid instellen in Security Center](tutorial-security-policy.md)
 - [Aanbevelingen voor beveiliging in Security Center beheren](security-center-recommendations.md)
 - [De beveiligingsstatus van uw Azure-resources controleren](security-center-monitoring.md)
 - [Beveiligingswaarschuwingen beheren en erop reageren in Security Center](security-center-managing-and-responding-alerts.md)

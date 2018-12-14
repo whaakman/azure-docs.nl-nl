@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f76c1676e21e1abdc3f23e2e2c4a7f6f721fefdb
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955372"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386567"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Gegevens uit Office 365 kopiëren naar Azure met behulp van Azure Data Factory (Preview) 
 
@@ -34,7 +34,7 @@ Op dit moment binnen een enkel kopieeractiviteit kunt u alleen **gegevens kopië
 >- Het Azure-abonnement met de data factory en de sink-gegevensopslag moet zich in dezelfde Azure Active Directory (Azure AD)-tenant als Office 365-tenant.
 >- Zorg ervoor dat de Integration Runtime van Azure-regio die wordt gebruikt voor de kopieeractiviteit, evenals de bestemming zich in dezelfde regio waar de Office 365-tenantgebruikers postvak dat zich bevindt. Raadpleeg [hier](concepts-integration-runtime.md#integration-runtime-location) om te begrijpen hoe de locatie van de Azure IR wordt bepaald. Raadpleeg [tabel hier](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) voor een lijst van ondersteunde Office-regio's en bijbehorende Azure-regio's.
 >-  Als u het laden van gegevens in Office 365 **Azure Blob Storage** als doel, zorg ervoor dat u gebruikmaakt van **[service-principal verificatie](connector-azure-blob-storage.md#service-principal-authentication)** bij het definiëren van de gekoppelde Naar Azure Blob Storage-service en niet met behulp van [accountsleutel](connector-azure-blob-storage.md#account-key-authentication), [handtekening voor gedeelde toegang](connector-azure-blob-storage.md#shared-access-signature-authentication) of [beheerde identiteiten voor een Azure-resources](connector-azure-blob-storage.md#managed-identity) verificaties.
->-  Als u het laden van gegevens in Office 365 **Azure Data Lake Storage Gen1** als doel, zorg ervoor dat u gebruikmaakt van [ **service-principal verificatie** ](connector-azure-data-lake-store.md#using-service-principal-authentication) bij het definiëren van de Gekoppelde Service Azure Data Lake Storage Gen1 en niet met behulp van [beheerde identiteiten voor verificatie van de Azure-resources](connector-azure-data-lake-store.md#managed-identity).
+>-  Als u het laden van gegevens in Office 365 **Azure Data Lake Storage Gen1** als doel, zorg ervoor dat u gebruikmaakt van [ **service-principal verificatie** ](connector-azure-data-lake-store.md#use-service-principal-authentication) bij het definiëren van de Gekoppelde Service Azure Data Lake Storage Gen1 en niet met behulp van [beheerde identiteiten voor verificatie van de Azure-resources](connector-azure-data-lake-store.md#managed-identity).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -77,9 +77,9 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor Office 365 gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **Office 365** | Ja |
+| type | De eigenschap type moet worden ingesteld op: **Office365** | Ja |
 | office365TenantId | Azure-tenant-ID waartoe de Office 365-account behoort. | Ja |
 | servicePrincipalTenantId | Geef informatie over de tenant die uw Azure AD-webtoepassing zich bevindt. | Ja |
 | servicePrincipalId | Opgeven van de toepassing client-ID. | Ja |
@@ -117,7 +117,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Als u wilt kopiëren van gegevens van Office 365, zijn de volgende eigenschappen worden ondersteund:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **Office365Table** | Ja |
 | tableName | Naam van de gegevensset om op te halen van Office 365. Raadpleeg [hier](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) voor een lijst van beschikbare voor het ophalen van Office 365-gegevenssets. | Ja |

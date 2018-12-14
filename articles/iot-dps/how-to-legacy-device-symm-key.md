@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 60321b2463a535c3f7a0c73e0922010bd12a3e82
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323232"
+ms.locfileid: "53341232"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Over het inrichten van verouderde apparaten met behulp van symmetrische sleutels
 
@@ -239,22 +239,25 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Klik met de rechtermuisknop op het **prov\_dev\_client\_sample**-project en selecteer **Set as Startup Project**. 
-
-7. Navigeer in het venster *Solution Explorer* in Visual Studio naar het **hsm\_security\_client**-project en vouw het uit. Vouw **Bronfiles** uit en open **hsm\_client\_key.c**. 
-
-    Zoek de declaratie van de constanten `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE`. Breng de volgende wijzigingen aan in het bestand en sla het op.
-
-    Werk de waarde van de `REGISTRATION_NAME` constante met de **unieke registratie-ID voor uw apparaat**.
-    
-    Werk de waarde van de `SYMMETRIC_KEY_VALUE` constante met uw **apparaatsleutel afgeleid**.
+6. De aanroep naar `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** die is opgenomen als opmerking.
 
     ```c
-    static const char* const REGISTRATION_NAME = "sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6";
-    static const char* const SYMMETRIC_KEY_VALUE = "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-7. Selecteer in het menu van Visual Studio de optie **Debug** > **Start without debugging** om de oplossing uit te voeren. Klik in de prompt om het project opnieuw te bouwen op **Yes** om het project opnieuw te bouwen voordat het wordt uitgevoerd.
+    Verwijder opmerkingen bij de aanroep van de functie en vervang de tijdelijke aanduiding voor waarden (inclusief de punthaken) door de unieke registratie-ID voor uw apparaat en de afgeleide apparaatsleutel die u hebt gegenereerd.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6", "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=");
+    ```
+   
+    Sla het bestand op.
+
+7. Klik met de rechtermuisknop op het **prov\_dev\_client\_sample**-project en selecteer **Set as Startup Project**. 
+
+8. Selecteer in het menu van Visual Studio de optie **Debug** > **Start without debugging** om de oplossing uit te voeren. Klik in de prompt om het project opnieuw te bouwen op **Yes** om het project opnieuw te bouwen voordat het wordt uitgevoerd.
 
     De volgende output is een voorbeeld waarbij het gesimuleerde apparaat met succes opstart en verbinding maakt met het inrichtingsservice-exemplaar voor toewijzing aan een IoT-hub:
 
@@ -273,7 +276,7 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
     Press enter key to exit:
     ```
 
-8. Navigeer in de portal naar de IoT-hub waaraan uw gesimuleerd apparaat is toegewezen, en klik op het tabblad **IoT-apparaten**. Wanneer de inrichting van het gesimuleerde apparaat voor de hub is geslaagd, wordt de betreffende apparaat-ID weergegeven op de blade **IoT-apparaten** met de *STATUS* op **ingeschakeld**. Mogelijk moet u bovenaan op de knop **Vernieuwen** klikken. 
+9. Navigeer in de portal naar de IoT-hub waaraan uw gesimuleerd apparaat is toegewezen, en klik op het tabblad **IoT-apparaten**. Wanneer de inrichting van het gesimuleerde apparaat voor de hub is geslaagd, wordt de betreffende apparaat-ID weergegeven op de blade **IoT-apparaten** met de *STATUS* op **ingeschakeld**. Mogelijk moet u bovenaan op de knop **Vernieuwen** klikken. 
 
     ![Apparaat wordt geregistreerd voor de IoT-hub](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 

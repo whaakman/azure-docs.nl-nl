@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08b8d980b46ccbbce47c4f165a621daa14a95fa2
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b5083a2af335bd40dc55f7f325ac0a4ad125b682
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012909"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384222"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>HDInsight-clusters beheren met behulp van de Ambari REST-API
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>HDInsight-clusters beheren met behulp van de Apache Ambari REST-API
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Leer hoe u de Ambari REST-API gebruiken om te beheren en bewaken van Hadoop-clusters in Azure HDInsight.
+Informatie over het gebruik van de Apache Ambari REST-API voor het beheren en controleren van Apache Hadoop-clusters in Azure HDInsight.
 
 Apache Ambari vereenvoudigt het beheer en bewaking van een Hadoop-cluster met een eenvoudige web-UI en de REST-API gebruiken. Ambari is opgenomen in HDInsight-clusters die gebruikmaken van de Linux-besturingssysteem. U kunt Ambari gebruiken om te controleren van het cluster en configuratiewijzigingen aanbrengen.
 
-## <a id="whatis"></a>Wat is Ambari
+## <a id="whatis"></a>Wat is Apache Ambari
 
 [Apache Ambari](http://ambari.apache.org) biedt web-UI die kan worden gebruikt om te beheren en bewaken van Hadoop-clusters. Ontwikkelaars kunnen deze mogelijkheden integreren in hun toepassingen met behulp van de [Ambari REST-API's](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -32,7 +32,7 @@ Ambari wordt geboden door standaard met HDInsight op basis van Linux-clusters.
 
 ## <a name="how-to-use-the-ambari-rest-api"></a>Het gebruik van de Ambari REST-API
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De informatie en voorbeelden in dit document moeten een HDInsight-cluster dat gebruik maakt van Linux-besturingssysteem. Zie voor meer informatie, [aan de slag met HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 De voorbeelden in dit document zijn beschikbaar voor zowel de Bourne shell (bash) en PowerShell. De bash-voorbeelden zijn getest met GNU bash versie 4.3.11, maar moeten samen met andere shells Unix. De PowerShell-voorbeelden zijn getest met PowerShell 5.0, maar moeten werken met PowerShell 3.0 of hoger.
@@ -47,7 +47,7 @@ Of u Bash of PowerShell gebruikt, moet u ook hebt [jq](https://stedolan.github.i
 
 De basis-URI voor de Ambari REST-API op HDInsight is https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, waarbij **CLUSTERNAME** is de naam van uw cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De naam van het cluster in het gedeelte van de FQDN-naam (Fully Qualified Domain Name) van de URI (CLUSTERNAME.azurehdinsight.net) is niet hoofdlettergevoelig, zijn andere exemplaren in de URI zijn hoofdlettergevoelig. Bijvoorbeeld, als de naam van uw cluster `MyCluster`, de volgende geldige URI's zijn:
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/MyCluster`
@@ -72,7 +72,7 @@ De volgende voorbeelden laten zien hoe u een GET-aanvraag indient voor de basis 
 curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De Bash-voorbeelden in dit document moeten u de volgende veronderstellingen:
 >
 > * De aanmeldingsnaam voor het cluster is de standaardwaarde van `admin`.
@@ -85,7 +85,7 @@ $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/c
 $resp.Content
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De PowerShell-voorbeelden in dit document moeten u de volgende veronderstellingen:
 >
 > * `$creds` is een referentieobject met de beheerdersaanmelding bij en het wachtwoord voor het cluster. U kunt deze waarde instellen met behulp van `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` en referenties wanneer hierom wordt gevraagd.
@@ -131,10 +131,10 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Hoewel de meeste voorbeelden in dit document `ConvertFrom-Json` om elementen uit het antwoorddocument te geven de [Update Ambari configuratie](#example-update-ambari-configuration) praktijkvoorbeelden jq. Jq wordt in dit voorbeeld gebruikt om een nieuwe sjabloon uit de JSON-antwoorddocument samen te stellen.
 
-Zie voor een volledig overzicht van de REST-API, [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Zie voor een volledig overzicht van de REST-API, [Apache Ambari-API-verwijzing V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 ## <a name="example-get-the-fqdn-of-cluster-nodes"></a>Voorbeeld: De FQDN-naam van de clusterknooppunten ophalen
 
@@ -198,7 +198,7 @@ Als u werkt met HDInsight, moet u mogelijk kent de volledig gekwalificeerde dome
 
 ## <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>Voorbeeld: Het interne IP-adres van de clusterknooppunten ophalen
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De IP-adressen die wordt geretourneerd door de voorbeelden in deze sectie zijn niet rechtstreeks toegankelijk via internet. Ze zijn alleen toegankelijk binnen het virtuele Azure-netwerk waarin het HDInsight-cluster.
 >
 > Zie voor meer informatie over het werken met HDInsight en virtuele netwerken [mogelijkheden voor HDInsight uitbreiden met behulp van een aangepaste Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
@@ -213,7 +213,7 @@ do
 done
 ```
 
-> [!TIP]
+> [!TIP]  
 > Vorige voorbeelden wordt u gevraagd om het wachtwoord. In dit voorbeeld wordt uitgevoerd de `curl` meerdere keren opdracht zodat het wachtwoord is opgegeven als `$PASSWORD` om te voorkomen dat meerdere stappen.
 
 ```powershell
@@ -230,7 +230,7 @@ foreach($item in $respObj.items) {
 }
 ```
 
-## <a name="example-get-the-default-storage"></a>Voorbeeld: De standaardopslag ophalen
+## <a name="example-get-the-default-storage"></a>Voorbeeld: Profiteer van de standaardopslag
 
 Wanneer u een HDInsight-cluster maakt, moet u een Azure Storage-Account of een Data Lake Store als standaardopslag gebruiken voor het cluster. Ambari kunt u deze informatie ophalen nadat het cluster is gemaakt. Bijvoorbeeld, als u wilt lezen/schrijven van gegevens naar de container buiten HDInsight.
 
@@ -248,7 +248,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties.'fs.defaultFS'
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Deze voorbeelden retourneren de eerste configuratie toegepast op de server (`service_config_version=1`) die deze informatie bevat. Als u een waarde die is gewijzigd na het maken van een cluster kunt ophalen, moet u de configuratieversies weergeven en ophalen van de meest recente versie.
 
 De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
@@ -289,11 +289,11 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
 
     De geretourneerde waarde is vergelijkbaar met `/clusters/CLUSTERNAME/`. Deze waarde is een pad in het Data Lake Store-account. Dit pad is de hoofdmap van de compatibele HDFS-bestandssysteem voor het cluster. 
 
-> [!NOTE]
+> [!NOTE]  
 > De `Get-AzureRmHDInsightCluster` cmdlet geleverd door [Azure PowerShell](/powershell/azure/overview) geeft ook de opslaginformatie voor het cluster.
 
 
-## <a name="example-get-configuration"></a>Voorbeeld: Get-configuratie
+## <a name="example-get-configuration"></a>Voorbeeld: Configuratie ophalen
 
 1. Haal de configuraties die beschikbaar voor uw cluster zijn.
 
@@ -341,7 +341,7 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
 
     In dit voorbeeld retourneert een JSON-document met de huidige configuratie voor de `core-site` onderdeel.
 
-## <a name="example-update-configuration"></a>Voorbeeld: Update-configuratie
+## <a name="example-update-configuration"></a>Voorbeeld: Configuratie bijwerken
 
 1. Haal de huidige configuratie, waarbij Ambari worden opgeslagen als de 'gewenste configuratie':
 
@@ -392,7 +392,7 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     $resp.Content | jq --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Vervang **spark-thrift-sparkconf** en **INITIËLE** met het onderdeel en de code die u wilt ophalen van de configuratie voor.
    
     Jq wordt gebruikt voor het inschakelen van de gegevens opgehaald uit HDInsight in een nieuwe configuratiesjabloon. Deze voorbeelden wordt met name de volgende acties uitvoeren:
@@ -517,7 +517,7 @@ Op dit moment als u de Ambari-Webgebruikersinterface bekijkt, het Spark-service 
     }
     ```
     
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > De `href` waarde die door deze URI geretourneerd met behulp van het interne IP-adres van het clusterknooppunt. Voor het gebruik van buiten het cluster, kunt u het gedeelte '10.0.0.18:8080' vervangen door de FQDN-naam van het cluster. 
     
     De volgende opdrachten ophalen de status van de aanvraag:
@@ -572,5 +572,5 @@ Op dit moment als u de Ambari-Webgebruikersinterface bekijkt, het Spark-service 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een volledig overzicht van de REST-API, [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Zie voor een volledig overzicht van de REST-API, [Apache Ambari-API-verwijzing V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 

@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: d3326ef4bba5649f5420c1d92b6117d44edba47b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 41c8315bab1b716f79b47afb77c6d371a757691d
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281979"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386424"
 ---
-# <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight
+# <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Apache Hadoop-clusters in HDInsight
 
-HDInsight-clusters bieden twee hoofdknooppunten voor het verhogen van de beschikbaarheid en betrouwbaarheid van Hadoop-services en taken die worden uitgevoerd.
+HDInsight-clusters bieden twee hoofdknooppunten voor het verhogen van de beschikbaarheid en betrouwbaarheid van Apache Hadoop-services en taken die worden uitgevoerd.
 
 Hadoop realiseert hoge betrouwbaarheid en beschikbaarheid door te repliceren van services en gegevens op verschillende knooppunten in een cluster. Standard distributies van Hadoop hebben echter meestal alleen een enkel hoofdknooppunt. Een onderbreking van de één hoofdknooppunt kan leiden tot het cluster niet meer werken. HDInsight biedt twee hoofdknooppunten ter verbetering van de beschikbaarheid en betrouwbaarheid van Hadoop.
 
@@ -29,23 +29,23 @@ Hadoop realiseert hoge betrouwbaarheid en beschikbaarheid door te repliceren van
 
 Knooppunten in een HDInsight-cluster worden geïmplementeerd met behulp van Azure Virtual Machines. De volgende secties worden de afzonderlijke knooppunttypen gebruikt met HDInsight. 
 
-> [!NOTE]
+> [!NOTE]  
 > Niet alle knooppunttypen worden gebruikt voor een clustertype. Een type Hadoop-cluster heeft bijvoorbeeld geen eventuele Nimbus-knooppunten. Voor meer informatie over de knooppunten die worden gebruikt door HDInsight-clustertypen, Zie de sectie van de typen Cluster van de [maken Linux gebaseerde Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
 
 ### <a name="head-nodes"></a>Hoofdknooppunten
 
-HDInsight biedt voor hoge beschikbaarheid van Hadoop-services, twee hoofdknooppunten. Beide hoofdknooppunten zijn tegelijkertijd actief en wordt uitgevoerd binnen het HDInsight-cluster. Sommige services, zoals HDFS of YARN, zijn alleen 'active' op één hoofdknooppunt op een bepaald moment. Andere services zoals HiveServer2 of Hive-MetaStore zijn actief op beide hoofdknooppunten op hetzelfde moment.
+HDInsight biedt voor hoge beschikbaarheid van Hadoop-services, twee hoofdknooppunten. Beide hoofdknooppunten zijn tegelijkertijd actief en wordt uitgevoerd binnen het HDInsight-cluster. Sommige services, zoals Apache HDFS of Apache Hadoop YARN, zijn alleen 'active' op één hoofdknooppunt op een bepaald moment. Andere services zoals HiveServer2 of Hive-MetaStore zijn actief op beide hoofdknooppunten op hetzelfde moment.
 
 Hoofdknooppunten (en andere knooppunten in HDInsight) hebt een numerieke waarde als onderdeel van de hostnaam van het knooppunt. Bijvoorbeeld, `hn0-CLUSTERNAME` of `hn4-CLUSTERNAME`.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Koppelt de numerieke waarde aan of een knooppunt is een primaire of secundaire. De numerieke waarde is alleen aanwezig is een unieke naam voor elk knooppunt op te geven.
 
 ### <a name="nimbus-nodes"></a>Nimbus-knooppunten
 
-Nimbus-knooppunten zijn beschikbaar met Storm-clusters. Het Nimbus-knooppunten bieden vergelijkbare functionaliteit aan de Hadoop JobTracker door te distribueren en bewaking van de verwerking van over de worker-knooppunten. HDInsight biedt twee Nimbus-knooppunten voor Storm-clusters
+Nimbus-knooppunten zijn beschikbaar met Apache Storm-clusters. Het Nimbus-knooppunten bieden vergelijkbare functionaliteit aan de Hadoop JobTracker door te distribueren en bewaking van de verwerking van over de worker-knooppunten. HDInsight biedt twee Nimbus-knooppunten voor Storm-clusters
 
-### <a name="zookeeper-nodes"></a>ZooKeeper-knooppunten
+### <a name="apache-zookeeper-nodes"></a>Apache Zookeeper-knooppunten
 
 [ZooKeeper](http://zookeeper.apache.org/) knooppunten worden gebruikt voor de selectie van leider van master services op de hoofdknooppunten. Ze worden ook gebruikt om ervoor te zorgen dat services, gegevensknooppunten (worker) en gateways weet welke hoofdknooppunt een hoofd-service is actief op. HDInsight biedt standaard drie ZooKeeper-knooppunten.
 
@@ -63,7 +63,7 @@ Zie voor meer informatie over het gebruik van een edge-knooppunt met andere clus
 
 ## <a name="accessing-the-nodes"></a>Toegang tot de knooppunten
 
-Toegang tot het cluster via internet wordt geleverd via een openbare gateway. De toegang is beperkt tot de verbinding met de hoofdknooppunten en (als een bestaat) het edge-knooppunt. Toegang tot services die worden uitgevoerd op de hoofdknooppunten wordt getroffen door meerdere hoofdknooppunten. De openbare gateway worden aanvragen gerouteerd naar het hoofdknooppunt die als host fungeert voor de aangevraagde service. Bijvoorbeeld, als Ambari momenteel op het secundaire hoofdknooppunt wordt gehost, de gateway worden binnenkomende aanvragen gerouteerd voor Ambari naar dat knooppunt.
+Toegang tot het cluster via internet wordt geleverd via een openbare gateway. De toegang is beperkt tot de verbinding met de hoofdknooppunten en (als een bestaat) het edge-knooppunt. Toegang tot services die worden uitgevoerd op de hoofdknooppunten wordt getroffen door meerdere hoofdknooppunten. De openbare gateway worden aanvragen gerouteerd naar het hoofdknooppunt die als host fungeert voor de aangevraagde service. Bijvoorbeeld, als Apache Ambari is momenteel wordt gehost op het secundaire hoofdknooppunt, de gateway routeert binnenkomende aanvragen voor Ambari naar dat knooppunt.
 
 Toegang via de openbare gateway is beperkt tot poort 443 (HTTPS), 22 en 23.
 
@@ -79,7 +79,7 @@ Zie voor meer informatie over het gebruik van SSH de [SSH gebruiken met HDInsigh
 
 Knooppunten in een HDInsight-cluster hebben een interne IP-adres en FQDN-naam die alleen uit het cluster kan worden geopend. Bij het openen van services op het cluster met behulp van de interne FQDN-naam of IP-adres, moet u Ambari gebruiken om te controleren of het IP- of FQDN-naam moet worden gebruikt bij het openen van de service.
 
-Bijvoorbeeld, de Oozie service kan alleen worden uitgevoerd op één hoofdknooppunt en het gebruik van de `oozie` opdracht vanaf een SSH-sessie moet de URL naar de service. Deze URL kan worden verkregen van Ambari met behulp van de volgende opdracht uit:
+Bijvoorbeeld, de Apache Oozie service kan alleen worden uitgevoerd op één hoofdknooppunt en het gebruik van de `oozie` opdracht vanaf een SSH-sessie moet de URL naar de service. Deze URL kan worden verkregen van Ambari met behulp van de volgende opdracht uit:
 
     curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
@@ -87,17 +87,17 @@ Met deze opdracht retourneert een waarde die vergelijkbaar is met de volgende op
 
     "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
-Zie voor meer informatie over het werken met de Ambari REST-API, [bewaken en beheren van HDInsight met behulp van de Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md).
+Zie voor meer informatie over het werken met de Ambari REST-API, [bewaken en beheren van HDInsight met behulp van de Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ### <a name="accessing-other-node-types"></a>Toegang tot andere knooppunttypen
 
 U kunt verbinding maken met knooppunten die niet rechtstreeks toegankelijk zijn via internet met behulp van de volgende methoden:
 
-* **SSH**: eenmaal verbinding hebben met een hoofdknooppunt met behulp van SSH, kunt u vervolgens SSH vanaf het hoofdknooppunt verbinding maken met andere knooppunten in het cluster. Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* **SSH**: Eenmaal verbinding hebben met een hoofdknooppunt met behulp van SSH, kunt u vervolgens SSH gebruiken van het hoofdknooppunt verbinding maken met andere knooppunten in het cluster. Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-* **SSH-Tunnel**: als u nodig hebt voor toegang tot een webservice die wordt gehost op een van de knooppunten die geen toegang heeft tot internet, moet u een SSH-tunnel. Zie voor meer informatie de [een SSH-tunnel gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
+* **SSH Tunnel**: Als u nodig hebt voor toegang tot een webservice die wordt gehost op een van de knooppunten die geen toegang heeft tot internet, moet u een SSH-tunnel. Zie voor meer informatie de [een SSH-tunnel gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
 
-* **Azure-netwerk**: als uw HDInsight-cluster deel uit van een Azure Virtual Network maakt, een resource in hetzelfde Virtueelnetwerk rechtstreeks toegang tot alle knooppunten in het cluster. Zie voor meer informatie de [uitbreiden HDInsight met behulp van Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) document.
+* **Azure-netwerk**: Als uw HDInsight-cluster deel uit van een Azure-netwerk maakt, kan een resource in hetzelfde Virtueelnetwerk rechtstreeks toegang tot alle knooppunten in het cluster. Zie voor meer informatie de [uitbreiden HDInsight met behulp van Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) document.
 
 ## <a name="how-to-check-on-a-service-status"></a>Hoe u een servicestatus controleren
 
@@ -121,7 +121,7 @@ Selecteren van de koppeling voor een van de hoofdknooppunten, geeft de services 
 
 ![Onderdeelstatus](./media/hdinsight-high-availability-linux/nodeservices.png)
 
-Zie voor meer informatie over het gebruik van Ambari [bewaken en beheren van HDInsight met behulp van de Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
+Zie voor meer informatie over het gebruik van Ambari [bewaken en beheren van HDInsight met behulp van de Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
 
 ### <a name="ambari-rest-api"></a>Ambari REST-API
 
@@ -158,7 +158,7 @@ Als u niet welke services zijn geïnstalleerd op het cluster weet, kunt u de vol
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 
-Zie voor meer informatie over het werken met de Ambari REST-API, [bewaken en beheren van HDInsight met behulp van de Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md).
+Zie voor meer informatie over het werken met de Ambari REST-API, [bewaken en beheren van HDInsight met behulp van de Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 #### <a name="service-components"></a>Serviceonderdelen
 
@@ -191,12 +191,12 @@ Eenmaal verbinding hebben, krijgt u een `sftp>` prompt. Vanaf deze prompt, kunt 
 
 Voer voor een lijst van beschikbare opdrachten, `help` op de `sftp>` prompt.
 
-> [!NOTE]
+> [!NOTE]  
 > Er zijn ook grafische interfaces waarmee u kunt voor het visualiseren van het bestandssysteem als die zijn verbonden via SFTP. Bijvoorbeeld, [MobaXTerm](http://mobaxterm.mobatek.net/) kunt u bladeren naar het bestandssysteem via een interface die vergelijkbaar is met Windows Verkenner.
 
 ### <a name="ambari"></a>Ambari
 
-> [!NOTE]
+> [!NOTE]  
 > Voor toegang tot de logboekbestanden met behulp van Ambari, moet u een SSH-tunnel. De webinterfaces voor de afzonderlijke services zijn niet openbaar weergegeven op het Internet. Zie voor meer informatie over het gebruik van een SSH-tunnel de [SSH-Tunneling gebruiken](hdinsight-linux-ambari-ssh-tunnel.md) document.
 
 Selecteer de service die u wilt weergeven van Logboeken voor (bijvoorbeeld, YARN) in de Ambari-Webgebruikersinterface. Gebruik vervolgens **snelkoppelingen** om te selecteren welke hoofdknooppunt om de logboeken voor weer te geven.
@@ -209,22 +209,22 @@ De grootte van een knooppunt kan alleen worden geselecteerd tijdens het maken va
 
 Wanneer u een cluster maakt, kunt u de grootte van de knooppunten opgeven. De volgende informatie bevat richtlijnen voor het opgeven van de grootte met behulp van de [Azure-portal][preview-portal], [Azure PowerShell][azure-powershell], en de [Azure klassieke CLI][azure-cli]:
 
-* **Azure-portal**: wanneer u een cluster maakt, kunt u de grootte van de knooppunten die worden gebruikt door het cluster instellen:
+* **Azure-portal**: Bij het maken van een cluster, kunt u de grootte van de knooppunten die worden gebruikt door het cluster kunt instellen:
 
     ![Afbeelding van de wizard cluster maken met de selectie van clusterknooppunt grootte](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI voor klassieke**: bij het gebruik van de `azure hdinsight cluster create` opdracht, kunt u de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten instellen met behulp van de `--headNodeSize`, `--workerNodeSize`, en `--zookeeperNodeSize` parameters.
+* **Azure CLI voor klassieke**: Wanneer u de `azure hdinsight cluster create` opdracht, kunt u de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten instellen met behulp van de `--headNodeSize`, `--workerNodeSize`, en `--zookeeperNodeSize` parameters.
 
-* **Azure PowerShell**: bij het gebruik van de `New-AzureRmHDInsightCluster` cmdlet, u kunt de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten kunt instellen met behulp van de `-HeadNodeVMSize`, `-WorkerNodeSize`, en `-ZookeeperNodeSize` parameters.
+* **Azure PowerShell**: Wanneer u de `New-AzureRmHDInsightCluster` cmdlet, u kunt de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten kunt instellen met behulp van de `-HeadNodeVMSize`, `-WorkerNodeSize`, en `-ZookeeperNodeSize` parameters.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Gebruik de volgende koppelingen voor meer informatie over zaken die worden vermeld in dit document.
 
-* [Naslaginformatie over de Ambari-REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
+* [Naslaginformatie over de REST van de Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [De klassieke Azure-CLI installeren en configureren](../cli-install-nodejs.md)
 * [installeren en configureren van Azure PowerShell](/powershell/azure/overview)
-* [HDInsight met behulp van Ambari beheren](hdinsight-hadoop-manage-ambari.md)
+* [HDInsight met Apache Ambari beheren](hdinsight-hadoop-manage-ambari.md)
 * [HDInsight op basis van Linux-clusters inrichten](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/

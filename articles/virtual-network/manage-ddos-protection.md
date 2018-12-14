@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 1283f84b4a45f5eedc98e6b16e5277e5347be1a4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: fae4fffbe9e4b0be0f2edacf3e86b6268cc58608
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270243"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384646"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS Protection Standard met behulp van de Azure-portal beheren
 
@@ -156,7 +156,7 @@ Aanval risicobeperking rapporten maakt gebruik van de gegevens voor het protocol
 5. Selecteer **openbaar IP-adres** voor **resourcetype**, selecteer vervolgens de specifieke openbare IP-adres u zich wilt aanmelden metrische gegevens voor.
 6. Selecteer **diagnostische gegevens voor het verzamelen van het logboek DDoSMitigationReports inschakelen** en selecteer vervolgens zo veel van de volgende opties die u nodig hebt:
 
-    - **Archiveren naar een opslagaccount**: Gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archiveren naar een opslagaccount**: Gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream naar een event hub**: Hiermee kunt u een ontvanger logboekbestanden te verzamelen van logboeken met behulp van een Azure Event Hub. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Verzenden naar Log Analytics**: Schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -178,7 +178,7 @@ Aanval risicobeperking Flow Logboeken kunt u bekijken van het verwijderde verkee
 5. Selecteer **openbaar IP-adres** voor **resourcetype**, selecteer vervolgens de specifieke openbare IP-adres u zich wilt aanmelden metrische gegevens voor.
 6. Selecteer **diagnostische gegevens voor het verzamelen van het logboek DDoSMitigationFlowLogs inschakelen** en selecteer vervolgens zo veel van de volgende opties die u nodig hebt:
 
-    - **Archiveren naar een opslagaccount**: Gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archiveren naar een opslagaccount**: Gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream naar een event hub**: Hiermee kunt u een ontvanger logboekbestanden te verzamelen van logboeken met behulp van een Azure Event Hub. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Verzenden naar Log Analytics**: Schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Als u wilt de gegevens van de logboeken stroom bekijken in Azure analytics-dashboard, kunt u het voorbeelddashboard van importeren https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip

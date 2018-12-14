@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5a3c160fcb550fc4f0c92145733aa993b95bd112
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089341"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338887"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
@@ -322,9 +322,20 @@ Gesegmenteerde overdrachtscodering overdracht (`Transfer-Encoding: chunked`) kun
 Dit codevoorbeeld laat zien hoe voor het verzenden van audio in segmenten. Alleen de eerste chunk moet de audio bestands-header bevatten. `request` is een HTTPWebRequest-object dat is verbonden met het juiste REST-eindpunt. `audioFile` is het pad naar een audio-bestand op schijf.
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -424,20 +435,10 @@ Dit is een typische antwoord voor `detailed` herkenning.
 
 ## <a name="text-to-speech-api"></a>Text to Speech-API
 
-Deze regio's worden ondersteund voor tekst naar spraak met behulp van de REST-API. Zorg ervoor dat u het eindpunt dat overeenkomt met de regio van uw abonnement selecteert.
+De Text to Speech REST-API biedt ondersteuning voor neurale en standard-naar-spraak stemmen, die ondersteuning biedt voor een specifieke taal en een dialect, geïdentificeerd door de landinstelling.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-De spraak-Service ondersteunt 24-KHz-audio-uitvoer, samen met de uitvoer van de 16-Khz die werden ondersteund door Bing Speech. Vier 24-KHz uitvoerindeling op te geven en twee 24-KHz stemmen worden ondersteund.
-
-### <a name="voices"></a>Stemmen
-
-| Landinstelling | Taal   | Geslacht | Toewijzing |
-|--------|------------|--------|---------|
-| en-US  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" |
-| en-US  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)" |
-
-Zie voor een volledige lijst met beschikbare stemmen [ondersteunde talen](language-support.md#text-to-speech).
+* Zie voor een volledige lijst van stemmen, [taalondersteuning](language-support.md#text-to-speech).
+* Zie voor meer informatie over regionale beschikbaarheid [regio's](regions.md#text-to-speech).
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -452,7 +453,7 @@ Deze tabel bevat de vereiste en optionele headers voor spraak-naar-tekst-aanvrag
 
 ### <a name="audio-outputs"></a>Audio-uitvoer
 
-Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke aanvraag als de `X-Microsoft-OutputFormat` header. Elk omvat een bitrate en type codering.
+Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke aanvraag als de `X-Microsoft-OutputFormat` header. Elk omvat een bitrate en type codering. De spraak-Service ondersteunt 24-KHz en 16-KHz audio-uitvoer.
 
 |||
 |-|-|

@@ -1,5 +1,5 @@
 ---
-title: Betaal vooruit voor Azure Cosmos DB-resources om geld te besparen
+title: Kosten van Azure Cosmos DB-resources optimaliseren met gereserveerde capaciteit
 description: Meer informatie over het aanschaffen van Azure Cosmos DB gereserveerde capaciteit om op te slaan op uw rekenkosten.
 services: cosmos-db
 author: rimman
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f1582a54d305cbf2cc1b03b1a7fd2ee6079dd87e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a1f5db6428a892e10a3591edb7542996ad1b3319
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839225"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386805"
 ---
-# <a name="prepay-for-azure-cosmos-db-resources-with-reserved-capacity"></a>Betaal vooruit voor Azure Cosmos DB-resources met gereserveerde capaciteit
+# <a name="optimize-cost-of-azure-cosmos-db-resources-with-reserved-capacity"></a>Kosten van Azure Cosmos DB-resources optimaliseren met gereserveerde capaciteit
 
 Azure Cosmos DB gereserveerde capaciteit kunt die u geld besparen door vooraf betalen voor Azure Cosmos DB-resources voor één jaar of drie jaar. Met Azure Cosmos DB gereserveerde capaciteit krijgt u een korting op de ingerichte doorvoer voor Cosmos DB-resources. Voorbeelden van resources zijn databases en containers (tabellen, verzamelingen en grafieken).
 
@@ -51,13 +51,13 @@ De grootte van de reservering moet worden gebaseerd op de totale hoeveelheid doo
 
    ![Vul in het formulier gereserveerde capaciteit](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png) 
 
-   |Veld  |Beschrijving  |
+   |Veld  |Description  |
    |---------|---------|
-   |Naam   |    De naam van de reservering. Dit veld wordt automatisch gevuld met `CosmosDB_Reservation_<timeStamp>`. U kunt een andere naam opgeven tijdens het maken van de reservering. Of u kunt de naam wijzigen nadat de reservering is gemaakt.      |
-   |Abonnement  |   Abonnement dat wordt gebruikt om te betalen voor de Azure Cosmos DB gereserveerde capaciteit. De betalingswijze voor het geselecteerde abonnement wordt gebruikt in de kosten vooraf in rekening gebracht. Het abonnementstype moet een van de volgende: <br/><br/>  [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (nummer van aanbieding: MS-AZR - 0017 P): voor een Enterprise-abonnement, de kosten zijn in mindering gebracht op de monetaire toezeggingsbedrag van de inschrijving of kosten in rekening gebracht als overschrijding. <br/><br/> [Betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) (nummer van aanbieding: MS-AZR - 0003 P): voor een betalen per gebruik-abonnement, de kosten worden in rekening gebracht op de betalingsmethode creditcard of per factuur voor het abonnement.    |
+   |Name   |    De naam van de reservering. Dit veld wordt automatisch gevuld met `CosmosDB_Reservation_<timeStamp>`. U kunt een andere naam opgeven tijdens het maken van de reservering. Of u kunt de naam wijzigen nadat de reservering is gemaakt.      |
+   |Abonnement  |   Abonnement dat wordt gebruikt om te betalen voor de Azure Cosmos DB gereserveerde capaciteit. De betalingswijze voor het geselecteerde abonnement wordt gebruikt in de kosten vooraf in rekening gebracht. Het abonnementstype moet een van de volgende: <br/><br/>  [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (nummer van aanbieding: MS-AZR-0017P): De kosten zijn voor een Enterprise-abonnement in mindering gebracht op de monetaire toezeggingsbedrag van de inschrijving of kosten in rekening gebracht als overschrijding. <br/><br/> [Betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) (nummer van aanbieding: MS-AZR-0003P): Voor een betalen per gebruik-abonnement, de kosten worden in rekening gebracht op de betalingsmethode creditcard of per factuur voor het abonnement.    |
    |Bereik   |   Deze optie bepaalt het aantal abonnementen dat is gekoppeld aan de reservering facturering voordeel kunnen gebruiken. Ook wordt bepaald hoe de reservering wordt toegepast op bepaalde abonnementen.   <br/><br/>  Als u selecteert **enkel abonnement**, de reserveringskorting wordt toegepast op Azure Cosmos DB-exemplaren in het geselecteerde abonnement. <br/><br/>  Als u selecteert **gedeelde**, de reserveringskorting wordt toegepast op Azure Cosmos DB-exemplaren die worden uitgevoerd in alle abonnementen in de context van de facturering. De context van de facturering is gebaseerd op hoe u zich hebt geregistreerd voor Azure. Voor zakelijke klanten, gedeeld bereik is van de inschrijving en bevat alle abonnementen (met uitzondering van dev/test-abonnementen) binnen de inschrijving. Voor klanten van betalen per gebruik is het gedeelde bereik alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.  <br/><br/> U kunt het reserveringsbereik wijzigen nadat u de gereserveerde capaciteit kopen.  |
    |Type gereserveerde capaciteit   |  Doorvoer die is ingericht als basis van aanvraageenheden.|
-   |Gereserveerde capaciteitseenheden  |      Hoeveelheid doorvoer die u wilt reserveren. U kunt deze waarde berekenen met het bepalen van de doorvoer die nodig zijn voor al uw Cosmos DB-resources (bijvoorbeeld, databases of containers) per regio. U vervolgens vermenigvuldigd met het aantal regio's die u aan uw Cosmos DB-database koppelen moet.  <br/><br/> Bijvoorbeeld: als u vijf regio's met 1 miljoen RU/sec. in elke regio hebt, selecteert u 5 miljoen RU/sec voor het kopen van reserveringen capaciteit.    |
+   |Eenheden gereserveerde capaciteit  |      Hoeveelheid doorvoer die u wilt reserveren. U kunt deze waarde berekenen met het bepalen van de doorvoer die nodig zijn voor al uw Cosmos DB-resources (bijvoorbeeld, databases of containers) per regio. U vervolgens vermenigvuldigd met het aantal regio's die u aan uw Cosmos DB-database koppelen moet.  <br/><br/> Bijvoorbeeld: Als u vijf regio's met 1 miljoen RU/sec. in elke regio hebt, selecteert u 5 miljoen RU/sec voor het kopen van reserveringen capaciteit.    |
    |Termijn  |   Één of drie jaar.   |
 
 5. Bekijk de korting en de prijs van de reservering in de **kosten** sectie. Deze reservering prijs is van toepassing op Azure Cosmos DB-resources met doorvoer die is ingericht in alle regio's.  

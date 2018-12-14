@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 12/11/2018
 ms.author: rkarlin
-ms.openlocfilehash: 08a16285a6e3e52fc9e2ddce6b6936dfd4639ba8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d0cdda4553808d1197d764d0a50e535515527443
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835570"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336438"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Een upgrade uitvoert naar Standard van Security Center-prijscategorie voor verbeterde beveiliging
 Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor werkbelastingen die worden uitgevoerd in Azure, on-premises en in andere clouds. Het biedt zichtbaarheid en controle over hybride cloudworkloads, actieve beveiliging die de blootstelling aan bedreigingen en Slimme detectie om te laten groeien met zich snel ontwikkelende cyberaanvallen verminderen.
@@ -33,8 +33,8 @@ Security Center wordt aangeboden in twee lagen:
 
 Zie voor meer informatie het Security Center [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="try-standard-free-for-60-days"></a>Standaard 60 dagen gratis uitproberen
-De Standard-laag wordt gedurende de eerste 60 dagen gratis aangeboden. Aan het einde van 60 dagen, moet u kiezen om door te gaan met de service, wordt automatisch gestart kosten in rekening gebracht voor gebruik.
+## <a name="try-standard-free-for-30-days"></a>Standaard 30 dagen gratis uitproberen
+De Standard-laag wordt gedurende de eerste 30 dagen gratis aangeboden. Aan het einde van 30 dagen, moet u kiezen om door te gaan met de service, wordt automatisch gestart kosten in rekening gebracht voor gebruik.
 
 U kunt een hele Azure-abonnement upgraden naar de laag standaard, die wordt overgenomen door alle resources binnen het abonnement.
 

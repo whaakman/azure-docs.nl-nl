@@ -4,45 +4,43 @@ description: Instellen van continue integratie en continue implementatie - Azure
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4db5fce89df0b5974261788608b785cf16917f1a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074791"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386822"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie voor Azure IoT Edge
 
-U kunt eenvoudig inzetten van DevOps met uw Azure IoT Edge-toepassingen met de ingebouwde Azure IoT Edge-taken in Azure pijplijnen of [Azure IoT Edge-invoegtoepassing voor Jenkins](https://plugins.jenkins.io/azure-iot-edge) op uw Jenkins-server. In dit artikel laat zien hoe u kunt de continue integratie en continue implementatiefuncties van Azure-pijplijnen en Azure DevOps-Server om te bouwen, testen en implementeren van toepassingen snel en efficiënt aan uw Azure IoT Edge. 
+U kunt eenvoudig inzetten van DevOps met uw Azure IoT Edge-toepassingen met de ingebouwde Azure IoT Edge-taken in Azure pijplijnen of [Azure IoT Edge-invoegtoepassing voor Jenkins](https://plugins.jenkins.io/azure-iot-edge) op uw Jenkins-server. In dit artikel laat zien hoe u de continue integratie en continue implementatie-functies van Azure-pijplijnen te bouwen, testen en implementeren van toepassingen snel en efficiënt aan uw Azure IoT Edge kunt gebruiken. 
 
 In dit artikel leert u hoe u:
 * Maken en controleren in een voorbeeld van een IoT Edge-oplossing.
 * Configureer continue integratie (CI) om de oplossing te bouwen.
 * Configureer continue implementatie (CD) voor het implementeren van de oplossing en antwoorden weer.
 
-Het duurt 20 minuten om de stappen in dit artikel te voltooien.
-
 ![Diagram - CI en CD vertakkingen voor ontwikkeling en productie](./media/how-to-ci-cd/cd.png)
 
 
 ## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Een voorbeeld van Azure IoT Edge-oplossing met behulp van Visual Studio Code maken
 
-In deze sectie maakt u een voorbeeld van een IoT Edge oplossing met eenheidstests dat kan worden uitgevoerd als onderdeel van het bouwproces. Voordat u de instructies in deze sectie, voer de stappen in [een IoT Edge-oplossing met meerdere modules in Visual Studio Code ontwikkelen](tutorial-multiple-modules-in-vscode.md).
+In deze sectie maakt u een voorbeeld van een IoT Edge oplossing met eenheidstests dat kan worden uitgevoerd als onderdeel van het bouwproces. Voordat u de instructies in deze sectie, voer de stappen in [een IoT Edge-oplossing met meerdere modules in Visual Studio Code ontwikkelen](how-to-develop-multiple-modules-vscode.md).
 
-1. Typ in het opdrachtenpalet van VS Code, en voer de opdracht **Azure IoT Edge: nieuwe IoT-Edge-oplossing**. Selecteer de werkruimtemap van uw, geeft u de oplossingsnaam (de standaardnaam is **EdgeSolution**), en maakt u een C#-Module (**FilterModule**) als de eerste gebruikersmodule in deze oplossing. U moet ook de opslagplaats voor Dockerinstallatiekopieën opgeven voor de eerste module. De standaard-opslagplaats voor installatiekopieën is gebaseerd op een lokale Docker-register (`localhost:5000/filtermodule`). Wijzig deze in Azure Container Registry (`<your container registry address>/filtermodule`) of Docker-Hub voor verdere continue integratie.
+1. Typ in het opdrachtenpalet van VS Code, en voer de opdracht **Azure IoT Edge: Nieuwe IoT Edge-oplossing**. Selecteer de werkruimtemap van uw, geeft u de oplossingsnaam (de standaardnaam is **EdgeSolution**), en maakt u een C#-Module (**FilterModule**) als de eerste gebruikersmodule in deze oplossing. U moet ook de opslagplaats voor Dockerinstallatiekopieën opgeven voor de eerste module. De standaard-opslagplaats voor installatiekopieën is gebaseerd op een lokale Docker-register (`localhost:5000/filtermodule`). Wijzig deze in Azure Container Registry (`<your container registry address>/filtermodule`) of Docker-Hub voor verdere continue integratie.
 
     ![Instellen van Azure Container Registry](./media/how-to-ci-cd/acr.png)
 
-2. Het venster VS Code, de werkruimte van uw IoT Edge-oplossing wordt geladen. U kunt eventueel typt en uitvoeren **Azure IoT Edge: toevoegen aan IoT Edge module** om toe te voegen meer modules. Er is een `modules` map, een `.vscode` map en een manifest-sjabloonbestand van de implementatie in de hoofdmap. Alle gebruiker module codes zijn submappen onder de map `modules`. De `deployment.template.json` is het manifest sjabloon voor de implementatie. Sommige van de parameters in dit bestand wordt geparseerd uit de `module.json`, waar zich bevindt in de modulemap voor elke.
+2. Het venster VS Code, de werkruimte van uw IoT Edge-oplossing wordt geladen. U kunt eventueel typt en uitvoeren **Azure IoT Edge: IoT Edge-module toevoegen** om toe te voegen meer modules. Er is een `modules` map, een `.vscode` map en een manifest-sjabloonbestand van de implementatie in de hoofdmap. Alle gebruiker module codes zijn submappen onder de map `modules`. De `deployment.template.json` is het manifest sjabloon voor de implementatie. Sommige van de parameters in dit bestand wordt geparseerd uit de `module.json`, waar zich bevindt in de modulemap voor elke.
 
 3. Uw voorbeeld IoT Edge-oplossing is nu gereed. De standaard C#-module fungeert als een pipe bericht-module. In de `deployment.template.json`, ziet u deze oplossing bevat twee modules. Het bericht wordt gegenereerd op basis van de `tempSensor` -module, en wordt rechtstreeks kan worden doorgesluisd `FilterModule`, vervolgens naar uw IoT-hub zijn verzonden.
 
-4. Sla deze projecten en bekijk het in de opslagplaats van uw Azure-opslagplaatsen of Azure DevOps-Server.
+4. Sla deze projecten en doorvoeren in uw Azure-opslagplaatsen.
     
 > [!NOTE]
 > Zie voor meer informatie over het gebruik van Azure-opslagplaatsen [deel van uw code met Visual Studio en Azure-opslagplaatsen](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -59,7 +57,7 @@ In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automat
 
     ![Een nieuwe build-pipeline maken](./media/how-to-ci-cd/add-new-build.png)
 
-1. Als u hierom wordt gevraagd, selecteert u **Azure DevOps Git** het brontype. Selecteer vervolgens het project, de opslagplaats en de vertakking waar uw code zich bevindt. Kies **blijven**.
+1. Als u hierom wordt gevraagd, selecteert u Azure-opslagplaatsen voor de bron. Selecteer vervolgens het project, de opslagplaats en de vertakking waar uw code zich bevindt. Kies **blijven**.
 
     ![Azure-opslagplaatsen Git selecteren](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -101,7 +99,7 @@ In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automat
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Azure-pijplijnen voor continue implementatie configureren
 In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het automatisch uitgevoerd zodra uw build-pijplijn artefacten komt en implementatie-Logboeken in Azure-pijplijnen worden weergegeven.
 
-1. In de **Releases** tabblad **+ nieuwe pijplijn**. Of, als u release-pijplijnen al hebt, kiest u de **+ nieuw** knop.  
+1. In de **Releases** tabblad **+ nieuwe pijplijn**. Of, als u release-pijplijnen al hebt, kiest u de **+ nieuw** en klik op **+ nieuw release-pijplijn**.  
 
     ![Release-pijplijn toevoegen](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -109,7 +107,7 @@ In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het autom
 
     ![Beginnen met een leeg project](./media/how-to-ci-cd/start-with-empty-job.png)
 
-2. Klik de release-pijplijn met één fase zou initialiseren: **fase 1**. Wijzig de naam van de **fase 1** naar **QA** en behandelen als een testomgeving. Deze doorgaans meerdere fasen bestaat, maakt u meer op basis van uw DevOps-praktijken in een pijplijn typische continue implementatie.
+2. De release-pijplijn zou vervolgens initialiseren met één fase: **Fase 1**. Wijzig de naam van de **fase 1** naar **QA** en behandelen als een testomgeving. Deze doorgaans meerdere fasen bestaat, maakt u meer op basis van uw DevOps-praktijken in een pijplijn typische continue implementatie.
 
     ![Fase voor test-omgeving maken](./media/how-to-ci-cd/QA-env.png)
 

@@ -15,21 +15,21 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 379e5503900621381bbc27c6604cc8208cfdb80e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9e99e5f999c927ed0376a89b9f6d9f73fa8b2b2b
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076454"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384170"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking
 
  
-In dit artikel wordt uitgelegd hoe u voor het bewaken van een Batch-account met behulp van functies van [Azure Monitor](../azure-monitor/overview.md). Azure Monitor verzamelt [metrische gegevens](../azure-monitor/platform/data-collection.md#metrics) en [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) voor resources in uw Batch-account. Verzamelen en gebruiken deze gegevens op verschillende manieren voor het bewaken van uw Batch-account en problemen diagnosticeren. U kunt ook configureren [metrische waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-alerts.md) , zodat u meldingen ontvangen wanneer een metrische waarde een bepaalde waarde heeft bereikt. 
+In dit artikel wordt uitgelegd hoe u voor het bewaken van een Batch-account met behulp van functies van [Azure Monitor](../azure-monitor/overview.md). Azure Monitor verzamelt [metrische gegevens](../azure-monitor/platform/data-collection.md#metrics) en [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) voor resources in uw Batch-account. Verzamelen en gebruiken deze gegevens op verschillende manieren voor het bewaken van uw Batch-account en problemen diagnosticeren. U kunt ook configureren [metrische waarschuwingen](../azure-monitor/platform/alerts-overview.md) , zodat u meldingen ontvangen wanneer een metrische waarde een bepaalde waarde heeft bereikt. 
 
 ## <a name="batch-metrics"></a>Metrische gegevens voor batch
 
-Metrische gegevens zijn Azure telemetriegegevens (ook wel prestatiemeteritems) die door uw Azure-resources die worden verbruikt door de service Azure Monitor. Voorbeeld van de metrische gegevens in een Batch-account zijn: Pool maken gebeurtenissen, aantal van de knooppunten met lage prioriteit en taak voltooid. 
+Metrische gegevens zijn Azure telemetriegegevens (ook wel prestatiemeteritems) die door uw Azure-resources die worden verbruikt door de service Azure Monitor. Voorbeeld van de metrische gegevens in een Batch-account zijn onder andere: Groep maken van gebeurtenissen, aantal knooppunten met lage prioriteit en taak gebeurtenissen te voltooien. 
 
 Zie de [lijst van ondersteunde metrische gegevens voor Batch](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
 
@@ -71,7 +71,7 @@ Het configureren van een waarschuwing voor metrische gegevens in de portal:
 2. Onder **bewaking**, klikt u op **waarschuwingsregels** > **metrische waarschuwing toevoegen**.
 3. Selecteer een metrische waarde, de voorwaarde voor een waarschuwing (zoals wanneer een metrische waarde een bepaalde waarde gedurende een periode overschrijdt) en een of meer meldingen.
 
-U kunt ook een bijna realtime waarschuwingen met de [REST-API](https://docs.microsoft.com/rest/api/monitor/). Zie voor meer informatie, [waarschuwingsoverzicht](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+U kunt ook een bijna realtime waarschuwingen met de [REST-API](https://docs.microsoft.com/rest/api/monitor/). Zie voor meer informatie, [waarschuwingsoverzicht](../azure-monitor/platform/alerts-overview.md)
 
 ## <a name="batch-diagnostics"></a>Diagnostische gegevens van batch
 
@@ -109,7 +109,7 @@ Andere optionele bestemmingen voor diagnostische logboeken:
 
     ![Diagnostische gegevens van batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Andere opties om logboekbestanden te verzamelen zijn onder andere: Azure Monitor gebruiken in de portal voor diagnostische instellingen configureren, gebruikt u een [Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), of gebruikt u Azure PowerShell of Azure CLI. Zie [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Andere opties om logboekbestanden te verzamelen zijn onder andere: Azure Monitor gebruiken in de portal voor diagnostische instellingen configureren, gebruikt u een [Resource Manager-sjabloon](../azure-monitor/platform/diagnostic-logs-stream-template.md), of gebruikt u Azure PowerShell of Azure CLI. Zie [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Toegang tot diagnostische logboeken in de opslag
@@ -133,7 +133,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 Elke PT1H.json-blob-bestand bevat JSON-indeling gebeurtenissen die hebben plaatsgevonden binnen het uur dat is opgegeven in de blob-URL (bijvoorbeeld, h = 12). Tijdens het huidige uur worden gebeurtenissen toegevoegd aan het bestand PT1H.json wanneer deze zich voordoen. De minuutwaarde (m = 00) is altijd 00 omdat logboekgebeurtenissen voor diagnostische zijn onderverdeeld in afzonderlijke blobs per uur. (Alle tijden zijn in UTC).
 
 
-Zie voor meer informatie over het schema van logboeken met diagnostische gegevens in de storage-account, [diagnostische logboeken archiveren Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Zie voor meer informatie over het schema van logboeken met diagnostische gegevens in de storage-account, [diagnostische logboeken archiveren Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 Als u wilt toegang krijgen tot de logboeken in uw storage-account via een programma, de opslag-API's te gebruiken. 
 

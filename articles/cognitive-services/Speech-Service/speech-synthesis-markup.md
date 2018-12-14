@@ -8,23 +8,26 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0c3c2fdddada3b90c84b3f06f8639bde7db50f95
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f6a2d6a35200bc4dec169aae72415c1c2904c465
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073547"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341130"
 ---
 # <a name="speech-synthesis-markup-language"></a>Spraak synthese Markup Language
 
-Spraak synthese Markup Language (SSML) is een op XML gebaseerde opmaaktaal die een manier voor het beheren van de uitspraak biedt en *prosody* van tekst naar spraak. Prosody verwijst naar het ritme en verkopen van spraak: de muziek, als u wordt. U kunt woorden Fonetisch opgeven, hints geven voor de interpretatie van getallen, invoegen wordt onderbroken, inspiratie besturingselement, volume, en snelheid en meer.
+Spraak synthese Markup Language (SSML) is een op XML gebaseerde opmaaktaal die een manier voor het beheren van de uitspraak biedt en *prosody* van tekst naar spraak. Prosody verwijst naar het ritme en verkopen van spraak: de muziek, als u wordt. U kunt woorden Fonetisch opgeven, hints geven voor de interpretatie van getallen, invoegen wordt onderbroken, inspiratie besturingselement, volume, en snelheid en meer. Zie voor meer informatie, [spraak synthese Markup Language (SSML) versie 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 
-Zie voor meer informatie, [spraak synthese Markup Language (SSML) versie 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) op de W3C.
+Zie voor een volledige lijst van ondersteunde talen, landinstellingen en stemmen (neurale en standaard), [taalondersteuning](language-support.md#text-to-speech).
 
-De volgende voorbeelden ziet hoe u SSML voor algemene spraak synthese behoeften:
+De volgende secties bevatten voorbeelden voor algemene spraak synthese taken.
+
+>[!IMPORTANT]
+> Prosody tagging is momenteel alleen beschikbaar voor standard stemmen.
 
 ## <a name="add-a-break"></a>Einde toevoegen
 ```xml
@@ -90,5 +93,4 @@ De volgende voorbeelden ziet hoe u SSML voor algemene spraak synthese behoeften:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
-* [Zie voor het herkennen van gesproken tekst in C#](quickstart-csharp-dotnet-windows.md)
+* [Taalondersteuning: stemmen, landinstellingen, talen](language-support.md)

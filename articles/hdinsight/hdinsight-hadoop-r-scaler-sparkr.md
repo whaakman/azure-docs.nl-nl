@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: da486b25a9a35cb4f00d6e5a4689d5be3d270e36
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013272"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386892"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>ScaleR en SparkR in HDInsight combineren
 
 Dit document laat zien hoe u om te voorspellen van vertragingen van vluchten aankomst vertragingen met behulp van een **ScaleR** model voor logistieke regressie. Het voorbeeld flight vertraging en weer worden gegevens gebruikt, gekoppeld door middel van **SparkR**.
 
-Hoewel beide pakketten worden uitgevoerd op de engine voor het uitvoeren van Hadoop Spark, hebben ze geen toegang tot de in-memory-gegevens delen die ze elk hun eigen respectieve Spark-sessie nodig hebt. Totdat dit probleem is opgelost in een toekomstige versie van ML-Server, is de tijdelijke oplossing om niet-overlappende Spark sessies onderhouden, en voor het uitwisselen van gegevens door middel van tussenliggende bestanden. De volgende instructies laten zien dat deze vereisten eenvoudig zijn te bereiken.
+Hoewel beide pakketten worden uitgevoerd op de engine voor het uitvoeren van Apache Hadoop Spark, hebben ze geen toegang tot de in-memory-gegevens delen die ze elk hun eigen respectieve Spark-sessie nodig hebt. Totdat dit probleem is opgelost in een toekomstige versie van ML-Server, is de tijdelijke oplossing om niet-overlappende Spark sessies onderhouden, en voor het uitwisselen van gegevens door middel van tussenliggende bestanden. De volgende instructies laten zien dat deze vereisten eenvoudig zijn te bereiken.
 
 In dit voorbeeld is in eerste instantie in een presentatie op Strata 2016 gedeeld door Mario Inchiosa en Roni Burd. U vindt deze lezing op [het bouwen van een schaalbare Data Science-Platform met R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Elders scoren
 
-We kunnen het model ook gebruiken voor scoring-gegevens op een ander platform. Door te slaan naar een bestand met extern bureaublad-services en brengen en die extern bureaublad-services importeren in een omgeving, zoals SQL Server R Services scoren bestemming. Het is belangrijk om ervoor te zorgen dat de factorniveaus basis van meerdere van de gegevens die moeten worden beoordeeld overeenkomen met die op dat het model is gebouwd. Die overeenkomen met kan worden bereikt door te extraheren en opslaan van de kolom die is gekoppeld aan de modellering van gegevens via de ScaleR `rxCreateColInfo()` functie en vervolgens die kolominformatie toe te passen aan de bron van de invoergegevens voor voorspelling. In de volgende we een paar rijen van de set met testgegevens opslaan en ophalen en gebruik van de kolominformatie uit dit voorbeeld in het script voorspelling:
+We kunnen het model ook gebruiken voor scoring-gegevens op een ander platform. Door te slaan naar een bestand met extern bureaublad-services en brengen en die extern bureaublad-services importeren in een omgeving, zoals MIcrosoft SQL Server R Services scoren bestemming. Het is belangrijk om ervoor te zorgen dat de factorniveaus basis van meerdere van de gegevens die moeten worden beoordeeld overeenkomen met die op dat het model is gebouwd. Die overeenkomen met kan worden bereikt door te extraheren en opslaan van de kolom die is gekoppeld aan de modellering van gegevens via de ScaleR `rxCreateColInfo()` functie en vervolgens die kolominformatie toe te passen aan de bron van de invoergegevens voor voorspelling. In de volgende we een paar rijen van de set met testgegevens opslaan en ophalen en gebruik van de kolominformatie uit dit voorbeeld in het script voorspelling:
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ In dit artikel hebben we laten zien hoe het is mogelijk om het gebruik van Spark
 
 ## <a name="next-steps-and-more-information"></a>Volgende stappen en meer informatie
 
-- Zie voor meer informatie over het gebruik van Spark ML Server, de [aan de slag-handleiding](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Zie voor meer informatie over het gebruik van Apache Spark ML Server, de [aan de slag-handleiding](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
 - Raadpleeg voor algemene informatie over ML Server, de [aan de slag met R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artikel.
 

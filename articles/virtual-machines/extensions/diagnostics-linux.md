@@ -7,14 +7,14 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994799"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387043"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux Diagnostic-extensie gebruiken om te controleren, logboeken en metrische gegevens
 
@@ -38,9 +38,7 @@ Deze extensie werkt met beide Azure-implementatiemodellen.
 
 ## <a name="installing-the-extension-in-your-vm"></a>Installeren van de extensie in uw virtuele machine
 
-U kunt deze uitbreiding inschakelen met behulp van de Azure PowerShell-cmdlets, Azure CLI-scripts of sjablonen voor Azure-implementatie. Zie voor meer informatie, [extensies functies](features-linux.md).
-
-De Azure-portal kan niet worden gebruikt in-of LAD 3.0 configureren. In plaats daarvan installeert en configureert deze versie 2.3. Azure portal grafieken en waarschuwingen kunt u werken met gegevens van beide versies van de extensie.
+U kunt deze uitbreiding inschakelen met behulp van de Azure PowerShell-cmdlets, Azure CLI-scripts, ARM-sjablonen of Azure portal. Zie voor meer informatie, [extensies functies](features-linux.md).
 
 Deze installatie-instructies en een [downloadbare voorbeeldconfiguratie](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) LAD 3.0 te configureren:
 
@@ -55,7 +53,7 @@ De configuratie van de downloadbare is slechts een voorbeeld; deze aan de behoef
 
 * **Azure Linux Agent versie 2.2.0 of hoger**. De meeste Azure VM Linux galerie met installatiekopieën bevatten versie 2.2.7 of hoger. Voer `/usr/sbin/waagent -version` om te controleren welke versie is geïnstalleerd op de virtuele machine. Als de virtuele machine wordt uitgevoerd een oudere versie van de guest-agent, voert u de [deze instructies](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) bij te werken.
 * **Azure CLI**. [Instellen van de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) omgeving op uw computer.
-* De opdracht wget, als u deze nog niet hebt: uitvoeren `sudo apt-get install wget`.
+* De opdracht wget, als u deze nog niet hebt: Voer `sudo apt-get install wget` uit.
 * Een bestaande Azure-abonnement en een bestaand opslagaccount in deze gegevens worden opgeslagen.
 * Lijst met ondersteunde Linux-distributies is ingeschakeld https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
@@ -129,7 +127,7 @@ Deze set van configuratie-informatie bevat gevoelige informatie die moet worden 
 }
 ```
 
-Naam | Waarde
+Name | Waarde
 ---- | -----
 storageAccountName | De naam van het opslagaccount waarin gegevens worden geschreven door de extensie.
 storageAccountEndPoint | (optioneel) Het eindpunt voor het identificeren van de cloud waarin het opslagaccount bestaat. Als deze instelling niet aanwezig is, de openbare cloud van Azure, LAD standaard `https://core.windows.net`. Voor het gebruik van een opslagaccount in Azure Duitsland, Azure Government or Azure China, moet u deze waarde dienovereenkomstig ingesteld.
@@ -174,7 +172,7 @@ Element | Waarde
 naam | Een tekenreeks die wordt gebruikt om te verwijzen naar deze sink elders in de configuratie van de extensie.
 type | Het type van sink wordt gedefinieerd. Bepaalt de andere waarden (indien aanwezig) in de exemplaren van dit type.
 
-Versie 3.0 van de Linux Diagnostic-extensie ondersteunt twee typen van de sink: Event hub en JsonBlob.
+Versie 3.0 van de Linux Diagnostic-extensie ondersteunt twee sink-typen: Event hub en JsonBlob.
 
 #### <a name="the-eventhub-sink"></a>De EventHub-sink
 
@@ -316,7 +314,7 @@ Element | Waarde
 sinks | (optioneel) Een door komma's gescheiden lijst met namen van sinks welke LAD verzendt metrische resultaten samengevoegde. Alle samengevoegde metrische gegevens worden gepubliceerd naar elke vermelde sink. Zie [sinksConfig](#sinksconfig). Voorbeeld: `"EHsink1, myjsonsink"`.
 type | Hiermee geeft u de werkelijke provider van de metrische gegevens.
 klasse | Hiermee geeft u de specifieke metrische gegevens in de naamruimte van de provider, samen met 'item'.
-Teller | Samen met "class", identificeert de specifieke metrische gegevens in de naamruimte van de provider.
+counter | Samen met "class", identificeert de specifieke metrische gegevens in de naamruimte van de provider.
 counterSpecifier | Hiermee geeft u de specifieke metrische gegevens in de naamruimte van de metrische gegevens van Azure.
 voorwaarde | (optioneel) Hiermee selecteert u een specifiek exemplaar van het object waaraan de metrische gegevens is van toepassing, of selecteert de aggregatie voor alle instanties van dat object. Zie voor meer informatie de [ `builtin` metrische definities van](#metrics-supported-by-builtin).
 sampleRate | Hiermee stelt u de snelheid waarmee onbewerkte voorbeelden voor deze metrische gegevens worden verzameld 8601 interval IS. Als niet is ingesteld, het interval voor gegevensverzameling is ingesteld door de waarde van [sampleRateInSeconds](#ladcfg). De kortste ondersteunde samplefrequentie is 15 seconden (PT15S).
@@ -432,7 +430,7 @@ De ingebouwde metrische provider is een bron van metrische gegevens over de mees
 
 De klasse van de Processor van metrische gegevens biedt informatie over het processorgebruik in de virtuele machine. Bij het samenvoegen van percentages, is het resultaat van het gemiddelde over alle CPU's. In een twee-vCPU-virtuele machine als één vCPU 100% bezig is en de andere 100% is niet actief is, is zou de gerapporteerde PercentIdleTime dit 50. Als elke vCPU 50% voor dezelfde periode bezet is, zou het gerapporteerde resultaat ook 50 zijn. In een vier-vCPU-virtuele machine, met 100% één vCPU bezet en de andere niet-actieve, zou de gerapporteerde PercentIdleTime 75 zijn.
 
-Teller | Betekenis
+counter | Betekenis
 ------- | -------
 PercentIdleTime | Percentage tijd tijdens de aggregatie dat processors zijn worden gebruikt voor het uitvoeren van de niet-actieve kernel-lus
 PercentProcessorTime | Percentage van de tijd voor het uitvoeren van een niet-inactieve thread
@@ -450,7 +448,7 @@ Als u wilt één metrische waarde samengevoegd voor alle processors, stel `"cond
 
 De klasse geheugen van metrische gegevens bevat informatie over geheugengebruik, voor het wisselbestand en wisselen.
 
-Teller | Betekenis
+counter | Betekenis
 ------- | -------
 AvailableMemory | Beschikbaar fysiek geheugen in MiB
 PercentAvailableMemory | Beschikbaar fysiek geheugen als percentage van Totaal geheugen
@@ -470,7 +468,7 @@ Deze klasse van metrische gegevens heeft slechts één exemplaar. Het voorwaarde
 
 De netwerk-klasse van metrische gegevens bevat informatie over activiteit op het netwerk op een afzonderlijke netwerkinterfaces sinds het opstarten. LAD maakt bandbreedte metrische gegevens, die kan worden opgehaald van metrische gegevens voor hosts niet beschikbaar.
 
-Teller | Betekenis
+counter | Betekenis
 ------- | -------
 BytesTransmitted | Totaal aantal bytes dat is verzonden sinds opstarten
 BytesReceived | Totaal aantal bytes dat is ontvangen sinds opstarten
@@ -487,9 +485,9 @@ TotalCollisions | Aantal conflicten die zijn gerapporteerd door de netwerkpoorte
 
 De klasse bestandssysteem van metrische gegevens biedt informatie over het gebruik van bestandssysteem. Absolute en procentuele waarden worden gerapporteerd als ze zouden worden weergegeven voor een gewone gebruiker (geen root).
 
-Teller | Betekenis
+counter | Betekenis
 ------- | -------
-Vrije ruimte | Beschikbare schijfruimte in bytes
+FreeSpace | Beschikbare schijfruimte in bytes
 UsedSpace | Gebruikte schijfruimte in bytes
 PercentFreeSpace | Percentage vrije ruimte
 PercentUsedSpace | Percentage gebruikte ruimte
@@ -508,7 +506,7 @@ Geaggregeerde waarden voor alle bestandssystemen kunnen worden verkregen door in
 
 De schijf-klasse van metrische gegevens biedt informatie over het schijfgebruik van het apparaat. Deze statistieken van toepassing op het hele station. Als er meerdere bestandssystemen op een apparaat, zijn de tellers voor het apparaat in feite samengevoegd voor alle mappen.
 
-Teller | Betekenis
+counter | Betekenis
 ------- | -------
 ReadsPerSecond | Leesbewerkingen per seconde
 WritesPerSecond | Schrijfbewerkingen per seconde

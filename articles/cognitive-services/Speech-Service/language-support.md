@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8cdcdd6c5e0201f8f6af39faab0a67a68920e568
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094573"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342087"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Ondersteuning voor spraak-API voor Service taal en regio
 
-Andere talen worden ondersteund voor verschillende functies voor spraak-service. De volgende tabellen geven een overzicht van ondersteuning voor talen.
+Andere talen worden ondersteund voor verschillende functies van de spraakservices. De volgende tabellen geven een overzicht van ondersteuning voor talen.
 
-## <a name="speech-to-text"></a>Spraak naar tekst
+## <a name="speech-to-text"></a>Spraak-naar-tekst
 
 De Microsoft-spraakherkenning API ondersteunt de volgende talen. Verschillende niveaus van aanpassingen zijn beschikbaar voor elke taal.
 
@@ -62,7 +62,24 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen. Verschillende n
 
 ## <a name="text-to-speech"></a>Tekst naar spraak
 
-De spraak-API voor synthese biedt de volgende stemmen, die ondersteuning biedt voor een specifieke taal en een dialect, geïdentificeerd door de landinstelling.
+De Text to Speech REST-API biedt ondersteuning voor deze stemmen, die ondersteuning biedt voor een specifieke taal en een dialect, geïdentificeerd door de landinstelling.
+
+### <a name="neural-voices-preview"></a>Neurale stemmen (Preview)
+
+Neutrale tekst naar spraak is een nieuw type spraaksynthese mogelijk gemaakt door deep neural networks. Bij het gebruik van een neural stem is kunstmatige spraak bijna te onderscheiden van de menselijke opnamen.
+
+Neurale stemmen kunnen worden gebruikt voor interactie met chatbots en virtuele assistenten natuurlijker maken en aantrekkelijke digitale teksten, zoals e-books converteren naar audiobooks en in de auto-navigatiesystemen te verbeteren. Met de menselijke natuurlijke prosody en duidelijke afbakening van woorden verkorten neural stemmen aanzienlijk luisterende moeheid wanneer gebruikers met AI-systemen communiceren.
+
+Zie voor een volledige lijst van neurale stemmen en regionale beschikbaarheid, [regio's](regions.md#neural-voices).
+
+| Landinstelling | Taal | Geslacht | De toewijzing van service|
+|--------|----------|---------|--------------------|
+| en-US | English (US) | Man | "Microsoft Server spraak tekst en spraak, spraak (en-US, GuyNeural)" |
+| en-US | English (US) | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, JessaNeural)" |
+
+### <a name="standard-voices"></a>Standard stemmen
+
+Meer dan 75 standard stemmen zijn beschikbaar in meer dan 45 talen en landinstellingen, waarmee u kunt tekst converteren naar kunstmatige spraak. Zie voor meer informatie over regionale beschikbaarheid [regio's](regions.md#standard-voices).
 
 Landinstelling | Taal | Geslacht | De toewijzing van service
 -------|----------|---------|--------------------

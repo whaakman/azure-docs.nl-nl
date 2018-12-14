@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 328dd39c3ff82666c327bc5d1d106a019fb2247b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 77291029dd15b887ea9d2fd3f0e3a31e71a2f537
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275819"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384357"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking van functies: Azure SQL Database versus SQL Server
 
@@ -79,7 +79,7 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [DMV's](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | De meeste - Zie afzonderlijke DMV 's |  Ja, Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
 |[Dynamische gegevensmaskering](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Ja](sql-database-dynamic-data-masking-get-started.md)| [Ja](sql-database-dynamic-data-masking-get-started.md) |
 | [Elastische pools](sql-database-elastic-pool.md) | Ja | Ingebouwde-één beheerde instantie kan meerdere databases die delen van dezelfde groep resources bevatten. |
-| [Meldingen van gebeurtenissen](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Nee, Zie [waarschuwingen](sql-database-insights-alerts-portal.md) | Ja |
+| [Meldingen van gebeurtenissen](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Nee, Zie [waarschuwingen](sql-database-insights-alerts-portal.md) | Nee |
 | [Expressies](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja | Ja |
 | [Uitgebreide gebeurtenissen](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Sommige - Zie [Extended events in SQL-Database](sql-database-xevent-db-diff-from-svr.md) | Ja, Zie [uitgebreide gebeurtenissen-verschillen](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nee | Nee |
@@ -109,6 +109,7 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Nee | Nee |
 | [Beheer op basis van beleid](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Nee | Nee |
 | [Predicaten](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Ja | Ja |
+| [Querymeldingen](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Nee | Ja |
 | [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Preview-versie; Zie [wat is er nieuw in machine learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Nee |
 | [Resourceregeling](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Nee | Ja |
 | [RESTORE-instructies](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Nee | Ja, Zie [verschillen herstellen](sql-database-managed-instance-transact-sql-information.md#restore-statement) |

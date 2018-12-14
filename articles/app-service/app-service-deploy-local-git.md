@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 242eb906c95b373b2edd538be5f06756cac1e8c9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 47949ca5cd0fad498f3d383f4c530e75787387e2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256503"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344003"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 
@@ -48,7 +48,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 De eenvoudigste manier om in te schakelen van lokale Git-implementatie voor uw app met de Kudu-build-server is met de Cloud Shell.
 
-### <a name="create-a-deployment-user"></a>Een implementatiegebruiker maken
+### <a name="configure-a-deployment-user"></a>Een implementatiegebruiker configureren
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
@@ -86,7 +86,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### <a name="deploy-your-project"></a>Uw project implementeren
 
-Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Vervang  _\<url >_ met de URL van de externe Git-instantie die u hebt verkregen via [Git inschakelen voor uw app](#enable-git-for-you-app).
+Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Vervang  _\<url >_ met de URL van de externe Git-instantie die u hebt verkregen via [Git inschakelen voor uw app](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50fa467a6405fdc6b99c78a8f57411abf3be6336
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 782e655edcb7cbac1965131bce4431dc5599328e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836624"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340622"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center
 Dit document bevat informatie over het gebruik van Azure Security Center om beveiligingswaarschuwingen te beheren en hierop te reageren.
 
 > [!NOTE]
-> Als u geavanceerde detectie wilt inschakelen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de prijscategorie in het [beveiligingsbeleid](security-center-azure-policy.md). Zie [Prijsinformatie over Azure Security Center](security-center-pricing.md) voor meer informatie.
+> Als u geavanceerde detectie wilt inschakelen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de prijscategorie in het [beveiligingsbeleid](tutorial-security-policy.md). Zie [Prijsinformatie over Azure Security Center](security-center-pricing.md) voor meer informatie.
 >
 >
 
@@ -51,14 +51,14 @@ U kunt uw huidige waarschuwingen controleren met de tegel **Beveiligingswaarschu
 
 Onder aan deze pagina ziet u de details voor elke waarschuwing. Als u wilt sorteren, klikt u op de kolom waarop u wilt sorteren. Hieronder volgt de definitie voor elke kolom:
 
-* **Beschrijving**: een korte beschrijving van de waarschuwing.
-* **Aantal**: een lijst met alle waarschuwingen van dit specifieke type die zijn gedetecteerd op een specifieke dag.
-* **Gedetecteerd door**: de service die verantwoordelijk is voor activering van de waarschuwing.
-* **Datum**: de datum waarop de gebeurtenis heeft plaatsgevonden.
-* **Status**: de huidige status voor deze waarschuwing. Er zijn twee soorten statussen:
-  * **Actief**: de beveiligingswaarschuwing is gedetecteerd.
-  * **Gesloten**: de beveiligingswaarschuwing is door de gebruiker gesloten. Deze status wordt meestal gebruikt voor waarschuwingen die zijn onderzocht en zijn verholpen of niet moet een werkelijke aanval.
-* **Ernst**: de ernst kan hoog, gemiddeld of laag zijn.
+* **Beschrijving**: Een korte beschrijving van de waarschuwing.
+* **Aantal**: Een lijst van alle waarschuwingen van dit specifieke type die zijn gedetecteerd op een specifieke dag.
+* **Gedetecteerd door**: De service die verantwoordelijk is voor de waarschuwing wordt geactiveerd.
+* **Datum**: De datum waarop de gebeurtenis heeft plaatsgevonden.
+* **status**: De huidige status voor deze waarschuwing. Er zijn twee soorten statussen:
+  * **Actieve**: De beveiligingswaarschuwing is gedetecteerd.
+  * **Gesloten**: De beveiligingswaarschuwing is door de gebruiker is gesloten. Deze status wordt meestal gebruikt voor waarschuwingen die zijn onderzocht en zijn verholpen of niet moet een werkelijke aanval.
+* **Ernst**: De ernst kan hoog, Gemiddeld of laag zijn.
 
 > [!NOTE]
 > Beveiligingswaarschuwingen die door Security Center worden gegenereerd, worden ook weergegeven onder het Azure-activiteitenlogboek. Zie [Activiteitenlogboeken bekijken om de acties op resources te controleren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) voor meer informatie over toegang tot het Azure-activiteitenlogboek.
@@ -71,12 +71,12 @@ Onder aan deze pagina ziet u de details voor elke waarschuwing. Als u wilt sorte
 > Ernst van waarschuwing is anders weergegeven in de portal en de REST-API, worden de verschillen vermeld in de onderstaande lijst.
 
 -   **Hoge**: Er is een hoge kans dat de resource is aangetast. U ziet in het meteen. Security Center heeft een hoge betrouwbaarheid in zowel de kwade bedoelingen en in de bevindingen gebruikt voor het uitgeven van de waarschuwing. Bijvoorbeeld, een waarschuwing die wordt gedetecteerd tijdens de uitvoering van een bekende schadelijke hulpprogramma zoals Mimikatz, een veelgebruikt hulpprogramma gebruikt voor de diefstal van referenties. 
--   **Gemiddeld (laag in de REST-API)**: dit is waarschijnlijk een verdachte activiteit die aangeven mogelijk dat een resource is aangetast.
+-   **Gemiddeld (laag in de REST-API)**: Dit is waarschijnlijk een verdachte activiteit die aangeven mogelijk dat een resource is aangetast.
 Vertrouwen in de analytische of zoeken van Security Center is normaal en het vertrouwen van de kwade bedoelingen gemiddeld in hoog is. Dit zijn meestal machine learning- of afwijkingen op basis van detecties. Bijvoorbeeld, een teken in poging vanaf een afwijkende locatie.
--   **Laag (informatie in de REST-API)**: dit wordt mogelijk een goedaardig positief of een geblokkeerde-aanval. 
+-   **Laag (informatie in de REST-API)**: Dit is mogelijk een goedaardig positief of een geblokkeerde-aanval. 
     - Security Center is niet zeker genoeg dat de bedoeling schadelijke is en mogelijk is de activiteit onschuldig uitziet. Logboek wissen is bijvoorbeeld een actie die optreden kan als een aanvaller wil verbergen hun sporen te wissen, maar in veel gevallen is een routine-bewerking uitgevoerd door beheerders.
     - Security Center niet meestal laat u weten wanneer aanvallen is geblokkeerd, tenzij het een interessante geval is dat we raden dat u kijken. 
--   **Ter informatie (stil in de REST-API)**: informatieve waarschuwingen worden alleen worden weergegeven wanneer u op een beveiligingsincident Inzoomen of als u de REST-API met een specifieke gebruiken waarschuwing ID. Een incident is normaal gesproken bestaat uit een aantal waarschuwingen, waarvan sommige kunnen worden weergegeven op hun eigen worden alleen ter informatie, maar in de context van de andere waarschuwingen mogelijk daling van nader bekijken. 
+-   **Informatief (stil in de REST-API)**: U ziet alleen informatieve waarschuwingen als u inzoomen op een beveiligingsincident, of als u de REST-API gebruiken met een specifieke waarschuwing-ID. Een incident is normaal gesproken bestaat uit een aantal waarschuwingen, waarvan sommige kunnen worden weergegeven op hun eigen worden alleen ter informatie, maar in de context van de andere waarschuwingen mogelijk daling van nader bekijken. 
 
 ### <a name="filtering-alerts"></a>Waarschuwingen filteren
 U kunt waarschuwingen filteren op basis van datum, status en ernst. Het filteren van waarschuwingen kan nuttig zijn wanneer u minder beveiligingswaarschuwingen wilt weergeven. U kunt u bijvoorbeeld concentreren op de beveiligingswaarschuwingen van de afgelopen 24 uur, omdat u een mogelijke inbreuk in het systeem onderzoekt.

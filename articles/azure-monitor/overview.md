@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 2d1f96359512a3c2135909ebf69ec9ec3b801d61
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8b5b96f7a67dfbb33f470825b8ba4cabd3469dfc
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190557"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385190"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -35,11 +35,11 @@ Het volgende diagram biedt een weergave op hoog niveau van Azure Monitor. In het
 ## <a name="monitoring-data-platform"></a>Bewaking van data-platform
 Alle gegevens die zijn verzameld door Azure Monitor in een van twee fundamentele typen, past [metrische gegevens en logboeken](../azure-monitor/platform/data-collection.md). [Metrische gegevens](../azure-monitor/platform/data-collection.md#metrics) zijn numerieke waarden die een bepaald aspect van een systeem op een bepaald punt in tijd beschrijven. Ze zijn lichtgewicht en kan in de buurt van realtime scenario's ondersteunen. [Logboeken](../azure-monitor/platform/data-collection.md#logs) bevatten verschillende soorten gegevens die zijn ingedeeld in records met verschillende sets van eigenschappen voor elk type. Telemetrie, zoals gebeurtenissen en traceringen worden opgeslagen als Logboeken ook naar prestatiegegevens zodat deze kan allemaal worden gecombineerd voor analyse.
 
-Voor veel Azure-resources ziet u de gegevens die zijn verzameld door met de rechtermuisknop op de pagina overzicht in Azure portal Azure Monitor. Een overzicht van elke virtuele machine bijvoorbeeld hebben en ziet u verschillende grafieken met metrische gegevens voor prestaties weergeven. Klik op een of meer grafieken om te openen van de gegevens in [Metric explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) in Azure portal, kunt u de waarden van meerdere metrische gegevens gedurende een periode van grafiek.  U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven.
+Voor veel Azure-resources ziet u de gegevens die zijn verzameld door met de rechtermuisknop op de pagina overzicht in Azure portal Azure Monitor. Een overzicht van elke virtuele machine bijvoorbeeld hebben en ziet u verschillende grafieken met metrische gegevens voor prestaties weergeven. Klik op een of meer grafieken om te openen van de gegevens in [Metric explorer](../azure-monitor/platform/metrics-charts.md) in Azure portal, kunt u de waarden van meerdere metrische gegevens gedurende een periode van grafiek.  U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven.
 
 ![Metrische gegevens](media/overview/metrics.png)
 
-Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in Log Analytics, waaronder een [uitgebreide querytaal](../azure-monitor/log-query/log-query-overview.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met de [pagina logboekanalyse](../azure-monitor/log-query/portals.md) in Azure portal en de gegevens met behulp van deze hulpprogramma's rechtstreeks analyseren of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [ waarschuwingsregels](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in Log Analytics, waaronder een [uitgebreide querytaal](../azure-monitor/log-query/log-query-overview.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met de [pagina logboekanalyse](../azure-monitor/log-query/portals.md) in Azure portal en de gegevens met behulp van deze hulpprogramma's rechtstreeks analyseren of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [ waarschuwingsregels](../azure-monitor/platform/alerts-overview.md).
 
 De querytaal van Log Analytics is geschikt voor eenvoudige logboeken-query's, maar bevat ook geavanceerde functies zoals aggregaties, joins en slimme analyse. U kunt snel leren over de query-taal met [meerdere lessen](../azure-monitor/log-query/get-started-queries.md) die beschikbaar zijn.  Er worden specifieke richtlijnen gegeven voor gebruikers die al bekend zijn met [SQL](../azure-monitor/log-query/sql-cheatsheet.md) en [Splunk](../azure-monitor/log-query/splunk-cheatsheet.md).
 
@@ -94,7 +94,7 @@ Naast de mogelijkheid die u interactief controleren om gegevens te analyseren, m
 
 
 ### <a name="alerts"></a>Waarschuwingen
-[Waarschuwingen in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactief te waarschuwen voor kritieke situaties en mogelijk proberen corrigerende actie te ondernemen. Regels voor waarschuwingen op basis van metrische gegevens beschikt u over bijna realtime waarschuwingen op basis van numerieke waarden, terwijl regels op basis van Logboeken toestaan voor complexe logica voor gegevens uit meerdere bronnen.
+[Waarschuwingen in Azure Monitor](../azure-monitor/platform/alerts-overview.md) proactief te waarschuwen voor kritieke situaties en mogelijk proberen corrigerende actie te ondernemen. Regels voor waarschuwingen op basis van metrische gegevens beschikt u over bijna realtime waarschuwingen op basis van numerieke waarden, terwijl regels op basis van Logboeken toestaan voor complexe logica voor gegevens uit meerdere bronnen.
 
 Waarschuwingsregels in Azure Monitor gebruiken [actiegroepen](../azure-monitor/platform/action-groups.md), die de unieke sets ontvangers en acties die kunnen worden gedeeld met meerdere regels bevatten. Op basis van uw behoeften, kunnen actiegroepen acties uitvoeren, zoals met behulp van webhooks om waarschuwingen externe acties te starten of om te integreren met uw ITSM-hulpprogramma's.
 

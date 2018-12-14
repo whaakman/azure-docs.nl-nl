@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: bbdacd6947c897d3b137b427c3e4c316869fa401
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 707a23cbd04db9a0420c7776a24eb568a3483b0b
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193192"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385853"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-metrische gegevens en waarschuwingen
 Azure DNS is een hostingservice voor DNS-domeinen die naamomzetting met de Microsoft Azure-infrastructuur biedt. Dit artikel wordt beschreven voor metrische gegevens en waarschuwingen voor de Azure DNS-service.
@@ -40,14 +40,14 @@ De gedetailleerde niveau van de dimensie voor deze metrische gegevens is DNS-Zon
 
 ### <a name="query-volume"></a>Queryvolume
 
-De *queryvolume* metrische gegevens in Azure DNS bevat het volume van DNS-query's (queryverkeer) die wordt ontvangen door Azure DNS voor de DNS-zone. De maateenheid Count is en de aggregatie is het totaal van alle query's ontvangen gedurende een bepaalde periode. Wilt deze metrische gegevens weergeven, selecteert u metrische gegevens (preview) explorer ervaring op het tabblad Monitor in Azure portal. Uw DNS-zone in de vervolgkeuzelijst Resource selecteren, selecteert u de Query Volume metrische gegevens en som selecteren als de aggregatie. In de schermafbeelding hieronder ziet u een voorbeeld.  Voor meer informatie over de Metrics Explorer-ervaring en grafieken, Zie [Azure Monitor Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md).
+De *queryvolume* metrische gegevens in Azure DNS bevat het volume van DNS-query's (queryverkeer) die wordt ontvangen door Azure DNS voor de DNS-zone. De maateenheid Count is en de aggregatie is het totaal van alle query's ontvangen gedurende een bepaalde periode. Wilt deze metrische gegevens weergeven, selecteert u metrische gegevens (preview) explorer ervaring op het tabblad Monitor in Azure portal. Uw DNS-zone in de vervolgkeuzelijst Resource selecteren, selecteert u de Query Volume metrische gegevens en som selecteren als de aggregatie. In de schermafbeelding hieronder ziet u een voorbeeld.  Voor meer informatie over de Metrics Explorer-ervaring en grafieken, Zie [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
 
 ![Queryvolume](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 
 *Afbeelding: Metrische gegevens van Azure DNS-Query Volume*
 
 ### <a name="record-set-count"></a>Set-aantal records
-De *Record ingesteld aantal* metriek wordt het aantal Recordsets in Azure DNS voor de DNS-zone. Alle Recordsets gedefinieerd in uw zone worden geteld. De maateenheid Count is en de aggregatie is het Maximum van alle Recordsets. Als u wilt deze metrische gegevens weergeven, selecteert u **metrische gegevens (preview)** explorer-ervaring van de **Monitor** tabblad in de Azure-portal. Selecteer uw DNS-zone van de **Resource** vervolgkeuzelijst, selecteer de **ingesteld aantal records** metrische gegevens en selecteer vervolgens **Max** als de **aggregatie** . Voor meer informatie over de Metrics Explorer-ervaring en grafieken, Zie [Azure Monitor Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md). 
+De *Record ingesteld aantal* metriek wordt het aantal Recordsets in Azure DNS voor de DNS-zone. Alle Recordsets gedefinieerd in uw zone worden geteld. De maateenheid Count is en de aggregatie is het Maximum van alle Recordsets. Als u wilt deze metrische gegevens weergeven, selecteert u **metrische gegevens (preview)** explorer-ervaring van de **Monitor** tabblad in de Azure-portal. Selecteer uw DNS-zone van de **Resource** vervolgkeuzelijst, selecteer de **ingesteld aantal records** metrische gegevens en selecteer vervolgens **Max** als de **aggregatie** . Voor meer informatie over de Metrics Explorer-ervaring en grafieken, Zie [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
 
 ![Set-aantal records](./media/dns-alerts-metrics/dns-metrics-record-set-count.png)
 
@@ -55,7 +55,7 @@ De *Record ingesteld aantal* metriek wordt het aantal Recordsets in Azure DNS vo
 
 
 ### <a name="record-set-capacity-utilization"></a>Gebruik van capaciteit van de recordset
-De *Record ingesteld capaciteitsverbruik* metrische gegevens in Azure DNS bevat het percentage van het gebruik van de capaciteit van de Recordset voor een DNS-Zone. Elke DNS-zone in Azure DNS is onderworpen aan de grens van een Recordset dat definieert het maximum aantal Recordsets die zijn toegestaan voor de Zone (Zie [DNS limieten](dns-zones-records.md#limits)). Daarom kan ziet deze metrische gegevens u hoe dicht zijn de Recordset limiet hebt bereikt. Bijvoorbeeld, als u geconfigureerd voor uw DNS-zone-500 Recordsets hebt en heeft de standaardlimiet voor de Recordset van 5000 van de zone, toont de metriek RecordSetCapacityUtilization de waarde van 10% (die wordt verkregen door tussen 500 door 5000). De maateenheid is **Percentage** en de **aggregatie** type **maximale**. Wilt deze metrische gegevens weergeven, selecteert u metrische gegevens (preview) explorer ervaring op het tabblad Monitor in Azure portal. Selecteer uw DNS-zone in de vervolgkeuzelijst Resource, het verbruik van de Record ingesteld opslagcapaciteit metrische waarde selecteren en Max selecteren als de aggregatie. In de schermafbeelding hieronder ziet u een voorbeeld. Voor meer informatie over de Metrics Explorer-ervaring en grafieken, Zie [Azure Monitor Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md). 
+De *Record ingesteld capaciteitsverbruik* metrische gegevens in Azure DNS bevat het percentage van het gebruik van de capaciteit van de Recordset voor een DNS-Zone. Elke DNS-zone in Azure DNS is onderworpen aan de grens van een Recordset dat definieert het maximum aantal Recordsets die zijn toegestaan voor de Zone (Zie [DNS limieten](dns-zones-records.md#limits)). Daarom kan ziet deze metrische gegevens u hoe dicht zijn de Recordset limiet hebt bereikt. Bijvoorbeeld, als u geconfigureerd voor uw DNS-zone-500 Recordsets hebt en heeft de standaardlimiet voor de Recordset van 5000 van de zone, toont de metriek RecordSetCapacityUtilization de waarde van 10% (die wordt verkregen door tussen 500 door 5000). De maateenheid is **Percentage** en de **aggregatie** type **maximale**. Wilt deze metrische gegevens weergeven, selecteert u metrische gegevens (preview) explorer ervaring op het tabblad Monitor in Azure portal. Selecteer uw DNS-zone in de vervolgkeuzelijst Resource, het verbruik van de Record ingesteld opslagcapaciteit metrische waarde selecteren en Max selecteren als de aggregatie. In de schermafbeelding hieronder ziet u een voorbeeld. Voor meer informatie over de Metrics Explorer-ervaring en grafieken, Zie [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
 
 ![Set-aantal records](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 

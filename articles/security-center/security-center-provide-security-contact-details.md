@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5ed7550b3582fe90bd581dff068e2a6e2c8b72d8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1948cee033ecb8b50fdd75513a07766490568600
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967432"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337254"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Geef de contactgegevens voor beveiliging in Azure Security Center
 Azure Security Center wordt aanbevolen dat u contactgegevens voor beveiliging voor uw Azure-abonnement, bieden als u dat nog niet gedaan hebt. Deze informatie wordt gebruikt door Microsoft om contact met u op te nemen als door Microsoft Security Response Center (MSRC) wordt gedetecteerd dat uw klantgegevens zijn geopend door een illegale of niet-geautoriseerde derde. MSRC voert selecteert u beveiligingsbewaking van de Azure-netwerk en de infrastructuur en threat intelligence en misbruik klachten ontvangt van een derde partij.
@@ -48,7 +48,7 @@ Een e-mailmelding wordt verzonden op de eerste dagelijkse uitvoering van een waa
 ## <a name="see-also"></a>Zie ook
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) --Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) --informatie over het bewaken van de status van uw Azure-resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.

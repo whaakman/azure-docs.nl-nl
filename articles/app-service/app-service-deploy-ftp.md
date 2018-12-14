@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: f48dc4d91fd5fafda88f518c27c79e151e5b1ebe
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3b8c97fa772467d1e0aff830eec51d212045be39
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260069"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339702"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uw app implementeren in Azure App Service met behulp van FTP/S
 
@@ -96,7 +96,7 @@ Een runtime-toepassingsprobleem resulteert gewoonlijk in de juiste set bestanden
 Om te bepalen van een probleem met de implementatie of runtime, Zie [implementatie versus runtimeproblemen](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Ik kan geen FTP en publiceren van mijn code. Hoe kan ik het probleem oplossen?
-Controleer of u de juiste hostnaam hebt ingevoerd en [referenties](#step-1--set-deployment-credentials). Controleer ook de volgende FTP-poorten op uw computer worden niet geblokkeerd door een firewall:
+Controleer of u de juiste hostnaam hebt ingevoerd en [referenties](#open-ftp-dashboard). Controleer ook de volgende FTP-poorten op uw computer worden niet geblokkeerd door een firewall:
 
 - Verbindingspoort voor FTP-besturingselement: 21
 - Verbindingspoort voor FTP-gegevens: 989, 10001-10300

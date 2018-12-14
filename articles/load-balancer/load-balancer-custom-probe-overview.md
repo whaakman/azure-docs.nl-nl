@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: d3e0fd510968abed55e0e3fea2a8689027713a2b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8ffc2a84850254451bb8356ceb0c08cd56823afd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310399"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344207"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 
@@ -56,6 +56,9 @@ Bij het gebruik van [HA-poorten in load balancer-regels](load-balancer-ha-ports-
 U moet geen NAT- of proxy een statustest via het exemplaar waarop de statustest naar een andere instantie in uw VNet ontvangt, omdat dit tot een opeenstapeling van storingen in uw scenario leiden kan.
 
 Als u wilt testen van een test-fout health- of markeren in een afzonderlijk exemplaar, kunt u een beveiligingsgroep op expliciete blokkeren de statustest (doel of [bron](#probesource)).
+
+>[!IMPORTANT]
+> Schakel geen [TCP tijdstempels](https://tools.ietf.org/html/rfc1323).  Inschakelen van TCP tijdstempels zorgt ervoor dat statuscontroles mislukt vanwege een TCP-pakketten door de VM Gast OS TCP-stack, wat tot de Load Balancer het eindpunt van de respectieve markering leidt omlaag wordt verwijderd.
 
 ### <a name="tcpprobe"></a> TCP-test
 

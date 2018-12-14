@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 5e18a4690eacaaeaa4422379fc8a4e3d2a02e717
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 89e9b7190a3c419c256513e477f85313e4f9f3bd
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134162"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384884"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van logboekgegevens van uw Azure-resources
 
@@ -31,14 +31,14 @@ Deze logboeken afwijken van de [activiteitenlogboek](monitoring-overview-activit
 
 Deze logboeken afwijken van de Gast OS-niveau van diagnostische logboeken. Diagnostische logboeken van Guest OS zijn deze die worden verzameld door een agent die wordt uitgevoerd op een virtuele machine of andere ondersteund resourcetype. Diagnostische logboeken resourceniveau vereisen geen gegevens van de resource-specifieke agent en vastleggen van de Azure-platform zelf wordt geboden, terwijl Gast OS-niveau logboeken met diagnostische gegevens vastleggen van gegevens uit het besturingssysteem en toepassingen die worden uitgevoerd op een virtuele machine.
 
-Niet alle services die ondersteuning voor de diagnostische logboeken die hier worden beschreven. [In dit artikel bevat een sectie aanbieding welke services diagnostische logboeken ondersteunen](./monitoring-diagnostic-logs-schema.md).
+Niet alle services die ondersteuning voor de diagnostische logboeken die hier worden beschreven. [In dit artikel bevat een sectie aanbieding welke services diagnostische logboeken ondersteunen](./../azure-monitor/platform/tutorial-dashboards.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>U kunt doen met diagnostische logboeken
 Hier volgen enkele dingen die u met Logboeken met diagnostische gegevens doen kunt:
 
 ![Logische plaatsing van diagnostische logboeken](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
-* Opslaan naar een [ **Opslagaccount** ](monitoring-archive-diagnostic-logs.md) voor controle of handmatige controle. U kunt opgeven de bewaartermijn (in dagen) via **instellingen voor resourcediagnose**.
+* Opslaan naar een [ **Opslagaccount** ](../azure-monitor/platform/archive-diagnostic-logs.md) voor controle of handmatige controle. U kunt opgeven de bewaartermijn (in dagen) via **instellingen voor resourcediagnose**.
 * [Stream ze **Event Hubs** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
 * Analyseren met [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md), waar de gegevens worden geschreven onmiddellijk naar Log Analytics met hoeft niet de gegevens eerst naar opslag schrijven.  
 
@@ -68,13 +68,13 @@ Deze instellingen gemakkelijk worden geconfigureerd in de diagnostische instelli
 > [!NOTE]
 > Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
 >
-> *Een voorbeeld*: de meetwaarde 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Wanneer de waarde wordt geëxporteerd via diagnostische instellingen, wordt deze echter voorgesteld als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
+> *Bijvoorbeeld*: De metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een wachtrijniveau. Wanneer de waarde wordt geëxporteerd via diagnostische instellingen, wordt deze echter voorgesteld als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
 >
 >
 
 ## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Het inschakelen van verzamelen van diagnostische logboeken
 
-Verzamelen van diagnostische logboeken kan worden ingeschakeld [als onderdeel van een resource maken in Resource Manager-sjabloon](./monitoring-enable-diagnostic-logs-using-template.md) of wanneer een resource is gemaakt op de pagina van de resource in de portal. U kunt ook de verzameling op elk gewenst moment met behulp van Azure PowerShell of CLI-opdrachten, of de REST-API van Azure Monitor inschakelen.
+Verzamelen van diagnostische logboeken kan worden ingeschakeld [als onderdeel van een resource maken in Resource Manager-sjabloon](./../azure-monitor/platform/diagnostic-logs-stream-template.md) of wanneer een resource is gemaakt op de pagina van de resource in de portal. U kunt ook de verzameling op elk gewenst moment met behulp van Azure PowerShell of CLI-opdrachten, of de REST-API van Azure Monitor inschakelen.
 
 > [!TIP]
 > Deze instructies mogelijk niet van toepassing rechtstreeks aan elke resource. Zie de koppelingen schema onderaan deze pagina om te begrijpen speciale stappen die van toepassing op bepaalde resourcetypen zijn.
@@ -229,7 +229,7 @@ Een diagnostische instelling toe te voegen, wordt de diagnostische instellingen 
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Ondersteunde services, categorieën en schema's voor diagnostische logboeken
 
-[Raadpleeg dit artikel](monitoring-diagnostic-logs-schema.md) voor een volledige lijst van ondersteunde services en de logboekcategorieën en schema's die worden gebruikt door deze services.
+[Raadpleeg dit artikel](../azure-monitor/platform/tutorial-dashboards.md) voor een volledige lijst van ondersteunde services en de logboekcategorieën en schema's die worden gebruikt door deze services.
 
 ## <a name="next-steps"></a>Volgende stappen
 

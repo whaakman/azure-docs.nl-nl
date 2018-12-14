@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 448fe3e7d6f3129ce6a40494abcf993f6dc4e4f7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cd9ff1a1a7730ae870ef4e80fbca2d934aa5c8e2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081400"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342660"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -101,7 +101,7 @@ In Windows:
 
 ### <a name="check-container-logs-for-issues"></a>Raadpleeg de containerlogboeken voor problemen
 
-Zodra de IoT Edge Security-Daemon wordt uitgevoerd, bekijkt u de logboeken van de containers om problemen te detecteren. Begin met uw geïmplementeerde containers en kijk vervolgens naar de containers die gezamenlijk de IoT Edge-runtime vormen: Edge Agent en Edge Hub. De Edge Agent-logboeken bieden doorgaans informatie over de levenscyclus van elke container. De Edge Hub-logboeken bieden informatie over berichten en routering. 
+Zodra de IoT Edge Security-Daemon wordt uitgevoerd, bekijkt u de logboeken van de containers om problemen te detecteren. Beginnen met uw geïmplementeerde containers en kijk vervolgens naar de containers die gezamenlijk de IoT Edge-runtime: Edge Agent en Edge Hub. De Edge Agent-logboeken bieden doorgaans informatie over de levenscyclus van elke container. De Edge Hub-logboeken bieden informatie over berichten en routering. 
 
    ```cmd
    iotedge logs <container name>
@@ -147,7 +147,7 @@ Vervang `env: {}` met:
 
 Sla het bestand op en start de IoT Edge security manager opnieuw.
 
-U kunt ook de berichten controleren die worden verzonden tussen IoT Hub en de IoT Edge-apparaten. Bekijk deze berichten met behulp van de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)-extensie voor Visual Studio Code. Zie voor meer informatie, [handig hulpmiddel bij het ontwikkelen met Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
+U kunt ook de berichten controleren die worden verzonden tussen IoT Hub en de IoT Edge-apparaten. Deze berichten weergeven met behulp van de [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit-extensie)-extensie voor Visual Studio Code. Zie voor meer informatie, [handig hulpmiddel bij het ontwikkelen met Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
 ### <a name="restart-containers"></a>Opnieuw opstarten van containers
 Na onderzoek van de logboeken en berichten voor meer informatie, kunt u proberen opnieuw te starten containers:

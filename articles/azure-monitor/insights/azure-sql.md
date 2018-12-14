@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: 7c567cc70a87e7856f511112d3bff692f5af3993
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf2cbdb57276fccd31af61f2df1b76eeba816e66
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194008"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341623"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -299,4 +299,4 @@ De oplossing is gratis te gebruiken, gebruik van diagnostische gegevens telemetr
 
 - Gebruik [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics om gedetailleerde Azure SQL-gegevens weer te geven.
 - [Maak uw eigen dashboards](../../azure-monitor/platform/dashboards.md) met Azure SQL-gegevens.
-- [Waarschuwingen maken](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) wanneer specifieke Azure SQL-gebeurtenissen plaatsvinden.
+- [Waarschuwingen maken](../../azure-monitor/platform/alerts-overview.md) wanneer specifieke Azure SQL-gebeurtenissen plaatsvinden.

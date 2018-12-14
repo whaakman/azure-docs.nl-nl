@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 54a88188a432a23476af6a1670635a23fb72eea7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643143"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341165"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestaties en schaalbaarheid in duurzame functies (Azure Functions)
 
@@ -33,7 +33,7 @@ Wanneer een exemplaar van de indeling moet worden uitgevoerd, worden de juiste r
 
 De **exemplaren** tabel is een andere Azure Storage-tabel met de status van alle orchestration-exemplaren in een hub-taak. Als de exemplaren worden gemaakt, worden nieuwe rijen zijn toegevoegd aan deze tabel. De partitiesleutel van deze tabel is de orchestration-exemplaar-ID en de rijsleutel is een vaste constante. Er is één rij per orchestration-exemplaar.
 
-Deze tabel wordt gebruikt om te voldoen aan de queryaanvragen exemplaar van de [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API, evenals de [status query HTTP API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). Deze opgeslagen uiteindelijk consistent zijn met de inhoud van de **geschiedenis** tabel eerder is vermeld. Het gebruik van een afzonderlijke Azure Storage-tabel om te voorzien in efficiënt querybewerkingen exemplaar op deze manier wordt beïnvloed door de [patroon Command and Query Responsibility Segregation (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Deze tabel wordt gebruikt om te voldoen aan de queryaanvragen exemplaar van de [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) (.NET) en `getStatus` (JavaScript) API's, evenals de [status query HTTP API](durable-functions-http-api.md#get-instance-status). Deze opgeslagen uiteindelijk consistent zijn met de inhoud van de **geschiedenis** tabel eerder is vermeld. Het gebruik van een afzonderlijke Azure Storage-tabel om te voorzien in efficiënt querybewerkingen exemplaar op deze manier wordt beïnvloed door de [patroon Command and Query Responsibility Segregation (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Interne queue-triggers
 
@@ -53,10 +53,24 @@ Besturingselement wachtrijen bevatten verschillende typen orchestration lifecycl
 
 De wachtrijen, tabellen en blobs gebruikt door duurzame functies worden gemaakt door in een geconfigureerde Azure Storage-account. Het account moet worden gebruikt, kan worden opgegeven met behulp van de `durableTask/azureStorageConnectionStringName` instellen in **host.json** bestand.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+    }
   }
 }
 ```
@@ -67,6 +81,8 @@ Indien niet opgegeven, de standaard `AzureWebJobsStorage` storage-account wordt 
 
 Activiteitsfuncties zijn staatloze en geschaalde automatisch door virtuele machines toe te voegen. Orchestrator-functies, aan de andere kant zijn *gepartitioneerde* via een of meer wachtrijen voor controle. Het aantal wachtrijen besturingselement is gedefinieerd in de **host.json** bestand. Het volgende voorbeeld host.json codefragment wordt de `durableTask/partitionCount` eigenschap `3`.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
@@ -74,6 +90,19 @@ Activiteitsfuncties zijn staatloze en geschaalde automatisch door virtuele machi
   }
 }
 ```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "partitionCount": 3
+    }
+  }
+}
+```
+
 Een taak hub kan worden geconfigureerd met tussen 1 en 16 partities. Indien niet opgegeven, wordt het standaardaantal-partities is **4**.
 
 Bij het uitschalen naar meerdere exemplaren van de functie host (meestal op verschillende VM's), krijgt elk exemplaar een vergrendeling op een van de controle-wachtrijen. Deze vergrendelingen intern worden geïmplementeerd als blob-opslag-leases en zorg ervoor dat een orchestration-exemplaar alleen wordt uitgevoerd op een afzonderlijke host-exemplaar op een tijdstip. Als een taak hub is geconfigureerd met drie besturingselement wachtrijen, kunnen orchestration-exemplaren worden met load balancing op maximaal drie VM's. Extra virtuele machines kunnen worden toegevoegd om de capaciteit voor de uitvoering van activiteit-functie te vergroten.
@@ -106,11 +135,26 @@ Azure Functions ondersteunt meerdere functies tegelijk binnen een enkele app-exe
 
 Beide activiteit functie en orchestrator gelijktijdigheidsbeperkingen voor de functie kunnen worden geconfigureerd de **host.json** bestand. De relevante instellingen zijn `durableTask/maxConcurrentActivityFunctions` en `durableTask/maxConcurrentOrchestratorFunctions` respectievelijk.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
   }
 }
 ```
@@ -121,15 +165,31 @@ In het vorige voorbeeld, kan maximaal 10 orchestrator en 10 activiteitsfuncties 
 > Deze instellingen zijn handig voor het beheer van geheugen en CPU-gebruik op een enkele virtuele machine. Wanneer u met deze methode wordt uitgeschaald over meerdere virtuele machines, wordt elke virtuele machine echter een eigen set beperkingen hebben. Deze instellingen kunnen niet worden gebruikt voor het beheren van gelijktijdigheid op algemeen niveau.
 
 ## <a name="orchestrator-function-replay"></a>Orchestrator-functie opnieuw afspelen
+
 Zoals eerder vermeld, orchestrator-functies zijn opnieuw afgespeeld met behulp van de inhoud van de **geschiedenis** tabel. Standaard wordt de orchestrator-functiecode replay telkens wanneer een berichtenbatch uit de wachtrij van een besturingselement uit de wachtrij zijn geplaatst.
 
 Dit gedrag agressief opnieuw afspelen kan worden uitgeschakeld door in te schakelen **uitgebreide sessies**. Wanneer uitgebreide sessies zijn ingeschakeld, wordt orchestrator-functie-exemplaren worden bewaard in het geheugen langere en nieuwe berichten kunnen worden verwerkt zonder een volledige opnieuw afspelen. Uitgebreide sessies moeten worden ingeschakeld door in te stellen `durableTask/extendedSessionsEnabled` naar `true` in de **host.json** bestand. De `durableTask/extendedSessionIdleTimeoutInSeconds` instelling wordt gebruikt om te bepalen hoe lang een niet-actieve sessies wordt gehouden in het geheugen:
+
+### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
   "durableTask": {
     "extendedSessionsEnabled": true,
     "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "extendedSessionsEnabled": true,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
   }
 }
 ```
@@ -150,10 +210,10 @@ Een voorbeeld: als `durableTask/extendedSessionIdleTimeoutInSeconds` is ingestel
 
 Bij het plannen van duurzame functies gebruiken voor een productietoepassing, is het belangrijk dat u rekening houden met de prestatievereisten al vroeg in het planningsproces. Deze sectie worden enkele eenvoudige gebruiksscenario's en de verwachte maximale doorvoer getallen.
 
-* **Sequentiële activiteit uitvoering**: in dit scenario beschrijft een orchestrator-functie die wordt uitgevoerd een reeks activiteitsfuncties een na de andere. Het beste past bij de [functie Chaining](durable-functions-sequence.md) voorbeeld.
-* **Parallelle uitvoering van activiteit**: in dit scenario beschrijft een orchestrator-functie die wordt uitgevoerd veel activiteitsfuncties in met behulp van parallelle de [fanout, Fan-in](durable-functions-cloud-backup.md) patroon.
-* **Parallelle verwerking van certificaatantwoord**: in dit scenario is de tweede helft van de [fanout, Fan-in](durable-functions-cloud-backup.md) patroon. Dit artikel gaat over de prestaties van de fan-in. Het is belangrijk te weten dat in tegenstelling tot fanout, fan-in wordt uitgevoerd door een exemplaar van de functie één orchestrator, en daarom kan alleen worden uitgevoerd op een enkele virtuele machine.
-* **Externe gebeurtenisverwerking**: in dit scenario vertegenwoordigt een instantie van één orchestrator-functie die wacht op [externe gebeurtenissen](durable-functions-external-events.md), één voor één.
+* **Sequentiële activiteit uitvoering**: Dit scenario beschrijft een orchestrator-functie die wordt uitgevoerd een reeks activiteitsfuncties een na de andere. Het beste past bij de [functie Chaining](durable-functions-sequence.md) voorbeeld.
+* **Parallelle uitvoering van activiteit**: Dit scenario beschrijft een orchestrator-functie die wordt uitgevoerd veel activiteitsfuncties in met behulp van parallelle de [fanout, Fan-in](durable-functions-cloud-backup.md) patroon.
+* **Parallelle verwerking van certificaatantwoord**: Dit scenario is de tweede helft van de [fanout, Fan-in](durable-functions-cloud-backup.md) patroon. Dit artikel gaat over de prestaties van de fan-in. Het is belangrijk te weten dat in tegenstelling tot fanout, fan-in wordt uitgevoerd door een exemplaar van de functie één orchestrator, en daarom kan alleen worden uitgevoerd op een enkele virtuele machine.
+* **Externe gebeurtenisverwerking**: In dit scenario vertegenwoordigt een instantie van één orchestrator-functie die wacht op [externe gebeurtenissen](durable-functions-external-events.md), één voor één.
 
 > [!TIP]
 > In tegenstelling tot fanout zijn fan-in operations beperkt tot een enkele virtuele machine. Als uw toepassing het fanout fan-in patroon gebruikt en u zich zorgen maakt over de prestaties van fan-in, kunt u de functie activiteit fanout subplan verdelen over meerdere [onderliggende indelingen](durable-functions-sub-orchestrations.md).

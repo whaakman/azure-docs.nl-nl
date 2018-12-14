@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7a55e28f34f36cd02b67e56c6262b9e1f06dde8f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642660"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338189"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Afhandeling van fouten in duurzame functies (Azure Functions)
 
@@ -27,7 +27,7 @@ Elke uitzondering die is gegenereerd in een functie van de activiteit is samenge
 
 Bijvoorbeeld, houd rekening met de volgende orchestrator-functie die wordt overgedragen middelen van één account naar een andere:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -38,16 +38,16 @@ public static async Task Run(DurableOrchestrationContext context)
 
     await context.CallActivityAsync("DebitAccount",
         new
-        { 
+        {
             Account = transferDetails.SourceAccount,
             Amount = transferDetails.Amount
         });
 
     try
     {
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.DestinationAccount,
                 Amount = transferDetails.Amount
             });
@@ -56,9 +56,9 @@ public static async Task Run(DurableOrchestrationContext context)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.SourceAccount,
                 Amount = transferDetails.Amount
             });
@@ -66,7 +66,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -108,7 +108,7 @@ Als de aanroep van de **CreditAccount** functie mislukt voor de doelaccount, de 
 
 Als u activiteitsfuncties of subquery orchestration functies aanroept, kunt u een beleid voor automatische opnieuw proberen. Het volgende voorbeeld roept een functie maximaal drie keer en wacht vijf seconden tussen nieuwe pogingen:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -118,41 +118,41 @@ public static async Task Run(DurableOrchestrationContext context)
         maxNumberOfAttempts: 3);
 
     await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
-    
+
     // ...
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 ```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const retryOptions = new df.RetryOptions(5000, 3);
-    
+
     yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
 
     // ...
 });
 ```
 
-De `CallActivityWithRetryAsync` (C#) of `callActivityWithRetry` (JS) API duurt een `RetryOptions` parameter. Suborchestration aanroept met behulp van de `CallSubOrchestratorWithRetryAsync` (C#) of `callSubOrchestratorWithRetry` (JS) API kunt gebruiken deze dezelfde beleid voor opnieuw proberen.
+De `CallActivityWithRetryAsync` (.NET) of `callActivityWithRetry` (JavaScript) API heeft een `RetryOptions` parameter. Suborchestration aanroept met behulp van de `CallSubOrchestratorWithRetryAsync` (.NET) of `callSubOrchestratorWithRetry` (JavaScript) API kunt gebruiken deze dezelfde beleid voor opnieuw proberen.
 
 Er zijn verschillende opties voor het aanpassen van het beleid voor automatische opnieuw proberen. Hieronder vallen de volgende landen:
 
-* **Maximumaantal pogingen**: het maximum aantal nieuwe pogingen.
-* **Eerste interval voor opnieuw proberen**: de hoeveelheid tijd moet worden gewacht voordat de eerste nieuwe poging.
-* **Uitstel coëfficiënt**: de coëfficiënt gebruikt om te bepalen van de snelheid van de toename van uitstel. Standaard ingesteld op 1.
-* **Interval voor opnieuw proberen van max**: de maximale hoeveelheid tijd moet wachten tussen nieuwe pogingen.
-* **Opnieuw proberen**: de maximale hoeveelheid tijd te besteden aan dit nieuwe pogingen. Het standaardgedrag is voor onbepaalde tijd opnieuw uit te voeren.
-* **Verwerken**: een door de gebruiker gedefinieerde callback kunt opgeven dat bepaalt of een aanroep van de functie opnieuw moet worden uitgevoerd.
+* **Maximumaantal pogingen**: Het maximale aantal nieuwe pogingen.
+* **Eerste interval voor opnieuw proberen**: De hoeveelheid tijd moet worden gewacht voordat de eerste nieuwe poging.
+* **Uitstel coëfficiënt**: De coëfficiënt gebruikt om te bepalen van de snelheid van de toename van uitstel. Standaard ingesteld op 1.
+* **Interval voor opnieuw proberen van max**: De maximale hoeveelheid tijd moet wachten tussen nieuwe pogingen.
+* **Opnieuw proberen**: De maximale hoeveelheid tijd te besteden aan dit nieuwe pogingen. Het standaardgedrag is voor onbepaalde tijd opnieuw uit te voeren.
+* **Verwerken**: Een door de gebruiker gedefinieerde callback kunt opgeven dat bepaalt of een aanroep van de functie opnieuw moet worden uitgevoerd.
 
 ## <a name="function-timeouts"></a>Functie time-outs
 
-Mogelijk wilt u een functieaanroep binnen een orchestrator-functie afbreken als duurt te lang om te voltooien. De juiste manier om dit te doen vandaag is door het maken van een [duurzame timer](durable-functions-timers.md) met behulp van `context.CreateTimer` in combinatie met `Task.WhenAny`, zoals in het volgende voorbeeld:
+Mogelijk wilt u een functieaanroep binnen een orchestrator-functie afbreken als duurt te lang om te voltooien. De juiste manier om dit te doen vandaag is door het maken van een [duurzame timer](durable-functions-timers.md) met behulp van `context.CreateTimer` (.NET) of `context.df.createTimer` (JavaScript) in combinatie met `Task.WhenAny` (.NET) of `context.df.Task.any` (JavaScript), zoals in het volgende voorbeeld:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -181,7 +181,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 ```javascript
 const df = require("durable-functions");

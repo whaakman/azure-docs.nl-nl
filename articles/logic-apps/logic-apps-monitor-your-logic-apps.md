@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 79e4d15c79a7f905a33fe471bcfda3e7ca367b01
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0d2b7a5e3239cf46c41db0a086b804c34df5d6e2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996457"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386941"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
 
@@ -155,7 +155,7 @@ Als u wilt uw query te verfijnen door een filter toe te voegen, kies **+ toevoeg
 
 Samen met Azure Log Analytics, kunt u uitbreiden hoe u diagnostische gegevens van uw logische app gebruiken met andere Azure-services, bijvoorbeeld: 
 
-* [Azure Diagnostics-in Azure-opslag logboeken archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Azure Diagnostics-in Azure-opslag logboeken archiveren](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Stream diagnostische logboeken van Azure naar Azure Eventhubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
 U kunt vervolgens get realtime bewaking met behulp van Telemetrie en analyses van andere services, zoals [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) en [Power BI](../azure-monitor/platform/powerbi.md). Bijvoorbeeld:
@@ -174,7 +174,7 @@ Op basis van de opties die u wilt instellen, zorg ervoor dat u eerst [maken van 
 
 ## <a name="set-up-alerts-for-your-logic-app"></a>Waarschuwingen instellen voor uw logische app
 
-Instellen voor het bewaken van specifieke metrische gegevens of overschreden drempelwaarden voor uw logische app, [waarschuwingen in Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). Meer informatie over [metrische gegevens in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+Instellen voor het bewaken van specifieke metrische gegevens of overschreden drempelwaarden voor uw logische app, [waarschuwingen in Azure](../azure-monitor/platform/alerts-overview.md). Meer informatie over [metrische gegevens in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 Voor het instellen van waarschuwingen zonder [Azure Log Analytics](../log-analytics/log-analytics-overview.md), als volgt te werk. Voor meer geavanceerde criteria voor waarschuwingen en acties, [Log Analytics instellen](#azure-diagnostics) te.
 
@@ -245,7 +245,7 @@ Bijvoorbeeld, de `ActionCompleted` gebeurtenis heeft de `clientTrackingId` en `t
 }
 ```
 
-* `clientTrackingId`: Als dit niet opgegeven, wordt Azure automatisch deze ID gegenereerd en gebeurtenissen in een logische app verbindt met inbegrip van eventuele geneste werkstromen die worden aangeroepen vanuit de logische app. U kunt deze ID vanuit een trigger handmatig opgeven door door te geven een `x-ms-client-tracking-id` -header met de aangepaste id-waarde in de aanvraag van de trigger. U kunt een aanvraag als trigger, HTTP-trigger of webhook-trigger.
+* `clientTrackingId`: Als dat niet opgegeven, wordt Azure automatisch deze ID gegenereerd en gebeurtenissen in een logische app verbindt met inbegrip van eventuele geneste werkstromen die worden aangeroepen vanuit de logische app. U kunt deze ID vanuit een trigger handmatig opgeven door door te geven een `x-ms-client-tracking-id` -header met de aangepaste id-waarde in de aanvraag van de trigger. U kunt een aanvraag als trigger, HTTP-trigger of webhook-trigger.
 
 * `trackedProperties`: Als u wilt bijhouden in- of uitvoer in diagnostische gegevens, kunt u de bijgehouden eigenschappen toevoegen aan acties in de JSON-definitie van uw logische app. Bijgehouden eigenschappen kunnen volgen slechts één actie-invoer en uitvoer, maar u kunt de `correlation` eigenschappen van gebeurtenissen te correleren acties in een uitvoering.
 

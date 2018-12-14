@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7daefc1de06ac704f0449d065ed748bbe0f1ac61
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f1949373e99df1cccd6c49ff92c80d595519377
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307652"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341148"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Next Generatiefirewall toevoegen in Azure Security Center
 Azure Security Center kan raden u aan next generatiefirewall (NGFW) via een Microsoft-partner uw beveiligingen verhogen. In dit document wordt u via een voorbeeld van hoe u dit doet.
@@ -62,7 +62,7 @@ Dit document hebt u geleerd hoe u voor het implementeren van de aanbeveling van 
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md) --informatie over het configureren van beveiligingsbeleid.
+* [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md) --informatie over het configureren van beveiligingsbeleid.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) --Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) --informatie over het bewaken van de status van uw Azure-resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.

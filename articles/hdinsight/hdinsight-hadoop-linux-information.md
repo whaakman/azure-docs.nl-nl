@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 89f2178af3f1a1a6ede9b97d79568798a25985b1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: abaf69136fbed577095b3efba2ec6d4383907255
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015686"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385207"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight in Linux
 
-Azure HDInsight-clusters bieden Hadoop op een vertrouwde Linux-omgeving, die worden uitgevoerd in de Azure-cloud. Voor de meeste dingen werkt deze moet exact zoals elke andere Hadoop op Linux-installatie. Dit document worden specifieke verschillen die u moet rekening houden met aangeroepen.
+Azure HDInsight-clusters bieden Apache Hadoop op een vertrouwde Linux-omgeving, die worden uitgevoerd in de Azure-cloud. Voor de meeste dingen werkt deze moet exact zoals elke andere Hadoop op Linux-installatie. Dit document worden specifieke verschillen die u moet rekening houden met aangeroepen.
 
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -27,9 +27,9 @@ Azure HDInsight-clusters bieden Hadoop op een vertrouwde Linux-omgeving, die wor
 
 Veel van de stappen in dit document met de volgende hulpprogramma's, die mogelijk moeten worden geïnstalleerd op uw systeem.
 
-* [cURL](https://curl.haxx.se/) : wordt gebruikt om te communiceren met services op basis van het web
-* [jq](https://stedolan.github.io/jq/) : wordt gebruikt voor het parseren van JSON-documenten
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) : wordt gebruikt voor het extern beheren van Azure-services
+* [cURL](https://curl.haxx.se/) : wordt gebruikt om te communiceren met Internet gebaseerde services.
+* [jq](https://stedolan.github.io/jq/) : wordt gebruikt voor het parseren van JSON-documenten.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) : wordt gebruikt voor het extern beheren van Azure-services.
 
 ## <a name="users"></a>Gebruikers
 
@@ -64,7 +64,7 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
     > [!IMPORTANT]
     > Sommige van de web-UI's die beschikbaar zijn via Ambari toegang krijgen tot knooppunten met behulp van de naam van een interne domein. Interne domeinnamen zijn niet openbaar toegankelijk is via internet. Het foutbericht 'de server is niet gevonden'-fouten bij het openen van bepaalde functies via het Internet.
     >
-    > Als u de volledige functionaliteit van de Ambari-Webgebruikersinterface, gebruikt u een SSH-tunnel voor proxy-webverkeer met het hoofdknooppunt van het cluster. Zie [SSH-Tunneling gebruiken voor toegang tot de Ambari-Webgebruikersinterface, ResourceManager JobHistory, NameNode, Oozie en andere webgebruikersinterfaces](hdinsight-linux-ambari-ssh-tunnel.md)
+    > Als u de volledige functionaliteit van de Ambari-Webgebruikersinterface, gebruikt u een SSH-tunnel voor proxy-webverkeer met het hoofdknooppunt van het cluster. Zie [SSH-Tunneling gebruiken voor toegang tot de Apache Ambari-Webgebruikersinterface, ResourceManager JobHistory, NameNode, Oozie en andere webgebruikersinterfaces](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername >.azurehdinsight.net/ambari
 
@@ -80,21 +80,21 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
     >
     > Verificatie is als tekst zonder opmaak - gebruik altijd HTTPS om ervoor te zorgen dat de verbinding beveiligd is.
 
-* **SSH** - &lt;clustername >-ssh.azurehdinsight.net op poort 22 en 23. Poort 22 wordt gebruikt voor verbinding met het primaire hoofdknooppunt terwijl 23 wordt gebruikt om te verbinden met de secundaire server. Zie [Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight](hdinsight-high-availability-linux.md) voor meer informatie over de hoofdknooppunten.
+* **SSH** - &lt;clustername >-ssh.azurehdinsight.net op poort 22 en 23. Poort 22 wordt gebruikt voor verbinding met het primaire hoofdknooppunt terwijl 23 wordt gebruikt om te verbinden met de secundaire server. Zie voor meer informatie over de hoofdknooppunten [beschikbaarheid en betrouwbaarheid van Apache Hadoop-clusters in HDInsight](hdinsight-high-availability-linux.md).
 
     > [!NOTE]
     > U kunt alleen toegang tot de hoofdknooppunten van het cluster via SSH vanaf een clientcomputer. Nadat verbinding is gemaakt, kunt u vervolgens toegang tot de worker-knooppunten met behulp van SSH uit een hoofdknooppunt.
 
-Zie voor meer informatie de [poorten die worden gebruikt door de services van Hadoop op HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
+Zie voor meer informatie de [poorten die worden gebruikt door de services van Apache Hadoop op HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 
 ## <a name="file-locations"></a>Bestandslocaties
 
 Hadoop-bestanden kunnen u vinden op de clusterknooppunten op `/usr/hdp`. Deze map bevat de volgende submappen:
 
-* **2.2.4.9-1**: naam van de map is de versie van de Hortonworks Data Platform die door HDInsight worden gebruikt. Het nummer van uw cluster mogelijk anders is dan de hier weergegeven.
-* **huidige**: deze map bevat koppelingen naar submappen onder de **2.2.4.9-1** directory. Deze map bestaat, zodat u niet hoeft te onthouden van het versienummer.
+* **2.2.4.9-1**: Naam van de map is de versie van de Hortonworks Data Platform die door HDInsight worden gebruikt. Het nummer van uw cluster mogelijk anders is dan de hier weergegeven.
+* **huidige**: Deze map bevat koppelingen naar submappen onder de **2.2.4.9-1** directory. Deze map bestaat, zodat u niet hoeft te onthouden van het versienummer.
 
-Van de voorbeeldgegevens en de JAR-bestanden kunnen u vinden op Hadoop Distributed File System op `/example` en `/HdiSamples`
+Van de voorbeeldgegevens en de JAR-bestanden kunnen u vinden op Hadoop Distributed File System op `/example` en `/HdiSamples`.
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure Storage en Data Lake Store
 
@@ -102,9 +102,9 @@ In de meeste Hadoop-distributies, worden de gegevens worden opgeslagen in HDFS, 
 
 Bij het gebruik van HDInsight, wordt de gegevensbestanden worden opgeslagen in een schaalbare en flexibele manier in de cloud met behulp van Azure Blob Storage en eventueel Azure Data Lake Store. Deze services bieden de volgende voordelen:
 
-* Goedkope opslag op lange termijn
-* Toegankelijkheid van externe services, zoals websites, hulpprogramma's voor het uploaden/downloaden van bestand, verschillende taal-SDK's en webbrowsers
-* Grote bestandscapaciteit en grote schaalbare opslag
+* Goedkope langdurige opslag.
+* Toegankelijkheid van externe services, zoals websites, hulpprogramma's voor het uploaden/downloaden van bestand, verschillende taal-SDK's en webbrowsers.
+* Grote bestandscapaciteit en grote schaalbare opslag.
 
 Zie voor meer informatie, [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -120,17 +120,17 @@ Sommige opdrachten moet u mogelijk het schema als onderdeel van de URI opgeven b
 
 Bij het gebruik van __Azure Storage__, gebruikt u een van de volgende URI-schema's:
 
-* `wasb:///`: Toegang standaardopslag met behulp van niet-versleutelde communicatie.
+* `wasb:///`: Standaardopslag met leestoegang met behulp van niet-versleutelde communicatie.
 
-* `wasbs:///`: Toegang standaardopslag met behulp van versleutelde communicatie.  Het wasbs-schema wordt alleen ondersteund vanuit HDInsight versie 3.6 of hoger.
+* `wasbs:///`: Standaardopslag met leestoegang met behulp van gecodeerde communicatie.  Het wasbs-schema wordt alleen ondersteund vanuit HDInsight versie 3.6 of hoger.
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Wordt gebruikt bij het communiceren met een niet-standaard-storage-account. Bijvoorbeeld, wanneer u hebt een extra opslagaccount of wanneer toegang tot gegevens die zijn opgeslagen in een openbaar toegankelijke storage-account.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Gebruikt bij het communiceren met een niet-standaard-storage-account. Bijvoorbeeld, wanneer u hebt een extra opslagaccount of wanneer toegang tot gegevens die zijn opgeslagen in een openbaar toegankelijke storage-account.
 
 Bij het gebruik van __Data Lake Store__, gebruikt u een van de volgende URI-schema's:
 
 * `adl:///`: Toegang tot de standaard Data Lake Store voor het cluster.
 
-* `adl://<storage-name>.azuredatalakestore.net/`: Wordt gebruikt bij het communiceren met een niet-standaard Data Lake Store. Ook wordt gebruikt voor toegang tot gegevens buiten de hoofdmap van uw HDInsight-cluster.
+* `adl://<storage-name>.azuredatalakestore.net/`: Gebruikt bij het communiceren met een niet-standaard Data Lake Store. Ook wordt gebruikt voor toegang tot gegevens buiten de hoofdmap van uw HDInsight-cluster.
 
 > [!IMPORTANT]
 > Als u Data Lake Store als de standaardopslag voor HDInsight, moet u een pad in het archief te gebruiken als de hoofdmap van het HDInsight-opslag. Het standaardpad is `/clusters/<cluster-name>/`.
@@ -143,7 +143,7 @@ U kunt Ambari gebruiken om op te halen van de standaardconfiguratie van de opsla
 
 ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
-> [!NOTE]
+> [!NOTE]  
 > Met deze opdracht retourneert de eerste configuratie toegepast op de server (`service_config_version=1`), die deze informatie bevat. Mogelijk moet u alle configuratie-versies om de meest recente versie.
 
 Met deze opdracht retourneert een waarde die vergelijkbaar is met de volgende URI's:
@@ -176,8 +176,8 @@ Er zijn een verschillende manieren toegang krijgen tot gegevens die zich buiten 
 
 Als u __Azure Storage__, Zie de volgende koppelingen voor manieren waarop u toegang hebt tot uw gegevens:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface-opdrachten voor het werken met Azure. Na het installeren, gebruiken de `az storage` opdracht voor hulp bij het gebruik van opslag, of `az storage blob` voor blob-specifieke opdrachten.
-* [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): een python-script voor het werken met blobs in Azure Storage.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): De opdrachten van de opdrachtregelinterface voor het werken met Azure. Na het installeren, gebruiken de `az storage` opdracht voor hulp bij het gebruik van opslag, of `az storage blob` voor blob-specifieke opdrachten.
+* [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Een python-script voor het werken met blobs in Azure Storage.
 * Verschillende SDK's:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -205,8 +205,8 @@ Het cluster schalen functie kunt u het aantal gegevensknooppunten die worden geb
 
 De verschillende clustertypen worden beïnvloed door te schalen als volgt:
 
-* **Hadoop**: wanneer u het aantal knooppunten in een cluster, zijn sommige van de services in het cluster opnieuw gestart. Schalen herverdelen kan leiden tot taken actief of in behandeling mislukken na het voltooien van de bewerking vergroten/verkleinen. Zodra de bewerking voltooid is, kunt u de taken opnieuw indienen.
-* **HBase**: regionale servers worden automatisch verdeeld binnen een paar minuten, nadat de vergroten/verkleinen bewerking is voltooid. Handmatig evenwichtige regionale servers, gebruikt u de volgende stappen uit:
+* **Hadoop**: Wanneer u het aantal knooppunten in een cluster, worden enkele van de services in het cluster opnieuw gestart. Schalen herverdelen kan leiden tot taken actief of in behandeling mislukken na het voltooien van de bewerking vergroten/verkleinen. Zodra de bewerking voltooid is, kunt u de taken opnieuw indienen.
+* **HBase**: Regionale servers worden automatisch verdeeld binnen een paar minuten, nadat de vergroten/verkleinen bewerking is voltooid. Handmatig evenwichtige regionale servers, gebruikt u de volgende stappen uit:
 
     1. Verbinding maken met het HDInsight-cluster via SSH. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
@@ -218,25 +218,25 @@ De verschillende clustertypen worden beïnvloed door te schalen als volgt:
 
             balancer
 
-* **Storm**: U moet alle actieve Storm-topologieën opnieuw verdelen nadat een bewerking voor vergroten/verkleinen is uitgevoerd. Herverdeling, kunt de topologie op basis van het nieuwe aantal knooppunten in het cluster parallelle uitvoering-instellingen aanpassen. Als u wilt actieve topologieën opnieuw verdelen, gebruikt u een van de volgende opties:
+* **Storm**: Nadat een bewerking voor vergroten/verkleinen is uitgevoerd, moet u alle actieve Storm-topologieën opnieuw verdelen. Herverdeling, kunt de topologie op basis van het nieuwe aantal knooppunten in het cluster parallelle uitvoering-instellingen aanpassen. Als u wilt actieve topologieën opnieuw verdelen, gebruikt u een van de volgende opties:
 
-    * **SSH**: verbinding maken met de server en gebruik de volgende opdracht om te herverdelen een topologie:
+    * **SSH**: Verbinding maken met de server en gebruik de volgende opdracht om te herverdelen een topologie:
 
             storm rebalance TOPOLOGYNAME
 
         U kunt ook opgeven de parameters voor het overschrijven van de parallelle uitvoering hints oorspronkelijk is opgegeven door de topologie. Bijvoorbeeld, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` herconfigureert u de topologie op 5 werkprocessen 3 Executor voor het onderdeel blauw spout en 10 Executor voor het onderdeel geel-bolt.
 
-    * **Storm-gebruikersinterface**: Gebruik de volgende stappen om te herverdelen een topologie met behulp van de Storm-gebruikersinterface.
+    * **Storm-gebruikersinterface**: Gebruik de volgende stappen uit om te herverdelen een topologie met behulp van de Storm-gebruikersinterface.
 
         1. Open **https://CLUSTERNAME.azurehdinsight.net/stormui** in uw webbrowser, waarbij CLUSTERNAME de naam van uw Storm-cluster is. Als u hierom wordt gevraagd, voert u de HDInsight-cluster (beheerder)-beheerdersnaam en het wachtwoord die u hebt opgegeven bij het maken van het cluster.
         2. Selecteer de topologie die u wilt opnieuw verdelen en selecteer vervolgens de **opnieuw verdelen** knop. Voer de vertraging voordat de herverdeling wordt uitgevoerd.
 
-* **Kafka**: moet u partitiereplica's na het schalen herverdelen. Zie voor meer informatie de [hoge beschikbaarheid van gegevens met Kafka in HDInsight](./kafka/apache-kafka-high-availability.md) document.
+* **Kafka**: U moet partitiereplica's na het schalen herverdelen. Zie voor meer informatie de [hoge beschikbaarheid van gegevens met Apache Kafka in HDInsight](./kafka/apache-kafka-high-availability.md) document.
 
 Zie voor specifieke informatie over het schalen van uw HDInsight-cluster:
 
-* [Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Hadoop-clusters in HDInsight beheren met behulp van Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Apache Hadoop-clusters in HDInsight beheren met behulp van Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hoe installeer ik Hue (of andere Hadoop-onderdelen)?
 
@@ -247,8 +247,8 @@ HDInsight is een beheerde service. Als Azure wordt gedetecteerd door een problee
 
 Scriptacties zijn Bash-scripts. De scripts uitgevoerd tijdens het maken van clusters, en worden gebruikt voor het installeren en configureren van extra onderdelen. Van de voorbeeldscripts zijn beschikbaar voor het installeren van de volgende onderdelen:
 
-* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Zie [Ontwikkeling van scriptacties met HDInsight](hdinsight-hadoop-script-actions-linux.md) voor informatie over het ontwikkelen van uw eigen scriptacties.
 
@@ -270,11 +270,11 @@ Upload voor het gebruik van een andere versie van een onderdeel, de versie die u
 > [!WARNING]
 > Onderdelen van het HDInsight-cluster volledig worden ondersteund en Microsoft Support helpt bij het opsporen en oplossen van problemen met betrekking tot deze onderdelen.
 >
-> Aangepaste onderdelen commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Dit kan resulteren in het oplossen van het probleem of vraag of u contact opnemen met beschikbare kanalen voor de open source-technologieën waar uitgebreide expertise voor deze technologie kan worden gevonden. Bijvoorbeeld, er zijn veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Aangepaste onderdelen commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Dit kan resulteren in het oplossen van het probleem of vraag of u contact opnemen met beschikbare kanalen voor de open source-technologieën waar uitgebreide expertise voor deze technologie kan worden gevonden. Er zijn bijvoorbeeld veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Migreren van HDInsight op basis van Windows op basis van Linux](hdinsight-migrate-from-windows-to-linux.md)
-* [Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
-* [Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
+* [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
+* [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
 * [MapReduce-taken gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)

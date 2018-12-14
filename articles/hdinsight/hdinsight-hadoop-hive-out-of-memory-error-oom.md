@@ -10,16 +10,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90bf59dd7733864c345bbbb59b6236ae7b9a9c36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b49959d167dbb735ebb9be9c75e91ef257c6a70
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248301"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383830"
 ---
-# <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Herstellen van een component fout door onvoldoende geheugen in Azure HDInsight
+# <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Herstellen van een Apache Hive fout door onvoldoende geheugen in Azure HDInsight
 
-Informatie over het oplossen van een component fout door onvoldoende geheugen wanneer grote tabellen worden verwerkt door het configureren van instellingen voor Hive-geheugen.
+Meer informatie over het oplossen van een Apache Hive fout door onvoldoende geheugen (OOM) bij het verwerken van grote tabellen door het configureren van instellingen voor Hive-geheugen.
 
 ## <a name="run-hive-query-against-large-tables"></a>Hive-query uitvoeren op grote tabellen
 
@@ -52,7 +52,7 @@ De Hive-query duurde 26 minuten in een 24-knooppunt A3 HDInsight-cluster. De kla
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
 
-Met behulp van de Tez-uitvoeringsengine. Dezelfde query uitgevoerd gedurende 15 minuten en heeft vervolgens de volgende fout geretourneerd:
+Met behulp van de Apache Tez-uitvoeringsengine. Dezelfde query uitgevoerd gedurende 15 minuten en heeft vervolgens de volgende fout geretourneerd:
 
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
@@ -105,7 +105,7 @@ Is het waarschijnlijk kaart join is de oorzaak van de Java-Heap-ruimte onze van 
 
 Als het blogbericht: al aangeeft, de volgende twee geheugeninstellingen het geheugen van de container voor de heap definiëren: **hive.tez.container.size** en **hive.tez.java.opts**. Uit onze ervaring van betekent het buiten-geheugen-uitzondering niet dat de container is te klein. Dit betekent dat de Java-heap-grootte (hive.tez.java.opts) is te klein. Dus wanneer er onvoldoende geheugen, u proberen kunt te verhogen **hive.tez.java.opts**. Indien nodig u mogelijk verhogen **hive.tez.container.size**. De **java.opts** instelling moet ongeveer 80% van de **container.size**.
 
-> [!NOTE]
+> [!NOTE]  
 > De instelling **hive.tez.java.opts** moet altijd kleiner zijn dan **hive.tez.container.size**.
 > 
 > 
@@ -119,4 +119,4 @@ Met de nieuwe instellingen, worden de query is uitgevoerd in minder dan 10 minut
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Een foutmelding krijgt OOM betekent niet dat de container is te klein. In plaats daarvan moet u de instellingen van het geheugen configureren zodat de heapgrootte wordt verhoogd en ten minste 80% van de grootte van de container-geheugen wordt. Zie voor het optimaliseren van Hive-query's, [optimaliseren Hive-query's voor Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Een foutmelding krijgt OOM betekent niet dat de container is te klein. In plaats daarvan moet u de instellingen van het geheugen configureren zodat de heapgrootte wordt verhoogd en ten minste 80% van de grootte van de container-geheugen wordt. Zie voor het optimaliseren van Hive-query's, [optimaliseren Apache Hive-query's voor Apache Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).

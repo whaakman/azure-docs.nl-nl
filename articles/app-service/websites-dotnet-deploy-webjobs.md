@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: aa1d5a4fc29b6fa5fc751edfd40e61d8762f6bd7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 300ccf5da3528be63ae618338b8953d05b0e799d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965339"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337458"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs
 
@@ -142,7 +142,7 @@ Wanneer u een consoletoepassing voor WebJobs-implementatie configureert, Visual 
           "runMode": "Continuous"
         }
 
-U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het bestandsschema wordt opgeslagen op [ http://schemastore.org ](http://schemastore.org/schemas/json/webjob-publish-settings.json) en er kunnen worden weergegeven.  
+U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het bestandsschema wordt opgeslagen op [ https://schemastore.org ](https://schemastore.org/schemas/json/webjob-publish-settings.json) en er kunnen worden weergegeven.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
 Als u een project WebJobs ingeschakeld aan een web-project koppelt, Visual Studio slaat de naam van het WebJobs-project in een *webjobs list.json* bestand in het webproject *eigenschappen* map. De lijst kan meerdere WebJobs projecten bevatten, zoals wordt weergegeven in het volgende voorbeeld:
@@ -159,7 +159,7 @@ Als u een project WebJobs ingeschakeld aan een web-project koppelt, Visual Studi
           ]
         }
 
-U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het bestandsschema wordt opgeslagen op [ http://schemastore.org ](http://schemastore.org/schemas/json/webjobs-list.json) en er kunnen worden weergegeven.
+U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het bestandsschema wordt opgeslagen op [ https://schemastore.org ](https://schemastore.org/schemas/json/webjobs-list.json) en er kunnen worden weergegeven.
 
 ## <a id="deploy"></a>Een project WebJobs implementeren
 Een WebJobs-project dat u hebt gekoppeld aan een webproject implementeert automatisch met het webproject. Zie voor meer informatie over de implementatie van web project **instructies begeleidt** > **implementeren app** in het linkernavigatievenster.

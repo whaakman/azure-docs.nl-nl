@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: e3dfbc4fc4d7ed40ebac7de6fe78398b13eafd58
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b24e10abd7c0d4dd5a20f8f85c340de03dae696a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316545"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343816"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Aanpassen van de SQL information protection-beleid in Azure Security Center (Preview)
  
@@ -85,8 +85,8 @@ In dit artikel hebt u geleerd over het definiëren van een SQL Information Prote
 
 Zie de volgende artikelen voor meer informatie over beleidsregels voor veiligheid en beveiliging van gegevens in Azure Security Center:
  
-- [Overzicht van beveiligingsbeleid](security-center-policies-overview.md): krijg een overzicht van beveiligingsbeleid in Security Center
-- [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md): informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen
-- [Beveiliging van Azure Security Center gegevens](security-center-data-security.md): meer informatie over hoe Security Center beheert en beschermt gegevens
+- [Overzicht van beveiligingsbeleid](security-center-policies-overview.md): Bekijk een overzicht van beveiligingsbeleid in Security Center
+- [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md): Informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen
+- [Beveiliging van Azure Security Center gegevens](security-center-data-security.md): Meer informatie over hoe Security Center beheert en beschermt gegevens
 
 

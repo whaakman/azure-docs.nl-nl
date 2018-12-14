@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255299"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383932"
 ---
 # <a name="monitor-cluster-performance"></a>Cluster-prestaties bewaken
 
 Bewaking van de status en prestaties van een HDInsight-cluster is het essentieel is voor het onderhouden van optimale prestaties en gebruik van resources. Controle kan ook helpen bij het detecteren en fouten van configuratie van de cluster en de gebruiker code problemen.
 
-De volgende secties wordt beschreven hoe u bewaken en optimaliseren van de belasting van uw clusters, YARN-wachtrijen en opslag bandbreedtebeperking problemen detecteren.
+De volgende secties wordt beschreven hoe u bewaken en optimaliseren van de belasting van uw clusters, Apache Hadoop YARN-wachtrijen en opslag beperking problemen detecteren.
 
 ## <a name="monitor-cluster-load"></a>Monitor cluster laden
 
@@ -28,7 +28,7 @@ Hadoop-clusters kunnen de meest optimale prestaties leveren wanneer de belasting
 
 Als u een Kijk op de knooppunten van het cluster en hun laden, moet u zich aanmelden bij de [Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md)en selecteer vervolgens de **Hosts** tabblad. Uw hosts worden weergegeven door de volledig gekwalificeerde domeinnamen. Operationele status van elke host wordt weergegeven door een gekleurde integriteitsindicator:
 
-| Kleur | Beschrijving |
+| Kleur | Description |
 | --- | --- |
 | Rood | Ten minste één master onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
 | Orange | Ten minste één slave-onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
@@ -43,7 +43,7 @@ Selecteer een van de hostnamen voor een gedetailleerde Kijk op de onderdelen die
 
 ![details van de host](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-Zie [beheren HDInsight-clusters met behulp van de Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md) voor meer informatie over het instellen van waarschuwingen en metrische gegevens weergeven.
+Zie [beheren HDInsight-clusters met behulp van de Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md) voor meer informatie over het instellen van waarschuwingen en metrische gegevens weergeven.
 
 ## <a name="yarn-queue-configuration"></a>Configuratie van de YARN-wachtrij
 
@@ -79,14 +79,14 @@ Als u gebruikmaakt van Azure Storage, voor informatie over het bewaken van probl
 
 Als Azure Data Lake Store (ADLS) van uw cluster externe opslag is is de beperking waarschijnlijk vanwege de bandbreedte. Beperking kan in dit geval worden geïdentificeerd met geobserveerd beperkingsfouten in Logboeken van de taak. Zie voor ADLS, de bandbreedteregeling punt voor de betreffende service in deze artikelen:
 
-* [Richtlijnen voor het afstemmen van de prestaties van Hive in HDInsight en Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Richtlijnen voor Apache Hive in HDInsight en Azure Data Lake Store afstemmen van prestaties](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Richtlijnen voor het afstemmen van de prestaties van MapReduce in HDInsight en Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Richtlijnen voor het afstemmen van de prestaties van Storm in HDInsight en Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Richtlijnen voor Apache Storm op HDInsight en Azure Data Lake Store afstemmen van prestaties](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Ga naar de volgende koppelingen voor meer informatie over het oplossen van problemen en uw clusters controleren:
 
 * [HDInsight-logboekbestanden analyseren](hdinsight-debug-jobs.md)
-* [Fouten in apps opsporen met YARN-logboeken](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Heapdumps voor Hadoop op Linux gebaseerde HDInsight-services inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Fouten opsporen in apps met Apache Hadoop YARN-Logboeken](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Heapdumps voor Apache Hadoop-services op Linux gebaseerde HDInsight inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6855521475e24b7243a391abdc6e6cf707991159
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320689"
+ms.locfileid: "53344088"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Inrichten voor multitenancy 
 
@@ -139,7 +139,7 @@ Om het opschonen gemakkelijker, deze VM's wordt toegevoegd aan dezelfde resource
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceEest \
+    --name ContosoSimDeviceEast \
     --location eastus \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
@@ -327,28 +327,28 @@ De voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanvra
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-
-1. Open **~/azure-iot-sdk-c/provisioning\_adapters-client/hsm\_client\_key.c** op beide VM's. 
-
-    ```bash
-     vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
-    ```
-
-1. Zoek de declaratie van de constanten `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE`. De volgende wijzigingen aanbrengen in de bestanden op beide regionale VM's en sla de bestanden.
-
-    Werk de waarde van de `REGISTRATION_NAME` constante met de **unieke registratie-ID voor uw apparaat**.
-    
-    Werk de waarde van de `SYMMETRIC_KEY_VALUE` constante met uw **apparaatsleutel afgeleid**.
+1. Op beide VM's, vinden de aanroep van `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** die is opgenomen als opmerking.
 
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
+    Verwijder de opmerking bij het aanroepen van de functie en vervang de tijdelijke aanduiding voor waarden (inclusief de punthaken) door de unieke registratie-id's en afgeleide apparaatsleutels voor elk apparaat. De sleutels die hieronder wordt weergegeven, zijn bijvoorbeeld alleen bedoeld. Gebruik de sleutels die u eerder hebt gemaakt.
+
+    VS-Oost:
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
-    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
     ```
+
+    VS-West:
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
+    ```
+
+    Sla de bestanden.
 
 1. Navigeer naar de voorbeeldmap hieronder wordt weergegeven op beide VM's, en bouw het voorbeeld.
 
@@ -358,6 +358,13 @@ De voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanvra
     ```
 
 1. Zodra de opbouwbewerking uitvoeren **prov\_dev\_client\_sample.exe** op beide VM's voor het simuleren van een tenant-apparaat uit elke regio. U ziet dat elk apparaat IoT-hub die het dichtst bij de regio's van het gesimuleerde apparaat is toegewezen aan de tenant.
+
+    De simulatie uitvoeren:
+    ```bash
+    ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
+    ```
+
+    Voorbeeld van uitvoer van de VM van East US:
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -374,6 +381,7 @@ De voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanvra
 
     ```
 
+    Voorbeeld van uitvoer van de VM van West US:
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9

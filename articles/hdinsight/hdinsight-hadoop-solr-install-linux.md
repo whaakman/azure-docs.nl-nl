@@ -9,31 +9,31 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1c8c63e10e62af60e09af729b115cc675dae7205
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009399"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383592"
 ---
-# <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Solr installeren en gebruiken op HDInsight Hadoop-clusters
+# <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>Installeren en gebruiken van Apache Solr op HDInsight Hadoop-clusters
 
-Leer hoe u Solr installeren op Azure HDInsight met behulp van scriptacties. Solr is een krachtige zoek-platform en biedt zoekfuncties op bedrijfsniveau op gegevens die worden beheerd door Hadoop.
+Leer hoe u Apache Solr installeren op Azure HDInsight met behulp van scriptacties. Solr is een krachtige zoek-platform en biedt zoekfuncties op bedrijfsniveau op gegevens die worden beheerd door Hadoop.
 
-> [!IMPORTANT]
-    > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> [!IMPORTANT]  
+> Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Het voorbeeld van een script gebruikt in dit document wordt Solr 4.9 geïnstalleerd met een specifieke configuratie. Als u configureren van het cluster Solr met verschillende verzamelingen, shards, schema's, replica's, enzovoort wilt, moet u het script en Solr binaire bestanden wijzigen.
 
 ## <a name="whatis"></a>Wat is Solr
 
 [Apache Solr](http://lucene.apache.org/solr/features.html) is een platform voor enterprise search waarmee krachtige zoeken in volledige tekst van gegevens. Hoewel Hadoop kunt opslaan en beheren van grote hoeveelheden gegevens, biedt Apache Solr de zoekfuncties voor het snel de gegevens worden opgehaald.
 
-> [!WARNING]
+> [!WARNING]   
 > Onderdelen van het HDInsight-cluster worden volledig ondersteund door Microsoft.
 >
-> Aangepaste onderdelen, zoals Solr, commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Microsoft-ondersteuning niet mogelijk problemen met aangepaste onderdelen op te lossen. Het is wellicht voor ondersteuning contact opnemen met de open-source-community's. Bijvoorbeeld, er zijn veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
+> Aangepaste onderdelen, zoals Solr, commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Microsoft-ondersteuning niet mogelijk problemen met aangepaste onderdelen op te lossen. Het is wellicht voor ondersteuning contact opnemen met de open-source-community's. Er zijn bijvoorbeeld veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Wat het script doet
 
@@ -54,12 +54,12 @@ Voor het maken van een cluster met Solr geïnstalleerd, gebruikt u de stappen in
 
 1. Uit de __samenvatting voor Cluster__ sectie, select__Advanced settings__, klikt u vervolgens __scriptacties__. Gebruik de volgende informatie voor het vullen van het formulier:
 
-   * **NAAM**: Geef een beschrijvende naam voor de scriptactie.
+   * **NAAM**: Voer een beschrijvende naam voor de scriptactie.
    * **SCRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Schakel deze optie
    * **WERKNEMER**: Schakel deze optie
    * **ZOOKEEPER**: Schakel deze optie in om te installeren op de Zookeeper-knooppunt
-   * **PARAMETERS**: dit veld leeg laten
+   * **PARAMETERS**: Dit veld leeg laten
 
 2. Aan de onderkant van de **scriptacties** sectie, gebruikt u de **Selecteer** om de configuratie op te slaan. Gebruik tot slot de **volgende** terug te keren naar de __samenvatting voor Cluster__
 
@@ -67,7 +67,7 @@ Voor het maken van een cluster met Solr geïnstalleerd, gebruikt u de stappen in
 
 ## <a name="usesolr"></a>Hoe gebruik ik Solr in HDInsight
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in deze sectie laten zien basisfunctionaliteit Solr. Zie voor meer informatie over het gebruik van Solr de [Apache Solr site](http://lucene.apache.org/solr/).
 
 ### <a name="index-data"></a>Gegevens indexeren
@@ -76,7 +76,7 @@ Gebruik de volgende stappen voorbeeldgegevens toevoegen aan Solr, en vervolgens 
 
 1. Maak verbinding met het HDInsight-cluster via SSH:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Vervang `sshuser` met de SSH-gebruiker voor het cluster. Vervang `clustername` met de naam van het cluster.
 
     ```bash
@@ -85,7 +85,7 @@ Gebruik de volgende stappen voorbeeldgegevens toevoegen aan Solr, en vervolgens 
 
     Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-     > [!IMPORTANT]
+     > [!IMPORTANT]  
      > Een SSH-tunnel stappen verderop in dit document gebruiken voor verbinding met de Solr-webgebruikersinterface. Voor het gebruik van deze stappen, moet u een SSH-tunnel tot stand brengen en configureer vervolgens uw browser om deze te gebruiken.
      >
      > Zie voor meer informatie de [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
@@ -316,11 +316,11 @@ Gebruik de volgende stappen voor het back-ups Solr naar de standaardopslag voor 
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Zie voor meer informatie over het werken met Solr back-up en herstelbewerkingen [ https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups ](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Zie voor meer informatie over het werken met Apache Solr back-up en herstelbewerkingen [ https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups ](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Giraph installeren op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md). Aanpassing van de cluster Giraph installeren op HDInsight Hadoop-clusters gebruiken. Giraph Hiermee kunt u grafische verwerking met behulp van Hadoop en kan worden gebruikt met Azure HDInsight.
+* [Apache Giraph installeren op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md). Aanpassing van de cluster Giraph installeren op HDInsight Hadoop-clusters gebruiken. Giraph Hiermee kunt u grafische verwerking met behulp van Hadoop en kan worden gebruikt met Azure HDInsight.
 
 * [Hue installeren op HDInsight-clusters](hdinsight-hadoop-hue-linux.md). Aanpassing van de cluster Hue installeren op HDInsight Hadoop-clusters gebruiken. HUE is een set van webtoepassingen die worden gebruikt om te communiceren met een Hadoop-cluster.
 

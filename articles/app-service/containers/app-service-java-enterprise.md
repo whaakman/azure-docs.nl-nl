@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: e473326e9f337bfb2fd1202bc3b76e468dd6015e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 34506266ed4a2103f0d3bd7a8014b9a038b25491
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315074"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338036"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java ondernemingsgids voor App Service onder Linux
 
-Azure App Service on Linux kunnen Java-ontwikkelaars voor het bouwen, implementeren en schalen van toepassingen voor JEE (Java Enterprise) op een volledig beheerde service op basis van Linux.  De onderliggende Java Enterprise runtime-omgeving is de open-source [Wildfly](http://wildfly.org/) -toepassingsserver.
+Azure App Service on Linux kunnen Java-ontwikkelaars voor het bouwen, implementeren en schalen van toepassingen voor JEE (Java Enterprise) op een volledig beheerde service op basis van Linux.  De onderliggende Java Enterprise runtime-omgeving is de open-source [Wildfly](https://wildfly.org/) -toepassingsserver.
 
 Deze handleiding bevat de belangrijkste concepten en instructies voor het Java-ontwikkelaars voor Linux in App Service gebruiken. Als u Java-toepassingen met Azure App Service voor Linux nooit hebt geïmplementeerd, moet u uitvoeren de [Java-quickstart](quickstart-java.md) eerste. Vragen over App Service voor Linux die niet specifiek zijn voor Java Enterprise worden beantwoord het [Java developer's guide](app-service-linux-java.md) en de [Veelgestelde vragen over App Service Linux](app-service-linux-faq.md).
 
@@ -115,5 +115,5 @@ Websockets zijn standaard ingeschakeld in App Service. Als u wilt aan de slag me
 App Service biedt hulpprogramma's om u te helpen bij het oplossen van problemen met uw toepassing.
 
 -   Logboekregistratie inschakelen door te klikken op **diagnostische logboeken** in het navigatiedeelvenster links. Klik op **bestandssysteem** instellen van uw quotum en retentie opslagperiode en sla uw wijzigingen. U vindt deze logboeken onder `/home/LogFiles/`.
--   [SSH gebruiken om te verbinden met het exemplaar van de](/app-service-linux-ssh-support) om Logboeken voor het uitvoeren van toepassingen weer te geven.
+-   [SSH gebruiken om te verbinden met het exemplaar van de](app-service-linux-ssh-support.md) om Logboeken voor het uitvoeren van toepassingen weer te geven.
 -   Selectievakje diagnostische logboeken de **diagnostische logboeken** deelvenster van de Portal of met behulp van de Azure CLI-opdracht: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `

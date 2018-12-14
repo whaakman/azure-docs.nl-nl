@@ -7,17 +7,17 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.openlocfilehash: 2c4ee73306262846424e02592bc4de712743407f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f0765e010cb40a89f3f57d143c51bdfba72a4ba0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272215"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341929"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Wat zijn klassieke waarschuwingen in Microsoft Azure?
 
 > [!NOTE]
-> In dit artikel wordt beschreven hoe u oudere klassieke metrische waarschuwingen maken. Azure Monitor nu ondersteunt [nieuwere bijna realtime metrische waarschuwingen en een nieuwe ervaring voor waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
+> In dit artikel wordt beschreven hoe u oudere klassieke metrische waarschuwingen maken. Azure Monitor nu ondersteunt [nieuwere bijna realtime metrische waarschuwingen en een nieuwe ervaring voor waarschuwingen](../../azure-monitor/platform/alerts-overview.md). 
 >
 
 Waarschuwingen kunnen u voorwaarden configureren voor gegevens en een melding te ontvangen als de voorwaarden die overeenkomen met de meest recente gegevens.
@@ -54,7 +54,7 @@ Er zijn twee soorten klassieke waarschuwingen beschikbaar - metrische waarschuwi
 
 * **Waarschuwingen voor klassieke activiteitenlogboeken** -de waarschuwing voor een streaming-logboek die wordt geactiveerd wanneer een activiteitenlogboek-gebeurtenis is gegenereerd dat overeenkomt met de criteria die u hebt toegewezen filteren. Deze waarschuwingen hebben slechts één status 'Geactiveerd', omdat de waarschuwings-engine de filtercriteria wordt gewoon van toepassing op een nieuwe gebeurtenis. Deze waarschuwingen kunnen worden gebruikt om te worden geïnformeerd wanneer een nieuw Health Service-incident plaatsvindt of wanneer een gebruiker of toepassing een bewerking uitvoert in uw abonnement, bijvoorbeeld 'Virtuele machine verwijderen'.
 
-Voor diagnostische logboekgegevens die beschikbaar zijn via Azure Monitor, de gegevens in Log Analytics (voorheen OMS) route en de waarschuwing voor een Log Analytics-query gebruiken. Meld u nu maakt gebruik van Analytics de [methode nieuwe waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) 
+Voor diagnostische logboekgegevens die beschikbaar zijn via Azure Monitor, de gegevens in Log Analytics (voorheen OMS) route en de waarschuwing voor een Log Analytics-query gebruiken. Meld u nu maakt gebruik van Analytics de [methode nieuwe waarschuwingen](../../azure-monitor/platform/alerts-overview.md) 
 
 Het volgende diagram geeft een overzicht van bronnen van de gegevens in Azure Monitor en, conceptueel gezien hoe u waarschuwt dat gegevens.
 

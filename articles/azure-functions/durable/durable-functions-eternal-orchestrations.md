@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0e3a3476c3fca6329634c87f933f895ec582f364
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7e92b4a10036ceffd2b777e8ce75d58615209fe6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642282"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340196"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Oneindige indelingen in duurzame functies (Azure Functions)
 
@@ -38,7 +38,7 @@ Wanneer `ContinueAsNew` wordt aangeroepen, de enqueues exemplaar van een bericht
 
 Een use-case voor oneindige indelingen is code die moet periodiek om werk te doen voor onbepaalde tijd.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -55,7 +55,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 ```javascript
 const df = require("durable-functions");

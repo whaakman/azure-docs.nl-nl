@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 3f34167cfe689734ec5d5954a1c24a09a1e8d3bd
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8a533b3bf90ac2635ee05c6511c28d18784ddfec
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515009"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343850"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi verbinden met Azure IoT Hub (Node.js)
 
@@ -67,7 +67,7 @@ De volgende items zijn optioneel:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -240,6 +240,6 @@ Hier ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die wor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd. Zie voor de berichten die uw Raspberry Pi naar uw IoT-hub of verzenden berichten naar uw Raspberry Pi verzonden de [gebruik Azure IoT Toolkit-extensie voor Visual Studio-Code voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd. Zie voor de berichten die uw Raspberry Pi naar uw IoT-hub of verzenden berichten naar uw Raspberry Pi verzonden de [gebruik Azure IoT Hub Toolkit-extensie voor Visual Studio-Code voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

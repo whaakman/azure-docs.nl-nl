@@ -8,18 +8,18 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/04/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 265314ebf2568bd586934d371e1e6c1d74e0b9bb
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642310"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336523"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Overzicht van de functietypen en -functies voor duurzame functies (Azure Functions)
 
-Azure Duurzame functies zorgt voor een stateful indeling van een functie wordt uitgevoerd. Een duurzame functie is een oplossing die bestaat uit verschillende Azure-functies. Elk van deze functies kan verschillende rollen als onderdeel van een indeling worden afgespeeld. Het volgende document bevat een overzicht van de typen van functies die betrokken zijn bij een duurzame functie-indeling. Dit omvat ook sommige algemene patronen in het met elkaar verbinden van functies.  Om te beginnen nu, maak uw eerste duurzame functie in [ C# ](durable-functions-create-first-csharp.md) of [JavaScript](quickstart-js-vscode.md).
+Duurzame functies zorgt voor een stateful indeling van een functie wordt uitgevoerd. Een duurzame functie is een oplossing die bestaat uit verschillende Azure-functies. Elk van deze functies kan verschillende rollen als onderdeel van een indeling worden afgespeeld. Het volgende document bevat een overzicht van de typen van functies die betrokken zijn bij een duurzame functie-indeling. Dit omvat ook sommige algemene patronen in het met elkaar verbinden van functies.  Om te beginnen nu, maak uw eerste duurzame functie in [ C# ](durable-functions-create-first-csharp.md) of [JavaScript](quickstart-js-vscode.md).
 
 ![Typen duurzame functies][1]  
 
@@ -27,9 +27,11 @@ Azure Duurzame functies zorgt voor een stateful indeling van een functie wordt u
 
 ### <a name="activity-functions"></a>Activiteitsfuncties
 
-Activiteit functions is de basiseenheid voor werk in een duurzame orchestration.  Activiteitsfuncties zijn de functies en taken die in het proces wordt georganiseerd.  U kunt bijvoorbeeld een duurzame functie maken om te verwerken van een order - Controleer de voorraad, de klant in rekening en maken van een verzending.  Elk van deze taken een zijn een functie van de activiteit.  Activiteitsfuncties geen beperkingen in het type werk dat u erin kunt doen.  Ze kunnen worden geschreven in elke taal die wordt ondersteund door Azure Functions.  Het framework duurzame taak zorgt ervoor dat ten minste eenmaal opent gedurende een orchestration elke functie aangeroepen activiteit wordt uitgevoerd.
+Activiteit functions is de basiseenheid voor werk in een duurzame orchestration.  Activiteitsfuncties zijn de functies en taken die in het proces wordt georganiseerd.  U kunt bijvoorbeeld een duurzame functie maken om te verwerken van een order - Controleer de voorraad, de klant in rekening en maken van een verzending.  Elk van deze taken een zijn een functie van de activiteit.  Activiteitsfuncties geen beperkingen in het type werk dat u erin kunt doen.  Ze kunnen worden geschreven in een [taal die wordt ondersteund door duurzame functies](durable-functions-overview.md#language-support). Het duurzame taak Framework zorgt ervoor dat elke functie aangeroepen activiteit ten minste één keer worden uitgevoerd tijdens een indeling.
 
-De functie van een activiteit moet worden geactiveerd door een [activiteit trigger](durable-functions-bindings.md#activity-triggers).  Deze functie ontvangt een [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) als parameter. U kunt ook de trigger binden aan een ander object om door te geven in de invoer voor de functie.  De functie activiteit kan ook waarden retourneren terug naar de orchestrator.  Als het verzenden of die veel waarden van een functie van de activiteit retourneert, kunt u [gebruikmaken van tuples of matrices](durable-functions-bindings.md#passing-multiple-parameters).  Activiteitsfuncties kunnen alleen worden geactiveerd vanuit een orchestration-exemplaar.  Terwijl de code kan worden gedeeld tussen een functie van de activiteit en een andere functie (zoals een door HTTP geactiveerde functie), kan elke functie slechts één trigger hebben.
+De functie van een activiteit moet worden geactiveerd door een [activiteit trigger](durable-functions-bindings.md#activity-triggers).  .NET-functies, ontvangen een [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) als parameter. U kunt ook de trigger binden aan een ander object om door te geven in de invoer voor de functie. Invoer in JavaScript, kan worden geopend via de `<activity trigger binding name>` eigenschap op de [ `context.bindings` object](../functions-reference-node.md#bindings).
+
+De functie activiteit kan ook waarden retourneren terug naar de orchestrator.  Als het verzenden of die veel waarden van een functie van de activiteit retourneert, kunt u [gebruikmaken van tuples of matrices](durable-functions-bindings.md#passing-multiple-parameters).  Activiteitsfuncties kunnen alleen worden geactiveerd vanuit een orchestration-exemplaar.  Terwijl de code kan worden gedeeld tussen een functie van de activiteit en een andere functie (zoals een door HTTP geactiveerde functie), kan elke functie slechts één trigger hebben.
 
 Meer informatie over en voorbeelden vindt u de [duurzame functies binding artikel](durable-functions-bindings.md#activity-triggers).
 
@@ -79,7 +81,9 @@ Meer informatie over en voorbeelden vindt u de [foutafhandeling artikel](durable
 
 Een duurzame orchestration is algemeen zich bevinden in een context van een enkele functie-app, maar er zijn patronen waarmee u kunt de indelingen coördinatie van veel functie-apps.  Hoewel de communicatie van de verschillende Apps kan dat gebeurt via HTTP, met behulp van de duurzame framework voor elke activiteit betekent dat u kunt nog steeds een duurzame proces onderhouden in twee apps.
 
-Hieronder vindt u een voorbeeld van een cross-functie-app-indeling in C#.  De externe orchestration, één activiteit wordt gestart. Een andere activiteit wordt vervolgens ophalen en de status retourneren.  De orchestrator wacht tot de status om te worden voltooid voordat u doorgaat.
+Voorbeelden van het indelen van een cross-functie-app in C# en JavaScript vindt u hieronder.  De externe orchestration, één activiteit wordt gestart. Een andere activiteit wordt vervolgens ophalen en de status retourneren.  De orchestrator wacht tot de status om te worden voltooid voordat u doorgaat.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("OrchestratorA")]
@@ -128,6 +132,64 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
         return response.StatusCode == HttpStatusCode.OK;
     }
 }
+```
+
+#### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    // Do some work...
+
+    // Call a remote orchestration
+    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
+
+    // Wait for the remote orchestration to complete
+    while (true) {
+        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
+        if (isComplete) {
+            break;
+        }
+
+        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
+        yield context.df.createTimer(waitTime);
+    }
+
+    // B is done. Now go do more work...
+});
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, orchestratorName) {
+    const options = {
+        method: "POST",
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
+        body: ""
+    };
+
+    const statusUrl = await request(options);
+    return statusUrl;
+};
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, statusUrl) {
+    const options = {
+        method: "GET",
+        uri: statusUrl,
+        resolveWithFullResponse: true,
+    };
+
+    const response = await request(options);
+    // 200 = Complete, 202 = Running
+    return response.statusCode === 200;
+};
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

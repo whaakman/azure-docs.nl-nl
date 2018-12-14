@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 6df707f0315603d30446a17bf941d5ab6028dde4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f6d343d42bf9d918bf23c9f5f442d977a5caca96
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270464"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343714"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -450,7 +450,7 @@ De wachtrij en de blob-triggers automatisch te voorkomen dat een functie van het
 
 De timertrigger zorgt automatisch voor dat slechts één exemplaar van de timer wordt uitgevoerd, zodat u niet meer dan één functie-instantie die wordt uitgevoerd op een bepaalde geplande tijdstip.
 
-Als u wilt ervoor zorgen dat slechts één exemplaar van een functie wordt uitgevoerd, zelfs als er meerdere exemplaren van de host-web-app, kunt u de [Singleton](#singleton) kenmerk.
+Als u wilt ervoor zorgen dat slechts één exemplaar van een functie wordt uitgevoerd, zelfs als er meerdere exemplaren van de host-web-app, kunt u de [Singleton-kenmerk](#singleton-attribute).
     
 ## <a name="filters"></a>Filters 
 

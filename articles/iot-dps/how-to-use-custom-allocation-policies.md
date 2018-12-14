@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d75195656581021253b5787a8bfd46639cc1754
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323129"
+ms.locfileid: "53340047"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Het gebruik van aangepaste toewijzingsbeleid
 
@@ -449,20 +449,24 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
 
 6. Klik met de rechtermuisknop op het **prov\_dev\_client\_sample**-project en selecteer **Set as Startup Project**. 
 
+
 #### <a name="simulate-the-contoso-toaster-device"></a>Het Contoso toaster-apparaat simuleren
 
-1. Navigeer in het venster *Solution Explorer* in Visual Studio naar het **hsm\_security\_client**-project en vouw het uit. Vouw **Bronfiles** uit en open **hsm\_client\_key.c**. 
-
-    Zoek de declaratie van de constanten `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE`. Breng de volgende wijzigingen aan in het bestand en sla het op.
-
-    Werk de waarde van de `REGISTRATION_NAME` constante met de registratie-ID voor het apparaat toaster **breakroom499-contoso-tstrsd-007**.
-    
-    Werk de waarde van de `SYMMETRIC_KEY_VALUE` constante met de apparaatsleutel die u hebt gegenereerd voor het apparaat toaster. De waarde **JC8F96eayuQwwz + PkE7IzjH2lIAjCUnAa61tDigBnSs =** wordt alleen weergegeven als een voorbeeld.
+1. Om te simuleren dat het apparaat toaster, vinden de aanroep van `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** die is opgenomen als opmerking.
 
     ```c
-    static const char* const REGISTRATION_NAME = "breakroom499-contoso-tstrsd-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
+
+    Verwijder opmerkingen bij de aanroep van de functie en vervang de tijdelijke aanduiding voor waarden (inclusief de punthaken) door de toaster registratie-ID en de afgeleide apparaatsleutel die u eerder hebt gemaakt. De sleutelwaarde **JC8F96eayuQwwz + PkE7IzjH2lIAjCUnAa61tDigBnSs =** weergegeven hieronder wordt alleen weergegeven als een voorbeeld.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
+    ```
+   
+    Sla het bestand op.
 
 2. Selecteer in het menu van Visual Studio de optie **Debug** > **Start without debugging** om de oplossing uit te voeren. Klik in de prompt om het project opnieuw te bouwen op **Yes** om het project opnieuw te bouwen voordat het wordt uitgevoerd.
 
@@ -485,20 +489,16 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Het Contoso heatmap pomp-apparaat simuleren
 
-1. Terug in Visual Studio *Solution Explorer* venster, gaat u naar de **hsm\_security\_client** project en vouw dit uit. Vouw **Bronfiles** uit en open **hsm\_client\_key.c**. 
-
-    Zoek de declaratie van de constanten `REGISTRATION_NAME` en `SYMMETRIC_KEY_VALUE`. Breng de volgende wijzigingen aan in het bestand en sla het op.
-
-    Werk de waarde van de `REGISTRATION_NAME` constante met de registratie-ID voor het apparaat van de heatmap pomp **mainbuilding167-contoso-hpsd-088**.
-    
-    Werk de waarde van de `SYMMETRIC_KEY_VALUE` constante met de apparaatsleutel die u hebt gegenereerd voor het apparaat toaster. De waarde **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** wordt alleen weergegeven als een voorbeeld.
+1. Als u wilt de heatmap pomp-apparaat simuleren, werken de aanroep van `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** opnieuw met de heatmap pomp registratie-ID en afgeleide apparaatsleutel u eerder gegenereerd . De sleutelwaarde **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** weergegeven hieronder ook alleen opgegeven als een voorbeeld.
 
     ```c
-    static const char* const REGISTRATION_NAME = "mainbuilding167-contoso-hpsd-088";
-    static const char* const SYMMETRIC_KEY_VALUE = "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
+   
+    Sla het bestand op.
 
-7. Selecteer in het menu van Visual Studio de optie **Debug** > **Start without debugging** om de oplossing uit te voeren. Klik in de prompt om het project opnieuw te bouwen op **Yes** om het project opnieuw te bouwen voordat het wordt uitgevoerd.
+2. Selecteer in het menu van Visual Studio de optie **Debug** > **Start without debugging** om de oplossing uit te voeren. Klik in de prompt om het project opnieuw te bouwen op **Yes** om het project opnieuw te bouwen voordat het wordt uitgevoerd.
 
     De volgende uitvoer is een voorbeeld van het apparaat gesimuleerde heatmap pomp noodzakelijk is opgestart en verbinding maken met de provisioning Service-exemplaar moet worden toegewezen aan de Contoso heatmap pompen IoT-hub door het toewijzingsbeleid voor aangepaste:
 
@@ -515,8 +515,6 @@ Deze voorbeeldcode simuleert de opstartvolgorde van een apparaat waarmee de aanv
 
     Press enter key to exit:
     ```
-
-
 
 
 ## <a name="troubleshooting-custom-allocation-policies"></a>Aangepaste van toewijzingsbeleid voor problemen oplossen

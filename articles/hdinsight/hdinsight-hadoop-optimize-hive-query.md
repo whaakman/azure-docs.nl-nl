@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e9e92254db37edbd978b5799b13e63652e227f86
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014511"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385428"
 ---
-# <a name="optimize-hive-queries-in-azure-hdinsight"></a>In Azure HDInsight Hive-query's optimaliseren
+# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Apache Hive-query's in Azure HDInsight optimaliseren
 
 In Azure HDInsight zijn er verschillende clustertypen en technologieën die Apache Hive-query's kunnen worden uitgevoerd. Wanneer u uw HDInsight-cluster maakt, kiest u het clustertype van de juiste om u te helpen de prestaties optimaliseren voor de behoeften van uw workload. 
 
@@ -38,7 +38,7 @@ Het aantal worker-knooppunten in een HDInsight-cluster verhoogt, kunt het werk o
 
 Zie voor meer informatie over het schalen van HDInsight [schaal HDInsight-clusters](hdinsight-scaling-best-practices.md)
 
-## <a name="use-tez-instead-of-map-reduce"></a>Tez gebruiken in plaats van Mapreduce
+## <a name="use-apache-tez-instead-of-map-reduce"></a>Apache Tez gebruiken in plaats van Mapreduce
 
 [Apache Tez](https://hortonworks.com/hadoop/tez/) is een engine voor het alternatieve uitvoeren met de MapReduce-engine. HDInsight-clusters op basis van Linux hebben Tez standaard ingeschakeld.
 
@@ -124,16 +124,16 @@ Zie voor meer informatie, [gepartitioneerde tabellen](https://cwiki.apache.org/c
 ## <a name="use-the-orcfile-format"></a>Gebruik de ORCFile-indeling
 Hive ondersteunt verschillende bestandsindelingen. Bijvoorbeeld:
 
-* **Tekst**: de standaard-bestandsindeling en werkt met de meeste scenario's
-* **Avro**: geschikt is voor scenario's voor interoperabiliteit
-* **ORC/Parquet**: bij uitstek geschikt voor prestaties
+* **Tekst**: de standaard-bestandsindeling en werkt met de meeste scenario's.
+* **Avro**: geschikt is voor interoperabiliteit scenario's.
+* **ORC/Parquet**: bij uitstek geschikt voor prestaties.
 
 (Geoptimaliseerd rij kolomvorm) ORC-indeling is een zeer efficiënte manier voor het opslaan van gegevens met Hive. Vergeleken met andere indelingen, heeft ORC de volgende voordelen:
 
-* ondersteuning voor complexe typen, inclusief datum/tijd- en complexe en semi-gestructureerde typen
-* tot 70% compressie
-* elke 10.000 rijen, waarmee de rijen overgeslagen indexen
-* een aanzienlijke afname in runtime-uitvoering
+* ondersteuning voor complexe typen, inclusief datum/tijd- en complexe en semi-gestructureerde typen.
+* tot 70% compressie.
+* elke 10.000 rijen, waarmee wordt overgeslagen rijen worden geïndexeerd.
+* een aanzienlijke afname in runtime kan worden uitgevoerd.
 
 Om in te schakelen ORC-indeling, u eerst een tabel maken met de component *opgeslagen als ORC*:
 
@@ -171,7 +171,7 @@ Vervolgens plaatst u gegevens naar het ORC-tabel uit de tijdelijke tabel. Bijvoo
     FROM lineitem;
    ```
    
-U kunt meer lezen op de ORC-indeling in de [Hive taal handmatig](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+Meer informatie over het ORC-indeling in de [Apache Hive taal handmatig](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## <a name="vectorization"></a>Vectorisatie in
 
@@ -196,10 +196,10 @@ Er zijn meer optimalisatie-methoden die u, bijvoorbeeld overwegen kunt:
 In dit artikel hebt u verschillende algemene Hive query optimalisatie methoden geleerd. Zie de volgende artikelen voor meer informatie:
 
 * [Apache Hive in HDInsight gebruiken](hadoop/hdinsight-use-hive.md)
-* [Gegevens over vertraagde vluchten analyseren met behulp van Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Twitter-gegevens met behulp van Hive in HDInsight analyseren](hdinsight-analyze-twitter-data.md)
-* [Analyseren van sensorgegevens met behulp van de Hive-Query-Console van Hadoop in HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Hive gebruiken met HDInsight voor het analyseren van Logboeken van websites](hadoop/apache-hive-analyze-website-log.md)
+* [Gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
+* [Twitter-gegevens met behulp van Apache Hive in HDInsight analyseren](hdinsight-analyze-twitter-data.md)
+* [Analyseren van sensorgegevens met behulp van de Apache Hive-Query-Console op Apache Hadoop in HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
+* [Apache Hive gebruiken met HDInsight voor het analyseren van Logboeken van websites](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

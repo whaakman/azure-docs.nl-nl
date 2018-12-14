@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 5e2599c2089cbd9961b54966df5f0f98d6badcce
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274663"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337475"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance
 
@@ -60,7 +60,7 @@ Kunt u rekenkracht en opslagbronnen tijdens de implementatie tijd en daarna wijz
 Zie voor meer informatie over het maken van de VNet-infrastructuur en een beheerd exemplaar, [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> Het is belangrijk dat u uw bestemming VNet en subnet altijd in overeenstemming met [vereisten voor beheerd exemplaar VNet](sql-database-managed-instance-vnet-configuration.md#requirements). Eventuele incompatibiliteit kunt voorkomen dat u uit het maken van nieuwe instanties of met behulp van die u al hebt gemaakt.
+> Het is belangrijk dat u uw bestemming VNet en subnet altijd in overeenstemming met [vereisten voor beheerd exemplaar VNet](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Eventuele incompatibiliteit kunt voorkomen dat u uit het maken van nieuwe instanties of met behulp van die u al hebt gemaakt. Meer informatie over [maken van nieuwe](sql-database-managed-instance-create-vnet-subnet.md) en [configureren van bestaande](sql-database-managed-instance-configure-vnet-subnet.md) netwerken.
 
 ## <a name="select-migration-method-and-migrate"></a>Kies migratiemethode en migreren
 

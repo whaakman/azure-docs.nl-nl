@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495482"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339396"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server wordt uitgevoerd op Windows-machines in Azure
 
@@ -80,7 +80,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Kan ik een virtuele machine voor het gebruik van mijn eigen SQL Server-licentie, als deze is gemaakt op basis van een van de galerie met betalen per gebruik-installatiekopieën wijzigen?**
 
-   Ja. U kunt eenvoudig verplaatsen verplaatsen tussen de twee licentiemodellen, ongeacht de installatiekopie die oorspronkelijk is geïmplementeerd. Zie voor meer informatie, [de licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md).
+   Ja. U kunt eenvoudig verplaatsen verplaatsen tussen de twee licentiemodellen, ongeacht de installatiekopie die oorspronkelijk is geïmplementeerd. Zie [Het licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md) voor meer informatie.
 
 1. **Moet ik BYOL-installatiekopieën of SQL VM RP gebruiken om nieuwe SQL-VM te maken?**
 
@@ -112,7 +112,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Is het mogelijk zelf geïmplementeerde VM's voor SQL-Server registreren bij de resourceprovider van SQL-VM?**
 
-   Ja. Als u SQL Server vanaf uw eigen media hebt geïmplementeerd, kunt u uw SQL-VM met de resourceprovider om op te halen van de beheerbaarheidsvoordelen geleverd door de SQL IaaS-extensie registreren. U bent echter kan niet worden geconverteerd van een zelf geïmplementeerde SQL-VM naar betalen per gebruik. 
+   Ja. Als u SQL Server vanuit uw eigen media geïmplementeerd en de SQL IaaS-extensie die kunt u uw SQL Server-machine registreren met de resourceprovider om op te halen van de beheerbaarheidsvoordelen geleverd door de SQL IaaS-extensie geïnstalleerd. U bent echter kan niet worden geconverteerd van een zelf geïmplementeerde SQL-VM naar betalen per gebruik.  
 
 ## <a name="administration"></a>Beheer
 
@@ -122,7 +122,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Kan ik het standaardexemplaar van SQL Server verwijderen?**
 
-   Ja, maar er zijn enkele overwegingen. Zoals vermeld in het vorige antwoord, functies die afhankelijk zijn van de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md) werken alleen op het standaardexemplaar plaatst. Als u het standaardexemplaar verwijdert, wordt de extensie blijft het zoeken naar en gebeurtenislogboek kunt genereren. Deze fouten zijn uit de volgende twee bronnen: **Microsoft SQL Server-Referentiebeheer** en **Microsoft SQL Server IaaS Agent**. Het is mogelijk dat een van de fouten die vergelijkbaar is met het volgende:
+   Ja, maar er zijn enkele overwegingen. Zoals vermeld in het vorige antwoord, functies die afhankelijk zijn van de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md) werken alleen op het standaardexemplaar plaatst. Als u het standaardexemplaar verwijdert, wordt de extensie blijft het zoeken naar en gebeurtenislogboek kunt genereren. Deze fouten zijn van de volgende twee bronnen: **Microsoft SQL Server-Referentiebeheer** en **Microsoft SQL Server IaaS Agent**. Het is mogelijk dat een van de fouten die vergelijkbaar is met het volgende:
 
       Er is een netwerk- of instantiefout-fout opgetreden tijdens het maken van een verbinding met SQL Server. De server is niet gevonden of is niet toegankelijk.
 
@@ -153,7 +153,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Wat is het verschil tussen de SQL-VM's en de service SQL Database?**
 
-   Conceptueel gezien die SQL Server op een virtuele machine van Azure niet die verschilt van het SQL Server wordt uitgevoerd in een extern datacenter. Daarentegen [SQL-Database](../../../sql-database/sql-database-technical-overview.md) database-as-a-service biedt. Met SQL Database hebt u geen toegang tot de machines die uw databases hosten. Zie voor een volledige vergelijking [kiest u een SQL Server-cloudoptie: Azure SQL (PaaS) Database of SQL Server op Azure Virtual machines (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+   Conceptueel gezien die SQL Server op een virtuele machine van Azure niet die verschilt van het SQL Server wordt uitgevoerd in een extern datacenter. Daarentegen [SQL-Database](../../../sql-database/sql-database-technical-overview.md) database-as-a-service biedt. Met SQL Database hebt u geen toegang tot de machines die uw databases hosten. Zie voor een volledige vergelijking [een SQL Server-cloudoptie kiezen: Azure SQL (PaaS) Database of SQL Server op Azure VM's (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 1. **Hoe installeer ik hulpprogramma's voor SQL-gegevens op mijn Azure-VM?**
 

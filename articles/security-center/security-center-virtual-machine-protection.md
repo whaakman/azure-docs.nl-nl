@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 53a6ae828009db24b56a11b1fdcbea19842191f4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106614"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340824"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
@@ -74,20 +74,20 @@ Elke aanbeveling heeft een set acties die u kunt uitvoeren nadat u deze hebt ges
 
 **Systeemupdates toepassen** geeft een samenvatting van essentiële updates in een grafiek, één voor Windows en één voor Linux. Het tweede gedeelte bevat een tabel met de volgende informatie:
 
-- **NAAM**: naam van de ontbrekende update.
-- **AANTAL VM’S EN COMPUTERS**: totaal aantal virtuele machines en computers die deze update niet hebben.
-- **ERNST van de UPDATE**: de ernst van deze bepaalde aanbeveling beschreven:
+- **NAAM**: De naam van de ontbrekende update.
+- **AANTAL VM's en COMPUTERS**: Totale aantal virtuele machines en computers die niet over deze update beschikken.
+- **ERNST VAN DE UPDATE**: Hierin wordt de ernst van deze bepaalde aanbeveling beschreven:
 
-    - **Kritieke**: een beveiligingsprobleem bestaat een belangrijke resource (toepassing, virtuele machine of netwerkbeveiligingsgroep) en dit probleem vereist uw aandacht.
-    - **Belangrijke**: niet-kritieke of extra stappen zijn vereist om een proces te voltooien of een beveiligingsprobleem.
-    - **Gemiddeld**: een beveiligingsprobleem moet worden opgelost, maar geen onmiddellijke aandacht vereist. (Aanbevelingen met de ernstaanduiding Laag worden niet standaard weergegeven, maar u kunt hierop filteren als u deze aanbevelingen wilt bekijken.)
+    - **Kritieke**: Een beveiligingslek in de bestaat een belangrijke resource (toepassing, virtuele machine of netwerkbeveiligingsgroep) en aandacht vereist.
+    - **Belangrijke**: Niet-kritieke of extra stappen zijn vereist om een proces te voltooien of een beveiligingsprobleem.
+    - **Gemiddeld**: Een beveiligingsprobleem moet worden opgelost, maar geen onmiddellijke aandacht vereist. (Aanbevelingen met de ernstaanduiding Laag worden niet standaard weergegeven, maar u kunt hierop filteren als u deze aanbevelingen wilt bekijken.)
 
 
-- **STATUS**: de huidige status van de aanbeveling:
+- **STATUS**: De huidige status van de aanbeveling:
 
-    - **Open**: de aanbeveling is nog niet opgelost.
-    - **Wordt uitgevoerd**: de aanbeveling wordt momenteel toegepast op deze resources en u hoeft geen actie te ondernemen.
-    - **Opgelost**: de aanbeveling is al voltooid. (Als het probleem is opgelost, wordt de vermelding grijs).
+    - **Open**: De aanbeveling is nog niet opgelost.
+    - **Bezig**: De aanbeveling wordt momenteel toegepast op deze resources, en er is geen actie te ondernemen.
+    - **Opgelost**: De aanbeveling is al voltooid. (Als het probleem is opgelost, wordt de vermelding grijs).
 
 Klik op de naam van de ontbrekende update om meer informatie voor de aanbeveling weer te geven.
 
@@ -249,7 +249,7 @@ Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekki
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
 

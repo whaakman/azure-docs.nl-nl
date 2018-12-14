@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 26030764544189ae7b075711f0405bf5c0b4ab8f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc37b3b60a5ad7f4e2b4794e4fcb74c1a5004b75
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193821"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336880"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
 
@@ -39,12 +39,12 @@ U moet een logboekquery voor het ophalen van gegevens van Log Analytics.  Of u b
 De verschillende manieren die u query's in Log Analytics gebruikt omvatten het volgende:
 
 - **Portals.** U kunt uitvoeren interactieve analyses van logboekgegevens in de [Azure-portal](../../azure-monitor/log-query/portals.md).  Hiermee kunt u uw query bewerken en analyseer de resultaten in verschillende indelingen en visualisaties.  
-- **Regels voor waarschuwingen.** [Waarschuwingsregels](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactief problemen van gegevens in uw werkruimte te identificeren.  De waarschuwingsregel is gebaseerd op een logboekzoekopdracht die automatisch met regelmatige tussenpozen wordt uitgevoerd.  De resultaten worden gecontroleerd om te bepalen of een waarschuwing moet worden gemaakt.
+- **Regels voor waarschuwingen.** [Waarschuwingsregels](../../azure-monitor/platform/alerts-overview.md) proactief problemen van gegevens in uw werkruimte te identificeren.  De waarschuwingsregel is gebaseerd op een logboekzoekopdracht die automatisch met regelmatige tussenpozen wordt uitgevoerd.  De resultaten worden gecontroleerd om te bepalen of een waarschuwing moet worden gemaakt.
 - **Dashboards.** U kunt de resultaten van elke query in vastmaken een [Azure-dashboard](../../azure-monitor/platform/dashboards.md) waarmee u logboek- en metrische gegevens bij elkaar te visualiseren en (optioneel) delen met andere Azure-gebruikers. 
 - **Weergaven.**  Kunt u visualisaties van gegevens moeten worden opgenomen in de Gebruikersdashboards met [Weergaveontwerper](../../azure-monitor/platform/view-designer.md).  Logboeken-query's leveren de gegevens die worden gebruikt door [tegels](../../azure-monitor/platform/view-designer-tiles.md) en [visualisatie delen](../../azure-monitor/platform/view-designer-parts.md) in elke weergave.  
 - **Exporteren.**  Wanneer u gegevens importeren uit Log Analytics-werkruimte in Excel of [Power BI](../../azure-monitor/platform/powerbi.md), maakt u een logboekquery voor het definiëren van de gegevens te exporteren.
 - **PowerShell.** U kunt een PowerShell-script uitvoeren vanaf een opdrachtregel of een Azure Automation-runbook die gebruikmaakt van [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) voor het ophalen van gegevens van Log Analytics.  Deze cmdlet is vereist voor een query om te bepalen van de gegevens moeten worden opgehaald.
-- **Log Analytics-API.**  De [Log Analytics search API melden](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) kan een client REST-API om op te halen van logboekgegevens uit de werkruimte.  De API-aanvraag bevat een query die wordt uitgevoerd op basis van Log Analytics om te bepalen van de gegevens moeten worden opgehaald.
+- **Log Analytics-API.**  De [Log Analytics search API melden](../../azure-monitor/platform/alerts-overview.md) kan een client REST-API om op te halen van logboekgegevens uit de werkruimte.  De API-aanvraag bevat een query die wordt uitgevoerd op basis van Log Analytics om te bepalen van de gegevens moeten worden opgehaald.
 
 ![Zoekopdrachten in Logboeken](media/log-query-overview/queries-overview.png)
 

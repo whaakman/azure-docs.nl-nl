@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7bd6b6fa82d2c7c8129f7e88df6803b697bfc6d6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 727e0cc7f0dac18a6ac9e97b3c6edae3ba8f62d6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307410"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338019"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Versleuteling inschakelen voor Azure storage-account in Azure Security Center
 Azure Security Center kan aanraden om Azure Storage-Serviceversleuteling voor data-at-rest in te schakelen.
@@ -58,7 +58,7 @@ Dit document hebt u geleerd hoe u de aanbeveling van Security Center implementer
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md) -informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+* [Beveiligingsbeleid instellen in Azure Security Center](tutorial-security-policy.md) -informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) -informatie over het bewaken van de status van uw Azure-resources.
 * [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) -informatie over het beheren van en reageren op beveiligingswaarschuwingen.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) -informatie over hoe aanbevelingen u helpen bij uw Azure-resources te beveiligen.

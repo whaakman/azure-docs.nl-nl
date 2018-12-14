@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: b552918f6b415bcd55c7c27c80ff721df77ca99f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 4a9f9c2592c7bf27e1caeb09dd492e4700768117
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276074"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383473"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ondersteunde resources voor metrische waarschuwingen in Azure Monitor
 
-Azure Monitor nu ondersteunt een [nieuwe metrische Waarschuwingstype](monitoring-overview-alerts.md) die heeft aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](../azure-monitor/platform/alerts-classic.overview.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset.
+Azure Monitor nu ondersteunt een [nieuwe metrische Waarschuwingstype](../azure-monitor/platform/alerts-overview.md) die heeft aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](../azure-monitor/platform/alerts-classic.overview.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset.
 
 
-U kunt de nieuwere metrische waarschuwingen ook gebruiken voor populaire Log Analytics-Logboeken als metrische gegevens hebt uitgepakt. Raadpleeg voor meer informatie, [metrische waarschuwingen voor logboeken](monitoring-metric-alerts-logs.md).
+U kunt de nieuwere metrische waarschuwingen ook gebruiken voor populaire Log Analytics-Logboeken als metrische gegevens hebt uitgepakt. Raadpleeg voor meer informatie, [metrische waarschuwingen voor logboeken](../azure-monitor/platform/alerts-metric-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST-ondersteuning
-U kunt op dit moment nieuwere metrische waarschuwingen maken alleen in de Azure-portal [REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts/), of [Resource Manager-sjablonen](monitoring-create-metric-alerts-with-templates.md). Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en Azure CLI versie 2.0 en hoger is binnenkort beschikbaar.
+U kunt op dit moment nieuwere metrische waarschuwingen maken alleen in de Azure-portal [REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts/), of [Resource Manager-sjablonen](../azure-monitor/platform/alerts-metric-create-templates.md). Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en Azure CLI versie 2.0 en hoger is binnenkort beschikbaar.
 
 ## <a name="metrics-and-dimensions-supported"></a>Metrische gegevens en dimensies ondersteund
-Nieuwere metrische waarschuwingen ondersteunt waarschuwingen voor metrische gegevens die gebruikmaken van dimensies. U kunt dimensies gebruiken voor het filteren van uw metrische gegevens naar het juiste niveau. Alle ondersteunde metrische gegevens, samen met de toepasselijke dimensies kunnen worden verkend en gevisualiseerd van [Azure Monitor - Metrics Explorer](monitoring-metric-charts.md).
+Nieuwere metrische waarschuwingen ondersteunt waarschuwingen voor metrische gegevens die gebruikmaken van dimensies. U kunt dimensies gebruiken voor het filteren van uw metrische gegevens naar het juiste niveau. Alle ondersteunde metrische gegevens, samen met de toepasselijke dimensies kunnen worden verkend en gevisualiseerd van [Azure Monitor - Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
 
 Dit is de volledige lijst met Azure monitor metrische bronnen die worden ondersteund door de nieuwere waarschuwingen:
 
@@ -121,6 +121,6 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle in 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over de nieuwe [ervaring waarschuwingen](monitoring-overview-alerts.md).
+* Meer informatie over de nieuwe [ervaring waarschuwingen](../azure-monitor/platform/alerts-overview.md).
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure](../azure-monitor/platform/alerts-unified-log.md).
-* Meer informatie over [waarschuwingen in Azure](monitoring-overview-alerts.md).
+* Meer informatie over [waarschuwingen in Azure](../azure-monitor/platform/alerts-overview.md).

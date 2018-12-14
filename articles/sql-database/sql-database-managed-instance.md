@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: e94b9e6d39a8a2694658a4231c54a027523af10c
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 57dd6fc822e0285b33368987d2af7c690d4f7786
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889239"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337815"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL Database Managed Instance met virtuele netwerken en in de buurt van 100% compatibiliteit gebruiken
 
@@ -41,17 +41,17 @@ Om te bepalen tussen Azure SQL Database Single Database, Azure SQL Database Mana
 Azure SQL Database Managed Instance combineert het beste functies die beschikbaar zijn in Azure SQL Database en SQL Server Database Engine.
 
 > [!IMPORTANT]
-> Een beheerd exemplaar wordt uitgevoerd met alle van de functies van de meest recente versie van SQL Server, met inbegrip van online bewerkingen, automatische plan correcties en andere prestatieverbeteringen enterprise. Een vergelijking van de functies die beschikbaar wordt uitgelegd in [vergelijking: Azure SQL Database versus SQL Server](sql-database-features.md).
+> Een beheerd exemplaar wordt uitgevoerd met alle van de functies van de meest recente versie van SQL Server, met inbegrip van online bewerkingen, automatische plan correcties en andere prestatieverbeteringen enterprise. Een vergelijking van de functies die beschikbaar wordt uitgelegd in [vergelijking van functies: Azure SQL Database versus SQL Server](sql-database-features.md).
 
 | **Voordelen van PaaS** | **Bedrijfscontinuïteit** |
 | --- | --- |
 |Er is geen aanschaffen van hardware en het beheer <br>Er is geen management overhead voor het beheren van de onderliggende infrastructuur <br>Snel inrichten en schalen van service <br>Automatische patching en versie-upgrade <br>Integratie met andere PaaS-services voor gegevens |uptime van 99,99% SLA  <br>Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md) <br>Gegevens die worden beveiligd met [geautomatiseerde back-ups](sql-database-automated-backups.md) <br>Klanten kunnen worden geconfigureerd back-up bewaarperiode <br>De gebruiker geïnitieerde [back-ups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Punt in tijd database terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore) mogelijkheid |
 |**Beveiliging en naleving** | **Management**|
-|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-vnet-configuration.md), één service, speciale berekenings- en tenant) <br>[Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-aanmeldingen</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
+|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), één service, speciale berekenings- en tenant) <br>[Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-aanmeldingen</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
 
 De belangrijkste functies van Managed Instance worden in de volgende tabel weergegeven:
 
-|Functie | Beschrijving|
+|Functie | Description|
 |---|---|
 | SQL Server-versie / build | SQL Server Database Engine (meest recente stabiel) |
 | Automatische back-ups beheren | Ja |
@@ -83,8 +83,8 @@ Meer informatie over het verschil tussen hardwaregeneraties in [Managed Instance
 
 Managed Instance is beschikbaar in twee Servicelagen:
 
-- **Algemeen gebruik**: ontworpen voor toepassingen met normale prestaties en i/o-latentie is vereist.
-- **Bedrijfskritiek**: ontworpen voor toepassingen met laag i/o-latentie is vereist en minimale gevolgen van het onderliggende Onderhoudsbewerkingen op de werkbelasting.
+- **Algemeen gebruik**: Ontworpen voor toepassingen met normale prestaties en i/o-latentie is vereist.
+- **Bedrijfskritiek**: Ontworpen voor toepassingen met laag i/o-latentie is vereist en minimale gevolgen van het onderliggende Onderhoudsbewerkingen op de werkbelasting.
 
 Beide Servicelagen garanderen een beschikbaarheid van 99,99% en kunnen u onafhankelijk opslaggrootte selecteren en de rekencapaciteit. Zie voor meer informatie over de architectuur voor hoge beschikbaarheid van Azure SQL Database, [hoge beschikbaarheid en Azure SQL Database](sql-database-high-availability.md).
 
@@ -122,15 +122,15 @@ Azure SQL Database Managed Instance combineert geavanceerde beveiligingsfuncties
 
 Beheerd exemplaar bieden extra beveiligingsisolatie van andere tenants in de Azure-cloud. Isolatie bevat:
 
-- [Implementatie van systeemeigen virtuele netwerk](sql-database-managed-instance-vnet-configuration.md) en verbinding met uw on-premises-omgeving met behulp van Azure Express Route- of VPN-Gateway
-- SQL-eindpunt wordt alleen weergegeven via een privé IP-adres, zodat u veilige connectiviteit van Azure privé of hybride netwerken
-- Één tenant met toegewezen onderliggende infrastructuur (compute, storage)
+- [Implementatie van systeemeigen virtuele netwerk](sql-database-managed-instance-connectivity-architecture.md) en verbinding met uw on-premises-omgeving met behulp van Azure Express Route- of VPN-Gateway.
+- SQL-eindpunt wordt alleen weergegeven via een privé IP-adres, zodat u veilige connectiviteit van Azure privé of hybride netwerken.
+- Één tenant met toegewezen onderliggende infrastructuur (compute, storage).
 
 Het volgende diagram geeft een overzicht van de verschillende connectiviteitsopties voor uw toepassingen:
 
 ![hoge beschikbaarheid](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
-Zie voor meer informatie over VNet-integratie en toegang wordt afgedwongen op het subnetniveau meer [een VNet configureren voor Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) en [verbinding maken met uw toepassing naar Azure SQL Database Beheerd exemplaar](sql-database-managed-instance-connect-app.md).
+Zie voor meer informatie over VNet-integratie en toegang wordt afgedwongen op het subnetniveau meer [architectuur voor Azure SQL Database Managed Instance VNet](sql-database-managed-instance-connectivity-architecture.md) en [verbinding maken met uw toepassing naar Azure SQL Database Beheerd exemplaar](sql-database-managed-instance-connect-app.md).
 
 > [!IMPORTANT]
 > Plaats meerdere beheerd exemplaar in hetzelfde subnet bevinden, waar die is toegestaan door uw beveiligingsvereisten, omdat u extra voordelen opent Hiermee. Collocating-exemplaren in hetzelfde subnet aanzienlijk netwerken onderhoud aan de infrastructuur vereenvoudigen en exemplaar inrichtingstijd, omdat de lange duur van de inrichting is gekoppeld aan de kosten van de implementatie eerst beheerd exemplaar in een subnet beperken.
@@ -234,8 +234,8 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 
 - Zie voor meer informatie over het maken van uw eerste Managed Instance, [snelstartgids](sql-database-managed-instance-get-started.md).
 - Voor een functies en van de vergelijkingslijst, Zie [algemene SQL-functies](sql-database-features.md).
-- Lees [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md) (VNet-configuratie voor beheerd exemplaar) voor meer informatie over VNet-configuratie.
+- Lees [Managed Instance VNet Configuration](sql-database-managed-instance-connectivity-architecture.md) (VNet-configuratie voor beheerd exemplaar) voor meer informatie over VNet-configuratie.
 - Zie voor een snelstartgids die een beheerd exemplaar maakt en wordt een database teruggezet vanuit een back-upbestand, [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md).
 - Lees het artikel [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md) (Migratie van een beheerd exemplaar via DMS) voor een zelfstudie over gebruik van de Azure Database Migration Service (DMS).
-- Voor geavanceerde bewaking van prestaties van de database Managed Instance met ingebouwde intelligentie voor het oplossen van problemen, Zie [Monitor Azure SQL Database met behulp van Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)
+- Zie [Azure SQL Database controleren met Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) voor geavanceerde controle van de databaseprestaties van het beheerde exemplaar met ingebouwde intelligentie voor het oplossen van problemen
 - Zie voor informatie over de prijzen [prijzen van SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

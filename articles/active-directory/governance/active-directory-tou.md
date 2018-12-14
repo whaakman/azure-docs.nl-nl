@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/10/2018
+ms.date: 12/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 448ef296af3ceaffffa1a4a69060916afd9abdc4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6ec3ca7c1323b342612293c5ea3ca1443370c9b4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185678"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386381"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag met de gebruiksvoorwaarden.
@@ -313,6 +313,8 @@ Beleid voor voorwaardelijke toegang wordt onmiddellijk van kracht. Als dit gebeu
 ## <a name="b2b-guests-preview"></a>B2B-gasten (Preview)
 
 De meeste organisaties beschikken over een proces voor hun werknemers akkoord gaan met de voorwaarden van gebruik en privacyverklaringen van hun organisatie. Maar hoe kunt u afdwingen de dezelfde toestemmingen voor Azure AD business-to-business (B2B) gasten wanneer ze worden toegevoegd via SharePoint of Teams? Met behulp van voorwaardelijke toegang en gebruiksvoorwaarden, kunt u een beleid rechtstreeks voor B2B-gastgebruikers afdwingen. Tijdens de uitnodiging inwisselen stroom, wordt de gebruiker weergegeven met de gebruiksvoorwaarden. Deze ondersteuning is momenteel in preview.
+
+Gebruiksvoorwaarden wordt alleen weergegeven wanneer de gebruiker een Gast-account in Azure AD heeft. SharePoint Online op dit moment heeft een [ad-hoc extern delen geadresseerde ervaring](/sharepoint/what-s-new-in-sharing-in-targeted-release) voor het delen van een document of een map waarvoor de gebruiker een gastaccount hebben. In dit geval wordt een gebruiksrechtovereenkomst niet weergegeven.
 
 ![Alle gastgebruikers](./media/active-directory-tou/b2b-guests.png)
 

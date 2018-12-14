@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820304"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384765"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Files
 
@@ -29,7 +29,7 @@ Voordat u een importtaak om over te dragen van gegevens naar Azure Files maakt, 
 - Ten minste één Azure Storage-account hebben. Overzicht van de [ondersteunde opslagaccounts en typen gegevensopslag voor Import/Export-service](storage-import-export-requirements.md). Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-quickstart-create-account.md).
 - Schijven van voldoende [ondersteunde typen](storage-import-export-requirements.md#supported-disks). 
 - Een Windows-systeem met een [ondersteunde besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems).
-- [De WAImportExport versie 2 downloaden](https://www.microsoft.com/download/details.aspx?id=55280) op het Windows-systeem. Pak deze uit naar de standaardmap `waimportexport`. Bijvoorbeeld `C:\WaImportExport`.
+- [De WAImportExport versie 2 downloaden](https://aka.ms/waiev2) op het Windows-systeem. Pak deze uit naar de standaardmap `waimportexport`. Bijvoorbeeld `C:\WaImportExport`.
 - Een FedEx/DHL-account hebben. 
     - Het account moet geldig zijn, saldo moet hebben en moet return verzending mogelijkheden hebben.
     - Een nummer voor de taak uitvoer gegenereerd.
@@ -50,14 +50,14 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
 2. Maak een enkele NTFS-volume op elke schijf. Een stationsletter toewijzen aan het volume. Stel de volgende parameter niet gebruiken
 3. Wijzig de *dataset.csv* bestand in de hoofdmap waarin het hulpprogramma zich bevindt. Afhankelijk van of u importeren van een bestand of map of beide wilt, vermeldingen toe te voegen in de *dataset.csv* bestand die vergelijkbaar is met de volgende voorbeelden.  
 
-    - **Een bestand importeren**: In het volgende voorbeeld wordt de gegevens te kopiëren bevindt zich in de C:-station. Het bestand *MyFile1.txt* wordt gekopieerd naar de hoofdmap van de *MyAzureFileshare1*. Als de *MyAzureFileshare1* niet bestaat, wordt deze gemaakt in de Azure Storage-account. Mapstructuur wordt bijgehouden.
+    - **Een bestand importeren**: In het volgende voorbeeld is de gegevens te kopiëren bevindt zich in de C:-station. Het bestand *MyFile1.txt* wordt gekopieerd naar de hoofdmap van de *MyAzureFileshare1*. Als de *MyAzureFileshare1* niet bestaat, wordt deze gemaakt in de Azure Storage-account. Mapstructuur wordt bijgehouden.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
-    - **Voor het importeren van een map**: alle bestanden en mappen onder *MyFolder2* worden recursief gekopieerd naar de bestandsshare. Mapstructuur wordt bijgehouden.
+    - **Voor het importeren van een map**: Alle bestanden en mappen onder *MyFolder2* worden recursief gekopieerd naar de bestandsshare. Mapstructuur wordt bijgehouden.
 
         ```
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
@@ -137,7 +137,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
 3. In **taakgegevens**:
     
-    - De logboekbestanden die u hebt gemaakt tijdens de voorgaande uploaden [stap 1: voorbereiden van de schijven](#step-1-prepare-the-drives). 
+    - De logboekbestanden die u hebt gemaakt tijdens de voorgaande uploaden [stap 1: Voorbereiden van de schijven](#step-1-prepare-the-drives). 
     - Selecteer het opslagaccount waarin de gegevens worden geïmporteerd. 
     - De locatie dropoff wordt automatisch ingevuld op basis van de regio van het opslagaccount dat is geselecteerd.
    
@@ -162,7 +162,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
         ![Importeren van een taak maken - stap 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Stap 3: De schijven in de Azure-datacenter verzenden 
+## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Stap 3: Verzending van de schijven in de Azure-datacenter 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
@@ -170,7 +170,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Stap 5: Controleer of het uploaden van gegevens naar Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Stap 5: De gegevensupload naar Azure controleren
 
 De taak volgen om te voltooien. Nadat de taak voltooid is, moet u controleren of uw gegevens daadwerkelijk is geüpload naar Azure. Verwijder de on-premises gegevens alleen nadat u hebt gecontroleerd dat het uploaden is voltooid.
 

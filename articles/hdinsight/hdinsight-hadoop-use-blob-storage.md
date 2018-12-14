@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: d04844699e3596257f6b7cc49b7647ad7490c26f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 359cfd5b0eba25de25ce4200a61b0103a3d0fade
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166112"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384799"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure-opslag gebruiken met Azure HDInsight-clusters
 
@@ -22,11 +22,11 @@ Voor het analyseren van gegevens in HDInsight-cluster, u kunt de gegevens opslaa
 
 Apache Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Tijdens het HDInsight-cluster maken, geeft u een blob-container in Azure Storage als het standaardbestandssysteem of met HDInsight 3.6, kunt u ook Azure Storage of Azure Data Lake Storage Gen 1 / Azure Data Lake Store Gen 2 als de standaard-bestanden systeem met een paar uitzonderingen. Zie voor de ondersteuning van het gebruik van Data Lake Storage Gen 1 als de standaard- en de gekoppelde opslag [beschikbaarheid voor HDInsight-cluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
-In dit artikel wordt uitgelegd hoe Azure Storage werkt met HDInsight-clusters. Zie voor meer informatie hoe Data Lake Storage Gen 1 werkt met HDInsight-clusters, [gebruik Azure Data Lake Store met Azure HDInsight-clusters](hdinsight-hadoop-use-data-lake-store.md). Zie [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Hadoop-clusters maken in HDInsight) voor meer informatie over het maken van HDInsight-clusters.
+In dit artikel wordt uitgelegd hoe Azure Storage werkt met HDInsight-clusters. Zie voor meer informatie hoe Data Lake Storage Gen 1 werkt met HDInsight-clusters, [gebruik Azure Data Lake Store met Azure HDInsight-clusters](hdinsight-hadoop-use-data-lake-store.md). Zie voor meer informatie over het maken van een HDInsight-cluster [Apache Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 Azure Storage is een robuuste, algemene opslagoplossing die naadloos kan worden geïntegreerd met HDInsight. HDInsight kan een blobcontainer in Azure Storage gebruiken als het standaardbestandssysteem voor het cluster. Via een HDFS-interface (Hadoop Distributed File System) kan de volledige set onderdelen in HDInsight rechtstreeks als blobs op gestructureerde of ongestructureerde gegevens worden uitgevoerd.
 
-> [!WARNING]
+> [!WARNING]  
 > Er zijn verschillende opties beschikbaar bij het maken van een Azure Storage-account. De volgende tabel bevat informatie over de opties die met HDInsight worden ondersteund:
 
 | Type opslagaccount | Ondersteunde services | Ondersteunde prestatielagen | Ondersteunde toegangslagen |
@@ -58,15 +58,15 @@ Hier volgen enkele overwegingen bij het gebruik van een Azure Storage-account me
 
 * **Openbare containers of openbare blobs in opslagaccounts die niet zijn verbonden met een cluster:** U hebt alleen-lezen toegang tot de blobs in de containers.
   
-  > [!NOTE]
+  > [!NOTE]  
   > Met openbare containers kunt u een lijst met alle beschikbare blobs in de desbetreffende container en containermetagegevens ophalen. Openbare blobs zijn alleen toegankelijk als u de exacte URL weet. Zie voor meer informatie, <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">toegang tot containers en blobs beheren</a>.
   > 
   > 
 * **Persoonlijke containers in opslagaccounts die niet zijn verbonden met een cluster:** U kunt de blobs in de containers geen toegang tot, tenzij u het opslagaccount definieert wanneer u de WebHCat-taken verzendt. Dit wordt verderop in dit artikel uitgelegd.
 
-De opslagaccounts die worden gedefinieerd tijdens het creatieproces en de bijbehorende sleutels worden opgeslagen in %HADOOP_HOME%/conf/core-site.xml op de clusterknooppunten. HDInsight gebruikt standaard de opslagaccounts die zijn gedefinieerd in het bestand core-site.xml. U kunt deze instelling wijzigen instellen met [Ambari](./hdinsight-hadoop-manage-ambari.md)
+De opslagaccounts die worden gedefinieerd tijdens het creatieproces en de bijbehorende sleutels worden opgeslagen in %HADOOP_HOME%/conf/core-site.xml op de clusterknooppunten. HDInsight gebruikt standaard de opslagaccounts die zijn gedefinieerd in het bestand core-site.xml. U kunt deze instelling wijzigen met behulp van [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
 
-Meerdere WebHCat-taken, waaronder Hive, MapReduce, Hadoop-streaming en Pig, kunnen een beschrijving van opslagaccounts en metagegevens bevatten. (Dit werkt momenteel voor Pig met opslagaccounts, maar niet voor metagegevens.) Zie [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx) (Een HDInsight-cluster gebruiken met alternatieve opslagaccounts en metastores) voor meer informatie.
+Meerdere WebHCat-taken, waaronder Apache Hive, MapReduce, Apache Hadoop-streaming en Apache Pig, kunnen een beschrijving van opslagaccounts en metagegevens mee uitvoeren. (Dit werkt momenteel voor Pig met opslagaccounts, maar niet voor metagegevens.) Zie [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx) (Een HDInsight-cluster gebruiken met alternatieve opslagaccounts en metastores) voor meer informatie.
 
 Blobs kunnen worden gebruikt voor gestructureerde en ongestructureerde gegevens. De gegevens in blobcontainers worden opgeslagen als sleutel-waardeparen en er is geen maphiërarchie. Maar het slash-teken (/) kan echter worden gebruikt binnen de sleutelnaam deze weergegeven, zodat het lijkt alsof een bestand is opgeslagen in een mapstructuur. De sleutel van de blob kan bijvoorbeeld *input/log1.txt* zijn. Er is niet echt een *invoermap* aanwezig, maar als gevolg van de aanwezigheid van het slash-teken in de naam van de sleutel ziet dit eruit als een bestandspad.
 
@@ -83,13 +83,12 @@ Het opslaan van gegevens in Azure Storage in plaats van HDFS heeft enkele voorde
 
 Bepaalde MapReduce-taken en -pakketten kunnen tussenliggende resultaten genereren die u niet wilt opslaan in Azure Storage. In dat geval kunt u ervoor kiezen de gegevens op te slaan in de lokale HDFS. HDInsight gebruikt DFS voor verschillende tussenliggende resultaten in Hive-taken en andere processen.
 
-> [!NOTE]
+> [!NOTE]  
 > De meeste HDFS-opdrachten (bijvoorbeeld <b>ls</b>, <b>copyFromLocal</b> en <b>mkdir</b>) blijven gewoon naar verwachting werken. Alleen de opdrachten die specifiek voor de systeemeigen HDFS-implementatie zijn (ook wel DFS genoemd), zoals <b>fschk</b> en <b>dfsadmin</b>, vertonen afwijkend gedrag in Azure Storage.
-> 
-> 
+
 
 ## <a name="create-blob-containers"></a>Blob-containers maken
-Als u blobs wilt gebruiken, maakt u eerst een [Azure Storage-account][azure-storage-create]. Als onderdeel hiervan geeft u een Azure-regio op waar het opslagaccount wordt gemaakt. Het cluster en het opslagaccount moeten worden gehost in dezelfde regio. De SQL Server-database van de Hive-metastore en Oozie-metastore moeten zich ook in dezelfde regio bevinden.
+Als u blobs wilt gebruiken, maakt u eerst een [Azure Storage-account][azure-storage-create]. Als onderdeel hiervan geeft u een Azure-regio op waar het opslagaccount wordt gemaakt. Het cluster en het opslagaccount moeten worden gehost in dezelfde regio. De Hive-metastore SQL Server-database en SQL Server-database van Apache Oozie-metastore moeten ook in dezelfde regio bevinden.
 
 Elke blob die u maakt, behoort tot een container in uw Azure Storage-account, ongeacht de locatie van de blob. Deze container kan een bestaande blob zijn die buiten HDInsight is gemaakt. Het kan echter ook een container zijn die is gemaakt voor een HDInsight-cluster.
 
@@ -102,7 +101,7 @@ Wanneer u een HDInsight-cluster maakt vanuit de portal, kunt u (zoals hieronder 
 
 ![Gegevensbron voor het maken van HDInsight Hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
-> [!WARNING]
+> [!WARNING]  
 > Het gebruik van een extra opslagaccount op een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
 
 
@@ -142,7 +141,7 @@ Als u hebt [installeren en configureren van de klassieke Azure-CLI](../cli-insta
 azure storage account create <storageaccountname> --type LRS
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > De parameter `--type` geeft aan hoe het opslagaccount wordt gerepliceerd. Zie [Azure Storage-replicatie](../storage/storage-redundancy.md) voor meer informatie. U kunt ZRS beter niet gebruiken, aangezien ZRS de pagina-blob, het bestand, de tabel of de wachtrij niet ondersteunt.
 
 U wordt gevraagd de geografische regio op te geven waar het opslagaccount is gemaakt. U moet de opslagaccount in dezelfde regio maken waarin u ook uw HDInsight-cluster wilt maken.
@@ -179,7 +178,7 @@ wasb:///example/jars/hadoop-mapreduce-examples.jar
 /example/jars/hadoop-mapreduce-examples.jar
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > De bestandsnaam is <i>hadoop examples.jar</i> in HDInsight versie 2.1- en 1.6-clusters.
 
 Het &lt;pad&gt; is de HDFS-padnaam van het bestand of de map. Aangezien containers in Azure Storage gewoon sleutel-waardearchieven zijn, is er geen echt hiërarchisch bestandssysteem. Een slash (/) in een blob-sleutel wordt geïnterpreteerd als een teken voor mapscheiding. De blob-naam voor bijvoorbeeld *hadoop-mapreduce-examples.jar* is:
@@ -188,7 +187,7 @@ Het &lt;pad&gt; is de HDFS-padnaam van het bestand of de map. Aangezien containe
 example/jars/hadoop-mapreduce-examples.jar
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Als u buiten HDInsight met blobs werkt, zullen de meeste hulpprogramma's de indeling WASB niet herkennen en wordt er in plaats daarvan een standaardpadindeling verwacht, zoals `example/jars/hadoop-mapreduce-examples.jar`.
 
 ## <a name="access-blobs"></a>Toegang tot blobs
@@ -196,6 +195,7 @@ example/jars/hadoop-mapreduce-examples.jar
 ### <a name="access-blobs-using-azure-powershell"></a> Azure PowerShell gebruiken
 
 > [!NOTE]
+
 > De opdrachten in deze sectie bieden een eenvoudige voorbeeld van het gebruik van PowerShell voor toegang tot gegevens die zijn opgeslagen in blobs. Zie de [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools) voor een uitgebreider voorbeeld dat is aangepast voor het werken met HDInsight.
 
 Gebruik de volgende opdracht voor een lijst met blob-gerelateerde cmdlets:
@@ -320,7 +320,7 @@ azure storage blob list <containername> <blobname|prefix> --account-name <storag
 
 Tijdens het maken van een HDInsight-cluster geeft u het Azure Storage-account op dat u ermee wilt koppelen. Naast dit opslagaccount kunt u tijdens het maakproces of nadat een cluster is gemaakt extra opslagaccounts toevoegen uit hetzelfde Azure-abonnement of uit andere Azure-abonnementen. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor instructies over het toevoegen van extra opslagaccounts.
 
-> [!WARNING]
+> [!WARNING]  
 > Het gebruik van een extra opslagaccount op een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -332,8 +332,8 @@ Zie voor meer informatie:
 * [Aan de slag met Azure HDInsight][hdinsight-get-started]
 * [Aan de slag met Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
-* [Hive gebruiken met HDInsight][hdinsight-use-hive]
-* [Pig gebruiken met HDInsight][hdinsight-use-pig]
+* [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
+* [Apache Pig gebruiken met HDInsight][hdinsight-use-pig]
 * [Handtekeningen voor gedeelde toegang van Azure Storage gebruiken om de toegang tot gegevens te beperken met HDInsight][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md

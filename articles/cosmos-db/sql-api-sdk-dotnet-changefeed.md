@@ -9,14 +9,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: ab4831a4a84e1f96624c5de1e53f9b8688a5c2cd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1544d60d94a73326d2cd0430de8a1f61aaefe373
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871656"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343967"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Downloaden en opmerkingen bij de release
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET-change Feed Processor SDK: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -27,7 +27,7 @@ ms.locfileid: "52871656"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resourceprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -41,6 +41,11 @@ ms.locfileid: "52871656"
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="v2-builds"></a>v2-builds
+
+### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
+* Er is ondersteuning toegevoegd voor het verwerken van splitsen in verzamelingen die gebruikmaken van gedeelde database doorvoer.
+  * Deze release wordt een probleem dat zich tijdens splitsen in verzamelingen met behulp van de gedeelde database doorvoer als resultaat te splitsen in partitie opnieuw verdelen met slechts één onderliggende partitiesleutelbereik gemaakt voordoen kan, in plaats van twee opgelost. Als dit gebeurt, kan Change Feed Processor zitten verwijderen van de lease voor de oude partitiesleutelbereik en geen nieuwe leases te maken. Het probleem is opgelost in deze release.
+  * Secundaire belangrijke wijziging: nieuwe methode IChangeFeedDocumentClient.ReadOffersFeedAsync, die wordt gebruikt om te controleren of de collectie toegewezen doorvoereenheid / toegewezen heeft of doorvoer met andere verzamelingen in de database deelt toegevoegd. Opgeven van aangepaste implementatie van IChangeFeedDocumentClient is een geavanceerd scenario en kan worden gebruikt om te controleren wordt alle aanroepen door Change Feed Processor aan bewaakt en verzamelingen van de lease. Met deze wijziging kunnen IChangeFeedDocumentClient implementatie moet worden gewijzigd door het implementeren van de nieuwe methode.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * Nieuwe eigenschap toegevoegd ChangeFeedProcessorOptions.StartContinuation ter ondersteuning van de eerste wijziging feed van aanvraag vervolgtoken. Dit wordt alleen gebruikt wanneer leaseverzameling leeg is of een lease heeft geen ContinuationToken instellen. De ContinuationToken wordt gebruikt voor leases in leaseverzameling waarvoor ContinuationToken instellen en ChangeFeedProcessorOptions.StartContinuation wordt genegeerd.

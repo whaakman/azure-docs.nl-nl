@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 110f487d486ccd2f1a26065aa225838a3a83c197
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6fc3fc0b7717242b6949d93f0668d7c56525ac49
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167219"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342813"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure virtuele Machines hoge beschikbaarheid voor SAP NetWeaver op Red Hat Enterprise Linux
 
@@ -157,10 +157,10 @@ U moet eerst de virtuele machines voor dit cluster te maken. Daarna wordt u een 
 1. Een Beschikbaarheidsset maken  
    De maximale updatedomein instellen
 1. Virtuele Machine 1 maken  
-   Ten minste RHEL 7, in dit de Red Hat Enterprise Linux 7.4-voorbeeldafbeelding <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Ten minste RHEL 7, in dit de Red Hat Enterprise Linux 7.4-voorbeeldafbeelding <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecteer de Beschikbaarheidsset eerder hebt gemaakt  
 1. Virtuele Machine 2 maken  
-   Ten minste RHEL 7, in dit de Red Hat Enterprise Linux 7.4-voorbeeldafbeelding <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Ten minste RHEL 7, in dit de Red Hat Enterprise Linux 7.4-voorbeeldafbeelding <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecteer de Beschikbaarheidsset eerder hebt gemaakt  
 1. Ten minste één gegevensschijf toevoegen aan beide virtuele machines  
    De gegevensschijven worden gebruikt voor demap/usr/sap/`<SAPSID`> directory

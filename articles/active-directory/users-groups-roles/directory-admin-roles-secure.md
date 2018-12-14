@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 7f2b4d870fdcf250f62d41fa4f3ea5bf13d323c3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847062"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387077"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Beveiligen van bevoegde toegang voor cloud- en hybride implementaties in Azure AD
 
@@ -58,17 +58,17 @@ Dit document richt zich voornamelijk op het maken van een schema voor het beveil
 
 ## <a name="develop-a-roadmap"></a>Ontwikkelen van een schema 
 
-Microsoft raadt aan dat u ontwikkelt en gaat u als een schema volgt voor het beveiligen van bevoegde toegang tegen cyberaanvallen aanvallers. U kunt altijd uw roadmap om te voldoen aan uw bestaande mogelijkheden en de specifieke vereisten binnen uw organisatie aanpassen. Elke fase van het schema moet de duurder en moeilijker voor aanvallers voor aanvallen van bevoegde toegang voor uw on-premises, cloud en hybride activa te verhogen. Microsoft raadt aan om de volgende vier fasen voor schema: dit aanbevolen roadmap schema's gaat in de meeste en de snelste implementaties eerst op basis van de ervaringen van Microsoft met bestrijdingsproces incident en antwoord-implementatie. De tijdlijnen voor dit schema zijn bij benadering.
+Microsoft raadt aan dat u ontwikkelt en gaat u als een schema volgt voor het beveiligen van bevoegde toegang tegen cyberaanvallen aanvallers. U kunt altijd uw roadmap om te voldoen aan uw bestaande mogelijkheden en de specifieke vereisten binnen uw organisatie aanpassen. Elke fase van het schema moet de duurder en moeilijker voor aanvallers voor aanvallen van bevoegde toegang voor uw on-premises, cloud en hybride activa te verhogen. Microsoft raadt aan de volgende vier roadmap fasen: Deze aanbevolen roadmap schema's de meest efficiënte en de snelste implementaties eerst op basis van de ervaringen van Microsoft met bestrijdingsproces incident en antwoord-implementatie. De tijdlijnen voor dit schema zijn bij benadering.
 
 ![Fasen van het schema met tijd regels](./media/directory-admin-roles-secure/roadmap-timeline.png)
 
-* Fase 1 (24 tot 48 uur): essentiële items die wij u adviseren meteen doen
+* Fase 1 (24 tot 48 uur): Essentiële items die wij u adviseren doen meteen
 
-* Fase 2 (2-4 weken): beperken van de meest gebruikte aanvalstechnieken
+* Fase 2 (2-4 weken): Beperken van de meest gebruikte aanvalstechnieken
 
-* Fase 3 (1-3 maanden): zichtbaarheid bouwen en bouw volledig beheer van beheerdersactiviteiten bewerkstelligen
+* Fase 3 (1-3 maanden): Zichtbaarheid bouwen en bouw volledig beheer van beheerdersactiviteiten bewerkstelligen
 
-* Fase 4 (zes maanden en hoger): doorgaan met het ontwikkelen van beveiliging voor het verder beperken van uw platform voor beveiliging
+* Fase 4 (zes maanden en hoger): Doorgaan met het ontwikkelen van beveiliging voor het verder beperken van uw platform voor beveiliging
 
 Deze roadmap-framework is ontworpen om optimaal gebruik van Microsoft-technologieën die u mogelijk al hebt geïmplementeerd. U kunt ook profiteren van belangrijke huidige en toekomstige beveiligingstechnologieën en integreren beveiligingsprogramma's van andere leveranciers die u al hebt geïmplementeerd of van plan implementeren te bent. 
 
@@ -121,9 +121,9 @@ Evalueer de accounts die toegewezen of die in aanmerking komen voor de rol globa
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Meervoudige verificatie inschakelen en de registratie van alle andere veel bevoegdheden één gebruiker niet-gefedereerde administratoraccounts 
 
-Azure multi-factor Authentication (MFA) vereist bij het aanmelden voor alle afzonderlijke gebruikers die permanent zijn toegewezen aan een of meer van de Azure AD-beheerdersrollen: globale beheerder, beheerder met bevoorrechte rol beheerder van Exchange Online en SharePoint Online-beheerder. De handleiding gebruiken om in te schakelen [multi-factor Authentication (MFA) voor uw beheerdersaccounts](../authentication/howto-mfa-userstates.md) en zorg ervoor dat alle gebruikers hebt geregistreerd bij [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Meer informatie vindt u in stap 2 en 3 van de handleiding [toegang tot gegevens en services in Office 365 beveiligen](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Azure multi-factor Authentication (MFA) vereisen bij aanmelding voor alle afzonderlijke gebruikers die permanent zijn toegewezen aan een of meer van de Azure AD-beheerdersrollen: Globale beheerder, beheerder met bevoorrechte rol, beheerder van Exchange Online en SharePoint Online-beheerder. De handleiding gebruiken om in te schakelen [multi-factor Authentication (MFA) voor uw beheerdersaccounts](../authentication/howto-mfa-userstates.md) en zorg ervoor dat alle gebruikers hebt geregistreerd bij [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Meer informatie vindt u in stap 2 en 3 van de handleiding [toegang tot gegevens en services in Office 365 beveiligen](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
-## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: Een oplossing zoeken de meest gebruikte aanvalstechnieken
+## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: Beperken van de meest gebruikte aanvalstechnieken
 
 ![Fase 2](./media/directory-admin-roles-secure/stage-two.png)
 
@@ -196,7 +196,7 @@ Uitvoeren van reacties op incidenten effectief is een complexe onderneming. Daar
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>Veilige on-premises bevoegde beheerdersaccounts, als dat nog niet gedaan
 
-Als uw Azure Active Directory-tenant is gesynchroniseerd met on-premises Active Directory, volgt u de instructies in [bevoorrechte toegang beveiligingsschema](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): fase 1. Dit omvat het maken van afzonderlijke beheerdersaccounts voor gebruikers die nodig zijn voor het uitvoeren van beheertaken voor on-premises implementatie van Privileged Access Workstations voor Active Directory-beheerders en het maken van unieke lokale beheerderswachtwoorden voor werkstations en -servers.
+Als uw Azure Active Directory-tenant is gesynchroniseerd met on-premises Active Directory, volgt u de instructies in [bevoorrechte toegang beveiligingsschema](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Fase 1. Dit omvat het maken van afzonderlijke beheerdersaccounts voor gebruikers die nodig zijn voor het uitvoeren van beheertaken voor on-premises implementatie van Privileged Access Workstations voor Active Directory-beheerders en het maken van unieke lokale beheerderswachtwoorden voor werkstations en -servers.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Aanvullende stappen voor organisaties toegang tot Azure beheren
 
@@ -210,7 +210,7 @@ Microsoft-accounts van andere programma's, zoals Xbox Live en Outlook moeten nie
 
 #### <a name="monitor-azure-activity"></a>Azure-activiteit controleren
 
-De Azure-activiteitenlogboek biedt een geschiedenis van gebeurtenissen op abonnementsniveau in Azure. Het biedt informatie over wie die zijn gemaakt, bijgewerkt en welke resources hebt verwijderd, en wanneer deze gebeurtenissen opgetreden. Zie voor meer informatie, [controle en meldingen ontvangen over belangrijke acties in uw Azure-abonnement](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md).
+De Azure-activiteitenlogboek biedt een geschiedenis van gebeurtenissen op abonnementsniveau in Azure. Het biedt informatie over wie die zijn gemaakt, bijgewerkt en welke resources hebt verwijderd, en wanneer deze gebeurtenissen opgetreden. Zie voor meer informatie, [controle en meldingen ontvangen over belangrijke acties in uw Azure-abonnement](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Aanvullende stappen voor organisaties toegang tot andere cloud-apps via Azure AD beheren 
@@ -275,7 +275,7 @@ U kunt dit rapport uit downloaden [Security Incident Management in Microsoft Off
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Doorgaan met het beveiligen van on-premises bevoegde beheerdersaccounts
 
-Als uw Azure Active Directory is verbonden met on-premises Active Directory, volgt u de instructies in de [bevoorrechte toegang beveiligingsschema](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): fase 2. Dit omvat het implementeren van Privileged Access Workstations voor alle beheerders, MFA vereisen, net voldoende beheer gebruiken voor DC-onderhoud, de kwetsbaarheid voor aanvallen van domeinen te verlagen, ATA-implementatie voor de aanvalsdetectie.
+Als uw Azure Active Directory is verbonden met on-premises Active Directory, volgt u de instructies in de [bevoorrechte toegang beveiligingsschema](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Fase 2. Dit omvat het implementeren van Privileged Access Workstations voor alle beheerders, MFA vereisen, net voldoende beheer gebruiken voor DC-onderhoud, de kwetsbaarheid voor aanvallen van domeinen te verlagen, ATA-implementatie voor de aanvalsdetectie.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Aanvullende stappen voor organisaties toegang tot Azure beheren
 
@@ -390,52 +390,52 @@ Als u wilt bepalen [eigendom van een Azure-abonnement naar een ander account ove
 
 Zie voor meer informatie over hoe Microsoft Office 365 beveiligingsincidenten verwerkt [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM).
 
-## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>Veelgestelde vragen: Veelgestelde vragen wij ontvangen over bevoegde toegang beveiligen  
+## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>FAQ: Veelgestelde vragen die wij over het beveiligen van bevoegde toegang ontvangen  
 
 
-**V:** wat moet ik doen als ik alle onderdelen van beveiligde toegang nog niet hebt geïmplementeerd?
+**VRAAG:** Wat moet ik doen als ik alle onderdelen van beveiligde toegang nog niet hebt geïmplementeerd?
 
-**Antwoord:** ten minste twee break-glas account definiëren, MFA toewijzen aan uw bevoegde beheerdersaccounts en afzonderlijke accounts van globale beheerdersaccounts.
+**Antwoord:** Ten minste twee break-glas account definiëren, MFA toewijzen aan uw bevoegde beheerdersaccounts en afzonderlijke accounts van globale beheerdersaccounts.
 
 
-**V:** na een inbreuk, wat het belangrijkste probleem dat u moet eerst worden verholpen is?
+**VRAAG:** Wat is het belangrijkste probleem dat u moet eerst worden verholpen na een inbreuk?
 
 **Antwoord:** Zorg ervoor dat u bent de sterkste verificatie vereist voor personen maximaal beschikbaar gemaakt.
 
 
-**V:** wat gebeurt er als onze bevoorrechte beheerders zijn uitgeschakeld?
+**VRAAG:** Wat gebeurt er als onze bevoorrechte beheerders zijn uitgeschakeld?
 
-**Antwoord:** maken van een globale beheerdersaccount die altijd up-to-date wordt gehouden.
-
-
-**V:** wat er gebeurt als er slechts één globale beheerder naar links en kan niet worden bereikt? 
-
-**Antwoord:** gebruik een van uw accounts break om onmiddellijke bevoegde toegang te krijgen.
+**Antwoord:** Maak een globale beheerder-account dat altijd up-to-date wordt gehouden.
 
 
-**V:** hoe kan ik beveiligen beheerders in mijn organisatie?
+**VRAAG:** Wat gebeurt er als er slechts één globale beheerder links en ze kunnen niet worden bereikt? 
 
-**Antwoord:** hebben beheerders hun dagelijkse zaken als "niet-gemachtigd" standaardgebruikers altijd doen.
+**Antwoord:** Gebruik een van uw accounts break om onmiddellijke bevoegde toegang te krijgen.
+
+
+**VRAAG:** Hoe kan ik beheerders beveiligen in mijn organisatie?
+
+**Antwoord:** Hebben beheerders hun dagelijkse zaken als "niet-gemachtigd" standaardgebruikers altijd doen.
  
 
-**V:** wat zijn de aanbevolen procedures voor het maken van beheerdersaccounts in Azure AD?
+**VRAAG:** Wat zijn de aanbevolen procedures voor het maken van beheerdersaccounts in Azure AD?
 
 **Antwoord:** Reserve bevoegde toegang voor specifieke beheertaken.
 
 
-**V:** welke hulpprogramma's voor het verminderen van permanente beheerderstoegang bestaat?
+**VRAAG:** Welke hulpprogramma's bestaan voor het verminderen van permanente beheerderstoegang?
 
 **Antwoord:** Privileged Identity Management (PIM) en Azure AD-beheerdersrollen.
 
 
-**V:** wat is de positie van Microsoft voor het synchroniseren van beheerdersaccounts naar Azure AD?
+**VRAAG:** Wat is de positie van Microsoft voor het synchroniseren van beheerdersaccounts naar Azure AD?
 
-**Antwoord:** laag 0-beheerdersaccounts (inclusief accounts, groepen en andere activa die directe of indirecte beheer van de AD-forest, domeinen of domeincontrollers hebt en alle activa) worden gebruikt voor on-premises AD-accounts en zijn normaliter niet gesynchroniseerd voor Azure AD voor de cloud. 
+**Antwoord:** Laag 0-beheerdersaccounts (inclusief accounts, groepen en andere activa die directe of indirecte beheer van de AD-forest, domeinen of domeincontrollers hebt en alle activa) worden gebruikt voor on-premises AD-accounts en zijn doorgaans niet gesynchroniseerd voor Azure AD voor de cloud. 
 
 
-**V:** hoe voorkom ik dat beheerders van het toewijzen van willekeurige beheerderstoegang in de portal?
+**VRAAG:** Hoe houd we beheerders willekeurige beheerderstoegang in de portal worden toegewezen?
 
-**Antwoord:** niet-gemachtigde accounts gebruiken voor alle gebruikers en de meeste beheerders. Gestart door de ontwikkeling van een footprint van de organisatie om te bepalen welke paar beheerdersaccounts moeten bevoegdheden. En controleer het zojuist gemaakte gebruikers met beheerrechten.
+**Antwoord:** Niet-gemachtigde accounts gebruiken voor alle gebruikers en de meeste beheerders. Gestart door de ontwikkeling van een footprint van de organisatie om te bepalen welke paar beheerdersaccounts moeten bevoegdheden. En controleer het zojuist gemaakte gebruikers met beheerrechten.
 
 
 ## <a name="next-steps"></a>Volgende stappen

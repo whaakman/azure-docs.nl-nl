@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: rkarlin
-ms.openlocfilehash: 36e3e8c6c34099149cb13aa60efb6668fcc7d53c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d496f3f28cee711109c5c200102d48482bf6cd9c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958406"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340688"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Gebruik Azure Security Center aanbevelingen om beveiliging te verbeteren
 U kunt de kans op een aanzienlijke beveiligingsgebeurtenis beperken door een beveiligingsbeleid configureren en vervolgens implementeren van de aanbevelingen die door Azure Security Center. Dit artikel ziet u hoe u beveiligingsbeleid en aanbevelingen in Security Center gebruikt om te beperken van een aanval op de beveiliging.
@@ -30,7 +30,7 @@ U kunt de kans op een aanzienlijke beveiligingsgebeurtenis beperken door een bev
 >
 
 ## <a name="managing-security-recommendations"></a>Aanbevelingen voor beveiliging beheren
-Een beveiligingsbeleid bepaalt welke set besturingselementen die worden aanbevolen voor resources binnen het opgegeven abonnement of resourcegroep. In Security Center definieert u beleid op basis van de beveiligingsvereisten van uw bedrijf. Zie voor meer informatie, [beveiligingsbeleid instellen in Security Center](security-center-azure-policy.md).
+Een beveiligingsbeleid bepaalt welke set besturingselementen die worden aanbevolen voor resources binnen het opgegeven abonnement of resourcegroep. In Security Center definieert u beleid op basis van de beveiligingsvereisten van uw bedrijf. Zie voor meer informatie, [beveiligingsbeleid instellen in Security Center](tutorial-security-policy.md).
 
 Beveiligingsbeleid voor resourcegroepen worden overgenomen van het abonnementsniveau.
 

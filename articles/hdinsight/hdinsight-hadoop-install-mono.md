@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
 ms.custom: hdinsightactive
-ms.openlocfilehash: 9daf0d45c9bb24192750991e7bf84fa3614c970d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4f51de6ded29f93d29dbf80dd68715f621b5cb06
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011031"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384612"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Mono op HDInsight installeren of bijwerken
 
@@ -26,7 +26,7 @@ Mono op HDInsight 3.4 en hoger is geïnstalleerd en wordt gebruikt voor het uitv
 
 Met dit script accepteert de volgende parameter:
 
-* __Mono versienummer__: de versie van Mono installeren. De versie moet beschikbaar zijn vanuit [ https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/ ](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/).
+* __Mono versienummer__: De versie van Mono installeren. De versie moet beschikbaar zijn vanuit [ https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/ ](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/).
 
 Het script wordt de volgende Mono-pakketten geïnstalleerd:
 
@@ -52,7 +52,7 @@ Tijdens het script actie document te volgen, gebruikt u de volgende URI:
 
 De Mono-versie die is geïnstalleerd, gebruikt u het versienummer in de __Parameters__ veld. Voer bijvoorbeeld `5.4` Mono 5.4 installeren.
 
-> [!NOTE]
+> [!NOTE]  
 > Wanneer HDInsight met dit script configureert, markeert u het script als __persistente__. Deze instelling kunt HDInsight om toe te passen van het script op de worker-knooppunten die zijn toegevoegd via het schalen herverdelen.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -60,8 +60,8 @@ De Mono-versie die is geïnstalleerd, gebruikt u het versienummer in de __Parame
 U hebt geleerd hoe u een upgrade uitvoert of een specifieke versie van Mono installeren op HDInsight. Zie de volgende documenten voor meer informatie over het gebruik van .NET-toepassingen met Mono op HDInsight:
 
 * [Gebruik .NET voor het streamen van MapReduce in HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [.NET gebruiken met Hive en Pig in HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [C#-oplossingen met Storm op HDInsight ontwikkelen](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [.NET gebruiken met Apache Hive en Apache Pig in HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Ontwikkel C# oplossingen met Apache Storm op HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
 * [.NET-oplossingen migreren naar HDInsight op basis van Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 
-Zie voor meer informatie over het gebruik van scriptacties [aanpassen Linux gebaseerde HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md)
+Zie voor meer informatie over het gebruik van scriptacties [aanpassen Linux gebaseerde HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md).

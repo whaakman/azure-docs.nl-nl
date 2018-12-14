@@ -121,13 +121,13 @@ items:
   - name: Reageren op incidenten
     items:
     - name: Waarschuwingen
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-overview.md
     - name: Klassieke waarschuwingen
       href: platform/alerts-classic.overview.md
     - name: Slimme groepen
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-smartgroups-overview.md
     - name: Automatisch schalen
-      href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
+      href: platform/autoscale-overview.md
     - name: Metrische waarschuwingen
       href: platform/alerts-metric-overview.md
     - name: Waarschuwingen voor logboeken
@@ -151,7 +151,7 @@ items:
     - name: Toegang beheren
       items:
       - name: Rolmachtigingen en -beveiliging
-        href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
+        href: platform/roles-permissions-security.md
       - name: Workspaces
         href: platform/manage-access.md
       - name: Toepassingen
@@ -217,7 +217,7 @@ items:
         - name: Problemen oplossen
           href: platform/diagnostics-extension-troubleshooting.md
         - name: Diagnostische instellingen inschakelen met Resource Manager-sjablonen
-          href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-stream-template.md
         - name: Voorbereiden op JSON Lines-indeling voor diagnostische logboeken
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
         - name: VM-gast naar opslag voor metrische gegevens
@@ -441,9 +441,9 @@ items:
     - name: Gegevensroutering
       items:
       - name: Het activiteitenlogboek archiveren
-        href: ../monitoring-and-diagnostics/monitoring-archive-activity-log.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-activity-log.md
       - name: Diagnostische logboeken archiveren
-        href: ../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-diagnostic-logs.md
       - name: Diagnostische logboeken opslaan
         href: ../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md?toc=/azure/azure-monitor/toc.json
       - name: Activiteitenlogboek streamen naar Event Hubs
@@ -655,7 +655,7 @@ items:
   - name: Gegevens analyseren
     items:
     - name: Grafieken met metrische gegevens maken in Metrics Explorer
-      href: ../monitoring-and-diagnostics/monitoring-metric-charts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-charts.md
     - name: Gebeurtenissen in het activiteitenlogboek bekijken
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: Servicemeldingen bekijken
@@ -740,11 +740,11 @@ items:
         - name: Waarschuwingen met dynamische drempelwaarden
           href: platform/alerts-dynamic-thresholds.md
         - name: Metrische waarschuwingen voor logboeken configureren
-          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-logs.md
         - name: Een nieuwere waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
-          href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-create-templates.md
         - name: Een klassieke waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
-          href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-enable-template.md
         - name: Een klassieke metrische waarschuwing een webhook laten aanroepen
           href: platform/alerts-webhooks.md
       - name: Logboekwaarschuwingen gebruiken
@@ -760,7 +760,7 @@ items:
         - name: Meldingen configureren voor waarschuwingen van het activiteitenlogboek
           href: platform/alerts-activity-log.md
         - name: Migreren naar waarschuwingen voor activiteitenlogboek
-          href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: platform/migrate-management-alerts.md
         - name: Waarschuwingen voor servicemeldingen configureren
           href: platform/alerts-activity-log-service-notifications.md
       - name: Toepassingswaarschuwingen gebruiken
@@ -776,11 +776,11 @@ items:
         - name: Meer informatie over webhook-schema
           href: platform/activity-log-alerts-webhook.md
         - name: Gedrag van sms-waarschuwingen
-          href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-sms-behavior.md
         - name: Beperking waarschuwingsaantallen
-          href: ../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-rate-limiting.md
         - name: Actiegroepen maken met Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups-create-resource-manager-template.md
         - name: Een actie voor een Logische app implementeren
           href: platform/action-groups-logic-app.md
       - name: Operations Manager-waarschuwingen
@@ -790,11 +790,11 @@ items:
         - name: Waarschuwingsexemplaren beheren
           href: platform/alerts-managing-alert-instances.md
         - name: Slimme groepen beheren
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-smart-groups.md
         - name: Statussen van waarschuwingen en slimme groepen beheren
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-alert-states.md
         - name: Waarschuwingen van andere bewakingsservices beheren
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-nagios-zabbix-scom.md
     - name: Automatisch schalen
       items:
       - name: Stapsgewijze handleiding voor automatisch schalen
@@ -808,7 +808,7 @@ items:
       - name: Algemene patronen
         href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
       - name: Automatisch schalen met een aangepaste meetwaarde
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-custom-metric.md
       - name: VM-schaalsets automatisch schalen met Resource Manager-sjablonen
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Machines automatisch schalen in een VM-schaalset
@@ -958,9 +958,9 @@ items:
   - name: Schema 's
     items:
     - name: Services, categorieën en schema's voor diagnostische logboeken
-      href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/tutorial-dashboards.md
     - name: Gebeurtenisschema in het activiteitenlogboek
-      href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/activity-log-schema.md
     - name: Extensieschema voor Azure Diagnostics
       href: platform/diagnostics-extension-schema.md
       items:
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Codevoorbeelden
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 06ea6e43343a0cf9982a6161fbd60d5bfce6b0ba
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 037ec2d246e30725448fb3da98263b557e11186d
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322547"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384426"

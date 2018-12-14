@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 0338ffa13d1b141bb40deaf43fd04fe37bfaf5d2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252091"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338580"
 ---
 # <a name="traffic-analytics"></a>Verkeersanalyse
 
@@ -291,7 +291,7 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
     ![Dashboard met daarop virtuele netwerkdistributie](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - De topologie van het virtuele netwerk bevat de bovenste lint voor selectie van parameters, zoals een virtueel netwerk van (Inter virtueel netwerk verbindingen/actief/inactief), externe verbindingen, actieve stromen en schadelijke stromen van het virtuele netwerk.
-- U kunt de virtuele netwerktopologie op basis van abonnementen, werkruimten, resouece groepen en tijdsinterval filteren. Extra filters waarmee u inzicht in de stroom zijn: Flow Type (InterVNet, IntraVNET enzovoort), Flow richting (inkomend, uitgaand), de Status Flow (toegestaan, geblokkeerd) vnet's (doelgroepen en verbonden), verbindingstype (Peering of Gateway - P2S- en S2S) en in de Netwerkbeveiligingsgroep. Deze filters gebruiken om zich te richten op VNets die u wilt onderzoeken in detail.
+- U kunt de virtuele netwerktopologie op basis van abonnementen, werkruimten, resourcegroepen en tijdsinterval filteren. Extra filters waarmee u inzicht in de stroom zijn: Flow Type (InterVNet, IntraVNET enzovoort), Flow richting (inkomend, uitgaand), de Status Flow (toegestaan, geblokkeerd) vnet's (doelgroepen en verbonden), verbindingstype (Peering of Gateway - P2S- en S2S) en in de Netwerkbeveiligingsgroep. Deze filters gebruiken om zich te richten op VNets die u wilt onderzoeken in detail.
 - De topologie van het virtuele netwerk bevat de distributie van verkeer naar een virtueel netwerk met betrekking tot stromen (toegestaan/geblokkeerd/Inkomend/uitgaand/Benign/kwaadaardig), toepassingsprotocol en netwerkbeveiligingsgroepen, bijvoorbeeld:
 
     ![Virtuele netwerktopologie verkeer distributie en flow details weergeven](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

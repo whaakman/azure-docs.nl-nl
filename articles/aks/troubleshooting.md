@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c20f2cc03565ce861dfc6317be8459fdafeef0bf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025332"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384102"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
 Wanneer u maakt of manager AKS-clusters, kunnen soms problemen optreden. Dit artikel worden enkele veelvoorkomende problemen en stappen voor probleemoplossing.
@@ -59,8 +59,31 @@ Als u het kubernetes-dashboard niet ziet, controleert u of de schil kube-proxy w
 
 Zorg ervoor dat de standaard-NSG is niet gewijzigd en de poort 22 is geopend voor verbinding met de API-server. Controleer of de schil tunnelfront wordt uitgevoerd in de naamruimte kube-systeem. Als dat niet het geval is, het geforceerd verwijderen en deze zal opnieuw worden opgestart.
 
-### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Ik heb geprobeerd om te upgraden of schalen en krijg "message": "Wijzigen van de eigenschap 'imageReference' is niet toegestaan." Fout bij.  Hoe kan ik dit probleem oplossen?
+### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Ik heb geprobeerd om te upgraden of schalen en krijg "message": "Eigenschap 'imageReference' te wijzigen is niet toegestaan." Fout.  Hoe kan ik dit probleem oplossen?
 
 Het is mogelijk dat u deze fout ontvangt omdat u de tags in de agentknooppunten binnen het AKS-cluster hebt gewijzigd. Wijzigen en verwijderen van tags en andere eigenschappen van bronnen in de resourcegroep MC_ * kunnen leiden tot onverwachte resultaten. Wijzigen van de resources onder de MC_ * in de AKS-cluster, verbreekt de Serviceniveaudoelstelling.
 
+### <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Hoe verleng ik de service-principal-geheim op mijn AKS-cluster?
 
+Standaard worden AKS clusters gemaakt met een service principal waarvoor een verlooptijd van één jaar. Als u in de buurt van de vervaldatum van één jaar, kunt u de referenties voor het uitbreiden van de service-principal voor een aanvullende periode opnieuw instellen.
+
+Het volgende voorbeeld voert de volgende stappen uit:
+
+1. Haalt de service-principal-ID van het gebruik van uw cluster de [az aks show](/cli/azure/aks#az-aks-show) opdracht.
+1. Geeft een lijst van de service principal-client geheim met behulp van de [az ad sp referentie lijst](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)
+1. De service-principal voor het gebruik van een andere eenjarig breidt de [az ad sp referentie naar de fabrieksinstellingen](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) opdracht. De service principalclientgeheim moet blijven hetzelfde voor de AKS-cluster correct uit te voeren.
+
+```azurecli
+# Get the service principal ID of your AKS cluster
+sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+
+# Get the existing service principal client secret
+key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
+
+# Reset the credentials for your AKS service principal and extend for 1 year
+az ad sp credential reset \
+    --name $sp_id \
+    --password $key_secret \
+    --years 1
+```

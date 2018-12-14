@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 626b9199f3de6fe9aba03ba537aa6e6b6e28ba5c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd7858b9723d8d3ee9eb9299b2cee11596563a33
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310920"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340698"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Aanbevelingen voor Azure Security Center resource begrijpen
 
@@ -28,7 +28,7 @@ ms.locfileid: "52310920"
 Gebruik de onderstaande tabellen als referentie om te begrijpen van de beschikbare Compute en App services aanbevelingen en wat elke doet als u deze toepast.
 
 ### <a name="computers"></a>Computers
-| Aanbeveling | Beschrijving |
+| Aanbeveling | Description |
 | --- | --- |
 | [Gegevensverzameling voor abonnementen inschakelen](security-center-enable-data-collection.md) |Hiermee wordt aanbevolen om gegevensverzameling in te schakelen in het beveiligingsbeleid voor elk van de abonnementen en voor alle VM's (virtuele machines) in uw abonnementen. |
 | [Versleuteling inschakelen voor Azure Storage-Account](security-center-enable-encryption-for-storage-account.md) | Hiermee wordt aanbevolen dat u Azure Storage Service Encryption voor data-at-rest inschakelen. Storage Service Encryption (SSE) werkt door het versleutelen van de gegevens wanneer deze worden geschreven naar Azure storage en voordat ophalen ontsleutelt. SSE is momenteel alleen beschikbaar voor de Azure Blob-service en kan worden gebruikt voor blok-blobs, pagina-blobs en toevoeg-blobs. Zie voor meer informatie, [Storage Service Encryption voor data-at-rest](../storage/common/storage-service-encryption.md).</br>SSE wordt alleen ondersteund op Resource Manager-opslagaccounts. Klassieke opslagaccounts worden momenteel niet ondersteund. Zie voor meer informatie over de klassieke en Resource Manager-implementatiemodel, [Azure-implementatiemodellen](../azure-classic-rm.md). |
@@ -44,7 +44,7 @@ Gebruik de onderstaande tabellen als referentie om te begrijpen van de beschikba
 | [Beveiligingsproblemen herstellen](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Hiermee ziet u beveiligingsproblemen in het systeem en in de toepassing die zijn gedetecteerd met de oplossing voor beveiligingslekken die op de VM is geïnstalleerd. |
 
 ### <a name="app-services"></a>App-services
-| Aanbeveling | Beschrijving |
+| Aanbeveling | Description |
 | --- | --- |
 | App Service mag alleen toegankelijk zijn via HTTPS | Hiermee wordt aanbevolen dat u de toegang van App Service via HTTPS alleen beperken. |
 | Websockets moeten worden uitgeschakeld voor Web-App| Hiermee wordt aanbevolen dat u zorgvuldig door het gebruik van Websockets in webtoepassingen.  Het websocketsprotocol is kwetsbaar voor verschillende soorten beveiligingsrisico's. |
@@ -76,7 +76,7 @@ Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekki
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
 * [Beveiligen van uw computers en toepassingen in Azure Security Center](security-center-virtual-machine-protection.md)
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
 

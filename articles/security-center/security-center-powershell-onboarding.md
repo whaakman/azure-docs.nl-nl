@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ce410e69427f29ce70f8b2136a08bd7e6d00113c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ecfab15860ffc690d341069b626e5d7579c00da4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249689"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340365"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Onboarding van Azure Security Center met behulp van PowerShell automatiseren
 
@@ -40,7 +40,7 @@ In dit voorbeeld zullen we Security Center inschakelen voor een abonnement met I
 
 5. Instellen van de organisatie [CISO als de contactpersoon voor beveiliging voor de ASC-waarschuwingen en gebeurtenissen die aandacht vereisen](security-center-provide-security-contact-details.md).
 
-6. Toewijzen van Security Center bevinden [standaard beveiligingsbeleid](security-center-azure-policy.md).
+6. Toewijzen van Security Center bevinden [standaard beveiligingsbeleid](tutorial-security-policy.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -111,6 +111,6 @@ Zie het volgende artikel voor meer informatie over hoe u PowerShell gebruiken ku
 
 Zie het volgende artikel voor meer informatie over Security Center:
 
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.

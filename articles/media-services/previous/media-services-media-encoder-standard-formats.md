@@ -1,27 +1,31 @@
 ---
-title: Media Encoder Standard indelingen en codecs voor
+title: Media Encoder Standard indelingen en codecs voor - Azure
 description: In dit onderwerp biedt een overzicht van Media Encoder Standard indelingen en codecs voor.
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255707"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384731"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard Formats and Codecs (Indelingen en codecs voor Media Encoder Standard)
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versie 2](media-services-media-encoder-standard-formats.md)
+> * [Versie 3](../latest/media-encoder-standard-formats.md)
+
 Dit document bevat een lijst van de meest voorkomende importeren en exporteren bestandsindelingen die u met Media Encoder Standard gebruiken kunt.
 
 ## <a name="input-containerfile-formats"></a>Invoer/bestandsindelingen
@@ -53,8 +57,6 @@ of
 
 * MXF-, GXF- en QuickTime-bestanden waar de audio wordt uitgevoerd als afzonderlijke PCM-sporen, maar de kanaaltoewijzing (in stereo of 5.1) kunnen worden afgeleid van de metagegevens van het bestand
 
-Ondersteuning voor expliciete/een gebruiker opgegeven kanaaltoewijzing wordt in de nabije toekomst worden opgegeven.
-
 ## <a name="input-video-codecs"></a>Codecs invoervideo
 | Codecs invoervideo | Ondersteund |
 | --- | --- | --- | --- |
@@ -78,7 +80,7 @@ Ondersteuning voor expliciete/een gebruiker opgegeven kanaaltoewijzing wordt in 
 | Apple ProRes 4444 XQ |Ja |
 | HEVC/H.265| Belangrijkste profiel|
 
-## <a name="input-audio-codecs"></a>Codecs Audio-invoer
+## <a name="input-audio-codecs"></a>Codecs audio-invoer
 | Codecs Audio-invoer | Ondersteund |
 | --- | --- | --- | --- |
 | AAC (AAC-LC, AAC-HE en AAC-HEv2; tot. 5.1) |Ja |

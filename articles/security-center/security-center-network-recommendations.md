@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 449fdbceeb0b64d58c589fe5dbde61302ee27afb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3bb8d4796d23b84f815d28efa45af619efe19af3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309205"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338230"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Beveilig uw netwerkresources in Azure Security Center
 Azure Security Center analyseert voortdurend de beveiligingsstatus van uw Azure-resources voor best practices voor netwerkbeveiliging. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen om te versterken en beschermen van uw resources.
@@ -72,9 +72,9 @@ In de **topologie** weergave van de kaart netwerken, kunt u de volgende inzichte
 Omdat de toewijzing interactief en dynamische is, elk knooppunt geklikt is en de weergave kunt wijzigen op basis van de filters:
 
 1. U kunt wijzigen wat u ziet op de kaart netwerk met behulp van de filters aan de bovenkant. U kunt zich richten de kaart op basis van:
-   -  **Beveiligingsstatus van de resource**: U kunt filteren op de kaart op basis van ernst (hoog, Gemiddeld, laag) van uw Azure-resources.
+   -  **Beveiligingsstatus van de resource**: U kunt de kaart op basis van ernst (hoog, Gemiddeld, laag) van uw Azure-resources kunt filteren.
    - **Aanbevelingen**: U kunt selecteren welke resources worden weergegeven op basis van welke aanbevelingen actief op deze resources zijn. U kunt bijvoorbeeld alleen bronnen waarvoor Security Center raadt dat u Netwerkbeveiligingsgroepen inschakelen weergeven.
-   - **Zones netwerk**: standaard is dit de kaart toont alleen internetgerichte resources kunt u ook interne virtuele machines.
+   - **Zones netwerk**: Standaard de kaart toont alleen gerichte resources op Internet, kunt u ook interne virtuele machines.
  
 2. U kunt klikken op **opnieuw** in de linkerbovenhoek op elk gewenst moment om te retourneren van de kaart op de standaardstatus heeft.
 
@@ -128,7 +128,7 @@ Het derde niveau wordt weergegeven in virtuele machines, vergelijkbaar met wat e
 
 ## <a name="network-recommendations"></a>Aanbevelingen voor netwerken
 
-|Resourcetype|Beveiligingsscore|Aanbeveling|Beschrijving|
+|Resourcetype|Beveiligingsscore|Aanbeveling|Description|
 |----|----|----|----|
 |Machine|40|Netwerkbeveiligingsgroepen op virtuele machines inschakelen|Netwerkbeveiligingsgroepen voor het beheren van toegang tot het netwerk van uw virtuele machines inschakelen.|
 |Subnet|35|Netwerkbeveiligingsgroepen op subnetten inschakelen |Netwerkbeveiligingsgroepen voor het beheren van toegang tot het netwerk van de resources die zijn geïmplementeerd in uw subnetten inschakelen.|
@@ -149,6 +149,6 @@ Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekki
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.

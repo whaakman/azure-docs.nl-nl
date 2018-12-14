@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 2829055c6bb9cc848b2e0a2e997e6a5541d4aba7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2198d7520d660904423eabbec8df71e55e3011dd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839650"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338631"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Herstel na noodgevallen van on-premises virtuele VMware-machines of fysieke servers naar een secundaire site instellen
 
@@ -28,7 +28,7 @@ Het scenario met Azure Site Recovery voor replicatie tussen on-premises VMware o
 
 Tijdens de 2018 en 2019 moet worden twee updates vrijgegeven: 
 
--   Update 7: Netwerk-configuratie en compatibiliteit problemen opgelost, en biedt ondersteuning voor TLS 1.2.
+-   Update 7: Configuratie en compatibiliteit netwerkproblemen opgelost, en biedt ondersteuning voor TLS 1.2.
 -   Bijwerken van 8: Ondersteuning voor Linux-besturingssystemen RHEL/CentOS 7.3/7.4/7.5 en SUSE 12 toevoegen
 
 Na de Update 8, worden er kunnen geen nieuwe updates uitgebracht. Er is beperkte hotfix-ondersteuning voor de besturingssystemen die zijn toegevoegd in Update 8, en oplossingen voor problemen op basis van best-effort.
@@ -99,16 +99,16 @@ Download de [bijwerken](https://aka.ms/asr-scout-update6) ZIP-bestand. Het besta
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
   - UA update4 bits voor RHEL5, OL5, OL6, SUSE-10, SUSE-11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. Pak de ZIP-bestanden.
-2. **RX server**: kopiëren **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** naar de server RX, en pak het uit. Voer in de uitgepakte map **/Install**.
-3. **Configuratieserver en processerver**: kopiëren **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** op de configuratieserver en processerver. Dubbelklik op uit te voeren.<br>
-4. **Windows hoofddoelserver**: voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de server. Dubbelklik erop uit te voeren. De unified agentupdate is ook van toepassing op de bronserver. Als bron nog niet is bijgewerkt naar Update 4, moet u de unified agent bijwerken.
+2. **RX server**: Kopie **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** naar de server RX, en pak het uit. Voer in de uitgepakte map **/Install**.
+3. **Configuratieserver en processerver**: Kopie **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** op de configuratieserver en processerver. Dubbelklik op uit te voeren.<br>
+4. **Windows hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de server. Dubbelklik erop uit te voeren. De unified agentupdate is ook van toepassing op de bronserver. Als bron nog niet is bijgewerkt naar Update 4, moet u de unified agent bijwerken.
   De update niet wilt toepassen op de Master target voorbereid met **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** omdat deze nieuwe algemene beschikbaarheid installatieprogramma met de meest recente wijzigingen.
-5. **vContinuum-server**: kopiëren **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** naar de server.  Zorg ervoor dat u de wizard vContinuum hebt gesloten. Dubbelklik op het bestand uit te voeren.
+5. **vContinuum-server**:  Kopie **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** naar de server.  Zorg ervoor dat u de wizard vContinuum hebt gesloten. Dubbelklik op het bestand uit te voeren.
     De update niet wilt toepassen op de Hoofddoelserver voorbereid met **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** omdat deze nieuwe algemene beschikbaarheid installatieprogramma met de meest recente wijzigingen.
-6. **Linux-hoofddoelserver**: voor het bijwerken van de unified agent kopiëren **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar het hoofdniveau doelserver en pak het uit. Voer in de uitgepakte map **/Install**.
-7. **Windows-bronserver**: voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de bronserver. Dubbelklik op het bestand uit te voeren. 
+6. **Linux-hoofddoelserver**: Voor het bijwerken van de unified agent kopiëren **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar het hoofdniveau doelserver en pak het uit. Voer in de uitgepakte map **/Install**.
+7. **Windows-bronserver**: Voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de bronserver. Dubbelklik op het bestand uit te voeren. 
     U hoeft te installeren van de Update 5-agent op de bronserver als deze al is bijgewerkt naar Update 4 of bronagent is geïnstalleerd met het nieuwste installatieprogramma van base **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Linux-bronserver**: voor het bijwerken van de unified agent, de bijbehorende versie van het bestand de unified agent kopiëren naar de Linux-server en pak het uit. Voer in de uitgepakte map **/Install**.  Voorbeeld: Voor RHEL 6.7 64-bits-server, kopie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar de server, en pak het uit. Voer in de uitgepakte map **/Install**.
+8. **Linux-bronserver**: De unified agent bijwerken, de bijbehorende versie van het bestand de unified agent kopiëren naar de Linux-server en pak het uit. Voer in de uitgepakte map **/Install**.  Voorbeeld: Voor RHEL 6.7 64-bits-server, kopie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar de server, en pak het uit. Voer in de uitgepakte map **/Install**.
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
@@ -142,7 +142,7 @@ Scout Update 6 is een cumulatieve update. Deze bevat alle oplossingen van Update
 > [!NOTE]
 > * Basis Agent(UA) Unified installer voor Windows is vernieuwd voor ondersteuning van Windows Server 2016. Het nieuwe installatieprogramma **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** wordt geleverd met de basis Scout GA-pakket (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Het installatieprogramma van dezelfde wordt gebruikt voor alle ondersteunde Windows-versie. 
 > * Basis Windows vContinuum & hoofddoel installer is vernieuwd voor ondersteuning van Windows Server 2016. Het nieuwe installatieprogramma **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** wordt geleverd met de basis Scout GA-pakket (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Het installatieprogramma van hetzelfde hoofddoel voor Windows 2016 en Windows 2012R2 hoofddoel implementeren gebruikt.
-> * De GA-pakket downloaden via de portal, zoals beschreven in [een kluis maken](#create-a-vault).
+> * Windows server 2016 op de fysieke server wordt niet ondersteund door ASR Scout. Het ondersteunt alleen Windows Server 2016 virtuele VMware-machine. 
 >
 
 #### <a name="bug-fixes-and-enhancements"></a>Oplossingen voor problemen en verbeteringen
@@ -203,7 +203,7 @@ Scout Update 4 is een cumulatieve update. Deze bevat alle oplossingen van Update
 * Aanvullende controles en logboeken zijn toegevoegd voor wijzigingen in de configuratie tijdens failover en herstel na noodgeval noodhersteloefeningen netwerk.
 * Een oplossing voor een probleem waardoor retentie-informatie niet te worden gerapporteerd aan de configuratieserver.  
 * Fysieke clusters, een oplossing voor een probleem waardoor volume vergroten of verkleinen als u wilt in de wizard vContinuum mislukt tijdens het verkleinen van het bronvolume.
-* Een oplossing voor beveiliging probleem met een cluster dat is mislukt met fout: 'Kan niet vinden de schijfhandtekening', wanneer de clusterschijf is een PRDM-schijf.
+* Een oplossing voor beveiliging probleem met een cluster dat is mislukt met fout: 'Is mislukt voor het vinden van de schijfhandtekening' wanneer de clusterschijf is een PRDM-schijf.
 * Een oplossing voor cxps transport-server vastlopen van een veroorzaakt door een uitzondering van buiten het bereik.
 * Naam en IP-adres kolommen zijn nu vergroten/verkleinen in de **Push-installatie** pagina van de wizard vContinuum.
 * RX-API-uitbreidingen:
@@ -246,17 +246,17 @@ Update 3 worden de volgende problemen:
   * CentOS 6 update 7
 * De configuratieserver en RX consoles nu meldingen weergeven voor het paar, krijgt de bitmapmodus.
 * De volgende oplossingen zijn toegevoegd in RX:
-    * Autorisatie via de parameter onrechtmatige wijzigingen negeren: toegang beperkt tot gebruikers die niet van toepassing zijn.
-    * Aanvraag voor cross-site kunnen worden vervalst: het concept van pagina-token is geïmplementeerd en wordt willekeurig gegenereerd voor elke pagina. Dit betekent dat er is slechts één aanmelding exemplaar voor dezelfde gebruiker en de pagina vernieuwen werkt niet. In plaats daarvan wordt hij omgeleid naar het dashboard.
-    * Schadelijk bestand uploaden: bestanden zijn beperkt tot specifieke extensies: z, aiff, AVP, avi, bmp, csv, doc, docx, fla, FLV-, GIF-, gz, gzip, JPEG-, jpg-, logboek, mid mov, mp3, mp4, mpc, mpeg, mpg, ods odt, PDF-, png, ppt, pptx, pxd, qt, RAM-geheugen, rar, DB, rmi, rmvb, RTF-indeling , sdc, sitd, swf, sxc, sxw, tar, tgz, tif, TIFF-, txt, vsd, wav, wma, wmv, xls, xlsx, xml en postcode.
-    * Permanente cross-site scripting: invoer validaties zijn toegevoegd.
+    * Autorisatie negeren via de parameter manipulatie: Beperkte toegang tot gebruikers die niet van toepassing zijn.
+    * Aanvraag voor cross-site kunnen worden vervalst: Het concept van pagina-token is geïmplementeerd en wordt willekeurig gegenereerd voor elke pagina. Dit betekent dat er is slechts één aanmelding exemplaar voor dezelfde gebruiker en de pagina vernieuwen werkt niet. In plaats daarvan wordt hij omgeleid naar het dashboard.
+    * Schadelijk bestand uploaden: Bestanden zijn beperkt tot specifieke extensies: z, aiff, AVP, avi, bmp, csv, doc, docx, fla, FLV-, GIF-, gz, gzip, JPEG-, jpg-, logboek, mid mov, mp3, mp4, mpc, mpeg, mpg, ods odt, PDF-, png, ppt, pptx, pxd, qt, ram, rar, DB, rmi, rmvb, RTF-, sdc, sitd, swf , sxc, sxw, tar, tgz, tif, TIFF-, txt, vsd, wav, wma, wmv, xls, xlsx, xml en postcode.
+    * Permanente cross-site scripting: Invoer validaties zijn toegevoegd.
 
 ### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 Update 2 (03 15 december Update)
 
 Verbeteringen in Update 2 zijn onder andere:
 
-* **Configuratieserver**: problemen waardoor de 31 dagen gratis softwarelicentiecontrole functie werkt zoals verwacht wordt bij de configuratieserver is geregistreerd bij Azure Site Recovery-kluis.
-* **De Unified agent**: correctie voor een probleem in Update 1 dat heeft geresulteerd in de update niet op de hoofddoelserver geïnstalleerd tijdens de upgrade van versie 8.0-8.0.1.
+* **Configuratieserver**: Problemen waardoor de functie 31 dagen gratis voor softwarelicentiecontrole niet werkt zoals verwacht wordt bij de configuratieserver is geregistreerd bij Azure Site Recovery-kluis.
+* **De Unified agent**: Oplossing voor een probleem in Update 1 dat heeft geresulteerd in de update niet op de hoofddoelserver geïnstalleerd tijdens de upgrade van versie 8.0-8.0.1.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 Update 1
 Update 1 omvat de volgende oplossingen voor problemen en nieuwe functies:

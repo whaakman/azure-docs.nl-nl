@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d638c9d2805d903247c5dbe615602ee8474096a7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6a1b9c110c79e428ab0cc182d0da370e59bc4f30
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285387"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386210"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Waarschuwingen in Azure Monitor
-Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
+Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
 
 Waarschuwing bestaat uit regels voor zoeken in logboeken die zijn gemaakt voor [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) of [Application Insights](../../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Zie voor meer informatie over het gebruik ervan, [waarschuwingen maken in Azure](../../azure-monitor/platform/alerts-log.md)
 
 > [!NOTE]
-> Populaire logboekgegevens van [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) is nu ook beschikbaar op de metrische platform in Azure Monitor. Voor de detailweergave [metrische waarschuwingen voor logboeken](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)
+> Populaire logboekgegevens van [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) is nu ook beschikbaar op de metrische platform in Azure Monitor. Voor de detailweergave [metrische waarschuwingen voor logboeken](../../azure-monitor/platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Search waarschuwingsregel - definitie en typen
@@ -32,7 +32,7 @@ Log search regels zijn gedefinieerd door de volgende gegevens:
 - **Meld u Query**.  De query die wordt uitgevoerd telkens als de waarschuwingsregel wordt geactiveerd.  De records die zijn geretourneerd door deze query worden gebruikt om te bepalen of een waarschuwing wordt gemaakt. Analytics-query kan ook bevatten [verschillende toepassingen aanroepen](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [cross-aanroepen van de werkruimte, en [cross-bronaanroepen](../../azure-monitor/log-query/cross-workspace-query.md) mits de gebruiker toegangsrechten voor de externe toepassingen heeft. 
 
     > [!IMPORTANT]
-    > Gebruiker moet beschikken over [Azure Monitoring Inzender](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md) rollen voor het maken, wijzigen en het bijwerken van waarschuwingen voor activiteitenlogboeken in Azure Monitor; samen met de toegang en uitvoering van de rechten voor de analytics-doelen in waarschuwingsregel of Waarschuwingsquery query. Als het maken van de gebruiker heeft geen toegang tot alle analytics doelen in waarschuwingsregel of Waarschuwingsquery - maken van de regel kan mislukken of de waarschuwingsregel wordt uitgevoerd met gedeeltelijke resultaten.
+    > Gebruiker moet beschikken over [Azure Monitoring Inzender](../../azure-monitor/platform/roles-permissions-security.md) rollen voor het maken, wijzigen en het bijwerken van waarschuwingen voor activiteitenlogboeken in Azure Monitor; samen met de toegang en uitvoering van de rechten voor de analytics-doelen in waarschuwingsregel of Waarschuwingsquery query. Als het maken van de gebruiker heeft geen toegang tot alle analytics doelen in waarschuwingsregel of Waarschuwingsquery - maken van de regel kan mislukken of de waarschuwingsregel wordt uitgevoerd met gedeeltelijke resultaten.
 
 - **Periode**.  Hiermee geeft u het tijdsbereik voor de query. De query retourneert alleen de records die zijn gemaakt binnen dit tijdsbereik. Periode Hiermee beperkt u de gegevens opgehaald voor de query voor om misbruik te voorkomen en willekeurige opdracht van de tijd heeft (zoals geleden) gebruikt in logboekquery. <br>*Bijvoorbeeld, als de periode is ingesteld op 60 minuten en de query wordt uitgevoerd op 13:15 uur, wordt alleen de records die zijn gemaakt tussen 12:15 uur en 13:15 uur geretourneerd logboekquery uit te voeren. Als de logboekquery gebruikt tijd opdracht zoals geleden nu (7d), de logboekquery wordt uitgevoerd alleen voor gegevens die tussen 12:15 uur en 1:15 PM - als gegevens bestaan alleen de afgelopen 60 minuten. En niet voor zeven dagen aan gegevens die zijn opgegeven in de query voor.*
 - **Frequentie**.  Hiermee geeft u op hoe vaak de query moet worden uitgevoerd. Een waarde tussen 5 minuten en 24 uur kan zijn. Moet gelijk zijn aan of kleiner is dan de periode.  Als de waarde groter dan de periode is, riskeert u records worden overgeslagen.<br>*Neem bijvoorbeeld een periode van 30 minuten en een frequentie van 60 minuten.  Als de query wordt uitgevoerd om 1:00, wordt er records tussen 12:30 en 13:00 uur.  De volgende keer dat de query wordt uitgevoerd, is 2:00 wanneer hij records tussen 1:30 en 2:00 terugkeert.  Alle records gemaakt tussen 1:00 uur en 1:30 zouden nooit worden geëvalueerd.*
@@ -120,6 +120,6 @@ Prijzen voor Logboekwaarschuwingen wordt vermeld op de [prijzen voor Azure Monit
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [maken in de waarschuwingen in Azure](../../azure-monitor/platform/alerts-log.md).
 * Inzicht in [webhooks in waarschuwingen in Azure](alerts-log-webhook.md).
-* Meer informatie over [Azure-waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Meer informatie over [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
 * Meer informatie over [Application Insights](../../application-insights/app-insights-analytics.md).
 * Meer informatie over [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    

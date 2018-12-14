@@ -1,19 +1,19 @@
 ---
-title: Configureren van Azure ExpressRoute globale bereiken met behulp van Azure CLI | Microsoft Docs
+title: 'Configureer ExpressRoute wereldwijd bereik: Azure CLI | Microsoft Docs'
 description: Dit artikel helpt u koppelen van ExpressRoute-circuits samen om te maken van een particulier netwerk tussen uw on-premises netwerken en globale bereiken inschakelen.
-documentationcenter: na
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9d41ab26876d464187466f566bbfafc4861c799d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 9a8e0a5df9383d8e3d7159aa916b0e4fbfeea948
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333256"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384043"
 ---
 # <a name="configure-expressroute-global-reach-using-azure-cli-preview"></a>Configureren van ExpressRoute wereldwijd bereik met behulp van Azure CLI (Preview)
 Dit artikel helpt u bij het configureren van ExpressRoute globale bereiken met behulp van Azure CLI. Zie voor meer informatie, [ExpressRouteRoute globaal bereik](expressroute-global-reach.md).
@@ -55,24 +55,22 @@ U kunt ExpressRoute globaal bereik inschakelen tussen de twee ExpressRoute-circu
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Connectiviteit tussen uw on-premises netwerken
 
-Voer de volgende CLI om twee ExpressRoute-circuits verbinding te maken.
+Bij het uitvoeren van de opdracht uit om connectiviteit, houd rekening met de volgende waarden:
 
-> [!NOTE]
-> *peer-circuit* moet de volledige resource-ID, bijvoorbeeld
-> ```
-> */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}*
-> ```
-> 
+* *peer-circuit* moet de volledige resource-ID. Bijvoorbeeld: 
+
+  ```
+  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  ```
+* *-AddressPrefix* moet een/29 IPv4-subnet, bijvoorbeeld '10.0.0.0/29'. We gebruiken IP-adressen in dit subnet om te maken van verbinding tussen de twee ExpressRoute-circuits. U moet geen adressen gebruiken in dit subnet in uw Azure vnet's of in uw on-premises netwerken.
+
+Voer de volgende CLI om twee ExpressRoute-circuits verbinding te maken. Gebruik de volgende opdracht:
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
 
-> [!IMPORTANT]
-> *-AddressPrefix* moet een/29 IPv4-subnet, bijvoorbeeld '10.0.0.0/29'. We gebruiken IP-adressen in dit subnet om te maken van verbinding tussen de twee ExpressRoute-circuits. U moet geen adressen gebruiken in dit subnet in uw Azure vnet's of in uw on-premises netwerken.
-> 
-
-De CLI-uitvoer ziet er als volgt uit.
+De CLI-uitvoer ziet er als volgt uit:
 
 ```azurecli
 {

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 108b6cafa185788a66689a4d16bbfba7f30da6c3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6b76249c85f9b8c64435043a75e39601d445ab0c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271467"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384714"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -33,7 +33,7 @@ Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azur
 ![Log Analytics-werkruimte](media/oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Hoe beheer ik machtigingen?
-Als u geen toegang tot uw Log Analytics-werkruimte in de Azure-portal hebt, moet u het configureren van uw machtigingen met behulp van [Azure op rollen gebaseerde toegang](../../role-based-access-control/role-assignments-portal.md). Zie voor meer informatie over het beheren van machtigingen voor de werkruimte [werkruimten beheren](manage-access.md#manage-accounts-and-users). Zie voor meer informatie over het beheren van machtigingen voor waarschuwingen [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Als u geen toegang tot uw Log Analytics-werkruimte in de Azure-portal hebt, moet u het configureren van uw machtigingen met behulp van [Azure op rollen gebaseerde toegang](../../role-based-access-control/role-assignments-portal.md). Zie voor meer informatie over het beheren van machtigingen voor de werkruimte [werkruimten beheren](manage-access.md#manage-accounts-and-users). Zie voor meer informatie over het beheren van machtigingen voor waarschuwingen [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Hoe kan ik een nieuwe werkruimte maken? 
 Klik in de lijst met werkruimten in Azure portal, op **toevoegen** in de lijst met werkruimten.  Zie voor meer informatie, [een Log Analytics-werkruimte maken in Azure portal](../learn/quick-create-workspace.md).

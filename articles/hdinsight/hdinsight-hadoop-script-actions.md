@@ -9,31 +9,28 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 21c7b94f694e8a2cfe6abfd74bbc616ade5dad82
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f0d6c22d54de0486ad679f93343f0e7b208f21f4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008348"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384042"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Voor clusters op basis van HDInsight Windows Script Action-scripts ontwikkelen
 Informatie over het schrijven van scripts met Script Action voor HDInsight. Zie voor meer informatie over het gebruik van Script Action-scripts [aanpassen HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster.md). Zie voor hetzelfde artikel is geschreven voor Linux gebaseerde HDInsight-clusters, [ontwikkelen Script Action-scripts voor HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in dit document kan uitsluitend worden gebruikt voor HDInsight op basis van een Windows-clusters. HDInsight is alleen beschikbaar voor Windows voor versies lager dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het gebruik van scriptacties met Linux gebaseerde clusters [ontwikkelen via scriptacties met HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
->
->
 
 
+Script Action kan worden gebruikt om aanvullende software die wordt uitgevoerd op een Apache Hadoop-cluster te installeren of te wijzigen van de configuratie van toepassingen worden geïnstalleerd op een cluster. Scriptacties zijn scripts die worden uitgevoerd op de clusterknooppunten bij het HDInsight-clusters worden geïmplementeerd en ze worden uitgevoerd wanneer de knooppunten in het cluster HDInsight-configuratie voltooien. Een scriptactie wordt uitgevoerd onder het account systeembeheerdersbevoegdheden en biedt volledige toegangsrechten voor de clusterknooppunten. Elk cluster kan worden opgegeven met een lijst met scriptacties moet worden uitgevoerd in de volgorde waarin ze zijn opgegeven.
 
-Script Action kan worden gebruikt om aanvullende software die wordt uitgevoerd op een Hadoop-cluster te installeren of te wijzigen van de configuratie van toepassingen worden geïnstalleerd op een cluster. Scriptacties zijn scripts die worden uitgevoerd op de clusterknooppunten bij het HDInsight-clusters worden geïmplementeerd en ze worden uitgevoerd wanneer de knooppunten in het cluster HDInsight-configuratie voltooien. Een scriptactie wordt uitgevoerd onder het account systeembeheerdersbevoegdheden en biedt volledige toegangsrechten voor de clusterknooppunten. Elk cluster kan worden opgegeven met een lijst met scriptacties moet worden uitgevoerd in de volgorde waarin ze zijn opgegeven.
-
-> [!NOTE]
+> [!NOTE]  
 > Als u de volgende strekking weergegeven:
 >
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage: De term 'Opslaan-HDIFile' wordt niet herkend als de naam van een cmdlet, functie, scriptbestand of programma. Controleer de spelling van de naam, of als een pad opgenomen is, dat het pad juist is en probeer het opnieuw.
+> 
 > Dit is omdat u niet de helpermethoden hebt opgenomen.  Zie [helpermethoden voor aangepaste scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 >
 >
@@ -96,18 +93,18 @@ Met dit voorbeeldscript kan ook worden gevonden op [ https://hditutorialdata.blo
 
 HDInsight biedt verschillende scripts voor het installeren van extra onderdelen in HDInsight-clusters:
 
-| Naam | Script |
+| Name | Script |
 | --- | --- |
-| **Spark installeren** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Zie [installeren en gebruiken Spark in HDInsight-clusters][hdinsight-install-spark]. |
+| **Spark installeren** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Zie [installeren en gebruiken Apache Spark in HDInsight-clusters][hdinsight-install-spark]. |
 | **R installeren** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Zie [installeren en gebruiken R op HDInsight-clusters](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Solr installeren** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Zie [installeren en gebruiken Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md). |
-| **Giraph installeren** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Zie [installeren en gebruiken Giraph op HDInsight-clusters](hdinsight-hadoop-giraph-install.md). |
-| **Hive-bibliotheken vooraf laden** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Zie [toevoegen Hive-bibliotheken op HDInsight-clusters](hdinsight-hadoop-add-hive-libraries.md) |
+| **Solr installeren** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Zie [installeren en gebruiken Apache Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md). |
+| **Giraph installeren** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Zie [installeren en gebruiken Apache Giraph op HDInsight-clusters](hdinsight-hadoop-giraph-install.md). |
+| **Hive-bibliotheken vooraf laden** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Zie [toevoegen Apache Hive-bibliotheken op HDInsight-clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
 
 Script Action kan worden geïmplementeerd via Azure portal, Azure PowerShell of met behulp van de HDInsight .NET SDK.  Zie voor meer informatie, [aanpassen HDInsight-clusters met Script Action][hdinsight-cluster-customize].
 
-> [!NOTE]
+> [!NOTE]  
 > De voorbeelden van scripts werken alleen met HDInsight-clusterversie 3.1 of hoger. Zie voor meer informatie over HDInsight-clusterversies [HDInsight-clusterversies](hdinsight-component-versioning.md).
 >
 >
@@ -134,7 +131,7 @@ Script actie helpermethoden zijn hulpprogramma's die u gebruiken kunt tijdens he
 
 Hier volgen de methoden die worden geboden door dit script:
 
-| Help-methode | Beschrijving |
+| Help-methode | Description |
 | --- | --- |
 | **Save-HDIFile** |Download een bestand van de opgegeven Uniform Resource Identifier (URI) naar een locatie op de lokale schijf die is gekoppeld aan het Azure-VM-knooppunt dat is toegewezen aan het cluster. |
 | **Vouw HDIZippedFile** |Pak een ZIP-bestand. |
@@ -157,25 +154,25 @@ Hier volgen de methoden die worden geboden door dit script:
 ## <a name="best-practices-for-script-development"></a>Aanbevolen procedures voor het ontwikkelen van script
 Wanneer u een aangepast script voor een HDInsight-cluster ontwikkelt, zijn er enkele aanbevolen procedures waarmee u rekening moet houden:
 
-* Controleer voor de Hadoop-versie
+* Controleer of de Hadoop-versie.
 
     Alleen HDInsight versie 3.1 (2.4 Hadoop) en hoger aangepaste onderdelen installeren op een cluster met Script Action-ondersteuning. In het aangepaste script, moet u de **Get-HDIHadoopVersion** Help-methode om te controleren of de Hadoop-versie voordat u doorgaat met het uitvoeren van andere taken in het script.
-* Stabiele koppelingen naar scriptbronnen
+* Geef stabiel koppelingen naar scriptbronnen.
 
     Gebruikers moeten ervoor zorgen dat alle scripts en andere artefacten in het aanpassen van een cluster gebruikt gedurende de levensduur van het cluster beschikbaar blijven en dat de versies van deze bestanden niet voor de duur wijzigen zijn. Deze resources zijn vereist als de installatiekopie werd teruggezet van knooppunten in het cluster vereist is. De aanbevolen procedure is om te downloaden en te archiveren alles in een Storage-account dat de gebruiker bepaalt. Dit account kan worden het standaardaccount voor opslag of een van de extra opslagaccounts opgegeven op het moment van implementatie voor een aangepaste cluster.
     In de Spark- en R aangepast cluster voorbeelden opgegeven in de documentatie, bijvoorbeeld: er een lokale kopie van de resources in dit Storage-account is: https://hdiconfigactions.blob.core.windows.net/.
-* Zorg ervoor dat het cluster aanpassing-script idempotent is
+* Zorg ervoor dat het cluster aanpassing-script idempotent is.
 
     U moet verwachten dat de knooppunten van een HDInsight-cluster tijdens de levensduur van het cluster worden teruggezet. Het cluster aanpassing-script wordt uitgevoerd wanneer een cluster wordt teruggezet. Met dit script moet worden ontworpen om te worden idempotent zijn in de zin dat bij installatiekopie terugzetten, het script ervoor zorgen moet dat het cluster wordt geretourneerd naar de dezelfde aangepast staat waarin deze zich bevond vlak nadat het script is uitgevoerd voor de eerste keer wanneer het cluster in eerste instantie is gemaakt. Bijvoorbeeld, als een toepassing op D:\AppLocation een aangepast script geïnstalleerd voor de eerste keer uitvoert, klikt u vervolgens op elke volgende uitvoering, op de installatiekopie terugzetten, het script moet controleren of de toepassing op de locatie D:\AppLocation bestaat voordat u doorgaat met de overige stappen in de script.
-* Aangepaste onderdelen installeren op de optimale locatie
+* Aangepaste onderdelen installeren op de optimale locatie.
 
     Als clusterknooppunten worden teruggezet, kunnen de resource-station C:\ en D:\ systeemstation worden geformatteerd, wat resulteert in het verlies van gegevens en toepassingen die was geïnstalleerd op deze schijven. Dit verlies kan ook gebeuren als een knooppunt virtuele Azure-machine (VM) die deel uitmaakt van het cluster uitvalt en wordt vervangen door een nieuw knooppunt. U kunt onderdelen installeren op station D:\ of op de locatie C:\apps op het cluster. Alle andere locaties op het station C:\ zijn gereserveerd. Geef de locatie waar toepassingen of bibliotheken zijn in het cluster aanpassing script moet worden geïnstalleerd.
-* Zorg voor hoge beschikbaarheid van de clusterarchitectuur
+* Zorg voor hoge beschikbaarheid van de clusterarchitectuur.
 
     HDInsight is een actief-passief-architectuur voor hoge beschikbaarheid, waarin een hoofdknooppunt in de actieve modus is (waarbij de HDInsight-services worden uitgevoerd) en het hoofdknooppunt in de stand-by-modus is (in welke HDInsight services worden niet uitgevoerd). De knooppunten overschakelen actieve en passieve modus als HDInsight-services worden onderbroken. Als een scriptactie wordt gebruikt om services te installeren op beide hoofdknooppunten voor een hoge beschikbaarheid, houd er rekening mee dat het mechanisme voor HDInsight failover kan niet automatisch failover wilt uitvoeren voor deze gebruikers geïnstalleerde services. Zodat gebruikers geïnstalleerde services op HDInsight-hoofdknooppunten die naar verwachting maximaal beschikbaar moeten hebben hun eigen mechanisme voor failover als deze in de modus actief-passief of zich in de modus actief-actief.
 
     Een HDInsight-scriptactie-opdracht wordt uitgevoerd op beide hoofdknooppunten wanneer de rol hoofdknooppunt is opgegeven als een waarde in de *ClusterRoleCollection* parameter. Dus bij het ontwerpen van een aangepast script, zorg ervoor dat uw script op de hoogte van deze installatie. U moet niet worden uitgevoerd in de problemen waar dezelfde services zijn geïnstalleerd en gestart op beide van de hoofdknooppunten en ze met elkaar concurreren. Ook rekening mee dat er gegevens verloren tijdens de installatiekopie werd teruggezet zijn, zodat software is geïnstalleerd via scriptactie te zijn tegen dergelijke gebeurtenissen. Toepassingen moeten worden ontworpen om te werken met maximaal beschikbare gegevens die zijn verdeeld over veel knooppunten. Maximaal 1/5 van de knooppunten in een cluster kan worden teruggezet op hetzelfde moment.
-* Configureren van de aangepaste onderdelen voor het gebruik van Azure Blob-opslag
+* Configureer de aangepaste onderdelen voor het gebruik van Azure Blob-opslag.
 
     De aangepaste onderdelen die u op de clusterknooppunten installeert mogelijk een standaardconfiguratie Hadoop Distributed File System (HDFS)-opslag gebruiken. De configuratie voor het gebruik van Azure Blob-opslag in plaats daarvan moet u wijzigen. De HDFS-bestandssysteem wordt geformatteerd en verliest u gegevens die is opgeslagen op een installatiekopie cluster. Met behulp van Azure Blob-opslag in plaats daarvan zorgt ervoor dat uw gegevens worden bewaard.
 
@@ -297,9 +294,9 @@ In het geval dat een uitvoeringsfout optreedt, wordt de uitvoer met een beschrij
 
 ## <a name="see-also"></a>Zie ook
 * [HDInsight clusters aanpassen met Script Action][hdinsight-cluster-customize]
-* [Installeren en gebruiken van Spark op HDInsight-clusters][hdinsight-install-spark]
-* [Solr installeren en gebruiken op HDInsight-clusters](hdinsight-hadoop-solr-install.md).
-* [Giraph installeren en gebruiken op HDInsight-clusters](hdinsight-hadoop-giraph-install.md).
+* [Installeren en gebruiken van Apache Spark op HDInsight-clusters][hdinsight-install-spark]
+* [Installeren en gebruiken van Apache Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md).
+* [Installeren en Apache Giraph gebruikt op HDInsight-clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

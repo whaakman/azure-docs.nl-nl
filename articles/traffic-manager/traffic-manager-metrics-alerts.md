@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: a85ec0bf126aa7a25edffdaaf7c7f8a16a370c40
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d0b2ac54f70fedc409c386243e1755704c1c332c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014341"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386353"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager-statistieken en -waarschuwingen
 
@@ -34,7 +34,7 @@ In het volgende voorbeeld wordt weergegeven in afbeelding 1 alle reacties van qu
   
 ![Metrische gegevens van Traffic Manager - samengevoegde weergave van alle query 's](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Afbeelding 1: Weergeven met alle query's samenvoegen*
+*Afbeelding 1: Cumulatieve weergeven met alle query 's*
   
 Afbeelding 2 ziet u de dezelfde gegevens, maar deze wordt gesplitst door eindpunten. Als gevolg hiervan, ziet u het volume van de reacties op query's waarin een bepaald eindpunt is geretourneerd.
 
@@ -57,7 +57,7 @@ Deze metrische gegevens kan worden weergegeven als een cumulatieve waarde verteg
 
 ![Metrische gegevens de Traffic Manager - weergave van de status van endpoint splitsen](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Afbeelding 4: Gesplitste weergave van metrische gegevens over endpoint-status*
+*Afbeelding 4: Weergave van de status van metrische gegevens over endpoint splitsen*
 
 U kunt deze metrische gegevens via verbruiken [Azure Monitor service](../monitoring-and-diagnostics/monitoring-supported-metrics.md)van portal [REST-API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), en [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), of via het gedeelte van de metrische gegevens van Traffic Manager van portal-ervaring.
 
@@ -66,4 +66,4 @@ Naast de verwerking en weergeven van metrische gegevens van Traffic Manager, kun
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [Azure Monitor-service](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-- Meer informatie over het [een nieuwe grafiek maken met Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-charts.md#create-a-new-chart)
+- Meer informatie over het [een nieuwe grafiek maken met Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)

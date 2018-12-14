@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ccccad1cb510c4988092467c723e117a47456aaf
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 06006456a08c5eb499eff504fea5dcffdc11d662
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277502"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342388"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
 U kunt de oplossing Update Management in Azure Automation gebruiken voor het beheren van besturingssysteemupdates voor uw Windows- en Linux-computers die zijn geïmplementeerd in Azure, on-premises omgevingen of andere cloudproviders. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
 
-U kunt updatebeheer inschakelen voor virtuele machines rechtstreeks vanuit uw Azure Automation-account. Zie voor informatie over het inschakelen van updatebeheer voor virtuele machines vanaf uw Automation-account, [beheren van updates voor meerdere virtuele machines](manage-update-multi.md). U kunt ook de updatebeheer inschakelen voor een enkele virtuele machine in het deelvenster van de virtuele machine in Azure portal. In dit scenario is beschikbaar voor [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) en [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuele machines.
+U kunt updatebeheer inschakelen voor virtuele machines rechtstreeks vanuit uw Azure Automation-account. Zie voor informatie over het inschakelen van updatebeheer voor virtuele machines vanaf uw Automation-account, [beheren van updates voor meerdere virtuele machines](manage-update-multi.md). U kunt ook de updatebeheer inschakelen voor een virtuele machine op de pagina van de virtuele machine in Azure portal. In dit scenario is beschikbaar voor [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) en [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuele machines.
 
 ## <a name="solution-overview"></a>Oplossingenoverzicht
 
@@ -41,7 +41,7 @@ Zodra een CVE release is, duurt het 2-3 uur voor de patch voor Linux-machines vo
 
 Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de informatie in bulk door naar Azure Log Analytics. Op een Windows-computer, de nalevingsscan standaard elke 12 uur uitgevoerd.
 
-Naast het schema voor scannen, wordt de scan voor naleving van updates binnen 15 minuten als de MMA opnieuw wordt opgestart, voordat de installatie van de update en na installatie van update gestart.
+Naast het schema voor scannen, wordt de scan voor naleving van updates binnen 15 minuten van de MMA opnieuw wordt gestart, voordat de installatie van de update en na installatie van update gestart.
 
 Voor een Linux-computer wordt de nalevingsscan standaard elke drie uur uitgevoerd. Als de MMA-agent opnieuw is opgestart, wordt een nalevingsscan gestart binnen 15 minuten.
 
@@ -148,7 +148,7 @@ Op een Windows-computer, kunt u de volgende informatie om te controleren of agen
 1. Open in het Configuratiescherm, **Microsoft Monitoring Agent**. Op de **Azure Log Analytics** tabblad en de agent het volgende bericht weergegeven: **De Microsoft Monitoring Agent is verbonden met Log Analytics**.
 2. Open het Windows-gebeurtenislogboek. Ga naar **toepassings- en servicelogboeken\operations Manager** en zoek naar gebeurtenis-ID 3000 en 5002 van de gebeurtenis-ID van de bron **serviceconnector**. Deze gebeurtenissen geven aan dat de computer is geregistreerd bij de Log Analytics-werkruimte en of deze configuratie ontvangt.
 
-Als de agent kan niet met Log Analytics communiceren en de agent is geconfigureerd voor communicatie met internet via een firewall of proxyserver, controleert u of dat de firewall of proxyserver correct is geconfigureerd. Zie voor informatie over het controleren of de firewall of proxy-server correct is geconfigureerd, [netwerkconfiguratie voor Windows-agent](../azure-monitor/platform/agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
+Als de agent kan niet met Log Analytics communiceren en de agent is geconfigureerd om te communiceren met internet via een firewall of proxyserver, Controleer of dat de firewall of proxyserver correct is geconfigureerd. Zie voor informatie over het controleren of de firewall of proxyserver correct is geconfigureerd, [netwerkconfiguratie voor Windows-agent](../azure-monitor/platform/agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Als uw Linux-systemen zijn geconfigureerd om te communiceren met een proxy of Log Analytics-Gateway en u bent onboarding van deze oplossing, update de *proxy.conf* machtigingen voor het verlenen van de groep omiuser leesmachtigingen voor het bestand met behulp van de de volgende opdrachten:
@@ -285,7 +285,7 @@ Beheer van updates is afhankelijk van Windows Update voor Windows-Updates downlo
 
 ### <a name="pre-download-updates"></a>Pre-updates downloaden
 
-Als u wilt configureren updates automatisch downloaden in Groepsbeleid, kunt u instellen de [instelling Automatische Updates configureren](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) naar **3**. Hierdoor downloadt de updates die nodig zijn op de achtergrond, maar wordt niet geïnstalleerd. Dit houdt u updatebeheer in beheer van schema's, maar toestaan van updates voor het downloaden van buiten het onderhoudsvenster voor updatebeheer. Dit kan verhinderen dat **onderhoudsvenster is overschreden** fouten in de Update Management.
+Als u wilt configureren updates automatisch downloaden in Groepsbeleid, kunt u instellen de [instelling Automatische Updates configureren](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) naar **3**. Deze downloadt de updates die nodig zijn op de achtergrond, maar ze niet installeren. Dit houdt u updatebeheer in beheer van schema's, maar toestaan van updates voor het downloaden van buiten het onderhoudsvenster voor updatebeheer. Dit kan verhinderen dat **onderhoudsvenster is overschreden** fouten in de Update Management.
 
 U kunt dit ook instellen met PowerShell, de volgende PowerShell ook uitvoeren op een systeem dat u de automatische download van updates wilt.
 
@@ -297,7 +297,7 @@ $WUSettings.Save()
 
 ### <a name="enable-updates-for-other-microsoft-products"></a>Updates voor andere Microsoft-producten inschakelen
 
-Standaard biedt Windows Update alleen updates voor Windows. Als u inschakelt **updates ontvangen voor andere Microsoft-producten als ik Windows update**, u vindt met updates voor andere producten, met inbegrip van dergelijke dingen beveiligingspatches voor SQL Server of andere eerste software van derden. Deze optie kan niet worden geconfigureerd door Groepsbeleid. De volgende PowerShell ook uitvoeren op de systemen die u andere eerste partij patches inschakelen wilt op en beheer van updates wordt geacht deze instelling.
+Standaard biedt Windows Update alleen updates voor Windows. Als u inschakelt **updates ontvangen voor andere Microsoft-producten als ik Windows update**, krijgt u updates voor andere producten, met inbegrip van dergelijke dingen beveiligingspatches voor SQL Server of andere eerste software van derden. Deze optie kan niet worden geconfigureerd door Groepsbeleid. De volgende PowerShell ook uitvoeren op de systemen die u andere eerste partij patches inschakelen wilt op en beheer van updates wordt geacht deze instelling.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -305,6 +305,11 @@ $ServiceManager.Services
 $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
+
+## <a name="third-party"></a> Externe patches voor Windows
+
+Beheer van updates is afhankelijk van WSUS of Windows Update voor het patchen van ondersteunde Windows-systemen. Hulpprogramma's zoals [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) kunt u aangepaste updates naar WSUS te publiceren. In dit scenario kunt updatebeheer patch-machines die gebruikmaken van WSUS als de update-opslagplaats met software van derden. Zie voor informatie over het configureren van Updates Publisher, [installeren Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Netwerken plannen
 
@@ -319,13 +324,13 @@ De volgende adressen zijn vereist voor het beheer van updates. Communicatie met 
 
 Zie voor meer informatie over de poorten die vereist dat de Hybrid Runbook Worker [Hybrid Worker-rol poorten](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
-Het verdient aanbeveling om de adressen die worden vermeld bij het definiëren van uitzonderingen te gebruiken. Voor IP-adressen die u kunt downloaden de [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Dit bestand wordt wekelijks bijgewerkt, en weerspiegelt bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken.
+Het is raadzaam om de adressen die worden vermeld bij het definiëren van uitzonderingen te gebruiken. Voor IP-adressen die u kunt downloaden de [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Dit bestand wordt wekelijks bijgewerkt, en weerspiegelt bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken.
 
 ## <a name="search-logs"></a>Zoeken in Logboeken
 
 Naast de details die beschikbaar zijn in Azure portal, kunt u zoeken op basis van de logboeken doen. Selecteer op de pagina's van de oplossing, **Log Analytics**. De **zoeken in logboeken** deelvenster wordt geopend.
 
-U kunt ook meer informatie over het aanpassen van de query of het gebruik van verschillende clients en meer door naar de pagina:  [Een API documentatie over log Analytics](
+U kunt ook meer informatie over het aanpassen van de query of het gebruik van verschillende clients en meer door naar de pagina:  [Log Analytics zoeken naar API-documentatie](
 https://dev.loganalytics.io/).
 
 ### <a name="sample-queries"></a>Voorbeeldquery's
@@ -334,7 +339,7 @@ De volgende secties bevatten voorbeeld logboeken-query's voor updaterecords die 
 
 #### <a name="single-azure-vm-assessment-queries-windows"></a>Enkele query's de evaluatie van de Azure-VM (Windows)
 
-Vervang de waarde VMUUID met de VM-GUID van de virtuele machine die u wilt zoeken. U vindt de VMUUID die moet worden gebruikt door het uitvoeren van de volgende query in Log Analytics: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Vervang de waarde VMUUID met de VM-GUID van de virtuele machine die u query's. U vindt de VMUUID die moet worden gebruikt door het uitvoeren van de volgende query in Log Analytics: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Ontbrekende updates samenvatting
 
@@ -584,7 +589,7 @@ Omdat update verrijking updatebeheer in de cloud uitvoert, kunnen voor sommige u
 
 Updatebeheer kunnen echter nog steeds melden die machine als niet-compatibele omdat er extra informatie over de betreffende update.
 
-Implementeren van updates op updateclassificatie werkt niet op CentOS buiten het vak. Voor SUSE, selecteren *alleen* 'Andere updates' als de classificatie tot extra beveiliging leiden kan werkt ook wordt geïnstalleerd als beveiligingsupdates die betrekking hebben op zypper (Pakketbeheer) of de afhankelijkheden ervan eerst vereist zijn. Dit is een beperking van zypper. In sommige gevallen is het mogelijk dat u vereist de update-implementatie, om te controleren of Controleer het logboek van de update opnieuw uit te voeren.
+Implementeren van updates op updateclassificatie werkt niet op CentOS buiten het vak. Voor SUSE, selecteren *alleen* 'Andere updates' als de classificatie tot extra beveiliging leiden kan werkt ook wordt geïnstalleerd als beveiligingsupdates die betrekking hebben op zypper (Pakketbeheer) of de afhankelijkheden ervan eerst vereist zijn. Dit gedrag is een beperking van zypper. In sommige gevallen mogelijk u gevraagd de update-implementatie opnieuw uit te voeren. Om te controleren, controleert u de update-logboek.
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 

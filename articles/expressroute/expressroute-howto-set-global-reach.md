@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 12/13/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: eafb37f9bd54e0928e2f6c7615fc7fe365897620
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3df107f8854469b50c5e8483515388b5c93fb244
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250599"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383269"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>Configureer ExpressRoute globaal bereik (preview)
 Dit artikel helpt u bij het configureren van ExpressRoute globale bereiken met behulp van PowerShell. Zie voor meer informatie, [ExpressRouteRoute globaal bereik](expressroute-global-reach.md).
@@ -66,22 +66,18 @@ $ckt_1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGro
 $ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
 ```
 
-De volgende opdracht uitvoeren op basis van circuit 1 en doorgeven in de persoonlijke peering-ID van het circuit 2.
+De volgende opdracht uitvoeren op basis van circuit 1 en doorgeven in de persoonlijke peering-ID van het circuit 2. Wanneer u de opdracht uitvoert, Let op het volgende:
 
-> [!NOTE]
-> De persoonlijke peering-ID moet eruitzien als volgt: */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/ AzurePrivatePeering*
-> 
->
+* De persoonlijke peering-ID moet eruitzien zoals in het volgende voorbeeld: 
+
+  ```
+  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
+  ```
+* *-AddressPrefix* moet een/29 IPv4-subnet, bijvoorbeeld '10.0.0.0/29'. We gebruiken IP-adressen in dit subnet om te maken van verbinding tussen de twee ExpressRoute-circuits. U mag niet de adressen in dit subnet gebruiken in uw Azure virtual networks of in uw on-premises netwerk.
 
 ```powershell
 Add-AzureRmExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
 ```
-
-> [!IMPORTANT]
-> *-AddressPrefix* moet een/29 IPv4-subnet, bijvoorbeeld '10.0.0.0/29'. We gebruiken IP-adressen in dit subnet om te maken van verbinding tussen de twee ExpressRoute-circuits. U mag niet de adressen in dit subnet gebruiken in uw Azure virtual networks of in uw on-premises netwerk.
-> 
-
-
 
 Sla de configuratie op circuit 1 als volgt:
 ```powershell

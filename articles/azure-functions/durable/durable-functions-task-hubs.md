@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 68771362c1b3904453eb7c32f58d28122e8660c3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869464"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336897"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Taakhubs in duurzame functies (Azure Functions)
 
@@ -27,7 +27,7 @@ Elke functie-app heeft een afzonderlijke taak hub. Als meerdere functie-apps een
 
 ## <a name="azure-storage-resources"></a>Azure Storage-resources
 
-Een hub taak bestaat uit de volgende opslagresources: 
+Een hub taak bestaat uit de volgende opslagresources:
 
 * Een of meer controle-wachtrijen.
 * Een werkitem wachtrij.
@@ -41,7 +41,8 @@ Al deze resources worden automatisch gemaakt in de standaard Azure Storage-accou
 
 Taakhubs worden aangeduid met een naam die is gedeclareerd in de *host.json* bestand, zoals weergegeven in het volgende voorbeeld:
 
-### <a name="hostjson-functions-v1"></a>host.JSON (functies v1)
+### <a name="hostjson-functions-1x"></a>host.JSON (1.x werkt)
+
 ```json
 {
   "durableTask": {
@@ -49,7 +50,9 @@ Taakhubs worden aangeduid met een naam die is gedeclareerd in de *host.json* bes
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.JSON (functies v2)
+
+### <a name="hostjson-functions-2x"></a>host.JSON (werkt 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -60,9 +63,11 @@ Taakhubs worden aangeduid met een naam die is gedeclareerd in de *host.json* bes
   }
 }
 ```
+
 Taakhubs kunnen ook worden geconfigureerd met behulp van app-instellingen, zoals wordt weergegeven in de volgende *host.json* voorbeeld van een bestand:
 
-### <a name="hostjson-functions-v1"></a>host.JSON (functies v1)
+### <a name="hostjson-functions-1x"></a>host.JSON (1.x werkt)
+
 ```json
 {
   "durableTask": {
@@ -70,7 +75,9 @@ Taakhubs kunnen ook worden geconfigureerd met behulp van app-instellingen, zoals
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.JSON (functies v2)
+
+### <a name="hostjson-functions-2x"></a>host.JSON (werkt 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -81,13 +88,14 @@ Taakhubs kunnen ook worden geconfigureerd met behulp van app-instellingen, zoals
   }
 }
 ```
+
 De naam van de taak hub wordt ingesteld op de waarde van de `MyTaskHub` app-instelling. De volgende `local.settings.json` ziet u hoe u voor het definiëren van de `MyTaskHub` instellen als `samplehubname`:
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "MyTaskHub" :  "samplehubname" 
+    "MyTaskHub" : "samplehubname"
   }
 }
 ```
@@ -111,9 +119,10 @@ public static async Task<HttpResponseMessage> Run(
     return starter.CreateCheckStatusResponse(req, instanceId);
 }
 ```
+
 En hieronder ziet u de vereiste configuratie voor JavaScript. De eigenschap van de hub taak in de `function.json` bestand is ingesteld via App-instelling:
 
-```javascript
+```json
 {
     "name": "input",
     "taskHub": "%MyTaskHub%",

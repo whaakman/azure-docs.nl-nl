@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7bc9341d7e078b0ae69cc9a734c02f257df6d96a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: beb6650125bdf7526b8167ba0f076b079e4e84a8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643353"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342864"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Menselijke tussenkomst in duurzame functies - voorbeeld van de telefoon-verificatie
 
@@ -45,8 +45,8 @@ Dit artikel helpt bij de volgende functies in de voorbeeld-app:
 * **E4_SendSmsChallenge**
 
 De volgende secties worden de configuratie en de code die worden gebruikt voor C#-scripts en JavaScript. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
- 
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>De SMS-verificatie-indeling (Visual Studio Code en Azure portal voorbeeldcode) 
+
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>De SMS-verificatie-indeling (Visual Studio Code en Azure portal voorbeeldcode)
 
 De **E4_SmsPhoneVerification** functie gebruikmaakt van de standaard *function.json* voor orchestrator-functies.
 
@@ -58,7 +58,7 @@ Dit is de code die de functie implementeert:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -72,7 +72,7 @@ Eenmaal is gestart, is deze functie orchestrator doet het volgende:
 De gebruiker ontvangt een SMS-bericht met een code van vier cijfers. Ze hebben 90 seconden te verzenden die dezelfde 4-cijferige code naar het exemplaar van de orchestrator-functie om de verificatieproces te voltooien. Als ze een verkeerde code indient, krijgen ze een extra drie pogingen zodat deze direct (in het venster met dezelfde 90 seconden).
 
 > [!NOTE]
-> Kan niet liggen is de eerste, maar deze orchestrator-functie is volledig deterministisch. Dit komt doordat de `CurrentUtcDateTime` eigenschap wordt gebruikt voor het berekenen van de verlooptijd van de timer en deze eigenschap retourneert de dezelfde waarde op elke herhaling op dit moment in de orchestrator-code. Dit is belangrijk om ervoor te zorgen dat hetzelfde `winner` resultaat is van een voor elke herhaalde aanroep naar `Task.WhenAny`.
+> Kan niet liggen is de eerste, maar deze orchestrator-functie is volledig deterministisch. Dit komt doordat de `CurrentUtcDateTime` (.NET) en `currentUtcDateTime` (JavaScript)-eigenschappen worden gebruikt voor het berekenen van de verlooptijd van de timer en deze eigenschappen dezelfde waarde retourneren voor elke herhaling op dit moment in de orchestrator-code. Dit is belangrijk om ervoor te zorgen dat hetzelfde `winner` resultaat is van een voor elke herhaalde aanroep naar `Task.WhenAny` (.NET) of `context.df.Task.any` (JavaScript).
 
 > [!WARNING]
 > Het is belangrijk om [annuleren timers](durable-functions-timers.md) als u niet meer nodig laten verlopen hebt, zoals in het voorbeeld hierboven wanneer een vraag-antwoord wordt geaccepteerd.
@@ -89,7 +89,7 @@ En hier is de code die de uitdaging van 4-cijferige code gegenereerd en wordt he
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -106,6 +106,7 @@ Content-Type: application/json
 
 "+1425XXXXXXX"
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Length: 695
@@ -115,12 +116,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-   > [!NOTE]
-   > JavaScript orchestration starter functies kunnen niet op dit moment instantiebeheer URI's retourneren. Deze mogelijkheid wordt toegevoegd in een latere versie.
-
 De orchestrator-functie ontvangt van het opgegeven telefoonnummer en verzendt onmiddellijk een SMS-bericht met een willekeurig gegenereerde 4-cijferige verificatiecode &mdash; bijvoorbeeld *2168*. De functie wordt vervolgens gewacht 90 seconden een reactie.
 
-Te beantwoorden met de code, kunt u `RaiseEventAsync` binnen een andere functie of aanroepen van de **sendEventUrl** HTTP POST-webhook waarnaar wordt verwezen in het 202-antwoord vervangen hierboven `{eventName}` met de naam van de gebeurtenis `SmsChallengeResponse`:
+Te beantwoorden met de code, kunt u [ `RaiseEventAsync` (.NET) of `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances) binnen een andere functie of aanroepen van de **sendEventUrl** waarnaar wordt verwezen in het 202-antwoord bovenstaande HTTP POST-webhook , vervangen `{eventName}` met de naam van de gebeurtenis `SmsChallengeResponse`:
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -135,6 +133,7 @@ Als u deze verzenden voordat de timer verloopt, de indeling is voltooid en de `o
 ```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
+
 ```
 HTTP/1.1 200 OK
 Content-Length: 144

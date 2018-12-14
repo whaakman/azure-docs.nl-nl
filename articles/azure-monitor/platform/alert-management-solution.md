@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 3e547a1ee077f8c8ac87395b38f8707a6467fbc9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1dee53f633d8b5edf893e2f6c83430d7c1a69022
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184284"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341589"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwingenbeheeroplossing in Azure Log Analytics
 
 ![Pictogram voor het beheer van waarschuwing](media/alert-management-solution/icon.png)
 
-De Waarschuwingsbeheer oplossing helpt u bij het analyseren van alle van de waarschuwingen in uw Log Analytics-opslagplaats.  Deze waarschuwingen kunnen afkomstig zijn uit een groot aantal bronnen die bronnen waaronder [die zijn gemaakt door Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) of [geïmporteerd uit Nagios of Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). De oplossing ook waarschuwingen importeert uit een [System Center Operations Manager-beheergroepen verbonden](../../azure-monitor/platform/om-agents.md).
+De Waarschuwingsbeheer oplossing helpt u bij het analyseren van alle van de waarschuwingen in uw Log Analytics-opslagplaats.  Deze waarschuwingen kunnen afkomstig zijn uit een groot aantal bronnen die bronnen waaronder [die zijn gemaakt door Log Analytics](../../azure-monitor/platform/alerts-overview.md) of [geïmporteerd uit Nagios of Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). De oplossing ook waarschuwingen importeert uit een [System Center Operations Manager-beheergroepen verbonden](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="prerequisites"></a>Vereisten
 De oplossing werkt met alle records in de opslagplaats van Log Analytics met een type **waarschuwing**, dus moet u de gewenste configuratie is vereist voor het verzamelen van deze records uitvoeren.
 
-- Voor Log Analytics-waarschuwingen, [waarschuwingsregels maken](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) waarschuwing om records te maken in de opslagplaats.
+- Voor Log Analytics-waarschuwingen, [waarschuwingsregels maken](../../azure-monitor/platform/alerts-overview.md) waarschuwing om records te maken in de opslagplaats.
 - Voor Nagios en Zabbix-waarschuwingen, [configureren die servers](../../azure-monitor/learn/quick-collect-linux-computer.md) om waarschuwingen te verzenden naar Log Analytics.
 - Voor System Center Operations Manager-waarschuwingen, [uw Operations Manager-beheergroep verbinden met uw Log Analytics-werkruimte](../../azure-monitor/platform/om-agents.md).  Alle waarschuwingen die zijn gemaakt in System Center Operations Manager worden geïmporteerd in Log Analytics.  
 
@@ -121,4 +121,4 @@ De volgende tabel bevat voorbeelden van zoekopdrachten voor waarschuwing records
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Understanding alerts in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) voor meer informatie over het genereren van waarschuwingen van Log Analytics.
+* Zie [Understanding alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) voor meer informatie over het genereren van waarschuwingen van Log Analytics.

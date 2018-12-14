@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 53643b185825d4cc03073144e1b3547452629c08
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9df2e8762d546e6115dc1205548e927cfee7bb60
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497620"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341877"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
 
@@ -81,9 +81,9 @@ Als een apparaat de apparaat-SDK's gebruiken kan, kan deze nog steeds verbinding
 
   Zie voor meer informatie over het genereren van SAS-tokens, de apparaat-sectie van [beveiligingstokens van IoT-Hub met behulp van][lnk-sas-tokens].
 
-  Wanneer u test, kunt u ook de platformoverschrijdende gebruiken [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) of de [Device Explorer] [ lnk-device-explorer] hulpprogramma voor het snel genereren van een SAS-token u kunt kopiëren en plakken in uw eigen code:
+  Wanneer u test, kunt u ook de platformoverschrijdende gebruiken [Azure IoT Hub Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit-extensie) of de [Device Explorer] [ lnk-device-explorer]hulpprogramma voor het snel genereren van een SAS-token dat u kunt kopiëren en plakken in uw eigen code:
 
-Voor Azure IoT Toolkit:
+Voor Azure IoT Hub-Toolkit:
 
   1. Vouw de **AZURE IOT HUB-apparaten** tabblad in de linkeronderhoek van Visual Studio Code.
   2. Met de rechtermuisknop op uw apparaat en selecteer **genereren van SAS-Token voor apparaat**.
@@ -218,7 +218,7 @@ De antwoordtekst bevat de sectie met eigenschappen van het dubbele apparaat. Het
 
 De mogelijke waarden zijn:
 
-|Status | Beschrijving |
+|Status | Description |
 | ----- | ----------- |
 | 200 | Geslaagd |
 | 429 | Te veel aanvragen (beperkt), als per [IoT-Hub beperking][lnk-quotas] |
@@ -249,7 +249,7 @@ De berichttekst van de aanvraag bevat een JSON-document, die nieuwe waarden voor
 
 De mogelijke waarden zijn:
 
-|Status | Beschrijving |
+|Status | Description |
 | ----- | ----------- |
 | 200 | Geslaagd |
 | 400 | Ongeldige aanvraag. Ongeldige JSON |

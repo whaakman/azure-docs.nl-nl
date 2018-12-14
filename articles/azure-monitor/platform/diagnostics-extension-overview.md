@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1219090c4608d5c87bfe967444122b61d7fdbf5f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326056"
+ms.locfileid: "53338155"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
 De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, Virtual Machine Scale sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](../../azure-monitor/overview.md).
@@ -47,7 +47,7 @@ U kunt ook verzenden naar [Application Insights](../../application-insights/app-
 ### <a name="azure-monitor"></a>Azure Monitor
 U hebt ook de keuze van uw gegevens te verzenden naar Azure Monitor. Deze sink is op dit moment alleen van toepassing op prestatiemeteritems. Hiermee kunt u prestatiemeteritems verzamelde verzenden op de virtuele machine, VMSS, of in de cloud service naar Azure Monitor als aangepaste metrische gegevens. Biedt ondersteuning voor de Azure Monitor-sink:
 * Bij het ophalen van alle prestatiemeteritems verzonden naar Azure Monitor via de [Azure Monitor metrics API's.](https://docs.microsoft.com/rest/api/monitor/)
-* Waarschuwingen voor alle prestatiemeteritems verzonden naar Azure Monitor via de nieuwe [ervaring voor waarschuwingen van geïntegreerde](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Azure Monitor
+* Waarschuwingen voor alle prestatiemeteritems verzonden naar Azure Monitor via de nieuwe [ervaring voor waarschuwingen van geïntegreerde](../../azure-monitor/platform/alerts-overview.md) in Azure Monitor
 * Wildcard-operator als de dimensie 'Instantie' op uw metrische gegevens in de prestatiemeteritems te behandelen.  Bijvoorbeeld als u hebt verzameld de ' logische schijf (\*) / DiskWrites per seconde "teller die u kunt filteren en splitsen op de dimensie 'Instantie' diagram of de waarschuwing op de schijf schrijven per seconde voor elke logische schijf op de virtuele machine (C:, D:, enz.)
 
 Voor meer informatie over het configureren van deze sink, Raadpleeg de [documentatie voor Azure diagnostics-schema.](diagnostics-extension-schema-1dot3.md)

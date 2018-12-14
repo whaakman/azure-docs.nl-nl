@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 7339592833db148acb38ce378fe4cf261977dd72
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87edc2911a48aea1ff0d7ac826439fe547c7cd86
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275644"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342882"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Oplossen van problemen met updatebeheer
 
@@ -73,6 +73,20 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="nologs"></a>Scenario: Beheergegevens die niet wordt weergegeven in Log Analytics voor een virtuele machine bijwerken
+
+#### <a name="issue"></a>Probleem
+
+U machines hebt die als **niet beoordeeld** onder **naleving**, maar ziet u gegevens van heartbeat in Log Analytics voor de Hybrid Runbook Worker, maar niet voor updatebeheer.
+
+#### <a name="cause"></a>Oorzaak
+
+De Hybrid Runbook Worker moet mogelijk opnieuw worden geregistreerd en opnieuw geïnstalleerd.
+
+#### <a name="resolution"></a>Oplossing
+
+Volg de stappen in [Windows Hybrid Runbook Worker implementeren](../automation-windows-hrw-install.md) opnieuw installeren van de Hybrid Worker voor Windows of [een Hybrid Runbook Worker in Linux implementeren](../automation-linux-hrw-install.md) voor Linux.
 
 ## <a name="windows"></a>Windows
 
@@ -141,20 +155,6 @@ De Hybrid Runbook Worker is niet een zelfondertekend certificaat genereren
 #### <a name="resolution"></a>Oplossing
 
 Controleer of systeemaccount leestoegang heeft tot map **C:\ProgramData\Microsoft\Crypto\RSA** en probeer het opnieuw.
-
-### <a name="nologs"></a>Scenario: Beheergegevens die niet wordt weergegeven in Log Analytics voor een virtuele machine bijwerken
-
-#### <a name="issue"></a>Probleem
-
-U machines hebt die als **niet beoordeeld** onder **naleving**, maar ziet u gegevens van heartbeat in Log Analytics voor de Hybrid Runbook Worker, maar niet voor updatebeheer.
-
-#### <a name="cause"></a>Oorzaak
-
-De Hybrid Runbook Worker moet mogelijk opnieuw worden geregistreerd en opnieuw geïnstalleerd.
-
-#### <a name="resolution"></a>Oplossing
-
-Volg de stappen in [Windows Hybrid Runbook Worker implementeren](../automation-windows-hrw-install.md) opnieuw installeren van de Hybrid Worker.
 
 ### <a name="hresult"></a>Scenario: Machine wordt weergegeven als niet beoordeeld en ziet u een uitzondering van HResult
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7a11cc42c3d7fa8cd48de9338d0269d41cbc63f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a2f654043146536ecf543ae2a0aa49537c2223e1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190591"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344021"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Meer informatie over de status van uw Azure virtual machines met Azure Monitor voor virtuele machines (Preview)
 Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar biedt een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines niet beschikbaar was.  Terwijl u verschillende voorwaarden met behulp van Log Analytics of Azure Monitor controleren kan, zijn ze niet ontworpen om te modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen.  Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
@@ -118,7 +118,7 @@ Op de **Health** tabblad, kunt u de volgende informatie:
 * Hoeveel virtuele machines niet in orde zijn vanwege een probleem aangetroffen met een processor, schijfruimte, geheugen of netwerkadapter, onderverdeeld op basis van status?  
 * Hoeveel virtuele machines niet in orde zijn vanwege een probleem aangetroffen met een service core besturingssysteem, onderverdeeld op basis van status?
 
-Hier kunt u snel identificeren van de bovenste kritieke problemen gedetecteerd door de criteria voor beveiligingsstatus proactief bewaken van de virtuele machine en bekijk de details voor VM-status-waarschuwing en bijbehorende kennisartikel bedoeld om te helpen bij de diagnose en herstel van het probleem.  Selecteer een van de ernstcategorieën openen de [alle waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) pagina gefilterd op basis van die ernst.
+Hier kunt u snel identificeren van de bovenste kritieke problemen gedetecteerd door de criteria voor beveiligingsstatus proactief bewaken van de virtuele machine en bekijk de details voor VM-status-waarschuwing en bijbehorende kennisartikel bedoeld om te helpen bij de diagnose en herstel van het probleem.  Selecteer een van de ernstcategorieën openen de [alle waarschuwingen](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) pagina gefilterd op basis van die ernst.
 
 De **VM distributie per besturingssysteem** lijst ziet u VM's die door de editie van Windows of Linux-distributie, samen met hun versie weergegeven. In elke categorie besturingssysteem, de virtuele machines zijn uitgesplitst op basis van de status van de virtuele machine. 
 
@@ -246,7 +246,7 @@ In het bovenstaande voorbeeld, wanneer een selecteert **mnt (logische schijf)**,
 Als u wilt zien bijgewerkte status, kunt u de Health-pagina voor diagnostische gegevens vernieuwen door te klikken op de **vernieuwen** koppeling.  Als er een update aan de status van de health-criterium op basis van het vooraf gedefinieerde polling-interval, wordt deze taak kunt u om te voorkomen dat de wachtrij en geeft de status van de meest recente.  De **Criteria status** een filter is zodat u kunt het bereik van de resultaten op basis van de geselecteerde status - in orde is, waarschuwing, kritiek, onbekend en alle.  De **laatst bijgewerkt** tijd in de rechterbovenhoek vertegenwoordigt de laatste tijd wanneer de Health-pagina voor diagnostische gegevens is vernieuwd.  
 
 ## <a name="alerting-and-alert-management"></a>Meldingen en waarschuwingen beheren 
-Azure Monitor voor de functie van de status van de virtuele machines worden geïntegreerd met [Azure-waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) en genereert een waarschuwing wanneer de status van de vooraf gedefinieerde criteria van goed in in een slechte status wijzigt als de voorwaarde wordt gedetecteerd. Waarschuwingen worden gecategoriseerd op basis van ernst - Sev 0 t/m 4, met Sev 0 staat voor het hoogste ernstniveau.  
+Azure Monitor voor de functie van de status van de virtuele machines worden geïntegreerd met [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md) en genereert een waarschuwing wanneer de status van de vooraf gedefinieerde criteria van goed in in een slechte status wijzigt als de voorwaarde wordt gedetecteerd. Waarschuwingen worden gecategoriseerd op basis van ernst - Sev 0 t/m 4, met Sev 0 staat voor het hoogste ernstniveau.  
 
 Totale aantal VM-status waarschuwingen op basis van ernst worden gecategoriseerd is beschikbaar op de **Health** dashboard onder de sectie **waarschuwingen**. Wanneer u het totale aantal waarschuwingen ofwel het nummer overeenkomt met een ernstniveau selecteert de **waarschuwingen** pagina wordt geopend en geeft een lijst van alle waarschuwingen die overeenkomen met uw selectie.  Bijvoorbeeld, als u hebt geselecteerd de rij die overeenkomt met **ernst niveau 1**, ziet u de volgende weergave:
 
@@ -254,7 +254,7 @@ Totale aantal VM-status waarschuwingen op basis van ernst worden gecategoriseerd
 
 Op de **waarschuwingen** pagina, het heeft niet alleen een bereik om weer te geven van waarschuwingen die overeenkomen met uw selectie, maar ook worden gefilterd op **resourcetype** alleen health u waarschuwingen wilt weergeven die worden gegenereerd door de bron van de virtuele machine.  Dit wordt weergegeven in de lijst met waarschuwingen, onder de kolom **Doelresource**, waarbij u hier ziet u de Azure-VM die de waarschuwing is gegeven voor wanneer de status van bepaalde-criteria niet in orde voorwaarde is voldaan.  
 
-Waarschuwingen van andere resourcetypen of services zijn niet bedoeld om te worden opgenomen in deze weergave, zoals waarschuwingen op basis van Log Analytics query's of metrische die waarschuwingen u normaal zou weergeven uit het standaardbeleid voor Azure Monitor [alle waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) pagina. 
+Waarschuwingen van andere resourcetypen of services zijn niet bedoeld om te worden opgenomen in deze weergave, zoals waarschuwingen op basis van Log Analytics query's of metrische die waarschuwingen u normaal zou weergeven uit het standaardbeleid voor Azure Monitor [alle waarschuwingen](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) pagina. 
 
 U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: df69406bd0a6e09f66262ce66f8eeb7cada2422a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: eb4057b4cfc6a68fb3489a7ab6fb1ee6b5f41d7d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393976"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338459"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Overzicht van Service Bus-wachtrijen voor onbestelbare berichten
 
@@ -76,7 +76,7 @@ Toepassingen kunnen de DLQ gebruiken om expliciet weigeren onaanvaardbaar berich
 
 Berichten worden verzonden naar de wachtrij voor overdracht dead-letter uitvoeren voor de volgende voorwaarden:
 
-- Een bericht wordt doorgegeven via meer dan 3 wachtrijen of onderwerpen die zijn [samen in een keten](service-bus-auto-forwarding.md).
+- Een bericht wordt doorgegeven via meer dan 4 wachtrijen of onderwerpen die zijn [samen in een keten](service-bus-auto-forwarding.md).
 - De bestemmingswachtrij of onderwerp is uitgeschakeld of verwijderd.
 - De bestemmingswachtrij of onderwerp groter is dan de maximale entiteit.
 

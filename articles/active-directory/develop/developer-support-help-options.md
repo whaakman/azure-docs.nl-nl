@@ -17,14 +17,14 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422436"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337135"
 ---
-# <a name="support-and-help-options-for-developers"></a>Opties voor ondersteuning en hulp voor ontwikkelaars 
+# <a name="support-and-help-options-for-developers"></a>Opties voor ondersteuning en hulp voor ontwikkelaars
 
 Ongeacht of u net aan de slag om te integreren met Azure Active Directory, Microsoft identiteiten of Microsoft Graph-API, of wanneer u een nieuwe functie voor uw toepassing implementeert, u moet Help-informatie verkrijgen uit de community of inzicht in hoe vaak er zijn de ondersteunt opties die u als ontwikkelaar hebt. In dit artikel helpt u bij het begrijpen van deze opties, onder een samenvatting:
 
@@ -38,7 +38,7 @@ Ongeacht of u net aan de slag om te integreren met Azure Active Directory, Micro
 
 ## <a name="search"></a>Search
 
-Hebt u een vraag met betrekking tot ontwikkeling, u mogelijk het antwoord u op onze documentatie moet vinden onze [github-voorbeelden](https://github.com/azure-samples), of antwoorden op [Stack Overflow](https://www.stackoverflow.com) vragen.
+Hebt u een vraag met betrekking tot ontwikkeling, u mogelijk het antwoord u op onze documentatie moet vinden onze [GitHub-voorbeelden](https://github.com/azure-samples), of antwoorden op [Stack Overflow](https://www.stackoverflow.com) vragen.
 
 ### <a name="scoped-search"></a>Afgebakende zoekopdracht
 Voor snellere resultaten kunt u uw zoekopdracht naar Stack Overflow, onze documentatie en voorbeelden van onze code beperken met behulp van de volgende op uw [favoriete zoekmachine](https://bing.com):
@@ -50,7 +50,7 @@ Waar *{uw zoektermen}* uw zoekwoorden is.
 
 ## <a name="use-our-development-support-tools"></a>Gebruik onze ondersteuning ontwikkelhulpprogramma 's
 
-|Hulpprogramma  |Beschrijving  |
+|Hulpprogramma  |Description  |
 |---------|---------|
 |[jwt.MS](https://jwt.ms)| Plak een ID of toegang tot tokens voor het decoderen van de claims-namen en waarden |
 |[Fout code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Plak de foutcode van een ontvangen tijdens het aanmelden of toestemming geven pagina's om te zien van de mogelijke oorzaken en herstel |
@@ -76,7 +76,7 @@ Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een
 |Een andere gebied met betrekking tot verificatie of autorisatie-onderwerpen |[[azure active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
-> De volgende posts in Stack Overflow bevatten tips over het maken van vragen en tips over het toevoegen van broncode - volgen van deze richtlijnen kunnen helpen verhogen van de kans op leden van de community om te beoordelen en snel reageren op uw vraag:  
+> De volgende posts in Stack Overflow bevatten tips over het maken van vragen en tips over het toevoegen van broncode - volgen van deze richtlijnen kunnen helpen verhogen van de kans op leden van de community om te beoordelen en snel reageren op uw vraag:
 > - [Hoe ik een vraag stellen goed](https://stackoverflow.com/help/how-to-ask)
 > - [Over het maken van een minimale, volledig en controleerbare voorbeeld](https://stackoverflow.com/help/mcve)
 

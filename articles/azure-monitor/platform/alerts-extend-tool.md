@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7b02f5b55b12b9e35e749ff845e2af2f6598364b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0524e38f155049c630ace7f33805ef230c8dccca
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285492"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344241"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
 De functie alerts in Azure Log Analytics wordt vervangen door de Azure-waarschuwingen. Als onderdeel van deze overgang, wordt de waarschuwingen die u oorspronkelijk hebt geconfigureerd in Log Analytics worden uitgebreid naar Azure. Als u niet wachten tot deze worden automatisch verplaatst naar Azure wilt, kunt u het proces starten:
@@ -479,5 +479,5 @@ Hier volgen de herstelstappen uit voor elke fout:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over de nieuwe [ervaren Azure-waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Meer informatie over de nieuwe [ervaren Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](alerts-unified-log.md).

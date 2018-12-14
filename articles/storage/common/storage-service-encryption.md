@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094889"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384119"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-Serviceversleuteling voor data-at-rest
 Azure Storage-Serviceversleuteling voor data-at-rest kunt u uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen beveiligen. Met deze functie door het platform van Azure storage automatisch uw gegevens worden versleuteld voordat Azure Managed Disks, Azure Blob, wachtrij of tabel storage of Azure-bestanden opgeslagen en ontsleutelt de gegevens voor het ophalen van. De verwerking van versleuteling en versleuteling-at-rest, ontsleuteling en sleutelbeheer in Storage Service-versleuteling is transparant voor gebruikers. Alle gegevens die zijn geschreven naar het Azure storage-platform worden versleuteld met 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.
@@ -33,7 +33,7 @@ De functie versleutelt automatisch gegevens in:
 
 Storage-Serviceversleuteling heeft geen invloed op de prestaties van Azure storage-services.
 
-U kunt Microsoft beheerde sleutels gebruiken met Storage Service Encryption of kunt u uw eigen versleutelingssleutels. Zie voor meer informatie over het gebruik van uw eigen sleutels [Storage Service Encryption door de klant beheerde sleutels in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+U kunt door Microsoft beheerde sleutels gebruiken met Storage Service Encryption of u kunt uw eigen versleutelingssleutels gebruiken. Zie voor meer informatie over het gebruik van uw eigen sleutels [Storage Service Encryption door de klant beheerde sleutels in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 ## <a name="view-encryption-settings-in-the-azure-portal"></a>Versleutelingsinstellingen voor weergave in de Azure-portal
 Als u wilt weergeven van instellingen voor versleuteling voor opslagservice, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer een opslagaccount. In de **instellingen** venster de **versleuteling** instelling.
@@ -81,7 +81,7 @@ Ja, alle exemplaren van het opslagaccount zijn versleuteld. Alle redundantie opt
 Storage-Serviceversleuteling is beschikbaar in alle regio's.
 
 **Is Storage Service Encryption FIPS 140-2 compatibel?**  
-Ja, is Storage Service Encryption FIPS 140-2-compatibel.
+Ja, is Storage Service Encryption FIPS 140-2-compatibel. Zie voor meer informatie over de cryptografische modules van Storage Service Encryption onderliggende [Cryptography API: De volgende generatie](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
 **Hoe ik contact opnemen met iemand als ik problemen hebt of feedback wilt geven?**  
 Neem contact op met [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) voor eventuele problemen of feedback die betrekking hebben op Storage-Serviceversleuteling.

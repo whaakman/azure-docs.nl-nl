@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: fe096efba5419b283981f27e16c3e30a791412da
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322667"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386992"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuratie en problemen met voor Azure Cloud Services: Veelgestelde vragen (FAQ's)
 
@@ -242,7 +242,7 @@ Automatisch schalen op basis van metrische gegevens van geheugen voor een Cloud-
 
 U kunt dit probleem omzeilen, kunt u Application Insights. Automatisch schalen biedt ondersteuning voor Application Insights als een bron metrische gegevens en het aantal rolinstanties op basis van Gast meetwaarde, zoals 'Geheugen' kan worden geschaald.  U hebt voor het configureren van Application Insights in uw Cloud Service-project-pakketbestand (*.cspkg) en Azure Diagnostics-extensie van de service voor het implementeren van deze functie inschakelen.
 
-Zie voor meer informatie over het gebruik van een aangepaste meetwaarde via Application Insights voor het configureren van automatisch schalen op Cloud Services, [aan de slag met automatisch schalen door aangepaste metrische gegevens in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+Zie voor meer informatie over het gebruik van een aangepaste meetwaarde via Application Insights voor het configureren van automatisch schalen op Cloud Services, [aan de slag met automatisch schalen door aangepaste metrische gegevens in Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 
 Zie voor meer informatie over het integreren van Azure Diagnostics met Application Insights voor Cloud Services [verzenden Cloud Service, virtuele Machine of Service Fabric diagnostische gegevens naar Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 770f8261b3036e847111d2181a4c843374da7d60
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6f1869b83f46f97d0c54eb874a8879521a43b1e2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969733"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387060"
 ---
 # <a name="move-operation-support-for-resources"></a>Ondersteuning voor resources verplaatsen
 
@@ -89,14 +89,6 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
 | Batchaccounts | Ja | Ja |
-
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-| Resourcetype | Resourcegroep | Abonnement |
-| ------------- | -------------- | ------------ |
-| Clusters | Nee | Nee |
-| bestandsservers | Nee | Nee |
-| taken | Nee | Nee |
-| werkruimten | Nee | Nee |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Resourcetype | Resourcegroep | Abonnement |

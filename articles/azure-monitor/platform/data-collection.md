@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: c9929149c029d15d496eac0eb530371418e1e1f2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3795db2928e23b16d93e544c4f148b049eccfdef
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323504"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384833"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
 [Azure Monitor](../overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
@@ -96,9 +96,9 @@ Er zijn drie fundamentele bronnen van metrische gegevens die door Azure Monitor 
 ### <a name="what-can-you-do-with-metrics"></a>Wat kunt u doen met metrische gegevens?
 Taken die u met metrische gegevens uitvoeren kunt omvatten het volgende:
 
-- Gebruik [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) verzamelde metrische gegevens analyseren en ze op een grafiek te tekenen. De prestaties van een resource (zoals een virtuele machine, de website of de logische app) bijhouden door grafieken om vast te maken een [Azure-dashboard](../../azure-portal/azure-portal-dashboards.md).
+- Gebruik [Metrics explorer](../../azure-monitor/platform/metrics-charts.md) verzamelde metrische gegevens analyseren en ze op een grafiek te tekenen. De prestaties van een resource (zoals een virtuele machine, de website of de logische app) bijhouden door grafieken om vast te maken een [Azure-dashboard](../../azure-portal/azure-portal-dashboards.md).
 - Configureer een [waarschuwingsregel voor metrische gegevens](alerts-metric.md) die duurt of een melding verzendt [automatische actie](action-groups.md) wanneer de metriek een drempelwaarde overschrijdt.
-- Gebruik [voor automatisch schalen](../../monitoring-and-diagnostics/monitoring-overview-autoscale.md) vergroten of verkleinen van resources op basis van een metriek een drempelwaarde overschrijden.
+- Gebruik [voor automatisch schalen](../../azure-monitor/platform/autoscale-overview.md) vergroten of verkleinen van resources op basis van een metriek een drempelwaarde overschrijden.
 - Metrische gegevens doorsturen naar Log Analytics om metrische gegevens, samen met logboekgegevens te analyseren en voor het opslaan van de metrische waarden voor langer dan 93 dagen. 
 - Metrische gegevens naar Stream een [Event Hub](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) te routeren [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) of met externe systemen.
 - [Archief](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) de geschiedenis van prestaties of de status van uw resource voor naleving, controle- of offline rapportagedoeleinden.
@@ -109,7 +109,7 @@ Taken die u met metrische gegevens uitvoeren kunt omvatten het volgende:
 ### <a name="viewing-metrics"></a>Metrische gegevens weergeven
 Metrische gegevens in Azure worden verzameld in de database van Azure Monitor metrische gegevens. Dit is een tijdreeks database die zijn geoptimaliseerd voor het snel ophalen en winkels metrische waarden voor 93 dagen. Kopieer metrische gegevens naar Log Analytics voor de lange termijn analyse en trends.
 
-Metrische gegevens wordt gebruikt in verschillende manieren, zoals hierboven is beschreven. Gebruik [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) om rechtstreeks analyseren van de gegevens in uw metrische store en de waarden van meerdere metrische gegevens gedurende een periode van grafiek. U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven. U kunt ook metrische gegevens ophalen met behulp van de [Azure REST-API bewaken](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Metrische gegevens wordt gebruikt in verschillende manieren, zoals hierboven is beschreven. Gebruik [Metrics explorer](../../azure-monitor/platform/metrics-charts.md) om rechtstreeks analyseren van de gegevens in uw metrische store en de waarden van meerdere metrische gegevens gedurende een periode van grafiek. U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven. U kunt ook metrische gegevens ophalen met behulp van de [Azure REST-API bewaken](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Metrics Explorer](media/data-collection/metrics-explorer.png)
 
@@ -174,7 +174,7 @@ Informatie voor het verzamelen van metrische gegevens van Azure-resources op [Az
 ### <a name="logs-to-metrics"></a>Logboeken naar metrische gegevens
 Zoals hierboven beschreven, zijn metrische gegevens sneller reageren dan Logboeken, zodat u waarschuwingen met een lagere latentie en tegen lagere kosten maken kunt. Log Analytics verzamelt een aanzienlijke hoeveelheid numerieke gegevens die zijn geschikt voor metrische gegevens, maar wordt niet opgeslagen in de metrische gegevens van Azure-database.  Een veelvoorkomend voorbeeld is de prestatiegegevens die worden verzameld van agents en oplossingen voor beheer. Sommige van deze waarden kunnen worden gekopieerd naar de database van metrische gegevens, waar ze beschikbaar voor waarschuwingen en voor analyse met Metrics explorer zijn.
 
-De uitleg van deze functie is beschikbaar op [metrische waarschuwingen maken voor logboeken in Azure Monitor](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). De lijst met waarden ondersteuning is beschikbaar op [ondersteunde metrische gegevens met Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
+De uitleg van deze functie is beschikbaar op [metrische waarschuwingen maken voor logboeken in Azure Monitor](../../azure-monitor/platform/alerts-metric-logs.md). De lijst met waarden ondersteuning is beschikbaar op [ondersteunde metrische gegevens met Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Stream-gegevens met externe systemen
 Naast het gebruik van de hulpprogramma's in Azure voor het analyseren van gegevens, mogelijk hebt u een vereiste dit doorsturen naar een extern hulpprogramma, zoals een security information en event management (SIEM) product. Doorsturen van dit gebeurt meestal rechtstreeks vanuit de bewaakte resources via [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

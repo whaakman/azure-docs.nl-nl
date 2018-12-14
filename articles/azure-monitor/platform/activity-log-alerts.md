@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7b210a774cfdb9b7f33ec08cc75886c77e3e6cc0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285548"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341522"
 ---
 # <a name="alerts-on-activity-log"></a>Waarschuwingen voor activiteitenlogboeken 
 
@@ -61,7 +61,7 @@ Zie voor meer informatie over actiegroepen [maken en beheren van actiegroepen in
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Krijgen een [overzicht van waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+- Krijgen een [overzicht van waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
 - Meer informatie over [maken en wijzigen van waarschuwingen voor activiteitenlogboeken](../../azure-monitor/platform/alerts-activity-log.md).
 - Controleer de [activiteit log waarschuwing webhook-schema](activity-log-alerts-webhook.md).
 - Meer informatie over [health servicemeldingen](../../monitoring-and-diagnostics/monitoring-service-notifications.md).

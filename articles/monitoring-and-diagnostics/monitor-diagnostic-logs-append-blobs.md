@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 48295a48700ee8b7331ae9811b7dd43a0ec8fa69
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1d580e6468044f14b6a206911c4da237f774af3b
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959874"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386516"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Indeling wijzigen naar diagnostische logboeken van Azure Monitor gearchiveerd naar een opslagaccount voorbereiden
 
 > [!WARNING]
-> Als u verzendt [diagnostische logboeken van Azure-resource of metrische gegevens naar een opslagaccount met behulp van de instellingen voor resourcediagnose](./monitoring-archive-diagnostic-logs.md) of [activiteitenlogboeken streamen naar een opslagaccount door middel van logboekprofielen](./monitoring-archive-activity-log.md), de indeling van de gegevens in het storage-account wordt gewijzigd in JSON-regels op 1 november 2018. De onderstaande instructies beschrijven de impact en het bijwerken van uw hulpprogramma's voor het afhandelen van de nieuwe indeling. 
+> Als u verzendt [diagnostische logboeken van Azure-resource of metrische gegevens naar een opslagaccount met behulp van de instellingen voor resourcediagnose](./../azure-monitor/platform/archive-diagnostic-logs.md) of [activiteitenlogboeken streamen naar een opslagaccount door middel van logboekprofielen](./../azure-monitor/platform/archive-activity-log.md), de indeling van de gegevens in het storage-account wordt gewijzigd in JSON-regels op 1 november 2018. De onderstaande instructies beschrijven de impact en het bijwerken van uw hulpprogramma's voor het afhandelen van de nieuwe indeling. 
 >
 > 
 
@@ -31,9 +31,9 @@ Azure Monitor biedt een functie waarmee u voor het verzenden van diagnostische g
 * Wijzigen van een diagnostische instelling tussen nu en 1 November nog steeds het verzenden van gegevens in de huidige indeling tot 1 November.
 * Deze wijziging wordt in één keer uitgevoerd in alle openbare cloud-regio's. De wijziging wordt in Azure China of Azure Duitsland Azure Government-clouds nog hervat.
 * Deze wijziging heeft gevolgen voor de volgende gegevenstypen:
-  * [Diagnostische logboeken van Azure-resource](./monitoring-archive-diagnostic-logs.md) ([lijst met resources hier Zie](./monitoring-diagnostic-logs-schema.md))
+  * [Diagnostische logboeken van Azure-resource](./../azure-monitor/platform/archive-diagnostic-logs.md) ([lijst met resources hier Zie](./../azure-monitor/platform/tutorial-dashboards.md))
   * [Azure-resource metrische gegevens die worden geëxporteerd door de diagnostische instellingen](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
-  * [Azure gegevens van een activiteitenlogboek wordt geëxporteerd met logboekprofielen](./monitoring-archive-activity-log.md)
+  * [Azure gegevens van een activiteitenlogboek wordt geëxporteerd met logboekprofielen](./../azure-monitor/platform/archive-activity-log.md)
 * Deze wijziging heeft geen invloed op:
   * Netwerk-stroomlogboeken
   * Azure-servicelogboeken niet beschikbaar gesteld via Azure Monitor nog (bijvoorbeeld, diagnostische logboeken van Azure App Service, analyselogboeken voor storage)
@@ -135,5 +135,5 @@ Aangepaste hulpprogramma's moeten worden bijgewerkt voor het afhandelen van zowe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [diagnostische logboeken van de resource naar een opslagaccount archiveren](./monitoring-archive-diagnostic-logs.md)
-* Meer informatie over [gegevens naar een opslagaccount van een activiteitenlogboek archiveren](./monitoring-archive-activity-log.md)
+* Meer informatie over [diagnostische logboeken van de resource naar een opslagaccount archiveren](./../azure-monitor/platform/archive-diagnostic-logs.md)
+* Meer informatie over [gegevens naar een opslagaccount van een activiteitenlogboek archiveren](./../azure-monitor/platform/archive-activity-log.md)

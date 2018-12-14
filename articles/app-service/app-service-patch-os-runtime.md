@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a0fdab06606a88fafa803a9a112c05452578cfeb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3dcaba9c0512cbe2c4cf1cd14338a88209a80e85
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252861"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385309"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>OS- en runtime patching uit handen in Azure App Service
 
@@ -81,7 +81,7 @@ Wanneer een oudere versie wordt afgeschaft, is de verwijderingsdatum profiel zod
 
 ## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Hoe kan ik updatestatus OS- en runtime opvragen op mijn exemplaren?  
 
-Terwijl essentiële informatie van het besturingssysteem is vergrendeld tegen toegang (Zie [functionaliteit van het besturingssysteem op Azure App Service](web-sites-available-operating-system-functionality.md)), wordt de [Kudu-console](https://github.com/projectkudu/kudu/wiki/Kudu-console) kunt u om op te vragen van uw App Service-exemplaar met betrekking tot het besturingssysteem versie en runtimeversies. 
+Terwijl essentiële informatie van het besturingssysteem is vergrendeld tegen toegang (Zie [functionaliteit van het besturingssysteem op Azure App Service](operating-system-functionality.md)), wordt de [Kudu-console](https://github.com/projectkudu/kudu/wiki/Kudu-console) kunt u om op te vragen van uw App Service-exemplaar met betrekking tot het besturingssysteem versie en runtimeversies. 
 
 De volgende tabel ziet u hoe u de versies van Windows en de taal die uw toepassingen worden uitgevoerd:
 

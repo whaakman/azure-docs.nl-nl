@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f661b9e7239e45cdc0e8501553f1b14100deaa98
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192245"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335950"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Oplossing status van agent in Azure
 De oplossing status van Agent in Azure kunt u meer informatie over voor alle van de agents die rapporteren rechtstreeks verbonden met Log Analytics, dat niet meer reageert zijn op de Log Analytics-werkruimte of vanuit een System Center Operations Manager-beheergroep en het verzenden van operationele de gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
@@ -117,4 +117,4 @@ De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie [Understanding alerts in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) voor meer informatie over het genereren van waarschuwingen van Log Analytics. 
+* Zie [Understanding alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) voor meer informatie over het genereren van waarschuwingen van Log Analytics. 

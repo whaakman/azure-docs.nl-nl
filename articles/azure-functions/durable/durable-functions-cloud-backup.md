@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3a7701dacece515bb24567ff6117c183bfe2b526
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3dfcb74852f90615af90f9eab3711b1b235c53e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643066"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341385"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-uitgaand/fan-in-scenario in duurzame functies - back-voorbeeld van de Cloud
 
@@ -55,7 +55,7 @@ Dit is de code die de orchestrator-functie implementeert:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
@@ -67,9 +67,10 @@ Deze functie orchestrator doet in feite het volgende:
 4. Wacht tot alle uploads om te voltooien.
 5. Retourneert de som totaal aantal bytes die zijn geüpload naar Azure Blob Storage.
 
-U ziet dat de `await Task.WhenAll(tasks);` (C#) en `yield context.df.Task.all(tasks);` regel (JS). Alle aanroepen naar de `E2_CopyFileToBlob` functie zijn *niet* gestopt. Dit is opzettelijk zodat ze parallel worden uitgevoerd. Wanneer we deze reeks taken doorgeven `Task.WhenAll`, krijgen we weer een taak die wordt niet voltooid *totdat alle kopieerbewerkingen hebt voltooid*. Als u ervaring hebt met de taak parallelle bibliotheek (TPL) in .NET, dan dit geen nieuw voor u is. Het verschil is dat deze taken mogelijk gelijktijdig op meerdere virtuele machines worden uitgevoerd en de extensie duurzame functies zorgt ervoor dat de end-to-end-uitvoering tegen recyclen van processen is.
+U ziet dat de `await Task.WhenAll(tasks);` (C#) en `yield context.df.Task.all(tasks);` regels (JavaScript). Alle afzonderlijke aanroepen naar de `E2_CopyFileToBlob` functie zijn *niet* gestopt. Dit is opzettelijk zodat ze parallel worden uitgevoerd. Wanneer we deze reeks taken doorgeven `Task.WhenAll` (C#) of `context.df.Task.all` (JavaScript), krijgen we weer een taak die wordt niet voltooid *totdat alle kopieerbewerkingen hebt voltooid*. Als u bekend met de taak parallelle bibliotheek (TPL) in .NET bent of [ `Promise.all` ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, is dit geen nieuw voor u. Het verschil is dat deze taken mogelijk gelijktijdig op meerdere virtuele machines worden uitgevoerd en de extensie duurzame functies zorgt ervoor dat de end-to-end-uitvoering tegen recyclen van processen is.
 
-Taken zijn vergelijkbaar met de JavaScript-concept van beloften. Echter, `Promise.all` heeft enkele verschillen van `Task.WhenAll`. Het concept van `Task.WhenAll` is overgebracht via als onderdeel van de `durable-functions` JavaScript-module en is exclusief voor deze.
+> [!NOTE]
+> Hoewel er taken zijn qua ontwerp vergelijkbaar met JavaScript beloften, orchestrator-functies moeten gebruiken `context.df.Task.all` en `context.df.Task.any` in plaats van `Promise.all` en `Promise.race` voor het beheren van taak parallellisering.
 
 Na in afwachting van `Task.WhenAll` (of uit wordt vrijgegeven `context.df.Task.all`), we weten dat alle aanroepen van de functie hebt voltooid en waarden terug naar ons zijn geretourneerd. Elke aanroep van `E2_CopyFileToBlob` retourneert het aantal bytes geüpload, zodat het berekenen van de som totaal aantal bytes-telling is een kwestie van het toevoegen van alle waarden samen retourneren.
 
@@ -85,7 +86,7 @@ En de implementatie als volgt:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
@@ -104,7 +105,7 @@ De C#-implementatie is ook eenvoudig. Dit gebeurt met het gebruik van enkele gea
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
 
 De JavaScript-uitvoering heeft geen toegang tot de `Binder` functie van Azure Functions, zodat de [Azure Storage SDK voor Node](https://github.com/Azure/azure-storage-node) de plaatsvindt.
 

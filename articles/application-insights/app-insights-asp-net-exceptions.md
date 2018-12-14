@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: f36d0ec4446ee6591798c0d8926f41a4e177d81d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 21c1a92a71ac52a47a8b9d73d5e715afb6dc73d0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997057"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343408"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnose-uitzonderingen in uw web-apps met Application Insights
 Uitzonderingen in uw live web-app worden gerapporteerd door [Application Insights](app-insights-overview.md). U kunt mislukte aanvragen correleren met uitzonderingen en andere gebeurtenissen op de client en de server, zodat u kunt snel onderzoek de oorzaken.
@@ -25,7 +25,7 @@ Uitzonderingen in uw live web-app worden gerapporteerd door [Application Insight
 ## <a name="set-up-exception-reporting"></a>Instellen van de uitzondering rapporteren
 * Hebben uitzonderingen die zijn gerapporteerd door uw server-app:
   * Installeer [Application Insights-SDK](app-insights-asp-net.md) in uw app-code, of
-  * IIS-webservers: uitvoeren [Application Insights-Agent](app-insights-monitor-performance-live-website-now.md); of
+  * IIS-webservers: Voer [Application Insights-Agent](app-insights-monitor-performance-live-website-now.md); of
   * Azure-web-apps: Voeg de [Application Insights-extensie](app-insights-azure-web-apps.md)
   * Java-web-apps: Installeer de [Java-agent](app-insights-java-agent.md)
 * Installeer de [JavaScript-fragment](app-insights-javascript.md) in uw webpagina's om af te vangen browseruitzonderingen.
@@ -50,14 +50,15 @@ U ziet dat u het rapport om weer te geven alleen uitzonderingen kunt filteren.
 *Er zijn geen uitzonderingen weergegeven? Zie [vastleggen van uitzonderingen](#exceptions).*
 
 Klik op een Uitzonderingsrapport om weer te geven van de stack-trace weergegeven.
-Klik op de verwijzing naar een regel in de stack-trace, om de relevante code-bestand te openen.  
+Klik op de verwijzing naar een regel in de stack-trace, om de relevante code-bestand te openen.
 
 U ziet dat CodeLens gegevens over de uitzonderingen toont in de code:
 
 ![CodeLens-melding van uitzonderingen.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnose van fouten met de Azure portal
-Application Insights maakt met een persoonlijke APM-ervaring bij het opsporen van fouten in uw bewaakte toepassingen. Als u wilt starten, klikt u op de optie fouten in het menu van de Application Insights-resource zich in de sectie onderzoeken. U ziet een weergave Volledig scherm waarin u de fout tarief trends voor uw aanvragen, hoe vaak mislukken en hoeveel gebruikers zijn beïnvloed. Aan de rechterkant ziet u enkele van de handigste distributies die specifiek zijn voor de geselecteerde mislukte bewerking, met inbegrip van top 3-responscodes, top 3 uitzonderingstypen en top 3 afhankelijkheidstypen mislukt. 
+Application Insights maakt met een persoonlijke APM-ervaring bij het opsporen van fouten in uw bewaakte toepassingen. Als u wilt starten, klikt u op de optie fouten in het menu van de Application Insights-resource zich in de sectie onderzoeken.
+U ziet een weergave Volledig scherm waarin u de fout tarief trends voor uw aanvragen, hoe vaak mislukken en hoeveel gebruikers zijn beïnvloed. Aan de rechterkant ziet u enkele van de handigste distributies die specifiek zijn voor de geselecteerde mislukte bewerking, met inbegrip van top 3-responscodes, top 3 uitzonderingstypen en top 3 afhankelijkheidstypen mislukt.
 
 ![Storingen sorteren weergave (tabblad bewerkingen)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
@@ -98,7 +99,7 @@ Details van de aanvraag zijn de gegevens verzonden naar de app in een POST-aanro
 
 * [Installeer de SDK](app-insights-asp-net.md) in uw project een toepassing.
 * Code invoegen in uw toepassing om aan te roepen [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace). De POST-gegevens in de parameter bericht verzenden. Er is een limiet voor de toegestane grootte, dus u proberen moet om alleen de essentiële gegevens te verzenden.
-* Wanneer u een mislukte aanvragen onderzoeken, vindt u de bijbehorende traceringen.  
+* Wanneer u een mislukte aanvragen onderzoeken, vindt u de bijbehorende traceringen.
 
 ![In detail analyseren](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
@@ -178,7 +179,7 @@ Maar als u actieve omleidingen, moet u de volgende regels toevoegen aan de funct
 ```csharp
     void Application_Error(object sender, EventArgs e)
     {
-      if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError  () != null)
+      if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError () != null)
       {
          var ai = new TelemetryClient(); // or re-use an existing instance
 
@@ -199,12 +200,13 @@ Er zijn een aantal cases dat de uitzondering filters kunnen niet worden verwerkt
 * Uitzondering opgetreden tijdens het opstarten van de toepassing.
 * De uitzondering is opgetreden in de achtergrondtaken.
 
-Alle uitzonderingen *verwerkt* door toepassing nog moet handmatig worden bijgehouden. Niet-verwerkte uitzonderingen die afkomstig zijn van domeincontrollers doorgaans leiden tot 500 'Interne serverfout'-antwoord. Als het antwoord handmatig is gemaakt als gevolg van de uitzondering verwerkt (of geen uitzondering op alle) deze wordt bijgehouden in de bijbehorende aanvraagtelemetrie met `ResultCode` 500, Application Insights-SDK is echter kan geen overeenkomstige uitzonderingen bijhouden.
+Alle uitzonderingen *verwerkt* door toepassing nog moet handmatig worden bijgehouden.
+Niet-verwerkte uitzonderingen die afkomstig zijn van domeincontrollers doorgaans leiden tot 500 'Interne serverfout'-antwoord. Als het antwoord handmatig is gemaakt als gevolg van de uitzondering verwerkt (of geen uitzondering op alle) deze wordt bijgehouden in de bijbehorende aanvraagtelemetrie met `ResultCode` 500, Application Insights-SDK is echter kan geen overeenkomstige uitzonderingen bijhouden.
 
 ### <a name="prior-versions-support"></a>Ondersteuning voor oudere versies
 Als u MVC 4 (en vóór de) van Application Insights Web SDK 2.5 (en de voorafgaande) gebruikt, raadpleegt u de volgende voorbeelden voor het bijhouden van uitzonderingen.
 
-Als de [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configuratie is `Off`, en vervolgens uitzonderingen zijn beschikbaar voor de [HTTP-Module](https://msdn.microsoft.com/library/ms178468.aspx) te verzamelen. Echter, als het `RemoteOnly` (standaard), of `On`, wordt de uitzondering gewist en kan deze niet beschikbaar voor Application Insights voor het automatisch verzamelen. U kunt dit oplossen door overschrijven de [System.Web.Mvc.HandleErrorAttribute klasse](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx), en het toepassen van de klasse overschreven, zoals wordt weergegeven voor de verschillende onderstaande MVC-versies ([github-bron](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Als de [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configuratie is `Off`, en vervolgens uitzonderingen zijn beschikbaar voor de [HTTP-Module](https://msdn.microsoft.com/library/ms178468.aspx) te verzamelen. Echter, als het `RemoteOnly` (standaard), of `On`, wordt de uitzondering gewist en kan deze niet beschikbaar voor Application Insights voor het automatisch verzamelen. U kunt dit oplossen door overschrijven de [System.Web.Mvc.HandleErrorAttribute klasse](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx), en het toepassen van de klasse overschreven, zoals wordt weergegeven voor de verschillende onderstaande MVC-versies ([GitHub-bron](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;
@@ -222,7 +224,7 @@ Als de [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configur
             {
                 //If customError is Off, then AI HTTPModule will report the exception
                 if (filterContext.HttpContext.IsCustomErrorEnabled)
-                {   //or reuse instance (recommended!). see note above  
+                {   //or reuse instance (recommended!). see note above
                     var ai = new TelemetryClient();
                     ai.TrackException(filterContext.Exception);
                 }
@@ -239,9 +241,9 @@ Het kenmerk HandleError vervangen door uw nieuw kenmerk in uw domeincontrollers.
 ```csharp
     namespace MVC2App.Controllers
     {
-       [AiHandleError]
-       public class HomeController : Controller
-       {
+        [AiHandleError]
+        public class HomeController : Controller
+        {
     ...
 ```
 
@@ -290,7 +292,8 @@ Er zijn een aantal cases dat de uitzondering filters kunnen niet worden verwerkt
 * Uitzondering opgetreden tijdens het opstarten van de toepassing.
 * De uitzondering is opgetreden in de achtergrondtaken.
 
-Alle uitzonderingen *verwerkt* door toepassing nog moet handmatig worden bijgehouden. Niet-verwerkte uitzonderingen die afkomstig zijn van domeincontrollers doorgaans leiden tot 500 'Interne serverfout'-antwoord. Als het antwoord handmatig is gemaakt als gevolg van de uitzondering verwerkt (of geen uitzondering op alle) deze wordt bijgehouden in een overeenkomende aanvraagtelemetrie met `ResultCode` 500, Application Insights-SDK is echter kan geen overeenkomstige uitzonderingen bijhouden.
+Alle uitzonderingen *verwerkt* door toepassing nog moet handmatig worden bijgehouden.
+Niet-verwerkte uitzonderingen die afkomstig zijn van domeincontrollers doorgaans leiden tot 500 'Interne serverfout'-antwoord. Als het antwoord handmatig is gemaakt als gevolg van de uitzondering verwerkt (of geen uitzondering op alle) deze wordt bijgehouden in een overeenkomende aanvraagtelemetrie met `ResultCode` 500, Application Insights-SDK is echter kan geen overeenkomstige uitzonderingen bijhouden.
 
 ### <a name="prior-versions-support"></a>Ondersteuning voor oudere versies
 Als u WebAPI-1 (en vóór de) van Application Insights Web SDK 2.5 (en de voorafgaande) gebruikt, raadpleegt u de volgende voorbeelden voor het bijhouden van uitzonderingen.
@@ -311,7 +314,7 @@ Override System.Web.Http.Filters.ExceptionFilterAttribute:
             if (actionExecutedContext != null && actionExecutedContext.Exception != null)
             {  //or reuse instance (recommended!). see note above
                 var ai = new TelemetryClient();
-                ai.TrackException(actionExecutedContext.Exception);    
+                ai.TrackException(actionExecutedContext.Exception);
             }
             base.OnException(actionExecutedContext);
         }
@@ -481,7 +484,7 @@ Dit wijkt af van het 'Uitzonderingen' aantal berekend door de Application Insigh
 
 ## <a name="video"></a>Video
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Volgende stappen
 * [REST, SQL en andere aanroepen van afhankelijkheden controleren](app-insights-asp-net-dependencies.md)

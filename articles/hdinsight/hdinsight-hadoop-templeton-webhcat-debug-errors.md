@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2c4730b3ec84ca14bcc3e93ed82faf37b15970d7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0d27b16690516becc586678f8cf3edea234feeea
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010368"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383392"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Begrijpen en oplossen van fouten die zijn ontvangen van WebHCat op HDInsight
 
@@ -22,18 +22,18 @@ Meer informatie over fouten die zijn ontvangen als u de WebHCat voor HDInsight, 
 
 ## <a name="what-is-webhcat"></a>Wat is WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) is een REST-API voor [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), een tabel- en storage opslagbeheerlaag voor Hadoop. WebHCat is standaard ingeschakeld op HDInsight-clusters, en wordt gebruikt door verschillende hulpprogramma's voor het verzenden van taken, taakstatus, enz., zonder in te loggen met het cluster ophalen.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) is een REST-API voor [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), een tabel- en storage management-laag voor Apache Hadoop. WebHCat is standaard ingeschakeld op HDInsight-clusters, en wordt gebruikt door verschillende hulpprogramma's voor het verzenden van taken, taakstatus, enz., zonder in te loggen met het cluster ophalen.
 
 ## <a name="modifying-configuration"></a>-Configuratie wijzigen
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Aantal van de fouten die worden vermeld in dit document optreden met een geconfigureerde maximum is overschreden. Wanneer de resolutie-stap wordt vermeld dat u kunt een waarde wijzigen, moet u een van de volgende gebruiken om uit te voeren van de wijziging:
 
-* Voor **Windows** clusters: een scriptactie gebruiken om te configureren van de waarde tijdens het maken van clusters. Zie voor meer informatie, [scriptacties ontwikkelen](hdinsight-hadoop-script-actions.md).
+* Voor **Windows** clusters: Een scriptactie gebruiken om te configureren van de waarde tijdens het maken van clusters. Zie voor meer informatie, [scriptacties ontwikkelen](hdinsight-hadoop-script-actions.md).
 
-* Voor **Linux** clusters: gebruik Ambari (web- of REST-API) om de waarde te wijzigen. Zie voor meer informatie, [beheren HDInsight met behulp van Ambari](hdinsight-hadoop-manage-ambari.md)
+* Voor **Linux** clusters: Gebruik Apache Ambari (web- of REST-API) om de waarde te wijzigen. Zie voor meer informatie, [beheren HDInsight met Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ### <a name="default-configuration"></a>Standaardconfiguratie
@@ -62,7 +62,7 @@ Als de volgende standaardwaarden zijn overschreden, kan WebHCat prestaties versl
 | --- | --- |
 | Deze statuscode treedt meestal op tijdens de failover tussen de primaire en secundaire hoofdknooppunt voor het cluster |Wacht twee minuten en probeer het opnieuw |
 
-## <a name="bad-request-content-could-not-find-job"></a>Ongeldige aanvraag inhoud: kan de taak niet vinden.
+## <a name="bad-request-content-could-not-find-job"></a>Ongeldige aanvraag inhoud: Kan de taak niet vinden.
 
 **HTTP-statuscode**: 400
 

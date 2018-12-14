@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 73e95f6259c916b06fe61cb47fd36beac4c7a427
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 212e45a7b593a9607aa19a10efdf2aaf61c78d17
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572045"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344584"
 ---
 Domain Name System (DNS) wordt gebruikt om dingen vinden op het internet. Bijvoorbeeld, wanneer u een adres in uw browser invoeren, of klikt u op een koppeling op een webpagina, gebruikt DNS voor de omzetting van het domein in een IP-adres. Het IP-adres is vergelijkbaar met een adres, maar het is niet geschikt voor zeer menselijke. Bijvoorbeeld, is het veel gemakkelijker om te onthouden van een DNS-naam, zoals **contoso.com** dan het is om te onthouden van een IP-adres, zoals 192.168.1.88 of 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
@@ -32,7 +32,7 @@ Een CNAME-record verwijst een *specifieke* DNS-naam, zoals **mail.contoso.com** 
 Zodra er verkeer binnenkomt in Traffic Manager, wordt vervolgens het verkeer gerouteerd naar uw website, met behulp van de taakverdelingsmethode die is geconfigureerd voor. Dit is volledig transparant voor bezoekers van uw website. Ze zien alleen de aangepaste domeinnaam in hun browser.
 
 > [!NOTE]
-> Sommige registratieservices domein kunnen u subdomeinen toewijzen bij het gebruik van een CNAME-record, zoals alleen **www.contoso.com**, en niet de hoofd-namen, zoals **contoso.com**. Zie voor meer informatie over CNAME-records, de documentatie van uw registrar <a href="http://en.wikipedia.org/wiki/CNAME_record">de Wikipedia-vermelding op CNAME-record</a>, of de <a href="http://tools.ietf.org/html/rfc1035">IETF-domeinnamen - implementatie en -specificatie</a> document.
+> Sommige registratieservices domein kunnen u subdomeinen toewijzen bij het gebruik van een CNAME-record, zoals alleen **www.contoso.com**, en niet de hoofd-namen, zoals **contoso.com**. Zie voor meer informatie over CNAME-records, de documentatie van uw registrar <a href="https://en.wikipedia.org/wiki/CNAME_record">de Wikipedia-vermelding op CNAME-record</a>, of de <a href="https://tools.ietf.org/html/rfc1035">IETF-domeinnamen - implementatie en -specificatie</a> document.
 > 
 > 
 

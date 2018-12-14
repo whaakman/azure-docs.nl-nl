@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: d3183353cbadb821ac7f84c81f4da747be823e4f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 432f1a89979829bd43596d0d6a3ab7a2a3bfb996
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276720"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336466"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -29,7 +29,7 @@ Elke actie bestaat uit de volgende eigenschappen:
 * **Actietype**: De actie om uit te voeren. Voorbeelden zijn onder meer het verzenden van een stem oproep, SMS, e-mail; of verschillende soorten acties die automatisch wordt geactiveerd. Zie typen verderop in dit artikel. 
 * **Details**: De bijbehorende gegevens die per variëren *actietype*. 
 
-Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen configureren actiegroepen [actie groep Resource Manager-sjablonen](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen configureren actiegroepen [actie groep Resource Manager-sjablonen](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Een actiegroep maken met behulp van de Azure-portal ##
 1. In de [portal](https://portal.azure.com), selecteer **Monitor**. De **Monitor** blade consolideert alle controle-instellingen en gegevens in één weergave.
@@ -73,7 +73,7 @@ Nadat u een actiegroep die u hebt gemaakt, wordt het weergegeven in de **actiegr
    - azureemail-noreply@microsoft.com
    - alerts-noreply@mail.windowsazure.com
 
-Mogelijk hebt u maximaal 1000 e-mailacties in een actiegroep. Zie de [snelheidsbeperking informatie](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) artikel
+Mogelijk hebt u maximaal 1000 e-mailacties in een actiegroep. Zie de [snelheidsbeperking informatie](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel
 
 **ITSM** -mogelijk hebt u maximaal 10 ITSM-acties in een actie groep ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM-verbinding](../../azure-monitor/platform/itsmc-overview.md).
 
@@ -83,10 +83,10 @@ Mogelijk hebt u maximaal 1000 e-mailacties in een actiegroep. Zie de [snelheidsb
 
 **Runbook** -mogelijk hebt u maximaal 10 Runbook-acties in een actie groep verwijst naar de [Servicelimieten van Azure-abonnement](../../azure-subscription-service-limits.md) voor beperkingen met betrekking tot de Runbook-nettoladingen
 
-**SMS** -mogelijk hebt u maximaal 10 SMS-acties in een actie groep zien de [snelheidsbeperking informatie](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) Zie artikel de [SMS waarschuwen gedrag](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md) artikel
+**SMS** -mogelijk hebt u maximaal 10 SMS-acties in een actie groep zien de [snelheidsbeperking informatie](./../../azure-monitor/platform/alerts-rate-limiting.md) Zie artikel de [SMS waarschuwen gedrag](../../azure-monitor/platform/alerts-sms-behavior.md) artikel
 
 **Stem** -mogelijk hebt u maximaal 10 Voice-acties in een actiegroep</dd>
-Zie de [snelheidsbeperking informatie](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) artikel</dd>
+Zie de [snelheidsbeperking informatie](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel</dd>
 
 **Webhook** -mogelijk hebt u maximaal 10 Webhook-acties in een actiegroep. Logica voor opnieuw proberen - de time-outperiode voor een antwoord 10 seconden is. De webhook-aanroep is geprobeerd een maximum van 2 tijden wanneer de volgende HTTP-statuscodes worden weergegeven: 408, 429, 503, 504 of het HTTP-eindpunt reageert niet. De eerste poging gebeurt na tien seconden. De tweede en laatste poging gebeurt na 100 seconden.
 
@@ -102,9 +102,9 @@ Voor het ontvangen van updates over wijzigingen in deze IP-adressen aangeraden d
 
 
 ## <a name="next-steps"></a>Volgende stappen ##
-* Meer informatie over [SMS waarschuwen gedrag](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md).  
+* Meer informatie over [SMS waarschuwen gedrag](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Krijg een [begrip van de activiteit log waarschuwing webhook-schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Meer informatie over [ITSM-Connector](../../azure-monitor/platform/itsmc-overview.md)
-* Meer informatie over [gelden enkele beperkingen](../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) op waarschuwingen.
-* Krijgen een [overzicht van waarschuwingen voor activiteitenlogboeken](../../monitoring-and-diagnostics/monitoring-overview-alerts.md), en leer hoe u waarschuwingen ontvangt.  
+* Meer informatie over [gelden enkele beperkingen](../../azure-monitor/platform/alerts-rate-limiting.md) op waarschuwingen.
+* Krijgen een [overzicht van waarschuwingen voor activiteitenlogboeken](../../azure-monitor/platform/alerts-overview.md), en leer hoe u waarschuwingen ontvangt.  
 * Meer informatie over het [waarschuwingen configureren wanneer er een melding van de health service wordt geplaatst](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

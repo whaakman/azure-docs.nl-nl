@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: bbb0bbc6ddbbabb37932edc6946394b020631231
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637462"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342320"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS op Azure VM's op Red Hat Enterprise Linux voor SAP NetWeaver
 
@@ -110,10 +110,10 @@ U moet eerst de virtuele machines voor dit cluster te maken. Daarna wordt u een 
 1. Een Beschikbaarheidsset maken  
    De maximale updatedomein instellen
 1. Virtuele Machine 1 maken  
-   Ten minste RHEL 7, in dit de Red Hat Enterprise Linux 7.4-voorbeeldafbeelding <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Ten minste RHEL 7, in dit de Red Hat Enterprise Linux 7.4-voorbeeldafbeelding <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecteer de Beschikbaarheidsset eerder hebt gemaakt  
 1. Virtuele Machine 2 maken  
-   Ten minste RHEL 7, in dit de Red Hat Enterprise Linux 7.4-voorbeeldafbeelding <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Ten minste RHEL 7, in dit de Red Hat Enterprise Linux 7.4-voorbeeldafbeelding <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecteer de Beschikbaarheidsset eerder hebt gemaakt  
 1. Een gegevensschijf voor elk SAP-systeem toevoegen aan beide virtuele machines.
 

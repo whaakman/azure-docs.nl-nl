@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 06/21/2018
+ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 7d3361b44d47fd97c14f677e5e4bbc6c1ee5ad3f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45608296"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385122"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gasttoegang beheren met Azure AD toegangsbeoordelingen
 
@@ -39,7 +39,7 @@ U kunt eenvoudig Zorg er ook voor dat gastgebruikers ook kunnen de juiste toegan
 
 Toegangsbeoordelingen zijn beschikbaar met de Premium P2-editie van Azure AD, die deel uitmaakt van Microsoft Enterprise Mobility + Security, E5. Zie [Azure Active Directory-edities](../fundamentals/active-directory-whatis.md) voor meer informatie. Elke gebruiker die deze functie gebruikt (waaronder het maken van een beoordeling, het invullen van een beoordeling of het bevestigen van de toegang), heeft een licentie nodig. 
 
-Als u van plan bent om te vragen van gastgebruikers ook kunnen op hun eigen toegang beoordelen, kunt u meer informatie over gebruikerslicenties Gast. Zie voor meer informatie, [licentieverlening van Azure AD B2B-samenwerking](../b2b/licensing-guidance.md).
+U kunt ook vragen gastgebruikers ook kunnen op hun eigen toegang beoordelen. Voor elke betaalde Azure AD Premium P2-licentie die u aan een van de gebruikers van uw eigen organisatie toewijst, kunt u maximaal vijf gastgebruiker onder de aftrek van de externe gebruiker uitnodigen B2B. Deze gastgebruikers kunnen functies van Azure AD Premium P2 ook gebruiken. Zie voor meer informatie, [licentieverlening van Azure AD B2B-samenwerking](../b2b/licensing-guidance.md).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Maken en een toegangscontrole uitvoeren voor gasten
 

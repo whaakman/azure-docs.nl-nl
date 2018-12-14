@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 1951b6d6815f5ca0e6f17fda0d6eb8e7d2dd4aca
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6b74d83de0495e3436c9bef623a827e8a1496767
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276465"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343282"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van klassieke metrische waarschuwingen met behulp van Azure Monitor
 
@@ -129,5 +129,5 @@ Deze secties ziet u hoe u PowerShell-opdrachten maken, weergeven en beheren van 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een klassieke metrische waarschuwing maken met een Resource Manager-sjabloon](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+- [Een klassieke metrische waarschuwing maken met een Resource Manager-sjabloon](../../azure-monitor/platform/alerts-enable-template.md).
 - [Hebt u een klassieke waarschuwing voor metrische gegevens op de hoogte stellen een niet-Azure-systeem met behulp van een webhook](../../azure-monitor/platform/alerts-webhooks.md).

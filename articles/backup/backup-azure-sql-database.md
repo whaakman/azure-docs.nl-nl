@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: d38fc727ed7e9e3c47d2fcb9af7894f8a2a7c7a7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 988d61d6db867c33a2dd9998d675f40f49e71332
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262330"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341742"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Back-up van SQL Server-databases naar Azure
 
@@ -46,6 +46,8 @@ De volgende items zijn bekende beperkingen voor de openbare preview-versie:
 - [Back-ups van gedistribueerde beschikbaarheidsgroepen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) hebben beperkingen.
 - SQL Server Always On Failover Cluster Instances (Failoverclusterinstanties) worden niet ondersteund.
 - De Azure portal gebruiken voor Azure Backup configureren om het beveiligen van SQL Server-databases. Azure PowerShell, de Azure CLI en de REST API's worden momenteel niet ondersteund.
+- Bewerkingen voor back-up/herstellen voor gespiegelde databases, momentopnamen van databases en databases onder FCI worden niet ondersteund.
+- Database met een groot aantal bestanden kan niet worden beveiligd. Het maximum aantal ondersteunde bestanden is niet een heel deterministisch getal, omdat het niet alleen afhankelijk van het aantal bestanden, maar ook afhankelijk van de padlengte van de bestanden. Dergelijke gevallen zijn echter minder bekende. We werken aan een oplossing voor de afhandeling hiervan.
 
 Raadpleeg [gedeelte met veelgestelde vragen](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) voor meer informatie over de ondersteuning/niet-ondersteunde scenario's.
 
@@ -105,6 +107,7 @@ Voordat u back-up van SQL Server-database, controleert u de volgende voorwaarden
 - Bepalen of [maken van een Recovery Services-kluis](backup-azure-sql-database.md#create-a-recovery-services-vault) in dezelfde regio of land als de virtuele machine die als host fungeert voor uw SQL Server-exemplaar.
 - [Controleer de machtigingen voor de virtuele machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) die nodig zijn voor het back-up van de SQL-databases.
 - Controleer de [SQL virtuele machine heeft een netwerkverbinding](backup-azure-sql-database.md#establish-network-connectivity).
+- Controleer of de SQL-databases zijn met de naam volgens de [richtlijnen voor de naamgeving](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) voor geslaagde back-ups maken van Azure Backup.
 
 > [!NOTE]
 > U kunt slechts één back-upoplossing hebben op een moment naar de back-up van SQL Server-databases. Alle andere SQL-back-ups uitschakelen voordat u deze functie. anders wordt de back-ups leiden tot problemen en mislukken. U kunt inschakelen Azure back-up voor IaaS-VM samen met de SQL-back-up zonder een conflict.
@@ -133,7 +136,7 @@ De balans tussen de opties zijn beheerbaarheid, gedetailleerde controle en koste
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Machtigingen instellen voor niet - Marketplace SQL VM 's
 
-Als u wilt back-up van een virtuele machine, Azure Backup moet de **AzureBackupWindowsWorkload** extensie worden geïnstalleerd. Als u Azure Marketplace virtual machines gebruiken, blijven [detecteren SQL Server-databases](backup-azure-sql-database.md#discover-sql-server-databases). Als de virtuele machine die als host fungeert voor uw SQL-databases wordt niet vanuit de Azure Marketplace gemaakt, voert u de volgende procedure om de extensie installeren en instellen van de juiste machtigingen. Naast de **AzureBackupWindowsWorkload** SQL sysadmin-bevoegdheden in SQL-databases beveiligen door Azure Backup-extensie is vereist. Voor het detecteren van databases op de virtuele machine, maakt Azure Backup de account **NT Service\AzureWLBackupPluginSvc**. Voor back-up van Azure voor het detecteren van SQL-databases, de **NT Service\AzureWLBackupPluginSvc** account moet hebben, SQL en SQL sysadmin-bevoegdheden. De volgende procedure wordt uitgelegd hoe u deze machtigingen leveren.
+Als u wilt back-up van een virtuele machine, Azure Backup moet de **AzureBackupWindowsWorkload** extensie worden geïnstalleerd. Als u Azure Marketplace virtual machines gebruiken, blijven [detecteren SQL Server-databases](backup-azure-sql-database.md#discover-sql-server-databases). Als de virtuele machine die als host fungeert voor uw SQL-databases wordt niet vanuit de Azure Marketplace gemaakt, voert u de volgende procedure om de extensie installeren en instellen van de juiste machtigingen. Naast de **AzureBackupWindowsWorkload** SQL sysadmin-bevoegdheden in SQL-databases beveiligen door Azure Backup-extensie is vereist. Om databases op de virtuele machine detecteren, het account wordt gemaakt van Azure Backup **NT Service\AzureWLBackupPluginSvc**. Dit account wordt gebruikt voor back-up en herstel en moet SQL sysadmin-machtiging hebben. Bovendien Azure Backup gebruik van **NT AUTHORITY\SYSTEM** account voor DB detectie/query, zodat dit account hoeft te worden van een openbare aanmelding via SQL.
 
 Om machtigingen te configureren:
 
@@ -201,6 +204,14 @@ Tijdens het installatieproces, als u de foutmelding `UserErrorSQLNoSysadminMembe
 
 Nadat u de database aan de Recovery Services-kluis koppelen, de volgende stap is het [configureren van de back-uptaak](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
+## <a name="sql-database-naming-guidelines-for-azure-backup"></a>Richtlijnen voor de naamgeving voor back-up van Azure SQL-database
+Om ervoor te zorgen goede back-ups maken met Azure Backup voor SQL Server op IaaS-VM, wilt voorkomen dat het volgende bij het benoemen van de databases:
+
+  * Afsluitende/toonaangevende spaties
+  * Afsluitende '!'
+
+We hebben wel aliasing voor Azure-tabel niet-ondersteunde tekens, maar u kunt het beste die ook geen. Zie voor meer informatie dit [artikel](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-sql-server-databases"></a>Detecteren van SQL Server-databases
@@ -215,7 +226,7 @@ Azure Backup wordt gedetecteerd voor alle databases op een SQL Server-exemplaar.
 
 3. In de **alle services** dialoogvenster vak, voer **herstelservices**. Terwijl u typt, filtert de invoer van de lijst met resources. Selecteer **Recovery Services-kluizen** in de lijst.
 
-    ![Voer in en kies de Recovery Services-kluizen](./media/backup-azure-sql-database/all-services.png) <br/>
+  ![Voer in en kies de Recovery Services-kluizen](./media/backup-azure-sql-database/all-services.png) <br/>
 
     De lijst met Recovery Services-kluizen in het abonnement wordt weergegeven.
 
@@ -301,16 +312,9 @@ Beveiliging voor een SQL-database configureren:
     > Voor het optimaliseren van back-belastingen, Azure Backup-einden grote back-uptaken in meerdere batches. Het maximum aantal databases in één back-uptaak is 50.
     >
 
-    U kunt ook kunt u automatische beveiliging op de volledige instantie of AlwaysOn-beschikbaarheidsgroep inschakelen door het selecteren van de **ON** optie in de bijbehorende vervolgkeuzelijst in de **AUTOPROTECT** kolom. De functie Automatische beveiliging niet alleen kunt beveiliging op alle bestaande databases in één go maar ook automatisch beveiligd door een nieuwe databases die in de toekomst naar dat exemplaar of de beschikbaarheidsgroep worden toegevoegd.  
+      U kunt ook kunt u inschakelen [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) op de volledige-exemplaar of de Always On availability group door te selecteren de **ON** optie in de bijbehorende vervolgkeuzelijst in de **AUTOPROTECT**  kolom. De [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) functie kunt u niet alleen beveiliging op alle bestaande databases in één go, maar ook automatisch beveiligd door een nieuwe databases die in de toekomst naar dat exemplaar of de beschikbaarheidsgroep worden toegevoegd.  
 
       ![Inschakelen van automatische beveiliging van de AlwaysOn-beschikbaarheidsgroep](./media/backup-azure-sql-database/enable-auto-protection.png)
-
-      Als een exemplaar of een beschikbaarheidsgroep al enkele van de databases die zijn beveiligd heeft, kunt u nog steeds inschakelen **ON** de auto-protect-optie. In dit geval wordt de back-beleid is gedefinieerd in de volgende stap nu alleen zijn van toepassing op de niet-beveiligde databases terwijl de al beveiligde databases blijven met hun beleid wordt beveiligd.
-
-      Er is geen limiet voor het aantal databases dat in één go ophalen geselecteerd met behulp van automatisch beveiligen functie (als er veel databases zoals in de kluis kunnen worden geselecteerd).  
-
-      Het is raadzaam dat u op de automatische beveiliging voor alle instanties en AlwaysOn-beschikbaarheidsgroepen inschakelen als u wilt dat alle databases in de toekomst toegevoegd worden automatisch geconfigureerd voor beveiliging.
-
 
 7. Om te maken of kies een back-upbeleid op de **back-up** in het menu **back-upbeleid**. De **back-upbeleid** menu wordt geopend.
 
@@ -340,6 +344,22 @@ Beveiliging voor een SQL-database configureren:
 
     ![Systeemvak](./media/backup-azure-sql-database/notifications-area.png)
 
+
+## <a name="auto-protect-sql-server-in-azure-vm"></a>Beveilig automatisch SQL Server in Azure VM  
+
+Automatische beveiliging is een functie waarmee u automatisch beveiligen van alle bestaande databases, evenals de toekomstige databases die u in een zelfstandige SQL Server-exemplaar of een SQL Server Always On-beschikbaarheidsgroep toevoegen wilt.
+
+Als een exemplaar of een beschikbaarheidsgroep al enkele van de databases die zijn beveiligd heeft, kunt u nog steeds inschakelen **ON** de auto-protect-optie. In dit geval wordt is het back-upbeleid dus gedefinieerd alleen van toepassing op de niet-beveiligde databases terwijl de al beveiligde databases blijven worden beveiligd met hun beleid.
+
+![Inschakelen van automatische beveiliging van de AlwaysOn-beschikbaarheidsgroep](./media/backup-azure-sql-database/enable-auto-protection.png)
+
+Er is geen limiet voor het aantal databases dat in één go ophalen geselecteerd met behulp van automatisch beveiligen met een functie. Configureren van back-up wordt geactiveerd voor alle databases die samen en kan worden gevolgd in de **back-uptaken**.
+
+Als om een bepaalde reden u de automatische beveiliging op een exemplaar uitschakelen moet, klikt u op de naam van het exemplaar onder **back-up configureren** openen van het paneel aan de rechterkant informatie die is **uitschakelen Autoprotect** op de Boven. Klik op **uitschakelen Autoprotect** uitschakelen van automatische beveiliging op dat exemplaar.
+
+![Schakel de beveiliging automatisch voor dat exemplaar](./media/backup-azure-sql-database/disable-auto-protection.png)
+
+Alle databases in dat geval blijven worden beveiligd. Deze actie wordt echter uitgeschakeld. automatische beveiliging voor alle databases die in de toekomst worden toegevoegd.
 
 ### <a name="define-a-backup-policy"></a>Een back-upbeleid definiëren
 
@@ -736,15 +756,9 @@ Beveiliging voor een database stoppen:
 
 7. Selecteer **back-up stoppen** beveiliging stoppen op de database.
 
-  Houd er rekening mee dat **back-up stoppen** optie werkt niet voor een database in een exemplaar automatisch wordt beveiligd. De enige manier om te stoppen met het beveiligen van deze database is de automatische beveiliging op het exemplaar van de tijd die uitschakelen en kies vervolgens de **back-up stoppen** onder de optie **back-Upitems** voor die database.  
+  Houd er rekening mee dat **back-up stoppen** optie werkt niet voor een database in een [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) exemplaar. De enige manier om te stoppen met het beveiligen van deze database is uit te schakelen de [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) op de instantie voor het voorlopig aanwezig en kies vervolgens de **back-up stoppen** onder de optie **back-Upitems**voor die database.<br>
+  Nadat u automatische beveiliging hebt uitgeschakeld, kunt u **back-up stoppen** voor de database onder **back-Upitems**. Het exemplaar kan opnieuw worden ingeschakeld voor automatische beveiliging nu.
 
-  U kunt de automatische beveiliging op een exemplaar of de Always On availability group onder uitschakelen **back-up configureren**. Klik op de naam van het exemplaar te openen van het paneel aan de rechterkant informatie die is **uitschakelen Autoprotect** in de rechterbovenhoek. Klik op **uitschakelen Autoprotect** uitschakelen van automatische beveiliging op dat exemplaar.
-
-    ![Schakel de beveiliging automatisch voor dat exemplaar](./media/backup-azure-sql-database/disable-auto-protection.png)
-
-Alle databases in dat geval blijven worden beveiligd. Deze actie wordt echter uitgeschakeld. automatische beveiliging voor alle databases die in de toekomst worden toegevoegd.
-
-Nadat u automatische beveiliging hebt uitgeschakeld, kunt u **back-up stoppen** voor de database onder **back-Upitems**. Het exemplaar kan opnieuw worden ingeschakeld voor automatische beveiliging nu.
 
 ### <a name="resume-protection-for-a-sql-database"></a>Beveiliging van een SQL-database hervatten
 
@@ -835,22 +849,22 @@ Azure Backup Recovery Services-kluis kunt detecteren en alle knooppunten die zic
 
 ### <a name="while-i-want-to-protect-most-of-the-databases-in-an-instance-i-would-like-to-exclude-a-few-is-it-possible-to-still-use-the-auto-protection-feature"></a>Terwijl ik wil de meeste van de databases in een exemplaar beveiligen, moet ik wil graag een paar uitsluiten. Is het mogelijk nog steeds gebruik van de functie Automatische beveiliging?
 
-Nee, automatische beveiliging is van toepassing op het volledige-exemplaar. U kunt niet selectief beveiligen databases een exemplaar met behulp van automatische beveiliging.
+Nee, [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) is van toepassing op het volledige-exemplaar. U kunt niet selectief beveiligen databases een exemplaar met behulp van automatische beveiliging.
 
 ### <a name="can-i-have-different-policies-for-different-databases-in-an-auto-protected-instance"></a>Kan ik verschillende beleidsregels voor verschillende databases hebben in een exemplaar automatisch wordt beveiligd?
 
-Als u al enkele beveiligde databases in een exemplaar hebt, blijven deze moet worden beveiligd met hun beleid, zelfs nadat u de **ON** de optie Automatische beveiliging. Alle niet-beveiligde databases samen met degene die u in de toekomst zou toevoegen heeft echter slechts één beleid die u definieert onder **back-up configureren** nadat de databases zijn geselecteerd. In feite, in tegenstelling tot andere beveiligde databases wijzigen u niet ook het beleid voor een database onder een exemplaar automatisch wordt beveiligd.
+Als u al enkele beveiligde databases in een exemplaar hebt, blijven deze moet worden beveiligd met hun beleid, zelfs nadat u de **ON** de [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) optie. Alle niet-beveiligde databases samen met degene die u in de toekomst zou toevoegen heeft echter slechts één beleid die u definieert onder **back-up configureren** nadat de databases zijn geselecteerd. In feite, in tegenstelling tot andere beveiligde databases wijzigen u niet ook het beleid voor een database onder een exemplaar automatisch wordt beveiligd.
 Als u doen wilt, is de enige manier om te schakelen de automatische beveiliging op de instantie voor het voorlopig aanwezig en wijzig vervolgens het beleid voor die database. U kunt nu automatische beveiliging voor dit exemplaar opnieuw inschakelen.
 
 ### <a name="if-i-delete-a-database-from-an-auto-protected-instance-will-the-backups-for-that-database-also-stop"></a>Als ik een database niet uit een exemplaar automatisch wordt beveiligd verwijderen, wordt de back-ups voor die database ook stoppen?
 
 Nee, als een database wordt verwijderd uit een exemplaar automatisch wordt beveiligd, worden de back-ups op dat de database nog steeds uitgevoerd. Dit betekent dat de verwijderde database moeten worden weergegeven als niet in orde onder begint **back-Upitems** en nog steeds wordt behandeld als beveiligd.
 
-De enige manier om te stoppen met het beveiligen van deze database is de automatische beveiliging op het exemplaar van de tijd die uitschakelen en kies vervolgens de **back-up stoppen** onder de optie **back-Upitems** voor die database. U kunt nu automatische beveiliging voor dit exemplaar opnieuw inschakelen.
+De enige manier om te stoppen met het beveiligen van deze database is uit te schakelen de [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) op de instantie voor het voorlopig aanwezig en kies vervolgens de **back-up stoppen** onder de optie **back-Upitems**voor die database. U kunt nu automatische beveiliging voor dit exemplaar opnieuw inschakelen.
 
 ###  <a name="why-cant-i-see-the-newly-added-database-to-an-auto-protected-instance-under-the-protected-items"></a>Waarom zie ik de zojuist toegevoegde database naar een exemplaar automatisch wordt beveiligd onder de beveiligde items niet?
 
-Mogelijk ziet u niet een nieuw toegevoegde database naar een direct beveiligd automatisch beveiligd exemplaar. Dit is omdat de detectie wordt doorgaans uitgevoerd om de 8 uur. De gebruiker kan echter uitvoeren een handmatige detectie met **databases herstellen** optie om te detecteren en bescherming van nieuwe databases onmiddellijk zoals wordt weergegeven in de onderstaande afbeelding:
+Mogelijk ziet u niet een nieuw toegevoegde database naar een [automatisch beveiligd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) exemplaar direct worden beveiligd. Dit is omdat de detectie wordt doorgaans uitgevoerd om de 8 uur. De gebruiker kan echter uitvoeren een handmatige detectie met **databases herstellen** optie om te detecteren en bescherming van nieuwe databases onmiddellijk zoals wordt weergegeven in de onderstaande afbeelding:
 
   ![Toegevoegde Database weergeven](./media/backup-azure-sql-database/view-newly-added-database.png)
 
