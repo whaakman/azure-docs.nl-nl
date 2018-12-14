@@ -1,77 +1,71 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ef0ecc7a9e89168ed57c75ab24c3233692d77151
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 865f7421172c3302333b1cbf465f66806b296759
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863564"
-documentType: LandingData
-title: Documentatie voor Machine Learning
-metadata:
-  title: Documentatie voor Azure Machine Learning – zelfstudies, API-verwijzing | Microsoft Docs
-  description: Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen en spreken en de behoeften van uw gebruikers kunnen begrijpen via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
-  services: machine-learning
-  author: j-martens
-  ms.service: machine-learning
-  ms.component: core
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 12/04/2018
-  ms.author: jmartens
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314377"
 abstract:
   description: Meer informatie over hoe u intelligente algoritmes in apps en websites bouwt met deze Azure Machine Learning-producten.  Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
+documentType: LandingData
+metadata:
+  author: j-martens
+  description: Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen en spreken en de behoeften van uw gebruikers kunnen begrijpen via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
+  ms.author: jmartens
+  ms.component: core
+  ms.date: 12/04/2018
+  ms.devlang: na
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  services: machine-learning
+  title: Documentatie voor Azure Machine Learning – zelfstudies, API-verwijzing | Microsoft Docs
 sections:
 - items:
-  - type: list
-    style: cards
-    className: cardsM
+  - className: cardsM
     columns: 2
     items:
     - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>Ontdek hoe gegevenswetenschappers met deze service AI-oplossingen ontwikkelen en beheren<br/> met behulp van de CLI en Python-hulpprogramma's en -bibliotheken met een verscheidenheid aan Azure-gegevens een compute-services. Meer informatie...</p>
+      html: <p>Ontdek hoe gegevenswetenschappers met deze service AI-oplossingen ontwikkelen en beheren<br/> met behulp van de Azure CLI en Python-hulpprogramma's en -bibliotheken met een verscheidenheid aan Azure-gegevens een compute-services. Meer informatie...</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: Azure Machine Learning-service
-- title: Snelstarts en zelfstudies
-  items:
-  - type: paragraph
-    text: 'Leer hoe u snel de Azure Machine Learning-service instelt en gebruikt:'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/i_machine-learning.svg
-    rows:
-    - title: Aan de slag met de service in de Azure-portal
-      values:
-      - href: /azure/machine-learning/service/quickstart-get-started
-    - title: Aan de slag met de service in Python
-      values:
-      - href: /azure/machine-learning/service/quickstart-create-workspace-with-python
-    - title: Gegevens voorbereiden voor modellering
-      values:
-      - href: /azure/machine-learning/service/tutorial-data-prep
-    - title: Uw eigen Machine Learning-model bouwen
-      values:
-      - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-    - title: Automatisch algoritmen genereren en afstemmen
-      values:
-      - href: /azure/machine-learning/service/tutorial-auto-train-models
-    - title: Uw model als webservice implementeren
-      values:
-      - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-    - title: Uw Machine Learning-modellen gebruiken
-      values:
-      - href: /azure/machine-learning/service/how-to-consume-web-service
-    - title: Machine learning-pijplijnen maken en beheren
-      values:
-      - href: /azure/machine-learning/service/how-to-create-your-first-pipeline
-- title: Andere machine learning-technologieën van Microsoft
-  items:
-  - type: list
     style: cards
-    className: cardsM
+    type: list
+- items:
+  - text: 'Bereid u voor en ga aan de slag met Azure Machine Learning-service:'
+    type: paragraph
+  - text: <b>Quickstarts:</b>
+    type: paragraph
+  - items:
+    - html: <a href="service/quickstart-create-workspace-with-python">Python gebruiken om aan de slag te gaan</a>
+    - html: <a href="service/quickstart-get-started">Azure Portal gebruiken om aan de slag te gaan</a>
+    style: unordered
+    type: list
+  - text: <b>Zelfstudie voor afbeeldingsclassificatie met MNIST-gegevens:</b>
+    type: paragraph
+  - items:
+    - html: 'Deel 1: <a href="service/tutorial-train-models-with-aml">Uw eigen model trainen</a>'
+    - html: 'Deel 2: <a href="service/tutorial-deploy-models-with-aml">Dat model implementeren</a>'
+    style: unordered
+    type: list
+  - text: <b>Zelfstudie over hoe u regressie modelleert met taxigegevens uit NYC:</b>
+    type: paragraph
+  - items:
+    - html: 'Deel 1: <a href="service/tutorial-data-prep">Gegevens voorbereiden voor modellering</a>'
+    - html: 'Deel 2: <a href="service/tutorial-auto-train-models">Geautomatiseerde ML-trainingsmodellen voor u laten werken</a>'
+    style: unordered
+    type: list
+  - text: <b>Uw modellen gebruiken:</b>
+    type: paragraph
+  - items:
+    - html: <a href="service/how-to-consume-web-service">Gebruik van aanvraag/antwoord-modellen</a>
+    - html: <a href="service/how-to-run-batch-predictions">Voorspellingen batchen met ML-pijplijnen</a>
+    style: unordered
+    type: list
+  title: Snelstarts en zelfstudies
+- items:
+  - className: cardsM
     columns: 2
     items:
     - href: /azure/cognitive-services/
@@ -80,7 +74,7 @@ sections:
         src: /azure/machine-learning/media/index/cognitive-services.png
       title: Cognitive Services
     - href: /azure/machine-learning/studio/
-      html: <p>Informatie over dit hulpprogramma met functionaliteit op basis van slepen en neerzetten dat kan worden gebruikt om in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens te ontwikkelen, testen en implementeren. Meer informatie... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      html: <p>Een hulpprogramma met functionaliteit op basis van slepen en neerzetten, om in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens te ontwikkelen, testen en implementeren met R of Python. </p>
       image:
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
       title: Azure Machine Learning Studio
@@ -104,3 +98,7 @@ sections:
       image:
         src: /azure/machine-learning/media/index/virtualmachine.svg
       title: Data Science Virtual Machine
+    style: cards
+    type: list
+  title: Andere machine learning-technologieën van Microsoft
+title: Documentatie voor Machine Learning

@@ -65,6 +65,8 @@ items:
   - name: Gegevens streamen naar Azure Databricks met behulp van Event Hubs
     href: ../azure-databricks/databricks-stream-from-eventhubs.md
     maintainContext: true
+  - name: Integratie van virtuele netwerken en firewalls inschakelen in Event Hubs-naamruimte
+    href: event-hubs-tutorial-virtual-networks-firewalls.md
   - name: Event Hubs voor Apache Kafka
     items:
     - name: Een Kafka-broker spiegelen in een Event Hub waar Apache Kafka is ingeschakeld
@@ -134,7 +136,7 @@ items:
     items:
     - name: Uitzonderingen
       href: event-hubs-messaging-exceptions.md
-  - name: IP-filters gebruiken
+  - name: Gebruik firewalls
     href: event-hubs-ip-filtering.md
   - name: Service-eindpunten voor virtueel netwerk gebruiken
     href: event-hubs-service-endpoints.md
@@ -186,9 +188,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: d6fb88ed6bfcf48cb35da068e50b670f4b1b685c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2ce3523843713bd2e00536922f7bcfeebaa54798
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726964"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53267982"

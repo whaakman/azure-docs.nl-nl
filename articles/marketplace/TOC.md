@@ -1,16 +1,18 @@
 # [Documentatie voor Azure Marketplace en AppSource](index.md)
-## [Beleid voor classificatie en beoordeling](./rating-review-policies.md)   
+
 ## [Overzicht en voordelen van Azure Marketplace en AppSource](./marketplace-publishers-guide.md)  
 
 ### [Uitgever worden op de marketplace](./become-publisher.md)  
 #### [Een Microsoft-account maken](./guidelines.md)
 #### [Registreren in Dev Center](./register-dev-center.md) 
 #### [Gebruikskenmerken van klanten van Azure-partners](./azure-partner-customer-usage-attribution.md)
-#### [Leadmanagement voor de cloud-marketplace](./lead-management-for-cloud-marketplace.md)
 
-### [Webwinkels](./comparing-appsource-azure-marketplace.md)  
+### [Een marketplace, twee webwinkels](./comparing-appsource-azure-marketplace.md)  
 
-### [De publicatieoptie voor uw oplossing kiezen](./determine-your-listing-type.md)  
+### [Publicatie-opties en -overwegingen](./determine-your-listing-type.md)
+#### [Leadbeheer](./lead-management-for-cloud-marketplace.md)
+#### [Transacties in Azure Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Persoonlijke aanbiedingen](./private-offers.md)
 
 ### [Publicatiehandleiding op type aanbieding](./publisher-guide-by-offer-type.md)
 #### [Virtuele machines](./marketplace-virtual-machines.md)
@@ -26,8 +28,7 @@
 ### [Laat uw bedrijf groeien via de marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Voorkeursoplossingen](./preferred-solutions.md) 
 #### [Validatie van Marketplace-inhoud](./marketplace-criteria-content-validation.md)
-#### [Persoonlijke aanbiedingen](./private-offers.md)
-#### [Commerciële transactiemogelijkheden en overwegingen voor Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Beleid voor classificatie en beoordeling](./rating-review-policies.md)   
 
 ### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)  
 
@@ -67,8 +68,15 @@
 #### [Algemene problemen bij het maken van VHD's](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 #### [Verbinding maken met de VM](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
 #### [De VM configureren](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
-#### [De VM implementeren vanaf VHD's](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [VHD-implementatiesjabloon (JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+#### [Windows Remote Management](./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md) 
+##### [WinRM configureren nadat de virtuele machine is gemaakt](./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md)
+#### [VM implementeren](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [Een VM-installatiekopie voor gebruikers maken](./cloud-partner-portal/virtual-machine/cpp-create-user-image.md)
+##### [Sleutelkluiscertificaat maken](./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md)
+###### [Implementatiesjabloon voor sleutelkluis](./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md)
+#### [Virtuele machine vanuit een gebruikers-VHD implementeren](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md)
+##### [VHD-implementatiesjabloon](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+##### [Een VM implementeren vanuit marketplace](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 #### [VM-installatiekopie certificeren](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
 #### [SAS-URI ophalen](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 #### [Veelvoorkomende problemen met SAS-URL](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
@@ -88,21 +96,53 @@
 ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
+<!-- new section for Azure apps -->
 
-## [Aanbieding voor Azure-toepassing](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
-### [Beheerde toepassing maken](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
-### [Oplossingssjabloon maken](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
-### [Een beheeroplossing publiceren](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
-### [SEO-hulp](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [Aanbieding live laten gaan](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
-### [Bestaande aanbieding bijwerken](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
-### [Aanbieding verwijderen](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
+## [Aanbieding voor Azure-toepassing](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
+### [Vereisten](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
+### [Aanbieding voor Azure-toepassing maken](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
+#### [Tabblad voor aanbiedingsinstellingen](./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md)
+#### [Tabblad voor SKU's](./cloud-partner-portal/azure-applications/cpp-skus-tab.md)
+#### [Tabblad voor Test Drive](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
+#### [Tabblad voor Marketplace](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
+#### [Tabblad voor ondersteuning](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
+<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Aanbieding voor Azure-toepassing maken publiceren](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+### [Bestaande aanbieding bijwerken](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
-## [Aanbieding voor SaaS-toepassing](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
-### [Technische publicatiehandleiding voor SaaS-toepassingen](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
-### [SaaS verkopen via Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
+<!-- Legacy Azure App section replaced
+## [Azure application offer](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
+    Obsolete ### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
+### [Author solution template](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
+### [Publish a Management Solution](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
+### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
+### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
+### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
+   Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
+-->
+
+<!-- new for SaaS 12/05/2018 -->
+## [Aanbieding voor SaaS-toepassing](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
+### [Vereisten](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
+### [Aanbieding voor SaaS-toepassing maken](./cloud-partner-portal/saas-app/cpp-create-offer.md)
+#### [Tabblad voor aanbiedingsinstellingen](./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md)
+#### [Tabblad Technische gegevens](./cloud-partner-portal/saas-app/cpp-technical-info-tab.md)
+#### [Tabblad Abonnementen](./cloud-partner-portal/saas-app/cpp-plans-tab.md)
+#### [Tabblad Informatiekanaal](./cloud-partner-portal/saas-app/cpp-channel-info-tab.md)
+#### [Tabblad voor Test Drive](./cloud-partner-portal/saas-app/cpp-testdrive-tab.md)
+#### [Tabblad Details van webwinkel](./cloud-partner-portal/saas-app/cpp-storefront-tab.md)
+#### [Tabblad Contactpersonen](./cloud-partner-portal/saas-app/cpp-contacts-tab.md)
+### [Aanbieding publiceren](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
+### [Bestaande aanbieding bijwerken](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 ### [SaaS-API’s](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+
+<!-- Legacy SaaS Offer replaced
+## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
+### [SaaS apps technical publishing guide](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
+### [SaaS Sell through Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
+### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+-->
 
 ## [Aanbieding voor containers](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [Vereisten](./cloud-partner-portal/containers/cpp-prerequisites.md)
