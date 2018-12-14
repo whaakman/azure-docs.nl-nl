@@ -63,8 +63,8 @@ De volgende eigenschappen worden ondersteund voor bestand system gekoppelde serv
 
 | Scenario | 'host' in de definitie van de gekoppelde service | 'folderPath' in de definitie van de gegevensset |
 |:--- |:--- |:--- |
-| Lokale map op de machine Integration Runtime: <br/><br/>Voorbeelden: D:\\ \* of D:\folder\subfolder\\* |In de JSON: `D:\\`<br/>Op de gebruikersinterface: `D:\` |In JSON: `.\\` of `folder\\subfolder`<br>In de gebruikersinterface: `.\` of `folder\subfolder` |
-| Externe gedeelde map: <br/><br/>Voorbeelden: \\ \\MijnServer\\delen\\ \* of \\ \\MijnServer\\delen\\map\\submap\\* |In de JSON: `\\\\myserver\\share`<br/>Op de gebruikersinterface: `\\myserver\share` |In JSON: `.\\` of `folder\\subfolder`<br/>In de gebruikersinterface: `.\` of `folder\subfolder` |
+| Lokale map op de machine Integration Runtime: <br/><br/>Voorbeelden: D:\\ \* of D:\folder\subfolder\\ * |In de JSON: `D:\\`<br/>Op de gebruikersinterface: `D:\` |In JSON: `.\\` of `folder\\subfolder`<br>In de gebruikersinterface: `.\` of `folder\subfolder` |
+| Externe gedeelde map: <br/><br/>Voorbeelden: \\ \\MijnServer\\delen\\ \* of \\ \\MijnServer\\delen\\map\\submap\\ * |In de JSON: `\\\\myserver\\share`<br/>Op de gebruikersinterface: `\\myserver\share` |In JSON: `.\\` of `folder\\subfolder`<br/>In de gebruikersinterface: `.\` of `folder\subfolder` |
 
 >[!NOTE]
 >Wanneer u via de gebruikersinterface, moet u niet voor het invoeren van twee backslashes (`\\`) opgeven om te escapen, zoals u ook via JSON, één backslash.

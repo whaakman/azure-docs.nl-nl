@@ -1668,7 +1668,7 @@ In de tabel onder normale SAP worden communicatiepoorten weergegeven. Het is in 
 
 *) nn = getal voor SAP-exemplaar
 
-*) beveiligings-id = SAP-systeem-ID
+**) beveiligings-id = SAP-systeem-ID
 
 Meer gedetailleerde informatie over de poorten die nodig zijn voor verschillende SAP-producten of services van SAP-producten vindt u hier <http://scn.sap.com/docs/DOC-17124>.
 Met dit document moet u het volgende kunnen toegewezen poorten openen in de VPN-apparaat die nodig zijn voor specifieke SAP-producten en -scenario's.

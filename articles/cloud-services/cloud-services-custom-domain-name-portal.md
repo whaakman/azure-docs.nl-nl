@@ -115,7 +115,7 @@ Voor het maken van een A-record, moet u eerst het virtuele IP-adres van uw cloud
      Sla het IP-adres als u deze nodig heeft bij het maken van een A-record.
 2. Meld u aan bij uw DNS-registratieservice-website en Ga naar de pagina voor het beheren van DNS. Zoek koppelingen of gebieden van de site met het label **domeinnaam**, **DNS**, of **Serverbeheernaam**.
 3. Nu kunt u selecteren of invoeren van een record vinden. Mogelijk moet u het recordtype in een vervolgkeuzelijst omlaag selecteren of Ga naar een pagina met geavanceerde instellingen.
-4. Selecteer of Voer het domein of subdomein dat door deze A-record wordt gebruikt. Selecteer bijvoorbeeld **www** als u wilt maken van een alias voor **www.customdomain.com**. Als u maken van een jokerteken-vermelding voor alle subdomeinen wilt, voert u ' ***'. Deze bestrijken alle subdomeinen zoals **mail.customdomain.com**, **login.customdomain.com**, en **www.customdomain.com**.
+4. Selecteer of Voer het domein of subdomein dat door deze A-record wordt gebruikt. Selecteer bijvoorbeeld **www** als u wilt maken van een alias voor **www.customdomain.com**. Als u maken van een jokerteken-vermelding voor alle subdomeinen wilt, voert u ' *****'. Deze bestrijken alle subdomeinen zoals **mail.customdomain.com**, **login.customdomain.com**, en **www.customdomain.com**.
    
     Als u maken van een A-record voor het hoofddomein wilt, kan deze worden vermeld als de '**@**' symbool in hulpprogramma's van uw registrar voor DNS.
 5. Voer het IP-adres van uw cloudservice in het opgegeven veld. Hiermee wordt de domein-vermelding in de A-record met het IP-adres van uw cloud service-implementatie gebruikt.
@@ -126,7 +126,7 @@ Bijvoorbeeld, de volgende een record al het verkeer van verzendt **contoso.com**
 | --- | --- |
 | \@ |137.135.70.239 |
 
-In dit voorbeeld ziet u het maken van een A-record voor het hoofddomein. Als u een jokerteken-vermelding aan zodat alle subdomeinen maken wilt, voert u dus ' ***' als het subdomein.
+In dit voorbeeld ziet u het maken van een A-record voor het hoofddomein. Als u een jokerteken-vermelding aan zodat alle subdomeinen maken wilt, voert u dus ' *****' als het subdomein.
 
 > [!WARNING]
 > IP-adressen in Azure zijn standaard dynamisch. Wilt u waarschijnlijk gebruik van een [gereserveerd IP-adres](../virtual-network/virtual-networks-reserved-public-ip.md) om ervoor te zorgen dat uw IP-adres niet verandert.
