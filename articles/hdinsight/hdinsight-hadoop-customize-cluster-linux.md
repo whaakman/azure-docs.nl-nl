@@ -458,7 +458,7 @@ Als het maken van een cluster mislukt vanwege een fout in het script, worden de 
 
     * **Zookeeper-knooppunt** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Alle stdout en stderr van de bijbehorende host is geüpload naar het opslagaccount. Er is een **uitvoer -\*.txt** en **fouten -\*.txt** voor afzonderlijke scriptacties. De uitvoer-txt-bestand bevat informatie over de URI van het script dat is uitgevoerd op de host. De volgende tekst is een voorbeeld van deze informatie:
+* Alle stdout en stderr van de bijbehorende host is geüpload naar het opslagaccount. Er is een **uitvoer -\*.txt** en **fouten -\*.txt** voor afzonderlijke scriptacties. De uitvoer-\*.txt-bestand bevat informatie over de URI van het script dat is uitgevoerd op de host. De volgende tekst is een voorbeeld van deze informatie:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 

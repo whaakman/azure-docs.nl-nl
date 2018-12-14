@@ -140,7 +140,7 @@ Een op regels gebaseerde engine op de achtergrond voor het verzamelen van gegeve
 > [!NOTE] 
 > Windows-versies met de .NET Framework 4.5 of hoger worden momenteel ondersteund.
 
-### <a name="performance-counter-trace-"></a>Prestaties teller tracering (*)
+### <a name="performance-counter-trace-"></a>Prestaties teller tracering (\*\*)
 
 Verzamelt de volgende prestatiemeteritems:
 
@@ -156,7 +156,7 @@ Verzamelt de volgende prestatiemeteritems:
 #### <a name="for-azure-files"></a>Voor Azure Files
 \SMB Clientshares
 
-### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark tracering (*)
+### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark tracering (\*\*\*)
 Diskspd i/o-werkbelasting tests uit (Besturingssysteemschijf [schrijven] en groep-stations [lezen/schrijven])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Het hulpprogramma PerfInsights uitvoeren op uw virtuele machine
