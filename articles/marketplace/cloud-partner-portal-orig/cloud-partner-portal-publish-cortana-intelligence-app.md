@@ -59,7 +59,7 @@ Deze ID wordt weergegeven in de product-URL's. De id kan alleen bestaan uit alfa
 
 **Voorbeeld:**
 
-Als de uitgever **contoso** maakt u een aanbieding met de aanbiedings-ID *voorbeeld Cortana Intelligence*, wordt het weergegeven in AppSource als 'https://appsource.microsoft.com/marketplace/apps/**contoso**. *Voorbeeld van Cortana Intelligence*? tab = Overview '.
+Als de uitgever **contoso** maakt u een aanbieding met de aanbiedings-ID *voorbeeld Cortana Intelligence*, wordt het weergegeven in AppSource als 'https://appsource.microsoft.com/marketplace/apps/**contoso**.*Voorbeeld van Cortana Intelligence*? tab = Overview '.
 
 ### <a name="publisher-id"></a>Uitgevers-ID
 
