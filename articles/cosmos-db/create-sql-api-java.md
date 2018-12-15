@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: moderakh
-ms.openlocfilehash: 65af8a27d864231e6302d813836e2f63803234d2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5f66623c8e37f0663da7defc10d87d89bd0ad99d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844775"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105775"
 ---
 # <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>Resources van een Azure Cosmos DB SQL API-account met behulp van een Java-toepassing maken en beheren
 
@@ -39,7 +39,7 @@ Daarnaast doet u het volgende:
 * [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks)
     * Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.
     * Zorg dat de omgevingsvariabele JAVA_HOME verwijst naar de map waarin de JDK is geïnstalleerd.
-* [Download](http://maven.apache.org/download.cgi) en [installeer](http://maven.apache.org/install.html) een binair [Maven](http://maven.apache.org/)-archief
+* [Download](https://maven.apache.org/download.cgi) en [installeer](https://maven.apache.org/install.html) een binair [Maven](https://maven.apache.org/)-archief
     * Op Ubuntu kunt u `apt-get install maven` uitvoeren om Maven te installeren.
 * [Git](https://www.git-scm.com/)
     * Op Ubuntu kunt u `sudo apt-get install git` uitvoeren om Git te installeren.

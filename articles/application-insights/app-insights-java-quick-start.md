@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 45d1275ac3b78836cbb77c4e1508d0689c215d69
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246510"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998607"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Beginnen met controleren van de Java-webtoepassing
 
@@ -29,7 +29,7 @@ Deze snelstartgids helpt u de Application Insights SDK toe te voegen aan een bes
 Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 - JRE 1.7 of 1.8 installeren
-- [Gratis Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/downloads/) installeren. In deze snelstartgids wordt gebruikgemaakt van Eclipse Oxygen (4.7)
+- [Gratis Eclipse IDE voor Java EE-ontwikkelaars](https://www.eclipse.org/downloads/) installeren. In deze snelstartgids wordt gebruikgemaakt van Eclipse Oxygen (4.7)
 - U hebt een Azure-abonnement en een bestaand Java Dynamic-webproject nodig
  
 Als u geen Java Dynamic-webproject hebt, kunt u er een maken met behulp van de [snelstartgids Een Java-web-app maken](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
@@ -67,7 +67,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
    ![Nieuw App Insights-resourceformulier](./media/app-insights-java-quick-start/000-j.png)
 
-2. Kopieer ```http://dl.microsoft.com/eclipse``` in het veld Werken met > Schakel **Azure-toolkit voor Java** in > Selecteer **Application Insights-invoegtoepassing voor Java** > **Schakel** de optie uit voor het contact opnemen met alle updatesites tijdens de installatie om de vereiste software te vinden.
+2. Kopieer ```https://dl.microsoft.com/eclipse``` in het veld Werken met > Schakel **Azure-toolkit voor Java** in > Selecteer **Application Insights-invoegtoepassing voor Java** > **Schakel** de optie uit voor het contact opnemen met alle updatesites tijdens de installatie om de vereiste software te vinden.
 
 3. Zodra de installatie is voltooid, wordt u gevraagd om **Eclipse opnieuw te starten**.
 
@@ -130,7 +130,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
    ![Grafieken voor metrische servergegevens](./media/app-insights-java-quick-start/livemetricsjava.png)
 
-Bekijk de [extra Java-documentatie voor App Insights](.\app-insights-java-get-started.md) voor meer informatie over het controleren van Java.
+Bekijk de [extra Java-documentatie voor App Insights](./app-insights-java-get-started.md) voor meer informatie over het controleren van Java.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

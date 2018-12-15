@@ -12,16 +12,16 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496032"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993183"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>De OpenAPI-definitie maken voor een functie
 
-REST-API's worden vaak beschreven met behulp van de definitie van een OpenAPI (voorheen bekend als een [Swagger](http://swagger.io/)-bestand). Deze definitie bevat informatie over welke bewerkingen beschikbaar zijn in een API en hoe de gegevens van de aanvraag en respons voor de API moeten worden opgebouwd.
+REST-API's worden vaak beschreven met behulp van de definitie van een OpenAPI (voorheen bekend als een [Swagger](https://swagger.io/)-bestand). Deze definitie bevat informatie over welke bewerkingen beschikbaar zijn in een API en hoe de gegevens van de aanvraag en respons voor de API moeten worden opgebouwd.
 
 In deze zelfstudie maakt u een functie waarmee wordt bepaald of een noodherstelproces op een windturbine rendabel is. Vervolgens maakt u een OpenAPI-definitie voor de functie-app zodat de functie kan worden aangeroepen vanuit andere apps en services.
 
@@ -123,7 +123,7 @@ U hebt nu een functie die de kosteneffectiviteit van noodreparaties bepaalt. Ver
 
 ## <a name="generate-the-openapi-definition"></a>De OpenAPI-definitie genereren
 
-U nu kunt de OpenAPI-definitie genereren. Deze definitie kan zowel worden gebruikt door andere Microsoft-technologieën, zoals API-Apps [PowerApps](functions-powerapps-scenario.md) en [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), als door hulpprogramma's voor ontwikkelaars door derden, zoals [Postman](https://www.getpostman.com/docs/importing_swagger) en [nog veel meer pakketten](http://swagger.io/tools/).
+U nu kunt de OpenAPI-definitie genereren. Deze definitie kan zowel worden gebruikt door andere Microsoft-technologieën, zoals API-Apps [PowerApps](functions-powerapps-scenario.md) en [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), als door hulpprogramma's voor ontwikkelaars door derden, zoals [Postman](https://www.getpostman.com/docs/importing_swagger) en [nog veel meer pakketten](https://swagger.io/tools/).
 
 1. Selecteer alleen de *werkwoorden* die uw API ondersteunt (in dit geval POST). Hierdoor is de gegenereerde API-definitie schoner.
 
@@ -141,7 +141,7 @@ U nu kunt de OpenAPI-definitie genereren. Deze definitie kan zowel worden gebrui
 
     ![Bron van API-definitie](media/functions-openapi-definition/api-definition-source.png)
 
-    Deze stap maakt een reeks OpenAPI-opties mogelijk voor uw functie-app, met inbegrip van een eindpunt voor het hosten van een OpenAPI-bestand uit het domein van uw functie app, een inline-kopie van de [OpenAPI Editor](http://editor.swagger.io), en een sjabloongenerator voor API-definities.
+    Deze stap maakt een reeks OpenAPI-opties mogelijk voor uw functie-app, met inbegrip van een eindpunt voor het hosten van een OpenAPI-bestand uit het domein van uw functie app, een inline-kopie van de [OpenAPI Editor](https://editor.swagger.io), en een sjabloongenerator voor API-definities.
 
 1. Klik op **Sjabloon voor API-definitie genereren** > **Opslaan**.
 
@@ -168,7 +168,7 @@ U nu kunt de OpenAPI-definitie genereren. Deze definitie kan zowel worden gebrui
         parameters: []
         description: >-
             Replace with Operation Object
-            #http://swagger.io/specification/#operationObject
+            #https://swagger.io/specification/#operationObject
         responses:
             '200':
             description: Success operation

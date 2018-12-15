@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 06bd1216aa3f78b41526670044de0250ad0df7d7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 96daacef134ca60cb497907a770c83a4bba24a5b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833258"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956021"
 ---
 # <a name="azure-and-linux"></a>Azure en Linux
 Microsoft Azure is een groeiende verzameling geïntegreerde, openbare cloudservices, waaronder analyses, virtuele machines, databases, mobiele toepassingen, netwerken, opslag en het web&mdash;ideaal voor het hosten van uw oplossingen.  Microsoft Azure biedt een schaalbaar platform waarvoor u alleen betaalt voor wat u gebruikt, wanneer u dat gebruikt - zonder dat u hoeft te investeren in on-premises hardware.  Azure is klaar om uw oplossingen op te schalen wanneer u daar ook klaar, welke schaal u ook nodig hebt om te voorzien in de behoeften van uw klanten.
@@ -82,7 +82,7 @@ Microsoft werkt nauw samen met partners om ervoor te zorgen dat de beschikbare i
 * Bitnami - [Bitnami Library voor Azure](https://azure.bitnami.com/)
 * Mesosphere - [Azure Marketplace - Mesosphere DC/OS voor Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
 * Docker - [Azure Marketplace - Azure Container Service met Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
-* Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
+* Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
 
 ## <a name="getting-started-with-linux-on-azure"></a>Aan de slag met Linux in Azure
 Als u met Azure aan de slag wilt gaan, hebt u het volgende nodig: een Azure-account, de Azure CLI en een combinatie van een openbare en een persoonlijke SSH-sleutel.

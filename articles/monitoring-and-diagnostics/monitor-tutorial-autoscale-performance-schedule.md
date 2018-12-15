@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.component: autoscale
-ms.openlocfilehash: b63e1fa316e9ebeaa564731b8bb0bc3ed5ba9036
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: adf3fdf694216353c5e6a0df8726cb5cd337ddf8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264058"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385989"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Een instelling maken voor automatisch schalen van Azure-resources op basis van prestatiegegevens of een planning
 
@@ -181,7 +181,7 @@ In deze zelfstudie hebt u
 > * Uw resources opgeschoond
 
 
-Voor meer informatie over instellingen voor automatisch schalen gaat u naar het [Overzicht automatisch schalen](monitoring-overview-autoscale.md).
+Voor meer informatie over instellingen voor automatisch schalen gaat u naar het [Overzicht automatisch schalen](../azure-monitor/platform/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
 > [Bewakingsgegevens archiveren](monitor-tutorial-archive-monitoring-data.md)
