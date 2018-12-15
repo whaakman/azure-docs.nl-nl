@@ -119,11 +119,11 @@
 
 ## Beveiligen
 ### Verifiëren met id-providers
-#### [Verificatie via Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Verificatie via Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Verificatie via Google](../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Verificatie via Microsoft-account](../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Verificatie via Twitter](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Verificatie via Azure Active Directory](../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Verificatie via Facebook](../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Verificatie via Google](../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Verificatie via Microsoft-account](../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Verificatie via Twitter](../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### HTTPS
 #### [Wederzijdse TLS-verificatie configureren](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

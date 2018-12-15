@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: deddfe16e4ad3eeee099ce1d7b53b9f15cbf85d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 48f6124373d80d22766d319ec58ed4ad7adaf6f5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956679"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963365"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Een functie-app maken die verbinding maakt met een Azure Storage-account
 
-Met dit Azure Functions-voorbeeldscript wordt een functie-app gemaakt en wordt de functie verbonden met een Azure Storage-account. De gemaakte app-instelling die de verbinding bevat, kan worden gebruikt met een [opslagtrigger of -binding](..\functions-bindings-storage-blob.md). 
+Met dit Azure Functions-voorbeeldscript wordt een functie-app gemaakt en wordt de functie verbonden met een Azure Storage-account. De gemaakte app-instelling die de verbinding bevat, kan worden gebruikt met een [opslagtrigger of -binding](../functions-bindings-storage-blob.md). 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
