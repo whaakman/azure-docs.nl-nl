@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113849"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999872"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Een door Azure Blob Storage geactiveerde functie maken
 
@@ -27,7 +27,7 @@ Ontdek hoe u een functie maakt die wordt geactiveerd wanneer bestanden worden ge
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ De [Microsoft Azure Storage Explorer](http://storageexplorer.com/) downloaden en installeren.
++ De [Microsoft Azure Storage Explorer](https://storageexplorer.com/) downloaden en installeren.
 + Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
 ## <a name="create-an-azure-function-app"></a>Een Azure-functie-app maken
@@ -76,7 +76,7 @@ Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de **voorb
 
     ![Haal de verbindingsreferenties voor het opslagaccount op.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. Voer het hulpprogramma [Microsoft Azure Storage Explorer](http://storageexplorer.com/) uit, klik op het verbindingspictogram aan de linkerkant, kies **Een opslagaccountnaam en -sleutel gebruiken** en klik op **Volgende**.
+1. Voer het hulpprogramma [Microsoft Azure Storage Explorer](https://storageexplorer.com/) uit, klik op het verbindingspictogram aan de linkerkant, kies **Een opslagaccountnaam en -sleutel gebruiken** en klik op **Volgende**.
 
     ![Voer het hulpprogramma Storage Account Explorer uit.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 
