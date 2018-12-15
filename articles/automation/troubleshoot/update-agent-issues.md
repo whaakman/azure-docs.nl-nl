@@ -4,25 +4,25 @@ description: Informatie over het oplossen van problemen met de updatebeheer-agen
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 68bac54de4f6a9f16f54032b10031bcf7222c676
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969308"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434763"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Inzicht in de resultaten van Windows-agent in beheer van updates
 
-Er zijn diverse redenen waarom een Azure-machine kan niet worden weergegeven een **gereed** status in Azure updatebeheer. U kunt de status van een Hybrid Worker-agent om te bepalen van de onderliggende probleem controleren in Update Management. In dit artikel wordt beschreven hoe u de probleemoplosser voor het beheer van updates vanuit de Azure-portal en in offlinescenario's worden uitgevoerd.
+Mogelijk zijn er veel oorzaken waardoor uw computer wordt niet weergegeven **gereed** in beheer van updates. U kunt de status van een Hybrid Worker-agent om te bepalen van het onderliggende probleem controleren in Update Management. In dit artikel wordt beschreven hoe u de probleemoplosser voor Azure-machines uitvoeren vanuit de Azure-portal en niet-Azure-machines in de [offline scenario](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>De probleemoplosser voor starten
 
-In de Azure-portal, de **Update-Agent oplossen** pagina problemen met de agent wordt weergegeven. Er is een koppeling naar dit artikel om u te helpen bij het oplossen van problemen op de pagina. Naar de **Update-Agent oplossen** weergeeft, schakelt de **oplossen** herstelkoppeling in de **gereedheid voor Update-Agent** kolom.
+Voor machines in Azure, te klikken op de **oplossen** koppeling onder de **gereedheid voor Update-Agent** kolom in de portal wordt gestart de **Update-Agent oplossen** pagina. Voor niet-Azure-machines, de koppeling keert u terug naar dit artikel. Zie de [offline instructies](#troubleshoot-offline) oplossen met een niet-Azure-machine.
 
 ![Beheerlijst met van virtuele machines bijwerken](../media/update-agent-issues/vm-list.png)
 

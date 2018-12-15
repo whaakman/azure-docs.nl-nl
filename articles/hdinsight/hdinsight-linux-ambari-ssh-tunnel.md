@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: eb407a1026ab62fa719600a3992dc3b4653f1583
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383915"
+ms.locfileid: "53409519"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>SSH-Tunneling gebruiken voor toegang tot de Apache Ambari-Webgebruikersinterface, JobHistory, NameNode, Apache Oozie en andere webgebruikersinterfaces
 
@@ -78,9 +78,19 @@ Als de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 o
 
 ## <a name="useputty"></a>Maken van een tunnel met PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) is een grafische SSH-client voor Windows. Gebruik de volgende stappen uit om te maken van een SSH-tunnel gebruiken van PuTTY:
+[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) is een grafische SSH-client voor Windows. Als u niet bekend met PuTTY bent, raadpleegt u de [PuTTY-documentatie](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Gebruik de volgende stappen uit om te maken van een SSH-tunnel gebruiken van PuTTY:
 
-1. Open PuTTY en voer uw verbinding. Als u niet bekend met PuTTY bent, raadpleegt u de [PuTTY-documentatie (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
+### <a name="create-or-load-a-session"></a>Maken of een sessie laden
+
+1. Open PuTTY en controleer of **sessie** is geselecteerd in het menu links. Als u al een sessie hebt opgeslagen, selecteert u de sessienaam van de **opgeslagen sessies** lijst en klikt u op **Load**.
+
+1. Als u nog een opgeslagen sessie hebt, voert u de verbindingsgegevens van uw:
+    * **Hostnaam (of IP-adres)** -de SSH-adres voor het HDInsight-cluster. Bijvoorbeeld, **mijncluster-ssh.azurehdinsight.net**
+    * **Poort** - 22
+    * **Verbindingstype** : SSH
+1. Klik op **Opslaan**.
+
+    ![SSH-sessie maken](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
 2. In de **categorie** sectie aan de linkerkant van het dialoogvenster uit, vouw **verbinding**, vouw **SSH**, en selecteer vervolgens **Tunnels**.
 
@@ -88,7 +98,7 @@ Als de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 o
    
    * **Bronpoort**: de poort op de client die u wilt doorsturen. Bijvoorbeeld, **9876**.
 
-   * **Bestemming** -de SSH-adres voor de Linux gebaseerde HDInsight-cluster. Bijvoorbeeld **mijncluster-ssh.azurehdinsight.net**.
+   * **Bestemming** -de SSH-adres voor het HDInsight-cluster. Bijvoorbeeld **mijncluster-ssh.azurehdinsight.net**.
 
    * **Dynamisch**: hiermee schakelt u de dynamische routering van SOCKS-proxy's in.
      

@@ -15,12 +15,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622190"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408121"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configureren van eenmalige aanmelding voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie
 
@@ -46,7 +46,7 @@ Als u wilt verbinding maken met een toepassing met behulp van een app-integratie
 
 In de app-galerie, kunt u een niet-vermelde app toevoegen door het selecteren van de **niet in de galerij toepassing** tegel die in de lijst met zoekresultaten wordt weergegeven als de gewenste app is niet gevonden. Na het invoeren van een naam voor uw toepassing, kunt u de opties voor eenmalige aanmelding en het gedrag configureren. 
 
-**Snelle tip**: als een best practice, kunt u de zoekfunctie gebruiken om te controleren om te zien als de toepassing bestaat al in de toepassingengalerie. Als de app wordt gevonden en de beschrijving eenmalige aanmelding noemt, wordt klikt u vervolgens de toepassing al ondersteund voor federatieve eenmalige aanmelding.
+**Snelle tip**:  Als een best practice, moet u de zoekfunctie gebruiken om te controleren om te zien als de toepassing bestaat al in de toepassingengalerie. Als de app wordt gevonden en de beschrijving eenmalige aanmelding noemt, wordt klikt u vervolgens de toepassing al ondersteund voor federatieve eenmalige aanmelding.
 
   ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
@@ -163,7 +163,7 @@ Zodra de aanmeldingspagina wordt vastgelegd, gebruikers en groepen kunnen worden
 >
 
 ## <a name="existing-single-sign-on"></a>Bestaande eenmalige aanmelding
-Selecteer deze optie om een koppeling naar een toepassing van uw organisatie Azure AD-Toegangsvenster of Office 365-Portal. U kunt deze koppelingen wilt toevoegen aan aangepaste web-apps die momenteel gebruikmaken van Azure Active Directory Federation Services (of een andere federation-service) gebruiken in plaats van Azure AD voor verificatie. Of u dieptekoppelingen naar specifieke SharePoint-pagina's of andere webpagina's die u zojuist hebt wilt weergeven op de Toegangsdeelvensters van uw gebruikers kunt toevoegen. 
+Selecteer deze optie om een koppeling naar een toepassing van uw organisatie Azure AD-Toegangsvenster of Office 365-Portal. U kunt deze koppelingen wilt toevoegen aan aangepaste web-apps die momenteel gebruikmaken van Active Directory Federation Services (of een andere federation-service) gebruiken in plaats van Azure AD voor verificatie. Of u dieptekoppelingen naar specifieke SharePoint-pagina's of andere webpagina's die u zojuist hebt wilt weergeven op de Toegangsdeelvensters van uw gebruikers kunt toevoegen. 
 
 Na het selecteren van **volgende**, wordt u gevraagd om in te voeren van de URL van de toepassing om aan te koppelen. Als voltooid, gebruikers en groepen kunnen worden toegewezen aan de toepassing, die zorgt ervoor de toepassing wordt weergegeven dat in de [startprogramma voor Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [Azure AD-toegangspaneel](end-user-experiences.md) voor gebruikers.
 

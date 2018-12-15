@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: d52a9411863962528eb0693f735ca0c4ee4c9991
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166503"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438809"
 ---
-# <a name="analyze-hadoop-logs"></a>Hadoop-logboeken analyseren
+# <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop-logboeken analyseren
 
-Elke Apache Hadoop-cluster in Azure HDInsight is een Azure storage-account gebruikt als het standaardbestandssysteem. Het opslagaccount dat wordt aangeduid als het standaardaccount voor opslag. Cluster maakt gebruik van de Azure Table storage en de Blob-opslag op het standaardopslagaccount voor het opslaan van de logboeken.  Als u wilt het standaardopslagaccount voor uw cluster weten, Zie [beheren van Hadoop-clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). De logboeken behouden in de Storage-account, zelfs nadat het cluster wordt verwijderd.
+Elke Apache Hadoop-cluster in Azure HDInsight is een Azure storage-account gebruikt als het standaardbestandssysteem. Het opslagaccount dat wordt aangeduid als het standaardaccount voor opslag. Cluster maakt gebruik van de Azure Table storage en de Blob-opslag op het standaardopslagaccount voor het opslaan van de logboeken.  Als u wilt het standaardopslagaccount voor uw cluster weten, Zie [beheren Apache Hadoop-clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). De logboeken behouden in de Storage-account, zelfs nadat het cluster wordt verwijderd.
 
 ## <a name="logs-written-to-azure-tables"></a>Logboeken geschreven naar Azure Tables
 
@@ -101,9 +101,11 @@ U kunt nu Excel gebruiken om te filteren en sorteren indien nodig. U wilt opneme
 ## <a name="logs-written-to-azure-blob-storage"></a>Logboeken geschreven naar Azure Blob-opslag
 [De logboeken geschreven naar Azure Tables](#log-written-to-azure-tables) bieden één niveau van inzicht in wat met een HDInsight-cluster gebeurt er. Deze tabellen bieden echter geen in Logboeken van de taak op het niveau, die nuttig bij het analyseren zijn kunnen verdere problemen wanneer ze zich voordoen. HDInsight-clusters zijn voor deze volgende detailniveau, geconfigureerd voor de taak logboeken naar uw Blob Storage-account voor elke taak die wordt ingediend via Templeton schrijven. Dit betekent nagenoeg, taken die worden ingediend met behulp van de Microsoft Azure PowerShell-cmdlets of de .NET-taak indienen API's, niet de taken die zijn verzonden via RDP/vanaf de opdrachtregel-line toegang tot het cluster. 
 
-Als u de logboeken, Zie [toegang tot YARN-toepassingslogboeken in Linux gebaseerde HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Als u de logboeken, Zie [toegang Apache Hadoop YARN-toepassingslogboeken in Linux gebaseerde HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Zie voor meer informatie over toepassingslogboeken [vereenvoudigen van beheer van gebruiker-logboeken en toegang in YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
+Zie voor meer informatie over toepassingslogboeken [vereenvoudigen van beheer van gebruiker-logboeken en toegang in Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
 
 ## <a name="view-cluster-health-and-job-logs"></a>Cluster-status en taak logboeken bekijken
 ### <a name="access-the-ambari-ui"></a>Toegang tot de Ambari-gebruikersinterface
@@ -313,6 +315,6 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Ambari-weergaven gebruiken om op te sporen Tez-taken in HDInsight](../hdinsight-debug-ambari-tez-view.md)
-* [Heapdumps voor Hadoop op Linux gebaseerde HDInsight-services inschakelen](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [HDInsight-clusters beheren met behulp van de Ambari-webinterface](../hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari-weergaven gebruiken om op te sporen Apache Tez-taken in HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Heapdumps voor Apache Hadoop-services op Linux gebaseerde HDInsight inschakelen](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface](../hdinsight-hadoop-manage-ambari.md)

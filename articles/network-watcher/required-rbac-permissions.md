@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jdial
-ms.openlocfilehash: 7d0f0367a4126e7cecd34b39e6e5065e7d4fd90a
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 429f7862901814fbd2017c395706fbfa2c345f72
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287104"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434576"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Machtigingen voor beheer op basis van de rol vereist voor het gebruik van Network Watcher-mogelijkheden
 
@@ -27,7 +27,7 @@ Op rollen gebaseerd toegangsbeheer in Azure (RBAC) kunt u alleen de specifieke a
 
 ## <a name="network-watcher"></a>Network Watcher
 
-| Bewerking                                                              | Naam                                                           |
+| Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/read                              | Een network watcher ophalen                                          |
 | Microsoft.Network/networkWatchers/write                             | Maken of bijwerken van een network watcher                             |
@@ -35,21 +35,22 @@ Op rollen gebaseerd toegangsbeheer in Azure (RBAC) kunt u alleen de specifieke a
 
 ## <a name="nsg-flow-logs"></a>NSG-stroomlogboeken
 
-| Bewerking                                                              | Naam                                                           |
+| Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/configureFlowLog/action           | Een stroom logboek configureren                                           |
 | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Querystatus van de voor een stroomlogboek                                    |
 
 ## <a name="connection-troubleshoot"></a>Probleemoplossing voor verbindingen
 
-| Bewerking                                                              | Naam                                                           |
+| Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
+| Microsoft.Network/networkWatchers/connectivityCheck/action          | Een verbinding initiëren test oplossen
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | De resultaten van de query van een verbinding oplossen testen                |
 | Microsoft.Network/networkWatchers/troubleshoot/action               | Voer een verbinding testen oplossen                             |
 
 ## <a name="connection-monitor"></a>Verbindingsmonitor
 
-| Bewerking                                                              | Naam                                                           |
+| Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/connectionMonitors/start/action   | Start een nieuwe Verbindingscontrole                                     |
 | Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | Een nieuwe Verbindingscontrole te stoppen                                      |
@@ -60,7 +61,7 @@ Op rollen gebaseerd toegangsbeheer in Azure (RBAC) kunt u alleen de specifieke a
 
 ## <a name="packet-capture"></a>Pakketopname
 
-| Bewerking                                                              | Naam                                                           |
+| Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | De status van een pakketopname opvragen                           |
 | Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Een pakketopname stoppen                                          |
@@ -70,31 +71,31 @@ Op rollen gebaseerd toegangsbeheer in Azure (RBAC) kunt u alleen de specifieke a
 
 ## <a name="ip-flow-verify"></a>IP-stroomverificatie
 
-| Bewerking                                                              | Naam                                                           |
+| Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/ipFlowVerify/action               | Een IP-stroom controleren                                              |
 
 ## <a name="next-hop"></a>Volgende hop
 
-| Bewerking                                                              | Naam                                                           |
+| Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/nextHop/action                    | De volgende hop van een virtuele machine ophalen                                     |
 
 ## <a name="network-security-group-view"></a>Netwerkbeveiligingsgroep weergeven
 
-| Bewerking                                                              | Naam                                                           |
+| Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/securityGroupView/action          | Weergave-beveiligingsgroepen                                           |
 
 ## <a name="topology"></a>Topologie
 
-| Bewerking                                                              | Naam                                                           |
+| Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/topology/action                   | Topologie ophalen                                                   |
 
 ## <a name="reachability-report"></a>Bereikbaarheid rapport
 
-| Bewerking                                                              | Naam                                                           |
+| Bewerking                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Een Azure bereikbaarheid rapport ophalen                               |
 
@@ -102,15 +103,19 @@ Op rollen gebaseerd toegangsbeheer in Azure (RBAC) kunt u alleen de specifieke a
 
 Functionaliteit van Network Watcher is ook vereist voor de volgende acties:
 
-- Microsoft.Storage/Read
-- Microsoft.Authorization/Read
+- Microsoft.Authorization/ \* /lezen
 - Microsoft.Resources/subscriptions/resourceGroups/Read
+- Microsoft.Storage/storageAccounts/Read
 - Microsoft.Storage/storageAccounts/listServiceSas/Action
 - Microsoft.Storage/storageAccounts/listAccountSas/Action
 - Microsoft.Storage/storageAccounts/listKeys/Action
 - Microsoft.Compute/virtualMachines/Read
 - Microsoft.Compute/virtualMachines/Write
+- Microsoft.Compute/virtualMachines/extensions/Read
+- Microsoft.Compute/virtualMachines/extensions/Write
 - Microsoft.Compute/virtualMachineScaleSets/Read
 - Microsoft.Compute/virtualMachineScaleSets/Write
+- Microsoft.Compute/virtualMachineScaleSets/extensions/Read
+- Microsoft.Compute/virtualMachineScaleSets/extensions/Write
 - Microsoft.Insights/alertRules/*
 - Microsoft.Support/*

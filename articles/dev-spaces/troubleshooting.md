@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: d3fbc8e5b6595b52fe5ab9e766a108d271f2f448
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9973635593f7a8143ac1f3980b6e09caba44710b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104591"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413605"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -138,6 +138,18 @@ De fout betekent dat azds.exe bevindt zich niet in de omgevingsvariabele PATH, z
 
 Start VS Code vanaf een opdrachtprompt waarvan de omgevingsvariabele PATH correct is ingesteld.
 
+## <a name="error-required-tools-to-build-and-debug-projectname-are-out-of-date"></a>Fout "vereiste hulpprogramma's om te bouwen en fouten opsporen in 'projectname' zijn verouderd."
+
+U ziet deze fout in Visual Studio Code hebt u een nieuwere versie van de VS Code-extensie voor Azure Dev spaties, maar een oudere versie van de CLI van Azure Dev spaties.
+
+### <a name="try"></a>Proberen
+
+Download en installeer de nieuwste versie van de CLI van Azure Dev spaties:
+
+* [Windows](http://aka.ms/get-azds-windows)
+* [Mac](http://aka.ms/get-azds-mac)
+* [Linux](https://aka.ms/get-azds-linux)
+
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>Fout 'azds' wordt niet herkend als een interne of externe opdracht, programma of batch-bestand
  
 U ziet deze fout als azds.exe is niet geïnstalleerd of niet juist geconfigureerd.
@@ -172,8 +184,8 @@ De poort van de container is niet beschikbaar. Dit probleem kan optreden omdat:
 ### <a name="try"></a>Probeer:
 1. Als de container gebouwd wordt/geïmplementeerd, kunt u wacht 2-3 seconden en probeer het opnieuw openen van de service. 
 1. Controleer de poortconfiguratie. De opgegeven poortnummers moet **identieke** in de volgende elementen:
-    * **Docker-bestand:** opgegeven door de `EXPOSE` instructie.
-    * **[Helm-diagram](https://docs.helm.sh):** opgegeven door de `externalPort` en `internalPort` waarden voor een service (vaak zich in een `values.yml` bestand),
+    * **Docker-bestand:** Opgegeven door de `EXPOSE` instructie.
+    * **[Helm-diagram](https://docs.helm.sh):** Opgegeven door de `externalPort` en `internalPort` waarden voor een service (vaak zich in een `values.yml` bestand),
     * Eventuele poorten die worden geopend in de toepassingscode, bijvoorbeeld in Node.js: `var server = app.listen(80, function () {...}`
 
 
@@ -187,7 +199,7 @@ U moet uitvoeren `azds up` vanuit de hoofdmap van de code die u wilt uitvoeren, 
 1. Wijzig de huidige directory naar de hoofdmap met de servicecode van uw. 
 1. Als u nog geen een _azds.yaml_ bestand in de map code uitvoeren `azds prep` voor het genereren van Docker, Kubernetes en Azure Dev spaties activa.
 
-## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Fout: 'de pipe programma azds onverwacht afgesloten met code 126.'
+## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Fout: 'Het programma pipe 'azds' is onverwacht afgesloten met code 126.'
 Starten van het foutopsporingsprogramma VS Code kan soms leiden tot deze fout.
 
 ### <a name="try"></a>Probeer:

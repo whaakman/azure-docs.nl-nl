@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b083b9a09b478ca5ad68e19d3a2133fb529da851
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4832a48489a043493639bdedd6c6adf3c828de11
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342949"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434695"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton-orchestrators in duurzame functies (Azure Functions)
 
-Voor achtergrondtaken of actor-stijl-indelingen, u vaak nodig om ervoor te zorgen dat slechts één exemplaar van een bepaalde orchestrator tegelijkertijd wordt uitgevoerd. Dit kan worden gedaan [duurzame functies](durable-functions-overview.md) door het toewijzen van een specifiek exemplaar-ID voor een orchestrator bij het maken van deze.
+Voor achtergrondtaken u vaak moet om ervoor te zorgen dat slechts één exemplaar van een bepaalde orchestrator tegelijkertijd wordt uitgevoerd. Dit kan worden gedaan [duurzame functies](durable-functions-overview.md) door het toewijzen van een specifiek exemplaar-ID voor een orchestrator bij het maken van deze.
 
 ## <a name="singleton-example"></a>Singleton-voorbeeld
 

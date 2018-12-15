@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 69eeadd8252d20dd25ac6d0abbbf0c6c158383d5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633339"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438622"
 ---
 # <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>Apache Pig-taken uitvoeren vanaf een extern bureaublad-verbinding
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
 Dit document bevat een overzicht van de opdracht Apache Pig kunt gebruiken voor Pig Latin-instructies uitvoeren vanaf een extern bureaublad-verbinding met een HDInsight op basis van een Windows-cluster. Pig Latin kunt u MapReduce-toepassingen maken met het beschrijven van gegevenstransformaties, in plaats van toewijzen en functies te beperken.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Extern bureaublad is alleen beschikbaar op HDInsight-clusters die gebruikmaken van Windows als het besturingssysteem. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 >
-> Voor HDInsight 3.4 of hoger, Zie [Pig gebruiken met HDInsight en SSH](apache-hadoop-use-pig-ssh.md) voor informatie over het interactief Pig-taken rechtstreeks op het cluster uitvoeren vanaf een opdrachtregel.
+> Voor HDInsight 3.4 of hoger, Zie [Apache Pig gebruiken met HDInsight en SSH](apache-hadoop-use-pig-ssh.md) voor informatie over het interactief Pig-taken rechtstreeks op het cluster uitvoeren vanaf een opdrachtregel.
 
 ## <a id="prereq"></a>Vereisten
 Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende.
@@ -78,7 +78,7 @@ Extern bureaublad inschakelen voor het HDInsight-cluster en vervolgens verbindin
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
-   > [!NOTE]
+   > [!NOTE]  
    > De gegevens worden opgeslagen in de opgegeven map in bestanden met de naam **onderdeel nnnnn**. Als de map al bestaat, ontvangt u een foutbericht weergegeven.
    >
    >
@@ -119,9 +119,9 @@ Zoals u ziet, wordt de opdracht Pig kunt u interactief MapReduce-bewerkingen uit
 ## <a id="nextsteps"></a>Volgende stappen
 Voor algemene informatie over Pig in HDInsight:
 
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
 
 Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)

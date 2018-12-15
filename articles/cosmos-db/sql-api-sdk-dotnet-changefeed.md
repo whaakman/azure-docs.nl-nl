@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 1544d60d94a73326d2cd0430de8a1f61aaefe373
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7b6fefd575901648a99bb3a67a05e705622bb74a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343967"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407861"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET-change Feed Processor SDK: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -45,7 +45,6 @@ ms.locfileid: "53343967"
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Er is ondersteuning toegevoegd voor het verwerken van splitsen in verzamelingen die gebruikmaken van gedeelde database doorvoer.
   * Deze release wordt een probleem dat zich tijdens splitsen in verzamelingen met behulp van de gedeelde database doorvoer als resultaat te splitsen in partitie opnieuw verdelen met slechts één onderliggende partitiesleutelbereik gemaakt voordoen kan, in plaats van twee opgelost. Als dit gebeurt, kan Change Feed Processor zitten verwijderen van de lease voor de oude partitiesleutelbereik en geen nieuwe leases te maken. Het probleem is opgelost in deze release.
-  * Secundaire belangrijke wijziging: nieuwe methode IChangeFeedDocumentClient.ReadOffersFeedAsync, die wordt gebruikt om te controleren of de collectie toegewezen doorvoereenheid / toegewezen heeft of doorvoer met andere verzamelingen in de database deelt toegevoegd. Opgeven van aangepaste implementatie van IChangeFeedDocumentClient is een geavanceerd scenario en kan worden gebruikt om te controleren wordt alle aanroepen door Change Feed Processor aan bewaakt en verzamelingen van de lease. Met deze wijziging kunnen IChangeFeedDocumentClient implementatie moet worden gewijzigd door het implementeren van de nieuwe methode.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * Nieuwe eigenschap toegevoegd ChangeFeedProcessorOptions.StartContinuation ter ondersteuning van de eerste wijziging feed van aanvraag vervolgtoken. Dit wordt alleen gebruikt wanneer leaseverzameling leeg is of een lease heeft geen ContinuationToken instellen. De ContinuationToken wordt gebruikt voor leases in leaseverzameling waarvoor ContinuationToken instellen en ChangeFeedProcessorOptions.StartContinuation wordt genegeerd.
@@ -159,6 +158,10 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.2.5](#2.2.5) |13 december 2018 |--- |
+| [2.2.4](#2.2.4) |29 november 2018 |--- |
+| [2.2.3](#2.2.3) |19 november 2018 |--- |
+| [2.2.2](#2.2.2) |En met 31 oktober 2018 |--- |
 | [2.2.1](#2.2.1) |24 oktober 2018 |--- |
 | [1.3.3](#1.3.3) |08 mei 2018 |--- |
 | [1.3.2](#1.3.2) |18 april 2018 |--- |

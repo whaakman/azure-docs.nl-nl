@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 21186c522e46dac11c1dc88bbad5c4b330bc1e3f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e45c5a37c4ba12d93ff7f78bb465cb650a7faffb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012025"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435086"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Gebruik C# door de gebruiker gedefinieerde functies met Apache Hive en Apache Pig streaming van Apache Hadoop in HDInsight
 
@@ -55,7 +55,7 @@ Zie voor meer informatie over de versie van het .NET framework en Mono deel uitm
 
 ## <a name="create-the-c-projects"></a>Maken van de C\# projecten
 
-### <a name="hive-udf"></a>Hive-UDF
+### <a name="apache-hive-udf"></a>Apache Hive UDF
 
 1. Open Visual Studio en maak een oplossing. Selecteer voor het projecttype **Console-App (.NET Framework)**, en noem het nieuwe project **HiveCSharp**.
 
@@ -115,7 +115,7 @@ Zie voor meer informatie over de versie van het .NET framework en Mono deel uitm
 
 3. Maak het project.
 
-### <a name="pig-udf"></a>Pig UDF
+### <a name="apache-pig-udf"></a>Apache Pig UDF
 
 1. Open Visual Studio en maak een oplossing. Selecteer voor het projecttype **consoletoepassing**, en noem het nieuwe project **PigUDF**.
 
@@ -168,7 +168,7 @@ Zie voor meer informatie over de versie van het .NET framework en Mono deel uitm
 
     * Als dit item kan worden uitgebreid, gebruikt u een __Azure Storage-Account__ als standaardopslag voor het cluster. Als u de bestanden op de standaardopslag voor het cluster, vouw de vermelding en dubbelklik vervolgens op de __(standaardcontainer)__.
 
-    * Als dit item kan niet worden uitgebreid, gebruikt u __Azure Data Lake Store__ als de standaardopslag voor het cluster. Als u de bestanden op de standaardopslag voor het cluster, dubbelklikt u op de __(Standaardopslagaccount)__ vermelding.
+    * Als dit item kan niet worden uitgebreid, gebruikt u __Azure Data Lake Storage__ als de standaardopslag voor het cluster. Als u de bestanden op de standaardopslag voor het cluster, dubbelklikt u op de __(Standaardopslagaccount)__ vermelding.
 
 6. Als u wilt het .exe-bestanden uploaden, moet u een van de volgende methoden gebruiken:
 
@@ -176,11 +176,11 @@ Zie voor meer informatie over de versie van het .NET framework en Mono deel uitm
 
         ![pictogram uploaden](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Als u __Azure Data Lake Store__, met de rechtermuisknop op een leeg gebied in de lijst en selecteer vervolgens __uploaden__. Selecteer ten slotte de **HiveCSharp.exe** -bestand en klik op **Open**.
+    * Als u __Azure Data Lake Storage__, met de rechtermuisknop op een leeg gebied in de lijst en selecteer vervolgens __uploaden__. Selecteer ten slotte de **HiveCSharp.exe** -bestand en klik op **Open**.
 
     Zodra de __HiveCSharp.exe__ uploaden is voltooid, herhaalt u het uploadproces voor de __PigUDF.exe__ bestand.
 
-## <a name="run-a-hive-query"></a>Een Hive-query uitvoeren
+## <a name="run-an-apache-hive-query"></a>Een Apache Hive-query uitvoeren
 
 1. Open in Visual Studio, **Server Explorer**.
 
@@ -193,7 +193,7 @@ Zie voor meer informatie over de versie van het .NET framework en Mono deel uitm
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
     -- add file wasb:///HiveCSharp.exe;
-    -- Uncomment the following if you are using Azure Data Lake Store
+    -- Uncomment the following if you are using Azure Data Lake Storage
     -- add file adl:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
@@ -212,7 +212,7 @@ Zie voor meer informatie over de versie van het .NET framework en Mono deel uitm
 
 6. Klik op **vernieuwen** vernieuwen van de samenvatting tot **taakstatus** wordt gewijzigd in **voltooid**. Als u wilt de taakuitvoer weergeven, klikt u op **Taakuitvoer**.
 
-## <a name="run-a-pig-job"></a>Een Pig-taak uitvoeren
+## <a name="run-an-apache-pig-job"></a>Een Apache Pig-taak uitvoeren
 
 1. Gebruik een van de volgende methoden voor het verbinding maken met uw HDInsight-cluster:
 
@@ -256,10 +256,10 @@ Zie voor meer informatie over de versie van het .NET framework en Mono deel uitm
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit document hebt u geleerd hoe u een .NET Framework-toepassing uit Hive en Pig gebruiken op HDInsight. Als u wilt meer informatie over het gebruik van Python met Hive en Pig, Zie [Python gebruiken met Hive en Pig in HDInsight](python-udf-hdinsight.md).
+In dit document hebt u geleerd hoe u een .NET Framework-toepassing uit Hive en Pig gebruiken op HDInsight. Als u wilt meer informatie over het gebruik van Python met Hive en Pig, Zie [Python gebruiken met Apache Hive en Apache Pig in HDInsight](python-udf-hdinsight.md).
 
 Voor andere manieren Pig en Hive gebruiken, en voor informatie over het gebruik van MapReduce, Zie de volgende documenten:
 
-* [Hive gebruiken met HDInsight](hdinsight-use-hive.md)
-* [Pig gebruiken met HDInsight](hdinsight-use-pig.md)
+* [Apache Hive gebruiken met HDInsight](hdinsight-use-hive.md)
+* [Apache Pig gebruiken met HDInsight](hdinsight-use-pig.md)
 * [MapReduce gebruiken met HDInsight](hdinsight-use-mapreduce.md)

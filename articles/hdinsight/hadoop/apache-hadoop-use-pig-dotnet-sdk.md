@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0aa45ae807f153e6f1a3fde1d648571b29802dc2
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 721bb93dc259bd2b4cc9f51d8d0d665c9b921128
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632472"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436837"
 ---
 # <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>Met de .NET-SDK voor Apache Hadoop in HDInsight Apache Pig-taken uitvoeren
 
@@ -47,7 +47,7 @@ De HDInsight .NET SDK bevat clientbibliotheken voor .NET, waardoor het gemakkeli
    | ------ | ------ |
    | Categorie | Templates/Visual C#/Windows |
    | Template | Console Application |
-   | Naam | SubmitPigJob |
+   | Name | SubmitPigJob |
 
 3. Klik op **OK** om het project aan te maken.
 
@@ -118,11 +118,11 @@ De HDInsight .NET SDK bevat clientbibliotheken voor .NET, waardoor het gemakkeli
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor informatie over Pig in HDInsight, [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md).
+Zie voor informatie over Pig in HDInsight, [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md).
 
 Zie de volgende documenten voor meer informatie over het gebruik van Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/

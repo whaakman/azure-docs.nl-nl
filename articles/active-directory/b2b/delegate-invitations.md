@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: fd00fb8da3cf36518f9e28e827e59fd7ff45d687
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8abbbba0cdac783dd315cd1f0965e03c4e5a1a05
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622207"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434542"
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Uitnodigingen voor Azure Active Directory B2B-samenwerking delegeren
 
@@ -32,9 +32,12 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 ## <a name="control-who-can-invite"></a>Bepalen wie kan uitnodigingen versturen
 
-Ga naar Azure Active Directory > Instellingen > instellingen voor externe samenwerking beheren
+Selecteer in Azure Active Directory, **gebruikersinstellingen**. Onder **externe gebruikers**, selecteer **instellingen voor externe samenwerking beheren**.
 
-![externalusers](https://user-images.githubusercontent.com/13383753/45905128-2c47f680-bda4-11e8-955d-6219c67935e0.PNG)
+> [!NOTE]
+> De **instellingen voor externe samenwerking** zijn ook toegankelijk in de **organisatie relaties** pagina. In Azure Active Directory, onder **beheren**, gaat u naar **organisatie relaties** > **instellingen**.
+
+![Instellingen voor externe samenwerking](./media/delegate-invitations/control-who-to-invite.png)
 
 Met Azure AD B2B-samenwerking kunt tenantbeheerder de volgende uitnodiging beleidsregels instellen:
 

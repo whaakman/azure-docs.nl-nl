@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8111d80d0888455fbdf3ccf37e723fe348a62bee
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236714"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435001"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export-service: veelgestelde vragen 
 Hier volgen vragen en antwoorden die u hebt wanneer u uw Azure Import/Export-service voor het overbrengen van gegevens naar Azure storage. De vragen en antwoorden zijn in de volgende categorieën onderverdeeld:
@@ -66,7 +66,10 @@ Ja. U kunt een taak annuleren als de status ervan **maken** of **verzending**. T
 U kunt de status voor voltooide taken bekijken voor maximaal 90 dagen. Voltooide taken worden na 90 dagen verwijderd.
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>Wat moet ik doen als ik wilt importeren of exporteren van meer dan 10 stations?
-Invoer of exporttaak kan verwijzen naar alleen 10 schijven in één taak. Als u wilt meer dan 10 schijven verzenden, moet u meerdere taken te maken. Schijven die zijn gekoppeld aan dezelfde taak moeten samen worden verzonden in hetzelfde pakket. Voor meer informatie over en richtlijnen wanneer gegevenscapaciteit meerdere schijf omvat importeert taken, neem dan contact op met Microsoft op bulkimport@microsoft.com.                                                              
+Invoer of exporttaak kan verwijzen naar alleen 10 schijven in één taak. Als u wilt meer dan 10 schijven verzenden, moet u meerdere taken te maken. Schijven die zijn gekoppeld aan dezelfde taak moeten samen worden verzonden in hetzelfde pakket. Voor meer informatie over en richtlijnen wanneer gegevenscapaciteit meerdere schijf omvat importeert taken, neem dan contact op met Microsoft op bulkimport@microsoft.com. 
+
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>De geüploade blob wordt de status weergegeven als 'Lease verlopen'. Wat moet ik doen?
+U kunt het veld 'Lease verlopen' negeren. Import/Export neemt de blob lease tijdens het uploaden om ervoor te zorgen dat geen ander proces de blob parallel kunt bijwerken. Lease verlopen impliceert dat Import/export niet meer te uploaden is en de blob beschikbaar voor uw gebruik is. 
 
 ## <a name="shipping-disks"></a>Verzending van schijven
 

@@ -9,23 +9,23 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 663cf6ba2eec4b2abbc6ab4a37e05b756ee67ee9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f0ff7bef5c1d30eb6920eaab3767de1dea6b94a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016808"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438860"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Opmerkingen bij de release voor Azure HDInsight
 
 Dit artikel bevat informatie over de **meest recente** LDR-updates voor Azure HDInsight. Zie voor informatie over eerdere versies, [HDInsight Release-opmerkingen bij de Archive](hdinsight-release-notes-archive.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [HDInsight versiebeheer artikel](hdinsight-component-versioning.md).
 
 ## <a name="summary"></a>Samenvatting
 
-Azure HDInsight is onder zakelijke klanten een van de meest populaire services voor open source Hadoop- en Spark-analyses in Azure. Met de [plus 50 procent prijsverlaging op HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), verplaatsen naar de cloud Klanten plukken meer kan worden bespaard dan ooit.
+Azure HDInsight is een van de meest populaire services onder de enterprise-klanten voor open-source Apache Hadoop en Apache Spark-analyses op Azure. Met de [plus 50 procent prijsverlaging op HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), verplaatsen naar de cloud Klanten plukken meer kan worden bespaard dan ooit.
 
 ## <a name="new-features"></a>Nieuwe functies
 
@@ -33,9 +33,9 @@ De nieuwe updates en mogelijkheden kunnen worden onderverdeeld de volgende categ
 
 1.  ***Bijwerken van Hadoop en andere open-sourceprojecten*** : naast het meer dan 1000 oplossingen voor problemen in open-source-projecten, deze update bevat een nieuwe versie van voor 20 + **Spark (2.3)** en **Kafka (1.0)**.
 
-    a.  [**Nieuwe functies in Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
+    a.  [**Nieuwe functies in Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**Nieuwe functies in Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Nieuwe functies in Apache Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
 
 2.  ***R Server 9.1 bijwerken naar Machine Learning Services 9.3*** – met deze release bieden we kunnen gegevenswetenschappers en engineers met het beste van open-source uitgebreid met algoritmische innovaties en het gemak van uitoefening, allemaal verkrijgbaar in hun de voorkeurstaal van de snelheid van Apache Spark. Deze release uitbreiding van de mogelijkheden die in R Server met toegevoegde ondersteuning voor Python, leidt tot wijziging van het cluster van R Server ML-Services. 
 
@@ -95,77 +95,77 @@ Deze release biedt en de volgende Apache-patches voor Hadoop gemeenschappelijke 
 
 -   [HADOOP-14104](https://issues.apache.org/jira/browse/HADOOP-14104): Client moet altijd namenode vragen voor het pad naar de kms-provider.
 
--   [HADOOP-14799](https://issues.apache.org/jira/browse/HADOOP-14799): nimbus-jose-jwt naar 4.41.1 bijwerken.
+-   [HADOOP-14799](https://issues.apache.org/jira/browse/HADOOP-14799): Nimbus-jose-jwt naar 4.41.1 bijwerken.
 
--   [HADOOP-14814](https://issues.apache.org/jira/browse/HADOOP-14814): niet-compatibele API wijzigen op FsServerDefaults op HADOOP-14104 oplossen.
+-   [HADOOP-14814](https://issues.apache.org/jira/browse/HADOOP-14814): Niet-compatibele API wijzigen op FsServerDefaults op HADOOP-14104 oplossen.
 
--   [HADOOP-14903](https://issues.apache.org/jira/browse/HADOOP-14903): json-smart expliciet toevoegen aan pom.xml.
+-   [HADOOP-14903](https://issues.apache.org/jira/browse/HADOOP-14903): Json-smart expliciet toevoegen aan pom.xml.
 
 -   [HADOOP-15042](https://issues.apache.org/jira/browse/HADOOP-15042): Azure PageBlobInputStream.skip() kunt negatieve waarde geretourneerd wanneer numberOfPagesRemaining 0 is.
 
--   [HADOOP-15255](https://issues.apache.org/jira/browse/HADOOP-15255): hoofdletters en kleine omzetting ondersteuning voor namen in LdapGroupsMapping.
+-   [HADOOP-15255](https://issues.apache.org/jira/browse/HADOOP-15255): Conversie van hoofdletters en kleine case-ondersteuning voor namen in LdapGroupsMapping.
 
 -   [HADOOP-15265](https://issues.apache.org/jira/browse/HADOOP-15265): json-smart expliciet uitsluiten van hadoop-auth pom.xml.
 
 -   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache\#sluiten niet ScheduledThreadPoolExecutors brengt.
 
--   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496): stopWriter() aanroepen met FSDatasetImpl vergrendeling ondergebracht blokkeert mogelijk andere threads (cmccabe).
+-   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496): Aanroepen stopWriter() met FSDatasetImpl vergrendeling ondergebracht mogelijk andere threads (cmccabe) blokkeren.
 
--   [HDFS-10267](https://issues.apache.org/jira/browse/HDFS-10267): Extra "gesynchroniseerd" op FsDatasetImpl\#recoverAppend en FsDatasetImpl\#recoverClose.
+-   [HDFS-10267](https://issues.apache.org/jira/browse/HDFS-10267): Extra "gesynchroniseerde' op FsDatasetImpl\#recoverAppend en FsDatasetImpl\#recoverClose.
 
--   [HDFS-10489](https://issues.apache.org/jira/browse/HDFS-10489): afschaffen dfs.encryption.key.provider.uri voor HDFS-codering zones.
+-   [HDFS-10489](https://issues.apache.org/jira/browse/HDFS-10489): Afschaffen dfs.encryption.key.provider.uri voor HDFS-codering zones.
 
--   [HDFS-11384](https://issues.apache.org/jira/browse/HDFS-11384): de optie voor balancer verspreiden getBlocks aanroepen om te voorkomen dat de NameNode rpc toevoegen. Piek CallQueueLength.
+-   [HDFS-11384](https://issues.apache.org/jira/browse/HDFS-11384): Optie voor balancer verspreiden getBlocks aanroepen om te voorkomen dat de NameNode rpc toevoegen. Piek CallQueueLength.
 
--   [HDFS-11689](https://issues.apache.org/jira/browse/HDFS-11689): nieuwe uitzondering veroorzaakt door DFSClient % isHDFSEncryptionEnabled verbroken hacky hive-code.
+-   [HDFS-11689](https://issues.apache.org/jira/browse/HDFS-11689): Nieuwe uitzondering veroorzaakt door DFSClient % isHDFSEncryptionEnabled verbroken hacky hive-code.
 
 -   [HDFS-11711](https://issues.apache.org/jira/browse/HDFS-11711): DN-naam moet niet verwijderen van het blok op ' te veel geopende bestanden ' uitzondering.
 
 -   [HDFS-12347](https://issues.apache.org/jira/browse/HDFS-12347): TestBalancerRPCDelay\#testBalancerRPCDelay heel vaak mislukt.
 
--   [HDFS-12781](https://issues.apache.org/jira/browse/HDFS-12781): na Datanode omlaag In Namenode UI Datanode tabblad waarschuwing is ArgumentOutOfRangeException.
+-   [HDFS-12781](https://issues.apache.org/jira/browse/HDFS-12781): Na Datanode omlaag, wordt In Namenode UI Datanode tabblad waarschuwing genereren.
 
--   [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054): PathIsNotEmptyDirectoryException verwerken in DFSClient aanroep verwijderen.
+-   [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054): Verwerking PathIsNotEmptyDirectoryException in DFSClient verwijderingsaanroep.
 
--   [HDFS-13120](https://issues.apache.org/jira/browse/HDFS-13120): momentopname diff kan na concat beschadigd raken.
+-   [HDFS-13120](https://issues.apache.org/jira/browse/HDFS-13120): Momentopname diff kan na concat beschadigd raken.
 
--   [YARN-3742](https://issues.apache.org/jira/browse/YARN-3742): YARN RM wordt afgesloten als ZKClient maken een optreedt time-out.
+-   [YARN-3742](https://issues.apache.org/jira/browse/YARN-3742): YARN-RM wordt afgesloten als ZKClient maken een optreedt time-out.
 
--   [YARN-6061](https://issues.apache.org/jira/browse/YARN-6061): het toevoegen van een UncaughtExceptionHandler voor kritieke threads in RM.
+-   [YARN-6061](https://issues.apache.org/jira/browse/YARN-6061): Toevoegen van een UncaughtExceptionHandler voor kritieke threads in RM.
 
 -   [YARN-7558](https://issues.apache.org/jira/browse/YARN-7558): yarn-logboeken opdracht mislukt om op te halen van Logboeken voor het uitvoeren van containers als UI-verificatie is ingeschakeld.
 
--   [YARN-7697](https://issues.apache.org/jira/browse/YARN-7697): ophalen van Logboeken voor voltooide toepassing is mislukt, zelfs al log aggregatie voltooid is.
+-   [YARN-7697](https://issues.apache.org/jira/browse/YARN-7697): Ophalen van Logboeken voor voltooide toepassing mislukt, zelfs al log aggregatie voltooid is.
 
 HDP 2.6.4 opgegeven en de volgende Apache-patches voor Hadoop gemeenschappelijke punt 2.7.3:
 
--   [HADOOP-13700](https://issues.apache.org/jira/browse/HADOOP-13700): unthrown ioexception opgetreden verwijderen uit TrashPolicy\#initialiseren en \#getInstance handtekeningen.
+-   [HADOOP-13700](https://issues.apache.org/jira/browse/HADOOP-13700): Unthrown ioexception opgetreden verwijderen uit TrashPolicy\#initialiseren en \#getInstance handtekeningen.
 
--   [HADOOP-13709](https://issues.apache.org/jira/browse/HADOOP-13709): mogelijkheid om op te schonen subprocessen geïnitieerd door Shell wanneer het proces wordt afgesloten.
+-   [HADOOP-13709](https://issues.apache.org/jira/browse/HADOOP-13709): De mogelijkheid om op te schonen subprocessen geïnitieerd door Shell wanneer het proces wordt afgesloten.
 
 -   [HADOOP-14059](https://issues.apache.org/jira/browse/HADOOP-14059): typefout in s3a wijzigen (selfservice, subdir) foutbericht weergegeven.
 
--   [HADOOP-14542](https://issues.apache.org/jira/browse/HADOOP-14542): toevoegen IOUtils.cleanupWithLogger die slf4j logger API accepteert.
+-   [HADOOP-14542](https://issues.apache.org/jira/browse/HADOOP-14542): Voeg IOUtils.cleanupWithLogger die slf4j logger API accepteert.
 
 -   [HDFS-9887](https://issues.apache.org/jira/browse/HDFS-9887): WebHdfs socket time-outs moet worden geconfigureerd.
 
--   [HDFS-9914](https://issues.apache.org/jira/browse/HDFS-9914): Fix configureerbare WebhDFS verbinding maken/lezen time-out.
+-   [HDFS-9914](https://issues.apache.org/jira/browse/HDFS-9914): Corrigeer configureerbare WebhDFS time-out voor verbinding maken/lezen.
 
--   [MAPREDUCE-6698](https://issues.apache.org/jira/browse/MAPREDUCE-6698): time-out op TestUnnecessaryBlockingOnHist oryFileInfo.testTwoThreadsQueryingDifferentJobOfSameUser verhogen.
+-   [MAPREDUCE-6698](https://issues.apache.org/jira/browse/MAPREDUCE-6698): Time-out van TestUnnecessaryBlockingOnHist oryFileInfo.testTwoThreadsQueryingDifferentJobOfSameUser verhogen.
 
--   [YARN-4550](https://issues.apache.org/jira/browse/YARN-4550): sommige tests in TestContainerLanch mislukken op de landinstelling voor niet-Engelse omgeving.
+-   [YARN-4550](https://issues.apache.org/jira/browse/YARN-4550): Sommige tests in TestContainerLanch mislukken bij niet-Engelstalige landinstelling-omgeving.
 
--   [YARN-4717](https://issues.apache.org/jira/browse/YARN-4717): TestResourceLocalizationService.testPublicResourceInitializesLocalDir met tussenpozen mislukt vanwege IllegalArgumentException van opschoning.
+-   [YARN-4717](https://issues.apache.org/jira/browse/YARN-4717): TestResourceLocalizationService.testPublicResourceInitializesLocalDir mislukt af en toe vanwege IllegalArgumentException van opschoning.
 
--   [YARN-5042](https://issues.apache.org/jira/browse/YARN-5042): koppelen/sys typt/fs/cgroup in Docker-containers als alleen-lezen-koppelpunt.
+-   [YARN-5042](https://issues.apache.org/jira/browse/YARN-5042): Koppelen/sys typt/fs/cgroup in Docker-containers als alleen-lezen-koppelpunt.
 
--   [YARN-5318](https://issues.apache.org/jira/browse/YARN-5318): los onregelmatige testfout van TestRMAdminService\#te stRefreshNodesResourceWithFileSystemBasedConfigurationProvider.
+-   [YARN-5318](https://issues.apache.org/jira/browse/YARN-5318): Onregelmatige testfout van TestRMAdminService oplossen\#te stRefreshNodesResourceWithFileSystemBasedConfigurationProvider.
 
 -   [YARN-5641](https://issues.apache.org/jira/browse/YARN-5641): Localizer verlaat achter tarballs nadat de container is voltooid.
 
--   [YARN-6004](https://issues.apache.org/jira/browse/YARN-6004): herstructureren TestResourceLocalizationService\#testDownloadingResourcesOnContainer, zodat dit minder dan 150 regels.
+-   [YARN-6004](https://issues.apache.org/jira/browse/YARN-6004): Herstructureren TestResourceLocalizationService\#testDownloadingResourcesOnContainer, zodat dit minder dan 150 regels.
 
--   [YARN-6078](https://issues.apache.org/jira/browse/YARN-6078): Containers die zijn vastgelopen in staat te lokaliseren.
+-   [YARN-6078](https://issues.apache.org/jira/browse/YARN-6078): Containers vastgelopen Localizing status.
 
 -   [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805): NFE in LinuxContainerExecutor vanwege null PrivilegedOperationException afsluitcode.
 
@@ -173,57 +173,57 @@ HDP 2.6.4 opgegeven en de volgende Apache-patches voor Hadoop gemeenschappelijke
 
 Deze release biedt HBase 1.1.2 en de volgende Apache-patches.
 
--   [HBASE-13376](https://issues.apache.org/jira/browse/HBASE-13376): verbeteringen voor Stochastic load balancer.
+-   [HBASE-13376](https://issues.apache.org/jira/browse/HBASE-13376): Verbeteringen aan stochastische load balancer.
 
--   [HBASE-13716](https://issues.apache.org/jira/browse/HBASE-13716): stoppen met het gebruik van Hadoop FSConstants.
+-   [HBASE-13716](https://issues.apache.org/jira/browse/HBASE-13716): Het gebruik van Hadoop FSConstants beëindigen.
 
--   [HBASE-13848](https://issues.apache.org/jira/browse/HBASE-13848): toegang InfoServer SSL wachtwoorden via referentie Provider-API.
+-   [HBASE-13848](https://issues.apache.org/jira/browse/HBASE-13848): Wachtwoorden voor InfoServer SSL-toegang via referentie Provider-API.
 
--   [HBASE-13947](https://issues.apache.org/jira/browse/HBASE-13947): MasterServices voor gebruik in plaats van de Server in AssignmentManager.
+-   [HBASE-13947](https://issues.apache.org/jira/browse/HBASE-13947): MasterServices gebruiken in plaats van de Server in AssignmentManager.
 
--   [HBASE-14135](https://issues.apache.org/jira/browse/HBASE-14135): HBase back-up/herstel fase 3: back-upkopieën samenvoegen.
+-   [HBASE-14135](https://issues.apache.org/jira/browse/HBASE-14135): HBase back-up/herstel fase 3: Back-upkopieën samenvoegen.
 
--   [HBASE-14473](https://issues.apache.org/jira/browse/HBASE-14473): Compute regio plaats parallel.
+-   [HBASE-14473](https://issues.apache.org/jira/browse/HBASE-14473): Regio plaats parallel berekenen.
 
--   [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517): regionserver van versie in de van de master-statuspagina weergegeven.
+-   [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517): Regionserver van versie in de van de master-statuspagina weergeven.
 
 -   [HBASE-14606](https://issues.apache.org/jira/browse/HBASE-14606): Er is een time-out opgetreden in trunk TestSecureLoadIncrementalHFiles-tests bouwen op apache.
 
--   [HBASE-15210](https://issues.apache.org/jira/browse/HBASE-15210): agressief load balancer logboekregistratie op tientallen regels per milliseconde ongedaan maken.
+-   [HBASE-15210](https://issues.apache.org/jira/browse/HBASE-15210): Ongedaan maken agressief load balancer logboekregistratie op tientallen regels per milliseconde.
 
 -   [HBASE-15515](https://issues.apache.org/jira/browse/HBASE-15515): LocalityBasedCandidateGenerator in Balancer verbeteren.
 
--   [HBASE-15615](https://issues.apache.org/jira/browse/HBASE-15615): verkeerde slaapstand tijd wanneer RegionServerCallable moet proberen.
+-   [HBASE-15615](https://issues.apache.org/jira/browse/HBASE-15615): Onjuist slaapstand tijd wanneer RegionServerCallable moet proberen.
 
--   [HBASE-16135](https://issues.apache.org/jira/browse/HBASE-16135): PeerClusterZnode onder rs van verwijderde peer mogen nooit worden verwijderd.
+-   [HBASE-16135](https://issues.apache.org/jira/browse/HBASE-16135): PeerClusterZnode onder rs van verwijderde peer mag nooit worden verwijderd.
 
--   [HBASE-16570](https://issues.apache.org/jira/browse/HBASE-16570): Compute regio plaats parallel bij het opstarten.
+-   [HBASE-16570](https://issues.apache.org/jira/browse/HBASE-16570): Regio plaats bij het opstarten parallel berekenen.
 
--   [HBASE-16810](https://issues.apache.org/jira/browse/HBASE-16810): HBase Balancer genereert ArrayIndexOutOfBoundsException wanneer regionservers /hbase/draining znode en ongedaan gemaakt.
+-   [HBASE-16810](https://issues.apache.org/jira/browse/HBASE-16810): HBase-Balancer genereert ArrayIndexOutOfBoundsException wanneer regionservers /hbase/draining znode en ongedaan gemaakt.
 
 -   [HBASE-16852](https://issues.apache.org/jira/browse/HBASE-16852): TestDefaultCompactSelection op vertakking 1.3 is mislukt.
 
--   [HBASE-17387](https://issues.apache.org/jira/browse/HBASE-17387): de overhead van het Uitzonderingenrapport in RegionActionResult voor multi() verminderen.
+-   [HBASE-17387](https://issues.apache.org/jira/browse/HBASE-17387): De overhead van het Uitzonderingenrapport in RegionActionResult voor multi() verminderen.
 
--   [HBASE-17850](https://issues.apache.org/jira/browse/HBASE-17850): back-up herstellen hulpprogramma.
+-   [HBASE-17850](https://issues.apache.org/jira/browse/HBASE-17850): Hulpprogramma voor het herstellen van back-upsysteem.
 
--   [HBASE-17931](https://issues.apache.org/jira/browse/HBASE-17931): systeemtabellen toewijzen aan servers met de hoogste versie.
+-   [HBASE-17931](https://issues.apache.org/jira/browse/HBASE-17931): Systeemtabellen toewijzen aan servers met de hoogste versie.
 
--   [HBASE-18083](https://issues.apache.org/jira/browse/HBASE-18083): grote/klein bestand thread nummer kunnen worden geconfigureerd in HFileCleaner opschonen.
+-   [HBASE-18083](https://issues.apache.org/jira/browse/HBASE-18083): Opschonen van de thread-nummer kunnen worden geconfigureerd in HFileCleaner grote/kleine-bestand maken.
 
--   [HBASE-18084](https://issues.apache.org/jira/browse/HBASE-18084): CleanerChore verbeteren voor het opschonen van de directory waarin meer schijfruimte verbruikt.
+-   [HBASE-18084](https://issues.apache.org/jira/browse/HBASE-18084): Verbeter de CleanerChore voor het opschonen van de directory waarin meer schijfruimte verbruikt.
 
--   [HBASE-18164](https://issues.apache.org/jira/browse/HBASE-18164): veel sneller plaats kosten functie en kandidaat generator.
+-   [HBASE-18164](https://issues.apache.org/jira/browse/HBASE-18164): Veel sneller plaats kosten functie en kandidaat generator.
 
--   [HBASE-18212](https://issues.apache.org/jira/browse/HBASE-18212): In zelfstandige modus met lokale bestandssysteem HBase registreert waarschuwing: kan niet 'unbuffer'-methode in klasse klasse org.apache.hadoop.fs.FSDataInputStream aanroepen.
+-   [HBASE-18212](https://issues.apache.org/jira/browse/HBASE-18212): In de zelfstandige modus met lokale bestandssysteem registreert HBase waarschuwingsbericht wordt weergegeven: Kan niet 'unbuffer'-methode in klasse klasse org.apache.hadoop.fs.FSDataInputStream aan te roepen.
 
--   [HBASE-18808](https://issues.apache.org/jira/browse/HBASE-18808): inefficiënte configuratie inchecken BackupLogCleaner\#getDeletableFiles().
+-   [HBASE-18808](https://issues.apache.org/jira/browse/HBASE-18808): Inefficiënte configuratie inchecken BackupLogCleaner\#getDeletableFiles().
 
--   [HBASE-19052](https://issues.apache.org/jira/browse/HBASE-19052): FixedFileTrailer CellComparatorImpl klasse in de vertakking 1.x te herkennen.
+-   [HBASE-19052](https://issues.apache.org/jira/browse/HBASE-19052): FixedFileTrailer moeten CellComparatorImpl klasse in de vertakking 1.x herkennen.
 
 -   [HBASE-19065](https://issues.apache.org/jira/browse/HBASE-19065): HRegion\#bulkLoadHFiles() moet wachten voor gelijktijdige regio\#flush() om te voltooien.
 
--   [HBASE-19285](https://issues.apache.org/jira/browse/HBASE-19285): per tabel latentie histogrammen toevoegen.
+-   [HBASE-19285](https://issues.apache.org/jira/browse/HBASE-19285): Per tabel latentie histogrammen toevoegen.
 
 -   [HBASE-19393](https://issues.apache.org/jira/browse/HBASE-19393): HTTP 413 volledige head tijdens het openen van HBase UI met behulp van SSL.
 
@@ -245,51 +245,51 @@ Deze release biedt Hive 1.2.1 en Hive 2.1.0 naast de volgende patches:
 
 -   [*HIVE-11266*](https://issues.apache.org/jira/browse/HIVE-11266): aantal (\*) onjuist resultaat op basis van de statistieken voor externe tabellen.
 
--   [*HIVE-12245*](https://issues.apache.org/jira/browse/HIVE-12245): ondersteuning voor kolom opmerkingen voor een HBase-tabel ondersteund.
+-   [*HIVE-12245*](https://issues.apache.org/jira/browse/HIVE-12245): Ondersteuning voor kolom opmerkingen voor een HBase-tabel ondersteund.
 
--   [*HIVE-12315*](https://issues.apache.org/jira/browse/HIVE-12315): los Vectorized dubbele deling door nul.
+-   [*HIVE-12315*](https://issues.apache.org/jira/browse/HIVE-12315): Corrigeer Vectorized dubbele delen door nul.
 
--   [*HIVE-12360*](https://issues.apache.org/jira/browse/HIVE-12360): ongeldige zoekactie in niet-gecomprimeerde ORC met predicaat pushdown.
+-   [*HIVE-12360*](https://issues.apache.org/jira/browse/HIVE-12360): Ongeldige zoekactie in niet-gecomprimeerde ORC met predicaat pushdown.
 
--   [*HIVE-12378*](https://issues.apache.org/jira/browse/HIVE-12378): uitzondering op HBaseSerDe.serialize binaire veld.
+-   [*HIVE-12378*](https://issues.apache.org/jira/browse/HIVE-12378): De uitzondering op HBaseSerDe.serialize binaire veld.
 
--   [*HIVE-12785*](https://issues.apache.org/jira/browse/HIVE-12785): weergave met samenvoegingstype en UDF naar de struct is verbroken.
+-   [*HIVE-12785*](https://issues.apache.org/jira/browse/HIVE-12785): Weergave met samenvoegingstype en UDF naar de struct is verbroken.
 
--   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013): beschrijven tabel geen unicode correct weergegeven.
+-   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013): Beschrijf tabel geen unicode correct weergegeven.
 
--   [*HIVE-14205*](https://issues.apache.org/jira/browse/HIVE-14205): union-type met AVRO-bestandsindeling biedt geen ondersteuning voor Hive.
+-   [*HIVE-14205*](https://issues.apache.org/jira/browse/HIVE-14205): Union-type met AVRO-bestandsindeling biedt geen ondersteuning voor hive.
 
 -   [*HIVE-14421*](https://issues.apache.org/jira/browse/HIVE-14421): FS.deleteOnExit bevat verwijzingen naar \_tmp\_space.db bestanden.
 
--   [*HIVE-15563*](https://issues.apache.org/jira/browse/HIVE-15563): ongeldige bewerking negeren status overgang uitzondering in SQLOperation.runQuery om echte uitzondering zichtbaar te maken.
+-   [*HIVE-15563*](https://issues.apache.org/jira/browse/HIVE-15563): Ongeldige bewerking status overgang uitzondering in SQLOperation.runQuery blootstellen echte uitzondering wordt genegeerd.
 
--   [*HIVE-15680*](https://issues.apache.org/jira/browse/HIVE-15680): onjuiste resultaten wanneer hive.optimize.index.filter=true en dezelfde ORC-tabel twee keer in de query in de modus MR wordt verwezen.
+-   [*HIVE-15680*](https://issues.apache.org/jira/browse/HIVE-15680): Onjuiste resultaten wanneer hive.optimize.index.filter=true en dezelfde ORC-tabel twee keer in de query in de modus MR wordt verwezen.
 
--   [*HIVE-15883*](https://issues.apache.org/jira/browse/HIVE-15883): HBase-tabel in de component invoegen is mislukt voor decimal toegewezen.
+-   [*HIVE-15883*](https://issues.apache.org/jira/browse/HIVE-15883): HBase-tabel in de component insert mislukken voor decimal toegewezen.
 
--   [*HIVE-16232*](https://issues.apache.org/jira/browse/HIVE-16232): ondersteuning voor berekening van statistieken voor de kolommen in QuotedIdentifier.
+-   [*HIVE-16232*](https://issues.apache.org/jira/browse/HIVE-16232): Ondersteuning voor berekening van statistieken voor de kolommen in QuotedIdentifier.
 
--   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828): met CBO ingeschakeld, wordt Query op gepartitioneerde weergaven IndexOutOfBoundException genereert.
+-   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828): Met de CBO is ingeschakeld, genereert de Query in gepartitioneerde weergave IndexOutOfBoundException.
 
--   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013): Delete-aanvraag met een subquery die is gebaseerd op selecteren voor een weergave.
+-   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013): Aanvraag voor verwijderen met een subquery die is gebaseerd op selecteren voor een weergave.
 
 -   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): invoegen overschrijven partitie op een externe tabel is mislukt wanneer de partitie eerst verwijderen.
 
--   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259): UNIONTYPE kolommen wordt niet herkend door Hive JDBC.
+-   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259): UNIONTYPE kolommen wordt niet herkend door hive JDBC.
 
--   [*HIVE-17419*](https://issues.apache.org/jira/browse/HIVE-17419): analyseren... COMPUTE statistieken voor TABELKOLOMMEN opdracht geeft u de berekende statistieken voor gemaskeerd tabellen.
+-   [*HIVE-17419*](https://issues.apache.org/jira/browse/HIVE-17419): ANALYSEREN... COMPUTE statistieken voor TABELKOLOMMEN opdracht toont berekende statistieken voor gemaskeerd tabellen.
 
 -   [*HIVE-17530*](https://issues.apache.org/jira/browse/HIVE-17530): ClassCastException tijdens het converteren van uniontype.
 
 -   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): Hive-site-instellingen worden genegeerd tijdens de HCatInputFormat split-berekening.
 
--   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): meerdere toevoegen\_agg.q test voor blobstores.
+-   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): Toevoegen van meerdere\_agg.q test voor blobstores.
 
--   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729): Database toevoegen en uitleg gerelateerde blobarchief tests.
+-   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729): Toevoegen van de Database en uitleg blobarchief tests die betrekking hebben.
 
 -   [*HIVE-17731*](https://issues.apache.org/jira/browse/HIVE-17731): een optie voor compatibiliteit met eerdere voor externe gebruikers toevoegen aan HIVE-11985.
 
--   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803): met meerdere query Pig, 2 HCatStorers schrijven naar dezelfde tabel elkaars uitvoer wordt trample.
+-   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803): Met meerdere query Pig, wordt 2 HCatStorers schrijven naar dezelfde tabel trample elkaars uitvoer.
 
 -   [*HIVE-17829*](https://issues.apache.org/jira/browse/HIVE-17829): ArrayIndexOutOfBoundsException - tabellen met Avro-schema in Hive2 HBASE-ondersteuning.
 
@@ -297,137 +297,137 @@ Deze release biedt Hive 1.2.1 en Hive 2.1.0 naast de volgende patches:
 
 -   [*HIVE-17900*](https://issues.apache.org/jira/browse/HIVE-17900): statistieken over de kolommen die zijn geactiveerd door analyseren afvalpers genereert een verkeerd ingedeelde SQL met &gt; 1 partitiekolom.
 
--   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026): Hive-webhcat principal configuratie optimaliseren.
+-   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026): Hive webhcat principal configuratie optimaliseren.
 
--   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031): ondersteuning voor replicatie voor de bewerking Alter Database.
+-   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031): Ondersteuning voor replicatie voor de bewerking Alter Database.
 
 -   [*HIVE-18090*](https://issues.apache.org/jira/browse/HIVE-18090): acid heartbeat mislukt wanneer metastore is verbonden via hadoop-referentie.
 
 -   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189): Hive-query onjuiste resultaten retourneren als hive.groupby.orderby.position.alias ingesteld op true.
 
--   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): vectorisatie in: verminderen aan groep door MERGEPARTIAL met dubbele kolommen is verbroken.
+-   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vectorisatie in: GROEP door MERGEPARTIAL verminderen aan clientzijde met dubbele kolommen is verbroken.
 
 -   [*HIVE-18293*](https://issues.apache.org/jira/browse/HIVE-18293): Hive is mislukt voor het comprimeren van tabellen die zich bevinden in een map die geen eigendom is van de identiteit HiveMetaStore uitgevoerd.
 
--   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327): de onnodige HiveConf-afhankelijkheid voor MiniHiveKdc verwijderen.
+-   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327): De onnodige HiveConf-afhankelijkheid voor MiniHiveKdc verwijderen.
 
--   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341): repl load-ondersteuning voor het toevoegen van 'raw' naamruimte voor TDE met dezelfde versleutelingssleutels toevoegen.
+-   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341): Ondersteuning voor repl laden voor het toevoegen van 'raw' naamruimte voor TDE met dezelfde versleutelingssleutels toevoegen.
 
 -   [*HIVE-18352*](https://issues.apache.org/jira/browse/HIVE-18352): Introductie van een optie METADATAONLY tijdens de DUMP REPL om toe te staan voor integratie van andere hulpprogramma's.
 
--   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353): CompactorMR jobclient.close() om opschoning te activeren (Prabhu Joseph via Thejas Nair) moet aanroepen.
+-   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353): CompactorMR moet jobclient.close() om opschoning te activeren (Prabhu Joseph via Thejas Nair) aanroepen.
 
 -   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException wanneer een query naar een gepartitioneerde weergave in ColumnPruner.
 
--   [*HIVE-18429*](https://issues.apache.org/jira/browse/HIVE-18429): compressie moet een aanvraag verwerken wanneer deze geen uitvoer produceert.
+-   [*HIVE-18429*](https://issues.apache.org/jira/browse/HIVE-18429): Compressie kan een aanvraag moet verwerken wanneer deze geen uitvoer produceert.
 
--   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: bieden een manier voor gebruikers om door te geven van cookie-gegevens via verbindingsreeks JDBC.
+-   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: Bieden een manier voor gebruikers om door te geven van cookie-gegevens via verbindingsreeks JDBC.
 
--   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460): afvalpers Tabeleigenschappen niet doorgeven aan de Orc-schrijver.
+-   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460): Afvalpers doorgeven niet Tabeleigenschappen aan de Orc-schrijver.
 
 -   [*HIVE-18467*](https://issues.apache.org/jira/browse/HIVE-18467): ondersteuning voor hele datawarehouse dump / laden + maken/drop databasegebeurtenissen (Anishek Agarwal, gecontroleerd door Sankar Hariappan).
 
--   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551): vectorisatie in: VectorMapOperator probeert te schrijven te veel kolommen vector voor hybride respijtperiode.
+-   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551): Vectorisatie in: VectorMapOperator probeert te veel vector kolommen schrijven voor hybride respijtperiode.
 
 -   [*HIVE-18587*](https://issues.apache.org/jira/browse/HIVE-18587): DML-gebeurtenis insert mag proberen te berekenen van een controlesom op mappen.
 
--   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613): JsonSerDe uitbreiden om binaire type te ondersteunen.
+-   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613): Breid JsonSerDe ter ondersteuning van binaire type.
 
--   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626): Repl load "met" component niet config doorgeeft aan taken.
+-   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626): REPL load "met" component geeft niet config naar taken.
 
 -   [*HIVE-18660*](https://issues.apache.org/jira/browse/HIVE-18660): PCR geen onderscheid maakt tussen partitie en virtuele kolommen.
 
--   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): REPL STATUS with-component moet ondersteunen.
+-   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): STATUS van REPL moet with-component ondersteunen.
 
--   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): REPL STATUS with-component moet ondersteunen.
+-   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): STATUS van REPL moet with-component ondersteunen.
 
--   [*HIVE-18788*](https://issues.apache.org/jira/browse/HIVE-18788): invoer in JDBC PreparedStatement opschonen.
+-   [*HIVE-18788*](https://issues.apache.org/jira/browse/HIVE-18788): Opschonen van de invoer in JDBC PreparedStatement.
 
--   [*HIVE-18794*](https://issues.apache.org/jira/browse/HIVE-18794): Repl load "met" component geeft niet config taken voor niet-partitietabellen.
+-   [*HIVE-18794*](https://issues.apache.org/jira/browse/HIVE-18794): REPL load "met" component geeft niet config taken voor niet-partitietabellen.
 
--   [*HIVE-18808*](https://issues.apache.org/jira/browse/HIVE-18808): maken compressie krachtiger wanneer statistieken mislukt bijwerken.
+-   [*HIVE-18808*](https://issues.apache.org/jira/browse/HIVE-18808): Maken compressie krachtiger wanneer statistieken mislukt bijwerken.
 
 -   [*HIVE-18817*](https://issues.apache.org/jira/browse/HIVE-18817): ArrayIndexOutOfBounds uitzondering tijdens het lezen van ACID-tabel.
 
--   [*HIVE-18833*](https://issues.apache.org/jira/browse/HIVE-18833): automatisch samenvoegen mislukt wanneer 'invoegen in map als orcfile'.
+-   [*HIVE-18833*](https://issues.apache.org/jira/browse/HIVE-18833): Automatisch samenvoegen mislukt wanneer 'invoegen in map als orcfile'.
 
--   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879): niet toestaan van ingesloten element UDFXPathUtil moet werken als xercesImpl.jar in het klassepad van.
+-   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879): Embedded-element in UDFXPathUtil moet werken als weigeren xercesImpl.jar in het klassepad van.
 
--   [*HIVE-18907*](https://issues.apache.org/jira/browse/HIVE-18907): hulpprogramma voor het probleem met acid-sleutelindex van HIVE-18817 maken.
+-   [*HIVE-18907*](https://issues.apache.org/jira/browse/HIVE-18907): Hulpprogramma voor het probleem met acid-sleutelindex van HIVE-18817 maken.
 
 **Hive 2.1.0 Apache Patches:**
 
--   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013): beschrijven tabel geen unicode correct weergegeven.
+-   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013): Beschrijf tabel geen unicode correct weergegeven.
 
--   [*HIVE-14205*](https://issues.apache.org/jira/browse/HIVE-14205): union-type met AVRO-bestandsindeling biedt geen ondersteuning voor Hive.
+-   [*HIVE-14205*](https://issues.apache.org/jira/browse/HIVE-14205): Union-type met AVRO-bestandsindeling biedt geen ondersteuning voor hive.
 
--   [*HIVE-15563*](https://issues.apache.org/jira/browse/HIVE-15563): ongeldige bewerking negeren status overgang uitzondering in SQLOperation.runQuery om echte uitzondering zichtbaar te maken.
+-   [*HIVE-15563*](https://issues.apache.org/jira/browse/HIVE-15563): Ongeldige bewerking status overgang uitzondering in SQLOperation.runQuery blootstellen echte uitzondering wordt genegeerd.
 
--   [*HIVE-15680*](https://issues.apache.org/jira/browse/HIVE-15680): onjuiste resultaten wanneer hive.optimize.index.filter=true en dezelfde ORC-tabel twee keer in de query in de modus MR wordt verwezen.
+-   [*HIVE-15680*](https://issues.apache.org/jira/browse/HIVE-15680): Onjuiste resultaten wanneer hive.optimize.index.filter=true en dezelfde ORC-tabel twee keer in de query in de modus MR wordt verwezen.
 
--   [*HIVE-15883*](https://issues.apache.org/jira/browse/HIVE-15883): HBase-tabel in de component invoegen is mislukt voor decimal toegewezen.
+-   [*HIVE-15883*](https://issues.apache.org/jira/browse/HIVE-15883): HBase-tabel in de component insert mislukken voor decimal toegewezen.
 
--   [*HIVE-16757*](https://issues.apache.org/jira/browse/HIVE-16757): aanroepen naar afgeschafte AbstractRelNode.getRows verwijderen.
+-   [*HIVE-16757*](https://issues.apache.org/jira/browse/HIVE-16757): Aanroepen naar afgeschafte AbstractRelNode.getRows verwijderen.
 
--   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828): met CBO ingeschakeld, wordt Query op gepartitioneerde weergaven IndexOutOfBoundException genereert.
+-   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828): Met de CBO is ingeschakeld, genereert de Query in gepartitioneerde weergave IndexOutOfBoundException.
 
 -   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): invoegen overschrijven partitie op een externe tabel is mislukt wanneer de partitie eerst verwijderen.
 
--   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259): UNIONTYPE kolommen wordt niet herkend door Hive JDBC.
+-   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259): UNIONTYPE kolommen wordt niet herkend door hive JDBC.
 
 -   [*HIVE-17530*](https://issues.apache.org/jira/browse/HIVE-17530): ClassCastException tijdens het converteren van uniontype.
 
--   [*HIVE-17600*](https://issues.apache.org/jira/browse/HIVE-17600): Controleer OrcFile van enforceBufferSize gebruiker worden ingesteld.
+-   [*HIVE-17600*](https://issues.apache.org/jira/browse/HIVE-17600): Controleer de OrcFile enforceBufferSize gebruiker worden ingesteld.
 
 -   [*HIVE-17601*](https://issues.apache.org/jira/browse/HIVE-17601): foutafhandeling in LlapServiceDriver verbeteren.
 
 -   [*HIVE-17613*](https://issues.apache.org/jira/browse/HIVE-17613): object-adresgroepen voor korte, dezelfde thread toewijzingen verwijderen.
 
--   [*HIVE-17617*](https://issues.apache.org/jira/browse/HIVE-17617): updatepakket van een lege resultatenset de groepering van de set leeg groepering moet bevatten.
+-   [*HIVE-17617*](https://issues.apache.org/jira/browse/HIVE-17617): Updatepakket van een lege resultatenset moet de groepering van de set leeg groepering bevatten.
 
 -   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): Hive-site-instellingen worden genegeerd tijdens de HCatInputFormat split-berekening.
 
--   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: een lijst met toegestane adressen/blacklist-configuratie moet u toestaan selectief in cache plaatsen van tabellen/partities en lezen terwijl prewarming toestaan.
+-   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: Een lijst met toegestane adressen/blacklist-configuratie moet u toestaan selectief in cache plaatsen van tabellen/partities en lezen terwijl prewarming toestaan.
 
--   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): meerdere toevoegen\_agg.q test voor blobstores.
+-   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): Toevoegen van meerdere\_agg.q test voor blobstores.
 
 -   [*HIVE-17702*](https://issues.apache.org/jira/browse/HIVE-17702): onjuiste isRepeating verwerken in decimale lezer in ORC.
 
--   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729): Database toevoegen en uitleg gerelateerde blobarchief tests.
+-   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729): Toevoegen van de Database en uitleg blobarchief tests die betrekking hebben.
 
 -   [*HIVE-17731*](https://issues.apache.org/jira/browse/HIVE-17731): een optie voor compatibiliteit met eerdere voor externe gebruikers toevoegen aan HIVE-11985.
 
--   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803): met meerdere query Pig, 2 HCatStorers schrijven naar dezelfde tabel elkaars uitvoer wordt trample.
+-   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803): Met meerdere query Pig, wordt 2 HCatStorers schrijven naar dezelfde tabel trample elkaars uitvoer.
 
 -   [*HIVE-17845*](https://issues.apache.org/jira/browse/HIVE-17845): invoegen mislukt als doel tabelkolommen niet in kleine letters worden.
 
 -   [*HIVE-17900*](https://issues.apache.org/jira/browse/HIVE-17900): statistieken over de kolommen die zijn geactiveerd door analyseren afvalpers genereert een verkeerd ingedeelde SQL met &gt; 1 partitiekolom.
 
--   [*HIVE-18006*](https://issues.apache.org/jira/browse/HIVE-18006): geheugengebruik van HLLDenseRegister optimaliseren.
+-   [*HIVE-18006*](https://issues.apache.org/jira/browse/HIVE-18006): Het geheugengebruik van HLLDenseRegister optimaliseren.
 
--   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026): Hive-webhcat principal configuratie optimaliseren.
+-   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026): Hive webhcat principal configuratie optimaliseren.
 
--   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031): ondersteuning voor replicatie voor de bewerking Alter Database.
+-   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031): Ondersteuning voor replicatie voor de bewerking Alter Database.
 
 -   [*HIVE-18090*](https://issues.apache.org/jira/browse/HIVE-18090): acid heartbeat mislukt wanneer metastore is verbonden via hadoop-referentie.
 
 -   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189): Order by-positie werkt niet als cbo is uitgeschakeld.
 
--   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): vectorisatie in: verminderen aan groep door MERGEPARTIAL met dubbele kolommen is verbroken.
+-   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vectorisatie in: GROEP door MERGEPARTIAL verminderen aan clientzijde met dubbele kolommen is verbroken.
 
--   [*HIVE-18269*](https://issues.apache.org/jira/browse/HIVE-18269): LLAP: snelle llap i/o met trage verwerkings-pipeline tot OOM leiden kan.
+-   [*HIVE-18269*](https://issues.apache.org/jira/browse/HIVE-18269): LLAP: Snelle i/o met trage verwerkings-pipeline tot OOM leiden kan llap.
 
 -   [*HIVE-18293*](https://issues.apache.org/jira/browse/HIVE-18293): Hive is mislukt voor het comprimeren van tabellen die zich bevinden in een map die geen eigendom is van de identiteit HiveMetaStore uitgevoerd.
 
--   [*HIVE-18318*](https://issues.apache.org/jira/browse/HIVE-18318): LLAP record lezer interrupt moet controleren, zelfs wanneer niet worden geblokkeerd.
+-   [*HIVE-18318*](https://issues.apache.org/jira/browse/HIVE-18318): LLAP record lezer Controleer interrupt, zelfs wanneer het niet worden geblokkeerd.
 
--   [*HIVE-18326*](https://issues.apache.org/jira/browse/HIVE-18326): scheduler LLAP Tez - taken alleen voorrang op te nemen als er een afhankelijkheid tussen beide.
+-   [*HIVE-18326*](https://issues.apache.org/jira/browse/HIVE-18326): Scheduler LLAP Tez - taken alleen voorrang op te nemen als er een afhankelijkheid tussen beide.
 
--   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327): de onnodige HiveConf-afhankelijkheid voor MiniHiveKdc verwijderen.
+-   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327): De onnodige HiveConf-afhankelijkheid voor MiniHiveKdc verwijderen.
 
--   [*HIVE-18331*](https://issues.apache.org/jira/browse/HIVE-18331): relogin wanneer verlopen van TGT en sommige logboekregistratie/lambda toevoegen.
+-   [*HIVE-18331*](https://issues.apache.org/jira/browse/HIVE-18331): Relogin wanneer verlopen van TGT en sommige logboekregistratie/lambda toevoegen.
 
--   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341): repl load-ondersteuning voor het toevoegen van 'raw' naamruimte voor TDE met dezelfde versleutelingssleutels toevoegen.
+-   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341): Ondersteuning voor repl laden voor het toevoegen van 'raw' naamruimte voor TDE met dezelfde versleutelingssleutels toevoegen.
 
 -   [*HIVE-18352*](https://issues.apache.org/jira/browse/HIVE-18352): Introductie van een optie METADATAONLY tijdens de DUMP REPL om toe te staan voor integratie van andere hulpprogramma's.
 
@@ -437,11 +437,11 @@ Deze release biedt Hive 1.2.1 en Hive 2.1.0 naast de volgende patches:
 
 -   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException wanneer een query naar een gepartitioneerde weergave in ColumnPruner.
 
--   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: bieden een manier voor gebruikers om door te geven van cookie-gegevens via verbindingsreeks JDBC.
+-   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: Bieden een manier voor gebruikers om door te geven van cookie-gegevens via verbindingsreeks JDBC.
 
--   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460): afvalpers Tabeleigenschappen niet doorgeven aan de Orc-schrijver.
+-   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460): Afvalpers doorgeven niet Tabeleigenschappen aan de Orc-schrijver.
 
--   [*HIVE-18462*](https://issues.apache.org/jira/browse/HIVE-18462): (uitleg voor query's met kaart join heeft columnExprMap met niet-opgemaakt kolomnaam geformatteerd).
+-   [*HIVE-18462*](https://issues.apache.org/jira/browse/HIVE-18462): (Uitgelegd opgemaakte voor query's met kaart join columnExprMap met niet-opgemaakt kolomnaam heeft).
 
 -   [*HIVE-18467*](https://issues.apache.org/jira/browse/HIVE-18467): ondersteuning voor hele datawarehouse dump / laden + maken/drop databasegebeurtenissen.
 
@@ -451,83 +451,83 @@ Deze release biedt Hive 1.2.1 en Hive 2.1.0 naast de volgende patches:
 
 -   [*HIVE-18506*](https://issues.apache.org/jira/browse/HIVE-18506): LlapBaseInputFormat - negatieve matrixindex.
 
--   [*HIVE-18517*](https://issues.apache.org/jira/browse/HIVE-18517): vectorisatie in: los VectorMapOperator VRBs accepteren en controleer de vlag correct vectorized ter ondersteuning van LLAP opslaan in cache).
+-   [*HIVE-18517*](https://issues.apache.org/jira/browse/HIVE-18517): Vectorisatie in: FIX VectorMapOperator VRBs accepteren en controleer vectorized vlag correct ter ondersteuning van LLAP opslaan in cache).
 
--   [*HIVE-18523*](https://issues.apache.org/jira/browse/HIVE-18523): samenvatting rij herstellen in het geval er geen invoer zijn.
+-   [*HIVE-18523*](https://issues.apache.org/jira/browse/HIVE-18523): Corrigeer rij Samenvatting voor het geval er geen invoer zijn.
 
--   [*HIVE-18528*](https://issues.apache.org/jira/browse/HIVE-18528): samengevoegde statistieken in ObjectStore verkeerde resultaat ophalen.
+-   [*HIVE-18528*](https://issues.apache.org/jira/browse/HIVE-18528): Samengevoegde statistieken in ObjectStore ophalen verkeerde resultaat.
 
--   [*HIVE-18530*](https://issues.apache.org/jira/browse/HIVE-18530): replicatie moet MM-tabel (stap nu overslaan).
+-   [*HIVE-18530*](https://issues.apache.org/jira/browse/HIVE-18530): Replicatie moet MM-tabel (stap nu overslaan).
 
--   [*HIVE-18548*](https://issues.apache.org/jira/browse/HIVE-18548): los log4j importeren.
+-   [*HIVE-18548*](https://issues.apache.org/jira/browse/HIVE-18548): Corrigeer log4j importeren.
 
--   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551): vectorisatie in: VectorMapOperator probeert te schrijven te veel kolommen vector voor hybride respijtperiode.
+-   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551): Vectorisatie in: VectorMapOperator probeert te veel vector kolommen schrijven voor hybride respijtperiode.
 
 -   [*HIVE-18577*](https://issues.apache.org/jira/browse/HIVE-18577): SemanticAnalyzer.validate heeft enkele zinloos metastore aanroepen.
 
 -   [*HIVE-18587*](https://issues.apache.org/jira/browse/HIVE-18587): DML-gebeurtenis insert mag proberen te berekenen van een controlesom op mappen.
 
--   [*HIVE-18597*](https://issues.apache.org/jira/browse/HIVE-18597): LLAP: altijd de jar log4j2 API voor org.apache.log4j pakket.
+-   [*HIVE-18597*](https://issues.apache.org/jira/browse/HIVE-18597): LLAP: De jar log4j2 API voor org.apache.log4j altijd in het pakket.
 
--   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613): JsonSerDe uitbreiden om binaire type te ondersteunen.
+-   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613): Breid JsonSerDe ter ondersteuning van binaire type.
 
--   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626): Repl load "met" component niet config doorgeeft aan taken.
+-   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626): REPL load "met" component geeft niet config naar taken.
 
 -   [*HIVE-18643*](https://issues.apache.org/jira/browse/HIVE-18643): gearchiveerde partities voor ACID ops niet controleren.
 
 -   [*HIVE-18660*](https://issues.apache.org/jira/browse/HIVE-18660): PCR geen onderscheid maakt tussen partitie en virtuele kolommen.
 
--   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): REPL STATUS with-component moet ondersteunen.
+-   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): STATUS van REPL moet with-component ondersteunen.
 
--   [*HIVE-18788*](https://issues.apache.org/jira/browse/HIVE-18788): invoer in JDBC PreparedStatement opschonen.
+-   [*HIVE-18788*](https://issues.apache.org/jira/browse/HIVE-18788): Opschonen van de invoer in JDBC PreparedStatement.
 
--   [*HIVE-18794*](https://issues.apache.org/jira/browse/HIVE-18794): Repl load "met" component geeft niet config taken voor niet-partitietabellen.
+-   [*HIVE-18794*](https://issues.apache.org/jira/browse/HIVE-18794): REPL load "met" component geeft niet config taken voor niet-partitietabellen.
 
--   [*HIVE-18808*](https://issues.apache.org/jira/browse/HIVE-18808): maken compressie krachtiger wanneer statistieken mislukt bijwerken.
+-   [*HIVE-18808*](https://issues.apache.org/jira/browse/HIVE-18808): Maken compressie krachtiger wanneer statistieken mislukt bijwerken.
 
--   [*HIVE-18815*](https://issues.apache.org/jira/browse/HIVE-18815): niet-gebruikte functie van de software in HPL/SQL.
+-   [*HIVE-18815*](https://issues.apache.org/jira/browse/HIVE-18815): Verwijder niet-gebruikte functie in HPL/SQL.
 
 -   [*HIVE-18817*](https://issues.apache.org/jira/browse/HIVE-18817): ArrayIndexOutOfBounds uitzondering tijdens het lezen van ACID-tabel.
 
--   [*HIVE-18833*](https://issues.apache.org/jira/browse/HIVE-18833): automatisch samenvoegen mislukt wanneer 'invoegen in map als orcfile'.
+-   [*HIVE-18833*](https://issues.apache.org/jira/browse/HIVE-18833): Automatisch samenvoegen mislukt wanneer 'invoegen in map als orcfile'.
 
--   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879): niet toestaan van ingesloten element UDFXPathUtil moet werken als xercesImpl.jar in het klassepad van.
+-   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879): Embedded-element in UDFXPathUtil moet werken als weigeren xercesImpl.jar in het klassepad van.
 
--   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944): Groupping sets positie is onjuist ingesteld tijdens het DPP.
+-   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944): GroupPing sets positie is onjuist ingesteld tijdens het DPP.
 
 ### <a name="kafka"></a>Kafka
 
 Deze release biedt Kafka 1.0.0 en de volgende Apache-patches.
 
--   [KAFKA-4827](https://issues.apache.org/jira/browse/KAFKA-4827): Kafka verbinding: fout met speciale tekens in de connectornaam van de.
+-   [KAFKA-4827](https://issues.apache.org/jira/browse/KAFKA-4827): Kafka-verbinding: fout met speciale tekens in de connectornaam van de.
 
--   [KAFKA-6118](https://issues.apache.org/jira/browse/KAFKA-6118): tijdelijke fout in kafka.api.SaslScramSslEndToEndAuthorizationTest.testTwoConsumersWithDifferentSaslCredentials.
+-   [KAFKA-6118](https://issues.apache.org/jira/browse/KAFKA-6118): Tijdelijke fout in kafka.api.SaslScramSslEndToEndAuthorizationTest.testTwoConsumersWithDifferentSaslCredentials.
 
--   [KAFKA-6156](https://issues.apache.org/jira/browse/KAFKA-6156): JmxReporter windows stijl mappaden kan niet worden verwerkt.
+-   [KAFKA-6156](https://issues.apache.org/jira/browse/KAFKA-6156): JmxReporter kan windows stijl mappaden niet verwerken.
 
 -   [KAFKA-6164](https://issues.apache.org/jira/browse/KAFKA-6164): ClientQuotaManager threads te voorkomen dat afsluiten wanneer er een fout optreedt bij het laden van Logboeken.
 
--   [KAFKA-6167](https://issues.apache.org/jira/browse/KAFKA-6167): tijdstempel op streams directory bevat een dubbele punt, dit een ongeldig teken is.
+-   [KAFKA-6167](https://issues.apache.org/jira/browse/KAFKA-6167): Timestamp van streams directory bevat een dubbele punt, dit een ongeldig teken is.
 
 -   [KAFKA-6179](https://issues.apache.org/jira/browse/KAFKA-6179): RecordQueue.clear() Schakel MinTimestampTracker niet uit de lijst bijgehouden.
 
--   [KAFKA-6185](https://issues.apache.org/jira/browse/KAFKA-6185): Selector geheugenlek met hoge kans OOM in geval van omlaag conversie.
+-   [KAFKA-6185](https://issues.apache.org/jira/browse/KAFKA-6185): Geheugenlek Selector met hoge kans OOM in geval van omlaag conversie.
 
 -   [KAFKA-6190](https://issues.apache.org/jira/browse/KAFKA-6190): GlobalKTable is nooit voltooid herstellen bij het gebruiken van transactionele berichten.
 
 -   [KAFKA-6210](https://issues.apache.org/jira/browse/KAFKA-6210): IllegalArgumentException als 1.0.0 wordt gebruikt voor inter.broker.protocol.version of log.message.format.version.
 
--   [KAFKA-6214](https://issues.apache.org/jira/browse/KAFKA-6214): met behulp van de standby-replica's in met een in het geheugen state store zorgt ervoor dat stromen vastlopen.
+-   [KAFKA-6214](https://issues.apache.org/jira/browse/KAFKA-6214): Met behulp van de standby-replica's met een in het geheugen veroorzaakt Statusopslag Streams vastlopen.
 
--   [KAFKA-6215](https://issues.apache.org/jira/browse/KAFKA-6215): KafkaStreamsTest in trunk is mislukt.
+-   [KAFKA-6215](https://issues.apache.org/jira/browse/KAFKA-6215): KafkaStreamsTest mislukt in trunk.
 
--   [KAFKA-6238](https://issues.apache.org/jira/browse/KAFKA-6238): problemen met het protocolversie wanneer een rolling upgrade wordt toegepast op 1.0.0.
+-   [KAFKA-6238](https://issues.apache.org/jira/browse/KAFKA-6238): Problemen met het protocolversie wanneer een rolling upgrade wordt toegepast op 1.0.0.
 
--   [KAFKA-6260](https://issues.apache.org/jira/browse/KAFKA-6260): AbstractCoordinator NULL-expressie voor het niet duidelijk verwerkt.
+-   [KAFKA-6260](https://issues.apache.org/jira/browse/KAFKA-6260): AbstractCoordinator verwerkt niet duidelijk NULL-expressie.
 
--   [KAFKA-6261](https://issues.apache.org/jira/browse/KAFKA-6261): aanvraag logboekregistratie uitzondering genereert als ACK = 0.
+-   [KAFKA-6261](https://issues.apache.org/jira/browse/KAFKA-6261): Aanvraag logboekregistratie uitzondering genereert als ACK = 0.
 
--   [KAFKA-6274](https://issues.apache.org/jira/browse/KAFKA-6274): automatisch gegenereerde naam van de Statusopslag KTable bron verbeteren.
+-   [KAFKA-6274](https://issues.apache.org/jira/browse/KAFKA-6274): Verbeter de automatisch gegenereerde-namen van gegevensbronnen KTable state store.
 
 ### <a name="mahout"></a>Mahout
 
@@ -547,99 +547,99 @@ In HDP-2.5.x en 2.6.x, we de bibliotheek 'commons-httpclient' verwijderd uit de 
 
 Deze release biedt Oozie 4.2.0 met de volgende Apache-patches.
 
--   [OOZIE-2571](https://issues.apache.org/jira/browse/OOZIE-2571): spark.scala.binary.version Maven eigenschap toevoegen zodat Scala 2.11 kan worden gebruikt.
+-   [OOZIE-2571](https://issues.apache.org/jira/browse/OOZIE-2571): Spark.scala.binary.version Maven eigenschap toevoegen zodat Scala 2.11 kan worden gebruikt.
 
--   [OOZIE-2606](https://issues.apache.org/jira/browse/OOZIE-2606): spark.yarn.jars om op te lossen Spark 2.0 met Oozie instellen.
+-   [OOZIE-2606](https://issues.apache.org/jira/browse/OOZIE-2606): Spark.yarn.jars om op te lossen Spark 2.0 met Oozie instellen.
 
 -   [OOZIE-2658](https://issues.apache.org/jira/browse/OOZIE-2658):--stuurprogramma-klasse-pad naar het klassepad in SparkMain kan overschrijven.
 
 -   [OOZIE-2787](https://issues.apache.org/jira/browse/OOZIE-2787): Oozie distribueert toepassing jar tweemaal waardoor de spark-taak mislukt.
 
--   [OOZIE-. 2792](https://issues.apache.org/jira/browse/OOZIE-2792): Hive2 actie is niet parseren Spark toepassings-ID van het logboekbestand goed als Hive op Spark.
+-   [OOZIE-. 2792](https://issues.apache.org/jira/browse/OOZIE-2792): Hive2 actie is Spark toepassings-ID van het logboekbestand niet correct parseren als Hive op Spark.
 
--   [OOZIE-2799](https://issues.apache.org/jira/browse/OOZIE-2799): locatie van de instelling logboek voor spark sql van hive.
+-   [OOZIE-2799](https://issues.apache.org/jira/browse/OOZIE-2799): Locatie van de instelling logboek voor spark sql van hive.
 
--   [OOZIE-2802](https://issues.apache.org/jira/browse/OOZIE-2802): actiefout in Spark op Spark 2.1.0 vanwege dubbele sharelibs.
+-   [OOZIE-2802](https://issues.apache.org/jira/browse/OOZIE-2802): Spark actiefout in Spark 2.1.0 vanwege dubbele sharelibs.
 
--   [OOZIE-2923](https://issues.apache.org/jira/browse/OOZIE-2923): opties voor Spark verbeteren bij het parseren.
+-   [OOZIE-2923](https://issues.apache.org/jira/browse/OOZIE-2923): Verbeter de Spark-opties bij het parseren.
 
--   [OOZIE-3109](https://issues.apache.org/jira/browse/OOZIE-3109): SCA: Cross-Site Scripting: weergegeven.
+-   [OOZIE-3109](https://issues.apache.org/jira/browse/OOZIE-3109): SCA: Cross-Site Scripting: Weergegeven.
 
 -   [OOZIE-3139](https://issues.apache.org/jira/browse/OOZIE-3139): Oozie valideert de werkstroom niet goed.
 
--   [OOZIE-3167](https://issues.apache.org/jira/browse/OOZIE-3167): Upgrade tomcat-versie 4.3 Oozie-vertakking.
+-   [OOZIE-3167](https://issues.apache.org/jira/browse/OOZIE-3167): Tomcat-versie 4.3 Oozie vertakking bijwerken.
 
 ### <a name="phoenix"></a>Phoenix
 
 Deze release biedt Phoenix 4.7.0 en de volgende Apache-patches:
 
--   [PHOENIX-1751](https://issues.apache.org/jira/browse/PHOENIX-1751): aggregaties, sorteren, enz., in de preScannerNext in plaats van postScannerOpen uitvoeren.
+-   [PHOENIX-1751](https://issues.apache.org/jira/browse/PHOENIX-1751): Aggregaties, sorteren, enz., in de preScannerNext in plaats van postScannerOpen uitvoeren.
 
--   [PHOENIX-2714](https://issues.apache.org/jira/browse/PHOENIX-2714): juiste byte raming in BaseResultIterators en beschikbaar te stellen als interface.
+-   [PHOENIX-2714](https://issues.apache.org/jira/browse/PHOENIX-2714): Juiste byte raming in BaseResultIterators en weer te geven als de interface.
 
--   [PHOENIX-2724](https://issues.apache.org/jira/browse/PHOENIX-2724): query's uitvoeren met een groot aantal guideposts is trager in vergelijking tot geen statistieken.
+-   [PHOENIX-2724](https://issues.apache.org/jira/browse/PHOENIX-2724): Query's uitvoeren met een groot aantal guideposts is trager in vergelijking tot geen statistieken.
 
--   [PHOENIX-2855](https://issues.apache.org/jira/browse/PHOENIX-2855): tijdelijke oplossing verhoging TimeRange niet worden gerangschikt voor HBase 1.2.
+-   [PHOENIX-2855](https://issues.apache.org/jira/browse/PHOENIX-2855): Tijdelijke oplossing verhoging TimeRange niet worden gerangschikt voor HBase 1.2.
 
--   [PHOENIX-3023](https://issues.apache.org/jira/browse/PHOENIX-3023): de prestaties negatief beïnvloeden wanneer de limiet voor query's standaard parallel worden uitgevoerd.
+-   [PHOENIX-3023](https://issues.apache.org/jira/browse/PHOENIX-3023): Trage prestaties wanneer de limiet voor query's standaard parallel worden uitgevoerd.
 
--   [PHOENIX-3040](https://issues.apache.org/jira/browse/PHOENIX-3040): guideposts voor het uitvoeren van query's worden niet gebruikt.
+-   [PHOENIX-3040](https://issues.apache.org/jira/browse/PHOENIX-3040): Gebruik geen guideposts voor het uitvoeren van query's opeenvolgend.
 
--   [PHOENIX-3112](https://issues.apache.org/jira/browse/PHOENIX-3112): gedeeltelijke rij scan niet correct worden verwerkt.
+-   [PHOENIX-3112](https://issues.apache.org/jira/browse/PHOENIX-3112): Gedeeltelijke rij scan niet correct worden verwerkt.
 
 -   [PHOENIX-3240](https://issues.apache.org/jira/browse/PHOENIX-3240): ClassCastException van Pig loader.
 
--   [PHOENIX-3452](https://issues.apache.org/jira/browse/PHOENIX-3452): null-waarden FIRST/NULL laatste moet niet van invloed zijn op of GROUP BY volgorde is te behouden.
+-   [PHOENIX-3452](https://issues.apache.org/jira/browse/PHOENIX-3452): Null-waarden FIRST/NULL laatste moet niet van invloed zijn op of GROUP BY volgorde is te behouden.
 
--   [PHOENIX-3469](https://issues.apache.org/jira/browse/PHOENIX-3469): Onjuiste sorteervolgorde voor DESC primaire sleutel voor Null-waarden LAATST / NULWAARDEN eerst.
+-   [PHOENIX-3469](https://issues.apache.org/jira/browse/PHOENIX-3469): Onjuiste sorteervolgorde voor DESC primaire sleutel voor Null-waarden LAATST / NULWAARDEN eerste.
 
--   [PHOENIX-3789](https://issues.apache.org/jira/browse/PHOENIX-3789): cross-regio index onderhoud aanroepen in postBatchMutateIndispensably worden uitgevoerd.
+-   [PHOENIX-3789](https://issues.apache.org/jira/browse/PHOENIX-3789): Regio-overkoepelende index onderhoud aanroepen in postBatchMutateIndispensably uitvoeren.
 
 -   [PHOENIX-3865](https://issues.apache.org/jira/browse/PHOENIX-3865): IS NULL retourneert geen juiste resultaten als eerste kolomfamilie niet gefilterd op basis van.
 
--   [PHOENIX-4290](https://issues.apache.org/jira/browse/PHOENIX-4290): volledige tabelcontrole uitgevoerd voor verwijderen worden uitgevoerd met een tabel met onveranderbare indexen.
+-   [PHOENIX-4290](https://issues.apache.org/jira/browse/PHOENIX-4290): Volledige tabelcontrole uitgevoerd die met een tabel met onveranderbare indexen voor verwijderen is uitgevoerd.
 
--   [PHOENIX-4373](https://issues.apache.org/jira/browse/PHOENIX-4373): variabele lengte van lokale Indexsleutel eindigen op een null-waarden tijdens upserting kan hebben.
+-   [PHOENIX-4373](https://issues.apache.org/jira/browse/PHOENIX-4373): Lokale Indexsleutel voor variabele lengte kan hebben eindigen op een null-waarden tijdens upserting.
 
 -   [PHOENIX-4466](https://issues.apache.org/jira/browse/PHOENIX-4466): java.lang.RuntimeException: antwoordcode 500: uitvoeren van een spark-taak verbinding maken met phoenix query-server en gegevens laden.
 
--   [PHOENIX-4489](https://issues.apache.org/jira/browse/PHOENIX-4489): HBase verbinding een geheugenlek in Phoenix MR taken.
+-   [PHOENIX-4489](https://issues.apache.org/jira/browse/PHOENIX-4489): HBase-verbinding een geheugenlek in Phoenix MR taken.
 
--   [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525): geheel getaloverloop in de Group by worden uitgevoerd.
+-   [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525): Getaloverloop van geheel in de Group by worden uitgevoerd.
 
 -   [PHOENIX-4560](https://issues.apache.org/jira/browse/PHOENIX-4560): ORDER BY met GROUP BY werkt niet als er waar op pk-kolom.
 
 -   [PHOENIX-4586](https://issues.apache.org/jira/browse/PHOENIX-4586): UPSERT selecteren wordt pas in rekening vergelijkingsoperators op voor subquery's.
 
--   [PHOENIX-4588](https://issues.apache.org/jira/browse/PHOENIX-4588): expressie ook klonen als onderliggende items Determinism.PER hebt\_AANROEPEN.
+-   [PHOENIX-4588](https://issues.apache.org/jira/browse/PHOENIX-4588): Expressie ook klonen als onderliggende items Determinism.PER hebt\_AANROEPEN.
 
 ### <a name="pig"></a>Pig
 
 Deze release biedt Pig 0.16.0 met de volgende Apache-patches.
 
--   [PIG-5159](https://issues.apache.org/jira/browse/PIG-5159): los Pig lastige geschiedenis niet opslaan.
+-   [PIG-5159](https://issues.apache.org/jira/browse/PIG-5159): Corrigeer Pig lastige geschiedenis niet opslaan.
 
--   [PIG-5175](https://issues.apache.org/jira/browse/PIG-5175): jruby upgraden naar 1.7.26.
+-   [PIG-5175](https://issues.apache.org/jira/browse/PIG-5175): Jruby upgraden naar 1.7.26.
 
 ### <a name="ranger"></a>Ranger
 
 Deze release biedt Ranger 0.7.0 en de volgende Apache-patches:
 
--   [RANGER-1805](https://issues.apache.org/jira/browse/RANGER-1805): verbetering in aanbevolen procedures in js-Code.
+-   [RANGER-1805](https://issues.apache.org/jira/browse/RANGER-1805): Verbeteringen aan aanbevolen procedures in js-code.
 
--   [RANGER-1960](https://issues.apache.org/jira/browse/RANGER-1960): rekening met de tabelnaam van de momentopname voor verwijdering.
+-   [RANGER-1960](https://issues.apache.org/jira/browse/RANGER-1960): Rekening met de tabelnaam van de momentopname voor verwijdering.
 
--   [RANGER-1982](https://issues.apache.org/jira/browse/RANGER-1982): fout verbetering voor metrische gegevens voor analyse van Ranger-beheerder en Ranger KMS.
+-   [RANGER-1982](https://issues.apache.org/jira/browse/RANGER-1982): Verbetering van de fout voor metrische gegevens voor analyse van Ranger-beheerder en Ranger KMS.
 
--   [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984): records in auditlogboeken Hbase mogelijk niet alle tags die zijn gekoppeld aan de gebruikte kolom weergegeven.
+-   [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984): Records in auditlogboeken Hbase mogelijk niet alle tags die zijn gekoppeld aan de gebruikte kolom weergegeven.
 
--   [RANGER-1988](https://issues.apache.org/jira/browse/RANGER-1988): onveilig aanvraaggrootte oplossen.
+-   [RANGER-1988](https://issues.apache.org/jira/browse/RANGER-1988): Onbeveiligde aanvraaggrootte oplossen.
 
--   [RANGER-1990](https://issues.apache.org/jira/browse/RANGER-1990): toevoegen One-way SSL MySQL-ondersteuning in Ranger-beheerder.
+-   [RANGER-1990](https://issues.apache.org/jira/browse/RANGER-1990): Toevoegen van One-way SSL MySQL-ondersteuning in Ranger-beheerder.
 
--   [RANGER-2006](https://issues.apache.org/jira/browse/RANGER-2006): oplossen van problemen die zijn gedetecteerd door de statische codeanalyse analyse in ranger usersync voor ldap-synchronisatiebron.
+-   [RANGER-2006](https://issues.apache.org/jira/browse/RANGER-2006): Oplossen van problemen die zijn gedetecteerd door de statische codeanalyse analyse in ranger usersync voor ldap-synchronisatiebron.
 
--   [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008): evaluatie van het beleid is mislukt voor beleidsvoorwaarden met meerdere regels.
+-   [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008): Evaluatie van het beleid is mislukt voor beleidsvoorwaarden met meerdere regels.
 
 ### <a name="slider"></a>Schuifregelaar
 
@@ -649,127 +649,127 @@ Deze release bevat schuifregelaar 0.92.0 met geen extra Apache-patches.
 
 Deze release biedt Spark 2.3.0 en de volgende Apache-patches:
 
--   [SPARK-13587](https://issues.apache.org/jira/browse/SPARK-13587): ondersteuning voor virtualenv in pyspark.
+-   [SPARK-13587](https://issues.apache.org/jira/browse/SPARK-13587): Ondersteuning voor virtualenv in pyspark.
 
--   [SPARK-19964](https://issues.apache.org/jira/browse/SPARK-19964): het lezen van het externe opslagplaatsen in SparkSubmitSuite voorkomen.
+-   [SPARK-19964](https://issues.apache.org/jira/browse/SPARK-19964): Het lezen van het externe opslagplaatsen in SparkSubmitSuite voorkomen.
 
 -   [SPARK-22882](https://issues.apache.org/jira/browse/SPARK-22882): ML-test voor de structured streaming: ml.classification.
 
--   [SPARK-22915](https://issues.apache.org/jira/browse/SPARK-22915): tests voor spark.ml.feature van N t/m Z Streaming.
+-   [SPARK-22915](https://issues.apache.org/jira/browse/SPARK-22915): Streaming-tests voor spark.ml.feature van N t/m Z.
 
--   [SPARK-23020](https://issues.apache.org/jira/browse/SPARK-23020): een andere race oplossen in de test in-process startprogramma voor apps.
+-   [SPARK-23020](https://issues.apache.org/jira/browse/SPARK-23020): Een andere race in de test in-process startprogramma voor apps oplossen.
 
--   [SPARK-23040](https://issues.apache.org/jira/browse/SPARK-23040): retourneert onderbreekbaar iterator voor shuffle-lezer.
+-   [SPARK-23040](https://issues.apache.org/jira/browse/SPARK-23040): Retourneert onderbreekbaar iterator voor shuffle-lezer.
 
 -   [SPARK-23173](https://issues.apache.org/jira/browse/SPARK-23173): Vermijd het maken van beschadigd parquet-bestanden bij het laden van gegevens uit JSON.
 
--   [SPARK-23264](https://issues.apache.org/jira/browse/SPARK-23264): scala oplossen. MatchError in literals.sql.out.
+-   [SPARK-23264](https://issues.apache.org/jira/browse/SPARK-23264): Scala oplossen. MatchError in literals.sql.out.
 
--   [SPARK-23288](https://issues.apache.org/jira/browse/SPARK-23288): Fix uitvoer metrische gegevens met parquet sink.
+-   [SPARK-23288](https://issues.apache.org/jira/browse/SPARK-23288): Uitvoer metrische gegevens met parquet sink oplossen.
 
--   [SPARK-23329](https://issues.apache.org/jira/browse/SPARK-23329): los van de documentatie van trigonometrische functies.
+-   [SPARK-23329](https://issues.apache.org/jira/browse/SPARK-23329): Corrigeer de documentatie van trigonometrische functies.
 
--   [SPARK-23406](https://issues.apache.org/jira/browse/SPARK-23406): Enable stream-stream Self-joins voor vertakking 2.3.
+-   [SPARK-23406](https://issues.apache.org/jira/browse/SPARK-23406): Schakel stream-stream Self-joins voor vertakking 2.3.
 
 -   [SPARK-23434](https://issues.apache.org/jira/browse/SPARK-23434): Spark niet moet waarschuwen \`metagegevens directory\` voor een HDFS-bestandspad.
 
--   [SPARK-23436](https://issues.apache.org/jira/browse/SPARK-23436): partitie als datum afleiden alleen als deze omgezet naar datum worden kan.
+-   [SPARK-23436](https://issues.apache.org/jira/browse/SPARK-23436): Afleiden partitie als datum alleen als deze omgezet naar datum worden kan.
 
--   [SPARK-23457](https://issues.apache.org/jira/browse/SPARK-23457): taak voltooid listeners eerst registreren in ParquetFileFormat.
+-   [SPARK-23457](https://issues.apache.org/jira/browse/SPARK-23457): Taak is voltooid listeners eerst registreren in ParquetFileFormat.
 
 -   [SPARK-23462](https://issues.apache.org/jira/browse/SPARK-23462): ontbrekende veld foutbericht in verbeteren \`StructType\`.
 
--   [SPARK-23490](https://issues.apache.org/jira/browse/SPARK-23490): storage.locationUri met bestaande tabel in CreateTable controleren.
+-   [SPARK-23490](https://issues.apache.org/jira/browse/SPARK-23490): Controleer storage.locationUri met bestaande tabel in CreateTable.
 
--   [SPARK-23524](https://issues.apache.org/jira/browse/SPARK-23524): Big lokale shuffle blokken moeten niet worden gecontroleerd op beschadigingen.
+-   [SPARK-23524](https://issues.apache.org/jira/browse/SPARK-23524): Grote lokale shuffle blokken moeten niet worden gecontroleerd op beschadigingen.
 
--   [SPARK-23525](https://issues.apache.org/jira/browse/SPARK-23525): ondersteuning voor ALTER TABLE wijzigen kolom opmerkingen voor externe hive-tabel.
+-   [SPARK-23525](https://issues.apache.org/jira/browse/SPARK-23525): ALTER TABLE wijziging kolom Opmerking-ondersteuning voor externe hive-tabel.
 
 -   [SPARK-23553](https://issues.apache.org/jira/browse/SPARK-23553): Tests moeten niet ervan uitgaan dat de standaardwaarde van \`spark.sql.sources.default\`.
 
--   [SPARK-23569](https://issues.apache.org/jira/browse/SPARK-23569): pandas toestaan\_udf om te werken met python3 style type van aantekeningen voorzien-functies.
+-   [SPARK-23569](https://issues.apache.org/jira/browse/SPARK-23569): Pandas toestaan\_udf om te werken met python3 style type van aantekeningen voorzien-functies.
 
 -   [SPARK-23570](https://issues.apache.org/jira/browse/SPARK-23570): Spark 2.3.0 in HiveExternalCatalogVersionsSuite toevoegen.
 
--   [SPARK-23598](https://issues.apache.org/jira/browse/SPARK-23598): methoden in BufferedRowIterator openbaar om te voorkomen dat de runtime-fout voor een grote query maken.
+-   [SPARK-23598](https://issues.apache.org/jira/browse/SPARK-23598): Methoden in BufferedRowIterator openbare om te voorkomen dat de runtime-fout voor een grote query maken.
 
--   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): een UUID-generator van Pseudo-Random getallen toevoegen.
+-   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): Voeg een UUID-generator van Pseudo-Random getallen.
 
--   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): RandomUUIDGenerator in Uuid-expressie gebruikt.
+-   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): RandomUUIDGenerator in Uuid-expressie gebruiken.
 
--   [SPARK-23601](https://issues.apache.org/jira/browse/SPARK-23601): .md5 bestanden verwijderen van de release.
+-   [SPARK-23601](https://issues.apache.org/jira/browse/SPARK-23601): .Md5 bestanden verwijderen van de release.
 
--   [SPARK-23608](https://issues.apache.org/jira/browse/SPARK-23608): synchronisatie in SHS tussen attachSparkUI en detachSparkUI functies om te voorkomen dat gelijktijdige wijziging probleem Jetty Handlers toevoegen.
+-   [SPARK-23608](https://issues.apache.org/jira/browse/SPARK-23608): Synchronisatie in SHS toevoegen tussen attachSparkUI en detachSparkUI functies om te voorkomen dat gelijktijdige wijziging probleem in Jetty-Handlers.
 
--   [SPARK-23614](https://issues.apache.org/jira/browse/SPARK-23614): onjuiste hergebruik exchange oplossen wanneer opslaan in cache wordt gebruikt.
+-   [SPARK-23614](https://issues.apache.org/jira/browse/SPARK-23614): Onjuiste hergebruik exchange oplossen wanneer opslaan in cache wordt gebruikt.
 
--   [SPARK-23623](https://issues.apache.org/jira/browse/SPARK-23623): voorkomen dat gelijktijdig gebruik van in de cache consumenten in CachedKafkaConsumer (vertakking-2.3).
+-   [SPARK-23623](https://issues.apache.org/jira/browse/SPARK-23623): Vermijd het gelijktijdige gebruik van de cache consumenten in CachedKafkaConsumer (vertakking-2.3).
 
--   [SPARK-23624](https://issues.apache.org/jira/browse/SPARK-23624): herzien doc-bestand van de methode pushFilters in Datasource-V2.
+-   [SPARK-23624](https://issues.apache.org/jira/browse/SPARK-23624): Herzien doc-bestand van de methode pushFilters in Datasource-V2.
 
 -   [SPARK-23628](https://issues.apache.org/jira/browse/SPARK-23628): calculateParamLength zou niets moeten retourneren 1 + num van expressies.
 
--   [SPARK-23630](https://issues.apache.org/jira/browse/SPARK-23630): toestaan van de gebruiker hadoop conf aanpassingen worden doorgevoerd.
+-   [SPARK-23630](https://issues.apache.org/jira/browse/SPARK-23630): Toestaan van de gebruiker hadoop conf aanpassingen worden doorgevoerd.
 
--   [SPARK-23635](https://issues.apache.org/jira/browse/SPARK-23635): Spark executor env variabele wordt overschreven door dezelfde naam AM env-variabele.
+-   [SPARK-23635](https://issues.apache.org/jira/browse/SPARK-23635): Spark-uitvoerder env variabele wordt overschreven door dezelfde naam AM env-variabele.
 
 -   [SPARK-23637](https://issues.apache.org/jira/browse/SPARK-23637): Yarn mogelijk meer bronnen toewijzen als een dezelfde executor meerdere keren is afgebroken.
 
--   [SPARK-23639](https://issues.apache.org/jira/browse/SPARK-23639): voordat u init metastore client in SparkSQL CLI-token verkrijgen.
+-   [SPARK-23639](https://issues.apache.org/jira/browse/SPARK-23639): Voordat u init metastore client in SparkSQL CLI-token verkrijgen.
 
 -   [SPARK-23642](https://issues.apache.org/jira/browse/SPARK-23642): AccumulatorV2 subklasse isZero scaladoc oplossing.
 
--   [SPARK-23644](https://issues.apache.org/jira/browse/SPARK-23644): absoluut pad gebruiken voor de REST-aanroep in SHS.
+-   [SPARK-23644](https://issues.apache.org/jira/browse/SPARK-23644): Gebruik het absolute pad voor de REST-aanroep in SHS.
 
--   [SPARK-23645](https://issues.apache.org/jira/browse/SPARK-23645): Voeg documenten opnieuw toe \`pandas\_udf\` met sleutelwoord argumenten.
+-   [SPARK-23645](https://issues.apache.org/jira/browse/SPARK-23645): Toevoegen van docs RE \`pandas\_udf\` met sleutelwoord argumenten.
 
--   [SPARK-23649](https://issues.apache.org/jira/browse/SPARK-23649): niet toegestaan in UTF-8 tekens wordt overgeslagen.
+-   [SPARK-23649](https://issues.apache.org/jira/browse/SPARK-23649): Niet toegestaan in UTF-8 tekens wordt overgeslagen.
 
 -   [SPARK-23658](https://issues.apache.org/jira/browse/SPARK-23658): InProcessAppHandle maakt gebruik van de verkeerde klasse in getLogger.
 
--   [SPARK-23660](https://issues.apache.org/jira/browse/SPARK-23660): uitzondering in de clustermodus met yarn oplossen wanneer de toepassing snel is beëindigd.
+-   [SPARK-23660](https://issues.apache.org/jira/browse/SPARK-23660): Uitzondering in de clustermodus met yarn oplossen wanneer de toepassing snel is beëindigd.
 
--   [SPARK-23670](https://issues.apache.org/jira/browse/SPARK-23670): Fix geheugenlek op SparkPlanGraphWrapper.
+-   [SPARK-23670](https://issues.apache.org/jira/browse/SPARK-23670): Los geheugenlek op SparkPlanGraphWrapper.
 
--   [SPARK-23671](https://issues.apache.org/jira/browse/SPARK-23671): voorwaarde om in te schakelen van de threadgroep SHS oplossen.
+-   [SPARK-23671](https://issues.apache.org/jira/browse/SPARK-23671): Corrigeer de voorwaarde om in te schakelen van de threadgroep SHS.
 
--   [SPARK-23691](https://issues.apache.org/jira/browse/SPARK-23691): gebruik van sql\_conf util in PySpark test indien mogelijk.
+-   [SPARK-23691](https://issues.apache.org/jira/browse/SPARK-23691): Gebruik sql\_conf util in PySpark test indien mogelijk.
 
--   [SPARK-23695](https://issues.apache.org/jira/browse/SPARK-23695): los van het foutbericht voor Kinesis streaming tests.
+-   [SPARK-23695](https://issues.apache.org/jira/browse/SPARK-23695): Corrigeer het foutbericht voor Kinesis streaming tests.
 
 -   [SPARK-23706](https://issues.apache.org/jira/browse/SPARK-23706): spark.conf.get (waarde, worden standaard = None) moet geen zijn in PySpark produceren.
 
--   [SPARK-23728](https://issues.apache.org/jira/browse/SPARK-23728): los ML tests met de verwachte uitzonderingen streaming-tests uitvoert.
+-   [SPARK-23728](https://issues.apache.org/jira/browse/SPARK-23728): Herstellen van ML-tests met de verwachte uitzonderingen streaming-tests uitvoert.
 
--   [SPARK-23729](https://issues.apache.org/jira/browse/SPARK-23729): opzicht URI fragment bij het omzetten van globs.
+-   [SPARK-23729](https://issues.apache.org/jira/browse/SPARK-23729): URI-fragment in acht bij het omzetten van globs.
 
--   [SPARK-23759](https://issues.apache.org/jira/browse/SPARK-23759): kan niet binden van Spark-UI met specifieke hostnaam / IP.
+-   [SPARK-23759](https://issues.apache.org/jira/browse/SPARK-23759): Kan niet binden van Spark-UI met specifieke hostnaam / IP.
 
 -   [SPARK-23760](https://issues.apache.org/jira/browse/SPARK-23760): CodegenContext.withSubExprEliminationExprs moet niet opslaan/herstellen Clientextensie status goed.
 
--   [SPARK-23769](https://issues.apache.org/jira/browse/SPARK-23769): opmerkingen verwijderen die onnodig Scalastyle-controle uitschakelen.
+-   [SPARK-23769](https://issues.apache.org/jira/browse/SPARK-23769): Verwijder opmerkingen die onnodig Scalastyle-controle uitschakelen.
 
--   [SPARK-23788](https://issues.apache.org/jira/browse/SPARK-23788): Fix race in StreamingQuerySuite.
+-   [SPARK-23788](https://issues.apache.org/jira/browse/SPARK-23788): Race StreamingQuerySuite oplossen.
 
--   [SPARK-23802](https://issues.apache.org/jira/browse/SPARK-23802): PropagateEmptyRelation queryplan in niet-omgezette staat kunt laten.
+-   [SPARK-23802](https://issues.apache.org/jira/browse/SPARK-23802): PropagateEmptyRelation kunt queryplan laten in niet-omgezette staat.
 
 -   [SPARK-23806](https://issues.apache.org/jira/browse/SPARK-23806): Broadcast.unpersist kan leiden tot onherstelbare uitzondering gebruikt in combinatie met dynamische toewijzing.
 
--   [SPARK-23808](https://issues.apache.org/jira/browse/SPARK-23808): standaard Spark-sessie in alleen-test spark sessies instellen.
+-   [SPARK-23808](https://issues.apache.org/jira/browse/SPARK-23808): Standaard Spark-sessie in alleen-test spark sessies instellen.
 
--   [SPARK-23809](https://issues.apache.org/jira/browse/SPARK-23809): actieve SparkSession getOrCreate moet worden ingesteld.
+-   [SPARK-23809](https://issues.apache.org/jira/browse/SPARK-23809): Actieve SparkSession moet worden ingesteld door getOrCreate.
 
--   [SPARK-23816](https://issues.apache.org/jira/browse/SPARK-23816): afgesloten taken FetchFailures moeten worden genegeerd.
+-   [SPARK-23816](https://issues.apache.org/jira/browse/SPARK-23816): Afgesloten taken moeten FetchFailures worden genegeerd.
 
--   [SPARK-23822](https://issues.apache.org/jira/browse/SPARK-23822): foutbericht voor Parquet schema verschillen verbeteren.
+-   [SPARK-23822](https://issues.apache.org/jira/browse/SPARK-23822): Verbeterd foutbericht voor Parquet schema verschillen.
 
--   [SPARK-23823](https://issues.apache.org/jira/browse/SPARK-23823): houd transformExpression oorsprong.
+-   [SPARK-23823](https://issues.apache.org/jira/browse/SPARK-23823): Houd transformExpression oorsprong.
 
 -   [SPARK-23827](https://issues.apache.org/jira/browse/SPARK-23827): StreamingJoinExec moet ervoor zorgen dat invoergegevens in specifieke aantal partities is gepartitioneerd.
 
--   [SPARK-23838](https://issues.apache.org/jira/browse/SPARK-23838): uitvoeren van SQL-query wordt weergegeven als 'voltooid' in de SQL-tabblad.
+-   [SPARK-23838](https://issues.apache.org/jira/browse/SPARK-23838): Actieve SQL-query wordt weergegeven als 'voltooid' in SQL-tabblad.
 
--   [SPARK-23881](https://issues.apache.org/jira/browse/SPARK-23881): Fix flaky test JobCancellationSuite. " onderbreekbaar iterator shuffle-lezer'.
+-   [SPARK-23881](https://issues.apache.org/jira/browse/SPARK-23881): Flaky test JobCancellationSuite oplossen." onderbreekbaar iterator shuffle-lezer'.
 
 ### <a name="sqoop"></a>Sqoop
 
@@ -779,15 +779,15 @@ Deze release biedt Sqoop 1.4.6 met geen extra Apache-patches.
 
 Deze release biedt Storm 1.1.1 en de volgende Apache-patches:
 
--   [STORM-2652](https://issues.apache.org/jira/browse/STORM-2652): uitzondering opgetreden in JmsSpout open-methode.
+-   [STORM-2652](https://issues.apache.org/jira/browse/STORM-2652): De uitzondering is opgetreden in JmsSpout open-methode.
 
 -   [STORM-2841](https://issues.apache.org/jira/browse/STORM-2841): testNoAcksIfFlushFails UT met NullPointerException is mislukt.
 
--   [STORM-2854](https://issues.apache.org/jira/browse/STORM-2854): IEventLogger om logboekregistratie pluggable beschikbaar maken.
+-   [STORM-2854](https://issues.apache.org/jira/browse/STORM-2854): IEventLogger zodat logboekregistratie pluggable worden blootgesteld.
 
 -   [STORM-2870](https://issues.apache.org/jira/browse/STORM-2870): FileBasedEventLogger lekt niet-daemon ExecutorService waarmee wordt voorkomen dat proces om te worden voltooid.
 
--   [STORM-2960](https://issues.apache.org/jira/browse/STORM-2960): betere stresstest voor de urgentie van het juiste besturingssysteem-account instellen voor Storm verwerkt.
+-   [STORM-2960](https://issues.apache.org/jira/browse/STORM-2960): Betere stresstest voor de urgentie van het juiste besturingssysteem-account instellen voor Storm verwerkt.
 
 ### <a name="tez"></a>Tez
 
@@ -799,9 +799,9 @@ Deze release biedt Tez 0.7.0 en de volgende Apache-patches:
 
 Deze release biedt Zeppelin 0.7.3 met geen additionalApache-patches.
 
--   [ZEPPELIN-3072](https://issues.apache.org/jira/browse/ZEPPELIN-3072): Zeppelin gebruikersinterface reageert langzaam/als er te veel notitieblokken.
+-   [ZEPPELIN-3072](https://issues.apache.org/jira/browse/ZEPPELIN-3072): Zeppelin-gebruikersinterface wordt traag/niet meer reageert als er te veel notitieblokken.
 
--   [ZEPPELIN-3129](https://issues.apache.org/jira/browse/ZEPPELIN-3129): Zeppelin-gebruikersinterface in Internet Explorer niet afmelden.
+-   [ZEPPELIN-3129](https://issues.apache.org/jira/browse/ZEPPELIN-3129): Zeppelin-UI afmelden niet in Internet Explorer.
 
 -   [ZEPPELIN-903](https://issues.apache.org/jira/browse/ZEPPELIN-903): CXF vervangen door Jersey2.
 
@@ -809,13 +809,13 @@ Deze release biedt Zeppelin 0.7.3 met geen additionalApache-patches.
 
 Deze release biedt ZooKeeper 3.4.6 en de volgende Apache-patches:
 
--   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest in Mac OS X is mislukt.
+-   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest is in Mac OS X mislukt.
 
 -   [ZOOKEEPER-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[JDK8\] kinderen voor vergelijking in AsyncOps tests sorteren.
 
--   [ZOOKEEPER-2423](https://issues.apache.org/jira/browse/ZOOKEEPER-2423): Upgrade Netty versie vanwege een beveiligingsprobleem (CVE-2014-3488).
+-   [ZOOKEEPER-2423](https://issues.apache.org/jira/browse/ZOOKEEPER-2423): Netty versie vanwege een beveiligingsprobleem (CVE-2014-3488) bijwerken.
 
--   [ZOOKEEPER-2693](https://issues.apache.org/jira/browse/ZOOKEEPER-2693): DOS-aanvallen op vier wchp/wchc letter woorden (4lw).
+-   [ZOOKEEPER-2693](https://issues.apache.org/jira/browse/ZOOKEEPER-2693): DOS-aanvallen op wchp/wchc vier letters woorden (4lw).
 
 -   [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726): Patch voor mogelijke racevoorwaarde introduceert.
 
@@ -862,7 +862,7 @@ In deze sectie bevat informatie over alle veelvoorkomende beveiligingsproblemen 
 
 | **Overzicht:** handler/ssl/OpenSslEngine.java in Netty 4.0.x voordat 4.0.37.Final en 4.1.x voordat 4.1.1.Final kunnen externe aanvallers om te leiden tot denial of service (oneindige lus) |
 |--------------------------------------------------------------------------------------------------|
-| **Ernst:** gemiddeld  |
+| **Ernst:** Gemiddeld  |
 | **Leverancier:** Hortonworks  |
 | **Versies beïnvloed:** HDP 2.x.x sinds 2.3.x  |
 | **Gebruikers optreedt:** alle gebruikers die gebruikmaken van HDFS. |
@@ -878,7 +878,7 @@ In deze sectie bevat informatie over alle veelvoorkomende beveiligingsproblemen 
 | **Versies optreedt:** alle HDP 2.5-versies, met inbegrip van Apache Ranger versies 0.6.0/0.6.1/0.6.2                                         |
 | **Betrokken gebruikers:** alle gebruikers van het beheerprogramma voor ranger-beleid.                                                                         |
 | **Gevolgen:** Ranger beleidsengine onjuist komt overeen met paden in bepaalde omstandigheden wanneer een beleid de vlaggen jokertekens en recursieve bevat. |
-| **Gegevens herstellen:** beleid evaluatielogica opgelost                                                                                          |
+| **Gegevens herstellen:** Beleid voor vaste evaluatielogica                                                                                          |
 | **Aanbevolen actie:** gebruikers moeten upgraden naar HDP 2.5.4+ (met Apache Ranger 0.6.3+) of HDP 2.6 + (met Apache Ranger 0.7.0+)         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
@@ -907,12 +907,12 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-88774              | [HIVE-17617](https://issues.apache.org/jira/browse/HIVE-17617), [HIVE-18413](https://issues.apache.org/jira/browse/HIVE-18413), [HIVE-18523](https://issues.apache.org/jira/browse/HIVE-18523)                                                                                 | query36 mislukt, rij aantal komt niet overeen                                                                                    |
 | FOUT-89765              | [HIVE-17702](https://issues.apache.org/jira/browse/HIVE-17702)                                                                                                                                                                                                                 | onjuiste isRepeating verwerken in decimale lezer in ORC                                                                |
 | FOUT-92293              | [HADOOP-15042](https://issues.apache.org/jira/browse/HADOOP-15042)                                                                                                                                                                                                             | Azure PageBlobInputStream.skip() kunt negatieve waarde geretourneerd wanneer numberOfPagesRemaining 0 is                            |
-| FOUT-92345              | [ATLAS-2285](https://issues.apache.org/jira/browse/ATLAS-2285)                                                                                                                                                                                                                 | Gebruikersinterface: Hernoemd opgeslagen zoekopdracht met datumkenmerk.                                                                         |
+| FOUT-92345              | [ATLAS-2285](https://issues.apache.org/jira/browse/ATLAS-2285)                                                                                                                                                                                                                 | GEBRUIKERSINTERFACE: Naam van opgeslagen zoekopdracht met datumkenmerk gewijzigd.                                                                         |
 | FOUT-92563              | [HIVE-17495](https://issues.apache.org/jira/browse/HIVE-17495), [HIVE-18528](https://issues.apache.org/jira/browse/HIVE-18528)                                                                                                                                                 | Samengevoegde statistieken in ObjectStore ophalen verkeerde resultaat                                                                        |
 | FOUT-92957              | [HIVE-11266](https://issues.apache.org/jira/browse/HIVE-11266)                                                                                                                                                                                                                 | aantal (\*) onjuist resultaat op basis van de statistieken voor externe tabellen                                                   |
 | FOUT-93097              | [RANGER-1944](https://issues.apache.org/jira/browse/RANGER-1944)                                                                                                                                                                                                               | Actiefilter voor beheerder controle werkt niet                                                                           |
 | FOUT-93335              | [HIVE-12315](https://issues.apache.org/jira/browse/HIVE-12315)                                                                                                                                                                                                                 | vectorisatie in\_korte\_regress.q is een probleem opgetreden resultaat voor de berekening van een dubbele                                      |
-| FOUT-93415              | [HIVE-18258](https://issues.apache.org/jira/browse/HIVE-18258), [HIVE-18310](https://issues.apache.org/jira/browse/HIVE-18310)                                                                                                                                                 | Vectorisatie in: Verminderen-side '-groep op MERGEPARTIAL met dubbele kolommen is verbroken                                      |
+| FOUT-93415              | [HIVE-18258](https://issues.apache.org/jira/browse/HIVE-18258), [HIVE-18310](https://issues.apache.org/jira/browse/HIVE-18310)                                                                                                                                                 | Vectorisatie in: GROEP door MERGEPARTIAL verminderen aan clientzijde met dubbele kolommen is verbroken                                      |
 | FOUT-93939              | [ATLAS-2294](https://issues.apache.org/jira/browse/ATLAS-2294)                                                                                                                                                                                                                 | Extra parameter 'description' toegevoegd bij het maken van een type                                                               |
 | FOUT-94007              | [PHOENIX-1751](https://issues.apache.org/jira/browse/PHOENIX-1751), [PHOENIX-3112](https://issues.apache.org/jira/browse/PHOENIX-3112)                                                                                                                                         | Rijen worden geretourneerd Null-waarden vanwege HBase gedeeltelijk Phoenix-query 's                                                          |
 | FOUT-94266              | [HIVE-12505](https://issues.apache.org/jira/browse/HIVE-12505)                                                                                                                                                                                                                 | INSERT in dezelfde versleuteld overschrijven zone op de achtergrond verwijderen van bestaande bestanden mislukt                                   |
@@ -940,7 +940,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-93159              | [OOZIE-3139](https://issues.apache.org/jira/browse/OOZIE-3139)                                                                         | Oozie valideert werkstroom onjuist                                                                                                       |
 | FOUT-93936              | [ATLAS-2289](https://issues.apache.org/jira/browse/ATLAS-2289)                                                                         | Ingesloten kafka/zookeeper servercode starten/stoppen buiten KafkaNotification implementatie worden verplaatst                                        |
 | FOUT-93942              | [ATLAS 2312](https://issues.apache.org/jira/browse/ATLAS-2312)                                                                         | ThreadLocal DateFormat objecten gebruiken om te voorkomen dat gelijktijdig gebruik van meerdere threads                                                         |
-| FOUT-93946              | [ATLAS-2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                         | Gebruikersinterface: Verwijderen van een label waarmee u met 25 + plaats in de lijst met labels in zowel vaste als boomstructuur structuur moet worden vernieuwd op de tag verwijderen uit de lijst. |
+| FOUT-93946              | [ATLAS-2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                         | GEBRUIKERSINTERFACE: Verwijderen van een label waarmee u met 25 + plaats in de lijst met labels in zowel vaste als boomstructuur structuur moet worden vernieuwd op de tag verwijderen uit de lijst. |
 | FOUT-94618              | [YARN-5037](https://issues.apache.org/jira/browse/YARN-5037), [YARN-7274](https://issues.apache.org/jira/browse/YARN-7274)             | Mogelijkheid om uit te schakelen van flexibiliteit op bladniveau wachtrij                                                                                          |
 | FOUT-94901              | [HBASE-19285](https://issues.apache.org/jira/browse/HBASE-19285)                                                                       | Per tabel latentie histogrammen toevoegen                                                                                                           |
 | FOUT-95259              | [HADOOP-15185](https://issues.apache.org/jira/browse/HADOOP-15185), [HADOOP-15186](https://issues.apache.org/jira/browse/HADOOP-15186) | Adls-connector voor het gebruik van de huidige versie van ADLS SDK bijwerken                                                                               |
@@ -958,14 +958,14 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-93577              | [RANGER-1938](https://issues.apache.org/jira/browse/RANGER-1938)                                                                                                                                                                                                                                                                                                                                                                                                             | Solr voor setup van Audit niet DocValues effectief gebruiken                                                                              |
 | FOUT-93910              | [HIVE-18293](https://issues.apache.org/jira/browse/HIVE-18293)                                                                                                                                                                                                                                                                                                                                                                                                               | Hive is mislukt voor het comprimeren van tabellen die zich bevinden in een map die geen eigendom is van de identiteit HiveMetaStore uitgevoerd                     |
 | FOUT-94345              | [HIVE-18429](https://issues.apache.org/jira/browse/HIVE-18429)                                                                                                                                                                                                                                                                                                                                                                                                               | Compressie kan een aanvraag moet verwerken wanneer deze geen uitvoer produceert                                                                          |
-| FOUT-94381              | [HADOOP-13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                           | Die RequestHedgingProxyProvider RetryAction bestelling verwerkt: MISLUKKEN &lt; opnieuw &lt; FAILOVER\_en\_probeer het opnieuw.                                  |
+| FOUT-94381              | [HADOOP-13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                           | Verwerking RequestHedgingProxyProvider RetryAction volgorde: MISLUKKEN &lt; OPNIEUW &lt; FAILOVER\_EN\_PROBEER HET OPNIEUW.                                  |
 | FOUT-94432              | [HIVE-18353](https://issues.apache.org/jira/browse/HIVE-18353)                                                                                                                                                                                                                                                                                                                                                                                                               | CompactorMR moet aanroepen jobclient.close() om opschoning te activeren                                                                        |
 | FOUT-94869              | [PHOENIX-4290](https://issues.apache.org/jira/browse/PHOENIX-4290), [PHOENIX-4373](https://issues.apache.org/jira/browse/PHOENIX-4373)                                                                                                                                                                                                                                                                                                                                       | Rij buiten het bereik voor Get op HRegion aangevraagd voor de lokale geïndexeerde gezouten phoenix-tabel.                                               |
 | FOUT-94928              | [HDFS-11078](https://issues.apache.org/jira/browse/HDFS-11078)                                                                                                                                                                                                                                                                                                                                                                                                               | NFE in LazyPersistFileScrubber oplossen                                                                                                  |
 | FOUT-94964              | [HIVE-18269](https://issues.apache.org/jira/browse/HIVE-18269), [HIVE-18318](https://issues.apache.org/jira/browse/HIVE-18318), [HIVE-18326](https://issues.apache.org/jira/browse/HIVE-18326)                                                                                                                                                                                                                                                                               | Meerdere LLAP correcties                                                                                                                 |
 | FOUT-95669              | [HIVE-18577](https://issues.apache.org/jira/browse/HIVE-18577), [HIVE-18643](https://issues.apache.org/jira/browse/HIVE-18643)                                                                                                                                                                                                                                                                                                                                               | Als query uitvoeren bijwerken/verwijderen op ACID tabel is gepartitioneerd, lezen HS2 alle elke partities.                                               |
 | FOUT-96390              | [HDFS-10453](https://issues.apache.org/jira/browse/HDFS-10453)                                                                                                                                                                                                                                                                                                                                                                                                               | ReplicationMonitor thread kan lange tijd vanwege de race wint tussen replicatie vastgelopen en verwijderen van hetzelfde bestand in een groot cluster. |
-| FOUT-96625              | [HIVE-16110](https://issues.apache.org/jira/browse/HIVE-16110)                                                                                                                                                                                                                                                                                                                                                                                                               | Herstellen van ' vectorisatie in: waarde van de ondersteuning van 2 geval wanneer in plaats van vallen terug naar VectorUDFAdaptor "                                       |
+| FOUT-96625              | [HIVE-16110](https://issues.apache.org/jira/browse/HIVE-16110)                                                                                                                                                                                                                                                                                                                                                                                                               | Herstellen van ' vectorisatie in: 2-waarde ONDERSTEUNINGSAANVRAAG wanneer in plaats van vallen terug naar VectorUDFAdaptor"                                       |
 | FOUT-97109              | [HIVE-16757](https://issues.apache.org/jira/browse/HIVE-16757)                                                                                                                                                                                                                                                                                                                                                                                                               | Gebruik van de afgeschafte getRows() in plaats van nieuwe estimateRowCount(RelMetadataQuery...) heeft invloed op de ernstige prestaties                      |
 | FOUT-97110              | [PHOENIX-3789](https://issues.apache.org/jira/browse/PHOENIX-3789)                                                                                                                                                                                                                                                                                                                                                                                                           | Regio-overkoepelende index onderhoud aanroepen in postBatchMutateIndispensably uitvoeren                                                        |
 | FOUT-98833              | [YARN-6797](https://issues.apache.org/jira/browse/YARN-6797)                                                                                                                                                                                                                                                                                                                                                                                                                 | TimelineWriter de POST-antwoord niet volledig gebruiken                                                                             |
@@ -997,11 +997,11 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-94280              | [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785)                                                                         | Weergave union-type en UDF naar \`cast\` de struct is verbroken                                          |
 | FOUT-94505              | [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525)                                                                     | Geheel getaloverloop in de Group by worden uitgevoerd                                                                  |
 | FOUT-95618              | [HIVE-18506](https://issues.apache.org/jira/browse/HIVE-18506)                                                                         | LlapBaseInputFormat - negatieve matrixindex                                                             |
-| FOUT-95644              | [HIVE-9152](https://issues.apache.org/jira/browse/HIVE-9152)                                                                           | CombineHiveInputFormat: Hive-query is mislukt in Tez met java.lang.IllegalArgumentException uitzondering |
+| FOUT-95644              | [HIVE-9152](https://issues.apache.org/jira/browse/HIVE-9152)                                                                           | CombineHiveInputFormat: Hive-query is in Tez mislukt met uitzondering van java.lang.IllegalArgumentException |
 | FOUT-96762              | [PHOENIX-4588](https://issues.apache.org/jira/browse/PHOENIX-4588)                                                                     | Expressie ook klonen als onderliggende items Determinism.PER hebt\_AANROEPEN                                |
 | FOUT-97145              | [HIVE-12245](https://issues.apache.org/jira/browse/HIVE-12245), [HIVE-17829](https://issues.apache.org/jira/browse/HIVE-17829)         | Ondersteuning voor kolom opmerkingen voor een HBase-tabel ondersteund                                                      |
 | FOUT-97741              | [HIVE-18944](https://issues.apache.org/jira/browse/HIVE-18944)                                                                         | GroupPing sets positie is onjuist ingesteld tijdens het DPP                                                  |
-| FOUT-98082              | [HIVE-18597](https://issues.apache.org/jira/browse/HIVE-18597)                                                                         | LLAP: Altijd de jar log4j2 API voor org.apache.log4j pakket                                           |
+| FOUT-98082              | [HIVE-18597](https://issues.apache.org/jira/browse/HIVE-18597)                                                                         | LLAP: De jar log4j2 API voor org.apache.log4j altijd het pakket                                           |
 | FOUT-99849              | N/A                                                                                                                                    | Maak een nieuwe tabel van de wizard voor een bestand probeert te gebruiken van de standaard-database                                    |
 
 **Beveiliging**
@@ -1052,7 +1052,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-100073             | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | te veel sluiten\_verbindingen van hiveserver naar gegevensknooppunt wachten                                                                                   |
 | FOUT-100319             | [HIVE-19248](https://issues.apache.org/jira/browse/HIVE-19248)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | REPL LOAD niet fout genereert als kopiëren van bestanden is mislukt.                                                                                              |
 | FOUT-100352             | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | KLOON - RM hiervoor logische scant /registry znode te vaak                                                                                  |
-| FOUT-100427             | [HIVE-19249](https://issues.apache.org/jira/browse/HIVE-19249)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Replicatie: WITH-component wordt niet doorgegeven de configuratie van de taak correct in alle gevallen                                                       |
+| FOUT-100427             | [HIVE-19249](https://issues.apache.org/jira/browse/HIVE-19249)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Replicatie: MET de component wordt niet doorgegeven de configuratie van de taak correct in alle gevallen                                                       |
 | FOUT-100430             | [HIVE-14483](https://issues.apache.org/jira/browse/HIVE-14483)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | java.lang.ArrayIndexOutOfBoundsException org.apache.orc.impl.TreeReaderFactory\$BytesColumnVectorUtil.commonReadByteArrays                     |
 | FOUT-100432             | [HIVE-19219](https://issues.apache.org/jira/browse/HIVE-19219)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Incrementele REPL DUMP moet fout als de aangevraagde gebeurtenissen zijn opgeschoonde genereren.                                                                   |
 | FOUT-100448             | [SPARK-23637](https://issues.apache.org/jira/browse/SPARK-23637), [SPARK-23802](https://issues.apache.org/jira/browse/SPARK-23802), [SPARK-23809](https://issues.apache.org/jira/browse/SPARK-23809), [SPARK-23816](https://issues.apache.org/jira/browse/SPARK-23816), [SPARK-23822](https://issues.apache.org/jira/browse/SPARK-23822), [ SPARK-23823](https://issues.apache.org/jira/browse/SPARK-23823), [SPARK-23838](https://issues.apache.org/jira/browse/SPARK-23838), [SPARK-23881](https://issues.apache.org/jira/browse/SPARK-23881)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Spark2 bijwerken naar 2.3.0+ (4/11)                                                                                                                 |
@@ -1074,7 +1074,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-87624              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Storm-oorzaken werknemers die continu voor logboekregistratie inschakelen                                                                                |
 | FOUT-88929              | [HBASE-15615](https://issues.apache.org/jira/browse/HBASE-15615)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Onjuist slaapstand tijd wanneer RegionServerCallable moet proberen                                                                                          |
 | FOUT-89628              | [HIVE-17613](https://issues.apache.org/jira/browse/HIVE-17613)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | object-adresgroepen voor korte, dezelfde thread toewijzingen verwijderen                                                                                         |
-| FOUT-89813              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | SCA: Code juistheid: niet-gesynchroniseerde methode overschrijft gesynchroniseerde methode                                                                  |
+| FOUT-89813              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | SCA: Juistheid van de code: Niet-gesynchroniseerde methode overschrijft gesynchroniseerde methode                                                                  |
 | FOUT-90437              | [ZEPPELIN-3072](https://issues.apache.org/jira/browse/ZEPPELIN-3072)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Zeppelin-gebruikersinterface reageert langzaam/als er te veel notitieblokken                                                                          |
 | FOUT-90640              | [HBASE-19065](https://issues.apache.org/jira/browse/HBASE-19065)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | HRegion\#bulkLoadHFiles() moet wachten voor gelijktijdige regio\#flush() om te voltooien                                                                 |
 | FOUT-91202              | [HIVE-17013](https://issues.apache.org/jira/browse/HIVE-17013)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Aanvraag met een subquery die is gebaseerd op selecteren voor een weergave verwijderen                                                                                     |
@@ -1094,7 +1094,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-93361              | [HIVE-12360](https://issues.apache.org/jira/browse/HIVE-12360)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Ongeldige zoekactie in niet-gecomprimeerde ORC met predicaat pushdown                                                                                           |
 | FOUT-93426              | [CALCIET 2086](https://issues.apache.org/jira/browse/CALCITE-2086)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | HTTP/413 in bepaalde omstandigheden vanwege de grote autorisatie-header                                                                           |
 | FOUT-93429              | [PHOENIX-3240](https://issues.apache.org/jira/browse/PHOENIX-3240)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ClassCastException van Pig-laadprogramma                                                                                                             |
-| FOUT-93485              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Kan de tabel mytestorg.apache.hadoop.hive.ql.metadata.InvalidTableException niet ophalen: tabel is niet gevonden bij het uitvoeren van de tabel van kolommen in LLAP analyseren |
+| FOUT-93485              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Kan de tabel mytestorg.apache.hadoop.hive.ql.metadata.InvalidTableException niet ophalen: Tabel is niet gevonden bij het uitvoeren van de tabel van kolommen in LLAP analyseren |
 | FOUT-93512              | [PHOENIX-4466](https://issues.apache.org/jira/browse/PHOENIX-4466)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | java.lang.RuntimeException: antwoordcode 500: uitvoeren van een spark-taak verbinding maken met phoenix query-server en gegevens laden                         |
 | FOUT-93550              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Zeppelin %spark.r werkt niet met spark1 vanwege scala versie komt niet overeen                                                                      |
 | FOUT-93910              | [HIVE-18293](https://issues.apache.org/jira/browse/HIVE-18293)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hive is mislukt voor het comprimeren van tabellen die zich bevinden in een map die geen eigendom is van de identiteit HiveMetaStore uitgevoerd                                |
@@ -1110,7 +1110,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-94330              | [HADOOP-13190](https://issues.apache.org/jira/browse/HADOOP-13190), [HADOOP-14104](https://issues.apache.org/jira/browse/HADOOP-14104), [HADOOP-14814](https://issues.apache.org/jira/browse/HADOOP-14814), [HDFS-10489](https://issues.apache.org/jira/browse/HDFS-10489), [HDFS-11689](https://issues.apache.org/jira/browse/HDFS-11689)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | HDFS moet ondersteuning bieden voor meerdere KMS-URI 's                                                                                                      |
 | FOUT-94345              | [HIVE-18429](https://issues.apache.org/jira/browse/HIVE-18429)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Compressie kan een aanvraag moet verwerken wanneer deze geen uitvoer produceert                                                                                     |
 | FOUT-94372              | [ATLAS-2229](https://issues.apache.org/jira/browse/ATLAS-2229)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | DSL-query: hive\_tabelnaam = \["t1", "t2"\] ongeldig DSL query uitzondering genereert                                                                |
-| FOUT-94381              | [HADOOP-13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Die RequestHedgingProxyProvider RetryAction bestelling verwerkt: MISLUKKEN &lt; opnieuw &lt; FAILOVER\_en\_probeer het opnieuw.                                             |
+| FOUT-94381              | [HADOOP-13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Verwerking RequestHedgingProxyProvider RetryAction volgorde: MISLUKKEN &lt; OPNIEUW &lt; FAILOVER\_EN\_PROBEER HET OPNIEUW.                                             |
 | FOUT-94432              | [HIVE-18353](https://issues.apache.org/jira/browse/HIVE-18353)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | CompactorMR moet aanroepen jobclient.close() om opschoning te activeren                                                                                   |
 | FOUT-94575              | [SPARK-22587](https://issues.apache.org/jira/browse/SPARK-22587)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Spark-taak mislukt als fs.defaultFS en toepassing jar verschillende url zijn                                                                          |
 | FOUT-94791              | [SPARK-22793](https://issues.apache.org/jira/browse/SPARK-22793)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Geheugenlek in Spark Thrift-Server                                                                                                             |
@@ -1120,7 +1120,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-95200              | [HDFS-13061](https://issues.apache.org/jira/browse/HDFS-13061)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | SaslDataTransferClient\#checkTrustAndSend moet een gedeeltelijk vertrouwde kanaal niet vertrouwen                                                         |
 | FOUT-95201              | [HDFS-13060](https://issues.apache.org/jira/browse/HDFS-13060)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Een BlacklistBasedTrustedChannelResolver voor TrustedChannelResolver toe te voegen                                                                       |
 | FOUT-95284              | [HBASE-19395](https://issues.apache.org/jira/browse/HBASE-19395)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | \[Branch-1\] TestEndToEndSplitTransaction.testMasterOpsWhileSplitting mislukt met NFE                                                           |
-| FOUT-95301              | [HIVE-18517](https://issues.apache.org/jira/browse/HIVE-18517)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Vectorisatie in: Fix VectorMapOperator VRBs accepteren en controleer vectorized vlag correct ter ondersteuning van LLAP opslaan in cache                                |
+| FOUT-95301              | [HIVE-18517](https://issues.apache.org/jira/browse/HIVE-18517)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Vectorisatie in: FIX VectorMapOperator VRBs accepteren en controleer vectorized de vlag correct ter ondersteuning van LLAP opslaan in cache                                |
 | FOUT-95542              | [HBASE-16135](https://issues.apache.org/jira/browse/HBASE-16135)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | PeerClusterZnode onder rs van verwijderde peer mogen nooit worden verwijderd.                                                                                 |
 | FOUT-95595              | [HIVE-15563](https://issues.apache.org/jira/browse/HIVE-15563)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Ongeldige bewerking status overgang uitzondering in SQLOperation.runQuery blootstellen echte uitzondering wordt genegeerd.                                         |
 | FOUT-95596              | [YARN-4126](https://issues.apache.org/jira/browse/YARN-4126), [YARN-5750](https://issues.apache.org/jira/browse/YARN-5750)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | TestClientRMService mislukt                                                                                                                      |
@@ -1199,8 +1199,8 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-100646             | [ATLAS 2102](https://issues.apache.org/jira/browse/ATLAS-2102)                                                                                                                                                                                                                 | Atlas UI-verbeteringen: Pagina met zoekresultaten                                                                                                                   |
 | FOUT-100737             | [HIVE-19049](https://issues.apache.org/jira/browse/HIVE-19049)                                                                                                                                                                                                                 | Er is ondersteuning toegevoegd voor Alter table kolommen toevoegen voor Druid                                                                                                            |
 | FOUT-100750             | [KNOX-1246](https://issues.apache.org/jira/browse/KNOX-1246)                                                                                                                                                                                                                   | Service-configuratie in Knox ter ondersteuning van de meest recente configuraties voor Ranger bijwerken.                                                                                   |
-| FOUT-100965             | [ATLAS-2581](https://issues.apache.org/jira/browse/ATLAS-2581)                                                                                                                                                                                                                 | Regressie met Hive-V2 hook meldingen: verplaatsen van de tabel met een andere database                                                                            |
-| FOUT-84413              | [ATLAS 1964](https://issues.apache.org/jira/browse/ATLAS-1964)                                                                                                                                                                                                                 | Gebruikersinterface: Ondersteuning voor de volgorde van kolommen in de tabel zoeken                                                                                                                |
+| FOUT-100965             | [ATLAS-2581](https://issues.apache.org/jira/browse/ATLAS-2581)                                                                                                                                                                                                                 | Regressie met Hive-V2 hook meldingen: Verplaatsen van de tabel met een andere database                                                                            |
+| FOUT-84413              | [ATLAS 1964](https://issues.apache.org/jira/browse/ATLAS-1964)                                                                                                                                                                                                                 | GEBRUIKERSINTERFACE: Ondersteuning voor op volgorde van kolommen in de tabel zoeken                                                                                                                |
 | FOUT-90570              | [HDFS-11384](https://issues.apache.org/jira/browse/HDFS-11384), [HDFS-12347](https://issues.apache.org/jira/browse/HDFS-12347)                                                                                                                                                 | Optie voor balancer verspreiden getBlocks aanroepen om te voorkomen dat de NameNode rpc toevoegen. CallQueueLength piek                                                            |
 | FOUT-90584              | [HBASE-19052](https://issues.apache.org/jira/browse/HBASE-19052)                                                                                                                                                                                                               | FixedFileTrailer moet CellComparatorImpl klasse in de vertakking 1.x herkennen                                                                                     |
 | FOUT-90979              | [KNOX 1224](https://issues.apache.org/jira/browse/KNOX-1224)                                                                                                                                                                                                                   | Knox Proxy HADispatcher ter ondersteuning van Atlas in HA.                                                                                                              |
@@ -1221,15 +1221,15 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-93933              | [ATLAS-2286](https://issues.apache.org/jira/browse/ATLAS-2286)                                                                                                                                                                                                                 | Vooraf gemaakte type ' kafka\_onderwerp ' moet 'onderwerp'-kenmerk als uniek niet declareren                                                                                 |
 | FOUT-93938              | [ATLAS-2283](https://issues.apache.org/jira/browse/ATLAS-2283), [ATLAS 2295](https://issues.apache.org/jira/browse/ATLAS-2295)                                                                                                                                                 | UI-updates voor classificaties                                                                                                                               |
 | FOUT-93941              | [ATLAS-2296](https://issues.apache.org/jira/browse/ATLAS-2296), [ATLAS-2307](https://issues.apache.org/jira/browse/ATLAS-2307)                                                                                                                                                 | Verbetering van basiszoekopdracht subtype entiteiten en typen classification (optioneel) uitsluiten                                                                |
-| FOUT-93944              | [ATLAS-2318](https://issues.apache.org/jira/browse/ATLAS-2318)                                                                                                                                                                                                                 | Gebruikersinterface: Op twee keer te klikken op het onderliggende label, is bovenliggende label geselecteerd                                                                                                    |
-| FOUT-93946              | [ATLAS-2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                                                                                                                                                                 | Gebruikersinterface: Verwijderen van een label waarmee u met 25 + plaats in de lijst met labels in zowel vaste als boomstructuur structuur moet worden vernieuwd op de tag verwijderen uit de lijst.                   |
+| FOUT-93944              | [ATLAS-2318](https://issues.apache.org/jira/browse/ATLAS-2318)                                                                                                                                                                                                                 | GEBRUIKERSINTERFACE: Twee keer op onderliggende tag klikt, is bovenliggende label geselecteerd                                                                                                    |
+| FOUT-93946              | [ATLAS-2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                                                                                                                                                                 | GEBRUIKERSINTERFACE: Verwijderen van een label waarmee u met 25 + plaats in de lijst met labels in zowel vaste als boomstructuur structuur moet worden vernieuwd op de tag verwijderen uit de lijst.                   |
 | FOUT-93977              | [HIVE-16232](https://issues.apache.org/jira/browse/HIVE-16232)                                                                                                                                                                                                                 | Ondersteuning voor berekening van statistieken voor de kolom in QuotedIdentifier                                                                                                     |
 | FOUT-94030              | [ATLAS-. 2332](https://issues.apache.org/jira/browse/ATLAS-2332)                                                                                                                                                                                                                 | Het maken van het type met kenmerken die geneste verzameling datatype mislukt                                                                                     |
 | FOUT-94099              | [ATLAS 2352](https://issues.apache.org/jira/browse/ATLAS-2352)                                                                                                                                                                                                                 | Atlas-server moet configureren om op te geven van geldigheid voor Kerberos DelegationToken bieden                                                                   |
 | FOUT-94280              | [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785)                                                                                                                                                                                                                 | Weergave union-type en UDF naar \`cast\` de struct is verbroken                                                                                                |
 | FOUT-94332              | [SQOOP 2930](https://issues.apache.org/jira/browse/SQOOP-2930)                                                                                                                                                                                                                 | Sqoop taak exec geen overschrijft de algemene eigenschappen van opgeslagen taak                                                                                               |
 | FOUT-94428              | N/A                                                                                                                                                                                                                                                                            | Ondersteuning voor Dataplane Profiler-Agent REST API Knox                                                                                                               |
-| FOUT-94514              | [ATLAS-2339](https://issues.apache.org/jira/browse/ATLAS-2339)                                                                                                                                                                                                                 | Gebruikersinterface: Wijzigingen in 'kolommen' in Basic zoekweergave van het resultaat is van invloed op DSL ook.                                                                                |
+| FOUT-94514              | [ATLAS-2339](https://issues.apache.org/jira/browse/ATLAS-2339)                                                                                                                                                                                                                 | GEBRUIKERSINTERFACE: Wijzigingen in 'kolommen' in Basic zoekweergave van het resultaat is van invloed op DSL ook.                                                                                |
 | FOUT-94515              | [ATLAS-2169](https://issues.apache.org/jira/browse/ATLAS-2169)                                                                                                                                                                                                                 | Aanvraag voor verwijderen mislukt wanneer harde verwijderen is geconfigureerd                                                                                                          |
 | FOUT-94518              | [ATLAS-2329](https://issues.apache.org/jira/browse/ATLAS-2329)                                                                                                                                                                                                                 | Atlas gebruikersinterface meerdere rust wordt weergegeven als de gebruiker klikt u op een andere code die onjuist is                                                                             |
 | FOUT-94519              | [ATLAS-2272](https://issues.apache.org/jira/browse/ATLAS-2272)                                                                                                                                                                                                                 | Sla de status van de geselecteerde kolommen met behulp van opslaan zoeken-API.                                                                                                     |
@@ -1238,7 +1238,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-94793              | [HIVE-14013](https://issues.apache.org/jira/browse/HIVE-14013)                                                                                                                                                                                                                 | Beschrijf tabel geen unicode correct weergegeven                                                                                                                 |
 | FOUT-94900              | [OOZIE-2606](https://issues.apache.org/jira/browse/OOZIE-2606), [OOZIE-2658](https://issues.apache.org/jira/browse/OOZIE-2658), [OOZIE-2787](https://issues.apache.org/jira/browse/OOZIE-2787), [OOZIE-2802](https://issues.apache.org/jira/browse/OOZIE-2802)                 | Set-spark.yarn.jars om op te lossen Spark 2.0 met Oozie                                                                                                              |
 | FOUT-94901              | [HBASE-19285](https://issues.apache.org/jira/browse/HBASE-19285)                                                                                                                                                                                                               | Per tabel latentie histogrammen toevoegen                                                                                                                             |
-| FOUT-94908              | [ATLAS 1921](https://issues.apache.org/jira/browse/ATLAS-1921)                                                                                                                                                                                                                 | Gebruikersinterface: Zoeken met behulp van entiteiten en eigenschappen kenmerken: UI bereik niet gecontroleerd en kunt geven buiten de grenzen waarden voor gegevenstypen integraal en float.  |
+| FOUT-94908              | [ATLAS 1921](https://issues.apache.org/jira/browse/ATLAS-1921)                                                                                                                                                                                                                 | GEBRUIKERSINTERFACE: Zoeken met behulp van entiteiten en eigenschappen kenmerken: Gebruikersinterface bereik niet gecontroleerd en kan bieden buiten de grenzen waarden voor gegevenstypen integraal en float.  |
 | FOUT-95086              | [RANGER-1953](https://issues.apache.org/jira/browse/RANGER-1953)                                                                                                                                                                                                               | verbetering van de gebruikerservaring op de pagina van de gebruikersgroep aanbieding                                                                                                                       |
 | FOUT-95193              | [SCHUIFREGELAAR 1252](https://issues.apache.org/jira/browse/SLIDER-1252)                                                                                                                                                                                                               | Schuifregelaar agent is mislukt met de validatiefouten SSL met python 2.7.5-58                                                                                           |
 | FOUT-95314              | [YARN-7699](https://issues.apache.org/jira/browse/YARN-7699)                                                                                                                                                                                                                   | queueUsagePercentage is binnenkort als INF getApp REST api-aanroep                                                                                               |
@@ -1250,7 +1250,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 | FOUT-95595              | [HIVE-15563](https://issues.apache.org/jira/browse/HIVE-15563)                                                                                                                                                                                                                 | Ongeldige bewerking status overgang uitzondering in SQLOperation.runQuery blootstellen echte uitzondering wordt genegeerd.                                                       |
 | FOUT-95685              | [ATLAS-2422](https://issues.apache.org/jira/browse/ATLAS-2422)                                                                                                                                                                                                                 | Exporteren: Ondersteuning op basis van het type exporteren                                                                                                                            |
 | FOUT-95798              | [PHOENIX-2714](https://issues.apache.org/jira/browse/PHOENIX-2714), [PHOENIX-2724](https://issues.apache.org/jira/browse/PHOENIX-2724), [PHOENIX-3023](https://issues.apache.org/jira/browse/PHOENIX-3023), [PHOENIX-3040](https://issues.apache.org/jira/browse/PHOENIX-3040) | Gebruik geen guideposts voor het uitvoeren van query's serie                                                                                                          |
-| FOUT-95969              | [HIVE-16828](https://issues.apache.org/jira/browse/HIVE-16828), [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063), [HIVE-18390](https://issues.apache.org/jira/browse/HIVE-18390)                                                                                 | Gepartitioneerde weergave is mislukt met is mislukt: IndexOutOfBoundsException Index: 1, grootte: 1                                                                              |
+| FOUT-95969              | [HIVE-16828](https://issues.apache.org/jira/browse/HIVE-16828), [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063), [HIVE-18390](https://issues.apache.org/jira/browse/HIVE-18390)                                                                                 | Gepartitioneerde weergave mislukt en is mislukt: IndexOutOfBoundsException Index: 1, grootte: 1                                                                              |
 | FOUT-96019              | [HIVE-18548](https://issues.apache.org/jira/browse/HIVE-18548)                                                                                                                                                                                                                 | Los log4j importeren                                                                                                                                             |
 | FOUT-96288              | [HBASE-14123](https://issues.apache.org/jira/browse/HBASE-14123), [HBASE-14135](https://issues.apache.org/jira/browse/HBASE-14135), [HBASE-17850](https://issues.apache.org/jira/browse/HBASE-17850)                                                                           | Backport Hbase back-up/herstel 2.0                                                                                                                            |
 | FOUT-96313              | [KNOX-1119](https://issues.apache.org/jira/browse/KNOX-1119)                                                                                                                                                                                                                   | Pac4J OAuth/OpenID Principal moet poort kan worden geconfigureerd                                                                                                        |
@@ -1301,11 +1301,11 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 |**Apache-onderdeel**|**Apache JIRA**|**Samenvatting**|**Details**|
 |--|--|--|--|
 |**Spark 2.3** |**N.v.t.** |**Opmerkingen bij de release wijzigingen, zoals beschreven in de Apache Spark** |-Er is een document 'Afschaffing' en een handleiding "Gedrag is gewijzigd" https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Voor SQL-onderdeel is er een andere gedetailleerde 'Migration' guide (van 2.2 naar 2.3), http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
-|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark-taak is voltooid, maar er is een volledige fout voor HDFS schijf quotum |**Scenario:** met **insert overschrijven** wanneer een quotum is ingesteld op de map Prullenbak van de gebruiker die de opdracht wordt uitgevoerd.<br /><br />**Gedrag van het vorige:** de taak is voltooid, zelfs als deze de gegevens naar de Prullenbak verplaatsen is mislukt. Het resultaat kan ten onrechte deel van de gegevens die eerder aanwezig in de tabel bevatten.<br /><br />**Nieuw gedrag:** wanneer de overstap naar de map Prullenbak mislukt, worden de bestanden permanent verwijderd.|
+|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark-taak is voltooid, maar er is een volledige fout voor HDFS schijf quotum |**Scenario:** Met **insert overschrijven** wanneer een quotum is ingesteld op de map Prullenbak van de gebruiker die de opdracht wordt uitgevoerd.<br /><br />**Gedrag van het vorige:** De taak is voltooid, zelfs als deze de gegevens naar de Prullenbak verplaatsen is mislukt. Het resultaat kan ten onrechte deel van de gegevens die eerder aanwezig in de tabel bevatten.<br /><br />**Nieuw gedrag:** Wanneer de overstap naar de map Prullenbak mislukt, worden de bestanden permanent verwijderd.|
 |**Kafka 1.0**|**N.v.t.**|**Opmerkingen bij de release wijzigingen, zoals beschreven in de Apache Spark** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
-|**Hive / Ranger** | |Aanvullende ranger hive-beleid is vereist voor het invoegen OVERSCHRIJVEN |**Scenario:** extra ranger hive-beleid is vereist voor **invoegen OVERSCHRIJVEN**<br /><br />**Gedrag van het vorige:** Hive **invoegen OVERSCHRIJVEN** query's zoals gewoonlijk wordt uitgevoerd.<br /><br />**Nieuw gedrag:** Hive **invoegen OVERSCHRIJVEN** onverwacht query's mislukken na een upgrade naar HDP-2.6.x met de fout:<br /><br />Fout bij het compileren van de instructie: is mislukt: HiveAccessControlException machtiging is geweigerd: jdoe van de gebruiker geen bevoegdheden voor schrijven op /tmp/\*(status = 42000, code = 40000)<br /><br />Vanaf HDP-2.6.0 Hive **invoegen OVERSCHRIJVEN** query's moeten een Ranger-URI-beleid om toe te staan van schrijfbewerkingen, zelfs als de gebruiker schrijven bevoegdheden verleend via de HDFS-beleid heeft.<br /><br />**Tijdelijke oplossing/verwachte actie met klant:**<br /><br />1. Maak een nieuw beleid onder de Hive-opslagplaats.<br />2. Selecteer in de vervolgkeuzelijst waarin u de Database bekijken, URI.<br />3. Het pad bijwerken (voorbeeld: / tmp / *)<br />4. De gebruikers en groepen toevoegen en opslaan.<br />5. Probeer de query invoegen.|
+|**Hive / Ranger** | |Aanvullende ranger hive-beleid is vereist voor het invoegen OVERSCHRIJVEN |**Scenario:** Aanvullende ranger hive-beleid is vereist voor **invoegen OVERSCHRIJVEN**<br /><br />**Gedrag van het vorige:** Hive **invoegen OVERSCHRIJVEN** query's zoals gewoonlijk wordt uitgevoerd.<br /><br />**Nieuw gedrag:** Hive **invoegen OVERSCHRIJVEN** onverwacht query's mislukken na een upgrade naar HDP-2.6.x met de fout:<br /><br />Fout bij het compileren van de instructie: IS MISLUKT: HiveAccessControlException machtiging is geweigerd: jdoe van de gebruiker geen bevoegdheden voor schrijven op /tmp/\*(status = 42000, code = 40000)<br /><br />Vanaf HDP-2.6.0 Hive **invoegen OVERSCHRIJVEN** query's moeten een Ranger-URI-beleid om toe te staan van schrijfbewerkingen, zelfs als de gebruiker schrijven bevoegdheden verleend via de HDFS-beleid heeft.<br /><br />**Tijdelijke oplossing/verwachte actie met klant:**<br /><br />1. Maak een nieuw beleid onder de Hive-opslagplaats.<br />2. Selecteer in de vervolgkeuzelijst waarin u de Database bekijken, URI.<br />3. Het pad bijwerken (voorbeeld: / tmp / *)<br />4. De gebruikers en groepen toevoegen en opslaan.<br />5. Probeer de query invoegen.|
 |**HDFS**|**N.v.t.** |HDFS moet ondersteuning bieden voor meerdere KMS-URI 's |**Gedrag van het vorige:** dfs.encryption.key.provider.uri-eigenschap is gebruikt voor het pad naar de KMS-provider configureren.<br /><br />**Nieuw gedrag:** dfs.encryption.key.provider.uri is afgeschaft en vervangen door hadoop.security.key.provider.path pad naar de KMS-provider configureren.|
-|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Optie voor het uitschakelen van scheduler |**Het onderdeel is betrokken:** Zeppelin-Server<br /><br />**Gedrag van het vorige:** In eerdere versies van Zeppelin is er geen optie voor het uitschakelen van scheduler.<br /><br />**Nieuw gedrag:** standaard gebruikers niet meer zichtbaar scheduler, zoals deze is standaard uitgeschakeld.<br /><br />**Tijdelijke oplossing/verwachte actie met klant:** als u inschakelen, scheduler wilt, moet u azeppelin.notebook.cron.enable met de waarde ' True ' geretourneerd onder aangepaste zeppelin-site toevoegen in Zeppelin-instellingen van Ambari.|
+|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Optie voor het uitschakelen van scheduler |**Onderdeel beïnvloed:** Zeppelin-Server<br /><br />**Gedrag van het vorige:** In eerdere versies van Zeppelin is er geen optie voor het uitschakelen van scheduler.<br /><br />**Nieuw gedrag:** Standaard worden gebruikers niet meer scheduler, zien zoals deze is standaard uitgeschakeld.<br /><br />**Tijdelijke oplossing/verwachte actie met klant:** Als u inschakelen, scheduler wilt, moet u azeppelin.notebook.cron.enable met de waarde ' True ' geretourneerd onder aangepaste zeppelin-site in de instellingen van Ambari Zeppelin toevoegen.|
 
 ## <a name="known-issues"></a>Bekende problemen
 
@@ -1328,11 +1328,11 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 
 -   **Tijdelijke oplossing voor Ranger-service mislukt**
 
-    -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): tijdelijke oplossing voor Ranger-service mislukt tijdens de upgrade naar HDP 2.6.2 van eerdere HDP-versies.
+    -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Tijdelijke oplossing voor Ranger-service mislukt tijdens de upgrade naar HDP 2.6.2 van eerdere HDP-versies.
 
-        >[!NOTE]
-        >Alleen als Ranger is SSL is ingeschakeld. 
-    
+        > [!NOTE]  
+        > Alleen als Ranger is SSL is ingeschakeld. 
+     
     Dit probleem doet zich voor wanneer u probeert te upgraden naar HDP-2.6.1 van eerdere versies van HDP via Ambari. Ambari een curl-aanroep voor de controle van een service voor Ranger service Ambari gebruikt. Als de versie van de JDK die wordt gebruikt door Ambari JDK 1.7 is, de curl-aanroep mislukt met de onderstaande fout:
     
     `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
@@ -1353,7 +1353,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
             
             SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_ MET\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]
+    >[!NOTE]  
     >De vermelde waarden werkt voorbeelden en mogelijk niet voor uw omgeving. Zorg ervoor dat de manier waarop u deze eigenschappen instelt overeenkomt met hoe uw omgeving is geconfigureerd.   
 
 -   **RangerUI: Escape van beleid voorwaardetekst is ingevoerd in het formulier**
@@ -1374,7 +1374,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
     
     **Tijdelijke oplossing**
     
-    - **Optie \#1: beleid via de Rest-API voor Ranger maken/bijwerken**
+    - **Optie \#1: Via de Rest-API voor Ranger beleid maken/bijwerken**
         
         REST-URL: http://&lt;host&gt;: 6080/service/plugins/beleid
         
@@ -1396,7 +1396,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
         
         `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **Optie \#2: toepassing Javascript wordt gewijzigd**
+    - **Optie \#2: Javascript wijzigingen toepassen**
         
         Stappen voor het bijwerken van JS-bestand:
         
@@ -1412,7 +1412,7 @@ Opgeloste problemen vertegenwoordigen geselecteerde problemen die eerder zijn ge
 
 ## <a name="deprecation"></a>Afschaffing
 
--   **OMS-Portal:** is de koppeling verwijderd uit de pagina van de HDInsight-resource die die naar de OMS-portal verwijst is. Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens. Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld. HDInsight is afgeschaft in de ondersteuning voor OMS-portal. Klanten gebruiken integratie van HDInsight Log Analytics in Azure portal.
+-   **OMS-Portal:** We hebben de koppeling verwijderd uit de pagina van de HDInsight-resource die die naar de OMS-portal verwijst is. Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens. Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld. HDInsight is afgeschaft in de ondersteuning voor OMS-portal. Klanten gebruiken integratie van HDInsight Log Analytics in Azure portal.
 
 -   **Spark 2.3**
 

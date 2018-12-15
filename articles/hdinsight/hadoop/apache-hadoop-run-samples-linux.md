@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: bf1fa41abe1c1f9b0d07ee7d77fe1c819e88ddc1
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f9bafec093a3ad6e26eb12cfdb321945353b4d08
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017617"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434134"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>De opgenomen in HDInsight MapReduce-voorbeelden uitvoeren
 
@@ -25,20 +25,20 @@ Informatie over het uitvoeren van de MapReduce-voorbeelden opgenomen met Apache 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een HDInsight-cluster**: Zie [aan de slag met Hadoop met Hive in HDInsight op Linux](apache-hadoop-linux-tutorial-get-started.md)
+* **Een HDInsight-cluster**: Zie [aan de slag met Apache Hadoop met Apache Hive in HDInsight op Linux](apache-hadoop-linux-tutorial-get-started.md)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-* **Een SSH-client**: Zie voor meer informatie, [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Een SSH-client**: Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 ## <a name="the-mapreduce-examples"></a>De MapReduce-voorbeelden
 
-**Locatie**: de voorbeelden bevinden zich op het HDInsight-cluster op `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
+**Locatie**: De voorbeelden bevinden zich op het HDInsight-cluster op `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
 
-**Inhoud**: de volgende voorbeelden zijn opgenomen in dit archief:
+**Inhoud**: De volgende voorbeelden zijn opgenomen in dit archief:
 
-* `aggregatewordcount`: Een statistische functie op basis van de mapreduce-programma dat de woorden in de invoerbestanden geteld.
+* `aggregatewordcount`: Mapreduce-programma dat de woorden in de invoerbestanden geteld op basis van een statistische functie.
 * `aggregatewordhist`: Mapreduce-programma dat het histogram van de woorden in de invoerbestanden worden berekend op basis van een statistische functie.
 * `bbp`: Een mapreduce-programma dat gebruikmaakt van Bailey-Borwein-Plouffe voor het berekenen van de exacte cijfers van Pi.
 * `dbcount`: Een voorbeeld van de taak waarmee de paginaweergave-logboeken die zijn opgeslagen in een database wordt geteld.
@@ -53,15 +53,15 @@ Informatie over het uitvoeren van de MapReduce-voorbeelden opgenomen met Apache 
 * `secondarysort`: Een voorbeeld van een secundaire sorteren definiëren met de fase verminderen.
 * `sort`: Een mapreduce-programma dat de gegevens die zijn geschreven door de willekeurige writer worden.
 * `sudoku`: Een solver sudoku.
-* `teragen`: De gegevens voor de terasort genereren.
+* `teragen`: Gegevens voor de terasort genereren.
 * `terasort`: De terasort worden uitgevoerd.
-* `teravalidate`: De resultaten van terasort controleren.
+* `teravalidate`: Resultaten van terasort controleren.
 * `wordcount`: Een mapreduce-programma dat de woorden in de invoerbestanden geteld.
 * `wordmean`: Een mapreduce-programma dat de gemiddelde lengte van de woorden in de invoerbestanden telt.
 * `wordmedian`: Een mapreduce-programma dat de gemiddelde duur van de woorden in de invoerbestanden telt.
 * `wordstandarddeviation`: Een mapreduce-programma waarmee de standaardafwijking van de lengte van de woorden in de invoerbestanden wordt geteld.
 
-**Broncode**: broncode voor deze voorbeelden is opgenomen in het HDInsight-cluster op `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
+**Broncode**: Broncode voor deze voorbeelden is opgenomen in het HDInsight-cluster op `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 ## <a name="run-the-wordcount-example"></a>Het wordcount-voorbeeld uitvoeren
 
@@ -95,7 +95,7 @@ Informatie over het uitvoeren van de MapReduce-voorbeelden opgenomen met Apache 
 
     Invoer voor deze taak worden gelezen uit de `/example/data/gutenberg/davinci.txt`. Uitvoer voor dit voorbeeld wordt opgeslagen in `/example/data/davinciwordcount`. Beide paden bevinden zich in de standaardopslag voor het cluster, niet het lokale bestandssysteem.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Zoals aangegeven in de help voor het wordcount-voorbeeld, kunt u ook meerdere invoerbestanden opgeven. Bijvoorbeeld, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` woorden in zowel davinci.txt en ulysses.txt zou tellen.
 
 5. Zodra de taak is voltooid, gebruikt u de volgende opdracht uit om de uitvoer weer te geven:
@@ -171,13 +171,13 @@ In dit voorbeeld maakt gebruik van een gemiddelde hoeveelheden 10 GB aan gegeven
 
 In dit voorbeeld maakt gebruik van drie sets MapReduce-programma's:
 
-* **TeraGen**: een MapReduce-programma dat wordt gegenereerd rijen met gegevens om te sorteren
+* **TeraGen**: Een MapReduce-programma dat wordt gegenereerd rijen met gegevens om te sorteren
 
-* **TeraSort**: voorbeelden van de ingevoerde gegevens en MapReduce gebruikt voor het sorteren van de gegevens in een volgorde van de totale
+* **TeraSort**: Voorbeelden van de ingevoerde gegevens en MapReduce gebruikt voor het sorteren van de gegevens in een volgorde van de totale
 
     TeraSort is een standaard MapReduce sorteren, met uitzondering van een aangepaste partitioner. De partitioner maakt gebruik van een gesorteerde lijst met sleutels voor N-1 steekproef die het belangrijkste bereik voor elke verminderen definiëren. In het bijzonder, alle sleutels dergelijke die voorbeeld [i-1] < sleutel = < voorbeeld [i] om te beperken i worden verzonden. Deze partitioner garanties dat de uitvoer van i beperken zijn alle kleiner is dan de uitvoer van verminderen i + 1.
 
-* **TeraValidate**: een MapReduce-programma die valideert dat de uitvoer wereldwijd is gesorteerd
+* **TeraValidate**: Een MapReduce-programma die valideert dat de uitvoer wereldwijd is gesorteerd
 
     Een kaart per bestand in de uitvoermap wordt gemaakt en elke kaart zorgt ervoor dat elke sleutel kleiner dan of gelijk zijn aan het vorige voorbeeld is. De functie kaart genereert records van de eerste en laatste sleutels van elk bestand. De functie verminderen zorgt ervoor dat de eerste sleutel van i-bestand groter dan de laatste sleutel van het bestand i-1 is. Geen problemen worden gerapporteerd als uitvoer van de fase verminderen met de sleutels die niet de juiste volgorde zijn.
 
@@ -209,9 +209,9 @@ Gebruik de volgende stappen voor het genereren van gegevens, sorteren en control
 
 In dit artikel hebt u geleerd hoe u kunt de voorbeelden met de HDInsight op basis van Linux-clusters uitvoeren. Zie de volgende onderwerpen voor zelfstudies over Pig, Hive en MapReduce gebruiken met HDInsight:
 
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md

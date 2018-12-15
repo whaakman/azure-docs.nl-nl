@@ -1,6 +1,6 @@
 ---
 title: Gegevens weergeven vanuit Azure Monitor | Microsoft Docs
-description: Geeft een overzicht van de beschikbare methoden voor het visualiseren van gegevens die zijn opgeslagen in Azure Monitor, met inbegrip van gegevens van de metrische gegevens opslaan en Log Analytics.
+description: Geeft een overzicht van de beschikbare methoden te visualiseren van metrische gegevens en gegevens die zijn opgeslagen in Azure Monitor te melden.
 author: bwren
 manager: carmonm
 editor: ''
@@ -10,17 +10,17 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/15/2018
+ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: a2fd26d110e7bf1ce7ac365b83659e5d33a037df
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 76e3a219d440bab4c6e277887aabb1e01f5e1d9c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383541"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435443"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
-In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van gegevens die zijn opgeslagen in Azure Monitor. Dit omvat [metrische gegevens in de metrische gegevens van Azure store](../azure-monitor/platform/data-collection.md#metrics) en [gegevens vastleggen in Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
+In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van logboek- en metrische gegevens die zijn opgeslagen in Azure Monitor.
 
 Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw gegevens om te zoomen op problemen en patronen te identificeren. Afhankelijk van het hulpprogramma die u gebruikt, kan u ook de optie voor visualisaties delen met andere gebruikers binnen en buiten uw organisatie hebt.
 
@@ -30,7 +30,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 ![Dashboard](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Voordelen
-- Diepe integratie in Azure. Visualisaties kunnen worden vastgemaakt aan dashboards vanuit meerdere Azure pagina's, met inbegrip van Metrics explorer, Log Analytics en Application Insights.
+- Diepe integratie in Azure. Visualisaties kunnen worden vastgemaakt aan dashboards vanuit meerdere Azure pagina's, zoals metrische gegevens analytics, log analytics en Application Insights.
 - Biedt ondersteuning voor metrische gegevens en Logboeken.
 - Combineer gegevens uit meerdere bronnen, met inbegrip van de uitvoer van [Metrics explorer](../azure-monitor/platform/metrics-charts.md), [Log Analytics-query's](../azure-monitor/log-query/log-query-overview.md), en [toegewezen](../application-insights/app-insights-app-map.md) en [beschikbaarheid]()in Application Insights.
 - De optie voor persoonlijke of gedeelde dashboards. Geïntegreerd met Azure [verificatie op basis van rollen (RBAC)](../role-based-access-control/overview.md).
@@ -41,23 +41,23 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 
 
 ### <a name="limitations"></a>Beperkingen
-- Beperkte controle over Log Analytics-visualisaties met biedt geen ondersteuning voor gegevenstabellen. Totaal aantal gegevensreeksen is beperkt tot 10 met verdere gegevensreeks gegroepeerd onder een _andere_ bucket.
-- Er zijn geen aangepaste parameters ondersteuning voor Log Analytics-grafieken.
-- Log Analytics grafieken zijn beperkt tot de afgelopen 30 dagen.
-- Log Analytics grafieken kunnen alleen worden vastgemaakt aan gedeelde dashboards.
+- Beperkte controle over log visualisaties met biedt geen ondersteuning voor gegevenstabellen. Totaal aantal gegevensreeksen is beperkt tot 10 met verdere gegevensreeks gegroepeerd onder een _andere_ bucket.
+- Er zijn geen aangepaste parameters ondersteuning voor logaritmische grafieken.
+- Logaritmische grafieken zijn beperkt tot de afgelopen 30 dagen.
+- Logaritmische grafieken kunnen alleen worden vastgemaakt aan gedeelde dashboards.
 - Er is geen interactiviteit van de dashboardgegevens.
 - Beperkte contextuele inzoomen.
 
 ## <a name="azure-monitor-views"></a>Azure Monitor-weergaven
-[Weergaven in Azure Monitor](../azure-monitor/platform/view-designer.md) kunt u aangepaste visualisaties maken met de logboekgegevens die zijn opgeslagen in Log Analytics. Ze worden gebruikt door [bewakingsoplossingen](../azure-monitor/insights/solutions.md) om de gegevens die zij verzamelen te presenteren.
+[Weergaven in Azure Monitor](../log-analytics/log-analytics-view-designer.md) kunt u aangepaste visualisaties maken met logboekgegevens. Ze worden gebruikt door [bewakingsoplossingen](insights/solutions.md) om de gegevens die zij verzamelen te presenteren.
 
 ![Weergave](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Voordelen
-- Uitgebreide visualisaties voor Log Analytics-gegevens.
+- Uitgebreide visualisaties voor logboekgegevens.
 - Exporteren en importeren van weergaven deze overbrengen naar andere resourcegroepen en abonnementen.
 - Kan worden geïntegreerd in Log Analytics management-model met werkruimten en bewakingsoplossingen.
-- [Filters](../azure-monitor/platform/view-designer-filters.md) voor aangepaste parameters.
+- [Filters](platform/view-designer-filters.md) voor aangepaste parameters.
 - Interactief, biedt ondersteuning voor meerdere niveaus drill-in (weergave die in een andere weergave ingezoomd)
 
 ### <a name="limitations"></a>Beperkingen
@@ -65,7 +65,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 - Er zijn geen persoonlijke weergaven. Beschikbaar voor alle gebruikers met toegang tot de werkruimte.
 - Er is geen automatische vernieuwing.
 - Beperkte outopties voor lay.
-- Er is geen ondersteuning voor het uitvoeren van query's in Log Analytics-werkruimten en Application Insights-toepassingen.
+- Geen ondersteuning voor het uitvoeren van query's op meerdere werkruimten of Application Insights-toepassingen.
 - Query's worden in Antwoordgrootte beperkt tot 8MB en query uitvoeringstijd van 110 seconden.
 
 
@@ -89,7 +89,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is vooral handig voor het maken van zakelijke dashboards en rapporten, evenals rapporten op de lange termijn KPI-trends analyseren. U kunt [importeren van de resultaten van een Log Analytics-query](../azure-monitor/platform/powerbi.md) naar een Power BI-gegevensset, zodat u van de functies profiteren kunt, zoals het combineren van gegevens uit verschillende bronnen en delen van rapporten op het web en mobiele apparaten.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is vooral handig voor het maken van zakelijke dashboards en rapporten, evenals rapporten op de lange termijn KPI-trends analyseren. U kunt [importeren van de resultaten van een query voor](../log-analytics/log-analytics-powerbi.md) naar een Power BI-gegevensset, zodat u van de functies profiteren kunt, zoals het combineren van gegevens uit verschillende bronnen en delen van rapporten op het web en mobiele apparaten.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -109,7 +109,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 
 
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) is een open platform waarmee werkt uitstekend in operationele dashboards. Dit is vooral handig voor het detecteren en isoleren en operationele incidenten beoordelen. U kunt toevoegen [Grafana Azure Monitor-gegevensbron invoegtoepassing](../monitoring-and-diagnostics/monitor-send-to-grafana.md) aan uw Azure-abonnement om uw metrische gegevens van Azure-gegevens visualiseren.
+[Grafana](https://grafana.com/) is een open platform waarmee werkt uitstekend in operationele dashboards. Dit is vooral handig voor het detecteren en isoleren en operationele incidenten beoordelen. U kunt toevoegen [Grafana Azure Monitor-gegevensbron invoegtoepassing](../azure-monitor/platform/grafana-plugin.md) aan uw Azure-abonnement om uw metrische gegevens van Azure-gegevens visualiseren.
 
 ![Grafana](media/visualizations/grafana.png)
 
@@ -126,7 +126,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 
 
 ## <a name="build-your-own-custom-application"></a>Bouw uw eigen aangepaste toepassing
-U kunt gegevens in de metrische gegevens van Azure en de Log Analytics openen via hun API met een willekeurige REST-client, waarmee u uw eigen aangepaste websites en toepassingen kunt maken.
+U kunt gegevens in Logboeken en metrische gegevens in Azure Monitor openen via hun API met een willekeurige REST-client, waarmee u uw eigen aangepaste websites en toepassingen kunt maken.
 
 ### <a name="advantages"></a>Voordelen
 - Volledige flexibiliteit in de gebruikersinterface, visualisatie, interactiviteit en functies.
@@ -137,9 +137,10 @@ U kunt gegevens in de metrische gegevens van Azure en de Log Analytics openen vi
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over de [gegevens verzameld door Azure Monitor](../azure-monitor/platform/data-collection.md).
+- Meer informatie over de [gegevens verzameld door Azure Monitor](platform/data-collection.md).
 - Meer informatie over [Azure-dashboards](../azure-portal/azure-portal-dashboards.md).
-- Meer informatie over [weergaven in Azure Monitor](../azure-monitor/platform/view-designer.md).
+- Meer informatie over [weergaven in Azure Monitor](platform/view-designer.md).
 - Meer informatie over [werkmappen in Application Insights](../application-insights/app-insights-usage-workbooks.md).
 - Meer informatie over [logboekgegevens importeren in Power BI](../azure-monitor/platform/powerbi.md).
-- Meer informatie over de [Grafana Azure Monitor-gegevensbron invoegtoepassing](../monitoring-and-diagnostics/monitor-send-to-grafana.md).
+- Meer informatie over de [Grafana Azure Monitor-gegevensbron invoegtoepassing](../azure-monitor/platform/grafana-plugin.md).
+

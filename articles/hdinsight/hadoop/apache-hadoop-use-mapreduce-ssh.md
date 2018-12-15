@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: df6a96d8bbf1c77d279806e69e7aa7f65387dd4b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bce79aed49b94071b4e83524de2d599fca182256
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632523"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438562"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>MapReduce gebruiken met Apache Hadoop op HDInsight met SSH
 
@@ -63,7 +63,7 @@ Zie voor meer informatie over het gebruik van SSH met HDInsight [SSH gebruiken m
     Met deze opdracht start de `wordcount` klasse, die is opgenomen in de `hadoop-mapreduce-examples.jar` bestand. Hierbij de `/example/data/gutenberg/davinci.txt` document als invoer en uitvoer wordt opgeslagen op de `/example/data/WordCountOutput`.
 
     > [!NOTE]
-    > Zie voor meer informatie over deze MapReduce-taak en de voorbeeldgegevens [MapReduce gebruiken in Hadoop op HDInsight](hdinsight-use-mapreduce.md).
+    > Zie voor meer informatie over deze MapReduce-taak en de voorbeeldgegevens [MapReduce gebruiken in een Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md).
 
 2. De taak verzendt de gegevens worden verwerkt, en gegevens worden geretourneerd die vergelijkbaar is met de volgende tekst wanneer de taak is voltooid:
 
@@ -80,7 +80,7 @@ Zie voor meer informatie over het gebruik van SSH met HDInsight [SSH gebruiken m
 
     Met deze opdracht u twee bestanden, `_SUCCESS` en `part-r-00000`. De `part-r-00000` -bestand bevat de uitvoer voor deze taak.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Bepaalde MapReduce-taken kunnen de resultaten splitsen over meerdere **onderdeel-r-###** bestanden. Als dit het geval is, gebruikt u de ### achtervoegsel om aan te geven van de volgorde van de bestanden.
 
 4. Als u de uitvoer, gebruik de volgende opdracht:
@@ -111,5 +111,5 @@ Voor algemene informatie over MapReduce-taken in HDInsight:
 
 Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)

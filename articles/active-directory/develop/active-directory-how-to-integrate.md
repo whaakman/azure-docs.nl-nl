@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fcc0badc17675c1c8923c744afd3fa46e98fef32
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d3b2edefd602a90ff28b8e0645d3c48932ba44dd
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954694"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410309"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integreren met Azure Active Directory
 
@@ -36,7 +36,7 @@ Er zijn verschillende manieren voor uw toepassing om te integreren met Azure AD.
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Ondersteuning voor Azure AD als een manier voor het aanmelden bij uw toepassing
 **Meld problemen verminderen en ondersteuning verlagen.** Uw gebruikers geen met behulp van Azure AD om aan te melden bij uw toepassing, een meer naam en wachtwoord te onthouden. Als ontwikkelaar hebt u een minder wachtwoord opslaan en beschermen. Omdat u niet hoeft voor het afhandelen van vergeten wachtwoord opnieuw instellen van wachtwoorden, kan een aanzienlijke besparingen die alleen zijn. Azure AD wordt gebruikt door aanmelden voor een aantal van's werelds meest populaire cloudtoepassingen, waaronder Office 365 en Microsoft Azure. Honderden miljoenen gebruikers van miljoenen organisaties, waarschijnlijk uw gebruiker is al aangemeld bij Azure AD. Meer informatie over [ondersteuning toegevoegd voor aanmelding bij Azure AD](authentication-scenarios.md).
 
-**Aanmelding van vereenvoudigen voor uw toepassing.**  Tijdens de registratie voor uw toepassing, kan Azure AD essentiële informatie over een gebruiker verzenden zodat u kunt vooraf uw aanmelding formulier vullen of volledig elimineren. Gebruikers kunnen zich aanmelden voor uw toepassing met behulp van hun Azure AD-account via een vertrouwde toestemming ervaring die vergelijkbaar is met deze gevonden in sociale media- en mobiele toepassingen. Elke gebruiker kan zich registreren en aanmelden bij een toepassing die is geïntegreerd met Azure AD zonder tussenkomst van de IT. Meer informatie over [melden voor uw toepassing voor Azure AD-Account aanmelding](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+**Aanmelding van vereenvoudigen voor uw toepassing.**  Tijdens de registratie voor uw toepassing, kan Azure AD essentiële informatie over een gebruiker verzenden zodat u kunt vooraf uw aanmelding formulier vullen of volledig elimineren. Gebruikers kunnen zich aanmelden voor uw toepassing met behulp van hun Azure AD-account via een vertrouwde toestemming ervaring die vergelijkbaar is met deze gevonden in sociale media- en mobiele toepassingen. Elke gebruiker kan zich registreren en aanmelden bij een toepassing die is geïntegreerd met Azure AD zonder tussenkomst van de IT. Meer informatie over [melden voor uw toepassing voor Azure AD-Account aanmelding](../../app-service/configure-authentication-provider-aad.md).
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Zoeken naar gebruikers, inrichten van gebruikers beheren en toegang tot uw toepassing beheren
 **Zoeken naar gebruikers in de directory.**  De Graph API gebruiken om u te helpen gebruikers zoeken naar en zoeken naar andere personen in hun organisatie wanneer anderen uitnodigen of verlenen van toegang, in plaats van dat ze naar het type e-adressen. Gebruikers kunnen bladeren met behulp van een bekend adres book stijlinterface, inclusief het weergeven van de details van de organisatie-hiërarchie. Meer informatie over de [Graph API](active-directory-graph-api.md).

@@ -10,12 +10,12 @@ ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166998"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408915"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -63,7 +63,7 @@ Hiermee schakelt u de oplossing voor uw automation-account. De oplossing kan max
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Wijzigingen bijhouden en inventaris configureren
 
-Voor meer informatie over hoe onboarding computers op de oplossing gaat u naar: [Onboarding Automation-oplossingen](automation-onboard-solutions-from-automation-account.md). Zodra u de onboarding van een machine met de oplossing wijzigingen bijhouden en inventaris hebt, kunt u de items die u wilt bijhouden kunt configureren. Wanneer u een nieuw bestand of een registersleutel voor het bijhouden van inschakelt, is deze ingeschakeld voor wijzigingen bijhouden en inventaris.
+Voor meer informatie over hoe onboarding computers op de oplossing gaat u naar: [Onboarding-Automation-oplossingen](automation-onboard-solutions-from-automation-account.md). Zodra u de onboarding van een machine met de oplossing wijzigingen bijhouden en inventaris hebt, kunt u de items die u wilt bijhouden kunt configureren. Wanneer u een nieuw bestand of een registersleutel voor het bijhouden van inschakelt, is deze ingeschakeld voor wijzigingen bijhouden en inventaris.
 
 Voor het bijhouden van wijzigingen in bestanden op zowel Windows als Linux, worden MD5-hashes van de bestanden gebruikt. Deze hashes worden vervolgens gebruikt om te detecteren of er een wijziging is aangebracht sinds de laatste inventarisatie.
 
@@ -75,7 +75,7 @@ Gebruik de volgende stappen voor het configureren van bestand bijhouden op Linux
 2. Op de **bijhouden** weergeeft, schakelt **Linux-bestanden**, klikt u vervolgens op **+ toevoegen** om toe te voegen een nieuw bestand om bij te houden.
 3. Op de **Linux-bestand voor wijzigingen bijhouden toevoegen**, voer de gegevens voor het bestand of map bij te houden en klikt u op **opslaan**.
 
-|Eigenschap  |Beschrijving  |
+|Eigenschap  |Description  |
 |---------|---------|
 |Ingeschakeld     | Hiermee bepaalt u als de instelling wordt toegepast.        |
 |Itemnaam     | Beschrijvende naam van het bestand moet worden bijgehouden.        |
@@ -85,7 +85,7 @@ Gebruik de volgende stappen voor het configureren van bestand bijhouden op Linux
 |Recursie     | Bepaalt of recursie wordt gebruikt bij het zoeken naar het item dat moet worden bijgehouden.        |
 |Sudo gebruiken     | Deze instelling bepaalt of sudo wordt gebruikt bij het controleren op het item.         |
 |Koppelingen     | Deze instelling bepaalt hoe symbolische koppelingen worden afgehandeld bij het doorlopen van mappen.<br> **Negeren** - symbolische koppelingen worden genegeerd en maakt geen deel uit van de bestanden/mappen waarnaar wordt verwezen.<br>**Ga als volgt** - symbolische koppelingen worden gevolgd tijdens recursie en bevat ook de bestanden/mappen waarnaar wordt verwezen.<br>**Beheren** - symbolische koppelingen worden en kunnen wijzigen van de geretourneerde inhoud.     |
-|Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **Waar** of **Onwaar**.|
+|Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **De waarde True** of **False**.|
 
 > [!NOTE]
 > Het gebruik van de optie 'Beheren' voor koppelingen wordt niet aanbevolen. Het ophalen van bestandsinhoud wordt niet ondersteund.
@@ -98,14 +98,14 @@ Gebruik de volgende stappen uit om te configureren op Windows-computers bijhoude
 2. Op de **bijhouden** weergeeft, schakelt **Windows bestanden**, klikt u vervolgens op **+ toevoegen** om toe te voegen een nieuw bestand om bij te houden.
 3. Op de **Windows-bestand voor wijzigingen bijhouden toevoegen**, voer de gegevens voor het bestand bij te houden en klikt u op **opslaan**.
 
-|Eigenschap  |Beschrijving  |
+|Eigenschap  |Description  |
 |---------|---------|
 |Ingeschakeld     | Hiermee bepaalt u als de instelling wordt toegepast.        |
 |Itemnaam     | Beschrijvende naam van het bestand moet worden bijgehouden.        |
 |Groep     | De groepsnaam van een voor logisch groeperen van bestanden.        |
 |Pad invoeren     | Het pad voor het controleren op het bestand, bijvoorbeeld: "C:\temp\\\*.txt"<br>U kunt ook omgevingsvariabelen gebruiken zoals ' %winDir%\System32\\\*. * "       |
 |Recursie     | Bepaalt of recursie wordt gebruikt bij het zoeken naar het item dat moet worden bijgehouden.        |
-|Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **Waar** of **Onwaar**.|
+|Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **De waarde True** of **False**.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Jokertekens recursie en omgeving instellingen
 
@@ -130,7 +130,7 @@ Gebruik de volgende stappen voor het configureren van sleutel-register traceren 
 2. Op de **bijhouden** weergeeft, schakelt **Windows-register**, klikt u vervolgens op **+ toevoegen** om toe te voegen een nieuwe registersleutel om bij te houden.
 3. Op de **Windows-register voor wijzigingen bijhouden toevoegen**, voer de gegevens voor de sleutel bij te houden en klikt u op **opslaan**.
 
-|Eigenschap  |Beschrijving  |
+|Eigenschap  |Description  |
 |---------|---------|
 |Ingeschakeld     | Hiermee bepaalt u als de instelling wordt toegepast.        |
 |Itemnaam     | Beschrijvende naam van het bestand moet worden bijgehouden.        |
@@ -171,6 +171,17 @@ De volgende tabel ziet u de frequentie van de verzameling gegevens voor de soort
 | Linux-daemons | 5 minuten |
 | Windows-software | 30 minuten |
 | Linux-software | 5 minuten |
+
+De volgende tabel bevat de limieten bijgehouden item per machine voor het bijhouden.
+
+| **Resource** | **Limiet**| **Opmerkingen** |
+|---|---|---|
+|File|500||
+|Register|250||
+|Windows-software|250|Bevat geen software-updates|
+|Linux-pakketten|1250||
+|Services|250||
+|Daemon|250||
 
 ### <a name="windows-service-tracking"></a>Windows-service bijhouden
 
@@ -256,7 +267,7 @@ Naast de informatie die beschikbaar zijn in de portal kunnen zoekopdrachten word
 
 De volgende tabel bevat voorbeelden van zoekopdrachten voor records die zijn verzameld door deze oplossing wijzigen:
 
-|Query’s uitvoeren  |Beschrijving  |
+|Query’s uitvoeren  |Description  |
 |---------|---------|
 |ConfigurationData<br>&#124;waar ConfigDataType == "WindowsServices" en SvcStartupType == "Automatisch"<br>&#124;waar SvcState == 'Stopped'<br>&#124;samenvatten arg_max(TimeGenerated, *) door SoftwareName, Computer         | Weergegeven met de meest recente inventarisrecords voor Windows-Services die zijn ingesteld op automatisch, maar zijn gerapporteerd als wordt gestopt<br>Resultaten zijn beperkt tot de meest recente record voor die softwarenaam en op Computer      |
 |ConfigurationChange<br>&#124;waar ConfigChangeType == 'Software' en ChangeCategory == 'Verwijderd'<br>&#124;order by-TimeGenerated desc|Ziet u de wijzigingsrecords voor de verwijderde software|

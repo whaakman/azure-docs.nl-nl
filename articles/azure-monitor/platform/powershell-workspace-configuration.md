@@ -14,12 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 72d53f742c2a25d267c6e90a6814225d7f1a4cf9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 088d8155fda6c370d89cded516bfa6c174c9380a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384391"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438028"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Log Analytics beheren met PowerShell
 U kunt de [Log Analytics PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) verschillende functies in Log Analytics uitvoeren vanaf een opdrachtregel of als onderdeel van een script.  Voorbeelden van de taken die u met PowerShell uitvoeren kunt zijn:
@@ -211,7 +211,7 @@ Voor bewaking zonder agent van Azure-resources, moeten de resources hebben van A
 | Web Sites               |     | Ja |
 | Web Server-farms        |     | Ja |
 
-Raadpleeg voor de details van de beschikbare metrische gegevens, [ondersteunde metrische gegevens met Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Raadpleeg voor de details van de beschikbare metrische gegevens, [ondersteunde metrische gegevens met Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
 Raadpleeg voor de details van de beschikbare logboeken, [ondersteunde services en -schema voor diagnostische logboeken](../../azure-monitor/platform/tutorial-dashboards.md).
 

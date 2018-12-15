@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 48cb88b9815ba723d93c18caf63f33b50eea850c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009194"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412928"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Momentopnamen beheren met behulp van Azure NetApp bestanden
 U kunt Azure NetApp bestanden gebruiken om te maken van een momentopname van een op aanvraag voor een volume of vanuit een momentopname herstellen naar een nieuw volume.
@@ -42,30 +42,34 @@ Op dit moment kunt u een momentopname alleen naar een nieuw volume herstellen.
     ![Nieuw volume momentopname herstellen](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 4. Geef informatie voor het nieuwe volume in het venster NieuwVolume:  
-    * **De naam**   
-        Geef de naam op voor het volume dat u maakt.  
+    * **Naam**   
+        Geef de naam op voor het volume dat u wilt maken.  
         
-        De naam moet uniek zijn binnen een resourcegroep. Het moet ten minste 3 tekens lang zijn.  Het kan alle alfanumerieke tekens gebruiken.
+        De naam moet uniek zijn binnen de resourcegroep. Het moet ten minste drie tekens lang zijn.  U kunt hiervoor alle alfanumerieke tekens gebruiken.
 
     * **Pad naar bestand**     
-        Geef het bestandspad dat wordt gebruikt voor het maken van het pad voor exporteren voor het nieuwe volume. Het pad voor exporteren wordt gebruikt om te koppelen en toegang tot het volume.   
+        Geef het bestandspad op dat wordt gebruikt om het exportpad voor het nieuwe volume te maken. Het exportpad wordt gebruikt om het volume te koppelen en benaderen.   
         
-        Een koppeldoel is het eindpunt van het IP-adres van de NFS-service. Er wordt automatisch gegenereerd.   
+        Een koppeldoel is het eindpunt van het IP-adres van de NFS-service. Deze waarde wordt automatisch gegenereerd.   
         
-        De bestandsnaam van het pad mag letters, cijfers en afbreekstreepjes ('-') alleen. Moet liggen tussen 16 en 40 tekens lang. 
+        Het bestandspad mag alleen letters, cijfers en afbreekstreepjes ('-') bevatten. Het bestandspad moet tussen de 16 en 40 tekens lang zijn. 
 
     * **Quotum**  
-        Geef de hoeveelheid logische opslag die is toegewezen aan het volume.  
+        Geef de hoeveelheid logische opslag op die u wilt toewijzen aan het volume.  
 
-        De **beschikbare quotum** veld bevat het bedrag van ongebruikte ruimte in de groep van de gekozen capaciteit die u gebruiken kunt voor het maken van een nieuw volume. De grootte van het nieuwe volume mag niet groter zijn dan het beschikbare quotum.
+        Het veld **Beschikbare quotum** toont hoeveel ongebruikte ruimte er is in de gekozen capaciteitspool, die u kunt gebruiken om een nieuw volume te maken. De grootte van het nieuwe volume mag niet groter zijn dan het beschikbare quotum.
 
     *   **Virtueel netwerk**  
-        Geef de Azure-netwerk (Vnet) van waaruit u wilt toegang tot het volume. 
-        
-        De Vnet die u opgeeft moet Azure NetApp bestanden die zijn geconfigureerd. De service Azure NetApp bestanden zijn alleen van een Vnet dat zich in dezelfde locatie als het volume toegankelijk.  
+        Geef het virtuele Azure-netwerk (Vnet) op dat u wilt gebruiken om het volume te benaderen.  
+        De Vnet die u opgeeft moet een subnet gedelegeerd naar Azure NetApp bestanden hebben. De service Azure NetApp bestanden zijn toegankelijk alleen uit het hetzelfde Vnet of van een Vnet dat zich in dezelfde regio als het volume via Vnet-peering. U kunt ook toegang tot het volume van uw on-premises netwerk via Expressroute. 
 
-    ![Nieuw volume hersteld](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-    
+    * **Subnet**  
+        Geef het subnet dat u wilt gebruiken voor het volume.  
+        Het subnet dat u opgeeft moet worden overgedragen naar de service Azure NetApp bestanden. U kunt een nieuw subnet maken door het selecteren van **nieuw** onder het veld Subnet.  
+<!--
+    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
+-->
+
 5. Klik op **OK**.   
     Het nieuwe volume waarop de momentopname is teruggezet, wordt weergegeven in de blade Volumes.
 

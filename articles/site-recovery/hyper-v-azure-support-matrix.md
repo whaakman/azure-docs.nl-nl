@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 52657ae18b6fd06408887df82bd822eb2ff8fffe
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8c8ba338a7059d6d11f43bda6348aa6e645ab98c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964353"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410156"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van on-premises Hyper-V-machines naar Azure
 
@@ -33,8 +33,8 @@ Hyper-V zonder Virtual Machine Manager | U kunt herstel na noodgevallen naar Azu
 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
-Hyper-V (uitgevoerd zonder Virtual Machine Manager) | Windows Server 2016 (inclusief server core-installatie), Windows Server 2012 R2 met de meest recente updates | Wanneer u een Hyper-V-site in Site Recovery configureert, wordt niet een combinatie van hosts met Windows Server 2016 en 2012 R2 ondersteund.<br/><br/> Voor virtuele machines zich op een host met Windows Server 2016, wordt niet herstel naar een alternatieve locatie ondersteund.
-Hyper-V (die wordt uitgevoerd met Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Als Virtual Machine Manager wordt gebruikt, moeten Windows Server 2016-hosts worden beheerd in Virtual Machine Manager 2016.<br/><br/> Een Virtual Machine Manager-cloud die Hyper-V-hosts die worden uitgevoerd op Windows Server 2016 en 2012 R2 combineert wordt momenteel niet ondersteund.<br/><br/> Omgevingen met een upgrade van een bestaande server voor Virtual Machine Manager 2012 R2 naar 2016 worden niet ondersteund.
+Hyper-V (uitgevoerd zonder Virtual Machine Manager) | Windows Server 2016 (inclusief server core-installatie), Windows Server 2012 R2 met de meest recente updates | Voor virtuele machines zich op een host met Windows Server 2016, wordt niet herstel naar een alternatieve locatie ondersteund.<br/><br/> Als u Windows Server 2012 R2 met al hebt geconfigureerd / of SCVMM 2012 R2 met Azure Site Recovery en werk het besturingssysteem, kunt u de richtlijnen [documentatie.](upgrade-2012R2-to-2016.md) 
+Hyper-V (die wordt uitgevoerd met Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Als Virtual Machine Manager wordt gebruikt, moeten Windows Server 2016-hosts worden beheerd in Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>Gerepliceerde VM 's
@@ -59,15 +59,15 @@ Schijf toevoegen op gerepliceerde Hyper-V-VM | Wordt niet ondersteund. Replicati
 
 **Onderdeel** | **Hyper-V met Virtual Machine Manager** | **Hyper-V zonder Virtual Machine Manager**
 --- | --- | ---
-Hostnetwerk: NIC-team | Ja | Ja
-Hostnetwerk: VLAN | Ja | Ja
-Hostnetwerk: IPv4 | Ja | Ja
-Hostnetwerk: IPv6 | Nee | Nee
-Gast-VM-netwerk: NIC-team | Nee | Nee
+Netwerk van de host: NIC-koppeling | Ja | Ja
+Netwerk van de host: VLAN | Ja | Ja
+Netwerk van de host: IPv4 | Ja | Ja
+Netwerk van de host: IPv6 | Nee | Nee
+Gast-VM-netwerk: NIC-koppeling | Nee | Nee
 Gast-VM-netwerk: IPv4 | Ja | Ja
 Gast-VM-netwerk: IPv6 | Nee | Ja
-Gast-VM-netwerk: statisch IP-adres (Windows) | Ja | Ja
-Gast-VM-netwerk: statisch IP-adres (Linux) | Nee | Nee
+Gast-VM-netwerk: Statisch IP-adres (Windows) | Ja | Ja
+Gast-VM-netwerk: Statisch IP-adres (Linux) | Nee | Nee
 Gast-VM-netwerk: Multi-NIC | Ja | Ja
 
 
@@ -111,8 +111,8 @@ NFS | N.v.t. | N.v.t.
 SMB 3.0 | Nee | Nee
 RDM | N.v.t. | N.v.t.
 Schijf > 1 TB | Ja, maximaal 4095 GB | Ja, maximaal 4095 GB
-Schijf: 4K logische en fysieke sector | Niet ondersteund: Gen 1/Gen 2 | Niet ondersteund: Gen 1/Gen 2
-Schijf: fysieke sector van 512 bytes en 4K logische | Ja |  Ja
+Schijf: 4K logische en fysieke sector | Niet ondersteund: Generatie 1/Gen 2 | Niet ondersteund: Generatie 1/Gen 2
+Schijf: 4K logische en fysieke sector van 512 bytes | Ja |  Ja
 Logische volumebeheer (LVM). LVM wordt op gegevensschijven alleen ondersteund. Azure biedt alleen een besturingssysteemschijf. | Ja | Ja
 Volume met striped schijf > 1 TB | Ja | Ja
 Opslagruimten | Ja | Ja
@@ -181,7 +181,7 @@ Zorg ervoor dat uw implementatie is compatibel met de instellingen in dit artike
 
 **Naam** | **Beschrijving** | **Details**
 --- | --- | --- | --- | ---
-Azure Site Recovery-provider | Coördineert de communicatie tussen on-premises servers en Azure <br/><br/> Hyper-V met Virtual Machine Manager: geïnstalleerd op de Virtual Machine Manager-servers<br/><br/> Hyper-V zonder Virtual Machine Manager: geïnstalleerd op de Hyper-V-hosts| Meest recente versie: 5.1.2700.1 (beschikbaar via de Azure-portal)<br/><br/> [Nieuwste functies en correcties](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
+Azure Site Recovery-provider | Coördineert de communicatie tussen on-premises servers en Azure <br/><br/> Hyper-V met Virtual Machine Manager: Geïnstalleerd op de Virtual Machine Manager-servers<br/><br/> Hyper-V zonder Virtual Machine Manager: Op Hyper-V-hosts is geïnstalleerd| Meest recente versie: 5.1.2700.1 (beschikbaar via de Azure-portal)<br/><br/> [Nieuwste functies en correcties](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services-agent | Coördineert de replicatie tussen Hyper-V-machines en Azure<br/><br/> Geïnstalleerd op de on-premises Hyper-V-servers (met of zonder Virtual Machine Manager) | Meest recente agent beschikbaar is via de portal
 
 

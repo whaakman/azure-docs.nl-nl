@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 12/14/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f0c852b0b3de4edcf894d80ae397eae6c8980d49
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9589281654b74df8527bb7bcf58b0700482c3fed
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240406"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408966"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Clientbibliotheken voor het verbinden met Azure Analysis Services
 
@@ -23,10 +23,10 @@ ms.locfileid: "50240406"
 
 |Downloaden  |Productversie  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.39      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.39      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.7.0.2    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.7.0.2     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.183      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.183      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.8.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.8.0.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO en ADOMD (NuGet-pakketten)
 
@@ -34,10 +34,10 @@ Analysis Services Management Objects (AMO) en ADOMD-clientbibliotheken zijn besc
 
 |Pakket  | Productversie  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.7.0.2    |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.7.02     |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.8.0.0    |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.8.0.0     |
 
-NuGet-pakket assembly's AssemblyVersion Volg semantisch versiebeheer: grote. SECUNDAIRE. PATCH. NuGet-verwijzingen laden van de verwachte versie, zelfs als er een andere versie in de GAC (die voortvloeien uit MSI-installatie). PATCH wordt voor elke versie verhoogd. AMO en ADOMD-versies bewaard gesynchroniseerd.
+NuGet-pakket assembly's AssemblyVersion Volg semantisch versiebeheer: BELANGRIJKSTE. SECUNDAIRE. PATCH. NuGet-verwijzingen laden van de verwachte versie, zelfs als er een andere versie in de GAC (die voortvloeien uit MSI-installatie). PATCH wordt voor elke versie verhoogd. AMO en ADOMD-versies bewaard gesynchroniseerd.
 
 ## <a name="understanding-client-libraries"></a>Understanding-clientbibliotheken
 
@@ -55,7 +55,7 @@ Clientbibliotheken voor clientverbindingen verschillen van de gegevensproviders 
   
  De OLE DB-Provider voor Analysis Services wordt automatisch geïnstalleerd door de meeste hulpprogramma's en clienttoepassingen gebruikt voor toegang tot Analysis Services-databases. Deze moet worden geïnstalleerd op computers die worden gebruikt voor toegang tot gegevens van Analysis Services.  
   
- OLE DB-providers worden vaak in tekenreeksen voor databaseverbindingen opgegeven. Een andere naamgeving om te verwijzen naar de OLE DB-Provider maakt gebruik van een Analysis Services-verbindingsreeks: MSOLAP. \<versie > dll-bestand.
+ OLE DB-providers worden vaak in tekenreeksen voor databaseverbindingen opgegeven. De verbindingsreeks van een Analysis Services maakt gebruik van een andere naamgeving om te verwijzen naar de OLE DB-Provider: MSOLAP. \<versie > dll-bestand.
 
 ### <a name="amo"></a>AMO  
 

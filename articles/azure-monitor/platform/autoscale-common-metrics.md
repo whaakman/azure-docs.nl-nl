@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: f17d2d1cf25f533fb37d44da2890b6ad8741be82
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d12edc2023deb69118d7c02e053cd2525f6ae684
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326095"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437721"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoscaling common metrics
 Automatisch schalen in Azure Monitor kunt u het aantal actieve instanties omhoog of omlaag schalen op basis van telemetrische gegevens (metrische gegevens). Dit document beschrijft algemene metrische gegevens die u wilt gebruiken. U kunt de metrische gegevens van de resource schalen door te kiezen in de Azure-portal. U kunt echter ook elke meetwaarde kiezen uit een andere resource om te schalen door.
@@ -34,8 +34,8 @@ Als geen van beide bovenstaande gevallen waar is, Controleer [PowerShell gebruik
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Metrische gegevens voor hosts voor Resource Manager gebaseerde Windows en Linux-machines
 De volgende hostniveau metrische gegevens worden standaard verzonden voor virtuele Azure-machines en VMSS in zowel Windows als Linux-exemplaren. Deze metrische gegevens over uw Azure-VM wordt beschreven, maar worden verzameld van de Azure VM-host in plaats van via de agent is geïnstalleerd op de Gast-VM. U kunt deze metrische gegevens in de regels voor automatisch schalen.
 
-- [Metrische gegevens voor hosts voor Resource Manager gebaseerde Windows en Linux-machines](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
-- [Metrische gegevens voor hosts voor Resource Manager gebaseerde Windows en Linux VM Scale Sets](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
+- [Metrische gegevens voor hosts voor Resource Manager gebaseerde Windows en Linux-machines](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Metrische gegevens voor hosts voor Resource Manager gebaseerde Windows en Linux VM Scale Sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Gastbesturingssysteem metrische gegevens over Windows-VM's op basis van Resource Manager
 Wanneer u een virtuele machine in Azure maakt, wordt de diagnostische gegevens ingeschakeld met behulp van de extensie voor diagnostische gegevens. De extensie voor diagnostische gegevens verzendt een set metrische gegevens die zijn overgenomen uit binnen de virtuele machine. Dit betekent dat u kunt automatisch schalen van metrische gegevens die niet standaard worden weergegeven.

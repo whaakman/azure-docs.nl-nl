@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 9ce2f65af89e186a3cd32bd2900b5444fb556b08
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 374a27b10b3928838b10e4fba24e1f36721c162a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636710"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433675"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Apparaatconnectiviteit en inkomende telemetriegegevens
 
@@ -67,7 +67,7 @@ U kunt aanpassen van uw apparaat berichtindeling en -nettolading aanpassen aan d
 
  De nettolading van de inhoud van een **bericht** willekeurige gegevens mag maximaal 256 KB groot. Er zijn enkele vereisten verwacht voor eigenschappen van de [ `Message.Properties` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) type. De tabel bevat de vereiste en optionele eigenschappen die worden ondersteund door het systeem.
 
-| Naam van eigenschap | Waarde | Vereist | Beschrijving |
+| Naam van eigenschap | Waarde | Vereist | Description |
 |---|---|---|---|
 | **DigitalTwins-telemetrie** | 1.0 | Ja | Een constante waarde die een bericht op het systeem wordt geïdentificeerd. |
 | **DigitalTwins SensorHardwareId** | `string(72)` | Ja | Een unieke id van de sensor die verzendt de **bericht**. Deze waarde moet overeenkomen met een object **HardwareId** eigenschap voor het systeem te verwerken. Bijvoorbeeld `00FF0643BE88-CO2`. |
@@ -81,4 +81,3 @@ Gebruik de DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/m
 ## <a name="next-steps"></a>Volgende stappen
 
 Lees voor meer informatie over Azure digitale dubbels gegevensverwerking en mogelijkheden van de gebruiker gedefinieerde functies, [Azure digitale dubbele gegevens verwerken en de gebruiker gedefinieerde functies](concepts-user-defined-functions.md).
-

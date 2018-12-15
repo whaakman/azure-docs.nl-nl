@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6bcd2d299d3816c17265eef658ff1f01409828a1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: a674ee52ae5e8f8f800d4584a53c808ceae70156
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632219"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435052"
 ---
 # <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Apache Pig-taken uitvoeren in een cluster op basis van Linux met de opdracht Pig (SSH)
 
@@ -22,7 +22,7 @@ ms.locfileid: "51632219"
 
 Leer hoe u Apache Pig-taken interactief uitvoeren vanaf een SSH-verbinding met uw HDInsight-cluster. De Pig Latin-programmeertaal kunt u voor het beschrijven van transformaties die worden toegepast op de ingevoerde gegevens op de gewenste uitvoer produceren.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in dit document moet een Linux gebaseerde HDInsight-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a id="ssh"></a>Verbinding maken met SSH
@@ -35,7 +35,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
 Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-## <a id="pig"></a>Gebruik de opdracht Pig
+## <a id="pig"></a>Gebruik de opdracht Apache Pig
 
 1. Eenmaal verbinding hebben, start u de Pig-opdrachtregelinterface (CLI) met behulp van de volgende opdracht uit:
 
@@ -74,7 +74,7 @@ Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voo
     | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Hiermee maakt u een van de gegevens die elke unieke logboek bevat waarde en het aantal keren dat deze plaatsvindt. De gegevensset wordt opgeslagen in `FREQUENCIES`. |
     | `RESULT = order FREQUENCIES by COUNT desc;` | De logboekniveaus orders op aantal (aflopend) en opgeslagen in `RESULT`. |
 
-    > [!TIP]
+    > [!TIP]  
     > Gebruik `DUMP` om het resultaat van de transformatie na elke stap weer te geven.
 
 5. U kunt ook de resultaten van een transformatie opslaan met behulp van de `STORE` instructie. Bijvoorbeeld de volgende instructie wordt de `RESULT` naar de `/example/data/pigout` map op de standaardopslag voor uw cluster:
@@ -83,7 +83,7 @@ Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voo
     STORE RESULT into '/example/data/pigout';
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > De gegevens worden opgeslagen in de opgegeven map in bestanden met de naam `part-nnnnn`. Als de map al bestaat, ontvangt u een foutbericht.
 
 6. Voer de volgende instructie de lastige vraag om af te sluiten:
@@ -136,9 +136,9 @@ U kunt ook de Pig-opdracht gebruiken om uit te voeren Pig Latin die deel uitmake
 
 Zie het volgende document voor algemene informatie over Pig in HDInsight:
 
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
 
 Zie de volgende documenten voor meer informatie over andere manieren om te werken met Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)

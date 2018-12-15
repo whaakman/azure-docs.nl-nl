@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/20/2018
+ms.date: 12/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e33871f35613fbd5cdc5bf3162855b942056807f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7e547f49ec14bdb69a85dd916ef435c3f30f6ef2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254495"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413724"
 ---
 ### <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -37,7 +37,7 @@ U kunt de Firewall van Azure implementeren op een virtueel netwerk, maar klanten
 
 ### <a name="how-can-i-install-the-azure-firewall"></a>Hoe kan ik de Azure-Firewall installeren?
 
-U kunt Azure Firewall instellen met behulp van de Azure portal, PowerShell, REST-API of met behulp van sjablonen. Zie [zelfstudie: implementeer en configureer de Firewall van Azure met behulp van de Azure-portal](../articles/firewall/tutorial-firewall-deploy-portal.md) voor stapsgewijze instructies.
+U kunt Azure Firewall instellen met behulp van de Azure portal, PowerShell, REST-API of met behulp van sjablonen. Zie [zelfstudie: Implementeren en configureren van de Firewall van Azure met behulp van de Azure-portal](../articles/firewall/tutorial-firewall-deploy-portal.md) voor stapsgewijze instructies.
 
 ### <a name="what-are-some-azure-firewall-concepts"></a>Wat zijn enkele concepten Firewall van Azure?
 
@@ -54,7 +54,7 @@ Firewall van Azure biedt ondersteuning voor binnenkomend en uitgaand filteren. B
 
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Welke services logboekregistratie en analyse worden ondersteund door de Firewall van Azure?
 
-Firewall van Azure is geïntegreerd met Azure Monitor voor het weergeven en analyseren van de firewall-Logboeken. Logboeken kunnen worden verzonden naar Log Analytics, Azure Storage of Event Hubs. Ze kunnen worden geanalyseerd in Log Analytics of met verschillende hulpprogramma's zoals Excel en Power BI. Zie voor meer informatie, [zelfstudie: logboeken van de Firewall van Azure Monitor](../articles/firewall/tutorial-diagnostics.md).
+Firewall van Azure is geïntegreerd met Azure Monitor voor het weergeven en analyseren van de firewall-Logboeken. Logboeken kunnen worden verzonden naar Log Analytics, Azure Storage of Event Hubs. Ze kunnen worden geanalyseerd in Log Analytics of met verschillende hulpprogramma's zoals Excel en Power BI. Zie voor meer informatie, [zelfstudie: Azure-Firewall-logboeken bewaken](../articles/firewall/tutorial-diagnostics.md).
 
 ### <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Hoe Azure Firewall werkt anders van bestaande services zoals NVA's in de marketplace?
 
@@ -117,10 +117,14 @@ Zie voor de Firewall van Azure-Servicelimieten, [Azure-abonnement en Servicelimi
 
 Ja, kunt u Azure-Firewall in een hub-netwerk te routeren en filteren verkeer tussen twee spoke virtueel netwerk. Subnetten in elk van de virtuele spoke-netwerken beschikken over UDR die verwijst naar de Firewall van Azure als een standaard-gateway voor dit scenario goed te laten werken.
 
-### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Kan Azure Firewall doorsturen en filteren van netwerkverkeer tussen subnetten in hetzelfde virtuele netwerk?
+### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Kan Azure Firewall doorsturen en filteren van netwerkverkeer tussen subnetten in het hetzelfde virtuele netwerk of de gekoppelde virtuele netwerken?
 
 Verkeer tussen subnetten in hetzelfde virtuele netwerk of in een rechtstreeks gekoppeld virtueel netwerk wordt rechtstreeks doorgestuurd, zelfs als de UDR verwijst naar de Firewall van Azure als de standaard-gateway. De aanbevolen methode voor de segmentering van het interne netwerk is het gebruik van Netwerkbeveiligingsgroepen. Voor het subnet naar subnet verkeer verzenden naar de firewall in dit scenario, moet de UDR het doel netwerk subnetvoorvoegsel expliciet op beide subnetten bevatten.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Zijn er firewall beperkingen van de resource?
 
 Ja. De firewall, subnet, VNet en het openbare IP-adres moeten zich in dezelfde resourcegroep bevinden.
+
+### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Bij het configureren van DNAT voor binnenkomend netwerkverkeer, heb ik ook nodig om te configureren van een regel voor de bijbehorende als u wilt toestaan dat dit verkeer?
+
+Nee. NAT-regels toevoegen impliciet een overeenkomende regel om de vertaalde verkeer te staan. U kunt dit gedrag overschrijven door expliciet een verzameling netwerkregels toe te voegen met regels voor weigeren die overeenkomen met het omgezette verkeer. Zie [Verwerkingslogica voor Azure Firewall-regels](../articles/firewall/rule-processing.md) voor meer informatie over de verwerkingslogica voor Azure Firewall-regels.

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 1136d97ad1c1d02320331e6d2013b68526d5abb4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f76dfc8499d294c2c682c4d9c4cf2cd2f858432f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277888"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408851"
 ---
-# <a name="use-spark-to-read-and-write-hbase-data"></a>Spark gebruiken om HBase-gegevens te lezen en te schrijven
+# <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark gebruiken om Apache HBase-gegevens te lezen en schrijven
 
-Apache HBase is meestal een query uitgevoerd met de laag niveau API (scans, opgehaald en plaatst) of met een SQL-syntaxis Phoenix gebruiken. Apache biedt ook de Spark HBase-Connector, dit een handige is en goed presterende alternatieve om te vragen en gegevens die zijn opgeslagen door HBase te wijzigen.
+Apache HBase is meestal een query uitgevoerd met de laag niveau API (scans, opgehaald en plaatst) of met een SQL-syntaxis met behulp van Apache Phoenix. Apache biedt ook de Apache Spark HBase-Connector dit een handige is en goed presterende alternatieve om te vragen en gegevens die zijn opgeslagen door HBase te wijzigen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,9 +38,9 @@ Het proces op hoog niveau voor het inschakelen van uw Spark-cluster query uitvoe
 5. Definieer een catalogus die het schema van Spark voor HBase-kaarten.
 6. Interactie met de HBase-gegevens met behulp van de RDD of DataFrame APIs.
 
-## <a name="prepare-sample-data-in-hbase"></a>Van voorbeeldgegevens in HBase voorbereiden
+## <a name="prepare-sample-data-in-apache-hbase"></a>Voorbeeldgegevens in Apache HBase voorbereiden
 
-In deze stap maakt u maken en vullen van een eenvoudige tabel in HBase die u kunt vervolgens een query met behulp van Spark.
+In deze stap maakt u maken en vullen van een eenvoudige tabel in Apache HBase die u kunt vervolgens een query met behulp van Spark.
 
 1. Verbinding maken met het hoofdknooppunt van het HBase-cluster via SSH. Zie voor meer informatie, [verbinding maken met HDInsight met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 2. Voer de HBase-shell:
@@ -132,7 +132,7 @@ In deze stap maakt u maken en vullen van een eenvoudige tabel in HBase die u kun
 
 ## <a name="define-a-catalog-and-query"></a>Een catalogus en een Query definiëren
 
-In deze stap definieert u een catalogusobject dat het schema van Spark voor HBase-kaarten. 
+In deze stap definieert u een catalogusobject dat het schema van Apache Spark voor Apache HBase-kaarten. 
 
 1. In uw open Spark-Shell, voert u de volgende `import` instructies:
 
@@ -244,4 +244,4 @@ In deze stap definieert u een catalogusobject dat het schema van Spark voor HBas
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Spark-Connector voor HBase](https://github.com/hortonworks-spark/shc)
+* [Apache Spark-Connector van HBase](https://github.com/hortonworks-spark/shc)

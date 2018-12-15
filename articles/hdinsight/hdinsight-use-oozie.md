@@ -10,17 +10,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: f585a9d89418f15d9e5c08ae36b70791eca54219
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: bbe61477a9841173fb47267b53da1b5cf75d9924
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017147"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410292"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren in HDInsight
+# <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren in HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Leer hoe u Apache Oozie gebruiken voor het definiëren van een werkstroom en het uitvoeren van de werkstroom op HDInsight. Zie voor meer informatie over de Oozie-coördinator, [op basis van tijd Hadoop Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]. Zie voor meer Azure Data Factory [Pig en Hive met Data Factory gebruiken][azure-data-factory-pig-hive].
+Leer hoe u Apache Oozie gebruiken voor het definiëren van een werkstroom en het uitvoeren van de werkstroom op HDInsight. Zie voor meer informatie over de Oozie-coördinator, [op basis van tijd Apache Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]. Zie voor meer Azure Data Factory [gebruik Apache Pig- en Apache Hive met Data Factory][azure-data-factory-pig-hive].
 
 Apache Oozie is een werkstroomcoördinatie/systeem waarmee Hadoop-taken worden beheerd. Dit is geïntegreerd met de Hadoop-stack en Hadoop-taken worden ondersteund voor Apache MapReduce, Apache Pig, Apache Hive en Apache Sqoop. Het kan ook worden gebruikt voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
 
@@ -28,7 +28,7 @@ De werkstroom die u implementeert door de instructies in deze zelfstudie bevat t
 
 ![Diagram van werkstroom][img-workflow-diagram]
 
-1. Een Hive-bewerking wordt een HiveQL-script uit om te tellen hoe vaak elk type logboek-niveau in een log4j-bestand. Elk bestand log4j bestaat uit een line-of velden met een veld [LOGBOEKNIVEAU] waarin het type en de ernst, bijvoorbeeld:
+1. Een Hive-bewerking wordt een HiveQL-script uit om te tellen hoe vaak elk type logboek-niveau in een Apache Log4j-bestand. Elk bestand log4j bestaat uit een line-of velden met een veld [LOGBOEKNIVEAU] waarin het type en de ernst, bijvoorbeeld:
    
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -44,11 +44,11 @@ De werkstroom die u implementeert door de instructies in deze zelfstudie bevat t
         [TRACE] 816
         [WARN]  4
    
-    Zie [Hive gebruiken met HDInsight][hdinsight-use-hive] voor meer informatie over Hive.
-2. Een actie Sqoop exporteert u de uitvoer HiveQL naar een tabel in een Azure SQL database. Zie voor meer informatie over Sqoop [Hadoop-Sqoop gebruiken met HDInsight][hdinsight-use-sqoop].
+    Zie voor meer informatie over Hive [Apache Hive gebruiken met HDInsight][hdinsight-use-hive].
+2. Een actie Sqoop exporteert u de uitvoer HiveQL naar een tabel in een Azure SQL database. Zie voor meer informatie over Sqoop [Apache Sqoop gebruiken met HDInsight][hdinsight-use-sqoop].
 
-> [!NOTE]
-> Zie voor ondersteunde versies van de Oozie op HDInsight-clusters, [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight?] [hdinsight-versions].
+> [!NOTE]  
+> Zie voor ondersteunde versies van de Oozie op HDInsight-clusters, [wat is er nieuw in het Apache Hadoop-clusterversies geleverd door HDInsight?] [hdinsight-versions].
 > 
 > 
 
@@ -613,16 +613,16 @@ Hier volgt een voorbeeld van PowerShell-script die u kunt gebruiken:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u kunt een Oozie-taak uitvoeren met behulp van PowerShell. Zie de volgende artikelen voor meer informatie:
+In deze zelfstudie hebt u geleerd hoe u een Apache Oozie-workflow definieert en hoe u kunt een Oozie-taak uitvoeren met behulp van PowerShell. Zie de volgende artikelen voor meer informatie:
 
-* [Op tijd gebaseerde Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]
-* [Aan de slag met Hadoop Hive in HDInsight voor het analyseren van de mobiele telefoon gebruiken][hdinsight-get-started]
+* [Op basis van tijd Apache Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]
+* [Aan de slag met behulp van Apache Hadoop voor het analyseren van de mobiele telefoon gebruiken met Apache Hive in HDInsight][hdinsight-get-started]
 * [Azure Blob storage gebruiken met HDInsight][hdinsight-storage]
 * [HDInsight met behulp van PowerShell beheren][hdinsight-admin-powershell]
-* [Gegevens uploaden voor Hadoop-taken in HDInsight][hdinsight-upload-data]
-* [Sqoop gebruiken met Hadoop in HDInsight][hdinsight-use-sqoop]
-* [Hive gebruiken met Hadoop op HDInsight][hdinsight-use-hive]
-* [Pig gebruiken met Hadoop op HDInsight][hdinsight-use-pig]
+* [Gegevens uploaden voor Apache Hadoop-taken in HDInsight][hdinsight-upload-data]
+* [Apache Sqoop gebruiken met Apache Hadoop in HDInsight][hdinsight-use-sqoop]
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight][hdinsight-use-hive]
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight][hdinsight-use-pig]
 * [Java MapReduce-programma's ontwikkelen voor HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563

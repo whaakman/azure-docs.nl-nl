@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 845f991085a4427ab4f4301cab1dc60215374554
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185763"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438758"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer Standard
 
@@ -229,7 +229,7 @@ Standaardversie van Load Balancer is een in rekening gebracht op basis van het a
 - Meer informatie over [statuscontroles](load-balancer-custom-probe-overview.md).
 - Meer informatie over [Beschikbaarheidszones](../availability-zones/az-overview.md).
 - Meer informatie over [standaardversie van Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Meer informatie over [ondersteunde multi-dimensionale metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) voor diagnostische gegevens in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Meer informatie over [ondersteunde multi-dimensionale metrische gegevens](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) voor diagnostische gegevens in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Meer informatie over het gebruik van [Load Balancer voor uitgaande verbindingen](load-balancer-outbound-connections.md).
 - Meer informatie over [regels voor uitgaand verkeer](load-balancer-outbound-rules-overview.md).
 - Meer informatie over [TCP opnieuw ingesteld op niet-actieve](load-balancer-tcp-reset.md).

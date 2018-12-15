@@ -1,6 +1,6 @@
 ---
-title: Resources implementeren op Azure-abonnement | Microsoft Docs
-description: Beschrijft het maken van een Azure Resource Manager-sjabloon die de resources op het abonnementsbereik implementeert.
+title: 'Resourcegroep en resources op abonnement: Azure Resource Manager-sjabloon maken'
+description: Beschrijft hoe u een resourcegroep maken in een Azure Resource Manager-sjabloon. U ziet ook over het implementeren van resources in het bereik van de Azure-abonnement.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,22 +9,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9a9fe16f562805f1bfd6f51af063531f34ffdde2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308495"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435290"
 ---
-# <a name="deploy-resources-to-an-azure-subscription"></a>Resources implementeren op een Azure-abonnement
+# <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Resourcegroepen en resources voor een Azure-abonnement maken
 
-Normaal gesproken implementeren u resources in een resourcegroep in uw Azure-abonnement. Sommige resources kunnen echter worden geïmplementeerd op het niveau van uw Azure-abonnement. Deze resources toepassen voor uw abonnement. [Beleid](../azure-policy/azure-policy-introduction.md), [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md), en [Azure Security Center](../security-center/security-center-intro.md) zijn services die u mogelijk wilt toepassen op het abonnementsniveau, in plaats van het niveau van de resource.
+Normaal gesproken implementeren u resources in een resourcegroep in uw Azure-abonnement. Echter, kunt u de abonnement implementaties te maken van resourcegroepen en resources die van toepassing zijn op uw abonnement.
 
-Dit artikel wordt gebruikgemaakt van Azure CLI en PowerShell om de sjablonen te implementeren. U kunt de portal niet gebruiken voor de sjablonen niet implementeren omdat de interface van de portal worden geïmplementeerd op de resourcegroep, niet de Azure-abonnement.
+Voor het maken van een resourcegroep in een Azure Resource Manager-sjabloon, definieert een **Microsoft.Resources/resourceGroups** resource met een naam en locatie voor de resourcegroep. U kunt een resourcegroep maken en implementeren van resources in die resourcegroep in dezelfde sjabloon.
 
-## <a name="name-and-location-for-deployment"></a>Naam en locatie voor de implementatie
+[Beleid](../azure-policy/azure-policy-introduction.md), [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md), en [Azure Security Center](../security-center/security-center-intro.md) zijn services die u mogelijk wilt toepassen op het abonnementsniveau, in plaats van het niveau van de resource.
+
+Dit artikel laat het maken van resourcegroepen en bronnen die betrekking hebben op een abonnement maken. Maakt gebruik van Azure CLI en PowerShell om de sjablonen te implementeren. U kunt de portal niet gebruiken voor de sjablonen niet implementeren omdat de interface van de portal worden geïmplementeerd op de resourcegroep, niet de Azure-abonnement.
+
+## <a name="schema-and-commands"></a>Schema- en -opdrachten
+
+Het schema en de opdrachten die u voor implementaties op abonnementsniveau gebruiken zijn anders dan brongroepimplementaties. 
+
+Gebruik voor het schema `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`.
+
+Gebruik voor de implementatie van Azure CLI-opdracht, [az-implementatie maken](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create).
+
+Gebruik voor de implementatie van PowerShell-opdracht, [New-AzureRmDeployment](/powershell/module/azurerm.resources/new-azurermdeployment).
+
+## <a name="name-and-location"></a>Naam en locatie
 
 Bij het implementeren van uw abonnement, moet u een locatie voor de implementatie opgeven. U kunt ook een naam voor de implementatie opgeven. Als u een naam voor de implementatie niet opgeeft, wordt de naam van de sjabloon wordt gebruikt als de implementatienaam van de. Bijvoorbeeld, het implementeren van een sjabloon die met de naam **azuredeploy.json** maakt u een standaardnaam voor de implementatie van **azuredeploy**.
 
@@ -37,6 +51,207 @@ Voor abonnement niveau implementaties zijn er enkele belangrijke overwegingen bi
 * De [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) functie **niet** ondersteund.
 * De [resourceId()](resource-group-template-functions-resource.md#resourceid) functie wordt ondersteund. Gebruik dit voor de resource-ID niet ophalen voor resources die worden gebruikt op abonnement niveau implementaties. Bijvoorbeeld: de resource-ID niet ophalen voor een beleidsdefinitie met `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
 * De [reference()](resource-group-template-functions-resource.md#reference) en [list()](resource-group-template-functions-resource.md#list) functies worden ondersteund.
+
+## <a name="create-resource-group"></a>Een resourcegroep maken
+
+Het volgende voorbeeld wordt een lege resourcegroep.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[parameters('rgName')]",
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Voor het implementeren van deze sjabloon met Azure CLI gebruiken:
+
+```azurecli-interactive
+az deployment create \
+  -n demoEmptyRG \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+Voor het implementeren van deze sjabloon met PowerShell, gebruikt u:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
+```
+
+## <a name="create-several-resource-groups"></a>Maken van meerdere resourcegroepen
+
+Gebruik de [kopie element](resource-group-create-multiple.md) met resourcegroepen om meer dan één resourcegroep te maken. 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgNamePrefix": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        },
+        "instanceCount": {
+            "type": "int"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
+            "copy": {
+                "name": "rgCopy",
+                "count": "[parameters('instanceCount')]"
+            },
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Het implementeren van deze sjabloon met Azure CLI en drie resourcegroepen gemaakt, gebruiken:
+
+```azurecli-interactive
+az deployment create \
+  -n demoCopyRG \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
+  --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+Voor het implementeren van deze sjabloon met PowerShell, gebruikt u:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgNamePrefix demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
+```
+
+## <a name="create-resource-group-and-deploy-resource"></a>Resourcegroep maken en implementeren van resource
+
+Voor het maken van de resourcegroep en resources te implementeren, moet u een geneste sjabloon gebruiken. De geneste sjabloon definieert de resources te implementeren in de resourcegroep. Stel de geneste sjabloon als afhankelijk van de resourcegroep om te controleren of dat de resourcegroep bestaat voor het implementeren van de resources.
+
+Het volgende voorbeeld wordt een resourcegroep en implementeert een opslagaccount in de resourcegroep.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        },
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(subscription().id, parameters('rgName')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[parameters('rgName')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "storageDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2017-10-01",
+                            "name": "[variables('storageName')]",
+                            "location": "[parameters('rgLocation')]",
+                            "kind": "StorageV2",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Voor het implementeren van deze sjabloon met Azure CLI gebruiken:
+
+```azurecli-interactive
+az deployment create \
+  -n demoRGStorage \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json \
+  --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
+```
+
+Voor het implementeren van deze sjabloon met PowerShell, gebruikt u:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
 
 ## <a name="assign-policy"></a>Beleid toewijzen
 
@@ -257,7 +472,5 @@ New-AzureRmDeployment `
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor een voorbeeld van de implementatie van de werkruimte-instellingen voor Azure Security Center, [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Zie voor het maken van een resourcegroep, [resourcegroepen in Azure Resource Manager-sjablonen maken](create-resource-group-in-template.md).
 * Zie voor meer informatie over het maken van Azure Resource Manager-sjablonen, [-sjablonen maken](resource-group-authoring-templates.md). 
 * Zie voor een lijst van de beschikbare functies in een sjabloon, [sjabloonfuncties](resource-group-template-functions.md).
-

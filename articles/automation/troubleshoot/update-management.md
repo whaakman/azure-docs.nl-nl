@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 87edc2911a48aea1ff0d7ac826439fe547c7cd86
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d0d6ed03b6e28df9767e24170ebf5ec92bb9fe9a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342882"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434729"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Oplossen van problemen met updatebeheer
 
@@ -164,7 +164,7 @@ U machines hebt die als **niet beoordeeld** onder **naleving**, en u ziet een be
 
 #### <a name="cause"></a>Oorzaak
 
-Windows update is niet juist geconfigureerd op de machine.
+Windows Update of WSUS worden is niet correct geconfigureerd op de machine. Updatebeheer maakt gebruik van Windows Update of WSUS om te voorzien van de updates die nodig zijn, de status van de patch en de resultaten van patches die zijn geïmplementeerd. Zonder deze gegevens kan updatebeheer niet correct rapporteren van de patches die zijn vereist of geïnstalleerd.
 
 #### <a name="resolution"></a>Oplossing
 

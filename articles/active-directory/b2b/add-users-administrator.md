@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3da427974c4a270a7a743bb81d2376cf61b77390
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335058"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436905"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Gebruikers van Azure Active Directory B2B-samenwerking toevoegen in Azure portal
 
@@ -24,7 +24,7 @@ Als een globale beheerder of een gebruiker aan wie een van de beperkte beheerder
 Nadat u een gastgebruiker aan de directory toevoegen, u kunt ofwel de gastgebruiker een directe koppeling sturen naar een gedeelde app of de gastgebruiker kunt klikken op de URL voor inschrijving in de uitnodiging per e-mail. Zie voor meer informatie over het proces inwisselen [B2B-samenwerking uitnodiging inwisselen](redemption-experience.md).
 
 > [!IMPORTANT]
-> U moet de stappen in [instructies: het toevoegen van privacy-informatie van uw organisatie in Azure Active Directory](https://aka.ms/adprivacystatement) om toe te voegen van de URL van privacyverklaring van uw organisatie. Als onderdeel van de eerste keer uitnodiging inwisselen proces, moet een van de uitgenodigde gebruiker toestemming geven aan uw privacyvoorwaarden om door te gaan. 
+> U moet de stappen in [procedures: Privacy-informatie van uw organisatie toevoegen in Azure Active Directory](https://aka.ms/adprivacystatement) om toe te voegen van de URL van privacyverklaring van uw organisatie. Als onderdeel van de eerste keer uitnodiging inwisselen proces, moet een van de uitgenodigde gebruiker toestemming geven aan uw privacyvoorwaarden om door te gaan. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Gastgebruikers toevoegen aan de directory
 
@@ -37,6 +37,9 @@ Gebruikers van B2B-samenwerking toevoegen aan de directory, de volgende stappen 
 
    ![Laat zien waar nieuwe gastgebruiker zich bevindt in de gebruikersinterface](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
+   > [!NOTE]
+   > De **nieuwe gastgebruiker** optie is ook beschikbaar in de **organisatie relaties** pagina. In **Azure Active Directory**onder **beheren**, selecteer **organisatie relaties**.
+
 5. Onder **Gebruikersnaam**, voer het e-mailadres van de externe gebruiker in. U kunt optioneel een welkomstbericht toevoegen. Bijvoorbeeld:
 
    ![Laat zien waar nieuwe gastgebruiker zich bevindt in de gebruikersinterface](./media/add-users-administrator/InviteGuest.png) 
@@ -59,7 +62,7 @@ Als u wilt dat gebruikers van B2B-samenwerking handmatig toevoegen aan een groep
 3. Onder **beheren**, selecteer **groepen**.
 4. Selecteer een groep (of klik op **nieuwe groep** naar een nieuwe maken). Er is een goed idee om op te nemen in de groepsbeschrijving van de die de B2B-gastgebruikers bevat.
 5. Selecteer **leden**. 
-6. Een van de volgende handelingen uit:
+6. Voer een van de volgende handelingen uit:
    - Als de gastgebruiker al in de directory bestaat, kunt u zoeken naar de B2B-gebruiker. Selecteer de gebruiker en klik vervolgens op **Selecteer** om toe te voegen van de gebruiker aan de groep.
    - Als de gastgebruiker niet al in de map bestaat, nodigen voor de groep door hun e-mailadres in het zoekvak te typen en vervolgens te klikken op een optioneel persoonlijke bericht typen **Selecteer**. De uitnodiging wordt automatisch verzonden naar de uitgenodigde gebruiker.
      
@@ -81,7 +84,7 @@ Gebruikers van B2B-samenwerking toevoegen aan een toepassing als een Azure AD-be
 
 6. Selecteer **gebruiker toevoegen**.
 7. Onder **toevoegen toewijzing**, selecteer **gebruikers en groepen**.
-8. Een van de volgende handelingen uit:
+8. Voer een van de volgende handelingen uit:
    - Als de gastgebruiker al in de directory bestaat, kunt u zoeken naar de B2B-gebruiker. Selecteer de gebruiker, klikt u op **Selecteer**, en klik vervolgens op **toewijzen** om toe te voegen van de gebruiker naar de app.
    - Als de gastgebruiker nog niet bestaat in de map onder **lid selecteren of een externe gebruiker uitnodigen**, typ de e-mailadres van de gebruiker. Typ desgewenst een persoonlijk bericht in het bericht. Klik in het berichtvenster op **uitnodigen**.
            

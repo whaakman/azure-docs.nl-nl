@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/07/2018
-ms.openlocfilehash: ecaf0f0d490decae0fc6298415b15d4d5ddbb4fd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.date: 12/13/2018
+ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139092"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410057"
 ---
-# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snelstartgids: Azure-VM verbinding maken met een Azure SQL Database Managed Instance configureren
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snelstartgids: Azure virtuele machine verbinding maken met een Azure SQL Database Managed Instance configureren
 
 In deze Quick Start laat zien hoe u een virtuele Azure-machine verbinding maken met een Azure SQL Database Managed Instance configureren met behulp van SQL Server Management Studio (SSMS). Zie voor een snelstart van hoe u verbinding maakt vanaf een on-premises clientcomputer met behulp van een punt-naar-site-verbinding [een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md) 
 
@@ -84,7 +84,7 @@ De eenvoudigste manier om een client virtuele machine maken met alle benodigde h
    |**Wachtwoord**|Een geldig wachtwoord|Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>U gebruikt dit wachtwoord telkens wanneer u [verbinding maken met de virtuele machine](#connect-to-virtual-machine).|
    | **Grootte van virtuele Machine** | Een geldige grootte | De standaardwaarde in deze sjabloon van **Standard_B2s** is voldoende voor deze Quick Start. |
    | **Locatie**|[resourceGroup () .location].| Deze waarde niet te wijzigen. |
-   | **Virtuele-netwerknaam**|De locatie die u eerder hebt geselecteerd|Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's.|
+   | **Virtuele-netwerknaam**|De virtuele netword waarin u het beheerde exemplaar gemaakt.|
    | **Subnetnaam**|De naam van het subnet dat u in de vorige procedure hebt gemaakt| Kies geen het subnet waarin u het beheerde exemplaar gemaakt.|
    | **artefacten locatie** | [.properties.templateLink.uri implementatie ()] | Deze waarde niet te wijzigen. |
    | **artefacten locatie Sas-token** | Leeg laten | Deze waarde niet te wijzigen. |

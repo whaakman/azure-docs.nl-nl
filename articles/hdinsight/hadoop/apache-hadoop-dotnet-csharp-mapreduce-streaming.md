@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9c1b0d52a83d707df3a01212f2ab23c625987da0
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013216"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435307"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Gebruik C# met MapReduce, streaming van Apache Hadoop in HDInsight
 
@@ -157,7 +157,7 @@ Na het maken van de toepassing, bouw het voor het produceren van de `/bin/Debug/
 
     * Als dit item kan worden uitgebreid, gebruikt u een __Azure Storage-Account__ als standaardopslag voor het cluster. Als u de bestanden op de standaardopslag voor het cluster, vouw de vermelding en dubbelklik vervolgens op de __(standaardcontainer)__.
 
-    * Als dit item kan niet worden uitgebreid, gebruikt u __Azure Data Lake Store__ als de standaardopslag voor het cluster. Als u de bestanden op de standaardopslag voor het cluster, dubbelklikt u op de __(Standaardopslagaccount)__ vermelding.
+    * Als dit item kan niet worden uitgebreid, gebruikt u __Azure Data Lake Storage__ als de standaardopslag voor het cluster. Als u de bestanden op de standaardopslag voor het cluster, dubbelklikt u op de __(Standaardopslagaccount)__ vermelding.
 
 5. Als u wilt het .exe-bestanden uploaden, moet u een van de volgende methoden gebruiken:
 
@@ -165,17 +165,17 @@ Na het maken van de toepassing, bouw het voor het produceren van de `/bin/Debug/
 
         ![pictogram uploaden](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * Als u __Azure Data Lake Store__, met de rechtermuisknop op een leeg gebied in de lijst en selecteer vervolgens __uploaden__. Selecteer ten slotte de **mapper.exe** -bestand en klik op **Open**.
+    * Als u __Azure Data Lake Storage__, met de rechtermuisknop op een leeg gebied in de lijst en selecteer vervolgens __uploaden__. Selecteer ten slotte de **mapper.exe** -bestand en klik op **Open**.
 
     Zodra de __mapper.exe__ uploaden is voltooid, herhaalt u het uploadproces voor de __reducer.exe__ bestand.
 
-## <a name="run-a-job-using-an-ssh-session"></a>Een taak uitvoeren: met behulp van een SSH-sessie
+## <a name="run-a-job-using-an-ssh-session"></a>Een taak uitvoeren: Met behulp van een SSH-sessie
 
 1. Gebruik SSH verbinding maken met de HDInsight-cluster. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 2. Gebruik een van de volgende opdrachten om de MapReduce-taak te starten:
 
-    * Als u __Data Lake Store__ als standaardopslag:
+    * Als u __Data Lake Storage__ als standaardopslag:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -190,11 +190,11 @@ Na het maken van de toepassing, bouw het voor het produceren van de `/bin/Debug/
     De volgende lijst beschrijft wat elke parameter doet:
 
     * `hadoop-streaming.jar`: Het jar-bestand met de functionaliteit voor streaming MapReduce.
-    * `-files`: Wordt toegevoegd de `mapper.exe` en `reducer.exe` bestanden naar deze taak. De `adl:///` of `wasb:///` voordat elk bestand het pad naar de hoofdmap van de standaardopslag voor het cluster is.
-    * `-mapper`: Hiermee geeft u welk bestand het toewijzen van de implementeert.
-    * `-reducer`: Hiermee geeft u welk bestand implementeert de reducer.
+    * `-files`: Voegt de `mapper.exe` en `reducer.exe` bestanden naar deze taak. De `adl:///` of `wasb:///` voordat elk bestand het pad naar de hoofdmap van de standaardopslag voor het cluster is.
+    * `-mapper`: Hiermee geeft u op welk bestand het toewijzen van de implementeert.
+    * `-reducer`: Hiermee geeft u op welk bestand implementeert de reducer.
     * `-input`: De ingevoerde gegevens.
-    * `-output`: De map met de uitvoer.
+    * `-output`: De uitvoermap.
 
 3. Nadat de MapReduce-taak is voltooid, gebruikt u de volgende om de resultaten weer te geven:
 
@@ -214,7 +214,7 @@ Na het maken van de toepassing, bouw het voor het produceren van de `/bin/Debug/
         yourselves      3
         youth   17
 
-## <a name="run-a-job-using-powershell"></a>Een taak uitvoeren: met behulp van PowerShell
+## <a name="run-a-job-using-powershell"></a>Een taak uitvoeren: PowerShell gebruiken
 
 Gebruik de volgende PowerShell-script uitvoeren van een MapReduce-taak en de resultaten downloaden.
 
@@ -236,6 +236,6 @@ Met dit script vraagt u om de cluster-aanmelding-accountnaam en wachtwoord, same
 
 Zie voor meer informatie over het gebruik van MapReduce in HDInsight [MapReduce gebruiken met HDInsight](hdinsight-use-mapreduce.md).
 
-Zie voor meer informatie over het gebruik van C# met Hive en Pig [een C#-de gebruiker gedefinieerde functie gebruiken met Hive en Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
+Voor informatie over het gebruik van C# met Hive en Pig, Zie [gebruik een C# door de gebruiker gedefinieerde functie met Apache Hive en Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-Zie voor meer informatie over het gebruik van C# met Storm op HDInsight [C#-topologieën ontwikkelen voor Storm op HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+Voor informatie over het gebruik van C# met Storm op HDInsight, raadpleegt u [ontwikkelen C# topologieën voor Apache Storm op HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).

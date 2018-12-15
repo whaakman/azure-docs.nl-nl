@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7f55d0591fbcbb274ab76b5bd17ce77703813cd3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 11832a3b7fb68dce6fb24f44ceec5ffb9a57eb69
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310026"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437551"
 documentType: LandingData
 title: Azure SQL Database Managed Instance
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 12/05/2018
+  ms.date: 12/14/2018
   ms.author: jovanpop
 abstract:
   description: Azure SQL Database Managed Instance is een volledig beheerde SQL Server Database Engine-instantie die wordt gehost in Azure-cloud. Dit is de beste PaaS-optie voor het migreren van SQL Server-database naar de cloud. Informatie over het maken en gebruiken van Managed Instance met onze snelstartgidsen, zelfstudies en voorbeelden.
@@ -73,11 +73,12 @@ sections:
     style: unordered
     items:
     - html: <a href="sql-database-managed-instance#business-critical-service-tier">Kritieke-bedrijfslaag</a> is nu in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">algemene beschikbaarheid (GA)</a>.
-    - html: (Preview) <a href="https://aka.ms/managed-instance-aadlogins">Azure AD maken aanmeldingen</a> met behulp van <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">maken van externe PROVIDER voor de aanmelding</a> .
+    - html: (Preview) Maak <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD-aanmeldingen</a> met behulp van <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">maken van externe PROVIDER voor de aanmelding</a> .
     - html: (Preview) Maken van instanties met <a href="https://aka.ms/managed-instance-collation">sortering van uw keuze op serverniveau</a>.
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configureren van back-upretentie van 35 dagen</a> voor Point-in-time restore. Houd er rekening mee dat langetermijnretentie (maximaal 10 jaar) nog niet is ingeschakeld, zodat u kunt <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">kopie-alleen back-ups</a> als alternatief.
     - html: (Preview) Gebruik <a href="https://aka.ms/managed-instance-failover-groups">geografisch gedistribueerde failovergroepen</a> Bewaar een kopie van het exemplaar in een andere regio en ervoor zorgen dat uw gegevens beschikbaar zijn, zelfs in het scenario regionale na noodgevallen zijn.
     - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Doen om uw eigen versleutelingssleutels</a> tijdens het migreren van on-premises databases die al transparante gegevensversleuteling (TDE) hebt ingeschakeld.
+    - html: Beheerde exemplaren zijn beveiligd met <a href="sql-database-managed-instance-endpoint-verify-built-in-firewall">ingebouwde firewall</a>.
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
@@ -129,7 +130,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Meer informatie over <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">hardware-eigenschappen en beperkingen</a> en <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">beperkingen voor de taal SQL</a>.
+    - html: Meer informatie over <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">hardware-eigenschappen en beperkingen</a> en <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">verschillen tussen de Transact-SQL-taal</a>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configureer</a> Azure VNet waarin het beheerde exemplaar worden geïmplementeerd.
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#modify-an-existing-virtual-network-for-managed-instances">Valideren</a> dat uw bestaande Azure-VNet kan worden gebruikt om beheerde instanties implementeren.
     - html: Verbinding maken met uw exemplaar met <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">virtuele Azure-Machine</a> of <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">punt-naar-site-verbinding</a>, of <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">toepassingen</a>.
@@ -138,7 +139,7 @@ sections:
     - html: Verplaats uw SSIS-pakketten naar <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, tabellaire modellen van SSAS te <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Services</a>, en SQL Server Reporting Services rapporten <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
     - html: Van toepassing <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">storage aanbevolen procedures voor prestaties en overwegingen voor algemeen gebruik-servicelaag</a>.
     - html: Zoek de best practices en aanbevelingen voor <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">beveiligen van uw exemplaar</a>.
-    - html: Distribueren van uw gegevens met <a href="/azure/sql-database/replication-with-sql-database-managed-instance">transactionele replicatie</a>.
+    - html: Meer informatie vinden <a href="sql-database-howto-managed-instance.md">instructies begeleidt</a> die kan helpen u bij het configureren van uw beheerde exemplaar.
 - title: Referentie
   items:
   - type: list

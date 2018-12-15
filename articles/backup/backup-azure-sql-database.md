@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 988d61d6db867c33a2dd9998d675f40f49e71332
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341742"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410360"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Back-up van SQL Server-databases naar Azure
 
@@ -298,7 +298,7 @@ Beveiliging voor een SQL-database configureren:
 
     ![Selecteer de back-up configureren](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    De Azure Backup-service wordt weergegeven voor alle SQL Server-exemplaren met zelfstandige databases en SQL Server Always On availability groups. Als u wilt de zelfstandige databases weergeven in de SQL Server-exemplaar, de pijl-omlaag links van de naam van het exemplaar selecteren Op dezelfde manier, selecteer de pijl-omlaag links van de AlwaysOn-beschikbaarheidsgroep om de lijst met databases weer te geven. De volgende afbeelding is een voorbeeld van een zelfstandig exemplaar en een AlwaysOn-beschikbaarheidsgroep.
+    De Azure Backup-service wordt weergegeven voor alle SQL Server-exemplaren met zelfstandige databases en SQL Server altijd op beschikbaarheidsgroepen. Als u wilt de zelfstandige databases weergeven in de SQL Server-exemplaar, de pijl-omlaag links van de naam van het exemplaar selecteren Op dezelfde manier, selecteer de pijl-omlaag links van de altijd op beschikbaarheidsgroep om de lijst met databases weer te geven. De volgende afbeelding is een voorbeeld van een zelfstandig exemplaar en een altijd op beschikbaarheidsgroep.
 
       ![Alle SQL Server-exemplaren met zelfstandige databases weergeven](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -312,7 +312,7 @@ Beveiliging voor een SQL-database configureren:
     > Voor het optimaliseren van back-belastingen, Azure Backup-einden grote back-uptaken in meerdere batches. Het maximum aantal databases in één back-uptaak is 50.
     >
 
-      U kunt ook kunt u inschakelen [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) op de volledige-exemplaar of de Always On availability group door te selecteren de **ON** optie in de bijbehorende vervolgkeuzelijst in de **AUTOPROTECT**  kolom. De [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) functie kunt u niet alleen beveiliging op alle bestaande databases in één go, maar ook automatisch beveiligd door een nieuwe databases die in de toekomst naar dat exemplaar of de beschikbaarheidsgroep worden toegevoegd.  
+      U kunt ook kunt u inschakelen [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) op de volledige-exemplaar of altijd op beschikbaarheidsgroep door te selecteren de **ON** optie in de bijbehorende vervolgkeuzelijst in de **AUTOPROTECT**  kolom. De [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) functie kunt u niet alleen beveiliging op alle bestaande databases in één go, maar ook automatisch beveiligd door een nieuwe databases die in de toekomst naar dat exemplaar of de beschikbaarheidsgroep worden toegevoegd.  
 
       ![Inschakelen van automatische beveiliging van de AlwaysOn-beschikbaarheidsgroep](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -347,9 +347,7 @@ Beveiliging voor een SQL-database configureren:
 
 ## <a name="auto-protect-sql-server-in-azure-vm"></a>Beveilig automatisch SQL Server in Azure VM  
 
-Automatische beveiliging is een functie waarmee u automatisch beveiligen van alle bestaande databases, evenals de toekomstige databases die u in een zelfstandige SQL Server-exemplaar of een SQL Server Always On-beschikbaarheidsgroep toevoegen wilt.
-
-Als een exemplaar of een beschikbaarheidsgroep al enkele van de databases die zijn beveiligd heeft, kunt u nog steeds inschakelen **ON** de auto-protect-optie. In dit geval wordt is het back-upbeleid dus gedefinieerd alleen van toepassing op de niet-beveiligde databases terwijl de al beveiligde databases blijven worden beveiligd met hun beleid.
+Automatische beveiliging kunt u automatisch beveiligen van alle bestaande databases en databases die u in de toekomst aan een zelfstandige SQL Server-exemplaar of een SQL Server altijd op beschikbaarheidsgroep toevoegen zou. Schakelen **ON** automatische beveiliging en het kiezen van een back-upbeleid geldt voor nieuw beveiligde databases, de bestaande beveiligde databases wordt echter ook doorgaan met het vorige beleid.
 
 ![Inschakelen van automatische beveiliging van de AlwaysOn-beschikbaarheidsgroep](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -479,7 +477,7 @@ U kunt ook een specifieke volledige of differentiële back-up te herstellen naar
     - **DB overschrijven**: De gegevens te herstellen naar hetzelfde exemplaar van SQL Server als de oorspronkelijke bron. Het effect van deze optie is om de oorspronkelijke database te overschrijven.
 
     > [!Important]
-    > Als de geselecteerde database bij een AlwaysOn-beschikbaarheidsgroep hoort, niet de database worden overschreven door SQL Server toegestaan. In dit geval wordt alleen de **alternatieve locatie** optie is ingeschakeld.
+    > Als de geselecteerde database bij een altijd op beschikbaarheidsgroep hoort, niet de database worden overschreven door SQL Server toegestaan. In dit geval wordt alleen de **alternatieve locatie** optie is ingeschakeld.
     >
 
     ![Menu van de configuratie herstellen](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)

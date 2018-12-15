@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321985"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409017"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS Web-toepassing die als host fungeert voor de officiële Workloads groot-Brittannië
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Blauwdrukken voor Azure-beveiliging en naleving
 
@@ -39,7 +39,7 @@ Met behulp van [Azure Resource Manager](https://docs.microsoft.com/azure/azure-r
 
 Deze blauwdruk is een foundation-architectuur. Onze klanten kunnen deze blauwdruk gebruiken als basis voor de officiële classificatie web gebaseerde workloads en vouw op de sjablonen en resources met hun eigen vereisten. Deze blauwdruk bouwt voort op de beginselen van het [UK officiële drie lagen IaaS-webtoepassingen blauwdruk](https://aka.ms/ukofficial-iaaswa) te bieden van onze klanten [infrastructure-as-a-service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/) en PaaS-implementatie-opties voor het hosten van web gebaseerde workloads.
 
-Voor het implementeren van deze blauwdruk, is een Azure-abonnement vereist. Als u een Azure-abonnement hebt, kunt u zich om snel en eenvoudig kosteloos: aan de slag met Azure. Klik op [hier](https://aka.ms/ukofficial-paaswa-repo/) voor implementatie-instructies.
+Voor het implementeren van deze blauwdruk, is een Azure-abonnement vereist. Als u een Azure-abonnement hebt, kunt u kosteloos zich om snel en eenvoudig: Aan de slag met Azure. Klik op [hier](https://aka.ms/ukofficial-paaswa-repo/) voor implementatie-instructies.
 
 ## <a name="architecture-and-components"></a>Architectuur en onderdelen
 
@@ -79,7 +79,7 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is van Microsoft met meerdere tenants cloudgebaseerde directory service- en identiteit. Alle gebruikers voor de oplossing zijn gemaakt in Azure Active Directory, met inbegrip van gebruikers met toegang tot de SQL-Database.
 - Verificatie van de operator gerichte web-App- en toegangsbeheer voor het beheer van de Azure-resources wordt uitgevoerd met behulp van Azure AD. Zie voor meer informatie, [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Versleuteling van de kolom database maakt gebruik van Azure AD om te verifiëren van de toepassing naar Azure SQL Database. Zie voor meer informatie, [Always Encrypted: bescherming van gevoelige gegevens in SQL-Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- Versleuteling van de kolom database maakt gebruik van Azure AD om te verifiëren van de toepassing naar Azure SQL Database. Zie voor meer informatie, [altijd versleuteld: Bescherming van gevoelige gegevens in SQL-Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 - Voor de burgers bestemde webtoepassing is geconfigureerd voor openbare toegang. Om toe te staan voor het maken van accounts en -verificatie via active directory of sociale id-providers [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) indien nodig kan worden geïntegreerd.
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detecteert mogelijke beveiligingsproblemen en risico's accounts bevat aanbevelingen voor het verbeteren van de beveiligingsstatus van de identiteiten van uw organisatie, configureert u automatische antwoorden gedetecteerd verdachte activiteit met betrekking tot de identiteiten van uw organisatie, en verdachte incidenten onderzoekt het probleem en wordt de juiste actie op te lossen.
 - [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) maakt nauwkeurig beheer gerichte toegang voor Azure. Abonnementstoegang is beperkt tot de beheerder van het abonnement en Azure Key Vault toegang is beperkt tot gebruikers die Sleutelbeheer toegang nodig hebben.
@@ -104,14 +104,14 @@ Gegevens zijn van doorvoer van buiten en tussen Azure-onderdelen worden bescherm
 
 Azure Web Apps biedt een volledig beheerde hostomgeving voor web-App ontwikkeld in Java, PHP, Node.js, Python, HTML- en C# zonder om infrastructuur te beheren. Het biedt automatisch schalen en hoge beschikbaarheid ondersteunt zowel Windows als Linux en maakt automatische implementaties van [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) of een willekeurige op basis van een Git-repo.
 
-App Service is [ISO, SOC en PCI-](https://www.microsoft.com/TrustCenter/) en verificatie van gebruikers met [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) of via sociaal aanmelden ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), en [Microsoft authentication](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
+App Service is [ISO, SOC en PCI-](https://www.microsoft.com/TrustCenter/) en verificatie van gebruikers met [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) of via sociaal aanmelden ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter), en [Microsoft authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
 Basic-, Standard en Premium-abonnementen zijn voor productieworkloads en draaien op specifieke virtuele Machine-instanties. Elke instantie kan meerdere toepassingen en domeinen ondersteunen. App-services ook ondersteuning voor [IP-adresbeperkingen](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) voor het beveiligen van verkeer naar de goedgekeurde IP-adressen, indien nodig, evenals [beheerde identiteiten voor een Azure-resources](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) voor beveiligde verbinding met andere PaaS-services zoals [voor Key Vault](https://azure.microsoft.com/services/key-vault/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Extra beveiliging is vereist als host fungeert voor uw apps in een persoonlijke, exclusieve Azure-omgeving en is ideaal voor apps waarvoor een veilige verbindingen met uw on-premises netwerk, of extra prestaties en schaal onze Isolated-abonnement.
 
 Deze sjabloon implementeert de volgende functies van App Service:
 
 - [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) laag voor App Service-Plan
-- Meerdere Web-App [implementatiesites](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): ontwikkelings-, Preview, QA, UAT en natuurlijk productie (standaard sleuf).
+- Meerdere Web-App [implementatiesites](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): Ontwikkel, Preview, QA, UAT en natuurlijk productie (standaard sleuf).
 - [Identiteiten voor een Azure-resources beheerd](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) verbinding maken met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (dit kan ook worden gebruikt voor toegang tot [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Integratie met [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) om prestaties te bewaken
 - [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 

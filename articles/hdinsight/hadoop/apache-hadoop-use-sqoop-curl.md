@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: cf7c47e14ef41f58ca1d674521da669e56e7e892
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a7b657d11e829d636063639e26a90d671a5d1473
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012178"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438350"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Apache Sqoop taken uitvoeren met Hadoop in HDInsight met Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -26,12 +26,14 @@ CURL is gebruikt om te demonstreren hoe u met HDInsight kunt werken met behulp v
 ## <a name="prerequisites"></a>Vereisten
 Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende:
 
-* Volledige [Sqoop gebruiken met Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) het configureren van een omgeving met een HDInsight-cluster en een Azure SQL-database.
+
+* Volledige [Apache Sqoop gebruiken met Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) het configureren van een omgeving met een HDInsight-cluster en een Azure SQL-database.
 * [cURL](https://curl.haxx.se/). CURL is een hulpprogramma voor het overbrengen van gegevens van of naar een HDInsight-cluster.
 * [jq](https://stedolan.github.io/jq/). Het hulpprogramma jq wordt gebruikt om de JSON-gegevens geretourneerd door de REST-aanvragen te verwerken.
 
-## <a name="submit-sqoop-jobs-by-using-curl"></a>Sqoop taken verzenden met behulp van Curl
-> [!NOTE]
+
+## <a name="submit-apache-sqoop-jobs-by-using-curl"></a>Apache Sqoop taken verzenden met behulp van Curl
+> [!NOTE]  
 > Wanneer u Curl of een andere REST-communicatie gebruikt met WebHCat, moet u de aanvragen verifiëren door de gebruikersnaam en het wachtwoord voor de beheerder van het HDInsight-cluster op te geven. U moet ook de clusternaam gebruiken als onderdeel van de URI (Uniform Resource Identifier) die wordt gebruikt om de aanvragen naar de server te verzenden.
 > 
 > Voor de opdrachten in deze sectie vervangt u **USERNAME** door de gebruiker die moet worden geverifieerd bij het cluster en vervangt u **PASSWORD** door het wachtwoord voor het gebruikersaccount. Vervang **CLUSTERNAME** door de naam van uw cluster.
@@ -88,10 +90,9 @@ Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende:
 
     Als de taak is voltooid, worden de status **geslaagd**.
    
-   > [!NOTE]
+   > [!NOTE]  
    > Deze aanvraag Curl retourneert een JavaScript Object Notation (JSON)-document met informatie over de taak. jq wordt gebruikt om op te halen, alleen de statuswaarde.
-   > 
-   > 
+
 4. Zodra de status van de taak is gewijzigd in **geslaagd**, kunt u de resultaten van de taak ophalen uit Azure Blob-opslag. De `statusdir` parameter die is doorgegeven met de query bevat de locatie van het uitvoerbestand; in dit geval **wasb: / / / voorbeeld/data/sqoop/curl**. Dit adres slaat de uitvoer van de taak in de **voorbeeld/data/sqoop/curl** map op de standaard-storage-container die wordt gebruikt door uw HDInsight-cluster.
    
     U kunt de Azure-portal gebruiken voor toegang tot de stdout- en stderr-blobs.  U kunt ook Microsoft SQL Server Management Studio gebruiken om te controleren of de gegevens die wordt geüpload naar de tabel log4jlogs.
@@ -103,25 +104,25 @@ Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende:
 ## <a name="summary"></a>Samenvatting
 Zoals in dit document wordt gedemonstreerd, kunt u een onbewerkte HTTP-aanvraag uitvoeren, controleren en de resultaten van Sqoop taken weergeven op uw HDInsight-cluster.
 
-Zie voor meer informatie over de REST-interface gebruikt in dit artikel de <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Sqoop REST-API-handleiding</a>.
+Zie voor meer informatie over de REST-interface gebruikt in dit artikel de <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Apache Sqoop REST-API-handleiding</a>.
 
 ## <a name="next-steps"></a>Volgende stappen
 Voor algemene informatie over Hive met HDInsight:
 
-* [Sqoop gebruiken met Hadoop op HDInsight](hdinsight-use-sqoop.md)
+* [Apache Sqoop gebruiken met Apache Hadoop op HDInsight](hdinsight-use-sqoop.md)
 
 Voor informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
 Voor andere HDInsight curl artikelen met betrekking tot:
  
-* [Hadoop-clusters met behulp van de Azure REST API maken](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)
-* [Hive-query's uitvoeren met Hadoop in HDInsight met behulp van REST](apache-hadoop-use-hive-curl.md)
-* [MapReduce-taken uitvoeren met Hadoop op HDInsight met behulp van REST](apache-hadoop-use-mapreduce-curl.md)
-* [Pig-taken uitvoeren met Hadoop op HDInsight met cURL](apache-hadoop-use-pig-curl.md)
+* [Apache Hadoop-clusters met behulp van de Azure REST API maken](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)
+* [Apache Hive-query's uitvoeren met Apache Hadoop in HDInsight met behulp van REST](apache-hadoop-use-hive-curl.md)
+* [MapReduce-taken uitvoeren met Apache Hadoop op HDInsight met behulp van REST](apache-hadoop-use-mapreduce-curl.md)
+* [Apache Pig-taken uitvoeren met Apache Hadoop op HDInsight met cURL](apache-hadoop-use-pig-curl.md)
 
 
 

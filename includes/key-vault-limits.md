@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: ed0c387f9785336fbf18b3fd3c0cd9a7b09df633
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: efa367157a8fd896cdc9680bf2ab6ba6a9e3dbb0
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279574"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53429950"
 ---
 Sleutel transacties (maximum aantal transacties dat is toegestaan in 10 seconden kluis per regio<sup>1</sup>):
 
@@ -23,6 +23,20 @@ Sleutel transacties (maximum aantal transacties dat is toegestaan in 10 seconden
 |ECC-P-521|5|1000|10|2000|
 |ECC-SECP256K1|5|1000|10|2000|
 |
+
+> [!NOTE]
+> Als u de onderstaande tabel bekijkt, ziet u dat voor software-back-sleutels is het mogelijk toe 2000 transacties per 10 seconden en voor HSM back sleutels is mogelijk om 1000 transacties per 10 seconden toe. De verhouding van software-back-transacties voor sleutels van 3072 2048 sleutels is 500/2000 of 0.4. Dit betekent dat als een klant kiest, wordt er 500 3072 sleutel transacties over 10 seconden, ze hun maximale limiet is bereikt en andere sleutelbewerkingen niet doen. 
+   
+|Type sleutel  | Softwaresleutel |HSM-sleutel  |
+|---------|---------|---------|
+|RSA 2048-bits     |    2000     |   1000    |
+|RSA 3072-bit     |     500    |    250     |
+|RSA 4096-bits     |    125     |    250     |
+|ECC-P-256     |    2000     |  1000     |
+|ECC-P-384     |    2000     |  1000     |
+|ECC-P-521     |    2000     |  1000     |
+|ECC-SECP256K1     |    2000     |  1000     |
+
 
 Geheimen, door beheerde Opslagaccountsleutels en vault-transacties:
 | Type transacties | Maximum aantal transacties dat is toegestaan in 10 seconden kluis per regio<sup>1</sup> |

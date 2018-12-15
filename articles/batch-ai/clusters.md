@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 61294d8b6b84b03b1e0c8d79b4d2855452c7f0e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9af8ce84805e48dd3c91dd7fb4fcf0b136fbfc60
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057116"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410088"
 ---
 # <a name="work-with-batch-ai-clusters"></a>Werken met Batch AI-clusters 
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 In dit artikel wordt uitgelegd hoe u werkt met clusters in Azure Batch AI. Dit introduceert het concept van clusters, het type van de configuraties die mogelijk zijn, en voorbeelden. De meeste van de voorbeelden voor het maken en beheren van een cluster in dit artikel gebruikt u de Azure CLI. U kunt echter andere hulpprogramma's, waaronder de Azure-portal en de Azure Batch AI SDK's gebruiken om te werken met clusters.
 
@@ -152,7 +155,7 @@ De uitvoer is vergelijkbaar met de volgende.
 }
 ```
 
-### <a name="list-cluster-nodes"></a>Lijst met clusterknooppunten
+### <a name="list-cluster-nodes"></a>Clusterknooppunten vermelden
 
 Als u verbinding maken met de clusterknooppunten wilt, haalt de volgende opdracht uit de lijst met knooppunten en de verbindingsinformatie bevatten.  
 

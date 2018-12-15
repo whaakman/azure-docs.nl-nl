@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 6ee16a0483b13471f12654f82ef6972b41ace634
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316924"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409459"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -468,20 +468,17 @@ Als u deze registerwaarde instelt, accepteert de Azure File Sync-agent elk lokaa
 | **Fouttekenreeks** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Herstel is vereist** | Ja |
 
-Deze fout treedt doorgaans op omdat de servertijd onjuist zijn of het certificaat dat wordt gebruikt voor verificatie is verlopen. Als de servertijd juist is, voert u de volgende stappen voor het verlopen certificaat verwijderen (als verlopen) en de registratiestatus van de server opnieuw instellen:
+Deze fout treedt doorgaans op omdat de servertijd onjuist zijn of het certificaat dat wordt gebruikt voor verificatie is verlopen. Als de servertijd juist is, voer de volgende stappen uit om het verlopen certificaat te vernieuwen:
 
 1. Open de MMC-module Certificaten, selecteer computeraccount en navigeer naar certificaten (lokale Computer) \Personal\Certificates.
-2. Verwijderen van het certificaat voor clientverificatie als verlopen op en sluit de MMC-module Certificaten.
-3. Opent u Regedit en verwijder de sleutel ServerSetting in het register: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. In de Azure-portal, gaat u naar de sectie geregistreerde Servers van de Opslagsynchronisatieservice. Met de rechtermuisknop op de server met het verlopen certificaat en klik op 'Unregister-Server.'
-5. Voer de volgende PowerShell-opdrachten op de server:
+2. Controleer of het certificaat voor clientverificatie is verlopen. Als het certificaat is verlopen, sluit u de certificaten MMC-module en doorgaan met de overige stappen. 
+3. Controleer of de Azure File Sync-agent versie 4.0.1.0 of hoger is geïnstalleerd.
+4. Voer de volgende PowerShell-opdrachten op de server:
 
     ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Reset-StorageSyncServer
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-6. Registreer de server opnieuw door te voeren ServerRegistration.exe (de standaardlocatie is C:\Program Files\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Het volume waar het servereindpunt bevindt is onvoldoende schijfruimte.**  
 | | |

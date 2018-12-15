@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635166"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413265"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>naslaginformatie over host.JSON voor Azure Functions 2.x  
 
@@ -96,7 +96,23 @@ De volgende secties van dit artikel wordt uitgelegd dat elke eigenschap op het h
 
 Deze instelling is een onderliggend element van [logboekregistratie](#logging).
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+Besturingselementen voor de [functie steekproeven in Application Insights](./functions-monitoring.md#configure-sampling).
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+|Eigenschap  |Standaard | Description |
+|---------|---------|---------| 
+|isEnabled|true|Hiermee schakelt lijnen of.| 
+|maxTelemetryItemsPerSecond|5|De drempelwaarde op welke steekproeven wordt gestart.| 
 
 ## <a name="cosmosdb"></a>cosmos DB
 
@@ -150,7 +166,7 @@ Configuratie-instellingen voor [health monitor voor de Host](https://github.com/
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |ingeschakeld|true|Hiermee geeft u op of de functie is ingeschakeld. | 
 |healthCheckInterval|10 seconden|Het tijdsinterval tussen de periodieke achtergrond-status wordt gecontroleerd. | 
@@ -181,11 +197,32 @@ Hiermee bepaalt u het gedrag van de registratie van de functie-app, met inbegrip
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Hiermee definieert u welk niveau van logboekregistratie is ingeschakeld.  Opties zijn `never`, `always`, `debugOnly`. |
 |LogLevel|N.v.t.|Object dat definieert de logboekcategorie filteren voor functies in de app. Versie 2.x volgt de ASP.NET Core-indeling voor het filteren van logboek-categorie. Hiermee kunt u filteren van logboekregistratie voor specifieke functies. Zie voor meer informatie, [logboek filteren](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in de documentatie van ASP.NET Core. |
+|console|N.v.t.| De [console](#console) instelling voor logboekregistratie. |
 |Application Insights|N.v.t.| De [applicationInsights](#applicationinsights) instelling. |
+
+## <a name="console"></a>console
+
+Deze instelling is een onderliggend element van [logboekregistratie](#logging). Hiermee bepaalt u de logboekregistratie als deze niet in foutopsporingsmodus-console.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": "false"
+        },
+    ...
+    }
+}
+```
+
+|Eigenschap  |Standaard | Description |
+|---------|---------|---------| 
+|isEnabled|false|Hiermee of console logboekregistratie uitgeschakeld.| 
 
 ## <a name="queues"></a>wachtrijen
 
@@ -215,7 +252,7 @@ Configuratie-instellingen voor het gedrag van Singleton vergrendelen. Zie voor m
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|De periode die functie niveau vergrendelingen voor worden uitgevoerd. De vergrendelingen voor automatisch verlengen.| 
 |listenerLockPeriod|00:01:00|De periode die listener vergrendelingen voor worden uitgevoerd.| 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: c91508cbd98f18c875411cc7a36f9d71d817fb31
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c9ff4332a10247787e3b11c5508d0d94a1f1c8ba
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997876"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410462"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Een Azure gehoste API exporteren naar PowerApps en Microsoft Flow
 
@@ -154,7 +154,7 @@ Wanneer u een API-sleutel gebruikt, worden de gebruikers van de connector wordt 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 Wanneer u Azure AD, moet u twee Azure AD-toepassingsregistraties: één voor de API zelf, en één voor de aangepaste connector:
 
-- Gebruik voor het configureren van inschrijving voor de API de [App Service-verificatie/autorisatie](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) functie.
+- Gebruik voor het configureren van inschrijving voor de API de [App Service-verificatie/autorisatie](../app-service/configure-authentication-provider-aad.md) functie.
 
 - Volg de stappen in om u te registreren voor de connector configureert, [toevoegen van een Azure AD-toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). De registratie moet gedelegeerde toegang tot uw API en een antwoord-URL van `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 

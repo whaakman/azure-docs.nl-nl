@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 42494ef538fa9840afe5f489074934da3965d56f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c68febc7bd6aac0262c41cc8b33602f8496eb215
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413563"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436397"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Een virtuele Windows-machine oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met behulp van de Azure-portal voor herstel
 Als uw Windows virtuele machine (VM) in Azure een opstart- of schijffout-fout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een mislukte toepassingsupdate die verhindert de virtuele machine dat wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de virtuele harde schijf naar een andere Windows-virtuele machine om eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine opnieuw te maken met Azure portal.
@@ -135,7 +135,7 @@ Zodra de fouten opgelost zijn, loskoppelen van de bestaande virtuele harde schij
 ## <a name="create-vm-from-original-hard-disk"></a>Virtuele machine maken vanaf de oorspronkelijke harde schijf
 Gebruik voor het maken van een virtuele machine van de oorspronkelijke virtuele harde schijf [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). De sjabloon implementeert een virtuele machine in een bestaand virtueel netwerk, met behulp van de VHD-URL van de vorige opdracht. Klik op de **implementeren in Azure** knop als volgt:
 
-![Virtuele machine implementeren vanuit Github-sjabloon](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
+![Virtuele machine implementeren vanuit GitHub-sjabloon](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
 
 De sjabloon is geladen in de Azure-portal voor implementatie. Geef de naam op voor uw nieuwe virtuele machine en de bestaande Azure-resources en plak de URL van uw bestaande virtuele harde schijf. Om te beginnen met de implementatie, klikt u op **aankoop**:
 

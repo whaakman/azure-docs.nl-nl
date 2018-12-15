@@ -4,25 +4,25 @@ description: Informatie over het oplossen van problemen met de updatebeheer-agen
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/06/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 028a06a7fb627fd69bdd2f0a2084bbdef11eaed4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077236"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438639"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Inzicht in de resultaten van Linux-agent in beheer van updates
 
-Mogelijk zijn er veel oorzaken waardoor uw Azure-machine wordt niet weergegeven **gereed** in beheer van updates. U kunt de status van een Hybrid Worker-agent om te bepalen van het onderliggende probleem controleren in Update Management. In dit artikel wordt beschreven hoe u de probleemoplosser uitvoert vanuit de Azure-portal en in offlinescenario's.
+Mogelijk zijn er veel oorzaken waardoor uw computer wordt niet weergegeven **gereed** in beheer van updates. U kunt de status van een Hybrid Worker-agent om te bepalen van het onderliggende probleem controleren in Update Management. In dit artikel wordt beschreven hoe u de probleemoplosser voor Azure-machines uitvoeren vanuit de Azure-portal en niet-Azure-machines in de [offline scenario](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>De probleemoplosser voor starten
 
-Door te klikken op de **oplossen** koppeling onder de **gereedheid voor Update-Agent** kolom in de portal, start u de **Update-Agent oplossen** pagina. Deze pagina ziet u problemen met de agent en een koppeling naar dit artikel helpt u bij het oplossen van uw problemen.
+Voor machines in Azure, te klikken op de **oplossen** koppeling onder de **gereedheid voor Update-Agent** kolom in de portal wordt gestart de **Update-Agent oplossen** pagina. Voor niet-Azure-machines, de koppeling keert u terug naar dit artikel. Zie de [offline instructies](#offline) oplossen met een niet-Azure-machine.
 
 ![de pagina van de VM-lijst](../media/update-agent-issues-linux/vm-list.png)
 
@@ -54,12 +54,12 @@ De OS-controle alleen gecontroleerd of de Hybrid Runbook Worker wordt uitgevoerd
 
 ### <a name="oms-agent"></a>OMS-agent
 
-Deze controles zorgt ervoor dat de OMS-Agent voor Linux is geïnstalleerd. Zie voor instructies over hoe u deze installeert, [de agent voor Linux installeren](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
+Deze controle zorgt ervoor dat de OMS-Agent voor Linux is geïnstalleerd. Zie voor instructies over hoe u deze installeert, [de agent voor Linux installeren](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
 ### <a name="oms-agent-status"></a>Status van de OMS-Agent
 
-Deze controle zorgt ervoor dat de OMS-Agent voor Linux wordt uitgevoerd. U kunt de volgende opdracht uit om te proberen opnieuw te starten uitvoeren als de agent wordt niet uitgevoerd. Zie voor meer informatie over het oplossen van de agent [Linux Hybrid Runbook worker oplossen](hybrid-runbook-worker.md#linux)
+Deze controle zorgt ervoor dat de OMS-Agent voor Linux wordt uitgevoerd. Als de agent niet wordt uitgevoerd, kunt u de volgende opdracht uit om te opnieuw uitvoeren. Zie voor meer informatie over het oplossen van de agent [Linux Hybrid Runbook worker oplossen](hybrid-runbook-worker.md#linux)
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -71,7 +71,7 @@ Deze controle wordt bepaald of de agent is rapporteert aan meerdere werkruimten.
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-Hiermee wordt gecontroleerd om te controleren of dat de OMS-Agent voor Linux is de Hybrid Runbook Worker-pakket. Dit pakket is vereist voor het beheer van updates om te werken.
+Deze controle alleen gecontroleerd of de OMS-Agent voor Linux de Hybrid Runbook Worker-pakket heeft. Dit pakket is vereist voor het beheer van updates om te werken.
 
 ### <a name="hybrid-runbook-worker-status"></a>Hybrid Runbook Worker-status
 

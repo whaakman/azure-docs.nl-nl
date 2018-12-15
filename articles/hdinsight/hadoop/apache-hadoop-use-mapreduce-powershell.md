@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 753a0ad72e1d4b60a93daa570ceecc25d21bb228
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634138"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436259"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>MapReduce-taken uitvoeren met Apache Hadoop op HDInsight met behulp van PowerShell
 
@@ -26,7 +26,7 @@ Dit document bevat een voorbeeld van het gebruik van Azure PowerShell een MapRed
 
 * **Een Azure HDInsight (Hadoop op HDInsight)-cluster**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * **Een werkstation met Azure PowerShell**.
@@ -37,15 +37,15 @@ Azure PowerShell biedt *cmdlets* waarmee u op afstand MapReduce-taken uitvoeren 
 
 De volgende cmdlets worden gebruikt bij het uitvoeren van MapReduce-taken in een extern HDInsight-cluster.
 
-* **Connect-AzureRmAccount**: Azure PowerShell wordt geverifieerd met uw Azure-abonnement.
+* **Connect-AzureRmAccount**: Azure PowerShell geverifieerd bij uw Azure-abonnement.
 
-* **Nieuwe AzureRmHDInsightMapReduceJobDefinition**: maakt u een nieuwe *taak definitie* met behulp van de opgegeven MapReduce-informatie.
+* **Nieuwe AzureRmHDInsightMapReduceJobDefinition**: Maakt u een nieuwe *taak definitie* met behulp van de opgegeven MapReduce-informatie.
 
-* **Start-AzureRmHDInsightJob**: de taakdefinitie verzendt naar HDInsight en wordt de taak wordt gestart. Een *taak* object wordt geretourneerd.
+* **Start-AzureRmHDInsightJob**: De taakdefinitie verzendt naar HDInsight en wordt de taak wordt gestart. Een *taak* object wordt geretourneerd.
 
-* **Wacht AzureRmHDInsightJob**: maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
+* **Wacht AzureRmHDInsightJob**: Maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
 
-* **Get-AzureRmHDInsightJobOutput**: gebruikt voor het ophalen van de uitvoer van de taak.
+* **Get-AzureRmHDInsightJobOutput**: Gebruikt voor het ophalen van de uitvoer van de taak.
 
 De volgende stappen laten zien hoe u deze cmdlets gebruikt voor het uitvoeren van een taak in uw HDInsight-cluster.
 
@@ -73,7 +73,7 @@ De volgende stappen laten zien hoe u deze cmdlets gebruikt voor het uitvoeren va
 
     Deze uitvoer geeft aan dat de taak is voltooid.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Als de **ExitCode** is een waarde dan 0, Zie [probleemoplossing](#troubleshooting).
 
     In dit voorbeeld slaat ook de gedownloade bestanden naar een **uitvoer.txt** bestand in de map met het script uit.
@@ -82,7 +82,7 @@ De volgende stappen laten zien hoe u deze cmdlets gebruikt voor het uitvoeren va
 
 Als u wilt zien van de woorden en aantallen die worden geproduceerd door de taak, opent u de **uitvoer.txt** bestand in een teksteditor.
 
-> [!NOTE]
+> [!NOTE]  
 > De uitvoerbestanden van een MapReduce-taak zijn onveranderd. Dus als u dit voorbeeld opnieuw uitvoeren, moet u de naam van het uitvoerbestand te wijzigen.
 
 ## <a id="troubleshooting"></a>Problemen oplossen
@@ -113,5 +113,5 @@ Voor algemene informatie over MapReduce-taken in HDInsight:
 
 Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)

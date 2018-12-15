@@ -8,17 +8,18 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fcf11d10a05b553c85532d9092c42b515328b5c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f9c2324eb429c82f7e937b4f18311bf204eeb193
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188075"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408750"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Stoppen met het controleren van uw Azure Kubernetes Service (AKS) met Azure Monitor voor containers
 
@@ -35,14 +36,14 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 Opnieuw inschakelen van bewaking voor uw cluster [controle inschakelen met Azure CLI](container-insights-onboard.md#enable-monitoring-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
-Gegeven worden twee Azure Resource Manager-sjabloon voor de ondersteuning van de resources van de oplossing consistent en herhaaldelijk in de resourcegroep te verwijderen. Een is een JSON-sjabloon op te geven van de configuratie van *opt-out* en de andere bevat parameterwaarden die u configureert om op te geven van de AKS-cluster-ID en resource resourcegroep die het cluster is geïmplementeerd in. 
+Gegeven worden twee Azure Resource Manager-sjabloon voor de ondersteuning van de resources van de oplossing consistent en herhaaldelijk in de resourcegroep te verwijderen. Een is een JSON-sjabloon op te geven van de configuratie van bewaking stoppen en de andere bevat parameterwaarden die u configureert om op te geven van de AKS-cluster-ID en resource resourcegroep die het cluster is geïmplementeerd in. 
 
 Als u niet bekend met het concept bent van het implementeren van resources met behulp van een sjabloon, Zie:
 * [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Resources implementeren met Resource Manager-sjablonen en Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->De sjabloon opnieuw moet worden geïmplementeerd in dezelfde resourcegroep bevinden als het cluster.
+>De sjabloon opnieuw moet worden geïmplementeerd in dezelfde resourcegroep bevinden als het cluster. Als u een andere eigenschappen of invoegtoepassingen weglaat bij het gebruik van deze sjabloon, kan dit resulteren in hun verwijderen uit het cluster. Bijvoorbeeld, *enableRBAC*.  
 >
 
 Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lokaal gebruikt. U moet worden uitgevoerd van Azure CLI versie 2.0.27 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u wilt installeren of upgraden van de Azure CLI, Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). 
@@ -148,5 +149,5 @@ Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, 
 ProvisioningState       : Succeeded
 ```
 
-Als de werkruimte alleen ter ondersteuning van de bewaking van het cluster is gemaakt en deze niet meer nodig hebt, hebt u deze handmatig te verwijderen. Als u niet bekend bent met het verwijderen van een werkruimte, Zie [verwijderen van een Azure Log Analytics-werkruimte met de Azure-portal](../../azure-monitor/platform/delete-workspace.md). Vergeet niet over de **Resource-ID van werkruimte** we eerder in stap 4 hebt gekopieerd, gaat u die nodig hebt. 
+Als de werkruimte alleen ter ondersteuning van de bewaking van het cluster is gemaakt en deze niet meer nodig hebt, hebt u deze handmatig te verwijderen. Als u niet bekend bent met het verwijderen van een werkruimte, Zie [verwijderen van een Azure Log Analytics-werkruimte met de Azure-portal](../../log-analytics/log-analytics-manage-del-workspace.md). Vergeet niet over de **Resource-ID van werkruimte** we eerder in stap 4 hebt gekopieerd, gaat u die nodig hebt. 
 

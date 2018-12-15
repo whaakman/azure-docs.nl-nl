@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 47614abb8a2adc99b9803ebc20cccb9e59b45e4a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286441"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434855"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG-stroomlogboeken lezen
 
@@ -32,14 +32,14 @@ In het volgende scenario hebt u een voorbeeld van de flow-logboek die zijn opges
 
 ## <a name="setup"></a>Instellen
 
-Voordat u begint, kunt u Network Security Group Flow-logboekregistratie is ingeschakeld op een of meer Netwerkbeveiligingsgroepen in uw account moet hebben. Voor instructies over het inschakelen van netwerkbeveiliging flow Logboeken, raadpleegt u het volgende artikel: [Inleiding tot stroomlogboeken voor Netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).
+Voordat u begint, kunt u Network Security Group Flow-logboekregistratie is ingeschakeld op een of meer Netwerkbeveiligingsgroepen in uw account moet hebben. Zie voor instructies over het inschakelen van stroomlogboeken voor netwerkbeveiliging, het volgende artikel: [Inleiding tot stroomlogboeken voor Netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).
 
 ## <a name="retrieve-the-block-list"></a>De lijst met geblokkeerde websites ophalen
 
 De volgende PowerShell stelt u de variabelen die nodig zijn voor de NSG stroom log blob query en de blokken in vermelden de [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok-blob. Werk het script bevat de geldige waarden voor uw omgeving.
 
 ```powershell
-function Get-NSGFlowLogBlockList {
+function Get-NSGFlowLogCloudBlockBlob {
     [CmdletBinding()]
     param (
         [string] [Parameter(Mandatory=$true)] $subscriptionId,
@@ -70,6 +70,17 @@ function Get-NSGFlowLogBlockList {
         # Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
         $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
+        #Return the Cloud Block Blob
+        $CloudBlockBlob
+    }
+}
+
+function Get-NSGFlowLogBlockList  {
+    [CmdletBinding()]
+    param (
+        [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
+    )
+    process {
         # Stores the block list in a variable from the block blob.
         $blockList = $CloudBlockBlob.DownloadBlockList()
 
@@ -77,10 +88,14 @@ function Get-NSGFlowLogBlockList {
         $blockList
     }
 }
-$blockList = Get-NSGFlowLogBlockList -subscriptionId "00000000-0000-0000-0000-000000000000" -NSGResourceGroupName "resourcegroupname" -storageAccountName "storageaccountname" -storageAccountResourceGroup "sa-rg" -macAddress "000D3AF8196E" -logTime "03/07/2018 22:00"
+
+
+$CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubcriptionId" -NSGResourceGroupName "FLOWLOGSVALIDATIONWESTCENTRALUS" -NSGName "V2VALIDATIONVM-NSG" -storageAccountName "yourStorageAccountName" -storageAccountResourceGroup "ml-rg" -macAddress "000D3AF87856" -logTime "11/11/2018 03:00" 
+
+$blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-De `$blockList` variabele retourneert een lijst van de blokken in de blob. Elk blok-blob bevat ten minste twee blokken.  Het eerste vereiste blok heeft een lengte van `21` bytes, dit blok bevat de haakjes openen van het json-logboek. Het andere blok is de haakjes en heeft een lengte van `9` bytes.  Zoals u het volgende voorbeeld-logboek ziet bevat zeven vermeldingen, elk een afzonderlijke vermelding wordt. Alle nieuwe vermeldingen in het logboek worden toegevoegd aan het einde na de laatste blok.
+De `$blockList` variabele retourneert een lijst van de blokken in de blob. Elk blok-blob bevat ten minste twee blokken.  Het eerste vereiste blok heeft een lengte van `12` bytes, dit blok bevat de haakjes openen van het json-logboek. Het andere blok is de haakjes en heeft een lengte van `2` bytes.  Zoals u het volgende voorbeeld-logboek ziet bevat zeven vermeldingen, elk een afzonderlijke vermelding wordt. Alle nieuwe vermeldingen in het logboek worden toegevoegd aan het einde na de laatste blok.
 
 ```
 Name                                         Length Committed
@@ -101,35 +116,45 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 Vervolgens moet u om te lezen de `$blocklist` variabele om de gegevens te halen. In dit voorbeeld die wordt de blokkeringslijst hebt doorlopen, het aantal bytes lezen uit elk blok en ze in een matrix van artikel. Gebruik de [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode voor het ophalen van de gegevens.
 
 ```powershell
-# Set the size of the byte array to the largest block
-$maxvalue = ($blocklist | measure Length -Maximum).Maximum
+function Get-NSGFlowLogReadBlock  {
+    [CmdletBinding()]
+    param (
+        [System.Array] [Parameter(Mandatory=$true)] $blockList,
+        [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
 
-# Create an array to store values in
-$valuearray = @()
+    )
+    # Set the size of the byte array to the largest block
+    $maxvalue = ($blocklist | measure Length -Maximum).Maximum
 
-# Define the starting index to track the current block being read
-$index = 0
+    # Create an array to store values in
+    $valuearray = @()
 
-# Loop through each block in the block list
-for($i=0; $i -lt $blocklist.count; $i++)
-{
+    # Define the starting index to track the current block being read
+    $index = 0
 
-# Create a byte array object to story the bytes from the block
-$downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
+    # Loop through each block in the block list
+    for($i=0; $i -lt $blocklist.count; $i++)
+    {
+        # Create a byte array object to story the bytes from the block
+        $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
-# Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
-$CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index+3,$($blockList[$i].Length-1)) | Out-Null
+        # Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
+        $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index, $($blockList[$i].Length-1)) | Out-Null
 
-# Increment the index by adding the current block length to the previous index
-$index = $index + $blockList[$i].Length
+        # Increment the index by adding the current block length to the previous index
+        $index = $index + $blockList[$i].Length
 
-# Retrieve the string from the byte array
+        # Retrieve the string from the byte array
 
-$value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
+        $value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
 
-# Add the log entry to the value array
-$valuearray += $value
+        # Add the log entry to the value array
+        $valuearray += $value
+    }
+    #Return the Array
+    $valuearray
 }
+$valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
 Nu de `$valuearray` matrix de tekenreekswaarde bevat van elk blok. Als u wilt controleren of de vermelding, krijgen de tweede op de laatste waarde van de matrix door te voeren `$valuearray[$valuearray.Length-2]`. U wilt niet de laatste waarde, omdat het een haakje sluiten.
@@ -162,4 +187,4 @@ Dit scenario is een voorbeeld van vermeldingen in de NSG-stroomlogboeken lezen z
 
 Ga naar [Azure Network Watcher NSG stroomlogboeken visualiseren met open-sourcehulpprogramma's](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) voor meer informatie over andere manieren om NSG-stroomlogboeken weer te geven.
 
-Voor meer informatie over de storage-blobs gaat u naar: [Azure Functions Blob storage-bindingen](../azure-functions/functions-bindings-storage-blob.md)
+Ga voor meer informatie over de storage-blobs naar: [Azure Functions Blob storage-bindingen](../azure-functions/functions-bindings-storage-blob.md)

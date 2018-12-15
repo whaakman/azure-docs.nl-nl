@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2b059c9a8808db3b2426db0d997df15196be604d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ae2b06f266ef19d9558511284ba94c77cdca1955
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012076"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409680"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Apache Hive-query's uitvoeren met behulp van de Data Lake-tools voor Visual Studio
 
@@ -24,7 +24,7 @@ Informatie over het gebruik van de Data Lake-tools voor Visual Studio op Apache 
 
 * Een Azure HDInsight (Apache Hadoop op HDInsight)-cluster
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Visual Studio (een van de volgende versies):
@@ -37,7 +37,7 @@ Informatie over het gebruik van de Data Lake-tools voor Visual Studio op Apache 
 
 * HDInsight tools voor Visual Studio of Azure Data Lake tools voor Visual Studio. Zie [aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](apache-hadoop-visual-studio-tools-get-started.md) voor informatie over het installeren en configureren van de hulpprogramma's.
 
-## <a id="run"></a> Uitvoeren van Hive-query's met behulp van de Visual Studio
+## <a id="run"></a> Apache Hive-query's uitvoeren met Visual Studio
 
 1. Open **Visual Studio** en selecteer **nieuw** > **Project** > **Azure Data Lake**  >   **HIVE** > **Hive-toepassing**. Geef een naam op voor dit project.
 
@@ -58,7 +58,7 @@ Informatie over het gebruik van de Data Lake-tools voor Visual Studio op Apache 
 
    * `CREATE EXTERNAL TABLE`: Maakt een nieuwe 'externe' tabel in Hive. Externe tabellen worden alleen de definitie van de tabel opslaan in Hive (de gegevens blijft in de oorspronkelijke locatie).
 
-     > [!NOTE]
+     > [!NOTE]  
      > Externe tabellen moeten worden gebruikt wanneer u verwacht dat de onderliggende gegevens worden bijgewerkt door een externe bron. Bijvoorbeeld, een MapReduce-taak of een Azure-service.
      >
      > Verwijderen van een externe tabel heeft **niet** de gegevens, alleen de definitie van de tabel verwijderen.
@@ -93,14 +93,14 @@ Informatie over het gebruik van de Data Lake-tools voor Visual Studio op Apache 
 
     Deze instructies uit uitvoeren de volgende acties:
 
-   * `CREATE TABLE IF NOT EXISTS`: Een tabel gemaakt als deze niet al bestaat. Omdat de `EXTERNAL` trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. Interne tabellen worden opgeslagen in de Hive-datawarehouse en worden beheerd door Hive.
+   * `CREATE TABLE IF NOT EXISTS`: Als deze niet al bestaat, maakt u een tabel. Omdat de `EXTERNAL` trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. Interne tabellen worden opgeslagen in de Hive-datawarehouse en worden beheerd door Hive.
 
-     > [!NOTE]
+     > [!NOTE]  
      > In tegenstelling tot `EXTERNAL` tabellen, ook verwijderen van een interne tabel worden de onderliggende gegevens verwijderd.
 
    * `STORED AS ORC`: De gegevens worden opgeslagen in de kolommen (ORC)-indeling geoptimaliseerde rij. ORC is een uiterst geoptimaliseerde en efficiënte indeling voor het opslaan van gegevens met Hive.
 
-   * `INSERT OVERWRITE ... SELECT`: Hiermee selecteert u rijen uit de `log4jLogs` tabel met `[ERROR]`, voegt u vervolgens de gegevens in de `errorLogs` tabel.
+   * `INSERT OVERWRITE ... SELECT`: Selecteert de rijen van de `log4jLogs` tabel met `[ERROR]`, voegt u vervolgens de gegevens in de `errorLogs` tabel.
 
 8. Selecteer in de werkbalk **indienen** de taak uit te voeren. Gebruik de **taakstatus** om te bepalen dat de taak is voltooid.
 
@@ -112,13 +112,13 @@ U kunt zien, bieden de HDInsight tools voor Visual Studio een eenvoudige manier 
 
 Voor algemene informatie over Hive in HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
 
 Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
 
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
 Voor meer informatie over de HDInsight-hulpprogramma's voor Visual Studio:
 

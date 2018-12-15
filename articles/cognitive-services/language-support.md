@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 87ce8036951543a74f5b1b1f15c766da5973f609
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5d9b42cc4fb93df2da5b039d66aa5386b52ce860
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085770"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435739"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Ondersteuning van natuurlijke taal voor Azure Cognitive Services
 
@@ -39,7 +39,7 @@ Deze core-talen worden ondersteund voor Azure Cognitive Services:
 
 > [!NOTE]
 > ¹ text Analytics wordt niet ondersteund. <br/>
-> ² LUIS, Speech Service: spraak-naar-tekst en Video Indexer: spraak-naar-tekst worden niet ondersteund.
+> ² LUIS en Video Indexer: Spraak-naar-tekst worden niet ondersteund.
 
 ## <a name="additional-language-availability-by-service"></a>Beschikbaarheid van extra taal per service
 

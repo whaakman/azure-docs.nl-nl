@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: ae21dbe675d78c663fc9d05364d91eca3288dd46
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034946"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435409"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor Windows-VM 's
 
@@ -113,7 +113,7 @@ In het geval waarbij er geplande gebeurtenissen, het antwoord bevat een reeks ge
 De DocumentIncarnation is een ETag en biedt een eenvoudige manier om te controleren als de nettolading van de gebeurtenissen is gewijzigd sinds de laatste query.
 
 ### <a name="event-properties"></a>Eigenschappen van gebeurtenis
-|Eigenschap  |  Beschrijving |
+|Eigenschap  |  Description |
 | - | - |
 | Gebeurtenis-id | Unieke id voor deze gebeurtenis. <br><br> Voorbeeld: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Type gebeurtenis | Impact die deze gebeurtenis is veroorzaakt. <br><br> Waarden: <br><ul><li> `Freeze`: De virtuele Machine is gepland voor een paar seconden onderbreken. De CPU wordt onderbroken, maar er is geen invloed op geheugen, geopende bestanden of netwerkverbindingen. <li>`Reboot`: De virtuele Machine is gepland voor opnieuw opstarten (niet-permanent geheugen is verloren gegaan). <li>`Redeploy`: De virtuele Machine is gepland om te verplaatsen naar een ander knooppunt (tijdelijke schijven zijn verloren). |
@@ -225,6 +225,6 @@ foreach($event in $scheduledEvents.Events)
 ## <a name="next-steps"></a>Volgende stappen 
 
 - Bekijk een [geplande gebeurtenissen Demo](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) op Azure Friday. 
-- Controleer de geplande gebeurtenissen-codevoorbeelden in de [Azure Instance Metadata geplande gebeurtenissen Github-opslagplaats](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
+- Controleer de geplande gebeurtenissen-codevoorbeelden in de [Azure Instance Metadata geplande gebeurtenissen GitHub-opslagplaats](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Meer informatie over de beschikbare API's in de [Instance Metadata service](instance-metadata-service.md).
 - Meer informatie over [gepland onderhoud voor Windows-machines in Azure](planned-maintenance.md).

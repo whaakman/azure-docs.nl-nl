@@ -1,6 +1,6 @@
 ---
-title: Aangepaste JSON-gegevens in Log Analytics verzamelt | Microsoft Docs
-description: Aangepaste JSON-gegevensbronnen kunnen worden verzameld in Log Analytics met behulp van de Log Analytics-Agent voor Linux.  Deze aangepaste gegevensbronnen kunnen eenvoudige scripts JSON retourneert, zoals curl of een van de FluentD meer dan 300 invoegtoepassingen zijn. Dit artikel beschrijft de vereiste configuratie voor het verzamelen van deze gegevens.
+title: Verzamelen van aangepaste JSON-gegevens in Azure Monitor | Microsoft Docs
+description: Aangepaste JSON-gegevensbronnen kunnen worden verzameld in Azure Monitor met de Log Analytics-Agent voor Linux.  Deze aangepaste gegevensbronnen kunnen eenvoudige scripts JSON retourneert, zoals curl of een van de FluentD meer dan 300 invoegtoepassingen zijn. Dit artikel beschrijft de vereiste configuratie voor het verzamelen van deze gegevens.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c7aed6ab1cd14185aad90c5cb5366ccfe325be0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 64f1d7b1437ea018a25db18e5f92bffaac8f7099
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193974"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438452"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-log-analytics"></a>Verzamelen van aangepaste JSON-gegevensbronnen met de Log Analytics-agent voor Linux in Log Analytics
+# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Aangepaste JSON-gegevensbronnen met de Log Analytics-agent voor Linux in Azure Monitor verzamelen
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Aangepaste JSON-gegevensbronnen kunnen worden verzameld in Log Analytics met behulp van de Log Analytics-agent voor Linux.  Deze aangepaste gegevensbronnen kunnen worden eenvoudige scripts, zoals JSON retourneert [curl](https://curl.haxx.se/) of een van [FluentD van meer dan 300 invoegtoepassingen](http://www.fluentd.org/plugins/all). Dit artikel beschrijft de vereiste configuratie voor het verzamelen van deze gegevens.
+Aangepaste JSON-gegevensbronnen kunnen worden verzameld in [logboeken van Azure Monitor](data-collection.md) met behulp van de Log Analytics-agent voor Linux.  Deze aangepaste gegevensbronnen kunnen worden eenvoudige scripts, zoals JSON retourneert [curl](https://curl.haxx.se/) of een van [FluentD van meer dan 300 invoegtoepassingen](http://www.fluentd.org/plugins/all). Dit artikel beschrijft de vereiste configuratie voor het verzamelen van deze gegevens.
 
 > [!NOTE]
 > Log Analytics-agent voor Linux v1.1.0-217 + is vereist voor de aangepaste JSON-gegevens
@@ -31,7 +31,7 @@ Aangepaste JSON-gegevensbronnen kunnen worden verzameld in Log Analytics met beh
 
 ### <a name="configure-input-plugin"></a>Invoer-invoegtoepassing configureren
 
-Voor het verzamelen van JSON-gegevens in Log Analytics toevoegen `oms.api.` aan het begin van een FluentD tag op in een invoer-invoegtoepassing.
+Voor het verzamelen van JSON-gegevens in Azure Monitor toevoegen `oms.api.` aan het begin van een FluentD tag op in een invoer-invoegtoepassing.
 
 Volgende is bijvoorbeeld een afzonderlijk configuratiebestand `exec-json.conf` in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Dit maakt gebruik van de invoegtoepassing FluentD `exec` een curl-opdracht uitvoeren elke 30 seconden.  De uitvoer van deze opdracht worden verzameld door de JSON-uitvoer-invoegtoepassing.
 
@@ -85,13 +85,13 @@ De Log Analytics-agent voor Linux-service met de volgende opdracht opnieuw start
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Uitvoer
-De gegevens worden verzameld in Log Analytics met een recordtype van `<FLUENTD_TAG>_CL`.
+De gegevens worden verzameld in Azure Monitor-logboeken van het recordtype `<FLUENTD_TAG>_CL`.
 
-Bijvoorbeeld, het aangepaste label `tag oms.api.tomcat` in Log Analytics met een recordtype van `tomcat_CL`.  U kunt alle records van dit type met de volgende zoeken in Logboeken kan ophalen.
+Bijvoorbeeld, het aangepaste label `tag oms.api.tomcat` in Azure Monitor van het recordtype `tomcat_CL`.  Alle records van dit type met de volgende logboekquery kan worden opgehaald.
 
     Type=tomcat_CL
 
-Geneste JSON-gegevens bronnen worden ondersteund, maar worden geïndexeerd, op basis van bovenliggende veld. Bijvoorbeeld, de volgende JSON-gegevens wordt geretourneerd van een zoekopdracht in Log Analytics als `tag_s : "[{ "a":"1", "b":"2" }]`.
+Geneste JSON-gegevens bronnen worden ondersteund, maar worden geïndexeerd, op basis van bovenliggende veld. Bijvoorbeeld, de volgende JSON-gegevens wordt geretourneerd door een logboekquery als `tag_s : "[{ "a":"1", "b":"2" }]`.
 
 ```
 {
@@ -104,5 +104,4 @@ Geneste JSON-gegevens bronnen worden ondersteund, maar worden geïndexeerd, op b
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
- 
+* Meer informatie over [query's bijgehouden](../../log-analytics/log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 

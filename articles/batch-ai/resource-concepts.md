@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a9e3529f9d68ecdc614ea69cffc6897891f4548
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4454448809411c6390bc1f65c33b4abe76094ded
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057112"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407742"
 ---
 # <a name="overview-of-resources-in-batch-ai"></a>Overzicht van bronnen in de Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Wanneer u met behulp van de Batch AI-service eerst, moet u informatie over de beschikbare resources van Batch AI. Als u met andere Azure-services in een of meer Azure Batch AI-resources maakt *resourcegroepen*. Maken van een of meer Batch AI *werkruimten* in een resourcegroep. Elke werkruimte bevat een combinatie van Batch AI *clusters*, *bestandsservers*, en *experimenten*. Een Batch AI-experiment ingekapseld in een groep *taken*.
 

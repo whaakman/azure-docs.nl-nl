@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4dbcc3cb655220db66a5f49712f1fd5f87109e61
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 94728bbc74d1864c76aa801628fcbfb133b97abd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141319"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435987"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Wat is Team Data Science Process?
 
@@ -79,7 +79,7 @@ We bieden sjablonen voor de mapstructuur en de vereiste documenten in standaardl
 
 [ ![TDSP-mappen](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
-De mapstructuur kan worden gekloond van [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
+De mapstructuur kan worden gekloond van [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
 ## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infrastructuur en resources voor data science-projecten  
 
@@ -99,7 +99,7 @@ Hier volgt een voorbeeld van een team werkt aan meerdere projecten en het delen 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Hulpprogramma's voor de projectuitvoering van
 
-Maak kennis met de processen in de meeste organisaties uitdagingen met zich mee. Hulpprogramma's te implementeren de data science-proces en de levenscyclus help lager de barrières voor vergroten van de consistentie van hun goedkeuring. TDSP biedt een eerste set met hulpprogramma's en scripts aan de acceptatie van TDSP binnen een team snel aan de slag. Ook helpt u bij automatiseren van de algemene taken in de levenscyclus van wetenschappelijke gegevens, zoals gegevens verkennen en modelleren van de basislijn. Er is een goed gedefinieerde structuur die is opgegeven voor personen om bij te dragen gedeelde functies en hulpprogramma's in gedeelde code-opslagplaats van hun team. Deze resources kunnen vervolgens worden gebruikt door andere projecten in het team of de organisatie. TDSP is ook van plan om in te schakelen van de bijdragen van de hulpprogramma's voor de gehele community. De TDSP-hulpprogramma's kunnen worden gekloond van [Github](https://github.com/Azure/Azure-TDSP-Utilities).
+Maak kennis met de processen in de meeste organisaties uitdagingen met zich mee. Hulpprogramma's te implementeren de data science-proces en de levenscyclus help lager de barrières voor vergroten van de consistentie van hun goedkeuring. TDSP biedt een eerste set met hulpprogramma's en scripts aan de acceptatie van TDSP binnen een team snel aan de slag. Ook helpt u bij automatiseren van de algemene taken in de levenscyclus van wetenschappelijke gegevens, zoals gegevens verkennen en modelleren van de basislijn. Er is een goed gedefinieerde structuur die is opgegeven voor personen om bij te dragen gedeelde functies en hulpprogramma's in gedeelde code-opslagplaats van hun team. Deze resources kunnen vervolgens worden gebruikt door andere projecten in het team of de organisatie. TDSP is ook van plan om in te schakelen van de bijdragen van de hulpprogramma's voor de gehele community. De TDSP-hulpprogramma's kunnen worden gekloond van [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## <a name="next-steps"></a>Volgende stappen

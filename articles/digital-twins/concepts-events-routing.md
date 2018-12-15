@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: a1a31ec7ee0d1daea9f178e51dc860279d3787ec
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e16d27314a159b124e35560ffb8cd9685fc5c7a0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615334"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438010"
 ---
 # <a name="routing-events-and-messages"></a>Routering van gebeurtenissen en berichten
 
@@ -23,9 +23,9 @@ IoT-oplossingen aandragen vaak verschillende krachtige services met opslag, anal
 
 Azure van digitale dubbels biedt twee manieren IoT-gebeurtenissen integreren met andere Azure-services of -business-toepassingen:
 
-* **Routering Azure digitale dubbels gebeurtenissen**: een object in de ruimtelijke grafiek die wijzigingen, telemetrische gegevens die worden ontvangen, of een gebruiker gedefinieerde functie waarmee een melding op basis van vooraf gedefinieerde voorwaarden Azure digitale dubbels gebeurtenissen kunt activeren. Gebruikers kunnen deze gebeurtenissen te verzenden [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus-onderwerpen](https://azure.microsoft.com/services/service-bus/), of [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) voor verdere verwerking.
+* **Routering Azure digitale dubbels gebeurtenissen**: Een object in de ruimtelijke grafiek die wijzigingen, telemetrische gegevens die worden ontvangen, of een gebruiker gedefinieerde functie waarmee een melding op basis van vooraf gedefinieerde voorwaarden Azure digitale dubbels gebeurtenissen kunt activeren. Gebruikers kunnen deze gebeurtenissen te verzenden [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus-onderwerpen](https://azure.microsoft.com/services/service-bus/), of [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) voor verdere verwerking.
 
-* **Routering apparaattelemetrie**: naast de routering van gebeurtenissen, Azure digitale dubbels kunnen ook niet-gecodeerd apparaat telemetrieberichten routeren naar Event Hubs voor meer inzichten en analyses. Deze typen berichten worden niet verwerkt door Azure digitale dubbels. En ze alleen bent doorgestuurd naar de event hub.
+* **Routering apparaattelemetrie**: Naast de routering van gebeurtenissen, kunnen Azure digitale dubbels ook niet-gecodeerd apparaat telemetrieberichten routeren naar Event Hubs voor meer inzichten en analyses. Deze typen berichten worden niet verwerkt door Azure digitale dubbels. En ze alleen bent doorgestuurd naar de event hub.
 
 Gebruikers kunnen een of meer uitgaande-eindpunten voor het verzenden van gebeurtenissen of doorsturen van berichten opgeven. Gebeurtenissen en berichten zal worden verzonden naar de eindpunten op basis van deze vooraf gedefinieerde routering voorkeuren. Met andere woorden, kunnen gebruikers een bepaalde eindpunt voor het ontvangen van gebeurtenissen voor graph-bewerking, een ander apparaat telemetriegebeurtenissen ontvangen, enzovoort opgeven.
 

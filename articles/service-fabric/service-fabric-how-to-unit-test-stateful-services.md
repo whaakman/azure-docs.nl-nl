@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: 945cdf63a178a09f121f355aaa7635537e46e5ff
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4941d893c6c871541772569e42bf5169270def88
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703706"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413554"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Eenheidstests voor Stateful Services maken
 Eenheidstesten stateful Service Fabric-services kunt verwerven op basis veelvoorkomende fouten die zou niet per se worden opgepikt door conventionele toepassing of domeinspecifieke Eenheidstesten. Tijdens het ontwikkelen van eenheidstests voor stateful services, zijn er enkele speciale overwegingen die moeten worden opgeslagen in gedachten.
@@ -34,7 +34,7 @@ In dit artikel wordt ervan uitgegaan dat [Eenheidstesten stateful services in Se
 Vanaf versie 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) biedt een API voor het simuleren van zowel de indeling van de replica's en het beheer staat. Dit wordt gebruikt in de voorbeelden.
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[Github](https://github.com/loekd/ServiceFabric.Mocks)
+[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric.Mocks is niet het eigendom of beheerd door Microsoft. Dit is echter op dat moment de Microsoft-bibliotheek voor stateful services Eenheidstesten aanbevolen.*
 
@@ -91,7 +91,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary 
+//promote idle secodary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary
@@ -100,7 +100,7 @@ PromoteNewReplicaToPrimaryAsync()
 PromoteNewReplicaToPrimaryAsync(4)
 ```
 
-## <a name="putting-it-all-together"></a>Dit alles
+## <a name="putting-it-all-together"></a>Alles samenvoegen
 De volgende test ziet u een verzameling met drie knooppunten replica instellen en gecontroleerd of de gegevens van een secundaire beschikbaar na een rolwijziging is. Een typisch probleem dit kan variabel is als de gegevens toegevoegd tijdens de `InsertAsync` is opgeslagen op iets in het geheugen of op een betrouwbare verzameling zonder uitgevoerd `CommitAsync`. In beide gevallen zou de secundaire server worden gesynchroniseerd met de primaire. Dit zou leiden tot inconsistent antwoorden nadat service is verplaatst.
 
 ```csharp

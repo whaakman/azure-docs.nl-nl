@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b09f64e2183453b3656efa340d53682a241dd00e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017950"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410530"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -600,38 +600,6 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Batch/register/action | Hiermee wordt het abonnement voor de Batch-Resourceprovider geregistreerd en wordt het maken van Batch-accounts |
 > | Bewerking | Microsoft.Batch/unregister/action | De registratie van het abonnement voor de Batch-Resourceprovider te voorkomen dat het maken van Batch-accounts |
 
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
-> | --- | --- | --- |
-> | Bewerking | Microsoft.BatchAI/clusters/read | Een lijst met Batch AI-clusters of haalt u de eigenschappen van een Batch AI-cluster |
-> | Bewerking | Microsoft.BatchAI/fileservers/read | Een lijst met Batch AI-bestandsservers of haalt u de eigenschappen van een Batch AI-bestandsserver |
-> | Bewerking | Microsoft.BatchAI/locations/operationresults/read | Batch AI asynchrone bewerkingsresultaat opgehaald op de opgegeven Azure-regio |
-> | Bewerking | Microsoft.BatchAI/locations/operationstatuses/read | Status van de Batch AI asynchrone bewerking opgehaald op de opgegeven Azure-regio |
-> | Bewerking | Microsoft.BatchAI/locations/usages/read | Batch AI-toepassingen van het opgegeven abonnement opgehaald op de opgegeven Azure-regio |
-> | Bewerking | Microsoft.BatchAI/register/action | Hiermee wordt het abonnement voor de Batch AI-Resourceprovider geregistreerd en wordt het maken van resources van Batch AI |
-> | Bewerking | Microsoft.BatchAI/unregister/action | De registratie van het abonnement voor de Batch AI-Resourceprovider te voorkomen dat het maken van resources van Batch AI |
-> | Bewerking | Microsoft.BatchAI/workspaces/clusters/delete | Hiermee verwijdert u een Batch AI-cluster |
-> | Bewerking | Microsoft.BatchAI/workspaces/clusters/read | Een lijst met Batch AI-clusters of haalt u de eigenschappen van een Batch AI-cluster |
-> | Bewerking | Microsoft.BatchAI/workspaces/clusters/remoteLoginInformation/action | Een lijst met extern-aanmeldingsgegevens voor een Batch AI-cluster |
-> | Bewerking | Microsoft.BatchAI/workspaces/clusters/write | Hiermee maakt u een nieuwe Batch AI-cluster of een bestaand cluster met Batch AI-updates |
-> | Bewerking | Microsoft.BatchAI/workspaces/delete | Hiermee verwijdert u een Batch AI-werkruimte |
-> | Bewerking | Microsoft.BatchAI/workspaces/experiments/delete | Hiermee verwijdert u een Batch AI-experiment |
-> | Bewerking | Microsoft.BatchAI/workspaces/experiments/jobs/delete | Hiermee verwijdert u een Batch AI-taak |
-> | Bewerking | Microsoft.BatchAI/workspaces/experiments/jobs/listoutputfiles/action | Een lijst met bestanden voor een Batch AI-taak uitvoeren |
-> | Bewerking | Microsoft.BatchAI/workspaces/experiments/jobs/read | Een lijst met Batch AI-taken of haalt u de eigenschappen van een Batch AI-taak |
-> | Bewerking | Microsoft.BatchAI/workspaces/experiments/jobs/remoteLoginInformation/action | Een lijst met remote-login-informatie voor een Batch AI-taak |
-> | Bewerking | Microsoft.BatchAI/workspaces/experiments/jobs/terminate/action | Een Batch AI-taak wordt beëindigd |
-> | Bewerking | Microsoft.BatchAI/workspaces/experiments/jobs/write | Maakt een nieuwe Batch AI-taak of een bestaande Batch AI-taak voor het bijwerken |
-> | Bewerking | Microsoft.BatchAI/workspaces/experiments/read | Een lijst met Batch AI-experimenten of haalt u de eigenschappen van een Batch AI-experiment |
-> | Bewerking | Microsoft.BatchAI/workspaces/experiments/write | Hiermee een nieuw Batch AI-experiment maken of bijwerken van een bestaande Batch AI-experiment |
-> | Bewerking | Microsoft.BatchAI/workspaces/fileservers/delete | Hiermee verwijdert u een Batch AI-bestandsserver |
-> | Bewerking | Microsoft.BatchAI/workspaces/fileservers/read | Een lijst met Batch AI-bestandsservers of haalt u de eigenschappen van een Batch AI-bestandsserver |
-> | Bewerking | Microsoft.BatchAI/workspaces/fileservers/write | Hiermee maakt u een nieuwe Batch AI-bestandsserver of een bestaande Batch AI-bestandsserver bijgewerkt |
-> | Bewerking | Microsoft.BatchAI/workspaces/read | Een lijst met Batch AI-werkruimten of haalt u de eigenschappen van een Batch AI-werkruimte |
-> | Bewerking | Microsoft.BatchAI/workspaces/write | Hiermee maakt u een nieuwe Batch AI-werkruimte of een bestaande werkruimte van de Batch AI-updates |
-
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -660,18 +628,18 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Blueprint/blueprintAssignments/delete | Alle blauwdrukartefacten verwijderen |
 > | Bewerking | Microsoft.Blueprint/blueprintAssignments/read | Alle blauwdrukartefacten lezen |
-> | Bewerking | Microsoft.Blueprint/blueprintAssignments/write | Maken of bijwerken van alle blauwdrukartefacten |
+> | Bewerking | Microsoft.Blueprint/blueprintAssignments/write | Alle blauwdrukartefacten maken of bijwerken |
 > | Bewerking | Microsoft.Blueprint/blueprints/artifacts/delete | Alle blauwdrukartefacten verwijderen |
 > | Bewerking | Microsoft.Blueprint/blueprints/artifacts/read | Alle blauwdrukartefacten lezen |
-> | Bewerking | Microsoft.Blueprint/blueprints/artifacts/write | Maken of bijwerken van alle blauwdrukartefacten |
+> | Bewerking | Microsoft.Blueprint/blueprints/artifacts/write | Alle blauwdrukartefacten maken of bijwerken |
 > | Bewerking | Microsoft.Blueprint/blueprints/delete | Alle blauwdrukken verwijderen |
 > | Bewerking | Microsoft.Blueprint/blueprints/read | Alle blauwdrukken lezen |
 > | Bewerking | Microsoft.Blueprint/blueprints/versions/artifacts/read | Alle blauwdrukartefacten lezen |
 > | Bewerking | Microsoft.Blueprint/blueprints/versions/delete | Alle blauwdrukken verwijderen |
 > | Bewerking | Microsoft.Blueprint/blueprints/versions/read | Alle blauwdrukken lezen |
-> | Bewerking | Microsoft.Blueprint/blueprints/versions/write | Alle blauwdrukken maken of bijwerken |
-> | Bewerking | Microsoft.Blueprint/blueprints/write | Alle blauwdrukken maken of bijwerken |
-> | Bewerking | Microsoft.Blueprint/register/action | Hiermee wordt de Resourceprovider Azure blauwdrukken geregistreerd |
+> | Bewerking | Microsoft.Blueprint/blueprints/versions/write | Blauwdrukken maken of bijwerken |
+> | Bewerking | Microsoft.Blueprint/blueprints/write | Blauwdrukken maken of bijwerken |
+> | Bewerking | Microsoft.Blueprint/register/action | Hiermee wordt de Azure Blueprint-resourceprovider geregistreerd |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -1326,14 +1294,14 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ContainerService/containerServices/write | Hiermee wordt een nieuwe containerservice gemaakt of wordt een bestaande bijgewerkt |
 > | Bewerking | Microsoft.ContainerService/locations/operationresults/read | Hiermee wordt de status van het resultaat van een asynchrone bewerking opgehaald |
 > | Bewerking | Microsoft.ContainerService/locations/operations/read | Hiermee wordt de status van een asynchrone bewerking opgehaald |
-> | Bewerking | Microsoft.ContainerService/locations/orchestrators/read | Geeft een lijst van de ondersteunde orchestrators |
+> | Bewerking | Microsoft.ContainerService/locations/orchestrators/read | Hiermee wordt een lijst met ondersteunde orchestrators weergegeven |
 > | Bewerking | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Een toegangsprofiel van een beheerd cluster ophalen op rolnaam met lijstreferenties |
 > | Bewerking | Microsoft.ContainerService/managedClusters/accessProfiles/read | Een toegangsprofiel van een beheerd cluster ophalen op rolnaam |
 > | Bewerking | Microsoft.ContainerService/managedClusters/delete | Hiermee wordt een beheerd cluster verwijderd |
-> | Bewerking | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lijst van de referentie clusterAdmin van een beheerde cluster |
-> | Bewerking | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lijst van de referentie clusterUser van een beheerde cluster |
+> | Bewerking | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Hiermee wordt de clusterAdmin-referentie van een beheerd cluster weergegeven |
+> | Bewerking | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Hiermee wordt de clusterUser-referentie van een beheerd cluster weergegeven |
 > | Bewerking | Microsoft.ContainerService/managedClusters/read | Een beheerd cluster ophalen |
-> | Bewerking | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Het upgrade-profiel van het cluster opgehaald |
+> | Bewerking | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Hiermee wordt het upgradeprofiel van het cluster opgehaald |
 > | Bewerking | Microsoft.ContainerService/managedClusters/write | Hiermee wordt een nieuw cluster gemaakt of wordt een bestaande bijgewerkt |
 > | Bewerking | Microsoft.ContainerService/openShiftClusters/delete | Een Open Shift-Cluster verwijderen |
 > | Bewerking | Microsoft.ContainerService/openShiftClusters/read | Een cluster Open Shift |
@@ -1341,9 +1309,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ContainerService/openShiftManagedClusters/delete | Een beheerde Open Shift-Cluster verwijderen |
 > | Bewerking | Microsoft.ContainerService/openShiftManagedClusters/read | Een beheerde Cluster met Open Shift ophalen |
 > | Bewerking | Microsoft.ContainerService/openShiftManagedClusters/write | Hiermee maakt u een nieuw Open Shift beheerd Cluster of een bestaande bijgewerkt |
-> | Bewerking | Microsoft.ContainerService/operations/read | Een lijst met bewerkingen weergegeven die beschikbaar zijn op de Microsoft.ContainerService-resourceprovider |
-> | Bewerking | Microsoft.ContainerService/register/action | Hiermee wordt een abonnement bij de resourceprovider Microsoft.ContainerService |
-> | Bewerking | Microsoft.ContainerService/unregister/action | De registratie van abonnement bij de resourceprovider Microsoft.ContainerService |
+> | Bewerking | Microsoft.ContainerService/operations/read | Hiermee wordt een lijst met beschikbare bewerkingen op de Microsoft.ContainerService-resourceprovider weergegeven |
+> | Bewerking | Microsoft.ContainerService/register/action | Hiermee wordt het abonnement bij de Microsoft.ContainerService-resourceprovider geregistreerd |
+> | Bewerking | Microsoft.ContainerService/unregister/action | Hiermee heft u de registratie van het abonnement bij de Microsoft.ContainerService-resourceprovider op |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
@@ -1542,9 +1510,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Databricks/register/action | Registreren bij Databricks. |
 > | Bewerking | Microsoft.Databricks/workspaces/delete | Hiermee wordt een Databricks-werkruimte verwijderd. |
-> | Bewerking | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee stelt u de beschikbare diagnostische instellingen voor de Databricks-werkruimte |
+> | Bewerking | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee worden de beschikbare diagnostische instellingen voor de Databricks-werkruimte ingesteld |
 > | Bewerking | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee worden diagnostische instellingen toegevoegd of gewijzigd. |
-> | Bewerking | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | De logboekdefinities van de beschikbaar voor de Databricks-werkruimte opgehaald |
+> | Bewerking | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | Hiermee worden de logboekdefinities voor de Databricks-werkruimte opgehaald |
 > | Bewerking | Microsoft.Databricks/workspaces/read | Hiermee wordt een lijst met Databricks-werkruimten opgehaald. |
 > | Bewerking | Microsoft.Databricks/workspaces/write | Hiermee wordt een Databricks-werkruimte gemaakt. |
 
@@ -2169,7 +2137,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Lijst met metrische clustergegevens beschrijvingen van resources |
 > | Bewerking | Microsoft.EventHub/clusters/read | De beschrijving van de clusterresource ophalen |
 > | Bewerking | Microsoft.EventHub/clusters/write | De beschrijving van de clusterresource ophalen |
-> | Bewerking | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Hiermee verwijdert u de VNet-regels voor EventHub-resourceprovider voor het opgegeven VNet |
+> | Bewerking | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Hiermee verwijdert u de VNet-regels in de EventHub-resourceprovider voor het opgegeven VNet |
 > | Bewerking | Microsoft.EventHub/namespaces/authorizationRules/action | Updates Namespace-autorisatieregel. Deze API is gedeprecieerd. Gebruik een PUT-aanroep in plaats daarvan de autorisatieregel Namespace bijwerken... Met deze bewerking wordt niet ondersteund in API-versie 2017-04-01. |
 > | Bewerking | Microsoft.EventHub/namespaces/authorizationRules/delete | Namespace verificatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd.  |
 > | Bewerking | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | De verbindingstekenreeks naar de naamruimte ophalen |
@@ -2292,17 +2260,17 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Insights/AlertRules/Resolved/Action | Klassieke waarschuwing voor metrische gegevens opgelost |
 > | Bewerking | Microsoft.Insights/AlertRules/Throttled/Action | Regel voor klassieke waarschuwing voor metrische gegevens beperkt |
 > | Bewerking | Microsoft.Insights/AlertRules/Write | Een klassieke waarschuwing voor metrische gegevens maken of bijwerken |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/Delete | Een instelling voor automatisch schalen verwijderen |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/Delete | Een instelling voor automatische schaalaanpassing verwijderen |
 > | Bewerking | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | Een diagnostische instelling voor de resource lezen |
 > | Bewerking | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Write | Een diagnostische instelling voor de resource maken of bijwerken |
 > | Bewerking | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | Logboekdefinities lezen |
 > | Bewerking | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | Metrische definities lezen |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/Read | Een instelling voor automatisch schalen lezen |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Automatisch omlaag schalen gestart |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Automatisch omlaag schalen voltooid |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Automatisch omhoog schalen gestart |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Automatisch omhoog schalen voltooid |
-> | Bewerking | Microsoft.Insights/AutoscaleSettings/Write | Een instelling voor automatisch schalen maken of bijwerken |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/Read | Een instelling voor automatische schaalaanpassing lezen |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Automatische schaalaanpassing omlaag gestart |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Automatische schaalaanpassing omlaag voltooid |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Automatische schaalaanpassing omhoog gestart |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Automatische schaalaanpassing omhoog voltooid |
+> | Bewerking | Microsoft.Insights/AutoscaleSettings/Write | Een instelling voor automatische schaalaanpassing maken of bijwerken |
 > | Bewerking | Microsoft.Insights/Components/AnalyticsItems/Delete | Een analyse-item van Application Insights verwijderen |
 > | Bewerking | Microsoft.Insights/Components/AnalyticsItems/Read | Een analyse-item van Application Insights lezen |
 > | Bewerking | Microsoft.Insights/Components/AnalyticsItems/Write | Een analyse-item van Application Insights schrijven |
@@ -2680,24 +2648,24 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.LocationBasedServices/accounts/delete | (Afgeschaft: gebruik /providers/Microsoft.Maps) Verwijderen van een Location Based Services-Account. |
-> | Bewerking | Microsoft.LocationBasedServices/accounts/listKeys/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) Een lijst met Location Based Services-Account sleutels |
-> | Bewerking | Microsoft.LocationBasedServices/accounts/read | (Afgeschaft: gebruik /providers/Microsoft.Maps) Ophalen van een Location Based Services-Account. |
-> | Bewerking | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) Nieuwe Location Based Services-Account primaire of secundaire sleutel genereren |
-> | Bewerking | Microsoft.LocationBasedServices/accounts/write | (Afgeschaft: gebruik /providers/Microsoft.Maps) Maken of bijwerken van een Location Based Services-Account. |
-> | Bewerking | Microsoft.LocationBasedServices/register/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) De provider registreren |
+> | Bewerking | Microsoft.LocationBasedServices/accounts/delete | (Afgeschaft: Gebruik /providers/Microsoft.Maps) verwijderen van een Location Based Services-Account. |
+> | Bewerking | Microsoft.LocationBasedServices/accounts/listKeys/action | (Afgeschaft: Gebruik /providers/Microsoft.Maps)List Location Based Services-Account sleutels |
+> | Bewerking | Microsoft.LocationBasedServices/accounts/read | (Afgeschaft: Gebruik /providers/Microsoft.Maps) ophalen van een Location Based Services-Account. |
+> | Bewerking | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Afgeschaft: Gebruik /providers/Microsoft.Maps) nieuw Location Based Services-Account primaire of secundaire sleutel genereren |
+> | Bewerking | Microsoft.LocationBasedServices/accounts/write | (Afgeschaft: Gebruik /providers/Microsoft.Maps) maken of bijwerken een Location Based Services-Account. |
+> | Bewerking | Microsoft.LocationBasedServices/register/action | (Afgeschaft: Gebruik /providers/Microsoft.Maps) de provider registreren |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.LocationServices/accounts/delete | (Afgeschaft: gebruik /providers/Microsoft.Maps) Een locatie-Services-Account verwijderen. |
-> | Bewerking | Microsoft.LocationServices/accounts/listKeys/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) Een lijst met Location Based Services-Account sleutels |
-> | Bewerking | Microsoft.LocationServices/accounts/read | (Afgeschaft: gebruik /providers/Microsoft.Maps) Maak een locatie-Services-Account. |
-> | Bewerking | Microsoft.LocationServices/accounts/regenerateKey/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) Nieuwe Location Based Services-Account primaire of secundaire sleutel genereren |
-> | Bewerking | Microsoft.LocationServices/accounts/write | (Afgeschaft: gebruik /providers/Microsoft.Maps) Maken of bijwerken van een locatie-Services-Account. |
-> | Bewerking | Microsoft.LocationServices/register/action | (Afgeschaft: gebruik /providers/Microsoft.Maps) De provider registreren |
+> | Bewerking | Microsoft.LocationServices/accounts/delete | (Afgeschaft: Gebruik /providers/Microsoft.Maps) verwijderen van een locatie-Services-Account. |
+> | Bewerking | Microsoft.LocationServices/accounts/listKeys/action | (Afgeschaft: Gebruik /providers/Microsoft.Maps)List Location Based Services-Account sleutels |
+> | Bewerking | Microsoft.LocationServices/accounts/read | (Afgeschaft: Gebruik /providers/Microsoft.Maps) een locatie-Services-account. |
+> | Bewerking | Microsoft.LocationServices/accounts/regenerateKey/action | (Afgeschaft: Gebruik /providers/Microsoft.Maps) nieuw Location Based Services-Account primaire of secundaire sleutel genereren |
+> | Bewerking | Microsoft.LocationServices/accounts/write | (Afgeschaft: Gebruik /providers/Microsoft.Maps) maken of bijwerken van een locatie-Services-Account. |
+> | Bewerking | Microsoft.LocationServices/register/action | (Afgeschaft: Gebruik /providers/Microsoft.Maps) de provider registreren |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 
@@ -3094,7 +3062,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Hiermee wordt een overeenkomst geretourneerd. |
 > | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Hiermee wordt een ondertekende overeenkomst geaccepteerd. |
-> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/importImage/action | Hierme wordt een afbeelding geïmporteerd in het ACR van de eindgebuiker. |
+> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/importImage/action | Hiermee wordt een afbeelding geïmporteerd in het ACR van de eindgebruiker. |
 > | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Hiermee wordt een configuratie geretourneerd. |
 > | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | Hiermee wordt een configuratie opgeslagen. |
 
@@ -4073,7 +4041,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Herstelpunt toepassen |
 > | Bewerking | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/delete | Verwijder alle beveiligde Items |
 > | Bewerking | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Failover doorvoeren |
-> | Bewerking | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Geplande Failover |
+> | Bewerking | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Geplande failover |
 > | Bewerking | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Lezen van alle beveiligde Items |
 > | Bewerking | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Lezen van alle herstelpunten voor replicatie |
 > | Bewerking | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/remove/action | Beveiligd Item verwijderen |
@@ -4357,7 +4325,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ServiceBus/checkNameAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. |
 > | Bewerking | Microsoft.ServiceBus/checkNamespaceAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is afgeschaft. Gebruik in plaats hiervan CheckNameAvailabiltiy. |
-> | Bewerking | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Hiermee verwijdert u de VNet-regels in Service Bus-Resourceprovider voor het opgegeven VNet |
+> | Bewerking | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Hiermee verwijdert u de VNet-regels in de Service Bus-resourceprovider voor het opgegeven VNet |
 > | Bewerking | Microsoft.ServiceBus/namespaces/authorizationRules/action | Updates Namespace-autorisatieregel. Deze API is gedeprecieerd. Gebruik een PUT-aanroep in plaats daarvan de autorisatieregel Namespace bijwerken... Met deze bewerking wordt niet ondersteund in API-versie 2017-04-01. |
 > | Bewerking | Microsoft.ServiceBus/namespaces/authorizationRules/delete | Namespace verificatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd.  |
 > | Bewerking | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | De verbindingstekenreeks naar de naamruimte ophalen |

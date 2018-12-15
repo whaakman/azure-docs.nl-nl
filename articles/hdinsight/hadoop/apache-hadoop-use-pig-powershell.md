@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 1e9f6778f12f4f6260bfc20c3a78f7929f13405b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 84780d7c432e818153f964522063f29d8540e0ec
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634529"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434304"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Azure PowerShell gebruiken voor het uitvoeren van Apache Pig-taken met HDInsight
 
@@ -22,19 +22,19 @@ ms.locfileid: "51634529"
 
 Dit document bevat een voorbeeld van het gebruik van Azure PowerShell voor het verzenden van Apache Pig-taken naar een Apache Hadoop op HDInsight-cluster. Pig kunt u schrijven die gegevenstransformaties modellen MapReduce-taken met behulp van een taal (Pig Latin) in plaats van toewijzen en functies te beperken.
 
-> [!NOTE]
-> Dit document biedt geen een gedetailleerde beschrijving van wat de Pig Latin-instructies gebruikt in de voorbeelden doen. Zie voor meer informatie over de Pig Latin gebruikt in dit voorbeeld [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md).
+> [!NOTE]  
+> Dit document biedt geen een gedetailleerde beschrijving van wat de Pig Latin-instructies gebruikt in de voorbeelden doen. Zie voor meer informatie over de Pig Latin gebruikt in dit voorbeeld [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md).
 
 ## <a id="prereq"></a>Vereisten
 
 * **Een Azure HDInsight-cluster**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * **Een werkstation met Azure PowerShell**.
 
-## <a id="powershell"></a>Een Pig-taak uitvoeren
+## <a id="powershell"></a>Een Apache Pig-taak uitvoeren
 
 Azure PowerShell biedt *cmdlets* waarmee u op afstand Pig-taken uitvoeren op HDInsight. Intern, PowerShell maakt gebruik van REST-aanroepen naar [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) uitgevoerd op het HDInsight-cluster.
 
@@ -42,9 +42,9 @@ De volgende cmdlets worden gebruikt bij het uitvoeren van Pig-taken op een exter
 
 * **Connect-AzureRmAccount**: Azure PowerShell gebruiken om uw Azure-abonnement te worden geverifieerd.
 * **Nieuwe AzureRmHDInsightPigJobDefinition**: Hiermee maakt u een *taak definitie* met behulp van de opgegeven Pig Latin-instructies.
-* **Start-AzureRmHDInsightJob**: de taakdefinitie verzendt naar HDInsight en wordt de taak wordt gestart. Een *taak* object wordt geretourneerd.
-* **Wacht AzureRmHDInsightJob**: maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
-* **Get-AzureRmHDInsightJobOutput**: gebruikt voor het ophalen van de uitvoer van de taak.
+* **Start-AzureRmHDInsightJob**: De taakdefinitie verzendt naar HDInsight en wordt de taak wordt gestart. Een *taak* object wordt geretourneerd.
+* **Wacht AzureRmHDInsightJob**: Maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
+* **Get-AzureRmHDInsightJobOutput**: Gebruikt voor het ophalen van de uitvoer van de taak.
 
 De volgende stappen laten zien hoe u deze cmdlets gebruiken om een taak uitvoeren op uw HDInsight-cluster.
 
@@ -90,9 +90,9 @@ Zoals u ziet, biedt Azure PowerShell een eenvoudige manier om Pig-taken uitvoere
 ## <a id="nextsteps"></a>Volgende stappen
 Voor algemene informatie over Pig in HDInsight:
 
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
 
 Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)

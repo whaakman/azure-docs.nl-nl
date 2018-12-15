@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b60e1639a1c32763c4759720fe61b0e571fc9dd1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239420"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437092"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Leren van concepten van belangrijke Windows PowerShell-werkstroom voor Automation-runbooks
 
@@ -193,10 +193,10 @@ Workflow Copy-Files
 }
 ```
 
-U kunt de **ForEach-Parallel** constructie verwerken van opdrachten voor elk item in een verzameling gelijktijdig. De items in de verzameling worden parallel verwerkt, terwijl de opdrachten in het scriptblok worden opeenvolgend uitgevoerd. Dit maakt gebruik van de volgende syntaxis hieronder weergegeven. In dit geval starten starten activiteit1 op hetzelfde moment voor alle items in de verzameling. Voor elk item start activiteit2 nadat activiteit1 voltooid. Activiteit3 start pas als zowel activiteit1 en activiteit2 zijn voltooid voor alle items.
+U kunt de **ForEach-Parallel** constructie verwerken van opdrachten voor elk item in een verzameling gelijktijdig. De items in de verzameling worden parallel verwerkt, terwijl de opdrachten in het scriptblok worden opeenvolgend uitgevoerd. Dit maakt gebruik van de volgende syntaxis hieronder weergegeven. In dit geval starten starten activiteit1 op hetzelfde moment voor alle items in de verzameling. Voor elk item start activiteit2 nadat activiteit1 voltooid. Activiteit3 start pas als zowel activiteit1 en activiteit2 zijn voltooid voor alle items. We gebruiken de `ThrottleLimit` parameter voor het beperken van de parallelle uitvoering. Te veel van een `ThrottleLimit` kan problemen veroorzaken. De ideale waarde voor de `ThrottleLimit` parameter, is afhankelijk van veel factoren in uw omgeving. U moet beginnen met een lage waarde en probeer verschillende waarden voor de toenemende totdat u een die geschikt is voor uw specifieke situatie.
 
 ```powershell
-ForEach -Parallel ($<item> in $<collection>)
+ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
 {
     <Activity1>
     <Activity2>
@@ -211,7 +211,7 @@ Workflow Copy-Files
 {
     $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-    ForEach -Parallel ($File in $Files)
+    ForEach -Parallel -ThrottleLimit 10 ($File in $Files)
     {
         Copy-Item -Path $File -Destination \\NetworkPath
         Write-Output "$File copied."
@@ -258,7 +258,7 @@ Workflow Copy-Files
 }
 ```
 
-Omdat de referenties van de gebruikersnaam niet permanent nadat u de [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) activiteit of nadat het laatste controlepunt, moet u de referenties moeten null zijn en halen ze vervolgens opnieuw uit de store asset na instellen  **Suspend-Workflow** of controlepunt wordt aangeroepen.  Anders, verschijnt de volgende strekking weergegeven: *de werkstroomtaak kan niet worden hervat, ofwel omdat persistentie gegevens kan niet worden opgeslagen of opgeslagen persistentie gegevens zijn beschadigd. U moet de werkstroom opnieuw opstarten.*
+Omdat de referenties van de gebruikersnaam niet permanent nadat u de [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) activiteit of nadat het laatste controlepunt, moet u de referenties moeten null zijn en halen ze vervolgens opnieuw uit de store asset na instellen  **Suspend-Workflow** of controlepunt wordt aangeroepen.  Anders wordt de volgende strekking weergegeven: *De werkstroomtaak kan niet worden hervat, ofwel omdat persistentie gegevens kan niet worden opgeslagen of opgeslagen persistentie gegevens zijn beschadigd. U moet de werkstroom opnieuw opstarten.*
 
 De volgende dezelfde code ziet u hoe u dit in uw PowerShell Workflow-runbooks worden verwerkt.
 

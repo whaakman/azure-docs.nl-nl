@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 42fc92b0cee20679ab72a389cc11522c0ca4e0fd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e1b4681bc8e42294be6b47a04a24e28f81703e6f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013749"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436854"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Java MapReduce-programma's ontwikkelen voor Apache Hadoop op HDInsight
 
@@ -285,8 +285,8 @@ Met deze opdracht kopieert de bestanden uit het lokale systeem naar het hoofdkno
 
 In dit document hebt u geleerd over het ontwikkelen van een Java MapReduce-taak. Zie de volgende documenten voor andere manieren om te werken met HDInsight.
 
-* [Hive gebruiken met HDInsight](hdinsight-use-hive.md)
-* [Pig gebruiken met HDInsight](hdinsight-use-pig.md)
+* [Apache Hive gebruiken met HDInsight](hdinsight-use-hive.md)
+* [Apache Pig gebruiken met HDInsight](hdinsight-use-pig.md)
 * [MapReduce gebruiken met HDInsight](hdinsight-use-mapreduce.md)
 
 Zie voor meer informatie, ook de [Java Developer Center](https://azure.microsoft.com/develop/java/).

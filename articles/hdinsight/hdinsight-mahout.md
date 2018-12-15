@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5c12a84610d09b7557f0beb177273deba4468cc0
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 06181eaf4a44a00ddeeedcd9c40edeae9157abd9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014817"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438545"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Hadoop in HDInsight (PowerShell)
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-apache-hadoop-in-hdinsight-powershell"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Apache Hadoop in HDInsight (PowerShell)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
@@ -26,17 +26,17 @@ Meer informatie over het gebruik van de [Apache Mahout](http://mahout.apache.org
 
 * Een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie over het maken van een [aan de slag met Hadoop op basis van Linux in HDInsight][getstarted].
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * [Azure PowerShell](/powershell/azure/overview)
 
 ## <a name="recommendations"></a>Aanbevelingen genereren met behulp van Azure PowerShell
 
-> [!WARNING]
+> [!WARNING]  
 > De taak in deze sectie werkt met behulp van Azure PowerShell. Veel van de klassen die zijn opgegeven met Mahout werkt momenteel niet met Azure PowerShell. Zie voor een lijst met klassen die niet met Azure PowerShell werken, de [probleemoplossing](#troubleshooting) sectie.
 >
-> Zie voor een voorbeeld van het gebruik van SSH verbinding maken met HDInsight en voer Mahout voorbeelden rechtstreeks op het cluster, [filmaanbevelingen genereren met Mahout en HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
+> Zie voor een voorbeeld van het gebruik van SSH verbinding maken met HDInsight en voer Mahout voorbeelden rechtstreeks op het cluster, [filmaanbevelingen genereren met Apache Mahout en HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 Een van de functies die wordt geleverd door Mahout is een engine voor aanbevelingen. Deze engine accepteert gegevens in de indeling van `userID`, `itemId`, en `prefValue` (gebruikers van de voorkeur voor het item). Mahout gebruikt de gegevens om te bepalen van gebruikers met een dergelijke-item voorkeuren, die kunnen worden gebruikt om aanbevelingen te doen.
 
@@ -46,7 +46,7 @@ Het volgende voorbeeld wordt een eenvoudig overzicht van de werking van het proc
 
 * **CO exemplaar**: Bob en Els ook beviel *de Phantom Menace*, *een aanval van het klonen*, en *Revenge van de Sith*. Mahout bepaalt dat gebruikers die de vorige drie films ook leuk vinden, zoals deze films.
 
-* **Gelijkenis aanbeveling**: omdat Jaap leuk vinden van de eerste drie films, Mahout kijkt naar films die anderen met vergelijkbare voorkeuren leuk vinden, maar Jaap niet heeft bekeken (leuk vinden/geclassificeerd). In dit geval Mahout raadt *de Phantom Menace*, *een aanval van het klonen*, en *Revenge van de Sith*.
+* **Gelijkenis aanbeveling**: Omdat Jaap leuk vinden van de eerste drie films, Mahout kijkt naar films die anderen met vergelijkbare voorkeuren leuk vinden, maar Jaap niet heeft bekeken (leuk vinden/geclassificeerd). In dit geval Mahout raadt *de Phantom Menace*, *een aanval van het klonen*, en *Revenge van de Sith*.
 
 ### <a name="understanding-the-data"></a>Wat zijn de gegevens?
 
@@ -66,12 +66,12 @@ De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`
 
 Gebruik de volgende Windows PowerShell-script om uit te voeren van een taak die de Mahout-aanbevelingsengine met de filmgegevens gebruikt:
 
-> [!NOTE]
+> [!NOTE]  
 > Dit bestand vraagt u om de informatie die wordt gebruikt voor verbinding maken met uw HDInsight-cluster en taken uitvoeren. Het kan enkele minuten voor de taken te voltooien en downloadt u het bestand uitvoer.txt duren.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
-> [!NOTE]
+> [!NOTE]  
 > Mahout taken verwijderen tijdelijke gegevens die zijn gemaakt tijdens het verwerken van de taak niet. De `--tempDir` parameter is opgegeven in het voorbeeld van de taak voor het isoleren van de tijdelijke bestanden naar een specifieke map.
 
 De Mahout-taak terug niet de uitvoer naar de STDOUT. In plaats daarvan wordt deze opgeslagen in de map met de opgegeven uitvoer als **onderdeel-r-00000**. Het script downloaden van dit bestand **uitvoer.txt** in de huidige map op uw werkstation.
@@ -202,14 +202,14 @@ Mahout-taken die gebruikmaken van de volgende klassen retourneren verschillende 
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-Taken uit te voeren die gebruikmaken van deze klassen, verbinding maken met het HDInsight-cluster via SSH en de taken worden uitgevoerd vanaf de opdrachtregel. Zie voor een voorbeeld van het gebruik van SSH Mahout taken uit te voeren, [filmaanbevelingen genereren met Mahout en HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
+Taken uit te voeren die gebruikmaken van deze klassen, verbinding maken met het HDInsight-cluster via SSH en de taken worden uitgevoerd vanaf de opdrachtregel. Zie voor een voorbeeld van het gebruik van SSH Mahout taken uit te voeren, [filmaanbevelingen genereren met Apache Mahout en HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe u een Mahout, Ontdek andere manieren van het werken met gegevens in HDInsight:
+Nu dat u hebt geleerd hoe u Apache Mahout, Ontdek andere manieren van het werken met gegevens in HDInsight:
 
-* [Hive met HDInsight](hadoop/hdinsight-use-hive.md)
-* [Pig met HDInsight](hadoop/hdinsight-use-pig.md)
+* [Apache Hive met HDInsight](hadoop/hdinsight-use-hive.md)
+* [Apache Pig met HDInsight](hadoop/hdinsight-use-pig.md)
 * [MapReduce met HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html

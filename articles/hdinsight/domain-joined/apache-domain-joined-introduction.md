@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ed735b8344c301be413dfe998ccf7f44bd686115
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011219"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436888"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Een inleiding tot Apache Hadoop-beveiliging met Enterprise-beveiligingspakket
 
@@ -24,8 +24,8 @@ U kunt een HDInsight-cluster maken met Enterprise Security Package (ESP) die lid
 
 De enterprise-beheerder op rollen gebaseerd toegangsbeheer (RBAC) kunt configureren voor Apache Hive-beveiliging met behulp van [Apache Ranger](https://hortonworks.com/apache/ranger/). RBAC configureren toegang wordt beperkt tot gegevens alleen wat u nodig hebt. De beheerder kan ten slotte de toegang tot de gegevens door werknemers en eventuele wijzigingen worden aangebracht aan het beleid voor toegangsbeheer controleren. De beheerder kan vervolgens een hoge mate van beheer van hun bedrijfsbronnen behalen.
 
-> [!NOTE]
-> Oozie is nu ingeschakeld op ESP-clusters. Voor toegang tot de Oozie-webgebruikersinterface, gebruikers moeten inschakelen [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
+> [!NOTE]  
+> Apache Oozie is nu ingeschakeld op ESP-clusters. Voor toegang tot de Oozie-webgebruikersinterface, gebruikers moeten inschakelen [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Bedrijfsbeveiliging bestaat uit vier belangrijke onderdelen: perimeterbeveiliging, verificatie, autorisatie en versleuteling.
 
@@ -39,7 +39,7 @@ Een andere perimeterbeveiligingslaag wordt bereikt via de VPN-Gateway-service. D
 ## <a name="authentication"></a>Verificatie
 Een bedrijfsbeheerder een HDInsight-cluster kunt maken met ESP in een [virtueel netwerk](https://azure.microsoft.com/services/virtual-network/). Alle knooppunten van het HDInsight-cluster zijn gekoppeld aan het domein dat wordt beheerd via het bedrijf. Dit wordt bereikt met behulp van [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-Met deze instelling kunnen enterprise werknemers aanmelden bij de clusterknooppunten met behulp van hun domeinreferenties. Ze kunnen hun domeinreferenties ook gebruiken om te verifiëren bij andere goedgekeurde eindpunten, zoals Ambari-weergaven, ODBC, JDBC, PowerShell en REST-API's om te communiceren met het cluster. De beheerder heeft volledige controle over het beperken van het aantal gebruikers die met het cluster via deze eindpunten werken.
+Met deze instelling kunnen enterprise werknemers aanmelden bij de clusterknooppunten met behulp van hun domeinreferenties. Ze kunnen hun domeinreferenties ook gebruiken om te verifiëren bij andere goedgekeurde eindpunten, zoals Apache Ambari-weergaven, ODBC, JDBC, PowerShell en REST-API's om te communiceren met het cluster. De beheerder heeft volledige controle over het beperken van het aantal gebruikers die met het cluster via deze eindpunten werken.
 
 ## <a name="authorization"></a>Autorisatie
 Een best practice die volgen op de meeste bedrijven is ervoor te zorgen dat niet alle werknemers toegang tot alle bedrijfsresources heeft. De beheerder kan ook op rollen gebaseerd beleid voor toegangsbeheer voor de clusterresources definiëren. 
@@ -63,6 +63,6 @@ Beide voor gegevensopslag voor HDInsight-clusters, Azure Blob storage en Azure D
 * [Plan voor HDInsight-clusters met ESP](apache-domain-joined-architecture.md)
 * [HDInsight-clusters configureren met ESP](apache-domain-joined-configure.md)
 * [HDInsight-clusters met ESP beheren](apache-domain-joined-manage.md)
-* [Hive-beleidsregels voor HDInsight-clusters configureren met ESP](apache-domain-joined-run-hive.md)
+* [Apache Hive-beleid voor HDInsight-clusters configureren met ESP](apache-domain-joined-run-hive.md)
 * [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
 

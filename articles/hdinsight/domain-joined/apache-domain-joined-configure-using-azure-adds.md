@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5e5b8320459561ac2dbbf72a812e29e837e08cd6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ced7964fc96138ad7b18ab72d6c479e8db7eab8a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166656"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436215"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Een HDInsight-cluster configureren met Enterprise-beveiligingspakket met behulp van Azure Active Directory Domain Services
 
@@ -22,13 +22,13 @@ Enterprise Security Package (ESP)-clusters bieden toegang door meerdere gebruike
 
 In dit artikel leert u hoe u een HDInsight-cluster met ESP configureren met behulp van Azure Active Directory Domain Services (Azure AD-DS).
 
->[!NOTE]
->ESP is algemeen beschikbaar in HDI 3.6 voor Spark, interactief en Apache Hadoop. ESP voor HBase en Kafka-cluster is beschikbaar als preview.
+>[!NOTE]  
+>ESP is algemeen beschikbaar in HDI 3.6 voor Apache Spark, interactief en Apache Hadoop. ESP voor Apache HBase- en Apache Kafka-cluster is beschikbaar als preview.
 
 ## <a name="enable-azure-ad-ds"></a>Inschakelen van Azure AD DS
 
-> [!NOTE]
-> Alleen tenantbeheerders hebben de bevoegdheid om in te schakelen van Azure AD DS. Als de clusteropslag is het Azure Data Lake Store (ADLS) Gen1 of Gen2, multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster moet uitschakelen. Als de clusteropslag is Azure Blob Storage (WASB), u MFA niet uitschakelen.
+> [!NOTE]  
+> Alleen tenantbeheerders hebben de bevoegdheid om in te schakelen van Azure AD DS. Als de clusteropslag is het Azure Data Lake Storage (ADLS) Gen1 of Gen2, multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster moet uitschakelen. Als de clusteropslag is Azure Blob Storage (WASB), u MFA niet uitschakelen.
 
 Inschakelen van DS-AzureAD is een vereiste voordat u een HDInsight-cluster met ESP maken kunt. Zie voor meer informatie, [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
@@ -66,7 +66,7 @@ Zodra de beheerde identiteit is gemaakt en de juiste rol toegewezen, kunt de AAD
 
 ## <a name="networking-considerations"></a>Aandachtspunten voor netwerken
 
-> [!NOTE]
+> [!NOTE]  
 > Azure AD DS moet worden geïmplementeerd in een Azure Resource Manager (ARM) op basis van vNET. Klassieke virtuele netwerken worden niet ondersteund voor Azure AD DS. Raadpleeg [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) voor meer informatie.
 
 Nadat u Azure AD DS-inschakelt, wordt een lokale Domain Name Service (DNS)-server wordt uitgevoerd op de AD-virtuele Machines (VM's). Configureer uw Azure AD DS Virtual Network (VNET) voor het gebruik van deze aangepaste DNS-servers. Als u wilt zoeken in de juiste IP-adressen, selecteer **eigenschappen** onder de **beheren** categorie en bekijk de IP-adressen die worden vermeld onder **IP-adres op Virtueelnetwerk**.
@@ -114,5 +114,5 @@ De beheerde identiteit die u hebt gemaakt kan worden gekozen in de vervolgkeuzel
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor Hive-beleid configureren en uitvoeren van Hive-query's, [configureren Hive-beleid voor HDInsight-clusters met ESP](apache-domain-joined-run-hive.md).
-* Zie voor het gebruik van SSH verbinding maken met HDInsight-clusters met ESP [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Zie voor Hive-beleid configureren en uitvoeren van Hive-query's, [configureren Apache Hive-beleid voor HDInsight-clusters met ESP](apache-domain-joined-run-hive.md).
+* Zie voor het gebruik van SSH verbinding maken met HDInsight-clusters met ESP [SSH gebruiken met Apache Hadoop op basis van Linux in HDInsight via Linux, Unix of OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

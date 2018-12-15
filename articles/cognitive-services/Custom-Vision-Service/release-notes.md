@@ -9,21 +9,31 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a4b6b1d267e9c86a03644129ee639b74ed214d88
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901318"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408354"
 ---
 # <a name="custom-vision-service-release-notes"></a>Opmerkingen bij de Release van de Custom Vision Service
+
+
+## <a name="december-12-2018"></a>12 december 2018
+- Ondersteuning voor exporteren voor detectie van Object-modellen (geïntroduceerd Object detectie Compact domein).
+- Een aantal toegankelijkheidsproblemen voor verbeterde schermlezer en ondersteuning voor toetsenbord navigatie opgelost. 
+- UX-updates voor Afbeeldingsviewer en verbeterde objectdetectie ervaring voor snellere tagging tagging.  
+- Bijgewerkte basismodel voor Object detectie domein voor de detectie van betere kwaliteit-object. 
+- Bugfixes.
+
+## <a name="november-6-2018"></a>6 november 2018
+- Er is ondersteuning toegevoegd voor domein-Logo-Object wordt gedetecteerd.
 
 ## <a name="october-9-2018"></a>9 oktober 2018
 - Objectdetectie van krijgt de betaalde Preview-versie. U kunt nu Objectdetectie projecten maken met een Azure-resource.
 - 'Verplaatsen naar Azure'-functie toegevoegd aan, zodat u gemakkelijk om te upgraden van een beperkte proefversie project koppelen aan een Azure-website. resource in de gekoppelde project (F0 of S0). U kunt dit vinden op de pagina instellingen voor uw product.  
 - Toegevoegde exporteren naar de ONNX-1.2, ter ondersteuning van de Update van oktober 2018 Windows-versie van Windows-ML.
 Bugfixes, met inbegrip van ONNX exporteren met speciale tekens. 
-
 
 ## <a name="august-14-2018"></a>14 augustus 2018
 - Toegevoegde 'Aan de slag' widget naar site customvision.ai gebruikers begeleidt bij project training. 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 9e0f614344372d08974bc7592ccb88e7382e4cb4
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017539"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435188"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Apache Hadoop op basis van Linux in HDInsight (SSH)
 
@@ -28,14 +28,14 @@ Mahout is een [machine learning] [ ml] -bibliotheek voor Apache Hadoop. Mahout b
 
 * Een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie over het maken van een [aan de slag met Hadoop op basis van Linux in HDInsight][getstarted].
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Een SSH-client. Zie het document [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-## <a name="mahout-versioning"></a>Mahout-versiebeheer
+## <a name="apache-mahout-versioning"></a>Apache Mahout-versiebeheer
 
-Zie voor meer informatie over de versie van Mahout in HDInsight [HDInsight-versies en Hadoop-onderdelen](../hdinsight-component-versioning.md).
+Zie voor meer informatie over de versie van Mahout in HDInsight [HDInsight-versies en Apache Hadoop-onderdelen](../hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Informatie over aanbevelingen
 
@@ -47,7 +47,7 @@ De volgende werkstroom is een vereenvoudigd voorbeeld dat gebruikmaakt van filmg
 
 * **CO exemplaar**: Bob en Els ook beviel *de Phantom Menace*, *een aanval van het klonen*, en *Revenge van de Sith*. Mahout bepaalt dat gebruikers die de vorige drie films ook leuk vinden, zoals deze drie films.
 
-* **Gelijkenis aanbeveling**: omdat Jaap leuk vinden van de eerste drie films, Mahout kijkt naar films die anderen met vergelijkbare voorkeuren leuk vinden, maar Jaap niet heeft bekeken (leuk vinden/geclassificeerd). In dit geval Mahout raadt *de Phantom Menace*, *een aanval van het klonen*, en *Revenge van de Sith*.
+* **Gelijkenis aanbeveling**: Omdat Jaap leuk vinden van de eerste drie films, Mahout kijkt naar films die anderen met vergelijkbare voorkeuren leuk vinden, maar Jaap niet heeft bekeken (leuk vinden/geclassificeerd). In dit geval Mahout raadt *de Phantom Menace*, *een aanval van het klonen*, en *Revenge van de Sith*.
 
 ### <a name="understanding-the-data"></a>Wat zijn de gegevens?
 
@@ -59,8 +59,8 @@ De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ## <a name="run-the-analysis"></a>De analyse uitvoeren
@@ -71,7 +71,7 @@ Gebruik de volgende opdracht om uit te voeren van de taak aanbeveling van een SS
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > De taak duurt enkele minuten, en meerdere MapReduce-taken kunnen uitvoeren.
 
 ## <a name="view-the-output"></a>De uitvoer weergeven
@@ -188,7 +188,7 @@ Mahout taken verwijderen tijdelijke gegevens die zijn gemaakt tijdens het verwer
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > Als u wilt dat de opdracht opnieuw uitvoeren, moet u ook de uitvoermap verwijderen. Gebruik de volgende om deze map te verwijderen:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
@@ -198,8 +198,8 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 Nu dat u hebt geleerd hoe u een Mahout, Ontdek andere manieren van het werken met gegevens in HDInsight:
 
-* [Hive met HDInsight](hdinsight-use-hive.md)
-* [Pig met HDInsight](hdinsight-use-pig.md)
+* [Apache Hive met HDInsight](hdinsight-use-hive.md)
+* [Apache Pig met HDInsight](hdinsight-use-pig.md)
 * [MapReduce met HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: https://mahout.apache.org/developers/buildingmahout.html

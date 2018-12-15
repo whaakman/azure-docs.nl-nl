@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: f2bbcf0218291f91d3ee5b25e89a5f580e0c1c86
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105730"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413476"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -35,9 +35,9 @@ Net als vele andere services die webhooks ondersteunen, moet u eigenaar van de W
 
 Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger, moet de code van uw eindpunt om deel te nemen in een validatie-handshake met Event Grid. Event Grid ondersteunt twee manieren voor het valideren van het abonnement.
 
-1. **ValidationCode handshake (programmatisch)**: als u de broncode voor het eindpunt voor beheren, deze methode wordt aanbevolen. Op het moment van de event-abonnement maken verzendt Event Grid een gebeurtenis van de validatie van abonnement aan uw eindpunt. Het schema van deze gebeurtenis is vergelijkbaar met een andere Event Grid-gebeurtenis. Het gegevensgedeelte van deze gebeurtenis bevat een `validationCode` eigenschap. Uw toepassing gecontroleerd of de aanvraag voor de validatie voor een verwachte gebeurtenisabonnement, en kan de validatiecode naar Event Grid. Dit mechanisme handshake wordt ondersteund in alle versies van Event Grid.
+1. **ValidationCode handshake (programmatisch)**: Als u de broncode voor het eindpunt voor beheert, wordt deze methode wordt aanbevolen. Op het moment van de event-abonnement maken verzendt Event Grid een gebeurtenis van de validatie van abonnement aan uw eindpunt. Het schema van deze gebeurtenis is vergelijkbaar met een andere Event Grid-gebeurtenis. Het gegevensgedeelte van deze gebeurtenis bevat een `validationCode` eigenschap. Uw toepassing gecontroleerd of de aanvraag voor de validatie voor een verwachte gebeurtenisabonnement, en kan de validatiecode naar Event Grid. Dit mechanisme handshake wordt ondersteund in alle versies van Event Grid.
 
-2. **ValidationURL handshake (handmatig)**: In bepaalde gevallen, u geen toegang tot de broncode van het eindpunt voor het implementeren van de handshake ValidationCode. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), u via een programma kan niet reageren met de code voor validatie.
+2. **ValidationURL handshake (handmatig)**: In bepaalde gevallen geen u toegang tot de broncode van het eindpunt voor het implementeren van de handshake ValidationCode. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), u via een programma kan niet reageren met de code voor validatie.
 
    Beginnen met 2018-05-01-preview-versie, ondersteunt Event Grid een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement maakt met een SDK of een hulpprogramma dat gebruikmaakt van API-versie 2018-05-01-preview of hoger, Event Grid verzendt een `validationUrl` eigenschap in het gegevensgedeelte van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake vinden die URL in de gebeurtenisgegevens en handmatig een GET-aanvraag te verzenden. U kunt een REST-client of uw webbrowser.
 
@@ -46,7 +46,7 @@ Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger
 ### <a name="validation-details"></a>Validatiedetails
 
 * Event Grid berichten op het moment van gebeurtenis-abonnement maken/bijwerken, een abonnement validatiegebeurtenis naar het doel-eindpunt. 
-* De gebeurtenis bevat de waarde van een header ' aeg gebeurtenistype: SubscriptionValidation '.
+* De gebeurtenis bevat de waarde van een header ' aeg gebeurtenistype: SubscriptionValidation'.
 * De hoofdtekst van de gebeurtenis heeft hetzelfde schema als andere Event Grid-gebeurtenissen.
 * De eigenschap type gebeurtenis van de gebeurtenis is `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * De eigenschap gegevens van de gebeurtenis bevat een `validationCode` eigenschap met een willekeurige tekenreeks. Bijvoorbeeld, "validationCode: acb13... '.
@@ -79,6 +79,8 @@ Om te bewijzen dat eindpunt eigendom, echo wordt teruggestuurd de validatiecode 
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+U moet een HTTP 200 OK antwoordstatuscode retourneren. HTTP 202 geaccepteerd wordt niet herkend als een geldige Event Grid-abonnement validatie-antwoord.
 
 Of u kunt handmatig het abonnement valideren door een GET-aanvraag verzenden naar de URL van de validatie. Het gebeurtenisabonnement blijft in behandeling totdat gevalideerd.
 
@@ -271,7 +273,7 @@ Als u nodig hebt om op te geven van de machtigingen die verschillen van de ingeb
 
 Hieronder vindt u voorbeeld Event Grid roldefinities die toestaat dat gebruikers verschillende acties uitvoeren. Deze aangepaste rollen wijken af van de ingebouwde rollen, omdat ze uitgebreidere toegang dan alleen gebeurtenisabonnementen verlenen.
 
-**EventGridReadOnlyRole.json**: alleen kunnen alleen-lezen bewerkingen.
+**EventGridReadOnlyRole.json**: Alleen toestaan alleen-lezen bewerkingen.
 
 ```json
 {
@@ -290,7 +292,7 @@ Hieronder vindt u voorbeeld Event Grid roldefinities die toestaat dat gebruikers
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: toestaan, maar weigeren verwijderingsacties beperkte post-acties.
+**EventGridNoDeleteListKeysRole.json**: Beperkte post-acties voor toestaan, maar verwijderingsacties weigeren.
 
 ```json
 {
@@ -313,7 +315,7 @@ Hieronder vindt u voorbeeld Event Grid roldefinities die toestaat dat gebruikers
 }
 ```
 
-**EventGridContributorRole.json**: kunnen alle event grid-acties.
+**EventGridContributorRole.json**: Hiermee kunt alle acties voor event grid.
 
 ```json
 {

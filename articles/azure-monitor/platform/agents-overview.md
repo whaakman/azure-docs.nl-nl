@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 5726444033d8da14c213918f409ddf5875e026b9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322752"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438197"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Overzicht van de Azure monitoring-agents 
 Microsoft Azure biedt verschillende manieren voor het verzamelen van verschillende typen gegevens van virtuele machines met Microsoft Windows en Linux die worden gehost in Azure en uw datacenter of andere cloudproviders. De drie typen van de agents is beschikbaar voor het bewaken van een virtuele machine zijn:
@@ -44,7 +44,7 @@ U kunt kiezen voor het verzamelen van:
 De Azure Diagnostics-agent moet worden gebruikt wanneer u wilt:
 
 * Archiveren van Logboeken en metrische gegevens naar Azure storage
-* Bewakingsgegevens worden geïntegreerd met hulpprogramma's van derden. Deze hulpprogramma's gebruiken een aantal methoden, waaronder het uitvoeren van query's de storage-account, doorgestuurd naar [Event Hubs](../../event-hubs/event-hubs-about.md), of query's uitvoeren met de [REST-API voor Azure-bewaking](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+* Bewakingsgegevens worden geïntegreerd met hulpprogramma's van derden. Deze hulpprogramma's gebruiken een aantal methoden, waaronder het uitvoeren van query's de storage-account, doorgestuurd naar [Event Hubs](../../event-hubs/event-hubs-about.md), of query's uitvoeren met de [REST-API voor Azure-bewaking](../../azure-monitor/platform/rest-api-walkthrough.md)
 * Gegevens uploaden naar Azure Monitor om te grafieken met metrische gegevens maken in Azure portal of maak bijna-realtime [metrische waarschuwingen](../../azure-monitor/platform/alerts-metric-overview.md). 
 * De virtuele machine-schaalsets automatisch schalen en klassieke Cloudservices gebaseerd op OS metrische gegevens voor gasten.
 * VM-opstartproblemen met onderzoeken [diagnostische gegevens over opstarten](../../virtual-machines/troubleshooting/boot-diagnostics.md).

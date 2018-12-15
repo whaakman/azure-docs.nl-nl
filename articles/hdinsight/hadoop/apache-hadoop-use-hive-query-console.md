@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99cb1c4aed8e82afd819185d7acab88cdae6c418
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1e638bd348b7a5272dd8bfbe25aa841f38a51b9a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016790"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409697"
 ---
 # <a name="run-apache-hive-queries-using-the-query-console"></a>Apache Hive-query's uitvoeren met behulp van de Query-Console
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 In dit artikel leert u hoe u de Queryconsole van HDInsight met Apache Hive-query's uitvoeren op een HDInsight Hadoop-cluster in uw browser.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De Queryconsole van HDInsight is alleen beschikbaar op Windows gebaseerde HDInsight-clusters. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 >
-> Voor HDInsight 3.4 of hoger, Zie [uitvoeren Hive-query's in de Ambari Hive-weergave](apache-hadoop-use-hive-ambari-view.md) voor informatie over het uitvoeren van Hive-query's via een webbrowser.
+> Voor HDInsight 3.4 of hoger, Zie [uitvoeren Apache Hive-query's in de Ambari Hive-weergave](apache-hadoop-use-hive-ambari-view.md) voor informatie over het uitvoeren van Hive-query's via een webbrowser.
 
 ## <a id="prereq"></a>Vereisten
 Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende.
@@ -32,7 +32,7 @@ Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende.
 * Een HDInsight Hadoop op basis van een Windows-cluster
 * Een moderne webbrowser
 
-## <a id="run"></a> Uitvoeren van Hive-query's met behulp van de Query-Console
+## <a id="run"></a> Apache Hive-query's uitvoeren met behulp van de Query-Console
 1. Open een webbrowser en navigeer naar **https://CLUSTERNAME.azurehdinsight.net**, waarbij **CLUSTERNAME** is de naam van uw HDInsight-cluster. Als u hierom wordt gevraagd, voert u de gebruikersnaam en wachtwoord die u hebt gebruikt tijdens het maken van het cluster.
 2. Selecteer in de koppelingen aan de bovenkant van de pagina **Hive-Editor**. U ziet een formulier dat kan worden gebruikt voor het invoeren van de HiveQL-instructies die u wilt uitvoeren in het HDInsight-cluster.
 
@@ -49,20 +49,20 @@ Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende.
 
     Deze instructies uit uitvoeren de volgende acties:
 
-   * **DROP TABLE**: Hiermee verwijdert u de tabel en het gegevensbestand als de tabel al bestaat.
-   * **CREATE EXTERNAL TABLE**: maakt een nieuwe 'externe' tabel in Hive. Externe tabellen opslaan van de definitie van de tabel in Hive; de gegevens is achtergebleven in de oorspronkelijke locatie.
+   * **VERWIJDER TABEL**: Hiermee verwijdert u de tabel en het gegevensbestand als de tabel al bestaat.
+   * **CREATE EXTERNAL TABLE**: Maakt een nieuwe 'externe' tabel in Hive. Externe tabellen opslaan van de definitie van de tabel in Hive; de gegevens is achtergebleven in de oorspronkelijke locatie.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens worden bijgewerkt door een externe bron (zoals een geautomatiseerde upload-proces) of door een andere bewerking van MapReduce verwacht, maar u wilt dat altijd Hive-query's te gebruiken van de meest recente gegevens.
      >
      > Verwijderen van een externe tabel heeft **niet** de gegevens, alleen de definitie van de tabel verwijderen.
      >
      >
-   * **INDELING van de rij**: Hive-geeft aan hoe de gegevens zijn opgemaakt. In dit geval worden de velden in elk logboek gescheiden door een spatie.
-   * **OPGESLAGEN als TEXTFILE locatie**: Hive-geeft aan waar de gegevens zijn opgeslagen (de voorbeeldgegevens/map) en dat deze zijn opgeslagen als tekst
-   * **Selecteer**: Selecteer een telling van alle rijen waar kolom **t4** bevatten de waarde **[fout]**. Dit moet een retourwaarde van **3** omdat er drie rijen die deze waarde bevatten.
+   * **INDELING VAN DE RIJ**: Geeft aan hoe de gegevens zijn opgemaakt Hive. In dit geval worden de velden in elk logboek gescheiden door een spatie.
+   * **OPGESLAGEN ALS TEXTFILE LOCATIE**: Geeft aan waar de gegevens worden opgeslagen Hive (de voorbeeldgegevens/map) en dat deze wordt opgeslagen als tekst
+   * **SELECTEER**: Selecteer een telling van alle rijen waar kolom **t4** bevatten de waarde **[fout]**. Dit moet een retourwaarde van **3** omdat er drie rijen die deze waarde bevatten.
    * **INPUT__FILE__NAME, zoals '%.log'** -geeft aan dat we alleen gegevens uit bestanden hebben die eindigt op moet retourneren Hive. log. Dit beperkt de zoekopdracht tot het sample.log-bestand dat de gegevens bevat, en zorgt ervoor dat dit niet het retourneren van gegevens uit andere voorbeeld gegevensbestanden die niet overeenkomen met het schema dat wordt gedefinieerd.
-3. Klik op **indienen**. De **taak sessie** aan de onderkant van de pagina details voor de taak wordt weergegeven.
+3. Klik op **Indienen**. De **taak sessie** aan de onderkant van de pagina details voor de taak wordt weergegeven.
 4. Wanneer de **Status** veld **voltooid**, selecteer **Details weergeven** voor de taak. Op de pagina met details de **Taakuitvoer** bevat `[ERROR]    3`. U kunt de **downloaden** knop onder dit veld voor het downloaden van een bestand met de uitvoer van de taak.
 
 ## <a id="summary"></a>Samenvatting
@@ -73,17 +73,17 @@ Voor meer informatie over het gebruik van Hive-Query Console Hive-taken uit te v
 ## <a id="nextsteps"></a>Volgende stappen
 Voor algemene informatie over Hive in HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
 
 Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
 Als u met Hive Tez gebruikt, ziet u de volgende documenten voor foutopsporing van informatie:
 
-* [De Tez-gebruikersinterface gebruiken op HDInsight op basis van Windows](../hdinsight-debug-tez-ui.md)
-* [De weergave Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
+* [De Apache Tez-gebruikersinterface gebruiken op HDInsight op basis van Windows](../hdinsight-debug-tez-ui.md)
+* [De weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

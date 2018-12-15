@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.openlocfilehash: 1ea8fddf2b4e75abba38f011a271aada848a8cb5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192189"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433085"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor buiten gebruik stellen van klassieke implementatiemodel API's voor metrische gegevens en voor automatisch schalen
 
@@ -24,7 +24,7 @@ Dezelfde bewerkingen worden ondersteund via een set van Azure Resource Manager g
 
 Als u automatisch schalen via de Azure portal, beheert de [nieuwe SDK van Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI of Resource Manager-sjablonen, is geen actie nodig.  
 
-Als u metrische gegevens via de Azure-portal of via verschillende verbruikt [partner bewakingsservices](../../monitoring-and-diagnostics/monitoring-partners.md), is geen actie nodig. Microsoft werkt samen met partners om te migreren naar de nieuwe API's bewaken.
+Als u metrische gegevens via de Azure-portal of via verschillende verbruikt [partner bewakingsservices](../../azure-monitor/platform/partners.md), is geen actie nodig. Microsoft werkt samen met partners om te migreren naar de nieuwe API's bewaken.
 
 ## <a name="who-is-affected"></a>Die worden beïnvloed
 

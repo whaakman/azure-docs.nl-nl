@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 687ff4a7411113721b16636e1d11b30573e41642
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346185"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410258"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Migreren van Federatie naar wachtwoord-hashsynchronisatie voor Azure AD
 Het volgende document bevat richtlijnen over het verplaatsen van AD FS naar wachtwoord-hashsynchronisatie.
@@ -29,7 +29,7 @@ Het volgende document bevat richtlijnen over het verplaatsen van AD FS naar wach
 De volgende vereisten zijn vereist voordat u kunt migreren.
 ### <a name="update-azure-ad-connect"></a>Update van Azure AD Connect
 
-Als een minimum uit te voeren de stappen voor het migreren naar pass-through-verificatie, moet u hebben [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594.) 1.1.819.0. Deze versie bevat belangrijke wijzigingen aangebracht in de manier waarop aanmelden conversie wordt uitgevoerd en vermindert de totale tijd voor het migreren van Federatie naar Cloud-verificatie van mogelijk uren en minuten.
+Als een minimum uit te voeren de stappen voor het migreren naar pass-through-verificatie, moet u hebben [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. Deze versie bevat belangrijke wijzigingen aangebracht in de manier waarop aanmelden conversie wordt uitgevoerd en vermindert de totale tijd voor het migreren van Federatie naar Cloud-verificatie van mogelijk uren en minuten.
 
 > [!IMPORTANT]
 > Verouderde documentatie, hulpprogramma's en blogs aangeven dat de gebruikersconversie een vereiste stap is bij het converteren van domeinen van federatieve naar beheerde. Houd er rekening mee dat gebruikers converteren niet meer hoeft en Microsoft is bezig met bijwerken van de documentatie en hulpprogramma's om dit weer te geven.
@@ -82,7 +82,7 @@ Controleer of dat Federation is ingeschakeld en dat naadloze eenmalige aanmeldin
    
    3. In het scherm van uw oplossing controleren, noteer de synchronisatie van wachtwoord-status.</br> 
 
-   Als u wachtwoord-Hashsynchronisatie is momenteel ingesteld op uitgeschakeld, moet u de stappen in deze handleiding te kunnen. Als u wachtwoord-Hashsynchronisatie is momenteel ingesteld op ingeschakeld, kunt u veilig de sectie overslaan [stap 1: synchronisatie van Wachtwoordhashes inschakelen](#_Step_1_–) in deze handleiding.
+   Als u wachtwoord-Hashsynchronisatie is momenteel ingesteld op uitgeschakeld, moet u de stappen in deze handleiding te kunnen. Als u wachtwoord-Hashsynchronisatie is momenteel ingesteld op ingeschakeld, kunt u veilig de sectie overslaan [stap 1: synchronisatie van Wachtwoordhashes inschakelen](#step-1--enable-password-hash-synchronization) in deze handleiding.
    4. Schuif omlaag naar Active Directory Federation Services (AD FS) in het scherm voor uw oplossing controleren.</br>
  
    Als u ziet dat de AD FS-configuratie in deze sectie is en u veilig wordt ervan uitgegaan dat kunt AD FS oorspronkelijk is geconfigureerd met Azure AD Connect en kan daarom de conversie van uw domeinen uit die zijn gefedereerd met beheerde worden bepaald via de Azure AD Connect 'wijziging gebruiker aanmelden -in ' optie, dit proces wordt beschreven in de sectie **optie A - Switch van Federatie naar wachtwoord-Hashsynchronisatie met behulp van Azure AD Connect**.
@@ -132,10 +132,9 @@ Voordat u federatieve converteert naar beheerd, moet u nauw zoeken op hoe u AD F
 | Als| vervolgens |
 |-|-|
 | U wilt behouden van de AD FS voor deze andere toepassingen.| U gaat gebruiken zowel AD FS en Azure AD en moet rekening houden met de eindgebruikerservaring als gevolg hiervan. Gebruikers mogelijk om te verifiëren tweemaal in sommige scenario's, één keer naar Azure AD (waar ze krijgen eenmalige aanmelding en hoger voor andere toepassingen zoals Office 365) en opnieuw voor toepassingen nog steeds gekoppeld aan de AD FS als een relying party. |
-| AD FS is sterk gepersonaliseerde en vertrouwen op specifieke aanpassingsinstellingen in het bestand OnLoad.js die in Azure AD kan niet worden gedupliceerd 
-(bijvoorbeeld, u de aanmeldingsprocedure hebt gewijzigd, zodat gebruikers alleen SamAccountName-indeling voor hun gebruikersnaam in plaats van een UPN invoeren of een sterk merknaam hebben de aanmeldingsprocedure)| U moet controleren dat de aanpassingsvereisten van uw huidige kunnen worden voldaan door Azure AD voordat u doorgaat. Raadpleeg de huisstijl van AD FS en AD FS-aanpassing secties voor meer informatie over en richtlijnen.|
+| AD FS is sterk gepersonaliseerde en vertrouwen op specifieke aanpassingsinstellingen in het bestand OnLoad.js die in Azure AD kan niet worden gedupliceerd (bijvoorbeeld, u hebt gewijzigd de aanmeldingsprocedure zodat gebruikers alleen SamAccountName-indeling voor hun gebruikersnaam invoeren dus aan een UPN of hebben een sterk merknaam de aanmeldingsprocedure)| U moet controleren dat de aanpassingsvereisten van uw huidige kunnen worden voldaan door Azure AD voordat u doorgaat. Raadpleeg de huisstijl van AD FS en AD FS-aanpassing secties voor meer informatie over en richtlijnen.|
 | U blokkeren oudere verificatieclients via AD FS.| Houd rekening met het vervangen van de besturingselementen voor het blokkeren van oudere verificatieclients die momenteel aanwezig zijn op de AD FS met een combinatie van [voorwaardelijke toegang voor oudere verificatie besturingselementen](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) en [Exchange Online Client Access Regels](http://aka.ms/EXOCAR).|
-| U vereisen dat gebruikers MFA tegen een on-premises MFA-server-oplossing uitvoeren bij het verifiëren van de AD FS.| Kunt u zich niet aan het invoeren van een MFA-controle via de on-premises MFA-oplossing in de authenticatiestroom voor een beheerd domein, maar u de Azure MFA-service gebruiken kunt om dit te doen voortaan zodra het domein wordt geconverteerd. Als gebruikers Azure MFA niet momenteel gebruiken, wordt dit een eenmalige eindgebruikers registratiestap die u moet voorbereiden en communiceren aan uw eindgebruikers inhouden. |
+| U vereisen dat gebruikers MFA tegen een on-premises MFA-server-oplossing uitvoeren bij het verifiëren van de AD FS.| Kunt u zich niet aan het invoeren van een MFA-controle via de on-premises MFA-oplossing in de authenticatiestroom voor een beheerd domein, maar u de Azure MFA-service gebruiken kunt om dit te doen voortaan zodra het domein wordt geconverteerd. Als gebruikers Azure MFA niet momenteel gebruiken, wordt dit een eenmalige eindgebruikers registratiestap die u moet voorbereiden en communiceren aan uw eindgebruikers inhouden.|
 | U beleid voor toegangsbeheer (AuthZ-regels) momenteel gebruikt in AD FS voor het beheren van toegang tot Office 365.| Houd rekening met het vervangen van deze met de equivalente Azure AD [beleid voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) en [toegangsregels voor Exchange Online clients](http://aka.ms/EXOCAR).|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>Overwegingen voor de algemene AD FS-aanpassingen
@@ -298,7 +297,7 @@ Gebruik deze methode als uw AD FS is in eerste instantie geconfigureerd met behu
    7. Open de Azure AD-portal, selecteert u Azure Active Directory en selecteer vervolgens Azure AD Connect.
    8. Controleer of dat Federation tijdens naadloze eenmalige aanmelding is uitgeschakeld en Password Sync zijn ingeschakeld.  
   ![Afbeelding 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
-   9. Ga naar [testen en de volgende stappen](#_Next_Steps_and).
+   9. Ga naar [testen en de volgende stappen](#testing-and-next-steps).
    
    > [!IMPORTANT]
    > Overslaan de sectie optie B - Switch van Federatie naar wachtwoord-Hashsynchronisatie met Azure AD Connect en PowerShell als de stappen in deze sectie niet van toepassing.  
@@ -351,11 +350,14 @@ De conversie wordt uitgevoerd met behulp van de Azure AD PowerShell-Module.
 
    1. Open PowerShell en meld u aan bij Azure AD met behulp van een globale beheerdersaccount.  
    2. Als u wilt converteren van het eerste domein, moet u de volgende opdracht uitvoeren:  
+   
    ``` PowerShell
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
    ```
+   
    3. Open de Azure AD-portal, selecteert u Azure Active Directory en selecteer vervolgens Azure AD Connect.
    4. Controleer of dat het domein is geconverteerd naar beheerd door de volgende opdracht uit:
+   
    ``` PowerShell
    Get-MsolDomain -DomainName <domainname>
    ```
@@ -391,14 +393,14 @@ Vervolgens wordt de gebruiker ophalen omgeleid en bent aangemeld bij het toegang
 > [!NOTE]
 > Naadloze eenmalige aanmelding werkt op Office 365-services die ondersteuning biedt voor geheugensteun voor het domein (bijvoorbeeld myapps.microsoft.com/contoso.com). De Office 365-portal (portal.office.com) op dit moment biedt geen ondersteuning voor domeinhint en daarom is het waarschijnlijk dat gebruikers moeten hun UPN typt. Zodra een UPN die is opgegeven, naadloze eenmalige aanmelding op het Kerberos-ticket namens de gebruiker ophalen en melden ze in zonder een wachtwoord te typen. 
 
-> [!NOTE]
+> [!TIP]
 > Overweeg de implementatie van [hybride van Azure AD Join op Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) voor een verbeterde eenmalige aanmelding mogelijk.
 
 ### <a name="removal-of-the-relying-party-trust"></a>Het verwijderen van de relying party trust
 
 Nadat u hebt geverifieerd dat alle gebruikers en -clients is tijdens de verificatie via Azure AD, kan deze veilig verwijderen van de Office 365-vertrouwensrelatie van relying party worden beschouwd.
 
-Als AD FS niet wordt gebruikt voor andere doeleinden (andere Relying Party-vertrouwensrelaties zijn geconfigureerd), is het veilig zijn nu uit bedrijf nemen ADFS.
+Als AD FS niet wordt gebruikt voor andere doeleinden (andere Relying Party-vertrouwensrelaties zijn geconfigureerd), is het veilig om op te nemen van AD FS nu.
 
 ### <a name="rollback"></a>Ongedaan maken
 

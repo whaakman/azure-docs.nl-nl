@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 67d08379d98873fa88ef20b5cc8c87163c067e3a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310450"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409748"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Geavanceerd gebruik van verificatie en autorisatie in Azure App Service
 
@@ -29,11 +29,11 @@ Als u wilt snel aan de slag, ziet u een van de volgende zelfstudies:
 
 * [Zelfstudie: Verifiëren en autoriseren van gebruikers end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
 * [Zelfstudie: Verifiëren en autoriseren van gebruikers end-to-end in Azure App Service voor Linux](containers/tutorial-auth-aad.md)
-* [Uw app configureren voor aanmelding met Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Uw app configureren voor aanmelding met Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Uw app configureren voor aanmelding met Google](app-service-mobile-how-to-configure-google-authentication.md)
-* [Uw app configureren voor aanmelding met een Microsoft Account](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Uw app configureren voor aanmelding met Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [Uw app configureren voor aanmelding met Azure Active Directory](configure-authentication-provider-aad.md)
+* [Uw app configureren voor aanmelding met Facebook](configure-authentication-provider-facebook.md)
+* [Uw app configureren voor aanmelding met Google](configure-authentication-provider-google.md)
+* [Uw app configureren voor aanmelding met een Microsoft Account](configure-authentication-provider-microsoft.md)
+* [Uw app configureren voor aanmelding met Twitter](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Aanmelden-providers gebruiken
 
@@ -183,7 +183,7 @@ Wanneer het toegangstoken van de provider is verlopen, moet u de gebruiker verif
 - **Google**: Toevoeg-een `access_type=offline` query-tekenreeksparameter aan uw `/.auth/login/google` API-aanroep. Als u met behulp van de Mobile Apps SDK, kunt u de parameter toevoegen aan een van de `LogicAsync` overloads (Zie [Google vernieuwen Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Biedt geen vernieuwingstokens. Lange levensduur hebben tokens verlopen binnen 60 dagen (Zie [Facebook vervaldatum en -extensie van toegangstokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter-**: Toegangstokens niet verlopen (Zie [Twitter OAuth Veelgestelde vragen over het](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Microsoft-Account**: Wanneer [verificatie-instellingen voor Microsoft-Account configureren](app-service-mobile-how-to-configure-microsoft-authentication.md), selecteer de `wl.offline_access` bereik.
+- **Microsoft-Account**: Wanneer [verificatie-instellingen voor Microsoft-Account configureren](configure-authentication-provider-microsoft.md), selecteer de `wl.offline_access` bereik.
 - **Azure Active Directory**: In [ https://resources.azure.com ](https://resources.azure.com), de volgende stappen uit:
     1. Aan de bovenkant van de pagina, selecteer **lezen/schrijven**.
     1. Navigeer in de browser links naar **abonnementen** > **_\<abonnement\_naam_**   >  **resourceGroups** > _**\<resource\_groep\_naam >**_   >  **providers** > **Microsoft.Web** > **sites** > _**\<app \_naam >**_ > **config** > **authsettings**. 

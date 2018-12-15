@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016168"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409918"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage Shared Access Signatures gebruiken om u te beperken van toegang tot gegevens in HDInsight
 
 HDInsight heeft volledige toegang tot gegevens in de Azure Storage-accounts die zijn gekoppeld aan het cluster. U kunt handtekeningen voor gedeelde toegang gebruiken voor de blobcontainer toegang tot de gegevens te beperken. Shared Access Signatures (SAS) zijn een functie van Azure storage-accounts waarmee u toegang tot gegevens te beperken. Bijvoorbeeld, bieden alleen-lezen toegang tot gegevens.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Voor een oplossing met behulp van Apache Ranger, kunt u met behulp van aan domein gekoppelde HDInsight. Zie voor meer informatie de [configureren-domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md) document.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight moet hebben volledige toegang tot de standaardopslag voor het cluster.
 
 ## <a name="requirements"></a>Vereisten
@@ -34,9 +34,9 @@ HDInsight heeft volledige toegang tot gegevens in de Azure Storage-accounts die 
   * Visual Studio moet versie 2013, 2015 of 2017
   * Python moet 2.7 of hoger zijn
 
-* Een Linux gebaseerde HDInsight-cluster of [Azure PowerShell] [ powershell] -als u een bestaande op basis van Linux-cluster hebt, kunt u Ambari een handtekening voor gedeelde toegang toevoegen aan het cluster. Als dat niet het geval is, kunt u Azure PowerShell een cluster maken en toevoegen van een handtekening voor gedeelde toegang tijdens het maken van clusters.
+* Een Linux gebaseerde HDInsight-cluster of [Azure PowerShell] [ powershell] -als u een bestaande op basis van Linux-cluster hebt, kunt u Apache Ambari een handtekening voor gedeelde toegang toevoegen aan het cluster. Als dat niet het geval is, kunt u Azure PowerShell een cluster maken en toevoegen van een handtekening voor gedeelde toegang tijdens het maken van clusters.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Het voorbeeld van de bestanden van [ https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature ](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Deze bibliotheek bevat de volgende items:
@@ -49,9 +49,9 @@ HDInsight heeft volledige toegang tot gegevens in de Azure Storage-accounts die 
 
 Er zijn twee soorten handtekeningen voor gedeelde toegang:
 
-* Ad hoc: de begintijd, verlooptijd en machtigingen voor de SAS zijn alle opgegeven op de SAS-URI.
+* Ad hoc: De begintijd, verlooptijd en machtigingen voor de SAS zijn alle opgegeven op de SAS-URI.
 
-* Opgeslagen toegangsbeleid: een opgeslagen toegangsbeleid wordt gedefinieerd op een resourcecontainer, zoals een blob-container. Een beleid kan worden gebruikt voor het beheren van beperkingen voor een of meer handtekeningen voor gedeelde toegang. Wanneer u een SAS aan een opgeslagen toegangsbeleid koppelen, neemt de SA's over de beperkingen - de begintijd, verlooptijd en machtigingen - gedefinieerd voor de opgeslagen toegangsbeleid.
+* Opgeslagen toegangsbeleid: Een opgeslagen toegangsbeleid is gedefinieerd in een resourcecontainer, zoals een blob-container. Een beleid kan worden gebruikt voor het beheren van beperkingen voor een of meer handtekeningen voor gedeelde toegang. Wanneer u een SAS aan een opgeslagen toegangsbeleid koppelen, neemt de SA's over de beperkingen - de begintijd, verlooptijd en machtigingen - gedefinieerd voor de opgeslagen toegangsbeleid.
 
 Het verschil tussen de twee vormen is belangrijk voor een key-scenario: intrekken. Een SAS is een URL, zodat iedereen die de SAS verkrijgt, ongeacht wie deze begint met aangevraagd kunt gebruiken. Als een SAS openbaar is gepubliceerd, kan deze worden gebruikt door iedereen in de hele wereld. Een SAS die wordt gedistribueerd is geldig tot een van de vier dingen gebeurt:
 
@@ -66,7 +66,7 @@ Het verschil tussen de twee vormen is belangrijk voor een key-scenario: intrekke
 
 4. De sleutel die is gebruikt voor het maken van de SAS is gegenereerd. De sleutel opnieuw genereren zorgt ervoor dat alle toepassingen die gebruikmaken van de vorige sleutel verificatie moet mislukken. Alle onderdelen bijwerken naar de nieuwe sleutel.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Een shared access signature-URI is gekoppeld aan de accountsleutel die wordt gebruikt om de handtekening te maken en de bijbehorende opgeslagen toegangsbeleid (indien aanwezig). Als er geen opgeslagen toegangsbeleid wordt opgegeven, is de enige manier om een shared access signature intrekken om de accountsleutel te wijzigen.
 
 U wordt aangeraden dat u altijd opgeslagen toegangsbeleid gebruiken. Wanneer u beleid voor opgeslagen, kunt u handtekeningen intrekken of de vervaldatum naar wens uitbreiden. De stappen in dit document opgeslagen toegangsbeleid voor het genereren van SAS.
@@ -99,15 +99,15 @@ Zie voor meer informatie over handtekeningen voor gedeelde toegang [inzicht in h
 
 1. Open het bestand SASToken.py en wijzigt u de volgende waarden:
 
-   * beleid\_naam: de naam moet worden gebruikt voor het opgeslagen beleid te maken.
+   * beleid\_naam: De naam moet worden gebruikt voor het opgeslagen beleid te maken.
 
-   * opslag\_account\_naam: de naam van uw storage-account.
+   * opslag\_account\_naam: De naam van uw storage-account.
 
-   * opslag\_account\_sleutel: de sleutel voor het opslagaccount.
+   * opslag\_account\_sleutel: De sleutel voor het opslagaccount.
 
-   * opslag\_container\_naam: de container in het opslagaccount dat u wilt toegang te beperken.
+   * opslag\_container\_naam: De container in het opslagaccount dat u wilt toegang te beperken.
 
-   * voorbeeld\_bestand\_pad: het pad naar een bestand dat is geüpload naar de container.
+   * voorbeeld\_bestand\_pad: Het pad naar een bestand dat is geüpload naar de container.
 
 2. Voer het script uit. Wanneer het script is voltooid, wordt de SAS-token die vergelijkbaar is met de volgende tekst weergegeven:
 
@@ -177,7 +177,7 @@ Een voorbeeld van het maken van een HDInsight-cluster dat gebruik maakt van de S
 
     Als u een cluster op basis van Linux maakt, wordt u gevraagd om een SSH-gebruikersnaam voor account en wachtwoord. Dit account wordt gebruikt op afstand aan te melden het cluster.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Wanneer u hierom wordt gevraagd om de HTTP/s of SSH-gebruikersnaam en wachtwoord, moet u een wachtwoord dat voldoet aan de volgende criteria opgeven:
    >
    > * Ten minste 10 tekens lang moet zijn
@@ -200,7 +200,7 @@ Als u een bestaande op basis van Linux-cluster hebt, kunt u de SAS toevoegen de 
 4. Vouw de **aangepaste core-site** sectie en blader naar het einde en selecteer de **eigenschap toevoegen...**  koppeling. Gebruik de volgende waarden voor de **sleutel** en **waarde** velden:
 
    * **Sleutel**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **Waarde**: de SAS die wordt geretourneerd door de C# of Python-toepassing die u eerder hebt uitgevoerd
+   * **Waarde**: De SAS die wordt geretourneerd door de C# of Python-toepassing die u eerder hebt uitgevoerd
 
      Vervang **CONTAINERNAME** met de containernaam van de die u gebruikt met de C# of SAS-toepassing. Vervang **STORAGEACCOUNTNAME** met de opslagaccountnaam die u hebt gebruikt.
 
@@ -208,7 +208,7 @@ Als u een bestaande op basis van Linux-cluster hebt, kunt u de SAS toevoegen de 
 
     Klik op **OK** wanneer de wijzigingen zijn voltooid.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > U moet verschillende services opnieuw starten voordat de wijziging wordt van kracht.
 
 6. Selecteer in de Ambari-Webgebruikersinterface **HDFS** in de lijst aan de linkerkant en selecteer vervolgens **start opnieuw op alle betrokken** uit de **serviceacties** vervolgkeuzelijst aan de rechterkant. Wanneer u hierom wordt gevraagd, selecteert u __alle opnieuw starten bevestigen__.
@@ -277,7 +277,7 @@ Eenmaal verbinding hebben met het cluster, gebruikt u de volgende stappen uit om
 
 ### <a name="a-task-was-canceled"></a>Een taak is geannuleerd
 
-**Symptomen**: bij het maken van een cluster met behulp van het PowerShell-script, verschijnt de volgende strekking weergegeven:
+**Symptomen**: Bij het maken van een cluster met behulp van het PowerShell-script, wordt de volgende strekking weergegeven:
 
     New-AzureRmHDInsightCluster : A task was canceled.
     At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
@@ -286,9 +286,9 @@ Eenmaal verbinding hebben met het cluster, gebruikt u de volgende stappen uit om
         + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
-**Oorzaak**: deze fout kan optreden als u de SSH-gebruiker een wachtwoord voor de beheerder/HTTP-gebruiker voor het cluster, of (voor Linux gebaseerde clusters) gebruikt.
+**Oorzaak**: Deze fout kan optreden als u de SSH-gebruiker een wachtwoord voor de beheerder/HTTP-gebruiker voor het cluster, of (voor Linux gebaseerde clusters) gebruikt.
 
-**Resolutie**: wachtwoord gebruiken dat voldoet aan de volgende criteria:
+**Resolutie**: Gebruik een wachtwoord dat voldoet aan de volgende criteria:
 
 * Ten minste 10 tekens lang moet zijn
 * Moet ten minste één cijfer bevatten
@@ -299,8 +299,8 @@ Eenmaal verbinding hebben met het cluster, gebruikt u de volgende stappen uit om
 
 U hebt geleerd hoe u beperkte toegang opslag toevoegen aan uw HDInsight-cluster, informatie over andere manieren om te werken met gegevens in uw cluster:
 
-* [Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
-* [Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
+* [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
+* [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
 * [MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

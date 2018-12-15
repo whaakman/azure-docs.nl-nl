@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 8f43edfe468958bbc4a6fde14e8e03e5b4d4e0f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88aeaf1246583345d1d28218e8e91b3ecbcd166b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264136"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53429948"
 ---
 Organisaties hebben grootschalige computerbehoeften. Deze Big Compute-workloads omvatten technisch ontwerp en -analyse, berekeningen van financiële risico's, rendering van afbeeldingen, complexe modellering, Monte Carlo-simulaties en meer. 
 
@@ -86,7 +86,6 @@ Aangepaste of commerciële HPC-toepassingen uitvoeren in Azure. Enkele voorbeeld
 
 ### <a name="ai-and-deep-learning"></a>AI- en deep learning
 
-* [Batch AI](../articles/batch-ai/overview.md) training voor deep learning-modellen
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [Deep Learning VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Batch scheepswerf recepten voor deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -168,7 +167,6 @@ Virtuele Azure-machines, virtuele-machineschaalsets, Batch en gerelateerde compu
 
 ### <a name="ai-and-machine-learning"></a>AI + Machine Learning
 * [Machine Learning-Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Batch AI](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Netwerken

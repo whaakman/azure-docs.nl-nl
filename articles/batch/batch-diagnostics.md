@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 9e99e5f999c927ed0376a89b9f6d9f73fa8b2b2b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384170"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438435"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking
 
@@ -31,7 +31,7 @@ In dit artikel wordt uitgelegd hoe u voor het bewaken van een Batch-account met 
 
 Metrische gegevens zijn Azure telemetriegegevens (ook wel prestatiemeteritems) die door uw Azure-resources die worden verbruikt door de service Azure Monitor. Voorbeeld van de metrische gegevens in een Batch-account zijn onder andere: Groep maken van gebeurtenissen, aantal knooppunten met lage prioriteit en taak gebeurtenissen te voltooien. 
 
-Zie de [lijst van ondersteunde metrische gegevens voor Batch](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+Zie de [lijst van ondersteunde metrische gegevens voor Batch](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Metrische gegevens zijn:
 

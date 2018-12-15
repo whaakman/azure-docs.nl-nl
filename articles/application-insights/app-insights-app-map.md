@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d1c95802889c80baf79eaf0a0af1e30d6bc3fdfd
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3929e4d2a915e58922d26f6d4b81c7d3a4fc8afe
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322274"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434100"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren van gedistribueerde toepassingen
 
@@ -200,6 +200,8 @@ Als u problemen bij het ophalen van Toepassingsoverzicht ondervindt naar behoren
 3. Als u Azure Functions met C#, een upgrade uitvoeren naar [functies V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Controleer of [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) correct is geconfigureerd.
+
+5. Als u een afhankelijkheid ontbreekt, zorgt ervoor dat deze in de lijst met [automatisch verzamelde afhankelijkheden](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Als niet zo is, kunt u nog steeds volgen deze handmatig aan een [afhankelijkheidsaanroep bijhouden](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="portal-feedback"></a>Portal feedback
 Als u feedback wilt, gebruikt u de feedbackoptie van de portal.

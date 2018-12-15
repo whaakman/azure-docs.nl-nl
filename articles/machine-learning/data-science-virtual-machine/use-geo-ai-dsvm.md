@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: fd0b58d85631c437a71ad86b23e4d3a99965b331
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 872bfdfdef28dbb88861b723bd3186faea461cad
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100992"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410003"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Met behulp van de Geo kunstmatige intelligentie Data Science Virtual Machine
 
@@ -43,11 +43,11 @@ De R-brug en ArcGIS wordt geïnstalleerd als een R-bibliotheek met de naam [arcg
 Naast de ML en deep learning framework op basis van voorbeelden van de basis Data Science VM, is ook een reeks georuimtelijke voorbeelden beschikbaar als onderdeel van de Geo AI Data Science VM. Aan de hand van deze voorbeelden kunnen u snel het ontwikkelen van AI-toepassingen met behulp van georuimtelijke gegevens en de ArcGIS-software. 
 
 
-1. [Ophalen van vermeld met georuimtelijke analyses met Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): een inleidende voorbeeld waarin wordt getoond hoe om te werken met georuimtelijke gegevens met behulp van de Python-interface voor ArcGIS geleverd door de [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) bibliotheek. U ziet ook hoe u traditionele machine learning met georuimtelijke gegevens combineren en het resultaat op een kaart in ArcGIS visualiseren. 
+1. [Ophalen van vermeld met georuimtelijke analyses met Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Een inleidende voorbeeld waarin wordt getoond hoe om te werken met georuimtelijke gegevens met behulp van de Python-interface voor ArcGIS geleverd door de [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) bibliotheek. U ziet ook hoe u traditionele machine learning met georuimtelijke gegevens combineren en het resultaat op een kaart in ArcGIS visualiseren. 
 
-2. [Ophalen van vermeld met georuimtelijke analyses met R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): een inleidende voorbeeld over het werken met georuimtelijke gegevens met behulp van de R-interface voor ArcGIS geleverd door de [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) bibliotheek. 
+2. [Ophalen van vermeld met georuimtelijke analyses met R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Een inleidende voorbeeld over het werken met georuimtelijke gegevens met behulp van de R-interface voor ArcGIS geleverd door de [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) bibliotheek. 
 
-3. [Pixel-niveau land classificatie gebruiken](https://github.com/Azure/pixel_level_land_classification): een zelfstudie die laat zien over het maken van een deep neural network-model dat u een satelliet afbeelding als invoer accepteert en retourneert een land-cover-label. Voorbeelden van land-cover labels zijn "forested" of "water". Het model geretourneerd die een label voor elke pixel in de afbeelding. Het model is gebouwd met behulp van Microsoft open source [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) deep learning-frameworks. Het voorbeeld ziet u ook het schalen van de training over [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) en het modelvoorspellingen in ArcGIS Pro-software gebruiken. 
+3. [Pixel-niveau land classificatie gebruiken](https://github.com/Azure/pixel_level_land_classification): Een zelfstudie die laat zien over het maken van een deep neural network-model dat u een satelliet afbeelding als invoer accepteert en retourneert een land-cover-label. Voorbeelden van land-cover labels zijn "forested" of "water". Het model geretourneerd die een label voor elke pixel in de afbeelding. Het model is gebouwd met behulp van Microsoft open source [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) deep learning-frameworks. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

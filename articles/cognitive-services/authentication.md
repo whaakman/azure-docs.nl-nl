@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 8adff94a4cb536c3d8dbf7382b8acb69184030b5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325845"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435766"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Verifiëren van aanvragen voor Azure Cognitive Services
 
@@ -23,6 +23,10 @@ Elke aanvraag aan een Azure Cognitive Service moet een verificatieheader bevatte
 * [Verifiëren met een enkele service-abonnementssleutel](#authenticate-with-a-single-service-subscription-key)
 * [Verifiëren met een abonnementssleutel met meerdere service](#authenticate-with-a-multi-service-subscription-key)
 * [Verifiëren met een token](#authenticate-with-an-authentication-token)
+
+## <a name="prerequisites"></a>Vereisten
+
+Voordat u een aanvraag indienen, moet u een Azure-account en een Azure Cognitive Services-abonnement. Als u al een account hebt, gaat u verder en gaat u verder met de volgende sectie. Als u geen account hebt, hebben we een handleiding waarmee u binnen minuten opzet: [Een Cognitive Services-account maken voor Azure](cognitive-services-apis-create-account.md).
 
 ## <a name="authentication-headers"></a>Verificatieheaders
 

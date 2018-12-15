@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988481"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434882"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Logboeken beheren voor een HDInsight-cluster
 
@@ -24,13 +24,13 @@ Beheer van HDInsight-clusterlogboeken bevat informatie over alle aspecten van de
 
 Typische stappen in HDInsight logboekbeheer zijn:
 
-* Stap 1: Bepalen voor het bewaren van aanmelden
+* Stap 1: Het bewaarbeleid bepalen
 * Stap 2: Cluster-service versies configuratielogboeken beheren
 * Stap 3: Cluster-taak uitvoeren-logboekbestanden beheren
-* Stap 4: Prognose opslaggrootte van logboek volume en kosten
-* Stap 5: Bepalen logboek archiveren beleidsregels en -processen
+* Stap 4: Opslaggrootte van logboek volume en kosten voorspellen
+* Stap 5: Logboek archiveren beleid en de processen bepalen
 
-## <a name="step-1-determine-log-retention-policies"></a>Stap 1: Bepalen voor het bewaren van aanmelden
+## <a name="step-1-determine-log-retention-policies"></a>Stap 1: Het bewaarbeleid bepalen
 
 De eerste stap bij het maken van een HDInsight-cluster log managementstrategie is voor het verzamelen van informatie over het bedrijfsscenario's en vereisten geschiedenis taak kan worden uitgevoerd.
 
@@ -51,7 +51,7 @@ U kunt de meeste van deze op het hoogste niveau informatie met behulp van de Azu
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-U kunt ook PowerShell gebruiken om deze informatie weer te geven.  Zie voor meer informatie, [beheren van Hadoop-clusters in HDInsight met behulp van Azure PowerShell](hdinsight-administer-use-powershell.md).
+U kunt ook PowerShell gebruiken om deze informatie weer te geven.  Zie voor meer informatie, [Apache beheren van Hadoop-clusters in HDInsight met behulp van Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ### <a name="understand-the-workloads-running-on-your-clusters"></a>Inzicht in de werkbelasting die wordt uitgevoerd op uw clusters
 
@@ -69,9 +69,9 @@ Het is belangrijk om te begrijpen van het type workload die worden uitgevoerd op
 
 * Houd rekening met het verzamelen van Logboeken van het cluster, of van meer dan één cluster, en ze voor, zoals controle, bewaking, planning en waarschuwingen te sorteren. U kunt een aangepaste oplossing gebruiken om toegang tot en downloaden van de logboekbestanden op gezette tijden en combineren en analyseren voor een dashboard weer te geven. U kunt ook extra mogelijkheden voor waarschuwingen voor beveiligings- of foutdetectie toevoegen. U kunt deze hulpprogramma's met behulp van PowerShell, de HDInsight SDK's of de code die toegang heeft tot de klassieke Azure-implementatie-model kunt bouwen.
 
-* Overweeg of een controle-oplossing of service een handig voordeel zou zijn. De Microsoft System Center biedt een [HDInsight managementpack](https://www.microsoft.com/download/details.aspx?id=42521). U kunt ook hulpprogramma's van derden, zoals Chukwa en Ganglia gebruiken voor het verzamelen en logboeken te centraliseren. Veel bedrijven bieden services voor het bewaken van Hadoop gebaseerde big data-oplossingen, bijvoorbeeld Centerity, Compuware APM Sematext SPM en Zettaset Orchestrator.
+* Overweeg of een controle-oplossing of service een handig voordeel zou zijn. De Microsoft System Center biedt een [HDInsight managementpack](https://www.microsoft.com/download/details.aspx?id=42521). U kunt ook hulpprogramma's van derden, zoals Apache Chukwa en Ganglia gebruiken voor het verzamelen en logboeken te centraliseren. Veel bedrijven bieden aan services voor het bewaken van Hadoop gebaseerde big data-oplossingen, bijvoorbeeld: Centerity, Compuware APM, Sematext SPM en Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Stap 2: Cluster-versies beheren en weergeven van Script Action-Logboeken
+## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Stap 2: Versies van de cluster-service beheren en weergeven van Script Action-Logboeken
 
 Een typische HDInsight-cluster maakt gebruik van verschillende services en open-source-software-pakketten (zoals Apache HBase, Apache Spark, enzovoort). Voor sommige werkbelastingen, zoals bio-informatica, u mogelijk moet bewaren service configuration Logboekgeschiedenis naast uitvoeringslogboeken van taken.
 
@@ -91,7 +91,7 @@ U kunt de configuratie voor een (of alle) services worden uitgevoerd op een bepa
 
 HDInsight [scriptacties](hdinsight-hadoop-customize-cluster-linux.md) scripts uitvoeren op een cluster, hetzij handmatig, hetzij als opgegeven. Scriptacties kunnen bijvoorbeeld worden gebruikt voor het installeren van extra software op het cluster of om te wijzigen van configuratie-instellingen van de standaardwaarden. Actielogboeken script kunnen bieden inzicht in fouten die zijn opgetreden tijdens de installatie van het cluster, en wijzigingen van configuratie-instellingen die invloed kunnen zijn op de cluster-prestaties en beschikbaarheid.  De status van een scriptactie, selecteer de **ops** knop op uw Ambari UI of de toegang tot de status geregistreerd in het standaardopslagaccount. De opslaglogboeken van de zijn beschikbaar op `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
-## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Stap 3: De cluster-taak uitvoeren-logboekbestanden beheren
+## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Stap 3: Beheren van de cluster-taak uitvoeren-logboekbestanden
 
 De volgende stap met het controleren van de logboekbestanden van de taak kan worden uitgevoerd voor de verschillende services.  Services kunnen bevatten, Apache HBase, Apache Spark en vele andere. Een Hadoop-cluster maakt een groot aantal uitgebreide Logboeken, zodat waarmee wordt bepaald welke logboeken komen van pas (en die niet zijn) tijdrovend kan zijn.  Het aanmeldingssysteem is belangrijk voor het betreffende beheer van logboekbestanden.  Hier volgt een voorbeeld-logboekbestand.
 
@@ -136,7 +136,7 @@ De gebruikersinterface van YARN ResourceManager wordt uitgevoerd op het hoofdkno
 2. Selecteer in de lijst met services aan de linkerkant, YARN.
 3. Selecteer in de vervolgkeuzelijst snelkoppelingen op een van de hoofdknooppunten van het cluster en selecteer vervolgens **ResourceManager logboeken**. Krijgt u een lijst met koppelingen naar YARN-Logboeken.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Stap 4: Prognose opslaggrootte van logboek volume en kosten
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Stap 4: Opslaggrootte van logboek volume en kosten voorspellen
 
 Na het voltooien van de vorige stappen hebt u een goed begrip van de typen en de volumes van de logboekbestanden die uw HDInsight-cluster (s) zijn produceren.
 
@@ -144,7 +144,7 @@ Analyseer vervolgens het volume van logboekgegevens in belangrijke log opslagloc
 
 U hebt nu voldoende informatie voor het maken van een strategie voor het beheer van logboekbestanden voor de sleutel Logboeken.  Gebruik het werkblad (of het hulpprogramma naar keuze) om beide omvangtoename log prognose kosten voor Azure-service van opslag voortaan.  U kunt ook een logboekvereisten voor de bewaarperiode voor de set met Logboeken die u wilt controleren.  Nu kunt u toekomstige log kosten voor opslag, na het vaststellen van welke logboekbestanden kunnen worden verwijderd (indien aanwezig), en welke logboeken moeten worden bewaard en gearchiveerd naar minder dure opslag van Azure combineren.
 
-## <a name="step-5-determine-log-archive-policies-and-processes"></a>Stap 5: Bepalen logboek archiveren beleidsregels en -processen
+## <a name="step-5-determine-log-archive-policies-and-processes"></a>Stap 5: Logboek archiveren beleid en de processen bepalen
 
 Nadat u hebt vastgesteld welke logboekbestanden kunnen worden verwijderd, kunt u parameters op veel Hadoop-services automatisch logboekbestanden verwijderen na een opgegeven periode voor logboekregistratie kunt aanpassen.
 
@@ -177,5 +177,5 @@ Als u wilt de logboeken te verzamelen van alle knooppunten op één centrale loc
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Controle en logboekregistratie voor HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Toegang tot YARN-logboek op HDInsight op basis van Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Over het beheren van de grootte van logboekbestanden voor verschillende onderdelen van Hadoop](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)
+* [Toegang Apache Hadoop YARN-logboek op Linux gebaseerde HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Grootte van logboekbestanden voor verschillende Apache Hadoop-onderdelen beheren](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

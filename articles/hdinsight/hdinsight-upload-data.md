@@ -10,14 +10,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 08838fef472cd82f976579f70a4c6be33db9d009
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0adc8ad651989d198fecabf00d38fbdeb7cf3cd1
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017557"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407091"
 ---
-# <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Upload gegevens voor Hadoop-taken in HDInsight
+# <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Gegevens uploaden voor Apache Hadoop-taken in HDInsight
 
 Azure HDInsight biedt een volledig functionele Hadoop distributed file system (HDFS) ten opzichte van Azure Storage en Azure Data Lake Storage (Gen1 en Gen2). Azure Storage en Data lake Storage Gen1 en Gen2 zijn ontworpen als HDFS-uitbreidingen voor een naadloze ervaring bieden aan klanten. Hiermee kunt de volledige set onderdelen in het Hadoop-ecosysteem werkt rechtstreeks op de gegevens die deze beheert. Azure Storage, Data Lake Storage Gen1 en Gen2 zijn afzonderlijke bestandssystemen die zijn geoptimaliseerd voor opslag van gegevens en berekeningen kunt uitvoeren op die gegevens. Zie voor meer informatie over de voordelen van het gebruik van Azure Storage [Azure Storage gebruiken met HDInsight][hdinsight-storage], [met Data Lake Storage Gen1 met HDInsight](hdinsight-hadoop-use-data-lake-store.md) en [ Data Lake Storage Gen2 gebruiken met HDInsight](../storage/data-lake-storage/use-hdi-cluster.md).
 
@@ -44,7 +44,7 @@ Microsoft biedt de volgende hulpprogramma's om te werken met Azure Storage:
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop-opdracht](#commandline) |✔ |✔ |✔ |
 
-> [!NOTE]
+> [!NOTE]  
 > Hoewel de klassieke Azure-CLI, Azure PowerShell en AzCopy kunnen alle van buiten Azure worden gebruikt, is de Hadoop-opdracht alleen beschikbaar op het HDInsight-cluster. En de opdracht kan alleen gegevens uit het lokale bestandssysteem in Azure Storage te laden.
 >
 >
@@ -95,11 +95,11 @@ De klassieke Azure-CLI is een hulpprogramma voor meerdere platforms waarmee u vo
         azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
         ```
     
-> [!NOTE]
+> [!NOTE]  
 > Als u altijd met hetzelfde opslagaccount werkt, kunt u de volgende omgevingsvariabelen in plaats van het account op te geven en sleutel voor elke opdracht:
 >
-> * **AZURE\_opslag\_ACCOUNT**: naam van het opslagaccount
-> * **AZURE\_opslag\_toegang\_sleutel**: de opslagaccountsleutel
+> * **AZURE\_OPSLAG\_ACCOUNT**: Naam van het opslagaccount
+> * **AZURE\_OPSLAG\_TOEGANG\_SLEUTEL**: De opslagaccountsleutel
 >
 >
 
@@ -152,8 +152,8 @@ De opdrachtregel van Hadoop is alleen nuttig voor het opslaan van gegevens in Az
 
 Als u wilt de Hadoop-opdracht gebruiken, moet u eerst verbinding maken met het hoofdknooppunt met behulp van een van de volgende methoden:
 
-* **HDInsight op basis van Windows**: [verbinding maken met behulp van extern bureaublad](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight op basis van Linux**: verbinding maken met behulp van [SSH of PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **HDInsight op basis van Windows**: [Verbinding maken met behulp van extern bureaublad](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+* **HDInsight op basis van Linux**: Verbinding maken met behulp van [SSH of PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Eenmaal verbinding hebben, kunt u de volgende syntaxis voor het uploaden van een bestand naar de opslag.
 
@@ -173,8 +173,8 @@ of
 
 Zie voor een lijst met andere Hadoop-opdrachten die met bestanden werken [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
-> [!WARNING]
-> In HBase-clusters, de standaard blokgrootte gebruikt bij het schrijven van gegevens is 256 KB. Hoewel dit goed met HBase APIs's of REST-API's werkt, het gebruik van de `hadoop` of `hdfs dfs` opdrachten voor het schrijven van gegevens die groter zijn dan ~ 12 GB in een fout resulteert. Zie voor meer informatie de [uitzondering voor schrijven op blob storage](#storageexception) sectie in dit artikel.
+> [!WARNING]  
+> Op Apache HBase-clusters, de standaard blokgrootte gebruikt bij het schrijven van gegevens is 256 KB. Hoewel dit goed met HBase APIs's of REST-API's werkt, het gebruik van de `hadoop` of `hdfs dfs` opdrachten voor het schrijven van gegevens die groter zijn dan ~ 12 GB in een fout resulteert. Zie voor meer informatie de [uitzondering voor schrijven op blob storage](#storageexception) sectie in dit artikel.
 >
 >
 
@@ -196,7 +196,7 @@ Zie voor meer informatie, [door de gekoppelde resources navigeren](hadoop/apache
 #### <a id="storageexplorer"></a>Azure Storage Explorer
 *Azure Storage Explorer* een handig hulpmiddel voor het inspecteren en het wijzigen van de gegevens in blobs. Het is een gratis, open-source-hulpprogramma dat kan worden gedownload vanaf [ http://storageexplorer.com/ ](http://storageexplorer.com/). De broncode is beschikbaar via deze koppeling ook.
 
-Voordat u het hulpprogramma gebruikt, moet u uw Azure-opslag account naam en de accountsleutel weten. Zie voor instructies over het ophalen van deze informatie, de ' hoe: weergeven, kopiëren en opnieuw genereren opslag toegangssleutels "sectie van [maken, beheren of verwijderen van een storage-account][azure-create-storage-account].
+Voordat u het hulpprogramma gebruikt, moet u uw Azure-opslag account naam en de accountsleutel weten. Zie voor instructies over het ophalen van deze informatie, de ' hoe: Weergeven, kopiëren en opnieuw genereren opslag toegangssleutels"sectie van [maken, beheren of verwijderen van een storage-account][azure-create-storage-account].
 
 1. Azure Storage Explorer uitvoeren. Als dit de eerste keer dat u de Storage Explorer hebt uitgevoerd, wordt u gevraagd de **_qos-accountnaam** en **opslagaccountsleutel**. Als u eerder hebt uitgevoerd, gebruikt u de **toevoegen** knop een nieuwe storage-accountnaam en -sleutel toe te voegen.
 
@@ -243,7 +243,7 @@ Zie voor meer informatie over het installeren van de Azure SDK's [Azure download
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 #### <a id="storageexception"></a>Uitzondering voor schrijven op blob Storage
-**Symptomen**: bij het gebruik van de `hadoop` of `hdfs dfs` opdrachten voor het schrijven van bestanden die ~ 12 GB zijn of meer op een HBase-cluster, kunnen de volgende fout optreden:
+**Symptomen**: Bij het gebruik van de `hadoop` of `hdfs dfs` opdrachten voor het schrijven van bestanden die ~ 12 GB zijn of meer op een HBase-cluster, kunnen de volgende fout optreden:
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
     copyFromLocal: java.io.IOException
@@ -265,7 +265,7 @@ Zie voor meer informatie over het installeren van de Azure SDK's [Azure download
             at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
             ... 7 more
 
-**Oorzaak**: HBase op HDInsight clusters standaard naar een blokgrootte van 256 KB bij het schrijven naar Azure storage. Terwijl de Tool voor HBase APIs's of REST-API's werkt, leidt dit tot een fout opgetreden bij het gebruik van de `hadoop` of `hdfs dfs` opdrachtregelprogramma's.
+**Oorzaak**: HBase op HDInsight-clusters standaard naar een blokgrootte van 256KB bij het schrijven naar Azure storage. Terwijl de Tool voor HBase APIs's of REST-API's werkt, leidt dit tot een fout opgetreden bij het gebruik van de `hadoop` of `hdfs dfs` opdrachtregelprogramma's.
 
 **Resolutie**: Gebruik `fs.azure.write.request.size` om op te geven van een groter blok. U kunt dit doen op basis van per gebruik met behulp van de `-D` parameter. De volgende opdracht wordt een voorbeeld met behulp van deze parameter met de `hadoop` opdracht:
 
@@ -273,7 +273,7 @@ Zie voor meer informatie over het installeren van de Azure SDK's [Azure download
 hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
 ```
 
-U kunt ook de waarde van vergroten `fs.azure.write.request.size` wereldwijd met behulp van Ambari. De volgende stappen kunnen worden gebruikt om de waarde in de Ambari-Webgebruikersinterface te wijzigen:
+U kunt ook de waarde van vergroten `fs.azure.write.request.size` wereldwijd met behulp van Apache Ambari. De volgende stappen kunnen worden gebruikt om de waarde in de Ambari-Webgebruikersinterface te wijzigen:
 
 1. Ga in uw browser naar de Ambari-Webinterface voor uw cluster. Dit is https://CLUSTERNAME.azurehdinsight.net, waarbij **CLUSTERNAME** is de naam van uw cluster.
 
@@ -284,15 +284,15 @@ U kunt ook de waarde van vergroten `fs.azure.write.request.size` wereldwijd met 
 
 ![Afbeelding van het wijzigen van de waarde via Ambari-Webinterface](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
 
-Zie voor meer informatie over het gebruik van Ambari [beheren HDInsight-clusters met behulp van de Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
+Zie voor meer informatie over het gebruik van Ambari [beheren HDInsight-clusters met behulp van de Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u hoe u gegevens in HDInsight krijgt begrijpt, leest u de volgende artikelen voor meer informatie over analyses uitvoeren:
 
 * [Aan de slag met Azure HDInsight][hdinsight-get-started]
-* [Hadoop-taken indienen via een programma][hdinsight-submit-jobs]
-* [Hive gebruiken met HDInsight][hdinsight-use-hive]
-* [Pig gebruiken met HDInsight][hdinsight-use-pig]
+* [Programmatisch verzenden van Apache Hadoop-taken][hdinsight-submit-jobs]
+* [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
+* [Apache Pig gebruiken met HDInsight][hdinsight-use-pig]
 
 [azure-management-portal]: https://porta.azure.com
 [azure-powershell]: https://msdn.microsoft.com/library/windowsazure/jj152841.aspx

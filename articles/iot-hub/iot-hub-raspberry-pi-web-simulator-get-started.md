@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a2d067f71b7b68944e479cfd27c1dbf414762af8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 6844fb9b6e85e77ad9c7a869a989214fffd05ece
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514873"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438741"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Raspberry Pi online simulator verbinden met Azure IoT Hub (Node.js)
 
@@ -71,7 +71,7 @@ Er zijn drie gebieden in de websimulator.
    * **Vouw/uit te breiden** -aan de rechterkant is voor u het consolevenster vouwen/uitbreiden om een knop.
 
 > [!NOTE] 
-De Raspberry Pi-websimulator is nu beschikbaar in preview-versie. We willen graag horen uw in de [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). De broncode is openbare op [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+De Raspberry Pi-websimulator is nu beschikbaar in preview-versie. We willen graag horen uw in de [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). De broncode is openbare op [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Overzicht van Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
@@ -79,7 +79,7 @@ De Raspberry Pi-websimulator is nu beschikbaar in preview-versie. We willen graa
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 

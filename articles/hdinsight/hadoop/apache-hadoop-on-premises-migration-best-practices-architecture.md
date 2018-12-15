@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7558a853657e3e3764cd8e3faf6dd466e9ead35e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994158"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434000"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - architectuur van aanbevolen procedures
 
@@ -75,7 +75,9 @@ Compute-clusters dicht bij de storage-account-resources in een Azure-regio om te
 
 ## <a name="use-external-metadata-stores"></a>Externe metagegevensopslag gebruiken
 
+
 Er zijn twee belangrijkste metastores die met HDInsight-clusters werken: [Apache Hive](https://hive.apache.org/) en [Apache Oozie](https://oozie.apache.org/). Het Hive-metastore is de centrale schema-opslagplaats die kan worden gebruikt door gegevensverwerking-engines zoals Hadoop, Spark, LLAP, Presto en Apache Pig. De Oozie-metastore opgeslagen informatie over het plannen en de status van in uitvoering en voltooide Hadoop-taken.
+
 
 HDInsight maakt gebruik van Azure SQL Database voor Hive en Oozie metastores. Er zijn twee manieren voor het instellen van een metastore in HDInsight-clusters:
 

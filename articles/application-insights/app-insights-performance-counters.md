@@ -10,46 +10,52 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/11/2016
+ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: bcfb3a52793ba0daca980564d5d2248629b5caf4
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: feb2e2f9f36ab20c0b96fab9432df41faf4f9569
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323009"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407929"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systeemprestatiemeteritems in Application Insights
-Windows biedt een groot aantal verschillende [prestatiemeteritems](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , zoals CPU-bezetting, geheugen, schijf en netwerkgebruik. U kunt ook uw eigen links definiëren. [Application Insights](app-insights-overview.md) weergeven van deze prestatiemeteritems als uw toepassing onder IIS wordt uitgevoerd op een on-premises-host of virtuele machine waarop u beheerderstoegang hebben. De grafieken geven van de beschikbare resources voor uw live-toepassing en helpen bij het identificeren van niet-gebalanceerde load tussen exemplaren van de server.
 
-Prestatiemeteritems worden weergegeven in de blade Servers, waaronder een tabel die segmenten van server-exemplaar.
-
-![Prestatiemeteritems die zijn gerapporteerd in Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
-
-(Prestatiemeteritems zijn niet beschikbaar voor Azure Web Apps. Maar u kunt de [Azure diagnostische gegevens verzenden naar Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).)
+Windows biedt een groot aantal verschillende [prestatiemeteritems](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) , zoals CPU-bezetting, geheugen, schijf en netwerkgebruik. U kunt ook uw eigen prestatiemeteritems definiëren. Als uw toepassing wordt uitgevoerd onder IIS op een on-premises-host of virtuele machine waarop u beheerderstoegang hebben.
 
 ## <a name="view-counters"></a>Items weergeven
-De blade Servers wordt een standaardset prestatiemeteritems. 
 
-Als u wilt zien van andere items, op de grafieken op de blade Servers bewerken of open een nieuw [Metrics Explorer](app-insights-metrics-explorer.md) blade en toevoegen van nieuwe grafieken. 
+Het deelvenster metrische gegevens bevat de standaardset van prestatiemeteritems.
 
-De beschikbare items worden weergegeven als de metrische gegevens over wanneer u een grafiek bewerken.
+![Prestatiemeteritems die zijn gerapporteerd in Application Insights](./media/app-insights-performance-counters/performance-counters.png)
 
-![Prestatiemeteritems die zijn gerapporteerd in Application Insights](./media/app-insights-performance-counters/choose-performance-counters.png)
+De huidige standaard prestatiemeteritems die worden verzameld voor .NET-webtoepassingen maken:
+
+         - % Process\\Processor Time
+         - % Process\\Processor Time Normalized
+         - Memory\\Available Bytes
+         - ASP.NET Requests/Sec
+         - .NET CLR Exceptions Thrown / sec
+         - ASP.NET ApplicationsRequest Execution Time
+         - Process\\Private Bytes
+         - Process\\IO Data Bytes/sec
+         - ASP.NET Applications\\Requests In Application Queue
+         - Processor(_Total)\\% Processor Time
 
 Als u wilt zien van de handigste grafieken op één plek, maakt u een [dashboard](app-insights-dashboards.md) en deze vastmaken aan het.
 
 ## <a name="add-counters"></a>Items toevoegen
-Als het prestatiemeteritem dat u wilt dat niet wordt weergegeven in de lijst met metrische gegevens, wordt dat komt doordat de Application Insights-SDK wordt niet verzamelen in uw webserver. U kunt configureren dat deze om dit te doen.
 
-1. Ontdek welke items beschikbaar in de server zijn met behulp van deze PowerShell-opdracht op de server:
+Als het prestatiemeteritem dat u wilt dat niet is opgenomen in de lijst met metrische gegevens, kunt u deze kunt toevoegen.
+
+1. Ontdek welke items beschikbaar in de server zijn met behulp van deze PowerShell-opdracht op de lokale server:
    
     `Get-Counter -ListSet *`
    
     (Zie [ `Get-Counter` ](https://technet.microsoft.com/library/hh849685.aspx).)
 2. Open ApplicationInsights.config.
    
-   * Als u Application Insights aan uw app toegevoegd tijdens de ontwikkeling, bewerk ApplicationInsights.config in uw project en vervolgens opnieuw op uw servers implementeert.
+   * Als u Application Insights aan uw app toegevoegd tijdens de ontwikkeling, bewerk ApplicationInsights.config in uw project en vervolgens opnieuw te op uw servers implementeren.
    * Als u Status Monitor naar een web-app tijdens runtime instrumenteren gebruikt, moet u ApplicationInsights.config vinden in de hoofdmap van de app in IIS. Deze er op elke server-exemplaar bijwerken.
 3. De richtlijn van de collector prestaties bewerken:
    
@@ -64,7 +70,7 @@ Als het prestatiemeteritem dat u wilt dat niet wordt weergegeven in de lijst met
 
 ```
 
-U kunt vastleggen zowel standard tellers en die dat u zelf hebt geïmplementeerd. `\Objects\Processes` is een voorbeeld van een standard prestatiemeteritem beschikbaar is op alle Windows-systemen. `\Sales(photo)\# Items Sold` is een voorbeeld van een aangepaste teller die kan worden geïmplementeerd in een webservice. 
+U kunt vastleggen zowel standard tellers en die dat u zelf hebt geïmplementeerd. `\Objects\Processes` is een voorbeeld van een standard-teller die beschikbaar is op alle Windows-systemen. `\Sales(photo)\# Items Sold` is een voorbeeld van een aangepaste teller die kan worden geïmplementeerd in een webservice. 
 
 De indeling is `\Category(instance)\Counter"`, of alleen voor categorieën waarvoor geen instanties, `\Category\Counter`.
 
@@ -99,7 +105,7 @@ De **performanceCounters** schema wordt aangegeven dat de `category`, `counter` 
 
 ![Prestatiemeteritems in Application Insights analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
 
-('Instantie' verwijst hier naar het exemplaar van prestatiemeteritem, niet de functie of exemplaar van de machine. De naam exemplaar Prestatiemeter doorgaans segmenten items zoals processortijd door de naam van het proces of de toepassing.)
+('Instance' Hier verwijst naar het exemplaar van prestatiemeteritem, niet de rol of server-machine-exemplaar. De naam exemplaar Prestatiemeter doorgaans segmenten items zoals processortijd door de naam van het proces of de toepassing.)
 
 Een grafiek van het beschikbare geheugen in de recente periode ophalen: 
 
@@ -113,13 +119,14 @@ Andere telemetrie, zoals **performanceCounters** heeft ook een kolom `cloud_Role
 *Wat is het verschil tussen het aantal uitzonderingen en uitzonderingen metrische gegevens?*
 
 * *Aantal uitzonderingen* is van een prestatiemeteritem system. De CLR telt alle de verwerkte en onverwerkte uitzonderingen die worden gegenereerd en de totale in een interval van steekproeven worden gedeeld door de lengte van het interval. De Application Insights SDK dit resultaat verzamelt en verzendt ze naar de portal.
+
 * *Uitzonderingen* is een telling van de TrackException-rapporten ontvangen door de portal in het controle-interval van de grafiek. Het bevat alleen de verwerkte uitzonderingen waar u TrackException aanroepen in uw code en bevat geen alle hebt geschreven [onverwerkte uitzonderingen](app-insights-asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Prestatiemeteritems in Asp.Net Core-toepassingen
+## <a name="performance-counters-in-aspnet-core-applications"></a>Prestatiemeteritems in ASP.Net Core-toepassingen
 Prestatiemeteritems worden alleen ondersteund als de toepassing is die gericht is op het volledige .NET Framework. Er is geen mogelijkheid voor het verzamelen van prestatiemeteritems voor .net Core-toepassingen.
 
 ## <a name="alerts"></a>Waarschuwingen
-Net als andere metrische gegevens, kunt u [een melding instellen](app-insights-alerts.md) om u te waarschuwen als een prestatiemeteritem gaat buiten een grens die u opgeeft. Open de blade waarschuwingen en klikt u op een waarschuwing toevoegen.
+Net als andere metrische gegevens, kunt u [een melding instellen](app-insights-alerts.md) om u te waarschuwen als een prestatiemeteritem gaat buiten een grens die u opgeeft. Open het deelvenster waarschuwingen en klik op waarschuwing toevoegen.
 
 ## <a name="next"></a>Volgende stappen
 * [Bijhouden van afhankelijkheid](app-insights-asp-net-dependencies.md)

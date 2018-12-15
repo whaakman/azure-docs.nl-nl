@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: c0f384dafc4ba30eb3e735ee17ae051245378135
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f580c78fa2114905a0ef28f51feee50361717a27
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254986"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435324"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samenwerking uitnodiging inwisselen
 
@@ -52,6 +52,12 @@ Nadat een gastgebruiker zich heeft aangemeld voor toegang tot resources in een p
 ![Schermopname van gebruikersinstellingen in Toegangsvenster](media/redemption-experience/ConsentScreen.png) 
 
 Zie voor meer informatie over hoe u als tenantbeheerder aan de privacyverklaring van uw organisatie koppelen kunt [procedures: Privacy-informatie van uw organisatie toevoegen in Azure Active Directory](https://aka.ms/adprivacystatement).
+
+## <a name="terms-of-use"></a>Gebruiksvoorwaarden
+
+U kunt gebruiksvoorwaarden presenteren aan de gastgebruiker tijdens de initiële inschrijving met behulp van de Azure AD-voorwaarden van functie gebruiken. In Azure Active Directory, opent u deze functie onder **beheren** > **organisatie relaties** > **gebruiksvoorwaarden** of onder **Security** > **voorwaardelijke toegang** > **gebruiksvoorwaarden**. Zie voor meer informatie, [Azure AD gebruiksrechtovereenkomst gebruik functie](../governance/active-directory-tou.md).
+
+![Schermafbeelding van de nieuwe gebruiksvoorwaarden](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
 

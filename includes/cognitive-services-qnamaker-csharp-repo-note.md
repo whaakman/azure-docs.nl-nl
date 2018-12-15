@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 663cef3c4c87ce6e260c228994dbb3094b882a86
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 09384bfdf6d968ddbd74860fc6d1481ff04c190f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045169"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438996"
 ---
 > [!NOTE] 
-> Het bestand of de bestanden van de volledige oplossing zijn beschikbaar in de Github-opslagplaats [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
+> De volledige oplossing-bestanden zijn beschikbaar via de [ **Azure-Samples/cognitieve-services-qnamaker-csharp** GitHub-opslagplaats](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).

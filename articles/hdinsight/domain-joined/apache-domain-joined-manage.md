@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4df96d0c3d1ec9cb64f2394fb97d46178906d916
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634461"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434814"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>HDInsight-clusters met Enterprise-beveiligingspakket beheren
 Meer informatie over de gebruikers en de rollen in HDInsight Enterprise Security Package (ESP) en het beheren van ESP-clusters.
@@ -22,7 +22,7 @@ Meer informatie over de gebruikers en de rollen in HDInsight Enterprise Security
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Gebruik VSCode om een koppeling te maken met een cluster dat aan een domein is toegevoegd
 
 U kunt koppelen van een normale cluster met behulp van Apache Ambari beheerd gebruikersnaam, een security Apache Hadoop-cluster ook een koppeling maken met domeingebruikersnaam (bijvoorbeeld: user1@contoso.com).
-1. Open het opdrachtenpalet door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: koppeling van een cluster**.
+1. Open het opdrachtenpalet door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: Koppeling van een cluster**.
 
    ![de opdracht cluster koppelen](./media/apache-domain-joined-manage/link-cluster-command.png)
 
@@ -30,14 +30,14 @@ U kunt koppelen van een normale cluster met behulp van Apache Ambari beheerd geb
    
    ![dialoogvenster van de cluster koppelen](./media/apache-domain-joined-manage/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > De gekoppelde gebruikersnaam en wachtwoord worden gebruikt als het cluster zowel geregistreerd in Azure-abonnement en een cluster is gekoppeld. 
    
 3. Ziet u een gekoppelde cluster met behulp van de opdracht **lijst cluster**. U kunt nu een script voor dit cluster gekoppelde indienen.
 
    ![gekoppelde cluster](./media/apache-domain-joined-manage/linked-cluster.png)
 
-4. U kunt een cluster ook ontkoppelen door invoeren **HDInsight: ontkoppelen van een cluster** van opdrachtenpalet.
+4. U kunt een cluster ook ontkoppelen door invoeren **HDInsight: Ontkoppelen van een cluster** van opdrachtenpalet.
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Gebruik IntelliJ om een koppeling te maken met een cluster dat aan een domein is toegevoegd
 
@@ -50,7 +50,7 @@ U kunt een normale cluster koppelen met behulp van Ambari beheerd gebruikersnaam
    
    ![dialoogvenster van de cluster koppelen](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > We gebruiken de sleutel van een gekoppeld opslagaccount, gebruikersnaam en wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster is gekoppeld.
    > ![Opslagverkenner in IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
 
@@ -74,7 +74,7 @@ U kunt een normale cluster koppelen met behulp van Ambari beheerd gebruikersnaam
    
    ![dialoogvenster van de cluster koppelen](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > We gebruiken de sleutel van een gekoppeld opslagaccount, gebruikersnaam en wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster is gekoppeld.
    > ![Opslagverkenner in Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
 
@@ -94,13 +94,13 @@ Beveiligings- en isolatie zijn belangrijk voor een HDInsight-cluster met Enterpr
 
 |Workload|Scenario|Toegangsmethode|
 |--------|--------|-------------|
-|Hadoop|Hive-interactieve taken/query 's |<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC-/ JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|Interactieve taken/query's, interactieve PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin met Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC-/ JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|Batch-scenario's, Spark-submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Apache Hadoop|Hive-interactieve taken/query 's  |<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC-/ JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Interactieve taken/query's, interactieve PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin met Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC-/ JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Batch-scenario's, Spark-submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
 |Interactive Query (LLAP)|Interactief|<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC-/ JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Alle|Aangepaste toepassing installeren|<ul><li>[Scriptacties](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
-   > [!NOTE]
+   > [!NOTE]  
    > Jupyter is niet geïnstalleerd/ondersteund in Enterprise-beveiligingspakket.
 
 Met de standaard-API's kunt u vanuit het beveiligingsperspectief van. Bovendien krijgt u de volgende voordelen:
@@ -143,12 +143,12 @@ Als u zoekt de volledig gekwalificeerde domeinnaam van een hoofdknooppunt, gebru
 ## <a name="users-of-hdinsight-clusters-with-esp"></a>Gebruikers van HDInsight-clusters met ESP
 Een ESP HDInsight-cluster bevat twee gebruikersaccounts die zijn gemaakt tijdens het maken van een cluster:
 
-* **Ambari-beheerder**: dit account wordt ook wel bekend als *Hadoop-gebruiker* of *HTTP-gebruiker*. Dit account kan worden gebruikt voor aanmelding bij de Ambari op https://&lt;clustername >. azurehdinsight.net. Het kan ook worden gebruikt voor query's uitvoeren op de Ambari-weergaven, taken via externe hulpprogramma's (bijvoorbeeld, PowerShell, Templeton, Visual Studio) uitvoeren en verificatie met het Hive ODBC-stuurprogramma en BI-hulpprogramma's (bijvoorbeeld Excel, Power BI en Tableau).
+* **Ambari-beheerder**: Dit account wordt ook wel bekend als *Hadoop-gebruiker* of *HTTP-gebruiker*. Dit account kan worden gebruikt voor aanmelding bij de Ambari op https://&lt;clustername >. azurehdinsight.net. Het kan ook worden gebruikt voor query's uitvoeren op de Ambari-weergaven, taken via externe hulpprogramma's (bijvoorbeeld, PowerShell, Templeton, Visual Studio) uitvoeren en verificatie met het Hive ODBC-stuurprogramma en BI-hulpprogramma's (bijvoorbeeld Excel, Power BI en Tableau).
 
 Een HDInsight-cluster met ESP heeft drie nieuwe gebruikers naast Ambari Admin.
 
-* **Ranger admin**: dit account is het lokale beheerdersaccount van Apache Ranger. Het is niet een active directory-domeingebruiker. Dit account kan worden gebruikt voor het instellen van beleid en andere gebruikers beheerders of gedelegeerde beheerders maken (zodat deze gebruikers beleidsregels beheren kunnen). De gebruikersnaam is standaard *admin* en het wachtwoord is hetzelfde als de Ambari-beheerderswachtwoord. Het wachtwoord kan worden bijgewerkt via de pagina instellingen in Ranger.
-* **Gebruiker met beheerdersrechten domein cluster**: dit account is een active directory-domeingebruiker aangemerkt als de beheerder van Hadoop-cluster zoals Ambari en Ranger. Tijdens het maken, moet u de referenties van deze gebruiker opgeven. Deze gebruiker heeft de volgende bevoegdheden:
+* **Ranger admin**:  Dit account is het lokale beheerdersaccount van Apache Ranger. Het is niet een active directory-domeingebruiker. Dit account kan worden gebruikt voor het instellen van beleid en andere gebruikers beheerders of gedelegeerde beheerders maken (zodat deze gebruikers beleidsregels beheren kunnen). De gebruikersnaam is standaard *admin* en het wachtwoord is hetzelfde als de Ambari-beheerderswachtwoord. Het wachtwoord kan worden bijgewerkt via de pagina instellingen in Ranger.
+* **Gebruiker met beheerdersrechten domein cluster**: Dit account is een active directory-domeingebruiker aangemerkt als de beheerder van Hadoop-cluster zoals Ambari en Ranger. Tijdens het maken, moet u de referenties van deze gebruiker opgeven. Deze gebruiker heeft de volgende bevoegdheden:
 
   * Computers toevoegen aan het domein en plaats deze in de organisatie-eenheid die u tijdens het maken van clusters opgeeft.
   * Service-principals binnen de organisatie-eenheid die u tijdens het maken van een cluster opgeeft maken.
@@ -157,7 +157,7 @@ Een HDInsight-cluster met ESP heeft drie nieuwe gebruikers naast Ambari Admin.
     Houd er rekening mee dat de andere AD-gebruikers hebben ook deze bevoegdheden.
 
     Er zijn enkele eindpunten binnen het cluster (bijvoorbeeld Templeton) die niet worden beheerd door Ranger, en daarom zijn niet beveiligd. Deze eindpunten zijn vergrendeld voor alle gebruikers, met uitzondering van het hulpprogramma voor het domein van de cluster-beheerder.
-* **Reguliere**: tijdens het maken van een cluster, kunt u meerdere active directory-groepen opgeven. De gebruikers in deze groepen worden gesynchroniseerd met Ranger en Ambari. Deze gebruikers zijn van gebruikers van een domein en toegang hebben tot alleen Ranger-beheerde eindpunten (bijvoorbeeld Hiveserver2). Alle RBAC-beleidsregels en -controle is van toepassing zijn op deze gebruikers.
+* **Reguliere**: Tijdens het maken van een cluster, kunt u meerdere active directory-groepen opgeven. De gebruikers in deze groepen worden gesynchroniseerd met Ranger en Ambari. Deze gebruikers zijn van gebruikers van een domein en toegang hebben tot alleen Ranger-beheerde eindpunten (bijvoorbeeld Hiveserver2). Alle RBAC-beleidsregels en -controle is van toepassing zijn op deze gebruikers.
 
 ## <a name="roles-of-hdinsight-clusters-with-esp"></a>Functies van HDInsight-clusters met ESP
 HDInsight Enterprise-beveiligingspakket heeft de volgende rollen:
@@ -223,4 +223,4 @@ HDInsight Enterprise-beveiligingspakket heeft de volgende rollen:
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor een HDInsight-cluster configureren met Enterprise-beveiligingspakket, [configureren HDInsight-clusters met ESP](apache-domain-joined-configure.md).
-* Zie voor het configureren van Hive-beleid en Hive-query's uitvoeren, [configureren Hive-beleid voor HDInsight-clusters met ESP](apache-domain-joined-run-hive.md).
+* Zie voor het configureren van Hive-beleid en Hive-query's uitvoeren, [configureren Apache Hive-beleid voor HDInsight-clusters met ESP](apache-domain-joined-run-hive.md).

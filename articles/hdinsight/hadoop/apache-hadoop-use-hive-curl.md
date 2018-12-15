@@ -9,36 +9,36 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 637ce81f2e2ef4c7271e26bd4e9dfe36da524e27
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c5bf69a2ac6a70410339a5696da53169ca87170f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012739"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407215"
 ---
-# <a name="run-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Hive-query's uitvoeren met Apache Hadoop in HDInsight met behulp van REST
+# <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Apache Hive-query's uitvoeren met Apache Hadoop in HDInsight met behulp van REST
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Leer hoe u de WebHCat REST-API gebruiken om het Hive-query's uitvoeren met Apache Hadoop op Azure HDInsight-cluster.
+Informatie over het gebruik van de REST-API van WebHCat Apache Hive-query's uitvoeren met Apache Hadoop op Azure HDInsight-cluster.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een op Linux gebaseerde Hadoop op HDInsight-clusterversie 3.4 of hoger.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Een REST-client. Dit document maakt gebruik van Windows PowerShell en [Curl](https://curl.haxx.se/) voorbeelden.
 
-    > [!NOTE]
-    > Azure PowerShell biedt toegewezen cmdlets voor het werken met Hive in HDInsight. Zie voor meer informatie de [Hive gebruiken met Azure PowerShell](apache-hadoop-use-hive-powershell.md) document.
+    > [!NOTE]  
+    > Azure PowerShell biedt toegewezen cmdlets voor het werken met Hive in HDInsight. Zie voor meer informatie de [Apache Hive gebruiken met Azure PowerShell](apache-hadoop-use-hive-powershell.md) document.
 
 Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.github.io/jq/) de JSON-gegevens geretourneerd door de REST-aanvragen verwerken.
 
 ## <a id="curl"></a>Een Hive-query uitvoeren
 
-> [!NOTE]
+> [!NOTE]  
 > Wanneer u cURL of een andere REST-communicatie met WebHCat, moet u de aanvragen verifiëren door te geven van de gebruikersnaam en het wachtwoord voor de beheerder van de HDInsight-cluster.
 >
 > De REST API is beveiligd via [basisverificatie](https://en.wikipedia.org/wiki/Basic_access_authentication). Om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server, moet u aanvragen altijd uitvoeren via HTTP Secure (HTTPS).
@@ -135,7 +135,7 @@ Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.g
    * `DROP TABLE` -Als de tabel al bestaat, wordt deze verwijderd.
    * `CREATE EXTERNAL TABLE` -Maakt een nieuwe 'externe' tabel in Hive. Externe tabellen worden alleen de definitie van de tabel in Hive opslaan. De gegevens is achtergebleven in de oorspronkelijke locatie.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Externe tabellen moeten worden gebruikt wanneer u verwacht dat de onderliggende gegevens worden bijgewerkt door een externe bron. Bijvoorbeeld, een geautomatiseerd proces of een andere bewerking van MapReduce uploaden.
      >
      > Verwijderen van een externe tabel heeft **niet** de gegevens, alleen de definitie van de tabel verwijderen.
@@ -144,7 +144,7 @@ Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.g
    * `STORED AS TEXTFILE LOCATION` -Waar de gegevens worden opgeslagen (de voorbeeldgegevens/map) en dat deze wordt opgeslagen als tekst.
    * `SELECT` : Hiermee kunt u een aantal van alle rijen waar kolom **t4** bevat de waarde **[fout]**. Deze instructie retourneert een waarde van **3** als er drie rijen die deze waarde bevatten.
 
-     > [!NOTE]
+     > [!NOTE]  
      > U ziet dat de adresruimten tussen HiveQL-instructies zijn vervangen door de `+` gebruikt in combinatie met Curl teken. Genoteerde waarden met een spatie, zoals het scheidingsteken, moeten niet worden vervangen door `+`.
 
       Met deze opdracht retourneert een taak-ID die kan worden gebruikt om de status van de taak te controleren.
@@ -177,16 +177,16 @@ Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.g
 
 Voor algemene informatie over Hive met HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
 
 Voor informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
 Als u met Hive Tez gebruikt, ziet u de volgende documenten voor foutopsporing van informatie:
 
-* [De weergave Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
+* [De weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
 
 Zie voor meer informatie over de REST-API die wordt gebruikt in dit document, de [WebHCat verwijzing](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) document.
 

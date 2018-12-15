@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 93c2808dc244a86f7a58aa65d649e9c3e8c17f7c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251705"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436157"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Een pijplijn voor gegevensanalyse operationeel maken
 
@@ -30,13 +30,13 @@ In het volgende scenario is de ingevoerde gegevens een plat bestand met een batc
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-De voorbeeld-pijplijn wacht totdat een nieuwe periode flight data binnenkomt en vervolgens die gedetailleerde vluchtgegevens in uw Hive-datawarehouse voor analyses die op de lange termijn worden opgeslagen. De pijplijn maakt ook een veel kleinere gegevensset met een overzicht van alleen de dagelijkse flight gegevens. Deze dagelijkse gegevens van vertragingen van vluchten de samenvatting is verzonden naar een SQL-database voor rapporten, zoals voor een website.
+De voorbeeld-pijplijn wacht totdat een nieuwe periode flight data binnenkomt en vervolgens die gedetailleerde vluchtgegevens in uw datawarehouse Apache Hive voor analyses die op de lange termijn worden opgeslagen. De pijplijn maakt ook een veel kleinere gegevensset met een overzicht van alleen de dagelijkse flight gegevens. Deze dagelijkse gegevens van vertragingen van vluchten de samenvatting is verzonden naar een SQL-database voor rapporten, zoals voor een website.
 
 Het volgende diagram illustreert de voorbeeld-pijplijn.
 
 ![Flight Data Pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Overzicht van de oplossing Oozie
+## <a name="apache-oozie-solution-overview"></a>Overzicht van de Apache Oozie-oplossing
 
 Apache Oozie die worden uitgevoerd op een HDInsight Hadoop-cluster maakt gebruik van deze pijplijn.
 
@@ -139,7 +139,7 @@ Uw Azure SQL Database is nu gereed.
 
 Als u wilt de webconsole Oozie gebruiken om de status van uw coordinator en werkstroomexemplaren weer te geven, instellen van een SSH-tunnel met uw HDInsight-cluster. Zie voor meer informatie, [SSH-Tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
 
-> [!NOTE]
+> [!NOTE]  
 > U kunt ook Chrome met de [Foxy Proxy](https://getfoxyproxy.org/) extensie om te bladeren van uw cluster webresources via de SSH-tunnel. Alle aanvragen via de host configureren voor proxy `localhost` op tunnelpoort 9876. Deze aanpak is compatibel met het Windows-subsysteem voor Linux, ook wel bekend als Bash in Windows 10.
 
 1. Voer de volgende opdracht om te openen van een SSH-tunnel naar het cluster:
@@ -430,7 +430,7 @@ De volgende tabel geeft een overzicht van elk van de eigenschappen en wordt aang
 | maand | Het maandgedeelte van de dag voor welke vlucht samenvattingen worden berekend. Laat is. |
 | dag | Het maandonderdeel dag van van de dag voor welke vlucht samenvattingen worden berekend. Laat is. |
 
-> [!NOTE]
+> [!NOTE]  
 > Zorg ervoor dat u het bijwerken van uw exemplaar van de `job.properties` -bestand met de waarden die specifiek zijn voor uw omgeving voordat u kunt implementeren en uitvoeren van uw Oozie-workflow.
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Implementeren en uitvoeren van de Oozie-workflow

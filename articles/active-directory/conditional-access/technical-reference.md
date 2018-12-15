@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2018
+ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 2f9075cef671128cacc37f16e8bf29bf0f60401d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 46dfb96df7b16fe03bd5c2c69fd9e2e33b04bbd2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619636"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408575"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -148,7 +148,7 @@ Voor het automatisch implementeren met deze extensie voor Chrome browsers, maken
 |    |    |
 |--- | ---|
 |Pad | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-|Naam | 1 |
+|Name | 1 |
 |Type | REG_SZ (tekenreeks) |
 |Gegevens | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
@@ -157,7 +157,7 @@ Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersle
 |    |    |
 |--- | ---|
 |Pad | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-|Naam | 1 |
+|Name | 1 |
 |Type | REG_SZ (tekenreeks) |
 |Gegevens | {"patroon": "https://device.login.microsoftonline.com',' filter': {"VERLENER": {"CN":"MS-organisatie-toegang"}}}|
 
@@ -179,22 +179,29 @@ Deze instelling heeft een invloed op een poging toegang van de volgende mobiele 
 |---|---|---|
 |Azure RemoteApp|Azure RemoteApp-service|Windows 10, Windows 8.1, Windows 7, iOS, Android, en Mac OS X|
 |Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, iOS en Android|
-|Agenda-e-mail/mensen app, Outlook 2016, Outlook 2013 (met moderne verificatie)|Office 365 Exchange Online|Windows 10|
+|Outlook 2016, agenda-e-mail/mensen app Outlook 2013 |Office 365 Exchange Online|Windows 10|
 |Beleid voor meervoudige verificatie en locatiebeleid voor apps. Op basis van apparaatbeleid wordt niet ondersteund. |Elke mijn Apps van appservice|Android en iOS|
 |Microsoft Teams-Services: Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android en macOS |
-|Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [opmerkingen bij de](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Apps van Office 2016, universele Office-apps, Office 2013 (met moderne verificatie), OneDrive-synchronisatieclient (Zie [opmerkingen bij de](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), ondersteuning voor Office-groepen is gepland voor de toekomst, ondersteuning voor SharePoint-app is gepland voor de toekomst|Office 365 SharePoint Online|Windows 10|
+|Office 2016-apps, Office 2013, OneDrive-synchronisatieclient (Zie [opmerkingen bij de](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Apps van Office 2016, universele Office-apps, Office 2013, OneDrive-synchronisatieclient (Zie [opmerkingen bij de](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), ondersteuning voor Office-groepen is gepland voor de toekomst, ondersteuning voor SharePoint-app is gepland voor de toekomst|Office 365 SharePoint Online|Windows 10|
 |Office 2016 voor Mac OS (Word, Excel, PowerPoint, OneNote alleen). OneDrive voor bedrijven ondersteuning voor de toekomst worden gepland|Office 365 SharePoint Online|Mac OS X|
 |Mobiele Office-apps|Office 365 SharePoint Online|Android, iOS|
 |Office Yammer-app|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016 (Office voor Mac OS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013 (met moderne verificatie), Skype voor bedrijven (met moderne verificatie)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Outlook 2016, Outlook 2013, Skype voor bedrijven|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Mobiele app van Outlook|Office 365 Exchange Online|Android, iOS|
 |Power BI-app|Power BI-service|Windows 10, Windows 8.1, Windows 7, Android en iOS|
 |Skype voor Bedrijven|Office 365 Exchange Online|Android, IOS |
 |Azure DevOps-app|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS en Android|
 
 
+## <a name="support-for-legacy-authentication"></a>Ondersteuning voor legacy-verificatie
+
+Door het selecteren van **andere clients**, kunt u een voorwaarde die van invloed is op apps die gebruikmaken van basisverificatie met e-mailprotocollen zoals IMAP, MAPI-, pop-server, SMTP en oudere Office-apps die moderne verificatie wordt niet gebruikt.  
+
+![Andere clients](./media/technical-reference/11.png)
+
+Zie voor meer informatie, [Client-apps](conditions.md#client-apps).
 
 ## <a name="approved-client-app-requirement"></a>Vereiste voor goedgekeurde client-app 
 

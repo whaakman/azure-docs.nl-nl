@@ -9,35 +9,35 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: d673f12c8e9af29964c7b1a424ed36bdc13fc84b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 14b849a46701ab19c76ee175717c3715cc89f411
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013676"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408898"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
+# <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Leer hoe u Apache Oozie gebruiken met Hadoop op Azure HDInsight. Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden beheerd. Oozie is geïntegreerd met de Hadoop-stack en ondersteunt de volgende taken:
+Leer hoe u Apache Oozie gebruiken met Apache Hadoop op Azure HDInsight. Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden beheerd. Oozie is geïntegreerd met de Hadoop-stack en ondersteunt de volgende taken:
 
-* Apache MapReduce
+* Apache Hadoop MapReduce
 * Apache Pig
 * Apache Hive
 * Apache Sqoop
 
 U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
 
-> [!NOTE]
-> Er is een andere optie voor het definiëren van werkstromen met HDInsight met Azure Data Factory. Zie voor meer informatie over Data Factory, [Pig en Hive met Data Factory gebruiken][azure-data-factory-pig-hive]. Gebruik Oozie op clusters met Enterprise-beveiligingspakket Zie [Apache Oozie uitvoeren in HDInsight Hadoop-clusters met Enterprise-beveiligingspakket](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
+> [!NOTE]  
+> Er is een andere optie voor het definiëren van werkstromen met HDInsight met Azure Data Factory. Zie voor meer informatie over Data Factory, [gebruik Apache Pig- en Apache Hive met Data Factory][azure-data-factory-pig-hive]. Gebruik Oozie op clusters met Enterprise-beveiligingspakket Zie [Apache Oozie uitvoeren in HDInsight Hadoop-clusters met Enterprise-beveiligingspakket](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een gewone HDInsight-cluster**: Zie [aan de slag met HDInsight op Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="example-workflow"></a>Van de voorbeeldwerkstroom
@@ -54,9 +54,9 @@ De werkstroom gebruikt in dit document bevat twee acties. Acties zijn definities
 
     Het Hive-script gebruikt in dit document telt het totaal aantal bezoeken voor elk platform, zoals Android of iPhone, en slaat het aantal in een nieuw Hive-tabel.
 
-    Zie [Hive gebruiken met HDInsight][hdinsight-use-hive] voor meer informatie over Hive.
+    Zie voor meer informatie over Hive [Apache Hive gebruiken met HDInsight][hdinsight-use-hive].
 
-2. Een actie Sqoop exporteert de inhoud van de nieuwe Hive-tabel naar een tabel gemaakt in Azure SQL Database. Zie voor meer informatie over Sqoop [Hadoop-Sqoop gebruiken met HDInsight][hdinsight-use-sqoop].
+2. Een actie Sqoop exporteert de inhoud van de nieuwe Hive-tabel naar een tabel gemaakt in Azure SQL Database. Zie voor meer informatie over Sqoop [Apache Sqoop gebruiken met HDInsight][hdinsight-use-sqoop].
 
 > [!NOTE]
 > Zie voor ondersteunde versies van de Oozie op HDInsight-clusters, [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight][hdinsight-versions].
@@ -90,7 +90,7 @@ Oozie wordt verwacht dat u voor het opslaan van alle bronnen die nodig zijn voor
 
     Vervang `username` met de naam van de SSH-gebruiker.
 
-    > [!NOTE]
+    > [!NOTE]  
     > U kunt negeren fouten die wijzen op de gebruiker is al een lid van de `users` groep.
 
 ## <a name="add-a-database-driver"></a>Een databasestuurprogramma toevoegen
@@ -101,7 +101,7 @@ Omdat deze werkstroom Sqoop gebruikt gegevens te exporteren naar de SQL-database
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Mogelijk ontvangt u een bericht dat het bestand al bestaat.
 
 Als de werkstroom andere resources, zoals een jar dat een MapReduce-toepassing bevat gebruikt, moet u deze resources ook toevoegen.
@@ -212,7 +212,7 @@ Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Languag
 
    * `RunHiveScript`: Met deze actie wordt de startactie en wordt uitgevoerd de `useooziewf.hql` Hive-script.
 
-   * `RunSqoopExport`: Met deze actie exporteert de gegevens die zijn gemaakt op basis van het Hive-script naar een SQL-database met behulp van Sqoop. Deze actie kan alleen worden uitgevoerd als de `RunHiveScript` actie is geslaagd.
+   * `RunSqoopExport`: Deze actie exporteert de gegevens die zijn gemaakt op basis van het Hive-script naar een SQL-database met behulp van Sqoop. Deze actie kan alleen worden uitgevoerd als de `RunHiveScript` actie is geslaagd.
 
      De werkstroom heeft verschillende vermeldingen, zoals `${jobTracker}`. U kunt deze vermeldingen worden vervangen door de waarden die u in de taakdefinitie. U maakt de taakdefinitie verderop in dit document.
 
@@ -232,7 +232,7 @@ Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-da
 
 ### <a name="create-the-table"></a>De tabel maken
 
-> [!NOTE]
+> [!NOTE]  
 > Er zijn veel manieren om te verbinden met SQL Database om een tabel te maken. In de volgende stappen wordt [FreeTDS](http://www.freetds.org/) gebruikt vanuit het HDInsight-cluster.
 
 
@@ -300,7 +300,7 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
     <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Als het HDInsight-cluster maakt gebruik van Azure Storage als de standaardopslag, de `<value>` element inhoud beginnen met `wasb://`. Als Azure Data Lake Store in plaats daarvan wordt gebruikt, deze begint met `adl://`.
 
     Sla de inhoud van de `<value>` -element, zoals deze wordt gebruikt in de volgende stappen.
@@ -376,7 +376,7 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
 
    * Vervang alle exemplaren van `wasb://mycontainer@mystorageaccount.blob.core.windows.net` met de waarde die u eerder hebt ontvangen voor de standaardopslag.
 
-     > [!WARNING]
+     > [!WARNING]  
      > Als het pad is een `wasb` pad, moet u het volledige pad gebruiken. Geen korter maken om alleen `wasb:///`.
 
    * Vervang `YourName` met de aanmeldingsnaam van uw voor het HDInsight-cluster.
@@ -384,7 +384,7 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
 
      De meeste van de informatie in dit bestand wordt gebruikt voor het vullen van de waarden in de workflow.xml of ooziewf.hql-bestanden, zoals `${nameNode}`.
 
-     > [!NOTE]
+     > [!NOTE]  
      > De `oozie.wf.application.path` vermelding bepaalt waar het bestand workflow.xml te vinden. Dit bestand bevat de werkstroom die door deze taak is uitgevoerd.
 
 5. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
@@ -393,7 +393,7 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
 
 De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-werkstromen op het cluster. De Oozie-opdracht is een gebruiksvriendelijke interface via het [Oozie REST-API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Wanneer u de opdracht Oozie gebruiken, moet u de FQDN-naam gebruiken voor het hoofdknooppunt van HDInsight. Deze FQDN is alleen toegankelijk is vanaf het cluster, of als het cluster zich in een Azure-netwerk, van andere virtuele machines op hetzelfde netwerk.
 
 
@@ -435,7 +435,7 @@ De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-wer
     oozie job -info <JOBID>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Vervang `<JOBID>` met de ID die wordt geretourneerd in de vorige stap.
 
     Dit retourneert informatie, zoals de volgende tekst:
@@ -463,7 +463,7 @@ De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-wer
     oozie job -start JOBID
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Vervang `<JOBID>` met de ID die eerder zijn geretourneerd.
 
     Als u de status na deze opdracht controleren, deel uitmaakt van een actieve status en gegevens worden geretourneerd voor de acties in de taak.
@@ -492,7 +492,7 @@ De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-wer
         Windows Phone   1791
         (6 rows affected)
 
-Zie voor meer informatie over de opdracht Oozie [Oozie-opdrachtregelprogramma](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
+Zie voor meer informatie over de opdracht Oozie [Apache Oozie-opdrachtregelprogramma](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
 ## <a name="oozie-rest-api"></a>Oozie REST-API
 
@@ -500,13 +500,13 @@ U kunt uw eigen hulpprogramma's die met Oozie werken bouwen met de Oozie REST-AP
 
 * **URI**: U hebt toegang tot de REST-API van buiten het cluster op `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Verificatie**: Gebruik de API om te verifiëren, de HTTP-clusteraccount (beheerder) en het wachtwoord. Bijvoorbeeld:
+* **Verificatie**: Als u wilt verifiëren, moet u de API gebruiken de HTTP-clusteraccount (beheerder) en het wachtwoord. Bijvoorbeeld:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
     ```
 
-Zie voor meer informatie over het gebruik van de REST-API voor Oozie [Oozie-webservices-API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+Zie voor meer informatie over het gebruik van de REST-API voor Oozie [Apache Oozie-webservices-API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 ## <a name="oozie-web-ui"></a>Oozie-Webgebruikersinterface
 
@@ -540,11 +540,11 @@ Voor toegang tot de Oozie-web-UI, voert u de volgende stappen uit:
 
 6. Uit de **taakgegevens** tabblad ziet u de informatie over de algemene taak en de afzonderlijke acties in de taak. U kunt de tabbladen aan de bovenkant om weer te geven de **taakdefinitie**, **taakconfiguratie**, toegang de **taaklogboek**, of weergeven van een directed acyclic graph (DAG) van de taak onder **Taak DAG**.
 
-   * **Taaklogboek**: Selecteer de **Get Logs** om op te halen van alle logboeken voor de taak, of gebruikt u de **zoekfilter Voer** veld voor het filteren van de logboeken.
+   * **Taak Log**: Selecteer de **Get Logs** om op te halen van alle logboeken voor de taak, of gebruikt u de **zoekfilter Voer** veld voor het filteren van de logboeken.
 
        ![Taaklogboek](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-   * **DAG van de taak**: de DAG is een grafische overzicht van de gegevenspaden via de werkstroom wordt uitgevoerd.
+   * **Taak DAG**: De DAG is een grafische overzicht van de gegevenspaden via de werkstroom wordt uitgevoerd.
 
        ![Taak DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
@@ -580,9 +580,9 @@ U kunt de coördinator gebruiken om op te geven van een starten, een end en de f
     > De `${...}` variabelen zijn vervangen door waarden in de taakdefinitie tijdens runtime. De variabelen die zijn:
     >
     > * `${coordFrequency}`: De tijd tussen het uitvoeren van exemplaren van de taak.
-    > * `${coordStart}`: De begintijd de taak.
+    > * `${coordStart}`: De begintijd van taak.
     > * `${coordEnd}`: De eindtijd van taak.
-    > * `${coordTimezone}`: Coordinator taken zijn in een vaste tijdzone geen zomertijd, meestal met behulp van UTC weergegeven. Deze tijdzone wordt verwezen als de *Oozie verwerking over de tijdzone.*
+    > * `${coordTimezone}`: Coördinator taken zijn in een vaste tijdzone geen zomertijd, meestal met behulp van UTC weergegeven. Deze tijdzone wordt verwezen als de *Oozie verwerking over de tijdzone.*
     > * `${wfPath}`: Het pad naar de workflow.xml.
 
 2. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
@@ -660,7 +660,7 @@ U kunt de coördinator gebruiken om op te geven van een starten, een end en de f
 
     ![Coördinator taakgegevens](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Deze afbeelding ziet u alleen geslaagde uitvoeringen van de taak niet de afzonderlijke acties in de geplande werkstroom. Als u wilt zien van de afzonderlijke acties, selecteer een van de **actie** vermeldingen.
 
     ![Actie-informatie](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
@@ -677,40 +677,40 @@ U kunt met de UI Oozie Oozie logboeken weergeven. De UI Oozie bevat ook koppelin
 
 Hier volgen specifieke fouten die optreden en hoe u ze op te lossen.
 
-### <a name="ja009-cannot-initialize-cluster"></a>JA009: Kan het cluster niet initialiseren
+### <a name="ja009-cannot-initialize-cluster"></a>JA009: Kan het cluster niet initialiseren.
 
-**Symptomen**: de taakstatus verandert in **onderbroken**. Details voor het weergeven van de taak de `RunHiveScript` status als **START_MANUAL**. De bewerking te selecteren, wordt het volgende foutbericht weergegeven:
+**Symptomen**: De taakstatus verandert in **onderbroken**. Details voor het weergeven van de taak de `RunHiveScript` status als **START_MANUAL**. De bewerking te selecteren, wordt het volgende foutbericht weergegeven:
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Oorzaak**: de Azure Blob storage-adressen die worden gebruikt de **job.xml** bestand geen het storage-container of de naam van het opslagaccount. De indeling van Blob storage-adres moet `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Oorzaak**: De Azure Blob-opslag-adressen die worden gebruikt de **job.xml** bestand geen het storage-container of de naam van het opslagaccount. De indeling van Blob storage-adres moet `wasb://containername@storageaccountname.blob.core.windows.net`.
 
-**Resolutie**: wijzigen van de adressen van de Blob-opslag die gebruikmaakt van de taak.
+**Resolutie**: De Blob storage-adressen die gebruikmaakt van de taak wijzigen.
 
 ### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie is niet toegestaan om te imiteren &lt;gebruiker >
 
-**Symptomen**: de taakstatus verandert in **onderbroken**. Details voor het weergeven van de taak de `RunHiveScript` status als **START_MANUAL**. Als u de actie selecteert, ziet u de volgende strekking weergegeven:
+**Symptomen**: De taakstatus verandert in **onderbroken**. Details voor het weergeven van de taak de `RunHiveScript` status als **START_MANUAL**. Als u de actie selecteert, ziet u de volgende strekking weergegeven:
 
     JA002: User: oozie is not allowed to impersonate <USER>
 
-**Oorzaak**: instellingen voor de huidige machtigingen niet toestaan Oozie te imiteren van het opgegeven gebruikersaccount.
+**Oorzaak**: Instellingen voor de huidige machtigingen toestaan niet Oozie te imiteren van het opgegeven gebruikersaccount.
 
 **Resolutie**: Oozie kan imiteren gebruikers in de **gebruikers** groep. Gebruik de `groups USERNAME` om te zien van de groepen die het gebruikersaccount dat lid is van is. Als de gebruiker geen lid is van is de **gebruikers** groep, gebruikt u de volgende opdracht uit om toe te voegen van de gebruiker aan de groep:
 
     sudo adduser USERNAME users
 
-> [!NOTE]
+> [!NOTE]  
 > Het kan enkele minuten duren voordat HDInsight herkent dat de gebruiker is toegevoegd aan de groep.
 
 ### <a name="launcher-error-sqoop"></a>FOUT (Sqoop) starten
 
-**Symptomen**: de taakstatus verandert in **KILLED**. Details voor het weergeven van de taak de `RunSqoopExport` status als **fout**. Als u de actie selecteert, ziet u de volgende strekking weergegeven:
+**Symptomen**: De taakstatus verandert in **KILLED**. Details voor het weergeven van de taak de `RunSqoopExport` status als **fout**. Als u de actie selecteert, ziet u de volgende strekking weergegeven:
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
-**Oorzaak**: Sqoop kan niet worden geladen stuurprogramma voor de database vereist voor toegang tot de database is.
+**Oorzaak**: Sqoop is kan niet worden geladen stuurprogramma voor de database vereist voor toegang tot de database.
 
-**Resolutie**: wanneer u Sqoop van een taak Oozie gebruiken, moet u een stuurprogramma voor de database met de andere resources, zoals de workflow.xml, de taak gebruikt opnemen. Ook verwijzen naar het archief met het stuurprogramma voor de database van de `<sqoop>...</sqoop>` sectie van de workflow.xml.
+**Resolutie**: Wanneer u Sqoop van een taak Oozie gebruiken, moet u een stuurprogramma voor de database met de andere resources, zoals de workflow.xml, de taak gebruikt opnemen. Ook verwijzen naar het archief met het stuurprogramma voor de database van de `<sqoop>...</sqoop>` sectie van de workflow.xml.
 
 Bijvoorbeeld, voor de taak in dit document, moet u de volgende stappen gebruiken:
 
@@ -730,11 +730,11 @@ Bijvoorbeeld, voor de taak in dit document, moet u de volgende stappen gebruiken
 
 In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u een Oozie-taak uit te voeren. Zie de volgende artikelen voor meer informatie over het werken met HDInsight:
 
-* [De op tijd gebaseerde Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]
-* [Gegevens uploaden voor Hadoop-taken in HDInsight][hdinsight-upload-data]
-* [Sqoop gebruiken met Hadoop in HDInsight][hdinsight-use-sqoop]
-* [Hive gebruiken met Hadoop op HDInsight][hdinsight-use-hive]
-* [Pig gebruiken met Hadoop op HDInsight][hdinsight-use-pig]
+* [De tijd op basis van Apache Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]
+* [Gegevens uploaden voor Apache Hadoop-taken in HDInsight][hdinsight-upload-data]
+* [Apache Sqoop gebruiken met Apache Hadoop in HDInsight][hdinsight-use-sqoop]
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight][hdinsight-use-hive]
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight][hdinsight-use-pig]
 * [Java MapReduce-programma's ontwikkelen voor HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563

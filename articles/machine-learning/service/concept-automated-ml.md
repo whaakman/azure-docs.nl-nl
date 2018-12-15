@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 09d4ef0b6a3455728ddab0484db4c701c6764214
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270923"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436956"
 ---
 # <a name="what-is-automated-machine-learning"></a>Wat is geautomatiseerde machine learning?
 
@@ -53,7 +53,14 @@ U kunt de run logboekgegevens, waarin de metrische gegevens die zijn verzameld t
 
 ## <a name="model-explainability"></a>Model explainability
 
-Een algemene zich van geautomatiseerde machine learning is onvermogen om te zien van de end-to-end-proces. Azure Machine Learning kunt u gedetailleerde informatie weergeven over de modellen transparantie in wat wordt uitgevoerd op de back-end te vergroten. Uitvoer toont algehele functie belang in het model afstemmen, de meest uw model trefwoordenrangschikking de resultaten die door de functies worden beïnvloed. Bovendien voor classificatie problemen ziet u het belang van per klasse-functie en de positie.
+Een algemene zich van geautomatiseerde machine learning is onvermogen om te zien van de end-to-end-proces. Azure Machine Learning kunt u gedetailleerde informatie weergeven over de modellen transparantie in wat wordt uitgevoerd op de back-end te vergroten. Sommige modellen, zoals lineaire regressie, worden beschouwd als relatief eenvoudige manier en daarom gemakkelijk te begrijpen. Maar als we meer functies toevoegen en gebruiken van meer complexe machine learning-modellen, informatie over deze moeilijker opgehaald. Er zijn twee belangrijke aspecten om transparantie in machine learning:
+
+1. Kennis van de machine learning-pijplijn en alle de stappen die betrokken zijn, waaronder gegevens voorverwerken/parametrisatie en hyperparameter waarden.
+1. De relatie tussen invoervariabelen (ook wel bekend als ' functies') en de model-uitvoer.  De omvang en de richting van de impact van elke functie van de voorspelde waarde te weten, kunt beter te begrijpen en leg uit het model. Dit staat bekend als functie urgentie.
+
+U kunt globale functie belang op aanvraag post-training voor de pijplijn van uw keuze, of deze inschakelen voor alle pijplijnen als onderdeel van geautomatiseerde ML-training.  Dit is een preview-functie en we blijven investeren in uitgebreidere informatie waarmee u beter inzicht in uw ML-modellen bieden.  
+
+Volg deze [voorbeeld notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) om te experimenteren met uitleg model in Azure Machine Learning.
 
 ## <a name="next-steps"></a>Volgende stappen
 

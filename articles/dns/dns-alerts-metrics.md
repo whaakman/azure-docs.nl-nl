@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 707a23cbd04db9a0420c7776a24eb568a3483b0b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0f50ecb086b45cffb4ff27135a26f962c92926bf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385853"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434458"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-metrische gegevens en waarschuwingen
 Azure DNS is een hostingservice voor DNS-domeinen die naamomzetting met de Microsoft Azure-infrastructuur biedt. Dit artikel wordt beschreven voor metrische gegevens en waarschuwingen voor de Azure DNS-service.
@@ -32,7 +32,7 @@ Azure DNS biedt metrische gegevens voor klanten in te schakelen voor het bewaken
 -   RecordSetCount
 -   RecordSetCapacityUtilization
 
-U ziet ook de [definitie van deze metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkdnszones) op de pagina van de documentatie van Azure Monitor.
+U ziet ook de [definitie van deze metrische gegevens](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) op de pagina van de documentatie van Azure Monitor.
 >[!NOTE]
 > Deze metrische gegevens zijn op dit moment alleen beschikbaar voor openbare DNS-zones die worden gehost in Azure DNS. Hebt u Private Zones die worden gehost in Azure DNS, bieden deze metrische gegevens niet voor deze zones. Bovendien is de metrische gegevens en waarschuwingen functie alleen ondersteund in Azure openbare cloud. Ondersteuning voor onafhankelijke clouds volgt op een later tijdstip. 
 

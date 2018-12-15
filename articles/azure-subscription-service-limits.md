@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2ee5eca6f138d9aaa1a2b7cebb61b56fd26e17cc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017200"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409170"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 In dit document vindt u enkele van de meest algemene Microsoft Azure-limieten, die soms ook wel quotums genoemd. Dit document niet op dit moment betrekking hebben op alle Azure-services. Na verloop van tijd, wordt de lijst worden uitgebreid en bijgewerkt in verband met betrekking hebben op meer van het platform.
@@ -54,10 +54,9 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Redis-Cache](#azure-redis-cache-limits)
+* [Azure Cache voor Redis](#azure-redis-cache-limits)
 * [Een back-up maken](#backup-limits)
 * [Batch](#batch-limits)
-* [Batch AI](#batch-ai-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
@@ -219,9 +218,6 @@ De volgende App Service-limieten zijn limieten voor Web-Apps, Mobile Apps en API
 
 ### <a name="batch-limits"></a>Limieten voor batch
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
-
-### <a name="batch-ai-limits"></a>Batch AI-limieten
-[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
 
 ### <a name="biztalk-services-limits"></a>Limieten voor BizTalk Services
 De volgende tabel bevat de limieten voor Azure Biztalk Services.

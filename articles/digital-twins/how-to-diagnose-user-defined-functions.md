@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 85a85fa0a110ba91a423b1be4a24000340d25f8f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966837"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413010"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Fouten opsporen in problemen met de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
@@ -42,7 +42,7 @@ Na het verzenden van telemetrie, opent u de Azure Log Analytics om op te vragen 
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
+| where CorrelationId == 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
 | Waarde opvragen | Vervangen door |
@@ -53,7 +53,7 @@ Als u zich aanmeldt voor de gebruiker gedefinieerde functie, deze logboeken word
 
 ```Kusto
 AzureDiagnostics
-| where Category = 'UserDefinedFunction'
+| where Category == 'UserDefinedFunction'
 ```
 
 Zie voor meer informatie over krachtige querybewerkingen [aan de slag met query's](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).

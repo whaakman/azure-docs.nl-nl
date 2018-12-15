@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 610b3111b8b84f42327f39ac17285ba7fef0d719
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869208"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437568"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-installatiekopieën in Azure
 Met behulp van Visual Studio in een vooraf geconfigureerde Azure-machine (VM) is een snelle en eenvoudige manier naar een up-en-die wordt uitgevoerd development environment van nul. Installatiekopieën met verschillende configuraties van Visual Studio zijn beschikbaar in de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -30,14 +30,14 @@ Met behulp van Visual Studio in een vooraf geconfigureerde Azure-machine (VM) is
 Bent u nog niet bekend met Azure? [Maak een gratis Azure-account](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Welke configuraties en -versies zijn beschikbaar?
-Installatiekopieën voor de meest recente primaire versies, Visual Studio 2017 en Visual Studio 2015, vindt u in de Azure Marketplace. Voor elke primaire versie ziet u de oorspronkelijke versie (RTW) en de meest recente bijgewerkte versies. Elk van deze versies biedt de Visual Studio Enterprise en de Visual Studio Community-edities. Deze installatiekopieën zijn ten minste maandelijks bijgewerkt met de meest recente updates voor Visual Studio en Windows. Terwijl de namen van de installatiekopieën hetzelfde zijn, wordt de beschrijving van elke afbeelding bevat de versie van het geïnstalleerde product en 'op' datum van de installatiekopie.
+Installatiekopieën voor de meest recente primaire versies, Visual Studio 2017 en Visual Studio 2015, vindt u in de Azure Marketplace.  We hebben onlangs ondersteuning voor Preview-versies van de verwachte primaire versie - Visual Studio 2019 toegevoegd.  Voor elke uitgebrachte primaire versie ziet u de oorspronkelijke versie (RTW) en de meest recente bijgewerkte versies.  Elk van deze versies biedt de Visual Studio Enterprise en de Visual Studio Community-edities.  Deze installatiekopieën zijn ten minste maandelijks bijgewerkt met de meest recente updates voor Visual Studio en Windows.  Terwijl de namen van de installatiekopieën hetzelfde zijn, wordt de beschrijving van elke afbeelding bevat de versie van het geïnstalleerde product en 'op' datum van de installatiekopie.
 
 | Release-versie                                              | Edities                     |     Productversie      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|   Visual Studio 2019: Preview-versie (Preview-versie 1)                   |           Enterprise         | Versie 16.0.0 Preview 1 |
-| Visual Studio 2017: Laatste (versie 15,9 inch)                    |    Enterprise, Community     |       Versie 15.9.0     |
-|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versie 15.0.18     |
-|   Visual Studio 2015: Laatste (Update 3)                      |    Enterprise, Community     |  Versie 14.0.25431.01   |
+|    Visual Studio 2019: Preview-versie (Preview-versie 1)                   |           Enterprise         | Versie 16.0.0 Preview 1 |
+| Visual Studio 2017: Meest recente (versie 15,9 inch)                    |    Enterprise, Community     |      Versie 15.9.4      |
+|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versie 15.0.20     |
+|   Visual Studio 2015: Meest recente (Update 3)                      |    Enterprise, Community     |  Versie 14.0.25431.01   |
 |         Visual Studio 2015: RTW                              |             Geen             | (Verlopen voor onderhoud)  |
 
 > [!NOTE]
@@ -96,7 +96,7 @@ Zie voor meer informatie, [aanmelden bij Visual Studio](/visualstudio/ide/signin
 
 Het spectrum van ontwikkelomgevingen is enorm er is echt kosten die gepaard gaan met het bouwen van de meer complexe omgevingen. U kunt ongeacht de configuratie van uw omgeving, opslaan of vastleggen, uw geconfigureerde virtuele machine als een 'basisinstallatiekopie' voor toekomstig gebruik of andere leden van uw team. Vervolgens, wanneer een nieuwe virtuele machine wordt opgestart, richt u deze uit de basisinstallatiekopie in plaats van de Azure Marketplace-installatiekopie.
 
-Een snel overzicht: gebruik het hulpprogramma voor systeemvoorbereiding (Sysprep) en de actieve virtuele machine af en vervolgens vast te leggen *(afbeelding 1)* de virtuele machine als een installatiekopie via de gebruikersinterface in Azure portal. Azure slaat de `.vhd` bestand met de installatiekopie in de storage-account van uw keuze. De nieuwe installatiekopie wordt vervolgens weergegeven als een installatiekopie-resource in de lijst met resources van uw abonnement.
+Een snel overzicht: Gebruik het hulpprogramma voor systeemvoorbereiding (Sysprep) en de actieve virtuele machine af en vervolgens vast te leggen *(afbeelding 1)* de virtuele machine als een installatiekopie via de gebruikersinterface in Azure portal. Azure slaat de `.vhd` bestand met de installatiekopie in de storage-account van uw keuze. De nieuwe installatiekopie wordt vervolgens weergegeven als een installatiekopie-resource in de lijst met resources van uw abonnement.
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Afbeelding 1) Een installatiekopie maken via de gebruikersinterface van Azure portal.*</center>
 

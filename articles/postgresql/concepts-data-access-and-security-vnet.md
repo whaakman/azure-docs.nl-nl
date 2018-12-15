@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 4f488128b3f7a9aa06be9358439536d78615430e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5a0181a1430e9de690fe4b4a48aa298db4c024e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42054717"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433656"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure Database for PostgreSQL
 
@@ -31,13 +31,13 @@ Het maken van een regel voor virtuele netwerken, er moet eerst worden een [virtu
 
 ## <a name="terminology-and-description"></a>Terminologie en beschrijving
 
-**Virtueel netwerk:** kunt u virtuele netwerken die zijn gekoppeld aan uw Azure-abonnement hebt.
+**Virtueel netwerk:** U kunt virtuele netwerken die zijn gekoppeld aan uw Azure-abonnement hebben.
 
-**Subnet:** een virtueel netwerk bevat **subnetten**. Een Azure virtual machines (VM's) waarvoor u zijn toegewezen aan subnetten. Één subnet kan meerdere virtuele machines of andere compute-knooppunten bevatten. COMPUTE-knooppunten die zich buiten het virtuele netwerk heeft geen toegang tot uw virtuele netwerk, tenzij u de beveiliging voor toegang configureren.
+**Subnet:** Een virtueel netwerk bevat **subnetten**. Een Azure virtual machines (VM's) waarvoor u zijn toegewezen aan subnetten. Één subnet kan meerdere virtuele machines of andere compute-knooppunten bevatten. COMPUTE-knooppunten die zich buiten het virtuele netwerk heeft geen toegang tot uw virtuele netwerk, tenzij u de beveiliging voor toegang configureren.
 
-**Service-eindpunt voor virtueel netwerk:** A [service-eindpunt voor Virtueelnetwerk] [ vm-virtual-network-service-endpoints-overview-649d] is een subnet met eigenschappen die een of meer formele Azure-service typenamen bevatten. In dit artikel zijn we geïnteresseerd in de typenaam van **Microsoft.Sql**, die verwijst naar de Azure-service met de naam SQL-Database. Deze servicetag geldt ook voor de Azure Database for PostgreSQL en MySQL-services. Het is belangrijk te weten bij het toepassen van de **Microsoft.Sql** servicetag naar een VNet-service-eindpunt wordt het verkeer van de service-eindpunt configureren voor alle Azure SQL Database, Azure Database for PostgreSQL en Azure Database for MySQL-servers op het subnet. 
+**Virtual Network service-eindpunt:** Een [service-eindpunt voor Virtueelnetwerk] [ vm-virtual-network-service-endpoints-overview-649d] is een subnet met eigenschappen die een of meer formele Azure-service typenamen bevatten. In dit artikel zijn we geïnteresseerd in de typenaam van **Microsoft.Sql**, die verwijst naar de Azure-service met de naam SQL-Database. Deze servicetag geldt ook voor de Azure Database for PostgreSQL en MySQL-services. Het is belangrijk te weten bij het toepassen van de **Microsoft.Sql** servicetag naar een VNet-service-eindpunt wordt het verkeer van de service-eindpunt configureren voor alle Azure SQL Database, Azure Database for PostgreSQL en Azure Database for MySQL-servers op het subnet. 
 
-**Regel voor virtuele netwerken:** een regel voor virtuele netwerken voor uw Azure Database for PostgreSQL-server is een subnet dat wordt weergegeven in de toegangsbeheerlijst (ACL) van uw Azure Database for PostgreSQL-server. Als u in de ACL voor uw Azure Database for PostgreSQL-server, het subnet moet bevatten de **Microsoft.Sql** typenaam.
+**Regel voor virtuele netwerken:** Een regel voor virtuele netwerken voor uw Azure Database for PostgreSQL-server is een subnet dat wordt weergegeven in de toegangsbeheerlijst (ACL) van uw Azure Database for PostgreSQL-server. Als u in de ACL voor uw Azure Database for PostgreSQL-server, het subnet moet bevatten de **Microsoft.Sql** typenaam.
 
 Een regel voor virtuele netwerken wordt aan uw Azure Database for PostgreSQL-server voor het accepteren van communicatie van elk knooppunt dat zich in het subnet.
 
@@ -91,8 +91,8 @@ Elk virtueel netwerk-regel van toepassing is op uw hele Azure Database for Postg
 
 Er is een scheiding van beveiligingsrollen in het beheer van service-eindpunten. Actie is vereist van elk van de volgende rollen:
 
-- **De beheerder van het netwerk:** &nbsp; inschakelen op het eindpunt.
-- **De beheerder van de database:** &nbsp; bijwerken van de toegangsbeheerlijst (ACL) om toe te voegen van het opgegeven subnet met de Azure Database for PostgreSQL-server.
+- **De beheerder van het netwerk:** &nbsp; Schakel op het eindpunt.
+- **De beheerder van de database:** &nbsp; Werk de toegangsbeheerlijst (ACL) om toe te voegen van het opgegeven subnet met de Azure Database for PostgreSQL-server.
 
 *RBAC alternatieve:*
 
@@ -115,7 +115,7 @@ Voor Azure Database for PostgreSQL heeft de functie van de regels voor virtueel 
 
 - Virtual network-regels gelden alleen voor virtuele netwerken van Azure Resource Manager; en niet op [klassieke implementatiemodel] [ arm-deployment-model-568f] netwerken.
 
-- Inschakelen op service-eindpunten met Azure Database voor PostgreSQL met behulp van de **Microsoft.Sql** servicetag kunt ook de eindpunten voor alle Azure-Database-services: Azure Database for MySQL, Azure Database for PostgreSQL , Azure SQL Database en Azure SQL datawarehouse.
+- Inschakelen op service-eindpunten met Azure Database voor PostgreSQL met behulp van de **Microsoft.Sql** servicetag kunt ook de eindpunten voor alle Azure-Database-services: Azure Database voor MySQL, Azure Database voor PostgreSQL, Azure SQL Database en Azure SQL datawarehouse.
 
 - Ondersteuning voor VNet-service-eindpunten is alleen voor algemeen gebruik en geoptimaliseerd voor geheugen-servers.
 
@@ -145,7 +145,7 @@ Zie voor artikelen over het maken van VNet-regels:
 - [Maken en beheren van Azure Database voor PostgreSQL-VNet-regels met behulp van Azure CLI](howto-manage-vnet-using-cli.md)
 
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 8cfc62948df679fa900099c0e5dbb33a60e42b08
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 440dc13e2c6f4d9acc270b644cc549280e6d91be
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876246"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413571"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Tips voor betere prestaties voor Azure Cosmos DB en Async Java
 
@@ -35,7 +35,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     Indien mogelijk, plaatst u alle toepassingen aanroepen van Azure Cosmos DB in dezelfde regio als de Azure Cosmos DB-database. Voor een geschatte vergelijking: aanroepen naar Azure Cosmos DB binnen dezelfde regio binnen 1-2 ms voltooid, maar de latentie tussen de West- en oostkust van de Verenigde Staten is > 50 ms. Deze latentie kan waarschijnlijk uit om aan te vragen variëren, afhankelijk van de route die door de aanvraag is uitgevoerd, zoals het aan de grens van de Azure-datacenter van de client doorgeeft. De laagst mogelijke latentie wordt bereikt door ervoor te zorgen dat de aanroepende toepassing bevindt zich in dezelfde Azure-regio als de ingerichte Azure Cosmos DB-eindpunt. Zie voor een lijst van beschikbare regio's, [Azure-regio's](https://azure.microsoft.com/regions/#services).
 
     ![Afbeelding van het beleid voor Azure Cosmos DB-verbinding](./media/performance-tips/same-region.png)
-   
+
 ## <a name="sdk-usage"></a>SDK-gebruik
 1. **Installeer de meest recente SDK**
 
@@ -54,17 +54,17 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Azure Cosmos DB SQL Async Java SDK biedt ondersteuning voor parallelle query's, zodat ze een gepartitioneerde verzameling worden parallel query. Zie voor meer informatie, [codevoorbeelden](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) met betrekking tot het werken met de SDK's. Parallelle query's zijn ontworpen voor betere latentie van query en de doorvoer via de seriële equivalent.
 
-    (a) ***afstemmen setMaxDegreeOfParallelism\:***  parallelle query's werken door meerdere partities parallel uitvoeren van query's. Gegevens van een afzonderlijke gepartitioneerde verzameling is echter worden opgehaald met betrekking tot de query. Gebruik setMaxDegreeOfParallelism om in te stellen van het aantal partities waarvoor de maximale kans dat de meeste goed presterende query's en alle andere system-voorwaarden opgegeven bereiken blijven dus hetzelfde. Als u het aantal partities niet weet, kunt u setMaxDegreeOfParallelism om in te stellen van een groot aantal en het systeem kiest de minimale (het aantal partities, door de gebruiker opgegeven invoer) als de maximale graad van parallelle uitvoering. 
+    (a) ***afstemmen setMaxDegreeOfParallelism\:***  parallelle query's werken door meerdere partities parallel uitvoeren van query's. Gegevens van een afzonderlijke gepartitioneerde verzameling is echter worden opgehaald met betrekking tot de query. Gebruik setMaxDegreeOfParallelism om in te stellen van het aantal partities waarvoor de maximale kans dat de meeste goed presterende query's en alle andere system-voorwaarden opgegeven bereiken blijven dus hetzelfde. Als u het aantal partities niet weet, kunt u setMaxDegreeOfParallelism om in te stellen van een groot aantal en het systeem kiest de minimale (het aantal partities, door de gebruiker opgegeven invoer) als de maximale graad van parallelle uitvoering.
 
     Het is belangrijk te weten dat de parallelle query's de beste prestaties opleveren als de gegevens gelijkmatig wordt verdeeld over alle partities met betrekking tot de query. Als de gepartitioneerde verzameling zodanig dat alle of een meerderheid van de gegevens die zijn geretourneerd door een query is geconcentreerd in een paar partities (één partitie in het ergste geval) en vervolgens op de prestaties van de query zou worden knelpunt door deze partities is gepartitioneerd.
 
     (b) ***afstemmen setMaxBufferedItemCount\:***  parallelle query is ontworpen voor het vooraf ophalen van resultaten terwijl de huidige batch van de resultaten wordt verwerkt door de client. De vooraf ophalen helpt bij het algemene verbetering van de latentie van een query. setMaxBufferedItemCount beperkt het aantal vooraf opgehaalde resultaten. Als u setMaxBufferedItemCount met het verwachte aantal geretourneerde resultaten (of een hogere waarde), kunt de query voor het ontvangen van maximaal profiteren van het vooraf ophalen.
 
-    Op dezelfde manier, ongeacht de MaxDegreeOfParallelism vooraf ophalen werkt en er is één buffer voor de gegevens van alle partities.  
+    Op dezelfde manier, ongeacht de MaxDegreeOfParallelism vooraf ophalen werkt en er is één buffer voor de gegevens van alle partities.
 
 5. **Uitstel getRetryAfterInMilliseconds tussenpozen implementeren**
 
-    Tijdens het Prestatietesten van, moet u load vergroten totdat een klein aantal aanvragen te maken met beperkingen. Als beperkt, moet de clienttoepassing uitstel voor de server opgegeven interval. Respecteer de uitstel zorgt ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. 
+    Tijdens het Prestatietesten van, moet u load vergroten totdat een klein aantal aanvragen te maken met beperkingen. Als beperkt, moet de clienttoepassing uitstel voor de server opgegeven interval. Respecteer de uitstel zorgt ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen.
 6. **Uw client-workload uitschalen**
 
     Als u op het niveau van hoge doorvoer testen wilt (> 50.000 RU/s), de clienttoepassing kan knelpunt vanwege de machine beperking af op CPU- of -gebruik. Als u dit punt bereikt, kunt u blijven om de Azure Cosmos DB-account verder door uw client-toepassingen schalen over meerdere servers.
@@ -81,7 +81,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     Verminder het aantal retouren van netwerk vereist voor het ophalen van alle toepasselijke resultaten, verhoogt u de pagina databasegrootte met behulp de [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) aanvraagheader op maximaal 1000. In gevallen waarin u wilt alleen enkele resultaten weer te geven, bijvoorbeeld als uw gebruiker-interface of de toepassing de API retourneert alleen 10 een tijd resulteert, u kunt ook de paginagrootte van de op 10 te verminderen van de doorvoer die wordt gebruikt voor leesbewerkingen en query's verlagen.
 
     U kunt ook het formaat van de pagina met de methode setMaxItemCount instellen.
-    
+
 9. **Juiste Scheduler (Vermijd het stelen van Netty threads voor i/o-Event-lus) gebruiken**
 
     De Async Java-SDK gebruikt [netty](https://netty.io/) voor niet-blokkerende i/o. De SDK gebruikt een vast aantal i/o-netty gebeurtenis lus threads (zo veel CPU-kernen uw computer heeft) voor het uitvoeren van i/o-bewerkingen. De zichtbaar zijn geretourneerd door API verzendt het resultaat van een van de gedeelde i/o-gebeurtenis lus netty threads. Het is dus belangrijk dat u de gedeelde i/o-gebeurtenis lus netty threads worden niet geblokkeerd. CPU-intensief werk- of -bewerking op de i/o-gebeurtenis lus netty thread blokkeren kan ertoe leiden dat impasse of SDK doorvoer aanzienlijk verkorten.
@@ -123,7 +123,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Op basis van het type van uw werk moet u de juiste bestaande RxJava Scheduler gebruiken voor uw werk. Lees hier [ ``Schedulers`` ](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
-    Voor meer informatie, bekijk de [Github-pagina](https://github.com/Azure/azure-cosmosdb-java) voor Async Java SDK.
+    Voor meer informatie, bekijk de [GitHub-pagina](https://github.com/Azure/azure-cosmosdb-java) voor Async Java SDK.
 
 10. **Netty van logboekregistratie uitschakelen** Netty bibliotheek logboekregistratie is intensieve en moet worden uitgeschakeld (onderdrukken, meld u in de configuratie mogelijk niet voldoende) om te voorkomen dat extra CPU-kosten. Als u zich niet in foutopsporingsmodus, logboekregistratie uitschakelen netty van kan worden overgeslagen. Als u log4j gebruikt voor het verwijderen van de aanvullende CPU-kosten in rekening gebracht door ``org.apache.log4j.Category.callAppenders()`` van netty kunt u de volgende regel toevoegen aan uw codebasis:
 
@@ -175,7 +175,7 @@ Voor andere platforms (Red Hat, Windows, Mac, enzovoort) verwijzen naar deze ins
  
 1. **Niet-gebruikte paden uitsluiten van indexering voor snellere schrijfbewerkingen**
 
-    Azure Cosmos-DB-indexeringsbeleid kunt u opgeven welke paden document als u wilt opnemen of uitsluiten voor indexering door gebruik te maken van paden indexeren (setIncludedPaths en setExcludedPaths). Het gebruik van het indexeren van paden kan bieden schrijven voor verbeterde prestaties en lagere indexopslag voor scenario's waarin de querypatronen vooraf, bekend als indexering kosten worden direct gecorreleerd aan het aantal unieke paden die zijn geïndexeerd.  Bijvoorbeeld, toont de volgende code hoe u kunt een hele sectie van de documenten (ook wel) uitsluiten een substructuur) indexering via de "*" jokerteken.
+    Azure Cosmos-DB-indexeringsbeleid kunt u opgeven welke paden document als u wilt opnemen of uitsluiten voor indexering door gebruik te maken van paden indexeren (setIncludedPaths en setExcludedPaths). Het gebruik van het indexeren van paden kan bieden schrijven voor verbeterde prestaties en lagere indexopslag voor scenario's waarin de querypatronen vooraf, bekend als indexering kosten worden direct gecorreleerd aan het aantal unieke paden die zijn geïndexeerd. Bijvoorbeeld, toont de volgende code hoe u kunt een hele sectie van de documenten (ook wel) uitsluiten een substructuur) indexering via de "*" jokerteken.
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -196,7 +196,7 @@ Voor andere platforms (Red Hat, Windows, Mac, enzovoort) verwijzen naar deze ins
 
     Azure Cosmos DB biedt een uitgebreide set databasebewerkingen, waaronder relationele en hiërarchische query's met UDF's en opgeslagen procedures en triggers; dit alles kan worden uitgevoerd op de documenten in een databaseverzameling. De kosten die gepaard gaan met elk van deze bewerkingen varieert op basis van de CPU, IO en geheugen die nodig is om de bewerking te voltooien. In plaats van nadenken over en beheren van hardware, kunt u een aanvraageenheid (RU) zien als één maateenheid voor de resources die vereist voor het uitvoeren van verschillende databasebewerkingen en een toepassingsaanvraag indienen.
 
-    Doorvoer is ingericht op basis van het aantal [aanvraageenheden](request-units.md) instellen voor elke container. Aanvraag eenheidsverbruik wordt geëvalueerd als een tarief per seconde. Toepassingen die groter zijn dan de snelheid van de eenheid ingerichte aanvragen voor de container zijn beperkt tot het percentage lager is dan het niveau van de ingerichte voor de container. Als uw toepassing een grotere doorvoer nodig is, kunt u uw doorvoer verhogen door in te richten extra aanvraageenheden. 
+    Doorvoer is ingericht op basis van het aantal [aanvraageenheden](request-units.md) instellen voor elke container. Aanvraag eenheidsverbruik wordt geëvalueerd als een tarief per seconde. Toepassingen die groter zijn dan de snelheid van de eenheid ingerichte aanvragen voor de container zijn beperkt tot het percentage lager is dan het niveau van de ingerichte voor de container. Als uw toepassing een grotere doorvoer nodig is, kunt u uw doorvoer verhogen door in te richten extra aanvraageenheden.
 
     De complexiteit van een query heeft gevolgen voor het aantal aanvraageenheden voor een bewerking worden verbruikt. Het aantal predikaten, aard van de predikaten, aantal UDF's en de grootte van de set alle gegevens van bron van invloed zijn op de kosten van querybewerkingen.
 
@@ -206,7 +206,7 @@ Voor andere platforms (Red Hat, Windows, Mac, enzovoort) verwijzen naar deze ins
     ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,
                                                      false).toBlocking.single();
     response.getRequestCharge();
-    ```             
+    ```
 
     De kosten van de aanvraag heeft geretourneerd als deze header is een fractie van de ingerichte doorvoer. Bijvoorbeeld, als u werkt met 2000 RU/s ingericht, en als de voorgaande query 1000 1KB-documenten retourneert, de kosten van de bewerking is 1000. Binnen één seconde houdt de server daarom slechts twee dergelijke aanvragen voordat de volgende aanvragen beperken. Zie voor meer informatie, [Aanvraageenheden](request-units.md) en de [aanvraag eenheid calculator](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
@@ -222,7 +222,7 @@ Voor andere platforms (Red Hat, Windows, Mac, enzovoort) verwijzen naar deze ins
 
     Hebt u meer dan één client cumulatief werken consistent boven de snelheid van aanvragen, het aantal nieuwe pogingen van standaard momenteel ingesteld op 9 intern door de client niet toereikend zijn; in dit geval, genereert de client een DocumentClientException met de statuscode 429 naar de toepassing. Het standaardaantal-nieuwe pogingen kan worden gewijzigd met behulp van setRetryOptions op de ConnectionPolicy-exemplaar. Standaard wordt de DocumentClientException met de statuscode 429 geretourneerd na een cumulatieve wachttijd van 30 seconden als de aanvraag worden voortgezet boven de snelheid van aanvragen. Dit gebeurt zelfs als het huidige aantal nieuwe pogingen is kleiner dan het maximale aantal, worden deze de standaardwaarde van 9 of een door de gebruiker gedefinieerde waarde.
 
-    Terwijl het gedrag voor automatische opnieuw proberen helpt om tolerantie en gebruiksgemak voor de meeste toepassingen te verbeteren, kan deze op odds zijn bij het uitvoeren van referentiepunten voor prestaties, met name bij het meten van latentie.  De latentie waargenomen-client wordt oploopt als het experiment komt binnen via deze server-restrictie en zorgt ervoor dat de client-SDK op de achtergrond opnieuw uit te voeren. Om te voorkomen latentiepieken tijdens prestaties experimenten, meet de geretourneerd door elke bewerking kosten in rekening gebracht en ervoor te zorgen dat aanvragen hieronder de aanvraagsnelheid gereserveerde nog werken. Zie voor meer informatie, [Aanvraageenheden](request-units.md).
+    Terwijl het gedrag voor automatische opnieuw proberen helpt om tolerantie en gebruiksgemak voor de meeste toepassingen te verbeteren, kan deze op odds zijn bij het uitvoeren van referentiepunten voor prestaties, met name bij het meten van latentie. De latentie waargenomen-client wordt oploopt als het experiment komt binnen via deze server-restrictie en zorgt ervoor dat de client-SDK op de achtergrond opnieuw uit te voeren. Om te voorkomen latentiepieken tijdens prestaties experimenten, meet de geretourneerd door elke bewerking kosten in rekening gebracht en ervoor te zorgen dat aanvragen hieronder de aanvraagsnelheid gereserveerde nog werken. Zie voor meer informatie, [Aanvraageenheden](request-units.md).
 3. **Ontwerp voor een kleinere documenten voor een hogere doorvoer**
 
     De kosten van de aanvraag (de kosten van de verwerking van aanvragen) van een bepaalde bewerking is direct gecorreleerd met de grootte van het document. Bewerkingen voor grote documenten duurder dan bewerkingen voor kleine-documenten.

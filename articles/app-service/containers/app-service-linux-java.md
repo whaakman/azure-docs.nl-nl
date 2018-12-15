@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 80a2cea90d8d1d2dd43207fa504e601b216714cc
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343476"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407334"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -135,7 +135,7 @@ Java-toepassingen die worden uitgevoerd in App Service for Linux hebben dezelfde
 
 ### <a name="authenticate-users"></a>Gebruikers verifiëren
 
-Instellen van app-verificatie in de Azure Portal met de **verificatie en autorisatie** optie. Van daaruit kunt u verificatie met behulp van Azure Active Directory of sociale aanmeldingen als Facebook, Google of GitHub. Configuratie van Azure portal werkt alleen bij het configureren van een enkele verificatieprovider.  Zie voor meer informatie, [configureren van uw App Service-app voor het gebruik van Azure Active Directory-aanmelding](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) en de bijbehorende artikelen voor andere id-providers.
+Instellen van app-verificatie in de Azure Portal met de **verificatie en autorisatie** optie. Van daaruit kunt u verificatie met behulp van Azure Active Directory of sociale aanmeldingen als Facebook, Google of GitHub. Configuratie van Azure portal werkt alleen bij het configureren van een enkele verificatieprovider.  Zie voor meer informatie, [configureren van uw App Service-app voor het gebruik van Azure Active Directory-aanmelding](/azure/app-service/configure-authentication-provider-aad) en de bijbehorende artikelen voor andere id-providers.
 
 Als u nodig hebt om in te schakelen van meerdere providers voor aanmelden, volg de instructies in de [App Service-verificatie aanpassen](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) artikel.
 

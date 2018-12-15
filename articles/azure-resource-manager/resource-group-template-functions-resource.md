@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f2f086dbe5056ee3d83be2d8725f49fd502d1b2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 72b0aba4d2bf9cb666d1cb7ae30d0cbdefe3045b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139226"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438403"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Functies van de resource voor Azure Resource Manager-sjablonen
 
@@ -509,6 +509,8 @@ Het geretourneerde object is in de volgende indeling:
 
 ### <a name="remarks"></a>Opmerkingen
 
+De `resourceGroup()` functie kan niet worden gebruikt in een sjabloon die is [geïmplementeerd op het abonnementsniveau](deploy-to-subscription.md). Het kan alleen worden gebruikt in de sjablonen die zijn geïmplementeerd voor een resourcegroep.
+
 Een algemene gebruik van de resourceGroup-functie is het maken van resources in dezelfde locatie als de resourcegroep. Het volgende voorbeeld wordt de locatie voor resourcegroep om toe te wijzen de locatie voor een website.
 
 ```json
@@ -593,9 +595,9 @@ De id wordt geretourneerd in de volgende indeling:
 
 ### <a name="remarks"></a>Opmerkingen
 
-De parameterwaarden die u opgeeft, is afhankelijk van of de resource in het hetzelfde abonnement en resourcegroep als de huidige implementatie is.
+Gebruikt in combinatie met een [abonnementsniveau implementatie](deploy-to-subscription.md), wordt de `resourceId()` functie kan alleen de ID van de resources die zijn geïmplementeerd op dat niveau ophalen. U kunt bijvoorbeeld de ID van een beleidsdefinitie of roldefinitie, maar niet de ID van een storage-account krijgen. Het omgekeerde geldt voor implementaties in een resourcegroep. U kan de resource-ID van de resources die zijn geïmplementeerd op het abonnementsniveau niet ophalen.
 
-Voor de resource-ID voor een opslagaccount in hetzelfde abonnement en resourcegroep, gebruikt u:
+De parameterwaarden die u opgeeft, is afhankelijk van of de resource in het hetzelfde abonnement en resourcegroep als de huidige implementatie is. Voor de resource-ID voor een opslagaccount in hetzelfde abonnement en resourcegroep, gebruikt u:
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
@@ -617,6 +619,12 @@ Voor de resource-ID voor een database in een andere resourcegroep, gebruikt u:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
+```
+
+Voor de resource-ID van een resource op abonnementsniveau bij het implementeren van op het abonnementsbereik, gebruikt u:
+
+```json
+"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
 ```
 
 Vaak het geval is, moet u deze functie wilt gebruiken bij het gebruik van een storage-account of een virtueel netwerk in een andere resourcegroep. Het volgende voorbeeld laat zien hoe een resource vanaf een externe resourcegroep eenvoudig kan worden gebruikt:

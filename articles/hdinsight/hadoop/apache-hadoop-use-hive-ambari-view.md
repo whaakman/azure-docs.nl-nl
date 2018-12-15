@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632744"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407844"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Apache Ambari Hive-weergave gebruiken met Apache Hadoop in HDInsight
 
@@ -26,7 +26,7 @@ Leer hoe u Hive-query's uitvoert met behulp van Apache Ambari Hive-weergave. De 
 
 * Een Linux-gebaseerde Apache Hadoop op HDInsight-clusterversie 3.4 of hoger.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Een webbrowser
@@ -79,9 +79,9 @@ Leer hoe u Hive-query's uitvoert met behulp van Apache Ambari Hive-weergave. De 
 
    * `STORED AS TEXTFILE LOCATION`: U ziet waar de gegevens worden opgeslagen en dat deze opgeslagen als tekst.
 
-   * `SELECT`: Een telling van alle rijen waar kolom t4 de waarde [fout bevat] selecteert.
+   * `SELECT`: Selecteert een telling van alle rijen waar kolom t4 de waarde [fout bevat].
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Laat de __Database__ selectie __standaard__. De voorbeelden in dit document gebruikt de standaarddatabase die is opgenomen in HDInsight.
 
 5. Voor het starten van de query, gebruikt u de **Execute** knop onder het werkblad. Hiermee schakelt u de knop oranje en verandert de tekst in **stoppen**.
@@ -93,7 +93,7 @@ Leer hoe u Hive-query's uitvoert met behulp van Apache Ambari Hive-weergave. De 
 
     U kunt de **logboeken** tabblad om de logboekgegevens die de taak hebt gemaakt.
 
-   > [!TIP]
+   > [!TIP]  
    > Downloaden of opslaan van resultaten van de **resultaten opslaan** in het dialoogvenster van de vervolgkeuzelijst in de rechterbovenhoek links van de **resultaten queryproces** sectie.
 
 ### <a name="visual-explain"></a>Visueel element wordt uitgelegd
@@ -106,7 +106,7 @@ De **Visual uitgelegd** weergave van de query kan nuttig zijn bij het begrijpen 
 
 Als de Tez UI voor de query weergeven, selecteert u de **Tez** tabblad onder het werkblad.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tez wordt niet gebruikt voor het oplossen van alle query's. U kunt veel query's oplossen zonder gebruik van Tez. 
 
 Als Tez is gebruikt voor het omzetten van de query, wordt de omgeleid Acyclic Graph (DAG) weergegeven. Als u wilt weergeven van de DAG voor query's die u in het verleden hebt uitgevoerd, of als u wilt het proces Tez foutopsporing, gebruikt u de [Tez weergave](../hdinsight-debug-ambari-tez-view.md) in plaats daarvan.
@@ -129,7 +129,7 @@ Uit de **Query** tabblad kunt u eventueel query's opslaan. Nadat u een query heb
 
 ![Afbeelding van tabblad opgeslagen query 's](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
-> [!TIP]
+> [!TIP]  
 > Opgeslagen query's worden opgeslagen in standaardopslag voor het cluster. U vindt de opgeslagen query's onder het pad `/user/<username>/hive/scripts`. Deze worden opgeslagen als tekst zonder opmaak `.hql` bestanden.
 >
 > Als u het cluster verwijdert, maar de opslag blijven, kunt u een hulpprogramma zoals [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) of Data Lake Storage Explorer (van de [Azure Portal](https://portal.azure.com)) om op te halen van de query's.
@@ -165,8 +165,8 @@ U kunt vervolgens de UDF gebruiken in uw query. Bijvoorbeeld `SELECT myawesomeud
 
 Zie de volgende artikelen voor meer informatie over het gebruik van UDF's met Hive in HDInsight:
 
-* [Met behulp van Python met Hive en Pig in HDInsight](python-udf-hdinsight.md)
-* [Een aangepaste Hive-UDF toevoegen aan HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Python gebruiken met Apache Hive en Apache Pig in HDInsight](python-udf-hdinsight.md)
+* [Een aangepaste Apache Hive-UDF toevoegen aan HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Hive-instellingen
 
@@ -176,9 +176,9 @@ U kunt verschillende Hive-instellingen, zoals het wijzigen van de engine voor he
 
 Voor algemene informatie over Hive in HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
 
 Voor informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)

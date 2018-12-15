@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: f18892d32a385b41f3325623e21da1dd25af7253
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: fc9ceb06eb51d1e88306f0971ad055facd05f9fb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744704"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437262"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor virtuele Linux-machines
 
@@ -123,7 +123,7 @@ In het geval waarbij er geplande gebeurtenissen, het antwoord bevat een matrix v
 ```
 
 ### <a name="event-properties"></a>Eigenschappen van gebeurtenis
-|Eigenschap  |  Beschrijving |
+|Eigenschap  |  Description |
 | - | - |
 | Gebeurtenis-id | Unieke id voor deze gebeurtenis. <br><br> Voorbeeld: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Type gebeurtenis | Impact die deze gebeurtenis is veroorzaakt. <br><br> Waarden: <br><ul><li> `Freeze`: De virtuele machine is gepland voor een paar seconden onderbreken. De CPU wordt onderbroken, maar er is geen invloed op geheugen, geopende bestanden of netwerkverbindingen. <li>`Reboot`: De virtuele machine is gepland voor opnieuw opstarten. (Niet-persistente geheugen is verbroken.) <li>`Redeploy`: De virtuele machine is gepland om te verplaatsen naar een ander knooppunt. (Tijdelijke schijven zijn verbroken.) |
@@ -211,6 +211,6 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Volgende stappen 
 - Bekijk [geplande gebeurtenissen op Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) om te zien van een demo. 
-- Controleer de geplande gebeurtenissen-codevoorbeelden in de [Azure Instance Metadata geplande gebeurtenissen Github-opslagplaats](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
+- Controleer de geplande gebeurtenissen-codevoorbeelden in de [Azure Instance Metadata geplande gebeurtenissen GitHub-opslagplaats](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Meer informatie over de API's die beschikbaar zijn in de [Instance Metadata Service](instance-metadata-service.md).
 - Meer informatie over [gepland onderhoud voor virtuele Linux-machines in Azure](planned-maintenance.md).

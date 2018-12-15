@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 6588d65a4f19c06e3ee4990aba226dbd11119c91
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a86902d772226be136778d200a37c451b7b7e9a5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016247"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407249"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Schaalbaar streamen in HDInsight
 
 Big data-oplossingen voor realtime reageren op gegevens in beweging. Deze gegevens is doorgaans het nuttigst op de tijd van aankomst. Als de gegevensstroom inkomende groter is wordt dan op dat moment kan worden verwerkt, moet u mogelijk resources beperken. Een HDInsight-cluster kunt u kunt ook omhoog schalen om te voldoen aan uw streaming-oplossing door toe te voegen knooppunten op aanvraag.
 
-In een streaming-toepassing, zijn een of meer gegevensbronnen genereren van gebeurtenissen (soms in miljoenen per seconde) die snel worden opgenomen moeten dat alle nuttige informatie. De binnenkomende gebeurtenissen worden verwerkt met *stroombuffering*, ook wel genoemd *gebeurteniswachtrij*, door een service zoals [Kafka](kafka/apache-kafka-introduction.md) of [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Nadat u de gebeurtenissen verzameld, kunt u vervolgens de gegevens met behulp van een realtime analytics-systeem binnen analyseren de *streamverwerking* laag, zoals [Storm](storm/apache-storm-overview.md) of [Spark Streaming](spark/apache-spark-streaming-overview.md). De verwerkte gegevens kunnen worden opgeslagen in langdurige opslagsystemen, zoals [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/), en wordt weergegeven in realtime op een dashboard voor bedrijfsinformatie, zoals [Power BI](https://powerbi.microsoft.com), Tableau of een aangepaste web-pagina .
+In een streaming-toepassing, zijn een of meer gegevensbronnen genereren van gebeurtenissen (soms in miljoenen per seconde) die snel worden opgenomen moeten dat alle nuttige informatie. De binnenkomende gebeurtenissen worden verwerkt met *stroombuffering*, ook wel genoemd *gebeurteniswachtrij*, door een service zoals [Apache Kafka](kafka/apache-kafka-introduction.md) of [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Nadat u de gebeurtenissen verzameld, kunt u vervolgens de gegevens met behulp van een realtime analytics-systeem binnen analyseren de *streamverwerking* laag, zoals [Apache Storm](storm/apache-storm-overview.md) of [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). De verwerkte gegevens kunnen worden opgeslagen in langdurige opslagsystemen, zoals [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/), en wordt weergegeven in realtime op een dashboard voor bedrijfsinformatie, zoals [Power BI](https://powerbi.microsoft.com), Tableau of een aangepaste web-pagina .
 
 ![HDInsight Streaming-patronen](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -39,7 +39,7 @@ Zie voor meer informatie, [wat is Apache Storm op Azure HDInsight?](storm/apache
 
 Spark Streaming is een uitbreiding van Spark, zodat u kunt de dezelfde code die u voor batchverwerking gebruikt hergebruikt. U kunt batch- en interactieve query's in dezelfde toepassing combineren. In tegenstelling tot Storm, Spark Streaming biedt stateful precies-semantiek verwerking. Wanneer gebruikt in combinatie met de [directe API van Kafka](http://spark.apache.org/docs/latest/streaming-kafka-integration.html), die zorgt ervoor dat alle Kafka-gegevens exact één keer wordt ontvangen door Spark Streaming, is het mogelijk om end-to-end precies-eenmaal wordt gegarandeerd. Een van de sterke punten van Spark Streaming is fouttolerant de mogelijkheden ervan herstellen knooppunten snel mislukt wanneer meerdere knooppunten binnen het cluster worden gebruikt.
 
-Zie voor meer informatie, [wat is Spark Streaming?](hdinsight-spark-streaming-overview.md).
+Zie voor meer informatie, [wat is Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
 
 ## <a name="scaling-a-cluster"></a>Een cluster schalen
 
@@ -65,5 +65,5 @@ Deze drie parameters kunnen worden geconfigureerd op het niveau van het cluster 
 
 * [Aan de slag met Apache Storm op HDInsight](storm/apache-storm-tutorial-get-started-linux.md)
 * [Example Storm toplogies and components for Apache Storm on HDInsight](storm/apache-storm-example-topology.md) (Voorbeelden van Storm-topologieën en -onderdelen in HDInsight)
-* [Inleiding tot Spark in HDInsight](spark/apache-spark-overview.md)
+* [Inleiding tot Apache Spark in HDInsight](spark/apache-spark-overview.md)
 * [Beginnen met Apache Kafka in HDInsight](kafka/apache-kafka-get-started.md)

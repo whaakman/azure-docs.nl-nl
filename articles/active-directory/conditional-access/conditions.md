@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eb7d5dc2d38d814625e904d1270446f5f1671624
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321098"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410060"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory? 
 
@@ -74,7 +74,7 @@ Selecteer:
 
 - **Alle cloud-apps** basislijn beleid toe te passen op de hele organisatie. Gebruik deze selectie voor beleidsregels die meervoudige verificatie vereisen wanneer het aanmeldingsrisico wordt gedetecteerd voor alle cloud-Apps. Een beleid toegepast op **alle cloud-apps** geldt voor toegang tot alle websites en services. Deze instelling is niet beperkt tot de cloud-apps die worden weergegeven op de **apps selecteren** lijst. 
 
-- Afzonderlijke cloud-apps voor specifieke services door het beleid doel. Bijvoorbeeld, u kunt vereisen dat gebruikers hebben een [compatibel apparaat](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) voor toegang tot SharePoint Online. Dit beleid wordt ook toegepast op andere services als ze toegang hebben tot SharePoint-inhoud. Een voorbeeld is Microsoft Teams. 
+- **Selecteer spp's** tot specifieke doelservices in uw beleid. Bijvoorbeeld, u kunt vereisen dat gebruikers hebben een [compatibel apparaat](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) voor toegang tot SharePoint Online. Dit beleid wordt ook toegepast op andere services als ze toegang hebben tot SharePoint-inhoud. Een voorbeeld is Microsoft Teams. 
 
 U kunt specifieke apps uitsluiten van een beleid. Deze apps zijn echter nog steeds afhankelijk van het beleid toegepast op de services die ze gebruiken. 
 
@@ -137,16 +137,16 @@ Zie voor meer informatie, [wat is er met de locatievoorwaarde in Azure Active Di
 
 Standaard is een beleid voor voorwaardelijke toegang van toepassing op de volgende apps:
 
-- [Browser-apps](technical-reference.md#supported-browsers) -Browser-apps zijn onder andere websites met behulp van de SAML, WS-Federation en OpenID Connect web SSO-protocollen. Dit geldt ook voor elke website of web-service die is geregistreerd als een vertrouwelijke OAuth-client. Bijvoorbeeld, de Office 365 SharePoint-website. 
+- **[Browser-apps](technical-reference.md#supported-browsers)**  -Browser-apps zijn onder andere websites met behulp van de SAML, WS-Federation en OpenID Connect web SSO-protocollen. Dit geldt ook voor elke website of web-service die is geregistreerd als een vertrouwelijke OAuth-client. Bijvoorbeeld, de Office 365 SharePoint-website. 
 
-- [Mobiele en bureaublad-apps die moderne authenticatie gebruiken](technical-reference.md#supported-mobile-applications-and-desktop-clients) -deze apps bevatten de Office-bureaubladtoepassingen en phone-apps. 
+- **[Mobiele en bureaublad-apps die moderne authenticatie gebruiken](technical-reference.md#supported-mobile-applications-and-desktop-clients)**  -deze apps bevatten de Office-bureaubladtoepassingen en phone-apps. 
 
 
 Bovendien kunt u zich richten op een beleid op specifieke client-apps die geen moderne verificatie, bijvoorbeeld:
 
-- Client-apps met behulp van de Microsoft Exchange ActiveSync-protocol. Wanneer een beleid blokken met behulp van Exchange ActiveSync, krijgen betrokken gebruikers een enkele quarantaine-e met informatie over waarom ze worden geblokkeerd. Indien nodig, bevat het e-mailbericht instructies voor het inschrijven van hun apparaat bij Intune.
+- **[Exchange ActiveSync-clients](conditions.md#exchange-activesync-clients)**  : wanneer een beleid blokken met behulp van Exchange ActiveSync, betrokken gebruikers een enkel quarantaine-e met informatie krijgen over waarom ze worden geblokkeerd. Indien nodig, bevat het e-mailbericht instructies voor het inschrijven van hun apparaat bij Intune.
 
-- Andere clients. Deze apps dus ook clients die gebruikmaken van basisverificatie met e-mailprotocollen zoals IMAP, MAPI-, pop-server, SMTP en oudere Office-apps die moderne verificatie wordt niet gebruikt. Zie voor meer informatie, [hoe moderne verificatie werkt voor client-apps voor Office 2013 en Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
+- **[Andere clients](block-legacy-authentication.md)**  -deze apps dus ook clients die gebruikmaken van basisverificatie met e-mailprotocollen zoals IMAP, MAPI-, pop-server, SMTP en oudere Office-apps die moderne verificatie wordt niet gebruikt. Zie voor meer informatie, [hoe moderne verificatie werkt voor client-apps voor Office 2013 en Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![Client-apps](./media/conditions/41.png)
 
@@ -154,7 +154,7 @@ Algemene scenario's voor deze voorwaarde zijn beleid met de volgende vereisten:
 
 - **[Vereisen dat een beheerd apparaat](require-managed-devices.md)**  voor mobiele en desktoptoepassingen die gegevens naar een apparaat downloaden. Op hetzelfde moment, kunt u browsertoegang vanaf elk apparaat. In dit scenario wordt voorkomen dat documenten opslaan en synchroniseren met een niet-beheerde apparaat. Met deze methode kunt u de kans voor verlies van gegevens beperken als het apparaat is zoekgeraakt of gestolen.
 
-- **[Vereisen dat een beheerd apparaat](require-managed-devices.md)**  apps met behulp van ActiveSync voor toegang tot Exchange Online.
+- **[Vereisen dat een beheerd apparaat](require-managed-devices.md)**  voor apps met behulp van ActiveSync voor toegang tot Exchange Online.
 
 - **[Verouderde verificatie blok](block-legacy-authentication.md)**  naar Azure AD (andere clients)
 

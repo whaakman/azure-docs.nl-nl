@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6a1641a76d43cdbac6253e00ea35f70325870853
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 6b0b047e74496fb9e58df05dc6118c5f376cb99d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993382"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437517"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - best practices voor infrastructuur
 
@@ -39,7 +39,7 @@ Zie [standaard configuratie en de virtuele machine knooppuntgrootten voor cluste
 
 Elke versie van HDInsight is een cloud-distributie van een versie van Hortonworks Data Platform (HDP) en bestaat uit een verzameling van onderdelen van Hadoop-ecosysteem. Zie [versiebeheer van HDInsight-onderdeel](../hdinsight-component-versioning.md) voor meer informatie over alle HDInsight-onderdelen en hun huidige versies.
 
-U kunt ook Ambari UI of de Ambari REST-API gebruiken om te controleren of de Hadoop-onderdelen en versies in HDInsight.
+U kunt ook Apache Ambari-gebruikersinterface of de Ambari REST-API gebruiken om te controleren of de Hadoop-onderdelen en versies in HDInsight.
 
 Toepassingen of onderdelen die beschikbaar waren in clusters on-premises, maar geen deel uitmaken van de HDInsight-clusters kunnen worden toegevoegd op een Edge-knooppunt of op een virtuele machine in hetzelfde VNet als de HDInsight-cluster. Een derde partij Hadoop-toepassing die is niet beschikbaar in Azure HDInsight kan worden geïnstalleerd met de optie 'Application' in HDInsight-cluster. Aangepaste Hadoop-toepassingen kunnen worden geïnstalleerd op HDInsight-cluster met behulp van 'scriptacties'. De volgende tabel bevat enkele van de algemene toepassingen en hun HDInsight-integratie-opties:
 
@@ -90,7 +90,7 @@ HDInsight biedt vooraf geschreven scripts voor het installeren van de volgende o
 - Hive-bibliotheken vooraf laden
 - Mono installeren of bijwerken
 
-> [!Note]
+> [!Note]  
 > HDInsight biedt geen rechtstreekse ondersteuning voor aangepaste hadoop-onderdelen of onderdelen worden geïnstalleerd met behulp van scriptacties.
 
 Scriptacties kunnen ook in de Azure Marketplace worden gepubliceerd als een HDInsight-toepassing.
@@ -140,7 +140,9 @@ Een lege edge-knooppunt is een Linux-machine met de dezelfde clienthulpprogramma
 
 Edge-knooppunten kunnen worden gemaakt en verwijderd via de Azure-portal en kunnen worden gebruikt tijdens of na het cluster maken. Nadat het edge-knooppunt is gemaakt, kunt u verbinding maken met het edge-knooppunt met behulp van SSH en clienthulpprogramma's voor toegang tot het Hadoop-cluster in HDInsight worden uitgevoerd. Het edge-knooppunt ssh-eindpunt is `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
+
 Zie voor meer informatie het artikel [lege edge-knooppunten op Apache Hadoop-clusters in HDInsight gebruiken](../hdinsight-apps-use-edge-node.md).
+
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Gebruik de functie omhoog en omlaag schalen van clusters
 
@@ -188,7 +190,7 @@ Met behulp van Azure Virtual Network met HDInsight kunt de volgende scenario's:
 
 HDInsight kan ofwel worden toegevoegd aan een nieuwe of bestaande Azure Virtual Network. Als HDInsight wordt toegevoegd aan een bestaand Virtueelnetwerk, de bestaande netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes moeten worden bijgewerkt voor onbeperkte toegang tot [verschillende IP-adressen](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) in de Azure-Datacenter. Zorg er ook niet op het blokkeren van verkeer naar de [poorten](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) die worden gebruikt door HDInsight-services.
 
-> [!Note]
+> [!Note]  
 > HDInsight ondersteunt momenteel geen geforceerde tunneling. Geforceerde tunneling is een subnetinstelling die ervoor zorgt het uitgaande internetverkeer met een apparaat voor controle dat en logboekregistratie. Verwijder geforceerde tunnels zijn voordat het installeren van HDInsight in een subnet of een nieuw subnet maken voor HDInsight. HDInsight ook ondersteunt geen uitgaande netwerkconnectiviteit te beperken.
 
 Raadpleeg voor meer informatie de volgende artikelen:

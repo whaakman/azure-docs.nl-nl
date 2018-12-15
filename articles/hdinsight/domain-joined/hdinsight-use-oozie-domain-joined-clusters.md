@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d0bc48e07efeaf8f09f177367da0570cf3c250ec
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165143"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436276"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Voer Apache Oozie in HDInsight Hadoop clusters met Enterprise-beveiligingspakket
 
@@ -30,8 +30,8 @@ U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een sys
 
 - Een Azure HDInsight Hadoop-cluster met Enterprise Security Package (ESP). Zie [configureren HDInsight-clusters met ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
-    > [!NOTE]
-    > Zie voor gedetailleerde instructies over het gebruik van Oozie op niet-ESP clusters [gebruik Hadoop Oozie-werkstromen in Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
+    > [!NOTE]  
+    > Zie voor gedetailleerde instructies over het gebruik van Oozie op niet-ESP clusters [gebruik Apache Oozie-werkstromen in Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="connect-to-an-esp-cluster"></a>Verbinding maken met een cluster ESP
 
@@ -52,7 +52,7 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
     Een status-Antwoordcode van **200 OK** geeft aan dat succesvolle registratie. Controleer de gebruikersnaam en het wachtwoord als een niet-geautoriseerde reactie wordt ontvangen, zoals 401.
 
 ## <a name="define-the-workflow"></a>De werkstroom definiëren
-Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Language (hPDL). hPDL is een definition language met XML-proces. Voer de volgende stappen uit om de werkstroom te definiëren:
+Oozie werkstroomdefinities worden geschreven in Apache Hadoop proces Definition Language (hPDL). hPDL is een definition language met XML-proces. Voer de volgende stappen uit om de werkstroom te definiëren:
 
 1.  Werkruimte van de domeingebruiker van een instellen:
  ```bash
@@ -243,7 +243,7 @@ U kunt de twee Hive-scripts voor Hive-server 1 en 2, zoals wordt weergegeven in 
     select devicemake from hivesampletable limit 2;
     ```
 
-3.  Sla het bestand naar Hadoop Distributed File System (HDFS):
+3.  Sla het bestand op Apache Hadoop Distributed File System (HDFS):
     ```bash
     hdfs dfs -put countrowshive1.hql countrowshive1.hql
     ```
@@ -271,11 +271,11 @@ U kunt de twee Hive-scripts voor Hive-server 1 en 2, zoals wordt weergegeven in 
 
 Oozie-taken voor clusters met ESP verzenden is als het verzenden van taken Oozie in niet-ESP-clusters.
 
-Zie voor meer informatie, [gebruik Oozie met Hadoop om te definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
+Zie voor meer informatie, [Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="results-from-an-oozie-job-submission"></a>Resultaten van een Oozie taken verzenden
+Oozie-taken worden uitgevoerd voor de gebruiker. Dus controleren zowel Apache Hadoop YARN en Apache Ranger logboeken tonen de taken worden uitgevoerd als de geïmiteerde gebruiker. De opdrachtregelinterface-uitvoer van een taak Oozie lijkt op de volgende code:
 
-Oozie-taken worden uitgevoerd voor de gebruiker. Dus controleren zowel Apache YARN en Apache Ranger logboeken tonen de taken worden uitgevoerd als de geïmiteerde gebruiker. De opdrachtregelinterface-uitvoer van een taak Oozie lijkt op de volgende code:
 
 
 ```bash
@@ -315,7 +315,7 @@ De controlelogboeken Ranger Hive server 2-acties weergeven Oozie uitvoeren van d
 
 Oozie op zichzelf heeft een configuratie voor het autorisatie van gebruikers die de gebruikers van stoppen of verwijderen van andere gebruikers taken kan blokkeren. Instellen zodat deze configuratie de `oozie.service.AuthorizationService.security.enabled` naar `true`. 
 
-Zie voor meer informatie, [Oozie-installatie en configuratie](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
+Zie voor meer informatie, [Apache Oozie-installatie en configuratie](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 
 Voor onderdelen, zoals Hive-server 1 waar de Ranger-invoegtoepassing is niet beschikbaar of wordt ondersteund, is het alleen grofkorrelige HDFS-autorisatie mogelijk. Fijnmazig autorisatie is alleen beschikbaar via Ranger-invoegtoepassingen.
 
@@ -328,6 +328,6 @@ De Oozie-webgebruikersinterface biedt webgebaseerde inzicht in de status van Ooz
 2. Ga als volgt de [Oozie-Webgebruikersinterface](../hdinsight-use-oozie-linux-mac.md) stappen voor het inschakelen van de SSH-tunneling met het edge-knooppunt en toegang tot de web-UI.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
-* [Op tijd gebaseerde Oozie-coördinator gebruiken](../hdinsight-use-oozie-coordinator-time.md).
-* [Verbinding maken met HDInsight (Hadoop) via SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* [Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
+* [Gebruik Apache Oozie-coördinator op basis van tijd](../hdinsight-use-oozie-coordinator-time.md).
+* [Verbinding maken met HDInsight (Apache Hadoop) via SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

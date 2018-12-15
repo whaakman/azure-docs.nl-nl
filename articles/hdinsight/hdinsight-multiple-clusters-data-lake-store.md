@@ -10,19 +10,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: f92100e6e4dd7569a109aa01f3c998777568cce3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6b835dc300808453240dd3b9fe47957bd5feab9b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004583"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435222"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Meerdere HDInsight-clusters met een Azure Data Lake Store-account gebruiken
 
 Beginnen met een HDInsight versie 3.5, kunt u HDInsight-clusters maken met Azure Data Lake Store-accounts als de standaard-bestandssysteem.
-Data Lake Store biedt ondersteuning voor onbeperkte opslag die ideaal niet alleen voor het hosten van grote hoeveelheden gegevens. maar ook voor het hosten van meerdere HDInsight-clusters die share één Data Lake Store-Account. Zie voor instructies over het maken van een HDInsight-cluster met Data Lake Store als opslag [Quick Start: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Data Lake Store biedt ondersteuning voor onbeperkte opslag die ideaal niet alleen voor het hosten van grote hoeveelheden gegevens. maar ook voor het hosten van meerdere HDInsight-clusters die share één Data Lake Store-Account. Zie voor instructies over het maken van een HDInsight-cluster met Data Lake Store als opslag [Quick Start: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-In dit artikel biedt aanbevelingen om de Data Lake opslaan van de beheerder voor het instellen van een enkel en gedeelde Data Lake Store-Account die kunnen worden gebruikt voor meerdere **active** HDInsight-clusters. Deze aanbevelingen gelden voor het hosten van meerdere beveiligde als niet-beveiligde Hadoop-clusters op een gedeelde Data Lake store-account.
+In dit artikel biedt aanbevelingen om de Data Lake opslaan van de beheerder voor het instellen van een enkel en gedeelde Data Lake Store-Account die kunnen worden gebruikt voor meerdere **active** HDInsight-clusters. Deze aanbevelingen gelden voor het hosten van meerdere beveiligde als niet-beveiligde Apache Hadoop-clusters op een gedeelde Data Lake store-account.
 
 
 ## <a name="data-lake-store-file-and-folder-level-acls"></a>Data Lake Store-bestand en map niveau ACL 's
@@ -78,7 +78,7 @@ Wanneer een Service-Principal maken met de naam van de gebruiker toegang heeft (
 
 Deze sectie vindt u de bekende problemen voor het gebruik van HDInsight met Data Lake Store en hun oplossingen.
 
-### <a name="publicly-visible-localized-yarn-resources"></a>Zichtbaar voor iedereen gelokaliseerde YARN-bronnen
+### <a name="publicly-visible-localized-apache-hadoop-yarn-resources"></a>Zichtbaar voor iedereen gelokaliseerde Apache Hadoop YARN-bronnen
 
 Wanneer een nieuw Azure Data Lake store-account wordt gemaakt, wordt automatisch de hoofdmap met toegangs-ACL machtiging bitset naar 770 ingericht. De basismap die eigenaar is van gebruiker is ingesteld op de gebruiker die het account (de beheerder van de Data Lake Store) hebt gemaakt en de groep die eigenaar is ingesteld op de primaire groep van de gebruiker die het account hebt gemaakt. Geen toegang wordt geboden voor 'anderen'.
 

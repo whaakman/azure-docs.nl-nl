@@ -10,21 +10,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 154003f1addea9753234dbe2392ce932177d2d3a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 422ae24357290a782b05ab7e5580c09e8472ddf8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012059"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408660"
 ---
-# <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Op tijd gebaseerde Oozie-coördinator met Hadoop in HDInsight gebruiken voor het definiëren van werkstromen en coördinatie van taken
-In dit artikel leert u hoe u workflows en coördinatoren definieert en hoe u activeert de coördinator taken, op basis van tijd. Is het handig om te gaan via [Oozie gebruiken met HDInsight] [ hdinsight-use-oozie] voordat u dit artikel leest. Naast Oozie, kunt u ook met Azure Data Factory taken plannen. Zie voor meer Azure Data Factory [Pig en Hive met Data Factory gebruiken](../data-factory/transform-data.md).
+# <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Apache Oozie-coördinator op basis van tijd met Apache Hadoop in HDInsight gebruiken voor het definiëren van werkstromen en coördinatie van taken
+In dit artikel leert u hoe u workflows en coördinatoren definieert en hoe u activeert de coördinator taken, op basis van tijd. Is het handig om te gaan via [Apache Oozie gebruiken met HDInsight] [ hdinsight-use-oozie] voordat u dit artikel leest. Naast Oozie, kunt u ook met Azure Data Factory taken plannen. Zie voor meer Azure Data Factory [gebruik Apache Pig- en Apache Hive met Data Factory](../data-factory/transform-data.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Dit artikel gebruikmaken van een Windows-gebaseerde HDInsight-cluster. Zie voor meer informatie over het gebruik van Oozie, met inbegrip van taken die op basis van tijd, op een cluster op basis van Linux, [gebruik Oozie met Hadoop om te definiëren en een werkstroom uitgevoerd op Linux gebaseerde HDInsight](hdinsight-use-oozie-linux-mac.md)
 
 ## <a name="what-is-oozie"></a>Wat is Oozie
-Apache Oozie is een werkstroomcoördinatie/systeem waarmee Hadoop-taken worden beheerd. Dit is geïntegreerd met de Hadoop-stack en Hadoop-taken worden ondersteund voor Apache MapReduce, Apache Pig, Apache Hive en Apache Sqoop. Het kan ook worden gebruikt voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
+Apache Oozie is een werkstroomcoördinatie/systeem waarmee Hadoop-taken worden beheerd. Dit is geïntegreerd met de Hadoop-stack en Hadoop-taken worden ondersteund voor Apache Hadoop MapReduce, Apache Pig, Apache Hive en Apache Sqoop. Het kan ook worden gebruikt voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
 
 De volgende afbeelding ziet u de werkstroom die u wilt implementeren:
 
@@ -32,7 +32,7 @@ De volgende afbeelding ziet u de werkstroom die u wilt implementeren:
 
 De werkstroom bevat twee acties:
 
-1. Een Hive-bewerking wordt een HiveQL-script uit om te tellen hoe vaak elk type logboek-niveau in een log4j-logboekbestand. Elke log4j-logbestand bestaat uit een line-of velden met een veld [LOGBOEKNIVEAU] om weer te geven van het type en de ernst, bijvoorbeeld:
+1. Een Hive-bewerking wordt een HiveQL-script uit om te tellen hoe vaak elk type logboek-niveau in een Apache log4j-logboekbestand. Elke log4j-logbestand bestaat uit een line-of velden met een veld [LOGBOEKNIVEAU] om weer te geven van het type en de ernst, bijvoorbeeld:
 
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -48,10 +48,10 @@ De werkstroom bevat twee acties:
         [TRACE] 816
         [WARN]  4
 
-    Zie [Hive gebruiken met HDInsight][hdinsight-use-hive] voor meer informatie over Hive.
-2. Een actie Sqoop exporteert u de uitvoer van de actie HiveQL naar een tabel in een Azure SQL database. Zie voor meer informatie over Sqoop [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop].
+    Zie voor meer informatie over Hive [Apache Hive gebruiken met HDInsight][hdinsight-use-hive].
+2. Een actie Sqoop exporteert u de uitvoer van de actie HiveQL naar een tabel in een Azure SQL database. Zie voor meer informatie over Sqoop [Apache Sqoop gebruiken met HDInsight][hdinsight-use-sqoop].
 
-> [!NOTE]
+> [!NOTE]  
 > Zie voor ondersteunde versies van de Oozie op HDInsight-clusters, [wat is er nieuw in de clusterversies geleverd door HDInsight?] [hdinsight-versions].
 >
 >
@@ -61,7 +61,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 
 * **Een werkstation met Azure PowerShell**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell-ondersteuning voor het beheer van HDInsight-resources met behulp van Azure Service Manager is **afgeschaft** en verdwijnt per 1 januari 2017. In de stappen in dit document worden de nieuwe HDInsight-cmdlets gebruikt die met Azure Resource Manager werken.
     >
     > Volg de stappen in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Azure PowerShell installeren en configureren) als u de nieuwste versie van Azure PowerShell wilt installeren. Als u scripts hebt die moeten worden gewijzigd om ze te kunnen gebruiken met de nieuwe cmdlets die werken met Azure Resource Manager, raadpleegt u [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migreren naar op Azure Resource Manager gebaseerde hulpprogramma’s voor HDInsight-clusters) voor meer informatie.
@@ -87,10 +87,10 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
     <tr><td>SQL-databasenaam</td><td>$sqlDatabaseName</td><td></td><td>De Azure SQL-database waarnaar Sqoop gegevens worden geëxporteerd. </td></tr>
     </table>
 
-  > [!NOTE]
+  > [!NOTE]   
   > Een Azure SQL database staat standaard verbindingen van Azure-Services, zoals Azure HDInsight. Als deze firewallinstelling is uitgeschakeld, moet u het inschakelen van de Azure-Portal. Zie voor instructies over het maken van een SQL-Database en firewallregels configureren, [maken en SQL Database configureren][sqldatabase-get-started].
 
-> [!NOTE]
+> [!NOTE]  
 > Invullen de waarden in de tabellen. Dit is handig voor deze zelfstudie te doorlopen.
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Oozie-workflow en het bijbehorende HiveQL-script definiëren
@@ -103,8 +103,8 @@ De Hive-actie in de werkstroom wordt een bestand HiveQL-script. Dit scriptbestan
 3. **De locatie van het log4j-logboekbestand**. Veldscheidingsteken is ','. Het scheidingsteken voor regel is '\n'. Een externe Hive-tabel wordt gebruikt om te voorkomen dat het bestand wordt verwijderd uit de oorspronkelijke locatie, als u wilt de Oozie-workflow meerdere keren uitvoeren.
 4. **De instructie INSERT OVERSCHRIJVEN** telt het aantal exemplaren van elk type logboek-niveau van de log4j Hive-tabel en de uitvoer wordt opgeslagen naar een Azure Blob storage-locatie.
 
-> [!NOTE]
-> Er is een bekend probleem van de Hive-pad. U wordt dit probleem ondervindt bij het indienen van een Oozie-taak. De instructies voor het verhelpen van het probleem kunnen worden gevonden op de TechNet-Wiki: [HDInsight Hive-fout: kan de naam van][technetwiki-hive-error].
+> [!NOTE]  
+> Er is een bekend probleem van de Hive-pad. U wordt dit probleem ondervindt bij het indienen van een Oozie-taak. De instructies voor het verhelpen van het probleem kunnen worden gevonden op de TechNet-Wiki: [HDInsight Hive-fout: Kan de naam van][technetwiki-hive-error].
 
 **De HiveQL-script-bestand om te worden aangeroepen door de werkstroom definiëren**
 
@@ -262,7 +262,7 @@ De syntaxis is:
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [!NOTE]
+> [!NOTE]  
 > Alleen de *wasb: / /* syntaxis wordt ondersteund in HDInsight-clusterversie 3.0. De oudere *asv: / /* syntaxis wordt ondersteund in HDInsight 2.1 en 1.6-clusters, maar het wordt niet ondersteund in HDInsight 3.0-clusters.
 >
 > De wasb: / / pad is een virtueel pad. Zie voor meer informatie [Azure Blob storage gebruiken met HDInsight][hdinsight-storage].
@@ -287,7 +287,7 @@ Er zijn enkele dingen die u wilt weten over de Hive-tabellen voor interne en ext
 * Het bestand met verplaatst de opdracht CREATE EXTERNAL TABLE niet.
 * De opdracht CREATE EXTERNAL TABLE toegestaan niet in alle Deelmappen onder de map die is opgegeven in de component locatie. Dit is de reden waarom de zelfstudie een kopie van het bestand sample.log maakt.
 
-Zie voor meer informatie, [HDInsight: Hive-interne en externe tabellen Intro][cindygross-hive-tables].
+Zie voor meer informatie, [HDInsight: Apache Hive-tabellen voor interne en externe Intro][cindygross-hive-tables].
 
 **Voorbereiden van de zelfstudie**
 
@@ -300,7 +300,7 @@ Zie voor meer informatie, [HDInsight: Hive-interne en externe tabellen Intro][ci
 
     U wordt gevraagd de referenties van uw Azure-account in te voeren. Deze methode van het toevoegen van een abonnementsverbinding een time-out optreedt, en nadat de 12 uur, hebt u de cmdlet opnieuw uitvoeren.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Als u meerdere Azure-abonnementen hebt en het standaardabonnement niet de versie die u wilt gebruiken is, gebruikt u de <strong>Select-AzureSubscription</strong> cmdlet om een abonnement te selecteren.
 
 3. Kopieer het volgende script in het scriptvenster en stelt u de eerste zes variabelen:
@@ -536,7 +536,7 @@ Azure PowerShell biedt op dit moment geen cmdlets voor het definiëren van Oozie
     "@
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > Het belangrijkste verschil in vergelijking met het bestand van de werkstroom verzending van de nettolading van de variabele is **oozie.coord.application.path**. Wanneer u een werkstroomtaak verzendt, gebruikt u **oozie.wf.application.path** in plaats daarvan.
 
 4. Hiermee voegt u het volgende aan het script. Dit onderdeel controleert de status van de Oozie-web-service:
@@ -578,7 +578,7 @@ Azure PowerShell biedt op dit moment geen cmdlets voor het definiëren van Oozie
     }
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > Wanneer u een werkstroomtaak verzendt, moet u een andere webservice aanroepen van de taak starten nadat de taak is gemaakt. In dit geval wordt de coördinator-taak geactiveerd door de tijd. De taak wordt automatisch gestart.
 
 6. Hiermee voegt u het volgende aan het script. Dit onderdeel controleert de status van de Oozie-taak:
@@ -713,9 +713,9 @@ In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow en een Oozie-coördin
 * [Azure Blob storage gebruiken met HDInsight][hdinsight-storage]
 * [HDInsight beheren met behulp van Azure PowerShell][hdinsight-admin-powershell]
 * [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
-* [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop]
-* [Hive gebruiken met HDInsight][hdinsight-use-hive]
-* [Pig gebruiken met HDInsight][hdinsight-use-pig]
+* [Apache Sqoop gebruiken met HDInsight][hdinsight-use-sqoop]
+* [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
+* [Apache Pig gebruiken met HDInsight][hdinsight-use-pig]
 * [Java MapReduce-programma's ontwikkelen voor HDInsight][hdinsight-develop-java-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563

@@ -9,34 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 65d94c4df3111e1ffe5a5340bba1db454681bb5e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 855ee1b7396be97c6529480b8fa8200bb8167ee6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016007"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434005"
 ---
-# <a name="run-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Pig-taken uitvoeren met Apache Hadoop op HDInsight met behulp van REST
+# <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Apache Pig-taken uitvoeren met Apache Hadoop op HDInsight met behulp van REST
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
 Leer hoe u Apache Pig Latin-taken uitvoert door REST-aanvragen met een Azure HDInsight-cluster. CURL is gebruikt om te demonstreren hoe u kunt werken met HDInsight met behulp van de WebHCat REST-API.
 
-> [!NOTE]
+> [!NOTE]  
 > Als u al bekend bent met behulp van Apache Hadoop op basis van Linux-servers, maar u niet bekend bent met HDInsight, raadpleegt u [Linux gebaseerde HDInsight Tips](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Vereisten
 
 * Een Azure HDInsight (Hadoop op HDInsight)-cluster (op basis van Linux of op basis van Windows)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * [CURL](https://curl.haxx.se/)
 
 * [jq](https://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Pig-taken uitvoeren met Curl
+## <a id="curl"></a>Apache Pig-taken uitvoeren met Curl
+
 
 > [!NOTE]
 > De REST-API wordt beveiligd via [eenvoudige verificatie](https://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren via HTTP Secure (HTTPS) om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server.
@@ -57,8 +58,8 @@ Leer hoe u Apache Pig Latin-taken uitvoert door REST-aanvragen met een Azure HDI
 
     In deze opdracht worden de volgende parameters gebruikt:
 
-    * **-u**: de gebruikersnaam en wachtwoord voor het verifiëren van de aanvraag
-    * **-G**: geeft aan dat deze aanvraag een GET-aanvraag is
+    * **-u**: De gebruikersnaam en wachtwoord voor het verifiëren van de aanvraag
+    * **-G**: Geeft aan dat deze aanvraag een GET-aanvraag is
 
      Het begin van de URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is hetzelfde voor alle aanvragen. Het pad **status**, geeft aan dat de aanvraag is de status van WebHCat (ook wel bekend als Templeton) moet worden geretourneerd voor de server.
 
@@ -70,13 +71,13 @@ Leer hoe u Apache Pig Latin-taken uitvoert door REST-aanvragen met een Azure HDI
 
     In deze opdracht worden de volgende parameters gebruikt:
 
-    * **-d**: omdat `-G` niet wordt gebruikt, de aanvraag standaard ingesteld op de POST-methode. `-d` Hiermee geeft u de waarden die worden verzonden met de aanvraag.
+    * **-d**: Omdat `-G` niet wordt gebruikt, de aanvraag standaard ingesteld op de POST-methode. `-d` Hiermee geeft u de waarden die worden verzonden met de aanvraag.
 
-    * **User.name**: de gebruiker die de opdracht wordt uitgevoerd
-    * **Voer**: de Pig Latin-instructies uit te voeren
-    * **statusdir**: de map die de status voor deze taak worden geschreven naar
+    * **User.name**: De gebruiker die de opdracht wordt uitgevoerd
+    * **Voer**: De Pig Latin-instructies uit te voeren
+    * **statusdir**: De map die de status voor deze taak worden geschreven naar
 
-    > [!NOTE]
+    > [!NOTE]  
     > U ziet dat de spaties in Pig Latin-instructies zijn vervangen door de `+` gebruikt in combinatie met Curl teken.
 
     Met deze opdracht moet een taak-ID die kan worden gebruikt om te controleren op de status van de taak, bijvoorbeeld retourneren:
@@ -93,14 +94,14 @@ Leer hoe u Apache Pig Latin-taken uitvoert door REST-aanvragen met een Azure HDI
 
     Als de taak is voltooid, wordt de status is **geslaagd**.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Deze aanvraag Curl retourneert een JavaScript Object Notation (JSON)-document met informatie over de taak en jq wordt gebruikt om op te halen, alleen de statuswaarde.
 
 ## <a id="results"></a>Resultaten weergeven
 
 Wanneer de status van de taak is gewijzigd in **geslaagd**, kunt u de resultaten van de taak ophalen. De `statusdir` parameter die is doorgegeven met de query bevat de locatie van het uitvoerbestand; in dit geval `/example/pigcurl`.
 
-HDInsight kunt gebruiken ook Azure Storage of Azure Data Lake Store als het standaardarchief van gegevens. Er zijn verschillende manieren om op te halen op de gegevens die, afhankelijk van wat u gebruikt. Zie voor meer informatie de sectie voor opslag van de [HDInsight op basis van Linux informatie](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) document.
+HDInsight kunt gebruiken ook Azure Storage of Azure Data Lake Storage als het standaardarchief van gegevens. Er zijn verschillende manieren om op te halen op de gegevens die, afhankelijk van wat u gebruikt. Zie voor meer informatie de sectie voor opslag van de [HDInsight op basis van Linux informatie](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) document.
 
 ## <a id="summary"></a>Samenvatting
 
@@ -112,9 +113,9 @@ Zie voor meer informatie over de REST-interface gebruikt in dit artikel, de [Web
 
 Voor algemene informatie over Pig in HDInsight:
 
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
 
 Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)

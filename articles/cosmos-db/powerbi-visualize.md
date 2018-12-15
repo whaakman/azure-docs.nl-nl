@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 5f75ada1d37f6bd5cb2d870dd5169de7a4844eb3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fa4e6aa1274609ebf990a02d41f63541668d3b37
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869042"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438707"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Azure Cosmos DB-gegevens visualiseren met behulp van de Power BI-connector
 
@@ -34,7 +34,19 @@ Voordat u de instructies in deze zelfstudie Power BI, zorg ervoor dat u toegang 
 
 * Download de [Vulkaan voorbeeldgegevens](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) vanuit GitHub.
 
-* [Een Azure Cosmos DB-databaseaccount maken](https://azure.microsoft.com/documentation/articles/create-account/) en de Vulkaan-gegevens importeren met behulp van de [hulpprogramma voor gegevensmigratie Azure Cosmos DB](import-data.md).
+* [Een Azure Cosmos DB-databaseaccount maken](https://azure.microsoft.com/documentation/articles/create-account/) en de Vulkaan-gegevens importeren met behulp van de [hulpprogramma voor gegevensmigratie Azure Cosmos DB](import-data.md). Wanneer u gegevens importeert, houd rekening met de volgende instellingen voor de bron en bestemming in het hulpprogramma voor gegevensmigratie:
+
+   * **Bron-parameters** 
+
+       * **Importeren uit:** JSON-bestanden
+
+   * **Doel-parameters** 
+
+      * **Verbindingsreeks:** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+
+      * **Partitiesleutel:**  /land 
+
+      * **Verzamelingsdoorvoer:** 1000 
 
 Als u wilt delen in uw rapporten in PowerBI.com, moet u een account hebben in PowerBI.com.  Zie voor meer informatie over Power BI en Power BI Pro, [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 

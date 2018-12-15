@@ -14,36 +14,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 12/10/2018
 ms.author: gokuma
-ms.openlocfilehash: acae59922f5a46f059e19db6865491f5186139f7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 648b0818f07aca8763fa4af01380076ae307b0a2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103401"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408949"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Maken van een gedeelde groep van virtuele Machines voor Datatechnologie
 
 In dit artikel wordt beschreven hoe u een gedeelde groep van virtuele Machines voor Datatechnologie (Dsvm) voor een team te gebruiken kunt maken. De voordelen van het gebruik van een gedeelde groep zijn beter Resourcegebruik, vereenvoudiging van delen en samenwerking en efficiënter beheer van resources van de DSVM. 
 
-U kunt vele methoden en -technologieën gebruiken om een pool van Dsvm te maken. In dit artikel is gericht op toepassingen voor batchverwerking en interactieve VM's.
-
-## <a name="batch-processing-pool"></a>Batchverwerking groep
-Als u instellen van een pool van Dsvm voornamelijk taken uit te voeren in een batch offline wilt, kunt u de [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) of [Azure Batch](https://docs.microsoft.com/azure/batch/) service. In dit artikel is gericht op Azure Batch AI.
-
-De Ubuntu-versie van de DSVM wordt ondersteund als een van de installatiekopieën in Azure Batch AI. In de Azure CLI of de Python-SDK, waar u de Azure Batch AI-cluster maakt, kunt u de `image` parameter instelt op `UbuntuDSVM`. U kunt kiezen welk type verwerking knooppunten die u wilt: op basis van GPU-exemplaren versus exemplaren alleen voor CPU, het aantal CPU's, en het geheugen van een [ruime keuze van de VM-exemplaren](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) beschikbaar zijn op Azure. 
-
-Wanneer u de installatiekopie van de Ubuntu-DSVM in Batch AI met knooppunten op basis van GPU gebruiken, worden de benodigde GPU-stuurprogramma's en deep learning frameworks vooraf is geïnstalleerd. De voorinstallatie bespaart u veel tijd bij het voorbereiden van de batch-knooppunten. Zelfs als u op een Ubuntu-DSVM interactief ontwikkelt, zult u merken dat de Batch AI-knooppunten de dezelfde installatie en configuratie van de omgeving zijn. 
-
-Wanneer u een Batch AI-cluster maakt, maakt u gewoonlijk ook een bestandsshare die is gekoppeld door alle knooppunten. De bestandsshare wordt gebruikt voor invoer en uitvoer van gegevens, evenals voor het opslaan van de batch-taak code/scripts. 
-
-Nadat u een Batch AI-cluster hebt gemaakt, kunt u dezelfde CLI of SDK voor Python kunt gebruiken voor het verzenden van taken om te worden uitgevoerd. U betaalt slechts voor de tijd die wordt gebruikt voor de batch-taken uitvoeren. 
-
-Zie voor meer informatie:
-* Stapsgewijze uitleg van het gebruik van [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) voor het beheren van Batch AI
-* Stapsgewijze uitleg van het gebruik van [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) voor het beheren van Batch AI
-* [Batch AI recepten](https://github.com/Azure/BatchAI) die laten zien hoe u verschillende AI en deep learning-frameworks met Batch AI
+U kunt vele methoden en -technologieën gebruiken om een pool van Dsvm te maken. In dit artikel is gericht op groepen voor interactieve virtuele machines. Een alternatieve beheerde rekeninfrastructuur is Azure Machine Learning-Computing. Zie [compute-doelen ingesteld](../service/how-to-set-up-training-targets.md#amlcompute) voor meer informatie.
 
 ## <a name="interactive-vm-pool"></a>Interactieve VM-pool
 

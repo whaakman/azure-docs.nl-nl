@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948114"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407878"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight-clusters schalen
 
 HDInsight biedt flexibiliteit doordat u de optie voor omhoog en omlaag het aantal worker-knooppunten in uw clusters schalen. Hiermee kunt u een cluster verkleinen na uur of in het weekend en vouwt u het tijdens piek bedrijfsbehoeften te voldoen.
 
-Bijvoorbeeld, hebt u enkele batchverwerking in dat geval één keer per dag of één keer per maand, de HDInsight-cluster kan worden opgeschaald een paar minuten vóór de geplande gebeurtenis, zodat er voldoende geheugen en CPU-rekenkracht. U kunt automatiseren met de PowerShell-cmdlet schalen [ `Set–AzureRmHDInsightClusterSize` ](hdinsight-administer-use-powershell.md#scale-clusters).  Later, nadat de verwerking is voltooid en gebruik opnieuw uitvalt, kunt u schalen u het HDInsight-cluster met minder werkrolknooppunten.
+Bijvoorbeeld, hebt u enkele batchverwerking in dat geval één keer per dag of één keer per maand, de HDInsight-cluster kan worden opgeschaald een paar minuten vóór de geplande gebeurtenis, zodat er voldoende geheugen en CPU-rekenkracht. U kunt automatiseren met de PowerShell-cmdlet schalen [ `Set–AzureRmHDInsightClusterSize` ](hdinsight-administer-use-powershell.md#scale-clusters).  Later, nadat de verwerking is voltooid en gebruik opnieuw uitvalt, kunt u schalen u het HDInsight-cluster met minder werkrolknooppunten.
 
 * Voor het schalen van uw cluster via [PowerShell](hdinsight-administer-use-powershell.md):
 
@@ -77,7 +77,7 @@ Bijvoorbeeld:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-hbase-cluster"></a>Herverdeling van een HBase-cluster
+## <a name="rebalancing-an-apache-hbase-cluster"></a>Herverdeling van een Apache HBase-cluster
 
 Regioservers worden automatisch verdeeld binnen een paar minuten na voltooiing van de bewerking vergroten/verkleinen. Handmatig evenwichtige regioservers, gebruikt u de volgende stappen uit:
 
@@ -99,11 +99,11 @@ Zoals eerder vermeld, worden alle in behandeling of actieve taken beëindigd na 
 
 ![Schaal cluster aanpassen](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-Als u uw cluster naar het minimum van een worker-knooppunt, zoals wordt weergegeven in de vorige afbeelding krimpen, zijn HDFS vastgelopen in de veilige modus als de worker-knooppunten opnieuw worden opgestart vanwege het toepassen van patches of onmiddellijk nadat de vergroten/verkleinen is uitgevoerd.
+Als u uw cluster naar het minimum van een worker-knooppunt, zoals wordt weergegeven in de vorige afbeelding krimpen, zijn Apache HDFS vastgelopen in de veilige modus als de worker-knooppunten opnieuw worden opgestart vanwege het toepassen van patches of onmiddellijk nadat de vergroten/verkleinen is uitgevoerd.
 
 De belangrijkste oorzaak hiervan is dat Hive enkele gebruikt `scratchdir` bestanden en standaard wordt verwacht dat de drie replica's van elk blok, maar er is slechts één replica mogelijk als u omlaag naar het ten minste één worker-knooppunt schalen. Als gevolg, de bestanden in de `scratchdir` worden *under-gerepliceerde*. Dit kan ertoe leiden dat HDFS om te blijven in de veilige modus wanneer de services opnieuw na de schaalbewerking gestart zijn.
 
-Als een neerschalen poging gebeurt, is HDInsight is afhankelijk van de Ambari-management-interfaces voor het eerst uit bedrijf nemen de extra ongewenste worker-knooppunten, die hun HDFS-blokken gerepliceerd naar andere online worker-knooppunten, en het cluster veilig omlaag te schalen. HDFS gaat op een veilige modus tijdens het onderhoudsvenster, en moet afkomstig zijn uit als de schaal is voltooid. Het is op dit moment dat de HDFS kan zijn vastgelopen in de veilige modus.
+Als een neerschalen poging gebeurt, is HDInsight is afhankelijk van de Apache Ambari-management-interfaces voor het eerst uit bedrijf nemen de extra ongewenste worker-knooppunten, die hun HDFS-blokken gerepliceerd naar andere online worker-knooppunten, en het cluster veilig omlaag te schalen. HDFS gaat op een veilige modus tijdens het onderhoudsvenster, en moet afkomstig zijn uit als de schaal is voltooid. Het is op dit moment dat de HDFS kan zijn vastgelopen in de veilige modus.
 
 HDFS is geconfigureerd met een `dfs.replication` instellen van 3. Dus zijn de blokken van de tijdelijke bestanden under-gerepliceerde wanneer er minder dan drie werkknooppunten online zijn, omdat er niet de verwachte drie kopieën van elk bestand blok beschikbaar.
 
@@ -117,13 +117,13 @@ Na de veilige modus te verlaten, kunt u handmatig de tijdelijke bestanden verwij
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Voorbeeld van de fouten wanneer de veilige modus is ingeschakeld
 
-* Kan H070 om Hive-sessie te openen. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **kan map niet maken**  /tmp/hive/hive / 819c215c - 6d 87-4311-97c-8-4f0b9d2adcf0. **De naam van knooppunt zich in de veilige modus**. De gerapporteerde blokken 75 moet extra 12 blokken aan de drempelwaarde 0.9900 van blokken 87 bereiken. Het aantal live datanodes 10 heeft het minimale aantal 0 bereikt. Veilige modus wordt automatisch uitgeschakeld wanneer de drempelwaarden hebben bereikt.
+* Kan H070 om Hive-sessie te openen. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Kan map niet maken** /tmp/hive/hive/819c215c-6d 87-4311-97 c 8-4f0b9d2adcf0. **De naam van knooppunt zich in de veilige modus**. De gerapporteerde blokken 75 moet extra 12 blokken aan de drempelwaarde 0.9900 van blokken 87 bereiken. Het aantal live datanodes 10 heeft het minimale aantal 0 bereikt. Veilige modus wordt automatisch uitgeschakeld wanneer de drempelwaarden hebben bereikt.
 
-* H100 geen instructie indienen databases weergeven: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: verbinding maken met hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername . Internal.cloudapp.NET/1.1.1.1] is mislukt: **verbinding geweigerd**
+* H100 geen instructie indienen databases weergeven: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Verbinding maken met hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. Internal.cloudapp.NET/1.1.1.1] is mislukt: **Verbinding geweigerd**
 
-* H020 kan geen verbinding maken met .net hn0 hdisrv.servername.bx.internal.cloudapp: 10001: org.apache.thrift.transport.TTransportException: kan geen http-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: verbinding maken met hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] is mislukt: verbinding geweigerd: org.apache.thrift.transport.TTransportException: kan geen http-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: verbinding maken met hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] is mislukt: **verbinding geweigerd**
+* H020 kan geen verbinding maken met .net hn0 hdisrv.servername.bx.internal.cloudapp: 10001: org.apache.thrift.transport.TTransportException: Kan geen http-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Verbinding maken met hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] is mislukt: Verbinding geweigerd: org.apache.thrift.transport.TTransportException: Kan geen http-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Verbinding maken met hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] is mislukt: **Verbinding geweigerd**
 
-* In de Hive-Logboeken: waarschuwen [hoofd]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)): fout bij het starten van HiveServer2 poging 21, probeert in 60 seconden java.lang.RuntimeException: fout bij het autorisatiebeleid voor toepassen van hive-configuratie: org.apache.hadoop.ipc.RemoteException ( org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **kan map niet maken** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **De naam van knooppunt zich in de veilige modus**.
+* In de Hive-Logboeken: Waarschuwen [main]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)): fout bij het starten van HiveServer2 poging 21, probeert in 60 seconden java.lang.RuntimeException: Fout bij het autorisatiebeleid voor toepassen van hive-configuratie: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Kan map niet maken** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **De naam van knooppunt zich in de veilige modus**.
     De gerapporteerde blokken 0 moet extra 9 blokken aan de drempelwaarde 0.9900 van blokken 9 bereiken.
     Het aantal live datanodes 10 heeft het minimale aantal 0 bereikt. **Veilige modus wordt automatisch worden uitgeschakeld zodra de drempelwaarden hebben bereikt**.
     op org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
@@ -151,7 +151,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![Veilige modus uitschakelen](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
+> [!NOTE]  
 > De `-D` switch is nodig omdat het standaardbestandssysteem in HDInsight Azure Storage of Azure Data Lake Store. `-D` Hiermee geeft u op dat de opdrachten op basis van de lokale HDFS-bestandssysteem uitvoeren.
 
 Vervolgens kunt u een rapport met de details van de HDFS-status weergeven:
@@ -251,7 +251,7 @@ Opschonen van de tijdelijke bestanden die Hiermee verwijdert u de blok-replicati
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Met deze opdracht kunt Hive verbreken als sommige taken worden nog steeds uitgevoerd.
 
 ### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>Voorkomen dat HDInsight zitten in de veilige modus vanwege under-gerepliceerde blokken
@@ -327,4 +327,4 @@ De laatste mogelijkheid is om te bekijken voor de zeldzame gevallen waarin HDFS 
 
 * [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Clusters schalen](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [HDInsight-clusters beheren met behulp van de Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)
+* [HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)

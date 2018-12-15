@@ -1,6 +1,6 @@
 ---
-title: Verzamelen en analyseren van Syslog-berichten in OMS Log Analytics | Microsoft Docs
-description: Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux. In dit artikel wordt beschreven hoe u de verzameling van Syslog-berichten configureren in Log Analytics en de details van de records die ze in de OMS-opslagplaats maken.
+title: Verzamelen en analyseren van Syslog-berichten in Azure Monitor | Microsoft Docs
+description: Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux. In dit artikel wordt beschreven hoe u verzamelen van Syslog-berichten configureren in Azure Monitor en details van de records die ze maken.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,30 +11,30 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c47f96a91d312eea1748b00e4272a7c9a11d5c1e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 263f9dcd038bd9ec20036983e273f56191e9a300
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186630"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436718"
 ---
-# <a name="syslog-data-sources-in-log-analytics"></a>Syslog-gegevensbronnen in Log Analytics
-Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux.  Toepassingen wordt berichten die kunnen worden opgeslagen op de lokale computer of worden geleverd met een Syslog-collector verzonden.  Wanneer de OMS-Agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent.  De agent verzendt het bericht vervolgens naar Log Analytics waar een record wordt gemaakt in de OMS-opslagplaats.  
+# <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-gegevensbronnen in Azure Monitor
+Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux.  Toepassingen wordt berichten die kunnen worden opgeslagen op de lokale computer of worden geleverd met een Syslog-collector verzonden.  Wanneer de Log Analytics-agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent.  De agent verzendt het bericht vervolgens naar Azure Monitor waarin een record wordt gemaakt.  
 
 > [!NOTE]
-> Log Analytics biedt ondersteuning voor verzameling van berichten die worden verzonden door rsyslog of syslog-ng het volgende, waarbij rsyslog de standaard-daemon is. De standaard syslog-daemon op versie 5 van Red Hat Enterprise Linux, CentOS en Oracle Linux-versie (sysklog) wordt niet ondersteund voor de verzameling van syslog. Syslog-gegevens verzamelen uit deze versie van deze distributies de [rsyslog-daemon](http://rsyslog.com) moet worden geïnstalleerd en geconfigureerd ter vervanging van sysklog.
+> Azure Monitor biedt ondersteuning voor verzameling van berichten die worden verzonden door rsyslog of syslog-ng het volgende, waarbij rsyslog de standaard-daemon is. De standaard syslog-daemon op versie 5 van Red Hat Enterprise Linux, CentOS en Oracle Linux-versie (sysklog) wordt niet ondersteund voor de verzameling van syslog. Syslog-gegevens verzamelen uit deze versie van deze distributies de [rsyslog-daemon](http://rsyslog.com) moet worden geïnstalleerd en geconfigureerd ter vervanging van sysklog.
 >
 >
 
 ![Syslog-verzameling](media/data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Syslog configureren
-De OMS-Agent voor Linux worden alleen verzameld voor gebeurtenissen met de faciliteiten en ernstcategorieën die zijn opgegeven in de configuratie.  U kunt Syslog configureren via Azure portal of door het beheer van configuratiebestanden op uw Linux-agents.
+De Log Analytics-agent voor Linux worden alleen verzameld voor gebeurtenissen met de faciliteiten en ernstcategorieën die zijn opgegeven in de configuratie.  U kunt Syslog configureren via Azure portal of door het beheer van configuratiebestanden op uw Linux-agents.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Syslog configureren in Azure portal
-Configureren van Syslog uit de [menu in geavanceerde instellingen voor Log Analytics Data](agent-data-sources.md#configuring-data-sources).  Deze configuratie wordt bezorgd in het configuratiebestand op elke Linux-agent.
+Configureren van Syslog uit de [menu van de gegevens in de geavanceerde instellingen](agent-data-sources.md#configuring-data-sources).  Deze configuratie wordt bezorgd in het configuratiebestand op elke Linux-agent.
 
 U kunt een nieuwe opslagruimte toevoegen door te klikken en de naam te typen **+**.  Voor elke faciliteit worden alleen berichten met de geselecteerde ernstcategorieën verzameld.  Raadpleeg de ernstcategorieën voor de specifieke faciliteit die u wenst te verzamelen.  U kunt geen eventuele aanvullende criteria om berichten te filteren opgeven.
 
@@ -43,7 +43,7 @@ U kunt een nieuwe opslagruimte toevoegen door te klikken en de naam te typen **+
 Standaard worden alle wijzigingen in de configuratie automatisch doorgegeven naar alle agents.  Als u Syslog handmatig configureren op elke Linux-agent wilt, klikt u vervolgens het selectievakje *toepassen op de onderstaande configuratie op mijn Linux-machines*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Syslog configureren op Linux-agent
-Wanneer de [OMS-agent is geïnstalleerd op een Linux-client](../../azure-monitor/learn/quick-collect-linux-computer.md), het installeren van een standaard syslog-configuratiebestand dat bepaalt de opslagruimte en de ernst van de berichten die worden verzameld.  Dit bestand om de configuratie te wijzigen, kunt u wijzigen.  Het configuratiebestand is verschillend, afhankelijk van de Syslog-daemon die op de client is geïnstalleerd.
+Wanneer de [Log Analytics-agent is geïnstalleerd op een Linux-client](../../azure-monitor/learn/quick-collect-linux-computer.md), het installeren van een standaard syslog-configuratiebestand dat bepaalt de opslagruimte en de ernst van de berichten die worden verzameld.  Dit bestand om de configuratie te wijzigen, kunt u wijzigen.  Het configuratiebestand is verschillend, afhankelijk van de Syslog-daemon die op de client is geïnstalleerd.
 
 > [!NOTE]
 > Als u de syslog-configuratie bewerken, moet u de syslog-daemon voor de wijzigingen pas van kracht opnieuw opstarten.
@@ -136,7 +136,7 @@ U kunt een faciliteit verwijderen door het verwijderen van een sectie van het co
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Verzamelen van gegevens van extra Syslog-poorten
-Syslog-berichten op de lokale client op poort 25224 luistert naar de OMS-agent.  Wanneer de agent is geïnstalleerd, wordt een standaardconfiguratie voor syslog toegepast en gevonden in de volgende locatie:
+De Log Analytics-agent luistert naar Syslog-berichten op de lokale client op poort 25224.  Wanneer de agent is geïnstalleerd, wordt een standaardconfiguratie voor syslog toegepast en gevonden in de volgende locatie:
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng het volgende: `/etc/syslog-ng/syslog-ng.conf`
@@ -178,7 +178,7 @@ U kunt het poortnummer dat door het maken van twee configuratiebestanden wijzige
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
         log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
 
-Na het voltooien van de wijzigingen, de Syslog en de OMS-agent moet-service opnieuw worden gestart om ervoor te zorgen dat de configuratiewijzigingen van kracht.   
+Na het voltooien van de wijzigingen de Syslog- en de Log Analytics-agent-service opnieuw worden opgestart moet zodat de configuratiewijzigingen van kracht.   
 
 ## <a name="syslog-record-properties"></a>Eigenschappen van de Syslog-record
 Syslog-records zijn een type **Syslog** en hebben de eigenschappen in de volgende tabel.
@@ -205,6 +205,6 @@ De volgende tabel bevat voorbeelden van Logboeken-query's die Syslog-records oph
 | Syslog &#124; summarize AggregatedValue = count() by faciliteit |Telling van Syslog-records door de faciliteit. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
+* Meer informatie over [queriesi melden](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
 * Gebruik [aangepaste velden](../../azure-monitor/platform/custom-fields.md) parseren van gegevens van syslog-records in afzonderlijke velden.
 * [Linux-agents configureren](../../azure-monitor/learn/quick-collect-linux-computer.md) voor het verzamelen van andere typen gegevens.

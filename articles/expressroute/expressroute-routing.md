@@ -1,19 +1,19 @@
 ---
-title: 'Routeringsvereisten - ExpressRoute: Azure | Microsoft Docs'
+title: 'Vereisten - ExpressRoute-routering: Azure | Microsoft Docs'
 description: Deze pagina bevat gedetailleerde vereisten voor het configureren en beheren van routering voor ExpressRoute-circuits.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/13/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 52ef636424a67c5f0d0bc77cec7667f6436f8276
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135794"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406552"
 ---
 # <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten:
@@ -101,7 +101,7 @@ Als uw voorvoegsel en AS-nummer in voorgaande registers niet aan u zijn toegewez
 Een persoonlijk AS-nummer is toegestaan met Microsoft-peering, maar moet ook handmatig worden gevalideerd. Bovendien verwijderen we persoonlijke AS-nummers in het AS-pad voor de ontvangen voorvoegsels. Hierdoor is het niet mogelijk om persoonlijke AS-nummers aan het AS-pad toe te voegen om [routering voor Microsoft-peering te beïnvloeden](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Niet dezelfde openbare IP-route met het openbare Internet en via ExpressRoute aangekondigd. Het wordt aangeraden u een meer specifieke route aankondigen via ExpressRoute en een meer algemene route naar Internet [NAT](expressroute-nat.md). Naast de openbare route voor NAT, u kunt ook adverteren via ExpressRoute het openbare IP adressen die worden gebruikt door de servers in uw on-premises netwerk die met de eindpunten in Microsoft Office 365 communiceren. 
+> Niet dezelfde openbare IP-route met het openbare Internet en via ExpressRoute aangekondigd. Om het risico van onjuiste configuratie veroorzaakt asymmetrische routering, wordt sterk aangeraden de [NAT IP-adressen](expressroute-nat.md) geadverteerd aan Microsoft via ExpressRoute worden uit een bereik dat is niet geadverteerd naar internet helemaal. Als dit niet mogelijk om te realiseren, is het essentieel om te controleren of dat u een meer specifieke bereik aankondigen via ExpressRoute dan één op de verbinding met Internet. Naast de openbare route voor NAT, u kunt ook adverteren via ExpressRoute het openbare IP adressen die worden gebruikt door de servers in uw on-premises netwerk die met de eindpunten in Microsoft Office 365 communiceren. 
 > 
 > 
 

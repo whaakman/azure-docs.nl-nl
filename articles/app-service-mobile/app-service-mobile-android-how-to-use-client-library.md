@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 5acc9bfdd674d6677ad6da69b87bb8053cc43a19
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5052ec73114c040a4c140d258b197fdde58f6667
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972215"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409323"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Het gebruik van de Azure Mobile Apps SDK voor Android
 
@@ -189,15 +189,15 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Zie voor meer informatie over het maken van aanvullende tabellen in uw back-end van Mobile Apps, [hoe: een controller voor de tabel definieert] [ 15] (.NET-back-end) of [definiëren tabellen met behulp van een dynamische Schema] [ 16] (Node.js-back-end).
+Zie voor meer informatie over het maken van aanvullende tabellen in uw back-end van Mobile Apps, [het: Een controller voor de tabel definieert] [ 15] (.NET-back-end) of [definiëren tabellen met behulp van een dynamische Schema] [ 16] (Node.js-back-end).
 
 Een Azure Mobile Apps-back-end-tabel definieert vijf speciale velden, vier die beschikbaar voor clients zijn:
 
 * `String id`: De unieke ID voor de record.  Als een best practice, Controleer de id de tekenreeksweergave van een [UUID] [ 17] object.
 * `DateTimeOffset updatedAt`: De datum/tijd van de laatste update.  Het veld updatedAt is ingesteld door de server en nooit door uw clientcode moet worden ingesteld.
 * `DateTimeOffset createdAt`: De datum/tijd die het object is gemaakt.  Het veld createdAt is ingesteld door de server en nooit door uw clientcode moet worden ingesteld.
-* `byte[] version`: Normaal weergegeven als een tekenreeks, is de versie ook ingesteld door de server.
-* `boolean deleted`: Dit geeft aan dat de record is verwijderd, maar nog niet is verwijderd.  Gebruik geen `deleted` als een eigenschap in uw klasse.
+* `byte[] version`: Normaal gesproken weergegeven als een tekenreeks, is de versie ook ingesteld door de server.
+* `boolean deleted`: Geeft aan dat de record is verwijderd, maar nog niet is verwijderd.  Gebruik geen `deleted` als een eigenschap in uw klasse.
 
 Het veld `id` is vereist.  De `updatedAt` veld en `version` veld worden gebruikt voor offline synchronisatie (voor incrementele synchronisatie en een conflict resolutie respectievelijk).  De `createdAt` veld is een veld en wordt niet gebruikt door de client.  De namen zijn 'in-the-wire' namen van de eigenschappen en zijn niet aanpasbaar.  U kunt echter een toewijzing maken tussen uw object en de namen van de 'in-the-wire' met behulp van de [gson] [ 3] bibliotheek.  Bijvoorbeeld:
 
@@ -446,7 +446,7 @@ Een aanvraag voor alle records met deze methode maakt een minimum van twee aanvr
 > [!TIP]
 > Het formaat van de juiste keuze is een balans tussen geheugengebruik terwijl de aanvraag plaatsvindt, bandbreedtegebruik en vertragingen in het ontvangen van de gegevens volledig.  De standaardwaarde (50 records) is geschikt voor alle apparaten.  Als u werkt met uitsluitend op grotere geheugenapparaten, verhoogt u maximaal 500.  We hebben vastgesteld dat verhoging van de grootte van meer dan 500 records leidt tot onaanvaardbare vertragingen en problemen met grote geheugens.
 
-### <a name="chaining"></a>Hoe: querymethoden samenvoegen
+### <a name="chaining"></a>Procedures: Methoden voor query's samenvoegen
 
 De methoden die worden gebruikt in het back-end-tabellen kunnen worden samengevoegd. Querymethoden-koppeling, kunt u specifieke kolommen van gefilterde rijen gesorteerd en wisselbaar geheugen: selecteren. U kunt complexe logische filters maken.  Elke querymethode retourneert een Query-object. Aanroepen voor het einde van de reeks methoden en daadwerkelijk uitvoeren van de query, de **uitvoeren** methode. Bijvoorbeeld:
 
@@ -672,7 +672,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Hoe: werken met niet-getypeerde gegevens
+## <a name="untyped"></a>Procedures: Werken met niet-getypeerde gegevens
 
 De niet-getypeerde programmeermodel hebt u exacte controle over de JSON-serialisatie.  Er zijn enkele algemene scenario's waarin u kunt desgewenst een niet-getypeerde programmeermodel gebruiken. Bijvoorbeeld, als uw back endtabel veel kolommen bevat en u hoeft alleen te verwijzen naar een subset van de kolommen.  De getypte model, moet u de kolommen die zijn gedefinieerd in de back-end van Mobile Apps in uw gegevensklasse definiëren.  De meeste van de API-aanroepen voor toegang tot gegevens zijn vergelijkbaar met de getypte programming aanroepen. Het belangrijkste verschil is dat in het model niet-getypeerde u methoden aanroepen op de **MobileServiceJsonTable** -object, in plaats van de **MobileServiceTable** object.
 
@@ -767,7 +767,7 @@ De dezelfde set filteren, filteren en pagineren methoden die beschikbaar voor de
 
 Offline synchronisatie van gegevens van implementeert de Client-SDK van Azure Mobile Apps ook met behulp van een SQLite-database voor het opslaan van een kopie van de servergegevens lokaal.  Bewerkingen die worden uitgevoerd op een offline-tabel vereisen geen mobiele connectiviteit te werken.  Offline synchronisatie op hardwareniveau, bij de flexibiliteit en prestaties ten koste van de complexere logica voor conflictoplossing.  De Client-SDK van Azure Mobile Apps implementeert de volgende functies:
 
-* Incrementele synchronisatie: Alleen bijgewerkt en nieuwe records worden gedownload verbruik van bandbreedte en geheugen.
+* Incrementele synchronisatie: Alleen worden bijgewerkt en nieuwe records gedownload verbruik van bandbreedte en geheugen.
 * Optimistische gelijktijdigheid: Bewerkingen wordt aangenomen dat te voltooien.  Conflictoplossing is uitgesteld totdat de updates worden uitgevoerd op de server.
 * Conflictoplossing: De SDK detecteert wanneer een conflicterende wijziging is aangebracht op de server en hooks biedt voor de gebruiker waarschuwen.
 * Voorlopig verwijderen: Verwijderde records zijn gemarkeerd als verwijderd, zodat andere apparaten hun offline configuratiecache bij te werken.
@@ -1314,6 +1314,6 @@ Deze code moet worden uitgevoerd voordat het maken van een mobiele client refere
 [19]: https://www.odata.org/documentation/odata-version-3-0/
 [20]: https://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/configure-authentication-provider-aad.md
 [Future]: https://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: https://developer.android.com/reference/android/os/AsyncTask.html

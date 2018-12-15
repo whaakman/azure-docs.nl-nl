@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: fe25858f185cf4ddfd17f956b66846a22ddb0e6c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: bf84ec16d5d13439796b386a8ab4f40840ca4eaa
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971368"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438408"
 ---
 # <a name="about-point-to-site-vpn"></a>Over punt-naar-Site-VPN
 
@@ -93,6 +93,8 @@ Een P2S-configuratie is van een groot aantal specifieke stappen vereist. De volg
 * [De verbinding van een P2S - RADIUS-verificatie configureren](point-to-site-how-to-radius-ps.md)
 
 * [Een P2S-verbinding - Azure systeemeigen verificatie configureren](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+* [OpenVPN configureren](vpn-gateway-howto-openvpn.md)
 
 ## <a name="faqcert"></a>Veelgestelde vragen over de systeemeigen Azure-certificaatverificatie
 

@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 5de7496d73ebe1c89ce27ef27df73b197f34e7c7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642289"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407963"
 ---
-# <a name="using-a-cloud-dvr"></a>Met behulp van een cloud-DVR
+# <a name="using-a-cloud-dvr"></a>Een cloud-DVR gebruiken
 
-Een [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) kunt u voor het beheren van de eigenschappen van de uitgaande live stream, zoals hoeveel van de stroom is geregistreerd (bijvoorbeeld, de capaciteit van de cloud-DVR) en of viewers bekijken van de live stream kunnen starten. De relatie tussen een **LiveEvent** en de bijbehorende **LiveOutput**s relatie is vergelijkbaar met traditionele televisie broadcast, waarbij een kanaal (**LiveEvent**) Hiermee geeft u een constante stream met video's en een opname (**LiveOutput**) is afgestemd op een specifiek tijdstip-segment (bijvoorbeeld 's avonds nieuws van 18:30:00 uur op 19:00 uur). U kunt met behulp van een Digital Video Recorder (DVR) televisie vastleggen – de vergelijkbare functie in LiveEvents wordt beheerd via de eigenschap ArchiveWindowLength. Het is een ISO 8601-timespan duur (bijvoorbeeld PTHH:MM:SS), waarmee wordt Hiermee geeft u de capaciteit van de DVR en kan worden ingesteld van minimaal 3 minuten tot een maximum van 25 uur.
+Een [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) kunt u voor het beheren van de eigenschappen van de uitgaande live stream, zoals hoeveel van de stroom is geregistreerd (bijvoorbeeld, de capaciteit van de cloud-DVR) en of viewers bekijken van de live stream kunnen starten. De relatie tussen een **LiveEvent** en de bijbehorende **LiveOutput**s is vergelijkbaar met traditionele televisie broadcast, waarbij een kanaal (**LiveEvent**) vertegenwoordigt een constante streamen van video en een opname (**LiveOutput**) is afgestemd op een specifiek tijdstip-segment (bijvoorbeeld 's avonds nieuws van 18:30:00 uur op 19:00 uur). U kunt met behulp van een Digital Video Recorder (DVR) televisie vastleggen – de vergelijkbare functie in LiveEvents wordt beheerd via de eigenschap ArchiveWindowLength. Het is een ISO 8601-timespan duur (bijvoorbeeld PTHH:MM:SS), waarmee wordt Hiermee geeft u de capaciteit van de DVR en kan worden ingesteld van minimaal 3 minuten tot een maximum van 25 uur.
 
 ## <a name="liveoutput"></a>LiveOutput
 

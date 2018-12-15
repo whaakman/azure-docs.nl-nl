@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 040b0ae80defcd6d1c737851edd5a7dc16273fc6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340399"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413503"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 ### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
 * Preview-versie 1 van [versie 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) van de .NET-SDK voor de openbare preview.
 * Doel .NET Standard, die ondersteuning biedt voor 4.6.1+ van .NET framework en .NET Core 2.0 +
-* Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over relevante CosmosDatabases, CosmosContainers en CosmosItems klassen. 
-* Ondersteuning voor stromen. 
-* Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd. 
+* Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over relevante CosmosDatabases, CosmosContainers en CosmosItems klassen.
+* Ondersteuning voor stromen.
+* Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -136,7 +136,7 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
  
- * Wijziging van de Azure DocumentDB in Azure Cosmos DB in de API-verwijzing huisstijl documentatie, informatie over de metagegevens in assembly's en het NuGet-pakket. 
+ * Wijziging van de Azure DocumentDB in Azure Cosmos DB in de API-verwijzing huisstijl documentatie, informatie over de metagegevens in assembly's en het NuGet-pakket.
  * Diagnostische gegevens en latentie van de reactie op aanvragen die worden verzonden met directe connectiviteitsmodus weergeven. De namen van eigenschappen zijn RequestDiagnosticsString en RequestLatency op ResourceResponse klasse.
  * Deze SDK-versie vereist de meest recente versie van Azure Cosmos DB Emulator beschikbaar voor downloaden van https://aka.ms/cosmosdb-emulator.
  
@@ -150,8 +150,8 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
-* Ondersteuning toegevoegd voor PartitionKeyRangeId als een FeedOption voor het vaststellen van de resultaten van de query op een specifieke partitie sleutelbereik-waarde. 
-* Ondersteuning toegevoegd voor StartTime als een ChangeFeedOption te bekijken om de wijzigingen na deze periode. 
+* Ondersteuning toegevoegd voor PartitionKeyRangeId als een FeedOption voor het vaststellen van de resultaten van de query op een specifieke partitie sleutelbereik-waarde.
+* Ondersteuning toegevoegd voor StartTime als een ChangeFeedOption te bekijken om de wijzigingen na deze periode.
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
@@ -216,12 +216,12 @@ De Azure Cosmos DB .NET Core SDK kunt u bouwen snelle, platformoverschrijdende [
 De Azure Cosmos DB .NET Core Preview SDK kunt u bouwen snelle, platformoverschrijdende [ASP.NET Core](https://www.asp.net/core) en [.NET Core](https://www.microsoft.com/net/core#windows) apps uit te voeren op Windows, Mac en Linux.
 
 De Azure Cosmos DB .NET Core Preview SDK heeft de functiepariteit met de meest recente versie van de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md) en biedt ondersteuning voor het volgende:
-* Alle [verbindingsmodus](performance-tips.md#networking): Gateway-modus, Direct via TCP en directe HTTPs. 
+* Alle [verbindingsmodus](performance-tips.md#networking): Gateway-modus, Direct via TCP en directe HTTPs.
 * Alle [consistentieniveaus](consistency-levels.md): Sterk, sessie, gebonden veroudering, en uiteindelijk.
-* [Gepartitioneerde verzamelingen](partition-data.md). 
+* [Gepartitioneerde verzamelingen](partition-data.md).
 * [Databaseaccounts voor meerdere regio's en geo-replicatie](distribute-data-globally.md).
 
-Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), of een probleem melden in het [github-opslagplaats](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), of een probleem melden in het [GitHub-opslagplaats](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
 ## <a name="release--retirement-dates"></a>Release & datums buiten gebruik stellen
 
@@ -256,5 +256,5 @@ Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https:/
 | [0.1.0-preview](#0.1.0-preview) |15 november 2016 |En met 31 december 2016 |
 
 ## <a name="see-also"></a>Zie ook
-Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) servicepagina. 
+Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) servicepagina.
 

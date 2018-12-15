@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.openlocfilehash: af41e2af87afbbeb8629d07508d4e5244351a4df
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e709f1bed10ee1f7d45bea18b8bdf2c6653be6a6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277339"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433978"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 
 > [!NOTE]
 > In dit artikel wordt beschreven hoe u gegevensgebruik analyseren in Log Analytics.  Raadpleeg de volgende artikelen voor meer informatie.
 > - [Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](manage-cost-storage.md) wordt beschreven hoe u uw kosten te beheren door het veranderen van de retentieperiode van uw gegevens.
-> - [Gebruik en geschatte kosten bewaken](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) wordt beschreven hoe u gebruik en geschatte kosten voor meerdere Azure-bewakingsfuncties voor verschillende prijsmodellen. Ook wordt beschreven hoe u kunt wijzigen van het prijsmodel.
+> - [Gebruik en geschatte kosten bewaken](../../azure-monitor/platform/usage-estimated-costs.md) wordt beschreven hoe u gebruik en geschatte kosten voor meerdere Azure-bewakingsfuncties voor verschillende prijsmodellen. Ook wordt beschreven hoe u kunt wijzigen van het prijsmodel.
 
 ## <a name="understand-usage"></a>Inzicht in gebruik
 

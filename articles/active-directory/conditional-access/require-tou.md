@@ -13,17 +13,17 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3cb403b7f2ac529c79af5f83a1cbe436dc670a25
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901875"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413367"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snelstartgids: Gebruiksvoorwaarden worden geaccepteerd voordat u toegang tot cloud-apps vereisen 
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snelstartgids: Gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps vereisen 
 
 Voordat u toegang tot bepaalde cloud-apps in uw omgeving, is het raadzaam om op te halen van toestemming van gebruikers in de vorm van het accepteren van de gebruiksrechtovereenkomst (gebruiksvoorwaarden). Voorwaardelijke toegang van Azure Active Directory (Azure AD) beschikt u over: 
 
@@ -72,13 +72,13 @@ In deze sectie biedt u de stappen voor het maken van een voorbeeld van een gebru
 
 2. Type **mijn gebruiksvoorwaarden**, en sla het document op uw computer als **mytou.pdf**.
 
-3. Aanmelden bij uw [Azure-portal](https://portal.azure.com) als hoofdbeheerder, beveiligingsbeheerder of een beheerder van voorwaardelijke toegang.
+3. Meld u aan bij de [Azure-portal](https://portal.azure.com) als hoofdbeheerder, beveiligingsbeheerder of beheerder voor voorwaardelijke toegang.
 
 4. Klik in de Azure-portal op de navigatiebalk links op **Azure Active Directory**. 
 
     ![Azure Active Directory](./media/require-tou/02.png)
 
-5. Op de **Azure Active Directory** pagina, in de **beheren** sectie, klikt u op **voorwaardelijke toegang**.
+5. Op de **Azure Active Directory** pagina, in de **Security** sectie, klikt u op **voorwaardelijke toegang**.
 
     ![Voorwaardelijke toegang](./media/require-tou/03.png) 
 
@@ -135,7 +135,7 @@ Stel in het beleid:
 
 1. Op de **nieuw** pagina, in de **naam** tekstvak, type **vereisen gebruiksvoorwaarden voor Isabella**.
 
-    ![Naam](./media/require-tou/71.png)
+    ![Name](./media/require-tou/71.png)
 
 2. In de **toewijzing** sectie, klikt u op **gebruikers en groepen**.
 
@@ -237,7 +237,7 @@ Te klikken op **wat gebeurt er als** maakt u een simulatierapport waarin wordt w
 3. Klik op **wat gebeurt er als**.
 
 
-## <a name="test-your-conditional-access-policy"></a>Testen van uw beleid voor voorwaardelijke toegang
+## <a name="test-your-conditional-access-policy"></a>Uw voorwaardelijke toegangsbeleid testen
 
 In de vorige sectie hebt u geleerd hoe u een gesimuleerde aanmelding evalueren. Naast een simulatie, moet u ook testen van uw beleid voor voorwaardelijke toegang om ervoor te zorgen dat deze naar verwachting werkt. 
 

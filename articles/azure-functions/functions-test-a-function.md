@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 44d2960d9cf5828af588f9392667553c18dedb0f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103452"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408031"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategieën voor het testen van uw code in Azure Functions
 
@@ -93,11 +93,11 @@ namespace Functions.Tests
 
 De `ListLogger` de volgende leden van de klasse wordt geïmplementeerd als aangegaan door de `ILogger` interface:
 
-- **BeginScope**: Scopes context toevoegen aan uw registratie. In dit geval de test alleen wijst naar het statische exemplaar op de [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) klasse waarmee de test om te functie.
+- **BeginScope**: Scopes toevoegen context aan uw registratie. In dit geval de test alleen wijst naar het statische exemplaar op de [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) klasse waarmee de test om te functie.
 
-- **IsEnabled**: een standaardwaarde van `false` wordt geleverd.
+- **IsEnabled**: Een standaardwaarde van `false` wordt geleverd.
 
-- **Logboek**: deze methode maakt gebruik van de opgegeven `formatter` functie voor het opmaken van het bericht en vervolgens wordt de resulterende tekst die moet worden toegevoegd de `Logs` verzameling.
+- **Logboek**: Deze methode maakt gebruik van de opgegeven `formatter` functie voor het opmaken van het bericht en vervolgens wordt de resulterende tekst die moet worden toegevoegd de `Logs` verzameling.
 
 De `Logs` verzameling is een exemplaar van `List<string>` en in de constructor is geïnitialiseerd.
 
@@ -178,13 +178,13 @@ namespace Functions.Tests
 ```
 De `TestFactory` klasse implementeert de volgende leden:
 
-- **Gegevens**: deze eigenschap retourneert een [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) verzameling voorbeeldgegevens. De sleutel-waardeparen vertegenwoordigen de waarden die in een queryreeks worden doorgegeven.
+- **Gegevens**: Deze eigenschap retourneert een [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) verzameling voorbeeldgegevens. De sleutel-waardeparen vertegenwoordigen de waarden die in een queryreeks worden doorgegeven.
 
-- **CreateDictionary**: deze methode accepteert een sleutel/waarde-paar als argumenten en retourneert een nieuwe `Dictionary` gebruikt voor het maken `QueryCollection` querytekenreekswaarden vertegenwoordigt.
+- **CreateDictionary**: Deze methode accepteert een sleutel/waarde-paar als argumenten en retourneert een nieuwe `Dictionary` gebruikt voor het maken `QueryCollection` querytekenreekswaarden vertegenwoordigt.
 
-- **CreateHttpRequest**: deze methode maakt u een HTTP-aanvraag met de opgegeven queryreeksparameters geïnitialiseerd.
+- **CreateHttpRequest**: Deze methode maakt u een HTTP-aanvraag met de opgegeven queryreeksparameters geïnitialiseerd.
 
-- **CreateLogger**: op basis van het type logger, deze methode retourneert een logger-klasse die wordt gebruikt voor het testen. De `ListLogger` houdt van geregistreerde berichten beschikbaar voor evaluatie in tests.
+- **CreateLogger**: Op basis van het type logger, retourneert deze methode een logger-klasse die wordt gebruikt voor het testen. De `ListLogger` houdt van geregistreerde berichten beschikbaar voor evaluatie in tests.
 
 Volgende **met de rechtermuisknop op** op de *Functions.Test* toepassing en selecteer **toevoegen > klasse**, geef deze de naam **FunctionsTests.cs** en voer de de volgende code:
 
@@ -229,11 +229,11 @@ namespace Functions.Tests
 ```
 De leden die zijn geïmplementeerd in deze klasse zijn:
 
-- **Http_trigger_should_return_known_string**: deze test maakt een aanvraag met de query tekenreekswaarden van `name=Bill` naar een HTTP-functie en controleert of de verwachte reactie is geretourneerd.
+- **Http_trigger_should_return_known_string**: Deze test maakt een aanvraag met de query tekenreekswaarden van `name=Bill` naar een HTTP-functie en controleert of de verwachte reactie is geretourneerd.
 
-- **Http_trigger_should_return_string_from_member_data**: deze test gebruikt xUnit kenmerken voor voorbeeldgegevens voor de HTTP-functie.
+- **Http_trigger_should_return_string_from_member_data**: Deze test gebruikt xUnit kenmerken voor voorbeeldgegevens voor de HTTP-functie.
 
-- **Timer_should_log_message**: deze test maakt een exemplaar van `ListLogger` en geeft deze door een timer-functies. Nadat de functie wordt uitgevoerd, wordt het logboek gecontroleerd om te controleren of dat de verwachte bericht aanwezig is.
+- **Timer_should_log_message**: Deze test maakt een exemplaar van `ListLogger` en geeft deze door een timer-functies. Nadat de functie wordt uitgevoerd, wordt het logboek gecontroleerd om te controleren of dat de verwachte bericht aanwezig is.
 
 ### <a name="run-tests"></a>Tests uitvoeren
 
@@ -357,6 +357,6 @@ Vervolgens stelt een onderbrekingspunt in uw test en druk op **F5**.
 ## <a name="next-steps"></a>Volgende stappen
 
 Nu dat u hebt geleerd hoe u geautomatiseerde tests uit voor uw functies schrijft, kunt u doorgaan met deze resources:
-
+- [Handmatig uitvoeren van een niet HTTP-geactiveerde functie](./functions-manually-run-non-http.md)
 - [Azure Functions-foutafhandeling](./functions-bindings-error-pages.md)
 - [Azure-functie Event Grid Trigger lokale foutopsporing](./functions-debug-event-grid-trigger-local.md)

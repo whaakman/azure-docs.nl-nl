@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: abd9aeab88dc723ddcdff90ce58268296841dc4e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705919"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413299"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snelstartgids: Toegang blokkeren als er een risico voor de sessie wordt gedetecteerd met voorwaardelijke toegang van Azure Active Directory  
 
@@ -87,17 +87,17 @@ Deze sectie wordt beschreven hoe u de vereiste voorwaardelijk toegangsbeleid mak
 
     ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-3. Op de **Azure Active Directory** pagina, in de **beheren** sectie, klikt u op **voorwaardelijke toegang**.
+3. Op de **Azure Active Directory** pagina, in de **Security** sectie, klikt u op **voorwaardelijke toegang**.
 
     ![Voorwaardelijke toegang](./media/app-sign-in-risk/03.png)
  
 4. Op de **voorwaardelijke toegang** in de werkbalk bovenaan op de pagina, klikt u op **toevoegen**.
 
-    ![Naam](./media/app-sign-in-risk/108.png)
+    ![Name](./media/app-sign-in-risk/108.png)
 
 5. Op de **nieuw** pagina, in de **naam** tekstvak, type **toegang blokkeren voor middelgrote risiconiveau**.
 
-    ![Naam](./media/app-sign-in-risk/104.png)
+    ![Name](./media/app-sign-in-risk/104.png)
 
 6. In de **toewijzing** sectie, klikt u op **gebruikers en groepen**.
 

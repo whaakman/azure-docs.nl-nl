@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: a81cb9041b905cfb00183981036116fbc61f376a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8a0acbfa18053b6b50bd872d109b02d556a6f5f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000880"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436056"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Prijzen en gegevensvolumes in Application Insights beheren
 
 > [!NOTE]
 > In dit artikel wordt beschreven hoe u Application Insights voor gegevensgebruik analyseren.  Raadpleeg de volgende artikelen voor meer informatie.
-> - [Gebruik en geschatte kosten bewaken](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) wordt beschreven hoe u gebruik en geschatte kosten voor meerdere Azure-bewakingsfuncties voor verschillende prijsmodellen. Ook wordt beschreven hoe u kunt wijzigen van het prijsmodel.
+> - [Gebruik en geschatte kosten bewaken](../azure-monitor/platform/usage-estimated-costs.md) wordt beschreven hoe u gebruik en geschatte kosten voor meerdere Azure-bewakingsfuncties voor verschillende prijsmodellen. Ook wordt beschreven hoe u kunt wijzigen van het prijsmodel.
 
 Prijzen voor [Azure Application Insights] [ start] is gebaseerd op een gegevensvolume per toepassing. Elke Application Insights-resource wordt in rekening gebracht als een afzonderlijke service en draagt bij aan de factuur voor uw Azure-abonnement.
 
@@ -86,14 +86,14 @@ Kosten voor Application Insights worden toegevoegd aan uw Azure-factuur. U kunt 
 ## <a name="data-rate"></a>Gegevenssnelheid
 De hoeveelheid gegevens die u verstuurt, wordt beperkt op drie manieren:
 
-* **Sampling**: kunt u steekproeven te verminderen de hoeveelheid telemetrie die vanuit uw server en client-apps, met minimale verstoring van de metrische gegevens worden verzonden. Steekproeven is het primaire hulpprogramma dat u gebruiken kunt voor het afstemmen van de hoeveelheid gegevens die u verstuurt. Meer informatie over [steekproeven functies](app-insights-sampling.md). 
-* **Daglimiet**: wanneer u een Application Insights-resource in Azure portal maakt, de dagelijkse limiet is ingesteld op 100 GB per dag. Wanneer u een Application Insights-resource in Visual Studio maakt, de standaardwaarde is klein (alleen 32,3 MB per dag). De dagelijkse limiet standaard is ingesteld op vergemakkelijken testen. Het bedoeld dat de gebruiker de dagelijkse limiet wordt geactiveerd voordat u de app implementeert in productie. 
+* **Sampling**: Steekproeven kunt u de telemetrie die wordt verzonden vanuit uw server en client-apps, met minimale verstoring van de metrische gegevens te verminderen. Steekproeven is het primaire hulpprogramma dat u gebruiken kunt voor het afstemmen van de hoeveelheid gegevens die u verstuurt. Meer informatie over [steekproeven functies](app-insights-sampling.md). 
+* **Daglimiet**: Wanneer u een Application Insights-resource in Azure portal maakt, wordt de dagelijkse limiet is ingesteld op 100 GB per dag. Wanneer u een Application Insights-resource in Visual Studio maakt, de standaardwaarde is klein (alleen 32,3 MB per dag). De dagelijkse limiet standaard is ingesteld op vergemakkelijken testen. Het bedoeld dat de gebruiker de dagelijkse limiet wordt geactiveerd voordat u de app implementeert in productie. 
 
     De maximale limiet is 1000 GB per dag, tenzij u een hogere maximale voor een toepassing veel verkeer aanvragen. 
 
     Wees voorzichtig bij het instellen van de dagelijkse limiet. Het doel moet worden *nooit de dagelijkse limiet bereikt*. Als u de dagelijkse limiet bereikt, verliest u de gegevens voor de rest van de dag en u uw toepassing kan niet controleren. U kunt de dagelijkse limiet wijzigen met de **dagelijkse volumelimiet** optie. U hebt toegang tot deze optie in de **gebruik en geraamde kosten** deelvenster (dit wordt later in het artikel in meer detail beschreven).
     We hebben de beperking voor sommige abonnementstypen waarvoor tegoed dat kan niet worden gebruikt voor Application Insights hebt verwijderd. Als het abonnement een bestedingslimiet heeft, heeft de dagelijkse limiet dialoogvenster voorheen instructies voor de bestedingslimiet verwijderen en het inschakelen van de dagelijkse limiet meer dan 32,3 MB per dag worden gegenereerd.
-* **Beperking**: de gegevenssnelheid 32.000 gebeurtenissen per seconde, gemiddelde beperkingslimieten meer dan 1 minuut per instrumentatiesleutel.
+* **Beperking**: Beperkingslimieten de snelheid waarmee u gegevens op 32.000 gebeurtenissen per seconde, gemiddelde meer dan 1 minuut per instrumentatiesleutel.
 
 *Wat gebeurt er als mijn app is groter dan de bandbreedteregeling snelheid?*
 

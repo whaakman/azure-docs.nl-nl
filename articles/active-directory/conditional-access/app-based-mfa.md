@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f27ced5c67c5124d0792c5ce3884c88473fba056
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 1c61286a24c3562e32cb4c734ea081526d38837a
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604192"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413146"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snelstartgids: MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory 
 
@@ -79,23 +79,23 @@ Stel in het beleid:
 
 **Uw beleid voor voorwaardelijke toegang configureren:**
 
-1. Aanmelden bij uw [Azure-portal](https://portal.azure.com) als hoofdbeheerder, beveiligingsbeheerder of een beheerder van voorwaardelijke toegang.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) als hoofdbeheerder, beveiligingsbeheerder of beheerder voor voorwaardelijke toegang.
 
 2. Klik in de Azure-portal op de navigatiebalk links op **Azure Active Directory**. 
 
     ![Azure Active Directory](./media/app-based-mfa/02.png)
 
-3. Op de **Azure Active Directory** pagina, in de **beheren** sectie, klikt u op **voorwaardelijke toegang**.
+3. Op de **Azure Active Directory** pagina, in de **Security** sectie, klikt u op **voorwaardelijke toegang**.
 
     ![Voorwaardelijke toegang](./media/app-based-mfa/03.png)
  
-4. Op de **voorwaardelijke toegang** in de werkbalk bovenaan op de pagina, klikt u op **toevoegen**.
+4. Op de **voorwaardelijke toegang** in de werkbalk bovenaan op de pagina, klikt u op **nieuw beleid**.
 
     ![Toevoegen](./media/app-based-mfa/04.png)
 
 5. Op de **nieuw** pagina, in de **naam** tekstvak, type **MFA vereisen voor toegang tot Azure portal**.
 
-    ![Naam](./media/app-based-mfa/05.png)
+    ![Name](./media/app-based-mfa/05.png)
 
 6. In de **toewijzing** sectie, klikt u op **gebruikers en groepen**.
 
@@ -153,7 +153,7 @@ Stel in het beleid:
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Een gesimuleerde aanmelding evalueren
 
-Nu dat u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u waarschijnlijk weet of deze werkt zoals verwacht. Gebruik als een eerste stap de voorwaardelijke toegang beleid hulpprogramma what-if om te simuleren een aanmelding van uw testgebruiker. De simulatie maakt een schatting van het effect dat aanmelding heeft op uw beleid en genereert een simulatierapport.  
+Nu u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u weten of het werkt zoals u wilt. Gebruik als een eerste stap de voorwaardelijke toegang beleid hulpprogramma what-if om te simuleren een aanmelding van uw testgebruiker. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport.  
 
 Initialiseren van de wat als hulpprogramma voor het evalueren van beleid is ingesteld:
 
@@ -196,7 +196,7 @@ Initialiseren van de wat als hulpprogramma voor het evalueren van beleid is inge
 3. Klik op **wat gebeurt er als**.
 
 
-## <a name="test-your-conditional-access-policy"></a>Testen van uw beleid voor voorwaardelijke toegang
+## <a name="test-your-conditional-access-policy"></a>Uw voorwaardelijke toegangsbeleid testen
 
 In de vorige sectie hebt u geleerd hoe u een gesimuleerde aanmelding evalueren. Naast een simulatie, moet u ook testen van uw beleid voor voorwaardelijke toegang om ervoor te zorgen dat deze naar verwachting werkt. 
 

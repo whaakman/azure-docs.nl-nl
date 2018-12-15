@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86c1d9adc3b4ff66e2f02617df551e496a5482c8
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6e0641f2d9427133f951ef63720b4efdac4defe5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014613"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409051"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Apache Hive gebruiken met Apache Hadoop op HDInsight met extern bureaublad
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-In dit artikel hebt u meer informatie over het verbinding maken met een HDInsight-cluster met behulp van extern bureaublad, en vervolgens Hive-query's uitvoeren met behulp van Hive-opdrachtregelinterface (CLI).
+In dit artikel wordt u meer informatie over het verbinding maken met een HDInsight-cluster met behulp van extern bureaublad en klikt u vervolgens Apache Hive-query's uitvoeren met behulp van Hive-opdrachtregelinterface (CLI).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Extern bureaublad is alleen beschikbaar op HDInsight-clusters die gebruikmaken van Windows als het besturingssysteem. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 >
-> Voor HDInsight 3.4 of hoger, Zie [Hive gebruiken met HDInsight en Beeline](apache-hadoop-use-hive-beeline.md) voor informatie over het uitvoeren van Hive-query's rechtstreeks op het cluster vanaf een opdrachtregel.
+> Voor HDInsight 3.4 of hoger, Zie [Apache Hive gebruiken met HDInsight en Beeline](apache-hadoop-use-hive-beeline.md) voor informatie over het uitvoeren van Hive-query's rechtstreeks op het cluster vanaf een opdrachtregel.
 
 ## <a id="prereq"></a>Vereisten
 Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende:
@@ -55,18 +55,18 @@ Wanneer u verbinding hebt gemaakt op het bureaublad voor het HDInsight-cluster, 
 
     Deze instructies uit uitvoeren de volgende acties:
 
-   * **DROP TABLE**: Hiermee verwijdert u de tabel en het gegevensbestand als de tabel al bestaat.
-   * **CREATE EXTERNAL TABLE**: maakt een nieuwe 'externe' tabel in Hive. Externe tabellen opslaan van de definitie van de tabel in Hive (de gegevens blijft in de oorspronkelijke locatie).
+   * **VERWIJDER TABEL**: Hiermee verwijdert u de tabel en het gegevensbestand als de tabel al bestaat.
+   * **CREATE EXTERNAL TABLE**: Maakt een nieuwe 'externe' tabel in Hive. Externe tabellen opslaan van de definitie van de tabel in Hive (de gegevens blijft in de oorspronkelijke locatie).
 
-     > [!NOTE]
+     > [!NOTE]  
      > Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens worden bijgewerkt door een externe bron (zoals een geautomatiseerde upload-proces) of door een andere bewerking van MapReduce verwacht, maar u wilt dat altijd Hive-query's te gebruiken van de meest recente gegevens.
      >
      > Verwijderen van een externe tabel heeft **niet** de gegevens, alleen de definitie van de tabel verwijderen.
      >
      >
-   * **INDELING van de rij**: Hive-geeft aan hoe de gegevens zijn opgemaakt. In dit geval worden de velden in elk logboek gescheiden door een spatie.
-   * **OPGESLAGEN als TEXTFILE locatie**: Hive-geeft aan waar de gegevens zijn opgeslagen (de voorbeeldgegevens/map) en dat deze zijn opgeslagen als tekst.
-   * **Selecteer**: selecteert een telling van alle rijen waar kolom **t4** bevat de waarde **[fout]**. Dit moet een retourwaarde van **3** omdat er drie rijen die deze waarde bevatten.
+   * **INDELING VAN DE RIJ**: Geeft aan hoe de gegevens zijn opgemaakt Hive. In dit geval worden de velden in elk logboek gescheiden door een spatie.
+   * **OPGESLAGEN ALS TEXTFILE LOCATIE**: Geeft aan waar de gegevens worden opgeslagen Hive (de voorbeeldgegevens/map) en dat deze wordt opgeslagen als tekst.
+   * **SELECTEER**: Selecteert een telling van alle rijen waar kolom **t4** bevat de waarde **[fout]**. Dit moet een retourwaarde van **3** omdat er drie rijen die deze waarde bevatten.
    * **INPUT__FILE__NAME, zoals '%.log'** -geeft aan dat we alleen gegevens uit bestanden hebben die eindigt op moet retourneren Hive. log. Dit beperkt de zoekopdracht tot het sample.log-bestand dat de gegevens bevat, en zorgt ervoor dat dit niet het retourneren van gegevens uit andere voorbeeld gegevensbestanden die niet overeenkomen met het schema dat wordt gedefinieerd.
 4. De volgende instructies gebruiken om te maken van een nieuwe 'intern' tabel met de naam **foutenlogboeken**:
 
@@ -75,14 +75,14 @@ Wanneer u verbinding hebt gemaakt op het bureaublad voor het HDInsight-cluster, 
 
     Deze instructies uit uitvoeren de volgende acties:
 
-   * **MAKEN van tabel als niet bestaat**: maakt een tabel als deze niet al bestaat. Omdat de **externe** trefwoord wordt niet gebruikt, is dit een interne tabel, die is opgeslagen in de Hive-datawarehouse en volledig wordt beheerd door Hive.
+   * **MAKEN VAN DE TABEL ALS DAT NIET BESTAAT**: Als deze niet al bestaat, maakt u een tabel. Omdat de **externe** trefwoord wordt niet gebruikt, is dit een interne tabel, die is opgeslagen in de Hive-datawarehouse en volledig wordt beheerd door Hive.
 
-     > [!NOTE]
+     > [!NOTE]  
      > In tegenstelling tot **externe** tabellen, ook verwijderen van een interne tabel worden de onderliggende gegevens verwijderd.
      >
      >
-   * **OPGESLAGEN als ORC**: de gegevens worden opgeslagen in de kolommen (ORC)-indeling geoptimaliseerde rij. Dit is een uiterst geoptimaliseerde en efficiënte indeling voor het opslaan van gegevens met Hive.
-   * **INSERT OVERSCHRIJVEN... Selecteer**: selecteert rijen uit de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
+   * **OPGESLAGEN ALS ORC**: De gegevens worden opgeslagen in de kolommen (ORC)-indeling geoptimaliseerde rij. Dit is een uiterst geoptimaliseerde en efficiënte indeling voor het opslaan van gegevens met Hive.
+   * **INSERT OVERSCHRIJVEN... SELECTEER**: Selecteert de rijen van de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
 
      Om te controleren dat die bevatten alleen rijen **[fout]** in kolom t4 zijn opgeslagen in de **foutenlogboeken** tabel, gebruikt u de volgende instructie om te retourneren van alle rijen uit **foutenlogboeken**:
 
@@ -96,17 +96,17 @@ Zoals u ziet, biedt de Hive-opdracht een eenvoudige manier interactief Hive-quer
 ## <a id="nextsteps"></a>Volgende stappen
 Voor algemene informatie over Hive in HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
 
 Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
-* [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
+* [MapReduce gebruiken met Apache Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
 Als u met Hive Tez gebruikt, ziet u de volgende documenten voor foutopsporing van informatie:
 
-* [De Tez-gebruikersinterface gebruiken op HDInsight op basis van Windows](../hdinsight-debug-tez-ui.md)
-* [De weergave Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
+* [De Apache Tez-gebruikersinterface gebruiken op HDInsight op basis van Windows](../hdinsight-debug-tez-ui.md)
+* [De weergave van de Apache Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

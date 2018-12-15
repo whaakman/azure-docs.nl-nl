@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73f4aeb77124c21a07771ab080b88a56231e50da
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 34d084bc4115d0abf8f57c576c16330611f3a21b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185712"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409867"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -35,7 +35,6 @@ Azure Machine Learning-Computing kunnen worden gemaakt in Python, met behulp van
 > We raden u aan om een nieuwe werkruimte voor het gebruik van Azure Machine Learning-Computing. Er is een externe kans dat gebruikers bij het maken van Azure Machine Learning-Computing van een bestaande werkruimte ziet mogelijk een fout. Bestaande compute in uw werkruimte moet blijven werken niet beïnvloed.
 
 ### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning-SDK voor Python v1.0.2
-
 + **Belangrijke wijzigingen**
   + Met deze release, worden ondersteuning voor het maken van een virtuele machine van Azure Machine Learning verwijderd. U kunt nog steeds een bestaande VM-cloud koppelen of een externe on-premises server. 
   + Ondersteuning voor BatchAI, die allemaal moeten worden ondersteund door Azure Machine Learning-Computing nu worden ook verwijderd.
@@ -56,7 +55,6 @@ Azure Machine Learning-Computing kunnen worden gemaakt in Python, met behulp van
 <!--+ **Bugs fixed**-->
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning-Dataprep SDK v0.5.2
-
 + **Belangrijke wijzigingen** 
   * `SummaryFunction.N` is gewijzigd in `SummaryFunction.Count`.
   
@@ -66,6 +64,9 @@ Azure Machine Learning-Computing kunnen worden gemaakt in Python, met behulp van
   * to_spark_dataframe() wordt niet meer vastlopen wanneer ze worden Spark maakt gebruik van Kryo serialisatie
   * Aantal waarden Inspector kan nu meer dan 1000 unieke waarden weergeven
   * Willekeurige Split mislukt langer als de oorspronkelijke gegevensstroom beschikt niet over een naam  
+
++ **Meer informatie**
+  * [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
 
 ### <a name="docs-and-notebooks"></a>Docs- en -laptops
 + ML-pijplijnen

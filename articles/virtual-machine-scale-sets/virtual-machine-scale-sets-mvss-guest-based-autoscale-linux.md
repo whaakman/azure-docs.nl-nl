@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: manayar
-ms.openlocfilehash: e30fdb684fbabbdcea334115e3f645e63dec6623
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: deddcc8623803f9d003f3fafcef5252ebd34b813
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322633"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438330"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Automatisch schalen met metrische gegevens voor gasten in een Linux-schaalsetsjabloon
 
 Er zijn twee soorten metrische gegevens in Azure die worden verzameld van virtuele machines en schaalsets: sommige afkomstig zijn van de host-VM en anderen afkomstig zijn van de Gast-VM. Op hoog niveau, als u standaard CPU, schijf en netwerk metrische gegevens, zijn klikt u vervolgens metrische gegevens voor hosts waarschijnlijk geschikt. Als u echter een grotere selectie van metrische gegevens moet, klikt u vervolgens zijn metrische gegevens voor gasten waarschijnlijk een betere keuze. Laten we eens in de verschillen tussen de twee:
 
-Metrische gegevens voor hosts zijn eenvoudiger en betrouwbaarder. Ze hoeven niet extra instellingen omdat ze worden verzameld door de host-VM, terwijl de metrische gegevens voor gasten vereisen dat u installeert de [Windows Azure Diagnostics-extensie](../virtual-machines/windows/extensions-diagnostics-template.md) of de [Linux Azure Diagnostics-extensie](../virtual-machines/linux/diagnostic-extension.md)in de Gast-VM. Een veelvoorkomende reden voor het gebruik van metrische gegevens voor gasten in plaats van metrische gegevens voor hosts is dat metrische gegevens voor gasten een grotere selectie van metrische gegevens dan metrische gegevens voor hosts bieden. Een voorbeeld is het geheugengebruik metrische gegevens die alleen beschikbaar via de metrische gegevens voor gasten zijn. De metrische gegevens voor ondersteunde hosts staan [hier](../monitoring-and-diagnostics/monitoring-supported-metrics.md), en vindt u metrische gegevens voor veelgebruikte gasten [hier](../azure-monitor/platform/autoscale-common-metrics.md). Dit artikel wordt beschreven hoe u wijzigt de [minimaal levensvatbare schaalsets sjabloon](./virtual-machine-scale-sets-mvss-start.md) gebruik regels voor automatisch schalen op basis van metrische gegevens voor gasten voor Linux-schaalsets.
+Metrische gegevens voor hosts zijn eenvoudiger en betrouwbaarder. Ze hoeven niet extra instellingen omdat ze worden verzameld door de host-VM, terwijl de metrische gegevens voor gasten vereisen dat u installeert de [Windows Azure Diagnostics-extensie](../virtual-machines/windows/extensions-diagnostics-template.md) of de [Linux Azure Diagnostics-extensie](../virtual-machines/linux/diagnostic-extension.md)in de Gast-VM. Een veelvoorkomende reden voor het gebruik van metrische gegevens voor gasten in plaats van metrische gegevens voor hosts is dat metrische gegevens voor gasten een grotere selectie van metrische gegevens dan metrische gegevens voor hosts bieden. Een voorbeeld is het geheugengebruik metrische gegevens die alleen beschikbaar via de metrische gegevens voor gasten zijn. De metrische gegevens voor ondersteunde hosts staan [hier](../azure-monitor/platform/metrics-supported.md), en vindt u metrische gegevens voor veelgebruikte gasten [hier](../azure-monitor/platform/autoscale-common-metrics.md). Dit artikel wordt beschreven hoe u wijzigt de [minimaal levensvatbare schaalsets sjabloon](./virtual-machine-scale-sets-mvss-start.md) gebruik regels voor automatisch schalen op basis van metrische gegevens voor gasten voor Linux-schaalsets.
 
 ## <a name="change-the-template-definition"></a>De sjabloondefinitie van de wijzigen
 

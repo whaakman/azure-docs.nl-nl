@@ -1,6 +1,6 @@
 ---
-title: Azure SQL-Database connectivity-architectuur | Microsoft Docs
-description: Dit document wordt uitgelegd dat de Azure SQL Database connectiviteitsarchitectuur uit in Azure of van buiten Azure.
+title: Azure verkeer doorsturen naar Azure SQL Database en SQL Data Warehouse | Microsoft Docs
+description: Dit document wordt uitgelegd dat de Azure SQL Database en SQL Data Warehouse connectiviteitsarchitectuur uit in Azure of van buiten Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,17 +11,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/02/2018
-ms.openlocfilehash: 986741a68113da00800a18cb58648ac66b1de116
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.date: 12/13/2018
+ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322019"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435715"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur
+# <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
-Dit artikel wordt ook de Azure SQL Database connectiviteitsarchitectuur uitgelegd hoe de verschillende onderdelen functie voor het verkeer naar uw exemplaar van Azure SQL Database. Onderdelen functie van deze Azure SQL Database-verbinding om te leiden van netwerkverkeer naar de Azure-database met clients die verbinding maken vanuit Azure en met clients die verbinding maakt vanaf buiten Azure. Dit artikel bevat ook voorbeelden van scripts om te wijzigen hoe de verbinding plaatsvindt, evenals de overwegingen met betrekking tot het wijzigen van de standaardinstellingen van de verbinding.
+In dit artikel wordt de Azure SQL Database en SQL Data Warehouse connectiviteitsarchitectuur ook uitgelegd hoe de verschillende onderdelen functie verkeer naar uw Azure SQL-exemplaar. Deze functie van de onderdelen verbinding om te leiden van netwerkverkeer naar de Azure SQL Database of SQL Data Warehouse met clients die verbinding maken vanuit Azure en met clients die verbinding maakt vanaf buiten Azure. Dit artikel bevat ook voorbeelden van scripts om te wijzigen hoe de verbinding plaatsvindt, evenals de overwegingen met betrekking tot het wijzigen van de standaardinstellingen van de verbinding.
 
 > [!IMPORTANT]
 > **[Toekomstige wijzigingen] Voor service-eindpunt-verbindingen met Azure SQL-servers, een `Default` connectiviteit gedrag wordt gewijzigd in `Redirect`.**
@@ -36,7 +36,10 @@ Dit artikel wordt ook de Azure SQL Database connectiviteitsarchitectuur uitgeleg
 > - Toepassing verbinding maakt met een bestaande server niet regelmatig worden, zodat onze telemetrie is niet de informatie over deze toepassingen vastleggen 
 > - Logica voor automatische implementatie maakt een logische server, ervan uitgaande dat het standaardgedrag voor verbindingen met de service-eindpunt `Proxy` 
 >
-> Als verbindingen met de service-eindpunt kunnen niet worden gemaakt met Azure SQL-server, en u een vermoeden bestaat dat u worden beïnvloed door deze wijziging, Controleer of dat de verbindingstype expliciet is ingesteld op `Redirect`. Als dit het geval is, hebt u het openen van VM-firewallregels en Netwerkbeveiligingsgroep groepen (NSG) voor alle Azure-IP-adressen in de regio die deel uitmaken van Sql [servicetag](../virtual-network/security-overview.md#service-tags). Als dit niet een optie voor u is, schakelt u over server expliciet aan `Proxy`.
+> Als verbindingen met de service-eindpunt kunnen niet worden gemaakt met Azure SQL-server, en u een vermoeden bestaat dat u worden beïnvloed door deze wijziging, Controleer of dat de verbindingstype expliciet is ingesteld op `Redirect`. Als dit het geval is, hebt u het openen van VM-firewallregels en Netwerkbeveiligingsgroep groepen (NSG) voor alle Azure-IP-adressen in de regio die deel uitmaken van Sql [servicetag](../virtual-network/security-overview.md#service-tags) voor poorten 11000 12000. Als dit niet een optie voor u is, schakelt u over server expliciet aan `Proxy`.
+
+> [!NOTE]
+> Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
 
 ## <a name="connectivity-architecture"></a>Connectiviteitsarchitectuur
 
@@ -54,7 +57,7 @@ De volgende stappen wordt beschreven hoe een verbinding met een Azure SQL-databa
 
 Azure SQL Database ondersteunt de volgende drie opties voor de beleidsinstelling voor de verbinding van een SQL Database-server:
 
-- **Omleiding (aanbevolen):** Clients tot stand brengen van verbindingen rechtstreeks naar het knooppunt waarop de database wordt gehost. Als connectiviteit wilt inschakelen, moeten de clients de uitgaande firewallregels voor alle Azure-IP-adressen in de regio met behulp van de Netwerkbeveiligingsgroep groepen (NSG) met toestaan [servicetags](../virtual-network/security-overview.md#service-tags)), niet alleen de Azure SQL Database-gateway IP-adressen. Omdat de pakketten Ga rechtstreeks naar de database, zijn latentie en doorvoer prestaties beter.
+- **Omleiding (aanbevolen):** Clients tot stand brengen van verbindingen rechtstreeks naar het knooppunt waarop de database wordt gehost. Als connectiviteit wilt inschakelen, moeten de clients de uitgaande firewallregels voor alle Azure-IP-adressen in de regio met behulp van de Netwerkbeveiligingsgroep groepen (NSG) met toestaan [servicetags](../virtual-network/security-overview.md#service-tags)) voor poorten 11000-12000, niet alleen de Azure SQL Database-gateway-IP adressen op poort 1433. Omdat de pakketten Ga rechtstreeks naar de database, zijn latentie en doorvoer prestaties beter.
 - **Proxy:** In deze modus worden alle verbindingen via proxy via de Azure SQL Database-gateways. Als connectiviteit wilt inschakelen, moet de client uitgaande firewallregels waarmee alleen de Azure SQL Database-gateway op een IP-adressen (doorgaans twee IP-adressen per regio) hebben. In deze modus kiezen kan leiden tot hogere latentie en lagere doorvoer, afhankelijk van de aard van de werkbelasting. We raden u aan de `Redirect` verbindingsbeleid via de `Proxy` verbindingsbeleid voor de laagste latentie en de hoogste doorvoer.
 - **Standaard:** Dit is de verbindingsbeleid van kracht op alle servers na het maken, tenzij u expliciet het verbindingsbeleid naar een alter `Proxy` of `Redirect`. De effectieve beleid is afhankelijk van of verbindingen zijn afkomstig uit in Azure (`Redirect`) en buiten Azure (`Proxy`).
 

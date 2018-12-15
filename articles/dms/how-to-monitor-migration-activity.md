@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 1725be4209bfc9335654c574098c43102eca5a2d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/14/2018
+ms.openlocfilehash: a315e8b42ab8e0df659a3388a50fedf5dd3a54d2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961175"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413061"
 ---
 # <a name="monitor-migration-activity"></a>Activiteit van de migratie controleren
 In dit artikel leert u hoe u de voortgang van een migratie op het databaseniveau van een en het tabelniveau van een.
@@ -108,7 +108,7 @@ Het onderste gedeelte van de blade geeft een lijst van de tabellen en geeft een 
 
 De volgende tabel beschrijft de velden die worden weergegeven in de details van de tabel op serverniveau.
 
-| Veldnaam        | Beschrijving       |
+| Veldnaam        | Description       |
 | ------------- | ------------- |
 | **Volledig geladen**      | Aantal tabellen voltooid alle gegevens worden geladen. |
 | **Volledig laden in de wachtrij geplaatst**      | Het aantal tabellen in de wachtrij geplaatst voor volledig laden.      |
@@ -129,14 +129,14 @@ Er zijn twee tabbladen die de migratievoortgang van in volledig laden en increme
 
 De volgende tabel beschrijft de velden weergegeven in de tabel op migratie wordt uitgevoerd.
 
-| Veldnaam        | Beschrijving       |
+| Veldnaam        | Description       |
 | ------------- | ------------- |
 | **Status - synchronisatie**      | Doorlopende synchronisatie wordt uitgevoerd. |
 | **Invoegen**      | Aantal CDC wordt ingevoegd in de rijen die worden toegepast op het doel.      |
 | **Update** | Het aantal CDC-updatebewerkingen in rijen toegepast op het doel.      |
 | **Verwijderen**      | Aantal CDC wordt verwijderd in rijen toegepast op het doel. |
 | **Totaal toegewezen**      | Totaal van CDC-updates, invoegen, en wordt verwijderd in rijen toegepast op het doel. |
-| **Fouten met gegevens** | Er is een aantal fouten opgetreden in deze tabel. Enkele voorbeelden van de fouten zijn *511: kan geen rij van de grootte %d die groter dan de toegestane maximale rijgrootte van %d, 8114 is maken: fout bij het converteren van gegevens van het type %ls naar %ls.*  Klant moet een query uit de tabel attms_apply_exceptions in Azure doel om de foutdetails te bekijken.    |
+| **Fouten met gegevens** | Er is een aantal fouten opgetreden in deze tabel. Enkele voorbeelden van de fouten zijn *511: Kan geen rij van de grootte %d die groter dan de toegestane maximale rijgrootte van %d, 8114 is niet maken: Fout bij converteren van gegevenstype ls % naar %ls.*  Klant moet een query uit de tabel dms_apply_exceptions in Azure doel om de foutdetails te bekijken.    |
 
 > [!NOTE]
 > CDC-waarden van Insert, Update, Delete en totale toegepast kunnen afnemen wanneer de database cutover is of migratie opnieuw wordt opgestart.

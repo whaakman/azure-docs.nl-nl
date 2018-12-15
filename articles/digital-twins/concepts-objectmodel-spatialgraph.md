@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636880"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436922"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Inzicht in digitale dubbels objectmodellen en ruimtelijke intelligence graph
 
@@ -48,11 +48,11 @@ Er zijn andere categorieën van objecten:
 - **Rollen** sets met machtigingen worden toegewezen aan gebruikers en apparaten in de ruimtelijke grafiek, bijvoorbeeld `Space Administrator`, `User Administrator`, en `Device Administrator`.
 - **Roltoewijzingen** zijn de koppeling tussen een rol en een object in de ruimtelijke grafiek. Bijvoorbeeld kan een gebruiker of een service-principal worden gemachtigd voor het beheren van een spatie in de grafiek voor ruimtelijke.
 - **Security key winkels** de sleutels voor alle apparaten in de hiërarchie onder een bepaalde ruimte-object waarmee het apparaat veilig communiceren met digitale dubbels bieden.
-- **De gebruiker gedefinieerde functies** (UDF's) toestaan aanpasbare sensor telemetrie verwerken binnen de ruimtelijke grafiek. Bijvoorbeeld, een UDF kunt doen: 
-    - Stel de waarde van een sensor. 
-    - Aangepaste logica op basis van sensorwaarden, serverlogs, uitvoeren en stel de uitvoer van een spatie. 
-    - Metagegevens koppelen aan een spatie. 
-    - Meldingen verzenden wanneer een vooraf gedefinieerde voorwaarden wordt voldaan. Op dit moment kunnen UDF's worden geschreven in JavaScript.
+- **De gebruiker gedefinieerde functies** (UDF's) toestaan aanpasbare sensor telemetrie verwerken binnen de ruimtelijke grafiek. Bijvoorbeeld, een UDF kunt doen:
+  - Stel de waarde van een sensor.
+  - Aangepaste logica op basis van sensorwaarden, serverlogs, uitvoeren en stel de uitvoer van een spatie.
+  - Metagegevens koppelen aan een spatie.
+  - Meldingen verzenden wanneer een vooraf gedefinieerde voorwaarden wordt voldaan. Op dit moment kunnen UDF's worden geschreven in JavaScript.
 - **Vergelijkingsprogramma voor** objecten om te welke UDF's bepalen worden uitgevoerd voor een bepaalde telemetrieberichten zijn.
 - **Eindpunten** zijn de locaties waar berichten over Telemetrie en gebeurtenissen van digitale dubbels kunnen worden gerouteerd, bijvoorbeeld `Event Hub`, `Service Bus`, en `Event Grid`.
 
@@ -82,10 +82,10 @@ Nadat u hebt geïmplementeerd digitale dubbels uit de [Azure-portal](https://por
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Naam | Vervangen door |
+| Name | Vervangen door |
 | --- | --- |
-| YOUR_INSTANCE_NAME | De naam van uw digitale Twins-exemplaar |
-| YOUR_LOCATION | Welke regio u uw exemplaar wordt gehost op server |
+| YOUR_INSTANCE_NAME | De naam van uw Digital Twins-exemplaar |
+| YOUR_LOCATION | De serverregio waarin het exemplaar wordt gehost |
 
  De volledige URL-indeling wordt weergegeven in deze afbeelding.
 
@@ -103,9 +103,9 @@ Alle API-aanroepen moeten worden geverifieerd met behulp van [OAuth](https://doc
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Lees meer over de connectiviteit van apparaten en hoe u berichten over telemetrie verzendt naar digitale dubbels [Azure digitale dubbele apparaat connectiviteit en telemetrie inkomend](concepts-device-ingress.md).
+- Lees meer over de connectiviteit van apparaten en hoe u berichten over telemetrie verzendt naar digitale dubbels [Azure digitale dubbele apparaat connectiviteit en telemetrie inkomend](concepts-device-ingress.md).
 
-* Lees voor meer informatie over API Management-beperkingen en vertragingen, [Azure digitale dubbels API management en beperkingen](concepts-service-limits.md).
+- Lees voor meer informatie over API Management-beperkingen en vertragingen, [Azure digitale dubbels API management en beperkingen](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

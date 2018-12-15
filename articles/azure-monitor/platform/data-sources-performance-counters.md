@@ -1,6 +1,6 @@
 ---
-title: Verzamelen en analyseren van prestatiemeteritems in Azure Log Analytics | Microsoft Docs
-description: Prestatiemeteritems worden verzameld door Log Analytics voor het analyseren van prestaties van Windows en Linux-agents.  In dit artikel wordt beschreven hoe u het configureren van verzamelen van prestatiemeteritems voor zowel Windows en Linux-agents, details van deze zijn opgeslagen in de werkruimte, en over het analyseren van deze in Azure portal.
+title: Verzamelen en analyseren van prestatiemeteritems in Azure Monitor | Microsoft Docs
+description: Prestatiemeteritems worden verzameld door Azure Monitor voor het analyseren van prestaties van Windows en Linux-agents.  In dit artikel wordt beschreven hoe u het configureren van verzamelen van prestatiemeteritems voor zowel Windows en Linux-agents, details van deze zijn opgeslagen in de werkruimte, en over het analyseren van deze in Azure portal.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: 23e416c510c3a6fff7c282406beaec1acf42b2ef
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186868"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438367"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics
-In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Log Analytics kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor
+In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Azure Monitor kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
 
 ![Prestatiemeteritems](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Prestatiemeteritems configureren
-Configureren van prestatiemeteritems van de [gegevens in het menu in-logboekanalyse-instellingen](agent-data-sources.md#configuring-data-sources).
+Configureren van prestatiemeteritems van de [menu van de gegevens in de geavanceerde instellingen](agent-data-sources.md#configuring-data-sources).
 
-Wanneer u prestatiemeteritems van Windows of Linux-prestaties voor een nieuwe Log Analytics-werkruimte voor het eerst configureert, krijgt u de optie voor het snel verschillende algemene prestatiemeteritems te maken.  Ze worden weergegeven met een selectievakje ernaast.  Zorg ervoor dat alle items die u wilt maken in eerste instantie zijn ingeschakeld en klik vervolgens op **de geselecteerde prestatiemeteritems toevoegen**.
+Wanneer u prestatiemeteritems van Windows of Linux-prestaties voor een nieuwe werkruimte voor het eerst configureert, krijgt u de optie voor het snel verschillende algemene prestatiemeteritems te maken.  Ze worden weergegeven met een selectievakje ernaast.  Zorg ervoor dat alle items die u wilt maken in eerste instantie zijn ingeschakeld en klik vervolgens op **de geselecteerde prestatiemeteritems toevoegen**.
 
 Voor Windows-prestatiemeteritems, kunt u een specifiek exemplaar voor elk prestatiemeteritem. Voor Linux-prestatiemeteritems, het exemplaar van elk item dat u kiest is van toepassing op alle onderliggende items van het bovenliggende item. De volgende tabel toont de algemene instanties beschikbaar voor zowel Windows als Linux-prestatiemeteritems.
 
@@ -88,7 +88,7 @@ De parameters in dit element worden in de volgende tabel beschreven.
 | interval | De frequentie waarmee de prestatiemeteritems van het object die worden verzameld. |
 
 
-De volgende tabel bevat de objecten en de items die u in het configuratiebestand opgeven kunt.  Er zijn extra items beschikbaar voor bepaalde toepassingen zoals beschreven in [verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics](data-sources-linux-applications.md).
+De volgende tabel bevat de objecten en de items die u in het configuratiebestand opgeven kunt.  Er zijn extra items beschikbaar voor bepaalde toepassingen zoals beschreven in [verzamelen van prestatiemeteritems voor Linux-toepassingen in Azure Monitor](data-sources-linux-applications.md).
 
 | Objectnaam | Naam van teller |
 |:--|:--|
@@ -182,7 +182,7 @@ Hieronder volgt de standaardconfiguratie voor metrische gegevens voor prestaties
     </source>
 
 ## <a name="data-collection"></a>Gegevensverzameling
-Log Analytics verzamelt alle opgegeven prestatiemeteritems op de opgegeven controle-interval op alle agents die die meteritem geïnstalleerd hebben.  De gegevens worden niet samengevoegd en de onbewerkte gegevens is beschikbaar in alle log search weergaven voor de duur die is opgegeven door uw abonnement.
+Azure Monitor verzamelt alle opgegeven prestatiemeteritems op de opgegeven controle-interval op alle agents die die meteritem geïnstalleerd hebben.  De gegevens worden niet samengevoegd en de onbewerkte gegevens is beschikbaar in alle log queryweergaven voor de duur die is opgegeven door uw abonnement.
 
 ## <a name="performance-record-properties"></a>Eigenschappen van de record Performance
 Prestatierecords zijn een type **Perf** en hebben de eigenschappen in de volgende tabel.
@@ -203,8 +203,8 @@ Prestatierecords zijn een type **Perf** en hebben de eigenschappen in de volgend
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## <a name="log-searches-with-performance-records"></a>Zoekopdrachten in Logboeken met prestatiegegevens
-De volgende tabel bevat voorbeelden van zoekopdrachten die prestatierecords ophalen.
+## <a name="log-queries-with-performance-records"></a>Logboeken-query's met prestatiegegevens
+De volgende tabel bevat voorbeelden van Logboeken-query's die prestatierecords ophalen.
 
 | Query’s uitvoeren | Description |
 |:--- |:--- |
@@ -225,5 +225,5 @@ De volgende tabel bevat voorbeelden van zoekopdrachten die prestatierecords opha
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van prestatiemeteritems van Linux-toepassingen](data-sources-linux-applications.md) met inbegrip van MySQL en Apache HTTP-Server.
-* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
-* Verzamelde gegevens te exporteren [Power BI](../../azure-monitor/platform/powerbi.md) voor extra visualisaties en analyse.
+* Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
+* Verzamelde gegevens te exporteren [Power BI](powerbi.md) voor extra visualisaties en analyse.

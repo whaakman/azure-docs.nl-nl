@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van Nagios en Zabbix-waarschuwingen in Log Analytics | Microsoft Docs
-description: Nagios en Zabbix zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen van deze hulpprogramma's verzamelen in Log Analytics om ze te analyseren en met waarschuwingen van andere bronnen.  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
+title: Verzamelen van Nagios en Zabbix-waarschuwingen in Azure Monitor | Microsoft Docs
+description: Nagios en Zabbix zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen verzamelen van deze hulpprogramma's in Azure Monitor om te kunnen analyseren en met waarschuwingen van andere bronnen.  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,18 +11,24 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2018
+ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 2d90c0c1ab1a6423a206345b7d7d6f34874d2366
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 217f19b02ccd5561ee499388bb62d5a6639086ac
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335724"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436191"
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Waarschuwingen verzamelen van Nagios en Zabbix in Log Analytics van Log Analytics-agent voor Linux 
+# <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Meldingen van Nagios en Zabbix in Azure Monitor verzamelen in Log Analytics-agent voor Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+<<<<<<< HEAD [Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen verzamelen van deze hulpprogramma's in Azure Monitor om te kunnen analyseren met logboekgegevens uit andere bronnen.  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
+
+> [!NOTE]
+> [Waarschuwingen die zijn gemaakt door Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) zijn onafhankelijk van logboekgegevens opgeslagen en niet toegankelijk is vanaf de logboeken-query's.
+=======
 [Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen van deze hulpprogramma's verzamelen in Log Analytics om te kunnen analyseren ze samen met [waarschuwingen uit andere bronnen](../../azure-monitor/platform/alerts-overview.md).  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
+>>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
  
 ## <a name="prerequisites"></a>Vereisten
 De Log Analytics-agent voor Linux ondersteunt verzamelen meldingen van Nagios tot versie 4.2.x en Zabbix maximaal versie 2.x.
@@ -78,7 +84,7 @@ Voor het verzamelen van waarschuwingen op de Nagios-server, moet u de volgende s
 
 
 ## <a name="alert-records"></a>Waarschuwing records
-U kunt waarschuwingen records van Nagios en Zabbix ophalen met behulp van [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics.
+U kunt waarschuwingen records van Nagios en Zabbix ophalen met behulp van [query's bijgehouden](../log-query/log-query-overview.md) in Azure Monitor.
 
 ### <a name="nagios-alert-records"></a>Nagios-waarschuwing records
 
@@ -116,5 +122,5 @@ Ontvang een waarschuwing die worden verzameld door Zabbix records hebben een **T
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [waarschuwingen](../../azure-monitor/platform/alerts-overview.md) in Log Analytics.
-* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
+* Meer informatie over [waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Azure Monitor.
+* Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 

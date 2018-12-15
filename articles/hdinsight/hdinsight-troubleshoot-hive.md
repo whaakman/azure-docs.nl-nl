@@ -8,14 +8,14 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 832fab6c4f183ddad512c5e6e4309d70938a316b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600020"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407013"
 ---
-# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Met Hive oplossen met behulp van Azure HDInsight
+# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Apache Hive oplossen met behulp van Azure HDInsight
 
 Meer informatie over de meestgestelde vragen en hun oplossingen als u werkt met Apache Hive nettoladingen in Apache Ambari.
 
@@ -104,7 +104,7 @@ De code in de Oplossingsstappen wordt ervan uitgegaan dat gegevenspaden op het n
 - [Hive-configuratie-eigenschappen](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hoe ik Tez DAG gegevens op een cluster-kritieke pad analyseren?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hoe ik Apache Tez DAG gegevens op een cluster-kritieke pad analyseren?
 
 
 ### <a name="resolution-steps"></a>Oplossingen
@@ -126,17 +126,17 @@ De code in de Oplossingsstappen wordt ervan uitgegaan dat gegevenspaden op het n
   Als het eerste argument moet u een voorbeeldprogramma opgeven.
 
   Geldig programmanamen zijn onder andere:
-    - **ContainerReuseAnalyzer**: details van de container opnieuw worden gebruikt in een DAG afdrukken
-    - **CriticalPath**: het kritieke pad van een DAG niet vinden
-    - **LocalityAnalyzer**: details van de plaats waar zich bevinden in een DAG afdrukken
-    - **ShuffleTimeAnalyzer**: het analyseren van de details van de tijd shuffle in een DAG
-    - **SkewAnalyzer**: de scheeftrekken details in een DAG analyseren
-    - **SlowNodeAnalyzer**: knooppuntdetails in een DAG afdrukken
-    - **SlowTaskIdentifier**: afdrukken trage taakdetails in een DAG
-    - **SlowestVertexAnalyzer**: details van de traagste hoekpunt in een DAG afdrukken
-    - **SpillAnalyzer**: afdrukken worden gelekt details in een DAG
-    - **TaskConcurrencyAnalyzer**: de taakdetails voor gelijktijdigheid van taken in een DAG afdrukken
-    - **VertexLevelCriticalPathAnalyzer**: het kritieke pad op het niveau van hoekpunt niet vinden in een DAG
+    - **ContainerReuseAnalyzer**: Details van de container opnieuw worden gebruikt in een DAG afdrukken
+    - **CriticalPath**: Zoek het kritieke pad van een DAG
+    - **LocalityAnalyzer**: Details van de plaats waar zich bevinden in een DAG afdrukken
+    - **ShuffleTimeAnalyzer**: De details van de tijd shuffle in een DAG analyseren
+    - **SkewAnalyzer**: Het analyseren van de scheeftrekken details in een DAG
+    - **SlowNodeAnalyzer**: Knooppuntdetails van het in een DAG afdrukken
+    - **SlowTaskIdentifier**: Trage taakdetails in een DAG afdrukken
+    - **SlowestVertexAnalyzer**: Details van de traagste hoekpunt in een DAG afdrukken
+    - **SpillAnalyzer**: Gegevens worden gelekt in een DAG afdrukken
+    - **TaskConcurrencyAnalyzer**: De details van de gelijktijdigheid van taken in een DAG afdrukken
+    - **VertexLevelCriticalPathAnalyzer**: Het kritieke pad op het niveau van hoekpunt niet vinden in een DAG
 
 
 ### <a name="additional-reading"></a>Meer lezen

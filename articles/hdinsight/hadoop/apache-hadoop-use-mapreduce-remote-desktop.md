@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c0040958cbf748d3eafb3ee60806b064e4e0b1ba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634478"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435783"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>MapReduce gebruiken in een Apache Hadoop op HDInsight met extern bureaublad
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 In dit artikel leert u hoe u verbinding maakt met een Apache Hadoop op HDInsight-cluster met behulp van extern bureaublad en vervolgens MapReduce-taken uitvoeren met behulp van de Hadoop-opdracht.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Extern bureaublad is alleen beschikbaar op Windows gebaseerde HDInsight-clusters. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 >
 > Voor HDInsight 3.4 of hoger, Zie [MapReduce gebruiken met SSH](apache-hadoop-use-mapreduce-ssh.md) voor meer informatie over verbinding maken met de HDInsight-cluster en MapReduce-taken uitvoeren.
@@ -40,7 +40,7 @@ Wanneer u met het bureaublad van de HDInsight-cluster verbonden bent, gebruikt u
 
 1. Start vanaf het bureaublad HDInsight de **Hadoop-opdrachtregels**. Hiermee opent u een nieuwe opdrachtprompt in de **c:\apps\dist\hadoop-&lt;versienummer >** directory.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Het versienummer verandert als Hadoop is bijgewerkt. De **HADOOP_HOME** omgevingsvariabele kan worden gebruikt om het pad niet vinden. Bijvoorbeeld, `cd %HADOOP_HOME%` mappen naar de map Hadoop, zonder dat u te weten het versienummer wordt gewijzigd.
    >
    >
@@ -94,5 +94,5 @@ Voor algemene informatie over MapReduce-taken in HDInsight:
 
 Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
-* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight](hdinsight-use-hive.md)
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)

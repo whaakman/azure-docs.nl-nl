@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8da2309a16c07440158c1de324eea1fa05b1c98b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 15aa80c5291854c937bdc128a597ed5bebd608a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189061"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437418"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>U kunt ONNX en Azure Machine Learning: Maken en interoperabele AI-modellen implementeren
 
@@ -69,7 +69,7 @@ Met Azure Machine Learning-service, kunt u implementeren, beheren en controleren
 
 ### <a name="install-and-configure-onnx-runtime"></a>Installeren en u kunt ONNX-Runtime configureren
 
-U kunt ONNX Runtime is een krachtige Deductie open-source engine voor ONNX-modellen. Biedt hardwareversnelling in CPU- en GPU, met API's beschikbaar voor Python, C#, en ONNX 1.2 + biedt ondersteuning voor Runtime voor C. u kunt ONNX-modellen en wordt uitgevoerd op Linux, Windows en Mac. Python-pakketten zijn beschikbaar op [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), en [ C# pakket](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) is op [Nuget.org](https://www.nuget.org). Zie meer informatie over het project op [Github](https://github.com/Microsoft/onnxruntime). 
+U kunt ONNX Runtime is een krachtige Deductie open-source engine voor ONNX-modellen. Biedt hardwareversnelling in CPU- en GPU, met API's beschikbaar voor Python, C#, en ONNX 1.2 + biedt ondersteuning voor Runtime voor C. u kunt ONNX-modellen en wordt uitgevoerd op Linux, Windows en Mac. Python-pakketten zijn beschikbaar op [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), en [ C# pakket](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) is op [Nuget.org](https://www.nuget.org). Zie meer informatie over het project op [GitHub](https://github.com/Microsoft/onnxruntime). 
 
 U kunt ONNX-Runtime voor Python wilt installeren, gebruiken:
 ```python
@@ -202,6 +202,6 @@ Meer informatie over ONNX of bij te dragen aan het project:
 + [U kunt ONNX-code op GitHub](https://github.com/onnx/onnx)
 
 Meer informatie over ONNX-Runtime of bij te dragen aan het project:
-+ [U kunt ONNX Runtime Github-opslagplaats](https://github.com/Microsoft/onnxruntime)
++ [U kunt ONNX Runtime GitHub-opslagplaats](https://github.com/Microsoft/onnxruntime)
 
 

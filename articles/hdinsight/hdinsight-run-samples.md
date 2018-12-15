@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 96c51bb30f76ffe4d5efb3bb616c00554b7aab62
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b00982cbc30b2345d9eacea376e3c5164ce1b078
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011501"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408677"
 ---
-# <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Voorbeelden van Hadoop MapReduce uitvoeren in HDInsight op basis van Windows
+# <a name="run-apache-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Apache Hadoop MapReduce-voorbeelden uitvoeren in HDInsight op basis van Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Een reeks voorbeelden wordt waarmee u kunt halen gestart actieve MapReduce-taken op Hadoop-clusters met behulp van Azure HDInsight geleverd. Deze voorbeelden zijn beschikbaar op elk van de beheerde HDInsight-clusters die u maakt. Deze voorbeelden wordt uitgevoerd, raakt u vertrouwd met het gebruik van Azure PowerShell-cmdlets uitvoeren op Hadoop-clusters.
+Een reeks voorbeelden wordt waarmee u kunt halen gestart actieve MapReduce-taken op Apache Hadoop-clusters met behulp van Azure HDInsight geleverd. Deze voorbeelden zijn beschikbaar op elk van de beheerde HDInsight-clusters die u maakt. Deze voorbeelden wordt uitgevoerd, raakt u vertrouwd met het gebruik van Azure PowerShell-cmdlets uitvoeren op Hadoop-clusters.
 
-* [**Aantal woorden**][hdinsight-sample-wordcount]: woorden worden geteld in een tekstbestand.
-* [**C#-streaming woordentelling**][hdinsight-sample-csharp-streaming]: woorden worden geteld in een tekstbestand met de Hadoop-streaming-interface.
-* [**PI estimator**][hdinsight-sample-pi-estimator]: maakt gebruik van een statistische (quasi Monte Carlo) methode voor het schatten van de waarde van pi.
-* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: een voor algemeen gebruik GraySort uitvoert op een 10 GB-bestand met behulp van HDInsight. Er zijn drie taken om uit te voeren: Teragen voor het genereren van de gegevens, Terasort om de gegevens te sorteren, en Teravalidate om te bevestigen dat de gegevens correct zijn gesorteerd.
+* [**Aantal woorden**][hdinsight-sample-wordcount]: Woorden worden geteld in een tekstbestand.
+* [**C#aantal woorden streaming**][hdinsight-sample-csharp-streaming]: Woorden worden geteld in een tekstbestand met de Hadoop-streaming-interface.
+* [**PI estimator**][hdinsight-sample-pi-estimator]: Maakt gebruik van een statistische (quasi Monte Carlo) methode voor het schatten van de waarde van pi.
+* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: Een algemene GraySort uitvoert op een 10 GB-bestand met behulp van HDInsight. Er zijn drie taken om uit te voeren: Teragen voor het genereren van de gegevens, Terasort om de gegevens te sorteren, en Teravalidate om te bevestigen dat de gegevens correct zijn gesorteerd.
 
-> [!NOTE]
+> [!NOTE]  
 > De broncode kan worden gevonden in de bijlage.
 
 Veel aanvullende documentatie bestaat op het web voor Hadoop-gerelateerde technologieën, zoals op basis van Java MapReduce-programma's en streaming en documentatie over de cmdlets die worden gebruikt in Windows PowerShell-scripts. Zie voor meer informatie over deze resources:
 
-* [Java MapReduce-programma's ontwikkelen voor Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [Hadoop-taken opgeven in HDInsight](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Java MapReduce-programma's ontwikkelen voor Apache Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Apache Hadoop-taken in HDInsight](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Inleiding tot Azure HDInsight][hdinsight-introduction]
 
-Veel mensen kiezen tegenwoordig Hive en Pig via MapReduce.  Zie voor meer informatie:
+Veel mensen kiezen tegenwoordig, Apache Hive en Apache Pig via MapReduce.  Zie voor meer informatie:
 
-* [Hive in HDInsight gebruiken](hadoop/hdinsight-use-hive.md)
-* [Pig gebruiken in HDInsight](hadoop/hdinsight-use-pig.md)
+* [Apache Hive in HDInsight gebruiken](hadoop/hdinsight-use-hive.md)
+* [Apache Pig in HDInsight gebruiken](hadoop/hdinsight-use-pig.md)
 
 **Vereisten**:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Een HDInsight-cluster**. Zie voor meer informatie over de verschillende manieren waarop deze clusters kunnen worden gemaakt, [Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* **Een HDInsight-cluster**. Zie voor meer informatie over de verschillende manieren waarop deze clusters kunnen worden gemaakt, [Apache Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Een werkstation met Azure PowerShell**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell-ondersteuning voor het beheer van HDInsight-resources met behulp van Azure Service Manager is **afgeschaft** en verdwijnt per 1 januari 2017. In de stappen in dit document worden de nieuwe HDInsight-cmdlets gebruikt die met Azure Resource Manager werken.
     >
     > Volg de stappen in [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor het installeren van de meest recente versie van Azure PowerShell. Als u scripts hebt die worden gewijzigd moeten voor het gebruik van de nieuwe cmdlets die met werken Azure Resource Manager, Zie [migreren naar Azure Resource Manager gebaseerde ontwikkelingsprogramma's voor HDInsight-clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -56,7 +56,7 @@ Als u wilt een MapReduce-project verzenden, moet u eerst de definitie van een Ma
 
 De broncode kan worden gevonden in de [bijlage A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Voor de procedure van het ontwikkelen van een Java MapReduce-programma, Zie - [ontwikkel Java MapReduce-programma's voor Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+Voor de procedure van het ontwikkelen van een Java MapReduce-programma, Zie - [ontwikkel Java MapReduce-programma's voor Apache Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 **Een word-count-MapReduce-taak verzenden**
 
@@ -120,7 +120,7 @@ Voor de procedure van het ontwikkelen van een Java MapReduce-programma, Zie - [o
 ## <a name="hdinsight-sample-csharp-streaming"></a>Word-count - C#-streaming
 Hadoop biedt een streaming-API voor MapReduce, waarmee u kaart schrijven en functies in een andere taal dan Java verlagen.
 
-> [!NOTE]
+> [!NOTE]  
 > De stappen in deze zelfstudie alleen van toepassing op Windows gebaseerde HDInsight-clusters. Zie voor een voorbeeld van streaming voor Linux gebaseerde HDInsight-clusters, [ontwikkelen streaming Python-programma's voor HDInsight](hadoop/apache-hadoop-streaming-python.md).
 
 In het voorbeeld wordt het toewijzen van de en de reducer zijn uitvoerbare bestanden die de invoer van lezen [stdin] [ stdin-stdout-stderr] (regel voor regel) en hoe de uitvoer naar [stdout] [ stdin-stdout-stderr]. Het programma telt de woorden in de tekst.
@@ -207,10 +207,10 @@ Drie taken die vereist zijn voor het voorbeeld, elke overeenkomt met een van de 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel en de artikelen in elk van de voorbeelden, hebt u geleerd hoe u de opgenomen met de HDInsight-clusters met behulp van Azure PowerShell-voorbeelden uitvoeren. Zie de volgende onderwerpen voor zelfstudies over Pig, Hive en MapReduce gebruiken met HDInsight:
 
-* [Aan de slag met Hadoop Hive in HDInsight voor het analyseren van de mobiele telefoon gebruiken][hdinsight-get-started]
-* [Pig gebruiken met Hadoop op HDInsight][hdinsight-use-pig]
-* [Hive gebruiken met Hadoop op HDInsight][hdinsight-use-hive]
-* [Hadoop-taken in HDInsight][hdinsight-submit-jobs]
+* [Aan de slag met behulp van Apache Hadoop voor het analyseren van de mobiele telefoon gebruiken met Apache Hive in HDInsight][hdinsight-get-started]
+* [Apache Pig gebruiken met Apache Hadoop op HDInsight][hdinsight-use-pig]
+* [Apache Hive gebruiken met Apache Hadoop op HDInsight][hdinsight-use-hive]
+* [Apache Hadoop-taken in HDInsight][hdinsight-submit-jobs]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Bijlage A - de broncode van de Word-count
 

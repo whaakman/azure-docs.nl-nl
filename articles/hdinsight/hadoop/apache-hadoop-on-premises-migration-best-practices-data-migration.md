@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 54741bd2d76a7ba414613a40e07c47be703aa033
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994408"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433420"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - gegevens migratie aanbevolen procedures
 
@@ -25,7 +25,7 @@ In dit artikel biedt aanbevelingen voor gegevensmigratie naar Azure HDInsight. H
 Er zijn twee manieren om gegevens te migreren van on-premises naar Azure-omgeving:
 
 1.  Gegevens overdragen via het netwerk met TLS
-    1. Via internet - kunt u gegevens overbrengen naar Azure-opslag via een gewone internetverbinding met behulp van een van verschillende hulpprogramma's zoals: Azure Storage Explorer, AzCopy, Azure Powershell en Azure CLI.  Zie [om gegevens te verplaatsen naar en van Azure Storage](../../storage/common/storage-moving-data.md) voor meer informatie.
+    1. U kunt via internet - gegevens overbrengen naar Azure storage via een gewone internetverbinding met behulp van een van verschillende hulpprogramma's zoals: Azure Storage Explorer, AzCopy, Azure Powershell en Azure CLI.  Zie [om gegevens te verplaatsen naar en van Azure Storage](../../storage/common/storage-moving-data.md) voor meer informatie.
     2. Express Route - ExpressRoute is een Azure-service waarmee u particuliere verbindingen maken tussen Microsoft-datacenters en infrastructuur on-premises of in een CO-locatiefaciliteit. ExpressRoute-verbindingen niet het openbare Internet en bieden een hogere beveiliging, betrouwbaarheid en snelheid met kortere wachttijden dan gebruikelijke verbindingen via Internet. Zie voor meer informatie, [maken en aanpassen van een ExpressRoute-circuit](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Data Box online-gegevensoverdracht - gegevens in het Edge- en Data Box-Gateway zijn online-gegevens overbrengen producten die fungeren als gateways voor het beheren van gegevens tussen uw locatie en Azure storage. Met Data Box Edge, een on-premises netwerkapparaat, worden gegevens overdragen van en naar Azure en worden gegevens verwerkt met behulp van Edge-rekenprocessen met artificial intelligence (AI). Data Box Gateway is een virtueel apparaat met opslaggatewaymogelijkheden. Zie voor meer informatie, [Azure Data Box-documentatie - Online Transfer](https://docs.microsoft.com/azure/databox-online/).
 1.  Verzending van gegevens Offline
@@ -47,9 +47,11 @@ De volgende tabel bevat geschatte data transfer duur op basis van de gegevens vo
 |1 PB|zes jaar|Drie jaar|97 dagen|tien dagen|
 |2 PB|twaalf jaar|5 jaar|194 dagen|19 dagen|
 
-Hulpprogramma's ingebouwd in Azure, zoals DistCp, Azure Data Factory en AzureCp, kunnen worden gebruikt voor gegevensoverdracht via het netwerk. Het hulpprogramma van derden WANDisco kan ook worden gebruikt voor hetzelfde doel. Kafka Mirrormaker en Sqoop kunnen worden gebruikt voor continue gegevensoverdracht van on-premises naar Azure storage-systemen.
+Hulpprogramma's ingebouwd in Azure, zoals Apache Hadoop DistCp, Azure Data Factory en AzureCp, kunnen worden gebruikt voor gegevensoverdracht via het netwerk. Het hulpprogramma van derden WANDisco kan ook worden gebruikt voor hetzelfde doel. Apache Kafka Mirrormaker en Apache Sqoop kunnen worden gebruikt voor continue gegevensoverdracht van on-premises naar Azure storage-systemen.
 
-## <a name="performance-considerations-with-apache-distcp"></a>Prestatieoverwegingen met Apache DistCp
+
+## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Prestatie-overwegingen bij het gebruik van Apache Hadoop DistCp
+
 
 DistCp is een Apache-project die gebruikmaakt van een kaart MapReduce-taak gegevens overdragen, fouten afhandelen en herstellen van deze fouten. Een lijst met bronbestanden wilt toewijzen aan elke kaart-taak. De taak kaart kopieert alle toegewezen bestanden vervolgens naar de bestemming. Er zijn verschillende technieken kunnen de prestaties van DistCp verbeterd.
 
@@ -86,7 +88,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ## <a name="metadata-migration"></a>Migratie van de metagegevens
 
-### <a name="hive"></a>Hive
+### <a name="apache-hive"></a>Apache Hive
 
 Het hive-metastore kan worden gemigreerd met behulp van de scripts of met behulp van de database-replicatie.
 
@@ -106,7 +108,7 @@ Het hive-metastore kan worden gemigreerd met behulp van de scripts of met behulp
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 ```
 
-### <a name="ranger"></a>Ranger
+### <a name="apache-ranger"></a>Apache Ranger
 
 - On-premises Ranger-beleidsregels exporteren naar xml-bestanden.
 - Transformeer on-premises bepaald op basis van HDFS paden naar WASB/ADLS met een hulpprogramma zoals XSLT.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f027b4c827fd7afe1a9cd2f8f31839b092345728
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012484"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435069"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Gebruik van een Java UDF met Apache Hive in HDInsight
 
@@ -213,7 +213,7 @@ Informatie over het maken van een op Java gebaseerde gebruiker gedefinieerde fun
     ```
 
     > [!NOTE]
-    > In dit voorbeeld wordt ervan uitgegaan dat Azure Storage standaardopslag voor het cluster. Als uw cluster maakt in plaats daarvan gebruik van de Data Lake Store, wijzigt u de `wasb:///` waarde die moet worden `adl:///`.
+    > In dit voorbeeld wordt ervan uitgegaan dat Azure Storage standaardopslag voor het cluster. Als uw cluster maakt in plaats daarvan gebruik van de Data Lake-opslag, wijzigt u de `wasb:///` waarde die moet worden `adl:///`.
 
 3. Gebruik de UDF om te converteren die zijn opgehaald uit een tabel naar tekenreeksen met kleine letters.
 
@@ -240,6 +240,6 @@ Informatie over het maken van een op Java gebaseerde gebruiker gedefinieerde fun
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor andere manieren om te werken met Hive, [Hive gebruiken met HDInsight](hdinsight-use-hive.md).
+Zie voor andere manieren om te werken met Hive, [Apache Hive gebruiken met HDInsight](hdinsight-use-hive.md).
 
-Zie voor meer informatie over de functies Hive User-Defined [door de gebruiker gedefinieerde functies en operatoren Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) sectie van de Hive-wiki op apache.org.
+Zie voor meer informatie over de functies Hive User-Defined [Apache Hive operatoren en door de gebruiker gedefinieerde functies](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) sectie van de Hive-wiki op apache.org.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 5998396faf746bd54d4f2dbd9c633ad3b4003878
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7184a5e1e9b41653cfe23aa863f8e4e4ea86c620
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193396"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409238"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM-producten en services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM-product/service en de IT Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](../../azure-monitor/platform/itsmc-overview.md).
@@ -291,7 +291,7 @@ Zorg ervoor dat de volgende vereisten wordt voldaan:
 
 
 - ITSMC geïnstalleerd. Meer informatie: [Toevoegen van IT Service Management Connector-oplossing](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Provance App moet worden geregistreerd bij Azure AD - en client-ID beschikbaar wordt gesteld. Zie voor gedetailleerde informatie [active directory-verificatie configureren](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Provance App moet worden geregistreerd bij Azure AD - en client-ID beschikbaar wordt gesteld. Zie voor gedetailleerde informatie [active directory-verificatie configureren](../../app-service/configure-authentication-provider-aad.md).
 
 - Gebruikersrol:  De beheerder.
 
@@ -319,7 +319,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 | **Gebruikersnaam**   | Typ de naam van de gebruiker die verbinding met ITSMC maken kan.    |
 | **Wachtwoord**   | Typ het wachtwoord dat is gekoppeld aan deze gebruikersnaam. **Opmerking:** Gebruikersnaam en wachtwoord worden gebruikt voor het genereren van verificatietokens alleen en worden niet overal opgeslagen in de service ITSMC. _|
 | **Server-URL**   | Typ de URL van uw Provance-exemplaar dat u wilt verbinding maken met ITSMC. |
-| **Client ID**   | Typ de client-ID voor het verifiëren van deze verbinding, die u in uw exemplaar Provance gegenereerd.  Zie voor meer informatie over client-ID, [active directory-verificatie configureren](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **Client ID**   | Typ de client-ID voor het verifiëren van deze verbinding, die u in uw exemplaar Provance gegenereerd.  Zie voor meer informatie over client-ID, [active directory-verificatie configureren](../../app-service/configure-authentication-provider-aad.md). |
 | **Bereik voor gegevenssynchronisatie**   | Selecteer de Provance werkitems die u wilt synchroniseren met Azure Log Analytics, via ITSMC.  Deze werk-items worden geïmporteerd in log analytics.   **Opties:**   Incidenten, wijzigingsaanvragen.|
 | **Gegevens synchroniseren** | Typ het aantal afgelopen dagen die u wilt dat de gegevens uit. **Maximumlimiet**: 120 dagen. |
 | **Nieuwe configuratie-item maken in de ITSM-oplossing** | Selecteer deze optie als u wilt maken van de configuratie-items in de ITSM-product. Als u selecteert, maakt ITSMC de betrokken configuratie-items als configuratie-items (in het geval van niet-bestaande configuratie-items) in de ondersteunde ITSM-systeem. **Standaard**: uitgeschakeld.|

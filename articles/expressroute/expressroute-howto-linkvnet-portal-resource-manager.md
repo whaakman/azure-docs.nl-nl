@@ -1,5 +1,5 @@
 ---
-title: 'Een virtueel netwerk koppelen aan een circuit - ExpressRoute: Azure portal | Microsoft Docs'
+title: 'Een virtueel netwerk koppelen aan een circuit - ExpressRoute: Azure-portal | Microsoft Docs'
 description: Een VNet verbinden met een Azure ExpressRoute-Circuit. Procedures.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f2b22eb779a8ebe1d1fd804443663abc9a4245ec
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 16d85510efb055d7d564ffadb9fff2b200771bc6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141642"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438826"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit met behulp van de portal
 > [!div class="op_single_selector"]
@@ -88,6 +88,10 @@ De circuiteigenaar van het heeft de mogelijkheid om te wijzigen en autorisaties 
 **Maken van een verbinding-autorisatieregels**
 
 De circuiteigenaar van het maakt een autorisatie. Dit resulteert in het maken van een autorisatiesleutel die door de gebruiker van een circuit kan worden gebruikt om hun virtuele netwerkgateways aan ExpressRoute-circuit. Een autorisatie is geldig voor slechts één verbinding.
+
+> [!NOTE]
+> Elke verbinding vereist een afzonderlijke autorisatie.
+>
 
 1. Klik op de pagina ExpressRoute **autorisaties** en typ vervolgens een **naam** voor de autorisatie en klik op **opslaan**.
 

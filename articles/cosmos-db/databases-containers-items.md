@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 9f2ed9c9059fa76a55ebd26fa3175605e89a4cdd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090262"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409538"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Werken met Azure Cosmos-databases, containers en objecten
 
@@ -26,10 +26,10 @@ U kunt een of meer Azure Cosmos-databases maken onder uw account. Een database i
 
 | **Azure Cosmos-entiteit** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-database | Database | Keyspace | Database | N.v.t. | N.v.t. |
+|Azure Cosmos-database | Database | Keyspace | Database | Database | N.v.t. |
 
 > [!NOTE]
-> Met Gremlin en Table-API's-accounts, wanneer u uw eerste grafiek maken of een standaarddatabase tabel wordt automatisch gemaakt in uw Azure Cosmos-account.
+> Met Table-API's-accounts, wanneer u de eerste tabel maakt wordt een standaard-database automatisch gemaakt in uw Azure Cosmos-account.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Bewerkingen op een Azure Cosmos-database
 
@@ -49,9 +49,9 @@ Een Azure Cosmos-container is de eenheid van de schaalbaarheid voor zowel ingeri
 
 Bij het maken van een Azure Cosmos-container, kunt u de doorvoer configureren in een van de volgende modi:
 
-* **Toegewezen ingerichte doorvoer** modus: doorvoer die is ingericht in een container is exclusief zijn gereserveerd voor deze en wordt ondersteund door de SLA's. Zie voor meer informatie, [over het inrichten van doorvoer voor een Azure Cosmos-container](how-to-provision-container-throughput.md).
+* **Toegewezen ingerichte doorvoer** modus: Voor een container ingerichte doorvoer is exclusief zijn gereserveerd voor deze en wordt ondersteund door de SLA's. Zie voor meer informatie, [over het inrichten van doorvoer voor een Azure Cosmos-container](how-to-provision-container-throughput.md).
 
-* **Gedeelde ingerichte doorvoer** modus: deze containers de ingerichte doorvoer delen met andere containers in dezelfde database (met uitzondering van die containers die zijn geconfigureerd met een toegewezen ingerichte doorvoer). Met andere woorden, wordt de ingerichte doorvoer voor de database gedeeld tussen alle 'gedeeld' containers. Zie voor meer informatie, [ingerichte doorvoer op een Azure Cosmos-database configureren](how-to-provision-database-throughput.md).
+* **Gedeelde ingerichte doorvoer** modus: De ingerichte doorvoer delen deze containers met andere containers in dezelfde database (met uitzondering van die containers die zijn geconfigureerd met een toegewezen ingerichte doorvoer). Met andere woorden, wordt de ingerichte doorvoer voor de database gedeeld tussen alle 'gedeeld' containers. Zie voor meer informatie, [ingerichte doorvoer op een Azure Cosmos-database configureren](how-to-provision-database-throughput.md).
 
 Een Azure Cosmos-container elastisch schalen, of het maken van containers met een 'gedeeld' of 'toegewezen' ingerichte doorvoer modi.
 
@@ -69,7 +69,7 @@ Een Azure Cosmos-container is gespecialiseerd in API-specifieke entiteiten als v
 
 | **Azure Cosmos-entiteit** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-container | Container | Tabel | Verzameling | Graph | Tabel |
+|Azure Cosmos-container | Verzameling | Tabel | Verzameling | Graph | Tabel |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Eigenschappen van een Azure Cosmos-container
 
@@ -105,7 +105,7 @@ Afhankelijk van de keuze van de API kan een Azure Cosmos-item ofwel een document
 
 | **Cosmos-entiteit** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-item | Item | Rij | Document | Knooppunt of randtabel | Item |
+|Azure Cosmos-item | Document | Rij | Document | Knooppunt of randtabel | Item |
 
 ### <a name="properties-of-an-item"></a>Eigenschappen van een item
 

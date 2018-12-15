@@ -1,5 +1,5 @@
 ---
-title: Verzamelen van prestaties van de Linux-toepassingen in Log Analytics | Microsoft Docs
+title: Verzamelen van prestaties van de Linux-toepassingen in Azure Monitor | Microsoft Docs
 description: Dit artikel bevat informatie voor het configureren van de Log Analytics-agent voor Linux voor het verzamelen van prestatiemeteritems voor MySQL en Apache HTTP-Server.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 03faa393d42f3596aa6b05c4a3afb476c8b9e0a3
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 824d3f2402861ed8a54a29c9571654cc581e4c5e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186511"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434627"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Dit artikel bevat informatie voor het configureren van de [Log Analytics-agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen.  De toepassingen die zijn opgenomen in dit artikel zijn:  
+Dit artikel bevat informatie voor het configureren van de [Log Analytics-agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen in Azure Monitor-Logboeken.  De toepassingen die zijn opgenomen in dit artikel zijn:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP-Server](#apache-http-server)
@@ -114,7 +114,7 @@ Deze rechten kunnen worden verleend door het uitvoeren van de volgende opdrachte
 
 ### <a name="define-performance-counters"></a>Prestatiemeteritems definiëren
 
-Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Log Analytics configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics](data-sources-windows-events.md) met de items in de volgende tabel.
+Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Azure Monitor configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor](data-sources-performance-counters.md) met de items in de volgende tabel.
 
 | Objectnaam | Naam van teller |
 |:--|:--|
@@ -150,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Prestatiemeteritems definiëren
 
-Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Log Analytics configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics](data-sources-windows-events.md) met de items in de volgende tabel.
+Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Azure Monitor configureren, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux-gegevensbronnen van de prestaties die u in Azure Monitor](data-sources-performance-counters.md) met de items in de volgende tabel.
 
 | Objectnaam | Naam van teller |
 |:--|:--|
@@ -168,4 +168,4 @@ Nadat u de Log Analytics-agent voor Linux om gegevens te verzenden naar Log Anal
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van prestatiemeteritems](data-sources-performance-counters.md) van Linux-agents.
-* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
+* Meer informatie over [query's bijgehouden](../../log-analytics/log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
