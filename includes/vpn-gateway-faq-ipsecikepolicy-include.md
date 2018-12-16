@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/14/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 87d5389abd72875c62ea3484fc3f9ca43c339447
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240069"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444092"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Wordt het aangepaste beleid voor IPsec/IKE op alle Azure VPN Gateway-SKU's ondersteund?
 Het aangepaste beleid voor IPsec/IKE wordt ondersteund op Azure VPN-gateways **VpnGw1, VpnGw2, VpnGw3, Standard** en **HighPerformance**. De **basis**-SKU wordt **niet** ondersteund.
@@ -102,3 +102,6 @@ Ja. Een VNet-naar-VNet-tunnel bestaat uit twee verbindingsresources in Azure, é
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Werkt een aangepast IPsec/IKE-beleid op een ExpressRoute-verbinding?
 Nee. IPsec/IKE-beleid werkt alleen op S2S-VPN- en VNet-naar-VNet-verbindingen via de Azure VPN-gateways.
+
+### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Waar vind ik meer configuratie-informatie voor IPsec
+Zie [configureren IPsec/IKE-beleid voor S2S- of VNet-naar-VNet-verbindingen](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

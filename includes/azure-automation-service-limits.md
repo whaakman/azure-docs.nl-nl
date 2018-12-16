@@ -5,16 +5,18 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3ae2289112948dea7d2649c4fad6b1cafb3804b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285765"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444081"
 ---
+#### <a name="process-automation"></a>Procesautomatisering
+
 | Resource | Maximumaantal |Opmerkingen|
 | --- | --- |---|
 | Maximumaantal nieuwe taken die elke 30 seconden per Automation-Account (niet-geplande taken) kunnen worden verzonden |100 |Wanneer deze limiet wordt bereikt, mislukken de volgende aanvragen om een taak te maken. De client ontvangt een foutbericht.|
@@ -33,5 +35,19 @@ ms.locfileid: "51285765"
 | Maximale Runbook-parameters   | 50|U kunt een JSON of XML-tekenreeks doorgeven aan een parameter en parseren met het runbook als u de parameterlimiet van 50 bereikt|
 | Maximumgrootte van webhook-nettolading |  512 kb|
 | Maximaal aantal dagen dat gegevens worden bewaard|30 dagen|
+| Grootte van de gebruikersstatus Max PowerShell Workflow |5 MB| Is van toepassing op PowerShell Workflow-runbooks bij het plaatsen van controlepunten werkstroom.|
 
 **<sup>1</sup>**  een sandbox is een gedeelde omgeving die kan worden gebruikt door meerdere taken, taken met behulp van de sandbox zijn gebonden aan de resourcebeperkingen van de sandbox.
+
+#### <a name="change-tracking-and-inventory"></a>Wijzigingen bijhouden en Inventaris
+
+De volgende tabel bevat de limieten bijgehouden item per machine voor het bijhouden.
+
+| **Resource** | **Limiet**| **Opmerkingen** |
+|---|---|---|
+|File|500||
+|Register|250||
+|Windows-software|250|Bevat geen software-updates|
+|Linux-pakketten|1250||
+|Services|250||
+|Daemon|250||

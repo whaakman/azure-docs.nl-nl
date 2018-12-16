@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c75d123fec9cbc98a532f4a38887cfd2fc88feda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b214932f43ce20480ee37a7b4edf942f080b38e8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197955"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444093"
 ---
 Wanneer u een clientcertificaat installeert, hebt u het wachtwoord nodig dat is gemaakt tijdens het exporteren van het clientcertificaat.
 
-1. Zoek het PFX-certificaatbestand en kopieer het naar uw Mac. U kunt het certificaat met de Mac op verschillende manieren ophalen, bijvoorbeeld, kunt u het certificaatbestand e.
-2. Dubbelklik op het certificaat te openen nadat het certificaat wordt gekopieerd naar de Mac, de **certificaten toevoegen** vak, klik op **toevoegen** om te beginnen met de installatie.
+1. Zoek het PFX-certificaatbestand en kopieer het naar uw Mac. U kunt het certificaat op de Mac ophalen op verschillende manieren, bijvoorbeeld, u kunt e-mail sturen naar het certificaatbestand.
+2. Dubbelklik op het certificaat te openen nadat het certificaat is gekopieerd naar de Mac, de **certificaten toevoegen** vak, klik op **toevoegen** om te beginnen met de installatie.
 
-  ![Certificaten toevoegen](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
-3. Voer het wachtwoord die u hebt gemaakt wanneer het certificaat is geëxporteerd. Het-wachtwoord beveiligt de persoonlijke sleutel van het certificaat. Klik op **OK** om de installatie te voltooien.
+   ![Certificaten toevoegen](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
+3. Voer het wachtwoord die u hebt gemaakt tijdens het exporteren van het clientcertificaat. Het-wachtwoord beveiligt de persoonlijke sleutel van het certificaat. Klik op **OK** om de installatie te voltooien.
 
-  ![Wachtwoord](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)
+   ![Wachtwoord](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)
