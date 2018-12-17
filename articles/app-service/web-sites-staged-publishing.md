@@ -45,7 +45,7 @@ De app moet worden uitgevoerd de **Standard**, **Premium**, of **geïsoleerd* la
     ![Een nieuwe implementatiesite toevoegen][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Als de app nog niet in de **Standard**, **Premium**, of **geïsoleerd* laag, ontvangt u een bericht weergegeven dat aangeeft van de ondersteunde lagen voor het inschakelen van gefaseerd publiceren. Op dit moment hebt u de optie te selecteren **Upgrade** en navigeer naar de **schaal** tab van uw app voordat u doorgaat.
+   > Als de app nog niet in de **Standard**, **Premium**, of **geïsoleerd* laag, ontvangt u een bericht weergegeven dat aangeeft van de ondersteunde lagen voor het inschakelen van gefaseerd publiceren. Op dit moment hebt u de optie te selecteren ** **Upgrade** en navigeer naar de **schaal** tab van uw app voordat u doorgaat.
    > 
    > 
 3. In de **een sleuf toevoegen** blade, Geef een naam op voor de site en selecteer of u wilt klonen appconfiguratie vanaf een andere bestaande implementatiesite. Klik op het vinkje om door te gaan.
