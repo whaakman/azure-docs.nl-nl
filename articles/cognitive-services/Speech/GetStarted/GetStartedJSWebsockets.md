@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f212e2555b6097912628791635a539bc488d4979
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342395"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413159"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Aan de slag met de spraak-API in JavaScript
 
@@ -34,10 +34,10 @@ De spraak-API maakt deel uit van Cognitive Services. U krijgt een gratis proefab
 
 ## <a name="get-started"></a>Aan de slag
 
-In deze sectie begeleidt we u stapsgewijs door de stappen voor het laden van een voorbeeld-HTML-pagina. Het voorbeeld bevindt zich onze [github-opslagplaats](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). U kunt **open het voorbeeld rechtstreeks** vanuit de opslagplaats of **open het voorbeeld van een lokale kopie** van de opslagplaats. 
+In deze sectie begeleidt we u stapsgewijs door de stappen voor het laden van een voorbeeld-HTML-pagina. Het voorbeeld bevindt zich onze [GitHub-opslagplaats](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). U kunt **open het voorbeeld rechtstreeks** vanuit de opslagplaats of **open het voorbeeld van een lokale kopie** van de opslagplaats.
 
 > [!NOTE]
-> Sommige browsers blokkeren toegang tot de microfoon van de oorsprong niet beveiligd. Dus het verdient aanbeveling voor het hosten van de 'voorbeeld' / 'uw app' op https zodat deze werkt op alle ondersteunde browsers. 
+> Sommige browsers blokkeren toegang tot de microfoon van de oorsprong niet beveiligd. Dus het verdient aanbeveling voor het hosten van de 'voorbeeld' / 'uw app' op https zodat deze werkt op alle ondersteunde browsers.
 
 ### <a name="open-the-sample-directly"></a>Open het voorbeeld rechtstreeks
 
