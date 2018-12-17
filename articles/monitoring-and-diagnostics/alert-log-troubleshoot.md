@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 4593c19a05484f7075b7a4a15a6be2e6a1bc0d28
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 38153a605bc3c2fb32662e2733d2521fa1bf519a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271501"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341215"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Waarschuwingen voor het oplossen van problemen in Azure Monitor  
 ## <a name="overview"></a>Overzicht
@@ -27,7 +27,7 @@ De term **Logboekwaarschuwingen** beschrijving van waarschuwingen die worden ges
 
 ## <a name="log-alert-didnt-fire"></a>Waarschuwing is niet gestart
 
-Hier zijn enkele veelvoorkomende redenen waarom een geconfigureerde [waarschuwingsregel in Azure Monitor](../azure-monitor/platform/alerts-log.md) staat geen weergegeven [als *geactiveerd* wanneer verwacht](monitoring-alerts-managing-alert-states.md). 
+Hier zijn enkele veelvoorkomende redenen waarom een geconfigureerde [waarschuwingsregel in Azure Monitor](../azure-monitor/platform/alerts-log.md) staat geen weergegeven [als *geactiveerd* wanneer verwacht](../azure-monitor/platform/alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Gegevens opnemen tijd voor logboeken
 Waarschuwing wordt periodiek uitgevoerd voor de query op basis van [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-analytics.md). Omdat de Log Analytics verwerkt vele terabytes aan gegevens van duizenden klanten uit verschillende bronnen over de hele wereld, is de service is vatbaar voor verschillende vertraging. Zie voor meer informatie, [gegevensopname tijd in Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
@@ -71,7 +71,7 @@ Omdat cumulatieve bij de gegevens gesorteerd op timestamp-kolom (zoals in rood);
 - (Of) opnieuw configureren van de waarschuwingsregel voor het gebruik van waarschuwingslogica op basis van *totaal inbreuk* in plaats daarvan op de juiste wijze
  
 ## <a name="log-alert-fired-unnecessarily"></a>Waarschuwing geactiveerd onnodig
-Gedetailleerde volgende worden enkele veelvoorkomende redenen waarom een geconfigureerde [waarschuwingsregel in Azure Monitor](../azure-monitor/platform/alerts-log.md) kan worden geactiveerd wanneer deze wordt bekeken [Azure-waarschuwingen](monitoring-alerts-managing-alert-states.md), wanneer u niet verwacht dat het worden geactiveerd.
+Gedetailleerde volgende worden enkele veelvoorkomende redenen waarom een geconfigureerde [waarschuwingsregel in Azure Monitor](../azure-monitor/platform/alerts-log.md) kan worden geactiveerd wanneer deze wordt bekeken [Azure-waarschuwingen](../azure-monitor/platform/alerts-managing-alert-states.md), wanneer u niet verwacht dat het worden geactiveerd.
 
 ### <a name="alert-triggered-by-partial-data"></a>Waarschuwing geactiveerd door gegevens gedeeltelijk
 Levert het vermogen voor Log Analytics en Application Insights Analytics zijn afhankelijk van vertragingen van gegevensopname en -verwerking; vanwege die op het moment wanneer opgegeven logboekwaarschuwingsquery wordt uitgevoerd - mogelijk zijn er een aanvraag van geen gegevens beschikbaar worden gesteld of alleen bepaalde gegevens beschikbaar worden gesteld. Zie voor meer informatie, [gegevensopname tijd in Log Analytics](../azure-monitor/platform/data-ingestion-time.md).

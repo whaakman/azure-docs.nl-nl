@@ -5,7 +5,7 @@ items:
   items:
   - name: Site Recovery
     href: site-recovery-overview.md
-- name: Quickstarts
+- name: Snelstartgidsen
   items:
   - name: Een Azure-VM repliceren naar een andere regio
     href: azure-to-azure-quickstart.md
@@ -322,6 +322,8 @@ items:
         href: site-recovery-manage-registration-and-protection.md
       - name: Een kluis verwijderen
         href: delete-vault.md
+      - name: Windows-servers die zijn geconfigureerd met Site Recovery bijwerken
+        href: upgrade-2012R2-to-2016.md
   - name: Herstel na noodgeval voor apps
     items:
     - name: Herstel na noodgevallen instellen van on-premises apps naar Azure
@@ -438,9 +440,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service-updates
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: a7e4cb642874522c8f5a2615ebeed6175d384fd8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a4d7fba88c362d9d2c0f19cba022da46b0927775
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834465"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409816"

@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/23/2018
 ms.author: b-juche
-ms.openlocfilehash: 6869d60bfadbeb3f3ed9c7b67d3560e49c73e65b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 23ec6d3a91dea91fba8565280bcce4e9385f49ae
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010239"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413232"
 ---
 # <a name="azure-netapp-files-documentation"></a>Documentatie voor Azure NetApp Files
 
 Informatie over hoe u met Azure NetApp Files NetApp-accounts, capaciteitspools en volumes maakt en beheert, exportbeleid configureert, een volume koppelt voor een virtuele machine en momentopnamen beheert.
 
 > [!IMPORTANT] 
-> Voor alle taken die in deze documentatie worden beschreven, is vereist dat u deel uitmaakt van het Openbare Preview-programma en toegang hebt gekregen tot de Microsoft.NetApp Azure Resource Provider. Raadpleeg voor meer informatie over deelname aan het Openbare Preview-programma de [Azure NetApp Files Public Preview signup page](https://aka.ms/nfspublicpreview) (Registratiepagina Openbare Preview Azure NetApp Files). 
+> Voor alle taken die in deze documentatie worden beschreven, is vereist dat u deel uitmaakt van het Openbare Preview-programma en toegang hebt gekregen tot de Microsoft.NetApp Azure Resource Provider. Raadpleeg [registreren voor Azure NetApp Files](azure-netapp-files-register.md) om een verzoek in te dienen voor deelname aan het openbare preview-programma. 
 
 <ul class="panelContent cardsFTitle">
     <li>

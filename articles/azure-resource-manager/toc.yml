@@ -44,6 +44,19 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepten
   items:
+  - name: Sjabloonstructuur
+    href: resource-group-authoring-templates.md
+    items:
+    - name: Parameters
+      href: resource-manager-templates-parameters.md
+    - name: Variabelen
+      href: resource-manager-templates-variables.md
+    - name: Functions
+      href: resource-group-authoring-templates.md#functions
+    - name: Resources
+      href: resource-manager-templates-resources.md
+    - name: Uitvoer
+      href: resource-manager-templates-outputs.md
   - name: Resourceproviders en -typen
     href: resource-manager-supported-services.md
   - name: Beheergroepen
@@ -65,65 +78,50 @@ items:
   items:
   - name: Sjablonen maken
     items:
-    - name: Sjabloonsecties
-      href: resource-group-authoring-templates.md
-      items:
-      - name: Parameters
-        href: resource-manager-templates-parameters.md
-      - name: Variabelen
-        href: resource-manager-templates-variables.md
-      - name: Functions
-        href: resource-group-authoring-templates.md#functions
-      - name: Resources
-        href: resource-manager-templates-resources.md
-      - name: Uitvoer
-        href: resource-manager-templates-outputs.md
-    - name: Gekoppelde en geneste sjablonen
-      href: resource-group-linked-templates.md
-    - name: Bronafhankelijkheden
+    - name: Resourcegroepen en resources in het abonnement maken
+      href: deploy-to-subscription.md
+    - name: Bronafhankelijkheden definiëren
       href: resource-group-define-dependencies.md
+    - name: Sjablonen modulair maken
+      href: resource-group-linked-templates.md
+    - name: Geheimen beheren
+      href: resource-manager-keyvault-parameter.md
     - name: Meerdere exemplaren maken
       href: resource-group-create-multiple.md
-    - name: Resourcegroep maken in sjabloon
-      href: create-resource-group-in-template.md
-    - name: Resources maken in abonnement
-      href: deploy-to-subscription.md
-    - name: Bron bijwerken
+    - name: Sjabloonextensies gebruiken
+      href: resource-manager-use-extensions.md
+    - name: Resources bijwerken
       href: /azure/architecture/building-blocks/extending-templates/update-resource
-  - name: Implementeren
+  - name: Sjablonen implementeren
     items:
-    - name: Azure PowerShell
-      items:
-      - name: Sjabloon implementeren
-        href: resource-group-template-deploy.md
-      - name: Persoonlijke sjabloon met SAS-token implementeren
-        href: resource-manager-powershell-sas-token.md
-      - name: Sjabloon exporteren en opnieuw distribueren
-        href: resource-manager-export-template-powershell.md
-    - name: Azure-CLI
-      items:
-      - name: Sjabloon implementeren
-        href: resource-group-template-deploy-cli.md
-      - name: Persoonlijke sjabloon met SAS-token implementeren
-        href: resource-manager-cli-sas-token.md
-      - name: Sjabloon exporteren en opnieuw distribueren
-        href: resource-manager-export-template-cli.md
-    - name: Azure Portal
-      items:
-      - name: Resources implementeren
-        href: resource-group-template-deploy-portal.md
-      - name: Sjabloon exporteren
-        href: resource-manager-export-template.md
-    - name: REST-API
+    - name: Implementeren met behulp van de portal
+      href: resource-group-template-deploy-portal.md
+    - name: Implementeren met behulp van Azure CLI
+      href: resource-group-template-deploy-cli.md
+    - name: Implementeren met behulp van Azure PowerShell
+      href: resource-group-template-deploy.md
+    - name: Implementeren met behulp van REST API
       href: resource-group-template-deploy-rest.md
-    - name: Meerdere resourcegroepen of abonnementen
+    - name: Sjablonen exporteren
+      items:
+      - name: De portal gebruiken
+        href: resource-manager-export-template.md
+      - name: Azure CLI gebruiken
+        href: resource-manager-export-template-cli.md
+      - name: Azure PowerShell gebruiken
+        href: resource-manager-export-template-powershell.md
+    - name: Sjablonen beveiligen met een SAS-token
+      items:
+      - name: Azure CLI gebruiken
+        href: resource-manager-cli-sas-token.md
+      - name: PowerShell gebruiken
+        href: resource-manager-powershell-sas-token.md
+    - name: Implementeren naar meerdere resourcegroepen of abonnementen
       href: resource-manager-cross-resource-group-deployment.md
     - name: Continue integratie met Azure DevOps Services
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-    - name: Beveiligde waarden doorgeven tijdens implementatie
-      href: resource-manager-keyvault-parameter.md
-  - name: Beheren
+  - name: Sjablonen beheren
     items:
     - name: Azure PowerShell
       href: powershell-azure-resource-manager.md
@@ -146,13 +144,13 @@ items:
       href: resource-manager-api-authentication.md
     - name: Resources vergrendelen
       href: resource-group-lock-resources.md
-  - name: Controleren
+  - name: Implementaties controleren
     items:
     - name: Activiteitenlogboeken bekijken
       href: resource-group-audit.md
     - name: Implementatiebewerkingen bekijken
       href: resource-manager-deployment-operations.md
-  - name: Problemen oplossen
+  - name: Problemen met implementaties oplossen
     items:
     - name: Implementatiefouten oplossen
       href: resource-manager-common-deployment-errors.md
@@ -237,9 +235,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 47af6826974759a1b0dfea7949429c5acaca004d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 166a23d480db7dfda7a78a5a63e7717b5e721bb9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252334"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436786"
