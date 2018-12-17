@@ -239,11 +239,11 @@ De hieronder wordt uitgelegd meer wat elk van de melding betekent dat items, en 
 
 -   **Weergavenaam** – **(mag leeg zijn)** een meer gedetailleerde weergavenaam voor de fout
 
-    -   Voorbeeld van de * – **Application proxy-instellingen**
+    -   Voorbeeld van de *– **Application proxy-instellingen**
 
 -   **Status** – de specifieke status van de melding
 
-    -   Voorbeeld van de * – **is mislukt**
+    -   Voorbeeld van de *– **is mislukt**
 
 -   **Object-ID** – **(mag leeg zijn)** de object-ID op basis waarvan de bewerking is uitgevoerd
 
