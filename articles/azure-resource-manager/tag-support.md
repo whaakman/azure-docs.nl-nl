@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284979"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409663"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-group-using-tags.md).
@@ -29,7 +29,7 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | configuratie | Nee | 
 | agents | Nee | 
 | aadsupportcases | Nee | 
-| Rapporten | Nee | 
+| rapporten | Nee | 
 | servicehealthmetrics | Nee | 
 | logboeken | Nee | 
 | anonymousapiusers | Nee | 
@@ -68,18 +68,6 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | batchAccounts | Ja | 
-
-## <a name="batch-ai"></a>Batch AI
-| Resourcetype | Ondersteunt tags |
-| ------------- | ----------- |
-| Clusters | Ja | 
-| taken | Ja | 
-| bestandsservers | Ja | 
-| werkruimten | Ja | 
-| werkruimten/clusters | Nee | 
-| werkruimten/bestandsservers | Nee | 
-| werkruimten/experimenten | Nee | 
-| experimenten-werkruimten-taken | Nee | 
 
 ## <a name="bing-maps"></a>Bing Maps
 | Resourcetype | Ondersteunt tags |
