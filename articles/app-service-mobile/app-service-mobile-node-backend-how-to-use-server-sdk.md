@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 926712d8d38f144c583dcf61c3cd0f078566296a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963995"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409255"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Het gebruik van de Mobile Apps Node.js-SDK
 
@@ -192,7 +192,7 @@ Als u wilt dat alleen deze optie beschikbaar bij het lokaal ontwikkelen, kunt u 
 
 De azure-mobile-apps Node.js Server SDK biedt mechanismen als gegevenstabellen worden opgeslagen in Azure SQL Database als een Web-API beschikbaar wilt maken. Het biedt vijf bewerkingen:
 
-| Bewerking | Beschrijving |
+| Bewerking | Description |
 | --- | --- |
 | GET-/tables/*tablename* |Haal alle records in de tabel. |
 | GET-/tables/*tablename*/:id |Een specifieke record ophalen in de tabel. |
@@ -370,9 +370,9 @@ We raden u aan **azureMobile.js** aan uw **.gitignore** bestand (of andere bronc
 
 De meeste instellingen in het bestand azureMobile.js hebben een gelijkwaardige app-instelling in de [Azure Portal]. Gebruik de volgende lijst om te configureren in uw app **App-instellingen**:
 
-| App-instelling | azureMobile.js instelling | Beschrijving | Geldige waarden |
+| App-instelling | azureMobile.js instelling | Description | Geldige waarden |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |naam |Naam van de app |tekenreeks |
+| **MS_MobileAppName** |naam |Naam van de app |string |
 | **MS_MobileLoggingLevel** |Logging.level |Minimaal logboekniveau van berichten aan te melden |fout, waarschuwing, informatie, uitgebreid, foutopsporing, stom |
 | **MS_DebugMode** |fouten opsporen |Hiermee schakelt de foutopsporingsmodus in of |waar of ONWAAR |
 | **MS_TableSchema** |data.schema |De schemanaam standaard voor SQL-tabellen |tekenreeks (standaard: dbo) |
@@ -794,7 +794,7 @@ var api = {
 module.exports = api;
 ```
 
-Elke parameter is een van de standaard RESTful termen: ophalen, POST, PATCH of verwijderen. De methode is een standaard [ExpressJS middleware] functie waarmee de vereiste uitvoer wordt verzonden.
+Elke parameter is een van de standaard RESTful termen: OPHALEN, POST, PATCH of te verwijderen. De methode is een standaard [ExpressJS middleware] functie waarmee de vereiste uitvoer wordt verzonden.
 
 ### <a name="howto-customapi-auth"></a>Verificatie vereisen voor toegang tot een aangepaste API
 
@@ -918,13 +918,13 @@ U kunt zelfs tabelbewerkingen bewerken met behulp van App Service-Editor. Wannee
 
 De volgende opdrachten zijn beschikbaar op de opdrachtbalk voor een tabel:
 
-* **Machtigingen wijzigen**: wijzigen van de machtiging voor lezen, invoegen, bijwerken en verwijderen van bewerkingen voor de tabel.
+* **Machtigingen wijzigen**: Wijzigen van de machtiging voor lezen, invoegen, bijwerken en verwijderen van bewerkingen voor de tabel.
  Opties zijn voor het toestaan van anonieme toegang is verificatie vereist, of alle toegang tot de bewerking uitschakelen.
-* **Script bewerken**: het scriptbestand voor de tabel in App Service-Editor wordt geopend.
-* **Schema beheren**: toevoegen of kolommen verwijderen of wijzigen van de tabelindex.
-* **Tabel wissen**: afkappen van een bestaande tabel door het verwijderen van alle rijen met gegevens, maar het schema verlaten ongewijzigd.
-* **Rijen verwijderen**: verwijderen van afzonderlijke rijen met gegevens.
-* **Weergave streaminglogboeken**: verbinding maken met de streaming log-service voor uw site.
+* **Script bewerken**: Het scriptbestand voor de tabel is in App Service-Editor geopend.
+* **Schema beheren**: Toevoegen of kolommen verwijderen of wijzigen van de tabelindex.
+* **Tabel wissen**: Een bestaande tabel afkappen door het verwijderen van alle rijen met gegevens, maar het schema ongewijzigd laten.
+* **Rijen verwijderen**: Afzonderlijke rijen met gegevens verwijderen.
+* **Weergave streaminglogboeken**: Verbinding maken met de streaming log-service voor uw site.
 
 ### <a name="work-easy-apis"></a>Werken met eenvoudige API's in Azure portal
 
@@ -963,11 +963,11 @@ Met behulp van de Azure-portal, kunt u uw Node.js-back-end-script-bestanden in A
 [Snelstartgids voor Xamarin.Forms-Client]: app-service-mobile-xamarin-forms-get-started.md
 [Snelstartgids voor Windows Store-Client]: app-service-mobile-windows-store-dotnet-get-started.md
 [offline gegevenssynchronisatie]: app-service-mobile-offline-data-sync.md
-[Azure Active Directory-verificatie configureren]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook-authenticatie configureren]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Google-verificatie configureren]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Microsoft-verificatie configureren]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter-verificatie configureren]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Azure Active Directory-verificatie configureren]: ../app-service/configure-authentication-provider-aad.md
+[Facebook-authenticatie configureren]: ../app-service/configure-authentication-provider-facebook.md
+[Google-verificatie configureren]: ../app-service/configure-authentication-provider-google.md
+[Microsoft-verificatie configureren]: ../app-service/configure-authentication-provider-microsoft.md
+[Twitter-verificatie configureren]: ../app-service/configure-authentication-provider-twitter.md
 [Azure App Service-Implementatiehandleiding]: ../app-service/app-service-deploy-local-git.md
 [Bewaking van Azure App Service]: ../app-service/web-sites-monitor.md
 [Diagnostische logboekregistratie inschakelen in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md

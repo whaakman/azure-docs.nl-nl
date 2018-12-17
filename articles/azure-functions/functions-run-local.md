@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 2264e6ff686519f7ef0d436d67f3055a48a7421b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997081"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409442"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -104,7 +104,7 @@ De volgende stappen [APT](https://wiki.debian.org/Apt) Core Tools installeren op
     sudo apt-get install azure-functions-core-tools
     ```
 
-## <a name="create-a-local-functions-project"></a>Een lokale Functions-project maken
+## <a name="create-a-local-functions-project"></a>Een lokaal Functions-project maken
 
 Een map functions-project bevat de bestanden [host.json](functions-host-json.md) en [local.settings.json](#local-settings-file), samen met de submappen die de code voor afzonderlijke functies bevatten. Deze map is het equivalent van een functie-app in Azure. Zie voor meer informatie over de structuur van de functies, de [handleiding voor ontwikkelaars van Azure Functions voor](functions-reference.md#folder-structure).
 
@@ -231,7 +231,7 @@ Zelfs wanneer u de opslagemulator gebruikt voor ontwikkeling, kunt u om te teste
 
 ## <a name="create-func"></a>Een functie maken
 
-Voer de volgende opdracht voor het maken van een functie:
+Voer de volgende opdracht uit om een functie te maken:
 
 ```bash
 func new
@@ -444,7 +444,7 @@ Opties voor het volgende project publiceren worden alleen ondersteund in versie 
 | **`--publish-settings-only -o`** |  Publicatie-instellingen en alleen de inhoud overslaan. De standaardwaarde is vragen. |
 |**`--list-ignored-files`** | Geeft een lijst van bestanden die worden genegeerd tijdens het publiceren, die is gebaseerd op het bestand .funcignore. |
 | **`--list-included-files`** | Geeft een lijst van bestanden die zijn gepubliceerd, die is gebaseerd op het bestand .funcignore. |
-| **`--zip`** | Publiceren in uitvoeren vanuit Zip-pakket. Vereist dat de app hebt AzureWebJobsStorage instelling die is gedefinieerd. |
+| **`--nozip`** | Hiermee schakelt u de standaard `Run-From-Zip` modus uit. |
 | **`--build-native-deps`** | Slaat het genereren van .wheels map bij het publiceren van python functie-apps. |
 | **`--additional-packages`** | Lijst met pakketten te installeren bij het bouwen van systeemeigen afhankelijkheden. Bijvoorbeeld: `python3-dev libevent-dev`. |
 | **`--force`** | Negeren vooraf publishing verificatie in bepaalde scenario's. |

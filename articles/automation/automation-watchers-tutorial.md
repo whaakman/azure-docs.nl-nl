@@ -90,7 +90,7 @@ De watcher-taak bestaat uit twee delen. De watcher- en de actie. De watcher word
 1. Voer de volgende waarden voor parameters:
 
    ***EVENTDATA** -leeg laten. Gegevens worden doorgegeven van het watcher-runbook.  
-   ***Uitvoeringsinstellingen** -laat Azure terwijl dit runbook wordt uitgevoerd in de Automation-service.
+   ***Uitvoeringsinstellingen** ** -laat Azure terwijl dit runbook wordt uitgevoerd in de Automation-service.
 
 1. Klik op **OK**, en selecteer vervolgens om terug te keren naar de watcher-pagina.
 1. Klik op **OK** te maken van de watcher-taak.

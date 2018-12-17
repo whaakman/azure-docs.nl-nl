@@ -15,14 +15,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 140994de4b1be61f16593e450d156b81727a9f52
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251019"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437830"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen verzenden met Azure Notification Hubs: veelgestelde vragen
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen verzenden met Azure Notification Hubs: Veelgestelde vragen
 ## <a name="general"></a>Algemeen
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Wat is de resource-structuur van Notification Hubs?
 
@@ -33,14 +33,14 @@ Aanbevolen toewijzing komt overeen met een naamruimte met een app. Binnen een na
 ### <a name="what-is-the-price-model-for-notification-hubs"></a>Wat is het prijsmodel voor Notification Hubs?
 De meest recente prijsinformatie vindt u op de [prijzen van Notification Hubs] pagina. Notification Hubs wordt in rekening gebracht op het niveau van de naamruimte. (Klik voor de definitie van een naamruimte, Zie "Wat is de resource-structuur van Notification Hubs?") Notification Hubs biedt drie lagen:
 
-* **Gratis**: deze laag is een goed uitgangspunt voor het verkennen van pushmogelijkheden. Het wordt niet aanbevolen voor productie-apps. U krijgt 500 apparaten verbinden en 1 miljoen pushes inbegrepen per naamruimte per maand, met geen garantie van service level agreement (SLA).
-* **Basic**: deze laag (of de Standard-laag) wordt aanbevolen voor kleinere productie-apps. U krijgt 200.000 apparaten en 10 miljoen pushes inbegrepen per naamruimte per maand als een basislijn. Groei quotumopties worden opgenomen.
-* **Standard**: deze laag wordt aanbevolen voor middelgrote tot grote productie-apps. U krijgt 10 miljoen apparaten en 10 miljoen pushes inbegrepen per naamruimte per maand als een basislijn. Quotum toename van de opties en uitgebreide telemetrie mogelijkheden zijn opgenomen.
+* **Gratis**: Deze laag is een goed uitgangspunt voor het verkennen van pushmogelijkheden. Het wordt niet aanbevolen voor productie-apps. U krijgt 500 apparaten verbinden en 1 miljoen pushes inbegrepen per naamruimte per maand, met geen garantie van service level agreement (SLA).
+* **Basic**: Deze laag (of de Standard-laag) wordt aanbevolen voor kleinere productie-apps. U krijgt 200.000 apparaten en 10 miljoen pushes inbegrepen per naamruimte per maand als een basislijn. Groei quotumopties worden opgenomen.
+* **Standard**: Deze laag wordt aanbevolen voor middelgrote tot grote productie-apps. U krijgt 10 miljoen apparaten en 10 miljoen pushes inbegrepen per naamruimte per maand als een basislijn. Quotum toename van de opties en uitgebreide telemetrie mogelijkheden zijn opgenomen.
 
 Standard-functies:
 * **Uitgebreide telemetrie**: U kunt Notification Hubs telemetrie Per bericht gebruiken voor het bijhouden van een push-aanvragen en Feedback van Platform Notification System voor foutopsporing.
-* **Multitenancy**: U kunt werken met de referenties van Platform Notification System op het niveau van een naamruimte. Deze optie kunt u eenvoudig onderverdeeld tenants in hubs binnen dezelfde naamruimte.
-* **Geplande push**: U kunt plannen dat meldingen op elk gewenst moment worden verzonden.
+* **Multitenancy**: Op het niveau van een naamruimte kunt u werken met de referenties van Platform Notification System. Deze optie kunt u eenvoudig onderverdeeld tenants in hubs binnen dezelfde naamruimte.
+* **Geplande push**: U kunt meldingen op elk gewenst moment worden verzonden plannen.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Wat is de SLA van Notification Hubs?
 Voor de lagen Basic en Standard Notification Hubs kunnen correct geconfigureerde toepassingen pushmeldingen te verzenden of registratiebeheerbewerkingen voeren ten minste 99,9 procent van de tijd. Voor meer informatie over de SLA, gaat u naar de [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) pagina.
@@ -52,10 +52,10 @@ Voor de lagen Basic en Standard Notification Hubs kunnen correct geconfigureerde
 Veel klanten Notification Hubs gebruiken. Sommige die aandacht vereist die worden hier vermeld:
 
 * Sotsji 2014: Honderden belangengroepen, 3 miljoen apparaten en 150 miljoen meldingen verzonden binnen twee weken. [Casestudy: Olympische]
-* Skanska: [casestudy: Skanska]
-* Seattle tijden: [casestudy: Seattle tijden]
-* Mural.LY: [casestudy: Mural.ly]
-* 7Digital: [casestudy: 7Digital]
+* Skanska: [Casestudy: Skanska]
+* Seattle tijden: [Casestudy: Seattle tijden]
+* Mural.LY: [Casestudy: Mural.LY]
+* 7Digital: [Casestudy: 7Digital]
 * Bing-Apps: Tientallen miljoenen apparaten verzenden 3 miljoen berichten per dag.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Hoe ik upgraden en downgraden van mijn hub of de naamruimte naar een andere laag?
@@ -202,7 +202,7 @@ We bieden ook de mogelijkheid voor het exporteren van de telemetrische gegevens 
 [Casestudy: Olympische]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Casestudy: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Casestudy: Seattle tijden]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Casestudy: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
+[Casestudy: Mural.LY]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Casestudy: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hubs REST-API 's]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification Hubs aan de slag-zelfstudies]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
@@ -213,7 +213,7 @@ We bieden ook de mogelijkheid voor het exporteren van de telemetrische gegevens 
 [Notification Hubs-beveiligingsmodel]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Notification Hubs beveiligde Push-zelfstudie]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Notification Hubs oplossen van problemen]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Notification Hubs metrische gegevens]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Notification Hubs metrische gegevens]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Voorbeeld van Notification Hubs metrische gegevens]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Registraties exporteren/importeren]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com

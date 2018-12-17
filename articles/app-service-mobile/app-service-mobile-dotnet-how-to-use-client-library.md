@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 6d868b8d1c857ec59ce300677249115bed2752d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 30eb458b9d0584b467479163d8312d7bd5456be1
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966157"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409731"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>De beheerde client gebruiken voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "52966157"
 Deze handleiding wordt beschreven hoe u algemene scenario's met behulp van de beheerde-clientbibliotheek voor Azure App Service Mobile Apps voor Windows en Xamarin-apps uitvoert. Als u niet bekend bent met Mobile Apps, moet u overwegen eerst voltooien van de [Azure Mobile Apps quickstart] [ 1] zelfstudie. In deze handleiding, we ons richten op de beheerde client-side-SDK. Voor meer informatie over de server-side SDK's voor Mobile Apps, Zie de documentatie voor de [.NET Server SDK] [ 2] of de [Node.js Server SDK] [ 3].
 
 ## <a name="reference-documentation"></a>Referentiedocumentatie
-De referentiedocumentatie voor de client-SDK bevindt zich hier: [referentie voor Azure Mobile Apps .NET client][4].
+De referentiedocumentatie voor de client SDK bevindt zich hier: [Naslaginformatie over Azure Mobile Apps .NET client][4].
 U vindt hier ook enkele voorbeelden van de client in de [Azure-Samples-GitHub-opslagplaats][5].
 
 ## <a name="supported-platforms"></a>Ondersteunde Platforms
@@ -64,7 +64,7 @@ De [JsonPropertyAttribute] [ 6] wordt gebruikt voor het definiëren van de *Prop
 
 Zie voor meer informatie over het maken van tabellen in uw back-end van Mobile Apps, de [.NET Server SDK onderwerp] [ 7] of de [Node.js Server SDK onderwerp][8]. Als u de back-end van uw mobiele App in Azure portal met behulp van de Quick Start hebt gemaakt, kunt u ook gebruiken de **eenvoudige tabellen** instellen in de [Azure Portal].
 
-### <a name="how-to-install-the-managed-client-sdk-package"></a>Hoe: Installeer de beheerde client-SDK-pakket
+### <a name="how-to-install-the-managed-client-sdk-package"></a>Procedure: De beheerde client-SDK-pakket installeren
 Gebruik een van de volgende methoden voor het installeren van de beheerde client-SDK-pakket voor mobiele Apps van [NuGet][9]:
 
 * **Visual Studio** met de rechtermuisknop op uw project, klikt u op **NuGet-pakketten beheren**, zoek de `Microsoft.Azure.Mobile.Client` pakket en klik vervolgens op **installeren**.
@@ -79,7 +79,7 @@ using Microsoft.WindowsAzure.MobileServices;
 > [!NOTE]
 > Alle ondersteuningspakketten waarnaar wordt verwezen in uw Android-project, moeten dezelfde versie hebben. De SDK heeft `Xamarin.Android.Support.CustomTabs` afhankelijkheid voor Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuning u pakketten moet dit pakket installeren met de vereiste versie rechtstreeks op het voorkomen van conflicten.
 
-### <a name="symbolsource"></a>Hoe: werken met foutopsporingssymbolen in Visual Studio
+### <a name="symbolsource"></a>Procedures: Werken met foutopsporingssymbolen in Visual Studio
 De symbolen voor de naamruimte Microsoft.Azure.Mobile zijn beschikbaar op [SymbolSource][10].  Raadpleeg de [SymbolSource instructies] [ 11] SymbolSource integreren met Visual Studio.
 
 ## <a name="create-client"></a>De Mobile Apps-client maken
@@ -109,7 +109,7 @@ De volgende sectie wordt uitgelegd hoe om te zoeken en records ophalen en de geg
 * [Binding met een Windows-gebruikersinterface](#binding)
 * [Formaat van de pagina wijzigen](#pagesize)
 
-### <a name="instantiating"></a>Hoe: een tabelverwijzing maken
+### <a name="instantiating"></a>Procedures: Maken van een tabelverwijzing
 De code die toegang heeft tot of wijzigt u gegevens in de endtabel van een back-roept functies aan op de `MobileServiceTable` object. Een verwijzing naar de tabel ophalen door het aanroepen van de [GetTable] methode, als volgt te werk:
 
 ```csharp
@@ -125,7 +125,7 @@ IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 
 Niet-getypeerde query's, moet u de onderliggende OData-query-tekenreeks opgeven.
 
-### <a name="querying"></a>Hoe: gegevens van uw mobiele App op te vragen
+### <a name="querying"></a>Procedures: Gegevens van uw mobiele App op te vragen
 In deze sectie wordt beschreven hoe u query's uitgeven aan de backend voor mobiele Apps, waaronder de volgende functionaliteit:
 
 * [Geretourneerde gegevens filteren](#filtering)
@@ -137,7 +137,7 @@ In deze sectie wordt beschreven hoe u query's uitgeven aan de backend voor mobie
 > [!NOTE]
 > Het formaat van een server gebaseerde pagina wordt afgedwongen om te voorkomen dat alle rijen worden geretourneerd.  Wisselbestand zorgt ervoor dat standaard aanvragen voor grote gegevenssets niet een negatieve invloed op de service.  Als u wilt meer dan 50 rijen retourneren, gebruikt u de `Skip` en `Take` methode, zoals beschreven in [als resultaat de gegevens op pagina's](#paging).
 
-### <a name="filtering"></a>Hoe: Filter gegevens geretourneerd
+### <a name="filtering"></a>Procedures: Geretourneerde gegevens filteren
 De volgende code laat zien hoe u gegevens filteren door een `Where` -component in een query. Deze retourneert alle items uit `todoTable` waarvan `Complete` eigenschap is gelijk aan `false`. De [waar] functie is van toepassing een rij predicaat om de query op de tabel te filteren.
 
 ```csharp
@@ -202,7 +202,7 @@ De `Where` component biedt ondersteuning voor bewerkingen die worden vertaald na
 
 Wanneer u overweegt wat de SDK-Server ondersteunt, kunt u overwegen de [OData v3-documentatie].
 
-### <a name="sorting"></a>Hoe: sorteren gegevens geretourneerd
+### <a name="sorting"></a>Procedures: Geretourneerde gegevens sorteren
 De volgende code laat zien hoe u gegevens sorteren door op te nemen een [Sorteren op] of [OrderByDescending] functie in de query. Het resultaat van items uit `todoTable` door oplopend gesorteerd de `Text` veld.
 
 ```csharp
@@ -217,7 +217,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<TodoItem> items = await query.ToListAsync();
 ```
 
-### <a name="paging"></a>Hoe: als resultaat de gegevens op pagina's
+### <a name="paging"></a>Procedures: Als resultaat de gegevens op pagina 's
 De back-end retourneert standaard alleen de eerste 50 rijen. U kunt het aantal geretourneerde rijen verhogen door het aanroepen van de [nemen] methode. Gebruik `Take` samen met de [overslaan] methode om aan te vragen van een specifieke "page" van de totale gegevensset die wordt geretourneerd door de query. De volgende query, wanneer uitgevoerd, retourneert de bovenste drie items in de tabel.
 
 ```csharp
@@ -248,7 +248,7 @@ In een echte wereld-app, kunt u query's die vergelijkbaar is met het voorgaande 
 > `[EnableQuery(MaxTop=1000)]`
 
 
-### <a name="selecting"></a>Hoe: specifieke kolommen selecteren
+### <a name="selecting"></a>Procedures: Specifieke kolommen selecteren
 U kunt opgeven welke set eigenschappen om op te nemen in de resultaten door toe te voegen een [Selecteren] component aan uw query. Bijvoorbeeld, toont de volgende code hoe u slechts één veld selecteert en ook hoe u kunt selecteren en formatteren van meerdere velden:
 
 ```csharp
@@ -276,7 +276,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<string> items = await query.ToListAsync();
 ```
 
-### <a name="lookingup"></a>Hoe: gegevens door-ID opzoeken
+### <a name="lookingup"></a>Procedures: Gegevens per-ID opzoeken
 De [LookupAsync] functie kan worden gebruikt om te controleren of objecten uit de database met een bepaalde ID.
 
 ```csharp
@@ -284,7 +284,7 @@ De [LookupAsync] functie kan worden gebruikt om te controleren of objecten uit d
 TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 ```
 
-### <a name="untypedqueries"></a>Hoe: niet-getypeerde query's uitvoeren
+### <a name="untypedqueries"></a>Procedures: Niet-getypeerde query's uitvoeren
 Bij het uitvoeren van een tabelobject niet-getypeerde met een query uitvoeren, moet u expliciet de OData-query-tekenreeks opgeven door het aanroepen van [ReadAsync], zoals in het volgende voorbeeld:
 
 ```csharp
@@ -294,7 +294,7 @@ JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$o
 
 U krijgt terug JSON-waarden die u, zoals een eigenschappenverzameling gebruiken kunt. Zie voor meer informatie over JToken en Newtonsoft Json.NET de [Json.NET] site.
 
-### <a name="inserting"></a>Hoe: gegevens invoegen in een mobiele App back-end
+### <a name="inserting"></a>Procedures: Gegevens invoegen in een mobiele App back-end
 Alle clienttypen moeten een lid met de naam bevatten **Id**, dit is standaard een tekenreeks. Dit **Id** CRUD-bewerkingen uit te voeren is vereist en voor het offline synchroniseren. De volgende code laat zien hoe u de [InsertAsync] methode voor het invoegen van nieuwe rijen in een tabel. De parameter bevat de gegevens moet worden ingevoegd als een .NET-object.
 
 ```csharp
@@ -337,7 +337,7 @@ JObject jo = new JObject();
 jo.Add("id", Guid.NewGuid().ToString("N"));
 ```
 
-### <a name="modifying"></a>Hoe: gegevens wijzigen in een mobiele App back-end
+### <a name="modifying"></a>Procedures: Gegevens in een back-end van Mobile App wijzigen
 De volgende code laat zien hoe u de [UpdateAsync] methode voor het bijwerken van een bestaande record met dezelfde ID met nieuwe gegevens. De parameter bevat de gegevens moeten worden bijgewerkt als een .NET-object.
 
 ```csharp
@@ -356,7 +356,7 @@ var inserted = await table.UpdateAsync(jo);
 
 Een `id` veld moet worden opgegeven bij het maken van een update. De back-end maakt gebruik van de `id` veld om te bepalen welke rij bij te werken. De `id` veld kan worden opgehaald uit het resultaat van de `InsertAsync` aanroepen. Een `ArgumentException` treedt op als u probeert een item bijwerken zonder op te geven de `id` waarde.
 
-### <a name="deleting"></a>Hoe: verwijderen van gegevens in een mobiele App back-end
+### <a name="deleting"></a>Procedures: Gegevens in een back-end van Mobile App verwijderen
 De volgende code laat zien hoe u de [DeleteAsync] methode voor het verwijderen van een bestaand exemplaar. Het exemplaar wordt geïdentificeerd door de `id` veld is ingesteld op de `todoItem`.
 
 ```csharp
@@ -373,7 +373,7 @@ await table.DeleteAsync(jo);
 
 Wanneer u een delete-aanvraag, moet een ID worden opgegeven. Andere eigenschappen worden niet doorgegeven aan de service of in de service worden genegeerd. Het resultaat van een `DeleteAsync` -aanroep is meestal `null`. De ID op om door te geven, kan worden opgehaald van het resultaat van de `InsertAsync` aanroepen. Een `MobileServiceInvalidOperationException` wordt gegenereerd wanneer u probeert te verwijderen van een item zonder op te geven de `id` veld.
 
-### <a name="optimisticconcurrency"></a>Hoe: gebruik optimistische gelijktijdigheid voor conflictoplossing
+### <a name="optimisticconcurrency"></a>Procedures: Optimistische gelijktijdigheid gebruiken voor conflictoplossing
 Twee of meer clients kunnen schrijven naar hetzelfde item op hetzelfde moment. Zonder opsporing van conflicten, zou de laatste schrijfbewerking overschrijven alle voorgaande updates. **Optimistisch gelijktijdigheidbeheer** wordt ervan uitgegaan dat elke transactie kan worden doorgevoerd en daarom geen van een resource vergrendelen gebruikmaakt.  Voordat het doorvoeren van een transactie Optimistisch gelijktijdigheidbeheer controleert of er geen andere transactie heeft de gegevens worden gewijzigd. Als de gegevens is gewijzigd, de committing transactie teruggedraaid.
 
 Mobile Apps biedt ondersteuning voor Optimistisch gelijktijdigheidbeheer door het bijhouden van wijzigingen in elk item met behulp van de `version` systeemkolom eigenschap die is gedefinieerd voor elke tabel in de back-end van uw mobiele App. Telkens wanneer een record wordt bijgewerkt, Mobile Apps-stelt de `version` eigenschap voor die record in een nieuwe waarde. Tijdens de aanvraag voor elke update de `version` eigenschap van de record die is opgenomen in de aanvraag wordt vergeleken met de dezelfde eigenschap van de record op de server. Als de versie die is doorgegeven met de aanvraag komt niet overeen met de back-end, wordt de clientbibliotheek leidt tot een `MobileServicePreconditionFailedException<T>` uitzondering. Het type dat is opgenomen in de uitzondering is de record van de back-end die de servers-versie van de record. De toepassing kan deze informatie vervolgens gebruiken om te bepalen of voor het uitvoeren van de updateaanvraag opnieuw uit met de juiste `version` waarde van de back-end wijzigingen wilt doorvoeren.
@@ -464,7 +464,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 
 Zie voor meer informatie de [Offlinesynchronisatie van gegevens in Azure Mobile Apps] onderwerp.
 
-### <a name="binding"></a>Hoe: Bind Mobile Apps-gegevens naar een Windows-gebruikersinterface
+### <a name="binding"></a>Procedures: Mobile Apps-gegevens binden aan een Windows-gebruikersinterface
 Deze sectie wordt beschreven hoe objecten van geretourneerde gegevens met behulp van UI-elementen in een Windows-app kunt weergeven.  De volgende voorbeeldcode koppelt aan de bron van de lijst met een query voor onvolledige items. De [MobileServiceCollection] maakt een verzameling met mobiele Apps-bewuste binding.
 
 ```csharp
@@ -520,8 +520,8 @@ Offline tabellen gebruik een lokale gegevens van de SQLite-archief op te slaan v
 1. In Visual Studio met de rechtermuisknop op de oplossing > **NuGet-pakketten beheren voor oplossing...** , zoek en installeer de **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet-pakket voor alle projecten in de oplossing.
 2. (Optioneel) Ter ondersteuning van Windows-apparaten, moet u een van de volgende pakketten van de SQLite-runtime installeren:
 
-   * **Windows 8.1-Runtime:** installeren [SQLite voor Windows 8.1][3].
-   * **Windows Phone 8.1:** installeren [SQLite voor Windows Phone 8.1][4].
+   * **Windows 8.1-Runtime:** Installeer [SQLite voor Windows 8.1][3].
+   * **Windows Phone 8.1:** Installeer [SQLite voor Windows Phone 8.1][4].
    * **Universal Windows Platform** installeren [SQLite voor het Universal Windows][5].
 3. (Optioneel). Voor Windows-apparaten, klikt u op **verwijzingen** > **verwijzing toevoegen...** , vouw de **Windows** map > **extensies**, schakelt u de juiste **SQLite voor Windows** SDK samen met de **Visual C++ 2013-Runtime voor Windows** SDK.
     De namen van de SQLite SDK verschillen met elke Windows-platform.
@@ -885,7 +885,7 @@ De volgende onderwerpen vindt u Pushmeldingen:
 * [Verkrijgen van een pakket-SID van de Microsoft Store](#package-sid)
 * [Registreren met sjablonen voor meerdere platformen](#register-xplat)
 
-### <a name="register-for-push"></a>Hoe: registreren voor Pushmeldingen
+### <a name="register-for-push"></a>Procedures: Registreren voor Pushmeldingen
 De client met Mobile Apps kunt u zich registreren voor pushmeldingen kunt verzenden met Azure Notification Hubs. Wanneer u registreert, kunt u een ingang die u hebt verkregen van de platform-specifieke Push Notification Service (PNS) verkrijgen. Deze waarde samen met eventuele labels wordt vervolgens opgeven bij het maken van de registratie. De volgende code registreert uw Windows-app voor pushmeldingen met Windows Notification Service (WNS):
 
 ```csharp
@@ -904,7 +904,7 @@ Als u voor WNS pusht, dan u moet [verkrijgen van een pakket-SID van de Microsoft
 Aanvragen van tags van de client wordt niet ondersteund.  Tag-aanvragen zijn op de achtergrond verwijderd uit de inschrijving.
 Als u wilt dat uw apparaat te registreren bij tags, maakt u een aangepaste API die gebruikmaakt van de Notification Hubs-API om uit te voeren van de registratie namens.  [De aangepaste API aanroepen](#customapi) in plaats van de `RegisterNativeAsync()` methode.
 
-### <a name="package-sid"></a>Hoe: ophalen van een pakket-SID van de Microsoft Store
+### <a name="package-sid"></a>Procedures: Verkrijgen van een pakket-SID van de Microsoft Store
 Een pakket-SID is vereist voor het inschakelen van pushmeldingen in Microsoft Store-apps.  Voor het ontvangen van een pakket-SID, moet u uw toepassing registreren met de Microsoft Store.
 
 Als u deze waarde:
@@ -922,7 +922,7 @@ Xamarin-apps vereisen aanvullende code om te kunnen registreren van een app die 
 * [Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md#add-push)
 * [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push-notifications-to-your-app)
 
-### <a name="register-xplat"></a>Hoe: Register pushen sjablonen platformonafhankelijke meldingen verzenden
+### <a name="register-xplat"></a>Procedures: Push-sjablonen voor het verzenden van platformonafhankelijke meldingen registreren
 Gebruik voor het registreren van sjablonen, de `RegisterAsync()` methode met de sjablonen kunt als volgt te werk:
 
 ```csharp
@@ -966,7 +966,7 @@ Alle tags worden onmiddellijk verwijderd tijdens de registratie voor beveiliging
 Om meldingen te verzenden met behulp van deze geregistreerde sjablonen, raadpleegt u de [Notification Hubs-API 's].
 
 ## <a name="misc"></a>Diverse onderwerpen
-### <a name="errors"></a>Hoe: verwerken van fouten
+### <a name="errors"></a>Procedures: Fouten verwerken
 Wanneer er een fout optreedt in de back-end, de client SDK retourneert een `MobileServiceInvalidOperationException`.  Het volgende voorbeeld laat zien hoe voor het afhandelen van een uitzondering die is geretourneerd door de back-end:
 
 ```csharp
@@ -988,7 +988,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 
 Een ander voorbeeld van het afhandelen van fouten kunt u vinden in de [Voorbeeld van mobiele Apps-bestanden]. De [LoggingHandler] voorbeeld biedt een handler voor het delegeren van logboekregistratie om de aanvragen worden ingediend bij de back-end te registreren.
 
-### <a name="headers"></a>Hoe: aanpassen aanvraagheaders
+### <a name="headers"></a>Procedures: Aanvraagheaders aanpassen
 Ter ondersteuning van uw specifieke app-scenario, moet u mogelijk communicatie met de back-end van Mobile App aanpassen. U wilt bijvoorbeeld een aangepaste header toevoegen aan elke uitgaande aanvraag of antwoord-statuscodes zelfs wijzigen. U kunt een aangepaste [DelegatingHandler], zoals in het volgende voorbeeld:
 
 ```csharp
@@ -1042,8 +1042,8 @@ public class MyHandler : DelegatingHandler
 [Verificatie toevoegen aan uw app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Offlinesynchronisatie van gegevens in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Pushmeldingen toevoegen aan uw app]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Register your app to use a Microsoft account login]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[App Service configureren voor Active Directory-aanmelding]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Register your app to use a Microsoft account login]: ../app-service/configure-authentication-provider-microsoft.md
+[App Service configureren voor Active Directory-aanmelding]: ../app-service/configure-authentication-provider-aad.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx

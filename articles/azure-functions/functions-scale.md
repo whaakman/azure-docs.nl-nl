@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975887"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434661"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
-Azure Functions wordt uitgevoerd in twee verschillende modi: verbruiksabonnement en Azure App Service-plan. Het verbruiksabonnement rekencapaciteit automatisch toegewezen wanneer uw code wordt uitgevoerd. Uw app is uitgeschaald wanneer dat nodig is om belasting te verwerken en omlaag worden geschaald wanneer de code wordt niet uitgevoerd. U hoeft te betalen voor niet-actieve virtuele machines of vooraf capaciteit reserveren.
+Azure Functions wordt uitgevoerd in twee verschillende modi: Verbruiksabonnement en Azure App Service-plan. Het verbruiksabonnement rekencapaciteit automatisch toegewezen wanneer uw code wordt uitgevoerd. Uw app is uitgeschaald wanneer dat nodig is om belasting te verwerken en omlaag worden geschaald wanneer de code wordt niet uitgevoerd. U hoeft te betalen voor niet-actieve virtuele machines of vooraf capaciteit reserveren.
 
 > [!NOTE]  
 > [Linux-hosting](functions-create-first-azure-function-azure-cli-linux.md) is momenteel alleen beschikbaar op een App Service-plan.
@@ -68,7 +68,7 @@ Houd rekening met een App Service-plan in de volgende gevallen:
 
 Een virtuele machine worden losgekoppeld-kosten van het aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Als gevolg hiervan wordt niet betaalt u meer dan de kosten van het VM-exemplaar dat u toewijst. Zie voor meer informatie over de werking van de App Service-plan de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-U kunt handmatig opwaarts schalen door meer VM-exemplaren toe te voegen met een App Service-plan, of kunt u automatisch schalen inschakelen. Zie voor meer informatie, [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). U kunt ook omhoog schalen door een andere App Service-plan te kiezen. Zie voor meer informatie, [opschalen van een app in Azure](../app-service/web-sites-scale.md). 
+U kunt handmatig opwaarts schalen door meer VM-exemplaren toe te voegen met een App Service-plan, of kunt u automatisch schalen inschakelen. Zie voor meer informatie, [aantal exemplaren handmatig of automatisch schalen](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). U kunt ook omhoog schalen door een andere App Service-plan te kiezen. Zie voor meer informatie, [opschalen van een app in Azure](../app-service/web-sites-scale.md). 
 
 Bij het uitvoeren van JavaScript-functies op een App Service-plan, moet u een plan dat minder vcpu's is kiezen. Zie voor meer informatie de [Kies één core-App Service-plannen](functions-reference-node.md#considerations-for-javascript-functions).  
 
