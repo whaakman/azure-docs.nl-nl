@@ -60,7 +60,7 @@ Tijdens het versleutelen, wordt de clientbibliotheek genereren van een willekeur
 > 
 > 
 
-Bij het ophalen van de inhoud van het gebruik van de gehele blob downloaden van een versleutelde blob omvat de **DownloadTo *** /** BlobReadStream ** methoden voor gebruiksgemak. De verpakte CEK is uitgepakt en gebruikt in combinatie met de IV (opgeslagen als blobmetagegevens in dit geval) de ontsleutelde om gegevens te retourneren aan de gebruikers.
+Bij het ophalen van de inhoud van het gebruik van de gehele blob downloaden van een versleutelde blob omvat de **DownloadTo**\* /** BlobReadStream** methoden voor gebruiksgemak. De verpakte CEK is uitgepakt en gebruikt in combinatie met de IV (opgeslagen als blobmetagegevens in dit geval) de ontsleutelde om gegevens te retourneren aan de gebruikers.
 
 Downloaden van een willekeurige adresbereik (**DownloadRange*** methoden) in de versleutelde blob omvat het aanpassen van het bereik dat is opgegeven door gebruikers om op te halen van een kleine hoeveelheid aanvullende gegevens die kunnen worden gebruikt voor het ontsleutelen van is de aangevraagde het bereik.
 

@@ -51,8 +51,8 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd ov
 ### <a name="application-2"></a>Toepassing #2: 
 Volg dezelfde stappen als voor de toepassing #1, met de volgende uitzonderingen: 
 
-**Stap 5 van #**: de interne URL de URL van de QlikSense met de verificatiepoort die wordt gebruikt door de toepassing nu moet zijn. De standaardwaarde is **4244** voor HTTPS en 4248 voor HTTP. Bijvoorbeeld: **https&#58;//demo.qlik.com:4244**</br></br> 
-**Stap 10 #:** niet instellen van eenmalige aanmelding, en laat de **eenmalige aanmelding uitgeschakeld**
+**Stap 5 van #**: de interne URL de URL van de QlikSense met de verificatiepoort die wordt gebruikt door de toepassing nu moet zijn. De standaardwaarde is **4244** voor HTTPS en 4248 voor HTTP. Bijvoorbeeld: **https&#58;//demo.qlik.com:4244**</br></br>**Stap 10 #:** niet instellen van eenmalige aanmelding, en laat de **eenmalige aanmelding uitgeschakeld** 
+
  
  
 ## <a name="testing"></a>Testen 

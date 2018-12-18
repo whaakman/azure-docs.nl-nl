@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167406"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338519"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hoge beschikbaarheid van SAP HANA op Azure Virtual machines van Red Hat Enterprise Linux
 
@@ -88,9 +88,9 @@ SAP HANA is voor het bereiken van hoge beschikbaarheid, geïnstalleerd op de twe
 SAP HANA-Systeemreplicatie setup maakt gebruik van een speciale virtuele hostnaam en het virtuele IP-adressen. In Azure, wordt een load balancer overstappen naar een virtueel IP-adres. De volgende lijst ziet u de configuratie van de load balancer:
 
 * Front-end-configuratie: IP-adres 10.0.0.13 voor hn1-db
-* Back-end-configuratie: verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van HANA-Systeemreplicatie uitmaken
-* Testpoort: Poort 62503
-* Regels voor taakverdeling: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
+* Back-end-configuratie: Verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van HANA-Systeemreplicatie uitmaken
+* Test-poort: Poort 62503
+* Taakverdelingsregels: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
 
 ## <a name="deploy-for-linux"></a>Voor Linux implementeren
 
@@ -106,10 +106,10 @@ Volg deze stappen voor het implementeren van de sjabloon:
     * **SAP-systeem-ID**: Voer de SAP-systeem-ID van de SAP-systeem die u wilt installeren. De ID wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
     * **Type besturingssysteem**: Selecteer een van de Linux-distributies. Selecteer voor dit voorbeeld **RHEL 7**.
     * **Databasetype**: Selecteer **HANA**.
-    * **SAP-systeem grootte**: Voer het aantal SAP's die voor u het nieuwe systeem. Als u niet zeker weet hoeveel SAP's van het systeem is vereist, vraagt u uw SAP-technologie-Partner of systeemintegrator.
+    * **SAP-systeem grootte**: Voer het nummer van SAP's die voor u het nieuwe systeem. Als u niet zeker weet hoeveel SAP's van het systeem is vereist, vraagt u uw SAP-technologie-Partner of systeemintegrator.
     * **Beschikbaarheid van het systeem**: Selecteer **HA**.
-    * **Admin Username, Administrator-wachtwoord of SSH-sleutel**: een nieuwe gebruiker wordt gemaakt die kan worden gebruikt voor aanmelding bij de machine.
-    * **Subnet-ID**: als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal, lijkt **/subscriptions/\<abonnements-ID > /resourceGroups/\<groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/\<virtuele-netwerknaam > /subnets/ \<subnetnaam >**. Leeg laat, als u wilt een nieuw virtueel netwerk maken
+    * **Admin Username, Administrator-wachtwoord of SSH-sleutel**: Een nieuwe gebruiker wordt gemaakt die kan worden gebruikt voor aanmelding bij de machine.
+    * **Subnet-ID**: Als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal, lijkt **/subscriptions/\<abonnements-ID > /resourceGroups/\<groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/\<virtuele-netwerknaam > /subnets/ \<subnetnaam >**. Leeg laat, als u wilt een nieuw virtueel netwerk maken
 
 ### <a name="manual-deployment"></a>Handmatige implementatie
 
@@ -120,9 +120,9 @@ Volg deze stappen voor het implementeren van de sjabloon:
 1. Maak een load balancer (intern).
    * Selecteer het virtuele netwerk in stap 2 hebt gemaakt.
 1. Virtuele machine 1 maken.  
-   Gebruik ten minste Red Hat Enterprise Linux 7.4 voor SAP HANA. In dit voorbeeld wordt de Red Hat Enterprise Linux 7.4 voor SAP HANA-installatiekopie <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> selecteert u de beschikbaarheidsset worden gemaakt in stap 3.
+   Gebruik ten minste Red Hat Enterprise Linux 7.4 voor SAP HANA. In dit voorbeeld wordt de Red Hat Enterprise Linux 7.4 voor SAP HANA-installatiekopie <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> selecteert u de beschikbaarheidsset worden gemaakt in stap 3.
 1. Maak de virtuele machine 2.  
-   Gebruik ten minste Red Hat Enterprise Linux 7.4 voor SAP HANA. In dit voorbeeld wordt de Red Hat Enterprise Linux 7.4 voor SAP HANA-installatiekopie <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> selecteert u de beschikbaarheidsset worden gemaakt in stap 3.
+   Gebruik ten minste Red Hat Enterprise Linux 7.4 voor SAP HANA. In dit voorbeeld wordt de Red Hat Enterprise Linux 7.4 voor SAP HANA-installatiekopie <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> selecteert u de beschikbaarheidsset worden gemaakt in stap 3.
 1. Gegevensschijven toevoegen.
 1. Configureer de load balancer. Maak eerst een front-end-IP-adresgroep:
 
@@ -191,7 +191,7 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 * **[1]** : De stap is van toepassing op knooppunt 1 alleen.
 * **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
-1. **[A]**  Instellen van de schijfindeling: **logische Volume Manager (LVM)**.
+1. **[A]**  Instellen van de schijfindeling: **Logical Volume Manager (LVM)**.
 
    U wordt aangeraden LVM voor volumes die opslaan van gegevens en logboekbestanden. Het volgende voorbeeld wordt ervan uitgegaan dat de virtuele machines vier gegevensschijven die zijn gekoppeld die worden gebruikt om twee volumes te maken.
 
@@ -308,26 +308,26 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
    * Voer Installation Path [/ hana/gedeelde]: Selecteer invoeren.
    * Voer de naam van de lokale Host [.]: Selecteer invoeren.
    * Wilt u extra hosts toevoegen aan het systeem? (j/n) [n]: Selecteer invoeren.
-   * Voer SAP HANA-systeem-ID: Voer de SID van HANA, bijvoorbeeld: **HN1**.
-   * Voer exemplaarnummer [00]: Voer in HANA-instantie. Voer **03** als u de Azure-sjabloon gebruikt of de handmatige implementatie-sectie van dit artikel wordt gevolgd.
-   * Selecteer Database modus / Index [1] Voer: Voer selecteren.
-   * Selecteert u het gebruik van / Voer Index [4]: Selecteer de waarde van de gebruik system.
+   * Voer SAP HANA-systeem-ID: Voer bijvoorbeeld de SID van HANA: **HN1**.
+   * Voer exemplaarnummer [00]: Voer het nummer van de HANA-instantie. Voer **03** als u de Azure-sjabloon gebruikt of de handmatige implementatie-sectie van dit artikel wordt gevolgd.
+   * Selecteer Database modus / Index [1] invoeren: Selecteer invoeren.
+   * Selecteer het gebruik van / Index [4] invoeren: Selecteer de waarde van de gebruik system.
    * Geef de locatie van gegevensvolumes [/ hana/data/HN1]: Selecteer invoeren.
    * Geef de locatie van de Logboekvolumes [/ hana/log/HN1]: Selecteer invoeren.
    * Beperk de maximale hoeveelheid geheugen ingesteld? [n]: Selecteer invoeren.
    * Voer de hostnaam certificaat voor Host '...' [...]: Selecteer invoeren.
    * Voer SAP Host Agent-gebruiker (sapadm) wachtwoord: Voer het wachtwoord van de host agent-gebruiker.
    * SAP-Host Agent-gebruiker (sapadm) wachtwoord bevestigen: Voer het wachtwoord van de host-agent gebruiker opnieuw te bevestigen.
-   * Systeembeheerder (hdbadm) wachtwoord invoeren: Voer het wachtwoord voor de systeembeheerder.
+   * Geef de systeembeheerder (hdbadm) wachtwoord: Voer het wachtwoord voor de systeembeheerder.
    * Controleer of de systeembeheerder (hdbadm) wachtwoord: Voer het beheerderswachtwoord van systeem opnieuw te bevestigen.
-   * De systeembeheerder ENTER Home-map [/ usr/sap/HN1/home]: Selecteer invoeren.
+   * Voer System Administrator basismap [/ usr/sap/HN1/home]: Selecteer invoeren.
    * Voer System Administrator aanmeldingsshell [/ bin/sh]: Selecteer invoeren.
    * Voer de gebruikersnaam van systeembeheerder [1001]: Selecteer invoeren.
    * Voer-ID van de gebruikersgroep (sapsys) [79]: Selecteer invoeren.
-   * Geef het wachtwoord van de Database-gebruiker (systeem): Voer het wachtwoord van de database-gebruiker.
-   * Bevestig het wachtwoord van de Database-gebruiker (systeem): Geef het wachtwoord van de database-gebruiker opnieuw om te bevestigen.
+   * Geef het wachtwoord voor Database-gebruiker (systeem): Voer het wachtwoord van de database-gebruiker.
+   * Bevestig het wachtwoord voor Database-gebruiker (systeem): Voer het wachtwoord van de gebruiker database opnieuw te bevestigen.
    * Systeem opnieuw opstarten na opnieuw opstarten van machine? [n]: Selecteer invoeren.
-   * Wilt u doorgaan? (j/n): de samenvatting te valideren. Voer **y** om door te gaan.
+   * Wilt u doorgaan? (j/n): Valideer de samenvatting. Voer **y** om door te gaan.
 
 1. **[A]**  De SAP-Host-Agent bijwerken.
 

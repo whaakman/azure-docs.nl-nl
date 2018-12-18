@@ -143,7 +143,7 @@ Als de werkrol niet online is gekomen, maar uw Webrol is geslaagd, is het zeer w
    ```
 
 * Zorg ervoor dat de servernaam begint niet met **https://**.
-* Zorg ervoor dat uw Azure SQL-database-server kan Azure-Services tot stand te brengen. Om dit te doen, opent u uw database in de portal en zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op ** op ***.
+* Zorg ervoor dat uw Azure SQL-database-server kan Azure-Services tot stand te brengen. Om dit te doen, opent u uw database in de portal en zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op **op**\*\*.
 
 ## <a name="test-the-service-deployment"></a>De service-implementatie testen
 ### <a name="connect-with-a-web-browser"></a>Verbinding maken met een webbrowser
