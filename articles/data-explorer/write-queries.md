@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**JOIN**](https://docs.microsoft.com/azure/kusto/query/joinoperator): de rijen van twee tabellen om te vormen een nieuwe tabel door de overeenkomende waarden van de opgegeven kolommen uit elke tabel samenvoegen. Kusto ondersteunt een breed scala aan join-typen: **fullouter**, **binnenste**, **innerunique**, **leftanti**, **leftantisemi **, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter **, **rightsemi**.
+[**JOIN**](https://docs.microsoft.com/azure/kusto/query/joinoperator): de rijen van twee tabellen om te vormen een nieuwe tabel door de overeenkomende waarden van de opgegeven kolommen uit elke tabel samenvoegen. Kusto ondersteunt een breed scala aan join-typen: **fullouter**, **binnenste**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**.
 
 Het volgende voorbeeld worden twee tabellen gekoppeld met een inner join.
 

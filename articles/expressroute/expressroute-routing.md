@@ -215,7 +215,7 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 | Azure Global Services * | 12076:5050 |
 | Andere online services van Office 365 | 12076:5100 |
 
-***Azure Global Services bevat Azure DevOps**
+***Azure Global Services bevat Azure DevOps**\**
 
 
 > [!NOTE]

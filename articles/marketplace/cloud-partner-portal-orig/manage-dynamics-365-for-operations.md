@@ -51,7 +51,7 @@ Het formulier van de instellingen voor aanbieding is een eenvoudige methode om d
 
 Dit is een unieke id voor de aanbieding binnen een publisher-profiel. Deze ID zijn in URL's voor product zichtbaar. De id kan alleen bestaan uit alfanumerieke tekens in kleine letters en streepjes (-). De ID kan mag niet eindigen met een streepje en een maximum van 50 tekens. Dit veld is vergrendeld zodra een aanbieding live meteen.
 
-bijvoorbeeld, als een publisher contoso publisher een aanbieding met maakt aanbiedings-ID *voorbeeld-dynamics365 voor bewerkingen*, wordt het weergegeven in AppSource als \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*voorbeeld-dynamics 365 voor bewerkingen\*? tab = overzicht\"
+bijvoorbeeld, als een publisher contoso publisher een aanbieding met maakt aanbiedings-ID *voorbeeld-dynamics365 voor bewerkingen*, wordt het weergegeven in AppSource als \"https://appsource.microsoft.com/marketplace/apps/\**contoso\**.\*voorbeeld-dynamics 365 voor bewerkingen\*? tab = overzicht\"
 
 ### <a name="publisher-id"></a>Uitgevers-ID
 
