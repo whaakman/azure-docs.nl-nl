@@ -3,7 +3,7 @@
 ## [SDK's en hulpprogramma's](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Snelstartgids
-## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
+## [Web-apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## Virtuele machines
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -26,11 +26,11 @@
 
 # Voorbeelden
 ## Azure-CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Web-apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## Azure PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+### [Web-apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
@@ -55,7 +55,7 @@
 ### [Serverloze apps](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Microservices-cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Implementeren
-### [Web- en mobiele apps vanuit broncodebeheer](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
+### [Web- en mobiele apps vanuit broncodebeheer](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)
 ### [Microservices lokaal](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -75,7 +75,7 @@
 ## Beveiligen
 ### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-## Back-up maken
+## Backup
 ### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Virtuele machines](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 

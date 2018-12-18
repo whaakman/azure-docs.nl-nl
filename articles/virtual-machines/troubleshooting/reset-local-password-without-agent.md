@@ -133,7 +133,7 @@ Altijd probeer het opnieuw instellen van een wachtwoord met de [Azure portal of 
      ![Kopiëren van schijf-URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Een virtuele machine maken van de besturingssysteemschijf van de bron-VM:
    
-   * Gebruik [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) aan een virtuele machine maken vanaf een gespecialiseerde VHD. Klik op de `Deploy to Azure` knop voor het openen van de Azure-portal met de details van de sjablonen die voor u wordt gevuld.
+   Gebruik [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) aan een virtuele machine maken vanaf een gespecialiseerde VHD. Klik op de `Deploy to Azure` knop voor het openen van de Azure-portal met de details van de sjablonen die voor u wordt gevuld.
    * Als u behouden van alle voorgaande instellingen voor de virtuele machine wilt, selecteert u *template bewerken* voor uw bestaande VNet, subnet, netwerkadapter of openbaar IP-adres.
    * In de `OSDISKVHDURI` parameter tekstvak, plak de URI van de bron-VHD verkrijgen in de vorige stap:
      

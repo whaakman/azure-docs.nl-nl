@@ -79,11 +79,11 @@
 #### [Een ASE maken met een sjabloon](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Implementeren
-### [Cloudsynchronisatie implementeren](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Doorlopende implementatie](../app-service/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Cloudsynchronisatie implementeren](../app-service/deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Doorlopende implementatie](../app-service/deploy-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Faseringsomgevingen](../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Lokale Git-implementatie](../app-service/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Implementatie van Azure Resource Manager](../app-service/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Lokale Git-implementatie](../app-service/deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Implementatie van Azure Resource Manager](../app-service/deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Schalen
 ### [Een app opschalen](../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

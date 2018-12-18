@@ -51,7 +51,7 @@ U kunt op elk gewenst moment in uw experiment weergeven of downloaden van de geg
 ## <a name="data-formats-and-data-types-supported"></a>Gegevens-indelingen en gegevenstypen ondersteund
 U kunt verschillende soorten gegevens importeren in uw experiment, afhankelijk van welke mechanisme die u voor het importeren van gegevens en waar deze vandaan gebruiken:
 
-* Tekst zonder opmaak (*.txt)
+* Tekst zonder opmaak (.txt)
 * Door komma's gescheiden waarden (CSV met een koptekst (.csv) of zonder) (. nh.csv)
 * Door tabs gescheiden waarden (TSV met een koptekst (.tsv) of zonder) (. nh.tsv)
 * Excel-bestand

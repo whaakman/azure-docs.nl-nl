@@ -156,7 +156,7 @@ U moet beginnen met Solr indexeren met enkele gegevensbestanden. U kunt vervolge
           </response>
       ```
       
-   2. Navigeer in de externe sessie naar {SOLR_HOME}\{verzameling} \data. Voor het cluster is gemaakt via het voorbeeld van een script, moet dit `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Op deze locatie ziet u een map met momentopnamen die zijn gemaakt met een naam die lijkt op **momentopname.* tijdstempel ***.
+   2. Navigeer in de externe sessie naar {SOLR_HOME}\{verzameling} \data. Voor het cluster is gemaakt via het voorbeeld van een script, moet dit `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Op deze locatie ziet u een map met momentopnamen die zijn gemaakt met een naam die lijkt op **momentopname.\*tijdstempel**\*.
    
    3. ZIP-de map met momentopnamen en dit uploaden naar Azure Blob-opslag. Navigeer naar de locatie van de map met momentopnamen met behulp van de volgende opdracht uit vanaf de opdrachtregel Hadoop:
 
