@@ -19,6 +19,7 @@
 ## [PowerShell gebruiken om SQL Server te migreren naar Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
 ## [PowerShell gebruiken om SQL Server te migreren naar Azure SQL DB MI](howto-sql-server-to-azure-sql-mi-powershell.md)
 ## [Migratieactiviteit bewaken](how-to-monitor-migration-activity.md)
+## [SSIS-pakketten migreren naar Azure](how-to-migrate-ssis-packages.md)
 
 # Resources
 ## [Status van het databasemigratiescenario](resource-scenario-status.md)

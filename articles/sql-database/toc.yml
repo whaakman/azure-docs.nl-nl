@@ -101,6 +101,8 @@ items:
       href: sql-database-service-tiers-dtu.md
     - name: Vooruitbetalen voor reservecapaciteit
       href: sql-database-reserved-capacity.md
+    - name: Migreren vanaf de servicelaag Premium RS
+      href: sql-database-service-tiers-prs.md
   - name: Compute en opslag
     items:
     - name: Overzicht
@@ -115,7 +117,7 @@ items:
       href: sql-database-service-tier-hyperscale-faq.md
   - name: Individuele databases
     items:
-    - name: Individuele database
+    - name: Overzicht van individuele databases
       href: sql-database-single-index.yml
     - name: Maken en beheren
       href: sql-database-single-databases-manage.md
@@ -149,7 +151,7 @@ items:
       href: sql-database-single-database-scale.md
   - name: Beheerde exemplaren
     items:
-    - name: Beheerde exemplaren
+    - name: Overzicht van beheerde exemplaren
       href: sql-database-managed-instance-index.yml
     - name: Overzicht beheerd exemplaar
       href: sql-database-managed-instance.md
@@ -163,7 +165,7 @@ items:
       href: sql-database-managed-instance-transact-sql-information.md
   - name: Platform als een Service
     items:
-    - name: Platform als een Service
+    - name: Overzicht van Platform as a Service (PaaS)
       href: sql-database-paas.yml
     - name: Bedrijfscontinuïteit
       href: sql-database-business-continuity.md
@@ -195,7 +197,7 @@ items:
         href: sql-database-disaster-recovery-drills.md
   - name: Beveiliging
     items:
-    - name: Beveiliging
+    - name: Beveiligingsoverzicht
       href: sql-database-security-index.yml
     - name: Beveiligingsoverzicht
       href: sql-database-security-overview.md
@@ -249,7 +251,7 @@ items:
         href: transparent-data-encryption-byok-azure-sql.md
   - name: Schaalbaarheid
     items:
-    - name: Schaalbaarheid
+    - name: Overzicht van schaalbaarheid
       href: sql-database-scalability-index.yml
     - name: Omhoog/omlaag schalen
       href: sql-database-scale-resources.md
@@ -283,6 +285,8 @@ items:
     href: sql-database-features.md
   - name: Bewaking en afstemming
     items:
+    - name: Overzicht van bewaking en afstemming
+      href: sql-database-monitoring-tuning-index.yml
     - name: Prestaties bewaken en afstemmen
       href: sql-database-monitor-tune-overview.md
     - name: Prestatiebewaking
@@ -315,8 +319,12 @@ items:
       href: sql-database-temporal-tables.md
 - name: Handleidingen
   items:
+  - name: Overzicht
+    href: sql-database-howto.md
   - name: Individuele database
     items:
+    - name: Overzicht
+      href: sql-database-howto-single-database.md
     - name: Migreren naar SQL Database
       href: sql-database-cloud-migrate.md
     - name: SQL database na migratie beheren
@@ -393,6 +401,8 @@ items:
         href: elastic-jobs-migrate.md
   - name: Beheerd exemplaar
     items:
+    - name: Overzicht
+      href: sql-database-howto-managed-instance.md
     - name: Migreren naar beheerd exemplaar
       href: sql-database-managed-instance-migrate.md
     - name: TDE-certificaat migreren naar beheerd exemplaar
@@ -666,9 +676,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastische taak verwijderen (afgeschaft)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: d94f4fb39ccdee60fae434204369fd844aedeb20
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d276b202da8055965a43f5313b6a8c4b335f74b2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384272"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436021"

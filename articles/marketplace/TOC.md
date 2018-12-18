@@ -91,7 +91,7 @@
 #### [Tabblad voor Test Drive](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [Tabblad voor Marketplace](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [Tabblad voor ondersteuning](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Technische assets maken](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [Aanbieding voor Azure-toepassing maken publiceren](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [Bestaande aanbieding bijwerken](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 

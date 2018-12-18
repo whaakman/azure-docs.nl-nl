@@ -80,7 +80,7 @@ items:
       href: consistency-levels.md
     - name: Het juiste consistentieniveau kiezen
       href: consistency-levels-choosing.md
-    - name: Consistentieniveaus en Azure Cosmos DB-API's
+    - name: Consistentieniveaus van Cosmos DB-API's
       href: consistency-levels-across-apis.md
     - name: Compromissen tussen consistentie, beschikbaarheid en prestaties
       href: consistency-levels-tradeoffs.md
@@ -144,6 +144,12 @@ items:
       href: unique-keys.md
     - name: Transacties en optimistische gelijktijdige uitvoering
       href: database-transactions-optimistic-concurrency.md
+  - name: Programmeren op de server
+    items:
+    - name: Opgeslagen procedures, triggers en UDF's
+      href: stored-procedures-triggers-udfs.md
+    - name: JavaScript-query-API
+      href: javascript-query-api.md
   - name: Uw kosten voor Azure Cosmos DB optimaliseren
     items:
     - name: Prijsmodel
@@ -178,8 +184,6 @@ items:
       href: firewall-support.md
     - name: Toegang van virtuele netwerken
       href: vnet-service-endpoint.md
-    - name: Key Vault-ondersteuning
-      href: access-secrets-from-keyvault.md
   - name: Gereedheid voor bedrijven
     items:
     - name: Online back-ups maken en herstellen
@@ -250,8 +254,14 @@ items:
       items:
       - name: Queryprestaties afstemmen
         href: sql-api-query-metrics.md
-      - name: Opgeslagen procedures, triggers en UDF's
-        href: programming.md
+      - name: Programmeren op de server
+        items:
+        - name: Opgeslagen procedures, triggers en UDF's schrijven
+          href: how-to-write-stored-procedures-triggers-udfs.md
+        - name: Opgeslagen procedures en triggers schrijven met de JavaScript-query-API
+          href: how-to-write-javascript-query-api.md
+        - name: Opgeslagen procedures, triggers en UDF's gebruiken
+          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Gegevenstypen
         items:
         - name: DateTime
@@ -308,7 +318,7 @@ items:
             href: tutorial-develop-mongodb-nodejs-part3.md
           - name: Deel 4 - Een account maken
             href: tutorial-develop-mongodb-nodejs-part4.md
-          - name: Deel 5 - Verbinding maken met Azure Cosmos DB
+          - name: Deel 5 - Verbinding maken met de Cosmos DB-database
             href: tutorial-develop-mongodb-nodejs-part5.md
           - name: Deel 6 - CRUD-bewerkingen uitvoeren
             href: tutorial-develop-mongodb-nodejs-part6.md
@@ -479,6 +489,8 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Cross Origin Resource Sharing (CORS) configureren
       href: how-to-configure-cross-origin-resource-sharing.md
+    - name: Beveiligen met Key Vault
+      href: access-secrets-from-keyvault.md
   - name: Gereedheid voor bedrijven
     items:
     - name: Gegevens herstellen vanaf back-up
@@ -529,7 +541,7 @@ items:
         href: performance-testing.md
     - name: Rendabele lees- en schrijfbewerkingen
       href: key-value-store-cost.md
-  - name: Azure Cosmos DB-gegevens visualiseren
+  - name: Cosmos DB-gegevens visualiseren
     items:
     - name: Power BI gebruiken
       href: powerbi-visualize.md
@@ -603,9 +615,9 @@ items:
       href: use-cases.md
     - name: Socialemedia-apps
       href: social-media-apps.md
-ms.openlocfilehash: d31364cb9d458e54ae407d10fd88d8db4e9f457f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 34fc77f13f0c0bd394d96e19b86a1632ce2846b1
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384663"
+ms.locfileid: "53410105"
