@@ -149,7 +149,7 @@ Ondertussen en uiteindelijke SSPK licentiehouders technische vragen om te kunnen
 * SmarDTV S.A.
 * SoftAtHome
 * Sony Corporation
-* Beperkte TCL buitenland Marketing (Offshore Macau commerciële)
+* Beperkte TCL buitenland Marketing (Offshore Macau SAR commerciële)
 * SAS-technologieën levering Technicolor
 * Tongfang globale Ltd.
 * Top overwinning investeringen, Ltd.

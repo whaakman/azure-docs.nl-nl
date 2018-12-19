@@ -51,7 +51,7 @@ De volgende tabel geeft een overzicht van de systeemeigen DRM-ondersteuning op v
 | **Clientplatform** | **Systeemeigen DRM** | **EME** |
 | --- | --- | --- | --- |
 | **Smart-tv's, STB 's** | PlayReady, Widevine en/of andere | Ingesloten browser/EME voor PlayReady en/of Widevine|
-| **Windows 10** | PlayReady | MS Edge/IE11 voor PlayReady|
+| **Windows 10** | PlayReady | Microsoft Edge/IE11 voor PlayReady|
 | **Android-apparaten (telefoon, tablet, tv-programma's)** |Widevine |Chrome for Widevine |
 | **iOS** | FairPlay | Safari voor FairPlay (sinds het iOS 11.2) |
 | **MacOS** | FairPlay | Safari voor FairPlay (sinds het Safari 9 + op Mac OS X 10.11 + El Capitan)|

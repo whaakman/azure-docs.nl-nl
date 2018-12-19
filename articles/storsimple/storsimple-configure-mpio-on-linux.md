@@ -58,7 +58,7 @@ De multipath.conf heeft vijf secties:
 
 - **Niveau standaardwaarden van het systeem** *(standaard ingesteld)*: U kunt op standaardwaarden van het systeem onderdrukken.
 - **Op de blokkeringslijst apparaten** *(blacklist)*: kunt u de lijst met apparaten die niet moeten worden beheerd door apparaat toewijzen.
-- **Uitzonderingen zwarte** *(blacklist_exceptions)*: U kunt specifieke apparaten moet worden behandeld als multipath-apparaten, zelfs als die worden vermeld in de zwarte lijst identificeren.
+- **Uitzonderingen zwarte** *(blacklist_exceptions)*: U kunt specifieke apparaten moet worden behandeld als multipath-apparaten, zelfs als die worden vermeld in de blokkeringslijst.
 - **Specifieke Opslaginstellingen controller** *(apparaten)*: U kunt configuratie-instellingen die worden toegepast op apparaten met de leverancier en productinformatie opgeven.
 - **Specifieke instellingen voor apparaten** *(multipaths)*: U kunt in deze sectie gebruiken voor het afstemmen van de configuratie-instellingen voor afzonderlijke LUN's.
 
@@ -211,7 +211,7 @@ De multipath-ondersteunde apparaten kunnen automatisch worden gedetecteerd en ge
         }
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Stap 2: Configureer meerdere paden voor StorSimple-volumes
-Standaard worden alle apparaten zwart zijn vermeld in het bestand multipath.conf en worden overgeslagen. U moet een zwarte lijst uitzonderingen om toe te staan van meerdere paden voor volumes van StorSimple-apparaten maken.
+Standaard worden alle apparaten zwart zijn vermeld in het bestand multipath.conf en worden overgeslagen. U moet een blokkerlingslijst met uitzonderingen om toe te staan van meerdere paden voor volumes van StorSimple-apparaten maken.
 
 1. Bewerk de `/etc/mulitpath.conf` bestand. Type:
    

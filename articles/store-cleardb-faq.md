@@ -52,7 +52,7 @@ De standaardoptie voor de database is Titan, wat $3,50. We niet de kosten weerge
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Ik ben MySQL op mijn eigen Azure-machine uitgevoerd. Kan ik mijn Azure-web-app verbinden met mijn database?
 Ja. U kunt uw web-app verbinden met uw database, zolang uw Azure-VM heeft gegeven van het externe toegang in uw web-app. Zie voor meer informatie, [MySQL installeren op een virtuele machine](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>Landen zijn waarin ClearDB Premium MySQL-clusters ondersteund?
+## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>In welke landen/regio's worden ClearDB Premium MySQL-clusters ondersteund?
 [ClearDB Premium MySQL clusters](/marketplace/partners/cleardb-clusters/cluster/) zijn beschikbaar in alle Azure-regio's over de hele wereld met uitzondering van India, Australië, Brazilië-Zuid en China.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>Kan ik een nieuw cluster vóór het maken van een database met ClearDB premium clusteroplossing maken?

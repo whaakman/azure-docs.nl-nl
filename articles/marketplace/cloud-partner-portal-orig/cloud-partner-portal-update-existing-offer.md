@@ -128,12 +128,12 @@ De nieuwe sectie duurt prijzen in deze nieuwe valuta's. Wanneer alle klanten zij
 
 Hebt u tot 1 November 2018 om in te stellen van een nieuwe prijs voor de regio's waarin de valuta verwerken wordt gewijzigd. Niet mogelijk de prijs voor regio's waarin de valuta verwerken niet is gewijzigd, te verhogen. Hier volgen de regio's waarin de valuta wordt gewijzigd:
 
-| Land                  | ISO-2-Code | Vereenvoudigde factureringsvaluta |
+| Land/regio                  | ISO-2-Code | Vereenvoudigde factureringsvaluta |
 |--------------------------|-----------|-----------------------------|
 | **Algerije**              | DZ        | USD                         |
 | **Argentinië**            | AR        | USD                         |
 | **Bahrein**              | BH        | USD                         |
-| **Wit-Rusland**              | DOOR        | USD                         |
+| **Belarus**              | DOOR        | USD                         |
 | **Brazilië**               | BR        | BRL                         |
 | **Bulgarije**             | BG        | EUR                         |
 | **Chili**                | CL        | USD                         |
@@ -143,7 +143,7 @@ Hebt u tot 1 November 2018 om in te stellen van een nieuwe prijs voor de regio's
 | **Tsjechische Republiek**       | CZ        | EUR                         |
 | **Egypte**                | BIJVOORBEELD        | USD                         |
 | **Guatemala**            | GT        | USD                         |
-| **Hongkong**            | HK        | USD                         |
+| **Hongkong SAR**            | HK        | USD                         |
 | **Hongarije**              | HU        | EUR                         |
 | **IJsland**              | IS        | EUR                         |
 | **Indonesië**            | Id        | USD                         |
@@ -153,7 +153,7 @@ Hebt u tot 1 November 2018 om in te stellen van een nieuwe prijs voor de regio's
 | **Kenia**                | KE        | USD                         |
 | **Koeweit**               | KW        | USD                         |
 | **Liechtenstein**        | LI        | EUR                         |
-| **Macedonië (Voormalige Joegoslavische Republiek)**     | MK        | USD                         |
+| **Macedonië (FYROM)**     | MK        | USD                         |
 | **Maleisië**             | MIJN        | USD                         |
 | **Mexico**               | MX        | USD                         |
 | **Montenegro**           | MIJ        | USD                         |

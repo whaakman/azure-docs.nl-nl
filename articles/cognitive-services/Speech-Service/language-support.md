@@ -62,7 +62,7 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen. Verschillende n
 
 ## <a name="text-to-speech"></a>Tekst naar spraak
 
-De Text to Speech REST-API biedt ondersteuning voor deze stemmen, die ondersteuning biedt voor een specifieke taal en een dialect, geïdentificeerd door de landinstelling.
+De Text to Speech REST-API biedt ondersteuning voor deze stemmen, die ondersteuning biedt voor een specifieke taal en een regionale taal, geïdentificeerd door de landinstelling.
 
 ### <a name="neural-voices-preview"></a>Neurale stemmen (Preview)
 
@@ -158,7 +158,7 @@ vi-VN | Vietnamees|Man | "Microsoft Server-stem tekst naar spraak (vi-VN, een)"
 zh-CN | Chinees (vasteland)|Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, HuihuiRUS)"
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, Yaoyao, Apollo)"
 | | |Man | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, Kangkang, Apollo)"
-zh-HK | Chinees (Hongkong)|Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-HK Tracy, Apollo)"
+zh-HK | Chinees (Hongkong SAR)|Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-HK Tracy, Apollo)"
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-HK TracyRUS)"
 | || Man | "Microsoft Server spraak tekst en spraak, spraak (zh-HK Danny, Apollo)"
 zh-TW | Chinees (Taiwan)|Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-TW, Yating, Apollo)"

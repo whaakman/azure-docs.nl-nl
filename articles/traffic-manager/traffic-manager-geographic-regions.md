@@ -476,11 +476,11 @@ In dit artikel geeft een lijst van de landen en regio's die worden gebruikt door
 
         - BW(Botswana)
 
-        - CD (Congo-Kinshasa)
+        - CD (Congo (DRC))
 
         - CF (Centraal-Afrikaanse Republiek)
 
-        - CG(Congo)
+        - CG(Congo-Brazzaville)
 
         - CI (Ivoorkust)
 

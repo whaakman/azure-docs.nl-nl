@@ -10,7 +10,7 @@ ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f4a1937062f7e59cb3ef3f38610e077e8d36a3ac
 ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "47005546"
@@ -32,7 +32,7 @@ Een select aantal ExpressRoute-peeringlocaties ondersteuning hiervan op de openb
 * Chicago
 * Washington DC
 * Dallas 
-* Hongkong
+* Hongkong SAR
 * Los Angeles
 * New York City
 * Parijs

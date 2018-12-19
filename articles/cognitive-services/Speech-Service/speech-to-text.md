@@ -30,7 +30,7 @@ De **spraak naar tekst** API biedt de volgende functies:
 
 - De resultaten weergegeven in formulieren voor zowel Lexical en weergeven (lexicale resultaten, Zie DetailedSpeechRecognitionResult in voor de voorbeelden of API).
 
-- Ondersteuning van verschillende talen en dialecten. Zie voor de volledige lijst van ondersteunde talen in beide modi erkenning, [ondersteunde talen](language-support.md#speech-to-text).
+- Ondersteuning van verschillende talen en regionale talen. Zie voor de volledige lijst van ondersteunde talen in beide modi erkenning, [ondersteunde talen](language-support.md#speech-to-text).
 
 - Aangepaste taal en akoestische modellen, zodat u uw toepassing op het vocabulaire van uw gebruikers gespecialiseerde domein, spreekstijl omgeving en manier aanpassen kunt van spreken.
 

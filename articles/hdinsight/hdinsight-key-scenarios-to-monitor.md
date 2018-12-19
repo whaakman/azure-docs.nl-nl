@@ -31,7 +31,7 @@ Als u een Kijk op de knooppunten van het cluster en hun laden, moet u zich aanme
 | Kleur | Description |
 | --- | --- |
 | Rood | Ten minste één master onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
-| Orange | Ten minste één slave-onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
+| Orange | Ten minste één ondergeschikt onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
 | Geel | Ambari-Server is geen heartbeat ontvangen van de host voor meer dan 3 minuten. |
 | Groen | Normaal uitgevoerd staat. |
 

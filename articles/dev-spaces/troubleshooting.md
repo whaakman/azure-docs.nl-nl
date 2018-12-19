@@ -273,7 +273,7 @@ Dit probleem wordt opgelost als de agentknooppunten in het cluster meestal opnie
 ### <a name="reason"></a>Reden
 Wanneer u Dev spaties voor een naamruimte in uw AKS-cluster inschakelt, er een extra container met de naam _mindaro-proxy_ in elk van de pods die worden uitgevoerd binnen deze naamruimte is geïnstalleerd. Deze container onderschept aanroepen naar de services in de schil die integraal is voor Dev spaties team development mogelijkheden.
 
-Helaas kan dit leiden tot problemen met bepaalde services die in deze schillen uitgevoerd. Met name verstoort het schillen uitgevoerd van Azure Cache voor Redis, waardoor-verbindingsfouten en fouten in de master/slave-communicatie.
+Helaas kan dit leiden tot problemen met bepaalde services die in deze schillen uitgevoerd. Met name verstoort het schillen uitgevoerd van Azure Cache voor Redis, waardoor-verbindingsfouten en fouten in de master/detail-communicatie.
 
 ### <a name="try"></a>Probeer:
 U kunt de betrokken pod(s) verplaatsen naar een naamruimte in het cluster dat wordt _niet_ Dev spaties bevatten die zijn ingeschakeld, terwijl u verdergaat met het uitvoeren van de rest van uw toepassing binnen een naamruimte Dev spaties ingeschakeld. Dev opslagruimten wordt niet geïnstalleerd. de _mindaro-proxy_ container binnen Dev spaties ingeschakelde naamruimten.

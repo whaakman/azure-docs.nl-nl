@@ -94,7 +94,7 @@ Een SKU wordt in Marketplace weergegeven onder de bovenliggende aanbieding. Een 
    * **Summary**: voer een korte samenvatting in voor deze SKU. Deze tekst wordt onder de titel weergegeven.
    * **Description**: voer een gedetailleerde beschrijving van de SKU in.
    * **SKU Type**: de toegestane waarden zijn *Managed Application* en *Solution Templates*. Selecteer voor deze aanvraag *Managed Application*.
-   * **Country/Region availability**: selecteer de landen waar de beheerde toepassing beschikbaar is.
+   * **Country/Region availability**: selecteer de landen/regio's waar de beheerde toepassing beschikbaar is.
    * **Pricing**: geef een prijs op voor beheer van de toepassing. Selecteer de beschikbare landen voordat u de prijs instelt.
 
 1. Voeg een nieuw pakket toe. Vul de sectie **Package Details** in op het volgende formulier:

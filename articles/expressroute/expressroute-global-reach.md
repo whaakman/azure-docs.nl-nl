@@ -25,7 +25,7 @@ Met **ExpressRoute globaal bereik**, kunt u ExpressRoute-circuits samen om te ma
 ![met][2]
 
 ## <a name="use-case"></a>Use-case
-ExpressRoute globaal bereik is ontworpen om een aanvulling vormen op de WAN-implementatie van de serviceprovider en verbinding maken met uw filialen over de hele wereld. Bijvoorbeeld, als uw serviceprovider voornamelijk werkt in de Verenigde Staten en al uw vertakkingen in de VS is gekoppeld, maar de service-provider niet in Japan en Hong Kong werkt, met globaal bereik van ExpressRoute kunt u werken met een lokale service-provider en Microsoft maakt uw vertakkingen er verbinding met de namen in de Verenigde Staten met behulp van ExpressRoute en ons wereldwijde netwerk.
+ExpressRoute globaal bereik is ontworpen om een aanvulling vormen op de WAN-implementatie van de serviceprovider en verbinding maken met uw filialen over de hele wereld. Bijvoorbeeld, als uw serviceprovider voornamelijk werkt in de Verenigde Staten en al uw vertakkingen in de VS is gekoppeld, maar de service-provider niet in Japan en Hong Kong SAR werkt, met globaal bereik van ExpressRoute kunt u werken met een lokale service-provider en Microsoft maakt uw vertakkingen er verbinding met de namen in de Verenigde Staten met behulp van ExpressRoute en ons wereldwijde netwerk.
 
 ![Use-case][3]
 
@@ -34,7 +34,7 @@ ExpressRoute globaal bereik wordt op dat moment ondersteund in de volgende locat
 
 * Australië
 * Frankrijk
-* Hongkong
+* Hongkong SAR
 * Ierland
 * Japan
 * Nederland

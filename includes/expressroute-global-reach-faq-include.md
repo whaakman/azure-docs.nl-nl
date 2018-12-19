@@ -33,11 +33,11 @@ Met ExpressRoute kunt connectiviteit vanuit uw on-premises netwerk naar Microsof
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>Waar wordt globaal bereik van ExpressRoute ondersteund?
 
-Globaal bereik van ExpressRoute wordt ondersteund in de volgende landen. De ExpressRoute-circuits moeten worden gemaakt op de peering locaties in die landen.
+Globaal bereik van ExpressRoute wordt ondersteund in de volgende landen/regio's. De ExpressRoute-circuits moeten worden gemaakt op de peering locaties in die landen.
 
 * Australië
 * Frankrijk
-* Hongkong
+* Hongkong SAR
 * Ierland
 * Japan
 * Nederland

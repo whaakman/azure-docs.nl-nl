@@ -110,7 +110,7 @@ Wanneer een Clusterbeheerder een zelfstandige Service Fabric-cluster configureer
 5. Als de cluster-machines niet toegankelijk is met internet zijn, moet u het volgende instellen in de configuratie van het cluster:
    * Telemetrie uitschakelen: Onder *eigenschappen* ingesteld *"enableTelemetry": false*
    * Automatische Fabric versie gedownload en dat de huidige clusterversie einde van ondersteuning wordt binnenkort meldingen uitschakelen: Onder *eigenschappen* ingesteld *"fabricClusterAutoupgradeEnabled": false*
-   * U kunt ook als internet toegang tot het netwerk beperkt tot witte lijst domeinen is, de domeinen die hieronder zijn vereist voor automatisch bijwerken: go.microsoft.com download.microsoft.com
+   * U kunt ook als internet toegang tot het netwerk beperkt tot acceptatielijstdomeinen is, de domeinen die hieronder zijn vereist voor automatisch bijwerken: go.microsoft.com download.microsoft.com
 
 6. Juiste antivirus uitsluitingen voor Service Fabric instellen:
 

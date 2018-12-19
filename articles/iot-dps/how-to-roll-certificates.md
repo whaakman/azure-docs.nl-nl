@@ -198,7 +198,7 @@ Een andere manier is voor zowel de oude als de nieuwe certificaten worden gebrui
 Zodra de beëindiging is voltooid, worden apparaten geen verbinding maken met IoT Hub met behulp van de nieuwe certificaten.
 
 
-## <a name="blacklist-certificates"></a>Zwarte lijst certificaten
+## <a name="blacklist-certificates"></a>Blokkeringslijstcertificaten
 
 In reactie op een schending van de beveiliging moet u mogelijk een certificaat voor apparaten blokkeringslijst. Blokkeringslijst een certificaat voor apparaten, de inschrijvingsvermelding voor het doel apparaat/certificaat uitschakelen Zie voor meer informatie, witte van apparaten in de [uitschrijving beheren](how-to-revoke-device-access-portal.md) artikel.
 

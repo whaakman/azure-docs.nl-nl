@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
 ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/29/2018
 ms.locfileid: "50212757"
@@ -94,7 +94,7 @@ De volgende stappen uit voorbereiden en configureren van de MariaDB-server die g
 
    ![Gebruiker synchroniseren](./media/howto-data-in-replication/syncuser.png)
  
-   Klik op de **beheerdersrollen** deelvenster en selecteer vervolgens **Slave-replicatie** uit de lijst met **globale bevoegdheden**. Klik vervolgens op **toepassen** om de replicatierol te maken.
+   Klik op de **beheerdersrollen** deelvenster en selecteer vervolgens **Replicatie secundair apparaat** uit de lijst met **globale bevoegdheden**. Klik vervolgens op **toepassen** om de replicatierol te maken.
 
    ![Replicatie Slave](./media/howto-data-in-replication/replicationslave.png)
 

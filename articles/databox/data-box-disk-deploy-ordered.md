@@ -60,7 +60,7 @@ Voer de volgende stappen uit in [Azure Portal](https://aka.ms/azuredataboxfromdi
     |---|---|
     |Abonnement|Selecteer het abonnement waarvoor Data Box is ingeschakeld.<br> Het abonnement is gekoppeld aan uw factureringsrekening. |
     |Type overdracht| Importeren in Azure|
-    |Bronland | Selecteer het land waar uw gegevens momenteel worden bewaard.|
+    |Bronland | Selecteer het land/de regio waar uw gegevens momenteel worden bewaard.|
     |Doel-Azure-regio|Selecteer de Azure-regio waarnaar u uw gegevens wilt overdragen.|
 
   

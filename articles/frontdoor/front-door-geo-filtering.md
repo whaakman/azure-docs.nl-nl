@@ -29,7 +29,7 @@ U kunt beleid voor geo-filteren voor Front Door configureren met behulp van [Azu
 
 ## <a name="country-code-reference"></a>Verwijzing naar landnummer
 
-|Landnummer | Naam van land |
+|Landnummer | Naam van land/regio |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Verenigde Arabische Emiraten|
@@ -72,7 +72,7 @@ U kunt beleid voor geo-filteren voor Front Door configureren met behulp van [Azu
 | CO | Colombia|
 | CR | Costa Rica|
 | CU | Cuba|
-| CV | Kaapverdië|
+| CV | Cabo Verde|
 | CY | Cyprus|
 | CZ | Tsjechië|
 | DE | Duitsland|
@@ -97,7 +97,7 @@ U kunt beleid voor geo-filteren voor Front Door configureren met behulp van [Azu
 | GR | Griekenland|
 | GT | Guatemala|
 | GY | Guyana|
-| HK | Hongkong|
+| HK | Hongkong SAR|
 | HN | Honduras|
 | HR | Kroatië|
 | HT | Haiti|
@@ -136,11 +136,11 @@ U kunt beleid voor geo-filteren voor Front Door configureren met behulp van [Azu
 | MA | Marokko|
 | MD | Moldavië, Republiek|
 | MG | Madagascar|
-| MK | Macedonië|
+| MK | Macedonië (FYROM)|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongolië|
-| MO | Macao|
+| MO | Macau SAR|
 | MQ | Martinique|
 | MR | Mauretanië|
 | MT | Malta|

@@ -60,7 +60,7 @@ De volgende tabel geeft een overzicht van de systeemeigen platform/native app en
 | **Clientplatform** | **Systeemeigen DRM-ondersteuning** | **Browser-app** | **Streaming-indelingen** |
 | --- | --- | --- | --- |
 | **Smart-tv's, operator STB's, OTT STB 's** |PlayReady voornamelijk, en/of Widevine, en/of andere |Linux, Opera, via WebKit, overige |Verschillende indelingen |
-| **Windows 10-apparaten (Windows-PC, Windows-tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Universeel Windows-platform |STREEPJE (voor HLS, PlayReady wordt niet ondersteund)<br/><br/>DASH, Smooth Streaming (voor HLS, PlayReady wordt niet ondersteund) |
+| **Windows 10-apparaten (Windows-PC, Windows-tablets, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Universeel Windows-platform |STREEPJE (voor HLS, PlayReady wordt niet ondersteund)<br/><br/>DASH, Smooth Streaming (voor HLS, PlayReady wordt niet ondersteund) |
 | **Android-apparaten (telefoon, tablet, tv-programma's)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), OS X-clients en Apple TV** |FairPlay |Safari 8 +/ EME |HLS |
 

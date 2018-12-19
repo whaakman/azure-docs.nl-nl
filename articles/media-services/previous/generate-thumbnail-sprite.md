@@ -70,7 +70,7 @@ Hier volgt een voorbeeld:
 
 1.  Het is niet mogelijk voor het genereren van een installatiekopie sprite met één rij van installatiekopieën (SpriteColumn = 1 resulteert in een afbeelding met één kolom).
 2.  Logische groepen te verdelen van de installatiekopieën sprite in matig grootte JPEG-afbeeldingen is nog niet ondersteund. Dus wees voorzichtig om te beperken het nummer van miniaturen en de grootte, zodat de resulterende stitched miniatuur Sprite rond 8 miljoen pixels of minder.
-3.  Azure Media Player ondersteunt sprites in Edge, Chrome en Firefox browsers. Parseren van VTT wordt niet ondersteund in IE11.
+3.  Azure Media Player ondersteunt sprites in Microsoft Edge, Chrome en Firefox browsers. Parseren van VTT wordt niet ondersteund in IE11.
 
 ## <a name="next-steps"></a>Volgende stappen
 

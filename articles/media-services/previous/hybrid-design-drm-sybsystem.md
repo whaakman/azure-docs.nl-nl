@@ -102,7 +102,7 @@ Op basis van de uitleg in de vorige sectie, de volgende vijf hybride scenario's 
 |AMS|Van derden|Buiten|Nee|Nee|Voorbeeld 4|
 |Van derden|Van derden|AMS|Ja|Nee|    
 
-In de voorbeelden werkt PlayReady-bescherming voor DASH en smooth streaming. De onderstaande video URL's zijn smooth streaming-URL's. Als u de bijbehorende DASH-URL's, alleen toevoegen ' (format = mpd-time-csf) '. U kunt de [azure media player testen](https://aka.ms/amtest) om te testen in een browser. Hiermee kunt u configureren welke streaming-protocol wilt gebruiken, onder welke tech. Ondersteuning voor PlayReady via EME IE11 en MS-Edge op Windows 10. Zie voor meer informatie, [meer informatie over het hulpprogramma test](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+In de voorbeelden werkt PlayReady-bescherming voor DASH en smooth streaming. De onderstaande video URL's zijn smooth streaming-URL's. Als u de bijbehorende DASH-URL's, alleen toevoegen ' (format = mpd-time-csf) '. U kunt de [azure media player testen](https://aka.ms/amtest) om te testen in een browser. Hiermee kunt u configureren welke streaming-protocol wilt gebruiken, onder welke tech. Ondersteuning voor PlayReady via EME IE11 en Microsoft Edge op Windows 10. Zie voor meer informatie, [meer informatie over het hulpprogramma test](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
 ### <a name="sample-1"></a>Voorbeeld 1
 

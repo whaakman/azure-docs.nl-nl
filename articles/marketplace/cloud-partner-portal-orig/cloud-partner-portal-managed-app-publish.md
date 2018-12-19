@@ -190,7 +190,7 @@ Het formulier marketplace binnen een azure-toepassing-aanbieding wordt gevraagd 
 
 #### <a name="preview-subscription-ids"></a>Preview-versie abonnement-id 's
 
-Voer hier een lijst van Azure-abonnement-id's die u toegang hebben tot de aanbieding wilt nadat deze is gepubliceerd. Deze abonnementen wit vermeld, kunt u de voorbeeld-aanbieding voordat u het testen live. De partner-portal kunt u witte lijst met maximaal 100 abonnementen.
+Voer hier een lijst van Azure-abonnement-id's die u toegang hebben tot de aanbieding wilt nadat deze is gepubliceerd. Deze abonnementen wit vermeld, kunt u de voorbeeld-aanbieding voordat u het testen live. De partner-portal kunt u acceptatielijst met maximaal 100 abonnementen.
 
 #### <a name="suggested-categories"></a>Aanbevolen categorieën
 

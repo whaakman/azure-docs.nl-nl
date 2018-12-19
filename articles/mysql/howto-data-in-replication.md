@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 08/31/2018
 ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
 ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/20/2018
 ms.locfileid: "46497923"
@@ -95,9 +95,9 @@ De volgende stappen uit voorbereiden en configureren van de MySQL-server die geh
 
    ![Gebruiker synchroniseren](./media/howto-data-in-replication/syncuser.png)
  
-   Klik op de **beheerdersrollen** deelvenster en selecteer vervolgens **Slave-replicatie** uit de lijst met **globale bevoegdheden**. Klik vervolgens op **toepassen** om de replicatierol te maken.
+   Klik op de **beheerdersrollen** deelvenster en selecteer vervolgens **Replicatie secundair apparaat** uit de lijst met **globale bevoegdheden**. Klik vervolgens op **toepassen** om de replicatierol te maken.
 
-   ![Replicatie Slave](./media/howto-data-in-replication/replicationslave.png)
+   ![Replicatie Secundair apparaat](./media/howto-data-in-replication/replicationslave.png)
 
 
 4. De hoofd-server ingesteld op modus alleen-lezen

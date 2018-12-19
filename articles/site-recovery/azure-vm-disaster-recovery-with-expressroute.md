@@ -96,7 +96,7 @@ Enterprise-implementaties hebben meestal verdeeld over meerdere Azure VNets, met
  - ** Hub vNet subnetten**. De hub vNet heeft twee subnetten:
      - **NVA-subnet**: 10.10.10.0/25. Dit subnet bevat een NVA (10.10.10.10).
      - **Gatewaysubnet**: 10.10.10.128/25. Dit subnet bevat een ExpressRoute-gateway verbonden met een ExpressRoute-verbinding die u routes naar de on-premises site via een persoonlijke peering routeringsdomein.
-- Het on-premises datacenter heeft een ExpressRoute-circuit-verbinding via een partner edge in Hong Kong.
+- Het on-premises datacenter heeft een ExpressRoute-circuit-verbinding via een partner edge in Hong Kong SAR.
 - Alle routering wordt geregeld via de Azure-routetabellen (UDR).
 - Al het uitgaande verkeer tussen vNets of het on-premises datacenter wordt doorgestuurd via de NVA.
 

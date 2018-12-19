@@ -23,7 +23,7 @@ items:
     href: stream-analytics-javascript-user-defined-functions.md
   - name: 4 - Implementeren met CI/CD in Azure-pijplijnen
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
-  - name: 5 - Een C#-UDF uitvoeren in Edge
+  - name: 5 - Een C#-UDF uitvoeren in Microsoft Edge
     href: stream-analytics-edge-csharp-udf.md
 - name: Voorbeelden
   items:

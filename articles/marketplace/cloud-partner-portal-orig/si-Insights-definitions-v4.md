@@ -43,7 +43,7 @@ De volgende tabel bevat de definities voor veel van de voorwaarden in de verkope
 | Plaats klant                                    | De plaatsnaam geleverd door de klant.                                                                                                  |
 | Taal van de klant-communicatie                  | De taal van voorkeur van de klant voor communicatie.                                                                                    |
 | De naam van het bedrijf van klant                            | De naam van het bedrijf die is geleverd door de klant.                                                                                               |
-| Land van de klant                                 | De landnaam is geleverd door de klant.                                                                                               |
+| Land/regio van de klant                                 | De landnaam is geleverd door de klant.                                                                                               |
 | De valuta van klant (CC)                           | De valuta voorkeur van de klant voor prijzen en facturering.                                                                              |
 | E-mailadres van de klant                                   | Het e-mailadres dat is geleverd door de klant.                                                                                              |
 | Voornaam van de klant                              | De voornaam van de klant.                                                                                                              |

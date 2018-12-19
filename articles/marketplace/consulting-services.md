@@ -48,7 +48,7 @@ Service-aanbiedingen die zijn gebaseerd op Microsoft Dynamics 365, Office 365 en
 >[!TIP]
 >Als u wilt publiceren naar de Azure Marketplace-webwinkel, brengt u deze selectie door te kiezen 'Azure' in de vervolgkeuzelijst "Primaire Product" in de Cloud Partner-Portal. Als u wilt publiceren naar AppSource, brengt u deze selectie door te kiezen 'Dynamics 365,' 'Power BI' of 'Power Apps' in het menu van de vervolgkeuzelijst "Primaire Product" in de Cloud Partner-Portal.
 
-## <a name="eligible-partners-and-supported-countries"></a>In aanmerking komende Partners en ondersteunde landen
+## <a name="eligible-partners-and-supported-countries"></a>In aanmerking komende Partners en ondersteunde landen/regio's
 
 Partners zijn vereist om een **silver- of gold-competentie** in het desbetreffende gebied voor hun service. 
 
@@ -74,9 +74,9 @@ Partners zijn vereist om een **silver- of gold-competentie** in het desbetreffen
 <b> Zie voor meer informatie, [vaardigheden via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**SI-partners kunnen consulting-service-aanbiedingen voor de volgende 18 landen indienen**
+**SI-partners kunnen consulting-service-aanbiedingen voor de volgende 18 landen/regio's indienen**
 
-|In aanmerking komende landen |   |   |   |
+|In aanmerking komende landen/regio's |   |   |   |
 |---------|----------|----------|----------|
 |Australië |Frankrijk  |     Mexico          |Spanje       |
 |België   |Duitsland |     Nederland     |Zweden       |
@@ -84,7 +84,7 @@ Partners zijn vereist om een **silver- of gold-competentie** in het desbetreffen
 |Denemarken   |Italië   |     Noorwegen          |Verenigde Staten |
 |Finland   |Japan   |     Polen          
 
-De lancering van consulting services gaat live in specifieke geografische regio. Eerste keer opstarten is: Verenigde Staten, Canada, het Verenigd Koninkrijk en Australië. De catalogi voor andere landen wordt na enkele nuttige live gaan en boeiende selectie van service-aanbiedingen zijn ingediend door partners en goedgekeurd door Microsoft.
+De lancering van consulting services gaat live in specifieke geografische regio. Eerste keer opstarten is: Verenigde Staten, Canada, het Verenigd Koninkrijk en Australië. De catalogi voor andere landen/regio's wordt na enkele nuttige live gaan en boeiende selectie van service-aanbiedingen zijn ingediend door partners en goedgekeurd door Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Hoe u zich registreren voor Consulting Services in Azure Marketplace en AppSource
 Begin met [registreren](https://azuremarketplace.microsoft.com/en-us/sell/signup) de gegevens van uw bedrijf in de marketplace. Uitgevers kunnen verwijzen naar [geworden van een uitgever op Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), voor een volledige lijst van vereisten voor apparaatregistratie. 

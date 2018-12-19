@@ -20,14 +20,14 @@ Van de migratie van de NoSQL ontwikkeling van toepassingen, kunt u kiezen uit ta
 
 ## <a name="migration-tools"></a>Hulpprogramma's voor migratie
 
-|**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen**  |**Neem contact op met**  |
+|**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen/regio's**  |**Neem contact op met**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Gegevensmigratie](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) van MongoDB met Azure Cosmos DB. <br/> Imanis gegevens kunt wereldwijd opererende ondernemingen snel en eenvoudig migreren van hun on-premises of in de cloud met Azure Cosmos DB MongoDB-databases. Imanis gegevens biedt een benadering van de migratie zonder agent, incrementele permanent cloud voor MongoDB-gegevensarchieven die vereenvoudigt de migratie en hebt u aanzienlijk minder uitvaltijd.|  USA  |   [Website](http://www.imanisdata.com/)      |
 |![Realtimeplatform][2]    |  [Realtime gegevens verplaatsen met Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) uit een groot aantal gegevensbronnen. <br/> Realtimeplatform vereenvoudigt het realtime verzamelen en het verplaatsen van gegevens uit een groot aantal on-premises bronnen, met inbegrip van enterprise-document en relationele databases, sensoren en logboekbestanden in Azure Cosmos DB. |   USA   |  [Website](http://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Systeemintegratorpartners
 
-|**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen**  |**Neem contact op met**  |
+|**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen/regio's**  |**Neem contact op met**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL-migratie; Nieuwe app-ontwikkeling | USA | [Website](https://www.10thmagnitude.com/)|
 |![Altoros ontwikkeling, LLC][3]    |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |   Verenigde Staten, Noorwegen, Finland, Belarus, Argentinië |  [Website](http://www.altoros.com/)     |

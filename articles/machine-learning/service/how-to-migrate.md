@@ -53,7 +53,7 @@ Meer informatie over [wat gewijzigd in deze release](overview-what-happened-to-w
 
 Resources, zoals uw experimenten-accounts, Modelbeheer-accounts en machine learning compute-omgeving kunnen niet worden gemigreerd naar de nieuwste versie van Azure Machine Learning-service. Zie de [tijdlijn](overview-what-happened-to-workbench.md#timeline) op hoe lang de activa blijven werken.
 
-Aan de slag met de meest recente versie van het maken van een werkruimte van Azure Machine Learning-service in de [Azure-portal](quickstart-get-started.md). Het werkruimtedashboard van de portaal wordt alleen ondersteund in Edge, Chrome en Firefox.
+Aan de slag met de meest recente versie van het maken van een werkruimte van Azure Machine Learning-service in de [Azure-portal](quickstart-get-started.md). Het werkruimtedashboard van de portaal wordt alleen ondersteund in Microsoft Edge, Chrome en Firefox.
 
 Deze nieuwe werkruimte is de Serviceresource op het hoogste niveau en kunt u alle van de nieuwste functies van Azure Machine Learning-service gebruiken. Meer informatie over dit [werkruimte en architectuur](concept-azure-machine-learning-architecture.md).
 

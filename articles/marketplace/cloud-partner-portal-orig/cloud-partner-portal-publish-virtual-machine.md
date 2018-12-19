@@ -290,7 +290,7 @@ Gebruik de Marketplace-weergave voor het configureren van de velden die worden w
 
 ### <a name="preview-subscription-ids"></a>Preview-versie abonnement-id 's
 
-De lijst met Azure-abonnement-id's die u toegang hebben tot de aanbieding wilt wanneer de aanbieding wordt gepubliceerd. Deze abonnementen wit vermeld, kunt u voor het testen van de voorbeeld-aanbieding voordat u het live. De partner-portal kunt u witte lijst met maximaal 100 abonnementen.
+De lijst met Azure-abonnement-id's die u toegang hebben tot de aanbieding wilt wanneer de aanbieding wordt gepubliceerd. Deze abonnementen wit vermeld, kunt u voor het testen van de voorbeeld-aanbieding voordat u het live. In de partner-portal kunt u een acceptatielijst met maximaal 100 abonnementen maken.
 
 ### <a name="suggested-categories"></a>Aanbevolen categorieën
 

@@ -274,7 +274,7 @@ Sommige van de inzichten te krijgen nadat Traffic Analytics is volledig geconfig
 
 - De geo-kaart toont de distributie van verkeer naar een datacenter uit andere landen en continenten communicatie met deze in het blauw (goedaardig verkeer) en rode (schadelijk verkeer) gekleurd regels:
 
-    ![Geografische kaartweergave distributie van verkeer in landen en continenten weergeven](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Geografische kaartweergave distributie van verkeer in landen/regio's en continenten weergeven](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Stroomgegevens voor de distributie van verkeer in zoeken in Logboeken](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 

@@ -109,7 +109,7 @@ De volgende tabel bevat de verschillende regio's dat u kunt opgeven voor aangepa
 | AUSTRALIË         | Australië            | AUD               |
 | AT         | Oostenrijk              | EUR               |
 | BH         | Bahrein              | BHD               |
-| DOOR         | Wit-Rusland              | RUB               |
+| DOOR         | Belarus              | RUB               |
 | WORDEN         | België              | EUR               |
 | BR         | Brazilië               | USD               |
 | BG         | Bulgarije             | BGN               |
@@ -149,7 +149,7 @@ De volgende tabel bevat de verschillende regio's dat u kunt opgeven voor aangepa
 | LI         | Liechtenstein        | CHF               |
 | LT         | Litouwen            | EUR               |
 | LU         | Luxemburg           | EUR               |
-| MK         | Macedonië Macedonisch       | MKD               |
+| MK         | Macedonië (FYROM) Macedonisch       | MKD               |
 | MIJN         | Maleisië             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexico               | MXN               |
