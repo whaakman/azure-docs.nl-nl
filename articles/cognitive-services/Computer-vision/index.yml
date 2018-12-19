@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: da70af8eb2239fb9246071605aa5323e2e9e041e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eea9875be7926614811327dfeb89b721b43436e2
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958438"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580263"
 documentType: LandingData
 title: Documentatie voor Computer Vision-API
 metadata:
-  title: Documentatie voor Computer Vision-API - Snelstarts, zelfstudies, API-verwijzingen - Azure Cognitive Services | Microsoft Docs
+  title: API-documentatie - Computer Vision - Azure Cognitive Services | Microsoft Docs
   description: Informatie over hoe u Computer Vision gebruikt voor het verwerken van afbeeldingen en het retourneren van informatie. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de API.
   services: cognitive-services
   author: nitinme
@@ -20,6 +20,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/24/2018
   ms.author: nitinme
+ms.custom: seodec18
 abstract:
   description: De cloud-gebaseerde Computer Vision-API geeft ontwikkelaars toegang tot geavanceerde algoritmen voor het verwerken van afbeeldingen en het retourneren van informatie. Door een afbeelding te uploaden of een afbeeldings-URL op te geven, kan visuele inhoud door Microsoft Computer Vision-algoritmen op verschillende manieren worden geanalyseerd op basis van invoer en gebruikersopties. Leer met behulp van snelstarts, zelfstudies en voorbeelden hoe u visuele inhoud op verschillende manieren kunt analyseren.
   aside:
@@ -101,4 +102,4 @@ sections:
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure-CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure-CLI</a></p>

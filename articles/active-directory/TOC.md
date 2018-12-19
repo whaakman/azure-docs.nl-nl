@@ -275,6 +275,7 @@
 ##### [Probleem bij het opslaan van administrorreferenties tijdens het configureren van gebruikersinrichting galerie-app](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [Gebruikers zijn niet ingericht - galerie-app](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
 ##### [Verkeerde gebruikers ingericht - galerie-app](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [SCIM-compatibiliteitsproblemen - app buiten de galerie](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Eenmalige aanmelding
 ##### [Een methode kiezen](manage-apps/single-sign-on-modes.md)
@@ -321,10 +322,10 @@
 ## [Problemen oplossen](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Azure AD Proof of Concept (PoC) implementeren
-### [PoC Playbook: inleiding](active-directory-playbook-intro.md)
-### [PoC Playbook: onderdelen](active-directory-playbook-ingredients.md)
-### [PoC Playbook: implementatie](active-directory-playbook-implementation.md)
-### [PoC Playbook: bouwstenen](active-directory-playbook-building-blocks.md)
+### [PoC-playbook: Inleiding](active-directory-playbook-intro.md)
+### [PoC-playbook: Onderdelen](active-directory-playbook-ingredients.md)
+### [PoC-playbook: Implementatie](active-directory-playbook-implementation.md)
+### [PoC-playbook: Bouwstenen](active-directory-playbook-building-blocks.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory)
