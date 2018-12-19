@@ -39,11 +39,11 @@ items:
   - name: Gegevens visualiseren in Log Analytics
     href: learn/tutorial-logs-dashboards.md
   - name: Metrische gegevens en logboekgegevens van het platform archiveren
-    href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-archive-data.md
   - name: Waarschuwing bij logboekgegevens
     href: learn/tutorial-response.md
   - name: Automatisch schalen op basis van prestaties en schema
-    href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-autoscale-performance-schedule.md
   - name: Runtime-toepassingsuitzonderingen vinden
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
   - name: Toepassingsprestatieproblemen vinden
@@ -367,8 +367,6 @@ items:
           href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
         - name: Dynamics CRM
           href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
-        - name: Meer platforms
-          href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
       - name: Slimme detectie
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
@@ -426,10 +424,8 @@ items:
         href: platform/data-collector-api.md
       - name: Pijplijnvoorbeeld voor API voor Log Analytics-gegevensverzamelaar
         href: platform/create-pipeline-datacollector-api.md
-      - name: Toepassingsgegevens
-        href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
       - name: REST API voor opslag van metrische gegevens
-        href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/metrics-store-custom-rest-api.md
       - name: GuestOS naar opslag voor metrische gegevens als Linux-VM (Telegraf)
         href: platform/collect-custom-metrics-linux-telegraf.md
     - name: System Center
@@ -447,9 +443,9 @@ items:
       - name: Diagnostische logboeken opslaan
         href: platform/diagnostic-logs-stream-log-store.md
       - name: Activiteitenlogboek streamen naar Event Hubs
-        href: ../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/activity-logs-stream-event-hubs.md
       - name: Logboeken en metrische gegevens naar Event Hub
-        href: ../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diagnostische logboeken naar Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Toepassingsgegevens naar Log Analytics
@@ -538,7 +534,7 @@ items:
       - name: Docker-toepassingen bewaken
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
     - name: Resourcegroepen controleren
-      href: ../monitoring-and-diagnostics/resource-group-insights.md?toc=/azure/azure-monitor/toc.json
+      href: insights/resource-group-insights.md
     - name: Databases bewaken
       items:
       - name: Azure SQL
@@ -659,7 +655,7 @@ items:
     - name: Gebeurtenissen in het activiteitenlogboek bekijken
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: Servicemeldingen bekijken
-      href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+      href: platform/service-notifications.md
     - name: Query uitvoeren op logboekgegevens
       items:
       - name: Documentatie voor querytaal
@@ -754,7 +750,7 @@ items:
         - name: Webhookacties voor logboekwaarschuwingen
           href: platform/alerts-log-webhook.md
         - name: Problemen met logboekwaarschuwingen oplossen
-          href: ../monitoring-and-diagnostics/alert-log-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alert-log-troubleshoot.md
       - name: Waarschuwingen voor activiteitenlogboeken gebruiken
         items:
         - name: Meldingen configureren voor waarschuwingen van het activiteitenlogboek
@@ -800,7 +796,7 @@ items:
       - name: Stapsgewijze handleiding voor automatisch schalen
         href: platform/autoscale-get-started.md
       - name: Inzicht in instellingen voor automatisch schalen
-        href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-understanding-settings.md
       - name: Aanbevolen procedures
         href: platform/autoscale-best-practices.md
       - name: Algemene metrische gegevens
@@ -818,7 +814,7 @@ items:
     - name: Servicemeldingen
       items:
       - name: Servicemeldingen bekijken
-        href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+        href: platform/service-notifications.md
       - name: Waarschuwingen voor servicemeldingen configureren
         href: platform/alerts-activity-log-service-notifications.md
     - name: IT Service Management
@@ -846,7 +842,7 @@ items:
     - name: PowerShell
       items:
       - name: Azure PowerShell-voorbeelden
-        href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
+        href: platform/powershell-quickstart-samples.md
       - name: PowerShell-cmdlets
         href: platform/powershell-workspace-configuration.md
       - name: Toepassingen
@@ -915,6 +911,8 @@ items:
       href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: NuGet-pakketten
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
+    - name: Platformondersteuning
+      href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
   - name: Application Insights-gegevensmodel
     items:
     - name: Overzicht
@@ -954,7 +952,7 @@ items:
     - name: Ondersteunde metrische gegevens
       href: platform/metrics-supported.md
     - name: Ondersteunde metrische gegevens voor nieuwere waarschuwingen
-      href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-metric-near-real-time.md
   - name: Schema 's
     items:
     - name: Services, categorieën en schema's voor diagnostische logboeken
@@ -975,7 +973,7 @@ items:
     - name: API voor klassieke automatische schaalaanpassing en metrische gegevens
       href: ./platform/classic-api-retirement-metrics-autoscale.md
     - name: Klassieke waarschuwingen en bewaking
-      href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
+      href: platform/monitoring-classic-retirement.md
     - name: Waarschuwingen van Log Analytics uitbreiden naar Azure
       href: platform/alerts-extend.md
     - name: Waarschuwingen van de OMS-portal kopiëren naar Azure Portal
@@ -1010,9 +1008,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Codevoorbeelden
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 31569287fa00f123d3462d6d3dc5bf35a3650d19
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 0187e9a74da758a5756ce3841953141093aa203c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549442"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601012"

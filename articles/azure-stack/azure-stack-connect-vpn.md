@@ -233,7 +233,7 @@ Om te controleren of de VPN-verbinding, twee virtuele machines maken: één in A
 6. Geef een **abonnement**, **resourcegroep**, en **locatie**, en selecteer vervolgens **OK**.
 7. Op de **grootte** sectie voor dit exemplaar, selecteer de grootte van een virtuele machine, en selecteer vervolgens **Selecteer**.
 8. Op de **instellingen** sectie, accepteer de standaardwaarden. Zorg ervoor dat de **Azs-VNet** virtueel netwerk is geselecteerd. Controleren of het subnet is ingesteld op **10.1.0.0/24**. Selecteer vervolgens **OK**.
-9. Op de **samenvatting** sectie, Controleer de instellingen en selecteer vervolgens * OK **.
+9. Op de **samenvatting** sectie, Controleer de instellingen en selecteer vervolgens *OK*\*.
 
 ## <a name="test-the-connection"></a>De verbinding testen
 
