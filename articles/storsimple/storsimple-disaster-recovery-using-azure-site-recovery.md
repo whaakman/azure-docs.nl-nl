@@ -168,16 +168,16 @@ U kunt een plan voor herstel in ASR voor het automatiseren van het failoverproce
 1. Klik in het automation-account op **variabelen** &gt; **toevoegen van een variabele** en voeg de volgende variabelen. U kunt kiezen voor het versleutelen van deze elementen. Deze variabelen zijn specifiek plan voor herstel. Als uw herstelplan, die in de volgende stap maakt u de naam is TestPlan, en vervolgens uw variabelen moeten worden TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, enzovoort.
 
    - **BaseUrl**: de Resource Manager-url voor de Azure-cloud. Met behulp van ophalen **Get-AzureRmEnvironment | De naam van de Select-Object, ResourceManagerUrl** cmdlet.
-   - * RecoveryPlanName ***- ResourceGroupName**: de Resource Manager-groep met de StorSimple-resource.
-   - * RecoveryPlanName ***- ManagerName**: het StorSimple-resource met de StorSimple-apparaat.
-   - * RecoveryPlanName ***- DeviceName**: het StorSimple-apparaat met failover.
-   - * RecoveryPlanName ***- DeviceIpAddress**: het IP-adres van het apparaat (dit kan worden gevonden in de **apparaten** tabblad onder de sectie van de StorSimple Device Manager &gt; **instellingen** &gt; **Netwerk** &gt; **DNS-instellingen** groep).
-   - * RecoveryPlanName ***- VolumeContainers**: een tekenreeks met door komma's gescheiden van de volumecontainers die aanwezig zijn op het apparaat dat moet worden kan niet meer dan, bijvoorbeeld: volcon1, volcon2, volcon3.
-   - * RecoveryPlanName ***- TargetDeviceName**: het StorSimple-Cloudapparaat waarop de containers zijn failover mogelijk is.
-   - * RecoveryPlanName ***- TargetDeviceIpAddress**: het IP-adres van het doelapparaat (dit kan worden gevonden in de **virtuele Machine** sectie &gt; **instellingen** groep &gt; **netwerken** tabblad).
-   - * RecoveryPlanName ***- StorageAccountName**: naam van het opslagaccount waarin het script (die worden gebruikt op de via virtuele machine) worden opgeslagen. Dit kan een storage-account dat de ruimte vrij voor het opslaan van het script tijdelijk is zijn.
-   - * RecoveryPlanName ***- StorageAccountKey**: de toegangssleutel voor de bovenstaande storage-account.
-   - * RecoveryPlanName ***- VMGUIDS**: bij het beveiligen van een virtuele machine, Azure Site Recovery wijst elke virtuele machine een unieke ID waarmee de details van de mislukte uitvoert voor virtuele machine. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
+   - *RecoveryPlanName* **- ResourceGroupName**: de Resource Manager-groep met de StorSimple-resource.
+   - *RecoveryPlanName* **- ManagerName**: het StorSimple-resource met de StorSimple-apparaat.
+   - *RecoveryPlanName* **- DeviceName**: het StorSimple-apparaat met failover.
+   - *RecoveryPlanName* **- DeviceIpAddress**: het IP-adres van het apparaat (dit kan worden gevonden in de **apparaten** tabblad onder de sectie van de StorSimple Device Manager &gt; **instellingen** &gt; **Netwerk** &gt; **DNS-instellingen** groep).
+   - *RecoveryPlanName* **- VolumeContainers**: een tekenreeks met door komma's gescheiden van de volumecontainers die aanwezig zijn op het apparaat dat moet worden kan niet meer dan, bijvoorbeeld: volcon1, volcon2, volcon3.
+   - *RecoveryPlanName* **- TargetDeviceName**: het StorSimple-Cloudapparaat waarop de containers zijn failover mogelijk is.
+   - *RecoveryPlanName* **- TargetDeviceIpAddress**: het IP-adres van het doelapparaat (dit kan worden gevonden in de **virtuele Machine** sectie &gt; **instellingen** groep &gt; **netwerken** tabblad).
+   - *RecoveryPlanName* **- StorageAccountName**: naam van het opslagaccount waarin het script (die worden gebruikt op de via virtuele machine) worden opgeslagen. Dit kan een storage-account dat de ruimte vrij voor het opslaan van het script tijdelijk is zijn.
+   - *RecoveryPlanName* **- StorageAccountKey**: de toegangssleutel voor de bovenstaande storage-account.
+   - *RecoveryPlanName* **- VMGUIDS**: bij het beveiligen van een virtuele machine, Azure Site Recovery wijst elke virtuele machine een unieke ID waarmee de details van de mislukte uitvoert voor virtuele machine. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
 
     Bijvoorbeeld, als de naam van het herstelplan is fileServerpredayRP, vervolgens uw **variabelen**, **verbindingen** en **certificaten** tabblad moet als volgt worden weergegeven nadat u hebt toegevoegd alle assets.
 
