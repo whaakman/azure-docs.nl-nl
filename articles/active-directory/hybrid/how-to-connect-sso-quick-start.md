@@ -200,7 +200,7 @@ Het gebruik van Active Directory-groepsbeleid uitbreidingen van derden in de URL
 
 #### <a name="known-browser-limitations"></a>Browser bekende beperkingen
 
-Naadloze eenmalige aanmelding werkt niet in de privémodus bladeren in Firefox en Edge browsers. Dit ook werkt niet in Internet Explorer als de browser wordt uitgevoerd in de uitgebreide beveiligde modus.
+Naadloze eenmalige aanmelding werkt niet in de privémodus bladeren in Firefox en Microsoft Edge browsers. Dit ook werkt niet in Internet Explorer als de browser wordt uitgevoerd in de uitgebreide beveiligde modus.
 
 ## <a name="step-4-test-the-feature"></a>Stap 4: De functie testen
 

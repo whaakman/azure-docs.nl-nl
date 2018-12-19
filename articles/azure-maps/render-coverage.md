@@ -40,13 +40,13 @@ Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de 
 | Botswana                         | ✓ | ✓ |
 | Burkina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
-| Kaapverdië                       |   | ✓ |
+| Cabo Verde                       |   | ✓ |
 | Kameroen                         | ✓ | ✓ |
 | Centraal-Afrikaanse Republiek         |   | Ø |
 | Tsjaad                             |   | Ø |
 | Comoren                          |   | Ø |
-| Congo                            | ✓ | ✓ |
-| Congo-Kinshasa | ✓ | ✓ |
+| Congo-Brazzaville                            | ✓ | ✓ |
+| Congo (DRC) | ✓ | ✓ |
 | Ivoorkust                    |   | Ø |
 | Djibouti                         |   | Ø |
 | Egypte                            | ✓ | ✓ |

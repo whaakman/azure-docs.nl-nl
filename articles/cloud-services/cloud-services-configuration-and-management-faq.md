@@ -208,7 +208,7 @@ Deze stappen kunnen worden geautomatiseerd via een opstarttaak, zodat wanneer ee
 Zodra dit is gedaan, kunt u controleren of de HTTP/2 is ingeschakeld of niet met behulp van een van de volgende methoden:
 
 - Protocolversie in IIS-logboeken inschakelen en zoek naar de IIS-logboeken. HTTP/2 wordt het weergegeven in de logboeken. 
-- Schakel F12 Tool voor ontwikkelaars in Internet Explorer/Edge en Ga naar het tabblad netwerk om te controleren of het protocol. 
+- Schakel F12 Tool voor ontwikkelaars in Internet Explorer/Microsoft Edge en Ga naar het tabblad netwerk om te controleren of het protocol. 
 
 Zie voor meer informatie, [HTTP/2 op IIS](https://blogs.iis.net/davidso/http2).
 

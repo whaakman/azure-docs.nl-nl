@@ -27,7 +27,7 @@ U kunt geeft u een land/regio met de `cc` queryparameter. Als u een land/regio o
 
 De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar wederzijds uit, niet beide opgeeft. Zie voor meer informatie, [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
-## <a name="countries"></a>Landen
+## <a name="countries"></a>Landen/regio's
 
 |Land/regio|Code|
 |-------|----|
@@ -42,7 +42,7 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |Finland|FI|
 |Frankrijk|FR|
 |Duitsland|DE|
-|Hongkong|HK|
+|Hongkong SAR|HK|
 |India|IN|
 |Indonesië|ID|
 |Italië|it|
@@ -86,7 +86,7 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |Finland|Fins|fi-FI|
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
-|Hongkong|Traditioneel Chinees|zh-HK|
+|Hongkong SAR|Traditioneel Chinees|zh-HK|
 |India|Engels|NL-IN|
 |Indonesië|Engels|NL-ID|
 |Italië|Italiaans|IT-IT|

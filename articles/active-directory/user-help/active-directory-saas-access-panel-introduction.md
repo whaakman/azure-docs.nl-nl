@@ -65,7 +65,7 @@ Het installatieprogramma is specifiek voor architectuur. Als u op de koppeling k
 
 
 De extensie van MyApps-portal is momenteel beschikbaar voor:
-- **Edge**: Windows 10 Anniversary Edition of hoger. 
+- **Microsoft Edge**: Windows 10 Anniversary Edition of hoger. 
 - **Chrome**: op Windows 7 of hoger, en op Mac OS X of hoger.
 - **Firefox 26,0 of hoger**: in Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
 - **Internet Explorer 11**: op Windows 7 of hoger (beperkte ondersteuning).

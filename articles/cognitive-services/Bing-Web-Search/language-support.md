@@ -40,7 +40,7 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Finland|FI|
 |Frankrijk|FR|
 |Duitsland|DE|
-|Hongkong|HK|
+|Hongkong SAR|HK|
 |India|IN|
 |Indonesië|Id|
 |Italië|IT|
@@ -83,7 +83,7 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Finland|Fins|fi-FI|
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
-|Hongkong|Traditioneel Chinees|zh-HK|
+|Hongkong SAR|Traditioneel Chinees|zh-HK|
 |India|Nederlands|NL-IN|
 |Indonesië|Nederlands|NL-ID|
 |Italië|Italiaans|IT-IT|

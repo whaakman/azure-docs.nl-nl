@@ -60,7 +60,7 @@ Voor meer informatie over **legalAgeGroupClassification**, **consentProvidedForM
 
 ## <a name="gather-date-of-birth-and-country-data"></a>Datum van geboortedatum en land-gegevens verzamelen
 
-Toepassingen mogelijk afhankelijk van de Azure AD B2C voor het verzamelen van de datum van de geboortedatum (geboortedatum) en het land van alle gebruikers tijdens de registratie. Als deze informatie nog niet bestaat, de toepassing kan aanvragen het van de gebruiker tijdens de volgende reis van verificatie (aanmelden). Gebruikers kunnen niet worden voortgezet zonder op te geven hun geboortedatum en land. Azure AD B2C gebruikt de informatie om te bepalen of de afzonderlijke wordt beschouwd als een minderjarige op basis van het wettelijk verplichte standaarden van dat land. 
+Toepassingen mogelijk afhankelijk van de Azure AD B2C voor het verzamelen van de datum van de geboortedatum (geboortedatum) en het land van alle gebruikers tijdens de registratie. Als deze informatie nog niet bestaat, de toepassing kan aanvragen het van de gebruiker tijdens de volgende reis van verificatie (aanmelden). Gebruikers kunnen niet worden voortgezet zonder op te geven hun geboortedatum en land. Azure AD B2C gebruikt de informatie om te bepalen of de afzonderlijke wordt beschouwd als een minderjarige op basis van het wettelijk verplichte standaarden van dat land/die regio. 
 
 Een aangepaste gebruikersstroom kunt verzamelen geboortedatum en landinformatie en gebruik Azure AD B2C claims transformatie om te bepalen de **ageGroup** en het resultaat blijven (of blijven de geboortedatum en landinformatie rechtstreeks) in de map.
 

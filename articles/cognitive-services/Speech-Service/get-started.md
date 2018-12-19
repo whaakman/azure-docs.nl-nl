@@ -42,7 +42,7 @@ Om u te registreren voor een gratis proefversie van 30 dagen:
 
    ![API-sleutel](media/index/try-speech-api-free-trial2.png)
 
-1. Ga akkoord met de voorwaarden en selecteer uw land uit de vervolgkeuzelijst.
+1. Ga akkoord met de voorwaarden en selecteer uw land/regio uit de vervolgkeuzelijst.
 
    ![Ga akkoord met voorwaarden](media/index/try-speech-api-free-trial3.png)
 

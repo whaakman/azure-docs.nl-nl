@@ -19,7 +19,7 @@ ms.locfileid: "48901122"
 ---
 # <a name="supported-languages"></a>Ondersteunde talen
 
-Conversatiecursist ondersteunt momenteel de volgende talen en landen.
+Conversatiecursist ondersteunt momenteel de volgende talen en landen/regio's.
 
 |Ondersteunde talen| Landinstelling|
 |-----|----|

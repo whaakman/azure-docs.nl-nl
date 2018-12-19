@@ -65,7 +65,7 @@ Ja. Naadloze eenmalige aanmelding ondersteunt `Alternate ID` als de gebruikersna
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Wat is het verschil tussen de ervaring voor eenmalige aanmelding verstrekt door [Azure AD Join](../active-directory-azureadjoin-overview.md) en naadloze eenmalige aanmelding?
 
-[Azure AD Join](../active-directory-azureadjoin-overview.md) biedt eenmalige aanmelding voor gebruikers als hun apparaten zijn geregistreerd bij Azure AD. Deze apparaten hoeven niet te worden van domein. Eenmalige aanmelding wordt geleverd met behulp van *primaire vernieuwingstokens* of *PRTs*, en niet Kerberos. De gebruikerservaring is optimale op Windows 10-apparaten. Eenmalige aanmelding wordt automatisch uitgevoerd op de Edge-browser. Het werkt ook op Chrome met het gebruik van een browserextensie.
+[Azure AD Join](../active-directory-azureadjoin-overview.md) biedt eenmalige aanmelding voor gebruikers als hun apparaten zijn geregistreerd bij Azure AD. Deze apparaten hoeven niet te worden van domein. Eenmalige aanmelding wordt geleverd met behulp van *primaire vernieuwingstokens* of *PRTs*, en niet Kerberos. De gebruikerservaring is optimale op Windows 10-apparaten. Eenmalige aanmelding wordt automatisch uitgevoerd op de Microsoft Edge-browser. Het werkt ook op Chrome met het gebruik van een browserextensie.
 
 U kunt Azure AD-aanmelding en naadloze eenmalige aanmelding gebruiken op uw tenant. Deze twee functies zijn aanvullende. Als beide functies zijn ingeschakeld, klikt u vervolgens voorrang eenmalige aanmelding van Azure AD Join boven naadloze eenmalige aanmelding.
 

@@ -64,7 +64,7 @@ Voor eenmalige aanmelding op basis van wachtwoorden kunnen van de eindgebruiker 
 
 -   Internet Explorer 8, 9, 10, 11--op Windows 7 of hoger
 
--   Edge op Windows 10 Anniversary Edition of hoger 
+-   Microsoft Edge op Windows 10 Anniversary Edition of hoger 
 
 -   Chrome--Op Windows 7 of hoger, en op Mac OS X of hoger
 

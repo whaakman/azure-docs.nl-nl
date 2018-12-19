@@ -206,7 +206,7 @@ Het resultaat genereert:
 
 ![Application Insights werkmappen sectie besturingselementen bewerken](./media/app-insights-usage-workbooks/011-data-table.png)
 
-Een voorbeeld van een meer van toepassing is een vervolgkeuzelijst gebruiken om op te halen uit een aantal landen met de naam:
+Een voorbeeld van een meer van toepassing is een vervolgkeuzelijst gebruiken om op te halen uit een aantal landen/regio's met de naam:
 
 ```
 customEvents

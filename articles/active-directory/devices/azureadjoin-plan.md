@@ -167,7 +167,7 @@ De volgende secties worden de overwegingen voor verschillende soorten toepassing
 
 ### <a name="cloud-based-applications"></a>Cloud-Apps
 
-Als een toepassing wordt toegevoegd aan Azure AD-app-galerie, krijgen gebruikers eenmalige aanmelding via Azure AD gekoppelde apparaten. Er is geen aanvullende configuratie vereist. Gebruikers krijgen eenmalige aanmelding op zowel, Edge en Chrome-browser. Voor Chrome, moet u implementeren de [Windows 10-Accounts extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Als een toepassing wordt toegevoegd aan Azure AD-app-galerie, krijgen gebruikers eenmalige aanmelding via Azure AD gekoppelde apparaten. Er is geen aanvullende configuratie vereist. Gebruikers krijgen eenmalige aanmelding op zowel, Microsoft Edge en Chrome-browser. Voor Chrome, moet u implementeren de [Windows 10-Accounts extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Alle Win32-toepassingen die:
 

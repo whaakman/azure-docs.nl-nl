@@ -28,7 +28,7 @@ Dit artikel helpt u problemen met Azure Active Directory-toepassingsproxy-toepas
 ## <a name="overview"></a>Overzicht
 Wanneer u een Application Proxy-app publiceert, zijn alleen pagina's in de hoofdmap van uw toegankelijk bij het openen van de toepassing. Als de pagina wordt niet correct weergegeven, kan de interne basis-URL die wordt gebruikt voor de toepassing enkele pagina resources ontbreken. Als u wilt oplossen, zorg ervoor dat u hebt gepubliceerd *alle* de resources voor de pagina als onderdeel van uw toepassing.
 
-U kunt controleren als het probleem ontbrekende resources is door het openen van het beheer van uw netwerk (zoals Fiddler of F12 tools in Internet Explorer/Edge), het laden van de pagina en zoek naar 404-fouten. Dat geeft aan de pagina's op dit moment kunnen niet worden gevonden en dat u wilt publiceren.
+U kunt controleren als het probleem ontbrekende resources is door het openen van het beheer van uw netwerk (zoals Fiddler of F12 tools in Internet Explorer/Microsoft Edge), het laden van de pagina en zoek naar 404-fouten. Dat geeft aan de pagina's op dit moment kunnen niet worden gevonden en dat u wilt publiceren.
 
 Als een voorbeeld van deze aanvraag, wordt ervan uitgegaan een onkosten-toepassing met behulp van de interne URL publiceert http://myapps/expenses, maar de app gebruikmaakt van het opmaakmodel http://myapps/style.css. Het opmaakmodel is in dit geval niet gepubliceerd in uw toepassing, zodat het laden van de app onkosten genereert een 404-fout tijdens het laden van style.css. In dit voorbeeld wordt het probleem is opgelost door het publiceren van de toepassing met een interne URL http://myapp/.
 

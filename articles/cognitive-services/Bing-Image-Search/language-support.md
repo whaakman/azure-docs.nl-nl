@@ -3,19 +3,19 @@ title: Taalondersteuning - Bing afbeeldingen zoeken-API
 titleSuffix: Azure Cognitive Services
 description: Ontdek welke landen/regio's en talen worden ondersteund door de Bing afbeeldingen zoeken-API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: db9e1acec881a182b111cb1c913da607e4f8311a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: aahi
+ms.openlocfilehash: e5c9a4291501c657a94509aec2edd90d00ab795d
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435460"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160424"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Ondersteuning voor taal en regio voor de Bing afbeeldingen zoeken-API
 
@@ -32,14 +32,14 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 > - en-AU (Engels, Australië)
 > - zh-CN (Chinees, China)
 
-## <a name="countries"></a>Landen
+## <a name="countries"></a>Landen/regio's
 
 |Land/regio|Code|
 |-------|----|
 |Argentinië|AR|
-|Australië|AUSTRALIË|
+|Australië|AU|
 |Oostenrijk|AT|
-|België|WORDEN|
+|België|BE|
 |Brazilië|BR|
 |Canada|CA|
 |Chili|CL|
@@ -47,28 +47,28 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Finland|FI|
 |Frankrijk|FR|
 |Duitsland|DE|
-|Hongkong|HK|
+|Hongkong SAR|HK|
 |India|IN|
 |Indonesië|Id|
 |Italië|IT|
 |Japan|JP|
 |Korea|KR|
-|Maleisië|MIJN|
+|Maleisië|MY|
 |Mexico|MX|
 |Nederland|NL|
 |Nieuw-Zeeland|NZ|
-|Noorwegen|NEE|
-|China|ALGEMENE NAAM|
+|Noorwegen|NO|
+|China|CN|
 |Polen|PL|
 |Portugal|PT|
-|Filippijnen|PH|
+|Filipijnen|PH|
 |Rusland|RU|
 |Saoedi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
-|Zweden|TWEEDE EDITIE|
+|Zweden|SE|
 |Zwitserland|CH|
-|Taiwan|TWEE|
+|Taiwan|TW|
 |Turkije|TR|
 |Verenigd Koninkrijk|GB|
 |Verenigde Staten|VS|
@@ -91,7 +91,7 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Finland|Fins|fi-FI|
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
-|Hongkong|Traditioneel Chinees|zh-HK|
+|Hongkong SAR|Traditioneel Chinees|zh-HK|
 |India|Nederlands|NL-IN|
 |Indonesië|Nederlands|NL-ID|
 |Italië|Italiaans|IT-IT|
@@ -104,7 +104,7 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filippijnen|Nederlands|NL-PH|
+|Filipijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
 |Saoedi-Arabië|Arabisch|ar-SA|
 |Zuid-Afrika|Nederlands|NL-ZA|

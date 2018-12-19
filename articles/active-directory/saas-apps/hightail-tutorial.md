@@ -162,7 +162,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Eenmalige aanmelding configureren](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
     >[!NOTE]
-    >Voordat u configureert de eenmalige aanmelding bij Hightail app, neemt u witte lijst uw e-maildomein met Hightail team, zodat alle gebruikers die dit domein functionaliteit voor eenmalige aanmelding kunnen gebruiken.
+    >Voordat u configureert de eenmalige aanmelding bij Hightail app, neemt u de accpetatielijst op in uw e-maildomein met Hightail team, zodat alle gebruikers die dit domein functionaliteit voor eenmalige aanmelding kunnen gebruiken.
 
 1. Open in een ander browservenster de **Hightail** -beheerportal.
 

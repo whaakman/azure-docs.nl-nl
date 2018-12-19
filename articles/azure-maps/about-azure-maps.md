@@ -115,7 +115,7 @@ Azure Maps maakt gebruik van een verificatieschema op basis van sleutels. Uw acc
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-De Azure Maps-API is momenteel wereldwijd beschikbaar, met uitzondering van de volgende landen:
+De Azure Maps-API is momenteel wereldwijd beschikbaar, met uitzondering van de volgende landen/regio's:
 
 * Argentinië
 * China

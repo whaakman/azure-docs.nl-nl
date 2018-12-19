@@ -36,7 +36,7 @@ Ten minste het toegangsvenster vereist een browser die ondersteuning biedt voor 
 
 U kunt een van de volgende browsers gebruiken voor eenmalige aanmelding op basis van wachtwoorden:
 
-- **Edge**: Windows 10 Anniversary Edition of hoger. 
+- **Microsoft Edge**: Windows 10 Anniversary Edition of hoger. 
 - **Chrome**: op Windows 7 of hoger, en op Mac OS X of hoger.
 - **Firefox 26,0 of hoger**: in Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
 
@@ -62,7 +62,7 @@ Voor het installeren van de uitbreiding voor toegang tot deelvenster browser, he
 U kunt ook de extensie downloaden voor Chrome en Microsoft Edge rechtstreeks vanuit de volgende sites:
 
 - [Chrome-extensie](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge-extensie](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Microsoft Edge-extensie](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Gebruik de mijn Apps beveiligde aanmelding-extensie
 * Als u een URL voor mijn Apps dan `https://myapps.microsoft.com`, de standaard-URL configureren door het volgende te doen:
@@ -112,7 +112,7 @@ Zie voor stapsgewijze instructies over het configureren van het Groepsbeleid en 
 Zie voor toegang tot een hulpprogramma voor diagnostische gegevens en informatie over het configureren van de extensie voor Internet Explorer, [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](manage-access-panel-browser-extension.md).
 
 > [!NOTE]
-> Internet Explorer is ingeschakeld beperkte ondersteuning en nieuwe software-updates niet meer ontvangt. Edge is de aanbevolen browser.
+> Internet Explorer is ingeschakeld beperkte ondersteuning en nieuwe software-updates niet meer ontvangt. Microsoft Edge is de aanbevolen browser.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Als de voorgaande stappen het probleem niet verhelpen
 

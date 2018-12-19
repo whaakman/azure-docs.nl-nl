@@ -49,7 +49,7 @@ De MyApps-portal vereist een browser die ondersteuning biedt voor JavaScript en 
 
 Controleren om ervoor te zorgen dat u voldoet aan de volgende browservereisten:
 
-- **Edge**: Windows 10 Anniversary Edition of hoger.
+- **Microsoft Edge**: Windows 10 Anniversary Edition of hoger.
 - **Chrome**: op Windows 7 of hoger, en in Mac OS X of hoger.
 - **Firefox 26,0 of hoger**: in Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
 - **Internet Explorer 11**: op Windows 7 of hoger (beperkte ondersteuning).

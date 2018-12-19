@@ -131,7 +131,7 @@ Als uw ILB as-omgeving de domeinnaam *contoso.net* en de appnaam van uw is *test
 
 ## <a name="functions-and-web-jobs"></a>Functions en webjobs ##
 
-Zowel Functions als Web taken zijn afhankelijk van de SCM-site, maar worden ondersteund voor gebruik in de portal, zelfs als uw apps in een ILB as-omgeving, zo lang uw browser de SCM-site kunt bereiken.  Als u van een zelfondertekend certificaat met uw ILB as-omgeving gebruikmaakt, moet u uw browser naar het certificaat vertrouwd inschakelen.  Is in het computerarchief van de vertrouwensrelatie voor Internet Explorer en Edge dat betekent het certificaat dat.  Als u met chrome werkt en dat betekent dat u het certificaat in de browser eerder geaccepteerd dat door waarschijnlijk te maken met de scm-site rechtstreeks.  De beste oplossing is het gebruik van een commercieel certificaat in de vertrouwensketen van de browser.  
+Zowel Functions als Web taken zijn afhankelijk van de SCM-site, maar worden ondersteund voor gebruik in de portal, zelfs als uw apps in een ILB as-omgeving, zo lang uw browser de SCM-site kunt bereiken.  Als u van een zelfondertekend certificaat met uw ILB as-omgeving gebruikmaakt, moet u uw browser naar het certificaat vertrouwd inschakelen.  Is in het computerarchief van de vertrouwensrelatie voor Internet Explorer en Microsoft Edge dat betekent het certificaat dat.  Als u met chrome werkt en dat betekent dat u het certificaat in de browser eerder geaccepteerd dat door waarschijnlijk te maken met de scm-site rechtstreeks.  De beste oplossing is het gebruik van een commercieel certificaat in de vertrouwensketen van de browser.  
 
 ## <a name="ase-ip-addresses"></a>ASE-IP-adressen ##
 

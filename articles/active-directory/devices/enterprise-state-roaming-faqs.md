@@ -31,7 +31,7 @@ In dit artikel vindt u antwoorden op enkele vragen die IT-beheerders mogelijk ov
 
 * *Thema*, waaronder functies zoals bureaubladinstellingen thema en de taakbalk.
 * *Instellingen van Internet Explorer*, met inbegrip van onlangs geopende tabbladen en Favorieten.
-* *Edge-browserinstellingen*, zoals Favorieten en leeslijst.
+* *Microsoft Edge-browserinstellingen*, zoals Favorieten en leeslijst.
 * *Wachtwoorden*, met inbegrip van wachtwoorden voor Internet-, Wi-Fi-profielen en anderen.
 * *Taalvoorkeuren*, waaronder instellingen voor de toetsenbord-indelingen, systeemtaal, datum en tijd en meer.
 * *Gebruiksgemak toegangsfuncties*, zoals thema met hoog contrast en Narrator, Vergrootglas.

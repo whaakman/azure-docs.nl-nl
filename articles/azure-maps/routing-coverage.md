@@ -46,8 +46,8 @@ De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 | Burkina Faso                   |        ✓       |
 | Burundi                        |        ✓       |
 | Kameroen                       |        ✓       |
-| Congo                          |        ✓       |
-| Congo-Kinshasa   |        ✓       |
+| Congo-Brazzaville                          |        ✓       |
+| Congo (DRC)   |        ✓       |
 | Egypte                          |        ✓       |
 | Gabon                          |        ✓       |
 | Ghana                          |        ✓       |

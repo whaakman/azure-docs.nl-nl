@@ -22,17 +22,17 @@ De **nieuws zoeken-API** retourneert nieuws artikelen, webpagina's, afbeeldingen
 ## <a name="endpoints"></a>Eindpunten
 Als u met behulp van de API voor Bing zoekresultaten voor nieuws, verzendt een `GET` aanvraag naar een van de volgende eindpunten. De kop- en URL-parameters definiëren verder specificaties.
 
-**Eindpunt 1:** nieuwsitems op basis van de zoekquery van de gebruiker geretourneerd. Als de query leeg is, retourneert de aanroep van de bovenste nieuwsartikelen. De query `?q=""` optie kan ook worden gebruikt met de `/news` URL. Zie voor beschikbaarheid, [ondersteunde landen en markten](language-support.md#supported-markets-for-news-search-endpoint).
+**Eindpunt 1:** nieuwsitems op basis van de zoekquery van de gebruiker geretourneerd. Als de query leeg is, retourneert de aanroep van de bovenste nieuwsartikelen. De query `?q=""` optie kan ook worden gebruikt met de `/news` URL. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-search-endpoint).
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-**Eindpunt 2:** retourneert de nieuws-items per categorie. U kunt de beste zakelijke, sport of entertainment artikelen zijn die specifiek aanvragen `category=business`, `category=sports`, of `category=entertainment`.  De `category` parameter kan alleen worden gebruikt met de `/news` URL. Er zijn een paar formele vereisten voor het opgeven van categorieën; Raadpleeg `category` in de [queryparameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) documentatie. Zie voor beschikbaarheid, [ondersteunde landen en markten](language-support.md#supported-markets-for-news-endpoint).
+**Eindpunt 2:** retourneert de nieuws-items per categorie. U kunt de beste zakelijke, sport of entertainment artikelen zijn die specifiek aanvragen `category=business`, `category=sports`, of `category=entertainment`.  De `category` parameter kan alleen worden gebruikt met de `/news` URL. Er zijn een paar formele vereisten voor het opgeven van categorieën; Raadpleeg `category` in de [queryparameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) documentatie. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-endpoint).
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-**3-eindpunt:** nieuwsonderwerpen retourneert die momenteel zijn populair op sociale netwerken. Wanneer de `/trendingtopics` optie is opgenomen, zoeken in Bing verschillende andere parameters worden genegeerd, zoals `freshness` en `?q=""`. Zie voor beschikbaarheid, [ondersteunde landen en markten](language-support.md#supported-markets-for-news-trending-endpoint).
+**3-eindpunt:** nieuwsonderwerpen retourneert die momenteel zijn populair op sociale netwerken. Wanneer de `/trendingtopics` optie is opgenomen, zoeken in Bing verschillende andere parameters worden genegeerd, zoals `freshness` en `?q=""`. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-trending-endpoint).
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```

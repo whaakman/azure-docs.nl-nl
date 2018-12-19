@@ -60,7 +60,7 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [wachtwoord-H
 - Het is een gratis functie en hoeft u betaald edities van Azure AD om deze te gebruiken.
 - Dit wordt ondersteund op browser gebaseerde webclients en Office-clients die ondersteuning bieden voor [moderne verificatie](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) op platforms en browsers kan Kerberos-verificatie:
 
-| OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Ja\*|Nee|Ja|Ja\*\*\*|N/A
 |Windows 8.1|Ja\*|N/A|Ja|Ja\*\*\*|N/A

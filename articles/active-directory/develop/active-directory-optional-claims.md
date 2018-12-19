@@ -68,8 +68,8 @@ De set optioneel claims die standaard beschikbaar is voor toepassingen om te geb
 | `enfpolids`                | Afgedwongen beleid voor id's. Een lijst van het beleid voor id's die zijn geëvalueerd voor de huidige gebruiker. | JWT |  |  |
 | `vnet`                     | Informatie over VNET-aanduiding. | JWT        |           |      |
 | `fwd`                      | IP-adres.| JWT    |   | Het oorspronkelijke IPv4-adres van de aanvragende client (binnen een VNET) toegevoegd |
-| `ctry`                     | Land van gebruiker | JWT |           | Azure AD-retourneert de `ctry` optionele claim als deze aanwezig is en de waarde van de claim een standaard twee letters landnummer, zoals FR, JP en SZ is. |
-| `tenant_ctry`              | Land van de tenant van de resource | JWT | | |
+| `ctry`                     | Land/regop van gebruiker | JWT |           | Azure AD-retourneert de `ctry` optionele claim als deze aanwezig is en de waarde van de claim een standaard twee letters landnummer, zoals FR, JP en SZ is. |
+| `tenant_ctry`              | Land/regop van de tenant van de resource | JWT | | |
 | `xms_pdl`          | Gewenste gegevenslocatie   | JWT | | Voor meerdere geografische gebieden tenants is dit de 3-letterige code wordt weergegeven welke geografische regio als de gebruiker zich bevindt. Zie voor meer informatie de [Azure AD Connect-documentatie over de gewenste gegevenslocatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Bijvoorbeeld: `APC` voor Azië en Stille Oceaan. |
 | `xms_pl`                   | Gebruiker gewenste taal  | JWT ||De gebruiker de taal, bij voorkeur als instellen. Afkomstig uit de starttenant, in de Gast-scenario's. LLE CC opgemaakt ("en-us '). |
 | `xms_tpl`                  | Tenant van de taal van voorkeur| JWT | | De resource-tenant de taal, bij voorkeur als instellen. Opgemaakte LLE ('en'). |

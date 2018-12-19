@@ -50,7 +50,7 @@ Wanneer [Bing spellingcontrole controleren-API-versie 7](https://azure.microsoft
 ```
  
 ### <a name="whitelist-words"></a>Lijst met toegestane adressen woorden
-De Bing spell check-API die wordt gebruikt in LUIS biedt geen ondersteuning voor een wit-lijst met woorden worden genegeerd tijdens de spelling controleren op wijzigingen. Als u witte lijst woorden of afkortingen wilt, verwerkt de utterance in de clienttoepassing met een witte lijst voordat de utterance worden verzonden naar LUIS voor intentie voorspelling.
+De Bing spell check-API die wordt gebruikt in LUIS biedt geen ondersteuning voor een wit-lijst met woorden worden genegeerd tijdens de spelling controleren op wijzigingen. Als u acceptatielijst woorden of afkortingen wilt, verwerkt de utterance in de clienttoepassing met een acceptatielijst voordat de utterance worden verzonden naar LUIS voor intentie voorspelling.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Tijdzone van de vooraf gedefinieerde datetimeV2 entiteit wijzigen
 Wanneer een LUIS-app maakt gebruik van de vooraf gedefinieerde datetimeV2 entiteit, kan een datum / tijdwaarde in het antwoord voorspelling worden geretourneerd. De tijdzone van de aanvraag wordt gebruikt om te bepalen van de juiste datum/tijd om terug te keren. Als de aanvraag afkomstig is van een bot of een andere gecentraliseerde toepassing voorafgaand aan LUIS, corrigeer dan de tijdzone die LUIS gebruikt. 

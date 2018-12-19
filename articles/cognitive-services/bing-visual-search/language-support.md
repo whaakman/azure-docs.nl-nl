@@ -49,7 +49,7 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Finland|FI|
 |Frankrijk|FR|
 |Duitsland|DE|
-|Hongkong|HK|
+|Hongkong SAR|HK|
 |India|IN|
 |Indonesië|Id|
 |Italië|IT|
@@ -93,7 +93,7 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Finland|Fins|fi-FI|
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
-|Hongkong|Traditioneel Chinees|zh-HK|
+|Hongkong SAR|Traditioneel Chinees|zh-HK|
 |India|Nederlands|NL-IN|
 |Indonesië|Nederlands|NL-ID|
 |Italië|Italiaans|IT-IT|

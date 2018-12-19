@@ -79,7 +79,7 @@ Gebruik op basis van wachtwoorden voor eenmalige aanmelding wanneer:
 Wachtwoord gebaseerde eenmalige aanmelding wordt ondersteund voor alle cloud-gebaseerde toepassingen waarvoor een op HTML gebaseerde aanmeldingspagina. De gebruiker kan een van de volgende browsers gebruiken:
 
 - Internet Explorer 11 op Windows 7 of hoger
-- Edge op Windows 10 Anniversary Edition of hoger 
+- Microsoft Edge op Windows 10 Anniversary Edition of hoger 
 - Chrome op Windows 7 of hoger, en op Mac OS X of hoger
 - Firefox 26,0 in Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger
 

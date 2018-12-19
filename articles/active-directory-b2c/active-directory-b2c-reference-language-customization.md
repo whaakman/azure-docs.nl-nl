@@ -175,7 +175,7 @@ Microsoft biedt op dit moment geen ondersteuning voor talen van rechts naar link
 ### <a name="social-identity-provider-translations"></a>Vertalingen van sociale id-provider
 Microsoft biedt de `ui_locales` OIDC-parameter voor sociale aanmeldingen. Maar sommige sociale id-providers, zoals Facebook en Google en worden ze niet gehandhaafd. 
 ### <a name="browser-behavior"></a>Gedrag van de browser
-Chrome en Firefox die beide voor hun eigen taal instellen aanvragen. Als dat een ondersteunde taal voor het geval is, wordt dit weergegeven voordat de standaardwaarde. Edge op dit moment heeft geen aanvragen voor een taal en gaat rechtstreeks naar de standaardtaal.
+Chrome en Firefox die beide voor hun eigen taal instellen aanvragen. Als dat een ondersteunde taal voor het geval is, wordt dit weergegeven voordat de standaardwaarde. Microsoft Edge op dit moment heeft geen aanvragen voor een taal en gaat rechtstreeks naar de standaardtaal.
 
 ### <a name="supported-languages"></a>Ondersteunde talen
 

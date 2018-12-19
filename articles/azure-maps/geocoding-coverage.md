@@ -231,12 +231,12 @@ De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onde
 | Burkina Faso                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Burundi                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Kameroen                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Kaapverdië|                 |                |       ✓      |      ✓     |          ✓         |
+| Cabo Verde|                 |                |       ✓      |      ✓     |          ✓         |
 | Centraal-Afrikaanse Republiek                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Tsjaad                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Congo-Brazzaville                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Ivoorkust                                       |                 |                |       ✓      |      ✓     |          ✓         |
-| Congo-Kinshasa                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Congo (DRC)                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Djibouti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egypte                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Equatoriaal-Guinea, Republiek                      |                 |                |       ✓      |      ✓     |          ✓         |

@@ -68,7 +68,7 @@ Voor eenmalige aanmelding op basis van wachtwoorden kunnen van de eindgebruiker 
 
 -   Internet Explorer 8, 9, 10, 11--op Windows 7 of hoger
 
--   Edge op Windows 10 Anniversary Edition of hoger
+-   Microsoft Edge op Windows 10 Anniversary Edition of hoger
 
 -   Chrome--Op Windows 7 of hoger, en op Mac OS X of hoger
 
@@ -96,7 +96,7 @@ U kunt ook de extensie voor Chrome en Microsoft Edge downloaden via de rechtstre
 
 -   [Chrome-extensie voor toegang deelvenster](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Edge-extensie voor toegang deelvenster](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Microsoft Edge-extensie voor toegang deelvenster](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Het configureren van eenmalige aanmelding in voor een toepassing in Azure AD-galerie
 

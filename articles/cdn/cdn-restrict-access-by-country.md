@@ -63,7 +63,7 @@ Bijvoorbeeld, een filterfunctie voor geografische regel voor het blokkeren van h
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countries"></a>De landen definiëren
-Uit de **LANDCODES** , selecteert u de landen die u wilt blokkeren of toestaan voor het pad. 
+Uit de **LANDCODES** , selecteert u de landen/regio's die u wilt blokkeren of toestaan voor het pad. 
 
 Nadat u klaar bent met het selecteren van de landen, selecteert u **opslaan** activeren van de nieuwe filterfunctie voor geografische regel. 
 

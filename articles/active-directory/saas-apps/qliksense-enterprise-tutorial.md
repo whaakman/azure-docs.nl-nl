@@ -210,7 +210,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![QlikSense][qs13]
 
-    De Host witte lijst identificeert hostnamen die bij het verbinden met de server Qlik Sense worden geaccepteerd.  **Voer de hostnaam die gebruikers opgeven bij het verbinden met Qlik Sense-server.** De hostnaam is dezelfde waarde als de uri van de host SAML zonder de https://.
+    De Host acceptatielijst identificeert hostnamen die bij het verbinden met de server Qlik Sense worden geaccepteerd.  **Voer de hostnaam die gebruikers opgeven bij het verbinden met Qlik Sense-server.** De hostnaam is dezelfde waarde als de uri van de host SAML zonder de https://.
 
 16. Klik op de **toepassen** knop.
 

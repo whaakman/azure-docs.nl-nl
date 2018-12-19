@@ -278,7 +278,7 @@ Als u besluit de opdrachten handmatig uitvoeren, volgt u deze stappen:
    > [!IMPORTANT]  
    > De AD FS MMC-module moet u de regels voor Uitgifteautorisatie configureren bij gebruik van Windows Server 2012 of 2012 R2 AD FS.
 
-4. Wanneer u Internet Explorer of de Edge-browser gebruikt voor toegang tot Azure Stack, moet u de token bindingen negeren. Anders mislukt de aanmeldingspogingen. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:
+4. Wanneer u Internet Explorer of de Microsoft Edge-browser gebruikt voor toegang tot Azure Stack, moet u de token bindingen negeren. Anders mislukt de aanmeldingspogingen. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:
 
    > [!note]  
    > Deze stap is niet van toepassing wanneer u Windows Server 2012 of 2012 R2 AD FS. Is het veilig om deze opdracht overslaan en doorgaan met de integratie.
