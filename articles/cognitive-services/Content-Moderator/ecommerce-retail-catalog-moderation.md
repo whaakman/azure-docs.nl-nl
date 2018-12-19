@@ -66,7 +66,7 @@ In ons geval definiëren we de aangepaste tags (**celebrity** (beroemdheid), **f
 > [!NOTE]
 > De zelfstudie is ontworpen om abonnementssleutels te gebruiken in de regio's die zichtbaar zijn in de volgende eindpunten. Zorg ervoor dat uw API-sleutels overeenkomen met de regio-URI’s, anders werken uw sleutels mogelijk niet met de volgende eindpunten:
 
-         // Your API keys
+        // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -128,11 +128,11 @@ In ons geval definiëren we de aangepaste tags (**celebrity** (beroemdheid), **f
 4. Om u aan te melden, maakt u een keuze uit de lijst met beschikbare internetaccounts.
 5. Let op de API-sleutels die worden weergegeven op uw servicepagina.
     
-   ![Computer Vision API-sleutels](images/tutorial-computer-vision-keys.PNG)
+    ![Computer Vision API-sleutels](images/tutorial-computer-vision-keys.PNG)
     
 6. Raadpleeg de projectbroncode voor de functie die de afbeelding scant met de Computer Vision API.
 
-         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
+        public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
         {
             var File = ImageUrl;
             string Body = $"{{\"URL\":\"{File}\"}}";
@@ -149,7 +149,7 @@ In ons geval definiëren we de aangepaste tags (**celebrity** (beroemdheid), **f
                 ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
 
                 if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {                 
+                {
                     ReviewTags[2].Value = "true";
                 }
             }
@@ -161,7 +161,7 @@ In ons geval definiëren we de aangepaste tags (**celebrity** (beroemdheid), **f
 
 1. [Meld u aan](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) bij de [Custom Vision API-preview](https://www.customvision.ai/).
 2. Gebruik de [snelstart](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) om uw aangepaste classificatie voor het detecteren van de mogelijke aanwezigheid van vlaggen, speelgoed en pennen te bouwen.
-   ![Custom Vision Training Images](images/tutorial-ecommerce-custom-vision.PNG)
+    ![Custom Vision Training Images](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Haal de eindpunt-URL van de voorspelling op](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) voor uw aangepaste classificatie.
 4. Raadpleeg de broncode van het project om de functie te zien waarmee het voorspellingseindpunt van uw aangepaste classificatie wordt aangeroepen om uw afbeelding te scannen.
 
@@ -179,13 +179,15 @@ In ons geval definiëren we de aangepaste tags (**celebrity** (beroemdheid), **f
                 SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
             }
             return response.IsSuccessStatusCode;
-        }       
+        }
  
 ## <a name="reviews-for-human-in-the-loop"></a>Beoordelingen voor persoon in de lus
 
 1. In de vorige paragrafen hebt u de binnenkomende afbeeldingen gescand op inhoud voor volwassen en ongepaste inhoud (Content Moderator), beroemdheden (Computer Vision) en vlaggen (Custom Vision).
 2. Maak op basis van onze matchdrempels voor elke scan de genuanceerde gevallen beschikbaar voor menselijke beoordeling in het beoordelingsprogramma.
-        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
+
+        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata)
+        {
 
             ReviewCreationRequest Review = new ReviewCreationRequest();
             Review.Item[0] = new ReviewItem();
@@ -207,7 +209,10 @@ In ons geval definiëren we de aangepaste tags (**celebrity** (beroemdheid), **f
 
 1. In deze zelfstudie wordt ervan uitgegaan dat er een map 'C:Test' bestaat die een tekstbestand met een lijst met afbeeldings-URL's bevat.
 2. De volgende code controleert het bestaan ​​van het bestand en leest alle URL's naar het geheugen.
-            // Controleer een testdirectory op een tekstbestand met de lijst met afbeeldings-URL's om te scannen var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
+
+            // Controleer een testdirectory op een tekstbestand met de lijst met afbeeldings-URL's om te scannen
+            var topdir = @"C:\test\";
+            var Urlsfile = topdir + "Urls.txt";
 
             if (!Directory.Exists(topdir))
                 return;
@@ -224,7 +229,12 @@ In ons geval definiëren we de aangepaste tags (**celebrity** (beroemdheid), **f
 
 1. Deze functie op het hoogste niveau doorloopt alle afbeeldings-URL's in het tekstbestand dat we eerder noemden.
 2. Ze worden met elke API gescand, en als de betrouwbaarheidsscore van de overeenkomst binnen onze criteria valt, wordt een beoordeling gemaakt voor menselijke moderators.
-             // voor elke afbeeldings-URL in het bestand... foreach (var Url in Urls) { // Initialiseer een nieuwe matrix met beoordelingstags ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
+
+            // voor elke afbeeldings-URL in het bestand...
+            foreach (var Url in Urls)
+            {
+                // Initialiseer een nieuwe matrix met beoordelingstags
+                ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
 
                 // Evaluate for potential adult and racy content with Content Moderator API
                 EvaluateAdultRacy(Url, ref ReviewTags);
@@ -249,4 +259,4 @@ Ontwikkelaars die gebruikmaken van Cognitive Services, inclusief deze clientbibl
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bouw de zelfstudie en breid deze uit met de [projectbronbestanden](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) op Github.
+Bouw de zelfstudie en breid deze uit met de [projectbronbestanden](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) op GitHub.
