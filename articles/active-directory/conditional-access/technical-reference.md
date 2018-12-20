@@ -224,6 +224,7 @@ Deze instelling geldt voor de volgende client-apps:
 - Microsoft Outlook
 - Microsoft Planner
 - Microsoft PowerPoint
+- Microsoft PowerApps
 - Microsoft SharePoint
 - Microsoft Skype voor bedrijven
 - Microsoft StaffHub
