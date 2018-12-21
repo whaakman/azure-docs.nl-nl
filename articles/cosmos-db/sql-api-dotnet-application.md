@@ -1,5 +1,5 @@
 ---
-title: 'ASP.NET MVC-zelfstudie voor Azure Cosmos DB: webtoepassingsontwikkeling'
+title: 'ASP.NET MVC-zelfstudie voor Azure Cosmos DB: Webtoepassingsontwikkeling'
 description: Dit is een zelfstudie voor ASP.NET MVC om een MVC-webtoepassing met Azure Cosmos DB te maken. JSON opslaan en gegevens benaderen via een takenlijst-app die wordt gehost op Azure Websites - Stapsgewijze zelfstudie voor ASP NET MVC.
 keywords: asp.net mvc-zelfstudie, ontwikkelen van webtoepassingen, mvc-webtoepassing, asp net mvc zelfstudie stapsgewijs
 services: cosmos-db
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 8230c2ba8c7fdb10d7e37a317d4eeb5abb120d60
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b0c8d46e74eec4bad7b7e664682c97eb0f0068b6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868715"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098723"
 ---
-# <a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met Azure Cosmos DB
+# <a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: Webtoepassingsontwikkeling met Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -61,7 +61,7 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een SQL-account vo
 <br/>
 U kunt nu zien hoe u een compleet nieuwe ASP.NET MVC-toepassing maakt. 
 
-## <a name="_Toc395637762"></a>Stap 2: Een nieuwe ASP.NET MVC-toepassing maken
+## <a name="_Toc395637762"></a>Stap 2: nieuwe ASP.NET MVC-toepassing maken
 
 1. Wijs in het menu **Bestand** van Visual Studio de optie **Nieuw** aan en klik vervolgens op **Project**. Het dialoogvenster **Nieuw project** wordt weergegeven.
 
@@ -106,7 +106,7 @@ Nu de meeste ASP.NET MVC-werkzaamheden voor deze oplossing zijn voltooid, kunt u
    
     ![Schermopname van de twee verwijzingen die zijn toegevoegd aan het JSON-gegevensproject in Solution Explorer](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
-## <a name="_Toc395637763"></a>Stap 4: De ASP.NET MVC-toepassing instellen
+## <a name="_Toc395637763"></a>Stap 4: ASP.NET MVC-toepassing instellen
 U kunt nu de modellen, weergaven en controllers toevoegen aan deze MVC-toepassing:
 
 * [Een model toevoegen](#_Toc395637764).
@@ -414,9 +414,9 @@ U kunt nu code toevoegen aan Azure Cosmos DBRepository en ItemController om de r
    
     Deze code roept de DocumentDBRepository aan en gebruikt de methode CreateItemAsync om het nieuwe takenlijstitem door te geven aan de database. 
    
-    **Opmerking over de beveiliging**: het kenmerk **ValidateAntiForgeryToken** wordt hier gebruikt om deze toepassing te beschermen tegen aanvallen via aanvraagvervalsing op meerdere sites. Het volstaat echter niet om dit kenmerk alleen toe te voegen. Uw weergaven moeten samenwerken met dit anti-vervalsingstoken. Zie [Voorkomen van aanvraagvervalsing op meerdere sites][Preventing Cross-Site Request Forgery] voor meer informatie over dit onderwerp en voorbeelden van een juiste implementatie. De broncode op [GitHub][GitHub] beschikt over de volledige implementatie.
+    **Opmerking over beveiliging**: Het kenmerk **ValidateAntiForgeryToken** wordt hier gebruikt om deze toepassing te beschermen tegen aanvallen via aanvraagvervalsing op meerdere sites. Het volstaat echter niet om dit kenmerk alleen toe te voegen. Uw weergaven moeten samenwerken met dit anti-vervalsingstoken. Zie [Voorkomen van aanvraagvervalsing op meerdere sites][Preventing Cross-Site Request Forgery] voor meer informatie over dit onderwerp en voorbeelden van een juiste implementatie. De broncode op [GitHub][GitHub] beschikt over de volledige implementatie.
    
-    **Opmerking over de beveiliging**: we gebruiken ook het kenmerk **Bind** voor de methodeparameter om u te beschermen tegen over-postingaanvallen. Zie [Eenvoudige CRUD-bewerkingen in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC] voor meer informatie.
+    **Opmerking over beveiliging**: We gebruiken ook het kenmerk **Bind** voor de methodeparameter om u te beschermen tegen over-postingaanvallen. Zie [Eenvoudige CRUD-bewerkingen in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC] voor meer informatie.
 
 Hiermee is de benodigde code toegevoegd om nieuwe items aan de database toe te voegen.
 
@@ -516,7 +516,7 @@ Ga als volgt te werk als u de toepassing wilt testen op een lokale machine:
     ![Schermopname van de weergave Index met het selectievakje Voltooid ingeschakeld](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Zodra u de app hebt getest, drukt u op Ctrl + F5 om de foutopsporing voor de app te stoppen. U kunt de app nu implementeren.
 
-## <a name="_Toc395637774"></a>Stap 7: de toepassing implementeren in Azure App Service 
+## <a name="_Toc395637774"></a>Stap 7: De toepassing implementeren in Azure App Service 
 Nu de volledige toepassing correct werkt met Azure Cosmos DB, kunt u de web-app implementeren in Azure App Service.  
 
 1. Als u deze toepassing wilt publiceren, hoeft u alleen maar met de rechtermuisknop op het project in **Solution Explorer** te klikken en vervolgens op **Publiceren** te klikken.
@@ -545,8 +545,8 @@ Gefeliciteerd! U hebt zojuist uw eerste ASP.NET MVC-webtoepassing gemaakt met Az
 Als u de functionaliteit van uw toepassing wilt uitbreiden, bekijkt u de beschikbare API's in de [Azure Cosmos DB .NET-bibliotheek](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet). U bent tevens van harte welkom om een bijdrage te leveren aan de Azure Cosmos DB .NET-bibliotheek op [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
+[Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app

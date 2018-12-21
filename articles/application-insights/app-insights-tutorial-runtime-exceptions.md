@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 48e338a08330e0674cc4410adf135ec546a5e1c3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230594"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084004"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Runtime-uitzonderingen vinden en diagnosticeren met behulp van Azure Application Insights
 
@@ -75,20 +75,20 @@ Application Insights verzamelt fouten in uw toepassing en laat u zien hoe vaak z
     ![Details van uitzondering](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Mislukt code identificeren
-De Snapshot Debugger verzamelt momentopnamen van de meest frequente uitzonderingen in uw toepassing om u te helpen bij de diagnose van de onderliggende oorzaak in de productie.  U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Vervolgens kunt u fouten in de broncode opsporen door de snapshot te downloaden en te openen in Visual Studio 2017.
+De Snapshot Debugger verzamelt momentopnamen van de meest frequente uitzonderingen in uw toepassing om u te helpen bij de diagnose van de onderliggende oorzaak in de productie.  U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Hierna hebt u de mogelijkheid om fouten in de broncode op te sporen door de momentopname te downloaden en te openen in Visual Studio 2017 Enterprise.
 
 1. Klik in de eigenschappen van de uitzondering op **Momentopname voor foutopsporing openen**.
 2. Het deelvenster **Debug Snapshot** (fouten opsporen in momentopname) wordt geopend met de aanroepstack voor de aanvraag.  Klik op een methode om de waarden van alle lokale variabelen op het moment van de aanvraag weer te geven.  Te beginnen bij de bovenste methode in dit voorbeeld, zien we lokale variabelen die geen waarde hebben.
 
     ![Foutopsporingsmomentopname](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. De eerste aanroep met geldige waarden is **ValidZipCode**, en we zien dat er een postcode is opgegeven met letters die niet kan worden omgezet in een geheel getal.  Dit lijkt de fout in de code te zijn die moet worden gecorrigeerd.
+3. De eerste aanroep met geldige waarden is **ValidZipCode**, en we zien dat er een postcode is opgegeven met letters die niet kan worden omgezet in een geheel getal.  Dit lijkt de fout in de code te zijn die moet worden gecorrigeerd.
 
     ![Foutopsporingsmomentopname](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. Klik op **Momentopname downloaden** om deze momentopname te downloaden naar Visual Studio, waar we de werkelijke code kunnen vinden die moet worden gecorrigeerd.
-6. De momentopname wordt geladen in Visual Studio.
-7. U kunt nu een foutopsporingssessie uitvoeren in Visual Studio die snel de coderegel identificeert die de uitzondering heeft veroorzaakt.
+4. U kunt deze momentopname downloaden naar Visual Studio, waar we de werkelijke code kunnen vinden die moet worden gecorrigeerd. Hiertoe klikt u op **Momentopname downloaden**.
+5. De momentopname wordt geladen in Visual Studio.
+6. U kunt nu een foutopsporingssessie uitvoeren in Visual Studio Enterprise die snel de coderegel identificeert die de uitzondering heeft veroorzaakt.
 
     ![Uitzondering in code](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 

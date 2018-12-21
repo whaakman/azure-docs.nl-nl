@@ -1,24 +1,27 @@
 ---
-title: 'Zelfstudie Azure Container Service: ACR voorbereiden'
+title: '(AFGESCHAFT) Zelfstudie Azure Container Service: ACR voorbereiden'
 description: 'Zelfstudie Azure Container Service: ACR voorbereiden'
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 735aca5509373f840c56e28887088f7a696ca137
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c3e5e7c4fb46b3f68013ac857dcad2e5434a978d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024083"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998314"
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry implementeren en gebruiken
+# <a name="deprecated-deploy-and-use-azure-container-registry"></a>(AFGESCHAFT) Azure Container Registry implementeren en gebruiken
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Voor de bijgewerkte versie van deze zelfstudie, die gebruikmaakt van Azure Kubernetes Service, raadpleegt u [Zelfstudie: Azure Container Registry implementeren en gebruiken](../../aks/tutorial-kubernetes-prepare-acr.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure Container Registry (ACR) is een op Azure gebaseerd, persoonlijk register voor installatiekopieën van Docker-container. Deze zelfstudie, deel twee van zeven, beschrijft het implementeren van een Azure Container Registry-exemplaar en het pushen een containerinstallatiekopie naar dat exemplaar. Dit zijn de uitgevoerde stappen:
 

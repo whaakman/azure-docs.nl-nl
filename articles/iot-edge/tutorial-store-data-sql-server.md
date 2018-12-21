@@ -1,5 +1,5 @@
 ---
-title: Gegevens opslaan met Azure IoT Edge SQL-module | Microsoft Docs
+title: 'Zelfstudie: gegevens opslaan met SQL-module - Azure IoT Edge | Microsoft Docs'
 description: Leer hoe u lokaal gegevens kunt opslaan op uw IoT-Edge-apparaat met een SQL Server-module
 services: iot-edge
 author: kgremban
@@ -8,15 +8,15 @@ ms.author: kgremban
 ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833990"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163409"
 ---
-# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Zelfstudie: gegevens opslaan aan de rand met SQL Server-databases
+# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Zelfstudie: Gegevens aan de rand opslaan met SQL Server-databases
 
 Gebruik Azure IoT Edge en SQL Server voor het opslaan en opvragen van gegevens aan de rand. Azure IoT Edge heeft basisopslagmogelijkheden waarmee berichten in cache worden geplaatst als een apparaat offline is, en worden doorgestuurd wanneer de verbinding weer tot stand is gebracht. Mogelijk wilt u echter meer geavanceerde opslagmogelijkheden, zoals het lokaal kunnen opvragen van gegevens. Door lokale databases op te nemen, kunnen uw IoT Edge-apparaten complexere computing uitvoeren zonder een verbinding met IoT Hub in stand te hoeven houden. Bijvoorbeeld: via een sensor op een machine worden één keer per maand gegevens geüpload naar de cloud voor rapportage en verbetering van een Machine Learning-module. Als een buitendienstmedewerker werkt aan de machine, heeft deze lokaal toegang tot de sensorgegevens van de afgelopen paar dagen.
 
@@ -58,7 +58,7 @@ U kunt een Docker-register gebruiken om de containerinstallatiekopieën op te sl
 
 Als u nog geen containerregister hebt, volgt u deze stappen om een nieuw containerregister te maken in Azure:
 
-1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Container Registry**.
+1. Selecteer in de [Azure-portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Container Registry**.
 
 2. Geef de volgende waarden op om uw containerregister te maken:
 
@@ -87,7 +87,7 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
 
 2. Selecteer **View** > **Command Palette** en open het VS Code-opdrachtpalet.
 
-3. Typ in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** en voer deze uit. Geef in het opdrachtpalet de volgende informatie op om de oplossing te maken: 
+3. Typ in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Geef in het opdrachtpalet de volgende informatie op om de oplossing te maken: 
 
    | Veld | Waarde |
    | ----- | ----- |
@@ -163,7 +163,7 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
                        {
                            //Execute the command and log the # rows affected.
                            var rows = await cmd.ExecuteNonQueryAsync();
-                           log.Info($"{rows} rows were updated");
+                           logger.LogInformation($"{rows} rows were updated");
                        }
                    }
 
@@ -251,7 +251,7 @@ Een [distributiemanifest](module-composition.md) declareert welke modules de IoT
    }
    ```
 
-   ![SQL Server-container toevoegen](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![SQL-servermodule aan manifest toevoegen](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. Werk de **sql**-moduleparameters bij met de volgende code, afhankelijk van het type Docker-containers op uw IoT Edge-apparaat:
    * Windows-containers:
@@ -324,7 +324,7 @@ Wanneer u Visual Studio Code de opdracht geeft om uw oplossing te bouwen, wordt 
 
 U kunt modules op een apparaat instellen via de IoT Hub, maar u hebt ook toegang tot uw IoT Hub en apparaten via Visual Studio Code. In dit gedeelte stelt u de toegang tot uw IoT Hub in en gebruikt u VS Code om uw oplossing op uw IoT Edge-apparaat te implementeren. 
 
-1. Selecteer in het opdrachtenpalet van VS Code **Azure IoT Hub: IoT Hub selecteren**.
+1. Selecteer in het opdrachtenpalet van VS Code **Azure IoT Hub: Select IoT Hub**.
 
 2. Volg de aanwijzingen om u aan te melden bij uw Azure-account. 
 
@@ -416,7 +416,7 @@ Voer vanuit het SQL-opdrachthulpprogramma de volgende opdracht uit om uw opgemaa
    GO
    ```
 
-   ![Lokale gegevens bekijken](./media/tutorial-store-data-sql-server/view-data.png)
+   ![Inhoud van lokale database bekijken](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

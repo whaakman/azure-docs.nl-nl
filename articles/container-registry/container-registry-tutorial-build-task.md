@@ -1,21 +1,21 @@
 ---
-title: 'Zelfstudie: Het bouwen van containerinstallatiekopieën automatiseren met Azure Container Registry Tasks'
-description: In deze zelfstudie leert u hoe u een taak configureert om builds van containerinstallatiekopieën automatisch te activeren in de cloud wanneer u broncode naar een Git-opslagplaats doorvoert.
+title: 'Zelfstudie: builds van containerinstallatiekopieën automatiseren - Azure Container Registry-taken'
+description: In deze zelfstudie leert u hoe u een Azure Container Registry-taak configureert om builds van containerinstallatiekopieën automatisch te activeren in de cloud wanneer u broncode naar een Git-opslagplaats doorvoert.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 3dc602589dc3a909ea2a2cf2925d37df0a97605b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857224"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436242"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>Zelfstudie: Het bouwen van containerinstallatiekopieën automatiseren met Azure Container Registry Tasks
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Zelfstudie: builds van containerinstallatiekopieën in de cloud automatiseren bij het doorvoeren van broncode
 
 Naast een [quick-taak](container-registry-tutorial-quick-task.md) biedt ACR Tasks ondersteuning voor geautomatiseerde builds van Docker-containerinstallatiekopieën met de *build-taak*. In deze zelfstudie leert u hoe u de Azure CLI gebruikt om een taak te maken die builds van installatiekopieën automatisch activeert in de cloud wanneer u broncode naar een Git-opslagplaats doorvoert.
 
@@ -41,7 +41,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u de stappen in de [vorige zelfstud
 
 ### <a name="container-registry"></a>Containerregister
 
-U moet een Azure-containerregister in uw Azure-abonnement hebben om deze zelfstudie te voltooien. Als u een register nodig hebt, zie dan de [vorige zelfstudie](container-registry-tutorial-quick-task.md) of [Snelstartgids: Een containerregister maken met de Azure CLI](container-registry-get-started-azure-cli.md).
+U moet een Azure-containerregister in uw Azure-abonnement hebben om deze zelfstudie te voltooien. Als u een register nodig hebt, raadpleegt u de [vorige zelfstudie](container-registry-tutorial-quick-task.md) of [Quickstart: een containerregister maken met de Azure-CLI](container-registry-get-started-azure-cli.md).
 
 ## <a name="overview-of-acr-tasks"></a>Overzicht van de ACR-taken
 
@@ -155,7 +155,7 @@ $ az acr task create \
           "branch": "master",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "Github"
+          "sourceControlType": "GitHub"
         },
         "sourceTriggerEvents": [
           "commit"

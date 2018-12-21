@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8dacfb054a36801c076435037a530daa87c4a89c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918572"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409384"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Schaalsets voor virtuele machines in Azure maken met Ansible
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken voor het beheren van uw schaalsets voor virtuele machines in Azure, net zoals u andere Azure-resources zou beheren. In dit artikel leest u hoe u Ansible gebruikt om een schaalset voor virtuele machines te maken en uit te breiden. 
@@ -37,7 +37,7 @@ Deze sectie bevat een voorbeeld-Ansible-playbook waarmee de volgende resources w
 
 Geef uw eigen wachtwoord op bij de waarde *admin_password*.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -141,7 +141,7 @@ Als u het Ansible-playbook wilt uitvoeren, gebruikt u de opdracht **ansible-play
 
 Wanneer u het playbook hebt uitgevoerd, wordt in uitvoer die vergelijkbaar is met het volgende voorbeeld, aangegeven dat de schaalset voor virtuele machines is gemaakt:
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -190,7 +190,7 @@ U ziet resultaten die vergelijkbaar zijn met de volgende uitvoer:
 
 We schalen nu van twee exemplaren naar drie exemplaren. Met de volgende Ansible-playbookcode wordt informatie opgehaald over de schaalset voor virtuele machines en wordt de capaciteit gewijzigd van twee in drie. 
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -225,7 +225,7 @@ Met de volgende opdracht wordt het playbook uitgevoerd:
 
 In de uitvoer van het uitvoeren van het Ansible-playbook ziet u dat de schaalset voor virtuele machines is uitgeschaald:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -275,4 +275,6 @@ In het resultaat van het uitvoeren van de opdracht in Cloud Shell kunt u zien da
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
-> [Ansible-voorbeeldplaybook voor VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Toepassingen implementeren in schaalsets voor virtuele machines met Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
+
+> [Een virtuele-machineschaalset automatisch schalen met Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

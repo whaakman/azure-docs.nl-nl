@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 246b423e69fa8fb73db45f44fa17c1bc65407681
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090722"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963518"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor bijhouden van wijzigingen 
 In deze zelfstudie maakt u een Azure data factory met een pijplijn die gewijzigde gegevens laadt op basis van informatie over **wijzigingen** in de Azure SQL- brondatabase naar een Azure blob storage.  
@@ -189,7 +189,7 @@ Houd rekening met de volgende punten:
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen **Inzender** of **Eigenaar**, of moet dit een **beheerder** van het Azure-abonnement zijn.
-* Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+* Voor een lijst met Azure-regio's waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio's waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
@@ -198,7 +198,7 @@ U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en co
 ### <a name="create-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maakt.
 Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
 
-1. Maak een JSON-bestand met de naam **AzureStorageLinkedService.json** in de map **C:\ADFTutorials\IncCopyChangeTrackingTutorial** met de volgende inhoud: Maak de map als deze nog niet bestaat. Vervang voordat u het bestand opslaat `<accountName>`, `<accountKey>` door de naam en de sleutel van uw Azure Storage-account.
+1. Maak een JSON-bestand met de naam **AzureStorageLinkedService.json** in de map **C:\ADFTutorials\IncCopyChangeTrackingTutorial** met de volgende inhoud: (Maak de map als deze nog niet bestaat). Vervang voordat u het bestand opslaat `<accountName>`, `<accountKey>` door de naam en de sleutel van uw Azure Storage-account.
 
     ```json
     {
@@ -215,7 +215,7 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
     }
     ```
 2. Schakel in **Azure PowerShell** over naar de map **C:\ADFTutorials\IncCopyMultiTableTutorial**.
-3. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service **AzureStorageLinkedService** te maken. In het volgende voorbeeld geeft u de waarden door voor de parameters **ResourceGroupName** en **DataFactoryName**. 
+3. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service te maken: **AzureStorageLinkedService**. In het volgende voorbeeld geeft u de waarden door voor de parameters **ResourceGroupName** en **DataFactoryName**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -233,7 +233,7 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
 ### <a name="create-azure-sql-database-linked-service"></a>Maak een gekoppelde Azure SQL Database-service.
 In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory.
 
-1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** map met de volgende inhoud: Vervang **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; en &lt;password&gt;** met de naam van uw Azure SQL-server, de databasenaam, gebruiker-ID en wachtwoord voordat u het bestand opslaat. 
+1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in de map **C:\ADFTutorials\IncCopyChangeTrackingTutorial** met de volgende inhoud: Vervang voordat u het bestand opslaat **&lt;server&gt; &lt;database name **, &lt;user id&gt; en &lt;password&gt;** door de naam van uw Azure SQL-server, databasenaam, gebruikers-id en wachtwoord. 
 
     ```json
     {
@@ -249,7 +249,7 @@ In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory.
         }
     }
     ```
-2. Voer in **Azure PowerShell** de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service **AzureSQLDatabaseLinkedService** te maken. 
+2. Voer in**Azure PowerShell** de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service te maken: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -417,7 +417,7 @@ In deze stap maakt u een pijplijn met een kopieeractiviteit waarmee de volledige
         }
     }
     ```
-2. Voer de cdmlet Set-AzureRmDataFactoryV2Pipeline uit om de pijplijn FullCopyPipeline te maken.
+2. Voer de cdmlet Set-AzureRmDataFactoryV2Pipeline uit om de pijplijn te maken: FullCopyPipeline.
     
    ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
@@ -434,7 +434,7 @@ In deze stap maakt u een pijplijn met een kopieeractiviteit waarmee de volledige
    ```
  
 ### <a name="run-the-full-copy-pipeline"></a>Voer de volledige kopie-pijplijn uit
-Voer de pijplijn **FullCopyPipeline** uit met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. 
+Voer de pijplijn uit: **FullCopyPipeline** met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. 
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
@@ -445,26 +445,26 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **Alle services**, zoek met het trefwoord `data factories` en selecteer **Gegevensfabrieken**. 
 
-    ![Het menu voor gegevensfactory's](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
+    ![Het menu voor gegevensfactory's](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
 3. Zoek naar **uw data factory** in de lijst met data factorys, en selecteer deze om de Data Factory-pagina te openen. 
 
-    ![Naar de data factory zoeken](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-search-data-factory-2.png)
+    ![Naar de data factory zoeken](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
 4. Klik op de pagina Data factory op de tegel **Controleren en beheren**. 
 
-    ![De tegel Bewaking en beheer](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-monitor-manage-tile-3.png)    
+    ![De tegel Bewaking en beheer](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. De applicatie **Data Integration** wordt gestart op een afzonderlijke tabblad. U kunt alle **pipeline-activiteiten** en hun status zien. Let erop dat in het volgende voorbeeld de status van de pijplijnactiviteit **Geslaagd** is. U kunt parameters controleren die zijn doorgegeven aan de pijplijn door te klikken op de kolom **Parameters**. Als er een fout is, ziet u een koppeling in de **fout**-kolom. Klik op de koppeling in de kolom **Acties**. 
 
-    ![Pijplijnuitvoeringen](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-4.png)    
+    ![Pijplijnuitvoeringen](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. Wanneer u klikt op de koppeling in de kolom **acties** ziet u de volgende pagina met alle **activiteiten bij uitvoering** voor de pijplijn. 
 
-    ![Uitvoering van activiteiten](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-5.png)
+    ![Uitvoering van activiteiten](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. Overschakelen naar de weergave **Pipeline-activiteiten** kan door te klikken op **Pijplijnen** zoals weergegeven in de afbeelding. 
 
 
 ### <a name="review-the-results"></a>De resultaten bekijken
 U ziet u een bestand met de naam `incremental-<GUID>.txt` in de `incchgtracking` map van de `adftutorial` container. 
 
-![Bestand voor uitvoer van een volledige kopie](media\tutorial-incremental-copy-change-tracking-feature-powershell\full-copy-output-file.png)
+![Bestand voor uitvoer van een volledige kopie](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
 Het bestand moet de gegevens van de Azure SQL database bevatten:
 
@@ -606,7 +606,7 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
     }
     
     ```
-2. Voer de cdmlet Set-AzureRmDataFactoryV2Pipeline uit om de pijplijn FullCopyPipeline te maken.
+2. Voer de cdmlet Set-AzureRmDataFactoryV2Pipeline uit om de pijplijn te maken: FullCopyPipeline.
     
    ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -623,7 +623,7 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>De pijplijn incrementele kopie uitvoeren
-Voer de pijplijn **IncrementalCopyPipeline** uit met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. 
+Voer de pijplijn uit: **IncrementalCopyPipeline** met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. 
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
@@ -633,16 +633,16 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Res
 ### <a name="monitor-the-incremental-copy-pipeline"></a>De pijplijn incrementele kopie bewaken
 1. Ververs in de **Data Integration Application** de weergave **pijplijn-runs**. Controleer of u de IncrementalCopyPipeline in de lijst ziet. Klik op de koppeling in de kolom **Acties**.  
 
-    ![Pijplijnuitvoeringen](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-6.png)    
+    ![Pijplijnuitvoeringen](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. Wanneer u klikt op de koppeling in de kolom **acties** ziet u de volgende pagina met alle **activiteiten bij uitvoering** voor de pijplijn. 
 
-    ![Uitvoering van activiteiten](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-7.png)
+    ![Uitvoering van activiteiten](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. Overschakelen naar de weergave **Pipeline-activiteiten** kan door te klikken op **Pijplijnen** zoals weergegeven in de afbeelding. 
 
 ### <a name="review-the-results"></a>De resultaten bekijken
 U ziet u het tweede bestand in de `incchgtracking` map van de `adftutorial` container. 
 
-![Bestand voor uitvoer van een incrementele kopie](media\tutorial-incremental-copy-change-tracking-feature-powershell\incremental-copy-output-file.png)
+![Bestand voor uitvoer van een incrementele kopie](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
 Het bestand moet alleen de wijzigingsgegevens van de Azure SQL database bevatten. De record met `U` de bijgewerkte rij in de database en `I` is het een rij toegevoegd. 
 
@@ -650,7 +650,7 @@ Het bestand moet alleen de wijzigingsgegevens van de Azure SQL database bevatten
 1,update,10,2,U
 6,new,50,1,I
 ```
-De eerste drie kolommen zijn gewijzigde gegevens van data_source_table. De laatste twee kolommen zijn de metagegevens van de systeemtabel bijhouden. De vierde kolom is de SYS_CHANGE_VERSION voor elke gewijzigde rij. De vijfde kolom is de bewerking: U = update, I = invoegen.  Zie voor meer informatie over de traceringsgegevens [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+De eerste drie kolommen zijn gewijzigde gegevens van data_source_table. De laatste twee kolommen zijn de metagegevens van de systeemtabel bijhouden. De vierde kolom is de SYS_CHANGE_VERSION voor elke gewijzigde rij. De vijfde kolom is de bewerking:  U = update, I = invoegen.  Zie voor meer informatie over de traceringsgegevens [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================

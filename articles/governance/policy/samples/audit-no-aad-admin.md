@@ -1,5 +1,5 @@
 ---
-title: Voorbeeld Azure-Policy - op een Azure AD-beheerder controleren
+title: 'Voorbeeld: op een Azure AD-beheerder controleren'
 description: Dit voorbeeldbeleid controleert of er een Azure Active Directory-beheerder is toegewezen aan de SQL Server.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: f85653f57d5052c60ca2a6170370513c88c3b8cf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4ca215fbb905eed22b1e1911d25a773e236fe4c2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965293"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311742"
 ---
 # <a name="audit-no-azure-active-directory-administrator"></a>Op een Azure Active Directory-beheerder controleren
 
@@ -26,7 +25,7 @@ Controleert of er een Azure Active Directory-beheerder is toegewezen aan de SQL 
 
 [!code-json[main](../../../../policy-templates/samples/SQL/audit-if-no-sql-active-directory-admin/azurepolicy.json "Audit SQL DB Level Audit Setting")]
 
-U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 

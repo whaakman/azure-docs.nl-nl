@@ -1,5 +1,5 @@
 ---
-title: Een .NET Core- en SQL Database-web-app maken in Azure App Service | Microsoft Docs
+title: Een .NET Core-app maken met SQL Database - Azure App Service | Microsoft Docs
 description: Informatie over het verkrijgen van een .NET Core-app die in Azure App Service werkt, met verbinding aan een SQL-database.
 services: app-service\web
 documentationcenter: dotnet
@@ -13,15 +13,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: e0161073c0c3e7d6ef491a4f2b86510e826b85dc
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: 775d7595e80c02bcfbc1c3d6abc687d5e335d7da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678658"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261004"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Zelfstudie: een .NET Core- en SQL Database-web-app maken in Azure App Service
+# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Zelfstudie: Een .NET Core- en SQL Database-web-app maken in Azure App Service
 
 > [!NOTE]
 > In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een .NET Core- en SQL Database-web-app maken in Azure App Service op Linux](./containers/tutorial-dotnetcore-sqldb-app.md) als u naar App Service wilt implementeren op _Linux_.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: cced9a313664eaeaed4dd1298488670960b76413
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d57e251b241297c461b117edec8fee6316b337b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195767"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098029"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>VPN-gatewayoverdracht configureren voor peering voor virtuele netwerken
 
@@ -79,7 +79,7 @@ Volg de instructies voor het maken of bijwerken van peering voor virtuele netwer
     - Stel de optie **Externe gateways gebruiken** in
     - Klik op OK
 
-    ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
 2. Als peering al is gemaakt, gaat u naar de peeringresource en schakelt u **Externe gateways gebruiken** in (vergelijkbaar met de optie die wordt weergegeven in de schermafbeelding in stap 1)
 
@@ -90,7 +90,7 @@ Volg de instructies voor het maken of bijwerken van peering voor virtuele netwer
     - Stel de optie **Gatewayoverdracht toestaan** in
     - Klik op OK
 
-    ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
 4. Als peering al is gemaakt, gaat u naar de peeringresource en schakelt u **Gatewayoverdracht toestaan** in (vergelijkbaar met de optie die wordt weergegeven in de schermafbeelding in stap 3)
 

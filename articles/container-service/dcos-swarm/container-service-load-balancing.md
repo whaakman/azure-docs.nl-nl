@@ -1,5 +1,5 @@
 ---
-title: Taakverdelingscontainers in Azure DC/OS-cluster
+title: (AFGESCHAFT) Taken over containers verdelen in een DC/OS-cluster in Azure
 description: Verdeel taken over meerdere containers in een DC/OS-cluster in Azure Container Service.
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 8e8ad913c6e5b8e947b17ed8920285de3fcfd8ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a1883412a5285c4916c43a5c6ad81168096dd7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964357"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993555"
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Taken over containers verdelen in een DC/OS-cluster in Azure Container Service
+# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(AFGESCHAFT) Taken over containers verdelen in een DC/OS-cluster in Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In dit artikel wordt beschreven hoe een interne load balancer in een met DC/OS beheerde Azure Container Service wordt gemaakt met Marathon-LB. Met deze configuratie kunt u uw toepassingen horizontaal schalen. U kunt hiermee ook gebruikmaken van de clusters met openbare en persoonlijke agents door de load balancers in het openbare cluster en uw toepassingscontainers in het persoonlijke cluster te plaatsen. In deze zelfstudie hebt u:
 

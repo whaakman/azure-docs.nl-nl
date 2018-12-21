@@ -1,23 +1,23 @@
 ---
-title: Zelfstudie voor MongoDB, Angular en Node voor Azure - deel 3
+title: Node.Js, Angular-app die gebruikmaakt van MongoB-API (deel 3)
+titleSuffix: Azure Cosmos DB
 description: Deel 3 van de serie zelfstudies voor het maken van een MongoDB-app met Angular en Node op Azure Cosmos DB, waarbij gebruik wordt gemaakt van dezelfde API's als voor MongoDB.
-services: cosmos-db
 author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 12/06/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: fc60e66a2e4433ca1dc44470789fe2fc091c46d7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: b34155fc8f40a1dc51aaf236a78da5f5ee0511ae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870211"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134502"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 3: de gebruikersinterface maken met Angular
+# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 3: De gebruikersinterface bouwen met Angular
 
 In deze meerdelige zelfstudie leert u hoe u een nieuwe [MongoDB API](mongodb-introduction.md)-app maakt in Node.js met Express en Angular, waarna u de app verbinding laat maken met uw Azure Cosmos DB-database.
 
