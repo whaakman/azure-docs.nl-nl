@@ -1,5 +1,5 @@
 ---
-title: Inleiding tot Azure Container Service voor Kubernetes
+title: (AFGESCHAFT) Inleiding tot Azure Container Service voor Kubernetes
 description: Met Azure Container Service voor Kubernetes kunt u eenvoudig toepassingen op basis van containers implementeren en beheren in Azure.
 services: container-service
 author: gabrtv
@@ -9,16 +9,19 @@ ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 3e019f02d13ade6a42f4739eacae55f5bf6ac2af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e00ac57cc36b3331cfb847ecedc6c75132cdeb6b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973589"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999182"
 ---
-# <a name="introduction-to-azure-container-service-for-kubernetes"></a>Inleiding tot Azure Container Service voor Kubernetes
+# <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>(AFGESCHAFT) Inleiding tot Azure Container Service voor Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Voor de bijgewerkte versie van dit artikel, dat gebruikmaakt van Azure Kubernetes Service, raadpleegt u [Overzicht van Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Met Azure Container Service voor Kubernetes kunt u eenvoudig een cluster virtuele machines maken, configureren en beheren die vooraf zijn geconfigureerd voor het uitvoeren van beperkte toepassingen. U kunt hierbij dan uitgaan van uw eigen vaardigheden of gebruikmaken van een grote en groeiende groep community experts om toepassingen op basis van containers te implementeren en beheren in Microsoft Azure.
 

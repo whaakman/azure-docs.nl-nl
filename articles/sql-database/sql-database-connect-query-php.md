@@ -11,14 +11,14 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: be3ac9fab6c89c65ad9673811e108cefe2c80d00
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b768b50af7ad6736e5cc3c885e6ac5016976f48a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724244"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958539"
 ---
-# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Snelstart: PHP gebruiken om een query uit te voeren op een Azure SQL-database
+# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Snelstartgids: PHP gebruiken om een query uit te voeren voor een Azure SQL-database
 
 In dit artikel ziet u hoe u [PHP](http://php.net/manual/en/intro-whatis.php) gebruikt om verbinding te maken met een Azure SQL-database. Vervolgens kunt u T-SQL-instructies gebruiken om een query uit te voeren voor de gegevens.
 
@@ -32,9 +32,9 @@ Zorg dat u aan de volgende vereisten voldoet als u dit voorbeeld wilt uitvoeren:
 
 - U moet aan PHP verwante software hebben geïnstalleerd voor het besturingssysteem:
 
-    - **MacOS**: installeer Homebrew en PHP, het ODBC-stuurprogramma en SQLCMD, en installeer vervolgens het PHP-stuurprogramma voor SQL Server. Zie [Stap 1.2, 1.3 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
+    - **MacOS**: installeer PHP, het ODBC-stuurprogramma en installeer vervolgens het PHP-stuurprogramma voor SQL Server. Zie [stap 1, 2 en 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-    - **Ubuntu**: installeer PHP en andere vereiste pakketten, en installeer vervolgens het PHP-stuurprogramma voor SQL Server. Zie [Stap 1.2 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Linux**: installeer PHP, het ODBC-stuurprogramma en installeer vervolgens het PHP-stuurprogramma voor SQL Server. Zie [stap 1, 2 en 3](/sql/connect/php/installation-tutorial-linux-mac).
 
     - **Windows**: installeer PHP voor IIS Express en Chocolatey, en installeer vervolgens het ODBC-stuurprogramma en SQLCMD. Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
@@ -91,4 +91,4 @@ Zorg dat u aan de volgende vereisten voldoet als u dit voorbeeld wilt uitvoeren:
 
 - [Problemen melden of vragen stellen](https://github.com/Microsoft/msphpsql/issues)
 
-- [Voorbeeld logica voor opnieuw proberen: flexibel verbinding maken met SQL via PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [Voorbeeld van pogingslogica: Flexibel verbinding maken met SQL via PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie over indexeren, query's uitvoeren en filteren in Azure Search via de portal | Microsoft Docs
+title: Zelfstudie over indexeren, query's uitvoeren en filteren in Azure Portal - Azure Search
 description: In deze zelfstudie gebruikt u de Azure-portal en vooraf gedefinieerde voorbeeldgegevens om een index te genereren in Azure Search. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten, geosearch en meer.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: aac579da3aaf6ab1507bbc12d79a5b183a82d665
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.custom: seodec2018
+ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592752"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314020"
 ---
-# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>Zelfstudie: Ingebouwde hulpprogramma’s gebruiken voor indexeren en query’s uitvoeren in Azure Search
+# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Zelfstudie: Ingebouwde portalprogramma's gebruiken voor indexeren en query’s uitvoeren in Azure Search
 
 Voor een kort overzicht en vervolg op Azure Search-concepten kunt u de ingebouwde hulpprogramma's gebruiken op de pagina van de Azure Search-service in Azure Portal. Deze hulpprogramma's bieden mogelijk niet de volledige functionaliteit van de .NET- en REST-API's. Maar de wizards en editors bieden een introductie zonder code tot Azure Search, zodat u direct interessante query's kunt schrijven voor een verzameling voorbeeldgegevens.
 
@@ -55,7 +56,7 @@ Zoekopdrachten worden herhaald over een [*index*](search-what-is-an-index.md) di
 
 Voor deze zelfstudie gebruiken we een ingebouwde gegevensset die met behulp van een [*indexeerfunctie*](search-indexer-overview.md) kan worden verkend via de wizard **Gegevens importeren**. Een indexeerfunctie is een bronspecifieke verkenner die metagegevens en inhoud uit ondersteunde Azure-gegevensbronnen kan lezen. Deze indexeerfuncties zijn via de wizard **Gegevens importeren** zichtbaar in de portal. Later kunt u via een programma indexeerfuncties maken en beheren als onafhankelijke resources.
 
-### <a name="step-1-start-the-import-data-wizard"></a>Stap 1: Wizard Gegevens importeren starten
+### <a name="step-1-start-the-import-data-wizard"></a>Stap 1: De wizard Gegevens importeren starten
 
 1. Klik in het dashboard van de Azure Search-service op **Gegevens importeren** op de opdrachtbalk om de wizard te starten. Met deze wizard kunt u een zoekindex maken en vullen.
 
@@ -106,7 +107,7 @@ Ga terug naar het servicedashboard, schuif omlaag en dubbelklik op de tegel **In
 
    ![Voortgangsbericht voor de indexeerfunctie][4]
 
-### <a name="step-4-view-the-index"></a>Stap 4: De index weergeven
+### <a name="step-4-view-the-index"></a>Stap 4: De index bekijken
 
 Tegels op het servicedashboard bieden zowel samenvattende informatie over de diverse objecten in een resource als toegang tot gedetailleerde informatie. De tegel **Indexen** vermeldt de bestaande indexen, waaronder de index *realestate-us-sample* die u zojuist in de vorige stap hebt gemaakt.
 

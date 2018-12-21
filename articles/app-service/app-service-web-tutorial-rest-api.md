@@ -1,5 +1,5 @@
 ---
-title: RESTful API met CORS in Azure App Service | Microsoft Docs
+title: RESTful API met CORS hosten - Azure App Service | Microsoft Docs
 description: Informatie over hoe u met Azure App Service uw RESTful API's met CORS-ondersteuning kunt hosten.
 services: app-service\api
 documentationcenter: dotnet
@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 4d8a95ee4afc844868cfda78087773a6a37c07c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: b22ea49367009a4c76135d979d783c5b73449d9d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445426"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261565"
 ---
-# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Zelfstudie: een RESTful API hosten met CORS in Azure App Service
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Zelfstudie: RESTful API hosten met CORS in Azure App Service
 
 [Azure App Service](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Daarnaast bevat App Service ingebouwde ondersteuning voor [CORS (Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) voor RESTful API's. In deze zelfstudie leert u hoe u een ASP.NET Core API-app in App Service met CORS-ondersteuning implementeert. U configureert de app met opdrachtregelprogramma's en implementeert de app met behulp van Git. 
 
@@ -58,7 +58,7 @@ Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.
 git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-Deze opslagplaats bevat een app die wordt gemaakt op basis van de volgende zelfstudie: [ASP.NET Core Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio) (Help-pagina's van ASP.NET Core Web API met behulp van Swagger). Er wordt een Swagger-generator gebruikt voor de [Swagger-gebruikersinterface](https://swagger.io/swagger-ui/) en het Swagger JSON-eindpunt.
+Deze opslagplaats bevat een app die is gemaakt op basis van de volgende zelfstudie: [ASP.NET Core Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio) (Helppagina's met gebruik van Swagger voor ASP.NET Core-web-API's). Er wordt een Swagger-generator gebruikt voor de [Swagger-gebruikersinterface](https://swagger.io/swagger-ui/) en het Swagger JSON-eindpunt.
 
 ### <a name="run-the-application"></a>De toepassing uitvoeren
 
@@ -211,4 +211,4 @@ Wat u hebt geleerd:
 Ga naar de volgende zelfstudie voor informatie over het verifiëren en autoriseren van gebruikers.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: gebruikers eind-tot-eind verifiëren en autoriseren](app-service-web-tutorial-auth-aad.md)
+> [Zelfstudie: Gebruikers eind-tot-eind verifiëren en machtigen](app-service-web-tutorial-auth-aad.md)

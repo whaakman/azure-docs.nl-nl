@@ -8,20 +8,19 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/09/2018
+ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b0180f162996c5fc4647071feaf02d42320b7c9a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: aceacdea8b3c86a5c4f26a5f082f4c6cf0b3805d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036316"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011974"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Zelfstudie: Op SAML gebaseerde eenmalige aanmelding voor een toepassing met Azure Active Directory configureren
 
-In deze zelfstudie wordt de [Azure-portal](https://portal.azure.com) gebruikt om eenmalige aanmelding voor een toepassing met Azure Active Directory (Azure AD) op basis van SAML te configureren. Gebruik deze zelfstudie voor het configureren van toepassingen die nog geen [toepassingsspecifieke zelfstudie](../saas-apps/tutorial-list.md) hebben. 
-
+In deze zelfstudie wordt de [Azure-portal](https://portal.azure.com) gebruikt om eenmalige aanmelding voor een toepassing met Azure Active Directory (Azure AD) op basis van SAML te configureren. Gebruik deze zelfstudie wanneer een [toepassingsspecifieke zelfstudie](../saas-apps/tutorial-list.md) niet beschikbaar is. 
 
 In deze zelfstudie wordt de Azure-portal gebruikt om het volgende te doen:
 
@@ -36,13 +35,13 @@ In deze zelfstudie wordt de Azure-portal gebruikt om het volgende te doen:
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-1. Als de toepassing niet is toegevoegd aan uw Azure Active Directory-tenant, bekijkt u [Quickstart: een toepassing toevoegen aan uw Azure Active Directory-tenant](add-application-portal.md).
+1. Als de toepassing nog niet is toegevoegd aan uw Azure Active Directory-tenant, raadpleegt u [Snelstart: Een toepassing toevoegen aan uw Azure Active Directory-tenant](add-application-portal.md).
 
 2. Vraag de leverancier van uw toepassing om de gegevens die zijn beschreven in [Domein en URL's configureren](#configure-domain-and-urls).
 
 3. Als u de stappen in deze zelfstudie wilt testen, raden we u aan om een niet-productieomgeving te gebruiken. Als u niet beschikt over een niet-productieomgeving in Azure AD, kunt u [een gratis proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
-4. Meld u bij de [Azure-portal](https://portal.azure.com) aan als globale beheerder van uw Azure AD-tenant, als beheerder van cloudtoepassingen of als toepassingsbeheerder.
+4. Meld u bij [Azure Portal](https://portal.azure.com) aan als beheerder van de cloudtoepassing of als toepassingsbeheerder voor uw Azure Active Directory-tenant.
 
 ## <a name="select-a-single-sign-on-mode"></a>Een modus voor eenmalige aanmelding selecteren
 
@@ -56,7 +55,7 @@ Hiermee opent u de instellingen voor eenmalige aanmelding:
 
 3. Selecteer in het menu **Toepassingstype** de optie **Alle toepassingen** en klik op **Toepassen**.
 
-4. Voer de naam in van de toepassing waarvoor u eenmalige aanmelding wilt configureren. Kies uw eigen toepassing of gebruik de GitHub-testtoepassing die is toegevoegd in de snelstart [Toepassing toevoegen](add-application-portal.md).
+4. Voer de naam in van de toepassing waarvoor u eenmalige aanmelding wilt configureren. Kies uw eigen toepassing of voer **GitHub-test** in om de toepassing te configureren die u in de snelstart [Toepassing toevoegen](add-application-portal.md) hebt toegevoegd.
 
 5. Klik op **Eenmalige aanmelding**. Onder **Modus voor eenmalige aanmelding** wordt **SAML-gebaseerde aanmelding** weergegeven als de standaardoptie. 
 
@@ -72,8 +71,8 @@ Om het domein en de URL's te configureren:
 
     | Configuratie-instelling | SP-geïnitieerd | idP-geïnitieerd | Beschrijving |
     |:--|:--|:--|:--|
-    | Aanmeldings-URL | Vereist | Niet specificeren | Wanneer een gebruiker deze URL opent, leidt de serviceprovider hem om naar Azure Active Directory om de gebruiker te verifiëren en aan te melden. Azure Active Directory maakt gebruik van de URL om de toepassing te starten vanuit Office 365 en het toegangsvenster van Azure Active Directory. Als dit veld leeg is, voert Azure Active Directory een idP-geïnitieerde eenmalige aanmelding uit wanneer een gebruiker de toepassing vanuit Office 365, het toegangsvenster van Azure Active Directory of vanuit de URL voor eenmalige aanmelding van Azure Active Directory start.|
-    | Id (Entiteits-id) | Vereist voor sommige apps | Vereist voor sommige apps | Unieke identificatie van de toepassing waarvoor eenmalige aanmelding wordt geconfigureerd. Azure Active Directory stuurt de id terug naar de toepassing als parameter van de doelgroep van het SAML-token en er wordt verwacht dat de toepassing deze valideert. Deze waarde wordt ook weergegeven als de entiteit-ID in SAML-metagegevens die worden geleverd door de toepassing.|
+    | Aanmeldings-URL | Vereist | Niet opgeven | Wanneer een gebruiker deze URL opent, leidt de serviceprovider hem om naar Azure Active Directory om de gebruiker te verifiëren en aan te melden. Azure Active Directory maakt gebruik van de URL om de toepassing te starten vanuit Office 365 of het toegangsvenster van Azure Active Directory. Als deze leeg is, is Azure Active Directory afhankelijk van de id-provider om eenmalige aanmelding te initiëren wanneer een gebruiker de toepassing start.|
+    | Id (Entiteits-id) | Vereist voor sommige apps | Vereist voor sommige apps | Unieke identificatie van de toepassing waarvoor eenmalige aanmelding wordt geconfigureerd. Azure Active Directory stuurt de id naar de toepassing als parameter van de doelgroep van het SAML-token. Er wordt verwacht dat de toepassing deze valideert. Deze waarde wordt ook weergegeven als de entiteit-ID in SAML-metagegevens die worden geleverd door de toepassing.|
     | Antwoord-URL | Optioneel | Vereist | Hiermee geeft u op waar de toepassing verwacht het SAML-token te ontvangen. De antwoord-URL wordt ook de ACS-URL (Assertion Consumer Service) genoemd. |
     | Relaystatus | Optioneel | Optioneel | Hiermee geeft u aan de toepassing op waar de gebruiker naar moet worden omgeleid nadat de verificatie is voltooid. De waarde is doorgaans een geldige URL voor de toepassing, maar sommige toepassingen gebruiken dit veld op een andere manier. Vraag de leverancier van de toepassing voor meer informatie.
 
@@ -83,11 +82,11 @@ Om het domein en de URL's te configureren:
 
 3. Klik op **Opslaan** boven aan de blade.
 
-4. In deze sectie ziet u de knop **SAML-testinstellingen**. Voer deze test verderop in de zelfstudie uit, in de sectie [Eenmalige aanmelding testen](#test-single-sign-on).
+4. In deze sectie ziet u de knop **SAML-instellingen testen**. Voer deze test verderop in de zelfstudie uit, in de sectie [Eenmalige aanmelding testen](#test-single-sign-on).
 
 ## <a name="configure-user-attributes"></a>Gebruikerskenmerken configureren
 
-Met gebruikerskenmerken kunt u bepalen welke Azure Active Directory-gegevens worden verzonden naar de toepassing. Azure Active Directory kan bijvoorbeeld naam, e-mail en werknemer-id van de gebruiker verzenden naar de toepassing. Azure Active Directory stuurt telkens wanneer een gebruiker zich aanmeldt kenmerken van de gebruiker naar de toepassing in het SAML-token. 
+Met gebruikerskenmerken kunt u bepalen welke Azure Active Directory-gegevens in het SAML-token naar de toepassing worden verzonden wanneer een gebruiker zich aanmeldt. Azure Active Directory kan bijvoorbeeld naam, e-mail en werknemer-id van de gebruiker verzenden naar de toepassing. 
 
 Deze kenmerken kunnen verplicht of optioneel zijn om eenmalige aanmelding correct te laten werken. Zie voor meer informatie de [Toepassingsspecifieke zelfstudie](../saas-apps/tutorial-list.md), of neem contact op met de leverancier van de toepassing.
 
@@ -115,7 +114,7 @@ Azure Active Directory maakt gebruik van een certificaat voor het ondertekenen v
 
 2. Als u een certificaat wilt configureren, klikt u op **Nieuw certificaat maken**.
 
-3. In de blade **Nieuw certificaat maken** stelt u de vervaldatum in en klikt u op **Opslaan**.
+3. In de blade **Nieuw certificaat maken** stelt u de **vervaldatum** in en klikt u op **Opslaan**.
 
 4. Klik op **Nieuw certificaat activeren**.
 
@@ -146,7 +145,7 @@ U bent bijna klaar.  Als laatste stap moet u de toepassing configureren voor het
     ![Toepassing configureren](media/configure-single-sign-on-portal/configure-app.png)
 
 2. Klik op **Toepassing configureren** in de portal en volg de instructies.
-3. Maak handmatig gebruikersaccounts in de toepassing voor het testen van eenmalige aanmelding. Maken de gebruikersaccounts die u hebt toegewezen aan de toepassing in de [vorige sectie](#assign-users-to-the-application).   Wanneer u klaar bent voor implementatie van de toepassing in de organisatie, wordt u aangeraden automatisch gebruikers in te richten voor het automatisch maken van gebruikersaccounts in de toepassing.
+3. Maak handmatig gebruikersaccounts in de toepassing om eenmalige aanmelding te testen. Maken de gebruikersaccounts die u hebt toegewezen aan de toepassing in de [vorige sectie](#assign-users-to-the-application). 
 
 ## <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -158,12 +157,12 @@ U bent klaar om uw instellingen te testen.
 
     ![Opties voor eenmalige aanmelding testen](media/configure-single-sign-on-portal/test-single-sign-on.png) 
 
-3. Klik op **Aanmelden als huidige gebruiker**. Hiermee kunt u eerst controleren of eenmalige aanmelding voor u, de beheerder, werkt.
+3. Klik op **Aanmelden als huidige gebruiker**. Met deze test kunt u eerst controleren of eenmalige aanmelding voor u, de beheerder, werkt.
 4. Als er een fout optreedt, wordt een foutbericht weergegeven. Kopieer en plak de gegevens in het vak **Hoe ziet de fout eruit?**.
 
     ![Hulp krijgen bij het oplossen van problemen](media/configure-single-sign-on-portal/error-guidance.png)
 
-5. Klik op **Hulp krijgen bij het oplossen van problemen**. Richtlijnen voor de oorzaak en de oplossing van het probleem wordt weergegeven.  In dit voorbeeld was de gebruiker niet toegewezen aan de toepassing.
+5. Klik op **Hulp krijgen bij het oplossen van problemen**. De richtlijnen voor de oorzaak en de oplossing van het probleem worden weergegeven.  In dit voorbeeld was de gebruiker niet toegewezen aan de toepassing.
 
     ![Fout herstellen](media/configure-single-sign-on-portal/fix-error.png)
 
@@ -174,7 +173,7 @@ U bent klaar om uw instellingen te testen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie gebruikte u de Azure-portal om een toepassing te configureren voor eenmalige aanmelding met Azure Active Directory. U hebt de pagina Configuratie voor eenmalige aanmelding gevonden en de instellingen voor eenmalige aanmelding geconfigureerd. Nadat de configuratie is voltooid, hebt u een gebruiker toegewezen aan de toepassing, en de toepassing geconfigureerd om eenmalige aanmelding op basis van SAML te gebruiken. Hierna hebt u geverifieerd dat de SAML-aanmelding goed werkt.
+In deze zelfstudie hebt u de instellingen voor eenmalige aanmelding voor een toepassing geconfigureerd. Nadat de configuratie is voltooid, hebt u een gebruiker toegewezen aan de toepassing, en de toepassing geconfigureerd om eenmalige aanmelding op basis van SAML te gebruiken. Hierna hebt u geverifieerd dat de SAML-aanmelding goed werkt.
 
 U hebt het volgende gedaan:
 > [!div class="checklist"]
@@ -183,10 +182,10 @@ U hebt het volgende gedaan:
 > * Gebruikerskenmerken geconfigureerd
 > * Een SAML-handtekeningcertificaat gemaakt
 > * Handmatig gebruikers of groepen aan de toepassing toegewezen
-> * De toepassing geconfigureerd voor eenmalige aanmelding
+> * De toepassing is geconfigureerd voor het gebruik van Azure Active Directory als een SAML-identiteitsprovider
 > * De SAML-gebaseerde modus voor eenmalige aanmelding getest
 
-Als u de toepassing voor meer gebruikers in uw organisatie wilt implementeren, wordt u aangeraden automatische inrichting te gebruiken.
+Als u de toepassing voor meer gebruikers in uw organisatie wilt implementeren, wordt u aangeraden automatische inrichting van gebruikers te gebruiken.
 
 > [!div class="nextstepaction"]
 >[Informatie over het toewijzen van gebruikers met automatische inrichting](configure-automatic-user-provisioning-portal.md)

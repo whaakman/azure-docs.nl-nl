@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977991"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164157"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren vanuit Azure Stream Analytics-taken 
 
@@ -35,34 +35,34 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Een Stream Analytics-taak configureren om een functie uit te voeren 
 
-In deze sectie ziet u hoe u een Stream Analytics-taak configureert om een functie uit te voeren die gegevens naar Azure Redis Cache schrijft. De Stream Analytics-taak leest gebeurtenissen uit Azure Event Hubs en voert een query uit die de functie activeert. Deze functie leest gegevens uit de Stream Analytics-taak en schrijft deze naar Azure Redis Cache.
+In deze sectie ziet u hoe u een Stream Analytics-taak configureert om een functie uit te voeren die gegevens naar Azure Cache voor Redis schrijft. De Stream Analytics-taak leest gebeurtenissen uit Azure Event Hubs en voert een query uit die de functie activeert. Deze functie leest gegevens uit de Stream Analytics-taak en schrijft deze naar Azure Cache voor Redis.
 
 ![Diagram van de relaties tussen de Azure-services](./media/stream-analytics-with-azure-functions/image1.png)
 
 Voor deze taak moeten de volgende stappen worden gezet:
 * [Een Stream Analytics-taak maken met Event Hubs als invoer](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [Een Azure Redis Cache-exemplaar maken](#create-an-azure-redis-cache-instance)  
-* [Een functie in Azure Functions maken die gegevens naar de Azure Redis Cache schrijft](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [Een instantie van Azure Cache voor Redis maken](#create-an-azure-redis-cache-instance)  
+* [Een functie in Azure Functions maken die gegevens naar de Azure Cache voor Redis schrijft](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
 * [De Stream Analytics-taak bijwerken met de functie als uitvoer](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [Azure Redis Cache controleren op resultaten](#check-azure-redis-cache-for-results)  
+* [Azure Cache voor Redis controleren op resultaten](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Een Stream Analytics-taak maken met Event Hubs als invoer
 
 Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-detection.md) om een Event Hub te maken, de gebeurtenisgenerator te starten en een Stream Analytics-taak te maken. (Sla de stappen voor het maken van de query en de uitvoer over. Raadpleeg in plaats daarvan de volgende secties voor het instellen van Functions-uitvoer.)
 
-## <a name="create-an-azure-redis-cache-instance"></a>Een Azure Redis Cache-exemplaar maken
+## <a name="create-an-azure-cache-for-redis-instance"></a>Een instantie van Azure Cache voor Redis maken
 
-1. Een cache in Azure Redis Cache maken met behulp van de stappen die zijn beschreven in [Een cache maken](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
+1. Een cache in Azure Cache voor Redis maken met behulp van de stappen die zijn beschreven in [Een cache maken](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
 2. Nadat u de cache hebt gemaakt, selecteert u onder **Instellingen** de optie **Toegangssleutels**. Noteer de **Primaire sleutel van de verbindingsreeks**.
 
-   ![Schermopname van verbindingsreeks van Azure Redis Cache](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Schermopname van verbindingsreeks van Azure Cache voor Redis](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Een functie in Azure Functions maken die gegevens naar Azure Redis Cache schrijft
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Een functie in Azure Functions maken die gegevens naar de Azure Cache voor Redis schrijft
 
 1. Zie de sectie [Een functie-app maken](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) van de Azure Functions-documentatie. Hiermee wordt u begeleid bij het maken van een functie-app en een [HTTP-geactiveerde functie in Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function). Hiervoor wordt de taal C# gebruikt.  
 
-2. Blader naar de functie **run.csx**. Werk deze bij met de volgende code. (Vervang '\<your redis cache connection string goes here\>' door de verbindingsreeks van Azure Redis Cache die u in de vorige sectie hebt opgehaald.)  
+2. Blader naar de functie **run.csx**. Werk deze bij met de volgende code. (Vervang '\<your Azure Cache for Redis connection string goes here\>' door de verbindingsreeks van de Azure Cache voor Redis die u in de vorige sectie hebt opgehaald.)  
 
    ```csharp
    using System;
@@ -85,7 +85,7 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
       {        
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
-      var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
+      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
       log.Info($"Connection string.. {connection}");
     
       // Connection refers to a property that returns a ConnectionMultiplexer
@@ -185,17 +185,17 @@ Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-de
     
 6.  Start de Stream Analytics-taak.
 
-## <a name="check-azure-redis-cache-for-results"></a>Azure Redis Cache controleren op resultaten
+## <a name="check-azure-cache-for-redis-for-results"></a>Azure Cache voor Redis controleren op resultaten
 
-1. Blader naar Azure Portal en zoek uw Azure Redis Cache. Selecteer **Console**.  
+1. Blader naar Azure Portal en zoek uw Azure Cache voor Redis. Selecteer **Console**.  
 
-2. Gebruik [Redis Cache-opdrachten](https://redis.io/commands) om te controleren of uw gegevens zich in Redis Cache bevinden. (De opdracht heeft de notatie Get {sleutel}.) Bijvoorbeeld:
+2. Gebruik [Azure Cache voor Redis-opdrachten](https://redis.io/commands) om te controleren of uw gegevens in Azure Cache voor Redis staan. (De opdracht heeft de notatie Get {sleutel}.) Bijvoorbeeld:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
    Met deze opdracht wordt de waarde voor de opgegeven sleutel afgedrukt:
 
-   ![Schermopname van uitvoer van Azure Redis Cache](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Schermopname van uitvoer van Azure Cache for Redis](./media/stream-analytics-with-azure-functions/image5.png)
    
 ## <a name="error-handling-and-retries"></a>Foutafhandeling en nieuwe pogingen
 In geval van een fout bij het verzenden van gebeurtenissen naar Azure Functions, wordt getracht de bewerking te voltooien. Er zijn echter fouten waarvoor geen nieuwe pogingen worden gedaan. Deze zijn:
@@ -207,6 +207,8 @@ In geval van een fout bij het verzenden van gebeurtenissen naar Azure Functions,
 ## <a name="known-issues"></a>Bekende problemen
 
 Wanneer u in Azure Portal de waarde van Maximale batchgrootte/Maximum aantal batches probeert leeg te maken (standaard), verandert de waarde weer in de eerder ingevoerde waarde wanneer u de gegevens opslaat. Voer in dat geval de standaardwaarden voor deze velden handmatig in.
+
+Het gebruik van [HTTP-routering](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) in uw Azure Functions wordt momenteel niet ondersteund door Stream Analytics.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

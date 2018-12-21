@@ -1,5 +1,5 @@
 ---
-title: Een PHP-web-app maken in Azure | Microsoft Docs
+title: Een PHP-web-app maken - Azure App Service | Microsoft Docs
 description: Implementeer in enkele minuten uw eerste PHP-web-app (Hallo wereld) in Azure App Service Web Apps.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin;cfowler
-ms.custom: mvc
-ms.openlocfilehash: 0dd8f90a39abc18263fcaa5bdb63a5b743728952
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.custom: seodec18
+ms.openlocfilehash: 02c80f3b3883af4b32b5bc0fb837680dad1e0ecf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42884961"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261548"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Een PHP-web-app maken in Azure
 
@@ -41,7 +41,7 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
-* <a href="http://php.net/manual/install.php" target="_blank">PHP installeren</a>
+* <a href="https://php.net/manual/install.php" target="_blank">PHP installeren</a>
 
 ## <a name="download-the-sample-locally"></a>Het voorbeeld lokaal downloaden
 

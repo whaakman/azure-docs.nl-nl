@@ -1,37 +1,37 @@
 ---
-title: 'Zelfstudie 3: met reguliere expressies overeenkomende gegevens - Goed opgemaakte gegevens extraheren'
+title: Reguliere-expressie-entiteit
 titleSuffix: Azure Cognitive Services
 description: U kunt consistent opgemaakte gegevens uit een uiting extraheren met de reguliere-expressie-entiteit.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423412"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135573"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>Zelfstudie 3: goed opgemaakte gegevens herkennen
+# <a name="tutorial-3-extract-well-formatted-data"></a>Zelfstudie 3: Goed opgemaakte gegevens herkennen
 In deze zelfstudie bewerkt u de Human Resources-app om consistent opgemaakte gegevens te extraheren uit een uiting met behulp van de entiteit **Regular Expression (regex)**.
 
 Het doel van een entiteit is het extraheren van belangrijke gegevens uit een uiting. De app maakt gebruik van een entiteit in de vorm van een reguliere expressie om opgemaakte nummers van HR-formulieren (Human Resources) op te halen uit een uiting. Hoewel de intentie van een uiting altijd wordt bepaald aan de hand van machine learning, wordt voor dit specifieke type entiteit geen machine learning gebruikt. 
 
 **Enkele voorbeelden van uitingen:**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|Voorbeelden van utterances|
+|--|
+|Waar is HRF-123456?|
+|Wie is de auteur van HRF-123234?|
+|Is HRF-456098 gepubliceerd in het Frans?|
+|HRF-456098|
+|Wat is de datum van HRF-456098?|
  
 Een reguliere expressie is een goede keuze voor dit type gegevens wanneer:
 
@@ -129,7 +129,7 @@ Voer de volgende stappen uit om een entiteit in de vorm van een gewone expressie
 
 2. Ga naar het einde van de URL in het adres en voer `When were HRF-123456 and hrf-234567 published in the last year?` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `FindForm` als resultaat moet geven met de twee formuliernummers `HRF-123456` en `hrf-234567`.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

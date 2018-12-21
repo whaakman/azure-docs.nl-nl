@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 89f5ae27e7ce3ec3155fd3fdbf42bb0f4322aa10
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 50abe2b067770976f19ae9b70c97c2df8354640f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835060"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091575"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
@@ -35,11 +35,11 @@ Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het een
 * **Meerdere gegevensmodellen en populaire API's voor het raadplegen en opvragen van gegevens**
     * Het op 'atom-record-sequence' (ARS) gebaseerde gegevensmodel waarop Azure Cosmos DB is gebouwd, biedt systeemeigen ondersteuning voor meerdere gegevensmodellen, waaronder modellen op basis van documenten, grafieken, sleutels en waarden, tabellen en kolomfamilies.
     * API's voor de volgende gegevensmodellen worden ondersteund, waarbij er SDK's beschikbaar zijn in meerdere talen:
-        * [SQL-API](sql-api-introduction.md): een JSON-database-engine zonder schema met uitgebreide SQL-querymogelijkheden.
-        * [MongoDB-API](mongodb-introduction.md): een zeer schaalbare *MongoDB-as-a-Service*, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van MongoDB.
-        * [Cassandra-API](cassandra-introduction.md): een wereldwijd gedistribueerde Cassandra-as-a-Service, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van [Apache Cassandra](https://cassandra.apache.org/).
-        * [Gremlin-API](graph-introduction.md): een volledig beheerd, horizontaal schaalbare grafiekdatabaseservice waarmee u eenvoudig toepassingen kunt bouwen en uitvoeren die werken met maximaal verbonden gegevenssets met ondersteuning voor Open Gremlin-API's (op basis van de [Apache TinkerPop-specificatie](http://tinkerpop.apache.org/), Apache Gremlin).
-        * [Table-API](table-introduction.md): een sleutelwaarde-databaseservice, ontwikkeld om premium mogelijkheden te bieden (zoals automatisch indexeren, gegarandeerde lage latentie, wereldwijde distributie) voor bestaande Azure Table-opslagtoepassingen zonder dat er wijzigingen in de toepassingen zijn vereist.
+        * [SQL-API](sql-api-introduction.md): Een JSON-database-engine zonder schema met uitgebreide SQL-querymogelijkheden.
+        * [MongoDB-API](mongodb-introduction.md): Een zeer schaalbare *MongoDB-as-a-Service*, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van MongoDB.
+        * [Cassandra-API](cassandra-introduction.md): Een wereldwijd gedistribueerde Cassandra-as-a-Service, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van [Apache Cassandra](https://cassandra.apache.org/).
+        * [Gremlin-API](graph-introduction.md): Een volledig beheerde, horizontaal schaalbare grafiekdatabaseservice waarmee u eenvoudig toepassingen kunt ontwikkelen en uitvoeren die worden gebruikt met zeer verbonden gegevenssets met ondersteuning voor Open Gremlin-API's (op basis van de [Apache TinkerPop-specificatie](https://tinkerpop.apache.org/), Apache Gremlin).
+        * [Table-API](table-introduction.md): Een sleutelwaarde-databaseservice, ontwikkeld om Premium-mogelijkheden te bieden (zoals automatisch indexeren, gegarandeerde lage latentie, wereldwijde distributie) voor bestaande Azure Table-opslagtoepassingen zonder dat er wijzigingen in de toepassingen zijn vereist.
         * Aanvullende gegevensmodellen en API's zijn binnenkort beschikbaar.
 
 * **Doorvoer en opslag op aanvraag elastisch en onafhankelijk schalen, waar ook ter wereld**

@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: fb616dc95cc7dd7dbb25f2deb832b517d0747ae4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 305ea27e787196f648fcb4c536f33b12c924c015
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315447"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164684"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Zelfstudie: Parallelle R-simulatie uitvoeren met Azure Batch 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Zelfstudie: Een parallelle R-simulatie uitvoeren met Azure Batch 
 
 Voer uw parallelle R-workloads op schaal uit met behulp van [doAzureParallel](http://www.github.com/Azure/doAzureParallel), een lichtgewicht R-pakket dat het mogelijk maakt Azure Batch rechtstreeks vanuit uw R-sessie te gebruiken. Het pakket doAzureParallel is gebouwd op het populaire R-pakket [foreach](http://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel haalt elke herhaling van de foreach-lus op en verzendt deze als een Azure Batch-taak.
 
-In deze zelfstudie wordt uitgelegd hoe u een Batch-pool implementeert en een parallelle R-taak in Azure Batch rechtstreeks uitvoert in RStudio. Procedures voor:
+In deze zelfstudie wordt uitgelegd hoe u een Batch-pool implementeert en een parallelle R-taak in Azure Batch rechtstreeks uitvoert in RStudio. In deze zelfstudie leert u procedures om het volgende te doen:
  
 
 > [!div class="checklist"]
@@ -45,7 +45,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>doAzureParallel installeren
 
-Installeer het [Github-pakket doAzureParallel](http://www.github.com/Azure/doAzureParallel) in de RStudio-console. De volgende opdrachten downloaden en installeren het pakket en de bijbehorende afhankelijkheden in uw huidige R-sessie: 
+Installeer het [GitHub-pakket doAzureParallel](http://www.github.com/Azure/doAzureParallel) in de RStudio-console. De volgende opdrachten downloaden en installeren het pakket en de bijbehorende afhankelijkheden in uw huidige R-sessie: 
 
 ```R
 # Install the devtools package  

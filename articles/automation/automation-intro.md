@@ -10,12 +10,12 @@ keywords: azure automation, DSC, powershell, configuratie van gewenste status, u
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 8f6473603bb6e6ae734bde722742c58514d777c8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428093"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958693"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Een inleiding tot Azure Automation
 
@@ -40,18 +40,26 @@ U kunt de inventarisatie opvragen van in-guest resources voor zichtbaarheid van 
 
 Windows-en Linux bijwerken in hybride omgevingen met Azure Automation. U krijgt een beeld van de updatevereisten in Azure, on-premises en andere clouds. U kunt planningsimplementaties maken voor het organiseren van de installatie van updates binnen een gedefinieerd onderhoudsvenster. Als een update niet op een computer moet worden geïnstalleerd, kunt u die updates uitsluiten van een implementatie.
 
-### <a name="shared-capabilities"></a>Gedeelde functionaliteit
+### <a name="shared-resources"></a>Gedeelde resources
 
 Azure Automation bestaat uit een set gedeelde bronnen waarmee u uw omgevingen eenvoudiger op schaal kunt automatiseren en configureren.
 
-* **[Toegangsbeheer op basis van rollen](automation-role-based-access-control.md)** : beheer toegang tot het account met de rol van Automation-operator waarmee taken kunnen worden uitgevoerd zonder ontwerpmogelijkheden te verschaffen.
-* **[Variabelen](automation-variables.md)** : deze bieden een manier om inhoud te gebruiken die kan worden gebruikt in runbooks en configuraties. U kunt waarden wijzigen zonder een van de runbooks en configuraties die ernaar verwijzen te moeten veranderen.
-* **[Referenties](automation-credentials.md)** : hiermee kunt u vertrouwelijke informatie veilig opslaan die vervolgens kan worden gebruikt door runbooks en configuraties tijdens runtime.
-* **[Certificaten](automation-certificates.md)** : deze kunt u opslaan en beschikbaar stellen tijdens runtime, zodat ze kunnen worden gebruikt voor verificatie en beveiliging van geïmplementeerde resources.
-* **[Verbindingen](automation-connections.md)** : sla een naam of waardepaar met informatie op waarin algemene informatie is opgenomen wanneer u verbinding maakt met systemen in verbindingsresources. Verbindingen worden gedefinieerd door de module-auteur voor gebruik tijdens runtime in runbooks en configuraties.
 * **[Schema's](automation-schedules.md)** : worden gebruikt in de service om automatisering op vooraf gedefinieerde tijden te activeren.
-* **[Integratie met broncodebeheer](automation-source-control-integration.md)** : gebruikt configuratie als code waar runbooks of configuraties in een bronbeheersysteem kunnen worden ingecheckt.
-* **[PowerShell-modules](automation-integration-modules.md)** : modules worden gebruikt voor het beheren van Azure en andere systemen. Importeer gegevens in het Automation-account voor cmdlets en DSC-resources van Microsoft, van derden of uit de community, of voor aangepaste gedefinieerde cmdlets en DSC-resources.
+* **[Modules](automation-integration-modules.md)** : modules worden gebruikt voor het beheren van Azure en andere systemen. Importeer gegevens in het Automation-account voor cmdlets en DSC-resources van Microsoft, van derden of uit de community, of voor aangepaste gedefinieerde cmdlets en DSC-resources.
+* **[Modulegalerie](automation-runbook-gallery.md)**: systeemeigen integratie met de PowerShell Gallery om runbooks weer te geven en deze te importeren in het Automation-account.
+* **[Python 2-pakketten](python-packages.md)**: voeg Python 2-pakketten toe aan uw automation-account om deze te gebruiken in uw Python-runbooks.
+* **[Referenties](automation-credentials.md)** : hiermee kunt u vertrouwelijke informatie veilig opslaan die vervolgens kan worden gebruikt door runbooks en configuraties tijdens runtime.
+* **[Verbindingen](automation-connections.md)** : sla een naam of waardepaar met informatie op waarin algemene informatie is opgenomen wanneer u verbinding maakt met systemen in verbindingsresources. Verbindingen worden gedefinieerd door de module-auteur voor gebruik tijdens runtime in runbooks en configuraties.
+* **[Certificaten](automation-certificates.md)** : deze kunt u opslaan en beschikbaar stellen tijdens runtime, zodat ze kunnen worden gebruikt voor verificatie en beveiliging van geïmplementeerde resources.
+* **[Variabelen](automation-variables.md)** : deze bieden een manier om inhoud te gebruiken die kan worden gebruikt in runbooks en configuraties. U kunt waarden wijzigen zonder een van de runbooks en configuraties die ernaar verwijzen te moeten veranderen.
+
+### <a name="source-control-integration"></a>Integratie van bronbeheer
+
+Azure Automation kan worden [geïntegreerd met broncodebeheer](source-control-integration.md), zodat de configuratie als code kan worden toegepast wanneer runbooks of configuraties in een broncodebeheersysteem kunnen worden ingecheckt.
+
+### <a name="role-based-access-control"></a>Toegangsbeheer op basis van rollen
+
+Azure Automation biedt ondersteuning voor op rollen gebaseerd toegangsbeheer (RBAC) om de toegang tot het Automation-account en de bijbehorende resources te beheren. Voor meer informatie over de configuratie van RBAC voor uw Automation-account, runbooks en taken, raadpleegt u [Op rollen gebaseerd toegangsbeheer voor Azure Automation](automation-role-based-access-control.md).
 
 ### <a name="windows-and-linux"></a>Windows en Linux
 

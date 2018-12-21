@@ -1,23 +1,23 @@
 ---
-title: Snelstart - Een toepassing uitvoeren in Azure Container Instances
-description: In deze snelstart gebruikt u de Azure-CLI om een toepassing in een Docker-container te implementeren in Azure Container Instances
+title: 'Snelstartgids: Een toepassing uitvoeren in Azure Container Instances - CLI'
+description: In deze snelstartgids gebruikt u Azure CLI om een Docker-containertoepassing te implementeren die moet worden uitgevoerd in een geïsoleerde container in Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855660"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189605"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Snelstart - Een toepassing uitvoeren in Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Snelstartgids: Een containertoepassing uitvoeren in Azure Container Instances met Azure CLI
 
-Gebruik Azure Container Instances om Docker-containers in Azure snel en eenvoudig uit te voeren. U hoeft geen virtuele machines te implementeren en u hoeft geen volledig container-indelingsplatform zoals Kubernetes te gebruiken. In deze snelstart gebruikt u Azure Portal om een container te maken in Azure en maakt u de bijbehorende toepassing beschikbaar met een FQDN (Fully Qualified Domain Name). Een paar seconden nadat u één implementatieopdracht hebt uitgevoerd, kunt u bladeren naar de toepassing die wordt uitgevoerd:
+Gebruik Azure Container Instances om Docker-containers in Azure snel en eenvoudig uit te voeren. U hoeft geen virtuele machines te implementeren en u hoeft geen volledig container-indelingsplatform zoals Kubernetes te gebruiken. In deze snelstart gebruikt u Azure CLI om een container te maken in Azure en maakt u de bijbehorende toepassing beschikbaar met een FQDN (Fully Qualified Domain Name). Een paar seconden nadat u één implementatieopdracht hebt uitgevoerd, kunt u bladeren naar de toepassing die wordt uitgevoerd:
 
 ![App die is geïmplementeerd in Azure Container Instances, weergegeven in de browser][aci-app-browser]
 
@@ -29,7 +29,7 @@ U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Azure Container Instances, zoals alle Azure-resources, moeten worden geïmplementeerd in een resourcegroep. Met resourcegroepen kunt u gerelateerde Azure-resources ordenen en beheren.
+Azure Container Instances moeten, zoals alle Azure-resources, worden geïmplementeerd in een resourcegroep. Met resourcegroepen kunt u gerelateerde Azure-resources ordenen en beheren.
 
 Maak eerst een resourcegroep met de naam *myResourceGroup* op de locatie *eastus* met behulp van de volgende [az group create][az-group-create]-opdracht:
 

@@ -1,7 +1,7 @@
 ---
-title: 'Snelstart: Een zoekopdracht uitvoeren met PHP - Bing Webzoekopdrachten-API'
+title: 'Snelstartgids: Een zoekopdracht uitvoeren met PHP - Bing Webzoekopdrachten-API'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart leert u hoe u voor het eerst de Bing Webzoekopdrachten-API aanroept met PHP en een JSON-antwoord ontvangt.
+description: Gebruik deze snelstartgids om aanvragen naar de REST API van Bing Web Search te verzenden via PHP en een JSON-antwoord te ontvangen
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: f4fb66997b6deb6d5e02da2e9976190f00958752
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4338d0703bbe8e55d3bf7c79d9bb30a5089ba6d2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314589"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261582"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Snelstart: PHP gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Snelstartgids: PHP gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 
 Gebruik deze snelstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en binnen tien minuten een JSON-antwoord te ontvangen.  
 

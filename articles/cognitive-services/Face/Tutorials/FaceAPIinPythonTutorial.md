@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: gezichten in een afbeelding detecteren en omlijsten met de Python SDK'
+title: 'Snelstartgids: Gezichten in een afbeelding detecteren en omlijsten met de Python-SDK'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart maakt u een eenvoudig Python-script dat gebruikmaakt van de Face-API om gezichten in een externe afbeelding te detecteren en omlijsten.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 1e35d650f6fc99bff5bf49e517e2b38fcdc58dde
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853146"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076998"
 ---
-# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Snelstart: een Python-script maken om gezichten in een afbeelding te herkennen en te omlijsten
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Snelstartgids: Een Python-script maken om gezichten in een afbeelding te herkennen en te omlijsten
 
 In deze snelstart maakt u een eenvoudig Python-script dat gebruikmaakt van de Azure Face-API om via de Python SDK menselijke gezichten in een externe afbeelding te detecteren. Er wordt een geselecteerde afbeelding weergegeven en een kader rond elk gedetecteerd gezicht getekend.
 
@@ -28,14 +28,18 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 - Een Face-API-abonnementssleutel. U kunt een abonnementssleutel voor een gratis proefversie downloaden van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Of volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op de Face-API-service en uw sleutel op te halen.
 - [Python 2.7+ of 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/)-hulpprogramma
-- De Python SDK van de Face-API. U kunt deze installeren door de volgende opdracht uit te voeren:
-    ```bash
-    pip install cognitive_face
-    ```
+
+## <a name="get-the-face-sdk"></a>De Face-SDK ophalen
+
+Installeer de Python-SDK voor Face door de opdrachtprompt te openen en de volgende opdracht uit te voeren:
+
+```shell
+pip install cognitive_face
+```
 
 ## <a name="detect-faces-in-an-image"></a>Gezichten in een afbeelding detecteren
 
-Maak een nieuw Python-script: _FaceQuickstart.py_. Voeg de volgende code toe. Dit is de kernfunctionaliteit van gezichtsdetectie. U dient `<Subscription Key>` te vervangen door de waarde van de sleutel. Mogelijk moet u ook de waarde van `BASE_URL` wijzigen om de juiste regio-id voor uw sleutel te gebruiken (zie de [documentatie bij de Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst van alle regio-eindpunten). Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**. U kunt `img_url` eventueel instellen op een afbeelding die u wilt gebruiken.
+Maak een nieuw Python-script met de naam _FaceQuickstart.py_ en voeg de volgende code toe. Dit is de kernfunctionaliteit van gezichtsdetectie. U dient `<Subscription Key>` te vervangen door de waarde van de sleutel. Mogelijk moet u ook de waarde van `BASE_URL` wijzigen om de juiste regio-id voor uw sleutel te gebruiken (zie de [documentatie bij de Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst van alle regio-eindpunten). Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**. U kunt `img_url` eventueel instellen op een afbeelding die u wilt gebruiken.
 
 Met het script worden gezichten gedetecteerd door het aanroepen van de methode **cognitive_face.face.detect**. Hiermee wordt de [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)-REST API verpakt en een lijst met gezichten geretourneerd.
 

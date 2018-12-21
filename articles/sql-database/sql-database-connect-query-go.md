@@ -11,30 +11,30 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: c270fef40b732f170add32ef52eeadc790d8cd83
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/07/2018
+ms.openlocfilehash: 34b3ee54c48040eaa6f7b7569921678869baa84b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913498"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092363"
 ---
-# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Snelstart: Go gebruiken om een query uit te voeren voor een Azure SQL-database
+# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Snelstartgids: Go gebruiken om een query uit te voeren op een Azure SQL-database
 
-In deze Quick Start ziet u hoe u met behulp van [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) verbinding maakt met een Azure SQL-database. Bovendien worden er Transact-SQL-instructies voor het doorzoeken en wijzigen van gegevens beschreven.
+In deze snelstart wordt gedemonstreerd hoe u de programmeertaal [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) gebruikt om verbinding te maken met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om gegevens te doorzoeken en wijzigen. [Go](https://golang.org/) is een open-sourceprogrammeertaal waarmee u op een simpele manier eenvoudige, betrouwbare en efficiënte software kunt maken.  
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorg ervoor dat u aan de volgende vereisten voldoet om deze snelstart uit te voeren:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Een [firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) voor het openbare IP-adres van de computer die u gebruikt voor deze snelstart.
+- Een [firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) geconfigureerd voor het openbare IP-adres van uw computer.
 
-- U hebt Go en verwante software geïnstalleerd voor uw besturingssysteem:
+- Go en verwante software geïnstalleerd voor uw besturingssysteem:
 
-    - **Mac OS**: installeer Homebrew en GoLang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-    - **Ubuntu**: installeer GoLang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+    - **MacOS**: Installeer Homebrew en GoLang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+    - **Ubuntu**:  Installeer GoLang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
     - **Windows**: Installeer GoLang. Zie [stap 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
 
 ## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
@@ -49,7 +49,7 @@ Zorg ervoor dat u aan de volgende vereisten voldoet om deze snelstart uit te voe
    mkdir SqlServerSample
    ```
 
-2. Stel de map in op **SqlServerSample**, haal het SQL Server-stuurprogramma voor Go op en installeer het:
+2. Stel de map in op **SqlServerSample** en installeer het SQL Server-stuurprogramma voor Go.
 
    ```bash
    cd SqlServerSample
@@ -59,7 +59,7 @@ Zorg ervoor dat u aan de volgende vereisten voldoet om deze snelstart uit te voe
 
 ## <a name="create-sample-data"></a>Voorbeeldgegevens maken
 
-1. Gebruik uw favoriete teksteditor om een bestand met de naam **CreateTestData.sql** te maken in de map **SqlServerSample**. Kopieer en plak hierin de volgende T-SQL-code. Deze code maakt een schema en tabel en voegt enkele rijen in.
+1. Maak in uw favoriete teksteditor een bestand met de naam **CreateTestData.sql** in de map **SqlServerSample**. In het bestand kopieert en plakt u de volgende T-SQL-code, die zorgt voor een schema en een tabel, en een paar rijen invoegt.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -82,7 +82,7 @@ Zorg ervoor dat u aan de volgende vereisten voldoet om deze snelstart uit te voe
    GO
    ```
 
-2. Maak verbinding met de database met behulp van sqlcmd en voer het SQL-script uit om het schema en de tabel te maken, en voeg enkele rijen in. Gebruik de juiste waarden voor uw server, database, gebruikersnaam en wachtwoord.
+2. Gebruik `sqlcmd` om verbinding te maken met de database en voer uw zojuist gemaakte SQL-script uit. Gebruik de juiste waarden voor uw server, database, gebruikersnaam en wachtwoord.
 
    ```bash
    sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
@@ -92,7 +92,7 @@ Zorg ervoor dat u aan de volgende vereisten voldoet om deze snelstart uit te voe
 
 1. Maak een bestand met de naam **sample.go** in de map **SqlServerSample**.
 
-2. Open het bestand en vervang de inhoud door de volgende code. Voeg de juiste waarden toe voor uw server, database, gebruikersnaam en wachtwoord. In dit voorbeeld worden de GoLang Context-methoden gebruikt om te zorgen voor een actieve verbinding met de databaseserver.
+2. Open het bestand en plak de volgende code. Voeg de juiste waarden toe voor uw server, database, gebruikersnaam en wachtwoord. In dit voorbeeld worden de GoLang Context-methoden gebruikt om te zorgen voor een actieve verbinding met de databaseserver.
 
    ```go
    package main
@@ -288,13 +288,13 @@ Zorg ervoor dat u aan de volgende vereisten voldoet om deze snelstart uit te voe
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-1. Voer bij de opdrachtprompt de volgende opdrachten uit:
+1. Voer bij de opdrachtprompt de volgende opdracht uit.
 
    ```bash
    go run sample.go
    ```
 
-2. De uitvoer controleren:
+2. Controleer de uitvoer.
 
    ```text
    Connected!

@@ -1,27 +1,20 @@
 ---
-title: 'Snelstart: Leren werken met de Azure SignalR-service | Microsoft Docs'
+title: 'Snelstart: Leren werken met Azure SignalR Service'
 description: Een snelstart waarin u leert hoe u met de Azure SignalR-service een chatruimte maakt met ASP.NET Core MVC-apps.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: b667f38c4e3d2a3fad323171a3b3b49ed3619fd9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959475"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260613"
 ---
-# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Snelstart: Een chatruimte maken met de SignalR-service
+# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Snelstart: Een chatruimte maken met SignalR Service
 
 
 De Azure SignalR-service is een Azure-service waarmee ontwikkelaars eenvoudig webtoepassingen met realtime-functies kunnen bouwen. Deze service is gebaseerd op [SignalR voor ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
@@ -41,7 +34,7 @@ De code voor deze zelfstudie is beschikbaar als download in de [GitHub-opslagpla
 ## <a name="prerequisites"></a>Vereisten
 
 * De [.NET Core-SDK](https://www.microsoft.com/net/download/windows) installeren
-* Download of kloon de [AzureSignalR-voorbeelden](https://github.com/aspnet/AzureSignalR-samples)uit de GitHub-opslagplaats. 
+* Download of kloon de [AzureSignalR-voorbeelden](https://github.com/aspnet/AzureSignalR-samples) uit de GitHub-opslagplaats. 
 
 ## <a name="create-an-azure-signalr-resource"></a>Een Azure SignalR-resource maken
 

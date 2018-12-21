@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: f2cb5d33b8d7a7442da16a38e268c56de363a9c6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: secdec18
+ms.openlocfilehash: 9a27efe7908b2a15ceb823d7a85c4a12603731ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274074"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075978"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Azure-abonnementen en -accounts activeren met Cloudyn
 
@@ -41,7 +41,7 @@ Als uw account is toegewezen aan de rol **Inzender**, hebt u niet voldoende mach
 3. Selecteer in Azure Active Directory, **Gebruikersinstellingen**.
 4. Controleer de optie **App-registraties**.
     - Als deze is ingesteld op **Ja**, kunnen de niet-beheerders AD-apps registreren. Deze instelling betekent dat elke gebruiker in de Azure AD-tenant een app kan registreren.  
-    ![App-registraties](./media/activate-subs-accounts/app-register.png)
+    ![App-registraties selecteren in de gebruikersinstellingen](./media/activate-subs-accounts/app-register.png)
     - Als de optie **App-registraties** is ingesteld op **Nee**, kunnen alleen tenantbeheerders apps in Azure Active Directory registreren. Uw tenantbeheerder moet de toepassing CloudynCollector registreren.
 
 
@@ -53,12 +53,12 @@ Wanneer u een account updatet een abonnement toevoegt, verleent u Cloudyn toegan
 
 1. Klik in de Cloudyn-portal rechtsboven op het tandwielsymbool en selecteer **Cloud Accounts** .
 2. Klik op **Nieuw account toevoegen** en het vak **Nieuw account toevoegen** verschijnt. Voer vereiste gegevens in.  
-    ![Vak Nieuw account toevoegen](./media/activate-subs-accounts//add-new-account.png)
+    ![de vereiste gegevens invoeren in het vak Nieuw account toevoegen](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Een abonnement bijwerken
 
 1. Als u een _niet-geactiveerd_ abonnement wilt bijwerken dat al voorkomt in Cloudyn in Account-beheer, klikt u op het potloodsymbool bewerken rechts van de bovenliggende _tenant-GUID_. Abonnementen zijn gegroepeerd onder een bovenliggende tenant, dus vermijd het afzonderlijk activeren van abonnementen.
-    ![Abonnementen opnieuw detecteren](./media/activate-subs-accounts/existing-sub.png)
+    ![uw tenant-id selecteren in het vak Abonnementen opnieuw detecteren](./media/activate-subs-accounts/existing-sub.png)
 2. Voer, indien nodig, de Tenant-ID in. Als u uw Tenant-ID niet weet, gebruikt u de volgende stappen om die te vinden:
     1. Meld u aan bij [Azure Portal](https://portal.azure.com).
     2. Selecteer in de Azure-portal **Azure Active Directory**.
@@ -106,7 +106,7 @@ U moet wellicht ook afdelingsbeheerders, accounteigenaars en enterprise-administ
 Alleen een Azure-servicebeheerder kan Cloudyn inschakelen. U hebt onvoldoende co-beheerdersmachtigingen. U kunt echter de vereiste voor beheerders omzeilen. U kunt uw Azure Active Directory-beheerder vragen u toestemming te geven om de **CloudynAzureCollector** te autoriseren met een PowerShell-script. Het volgende script geeft toestemming om de Azure Active Directory-service-principal **​​CloudynAzureCollector**te registreren.
 
 
-```
+```powershell
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #Tenant - enter your tenant ID or Name

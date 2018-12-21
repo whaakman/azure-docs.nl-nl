@@ -1,6 +1,6 @@
 ---
-title: Een C# ASP.NET Core-web-app maken in Azure | Microsoft Docs
-description: Leer hoe u web-apps uitvoert in Azure App Service door de standaard C# ASP.NET-web-app te implementeren.
+title: Een C# ASP.NET Core-web-app maken - Azure App Service | Microsoft Docs
+description: Leer hoe u web-apps uitvoert in Azure App Service door de standaard C# ASP.NET Core-web-app te implementeren.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: ad17488c4e1fd5eb3965049b26d3f00270dce50f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.custom: seodec18
+ms.openlocfilehash: 70c24b8aef1672696c0e7d7289e23b98b6b49dfe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301030"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341436"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Een ASP.NET Core-web-app maken in Azure
 

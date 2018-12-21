@@ -1,7 +1,7 @@
 ---
-title: 'Snelstart: Afbeeldingen zoeken met Java - Bing Afbeeldingen zoeken-API'
+title: 'Snelstartgids: Afbeeldingen zoeken - REST API voor Bing Image Search en Java'
 titleSuffix: Azure Cognitive Services
-description: Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. Deze eenvoudige Java-toepassing stuurt een zoekquery naar de API en toont de onbewerkte resultaten.
+description: Gebruik deze snelstartgids om aanvragen voor het zoeken van afbeeldingen naar de REST API voor Bing Image Search te verzenden met Java en JSON-antwoorden te ontvangen.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 63add2406b4535747c09299ecc0df6d1b6b47da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 17dcf33074e7ee097a8778b3b867cb196cd814c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315865"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258165"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>Snelstart: Zoekquery's verzenden met behulp van de Bing Afbeeldingen zoeken-REST API en Java
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Snelstartgids: Afbeeldingen zoeken met de REST API voor Bing Image Search en Java
 
 Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. Deze eenvoudige Java-toepassing stuurt een zoekquery naar de API en toont de onbewerkte resultaten.
 

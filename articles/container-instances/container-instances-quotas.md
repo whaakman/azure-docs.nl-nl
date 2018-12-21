@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/27/2018
+ms.date: 12/07/2018
 ms.author: danlep
-ms.openlocfilehash: 2694e8cdc4f1918aab36794804ff48f5a70b44be
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a7b61702feb062c57fdec84f335ace44a47d0283
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739682"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249478"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Beschikbaarheid in regio’s voor Azure Container Instances
 
@@ -29,10 +29,11 @@ Azure Container Instances is beschikbaar in de volgende regio's met de opgegeven
 | Locatie | OS | CPU | Geheugen (GB) |
 | -------- | -- | :---: | :-----------: |
 | US - oost, Europa - noord, Europa - west, US - west, US - west 2 | Linux | 4 | 14 |
+| Japan - oost | Linux | 2 | 8 |
 | Australië - oost, US - oost 2, Azië - zuidoost | Linux | 2 | 7 |
-| Canada - centraal, India - centraal, US - zuid-centraal | Linux | 2 | 3,5 |
+| Canada - centraal, India - centraal, Azië - oost, US - noord-centraal, US - zuid-centraal | Linux | 2 | 3,5 |
 | US - oost, Europa - west, US - west | Windows | 4 | 14 |
-| Australië - oost, Canada - centraal, India - centraal, US - oost 2, Europa - noord, US - zuid-centraal, Azië - zuidoost, US - west 2 | Windows | 2 | 3,5 |
+| Australië - oost, Canada - centraal, India - centraal, Azië - oost, US - oost 2, Japan - oost, US - noord-centraal, Europa - noord, US - zuid-centraal, Azië - zuidoost, US - west 2 | Windows | 2 | 3,5 |
 
 Containerinstanties die binnen deze resourcelimieten zijn gemaakt, zijn afhankelijk van de beschikbaarheid in de implementatieregio. Wanneer een regio zwaar wordt belast, kan er een fout optreden bij het implementeren van instanties. Als u dergelijke implementatiefouten wilt minimaliseren, implementeert u instanties met een lagere CPU en geheugeninstellingen, of voert u de implementatie op een later tijdstip uit.
 

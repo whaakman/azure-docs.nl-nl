@@ -1,23 +1,24 @@
 ---
-title: 'Zelfstudie 4: Exact tekstovereenkomst - List-entiteit van LUIS'
+title: Exacte tekstovereenkomst
 titleSuffix: Azure Cognitive Services
 description: Leer hoe u gegevens ophaalt die overeenkomen met een vooraf gedefinieerde lijst met items. Elk item in de lijst kan synoniemen hebben die ook exact overeenkomen
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425068"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096686"
 ---
-# <a name="tutorial-4-extract-exact-text-matches"></a>Zelfstudie 4: Exacte tekstovereenkomsten extraheren
+# <a name="tutorial-4-extract-exact-text-matches"></a>Zelfstudie 4: Exacte tekstovereenkomsten herkennen
 In deze zelfstudie leert u hoe u gegevens ophaalt die overeenkomen met een vooraf gedefinieerde lijst met termen. Elk item in de lijst kan een lijst met synoniemen bevatten. Voor de Human Resources-app kan een werknemer worden geïdentificeerd aan de hand van enkele belangrijke gegevens, zoals naam, e-mailadres, telefoonnummer en sociaal-fiscaal nummer. 
 
 De Human Resources-app moet bepalen welke werknemer wordt overgeplaatst van het ene naar het andere gebouw. Voor een utterance over het verplaatsen van een werknemer bepaalt LUIS de intentie en extraheert de werknemer, zodat een standaardopdracht voor het verplaatsen van de werknemer kan worden aangemaakt door de clienttoepassing.
@@ -106,11 +107,11 @@ De primaire, _canonieke_ naam voor elk item is het werknemersnummer. Voorbeelden
 
 3. Voer in het pop-updialoogvenster `Employee` in als naam voor de entiteit en **List** als het entiteitstype. Selecteer **Done**.  
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Schermopname van het pop-updialoogvenster voor het maken van een nieuwe entiteit")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Schermopname van een pop-upvenster voor het maken van een nieuwe entiteit](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Schermopname van een pop-upvenster voor het maken van een nieuwe entiteit")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
 4. Voer op de pagina van de entiteit Employee `Employee-24612` als de nieuwe waarde in.
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Schermafbeelding van het invoeren van de waarde")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
+    [![Schermopname van het invoeren van een waarde](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Schermopname van het invoeren van een waarde")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
 5. Voor synoniemen voegt u de volgende waarden toe:
 
@@ -122,7 +123,7 @@ De primaire, _canonieke_ naam voor elk item is het werknemersnummer. Voorbeelden
     |Mobiel nummer (privé)|425-555-1212|
     |Amerikaans sociaal-fiscaal nummer|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Schermafbeelding van het invoeren van synoniemen")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+    [![Schermopname van het invoeren van synoniemen](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Schermopname van het invoeren van synoniemen")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 6. Voer `Employee-45612` als een nieuwe waarde in.
 
@@ -150,7 +151,7 @@ De primaire, _canonieke_ naam voor elk item is het werknemersnummer. Voorbeelden
 
 2. Ga naar het einde van de URL in het adres en voer `shift 123-45-6789 from Z-1242 to T-54672` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `MoveEmployee` met `Employee` geëxtraheerd als resultaat moet geven.
 
-  ```JSON
+  ```json
   {
     "query": "shift 123-45-6789 from Z-1242 to T-54672",
     "topScoringIntent": {

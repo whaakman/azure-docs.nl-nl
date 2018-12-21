@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124977"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162219"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Zelfstudie: Een Jenkins-omgeving configureren om CI/CD in te schakelen voor een Java-toepassing voor Service Fabric
 
-Deze zelfstudie is deel vijf van een serie. De zelfstudie laat zien hoe u Jenkins moet gebruiken voor het implementeren van upgrades voor uw toepassing. In deze zelfstudie wordt de Service Fabric Jenkins-invoegtoepassing gebruikt in combinatie met een Github-opslagplaats die als host fungeert voor de stemtoepassing, voor het implementeren van de toepassing naar een cluster.
+Deze zelfstudie is deel vijf van een serie. De zelfstudie laat zien hoe u Jenkins moet gebruiken voor het implementeren van upgrades voor uw toepassing. In deze zelfstudie wordt de Service Fabric Jenkins-invoegtoepassing gebruikt in combinatie met een GitHub-opslagplaats die als host fungeert voor de stemtoepassing, voor het implementeren van de toepassing naar een cluster.
 
 In deel vijf van de serie leert u het volgende:
 > [!div class="checklist"]
@@ -84,7 +84,7 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Een Jenkins-taak maken en configureren
 
-1. Als u geen opslagplaats hebt die u kunt gebruiken voor het hosten van het stemproject op Github, maak er dan eerst een. De opslagplaats wordt **dev_test** genoemd voor de rest van deze zelfstudie.
+1. Als u geen opslagplaats hebt die u kunt gebruiken voor het hosten van het stemproject op GitHub, maakt u er eerst een. De opslagplaats wordt **dev_test** genoemd voor de rest van deze zelfstudie.
 
 1. Maak een **nieuw item** op uw Jenkins-dashboard op ``http://<HOST-IP>:8080``,.
 
@@ -181,7 +181,7 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     </CodePackage>
     ```
 
-1. Voor het initialiseren van een Jenkins-taak die een upgrade van de toepassing uitvoert, moet u uw nieuwe wijzigingen naar uw Github-opslagplaats forceren.
+1. Voor het initialiseren van een Jenkins-taak die een upgrade van de toepassing uitvoert, moet u uw nieuwe wijzigingen naar uw GitHub-opslagplaats forceren.
 
 1. Klik in Service Fabric Explorer op de vervolgkeuzelijst **Toepassingen**. Klik op het tabblad **Upgrades in uitvoering** om de status van de upgrade te zien.
 

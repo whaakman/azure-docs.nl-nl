@@ -1,23 +1,24 @@
 ---
-title: C#-snelstart - Model wijzigen en de LUIS-app trainen
-titleSuffix: Azure Cognitive Services
-description: Voeg in deze C#-snelstart voorbeeldutterances toe aan een Home Automation-app en train de app. Voorbeeldutterances zijn teksten uit gesprekken met gebruikers die worden toegewezen aan een intentie. Door voorbeeldutterances op te geven voor intenties leert u LUIS welke soorten door de gebruiker geleverde tekst bij welke intentie horen.
+title: Wijzigen, app trainen, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Voeg in deze C#-snelstart voorbeeldutterances toe aan een Home Automation-app en train de app.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aab9651092f7ad5dbc78c31db8df4ef3538fedfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 23692bd6a0c708b2747a3cc211b8238d30dfe5db
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039969"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161743"
 ---
-# <a name="quickstart-change-model-using-c"></a>Snelstart: Model wijzigen met behulp van C#
+# <a name="quickstart-change-model-using-c"></a>Snelstartgids: Model wijzigen met behulp van C#
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
@@ -28,7 +29,7 @@ ms.locfileid: "47039969"
 * Programmeertaal C# moet geïnstalleerd zijn.
 * NuGet-pakketten [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) en [CommandLine](https://www.nuget.org/packages/CommandLineParser/)
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>JSON-bestand met voorbeeldutterances
 
@@ -56,7 +57,7 @@ Voor het Visual Studio-project zijn **JsonFormatterPlus** en **CommandLineParser
 ### <a name="write-the-c-code"></a>De C#-code schrijven
 Het bestand **Program.cs** moet er als volgt uitzien:
 
-```CSharp
+```C#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,9 +99,7 @@ Voeg de POST-aanvraagmethode toe aan de klasse **Program**.
 
 Voeg voorbeeldutterances toe uit de bestandsmethode aan de klasse **Program**.
 
-   [!code-csharp[Add example utterances from file.
-](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
-")]
+   [!code-csharp[Add example utterances from file.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.")]
 
 Nadat de wijzigingen op het model zijn toegepast, traint u het model. Voeg methode toe aan de klasse **Program**.
 
@@ -128,7 +127,7 @@ Bouw de code in Visual Studio.
 
 Voer de toepassing uit vanaf een opdrachtregel in de directory /bin/Debug van het project. 
 
-```CMD
+```console
 ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 

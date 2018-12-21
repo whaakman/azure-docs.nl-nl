@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614001"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337883"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Logboekregistratie van containerinstanties met Azure Log Analytics
 
@@ -24,7 +24,7 @@ Voordat u gegevens van containerinstanties naar Log Analytics kunt verzenden, mo
 
 Voor het inschakelen van logboekregistratie voor uw containerexemplaren hebt u het volgende nodig:
 
-* [Log Analytics-werkruimte](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Log Analytics-werkruimte](../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli) (of [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Log Analytics-referenties verkrijgen
@@ -135,7 +135,7 @@ ContainerInstanceLog_CL
 Voor meer informatie over het uitvoeren van query's op logboeken en het configureren van waarschuwingen in Azure Log Analytics, zie:
 
 * [Zoekopdrachten in logboeken in Log Analytics begrijpen](../log-analytics/log-analytics-log-search.md)
-* [Consistente waarschuwingen in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+* [Consistente waarschuwingen in Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>CPU en geheugen bewaken

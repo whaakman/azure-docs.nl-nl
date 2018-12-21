@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 0b4e334ea9a423ed4eb9a0830d68ad7f4b843a88
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6075086b390a14e807e493bd574ac889b81272bf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833639"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437347"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snelstart: Een AKS-cluster (Azure Kubernetes Service) implementeren
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snelstartgids: Een AKS-cluster (Azure Kubernetes Service) implementeren
 
 In deze snelstart implementeert u een AKS-cluster met behulp van Azure Portal. Vervolgens wordt een toepassing met meerdere containers op het cluster uitgevoerd die bestaat uit een web-front-end en een Redis-exemplaar. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
 
@@ -36,27 +36,27 @@ Selecteer in de linkerbovenhoek van de Azure-portal **Een resource maken** > **K
 Voltooi de volgende stappen om een AKS-cluster te maken:
 
 1. **Basisprincipes**, configureer de volgende opties:
-    - *PROJECTDETAILS*: selecteer een Azure-abonnement, en selecteer of maak vervolgens een Azure-resourcegroep, zoals *myResourceGroup*. Voer een **Kubernetes-clusternaam** in, zoals *myAKSCluster*.
-    - *CLUSTERDETAILS*: selecteer een regio, Kubernetes-versie en DNS-naamvoorvoegsel voor het AKS-cluster.
-    - *SCHAAL*: selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd.
+    - *PROJECTGEGEVENS*: Selecteer een Azure-abonnement, en selecteer of maak vervolgens een Azure-resourcegroep, zoals *myResourceGroup*. Voer een **Kubernetes-clusternaam** in, zoals *myAKSCluster*.
+    - *CLUSTERDETAILS*: Selecteer een regio, Kubernetes-versie en DNS-naamvoorvoegsel voor het AKS-cluster.
+    - *SCHAAL*: Selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd.
         - Selecteer het aantal knooppunten dat u in het cluster wilt implementeren. Stel voor deze quickstart het **Aantal knooppunten** in op *1*. Het aantal knooppunten kan nog **wel** worden gewijzigd als het cluster is geïmplementeerd.
     
     ![AKS-cluster maken - basisgegevens opgeven](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Selecteer **Volgende: verificatie** wanneer u klaar bent.
+    Selecteer **Volgende: Verificatie** wanneer u klaar bent.
 
-1. **Verificatie**, configureer de volgende opties:
+1. **Verificatie**: Configureer de volgende opties:
     - Maak een nieuwe service-principal of *configureer* om een bestaande te gebruiken. Wanneer u een bestaande service-principal gebruikt, moet u de SPN-client-ID en het geheim opgeven.
     - Schakel de optie voor Kubernetes-toegangsbeheer op basis van rollen (RBAC) in. Deze besturingselementen bieden een verfijnder beheer van de toegang tot de Kubernetes-resources die zijn geïmplementeerd in het AKS-cluster.
 
     Selecteer **Volgende: Netwerk** wanneer u klaar bent.
 
-1. **Netwerken**: configureer de volgende netwerkopties die als standaard moeten worden ingesteld:
+1. **Netwerken**: Configureer de volgende netwerkopties:
     
     - **Routering van HTTP-toepassing**: selecteer **Ja** om een geïntegreerde ingangscontroller te configureren met functionaliteit voor het automatisch maken van openbare DNS-namen. Zie [HTTP-routering en DNS voor AKS][http-routing] voor meer informatie over HTTP-routering.
     - **Netwerkconfiguratie**: selecteer de **basisnetwerkconfiguratie** die gebruikmaakt van de Kubernetes-invoegtoepassing [kubenet][kubenet], in plaats van de geavanceerde netwerkconfiguratie die gebruikmaakt van [Azure CNI][azure-cni]. Zie het [AKS-netwerkoverzicht][aks-network] voor meer informatie over netwerkopties.
     
-    Selecteer **Volgende: Controle** wanneer u klaar bent.
+    Selecteer **Volgende: Bewaking** wanneer u klaar bent.
 
 1. Bij het implementeren van een AKS-cluster kunt u Azure Monitor voor containers configureren voor het bewaken van de status van het AKS-cluster en de pods die in het cluster worden uitgevoerd. Zie [Status van Azure Kubernetes Service controleren][aks-monitor] voor meer informatie over het controleren van de status van de container.
 
@@ -88,7 +88,7 @@ Als u de verbinding met uw cluster wilt controleren, gebruikt u de opdracht [kub
 kubectl get nodes
 ```
 
-In de volgende voorbeelduitvoer ziet u het enkele knooppunt dat is gemaakt in de vorige stappen.
+In de volgende voorbeelduitvoer ziet u het enkele knooppunt dat is gemaakt in de vorige stappen. Zorg ervoor dat de status van het knooppunt 'Ready' is.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION

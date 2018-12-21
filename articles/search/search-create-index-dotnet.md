@@ -1,6 +1,6 @@
 ---
-title: Een index maken (.NET-API - Azure Search) | Microsoft Docs
-description: Een index in code maken met behulp van de Azure Search .NET SDK.
+title: In code een index maken met behulp van de .NET API - Azure Search
+description: Lees hoe u een doorzoekbare volledige-tekstindex maakt met behulp van de Azure Search .NET SDK en C#-voorbeeldcode.
 author: brjohnstmsft
 manager: jlembicz
 tags: azure-portal
@@ -10,12 +10,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: a1c9340acdc2521b9b74f47b0e17d0e4d37aea77
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 6d111b1be310a345e23c440f1af9da4183efff43
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236564"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312592"
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>Een index voor Azure Search maken met behulp van de .NET SDK
 > [!div class="op_single_selector"]

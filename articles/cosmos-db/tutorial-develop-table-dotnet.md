@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: ontwikkelen met de tabel-API in .NET'
-description: Meer informatie over ontwikkelen met de tabel-API van Azure Cosmos DB met .NET
-services: cosmos-db
+title: Ontwikkelen met de Table-API met behulp van .NET SDK
+titleSuffix: Azure Cosmos DB
+description: Meer informatie over het ontwikkelen met de Table-API in Azure Cosmos DB met behulp van .NET SDK
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
+ms.date: 12/07/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: f10cb17f0300b6bd21d17b1e2ff204d57e4a7988
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877732"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251178"
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: ontwikkelen met de tabel-API in .NET
+# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>Ontwikkelen met de Table-API van Azure Cosmos DB met behulp van .NET SDK
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.
 
@@ -97,7 +97,7 @@ We gaan nu een Table-app klonen vanaf GitHub, de verbindingsreeks instellen en d
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. Hierdoor kan de app communiceren met de gehoste database. 
 
-1. Klik in [Azure Portal](http://portal.azure.com/) op **Verbindingsreeks**. 
+1. Klik in [Azure Portal](https://portal.azure.com/) op **Verbindingsreeks**. 
 
     Gebruik de kopieerknoppen aan de rechterkant van het scherm om de PRIMARY CONNECTION STRING te kopiëren.
 
@@ -180,7 +180,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 Deze client wordt geïnitialiseerd met behulp van de configuratiewaarden `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` en `TablePreferredLocations` als deze zijn opgegeven in de app-instellingen.
 
 ## <a name="create-a-table"></a>Een tabel maken
-Vervolgens maakt u een tabel met `CloudTable`. Tabellen in Azure Cosmos DB kunnen onafhankelijk worden geschaald als het gaat om opslag en doorvoer en partitionering wordt automatisch afgehandeld door de service. Azure Cosmos DB ondersteunt zowel tabellen met een vaste grootte als onbeperkte tabellen. Zie [Partitionering in Azure Cosmos DB](partition-data.md) voor meer informatie. 
+
+Vervolgens maakt u een tabel met `CloudTable`. Tabellen in Azure Cosmos DB kunnen onafhankelijk worden geschaald als het gaat om opslag en doorvoer en partitionering wordt automatisch afgehandeld door de service. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

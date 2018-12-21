@@ -8,25 +8,25 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b5aa300d51deef408b8dd2b410db319449360329
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ef4099130878813378fb277c45b5d352cbe822a7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428824"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000170"
 ---
-# <a name="quickstart-create-a-server---portal"></a>Snelstart: Een server maken - Portal
+# <a name="quickstart-create-a-server---portal"></a>Snelstartgids: Een server maken - portal
 
 In deze snelstart wordt beschreven hoe u een Azure Analysis Services-serverresource in uw Azure-abonnement maakt met behulp van de portal.
 
 ## <a name="prerequisites"></a>Vereisten 
 
-* **Azure-abonnement**: ga naar [gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) om een account te maken.
-* **Azure Active Directory**: uw abonnement moet zijn gekoppeld aan een Azure Active Directory-tenant. En u moet zijn aangemeld bij Azure met een account in deze Azure Active Directory. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
+* **Azure-abonnement**: Ga naar [gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) om een account te maken.
+* **Azure Active Directory**: Uw abonnement moet zijn gekoppeld aan een Azure Active Directory-tenant. En u moet zijn aangemeld bij Azure met een account in deze Azure Active Directory. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal 
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal 
 
-[Meld u aan bij de portal](https://portal.azure.com).
+[Aanmelden bij de portal](https://portal.azure.com)
 
 
 ## <a name="create-a-server"></a>Een server maken
@@ -37,14 +37,14 @@ In deze snelstart wordt beschreven hoe u een Azure Analysis Services-serverresou
 
 2. Vul in **Analysis Services** de vereiste velden in. Druk vervolgens op **Maken**.
    
-   * **Servernaam**: typ een unieke naam om te verwijzen naar de server.
-   * **Abonnement**: selecteer het abonnement waaraan deze server wordt gekoppeld.
-   * **Resourcegroep**: maak een nieuwe resourcegroep of selecteer een bestaande resourcegroep. Resourcegroepen zijn ontworpen om u te helpen bij het beheren van een verzameling Azure-resources. Zie [Resourcegroepen](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
-   * **Locatie**: op deze Azure-datacenterlocatie wordt de server gehost. Kies een locatie die zich zo dicht mogelijk bij uw grootste gebruikersgroep bevindt.
-   * **Prijscategorie**: selecteer een prijscategorie. Als u de voorbeeldmodeldatabase wilt testen en waarschijnlijk wilt installeren, selecteert u de gratis **D1**-laag. Zie [Prijzen van Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) voor meer informatie. 
-    * **Beheerder**: dit is standaard het account waarmee u bent aangemeld. U kunt een ander account kiezen in uw Azure Active Directory.
-    * **Instelling voor back-upopslag**: optioneel. Als u al een [opslagaccount](../storage/common/storage-introduction.md) hebt, kunt u dit als de standaardopslag opgeven voor back-ups van de modeldatabase. U kunt de instellingen voor [back-up en herstellen](analysis-services-backup.md) ook later opgeven.
-    * **Vervaldatum van de opslagsleutel**: optioneel. Geef een verloopperiode op voor de opslagsleutel.
+   * **Servernaam**: Voer een unieke naam in om naar de server te verwijzen.
+   * **Abonnement**: Selecteer het abonnement waaraan deze server wordt gekoppeld.
+   * **Resourcegroep**: Maak een nieuwe resourcegroep of selecteer een bestaande resourcegroep. Resourcegroepen zijn ontworpen om u te helpen bij het beheren van een verzameling Azure-resources. Zie [Resourcegroepen](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
+   * **Locatie**: Op deze Azure-datacenterlocatie wordt de server gehost. Kies een locatie die zich zo dicht mogelijk bij uw grootste gebruikersgroep bevindt.
+   * **Prijscategorie**: Selecteer een prijscategorie. Als u de voorbeeldmodeldatabase wilt testen en waarschijnlijk wilt installeren, selecteert u de gratis **D1**-laag. Zie [Prijzen van Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) voor meer informatie. 
+    * **Beheerder**: Dit is standaard het account waarmee u bent aangemeld. U kunt een ander account kiezen in uw Azure Active Directory.
+    * **Instelling voor back-upopslag**: Optioneel. Als u al een [opslagaccount](../storage/common/storage-introduction.md) hebt, kunt u dit als de standaardopslag opgeven voor back-ups van de modeldatabase. U kunt de instellingen voor [back-up en herstellen](analysis-services-backup.md) ook later opgeven.
+    * **Vervaldatum van de opslagsleutel**: Optioneel. Geef een verloopperiode op voor de opslagsleutel.
 
 Het maken van de server duurt gewoonlijk minder dan een minuut. Als u **Toevoegen aan de portal** hebt geselecteerd, navigeert u naar de portal om de nieuwe server te zien. Of navigeer naar **Alle services** > **Analysis Services** om te zien of de server gereed is.
 
@@ -59,6 +59,6 @@ Verwijder de server als u deze niet meer nodig hebt. Klik in het **Overzicht** v
 In deze snelstart hebt u geleerd hoe u een server maakt in uw Azure-abonnement. Nu u een server hebt gemaakt, kunt u deze beveiligen door een serverfirewall te configureren. (Optioneel) U kunt ook rechtstreeks vanuit de portal een eenvoudig voorbeeldgegevensmodel toevoegen aan de server. Een voorbeeldmodel is handig als u meer wilt weten over het configureren van modeldatabaserollen en het testen van clientverbindingen. Als u meer wilt weten, gaat u verder met de zelfstudie waarin u leert een voorbeeldmodel toe te voegen.
 
 > [!div class="nextstepaction"]
-> [Snelstart: Een serverfirewall configureren - Portal](analysis-services-qs-firewall.md)   
+> [Snelstartgids: Een serverfirewall configureren - portal](analysis-services-qs-firewall.md)   
 > [!div class="nextstepaction"]
 > [Zelfstudie: Een voorbeeldmodel toevoegen aan uw server](analysis-services-create-sample-model.md)

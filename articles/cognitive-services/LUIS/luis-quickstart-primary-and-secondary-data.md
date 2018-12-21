@@ -1,23 +1,24 @@
 ---
-title: 'Zelfstudie 7: Eenvoudige entiteit met woordgroepenlijst in LUIS'
+title: Entiteit Simple, woordgroepenlijst
 titleSuffix: Azure Cognitive Services
-description: Via machine learning verkregen gegevens ophalen uit een utterance
+description: In deze zelfstudie haalt u via machine learning verkregen gegevens over een functienaam op uit een utterance met behulp van de entiteit Simple. Als u de nauwkeurigheid van het extraheren wilt vergroten, voegt u een woordenlijst toe met termen die specifiek gekoppeld zijn aan de Simple-entiteit.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425242"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166265"
 ---
-# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Zelfstudie 7: Namen met een eenvoudige entiteit en woordenlijst extraheren
+# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Zelfstudie 7: Namen met een Simple-entiteit en woordenlijst extraheren
 
 In deze zelfstudie haalt u via machine learning verkregen gegevens over een functienaam op uit een utterance met behulp van de entiteit **Simple**. Als u de nauwkeurigheid van het extraheren wilt vergroten, voegt u een woordenlijst toe met termen die specifiek gekoppeld zijn aan de Simple-entiteit.
 
@@ -92,7 +93,7 @@ Zodra de entiteiten in de voorbeeldutterances zijn gemarkeerd, is het belangrijk
 
 3. In de utterance `I want to apply for the new accounting job` selecteert u `accounting`, voert u `Job` in het bovenste veld van het snelmenu in en selecteert u **Create new entity** in het snelmenu. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Schermopname van LUIS met de intentie ApplyForJob en de stappen voor het creëren van een entiteit gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Schermopname van LUIS met intentie ApplyForJob en gemarkeerde stappen voor entiteit maken](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Schermopname van LUIS met intentie ApplyForJob en gemarkeerde stappen voor entiteit maken")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 4. Controleer de naam en het type van de entiteit in het pop-upvenster en selecteer **Done**.
 
@@ -100,7 +101,7 @@ Zodra de entiteiten in de voorbeeldutterances zijn gemarkeerd, is het belangrijk
 
 5. In de utterance `Submit resume for engineering position` labelt u het woord `engineering` als een entiteit Job. Selecteer het woord `engineering` en selecteer **Job** in het snelmenu. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Schermopname van LUIS waarin het labelen van de entiteit Job is gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Schermopname van LUIS met het labelen als de entiteit Job gemarkeerd](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Schermopname van LUIS met het labelen als de entiteit Job gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
     Alle utterances zijn gelabeld maar vijf utterances zijn niet voldoende om LUIS te leren welke woorden en woordgroepen gerelateerd zijn aan de functie. De functies die gebruikmaken van de cijferwaarde hebben niet meer voorbeelden nodig omdat deze van een reguliere expressie gebruikmaken. Van functies die uit woorden of woordgroepen bestaan, moeten ten minste 15 meer voorbeelden bestaan. 
 
@@ -157,7 +158,7 @@ Door de entiteit te labelen, of te _markeren_, weet LUIS waar de entiteit in de 
 
 2. Ga naar het einde van de URL in het adres en voer `Here is my c.v. for the programmer job` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de utterances van `ApplyForJob` als resultaat moet geven.
 
-    ```JSON
+    ```json
     {
       "query": "Here is my c.v. for the programmer job",
       "topScoringIntent": {
@@ -226,7 +227,7 @@ De LUIS-app heeft weliswaar de juiste intentie gevonden met een hoge betrouwbaar
 
 In de volgende JSON antwoordt LUIS met de juiste intentie, `ApplyForJob`, maar is de functienaam `lead welder` niet geëxtraheerd. 
 
-```JSON
+```json
 {
   "query": "This is the lead welder paperwork.",
   "topScoringIntent": {
@@ -291,13 +292,13 @@ Open [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/maste
 
 3. Noem de nieuwe woordgroepenlijst `Job` en kopieer de lijst van jobs-phrase-list.csv naar het tekstvak voor het invoeren van **waarden**. Selecteer Enter. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Schermopname van het pop-updialoogvenster voor het maken van een nieuwe woordgroepenlijst")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![Schermopname van het pop-updialoogvenster voor het maken van een nieuwe woordgroepenlijst](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Schermopname van het pop-updialoogvenster voor het maken van een nieuwe woordgroepenlijst")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Als u meer woorden aan de woordgroepenlijst wilt toevoegen, bekijkt u de **Gerelateerde waarden** en voegt u de woorden toe die relevant voor u zijn. 
 
 4. Selecteer **Save** om de woordgroepenlijst te activeren.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Schermopname van het pop-updialoogvenster met woorden in het vak voor waarden")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![Schermopname van het pop-upvenster voor het maken van een nieuwe woordgroepenlijst met woorden in het vak voor woordgroepenlijstwaarden](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Schermopname van het pop-upvenster voor het maken van een nieuwe woordgroepenlijst met woorden in het vak voor woordgroepenlijstwaarden")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 5. U moet de app opnieuw [trainen](#train) en [publiceren](#publish) om de woordgroepenlijst te kunnen gebruiken.
 
@@ -305,7 +306,7 @@ Open [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/maste
 
     Het JSON-antwoord bevat de geëxtraheerde entiteit:
 
-    ```JSON
+    ```json
     {
         "query": "This is the lead welder paperwork.",
         "topScoringIntent": {

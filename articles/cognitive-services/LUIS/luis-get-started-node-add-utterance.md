@@ -1,23 +1,24 @@
 ---
-title: Node.js-snelstart - model wijzigen en LUIS-app trainen
+title: Wijzigen, app trainen, Node.js
 titleSuffix: Azure Cognitive Services
-description: Voeg in deze Node.js-snelstart voorbeeldutterances toe aan een Home Automation-app en train de app. Voorbeeldutterances zijn teksten uit gesprekken met gebruikers die worden toegewezen aan een intentie. Door voorbeeldutterances op te geven voor intenties leert u LUIS welke soorten door de gebruiker geleverde tekst bij welke intentie horen.
+description: Voeg in deze Node.js-snelstart voorbeeldutterances toe aan een Home Automation-app en train de app.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a487f44e164830928367d9f6ea737e793e38c0a8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8f1ff88dc917c665d04f7500c8022e6baf4c94bf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036147"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164463"
 ---
-# <a name="quickstart-change-model-using-nodejs"></a>Snelstart: Model wijzigen met behulp van Node.js
+# <a name="quickstart-change-model-using-nodejs"></a>Snelstartgids: Model wijzigen met behulp van Node.js
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -28,7 +29,7 @@ ms.locfileid: "47036147"
 * NPM-afhankelijkheden voor dit artikel: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>JSON-bestand met voorbeeldutterances
 
@@ -78,7 +79,7 @@ Voer de toepassing uit vanaf een opdrachtregel met Node.js.
 
 Door `npm start` aan te roepen worden de utterances toegevoegd, wordt de toepassing getraind en wordt de trainingsstatus opgehaald.
 
-```CMD
+```console
 > npm start 
 ```
 
@@ -93,4 +94,4 @@ Verwijder wanneer u klaar bent met de snelstart alle bestanden die in de snelsta
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
-> [Programmatisch een LUIS-app compileren](luis-tutorial-node-import-utterances-csv.md)
+> [Programmatisch een LUIS-app bouwen](luis-tutorial-node-import-utterances-csv.md)

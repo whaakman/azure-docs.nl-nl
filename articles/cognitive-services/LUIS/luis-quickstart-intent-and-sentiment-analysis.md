@@ -1,23 +1,24 @@
 ---
-title: 'Zelfstudie 9: gevoel analyseren (inclusief positief, negatief en neutraal) in LUIS'
+title: Sentimentanalyse
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt extraheren uit utterances. Het gevoel wordt bepaald op basis van de gehele uiting.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424847"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098917"
 ---
-# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Zelfstudie 9: het gevoel van een volledige uiting herkennen
+# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Zelfstudie 9:  Het gevoel van een volledige utterance extraheren
 In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt extraheren uit utterances. Het gevoel wordt bepaald op basis van de gehele uiting.
 
 Sentimentanalyse is de mogelijkheid om te bepalen of de uiting (utterance) van een gebruiker positief, negatief of neutraal is. 
@@ -94,7 +95,7 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
 
 2. Klik op de knop bij **Sentimentanalyse** om deze instelling in te schakelen. 
 
-    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
+    ![Sentimentanalyse als publicatie-instelling inschakelen](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
 ## <a name="publish"></a>Publiceren
 
@@ -106,7 +107,7 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
 
 2. Ga naar het einde van de URL in het adres en voer `Jill Jones work with the media team on the public portal was amazing` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `EmployeeFeedback` als resultaat moet geven met de sentimentanalyse geëxtraheerd.
     
-    ```JSON
+    ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {

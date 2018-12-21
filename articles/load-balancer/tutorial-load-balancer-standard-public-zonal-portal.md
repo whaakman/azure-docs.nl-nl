@@ -1,14 +1,11 @@
 ---
-title: "Zelfstudie: Load Balancer-VM's in een zone - Azure Portal | Microsoft Docs"
+title: "Zelfstudie: Load Balancer-VM's in een zone - Azure Portal"
+titlesuffix: Azure Load Balancer
 description: Deze zelfstudie laat zien hoe u met behulp van Azure Portal een standaard load balancer kunt maken met een zonegebonden front-end voor de taakverdeling van VM's binnen een beschikbaarheidszone.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 580015b7f8b1f894c69ddec0f26daeb524932e4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: seodec18
+ms.openlocfilehash: dd4600d77373894cdc9d6225ae008a8bd677fb59
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637290"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262092"
 ---
-# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Zelfstudie: Met behulp van Azure Portal taakverdeling van virtuele machines uitvoeren binnen een beschikbaarheidszone met Standard Load Balancer
+# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Zelfstudie: Met behulp van Azure Portal taakverdeling voor virtuele machines uitvoeren binnen een beschikbaarheidszone met Standard Load Balancer
 
 Deze zelfstudie toont de stappen voor het maken van een openbare [Azure Standard Load Balancer-instantie](https://aka.ms/azureloadbalancerstandard) met een zonegebonden front-end met behulp van een openbaar IP-standaardadres met Azure Portal. In dit scenario geeft u een bepaalde zone op voor uw front-end- en back-endinstanties om uw gegevenspad en resources op één lijn te brengen met een specifieke zone. U leert hoe u de volgende functies kunt uitvoeren:
 
@@ -53,7 +50,7 @@ Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar I
 2. Voer op de pagina **Load balancer maken** deze waarden in voor de load balancer:
     - **myLoadBalancer** als naam van de load balancer.
     - **Openbaar** als het type load balancer.
-     - **myPublicIPZonal** voor het nieuwe, openbare IP-adres dat u maakt. Selecteer **Kies een openbaar IP-adres**. Selecteer vervolgens **Nieuw maken**. Voer voor de naam **myPublicIP** in. SKU is de standaard. Als **Beschikbaarheidszone** selecteert u **Zone 1**.
+      - **myPublicIPZonal** voor het nieuwe, openbare IP-adres dat u maakt. Selecteer **Kies een openbaar IP-adres**. Selecteer vervolgens **Nieuw maken**. Voer voor de naam **myPublicIP** in. SKU is de standaard. Als **Beschikbaarheidszone** selecteert u **Zone 1**.
     - Voer **myResourceGroupZLB** in als naam van de nieuwe resourcegroep die u maakt.
     - Selecteer **westeurope** als locatie.
 3. Selecteer **Maken** om de load balancer te maken.
@@ -81,7 +78,7 @@ In deze sectie gaat u een virtueel netwerk maken. U gaat ook twee virtuele machi
     - **myNetworkSecurityGroup** als naam van de netwerkbeveiligingsgroep.
     - **myResourceGroupLBAZ** als naam van de bestaande resourcegroep.
    
-    ![Een netwerkbeveiligingsgroep maken](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+     ![Een netwerkbeveiligingsgroep maken](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### <a name="create-nsg-rules"></a>NSG-regels maken
 
@@ -100,7 +97,7 @@ In deze sectie maakt u NSG-regels om inkomende verbindingen via HTTP en Microsof
     - **HTTP toestaan** bij **Beschrijving**.
 4. Selecteer **OK**.
  
- ![NSG-regels maken](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![NSG-regels maken](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. Herhaal de stappen 2 tot 4 om een andere regel met de naam **myRDPRule** te maken. Deze regel staat een binnenkomend RDP-verbinding toe die gebruikmaakt van poort 3389, met de volgende waarden:
     - **Service Tag** bij **Bron**
@@ -112,7 +109,7 @@ In deze sectie maakt u NSG-regels om inkomende verbindingen via HTTP en Microsof
     - **myRDPRule** bij **Naam**
     - **RDP toestaan** bij **Beschrijving**
 
-    ![Een RDP-regel maken](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+      ![Een RDP-regel maken](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### <a name="create-virtual-machines"></a>Virtuele machines maken
 
@@ -195,7 +192,7 @@ Een load balancer-regel bepaalt hoe het verkeer over de VM's wordt verdeeld. U d
 
 1. Selecteer **Alle resources** in het meest linkse menu. Selecteer vervolgens **myLoadBalancer** uit de lijst met resources.
 2. Selecteer onder **Instellingen** **Load balancer-regels**. Selecteer vervolgens **Toevoegen**.
-3. Gebruik deze waarden om de load balancer-regel te configureren:
+3. Gebruik deze waarden om de taakverdelingsregel te configureren:
     - **myHTTPRule** als naam van de load balancer-regel.
     - **TCP** als protocoltype.
     - **80** als poortnummer.

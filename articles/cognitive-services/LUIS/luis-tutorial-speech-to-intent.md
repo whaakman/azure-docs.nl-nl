@@ -1,21 +1,22 @@
 ---
-title: Speech C# SDK met LUIS gebruiken
+title: Speech C# SDK gebruiken
 titleSuffix: Azure Cognitive Services
-description: Met de Speech-service kunt u één aanvraag gebruiken om audio te ontvangen en JSON-objecten met LUIS-voorspelling te retourneren. In dit artikel downloadt en gebruikt u een C#-project in Visual Studio om een utterance in te spreken in een microfoon en LUIS-voorspellingsinformatie te ontvangen. Het project maakt gebruik van het Speech NuGet-pakket, dat al als referentie is opgenomen.
+description: Met de Speech-service kunt u één aanvraag gebruiken om audio te ontvangen en JSON-objecten met LUIS-voorspelling te retourneren. In dit artikel downloadt en gebruikt u een C#-project in Visual Studio om een utterance in te spreken in een microfoon en LUIS-voorspellingsinformatie te ontvangen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139081"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162628"
 ---
 # <a name="integrate-speech-service"></a>Speech-service integreren
 Met de [Speech-service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u één aanvraag gebruiken om audio te ontvangen en JSON-objecten met LUIS-voorspelling te retourneren. In dit artikel downloadt en gebruikt u een C#-project in Visual Studio om een utterance in te spreken in een microfoon en LUIS-voorspellingsinformatie te ontvangen. Het project maakt gebruik van het Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-pakket, dat al als referentie is opgenomen. 
@@ -26,7 +27,7 @@ Voor dit artikel hebt u een gratis [LUIS][LUIS]-websiteaccount nodig om de toepa
 [Maak](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in de Microsoft Azure-portal een **Language Understanding** (LUIS)-sleutel. 
 
 ## <a name="import-human-resources-luis-app"></a>Human Resources LUIS-app importeren
-De intenties en utterances voor dit artikel zijn afkomstig van de Human Resources LUIS-app beschikbaar in de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-opslagplaats. Download het bestand [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), sla het op met de extensie `.json` en [importeer](luis-how-to-start-new-app.md#import-new-app) het in LUIS. 
+De intenties en utterances voor dit artikel zijn afkomstig van de Human Resources LUIS-app beschikbaar in de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) GitHub-opslagplaats. Download het bestand [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), sla het op met de extensie `.json` en [importeer](luis-how-to-start-new-app.md#import-new-app) het in LUIS. 
 
 Deze app heeft intenties, entiteiten en utterances gerelateerd aan het Human Resources-domein. Hier zijn enkele voorbeelden van utterances:
 
@@ -65,7 +66,7 @@ In dit artikel wordt het audioapparaat op uw computer gebruikt. Dat kan een head
 
 De Speech-SDK is al opgenomen als verwijzing. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Schermopname van Visual Studio 2017 met Microsoft.CognitiveServices.Speech NuGet-pakket")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Schermopname van Visual Studio 2017 met Microsoft.CognitiveServices.Speech NuGet-pakket](./media/luis-tutorial-speech-to-intent/nuget-package.png "Schermopname van Visual Studio 2017 met Microsoft.CognitiveServices.Speech NuGet-pakket")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>De C#-code wijzigen
 Open het bestand `Program.cs` en wijzig de volgende variabelen:

@@ -1,5 +1,6 @@
 ---
-title: Overzicht van Azure Load Balancer | Microsoft Docs
+title: Wat is Azure Load Balancer?
+titlesuffix: Azure Load Balancer
 description: Overzicht van Azure Load Balancer-functies, -architectuur en -implementatie. Informatie over hoe de Load Balancer werkt en hou u deze kunt gebruiken in de cloud.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219576"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185610"
 ---
 # <a name="what-is-azure-load-balancer"></a>Wat is Azure Load Balancer?
 
@@ -62,7 +64,7 @@ Load Balancer biedt de volgende fundamentele mogelijkheden voor TCP en UDP-toepa
 
     ![Hash-distributie](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *Afbeelding: hash-distributie*
+    *Afbeelding: Hash-distributie*
 
 * **Port Forwarding**
 
@@ -86,7 +88,7 @@ Load Balancer biedt de volgende fundamentele mogelijkheden voor TCP en UDP-toepa
      
     Load Balancer biedt [verschillende typen statuscontroles](load-balancer-custom-probe-overview.md#types) voor TCP-, HTTP- en HTTPS-eindpunten.
 
-    Daarnaast, is er een aanvullend type [Gastagent](load-balancer-custom-probe-overview.md#guestagent) toegestaan als er klassieke cloudservices worden gebruikt.  Dit moet worden gezien als een statuscontrole die echter pas in laatste instantie moet worden gebruikt, en die niet wordt aanbevolen als andere opties voorhanden zijn.
+    Daarnaast is er een aanvullend type toegestaan wanneer u klassieke cloudservices gebruikt:  [Gastagent](load-balancer-custom-probe-overview.md#guestagent).  Dit moet worden gezien als een statuscontrole die echter pas in laatste instantie moet worden gebruikt, en die niet wordt aanbevolen als andere opties voorhanden zijn.
     
 * **Uitgaande verbindingen (SNAT)**
 
@@ -129,7 +131,7 @@ Op de volgende afbeelding ziet u een eindpunt met taakverdeling voor webverkeer 
 
 ![Voorbeeld van een openbare Load Balancer](./media/load-balancer-overview/IC727496.png)
 
-*Afbeelding: taakverdeling toepassen op webverkeer met behulp van een openbare Load Balancer*
+*Afbeelding: Taakverdeling toepassen op webverkeer met behulp van een openbare load balancer*
 
 Als internetclients aanvragen voor webpagina's verzenden naar het openbare IP-adres van een web-app op TCP-poort 80, worden de aanvragen in Azure Load Balancer verspreid over de drie virtuele machines in de set met taakverdeling. Zie de sectie [Load Balancer-functies](load-balancer-overview.md##fundamental-load-balancer-features) van dit artikel voor meer informatie over Load Balancer-algoritmen.
 
@@ -141,14 +143,14 @@ Een interne Load Balancer zorgt ervoor dat verkeer alleen naar resources wordt g
 
 Met een interne Load Balancer zijn de volgende typen taakverdeling mogelijk:
 
-* **Binnen een virtueel netwerk**: taakverdeling vanaf virtuele machines in het virtuele netwerk voor een set van virtuele machines die zich in hetzelfde virtuele netwerk bevindt.
-* **Voor een cross-premises virtueel netwerk**: taakverdeling vanaf virtuele machines in het virtuele netwerk voor een set van virtuele machines die zich in hetzelfde virtuele netwerk bevindt. 
-* **Voor toepassingen met meerdere lagen**: taakverdeling voor internetgerichte toepassingen met meerdere lagen waarin de back-end-lagen niet internetgericht zijn. De back-end-lagen vereisen verkeer met taakverdeling vanuit de internetgerichte laag (zie de volgende afbeelding).
-* **Voor Line-Of-Business-toepassingen**: taakverdeling voor Line-Of-Business-toepassingen die worden gehost in Azure zonder extra load balancer-hardware of -software. Dit scenario geldt ook voor on-premises servers die deel uitmaken van de set computers waarvan taakverdeling op het verkeer is toegepast.
+* **In een virtueel netwerk**: Taakverdeling vanaf virtuele machines in het virtuele netwerk voor een verzameling virtuele machines die zich in hetzelfde virtuele netwerk bevindt.
+* **Voor een virtueel netwerk met verschillende locaties**: Taakverdeling vanaf on-premises computers voor een verzameling virtuele machines die zich in hetzelfde virtuele netwerk bevindt. 
+* **Voor toepassingen met meerdere lagen**: Taakverdeling voor internetgerichte toepassingen met meerdere lagen waarin de back-endlagen niet internetgericht zijn. De back-end-lagen vereisen verkeer met taakverdeling vanuit de internetgerichte laag (zie de volgende afbeelding).
+* **Voor Line-Of-Business-toepassingen**: Taakverdeling voor Line-Of-Business-toepassingen die worden gehost in Azure zonder extra load balancer-hardware of -software. Dit scenario geldt ook voor on-premises servers die deel uitmaken van de set computers waarvan taakverdeling op het verkeer is toegepast.
 
 ![Voorbeeld van een interne Load Balancer](./media/load-balancer-overview/IC744147.png)
 
-*Afbeelding: taakverdeling toegepast op toepassingen met meerdere lagen waarvoor zowel een openbare als een interne Load Balancer wordt gebruikt*
+*Afbeelding: Taakverdeling die wordt toegepast op toepassingen met meerdere lagen waarvoor zowel een openbare als een interne load balancer wordt gebruikt*
 
 ## <a name="pricing"></a>Prijzen
 Het gebruik van Standard Load Balancer wordt in rekening gebracht op basis van het aantal geconfigureerde regels voor taakverdeling en de hoeveelheid verwerkte inkomende en uitgaande gegevens. Ga naar de pagina [Prijs van Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) voor informatie over de prijs van Standard Load Balancer.

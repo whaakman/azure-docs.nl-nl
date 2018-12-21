@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c40cb3192d514d990ea2a5d66e1484ff204e9b10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d04d27ee6136edec8d9af16f9133cf9a7cc0720c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223554"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311555"
 ---
-# <a name="quickstart-self-service-password-reset"></a>Snelstart: selfservice voor wachtwoordherstel
+# <a name="quickstart-self-service-password-reset"></a>Snelstart: Self-service voor wachtwoord opnieuw instellen
 
 In deze snelstart wordt het configureren van de selfservice voor wachtwoordherstel (SSPR) uitgelegd. Deze service biedt een eenvoudige manier voor IT-beheerders om gebruikers in staat te stellen hun eigen wachtwoord opnieuw in te stellen of account te ontgrendelen.
 
@@ -64,7 +64,7 @@ We gaan nu de configuratie van de selfservice voor wachtwoordherstel met een tes
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Selfservice voor wachtwoordherstel kan eenvoudig worden uitgeschakeld. Open uw Azure AD-tenant en ga naar **Wachtwoord opnieuw instellen** > **Eigenschappen** en selecteer vervolgens **Geen** onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld**.
+Selfservice voor wachtwoordherstel kan eenvoudig worden uitgeschakeld. Open uw Azure AD-tenant en ga naar **Eigenschappen** > **Wachtwoord opnieuw instellen** en selecteer vervolgens **Geen** onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: een persoonlijk Docker-register in Azure maken met Azure Portal'
+title: 'Snelstartgids: een privé-Docker-register maken in Azure - Azure Portal'
 description: Leer snel een persoonlijk Docker-containerregister maken met Azure Portal.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 865c53fdda60f6a0384157ec68042b4b8b243a7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278664"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255360"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Snelstart: een containerregister maken met Azure Portal
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snelstartgids: Een privé-containerregister maken met Azure Portal
 
 Een Azure-containerregister is een persoonlijk Docker-register in Azure waar u uw persoonlijke installatiekopieën van de Docker-container kunt opslaan en beheren. In deze snelstart gaat u een containerregister maken met Azure Portal, een containerinstallatiekopie naar het register pushen en ten slotte de container vanuit het register in Azure Container Instances (ACI) implementeren.
 

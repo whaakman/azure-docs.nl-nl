@@ -1,5 +1,5 @@
 ---
-title: Een quickstart voor het maken van een Java web-app in Azure App Service in Linux
+title: Java-web-app maken in Linux - Azure App Service
 description: In deze quickstart implementeert u in een paar minuten uw eerste Java-app (Hallo wereld) in Azure App Service in Linux.
 services: app-service\web
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247552"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252606"
 ---
-# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Quickstart: Een Java web-app maken in Azure App Service in Linux
+# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Snelstart: Een Java-web-app maken in App Service in Linux
 
 [App Service in Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie via het Linux-besturingssysteem. Deze snelstart laat u zien hoe u de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) met de [Maven-invoegtoepassing voor Azure Web Apps (preview)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) gebruikt om een webarchiefbestand (WAR) voor een Java-web-app te implementeren.
 
@@ -108,8 +108,10 @@ Zodra de implementatie is voltooid, bladert u naar de geïmplementeerde toepassi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u Maven gebruikt om een ​​Java web-app te maken, de [Maven-invoegtoepassing voor Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) geconfigureerd en vervolgens een in een webarchief verpakte Java-app geïmplementeerd naar App Service in Linux. Als u wilt weten hoe u verbinding maakt met databases, logboekregistratie en bewaking instelt, beveiliging configureert en runtime-opties instelt, gaat u verder met de Java-handleiding voor ontwikkelaars voor App Service in Linux.
+In deze snelstart hebt u Maven gebruikt om een ​​Java web-app te maken, de [Maven-invoegtoepassing voor Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) geconfigureerd en vervolgens een in een webarchief verpakte Java-app geïmplementeerd naar App Service in Linux. Raadpleeg de volgende zelfstudies en artikelen met procedures voor meer informatie over het hosten van Java-toepassingen in App Service in Linux.
 
-> [!div class="nextstepaction"]
-> [Java-handleiding voor ontwikkelaars voor App Service in Linux](app-service-linux-java.md)
+- [Zelfstudie: Een Java Enterprise-app implementeren met PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+- [Een Tomcat-gegevensbron configureren](app-service-linux-java.md#connecting-to-data-sources)
+- [CI/CD met Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+- [Hulpprogramma's voor het bewaken van toepassingsprestaties instellen](how-to-java-apm-monitoring.md)
 

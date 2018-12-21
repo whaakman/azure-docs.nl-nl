@@ -1,21 +1,22 @@
 ---
-title: Vergelijking van Azure-berichtenservices
-description: Vergelijking van Azure Event Grid, Event Hubs en Servicebus. Geeft een aanbeveling over welke service voor verschillende scenario's het meest geschikt is.
+title: Vergelijking Azure-berichten - Event Grid, Event Hubs, Service Bus
+description: Beschrijft de drie berichtenservices van - Azure Event Grid, Event Hubs en Service Bus. Geeft een aanbeveling over welke service voor verschillende scenario's het meest geschikt is.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852194"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166520"
 ---
-# <a name="choose-between-azure-services-that-deliver-messages"></a>Kiezen tussen Azure-services die berichten bezorgen
+# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Kiezen tussen berichtenservices van Azure - Event Grid, Event Hubs en Service Bus
 
 Azure beschikt over drie services die u helpen met het bezorgen van de gebeurtenisberichten binnen een oplossing. Deze services zijn:
 
@@ -33,7 +34,7 @@ Er is een belangrijk verschil tussen services die een gebeurtenis bezorgen en se
 
 Een gebeurtenis is een lichtgewicht melding van een voorwaarde of een statuswijziging. De uitgever van de gebeurtenis heeft geen verwachting over hoe de gebeurtenis wordt afgehandeld. De consument van de gebeurtenis bepaalt wat er met de melding gebeurt. Gebeurtenissen kunnen afzonderlijke eenheden zijn of deel uitmaken van een reeks.
 
-Afzonderlijke gebeurtenissen melden statuswijzigingen naar aanleiding waarvan acties kunnen worden uitgevoerd. Om de volgende stap te zetten, hoeft de consument alleen te weten dat er iets is gebeurd. De gebeurtenisgegevens bevatten informatie over wat er is gebeurd, maar bevatten niet de gegevens die de gebeurtenis hebben geactiveerd. Zo kan een gebeurtenis consumenten ervan op de hoogte stellen dat er een bestand is gemaakt. De gebeurtenis kan algemene informatie over het bestand bevatten, maar niet het bestand zelf. Afzonderlijke gebeurtenissen zijn ideaal voor serverloze oplossingen die moeten worden geschaald.
+Afzonderlijke gebeurtenissen melden statuswijzigingen naar aanleiding waarvan acties kunnen worden uitgevoerd. Om de volgende stap te zetten, hoeft de consument alleen te weten dat er iets is gebeurd. De gebeurtenisgegevens bevatten informatie over wat er is gebeurd, maar bevatten niet de gegevens die de gebeurtenis hebben geactiveerd. Zo kan een gebeurtenis consumenten ervan op de hoogte stellen dat er een bestand is gemaakt. De gebeurtenis kan algemene informatie over het bestand bevatten, maar niet het bestand zelf. Afzonderlijke gebeurtenissen zijn ideaal voor [serverloze](http://azure.com/serverless) oplossingen die moeten worden geschaald.
 
 Reeksgebeurtenissen rapporteren een voorwaarde en zijn analyseerbaar. De gebeurtenissen zijn chronologisch geordend en zijn met elkaar verbonden. De consument heeft de geordende reeks gebeurtenissen nodig om te kunnen analyseren wat is er gebeurd.
 
