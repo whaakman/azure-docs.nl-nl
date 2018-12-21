@@ -1,14 +1,13 @@
 ---
-title: 'Snelstart: Een openbare load balancer maken - Azure CLI | Microsoft Docs'
+title: 'Snelstart: Een load balancer van het type Basic maken - Azure CLI'
+titlesuffix: Azure Load Balancer
 description: In deze snelstart vindt u meer informatie over het maken van een openbare load balancer met Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: ''
+ms.custom: mvc
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 3eb7ae721b0c275ffa39e04904e19c067b949214
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 60cdf251d9a862f8bae80f4f782c6ad94c0b85ce
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965485"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260766"
 ---
-# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snelstart: Een openbare load balancer maken om taken van VM's te verdelen met Azure CLI
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snelstart: Een load balancer maken om taken van VM's te verdelen met behulp van Azure CLI
 
-In deze snelstart wordt beschreven hoe u een Azure-load balancer maakt. U test de load balancer door twee virtuele machines (VM's) te implementeren waarop een Ubuntu-server wordt uitgevoerd en waartussen de taken van een web-app worden verdeeld.
+Hierin leest u over het maken van een Azure Load Balancer om internetverkeer te verdelen tussen virtuele machines in Azure. U test de load balancer door twee virtuele machines (VM's) te implementeren waarop een Ubuntu-server wordt uitgevoerd en waartussen de taken van een web-app worden verdeeld.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 

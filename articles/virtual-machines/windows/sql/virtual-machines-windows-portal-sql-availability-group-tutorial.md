@@ -296,7 +296,7 @@ U bent nu klaar om te configureren van een beschikbaarheidsgroep toevoegen met b
 
     ![Wizard Nieuwe AG, eerste gegevenssynchronisatie selecteren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. In de **eerste gegevenssynchronisatie selecteren** pagina, selecteert u **volledige** en geef een gedeelde netwerklocatie. Voor de locatie, gebruikt u de [back-upshare die u hebt gemaakt](#backupshare). In het voorbeeld het geval is, **\\\\\<eerst SQL Server\>\Backup\\**. **Klik** op Volgende.
+8. In de **eerste gegevenssynchronisatie selecteren** pagina, selecteert u **volledige** en geef een gedeelde netwerklocatie. Voor de locatie, gebruikt u de [back-upshare die u hebt gemaakt](#backupshare). In het voorbeeld het geval is, **\\\\\<eerst SQL Server\>\Backup\\**. Klik op **Volgende**.
 
    >[!NOTE]
    >Volledige synchronisatie duurt een volledige back-up van de database op het eerste exemplaar van SQL Server en aan het tweede exemplaar te herstellen. Volledige synchronisatie wordt voor grote databases, niet aanbevolen omdat het lang duurt. U kunt dit moment beperken door handmatig een back-up maken van de database en het herstellen van met `NO RECOVERY`. Als de database is al hersteld met `NO RECOVERY` op de tweede SQL Server voordat u de beschikbaarheidsgroep configureert, kiest u **alleen deelnemen**. Als u wilt een back-up na de configuratie van de beschikbaarheidsgroep, kiest u **eerste gegevenssynchronisatie overslaan**.

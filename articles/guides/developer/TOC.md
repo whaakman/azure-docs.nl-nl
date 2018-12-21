@@ -36,7 +36,7 @@
 
 # Concepten
 ## [Facturering en abonnementen](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Hosting-vergelijkingen](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [Hosting-vergelijkingen](https://docs.microsoft.com/azure/app-service/overview-compare)
 ## [Wat is App Service?](https://docs.microsoft.com/azure/app-service/overview)
 ## Virtuele machines
 ### [Virtuele Linux-machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
@@ -76,11 +76,11 @@
 ### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Backup
-### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/manage-backup)
 ### [Virtuele machines](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Controleren
-### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
+### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
 ### [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Microservices](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
