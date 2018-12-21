@@ -4,15 +4,15 @@ description: Beschrijft hoe u met behulp van de service Azure Migrate on-premise
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847980"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257808"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>On-premises virtuele VMware-machines detecteren en beoordelen voor migratie naar Azure
 
@@ -31,32 +31,37 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="prerequisites"></a>Vereisten
 
 - **VMware**: de VM’s die u wilt migreren, moeten worden beheerd door vCenter Server van versie 5.5, 6.0 of 6.5. Daarnaast hebt u één ESXi-host met versie 5.0 of hoger nodig om de collector-VM te implementeren.
-- **vCenter Server-account**: u hebt een alleen-lezen-account nodig voor toegang tot de vCenter Server. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
-- **Machtigingen**: op de vCenter Server hebt u machtigingen nodig om een virtuele machine te maken door een bestand in .OVA-indeling te importeren.
+- **vCenter Server-account**: u hebt een alleen-lezen-account nodig voor toegang tot vCenter Server. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
+- **Machtigingen**: op vCenter Server hebt u machtigingen nodig om een virtuele machine te maken door een bestand in .OVA-indeling te importeren.
 
 ## <a name="create-an-account-for-vm-discovery"></a>Een account voor detectie van virtuele machines maken
 
 Azure Migrate heeft toegang nodig tot de VMware-servers, zodat de virtuele machines automatisch kunnen worden gedetecteerd voor evaluatie. Maak een VMware-account met de volgende eigenschappen. U geeft dit account op tijdens de installatie van Azure Migrate.
 
-- Gebruikerstype: ten minste een alleen-lezen-gebruiker
-- Machtigingen: Datacentrumobject –> Doorgeven naar onderliggend object, rol=Alleen-lezen
-- Details: gebruiker wordt toegewezen op datacentrumniveau, en heeft toegang tot alle objecten in het datacentrum.
+- Gebruikerstype: Ten minste een alleen-lezen-gebruiker
+- Machtigingen: Datacentrumobject –> doorgeven naar onderliggend object, rol=Alleen-lezen
+- Details: Gebruiker wordt toegewezen op datacentrumniveau, en heeft toegang tot alle objecten in het datacentrum.
 - Wijs om de toegang te beperken de rol Geen toegang met het object Doorgeven naar onderliggend object toe aan de onderliggende objecten (vSphere-hosts, gegevensopslag, VM's en netwerken).
 
 
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij de Azure-portal
 
-Meld u aan bij [Azure Portal](https://portal.azure.com).
+Meld u aan bij de [Azure-portal](https://portal.azure.com).
 
 ## <a name="create-a-project"></a>Een project maken
 
-1. Klik in Azure Portal op **Een resource maken**.
+1. Klik in de Azure-portal op **Een resource maken**.
 2. Zoek naar **Azure Migrate** en selecteer de service **Azure Migrate** in de zoekresultaten. Klik vervolgens op **Maken**.
 3. Geef een projectnaam op en het Azure-abonnement voor het project.
 4. Maak een nieuwe resourcegroep.
-5. Geef de geografie op waarin u het project wilt maken en klik op **Maken**. U kunt een Azure Migrate-project alleen maken in de geografie van de Verenigde Staten. U kunt de migratie echter wel plannen voor elke Azure-doellocatie. De opgegeven geografie voor het project wordt alleen gebruikt om de metagegevens op te slaan die zijn verzameld van on-premises virtuele machines.
+5. Geef de geografie op waarin u het project wilt maken en klik op **Maken**. U kunt een Azure Migrate-project alleen in de volgende geografische gebieden maken. U kunt de migratie echter wel plannen voor elke Azure-doellocatie. De opgegeven geografie voor het project wordt alleen gebruikt om de metagegevens op te slaan die zijn verzameld van on-premises virtuele machines.
 
-    ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
+**Geografie** | **Opslaglocatie**
+--- | ---
+Verenigde Staten | US - west-centraal of US - oost
+Azure Government | VS (overheid) - Virginia
+
+![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
 
 ## <a name="download-the-collector-appliance"></a>Het collector-apparaat downloaden
@@ -71,7 +76,7 @@ Azure Migrate maakt een on-premises virtuele machine die het collector-apparaat 
     > [!NOTE]
     > Ondersteuning van het apparaat voor eenmalige detectie is nu beëindigd omdat deze methode gebaseerd was op statistiekinstellingen van vCenter Server voor de beschikbaarheid van prestatiegegevenspunten en gemiddelde prestatiemeteritems verzamelde, wat leidde tot een te voorzichtige schaling van virtuele machines voor migratie naar Azure.
 
-    **Onmiddellijk resultaat:** als de detectie met het apparaat voor continue detectie voltooid is (wat enkele uren kan duren afhankelijk van het aantal virtuele machines), kunt u meteen evaluaties gaan maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, en als u direct resultaat wilt, moet u het schaalcriterium in de evaluatie instellen als *as on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
+    **Onmiddellijk resultaat:** als de detectie met het apparaat voor continue detectie voltooid is (wat enkele uren kan duren, afhankelijk van het aantal virtuele machines), kunt u meteen evaluaties gaan maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, en als u direct resultaat wilt, moet u het schaalcriterium in de evaluatie instellen als *as on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
 
     Het apparaat verzamelt doorlopend alleen prestatiegegevens, het detecteert niet elke configuratiewijziging in de on-premises omgeving (dat wil zeggen het toevoegen/verwijderen van VM’s, toevoegen van schijven, enzovoort). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
@@ -95,6 +100,14 @@ Controleer of het .OVA-bestand veilig is voordat u het implementeert.
 3. De gegenereerde hash moet overeenkomen met deze instellingen.
 
 #### <a name="continuous-discovery"></a>Continue detectie
+
+  Voor OVA-versie 1.0.10.9
+
+  **Algoritme** | **Hash-waarde**
+  --- | ---
+  MD5 | 169f6449cc1955f1514059a4c30d138b
+  SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
+  SHA256 | d68fe7d94be3127eb35dd80fc5ebc60434c8571dcd0e114b87587f24d6b4ee4d
 
   Voor OVA-versie 1.0.10.4
 
@@ -156,12 +169,13 @@ Importeer het gedownloade bestand naar de vCenter Server.
 3. Klik op het bureaublad op de snelkoppeling **Collector uitvoeren**.
 4. Klik in de bovenste balk van de gebruikersinterface van de collector op **Controleren op updates** en controleer of de nieuwste versie van de collector wordt uitgevoerd. Als dat niet het geval is, kunt u het nieuwste updatepakket downloaden via de koppeling en de collector bijwerken.
 5. Open in de Azure Migrate Collector het onderdeel **Vereisten instellen**.
+    - Selecteer de Azure-cloud die u wilt migreren (Azure Global of Azure Government).
     - Accepteer de licentievoorwaarden en lees de informatie van derden.
     - De collector controleert of de virtuele machine toegang heeft tot internet.
-    - Als de virtuele machine via een proxy toegang heeft tot internet, klikt u op **Proxyinstellingen** en geeft u het proxyadres en de controlepoort op. Geef referenties op als de proxy verificatie nodig heeft. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) meer over de vereisten voor internetconnectiviteit en de lijst met URL's die de collector raadpleegt.
+    - Als de virtuele machine via een proxy toegang heeft tot internet, klikt u op **Proxyinstellingen** en geeft u het proxyadres en de controlepoort op. Geef referenties op als de proxy verificatie nodig heeft. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) meer over de vereisten voor internetconnectiviteit en de [lijst met URL's](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) die de collector raadpleegt.
 
-    > [!NOTE]
-    > Het proxyadres moet worden ingevoerd in het formulier http://ProxyIPAddress of http://ProxyFQDN. Alleen HTTP-proxy wordt ondersteund. Als u een onderscheppende proxy hebt, kan de internetverbinding in eerste instantie mislukken als u het proxycertificaat niet hebt geïmporteerd. [Hier](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) vindt u meer informatie over hoe u dit kunt oplossen door het proxycertificaat te importeren als vertrouwd in de collector-VM.
+      > [!NOTE]
+      > Het proxyadres moet worden ingevoerd in het formulier http://ProxyIPAddress of http://ProxyFQDN. Alleen HTTP-proxy wordt ondersteund. Als u een onderscheppende proxy hebt, kan de internetverbinding in eerste instantie mislukken als u het proxycertificaat niet hebt geïmporteerd. [Hier](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) vindt u meer informatie over hoe u dit kunt oplossen door het proxycertificaat te importeren als vertrouwd in de collector-VM.
 
     - De collector controleert of de collector-service wordt uitgevoerd. De service wordt standaard geïnstalleerd op de collector-VM.
     - Download en installeer VMware PowerCLI.
@@ -171,7 +185,7 @@ Importeer het gedownloade bestand naar de vCenter Server.
     - Geef in **User name** en **Password** de alleen-lezen accountreferenties op die de collector gebruikt om virtuele machines op de vCenter Server te detecteren.
     - Selecteer in **Collection scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines detecteren binnen het opgegeven bereik. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1500 virtuele machines bevatten. Lees [hier](how-to-scale-assessment.md) meer over hoe u een grotere omgeving kunt detecteren.
 
-7. Geef in **Specify migration project** de Azure Migrate project-id en -sleutel op die u hebt gekopieerd in de portal. Als u deze niet hebt gekopieerd, opent u Azure Portal vanuit de collector-VM. Klik op de **overzichtspagina** van het project op **Machines detecteren** en kopieer de waarden.  
+7. Geef in **Specify migration project** de Azure Migrate project-id en -sleutel op die u hebt gekopieerd in de portal. Als u deze niet hebt gekopieerd, opent u de Azure-portal vanuit de collector-VM. Klik op de **overzichtspagina** van het project op **Machines detecteren** en kopieer de waarden.  
 8. In **Voortgang van verzamelen weergeven** kunt u de detectiestatus controleren. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) meer over welke gegevens worden verzameld door de collector Azure Migrate.
 
 > [!NOTE]

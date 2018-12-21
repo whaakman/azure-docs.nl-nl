@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: bijhouden, wijzigingen, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e4ea8f92a562ea4bc90df98d6e459377b9886777
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844903"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190013"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Problemen met wijzigingen in uw omgeving oplossen
 
@@ -102,7 +102,7 @@ In het venster **Werkruimteconfiguratie** voegt u Windows-registersleutels, Wind
 |Ingeschakeld     | Bepaalt of de instelling wordt toegepast        |
 |Itemnaam     | Beschrijvende naam van het bestand dat moet worden bijgehouden        |
 |Groep     | De naam van een groep voor het logisch groeperen van bestanden        |
-|Windows-registersleutel   | Het pad voor het controleren op het bestand, bijvoorbeeld: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows-registersleutel   | Het pad voor het bestand, bijvoorbeeld: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup      |
 
 ### <a name="add-a-windows-file"></a>Een Windows-bestand toevoegen
 
@@ -177,12 +177,11 @@ Het kan handig zijn om wijzigingen te bekijken in Azure Portal, maar het is nóg
 
 Als u een waarschuwing voor het stoppen van services wilt toevoegen, gaat u in Azure Portal naar **Bewaken**. Klik dan bij **Gedeelde services** op **Waarschuwingen** en klik dan op **+ Nieuwe waarschuwingsregel**
 
-Klik onder **1. Waarschuwingsvoorwaarde definiëren** op **+ Doel selecteren**. Selecteer onder **Filteren op resourcetype** de optie **Log Analytics**. Selecteer de Log Analytics-werkruimte en selecteer vervolgens **Gereed**.
+Klik op **Selecteren** om een resource te kiezen. Selecteer op de pagina **Een resource selecteren** in de vervolgkeuzelijst **Resourcetype** de optie **Log Analytics**. Selecteer de Log Analytics-werkruimte en selecteer vervolgens **Gereed**.
 
 ![Een resource selecteren](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Selecteer **+ Criteria toevoegen**.
-Selecteer onder **Signaallogica configureren** in de tabel de optie **Aangepast zoeken in logboeken**. Voer de volgende query in het tekstvak Zoekquery in:
+Klik op **Voorwaarde toevoegen**, en selecteer op de pagina **Signaallogica configureren**, in de tabel, de optie **Aangepast zoeken in logboeken**. Voer de volgende query in het tekstvak Zoekquery in:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -194,11 +193,9 @@ Voer onder **Waarschuwingslogica** voor **Drempelwaarde** het volgende in: **0**
 
 ![Signaallogica configureren](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Selecteer bij **2. Waarschuwingsdetails definiëren** een naam en beschrijving voor de waarschuwing. Stel **Ernst** in op **Informatie (Sev 2)**, **Waarschuwing (Sev 1)** of **Kritiek (Sev 0)**.
+Selecteer onder **Actiegroepen** de optie **Nieuwe maken**. Een actiegroep is een groep acties die u op meerdere waarschuwingen kunt toepassen. Deze acties kunnen bestaan uit, maar zijn niet beperkt tot, e-mailmeldingen, runbooks, webhooks en nog veel meer. Raadpleeg [Actiegroepen maken en beheren](../azure-monitor/platform/action-groups.md) voor meer informatie over actiegroepen.
 
-![Waarschuwingsdetails definiëren](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-Selecteer onder **3. Actiegroep definiëren** de optie **Nieuwe actiegroep**. Een actiegroep is een groep acties die u op meerdere waarschuwingen kunt toepassen. Deze acties kunnen bestaan uit, maar zijn niet beperkt tot, e-mailmeldingen, runbooks, webhooks en nog veel meer. Raadpleeg [Actiegroepen maken en beheren](../monitoring-and-diagnostics/monitoring-action-groups.md) voor meer informatie over actiegroepen.
+Voer onder **Waarschuwingsdetails definiëren** een naam en beschrijving voor de waarschuwing in. Stel **Ernst** in op **Informatie (Sev 2)**, **Waarschuwing (Sev 1)** of **Kritiek (Sev 0)**.
 
 Voer in het vak **Naam van actiegroep** een naam in voor de waarschuwing en een korte naam. De korte naam wordt gebruikt in plaats van een volledige naam voor de actiegroep als er meldingen worden verzonden door deze groep te gebruiken.
 

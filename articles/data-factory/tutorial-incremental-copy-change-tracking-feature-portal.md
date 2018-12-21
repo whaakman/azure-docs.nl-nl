@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: f06094fb82f10276f7a41d1b22f6dd99836a497f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095507"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957262"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor bijhouden van wijzigingen 
 In deze zelfstudie maakt u een Azure data factory met een pijplijn die gewijzigde gegevens laadt op basis van informatie over **wijzigingen** in de Azure SQL- brondatabase naar een Azure blob storage.  
@@ -322,7 +322,7 @@ Klik in de werkbalk voor de pijplijn op **Trigger** en klik vervolgens op **Trig
 ### <a name="review-the-results"></a>De resultaten bekijken
 U ziet u een bestand met de naam `incremental-<GUID>.txt` in de `incchgtracking` map van de `adftutorial` container. 
 
-![Bestand voor uitvoer van een volledige kopie](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![Bestand voor uitvoer van een volledige kopie](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 Het bestand moet de gegevens van de Azure SQL database bevatten:
 
@@ -445,7 +445,7 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
 ### <a name="review-the-results"></a>De resultaten bekijken
 U ziet u het tweede bestand in de `incchgtracking` map van de `adftutorial` container. 
 
-![Bestand voor uitvoer van een incrementele kopie](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![Bestand voor uitvoer van een incrementele kopie](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 Het bestand moet alleen de wijzigingsgegevens van de Azure SQL database bevatten. De record met `U` de bijgewerkte rij in de database en `I` is het een rij toegevoegd. 
 
@@ -453,7 +453,7 @@ Het bestand moet alleen de wijzigingsgegevens van de Azure SQL database bevatten
 1,update,10,2,U
 6,new,50,1,I
 ```
-De eerste drie kolommen zijn gewijzigde gegevens van data_source_table. De laatste twee kolommen zijn de metagegevens van de systeemtabel bijhouden. De vierde kolom is de SYS_CHANGE_VERSION voor elke gewijzigde rij. De vijfde kolom is de bewerking: U = update, I = invoegen.  Zie voor meer informatie over de traceringsgegevens [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+De eerste drie kolommen zijn gewijzigde gegevens van data_source_table. De laatste twee kolommen zijn de metagegevens van de systeemtabel bijhouden. De vierde kolom is de SYS_CHANGE_VERSION voor elke gewijzigde rij. De vijfde kolom is de bewerking:  U = update, I = invoegen.  Zie voor meer informatie over de traceringsgegevens [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================

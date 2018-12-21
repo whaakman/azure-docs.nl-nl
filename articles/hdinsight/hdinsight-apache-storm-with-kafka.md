@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Apache Kafka met Apache Storm in HDInsight - Azure '
+title: 'Zelfstudie: Apache Storm gebruiken om gegevens te lezen en schrijven met Apache Kafka - Azure HDInsight'
 description: Lees hoe u in HDInsight een streaming-pijplijn maakt met Apache Storm en Apache Kafka. In deze zelfstudie gebruikt u de componenten KafkaBolt en KafkaSpout om gegevens te streamen vanuit Kafka.
 services: hdinsight
 author: hrasheed-msft
@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/21/2018
-ms.openlocfilehash: 74cdaed91624e9d0602ce6a85ccc5cd341b9519e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/06/2018
+ms.openlocfilehash: 1c2a61ba936fa86bb3acb560909b29cda762693c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496631"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166571"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Zelfstudie: Apache Storm gebruiken met Apache Kafka in HDInsight
 
@@ -65,19 +65,19 @@ U kunt de volgende omgevingsvariabelen instellen wanneer u Java en de JDK instal
 
 Apache Storm biedt de verschillende onderdelen voor het werken met Apache Kafka. In deze zelfstudie worden de volgende onderdelen gebruikt:
 
-* `org.apache.storm.kafka.KafkaSpout`: met dit onderdeel worden gegevens gelezen uit Kafka. Dit onderdeel is afhankelijk van de volgende onderdelen:
+* `org.apache.storm.kafka.KafkaSpout`: met dit onderdeel worden gegevens vanuit Kafka gelezen. Dit onderdeel is afhankelijk van de volgende onderdelen:
 
-    * `org.apache.storm.kafka.SpoutConfig`: bevat de configuratie voor het spout-onderdeel.
+    * `org.apache.storm.kafka.SpoutConfig`: dit onderdeel bevat de configuratie voor het spout-onderdeel.
 
-    * `org.apache.storm.spout.SchemeAsMultiScheme` en `org.apache.storm.kafka.StringScheme`: bepalen hoe de gegevens uit Kafka worden omgezet in een Storm-tuple.
+    * `org.apache.storm.spout.SchemeAsMultiScheme` en `org.apache.storm.kafka.StringScheme`: deze onderdelen bepalen hoe de gegevens uit Kafka worden omgezet in een Storm-tuple.
 
 * `org.apache.storm.kafka.bolt.KafkaBolt`: met dit onderdeel worden gegevens weggeschreven naar Kafka. Dit onderdeel is afhankelijk van de volgende onderdelen:
 
-    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector`: beschrijving van het onderwerp waarnaar wordt weggeschreven.
+    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector`: dit onderdeel beschrijft het onderwerp waarnaar wordt weggeschreven.
 
-    * `org.apache.kafka.common.serialization.StringSerializer`: hiermee wordt de bolt geconfigureerd voor het serialiseren van gegevens als een tekenreekswaarde.
+    * `org.apache.kafka.common.serialization.StringSerializer`: met dit onderdeel wordt de bolt geconfigureerd voor het serialiseren van gegevens als een tekenreekswaarde.
 
-    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: hiermee worden gegevens vanuit de tuple-structuur binnen de Storm-topologie toegewezen aan velden die zijn opgeslagen in Kafka.
+    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: met dit onderdeel worden gegevens vanuit de tuple-structuur binnen de Storm-topologie toegewezen aan velden die zijn opgeslagen in Kafka.
 
 Deze onderdelen zijn beschikbaar in het pakket `org.apache.storm : storm-kafka`. Gebruik de pakketversie die overeenkomt met de Storm-versie. Voor HDInsight 3.6 is dit Storm versie 1.1.0.
 U hebt ook het pakket `org.apache.kafka : kafka_2.10` nodig, met daarin aanvullende Kafka-onderdelen. Gebruik de pakketversie die overeenkomt met de Kafka-versie. Voor HDInsight 3.6 is dit Kafka versie 0.10.0.0.
@@ -120,9 +120,9 @@ De code die wordt gebruikt in dit document is beschikbaar op [https://github.com
 
 Er worden twee topologieën meegeleverd in deze zelfstudie:
 
-* Kafka-writer: genereert willekeurig zinnen en slaat deze op Kafka.
+* Kafka-writer: genereert willekeurige zinnen en slaat deze op in Kafka.
 
-* Kafka-reader: leest de gegevens uit Kafka en slaat deze vervolgens op in het HDFS-compatibele bestandsarchief voor het Storm-cluster.
+* Kafka-reader: leest gegevens uit Kafka en slaat deze vervolgens op in het HDFS-compatibele bestandsarchief voor het Storm-cluster.
 
     > [!WARNING] 
     > Om het Storm-cluster te laten werken met de HDFS-compatibele opslag die wordt gebruikt door HDInsight, is een scriptactie vereist. Het script installeert verschillende jar-bestanden naar het pad `extlib` voor Storm. De sjabloon in deze zelfstudie gebruikt automatisch het script tijdens het maken van het cluster.
@@ -135,7 +135,7 @@ De topologieën worden gedefinieerd met [Flux](https://storm.apache.org/releases
 
 De volgende parameters worden tijdens runtime ingesteld voor deze topologieën:
 
-* `${kafka.topic}`: de naam van het onderwerp Kafka waaruit/waarnaar de topologieën lezen/schrijven.
+* `${kafka.topic}`: de naam van het Kafka-onderwerp waaruit/waarnaar de topologieën lezen/schrijven.
 
 * `${kafka.broker.hosts}`: de hosts waarop de Kafka-brokers worden uitgevoerd. De broker-gegevens worden door de KafkaBolt gebruikt bij het schrijven van gegevens naar Kafka.
 
@@ -143,7 +143,7 @@ De volgende parameters worden tijdens runtime ingesteld voor deze topologieën:
 
 * `${hdfs.url}`: de URL van het bestandssysteem voor het HDFSBolt-onderdeel. Hiermee wordt aangegeven of de gegevens worden geschreven naar een Azure Storage-account of Azure Data Lake Store.
 
-* `${hdfs.write.dir}`: de map waarnaar gegevens worden geschreven.
+* `${hdfs.write.dir}`: de map waarnaar gegevens worden weggeschreven.
 
 Zie [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html) voor meer informatie over Flux-topologieën.
 
@@ -388,7 +388,7 @@ Het volgende diagram laat zien hoe de communicatie tussen Storm en Kafka verloop
 
 Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en vervolgens de Kafka- en Storm-clusters:
 
-1. Gebruik de volgende knop om u aan te melden bij Azure en de sjabloon in de Azure Portal te openen.
+1. Gebruik de volgende knop om u aan te melden bij Azure en de sjabloon in de Azure-portal te openen.
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
@@ -571,7 +571,7 @@ Kafka slaat gegevens op in een _onderwerp_. U moet het onderwerp maken voordat u
 
     * `-R /writer.yaml`: gebruik het bestand `writer.yaml` voor het configureren van de topologie. `-R` geeft aan dat deze resource wordt opgenomen in het jar-bestand. De resource bevindt zich in de hoofdmap van de jar en dus is `/writer.yaml` het pad naar de resource.
 
-    * `--filter`: vul vermeldingen in de topologie `writer.yaml` in met behulp van de waarden in het bestand `dev.properties`. Zo moet de waarde van de vermelding `kafka.topic` in het bestand worden gebruikt in plaats van de vermelding `${kafka.topic}` in de definitie van de topologie.
+    * `--filter`: vul vermeldingen in de topologie `writer.yaml` in met behulp van de waarden in bestand `dev.properties`. Zo moet de waarde van de vermelding `kafka.topic` in het bestand worden gebruikt in plaats van de vermelding `${kafka.topic}` in de definitie van de topologie.
 
 ## <a name="start-the-reader"></a>De lezer starten
 
@@ -624,9 +624,9 @@ Gebruik vanuit een SSH-sessie met het Storm-cluster de volgende opdrachten om de
 
 Als u de in deze zelfstudie gemaakte resources wilt opschonen, kunt u de resourcegroep verwijderen. Als u de resourcegroep verwijdert, worden ook het bijbehorende HDInsight-cluster en eventuele andere resources die aan de resourcegroep zijn gekoppeld, verwijderd.
 
-Ga als volgt te werk om de resourcegroep te verwijderen in Azure Portal:
+Ga als volgt te werk om de resourcegroep te verwijderen in de Azure-portal:
 
-1. Vouw het menu aan de linkerkant in Azure Portal uit om het menu met services te openen en kies __Resourcegroepen__ om de lijst met resourcegroepen weer te geven.
+1. Vouw het menu aan de linkerkant in de Azure-portal uit om het menu met services te openen en kies __Resourcegroepen__ om de lijst met resourcegroepen weer te geven.
 2. Zoek de resourcegroep die u wilt verwijderen en klik met de rechtermuisknop op de knop __Meer__ (... ) aan de rechterkant van de vermelding.
 3. Selecteer __Resourcegroep verwijderen__ en bevestig dit.
 

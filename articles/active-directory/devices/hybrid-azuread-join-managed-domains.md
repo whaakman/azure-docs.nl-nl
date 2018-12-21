@@ -1,6 +1,6 @@
 ---
 title: Hybride Azure Active Directory-gekoppelde apparaten configureren| Microsoft Docs
-description: Leer hoe u hybride Azure Active Directory-gekoppelde apparaten kunt configureren.
+description: Lees hoe u hybride Azure Active Directory-gekoppelde apparaten kunt configureren.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b8d45e72e15ff86b53f7355634e8f197b94260bd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887794"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435426"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor beheerde domeinen
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-deelname configureren voor beheerde domeinen
 
-Net zoals een gebruiker wordt een apparaat nog een identiteit die u wilt beschermen, en die u ook wilt gebruiken om uw bronnen altijd en overal te beschermen. U kunt dit doel bereiken door de identiteiten van uw apparaten naar Azure AD te brengen met een van de volgende methoden:
+Net zoals een gebruiker, wordt een apparaat ook een identiteit die u wilt beschermen en die u wilt gebruiken om uw bronnen altijd en overal te beschermen. U kunt dit doel bereiken door de identiteiten van uw apparaten naar Azure AD te brengen met een van de volgende methoden:
 
 - Azure AD-koppeling
 - Hybride Azure AD-koppeling
@@ -53,7 +53,11 @@ In deze zelfstudie wordt ervan uitgegaan dat u bekend bent met:
 -  [De hybride Azure AD-deelname van uw apparaten beheren](hybrid-azuread-join-control.md)
   
 
-Om het scenario in dit artikel te configureren, moet de [recentste versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 of hoger) zijn geïnstalleerd. 
+Voor het configureren van het scenario in dit artikel hebt u het volgende nodig:
+
+- Een on-premises Active Directory (AD) met schemaniveau 85 of hoger. Zie voor meer informatie [Upgrade your Active Directory Schema](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema) (Upgrade van uw Active Directory-schema uitvoeren).
+
+- De [meest recente versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 of hoger) moet zijn geïnstalleerd. 
 
 Verifieer dat Azure AD Connect de computerobjecten heeft gesynchroniseerd van de apparaten die u hybride Azure AD-gekoppeld wilt maken. Als de computerobjecten bij specifieke organisatie-eenheden (OE) horen, moeten deze OE’s ook worden geconfigureerd voor synchronisatie in Azure AD Connect.
 
@@ -172,7 +176,7 @@ Daarnaast moet u **Statusbalkupdates via scripts toestaan** inschakelen in de zo
 
 ### <a name="configure-seamless-sso"></a>Naadloze SSO configureren
 
-Voor het goed uitvoeren van Hybride Azure AD Join van uw downlevel Windows-apparaten in een beheerd domein dat Pass through-verificatie of wachtwoordhashsynchronisatie als uw Azure AD-cloudverificatiemethode gebruikt, moet u ook [Naadloze eenmalige aanmelding configureren](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+Voor het goed uitvoeren van Hybride Azure AD Join van uw downlevel Windows-apparaten in een beheerd domein dat Pass through-verificatie of wachtwoordhashsynchronisatie als uw Azure AD-cloudverificatiemethode gebruikt, moet u ook [Naadloze eenmalige aanmelding configureren](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Downlevel Windows-apparaten beheren 

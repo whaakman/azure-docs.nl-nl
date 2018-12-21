@@ -1,5 +1,5 @@
 ---
-title: Een Web Application Firewall (WAF) voor App Service Environment configureren
+title: Een Web Application Firewall (WAF) configureren voor Azure App Service Environment - Azure
 description: Informatie over het configureren van een Web Application Firewall voor uw App Service Environment.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
-ms.custom: mvc
-ms.openlocfilehash: e1c327051982ce36e94cd1fe0f824db5ec424da1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 6bc354ef3451862e3567adbe5ff8ee6da0eacaf6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226988"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314870"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Een Web Application Firewall (WAF) voor App Service Environment configureren
 ## <a name="overview"></a>Overzicht
@@ -48,7 +48,7 @@ Raadpleeg voor het configureren van een App Service Environment [onze documentat
 Barracuda heeft een [gedetailleerd artikel](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) over het implementeren van de WAF op een virtuele machine in Azure. Maar omdat we redundantie willen en geen Single Point of Failure willen introduceren, dient u ten minste twee instanties van virtuele WAF-machines te implementeren in dezelfde cloudservice wanneer u deze instructies volgt.
 
 ### <a name="adding-endpoints-to-cloud-service"></a>Eindpunten toevoegen in de cloudservice
-Wanneer u 2 of meer WAF VM-exemplaren in uw cloudservice hebt, kunt u [Azure Portal](https://portal.azure.com/) gebruiken om HTTP en HTTPS-eindpunten toe te voegen die worden gebruikt door uw toepassing, zoals wordt weergegeven in de volgende afbeelding:
+Wanneer u 2 of meer WAF VM-exemplaren in uw cloudservice hebt, kunt u de [Azure-portal](https://portal.azure.com/) gebruiken om HTTP en HTTPS-eindpunten toe te voegen die worden gebruikt door uw toepassing, zoals wordt weergegeven in de volgende afbeelding:
 
 ![Eindpunt configureren][ConfigureEndpoint]
 
@@ -84,11 +84,11 @@ Klik op het tabblad **Services** om uw WAF te configureren voor services die dez
 > 
 
 ## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Configuratie van Microsoft Azure Traffic Manager (OPTIONEEL)
-Als uw toepassing beschikbaar in meerdere regio's, kunt u het best zorgen voor gelijke taakverdeling achter [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Om dit te doen, kunt u een eindpunt toevoegen in de [Azure Portal](https://portal.azure.com) met de naam van de cloudservice voor uw WAF in het Traffic Manager-profiel, zoals wordt weergegeven in de volgende afbeelding. 
+Als uw toepassing beschikbaar in meerdere regio's, kunt u het best zorgen voor gelijke taakverdeling achter [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Om dit te doen, kunt u een eindpunt toevoegen in de [Azure-portal](https://portal.azure.com) met de naam van de cloudservice voor uw WAF in het Traffic Manager-profiel, zoals wordt weergegeven in de volgende afbeelding. 
 
 ![Traffic Manager-eindpunt][TrafficManagerEndpoint]
 
-Als voor uw toepassing verificatie is vereist, zorg er dan voor dat u een resource hebt die geen verificatie voor Traffic Manager vereist om te pingen voor de beschikbaarheid van uw toepassing. U kunt de URL configureren op de **Configuratie**pagina in de [Azure Portal](https://portal.azure.com), zoals wordt weergegeven in de volgende afbeelding:
+Als voor uw toepassing verificatie is vereist, zorg er dan voor dat u een resource hebt die geen verificatie voor Traffic Manager vereist om te pingen voor de beschikbaarheid van uw toepassing. U kunt de URL configureren op de **Configuratie**pagina in de [Azure-portal](https://portal.azure.com), zoals wordt weergegeven in de volgende afbeelding:
 
 ![Traffic Manager configureren][ConfigureTrafficManager]
 

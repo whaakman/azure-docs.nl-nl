@@ -1,5 +1,5 @@
 ---
-title: Een Node.js- en een MongoDB-web-app maken in Azure App Service onder Linux | Microsoft Docs
+title: Een Node.js-app ontwikkelen met MongoDB onder Linux - Azure App Service | Microsoft Docs
 description: Informatie over hoe u een Node.js-web-app kunt laten werken in Azure App Service onder Linux, gekoppeld aan een Cosmos DB-database met een MongoDB-verbindingsreeks.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 3380322286740e3b87df11107ac5ade62ffa535d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 59173550c0cdff44931e0b686308b39e985dddcf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432062"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254952"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Een Node.js-app en een MongoDB-web-app maken in Azure App Service onder Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "39432062"
 > In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een Node.js- en een MongoDB-web-app in Azure maken](../app-service-web-tutorial-nodejs-mongodb-app.md) als u App Service onder _Windows_ wilt implementeren.
 >
 
-[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt beschreven hoe u een Node.js-web-app maakt, lokaal verbindt met een MongoDB-database en vervolgens implementeert in Azure, dat is gekoppeld aan een CosmosDB-database met behulp van de MongoDB-API. Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, AngularJS en Node.js) die wordt uitgevoerd in App Service onder Linux. In het voorbeeld wordt ter vereenvoudiging gebruikgemaakt van het [MEAN.js-webframework](http://meanjs.org/).
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt beschreven hoe u een Node.js-web-app maakt, lokaal verbindt met een MongoDB-database en vervolgens implementeert in Azure, dat is gekoppeld aan een CosmosDB-database met behulp van de MongoDB-API. Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, AngularJS en Node.js) die wordt uitgevoerd in App Service onder Linux. In het voorbeeld wordt ter vereenvoudiging gebruikgemaakt van het [MEAN.js-webframework](https://meanjs.org/).
 
 ![MEAN.js-app uitgevoerd in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -40,7 +40,7 @@ U leert het volgende:
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * Logboeken met diagnostische gegevens vanaf Azure streamen
-> * De app in Azure Portal beheren
+> * De app in de Azure-portal beheren
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,9 +49,9 @@ U leert het volgende:
 Vereisten voor het voltooien van deze zelfstudie:
 
 1. [Git installeren](https://git-scm.com/)
-1. [Node.js v6.0 of hoger en NPM installeren](https://nodejs.org/)
-1. [Gulp.js installeren ](http://gulpjs.com/) (vereist voor [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [MongoDB Community Edition installeren en uitvoeren](https://docs.mongodb.com/manual/administration/install-community/)
+2. [Node.js v6.0 of hoger en NPM installeren](https://nodejs.org/)
+3. [Gulp.js installeren ](https://gulpjs.com/) (vereist voor [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+4. [MongoDB Community Edition installeren en uitvoeren](https://docs.mongodb.com/manual/administration/install-community/)
 
 ## <a name="test-local-mongodb"></a>MongoDB lokaal testen
 
@@ -261,7 +261,7 @@ Standaard houdt het MEAN.js-project _config/env/local-production.js_ buiten de G
 
 Gebruik de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell om de app-instellingen te definiëren.
 
-In het volgende voorbeeld wordt een `MONGODB_URI`-app-instelling in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduidingen *\<app_name>*, *\<cosmosdb_name>* en *\<primary_master_key>*.
+In het volgende voorbeeld wordt een app-instelling voor `MONGODB_URI` in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduidingen *\<app_name>*, *\<cosmosdb_name>* en *\<primary_master_key>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -299,10 +299,10 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ```
 
-Het implementatieproces voert [Gulp](http://gulpjs.com/) na `npm install` uit. In App Service worden tijdens de implementatie geen Gulp- of Grunt-taken uitgevoerd, dus deze voorbeeldopslagplaats bevat twee extra bestanden in de hoofdmap om deze in te schakelen:
+Het implementatieproces voert [Gulp](https://gulpjs.com/) na `npm install` uit. In App Service worden tijdens de implementatie geen Gulp- of Grunt-taken uitgevoerd, dus deze voorbeeldopslagplaats bevat twee extra bestanden in de hoofdmap om deze in te schakelen:
 
 - _.deployment_: dit bestand meldt App Service om `bash deploy.sh` uit te voeren als het aangepaste implementatiescript.
 - _deploy.sh_: het aangepaste implementatiescript. Als u het bestand bekijkt, ziet u dat `gulp prod` wordt uitgevoerd na `npm install` en `bower install`.
@@ -455,7 +455,7 @@ Als u eerder artikelen hebt toegevoegd, kunt u deze nog steeds zien. Bestaande g
 
 ## <a name="manage-your-azure-web-app"></a>Uw Azure-web-app beheren
 
-Ga naar [Azure Portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
+Ga naar de [Azure-portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
 
 Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
 
@@ -463,7 +463,7 @@ Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-w
 
 In de portal wordt standaard de pagina **Overzicht** van de web-app getoond. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuratiepagina's die u kunt openen.
 
-![App Service-pagina in Azure Portal](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
+![App Service-pagina in de Azure-portal](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
@@ -479,7 +479,7 @@ Wat u hebt geleerd:
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * Logboeken vanaf Azure naar uw terminal streamen
-> * De app in Azure Portal beheren
+> * De app in de Azure-portal beheren
 
 Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan uw web-app kunt toewijzen.
 

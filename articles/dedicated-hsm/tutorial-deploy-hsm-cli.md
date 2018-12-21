@@ -1,6 +1,6 @@
 ---
-title: "Zelfstudie: Azure Toegewezen HSM gebruiken om HSM's te implementeren in een bestaand virtueel netwerk met behulp van CLI | Microsoft Docs"
-description: Zelfstudie over het implementeren van een toegewezen HSM met behulp van de CLI
+title: 'Zelfstudie: Azure CLI gebruiken voor implementatie in een bestaand virtueel netwerk - Azure Dedicated HSM | Microsoft Docs'
+description: Zelfstudie voor het implementeren van een toegewezen HSM in een bestaand virtueel netwerk met behulp van CLI
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,19 +8,19 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: ca30dc9d86db8faabfdd3791b74b9f86c9480ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679644"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080313"
 ---
-# <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Zelfstudie: HSM's implementeren in een bestaand virtueel netwerk met behulp van CLI
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Zelfstudie: HSM's implementeren in een bestaand virtueel netwerk met behulp van CLI
 
 Azure Toegewezen HSM biedt een fysiek apparaat voor gebruik door één klant, met volledige beheer en verantwoordelijkheid voor volledig beheer. Door het gebruik van fysieke apparaten moet de apparaattoewijzing worden beheerd in Microsoft om ervoor te zorgen dat de capaciteit effectief wordt beheerd. Dit betekent dat de Toegewezen HSM-service in een Azure-abonnement niet gewoon zichtbaar is voor de inrichting van resources. Elke Azure-klant die toegang nodig heeft tot de Toegewezen HSM-service, moet eerst contact opnemen met de beheerder van zijn Microsoft-account om registratie aan te vragen voor de Toegewezen HSM-service. Pas wanneer dit proces is voltooid, is inrichting mogelijk. 
 
@@ -38,7 +38,7 @@ Deze zelfstudie richt zich op twee HSM's en de vereiste ExpressRoute-gateway (zi
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure Toegewezen HSM is momenteel niet beschikbaar in de Azure-portal. Alle interactie met de service verloopt via de opdrachtregel of met behulp van PowerShell. In deze zelfstudie wordt gebruikgemaakt van de CLI (opdrachtregelinterface) in Azure Cloud Shell. Volg de instructies in [Aan de slag met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) als u niet bekend bent met Azure CLI.
+Azure Toegewezen HSM is momenteel niet beschikbaar in de Azure-portal. Alle interactie met de service verloopt via de opdrachtregel of met behulp van PowerShell. In deze zelfstudie wordt gebruikgemaakt van de CLI (opdrachtregelinterface) in Azure Cloud Shell. Volg de instructies in [Aan de slag met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) als u niet bekend bent met Azure CLI. 
 
 Veronderstellingen:
 
@@ -130,7 +130,7 @@ Wanneer de parameterwaarden zijn ingesteld, moeten de bestanden worden geüpload
 
 De opdrachtshell heeft een optie Uploaden/Downloaden op de werkbalk. Selecteer deze om de sjabloon en parameterbestanden te uploaden naar de bestandsshare:
 
-![abonnementsstatus](media/tutorial-deploy-hsm-cli/file-share.png)
+![bestandsshare](media/tutorial-deploy-hsm-cli/file-share.png)
 
 Wanneer de bestanden zijn geüpload, bent u klaar om resources te maken. Voordat u nieuwe HSM-resources maakt, controleert u eerst of de volgende vereiste resources aanwezig zijn. U moet een virtueel netwerk hebben met subnetbereiken voor compute, HSM's en gateway. De volgende opdrachten zijn een voorbeeld van hoe een dergelijk virtueel netwerk wordt gemaakt.
 
@@ -177,7 +177,7 @@ Het duurt gewoonlijk maximaal 25 tot 30 minuten totdat deze implementatie is vol
 
 ![inrichtingsstatus](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-Wanneer de implementatie is geslaagd, wordt er weergegeven: provisioningState: Succeeded. U kunt verbinding maken met de bestaande virtuele machine en SSH gebruiken om de beschikbaarheid van het HSM-apparaat te verzekeren.
+Wanneer de implementatie is geslaagd, wordt er provisioningState: Succeeded weergegeven.  U kunt verbinding maken met de bestaande virtuele machine en SSH gebruiken om de beschikbaarheid van het HSM-apparaat te verzekeren.
 
 ## <a name="verifying-the-deployment"></a>De implementatie controleren
 
@@ -191,7 +191,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![inrichtingsstatus](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![uitvoer van inrichting](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 Nu kunt u ook de resources zien met behulp van de [Azure Resource Explorer](https://resources.azure.com/).   In de Explorer vouwt u aan de linkerkant 'Subscriptions' uit. Vouw achtereenvolgens uw specifieke abonnement voor Toegewezen HSM, 'Resource Groups' en de gebruikte resourcegroep uit. Selecteer tot slot het item 'Resources'.
 

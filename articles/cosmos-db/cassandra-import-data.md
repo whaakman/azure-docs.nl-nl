@@ -2,21 +2,22 @@
 title: 'Zelfstudie: Gegevens migreren naar een Cassandra-API-account in Azure Cosmos DB'
 description: In deze zelfstudie leert u hoe u met de CQL-opdracht Copy en Spark gegevens van Apache Cassandra kopieert naar een Cassandra-API-account in Azure Cosmos DB.
 author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
-ms.author: govindk
 ms.topic: tutorial
 ms.date: 12/03/2018
-ms.reviewer: sngun
+ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: 604cab3bed73366ce28c8bb35b63df6379985cfb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ed86ce20a6230d487dfbd968a31507953400fab6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867457"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100439"
 ---
-# <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Zelfstudie: Gegevens migreren naar een Cassandra-API-account in Azure Cosmos DB
+# <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Zelfstudie: Gegevens migreren naar Cassandra-API-account in Azure Cosmos DB
 
 Als ontwikkelaar hebt u mogelijk bestaande Cassandra-workloads die on-premises worden uitgevoerd of in de cloud, die u mogelijk wilt migreren naar Azure. U kunt dergelijke workloads migreren naar een Cassandra-API-account in Azure Cosmos DB. In deze zelfstudie vindt u instructies over verschillende opties voor het migreren van Apache Cassandra-gegevens naar het Cassandra-API-account in Azure Cosmos DB.
 
@@ -34,11 +35,11 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 * **Maak een schatting van de doorvoervereisten:** Voordat u gegevens migreert naar het Cassandra-API-account in Azure Cosmos DB, moet u een schatting maken van de doorvoervereisten voor uw workload. In het algemeen verdient het aanbeveling om te beginnen met de gemiddelde doorvoer die is vereist voor de CRUD-bewerkingen en vervolgens de aanvullende doorvoer toe te voegen die vereist is voor ETL-bewerkingen (Extract Transform Load) of piekbewerkingen. U hebt de volgende gegevens nodig om de migratie te plannen: 
 
-   * **Bestaande gegevensgrootte of een schatting van de gegevensgrootte:** de minimale databasegrootte en de vereiste voor de doorvoer. Als u een schatting maakt van de gegevensgrootte voor een nieuwe toepassing, kunt u ervan uitgaan dat de gegevens gelijkmatig worden verdeeld over de rijen en een schatting van de waarde maken door deze te vermenigvuldigen met de gegevensgrootte. 
+   * **Bestaande of geschatte gegevensgrootte:** Hiermee definieert u de minimale databasegrootte en doorvoervereiste. Als u een schatting maakt van de gegevensgrootte voor een nieuwe toepassing, kunt u ervan uitgaan dat de gegevens gelijkmatig worden verdeeld over de rijen en een schatting van de waarde maken door deze te vermenigvuldigen met de gegevensgrootte. 
 
-   * **Vereiste doorvoer:** een schatting van de doorvoersnelheid voor lezen (query/get) en schrijven (update/delete/insert). Deze waarde is vereist voor het berekenen van de vereiste aanvraageenheden en de gegevensgrootte bij een stabiele toestand.  
+   * **Vereiste doorvoer:** Een schatting van de doorvoersnelheid voor lezen (query/get) en schrijven (update/delete/insert). Deze waarde is vereist voor het berekenen van de vereiste aanvraageenheden en de gegevensgrootte bij een stabiele toestand.  
 
-   * **Het schema:** maak verbinding met uw bestaande Cassandra-cluster via cqlsh en exporteer het schema uit Cassandra: 
+   * **Het schema:** Maak verbinding met uw bestaande Cassandra-cluster via cqlsh en exporteer het schema uit Cassandra: 
 
      ```bash
      cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
@@ -46,7 +47,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
    Nadat u de vereisten van uw bestaande workload hebt geïdentificeerd, maakt u een Azure Cosmos-account, database en containers op basis van de verzamelde vereisten voor de doorvoer.  
 
-   * **De RU-kosten voor een bewerking bepalen:** u kunt de RU's bepalen met behulp van een van de SDK's die worden ondersteund door de Cassandra-API. In dit voorbeeld ziet u de .NET-versie van het ophalen van RU-kosten.
+   * **De RU-kosten voor een bewerking bepalen:** U kunt de RU's bepalen met behulp van een van de SDK's die worden ondersteund door de Cassandra-API. In dit voorbeeld ziet u de .NET-versie van het ophalen van RU-kosten.
 
      ```csharp
      var tableInsertStatement = table.Insert(sampleEntity);
@@ -60,24 +61,24 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
        }
      ```
 
-* **Toewijzen van de vereiste doorvoer:** Azure Cosmos DB kan opslag en doorvoer automatisch schalen als uw vereisten veranderen. U kunt uw doorvoer schatten met behulp van de [calculator voor aanvraageenheden en gegevensopslag](https://www.documentdb.com/capacityplanner). 
+* **De vereiste doorvoer toewijzen:** Azure Cosmos DB kan opslag en doorvoer automatisch schalen als uw vereisten veranderen. U kunt uw doorvoer schatten met behulp van de [calculator voor aanvraageenheden en gegevensopslag](https://www.documentdb.com/capacityplanner). 
 
-* **Tabellen maken in het Cassandra API-account:** voordat u gegevens gaat migreren, maakt u vooraf alle tabellen vanuit de Azure-portal of met cqlsh. Als u migreert naar een Azure Cosmos-account dat doorvoer op databaseniveau heeft, moet u een partitiesleutel opgeven bij het maken van de Azure Cosmos-containers.
+* **Tabellen maken in het Cassandra API-account:** Voordat u gegevens gaat migreren, maakt u vooraf alle tabellen vanuit Azure Portal of met cqlsh. Als u migreert naar een Azure Cosmos-account dat doorvoer op databaseniveau heeft, moet u een partitiesleutel opgeven bij het maken van de Azure Cosmos-containers.
 
-* **Doorvoer verhogen**: de duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor de tabellen hebt ingericht in Azure Cosmos DB. Verhoog de doorvoer voor de duur van de migratie. Met een hogere doorvoer voorkomt u frequentielimieten en kost migreren minder tijd. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Het is ook raadzaam om het Azure Cosmos-account in dezelfde regio te plaatsen als uw brondatabase. 
+* **Doorvoer vergroten:** De duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor de tabellen hebt ingericht in Azure Cosmos DB. Verhoog de doorvoer voor de duur van de migratie. Met een hogere doorvoer voorkomt u frequentielimieten en kost migreren minder tijd. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Het is ook raadzaam om het Azure Cosmos-account in dezelfde regio te plaatsen als uw brondatabase. 
 
-* **Schakel SSL in:** voor Azure Cosmos DB gelden strenge beveiligingsvereisten en -normen. Schakel SSL in wanneer u uw account gebruikt. Wanneer u CQL gebruikt met SSH, hebt u een optie om SSL-informatie op te geven.
+* **SSL inschakelen:** Voor Azure Cosmos DB gelden strenge beveiligingsvereisten en -normen. Schakel SSL in wanneer u uw account gebruikt. Wanneer u CQL gebruikt met SSH, hebt u een optie om SSL-informatie op te geven.
 
 ## <a name="options-to-migrate-data"></a>Mogelijkheden voor migreren van gegevens
 
 U kunt gegevens op de volgende manieren verplaatsen van bestaande Cassandra-workloads naar Azure Cosmos DB:
 
-* [Met de cqlsh-opdracht COPY](#using-cqlsh-copy-command)  
-* [Met Spark](#using-spark) 
+* [Met de cqlsh-opdracht COPY](#migrate-data-using-cqlsh-copy-command)  
+* [Met Spark](#migrate-data-using-spark) 
 
 ## <a name="migrate-data-using-cqlsh-copy-command"></a>Gegevens migreren met de cqlsh-opdracht COPY
 
-De [opdracht CQL COPY](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) wordt gebruikt om lokale gegevens te kopiëren naar het Cassandra API-account in Azure Cosmos DB. Voer de volgende stappen uit om gegevens te kopiëren:
+De [opdracht CQL COPY](https://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) wordt gebruikt om lokale gegevens te kopiëren naar het Cassandra API-account in Azure Cosmos DB. Voer de volgende stappen uit om gegevens te kopiëren:
 
 1. Vraag de verbindingsreeks van uw Cassandra API-account op:
 

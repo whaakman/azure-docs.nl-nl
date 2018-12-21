@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning implementeren met Azure IoT Edge | Microsoft Docs
+title: 'Zelfstudie: Azure Machine Learning implementeren op een apparaat - Azure IoT Edge | Microsoft Docs'
 description: In deze zelfstudie implementeert u Azure Machine Learning als een module op een Edge-apparaat
 author: kgremban
 manager: philmea
@@ -8,15 +8,15 @@ ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: c98dc9019421133b83ab9aec29f725852315f6ba
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: mvc, seodec18
+ms.openlocfilehash: db8318e94b646d57c00bc2e6958ba9e7f46ec7af
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977201"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344011"
 ---
-# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning implementeren als een IoT Edge-module (preview)
+# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning als een IoT Edge-module implementeren (preview)
 
 U kunt IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. Deze zelfstudie laat u stapsgewijs zien hoe u een Azure Machine Learning-module kunt implementeren waarmee wordt voorspeld wanneer een apparaat mislukt op basis van gesimuleerde machinetemperatuurgegevens. Zie [Documentatie voor Azure Machine Learning](../machine-learning/service/how-to-deploy-to-iot.md) voor meer informatie over Azure ML op IoT Edge.
 
@@ -115,7 +115,7 @@ Controleer of de containerinstallatiekopie is gemaakt en opgeslagen in het Azure
 
 1. Voeg in de sectie **Registerinstellingen** de referenties toe die u hebt gekopieerd uit het Azure-containerregister. 
 
-   ![Registerreferenties toevoegen](./media/tutorial-deploy-machine-learning/registry-settings.png)
+   ![Registerreferenties toevoegen aan manifest](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
 1. Als u de tempSensor-module eerder op uw IoT Edge-apparaat hebt geïmplementeerd, wordt het mogelijk automatisch ingevuld. Als die nog niet in uw lijst met modules staat, voeg deze dan toe.
 
@@ -174,7 +174,7 @@ Als u deze opdrachten uitvoert op een Linux-apparaat, moet u mogelijk `sudo` geb
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>Gegevens weergeven die binnenkomen bij de IoT-hub
 
-U kunt de apparaat-naar-cloud-berichten die het IoT Edge-apparaat ontvangt, weergeven met behulp van de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+U kunt de apparaat-naar-cloud-berichten die de IoT-hub ontvangt, weergeven met behulp van de [Azure IoT Hub Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit-extensie).
 
 In de volgende stappen ziet u hoe u Visual Studio Code kunt instellen om apparaat-naar-cloud-berichten te controleren die binnenkomen bij de IoT-hub. 
 
@@ -182,7 +182,7 @@ In de volgende stappen ziet u hoe u Visual Studio Code kunt instellen om apparaa
 
 2. Selecteer in het menu **...** en vervolgens **Set IoT Hub-verbindingsreeksen**.
 
-   ![Menu Meer IoT Hub-apparaten](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![IoT Hub-verbindingsreeks instellen](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. Voer in het tekstvak dat bovenaan de pagina wordt geopend de iothubowner-verbindingsreeks in voor uw IoT Hub. Uw IoT Edge-apparaat moet worden weergegeven in de lijst met IoT Hub-apparaten.
 

@@ -1,6 +1,6 @@
 ---
-title: Custom Vision implementeren op een Azure IoT Edge-apparaat | Microsoft Docs
-description: Informatie over hoe u een Computer Vision-model uitvoert als een container met behulp van Custom Vision en IoT Edge.
+title: 'Zelfstudie: Custom Vision-classificatie met een apparaat implementeren - Azure IoT Edge | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u een Computer Vision-model uitvoert als een container met behulp van Custom Vision en IoT Edge.
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566479"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075825"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Zelfstudie: Custom Vision Service gebruiken om afbeeldingsclassificatie uit te voeren aan de rand
 
@@ -99,7 +99,7 @@ Om een afbeeldingsclassificatie te maken, hebt u een reeks trainingsafbeeldingen
 
 5. Selecteer **10 bestanden uploaden**. 
 
-   ![Bestanden met het hemlock-label uploaden](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
+   ![Met hemlock gelabelde bestanden uploaden naar Custom Vision](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
 6. Wanneer de afbeeldingen zijn geüpload, selecteert u **Gereed**.
 
@@ -117,7 +117,7 @@ Om een afbeeldingsclassificatie te maken, hebt u een reeks trainingsafbeeldingen
 
 1. Nadat u de classificatie hebt getraind, selecteert u **Exporteren** op de pagina Prestaties van de classificatie. 
 
-   ![Afbeeldingsclassificatie exporteren](./media/tutorial-deploy-custom-vision/export.png)
+   ![De getrainde classificatie van de installatiekopie exporteren](./media/tutorial-deploy-custom-vision/export.png)
 
 2. Selecteer **DockerFile** als platform. 
 
@@ -201,7 +201,7 @@ In een echte Custom Vision-implementatie zou u een camera hebben die live afbeel
 
 In deze sectie voegt u een nieuwe module aan dezelfde CustomVisionSolution toe en geeft u code op om de gesimuleerde camera te maken. 
 
-1. In hetzelfde Visual Studio Code-venster gebruikt u het opdrachtenpalet om **Azure IoT Edge: IoT Edge-module toevoegen** uit te voeren. Geef in het opdrachtenpalet de volgende informatie op voor uw nieuwe module: 
+1. In hetzelfde Visual Studio Code-venster gebruikt u het opdrachtenpalet om **Azure IoT Edge: Add IoT Edge Module** uit te voeren. Geef in het opdrachtenpalet de volgende informatie op voor uw nieuwe module: 
 
    | Vraag | Waarde | 
    | ------ | ----- |
@@ -423,7 +423,7 @@ Eerst gaat u de oplossing bouwen en naar het containerregister pushen.
 
 Daarna stelt u de toegang tot uw IoT Hub in vanuit Visual Studio Code. 
 
-1. Selecteer in het opdrachtenpalet van VS Code **Azure IoT Hub: IoT Hub selecteren**.
+1. Selecteer in het opdrachtenpalet van VS Code **Azure IoT Hub: Select IoT Hub**.
 2. Volg de aanwijzingen om u aan te melden bij uw Azure-account. 
 3. Selecteer in het opdrachtenpalet uw Azure-abonnement en selecteer vervolgens uw IoT Hub. 
 

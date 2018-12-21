@@ -9,14 +9,17 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de19b20865127fd37cd7bc1ac854288a95a68091
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45255845d8645391ee33471830ac2ef27870a40d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058101"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408626"
 ---
 # <a name="tutorial-train-a-distributed-model-with-horovod"></a>Zelfstudie: Een gedistribueerde model trainen met Horovod
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 In deze zelfstudie traint u een gedistribueerd deep learning-model door het parallel uit te voeren op meerdere knooppunten in een Batch AI-cluster. Batch AI is een beheerde service voor het trainen van machine learning- en AI-modellen op grote schaal over GPU-clusters van Azure. 
 

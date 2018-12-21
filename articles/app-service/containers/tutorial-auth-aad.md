@@ -1,6 +1,6 @@
 ---
-title: Gebruikers end-to-end verifiëren en autoriseren in Azure App Service in Linux | Microsoft Docs
-description: Leer hoe u verificatie en autorisatie van App Service kunt gebruiken om uw App Service-apps te beveiligen, waaronder toegang tot externe API's.
+title: Gebruikers end-to-end verifiëren en autoriseren onder Linux - Azure App Service | Microsoft Docs
+description: Leer hoe u verificatie en autorisatie van App Service kunt gebruiken om uw App Service-apps onder Linux te beveiligen, waaronder toegang tot externe API's.
 keywords: app service, azure app service, authN, authZ, beveiligen, beveiliging, meerdere lagen, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
-ms.openlocfilehash: a468c5d0f73cc182927f26ea9b7a85e2c5afb7c8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766356"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409387"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Zelfstudie: Gebruikers end-to-end verifiëren en autoriseren in Azure App Service in Linux
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Zelfstudie: gebruikers end-to-end verifiëren en autoriseren in Azure App Service in Linux
 
 [App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Daarnaast bevat App Service ingebouwde ondersteuning voor [verificatie en autorisatie van gebruikers](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). In deze zelfstudie leest u hoe u apps kunt beveiligen met verificatie en autorisatie van App Service. Er wordt gebruikgemaakt van een ASP.NET Core-app met een Angular.js-front-end, maar dat is slechts voor het voorbeeld. Verificatie en autorisatie van App Service ondersteunt runtime voor alle talen en u leert hoe u deze kunt toepassen op uw taal van voorkeur door de zelfstudie te volgen.
 
@@ -128,7 +129,7 @@ git commit -m "add CORS to back end"
 
 ### <a name="push-to-azure-from-git"></a>Pushen naar Azure vanaf Git
 
-Voer in het lokale terminalvenster de volgende Git-opdrachten uit om de implementatie in de back-end-app uit te voeren. Vervang _&lt;deploymentLocalGitUrl-of-back-end-app>_ door de URL van de externe Git-instantie die u hebt opgeslagen in [Azure-resources maken](#create-azure-resources). Wanneer u door Git Credential Manager om referenties wordt gevraagd, geeft u [de referenties voor implementatie](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) op en niet de referenties die u gebruikt om u aan te melden bij Azure Portal.
+Voer in het lokale terminalvenster de volgende Git-opdrachten uit om de implementatie in de back-end-app uit te voeren. Vervang _&lt;deploymentLocalGitUrl-of-back-end-app>_ door de URL van de externe Git-instantie die u hebt opgeslagen in [Azure-resources maken](#create-azure-resources). Wanneer u door Git Credential Manager om referenties wordt gevraagd, geeft u [de referenties voor implementatie](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) op en niet de referenties die u gebruikt om u aan te melden bij de Azure-portal.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -237,11 +238,11 @@ Ga naar `http://<back_end_app_name>.azurewebsites.net` om de items te zien die a
 
 In deze stap schakelt u verificatie en autorisatie voor de twee apps in. U configureert ook de front-end-app om een toegangstoken te genereren dat u kunt gebruiken om geverifieerde aanroepen uit te voeren naar de back-end-app.
 
-U gebruikt Azure Active Directory als id-provider. Zie [Verificatie van Azure Active Directory configureren voor de App Services-toepassing](../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) voor meer informatie.
+U gebruikt Azure Active Directory als id-provider. Zie [Verificatie van Azure Active Directory configureren voor de App Services-toepassing](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) voor meer informatie.
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Verificatie en autorisatie voor de back-end-app inschakelen
 
-Open in [Azure Portal](https://portal.azure.com) de beheerpagina voor de back-end-app door in het linkermenu op **Resource groups** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_ te klikken.
+Open in de [Azure-portal](https://portal.azure.com) de beheerpagina voor de back-end-app door in het linkermenu te klikken op: **Resourcegroepen** > **myAuthResourceGroup** > _\<terug\_end\_app\_naam>_.
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -354,7 +355,7 @@ Meld u opnieuw aan bij `http://<front_end_app_name>.azurewebsites.net`. Klik op 
 
 U moet nu net als eerder gegevens uit de back-end-app kunnen maken, lezen, bijwerken en verwijderen. Het enige verschil is dat beide apps nu worden beveiligd door App Service-verificatie en -autorisatie, waaronder de aanroepen tussen services.
 
-Gefeliciteerd. De servercode heeft nu toegang tot de gegevens van de back-end namens de geverifieerde gebruiker.
+Gefeliciteerd! De servercode heeft nu toegang tot de gegevens van de back-end namens de geverifieerde gebruiker.
 
 ## <a name="call-api-securely-from-browser-code"></a>API veilig vanuit browsercode aanroepen
 
@@ -426,7 +427,7 @@ git push frontend master
 
 Ga opnieuw naar `http://<front_end_app_name>.azurewebsites.net`. U moet nu rechtstreeks in de Angular.js-app gegevens in de back-end kunnen maken, lezen, bijwerken en verwijderen.
 
-Gefeliciteerd. De clientcode heeft nu toegang tot de gegevens van de back-end namens de geverifieerde gebruiker.
+Gefeliciteerd! De clientcode heeft nu toegang tot de gegevens van de back-end namens de geverifieerde gebruiker.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

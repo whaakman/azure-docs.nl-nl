@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/13/2018
+ms.date: 03/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52757098436349d38538f4c2168a70e53ad58421
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946609"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270158"
 ---
-# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Zelfstudie 3: Iris classificeren - Een model implementeren
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Zelfstudie 3: Iris classificeren: Een model implementeren
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -168,7 +168,7 @@ U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine
    az provider show -n Microsoft.ContainerRegistry 
    ``` 
 
-   De derde regel van de uitvoer bestaat uit **'registrationState': 'Registering'**. Wacht even en herhaal de opdracht **show** totdat u de uitvoer **registrationState: Registered** ziet.
+   De derde regel van de uitvoer bestaat uit **'registrationState': 'Registering'**. Wacht even en herhaal de opdracht **show** totdat u de uitvoer **'registrationState': 'Registered'** ziet.
 
    >[!NOTE] 
    Als u een ACS-cluster implementeert, moet u de resourceprovider **Microsoft.ContainerService** registreren en exact dezelfde benadering gebruiken.
@@ -234,17 +234,17 @@ U kunt nu de realtime webservice maken.
 
    De volgende schakelopties worden gebruikt met de opdracht **az ml service create realtime**:
 
-   * `-f`: de bestandsnaam van het scoring-script.
+   * `-f`: De bestandsnaam van het scoring-script.
 
-   * `--model-file`: het modelbestand. In dit geval is dit het pickled model.pkl-bestand.
+   * `--model-file`: Het modelbestand. In dit geval is dit het pickled model.pkl-bestand.
 
-   * `-s`: het schema van de service. Dit werd in de vorige stap gegenereerd door het **score_iris.py**-script lokaal uit te voeren.
+   * `-s`: Het schema van de service. Dit werd in de vorige stap gegenereerd door het **score_iris.py**-script lokaal uit te voeren.
 
-   * `-n`: de app-naam mag alleen uit kleine letters bestaan.
+   * `-n`: De app-naam mag alleen uit kleine letters bestaan.
 
-   * `-r`: de runtime van het model. In dit geval is het een Python-model. Geldige runtimes zijn `python` en `spark-py`.
+   * `-r`: De runtime van het model. In dit geval is het een Python-model. Geldige runtimes zijn `python` en `spark-py`.
 
-   * `--collect-model-data true`: deze schakeloptie schakelt de gegevensverzameling in.
+   * `--collect-model-data true`: Deze schakeloptie schakelt de gegevensverzameling in.
 
    * `-c`: Pad naar het conda-afhankelijkheidsbestand waar aanvullende pakketten worden gespecificeerd.
 
@@ -351,15 +351,15 @@ Als u de actieve webservice **irisapp** wilt testen, gebruikt u een JSON-record 
 
 1. U kunt deze gegevens uit Azure Blob-opslag verbruiken. Er zijn allerlei hulpprogramma's in omloop die gebruikmaken van zowel Microsoft-software als open-source hulpprogramma's, zoals:
 
-   * Machine Learning: open het CSV-bestand door het CSV-bestand toe te voegen als een gegevensbron.
+   * Machine Learning: Open het CSV-bestand door het CSV-bestand toe te voegen als een gegevensbron.
 
-   * Excel: open de dagelijkse CSV-bestanden als een spreadsheet.
+   * Excel: Open de dagelijkse CSV-bestanden als een spreadsheet.
 
-   * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): maak grafieken met behulp van gegevens uit CSV-gegevens in blobs.
+   * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): Maak grafieken met behulp van gegevens uit CSV-gegevens in blobs.
 
-   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): hiermee laadt u de CSV-gegevens in een hive-tabel en worden SQL-query's rechtstreeks op de blobs uitgevoerd.
+   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): Hiermee laadt u de CSV-gegevens in een hive-tabel en worden SQL-query's rechtstreeks op de blobs uitgevoerd.
 
-   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): hiermee maakt u een dataframe op basis van een grote hoeveelheid CSV-gegevens.
+   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): Hiermee maakt u een dataframe op basis van een grote hoeveelheid CSV-gegevens.
 
       ```python
       var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")

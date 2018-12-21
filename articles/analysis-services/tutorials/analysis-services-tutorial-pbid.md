@@ -2,19 +2,20 @@
 title: 'Zelfstudie: Verbinding maken met Azure Analysis Services met Power BI Desktop | Microsoft Docs'
 author: minewiskan
 manager: kfile
+description: Leer verbinding maken met Azure Analysis Services met Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: ad97fd7569690d0d199b0ce1a82f31f8dfa64c26
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0025655b3df8ddfb91857bbd56c04507ac6bca5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426122"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993981"
 ---
-# <a name="tutorial-connect-with-power-bi-desktop"></a>Zelfstudie: Verbinden met Power BI Desktop
+# <a name="tutorial-connect-with-power-bi-desktop"></a>Zelfstudie: Verbinding maken met Power BI Desktop
 
 In deze zelfstudie gebruikt u Power BI Desktop om verbinding te maken met de voorbeeldmodeldatabase Adventure Works op uw server. De taken die u uitvoert, zijn een simulatie van een normale gebruikersverbinding met het model en het maken van een basisrapport van modelgegevens.
 
@@ -29,7 +30,7 @@ In deze zelfstudie gebruikt u Power BI Desktop om verbinding te maken met de voo
 - Zorg dat u [*lees*](../analysis-services-server-admins.md)machtigingen hebt voor de voorbeeldmodeldatabase Adventure Works.
 - [Installeer de nieuwste versie van Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 In deze zelfstudie meldt u zich aan bij de portal om alleen de servernaam op te halen. Normaal gesproken krijgen gebruikers de servernaam van de serverbeheerder.
 
 Meld u aan bij de [portal](https://portal.azure.com/).
@@ -51,7 +52,7 @@ In **Azure Portal** > server > **Overview** > **Servernaam**,kopieer de serverna
 
    ![De servernaam en modeldatabase opgeven](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png)
 
-3. Voer uw aanmeldingsreferenties in wanneer u hierom wordt gevraagd. Het account dat u opgeeft, moet minimaal leesmachtigingen hebben voor de voorbeeldmodeldatabase Adventure Works.
+3. Voer uw referenties in wanneer dit wordt gevraagd. Het account dat u opgeeft, moet minimaal leesmachtigingen hebben voor de voorbeeldmodeldatabase Adventure Works.
 
     Het model Adventure Works wordt geopend in Power BI Desktop met een leeg rapport in de rapportweergave. De lijst **Velden** bevat alle niet-verborgen modelobjecten. De verbindingsstatus wordt rechtsonder weergegeven.
 

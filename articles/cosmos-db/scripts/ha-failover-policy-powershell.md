@@ -1,25 +1,20 @@
 ---
-title: Azure PowerShell-script - een Azure Cosmos DB-failover-beleid maken | Microsoft Docs
+title: Azure PowerShell-script - Een Azure Cosmos DB-failover-beleid maken
 description: Azure PowerShell-voorbeeldscript - een Azure Cosmos DB-failover-beleid maken
 services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
-ms.openlocfilehash: f661e513e6c1906661808a40052839bbefa2d85d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 831faf7122a2fff8297cdc390584add29ee13937
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41917679"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962491"
 ---
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>Een Azure Cosmos DB-failover-beleid voor hoge beschikbaarheid maken met behulp van PowerShell
 

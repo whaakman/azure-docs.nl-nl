@@ -1,5 +1,5 @@
 ---
-title: Voorbeeldbeleid Azure Policy - aangepaste VM-installatiekopie van een brongroep toestaan
+title: 'Voorbeeld: aangepaste VM-installatiekopie van een resourcegroep toestaan'
 description: Dit voorbeeldbeleid vereist dat aangepaste installatiekopieën afkomstig zijn van een goedgekeurde resourcegroep.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 1eed7dc0348336d69d0b8ad9206c71fd72c1f012
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 17cf4c4fdfd270ee21f7f01d1c8f89ff1a1d11ea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971226"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315329"
 ---
 # <a name="allow-custom-vm-image-from-a-resource-group"></a>Aangepaste VM-installatiekopie van een resourcegroep toestaan
 
@@ -26,7 +25,7 @@ Dit voorbeeldbeleid vereist dat aangepaste installatiekopieën afkomstig zijn va
 
 [!code-json[main](../../../../policy-templates/samples/compute/custom-image-from-rg/azurepolicy.json "Allow custom VM image from a Resource Group")]
 
-U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 

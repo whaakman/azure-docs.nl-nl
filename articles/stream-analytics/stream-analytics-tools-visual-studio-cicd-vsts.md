@@ -1,20 +1,20 @@
 ---
-title: Een Azure Stream Analytics-taak met CI/CD implementeren met behulp van Azure DevOps Services-zelfstudie
+title: Een Azure Stream Analytics-taak met CI/CD implementeren met behulp van Azure DevOps
 description: In dit artikel wordt beschreven hoe u een Stream Analytics-taak met CI/CD implementeert met behulp van Azure DevOps Services.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 07/10/2018
-ms.openlocfilehash: 0f729725a04b19a513ca92953e997b51e4558884
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7e9ce598dbd8987ab32747f5fa9d14646ed4ee71
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986262"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164072"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Zelfstudie: Een Azure Stream Analytics-taak met CI/CD implementeren met behulp van Azure Pipelines
 This tutorial descriIn deze zelfstudie wordt beschreven hoe u continue integratie en implementatie instelt voor een Azure Stream Analytics-taak met behulp van Azure Pipelines. 
@@ -55,11 +55,11 @@ Deel de bronbestanden van uw toepassing met een project in Azure DevOps zodat u 
 
 2. Ga naar de **Synchronization**-weergave in **Team Explorer** en selecteer onder **Push to Azure DevOps Services** de knop **Publish Git Repo**.
 
-   ![Git-opslagplaats pushen](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
+   ![De knop Publish Git Repo onder Push to Azure DevOps Services](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
 3. Controleer uw e-mail en selecteer uw organisatie in de vervolgkeuzelijst **Azure DevOps Services Domain**. Voer de naam van de opslagplaats in en selecteer **Publish repository**.
 
-   ![Git-opslagplaats pushen](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
+   ![De knop Publish repository onder Push Git repo](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
     Als u de opslagplaats pusht, wordt er een nieuw project voor uw organisatie gemaakt met dezelfde naam als de lokale opslagplaats. Als u de opslagplaats in een bestaand project wilt maken, klikt u naast de **naam van de opslagplaats** op **Advanced** en selecteert u een teamproject. U kunt uw code in de browser weergeven door **See it on the web** te selecteren.
  
@@ -73,33 +73,33 @@ Open een webbrowser en navigeer naar het project dat u zojuist hebt gemaakt in [
 
 1. Selecteer op het tabblad **Build & Release** de optie **Builds** en vervolgens **+New**.  Selecteer **Azure DevOps Services Git** en **Continue**.
     
-    ![Bron selecteren](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
+    ![DevOps Git-bron selecteren in Azure DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
 2. Klik in **Select a template** op **Empty Process** om met een lege pijplijn te beginnen.
     
-    ![Build-sjabloon kiezen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
+    ![Leeg proces in sjabloonopties selecteren in DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
 3. Schakel onder **Triggers** continue integratie in door de triggerstatus **Enable continuous integration** in te stellen.  Selecteer **Save and queue** om handmatig een build te starten. 
     
-    ![Triggerstatus](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
+    ![Triggerstatus voor continue integratie inschakelen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
 4. Builds worden ook getriggerd na pushen of inchecken. Als u de voortgang van de build wilt controleren, schakelt u over naar het tabblad **Builds**.  Als u hebt gecontroleerd dat de build correct wordt uitgevoerd, moet u een release-pijplijn definiëren waarmee uw toepassing in een cluster wordt geïmplementeerd. Klik met de rechtermuisknop op het beletselteken naast uw build-pijplijn en selecteer **Edit**.
 
 5.  Voer in **Tasks** "Hosted" in als de **Agent queue**.
     
-    ![Agentwachtrij selecteren](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue.png) 
+    ![Agentwachtrij selecteren in het taakmenu](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
 6. Klik in **Phase 1** op **+** en voeg een **NuGet**-taak toe.
     
-    ![Een Nuget-taak toevoegen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget.png)
+    ![Een NuGet-taak aan de agentwachtrij toevoegen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
 
 7. Vouw **Advanced** uit en voeg `$(Build.SourcesDirectory)\packages` toe aan **Destination directory**. Behoud de overige NuGet-standaardconfiguratiewaarden.
 
-   ![NuGet-taak configureren](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-config.png)
+   ![NuGet-hersteltaak configureren](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
 
 8. Klik in **Phase 1** op **+** en voeg een **MSBuild**-taak toe.
 
-   ![MSBuild-taak toevoegen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-msbuild-task.png)
+   ![Een MSBuild-taak aan de agentwachtrij toevoegen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
 
 9. Wijzig de **MSBuild Arguments** in het volgende:
 
@@ -107,11 +107,11 @@ Open een webbrowser en navigeer naar het project dat u zojuist hebt gemaakt in [
    /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="$(Build.SourcesDirectory)\packages\Microsoft.Azure.StreamAnalytics.CICD.1.0.0\build\StreamAnalytics.targets"
    ```
 
-   ![MSBuild-taak configureren](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-msbuild.png)
+   ![MSBuild-taak in DevOps configureren](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
 
 10. Klik in **Phase 1** op **+** en voeg een **Azure Resource Group Deployment**-taak toe. 
     
-    ![Een Azure Resource Group Deployment-taak toevoegen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy.png)
+    ![Een Azure Resource Group Deployment-taak toevoegen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-resource-group-deployment.png)
 
 11. Vouw **Azure Details** uit en vul de configuratie met het volgende:
     
@@ -124,16 +124,16 @@ Open een webbrowser en navigeer naar het project dat u zojuist hebt gemaakt in [
     |Sjabloonparameters  | [Uw oplossingspad] \bin\Debug\Deploy\\[Naam van uw project].JobTemplate.parameters.json   |
     |Sjabloonparameters overschrijven  | Typ de sjabloonparameters die u wilt overschrijven in het tekstvak. Bijvoorbeeld: –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Deze eigenschap is optioneel, maar er treden fouten op in uw build als belangrijke parameters worden niet overschreven.    |
     
-    ![Eigenschappen instellen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
+    ![Implementatie-eigenschappen voor Azure-resourcegroep instellen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
 12. Klik op **Save & Queue** om de build-pijplijn te testen.
     
-    ![Te overschrijven parameters instellen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
+    ![Build opslaan en in de wachtrij plaatsen in DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-and-queue-build.png)
 
 ### <a name="failed-build-process"></a>Mislukt buildproces
 Mogelijk ontvangt u fouten wegens implementatieparameters van null als u geen sjabloonparameters hebt overschreven in de **Azure Resource Group Deployment**-taak van uw build-pijplijn. Ga terug naar de build-pijplijn en overschrijf de parameters van null om de fout op te lossen.
 
-   ![Buildproces mislukt](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
+   ![Mislukt DevOps Stream Analytics-buildproces](./media/stream-analytics-tools-visual-studio-cicd-vsts/devops-build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>Wijzigingen doorvoeren en pushen om een release te activeren
 Controleer of de pijplijn voor continue integratie correct functioneert door enkele codewijzigingen aan te brengen in Azure DevOps.    
@@ -142,11 +142,11 @@ Terwijl u de code schrijft, worden de wijzigingen automatisch in Visual Studio b
 
 1. Voeg aan de weergave **Changes** in Team Explorer een bericht toe waarin u de update beschrijft en voer de wijzigingen door.
 
-    ![Wijzigingen doorvoeren en pushen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
+    ![Wijzigingen in de opslagplaats doorvoeren vanuit Visual Studio](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-commit-changes-visual-studio.png)
 
 2. Selecteer het pictogram voor de statusbalk met niet-gepubliceerde wijzigingen of de synchronisatieweergave in Team Explorer. Selecteer **Push** om de code bij te werken in Azure DevOps.
 
-    ![Wijzigingen doorvoeren en pushen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
+    ![Wijzigingen pushen vanuit Visual Studio](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-visual-studio.png)
 
 Als u de wijzigingen naar Azure DevOps Services pusht, wordt er automatisch een build geactiveerd.  Als de build-pijplijn is voltooid, wordt er automatisch een release gemaakt en wordt gestart met het bijwerken van de taak in het cluster.
 

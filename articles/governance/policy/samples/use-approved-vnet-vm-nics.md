@@ -1,5 +1,5 @@
 ---
-title: Voorbeeld Azure Policy - goedgekeurd vNet gebruiken voor VM-netwerkinterfaces
+title: 'Voorbeeld: goedgekeurd VNet gebruiken voor VM-netwerkinterfaces'
 description: Dit voorbeeldbeleid vereist dat netwerkinterfaces een goedgekeurd virtueel netwerk gebruiken.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 2a0b3ac82d6ff8e7c6df850e5303c342cc269834
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9e99e6614a5ddfb1f692e5db99c95b3907051fa5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959169"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308790"
 ---
 # <a name="use-approved-vnet-for-vm-network-interfaces"></a>Goedgekeurd vNet gebruiken voor VM-netwerkinterfaces
 
@@ -26,7 +25,7 @@ U geeft de id op van het goedgekeurde virtuele netwerk. U geeft de id op van het
 
 [!code-json[main](../../../../policy-templates/samples/Network/vm-creation-in-approved-vnet/azurepolicy.json "Use approved vNet for VM network interfaces")]
 
-U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 

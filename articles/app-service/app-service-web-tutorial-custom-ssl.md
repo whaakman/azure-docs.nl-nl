@@ -1,5 +1,5 @@
 ---
-title: Een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden | Microsoft Docs
+title: Bestaand, aangepast SSL-certificaat verbinden - Azure App Service | Microsoft Docs
 description: Meer informatie over het verbinden van een aangepast SSL-certificaat met een web-app, de back-end voor een mobiele app of een API-app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,15 +14,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: a543561658d593398ca74f8ae68dd6d0d27bcdaa
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.custom: seodec18
+ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636441"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256992"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Zelfstudie: een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Zelfstudie: Een bestaand, aangepast SSL-certificaat verbinden met Azure Web Apps
 
 Azure Web Apps biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze zelfstudie wordt uitgelegd hoe u een aangepast SSL-certificaat dat u hebt aangeschaft via een vertrouwde certificeringsinstantie met [Azure Web Apps](app-service-web-overview.md) kunt verbinden. Wanneer u klaar bent, kunt u uw web-app openen op het HTTPS-eindpunt van uw aangepaste DNS-domein.
 
@@ -39,7 +39,7 @@ In deze zelfstudie leert u het volgende:
 > * TLS-beheer automatiseren met scripts
 
 > [!NOTE]
-> Als u een aangepast SSL-certificaat nodig hebt, kunt u er een rechtstreeks in Azure Portal ophalen en met uw web-app binden. Volg de [zelfstudie voor App Service Certificates](web-sites-purchase-ssl-web-site.md).
+> Als u een aangepast SSL-certificaat nodig hebt, kunt u er een rechtstreeks in de Azure-portal ophalen en met uw web-app binden. Volg de [zelfstudie voor App Service Certificates](web-sites-purchase-ssl-web-site.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -139,9 +139,9 @@ Op de pagina **SSL-binding toevoegen** gebruikt u de vervolgkeuzelijsten om de d
 >
 >
 
-Selecteer in **SSL-type** of u **[Servernaamindicatie (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** wilt gebruiken of op IP gebaseerde SSL.
+Selecteer in **SSL-type** of u **[Servernaamindicatie (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)** wilt gebruiken of op IP gebaseerde SSL.
 
-- **SSL op basis van SNI**: meerdere SSL-bindingen op basis van SNI kunnen worden toegevoegd. Met deze optie kunnen meerdere SSL-certificaten verschillende domeinen beveiligen op hetzelfde IP-adres. De meeste moderne browsers (waaronder Internet Explorer, Chrome, Firefox en Opera) ondersteunen SNI. Ga voor uitgebreidere informatie over browserondersteuning naar [Servernaamindicatie](http://wikipedia.org/wiki/Server_Name_Indication).
+- **SSL op basis van SNI**: meerdere SSL-bindingen op basis van SNI kunnen worden toegevoegd. Met deze optie kunnen meerdere SSL-certificaten verschillende domeinen beveiligen op hetzelfde IP-adres. De meeste moderne browsers (waaronder Internet Explorer, Chrome, Firefox en Opera) ondersteunen SNI. Ga voor uitgebreidere informatie over browserondersteuning naar [Servernaamindicatie](https://wikipedia.org/wiki/Server_Name_Indication).
 - **Op IP gebaseerde SSL**: er kan slechts één op IP gebaseerde SSL-binding worden toegevoegd. Met deze optie kan slechts één SSL-certificaat een specifiek openbaar IP-adres beveiligen. Als u meerdere domeinen wilt beveiligen, moet u ze allemaal met hetzelfde SSL-certificaat beveiligen. Dit is de traditionele optie voor SSL-binding.
 
 Klik op **Binding toevoegen**.

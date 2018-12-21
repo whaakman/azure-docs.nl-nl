@@ -1,6 +1,6 @@
 ---
-title: Gebeurtenissen ontvangen van Azure Event Hubs met behulp van .NET Framework-Standard-bibliotheek | Microsoft Docs
-description: Aan de slag met het ontvangen van berichten met de EventProcessorHost in .NET Standard
+title: Gebeurtenissen ontvangen met .NET Core - Azure Event Hubs | Microsoft Docs
+description: Dit artikel bevat een overzicht voor het maken van een .NET Core-toepassing die berichten ontvangt met de Event Processor Host.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9adbd8b9e7934ebe454d14ac6e47fe96898c9184
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 18b37fd7c85fced4cc57b57320daf195f6f33e3e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234388"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082377"
 ---
-# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Aan de slag met het ontvangen van berichten met de Event Processor Host in .NET Standard
+# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-core"></a>Aan de slag met het ontvangen van berichten met de Event Processor Host in .NET Core
 Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT). Zie [Overzicht van Event Hubs](event-hubs-about.md) en [Functies van Event Hubs](event-hubs-features.md) voor een gedetailleerd overzicht van Event Hubs.
 
 In deze zelfstudie ziet u hoe u een .NET Core-consoletoepassing schrijft die met de [EventProcessorHost](event-hubs-event-processor-host.md) berichten ontvangt van een Event Hub. De [EventProcessorHost](event-hubs-event-processor-host.md) is een .NET-klasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met de EventProcessorHost kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van de EventProcessorHost gedemonstreerd voor één ontvanger. In het voorbeeld [Uitgeschaalde gebeurtenisverwerking] [Verwerking van de gebeurtenis Uitschalen met Event Hubs] ziet u hoe u de EventProcessorHost gebruikt met meerdere ontvangers.
@@ -206,7 +207,7 @@ Gefeliciteerd. U hebt nu met behulp van de EventProcessorHost berichten ontvange
 > In deze zelfstudie wordt één exemplaar van [EventProcessorHost](event-hubs-event-processor-host.md) gebruikt. Voor een betere doorvoer raden we u aan om meerdere exemplaren van [EventProcessorHost](event-hubs-event-processor-host.md) uit te voeren, zoals wordt geïllustreerd in het voorbeeld [Uitgeschaalde gebeurtenisverwerking](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3). In die gevallen werken de meerdere instanties automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstart hebt u een .NET Standard-toepassing gemaakt die berichten heeft ontvangen van een Event Hub. Zie [Gebeurtenissen verzenden vanuit Event Hub - .NET Standard](event-hubs-dotnet-standard-getstarted-send.md) voor meer informatie over het verzenden van gebeurtenissen naar een Event Hub met behulp van .NET Standard.
+In deze quickstart hebt u een .NET Core-toepassing gemaakt die berichten heeft ontvangen van een Event Hub. Zie [Gebeurtenissen verzenden vanuit Event Hub - .NET Core](event-hubs-dotnet-standard-getstarted-send.md) voor meer informatie over het verzenden van gebeurtenissen naar een Event Hub met behulp van .NET Core.
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

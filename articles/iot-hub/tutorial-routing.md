@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416882"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135335"
 ---
-# <a name="tutorial-configure-message-routing-with-iot-hub"></a>Zelfstudie: berichtroutering configureren met IoT Hub
+# <a name="tutorial-configure-message-routing-with-iot-hub"></a>Zelfstudie: Berichtroutering configureren met IoT Hub
 
 Met [berichtroutering](iot-hub-devguide-messages-d2c.md) kunt u telemetriegegevens verzenden van uw IoT-apparaten naar ingebouwde, met Event Hub compatibele eindpunten of aangepaste eindpunten zoals blobopslag, Service Bus-wachtrij, Service Bus-onderwerp en Event Hubs. U kunt tijdens het configureren van berichtroutering [routeringsquery’s](iot-hub-devguide-routing-query-syntax.md) maken om een route aan te passen die overeenkomt met een bepaalde regel. Zodra u deze hebt ingesteld, worden de inkomende gegevens automatisch door de IoT Hub doorgestuurd naar de eindpunten. 
 
@@ -56,6 +56,10 @@ In de volgende secties wordt beschreven hoe u deze vereiste stappen kunt uitvoer
 1. Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md). 
 
 2. Maak een IoT Hub in de S1-laag. Voeg een consumentengroep toe aan uw IoT Hub. De consumentengroep wordt gebruikt door de Azure Stream Analytics bij het ophalen van gegevens.
+
+   > [!NOTE]
+   > U moet een IoT Hub in een betaalde laag gebruiken om deze zelfstudie te voltooien. Met de gratis laag kunt u slechts één eindpunt instellen, terwijl voor deze zelfstudie meerdere eindpunten zijn vereist.
+   > 
 
 3. Maak een standaard V1-opslagaccount met Standard_LRS replicatie.
 
@@ -302,15 +306,15 @@ De gegevens worden in de Avro-indeling naar de blob-opslag geschreven.
 
 9. Vul nu de rest van de informatie voor de routeringsquery in. Deze query specificeert de criteria voor het verzenden van berichten naar de opslagcontainer die u zojuist hebt toegevoegd als eindpunt. Vul de velden in op het scherm. 
 
-   **Naam**: voer een naam in voor uw routeringsquery. In deze zelfstudie wordt gebruikgemaakt van **StorageRoute**.
+   **Naam**: Voer een naam in voor uw routeringsquery. In deze zelfstudie wordt gebruikgemaakt van **StorageRoute**.
 
-   **Eindpunt**: geeft het eindpunt weer dat u net hebt ingesteld. 
+   **Eindpunt**: Geeft het eindpunt weer dat u net hebt ingesteld. 
    
-   **Gegevensbron**: selecteer **Telemetrieberichten apparaat** uit de vervolgkeuzelijst.
+   **Gegevensbron**: Selecteer **Telemetrieberichten apparaat** uit de vervolgkeuzelijst.
 
-   **Route inschakelen**: zorg dat deze optie is ingeschakeld.
+   **Route inschakelen**: Zorg ervoor dat deze optie is ingeschakeld.
    
-   **Routeringsquery**: voer `level="storage"` in als querytekenreeks. 
+   **Routeringsquery**: Voer `level="storage"` in als querytekenreeks. 
 
    ![Schermopname waarin wordt weergegeven hoe een routeringsquery wordt gemaakt voor het opslagaccount.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
@@ -330,23 +334,23 @@ Stel nu de routering in voor de Service Bus-wachtrij. Ga naar het deelvenster Be
 
 4. Vul de velden in:
 
-   **Eindpuntnaam**: voer een naam in voor het eindpunt. In deze zelfstudie wordt gebruikgemaakt van **CriticalQueue**.
+   **Naam van het eindpunt**: Voer een naam in voor het eindpunt. In deze zelfstudie wordt gebruikgemaakt van **CriticalQueue**.
    
-   **Service Bus-naamruimte**: klik op dit veld om de vervolgkeuzelijst weer te geven en selecteer de Service Bus-naamruimte die u hebt ingesteld in de voorbereidende stappen. In deze zelfstudie wordt gebruikgemaakt van **ContosoSBNamespace**.
+   **Service Bus-naamruimte**: Klik op dit veld om de vervolgkeuzelijst weer te geven en selecteer de Service Bus-naamruimte die u hebt ingesteld in de voorbereidende stappen. In deze zelfstudie wordt gebruikgemaakt van **ContosoSBNamespace**.
 
-   **Service Bus-wachtrij**: klik op dit veld om de vervolgkeuzelijst weer te geven en selecteer de Service Bus-wachtrij. In deze zelfstudie wordt gebruikgemaakt van **contososbqueue**.
+   **Service Bus-wachtrij**: Klik op dit veld om de vervolgkeuzelijst weer te geven en selecteer de Service Bus-wachtrij. In deze zelfstudie wordt gebruikgemaakt van **contososbqueue**.
 
 5. Klik op **Maken** om het Service Bus-wachtrij-eindpunt toe te voegen. U gaat terug naar het deelvenster **Route toevoegen**. 
 
 6.  Vul nu de rest van de informatie voor de routeringsquery in. Deze query specificeert de criteria voor het verzenden van berichten naar de Service Bus-wachtrij die u zojuist hebt toegevoegd als eindpunt. Vul de velden in op het scherm. 
 
-   **Naam**: voer een naam in voor uw routeringsquery. In deze zelfstudie wordt gebruikgemaakt van **SBQueueRule**. 
+   **Naam**: Voer een naam in voor uw routeringsquery. In deze zelfstudie wordt gebruikgemaakt van **SBQueueRule**. 
 
-   **Eindpunt**: geeft het eindpunt weer dat u net hebt ingesteld.
+   **Eindpunt**: Geeft het eindpunt weer dat u net hebt ingesteld.
 
-   **Gegevensbron**: selecteer **Telemetrieberichten apparaat** uit de vervolgkeuzelijst.
+   **Gegevensbron**: Selecteer **Telemetrieberichten apparaat** uit de vervolgkeuzelijst.
 
-   **Routeringsquery**: voer `level="critical"` in als querytekenreeks. 
+   **Routeringsquery**: Voer `level="critical"` in als querytekenreeks. 
 
    ![Schermopname waarin wordt weergegeven hoe een routeringsquery wordt gemaakt voor de Service Bus-wachtrij.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
@@ -366,15 +370,15 @@ De Service Bus-wachtrij moet worden gebruikt voor het ontvangen van berichten di
 
 1. Klik in de [Azure Portal](https://portal.azure.com) op **+ Een resource maken**. Typ **logische app** in het zoekvak en klik op Enter. Selecteer Logische app in de weergegeven zoekresultaten, klik dan op **Maken** om door te gaan naar het deelvenster **Logische app maken**. Vul de velden in. 
 
-   **Naam**: dit veld is de naam van de logische app. In deze zelfstudie wordt gebruikgemaakt van **ContosoLogicApp**. 
+   **Naam**: Dit veld is de naam van de logische app. In deze zelfstudie wordt gebruikgemaakt van **ContosoLogicApp**. 
 
-   **Abonnement**: selecteer uw Azure-abonnement.
+   **Abonnement**: Selecteer uw Azure-abonnement.
 
-   **Resourcegroep**: klik op **Bestaande gebruiken** en selecteer uw resourcegroep. In deze zelfstudie wordt gebruikgemaakt van **ContosoResources**. 
+   **Resourcegroep**: Klik op **Bestaande gebruiken** en selecteer uw resourcegroep. In deze zelfstudie wordt gebruikgemaakt van **ContosoResources**. 
 
-   **Locatie**: gebruik uw locatie. In deze zelfstudie wordt gebruikgemaakt van **US - west**. 
+   **Locatie**: Gebruik uw locatie. In deze zelfstudie wordt gebruikgemaakt van **US - west**. 
 
-   **Log Analytics**: deze wisselknop moet worden uitgeschakeld. 
+   **Log Analytics**: Deze wisselknop moet worden uitgeschakeld. 
 
    ![Schermopname van het scherm Logische app maken.](./media/tutorial-routing/create-logic-app.png)
 
@@ -424,11 +428,11 @@ Als u de gegevens in een Power BI-visualisatie wilt zien, stelt u eerst een Stre
 
 2. Voer de volgende informatie in voor de taak.
 
-   **Taaknaam**: de naam van de taak. De naam moet wereldwijd uniek zijn. In deze zelfstudie wordt gebruikgemaakt van **contosoJob**.
+   **Taaknaam**: De naam van de taak. De naam moet wereldwijd uniek zijn. In deze zelfstudie wordt gebruikgemaakt van **contosoJob**.
 
-   **Resourcegroep**: gebruik dezelfde resourcegroep die wordt gebruikt door uw IoT Hub. In deze zelfstudie wordt gebruikgemaakt van **ContosoResources**. 
+   **Resourcegroep**: Gebruik dezelfde resourcegroep die wordt gebruikt door uw IoT Hub. In deze zelfstudie wordt gebruikgemaakt van **ContosoResources**. 
 
-   **Locatie**: gebruik dezelfde locatie die u in het instellingsscript hebt gebruikt. In deze zelfstudie wordt gebruikgemaakt van **US - west**. 
+   **Locatie**: Gebruik dezelfde locatie die u in het instellingsscript hebt gebruikt. In deze zelfstudie wordt gebruikgemaakt van **US - west**. 
 
    ![Schermopname waarin wordt weergegeven hoe u de Stream analytics-taak kunt maken.](./media/tutorial-routing/stream-analytics-create-job.png)
 
@@ -440,17 +444,17 @@ Als u de gegevens in een Power BI-visualisatie wilt zien, stelt u eerst een Stre
 
 5. Klik in het deelvenster **Invoer** op **Stroominvoer toevoegen** en selecteer IoT Hub. Vul de volgende velden in op het scherm dat wordt weergegeven:
 
-   **Invoeralias**: in deze zelfstudie wordt gebruikgemaakt **contosoinputs**.
+   **Invoeralias**: In deze zelfstudie wordt gebruikgemaakt van **contosoinputs**.
 
-   **Abonnement**: selecteer uw abonnement.
+   **Abonnement**: Selecteer uw abonnement.
 
-   **IoT Hub**: selecteer de IoT Hub. In deze zelfstudie wordt gebruikgemaakt van **ContosoTestHub**.
+   **IoT Hub**: Selecteer de IoT Hub. In deze zelfstudie wordt gebruikgemaakt van **ContosoTestHub**.
 
-   **Eindpunt**: selecteer **Berichten**. (Als u Operations Monitoring selecteert, krijgt u de telemetriegegevens over de IoT Hub in plaats van de gegevens die u doorstuurt.) 
+   **Eindpunt**: Selecteer **Berichten**. (Als u Operations Monitoring selecteert, krijgt u de telemetriegegevens over de IoT Hub in plaats van de gegevens die u doorstuurt.) 
 
-   **Naam van beleid voor gedeelde toegang**: selecteer **iothubowner**. In de portal wordt de sleutel van het beleid voor gedeelde toegang voor u ingevuld.
+   **Naam van het gedeelde toegangsbeleid**: Selecteer **iothubowner**. In de portal wordt de sleutel van het beleid voor gedeelde toegang voor u ingevuld.
 
-   **Consumentengroep**: selecteer de consumentengroep die u eerder hebt gemaakt. In deze zelfstudie wordt gebruikgemaakt van **contosoconsumers**.
+   **Consumentengroep**: Selecteer de consumentengroep die u eerder hebt gemaakt. In deze zelfstudie wordt gebruikgemaakt van **contosoconsumers**.
    
    Accepteer de standaardwaarden voor de rest van de velden. 
 
@@ -464,11 +468,11 @@ Als u de gegevens in een Power BI-visualisatie wilt zien, stelt u eerst een Stre
 
 2. Klik in het deelvenster **Uitvoer** op **Toevoegen** en selecteer **Power BI**. Vul de volgende velden in op het scherm dat wordt weergegeven:
 
-   **Uitvoeralias**: de alias die uniek is voor de uitvoer. In deze zelfstudie wordt gebruikgemaakt van **contosooutputs**. 
+   **Uitvoeralias**: De alias die uniek is voor de uitvoer. In deze zelfstudie wordt gebruikgemaakt van **contosooutputs**. 
 
-   **Naam van de gegevensset**: de naam van de gegevensset die moet worden gebruikt in Power BI. In deze zelfstudie wordt gebruikgemaakt van **contosodataset**. 
+   **Naam van gegevensset**: De naam van de gegevensset die moet worden gebruikt in Power BI. In deze zelfstudie wordt gebruikgemaakt van **contosodataset**. 
 
-   **Tabelnaam**: de naam van de tabel die moet worden gebruikt in Power BI. In deze zelfstudie wordt gebruikgemaakt van **contosotable**.
+   **Tabelnaam**: De naam van de tabel die moet worden gebruikt in Power BI. In deze zelfstudie wordt gebruikgemaakt van **contosotable**.
 
    Accepteer de standaardwaarden voor de rest van de velden.
 

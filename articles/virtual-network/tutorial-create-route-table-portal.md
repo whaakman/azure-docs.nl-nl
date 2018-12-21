@@ -14,19 +14,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 81478ace72a538f4970e114cd704fd64ceb94aa6
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: fbbc624bbc3d20a70a54c50296f5b74634002a67
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344887"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409068"
 ---
-# <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Zelfstudie: Netwerkverkeer routeren met een routetabel met behulp van Azure Portal
+# <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Zelfstudie: Netwerkverkeer routeren met een routetabel met behulp van de Azure-portal
 
-Azure routeert standaard automatisch verkeer tussen alle subnetten in een virtueel netwerk. U kunt uw eigen routes maken om de standaardroutering van Azure te overschrijven. De mogelijkheid voor het maken van aangepaste routes is handig als u bijvoorbeeld verkeer tussen subnetten wilt routeren via een NVA (virtueel netwerkapparaat). In deze zelfstudie leert u het volgende:
+In Azure wordt verkeer standaard geretourneerd tussen alle subnetten in een virtueel netwerk. U kunt uw eigen routes maken om de standaardroutering van Azure te overschrijven. De mogelijkheid voor het maken van aangepaste routes is handig als u bijvoorbeeld verkeer tussen subnetten wilt routeren via een NVA (virtueel netwerkapparaat). In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een routetabel maken
@@ -37,231 +37,360 @@ Azure routeert standaard automatisch verkeer tussen alle subnetten in een virtue
 > * Virtuele machines (VM's) implementeren in verschillende subnetten
 > * Verkeer van het ene subnet naar het andere leiden via een NVA
 
-U kunt deze zelfstudie desgewenst volgen met behulp van de [Azure CLI](tutorial-create-route-table-cli.md) of [Azure PowerShell](tutorial-create-route-table-powershell.md).
+U kunt deze zelfstudie desgewenst voltooien met behulp van [Azure CLI](tutorial-create-route-table-cli.md) of [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op http://portal.azure.com.
+Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Een routetabel maken
 
-1. Selecteer **+ Een resource maken** in de linkerbovenhoek van Azure Portal.
-2. Selecteer **Netwerken** en selecteer vervolgens **Routetabel**.
-3. Voer de volgende informatie in of selecteer deze, accepteer de standaardwaarden voor de resterende instelling en selecteer **Maken**:
+1. Selecteer linksboven in het scherm **Een resource maken** > **Netwerken** > **Routetabel**.
 
-    |Instelling|Waarde|
-    |---|---|
-    |Naam|myRouteTablePublic|
-    |Abonnement| Selecteer uw abonnement.|
-    |Resourcegroep | Selecteer **Nieuwe maken** en voer *myResourceGroup* in.|
-    |Locatie|VS - oost|
- 
-    ![Routetabel maken](./media/tutorial-create-route-table-portal/create-route-table.png) 
+1. Typ of selecteer in **Routetabel maken** de volgende gegevens:
+
+    | Instelling | Waarde |
+    | ------- | ----- |
+    | Naam | Voer *myRouteTablePublic* in. |
+    | Abonnement | Selecteer uw abonnement. |
+    | Resourcegroep | Selecteer **Nieuwe maken**, voer *myResourceGroup* in en selecteer *OK*. |
+    | Locatie | Laat de standaardwaarde **US - oost** staan.
+    | Doorgifte van BGP-route | Laat de standaardwaarde **Ingeschakeld** staan. |
+
+1. Selecteer **Maken**.
 
 ## <a name="create-a-route"></a>Een route maken
 
-1. Begin in het vak *Resources, services en documenten zoeken* bovenaan de portal *myRouteTablePublic* te typen. Wanneer **myRouteTablePublic** wordt weergegeven in de zoekresultaten, selecteert u dit.
-2. Selecteer **Routes** onder **INSTELLINGEN** en selecteer **+Toevoegen**, zoals in de volgende afbeelding:
+1. Voer in de zoekbalk van de portal *myRouteTablePublic* in.
 
-    ![Route toevoegen](./media/tutorial-create-route-table-portal/add-route.png) 
- 
-3. Voer onder **Route toevoegen** de volgende informatie in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Maken**:
+1. Wanneer **myRouteTablePublic** wordt weergegeven in de zoekresultaten, selecteert u dit.
 
-    |Instelling|Waarde|
-    |---|---|
-    |Routenaam|ToPrivateSubnet|
-    |Adresvoorvoegsel| 10.0.1.0/24|
-    |Volgend hoptype | Selecteer **Virtueel apparaat**.|
-    |Adres van de volgende hop| 10.0.2.4|
+1. Selecteer in **myRouteTablePublic** onder **Instellingen** de optie **Routes** > **+ Toevoegen**.
+
+    ![Route toevoegen](./media/tutorial-create-route-table-portal/add-route.png)
+
+1. Typ of selecteer in **Route toevoegen** de volgende gegevens:
+
+    | Instelling | Waarde |
+    | ------- | ----- |
+    | Routenaam | Voer *ToPrivateSubnet* in. |
+    | Adresvoorvoegsel | Voer *10.0.1.0/24* in. |
+    | Volgend hoptype | Selecteer **Virtueel apparaat**. |
+    | Adres van de volgende hop | Voer *10.0.2.4* in. |
+
+1. Selecteer **OK**.
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Een routetabel aan een subnet koppelen
 
-Voordat u een routetabel aan een subnet kunt koppelen, moet u een virtueel netwerk en subnet maken. Daarna kunt u de routetabel aan een subnet koppelen:
+Voordat u een routetabel aan een subnet kunt koppelen, moet u een virtueel netwerk en subnet maken.
 
-1. Selecteer **+ Een resource maken** in de linkerbovenhoek van Azure Portal.
-2. Selecteer **Netwerken** en selecteer vervolgens **Virtueel netwerk**.
-3. Voer onder **Virtueel netwerk maken** de volgende informatie in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Maken**:
+### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-    |Instelling|Waarde|
-    |---|---|
-    |Naam|myVirtualNetwork|
-    |Adresruimte| 10.0.0.0/16|
-    |Abonnement | Selecteer uw abonnement.|
-    |Resourcegroep|Selecteer **Bestaande gebruiken** en selecteer **myResourceGroup**.|
-    |Locatie|Selecteer *VS Oost*|
-    |Subnetnaam|Public|
-    |Adresbereik|10.0.0.0/24|
-    
-4. Begin in het vak *Resources, services en documenten zoeken* bovenaan de portal **myVirtualNetwork** te typen. Wanneer **myVirtualNetwork** wordt weergegeven in de zoekresultaten, selecteert u dit.
-5. Selecteer **Subnetten** onder **INSTELLINGEN** en selecteer vervolgens **+ Subnet**, zoals in de volgende afbeelding:
+1. Selecteer linksboven in het scherm **Een resource maken** > **Netwerken** > **Virtueel netwerk**.
 
-    ![Subnet toevoegen](./media/tutorial-create-route-table-portal/add-subnet.png) 
+1. Typ of selecteer in **Virtueel netwerk maken** de volgende gegevens:
 
-6. Selecteer de volgende informatie of voer deze in, en selecteer **OK**:
+    | Instelling | Waarde |
+    | ------- | ----- |
+    | Naam | Voer *myVirtualNetwork* in. |
+    | Adresruimte | Voer *10.0.0.0/16* in. |
+    | Abonnement | Selecteer uw abonnement. |
+    | Resourcegroep | Selecteer ***Bestaande selecteren*** > **myResourceGroup**. |
+    | Locatie | Laat de standaardwaarde **US - oost** staan. |
+    | Subnet - Naam | Voer *Openbaar* in. |
+    | Subnet - adresbereik | Voer *10.0.0.0/24* in. |
 
-    |Instelling|Waarde|
-    |---|---|
-    |Naam|Privé|
-    |Adresruimte| 10.0.1.0/24|
+1. Laat de overige standaardwaarden staan en selecteer **Maken**.
 
-7. Voer stap 5 en 6 nogmaals uit, en geef de volgende gegevens op:
+### <a name="add-subnets-to-the-virtual-network"></a>Subnetten toevoegen aan het virtuele netwerk
 
-    |Instelling|Waarde|
-    |---|---|
-    |Naam|DMZ|
-    |Adresruimte| 10.0.2.0/24|
+1. Voer in de zoekbalk van de portal *myVirtualNetwork* in.
 
-8. Het vak **myVirtualNetwork - Subnetten** wordt weergegeven na het voltooien van de vorige stap. Onder **INSTELLINGEN** selecteert u **Subnetten** en vervolgens **Openbaar**.
-9. Zoals in de volgende afbeelding wordt weergegeven, selecteert u **Routetabel**, daarna **MyRouteTablePublic** en vervolgens **Opslaan**:
+1. Wanneer **myVirtualNetwork** wordt weergegeven in de zoekresultaten, selecteert u dit.
 
-    ![Routetabel koppelen](./media/tutorial-create-route-table-portal/associate-route-table.png) 
+1. Selecteer in **myVirtualNetwork** onder **Instellingen** de optie **Subnetten** > **+ Subnet**.
+
+    ![Subnet toevoegen](./media/tutorial-create-route-table-portal/add-subnet.png)
+
+1. Voer in **Subnet toevoegen** de volgende gegevens in:
+
+    | Instelling | Waarde |
+    | ------- | ----- |
+    | Naam | Voer *Privé* in. |
+    | Adresruimte | Voer *10.0.1.0/24* in. |
+
+1. Laat de overige standaardwaarden staan en selecteer **OK**.
+
+1. Selecteer **+ Subnet** opnieuw. Voer ditmaal de volgende gegevens in:
+
+    | Instelling | Waarde |
+    | ------- | ----- |
+    | Naam | Voer *DMZ* in. |
+    | Adresruimte | Voer *10.0.2.0/24* in. |
+
+1. Laat net zoals de vorige keer de standaardwaarden staan en selecteer **OK**.
+
+    In Azure worden drie subnetten weergegeven: **Openbaar**, **Privé** en **DMZ**.
+
+### <a name="associate-myroutetablepublic-to-your-public-subnet"></a>MyRouteTablePublic koppelen aan het openbare subnet
+
+1. Selecteer **Openbaar**.
+
+1. Selecteer in **Openbaar** de optie **Routetabel** > **MyRouteTablePublic** > **Opslaan**.
+
+    ![Routetabel koppelen](./media/tutorial-create-route-table-portal/associate-route-table.png)
 
 ## <a name="create-an-nva"></a>Een NVA maken
 
-Een NVA is een VM die een netwerkfunctie uitvoert, zoals routering, firewall of WAN-optimalisatie.
+NVA’s zijn VM’s die helpen met netwerkfuncties zoals routering en firewalloptimalisatie. Als u wilt, kunt u een ander besturingssysteem selecteren. In deze zelfstudie wordt ervan uitgegaan dat u **Windows Server 2016 Datacenter** gebruikt.
 
-1. Selecteer **+ Een resource maken** in de linkerbovenhoek van Azure Portal.
-2. Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. U kunt een ander besturingssysteem selecteren, maar in de overige stappen wordt ervan uitgegaan dat u **Windows Server 2016 Datacenter** hebt geselecteerd. 
-3. Selecteer de volgende informatie voor **Basis** of voer deze in, en selecteer **OK**:
+1. Selecteer in de linkerbovenhoek van het scherm **Een resource maken** > **Compute** > **Windows Server 2016 Datacenter**.
 
-    |Instelling|Waarde|
-    |---|---|
-    |Naam|myVmNva|
-    |Gebruikersnaam|Voer een gebruikersnaam naar keuze in.|
-    |Wachtwoord|Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resourcegroep| Selecteer **Bestaande gebruiken** en selecteer *myResourceGroup*.|
-    |Locatie|Selecteer **VS Oost**.|
-4. Selecteer een VM-grootte onder **Kies een grootte**.
-5. Selecteer de volgende informatie voor **Instellingen** of voer deze in, en selecteer **OK**:
+1. Typ of selecteer in **Een virtuele machine maken - Basisprincipes** de volgende gegevens:
 
-    |Instelling|Waarde|
-    |---|---|
-    |Virtueel netwerk|myVirtualNetwork - als dit niet is geselecteerd, selecteert u **Virtueel netwerk** en vervolgens **myVirtualNetwork** onder **Virtueel netwerk kiezen**.|
-    |Subnet|Selecteer **Subnet** en vervolgens**DMZ** onder **Subnet kiezen**. |
-    |Openbaar IP-adres| Selecteer **Openbaar IP-adres** en selecteer **Geen** onder **Openbaar IP-adres kiezen**. Er wordt geen openbaar IP-adres aan deze VM toegewezen omdat er geen verbinding mee wordt gemaakt vanaf internet.
-6. Selecteer onder **Maken** in het **Overzicht** **Maken** om de implementatie van de VM te starten.
+    | Instelling | Waarde |
+    | ------- | ----- |
+    | **PROJECTGEGEVENS** | |
+    | Abonnement | Selecteer uw abonnement. |
+    | Resourcegroep | Selecteer **myResourceGroup**. |
+    | **EXEMPLAARDETAILS** |  |
+    | Naam van de virtuele machine | Voer *myVmNva* in. |
+    | Regio | Selecteer **US - oost**. |
+    | Beschikbaarheidsopties | Laat de standaardwaarde **Geen infrastructuurredundantie vereist** staan. |
+    | Installatiekopie | Laat de standaardwaarde **Windows Server 2016 Datacenter** staan. |
+    | Grootte | Laat de standaardwaarde **Standard DS1 v2** staan. |
+    | **ADMINISTRATOR-ACCOUNT** |  |
+    | Gebruikersnaam | Voer een gebruikersnaam naar keuze in. |
+    | Wachtwoord | Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Wachtwoord bevestigen | Voer het wachtwoord opnieuw in. |
+    | **REGELS VOOR BINNENKOMENDE POORT** |  |
+    | Openbare poorten voor inkomend verkeer | Laat de standaardwaarde **Geen** staan.
+    | **GELD BESPAREN** |  |
+    | Hebt u al een Windows-licentie? | Laat de standaardwaarde **Nee** staan. |
 
-    Het maken van de virtuele machine duurt een paar minuten. Ga niet door met de volgende stap voordat Azure klaar is met het maken van de VM en een vak opent met informatie over de VM.
+1. Selecteer **Volgende : Schijven**.
 
-7. In het vak dat voor de VM is geopend nadat deze is gemaakt, onder **INSTELLINGEN**, kiest u **Netwerken** en vervolgens **myvmnva158** (de netwerkinterface die Azure voor uw VM heeft gemaakt, heeft een ander getal na **myvmnva**), zoals in de volgende afbeelding wordt getoond:
+1. Selecteer in **Een virtuele machine maken - Schijven** de instellingen die voldoen aan uw behoeften.
 
-    ![VM-netwerken](./media/tutorial-create-route-table-portal/virtual-machine-networking.png) 
+1. Selecteer **Volgende : Netwerken**.
 
-8. Een netwerkinterface kan alleen netwerkverkeer doorsturen dat niet voor zijn eigen IP-adres bestemd is, als doorsturen via IP voor de netwerkinterface is ingeschakeld. Selecteer **IP-configuraties** onder **INSTELLINGEN**, selecteer **Ingeschakeld** bij **Doorsturen via IP**, en selecteer vervolgens **Opslaan** , zoals weergegeven in de volgende afbeelding:
+1. Selecteer in **Een virtuele machine maken - Netwerken** de volgende gegevens:
 
-    ![Doorsturen via IP inschakelen](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png) 
+    | Instelling | Waarde |
+    | ------- | ----- |
+    | Virtueel netwerk | Laat de standaardwaarde **myVirtualNetwork** staan. |
+    | Subnet | Selecteer **DMZ (10.0.2.0/24)**. |
+    | Openbare IP | Selecteer **Geen**. U hebt geen openbaar IP-adres nodig. De VM kan geen verbinding maken via internet.|
 
-## <a name="create-virtual-machines"></a>Virtuele machines maken
+1. Laat de overige standaardwaarden staan en selecteer **Volgende : Beheer**.
 
-Maak twee VM's in het virtuele netwerk, zodat u in een latere stap kunt valideren dat verkeer van het *Openbare* subnet via de NVA wordt doorgestuurd naar het *Privé*-subnet. Voltooi stap 1-6 van [Een NVA maken](#create-a-network-virtual-appliance). Gebruik dezelfde instellingen in stap 3 en 5, maar met de volgende wijzigingen:
+1. Selecteer in **Een virtuele machine maken - Beheer** voor **Opslagaccount voor diagnose** de optie **Nieuw**.
 
-|Naam van de virtuele machine      |Subnet      | Openbaar IP-adres     |
-|--------- | -----------|---------              |
-| myVmPublic  | Public     | Accepteer de standaardportal |
-| myVmPrivate | Privé    | Accepteer de standaardportal |
+1. Typ of selecteer in **Opslagaccount maken** de volgende gegevens:
 
-U kunt de VM *myVmPrivate* maken terwijl Azure de VM *myVmPublic* maakt. Ga niet verder met de volgende stappen voordat Azure klaar is met het maken van beide VM's.
+    | Instelling | Waarde |
+    | ------- | ----- |
+    | Naam | Voer *mynvastorageaccount* in. |
+    | Soort account | Laat de standaardwaarde **Storage (algemeen gebruik v1)** staan. |
+    | Prestaties | Laat de standaardwaarde **Standard** staan. |
+    | Replicatie | Laat de standaardwaarde **Lokaal redundante opslag (LRS)** staan.
+
+1. Selecteer **OK**
+
+1. Selecteer **Controleren + maken**. De pagina **Beoordelen en maken** wordt weergegeven en de configuratie wordt gevalideerd in Azure.
+
+1. Wanneer u de tekst **De validatie is geslaagd** ziet, selecteert u **Maken**.
+
+    Het maken van de virtuele machine duurt een paar minuten. Ga pas verder als het maken van de VM in Azure is voltooid. Op de pagina **Uw implementatie wordt uitgevoerd** worden de details van de implementatie weergegeven.
+
+1. Als de VM klaar is, selecteert u **Ga naar resource**.
+
+## <a name="turn-on-ip-forwarding"></a>Doorsturen via IP inschakelen
+
+Doorsturen via IP inschakelen voor *myVmNva*. Wanneer u in Azure netwerkverkeer verzendt naar *myVmNva*, wordt dit verkeer, als het is bestemd voor een ander IP-adres, op basis van Doorsturen via IP naar de juiste locatie verzonden.
+
+1. Selecteer in **myVmNva** onder **Instellingen** de optie **Netwerken**.
+
+1. Selecteer **myvmnva123**. Dit is de netwerkinterface die in Azure is gemaakt voor uw VM. Deze heeft een tekenreeks met cijfers die de interface uniek maken voor u.
+
+    ![VM-netwerken](./media/tutorial-create-route-table-portal/virtual-machine-networking.png)
+
+1. Selecteer onder **Instellingen** de optie **IP-configuraties**.
+
+1. Selecteer in **myvmnva123 - IP-configuraties** voor **Doorsturen via IP** de optie **Ingeschakeld** en selecteer vervolgens **Opslaan**.
+
+    ![Doorsturen via IP inschakelen](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png)
+
+## <a name="create-public-and-private-virtual-machines"></a>Virtuele machines maken, openbaar en privé
+
+Maak een openbare VM en een privé-VM in het virtuele netwerk. Later gebruikt u deze om te zien dat het *Openbare* subnetverkeer in Azure via de NVA naar het *Privé*subnet wordt gerouteerd.
+
+Voltooi stap 1-12 van [Een VM maken](#create-an-nva). Gebruik dezelfde instellingen. Deze waarden zijn de waarden die moeten worden gewijzigd:
+
+| Instelling | Waarde |
+| ------- | ----- |
+| **OPENBARE VM** | |
+| BASISPRINCIPES |  |
+| Naam van de virtuele machine | Voer *myVmPublic* in. |
+| NETWERKEN | |
+| Subnet | Selecteer **Openbaar (10.0.0.0/24)**. |
+| Openbaar IP-adres | Accepteer de standaardwaarde. |
+| Openbare poorten voor inkomend verkeer | Selecteer **Geselecteerde poorten toestaan**. |
+| Binnenkomende poorten selecteren | Selecteer **HTTP** en **RDP**. |
+| BEHEER | |
+| Opslagaccount voor diagnose | Laat de standaardwaarde **mynvastorageaccount** staan. |
+| **PRIVÉ-VM** | |
+| BASISPRINCIPES |  |
+| Naam van de virtuele machine | Voer *myVmPrivate* in. |
+| NETWERKEN | |
+| Subnet | Selecteer **Privé (10.0.1.0/24)**. |
+| Openbaar IP-adres | Accepteer de standaardwaarde. |
+| Openbare poorten voor inkomend verkeer | Selecteer **Geselecteerde poorten toestaan**. |
+| Binnenkomende poorten selecteren | Selecteer **HTTP** en **RDP**. |
+| BEHEER | |
+| Opslagaccount voor diagnose | Laat de standaardwaarde **mynvastorageaccount** staan. |
+
+U kunt de VM *myVmPrivate* maken terwijl Azure de VM *myVmPublic* maakt. Ga pas verder met de rest van de stappen als het maken van beide VM’s is voltooid in Azure.
 
 ## <a name="route-traffic-through-an-nva"></a>Verkeer routeren via een NVA
 
-1. Begin in het vak *Zoeken* bovenaan de portal *myVmPrivate* te typen. Wanneer de VM **myVmPrivate** wordt weergegeven in zoekresultaten, selecteert u deze.
-2. Maak een externe bureaubladverbinding met *myVmPrivate* door **Verbinding maken** te kiezen, zoals in de volgende afbeelding:
+### <a name="sign-in-to-myvmprivate-over-remote-desktop"></a>Aanmelden bij myVmPrivate via het externe bureaublad
 
-    ![Verbinding maken met de virtuele machine ](./media/tutorial-create-route-table-portal/connect-to-virtual-machine.png)  
+1. Voer in de zoekbalk van de portal *myVmPrivate* in.
 
-3. Open het gedownloade RDP-bestand om verbinding te maken met de VM. Selecteer **Verbinding maken** wanneer hierom wordt gevraagd.
-4. Voer de gebruikersnaam en het wachtwoord in die u bij het maken van de VM hebt opgegeven (mogelijk moet u **Meer opties** en **Een ander account gebruiken** selecteren om de aanmeldingsgegevens op te geven die u hebt ingevoerd tijdens het maken van de virtuele machine) en selecteer **OK**.
-5. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Selecteer **Ja** om door te gaan met de verbinding.
-6. In een latere stap wordt het hulpprogramma Route traceren gebruikt voor het testen van de routering. Route traceren maakt gebruik van ICMP (Internet Control Message Protocol), wat door Windows Firewall wordt geweigerd. Schakel ICMP via de Windows-firewall in met de volgende opdracht vanuit PowerShell op de VM *myVmPrivate*:
+1. Wanneer de VM **myVmPrivate** wordt weergegeven in zoekresultaten, selecteert u deze.
+
+1. Selecteer **Verbinding maken** om een extern bureaubladverbinding te maken met de VM *myVmPrivate*.
+
+1. Selecteer in **Verbinding maken met virtuele machine** de optie **RDP-bestand downloaden**. In Azure wordt een *RDP*-bestand (Remote Desktop Protocol) gemaakt en het bestand wordt gedownload naar de computer.
+
+1. Open het gedownloade *RDP*-bestand.
+
+    1. Selecteer **Verbinding maken** wanneer hierom wordt gevraagd.
+
+    1. Voer de gebruikersnaam en het wachtwoord in die u hebt opgegeven bij het maken van de privé-VM.
+
+    1. Mogelijk moet u **Meer keuzen** > **Een ander account gebruiken** om de referenties van de privé-VM te gebruiken.
+
+1. Selecteer **OK**.
+
+    Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden.
+
+1. Selecteer **Ja** om verbinding te maken met de VM.
+
+### <a name="enable-icpm-through-the-windows-firewall"></a>ICPM via Windows Firewall inschakelen
+
+In een latere stap gebruikt u het hulpprogramma Route traceren om de routering te testen. Route traceren maakt gebruik van ICMP (Internet Control Message Protocol), wat in Windows Firewall standaard wordt geweigerd. Schakel ICMP via Windows Firewall in.
+
+1. Open PowerShell in het externe bureaublad van *myVmPrivate*.
+
+1. Voer de volgende opdracht in:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
 
-    Hoewel Route traceren wordt gebruikt voor het testen van de routering in deze zelfstudie, wordt niet aanbevolen ICMP via Windows Firewall toe te staan voor productie-implementaties.
-7. U hebt doorsturen via IP in Azure voor de netwerkinterface van de VM ingeschakeld in [Doorsturen via IP inschakelen](#enable-ip-forwarding). In de VM moet het besturingssysteem of een toepassing die wordt uitgevoerd op de virtuele machine, ook netwerkverkeer kunnen doorsturen. Schakel Doorsturen via IP in het besturingssysteem van de VM *myVmNva* in:
+    In deze zelfstudie gebruikt u Route tracering om de routering te testen. Voor productieomgevingen wordt aanbevolen om ICMP via Windows Firewall niet toe te staan.
 
-    Maak vanaf een opdrachtprompt op de VM *myVmPrivate* een externe bureaubladverbinding met de VM *myVmNva*:
+### <a name="turn-on-ip-forwarding-within-myvmnva"></a>Doorsturen via IP inschakelen binnen myVmNva
 
-    ``` 
+U hebt [Doorsturen via IP ingeschakeld](#turn-on-ip-forwarding) voor de netwerkinterface van de VM met behulp van Azure. Netwerkverkeer moet ook worden doorgestuurd via het besturingssysteem van de VM. Doorsturen via IP inschakelen voor het besturingssysteem van de VM *myVmNva* met behulp van deze opdrachten.
+
+1. Open vanaf een opdrachtprompt op de VM *myVmPrivate* een extern bureaublad naar de VM *myVmNva*:
+
+    ```cmd
     mstsc /v:myvmnva
     ```
-    
-    Om Doorsturen via IP binnen het besturingssysteem in te schakelen, voert u de volgende opdracht in PowerShell in vanaf de VM *myVmNva* :
+
+1. Voer vanuit PowerShell inde *myVmNva* deze opdracht in om Doorsturen via IP in te schakelen:
 
     ```powershell
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
-    
-    Start *myVmNva* opnieuw op. Hierdoor wordt ook de extern-bureaubladsessie verbroken.
-8. Maak terwijl u nog verbinding hebt met de VM *myVmPrivate* een extern-bureaubladsessie met de VM *myVmPublic* nadat de VM *myVmNva* opnieuw is opgestart:
 
-    ``` 
+1. Start de VM *myVmNva* opnieuw op. Selecteer in de taakbalk **Knop Start** > **Aan/uit-knop**, **Overige (gepland)** > **Doorgaan**.
+
+    Hierdoor wordt de externe bureaubladsessie ook verbroken.
+
+1. Maak nadat de VM *myVmNva* opnieuw is opgestart, een externe bureaubladsessie naar de VM *myVmPublic*. Houd de verbinding met de VM *myVmPrivate* in stand, open een opdrachtprompt en voer de volgende opdracht uit:
+
+    ```cmd
     mstsc /v:myVmPublic
     ```
-    
-    Schakel ICMP via de Windows-firewall in met de volgende opdracht vanuit PowerShell op de VM *myVmPublic*:
+1. Open PowerShell in het externe bureaublad van *myVmPublic*.
+
+1. Schakel ICMP via Windows Firewall in door de volgende opdracht in te voeren:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
 
-9. Om de routering van netwerkverkeer naar de VM *myVmPrivate* van de VM *myVmPublic* te testen, voert u op de VM *myVmPublic* de volgende opdracht van PowerShell uit:
+## <a name="test-the-routing-of-network-traffic"></a>De routering van netwerkverkeer testen
 
-    ```
+Eerst gaan we de routering van het netwerkverkeer testen vanaf de VM *myVmPublic* naar de VM *myVmPrivate*.
+
+1. Voer vanuit PowerShell in de VM *myVmPublic* de volgende opdracht uit:
+
+    ```powershell
     tracert myVmPrivate
     ```
 
-    Het antwoord is vergelijkbaar met het volgende voorbeeld:
-    
-    ```
+    Het antwoord is vergelijkbaar met dit voorbeeld:
+
+    ```powershell
     Tracing route to myVmPrivate.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net [10.0.1.4]
     over a maximum of 30 hops:
-        
+
     1    <1 ms     *        1 ms  10.0.2.4
     2     1 ms     1 ms     1 ms  10.0.1.4
-        
+
     Trace complete.
     ```
-      
-    U ziet dat de eerste hop 10.0.2.4 is, het privé IP-adres van het NVA. De tweede hop is 10.0.1.4, het privé- IP-adres van de VM *myVmPrivate*. Door de route die is toegevoegd aan de routetabel *myRouteTablePublic* en gekoppeld aan het *Openbare* subnet leidt Azure het verkeer via het NVA in plaats van rechtstreeks naar het *Privé*-subnet.
-10.  Sluit de externe bureaubladsessie met de VM *myVmPublic*. U houdt nog verbinding met de VM *myVmPrivate*.
-11. Om de routering van netwerkverkeer naar de VM *myVmPublic* van de VM *myVmPrivate* VM te testen, voert u op de VM *myVmPrivate* de volgende opdracht uit vanaf een opdrachtprompt:
 
-    ```
+    U ziet dat de eerste hop naar 10.0.2.4 is. Het is het privé-IP-adres van NVA. De tweede hop is naar het privé- IP-adres van de VM *myVmPrivate*: 10.0.1.4. Eerder hebt u de route toegevoegd aan de routetabel *myRouteTablePublic* en deze gekoppeld aan het *Openbare* subnet. Als gevolg hiervan is het verkeer in Azure verzonden via de NVA en niet rechtstreeks via het *Privé*subnet.
+
+1. Sluit de externe bureaubladsessie met de VM *myVmPublic*. U houdt nog verbinding met de VM *myVmPrivate*.
+
+1. Voer vanuit een opdrachtprompt op de VM *myVmPrivate* de volgende opdracht uit:
+
+    ```cmd
     tracert myVmPublic
     ```
 
-    Het antwoord is vergelijkbaar met het volgende voorbeeld:
+    Hierdoor wordt de routering van het netwerkverkeer getest vanaf de VM *myVmPrivate* naar de VM *myVmPublic*. Het antwoord is vergelijkbaar met dit voorbeeld:
 
-    ```
+    ```cmd
     Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net [10.0.0.4]
     over a maximum of 30 hops:
-    
+
     1     1 ms     1 ms     1 ms  10.0.0.4
-    
+
     Trace complete.
     ```
 
-    U ziet dat verkeer rechtstreeks vanuit *myVmPrivate* naar *myVmPublic* wordt geleid. Standaard routeert Azure verkeer rechtstreeks tussen subnetten.
-12. Sluit de externe bureaubladsessie naar de VM *myVmPrivate*.
+    U ziet dat verkeer in Azure rechtstreeks vanuit *myVmPrivate* naar *myVmPublic* wordt geleid. Standaard routeert Azure verkeer rechtstreeks tussen subnetten.
+
+1. Sluit de externe bureaubladsessie naar de VM *myVmPrivate*.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u deze niet langer nodig hebt, verwijdert u de resourcegroep en alle resources die deze bevat: 
+Wanneer u de resourcegroep niet meer nodig hebt, verwijdert u deze en alle bijbehorende resources:
 
-1. Voer *myResourceGroup* in het vak **Zoeken** bovenaan de portal in. Wanneer u **myResourceGroup** ziet in de zoekresultaten, selecteert u deze.
-2. Selecteer **Resourcegroep verwijderen**.
-3. Voer *myResourceGroup* in voor **TYP DE RESOURCEGROEPNAAM:** en selecteer **Verwijderen**.
+1. Voer in de zoekbalk van de portal *myResourceGroup* in.
+
+1. Wanneer u **myResourceGroup** ziet in de zoekresultaten, selecteert u deze.
+
+1. Selecteer **Resourcegroep verwijderen**.
+
+1. Voer *myResourceGroup* in voor **TYP DE RESOURCEGROEPNAAM:** en selecteer **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een routetabel gemaakt en die aan een subnet gekoppeld. U hebt een eenvoudig NVA gemaakt dat verkeer van een openbaar subnet naar een privé-subnet heeft geleid. U kunt allerlei vooraf geconfigureerde NVA's die netwerkfuncties uitvoeren zoals firewalls en WAN-optimalisatie, implementeren vanuit [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Zie [Routeringoverzicht](virtual-networks-udr-overview.md) en [Routetabel beheren](manage-route-table.md) voor meer informatie over routeren.
+In deze zelfstudie hebt u een routetabel gemaakt en die aan een subnet gekoppeld. U hebt een eenvoudig NVA gemaakt dat verkeer van een openbaar subnet naar een privé-subnet heeft geleid. Nu u dit allemaal weet, kunt u verschillende vooraf geconfigureerde NVA’s implementeren vanuit [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Met deze NVA’s kunnen veel handige netwerkfuncties worden uitgevoerd. Zie [Routeringoverzicht](virtual-networks-udr-overview.md) en [Routetabel beheren](manage-route-table.md) voor meer informatie over routeren.
 
-
-Hoewel u veel Azure-resources binnen een virtueel netwerk kunt implementeren, kunnen resources voor sommige Azure PaaS-diensten niet in een virtueel netwerk worden geïmplementeerd. U kunt de toegang tot de resources van sommige Azure PaaS-diensten echter nog steeds beperken tot alleen verkeer vanaf een subnet van een virtueel netwerk. Ga verder met de volgende zelfstudie als u wilt leren hoe u de netwerktoegang kunt beperken tot Azure PaaS-resources.
+Hoewel u veel Azure-resources binnen een virtueel netwerk kunt implementeren, kunnen voor sommige Azure PaaS-services met Azure geen resources in een virtueel netwerk worden geïmplementeerd. U kunt de toegang tot resources van sommige Azure PaaS-services beperken. De beperking mag echter alleen verkeer van een netwerksubnet zijn. Ga verder met de volgende zelfstudie als u wilt leren hoe u de netwerktoegang kunt beperken tot Azure PaaS-resources.
 
 > [!div class="nextstepaction"]
 > [Netwerktoegang tot PaaS-resources beperken](tutorial-restrict-network-access-to-resources.md)

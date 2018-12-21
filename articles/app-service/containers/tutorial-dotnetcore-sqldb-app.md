@@ -1,5 +1,5 @@
 ---
-title: Een .NET Core- en SQL Database-web-app maken in Azure App Service onder Linux | Microsoft Docs
+title: Een .NET Core-app maken met SQL Database onder Linux - Azure App Service | Microsoft Docs
 description: Informatie over het verkrijgen van een .NET Core-app die in Azure App Service onder Linux werkt, met verbinding met een SQL-database.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: ddea4621277303dd6c153205b683b4eea0151db0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: cb81699671bd2a0e86838d043ad0a4442eb79a6c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432259"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254238"
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Een .NET Core- en SQL Database-web-app maken in Azure App Service onder Linux
 
@@ -40,7 +40,7 @@ U leert het volgende:
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * Logboeken met diagnostische gegevens vanaf Azure streamen
-> * De app in Azure Portal beheren
+> * De app in de Azure-portal beheren
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -330,7 +330,7 @@ Zoek het element `<td>` dat de taghelpers voor `asp-action` bevat. Vlak boven di
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 
@@ -362,7 +362,7 @@ Alle bestaande taakitems worden nog steeds weergegeven. Als u de .NET Core-app o
 
 ## <a name="manage-your-azure-web-app"></a>Uw Azure-web-app beheren
 
-Ga naar [Azure Portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
+Ga naar de [Azure-portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
 
 Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
 
@@ -370,7 +370,7 @@ Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-w
 
 In de portal wordt standaard de pagina **Overzicht** van de web-app getoond. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuratiepagina's die u kunt openen.
 
-![App Service-pagina in Azure Portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
+![App Service-pagina in de Azure-portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
@@ -385,7 +385,7 @@ Wat u hebt geleerd:
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * Logboeken vanaf Azure naar uw terminal streamen
-> * De app in Azure Portal beheren
+> * De app in de Azure-portal beheren
 
 Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan uw web-app kunt toewijzen.
 

@@ -5,20 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9fa18b14b82376a25bb434acd770d340b1ef9262
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c0ce4e882f270f5e0c789a608aaada5c6c9cba92
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197047"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323654"
 ---
 Als u problemen hebt met de verbinding, controleer dan het volgende:
 
-- Als u een clientcertificaat hebt geëxporteerd, moet u ervoor zorgen dat u dit als een PFX-bestand exporteert met behulp van deze standaardwaarde: Indien mogelijk alle certificaten in het certificeringspad opnemen. Als u het certificaat met behulp van deze waarde exporteert, worden de gegevens van het basiscertificaat ook geëxporteerd. Wanneer het certificaat is geïnstalleerd op de clientcomputer, wordt het basiscertificaat dat is opgenomen in het PFX-bestand, vervolgens ook geïnstalleerd op de clientcomputer. De gegevens van het basiscertificaat moeten zijn geïnstalleerd op de clientcomputer. Ga naar **Gebruikerscertificaten beheren** en navigeer naar **Vertrouwde basiscertificeringsinstanties\Certificaten** om dit te controleren. Controleer of het basiscertificaat wordt weergegeven. Verificatie werkt alleen als het basiscertificaat aanwezig is.
+- Als u een clientcertificaat hebt geëxporteerd met de **Wizard Certificaat exporteren**, moet u ervoor zorgen dat u dit als een .pfx-bestand exporteert en dat u **Indien mogelijk alle certificaten in het certificeringspad opnemen** hebt geselecteerd. Als u het certificaat met behulp van deze waarde exporteert, worden de gegevens van het basiscertificaat ook geëxporteerd. Nadat u het certificaat op de clientcomputer hebt geïnstalleerd, wordt het basiscertificaat in het .pbx-bestand ook geïnstalleerd. Open **Gebruikerscertificaten beheren** en selecteer **Vertrouwde basiscertificeringsinstanties\Certificaten** om te controleren of het basiscertificaat is geïnstalleerd. Controleer of het basiscertificaat wordt vermeld, anders werkt de verificatie niet.
 
-- Als u een certificaat gebruikt dat is verleend met behulp van een oplossing voor een CA voor ondernemingen en problemen ondervindt bij de verificatie, controleert u de verificatievolgorde op het clientcertificaat. U kunt de volgorde van de verificatielijst controleren door op het clientcertificaat te dubbelklikken en naar **Details > Uitgebreid sleutelgebruik** te gaan. Controleer of Clientverificatie als het eerste item in de lijst wordt weergegeven. Als dat niet het geval is, moet u een clientcertificaat op basis van de gebruikerssjabloon verlenen waarin clientverificatie als het eerste item in de lijst wordt weergegeven.
+- Als u een certificaat hebt gebruikt dat is uitgegeven door een CA-oplossingen voor ondernemingen en u niet kunt verifiëren, controleert u de verificatievolgorde op het clientcertificaat. Controleer de verificatievolgorde door dubbel te klikken in het clientcertificaat, het tabblad **Details** te selecteren en vervolgens **Enhanced Key Usage**. Zorg ervoor dat *Clientverificatie* het eerste item in de lijst is. Als dat niet het geval is, moet u een clientcertificaat op basis van de gebruikerssjabloon verlenen waarin *Clientverificatie* het eerste item is in de lijst.
 
 - Zie [Troubleshoot P2S connections](../articles/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md) (Problemen met P2S-verbindingen oplossen) voor extra informatie over het oplossen van problemen met P2S,.

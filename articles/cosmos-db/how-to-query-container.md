@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5d64aa8b50cdde23d1bb8980510cfac202204f9a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11c68b61802f6c7b3755da71c176ea777f171e4c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262451"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409833"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>Query's uitvoeren op containers in Azure Cosmos DB
 
@@ -20,7 +20,7 @@ In dit artikel wordt uitgelegd hoe u query's kunt uitvoeren op containers (colle
 
 ## <a name="in-partition-query"></a>In-partitiequery
 
-Wanneer u een query op een container uitvoert om gegevens op te vragen, stuurt Cosmos DB de query automatisch naar de partities die overeenkomen met de partitiesleutelwaarden die zijn opgegeven in het filter (indien aanwezig). Deze query wordt bijvoorbeeld doorgestuurd naar de partitie met de partitiesleutel 'XMS-0001'.
+Wanneer u een query op een container uitvoert om gegevens op te vragen en voor de query een partitiesleutelfilter is opgegeven, stuurt Azure Cosmos DB de query automatisch naar de partities die overeenkomen met de partitiesleutelwaarden die zijn opgegeven in het filter. De volgende query wordt bijvoorbeeld doorgestuurd naar de partitie DeviceId die alle documenten bevat die overeenkomen met partitiesleutelwaarde 'XMS-0001'.
 
 ```csharp
 // Query using partition key into a class called, DeviceReading

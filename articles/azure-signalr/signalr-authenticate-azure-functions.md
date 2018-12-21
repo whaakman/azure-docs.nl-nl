@@ -1,25 +1,18 @@
 ---
-title: 'Zelfstudie: Verificatie van Azure SignalR Service met Azure Functions | Microsoft Docs'
+title: 'Zelfstudie: Verificatie van Azure SignalR Service met Azure Functions'
 description: In deze zelfstudie leert u hoe u clients van de service Azure SignalR kunt verifiëren
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
-ms.workload: tbd
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 8af657c39217f3edcadef6ec0981a31ec7e89aa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34cbb4d2c8a1e84499961802ca7bd07408375345
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978415"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409378"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Zelfstudie: Verificatie van Azure SignalR Service met Azure Functions
 
@@ -42,14 +35,12 @@ De volgende software is vereist voor het bouwen van deze zelfstudie.
 * [.NET SDK](https://www.microsoft.com/net/download) (versie 2.x, vereist is voor Functions-extensies)
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) (versie 2)
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code) met de volgende extensies
-    * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions): werk met Azure Functions in VS Code
-    * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): webpagina's voor lokaal testen
-
+  * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions): werk met Azure Functions in VS Code
+  * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): webpagina's voor lokaal testen
 
 ## <a name="sign-into-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Ga naar [Azure Portal](https://portal.azure.com/) en meld u aan met uw referenties.
-
 
 ## <a name="create-an-azure-signalr-service-instance"></a>Een exemplaar van de Azure SignalR Service maken
 
@@ -69,9 +60,8 @@ U gaat de Azure Functions-app lokaal bouwen en testen. De app heeft toegang tot 
     | Resourcegroep | Een nieuwe resourcegroep maken |
     | Locatie | Selecteer een locatie dicht bij u in de buurt |
     | Prijscategorie | Gratis |
-    
-1. Klik op **Create**.
 
+1. Klik op **Create**.
 
 ## <a name="initialize-the-function-app"></a>Initaliseer de functie-app
 
@@ -81,23 +71,23 @@ U gaat de Azure Functions-app lokaal bouwen en testen. De app heeft toegang tot 
 
 1. Gebruik de Azure Functions-extensie in VS Code en initialiseer een functie-app in de hoofdprojectmap.
     1. Open het opdrachtenpalet in VS Code door **Beeld > Opdrachtenpalet** te selecteren in het menu (sneltoets `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
-    1. Zoek de opdract **Azure Functions: nieuw project maken** en selecteer deze.
+    1. Zoek de opdracht **Azure Functions: Nieuw project maken** en selecteer deze.
     1. De hoofdprojectmap wordt nu weergegeven. Selecteer deze (of gebruik Bladeren om de map te zoeken).
     1. Wanneer u wordt gevraagd om een taal te kiezen, selecteert u **JavaScript**.
 
     ![Een functie-app maken](media/signalr-authenticate-azure-functions/signalr-create-vscode-app.png)
 
-
 ### <a name="install-function-app-extensions"></a>Extensies voor functie-apps installeren
 
 In deze zelfstudie worden Azure Functions-bindingen gebruikt voor de interactie met Azure SignalR Service. De bindingen van SignalR Service zijn, zoals de meeste andere bindingen, beschikbaar als extensie die moeten worden geïnstalleerd met behulp van de Azure Functions Core Tools CLI voordat ze kunnen worden gebruikt.
 
-1. Open een terminal in VS Code en selecteer **Beeld > Geïntegreerde terminal** in het menu (Ctrl + ').
+1. Open een terminal in VS Code en selecteer **Beeld > Geïntegreerde terminal** in het menu (Ctrl+\`).
 
 1. Zorg dat de hoofdprojectmap de huidige map is.
 
 1. Installeer de functie-app-extensie SignalR Service.
-    ```
+
+    ```bash
     func extensions install -p Microsoft.Azure.WebJobs.Extensions.SignalRService -v 1.0.0-preview1-10002
     ```
 
@@ -108,6 +98,7 @@ Bij het lokaal uitvoeren van en opsporen van fouten in de Azure Functions-runtim
 1. Selecteer in VS Code **local.settings.json** in het deelvenster Explorer om dit te openen.
 
 1. Vervang de inhoud van het bestand door het volgende.
+
     ```json
     {
         "IsEncrypted": false,
@@ -133,14 +124,13 @@ Bij het lokaal uitvoeren van en opsporen van fouten in de Azure Functions-runtim
 
     ![Lokale instellingen bijwerken](media/signalr-authenticate-azure-functions/signalr-update-local-settings.png)
 
-
 ## <a name="create-a-function-to-authenticate-users-to-signalr-service"></a>Een functie maken om gebruikerstoegang tot SignalR Service te verifiëren
 
 Wanneer de chat-app de eerste keer wordt geopend in de browser, zijn geldige verbindingsreferenties vereist voor het maken van verbinding met Azure SignalR Service. U maakt een HTTP-geactiveerde functie met de naam *SignalRInfo* in uw functie-app die deze verbindingsgegevens retourneert.
 
 1. Open het opdrachtenpalet van VS Code (`Ctrl-Shift-P`, Mac OS: `Cmd-Shift-P`).
 
-1. Zoek en selecteer de opdracht **Azure Functions: functie maken**.
+1. Zoek en selecteer de opdracht **Azure Functions: Functie maken**.
 
 1. Geef de volgende informatie op wanneer u daarom wordt gevraagd.
 
@@ -150,7 +140,7 @@ Wanneer de chat-app de eerste keer wordt geopend in de browser, zijn geldige ver
     | Template | HTTP-trigger |
     | Naam | SignalRInfo |
     | Autorisatieniveau | Anoniem |
-    
+
     Er wordt een map genaamd **SignalRInfo** die de nieuwe functie bevat.
 
 1. Open **SignalRInfo/function.json** om bindingen voor de functie te configureren. Wijzig de inhoud van het bestand in het volgende. Hiermee voegt u een invoerbinding toe die geldige referenties voor een client genereert, om verbinding te maken met een Azure SignalR Service-hub met de naam `chat`.
@@ -194,14 +184,13 @@ Wanneer de chat-app de eerste keer wordt geopend in de browser, zijn geldige ver
 
     Deze functie gebruikt de SignalR-verbindingsgegevens van de invoerbinding en retourneert die aan de client in de hoofdtekst van het HTTP-antwoord.
 
-
 ## <a name="create-a-function-to-send-chat-messages"></a>Een functie maken voor het verzenden van chatberichten
 
 De web-app vereist ook een HTTP-API voor het verzenden van chatberichten. Maakt u een HTTP-geactiveerde functie met de naam *SendMessage* die berichten verzendt naar alle verbonden clients via SignalR Service.
 
 1. Open het opdrachtenpalet van VS Code (`Ctrl-Shift-P`, Mac OS: `Cmd-Shift-P`).
 
-1. Zoek en selecteer de opdracht **Azure Functions: functie maken**.
+1. Zoek en selecteer de opdracht **Azure Functions: Functie maken**.
 
 1. Geef de volgende informatie op wanneer u daarom wordt gevraagd.
 
@@ -211,7 +200,7 @@ De web-app vereist ook een HTTP-API voor het verzenden van chatberichten. Maakt 
     | Template | HTTP-trigger |
     | Naam | SendMessage |
     | Autorisatieniveau | Anoniem |
-    
+
     Er wordt een map genaamd **SendMessage** die de nieuwe functie bevat.
 
 1. Open **SendMessage/function.json** om bindingen voor de functie te configureren. Wijzig de inhoud van het bestand in het volgende.
@@ -250,17 +239,18 @@ De web-app vereist ook een HTTP-API voor het verzenden van chatberichten. Maakt 
 1. Sla het bestand op.
 
 1. Open **SendMessage/index.js** om de hoofdtekst van de functie weer te geven. Wijzig de inhoud van het bestand in het volgende.
+
     ```javascript
     module.exports = function (context, req) {
         const message = req.body;
         message.sender = req.headers && req.headers['x-ms-client-principal-name'] || '';
-            
+
         let recipientUserId = '';
         if (message.recipient) {
             recipientUserId = message.recipient;
             message.isPrivate = true;
         }
-    
+
         context.bindings.signalRMessages = [{
             'userId': recipientUserId,
             'target': 'newMessage',
@@ -269,12 +259,12 @@ De web-app vereist ook een HTTP-API voor het verzenden van chatberichten. Maakt 
         context.done();
     };
     ```
+
     Deze functie gebruikt de hoofdtekst van de HTTP-aanvraag en verzendt die naar de clients die zijn verbonden met SignalR Service, om een functie genaamd `newMessage` aan te roepen op elke client.
 
     De functie kan de identiteit van de afzender lezen en een waarde *ontvanger* in de hoofdtekst van het bericht accepteren, om een bericht privé te verzenden naar een enkele gebruiker. Deze functionaliteit wordt verderop in de zelfstudie gebruikt.
 
 1. Sla het bestand op.
-
 
 ## <a name="create-and-run-the-chat-client-web-user-interface"></a>De webinterface voor de chatclient maken en uitvoeren
 
@@ -290,24 +280,21 @@ De gebruikersinterface van de chattoepassing is een eenvoudige paginatoepassing 
 
 1. Druk op **F5** om de functie-app lokaal uit te voeren en voeg een debugger toe.
 
-1. Met **index.html** open start u Live Server door het opdrachtenpalet van VS Code te openen (`Ctrl-Shift-P`, Mac OS: `Cmd-Shift-P`) en selecteert u **Live Server: openen met Live Server**. Live Server opent de toepassing in een browser.
+1. Met **index.html** open start u Live Server door het opdrachtenpalet van VS Code te openen (`Ctrl-Shift-P`, Mac OS: `Cmd-Shift-P`) en selecteert u **Live Server: Openen met Live Server**. Live Server opent de toepassing in een browser.
 
 1. De toepassing wordt geopend. Typ een bericht in het chatvak en druk op Enter. Vernieuw de toepassing om nieuwe berichten te zien. Omdat er geen verificatie is geconfigureerd worden alle berichten verzonden als ‘anoniem’.
-
 
 ## <a name="deploy-to-azure-and-enable-authentication"></a>Implementeren naar Azure en verificatie inschakelen
 
 Tot nu toe voert u de functie-app en chattoepassing lokaal uit. U gaat ze nu implementeren naar Azure en verificatie en privéberichten inschakelen in de toepassing.
 
-
 ### <a name="log-into-azure-with-vs-code"></a>Aanmelden bij Azure met VS Code
 
 1. Open het opdrachtenpalet van VS Code (`Ctrl-Shift-P`, Mac OS: `Cmd-Shift-P`).
 
-1. Zoek en selecteer de opdracht **Azure: aanmelden**.
+1. Zoek en selecteer de opdracht **Azure: Aanmelden**.
 
 1. Volg de instructies voor het voltooien van het aanmeldingsproces in uw browser.
-
 
 ### <a name="configure-function-app-for-authentication"></a>Functie-app voor verificatie configureren
 
@@ -331,10 +318,9 @@ Bij het verzenden van een bericht kan de app beslissen om het te verzenden naar 
 
 1. Sla het bestand op.
 
-
 ### <a name="deploy-function-app"></a>Functie-app implementeren
 
-1. Open het opdrachtenpalet van VS Code (`Ctrl-Shift-P`, Mac OS: `Cmd-Shift-P`) en selecteer **Azure Functions: naar functie-app implementeren**. 
+1. Open het opdrachtenpalet van VS Code (`Ctrl-Shift-P`, Mac OS: `Cmd-Shift-P`) en selecteer **Azure Functions: Naar functie-app implementeren**.
 
 1. Geef de volgende informatie op wanneer u daarom wordt gevraagd.
 
@@ -348,15 +334,14 @@ Bij het verzenden van een bericht kan de app beslissen om het te verzenden naar 
     | Storage-account | Selecteer **Nieuw opslagaccount maken** |
     | Naam van opslagaccount | Voer een unieke naam in (3 tot 24 tekens, alleen alfanumeriek) |
     | Locatie | Selecteer een locatie dicht bij u in de buurt |
-    
-    Er wordt een nieuwe functie-app gemaakt in Azure en de implementatie begint. Wacht totdat de installatie is voltooid.
 
+    Er wordt een nieuwe functie-app gemaakt in Azure en de implementatie begint. Wacht totdat de installatie is voltooid.
 
 ### <a name="upload-function-app-local-settings"></a>Lokale instellingen voor functie-app uploaden
 
 1. Open het opdrachtenpalet van VS Code (`Ctrl-Shift-P`, Mac OS: `Cmd-Shift-P`).
 
-1. Zoek en selecteer de opdracht **Azure Functions: lokale instellingen uploaden**.
+1. Zoek en selecteer de opdracht **Azure Functions: Lokale instellingen uploaden**.
 
 1. Geef de volgende informatie op wanneer u daarom wordt gevraagd.
 
@@ -369,14 +354,13 @@ Bij het verzenden van een bericht kan de app beslissen om het te verzenden naar 
 
 De lokale instellingen worden geüpload naar de functie-app in Azure. Als u wordt gevraagd de bestaande instellingen te overschrijven, selecteert u **Ja op alles**.
 
-
 ### <a name="enable-function-app-cross-origin-resource-sharing-cors"></a>CORS (Cross-Origin Resource Sharing) inschakelen voor de functie-app
 
 Hoewel er een CORS-instelling staat in **local.settings.json**, wordt deze niet doorgegeven aan de functie-app in Azure. U moet deze afzonderlijk instellen.
 
 1. Open het opdrachtenpalet van VS Code (`Ctrl-Shift-P`, Mac OS: `Cmd-Shift-P`).
 
-1. Zoek en selecteer de opdracht **Azure Functions: openen in portal**.
+1. Zoek en selecteer de opdracht **Azure Functions: Openen in portal**.
 
 1. Selecteer het abonnement en de naam van de functie-app om de functie-app te openen in Azure Portal.
 
@@ -395,7 +379,6 @@ Hoewel er een CORS-instelling staat in **local.settings.json**, wordt deze niet 
 > [!NOTE]
 > In plaats van CORS toe te staan voor alle oorsprongen (`*`) is het in een daadwerkelijke toepassing een veiligere aanpak om specifieke CORS-vermeldingen in te voeren voor alle domeinen die dat vereisen.
 
-
 ### <a name="update-the-web-app"></a>De web-app bijwerken
 
 1. Navigeer naar het paginaoverzicht van de functie-app in Azure Portal.
@@ -404,13 +387,11 @@ Hoewel er een CORS-instelling staat in **local.settings.json**, wordt deze niet 
 
     ![URL ophalen](media/signalr-authenticate-azure-functions/signalr-get-url.png)
 
-
 1. Open **index.html** in VS Code en vervang de waarde van `apiBaseUrl` met de URL van de functie-app.
 
 1. De toepassing kan worden geconfigureerd met verificatie via Azure Active Directory, Facebook, Twitter, Microsoft-account of Google. Selecteer de verificatieprovider die u wilt gebruiken door de waarde van `authProvider` in te stellen.
 
 1. Sla het bestand op.
-
 
 ### <a name="deploy-the-web-application-to-blob-storage"></a>De webtoepassing implementeren naar blob-opslag
 
@@ -454,7 +435,6 @@ De web-App wordt gehost met behulp van de functie voor statische websites van Az
 
 1. Ga terug naar de pagina **Statische website**. Noteer het **Primaire eindpunt**. Dit is de URL voor de webtoepassing.
 
-
 ### <a name="enable-app-service-authentication"></a>App Service-verificatie inschakelen
 
 App Service-verificatie biedt ondersteuning voor verificatie met Azure Active Directory, Facebook, Twitter, Microsoft-account en Google.
@@ -469,12 +449,11 @@ App Service-verificatie biedt ondersteuning voor verificatie met Azure Active Di
 
 1. Volg de documentatie van de aanmeldingsprovider van uw keuze om de configuratie te voltooien.
 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)
-    - [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication)
-    - [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication)
-    - [Microsoft-account](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)
-    - [Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication)
-
+    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+    - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
+    - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
+    - [Microsoft-account](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
+    - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
 
 ### <a name="try-the-application"></a>De toepassing uitproberen
 
@@ -490,11 +469,9 @@ Gefeliciteerd! U hebt een realtime serverloze chat-app geïmplementeerd!
 
 ![Demo](media/signalr-authenticate-azure-functions/signalr-serverless-chat.gif)
 
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u de in deze zelfstudie gemaakte resources wilt opschonen, verwijdert u de resourcegroep met Azure Portal.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

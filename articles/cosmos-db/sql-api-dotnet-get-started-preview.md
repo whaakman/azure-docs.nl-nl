@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 4ac770b58e4a4d9a547916997a8f9d181b2fa895
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 139d7a13b9f6ce6132bffb798aa41b207ebf7929
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852567"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317404"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Een .NET-console-app bouwen om gegevens te beheren in het Azure Cosmos DB SQL-API-account (SDK versie 3, preview)
 
@@ -53,12 +53,12 @@ Tijd om aan de slag te gaan.
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Stap 1: een Azure Cosmos DB-account maken
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Stap 1: Maak een Azure Cosmos DB-account
 Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt dat u wilt gebruiken, gaat u verder naar de stap [Uw Visual Studio-oplossing instellen](#SetupVS). Als u Azure Cosmos DB Emulator gebruikt, volgt u de stappen in [Azure Cosmos DB Emulator](local-emulator.md) om de emulator in te stellen en meteen naar [Uw Visual Studio-project instellen](#SetupVS) te gaan.
 
 [!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
 
-## <a id="SetupVS"></a>Stap 2: uw Visual Studio-project instellen
+## <a id="SetupVS"></a>Stap 2: Uw Visual Studio-project instellen
 1. Open **Visual Studio 2017** op uw computer.
 1. Selecteer in het menu **Bestand** de optie **Nieuw** en kies vervolgens **Project**.
 1. Selecteer in het dialoogvenster **Nieuw project** achtereenvolgens **Visual C#** / **Consoletoepassing (.NET Framework)** geef een naam op voor uw op en klik vervolgens op **OK**.
@@ -75,7 +75,7 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
 
 Goed gedaan. De configuratie is voltooid en u kunt nu aan de slag met het schrijven van code. Op [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started) vindt u een voltooid codeproject voor deze zelfstudie.
 
-## <a id="Connect"></a>Stap 3: verbinding maken met een Azure Cosmos DB-account
+## <a id="Connect"></a>Stap 3: Verbinding maken met een Azure Cosmos DB-account
 1. Vervang eerst de verwijzingen aan het begin van de C#-toepassing in het bestand **Program.cs** door de volgende verwijzingen:
     ```csharp
     using System;
@@ -110,7 +110,7 @@ Goed gedaan. De configuratie is voltooid en u kunt nu aan de slag met het schrij
         private string containerId = "FamilyContainer";
     }
     ```
-    Als u bekend bent met de vorige versie van de .NET-SDK, komen de termen 'verzameling' en 'document' u misschien vertrouwd voor. Azure Cosmos DB biedt ondersteuning voor meerdere API-modellen. Daarom wordt in versie 3.0+ van de .NET-SDK gebruikgemaakt van de generieke termen 'container' en 'item'. Een container kan een verzameling, een graaf of een tabel zijn. Een item kan een document, rand/hoekpunt of rij zijn en is de inhoud binnen een container. [Meer informatie over databases, containers en items.](databases-containers-items.md)
+    Als u bekend bent met de vorige versie van de .NET-SDK, komen de termen 'verzameling' en 'document' u misschien vertrouwd voor. Azure Cosmos DB biedt ondersteuning voor meerdere API-modellen. Daarom wordt in versie 3.0+ van .NET SDK gebruikgemaakt van de generieke termen 'container' en 'item'. Een container kan een verzameling, een graaf of een tabel zijn. Een item kan een document, rand/hoekpunt of rij zijn en is de inhoud binnen een container. [Meer informatie over databases, containers en items.](databases-containers-items.md)
 
 1. Haal uw eindpunt-URL en primaire sleutel op uit de [Azure-portal](https://portal.azure.com).
 
@@ -172,8 +172,8 @@ Goed gedaan. De configuratie is voltooid en u kunt nu aan de slag met het schrij
 
 Gefeliciteerd! U hebt nu verbinding gemaakt met een Azure Cosmos DB-account. 
 
-## <a name="step-4-create-a-database"></a>Stap 4: een database maken
-Een database kan worden gemaakt met de functie [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) of [**CreateDatabaseAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) van de klasse ``CosmosDatabases``. Een database is de logische container voor items die zijn gepartitioneerd in containers.
+## <a name="step-4-create-a-database"></a>Stap 4: Een database maken
+Een database kan worden gemaakt met de functie [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) of [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) van de klasse ``CosmosDatabases``. Een database is de logische container voor items die zijn gepartitioneerd in containers.
     
 1. Kopieer de methode **CreateDatabase** en plak deze onder de methode **GetStartedDemoAsync**. Met **CreateDatabase** wordt een nieuwe database gemaakt met id ``FamilyDatabase``, als deze nog niet bestaat, met de id die is opgegeven vanuit het veld ``databaseId``. 
 
@@ -284,13 +284,13 @@ Selecteer **F5** om de toepassing uit te voeren.
 
 Gefeliciteerd! U hebt een Azure Cosmos DB-database gemaakt.  
 
-## <a id="CreateColl"></a>Stap 5: een container maken
+## <a id="CreateColl"></a>Stap 5: Een container maken
 > [!WARNING]
 > Door de methode **CreateContainerIfNotExistsAsync** aan te roepen, wordt er een nieuwe container gemaakt. Hiervoor worden kosten in rekening gebracht. Zie onze [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) voor meer informatie.
 > 
 > 
 
-Een container kan worden gemaakt met behulp van de functie [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) of [**CreateContainerAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) in de klasse **CosmosContainers**. Een container bestaat uit items - in het geval van de SQL-API zijn dit JSON-documenten - en bijbehorende JavaScript-toepassingslogica, zoals opgeslagen procedures, door de gebruiker gedefinieerde functies, en triggers.
+Een container kan worden gemaakt met behulp van de functie [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) of [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) in de klasse **CosmosContainers**. Een container bestaat uit items - in het geval van de SQL-API zijn dit JSON-documenten - en bijbehorende JavaScript-toepassingslogica, zoals opgeslagen procedures, door de gebruiker gedefinieerde functies, en triggers.
 
 1. Kopieer de methode **CreateContainer** en plak deze onder de methode **CreateDatabase**. Met **CreateContainer** wordt een nieuwe container gemaakt met id ``FamilyContainer``, als deze nog niet bestaat, met de id die is opgegeven vanuit het veld ``containerId``. 
 
@@ -325,7 +325,7 @@ Select **F5** to run your application.
 Congratulations! You have successfully created an Azure Cosmos DB container.  
 
 ## <a id="CreateDoc"></a>Step 6: Add items to the container
-An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
 
 First, we need to create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. 
 1. Select **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project. 
@@ -507,7 +507,7 @@ Selecteer **F5** om de toepassing uit te voeren.
 Gefeliciteerd! U hebt twee Azure Cosmos DB-items gemaakt.  
 
 
-## <a id="Query"></a>Stap 7: query's uitvoeren op Azure Cosmos DB-resources
+## <a id="Query"></a>Stap 7: Query's uitvoeren op Azure Cosmos DB-resources
 Azure Cosmos DB biedt ondersteuning voor uitgebreide [query's](sql-api-sql-query.md) op de JSON-documenten die zijn opgeslagen in elke verzameling. In de volgende voorbeeldcode ziet u hoe u een query uitvoert voor de items die u in de vorige stap hebt ingevoegd.
 
 1. Kopieer de methode **RunQuery** en plak deze onder de methode **AddItemsToContainer**.
@@ -559,7 +559,7 @@ Selecteer **F5** om de toepassing uit te voeren.
 
 Gefeliciteerd! U hebt een query uitgevoerd op een Azure Cosmos DB-container.
 
-## <a id="ReplaceItem"></a>Stap 8: een JSON-item vervangen
+## <a id="ReplaceItem"></a>Stap 8: Een JSON-item vervangen
 Nu gaat u een item in Azure Cosmos DB bijwerken.
 
 1. Kopieer de methode **ReplaceFamilyItem** en plak deze onder de methode **RunQuery**. Houd er rekening mee dat u de eigenschap ``IsRegistered`` van de familie en de ``Grade`` van een van de kinderen wijzigt.
@@ -642,7 +642,7 @@ Selecteer **F5** om de toepassing uit te voeren.
 
 Gefeliciteerd! U hebt een Azure Cosmos DB-item verwijderd.
 
-## <a id="DeleteDatabase"></a>Stap 10: de database verwijderen
+## <a id="DeleteDatabase"></a>Stap 10: De database verwijderen
 Nu gaat u de database verwijderen. Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (containers, items en eventuele opgeslagen procedures, door de gebruiker gedefinieerde functies en triggers) verwijderd. U gaat ook het **CosmosClient**-instantie verwijderen.
 
 1. Kopieer de methode **DeleteDatabaseAndCleanup** en plak deze onder de methode **DeleteFamilyItem**.
@@ -684,7 +684,7 @@ Selecteer **F5** om de toepassing uit te voeren.
 
 Gefeliciteerd! U hebt een Azure Cosmos DB-database verwijderd.
 
-## <a id="Run"></a>Stap 11: uw C#-consoletoepassing volledig uitvoeren
+## <a id="Run"></a>Stap 11: Uw C#-consoletoepassing volledig uitvoeren
 Druk in Visual Studio op F5 en compileer en voer de toepassing uit in de foutopsporingsmodus.
 
 Als het goed is, wordt de uitvoer van de volledige app in een consolevenster weergegeven. De uitvoer bevat de resultaten van de query's die zijn toegevoegd en moet overeenkomen met de onderstaande voorbeeldtekst.
@@ -731,7 +731,7 @@ Dat is alles, bouw nu de oplossing. Succes!
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Wilt u een complexere ASP.NET MVC-zelfstudie? Zie [Zelfstudie ASP.NET MVC: webtoepassingen ontwikkelen met Azure Cosmos DB](sql-api-dotnet-application-preview.md).
+* Wilt u een complexere ASP.NET MVC-zelfstudie? Zie [ASP.NET MVC-zelfstudie: Webtoepassingsontwikkeling met Azure Cosmos DB](sql-api-dotnet-application-preview.md).
 * Wilt u de schaal en prestaties testen met Azure Cosmos DB? Zie [Performance and Scale Testing with Azure Cosmos DB (Prestaties en schaal testen met Azure Cosmos DB)](performance-testing.md)
 * Meer informatie over het [controleren van aanvragen, gebruik en opslag voor Azure Cosmos DB](monitor-accounts.md).
 * Voer query's uit op onze voorbeeldgegevensset in de [Queryspeelplaats](https://www.documentdb.com/sql/demo).

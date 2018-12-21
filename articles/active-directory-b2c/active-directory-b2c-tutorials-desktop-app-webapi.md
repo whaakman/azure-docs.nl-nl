@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 1ce74afd8ee2266439a591730686b4f5277e1b03
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603190"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322002"
 ---
-# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Zelfstudie: toegang verlenen aan een web-API van Node.js vanuit een desktop-app met behulp van Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Zelfstudie: Toegang verlenen aan een web-API van Node.js vanuit een desktop-app met behulp van Azure Active Directory B2C
 
 Deze zelfstudie laat zien hoe u een Node.js web-API-resource moet aanroepen die wordt beveiligd door een Azure Active Directory (Azure AD) B2C, vanuit een Windows Presentation Foundation (WPF) desktop-app.
 
@@ -125,7 +125,7 @@ Het Node.js web-API-voorbeeld maakt gebruik van de bibliotheek Passport.js zodat
 
 ### <a name="configure-the-web-api"></a>De web-API configureren
 
-1. Open het bestand `index.html` in het Node.js-web-API-voorbeeld.
+1. Open het bestand `index.js` in het Node.js-web-API-voorbeeld.
 2. Configureer het voorbeeld met de registratiegegevens voor Azure AD B2C-tenant. Wijzig de volgende regels code:
 
 ```nodejs

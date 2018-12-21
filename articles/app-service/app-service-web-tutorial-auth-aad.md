@@ -1,5 +1,5 @@
 ---
-title: Gebruikers eind-tot-eind verifiëren en autoriseren in Azure App Service | Microsoft Docs
+title: Gebruikers eind-tot-eind verifiëren en autoriseren - Azure App Service | Microsoft Docs
 description: Leer hoe u verificatie en autorisatie van App Service kunt gebruiken om uw App Service-apps te beveiligen, waaronder toegang tot externe API's.
 keywords: app service, azure app service, authN, authZ, beveiligen, beveiliging, meerdere lagen, azure active directory, azure ad
 services: app-service\web
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 7c1e07d73d110d5ef7f681486479ec65ff436b19
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416151"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408844"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Zelfstudie: Gebruikers eind-tot-eind verifiëren en autoriseren in Azure App Service
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Zelfstudie: Zelfstudie: Gebruikers eind-tot-eind verifiëren en autoriseren in Azure App Service
 
 [Azure App Service](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Daarnaast bevat App Service ingebouwde ondersteuning voor [verificatie en autorisatie van gebruikers](app-service-authentication-overview.md). In deze zelfstudie leest u hoe u apps kunt beveiligen met verificatie en autorisatie van App Service. Er wordt gebruikgemaakt van een ASP.NET Core-app met een Angular.js-front-end, maar dat is slechts voor het voorbeeld. Verificatie en autorisatie van App Service ondersteunt runtime voor alle talen en u leert hoe u deze kunt toepassen op uw taal van voorkeur door de zelfstudie te volgen.
 
@@ -104,7 +105,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>Pushen naar Azure vanaf Git
 
-Voer in het _lokale terminalvenster_ de volgende Git-opdrachten uit om de implementatie in de back-end-app uit te voeren. Vervang _&lt;deploymentLocalGitUrl-of-back-end-app>_ door de URL van de externe Git-instantie die u hebt opgeslagen in [Azure-resources maken](#create-azure-resources). Wanneer u door Git Credential Manager om referenties wordt gevraagd, geeft u [de referenties voor implementatie](app-service-deployment-credentials.md) op en niet de referenties die u gebruikt om u aan te melden bij Azure Portal.
+Voer in het _lokale terminalvenster_ de volgende Git-opdrachten uit om de implementatie in de back-end-app uit te voeren. Vervang _&lt;deploymentLocalGitUrl-of-back-end-app>_ door de URL van de externe Git-instantie die u hebt opgeslagen in [Azure-resources maken](#create-azure-resources). Wanneer u door Git Credential Manager om referenties wordt gevraagd, geeft u [de referenties voor implementatie](app-service-deployment-credentials.md) op en niet de referenties die u gebruikt om u aan te melden bij de Azure-portal.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -213,11 +214,11 @@ Ga naar `http://<back_end_app_name>.azurewebsites.net` om de items te zien die a
 
 In deze stap schakelt u verificatie en autorisatie voor de twee apps in. U configureert ook de front-end-app om een toegangstoken te genereren dat u kunt gebruiken om geverifieerde aanroepen uit te voeren naar de back-end-app.
 
-U gebruikt Azure Active Directory als id-provider. Zie [Verificatie van Azure Active Directory configureren voor de App Services-toepassing](app-service-mobile-how-to-configure-active-directory-authentication.md) voor meer informatie.
+U gebruikt Azure Active Directory als id-provider. Zie [Verificatie van Azure Active Directory configureren voor de App Services-toepassing](configure-authentication-provider-aad.md) voor meer informatie.
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Verificatie en autorisatie voor de back-end-app inschakelen
 
-Open in [Azure Portal](https://portal.azure.com) de beheerpagina voor de back-end-app door in het linkermenu op **Resource groups** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_ te klikken.
+Open in de [Azure-portal](https://portal.azure.com) de beheerpagina voor de back-end-app door in het linkermenu te klikken op: **Resourcegroepen** > **myAuthResourceGroup** > _\<terug\_end\_app\_naam>_.
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 

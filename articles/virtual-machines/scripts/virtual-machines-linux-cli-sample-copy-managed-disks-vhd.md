@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld van Azure CLI-script - Onderliggende VHD van beheerde schijven exporteren/kopiëren naar een opslagaccount | Microsoft Docs
-description: Voorbeeld van Azure CLI-script - Onderliggende VHD van beheerde schijven exporteren/kopiëren naar een opslagaccount
+title: 'Voorbeeld van Azure CLI: beheerde schijven naar een opslagaccount kopiëren'
+description: 'Voorbeeld van Azure CLI: beheerde schijven naar een opslagaccount exporteren of kopiëren.'
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.custom: mvc
-ms.openlocfilehash: c5f06a8c8fb707a2bf0451f8e9ed391ac0c5bad9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: mvc,seodec18
+ms.openlocfilehash: 4ee8b9dbb22e4530beb81bea9735867ecf21a1d4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045239"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183027"
 ---
-# <a name="exportcopy-the-underlying-vhd-of-a-managed-disk-to-a-storage-account-with-cli"></a>Onderliggende VHD van een beheerde schijf met CLI exporteren/kopiëren naar een opslagaccount
+# <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Een beheerde schijf naar een opslagaccount exporteren of kopiëren met behulp van Azure CLI
 
 Met dit script wordt de onderliggende VHD van een beheerde schijf geëxporteerd naar een opslagaccount in dezelfde of een andere regio. Eerst wordt de SAS-URI van de beheerde schijf gegenereerd, waarna deze wordt gebruikt om de VHD naar een opslagaccount te kopiëren. Gebruik dit script om uw beheerde schijven te kopiëren voor regionale uitbreiding. 
 

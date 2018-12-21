@@ -1,5 +1,5 @@
 ---
-title: Voorbeeld Azure Policy - alleen een bepaalde VM-platforminstallatiekopie toestaan
+title: 'Voorbeeld: alleen een bepaalde VM-platforminstallatiekopie toestaan'
 description: Dit voorbeeldbeleid vereist dat virtuele machines een specifieke versie van UbuntuServer uitvoeren.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 3038f9694fd6dce3350b3b060851f00324975ba3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e21834fb46fa43008220741384d7cb1f57f3dd2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991773"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315091"
 ---
 # <a name="only-allow-a-certain-vm-platform-image"></a>Alleen een bepaalde VM-platforminstallatiekopie toestaan
 
@@ -26,7 +25,7 @@ Vereist dat virtuele machines een specifieke versie van UbuntuServer uitvoeren.
 
 [!code-json[main](../../../../policy-templates/samples/compute/platform-image-policy/azurepolicy.json "Only allow a certain VM platform image")]
 
-U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 

@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: b24116e72091fc3814df9936c311ee3f96a6b6cc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1010ff2222599a4a0a63e49fefd89f93f4784c02
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872744"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316667"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Aan de slag met Azure Table Storage en de Azure Cosmos DB Table-API met behulp van Python
 
@@ -31,7 +31,7 @@ In dit voorbeeld ziet u hoe u de [Azure Cosmos DB Table SDK voor Python](https:/
 * Entiteiten invoegen en query's erop uitvoeren
 * Entiteiten wijzigen
 
-Tijdens het werken met de scenario's in dit voorbeeld kunt u het [referentiemateriaal bij de Azure Cosmos DB SDK voor Python-API](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python) raadplegen.
+Tijdens het werken met de scenario's in dit voorbeeld kunt u het [referentiemateriaal bij de Azure Cosmos DB SDK voor Python-API](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python) raadplegen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -221,9 +221,9 @@ table_service.delete_table('tasktable')
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Veelgestelde vragen - Ontwikkelen met de Table-API](https://docs.microsoft.com/azure/cosmos-db/faq#develop-with-the-table-api)
-* [Referentiemateriaal voor Azure Cosmos DB SDK voor Python-API](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python)
+* [Referentiemateriaal voor Azure Cosmos DB SDK voor Python-API](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
-* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): een gratis, platformoverschrijdende-toepassing voor visueel werken met Azure Storage-gegevens op Windows, Mac OS en Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): Een gratis, platformoverschrijdende-toepassing voor visueel werken met Azure Storage-gegevens op Windows, Mac OS en Linux.
 * [Werken met Python in Visual Studio (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 

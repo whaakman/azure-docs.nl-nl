@@ -1,5 +1,5 @@
 ---
-title: Een web-app van Azure Time Series Insights met één pagina maken
+title: Een web-app van Azure Time Series Insights met één pagina maken | Microsoft Docs
 description: Lees hoe u een webtoepassing met één pagina maakt waarmee gegevens in een TSI-omgeving worden opgevraagd en weergegeven.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,12 +7,13 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626752"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275836"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Zelfstudie: Een web-app van Azure Time Series Insights met één pagina maken
 
@@ -33,8 +34,8 @@ U moet ook Visual Studio installeren als u dat nog niet hebt gedaan. Voor deze z
 
 Zoals gezegd, vormt de TSI-voorbeeldtoepassing de basis voor het ontwerp en de code die worden gebruikt in deze zelfstudie. Voor de code wordt de JavaScript-bibliotheek voor de TSI-client gebruikt. De TSI-clientbibliotheek biedt een abstractie voor twee API-hoofdcategorieën:
 
-- **Wrapper-methoden voor het aanroepen van de query-API's van TSI** - REST-API's waarmee u met behulp van expressies op basis van JSON query's kunt uitvoeren op TSI-gegevens. De methoden zijn georganiseerd onder de `TsiClient.server`-naamruimte van de bibliotheek.
-- **Methoden voor het maken en vullen van verschillende typen grafiekbesturingselementen**: methoden die worden gebruikt om de TSI-gegevens te visualiseren op een webpagina. De methoden zijn georganiseerd onder de `TsiClient.ux`-naamruimte van de bibliotheek.
+- **Wrapper-methoden voor het aanroepen van de Query-API's voor TSI**: REST-API's waarmee u met behulp van JSON-expressies query's kunt uitvoeren op TSI-gegevens. De methoden zijn georganiseerd onder de `TsiClient.server`-naamruimte van de bibliotheek.
+- **Methoden voor het maken en vullen van verschillende typen grafiekbesturingselementen**: Methoden die worden gebruikt om de TSI-gegevens te visualiseren op een webpagina. De methoden zijn georganiseerd onder de `TsiClient.ux`-naamruimte van de bibliotheek.
 
 In deze zelfstudie worden ook de gegevens uit TSI-omgeving van de voorbeeldtoepassing gebruikt. Zie de zelfstudie [JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken](tutorial-explore-js-client-lib.md) voor meer informatie over de structuur van de TSI-voorbeeldtoepassing en het gebruik van de TSI-clientbibliotheek.
 

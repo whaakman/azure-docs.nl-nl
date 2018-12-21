@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: rodrigoa
-ms.openlocfilehash: 56ac08593d29a9003f5509f2be52f50fa250bd75
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431592"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088871"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Zelfstudie: Door gebruiker gedefinieerde JavaScript-functies in Azure Stream Analytics
  
@@ -58,7 +58,7 @@ Voer deze stappen uit als u een eenvoudige door de gebruiker gedefinieerde JavaS
 4.  Selecteer in de blade **Nieuwe functie** bij **Functietype** de optie **JavaScript**. In de editor wordt een standaardfunctiesjabloon weergegeven.
 5.  Voer bij **UDF-alias** **hex2Int** in en verander de functie-implementatie als volgt:
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -73,7 +73,7 @@ Voer deze stappen uit als u een eenvoudige door de gebruiker gedefinieerde JavaS
 1. Selecteer in de query-editor onder **TAAKTOPOLOGIE** de optie **Query**.
 2.  Bewerk de query en roep de door de gebruiker gedefinieerde functie als volgt aan:
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ Als u een follow-up verwerkingsstap hebt die de uitvoer van een Stream Analytics
 
 **Definitie van een door de gebruiker gedefinieerde JavaScript-functie:**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **Voorbeeldquery:**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 858d098f18604d1360af8509eb8a0cec6fa7d0c7
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354526"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381448"
 ---
 ## <a name="prepare-your-web-app"></a>Uw web-app voorbereiden
 
@@ -21,7 +21,7 @@ Als u een aangepast SSL-certificaat (een certificaat van een derde of een App Se
 
 ### <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Open de [Azure Portal](https://portal.azure.com).
+Open de [Azure-portal](https://portal.azure.com).
 
 ### <a name="navigate-to-your-web-app"></a>Navigeer naar uw web-app
 
@@ -41,7 +41,7 @@ Controleer of de web-app zich niet in de laag **F1** of **D1** bevindt. De huidi
 
 ![Controleer prijscategorie](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-Aangepaste SSL wordt niet ondersteund in de laag **F1** of **D1**. Als u omhoog moet schalen, volgt u de stappen in het volgende gedeelte. Anders sluit u de pagina **Scale up** (Omhoog schalen) en gaat u door naar [Upload and bind your SSL certificate](#upload) (Uw SSL-certificaat uploaden en binden).
+Aangepaste SSL wordt niet ondersteund in de laag **F1** of **D1**. Als u omhoog moet schalen, volgt u de stappen in het volgende gedeelte. Sluit anders de pagina **Omhoog schalen** en sla de sectie [Uw App Service-plan omhoog schalen](#scale-up-your-app-service-plan) over.
 
 ### <a name="scale-up-your-app-service-plan"></a>Uw App Service-plan omhoog schalen
 

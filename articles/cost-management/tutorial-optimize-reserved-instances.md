@@ -5,22 +5,22 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: db4a2356d3de91e4951acd69dc858730349019d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a5376aed3e9cdb12be58cb07d7eb00303a03a963
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274549"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074874"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
-# <a name="tutorial-optimize-reserved-instances"></a>Zelfstudie: gereserveerde instanties optimaliseren
+# <a name="tutorial-optimize-reserved-instances"></a>Zelfstudie: Gereserveerde instanties optimaliseren
 
 In deze zelfstudie leert u hoe u de kosten en het gebruik van gereserveerde instanties voor Azure en Amazon Web Services (AWS) kunt optimaliseren met Cloudyn. Een gereserveerde instantie bij een provider van cloudservices is een verplichting tot een langetermijncontract waarbij u zich vooraf verplicht tot toekomstig gebruik van de virtuele machine. Dit kan mogelijk aanzienlijke besparingen bieden in vergelijking met het prijsmodel voor virtuele machines waarbij u betaalt op basis van gebruik. Mogelijke besparingen worden alleen gerealiseerd wanneer u de capaciteit van uw gereserveerde instanties volledig gebruikt.
 
@@ -112,7 +112,7 @@ Als u bijvoorbeeld een reservering koopt voor een virtuele machine van het type 
 
 Als deze slechts 50% van de tijd wordt uitgevoerd, is het break-evenpoint met 10 maanden en bespaart u jaarlijks slechts $ 49,74. Mogelijk levert de aanschaf van de reservering voor dit instantietype u in dit voorbeeld geen voordeel op. Zie de volgende afbeelding:
 
-![Break-evenpoint in Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
+![Voorbeeld van het break-evenpoint voor Azure-VM's](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## <a name="view-ri-costs"></a>De kosten van gereserveerde instanties weergeven
 
@@ -127,11 +127,11 @@ In de rapporten met de werkelijke kostenanalyse en analyse gedurende een periode
 
 Navigeer naar **Costs** > **Cost Analysis** > in de Cloudyn-portal en selecteer vervolgens **Actual Cost Analysis** of **Actual Cost Over Time**. Stel daarna de filters in. U kunt bijvoorbeeld alleen filteren op Azure/VM-service en groeperen op resourcetype en prijsmodel. Zie de volgende afbeelding:
 
-![Werkelijke kosten van gereserveerde instantie](./media/tutorial-optimize-reserved-instances/azure05.png)
+![Voorbeeld van de werkelijke kosten van gereserveerde instanties](./media/tutorial-optimize-reserved-instances/azure05.png)
 
 U kunt filteren op een service, **Azure/VM** in dit voorbeeld, en groeperen op **prijsmodel** en **resourcetype** zoals weergegeven op de volgende afbeelding:
 
-![Groepen en filters van het rapport met werkelijke kosten](./media/tutorial-optimize-reserved-instances/azure06.png)
+![Voorbeeld van rapportgroepen en filters voor werkelijke kosten per prijsmodel en resourcetype](./media/tutorial-optimize-reserved-instances/azure06.png)
 
 U kunt ook het soort betalingen dat u hebt verricht, zoals eenmalige kosten, gebruikskosten en licentiekosten, analyseren.
 
@@ -145,7 +145,7 @@ In het rapport met werkelijke kosten hebt u een piek voor een aanschaf van een g
 
 Om deze te bekijken, gaat u naar **Costs** > **Cost Analysis** > en selecteert u vervolgens **Amortized Cost Analysis** of **Amortized Cost Over Time**.
 
-![Afgeschreven kosten gereserveerde instanties](./media/tutorial-optimize-reserved-instances/azure07.png)
+![Voorbeeldrapport van afgeschreven kosten per gereserveerde instantie](./media/tutorial-optimize-reserved-instances/azure07.png)
 
 ## <a name="optimize-aws-ri-costs"></a>De kosten van gereserveerde AWS-instanties optimaliseren
 
@@ -166,25 +166,25 @@ Klik op het rapportmenu bovenaan in de portal en klik op **Optimizer** > **Prici
 
 Op de volgende afbeelding worden aanschafaanbevelingen uit het rapport weergegeven.
 
-![Aanschafaanbevelingen](./media/tutorial-optimize-reserved-instances/aws01.png)
+![Voorbeeld van aanschafaanbevelingen in het rapport EC2 Buying Recommendations](./media/tutorial-optimize-reserved-instances/aws01.png)
 
 In dit voorbeeld heeft de Cloudyn\_A-account de aanbeveling voor het kopen van 32 gereserveerde instanties. Als u de alle aanbevelingen volgt, kunt u jaarlijks mogelijk $ 137.770 jaarlijks besparen. Houd er rekening mee dat er bij de aanschafaanbevelingen die door Cloudyn worden gedaan, ervan wordt uitgegaan dat het gebruik voor uw actieve workloads consistent blijft.
 
 Klik op het plusteken ( **+** ) onder **Justifications** om details te bekijken met uitleg waarom elke aanschaf wordt aanbevolen. Hier volgt een voorbeeld van de eerste aanbeveling in de lijst.
 
-![Rechtvaardigingen voor aanschaf](./media/tutorial-optimize-reserved-instances/aws02.png)
+![Voorbeeld van details van rechtvaardigingen voor aanschaf](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 In het voorgaande voorbeeld is te zien dat het uitvoeren van de workload on-demand $ 90.456 per jaar zou kosten. Als u de reservering echter vooraf aanschaft, kost dezelfde workload $ 56.592 en bespaart u jaarlijks $ 33.864.
 
 Klik op het plusteken naast **EC2 RI Purchase Impact** om uw break-evenpoint te bekijken gedurende een periode van een jaar om ongeveer te zien wanneer uw aankoopinvestering rendement oplevert. In het volgende voorbeeld beginnen na ongeveer acht maanden na de aanschaf de totale kosten voor on-demand de totale kosten voor gereserveerde instanties te overschrijden:
 
-![Effect van aanschaf](./media/tutorial-optimize-reserved-instances/aws03.png)
+![Voorbeeld van details van effect van aanschaf](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 Vanaf dat moment gaat u geld besparen.
 
 U kunt **Instances over Time** bekijken om de nauwkeurigheid van de voorgestelde aanschafaanbeveling te verifiëren. In dit voorbeeld kunt u zien dat er gedurende de afgelopen periode van 30 dagen gemiddeld zes instanties werden gebruikt voor de workload.
 
-![Instanties gedurende een periode](./media/tutorial-optimize-reserved-instances/aws04.png)
+![Voorbeeld van historisch gebruik van instanties in een periode](./media/tutorial-optimize-reserved-instances/aws04.png)
 
 ## <a name="modify-unused-reservations"></a>Niet-gebruikte gereserveerde instanties aanpassen
 
@@ -196,23 +196,23 @@ Klik in het rapportmenu bovenaan de portal op **Optimizer** > **Inefficiencies**
 
 Op de volgende afbeeldingen wordt het rapport met niet-gebruikte gereserveerde instanties weergegeven.
 
-![Niet-gebruikte reserveringen](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
+![Voorbeeld van samengevatte informatie over niet-gebruikte reserveringen](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
 
 Klik op het plusteken onder **Details** om reserveringsdetails weer te geven voor een specifieke reservering.
 
-![Details van niet-gebruikte reserveringen](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
+![Voorbeeld van details van niet-gebruikte reserveringen](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
 
 In het voorgaande voorbeeld zijn er in totaal 77 niet-gebruikte reserveringen in verschillende beschikbaarheidszones. De eerste reservering heeft 51 ongebruikte instanties. Als u lager in de lijst kijkt, zijn er mogelijke aanpassingen van gereserveerde instanties die u kunt doen met behulp van het instantietype **m3.2xlarge** in de beschikbaarheidszone **us-east-1c**.
 
 Klik op **Modify** voor de eerste reservering in de lijst om de pagina **Modify RI** te openen, waar gegevens over de reservering staan.
 
-![Gereserveerde instanties wijzigen](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
+![Voorbeeld van reserveringen die u kunt wijzigen](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
 
 Gereserveerde instanties die u kunt aanpassen, worden weergegeven. Op de afbeelding met het volgende voorbeeld zijn er 51 niet-gebruikte reserveringen die u kunt wijzigen, maar zijn er 54 nodig tussen de twee reserveringen. Als u uw niet-gebruikte reserveringen wijzigt voor gebruik van alle, blijven vier instanties on-demand worden uitgevoerd. Voor dit voorbeeld splitst u uw niet-gebruikte reservering, waarbij de eerste reservering er 30 gebruikt en de tweede reservering er 21 gebruikt.
 
 Klik op het plusteken voor het eerste reserveringsitem in de reservering en stel **Reservation quantity** in op **30**. Stel voor het tweede item de reserveringshoeveelheid in op **21** en klik vervolgens op **Apply**.
 
-![Reserveringshoeveelheid wijzigen](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
+![Voorbeeld van wijzigingen in de reserveringshoeveelheid](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
 
 Al uw niet-gebruikte instanties voor de reservering worden volledig gebruikt en 51 instanties worden niet meer on-demand uitgevoerd. In dit voorbeeld bespaart u uw organisatie geld door het gebruik van on-demand aanzienlijk te verminderen en gebruik te maken van reserveringen waarvoor al is betaald.
 

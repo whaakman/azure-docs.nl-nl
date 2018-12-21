@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: de Azure Database Migration Service gebruiken om een online migratie uit te voeren van MySQL naar Azure Database for MySQL | Microsoft Docs'
+title: 'Zelfstudie: Gebruik de Azure Database Migration Service om een online migratie uit te voeren van MySQL naar Azure Database for MySQL | Microsoft Docs'
 description: Leer hoe u een online migratie uitvoert van MySQL on-premises naar Azure Database for MySQL met behulp van de Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 3c3127c7fd94ae0f66cd083e8a83dd9119f71dcb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a820287c79dcd8d904c9029de3f58d930118e840
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867933"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959509"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Zelfstudie: MySQL online migreren naar Azure Database for MySQL met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken om de databases met minimale downtime te migreren van een on-premises MySQL-exemplaar naar [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/). Met andere woorden, de migratie is mogelijk met minimale downtime van de toepassing. In deze studieles migreert u de voorbeelddatabase **Werknemers** van een on-premises exemplaar van MySQL 5.7 naar Azure Database for MySQL met behulp van een online migratieactiviteit in de Azure Database Migration Service.
@@ -121,24 +121,24 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registreer de Microsoft.DataMigration-resourceprovider
 1. Meld u aan bij de Azure-portal, selecteer **Alle services** en selecteer vervolgens **Abonnementen**.
  
-   ![Portal-abonnementen weergeven](media\tutorial-mysql-to-azure-mysql-online\portal-select-subscriptions.png)
+   ![Portal-abonnementen weergeven](media/tutorial-mysql-to-azure-mysql-online/portal-select-subscriptions.png)
        
 2. Selecteer het abonnement waarin u het Azure Database Migration Service-exemplaar wilt maken en selecteer vervolgens **Resourceproviders**.
  
-    ![Resourceproviders weergeven](media\tutorial-mysql-to-azure-mysql-online\portal-select-resource-provider.png)
+    ![Resourceproviders weergeven](media/tutorial-mysql-to-azure-mysql-online/portal-select-resource-provider.png)
     
 3.  Zoek naar migratie en selecteer rechts van **Microsoft.DataMigration** de optie **Registreren**.
  
-    ![Resourceprovider registreren](media\tutorial-mysql-to-azure-mysql-online\portal-register-resource-provider.png)    
+    ![Resourceprovider registreren](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)    
 
 ## <a name="create-a-dms-instance"></a>Een DMS-exemplaar maken
 1.  Selecteer in de Azure-portal **Een resource maken**, zoek naar Azure Database Migration Service, en selecteer vervolgens **Azure Database Migration Service** uit de vervolgkeuzelijst.
 
-    ![Azure Marketplace](media\tutorial-mysql-to-azure-mysql-online\portal-marketplace.png)
+    ![Azure Marketplace](media/tutorial-mysql-to-azure-mysql-online/portal-marketplace.png)
 
 2.  Selecteer in het scherm **Azure Database Migration Service** **Maken**.
  
-    ![Azure Database Migration Service-exemplaar maken](media\tutorial-mysql-to-azure-mysql-online\dms-create1.png)
+    ![Azure Database Migration Service-exemplaar maken](media/tutorial-mysql-to-azure-mysql-online/dms-create1.png)
   
 3.  Geef in het scherm **Migratieservice maken** een naam op voor de service, het abonnement en een nieuwe of bestaande resourcegroep.
 
@@ -154,7 +154,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     Als u hulp nodig hebt bij het kiezen van de juiste Azure Database Migration Service-categorie, raadpleegt u de aanbevelingen in de blogpost [Choosing an Azure Database Migration Service (Azure DMS) tier](https://go.microsoft.com/fwlink/?linkid=861067) (Een Azure Database Migration Service-categorie (Azure DMS) kiezen). 
 
-     ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media\tutorial-mysql-to-azure-mysql-online\dms-settings3.png)
+     ![Instellingen configureren van een Azure Database Migration Service-exemplaar](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
 
 7.  Selecteer **Maken** om de dienst te maken.
 
@@ -163,17 +163,17 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 
 1. Selecteer in de Azure-portal **Alle diensten**, zoek naar Azure Database Migration Service, en selecteer vervolgens **Azure Database Migration Service**.
  
-      ![Zoek alle exemplaren van de Azure Database Migration Service](media\tutorial-mysql-to-azure-mysql-online\dms-search.png)
+      ![Zoek alle exemplaren van de Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-search.png)
 
 2. Zoek in het scherm **Azure Database Migration service** naar de naam van de Azure Database Migration Service-instantie die u hebt gemaakt en selecteer vervolgens het exemplaar.
  
-     ![Zoek uw exemplaar van de Azure Database Migration Service](media\tutorial-mysql-to-azure-mysql-online\dms-instance-search.png)
+     ![Zoek uw exemplaar van de Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-instance-search.png)
  
 3. Selecteer + **Nieuw migratieproject**.
 4. Geef in het scherm **Nieuw migratieproject** een naam op voor het project, selecteer in het tekstvak **bronservertype** de optie **MySQL** en selecteer in het tekstvak **doelservertype** de optie **AzureDbForMySQL**.
 5. Selecteer in de sectie **Het type activiteit kiezen** de optie **Onlinegegevensmigratie**
 
-    ![Azure Database Migration Service-project maken](media\tutorial-mysql-to-azure-mysql-online\dms-create-project4.png)
+    ![Azure Database Migration Service-project maken](media/tutorial-mysql-to-azure-mysql-online/dms-create-project4.png)
 
     > [!NOTE]
     > U kunt ook **Alleen project maken** kiezen om het migratieproject nu te maken en de migratie later uit te voeren.
@@ -183,22 +183,22 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 ## <a name="specify-source-details"></a>Geef brondetails op
 1. Geef in het scherm **Brondetails toevoegen** de verbindingsgegevens op voor het bronexemplaar van MySQL.
  
-    ![Scherm Brondetails toevoegen](media\tutorial-mysql-to-azure-mysql-online\dms-add-source-details.png)   
+    ![Scherm Brondetails toevoegen](media/tutorial-mysql-to-azure-mysql-online/dms-add-source-details.png)   
 
 ## <a name="specify-target-details"></a>Doeldetails opgeven
 1. Selecteer **Opslaan** en geef vervolgens in het scherm **Doeldetails** de verbindingsgegevens op voor de Azure Database for MySQL-doelserver. Dit is het vooraf ingerichte exemplaar van Azure Database for MySQL waarnaar het **Werknemers**-schema is geïmplementeerd met behulp van mysqldump.
 
-    ![Scherm Doeldetails](media\tutorial-mysql-to-azure-mysql-online\dms-add-target-details.png)
+    ![Scherm Doeldetails](media/tutorial-mysql-to-azure-mysql-online/dms-add-target-details.png)
 
 2. Selecteer **Opslaan**, en klik vervolgens in het scherm **Toewijzen aan doeldatabases**, wijs de bron- en de doeldatabase voor de migratie toe.
 
     Als de doeldatabase de naam van de dezelfde database als de bron-database bevat, wordt in de Azure Database Migration Service de doeldatabase standaard geselecteerd.
 
-    ![Toewijzen aan doeldatabases](media\tutorial-mysql-to-azure-mysql-online\dms-map-target-details.png)
+    ![Toewijzen aan doeldatabases](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
 
 3.  Selecteer **Opslaan**, geef in het scherm **Migratieoverzicht** in het tekstvak **Naam activiteit** een naam op voor de migratieactiviteit en controleer het overzicht om ervoor te zorgen dat de bron- en doeldetails overeenkomen met wat u eerder hebt opgegeven.
 
-    ![Migratieoverzicht](media\tutorial-mysql-to-azure-mysql-online\dms-migration-summary.png)
+    ![Migratieoverzicht](media/tutorial-mysql-to-azure-mysql-online/dms-migration-summary.png)
 
 ## <a name="run-the-migration"></a>De migratie uitvoeren
 - Selecteer **Migratie uitvoeren**.
@@ -208,22 +208,22 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 ## <a name="monitor-the-migration"></a>Bewaak de migratie
 1. Selecteer op het scherm van de migratieactiviteit de optie **Vernieuwen** om de weergave bij te werken totdat de **Status** van de migratie als **Voltooid** wordt weergegeven.
 
-     ![Activiteitenstatus: Voltooid](media\tutorial-mysql-to-azure-mysql-online\dms-activity-completed.png)
+     ![Activiteitenstatus: Voltooid](media/tutorial-mysql-to-azure-mysql-online/dms-activity-completed.png)
 
 2. Selecteer onder **Databasenaam** een specifieke database om de migratiestatus voor de bewerkingen **Alle gegevens worden geladen** en **Incrementele gegevenssynchronisatie** te bekijken.
 
     ‘Alle gegevens worden geladen’ toont de migratiestatus van de eerste lading terwijl ‘Incrementele gegevenssynchronisatie’ de CDC-status (Change Data Capture) toont.
    
-     ![Activiteitenstatus: Volledig geladen](media\tutorial-mysql-to-azure-mysql-online\dms-activity-full-load-completed.png)
+     ![Activiteitenstatus: Volledig geladen](media/tutorial-mysql-to-azure-mysql-online/dms-activity-full-load-completed.png)
 
-     ![Activiteitenstatus: Incrementele gegevenssynchronisatie](media\tutorial-mysql-to-azure-mysql-online\dms-activity-incremental-data-sync.png)
+     ![Activiteitenstatus: Incrementele gegevenssynchronisatie](media/tutorial-mysql-to-azure-mysql-online/dms-activity-incremental-data-sync.png)
 
 ## <a name="perform-migration-cutover"></a>Migratie-cutover uitvoeren
 Nadat de eerste volledige lading is voltooid, worden de databases gemarkeerd als **Gereed voor cutover**.
 
 1. Wanneer u klaar bent om de databasemigratie te voltooien, selecteert u **Cutover starten**.
 
-    ![Cutover starten](media\tutorial-mysql-to-azure-mysql-online\dms-start-cutover.png)
+    ![Cutover starten](media/tutorial-mysql-to-azure-mysql-online/dms-start-cutover.png)
  
 2.  Zorg dat u alle transacties stopt die bij de brondatabase binnenkomen; wacht totdat de teller van **Wijzigingen in behandeling** op **0** staat.
 3.  Selecteer **Bevestigen** en selecteer vervolgens **Toepassen**.

@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 64e56233546a22804036b43d9769247678036049
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275264"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099440"
 ---
-# <a name="tutorial-assign-access-to-cloudyn-data"></a>Zelfstudie: Toegang beheren tot Cloudyn-gegevens
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>Zelfstudie: toegang tot Cloudyn-gegevens toewijzen
 
 De toegang tot gegevens van Cloudyn wordt beheerd door middel van gebruikers of -entiteitsbeheer. Gebruikersaccounts van Cloudyn bepalen de toegang tot *entiteiten* en beheerfuncties. Er zijn twee soorten toegang: beheerder en gebruiker. Tenzij dit per gebruiker is gewijzigd, biedt beheerderstoegang gebruikers onbeperkte toegang tot alle functies in de portal van Cloudyn, met inbegrip van: beheer van gebruikers en lijsten met ontvangers, toegang als hoofdentiteit tot alle entiteitsgegevens. Gebruikerstoegang is bedoeld voor eindgebruikers om rapporten weer te geven en om rapporten te maken met de toegang die ze hebben tot entiteitsgegevens.
 
@@ -47,7 +47,7 @@ Hoewel u al beschikt over beheerderstoegang, hebben collega's in uw organisatie 
 Voer de vereiste gegevens in voor de gebruiker. De **aanmeldings-id** moet een geldig e-mailadres zijn. Selecteer Allow User Management om het beheer van gebruikers toe te staan, zodat de gebruiker andere gebruikers kan maken en wijzigen. Met Adressenlijstbeheer kan de gebruiker adressenlijsten bewerken. Op het moment dat u **Notify user by email** selecteert, wordt er vanuit Cloudyn per e-mail een koppeling met aanmeldingsgegevens verzonden naar de gebruiker. Bij de eerste aanmelding stelt de gebruiker een wachtwoord in.
 
 Onder **User has admin access** is de hoofdentiteit van uw organisatie geselecteerd. Laat dit zo en sla vervolgens de gebruikersgegevens op. Als u de hoofdentiteit selecteert, heeft de gebruiker niet alleen beheerdersmachtigingen voor de hoofdentiteit in de structuur, maar ook voor alle onderliggende entiteiten.  
-  ![Een nieuwe gebruiker met beheerderstoegang toevoegen](.\media\tutorial-user-access\new-admin-access.png)
+  ![Voorbeeld van beheerderstoegang in het vak Nieuwe gebruiker toevoegen](./media/tutorial-user-access/new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Een gebruiker met gebruikerstoegang maken
 Meestal is het zo dat gebruikers die toegang nodig hebben tot gegevens van Cloudyn zoals dashboards en rapporten, moeten beschikken over gebruikerstoegang om deze onderdelen weer te geven. Maak een nieuwe gebruiker die toegang heeft die vergelijkbaar is met de gebruiker die u hebt gemaakt met beheerderstoegang, maar met de volgende verschillen:
@@ -56,7 +56,7 @@ Meestal is het zo dat gebruikers die toegang nodig hebben tot gegevens van Cloud
 - Selecteer in de lijst **User has user access** de entiteiten waartoe de gebruiker toegang moet hebben.
 - Indien nodig kunt u in de lijst ernaast ook beheerderstoegang geven tot bepaalde entiteiten.
 
-![Een nieuwe gebruiker met gebruikerstoegang toevoegen](.\media\tutorial-user-access\new-user-access.png)
+![Voorbeeld van gebruikerstoegang in het vak Nieuwe gebruiker toevoegen](./media/tutorial-user-access/new-user-access.png)
 
 Als u een Engelstalige zelfstudievideo wilt bekijken over het toevoegen van gebruikers, gaat u naar [Adding Users to Cloudyn](https://youtu.be/Nzn7GLahx30).
 
@@ -88,11 +88,11 @@ Op het moment dat u uw Azure overeenkomst of -account registreert bij Cloudyn, w
 
 Klik in de Cloudyn-portal rechtsboven op het tandwielsymbool en selecteer **Cloud-accounts** . U begint met één entiteit (de hoofdentiteit of root) en gaat vervolgens de structuur van boven naar beneden uitwerken. Hier ziet u een voorbeeld van een entiteitshiërarchie die een goed beeld geeft van de opbouw van veel IT-organisaties als de structuur helemaal voltooid is:
 
-![Entiteitsstructuur](.\media\tutorial-user-access\entity-tree.png)
+![Voorbeeld van een entiteitsstructuur op de pagina Accountsbeheer](./media/tutorial-user-access/entity-tree.png)
 
 Klik naast **Entities** op **Add Entity**. Voer gegevens in van de persoon of afdeling die u wilt toevoegen. De velden **Full Name** en **Email** hoeven niet overeen te komen met bestaande gebruikers. Als u een lijst met toegangsniveaus wilt weergeven, zoekt u in de Help naar *Adding an entity*.
 
-![Entiteit toevoegen](.\media\tutorial-user-access\add-entity.png)
+![Voorbeeld met entiteitsnaam en toegangsniveaus in het vak Entiteit toevoegen](./media/tutorial-user-access/add-entity.png)
 
 Sla de wijzigingen op met **Save** als u klaar bent.
 

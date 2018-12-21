@@ -1,21 +1,21 @@
 ---
-title: 'Zelfstudie voor Azure Container Registry: een bijgewerkte installatiekopie naar regionale implementaties pushen'
-description: Push een aangepaste Docker-installatiekopie naar uw geo-gerepliceerde Azure-containerregister. Vervolgens worden de wijzigingen automatisch geïmplementeerd in web-apps die in meerdere regio's worden uitgevoerd. Deel drie van een serie van drie.
+title: 'Zelfstudie: bijgewerkte containerinstallatiekopie naar regionale Azure-app-implementaties pushen'
+description: Push een aangepaste Docker-installatiekopie naar uw Azure-containerregister met geo-replicatie. Vervolgens worden de wijzigingen automatisch geïmplementeerd in web-apps die in meerdere regio's worden uitgevoerd. Deel drie van een serie van drie.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 96e46c84039b7c72d5419972c7a5a401eab64659
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: d9faa89d33dde7da35ad4490b78b9a1d023274ae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855507"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256618"
 ---
-# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Zelfstudie: een bijgewerkte installatiekopie naar regionale implementaties pushen
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Zelfstudie: een bijgewerkte containerinstallatiekopie naar een containerregister met geo-replicatie voor regionale web-app-implementaties pushen
 
 Dit is deel drie van een serie met drie zelfstudies. In de [vorige zelfstudie](container-registry-tutorial-deploy-app.md) is geo-replicatie geconfigureerd voor twee verschillende regionale web-app-implementaties. In deze zelfstudie past u eerst de app aan, maakt u daarna een nieuwe containerinstallatiekopie en pusht u deze vervolgens naar het geo-gerepliceerde register. Ten slotte kunt u deze wijziging, die automatisch wordt geïmplementeerd door Azure Container Registry-webhooks, in beide web-app-instanties weergeven.
 
@@ -103,13 +103,13 @@ v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186e
 
 Terwijl de installatiekopie wordt gerepliceerd, worden de Azure Container Registry-webhooks geactiveerd.
 
-Als u de regionale webhooks wilt bekijken die zijn gemaakt tijdens de implementatie van de container naar *Web App for Containers* in een vorige zelfstudie, gaat u naar het containerregister in Azure Portal en selecteert u onder **SERVICES** de optie **Webhooks**.
+Als u de regionale webhooks wilt bekijken die zijn gemaakt tijdens de implementatie van de container naar *Web App for Containers* in een vorige zelfstudie, gaat u naar het containerregister in de Azure-portal en selecteert u onder **SERVICES** de optie **Webhooks**.
 
-![Webhooks van containerregisters in Azure Portal][tutorial-portal-01]
+![Webhooks van containerregisters in de Azure-portal][tutorial-portal-01]
 
 Selecteer elke webhook om de geschiedenis van de bijbehorende aanroepen en antwoorden te bekijken. U zou een rij moeten zien voor de actie **push** in de logboeken van beide webhooks. Hier toont het logboek voor de webhook in de regio *US - west* de actie **push** die is geactiveerd door de `docker push` in de vorige stap:
 
-![Logboek voor containerregister-webhook in Azure Portal (US - west)][tutorial-portal-02]
+![Logboek voor containerregister-webhook in de Azure-portal (US - west)][tutorial-portal-02]
 
 ## <a name="view-the-updated-web-app"></a>Bijgewerkte web-app weergeven
 
@@ -117,7 +117,7 @@ De webhooks geven door aan de web-apps dat een nieuwe installatiekopie naar het 
 
 Controleer of de app in beide implementaties is bijgewerkt door naar beide regionale web-app-implementaties te navigeren in uw webbrowser. U kunt de URL voor de geïmplementeerde web-app vinden in de rechterbovenhoek van elk App Service-overzichtstabblad.
 
-![App Service-overzicht in Azure Portal][tutorial-portal-03]
+![App Service-overzicht in de Azure-portal][tutorial-portal-03]
 
 Selecteer de link in het App Service-overzicht om de bijgewerkte app te bekijken. Hier volgt een voorbeeldweergave van de app die wordt uitgevoerd in *US - west*:
 

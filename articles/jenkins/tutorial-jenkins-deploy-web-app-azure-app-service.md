@@ -8,14 +8,14 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 274de7ac63df0afc1a59e197deebeb7929cf1ef8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855009"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438469"
 ---
-# <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: Implementatie vanuit GitHub in Azure App Service met continue integratie en implementatie van Jenkins
+# <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: implementatie vanuit GitHub naar Azure App Service met continue integratie en implementatie in Jenkins
 
 In deze zelfstudie implementeert u een voorbeeld van een Java-web-app vanuit GitHub in [Azure App Service op Linux](/azure/app-service/containers/app-service-linux-intro) door het instellen van continue integratie (CI) en continue implementatie (CD) in Jenkins. Wanneer u de app bijwerkt door doorvoeracties te pushen naar GitHub, wordt uw app automatisch door Jenkins gecompileerd en opnieuw gepubliceerd naar Azure App Service. De voorbeeld-app in deze zelfstudie is ontwikkeld met behulp van het [Spring Boot](http://projects.spring.io/spring-boot/)-framework. 
 
@@ -43,7 +43,7 @@ Voor het voltooien van deze zelfstudie hebt u de volgende items nodig:
 
 * Een [Jenkins](https://jenkins.io/)-server waarbij de Java Development Kit (JDK) en Maven-hulpprogramma's zijn geïnstalleerd op een virtuele Linux-machine in Azure
 
-  Als u geen Jenkins-server hebt, volg deze stappen dan in de Azure-portal: [Vanuit de Azure-portal een Jenkins-server maken op een virtuele Linux-machine in Azure](/azure/jenkins/install-jenkins-solution-template)
+  Als u geen Jenkins-server hebt, volg deze stappen dan in de Azure-portal: [Jenkins-server maken in een virtuele Azure Linux-machine](/azure/jenkins/install-jenkins-solution-template)
 
 * Een [GitHub](https://github.com)-account, zodat u een werkende kopie ([fork](#fork)) kunt verkrijgen voor de voorbeeld-Java-web-app. 
 
@@ -92,7 +92,7 @@ Als u wilt dat Jenkins GitHub bewaakt en reageert wanneer er nieuwe doorvoeracti
 > 
 > Met deze stappen maakt u met behulp van uw GitHub-gebruikersnaam en -wachtwoord tokenreferenties zodat Jenkins persoonlijke toegang heeft om te werken met GitHub. 
 > Als uw GitHub-account echter gebruikmaakt van de tweeledige verificatiemethode, maakt u het token in GitHub en stelt u Jenkins in om dat token te gebruiken. 
-> Raadpleeg de Jenkins-documentatie [GitHub Plugin](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) voor meer informatie.
+> Raadpleeg de Jenkins-documentatie [GitHub Plugin](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin) voor meer informatie.
 
 1. Selecteer op de pagina **Manage Jenkins** de optie **Configure System**. 
 
@@ -164,7 +164,7 @@ De volgende uitvoer wordt gegenereerd door de opdracht **`create-for-rbac`**:
 
    | Eigenschap | Waarde | Beschrijving | 
    |----------|-------|-------------| 
-   | **Subscription ID** | <*yourAzureSubscription-ID*> | De GUID-waarde voor uw Azure-abonnement <p>**Tip**: als u uw Azure-abonnements-id niet weet, voert u deze Azure CLI-opdracht uit vanaf de opdrachtregel of in de Cloud Shell en gebruikt u vervolgens de GUID-waarde `id`: <p>`az account list` | 
+   | **Subscription ID** | <*yourAzureSubscription-ID*> | De GUID-waarde voor uw Azure-abonnement <p>**Tip**: als u uw Azure-abonnements-id niet weet, voert u deze Azure CLI-opdracht uit vanaf de opdrachtregel of in de Cloud Shell en gebruikt u vervolgens GUID-waarde `id`: <p>`az account list` | 
    | **Client ID** | <*yourAzureServicePrincipal-ID*> | De GUID-waarde van `appId` die eerder is gegenereerd voor uw Azure-service-principal | 
    | **Client Secret** | <*yourSecurePassword*> | De waarde van `password` of het 'geheim' dat u hebt opgegeven voor uw Azure-service-principal | 
    | **Tenant ID** | <*yourAzureActiveDirectoryTenant-ID*> | De GUID-waarde van `tenant` voor uw Azure Active Directory-tenant | 

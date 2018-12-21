@@ -1,5 +1,5 @@
 ---
-title: Voorbeeld Azure Policy - patroonovereenkomst afdwingen
+title: Voorbeeld - patroonovereenkomst afdwingen
 description: Dit voorbeeldbeleid vereist dat resources voldoen aan de patroonovereenkomst voor naamconventies.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: da2b4621604a29d9104669e4f0a0c40cc44ca319
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e0b202f8fd348feaa87b9a9409180e22b0781f4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999559"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311963"
 ---
 # <a name="enforce-match-pattern-for-naming-conventions"></a>Patroonovereenkomst voor naamgeving afdwingen
 
@@ -26,7 +25,7 @@ Vereist dat bronnamen voldoen aan de patroonovereenkomst voor naamconventies. Ge
 
 [!code-json[main](../../../../policy-templates/samples/TextPatterns/enforce-match-pattern/azurepolicy.json "enforce match pattern")]
 
-U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 

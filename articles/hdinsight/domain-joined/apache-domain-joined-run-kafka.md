@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0d9ad11ab9a53cf5de51dd3f262dc16054be5d85
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633035"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438605"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Zelfstudie: Apache Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package (preview)
 
@@ -39,7 +39,7 @@ In deze zelfstudie leert u het volgende:
 
 1. Maak vanuit een browser verbinding met de beheerinterface van Ranger met behulp van de URL `https://<ClusterName>.azurehdinsight.net/Ranger/`. Vergeet niet om `<ClusterName>` te wijzigen in de naam van uw Kafka-cluster.
 
-    > [!NOTE] 
+    > [!NOTE]  
     > Ranger-referenties zijn niet hetzelfde als referenties van een Hadoop-cluster. Gebruik een nieuw InPrivate-browservenster om verbinding te maken met de beheerinterface van Ranger om te voorkomen dat browsers Hadoop-referenties in de cache gebruiken.
 
 2. Meld u aan met uw beheerdersreferenties voor Azure Active Directory (AD). Deze referenties zijn niet hetzelfde als de referenties voor het HDInsight-cluster of de SSH-referenties voor het Linux HDInsight knooppunt.
@@ -74,7 +74,7 @@ Maak een Ranger-beleid voor **sales_user** en **marketing_user**.
 
    ![De pagina Create Policy in de beheerinterface van Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
 
-   >[!NOTE] 
+   >[!NOTE]   
    >Als er niet automatisch een domeingebruiker wordt ingevuld bij **Select User**, wacht u even totdat Ranger is gesynchroniseerd met AAD.
 
 4. Klik op **Toevoegen** om het beleid op te slaan.
@@ -113,17 +113,17 @@ Ga als volgt te werk om de twee onderwerpen **salesevents** en **marketingspend*
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. Gebruik de volgende opdrachten om de Kafka-brokerhosts en de Zookeeper-hosts op te vragen. Geef desgevraagd het wachtwoord voor het beheerdersaccounts voor het cluster op.
+3. Gebruik de volgende opdrachten als u de Kafka-brokerhosts en de Apache Zookeeper-hosts wilt opvragen. Geef desgevraagd het wachtwoord voor het beheerdersaccounts voor het cluster op.
 
    ```bash
    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
-> [!Note]
+> [!Note]  
 > Voordat u doorgaat, moet u mogelijk uw ontwikkelomgeving instellen als u dit nog niet hebt gedaan. U hebt onderdelen zoals de Java JDK, Apache Maven en een SSH-client met scp nodig. Zie deze [installatie-instructies](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) voor meer informatie.
 1. Download de [voorbeelden voor aan een domein gekoppelde Apache Kafka voor producer/consumer](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-1. Volg stap 2 en 3 onder **Het voorbeeld compileren en implementeren** in [Zelfstudie: Werken met de Producer- en Consumer-API's van Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
+1. Volg stap 2 en 3 onder **Het voorbeeld bouwen en implementeren** in [Zelfstudie: Werken met de Producer- en Consumer-API's van Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
 
 1. Voer de volgende opdrachten uit:
 
@@ -132,7 +132,7 @@ Ga als volgt te werk om de twee onderwerpen **salesevents** en **marketingspend*
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
-   >[!NOTE] 
+   >[!NOTE]   
    >Alleen de proceseigenaar van de Kafka-service, zoals de root, kan schrijven naar de Zookeeper-znodes `/config/topics`. Ranger-beleidsregels worden niet afgedwongen wanneer een gebruiker zonder machtigingen een onderwerp maakt. Dit komt doordat het script `kafka-topics.sh` rechtstreeks met Zookeeper communiceert om het onderwerp te maken. Er worden vermeldingen toegevoegd aan de Zookeeper-nodes, terwijl de watchers van broker controleren op onderwerpen en deze indien nodig maken. De autorisatie is niet mogelijk via de Ranger-invoegtoepassing en de bovenstaande opdracht wordt met behulp van `sudo` uitgevoerd via de Kafka-broker.
 
 
@@ -210,5 +210,5 @@ Op basis van de geconfigureerde Ranger-beleidsregels kan **sales_user** het onde
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Bring Your Own Key en Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [Een inleiding tot Hadoop-beveiliging met Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+* [Bring Your Own Key en Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
+* [Een inleiding tot Apache Hadoop-beveiliging met Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
