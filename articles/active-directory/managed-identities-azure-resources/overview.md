@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987257"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320775"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Wat zijn beheerde identiteiten voor Azure-resources?
 
@@ -34,7 +34,15 @@ De functie Beheerde identiteiten voor Azure-resources is gratis bij een abonneme
 > [!NOTE]
 > Beheerde identiteiten voor Azure-resources is de nieuwe naam voor de service die eerder de naam Managed Service Identity (MSI) had.
 
-## Hoe werkt de functie?<a name="how-does-it-work"></a>
+## <a name="terminology"></a>Terminologie
+
+De volgende termen worden in de beheerde identiteiten gebruikt voor de documentatieset van Azure-resources:
+
+- **Client-id**: een unieke id die door Azure AD wordt gegenereerd. Deze wordt tijdens de eerste keer inrichten gekoppeld aan een toepassing en service-principal.
+- **Principal-id**: de object-id van het service-principal-object van uw beheerde identiteit. Deze wordt gebruikt om op basis van rollen toegang te verlenen tot een Azure-resource.
+- **Azure Instance Metadata Service (IMDS)**: een REST-eindpunt dat toegankelijk is voor alle IaaS-VM's die worden gemaakt via Azure Resource Manager. Het eindpunt is beschikbaar via een bekend, niet-routeerbaar IP-adres (169.254.169.254) dat alleen kan worden benaderd vanuit de virtuele machine.
+
+## Hoe werken beheerde identiteiten voor Azure-resources?<a name="how-does-it-work"></a>
 
 Er zijn twee typen beheerde identiteit:
 

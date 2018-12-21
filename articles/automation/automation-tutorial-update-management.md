@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679899"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184981"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Windows-updates beheren met behulp van Azure Automation
 
@@ -41,13 +41,13 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op https://portal.azure.com.
+Meld u aan bij de Azure-portal op https://portal.azure.com.
 
 ## <a name="enable-update-management"></a>Updatebeheer inschakelen
 
 Schakel voor deze zelfstudie eerst updatebeheer in op de VM:
 
-1. Selecteer in Azure Portal in het linkermenu de optie **Virtuele machines**. Selecteer een VM in de lijst.
+1. Selecteer in de Azure-portal in het linkermenu de optie **Virtuele machines**. Selecteer een VM in de lijst.
 2. Selecteer op de VM-pagina, onder **BEWERKINGEN** de optie **Updatebeheer**. Het deelvenster **Updatebeheer inschakelen** wordt geopend.
 
 Er wordt een validatie uitgevoerd om te bepalen of updatebeheer is ingeschakeld voor deze VM. Deze validatie bevat controles voor een Azure Log Analytics-werkruimte en het gekoppelde Automation-account, en controleert of de oplossing voor updatebeheer zich in de werkruimte bevindt.
@@ -82,48 +82,24 @@ Klik ergens anders in de update om het deelvenster **Zoeken in logboeken** te op
 
 ## <a name="configure-alerts"></a>Waarschuwingen configureren
 
-In deze stap leert u hoe u een melding kunt instellen om te worden geïnformeerd wanneer updates zijn geïmplementeerd via een Log Analytics-query of door het master-runbook voor Updatebeheer bij te houden voor implementaties die zijn mislukt.
+In deze stap leert u een waarschuwing instellen zodat u de status van een update-implementatie kent.
 
 ### <a name="alert-conditions"></a>Meldingsvoorwaarden
 
-Voor elk type melding moeten er verschillende meldingsvoorwaarden worden gedefinieerd.
+Ga in uw Automation-account, onder **Bewaking**, naar **Waarschuwingen** en klik op **+ Nieuwe waarschuwingsregel**.
 
-#### <a name="log-analytics-query-alert"></a>Melding via Log Analytics-query
+Het Automation-account is al als resource geselecteerd. Als u het wilt wijzigen, kunt u op **Selecteren** klikken en selecteert u op de pagina **Select a resource** de optie **Automation-accounts** in de vervolgkeuzelijst **Filter by resource type**. Selecteer uw Automation-account en selecteer **Gereed**.
 
-Voor geslaagde implementaties kunt u een melding maken op basis van een Log Analytics-query. Voor mislukte implementaties kunt u de stappen bij [Runbook-waarschuwing](#runbook-alert) gebruiken om te worden geïnformeerd wanneer het master-runbook waarmee update-implementaties worden uitgevoerd, mislukt. U kunt een aangepaste query schrijven voor extra waarschuwingen als u rekening wilt houden met veel verschillende scenario’s.
+Klik op **Voorwaarde toevoegen** om het signaal te selecteren dat geschikt is voor de update-implementatie. In de volgende tabel vindt u de details van de twee beschikbare signalen voor update-implementaties:
 
-Ga in Azure Portal naar **Monitor** en selecteer vervolgens **Waarschuwing maken**.
+|Signaalnaam|Dimensies|Beschrijving|
+|---|---|---|
+|**Totaal aantal uitvoeringen van update-implementaties**|- Naam van update-implementatie</br>- Status|Dit signaal wordt gebruikt om een waarschuwing af te geven over de algemene status van een update-implementatie.|
+|**Totaal aantal machine-uitvoeringen van update-implementaties**|- Naam van update-implementatie</br>- Status</br>- Doelcomputer</br>- Uitvoerings-id van update-implementatie|Dit signaal wordt gebruikt om een waarschuwing af te geven over de status van een update-implementatie die voor bepaalde computers is bedoeld|
 
-Klik onder **1. Meldingsvoorwaarde maken** op **Doel selecteren**. Selecteer onder **Filteren op resourcetype** de optie **Log Analytics**. Selecteer de Log Analytics-werkruimte en selecteer vervolgens **Gereed**.
-
-![Waarschuwing maken](./media/automation-tutorial-update-management/create-alert.png)
-
-Selecteer **Criteria toevoegen**.
-
-Selecteer onder **Signaallogica configureren** in de tabel de optie **Aangepast zoeken in logboeken**. Voer de volgende query in het tekstvak **Zoekquery** in:
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize by UpdateRunName, Computer
-```
-Met deze query worden de computers en de naam van de update-uitvoering geretourneerd die binnen het opgegeven tijdsbestek zijn voltooid.
-
-Voer onder **Waarschuwingslogica** voor **Drempelwaarde** in: **1**. Wanneer u klaar bent, selecteert u **Gereed**.
+Selecteer voor de dimensiewaarden een geldige waarde in de lijst. Als de gezochte waarde niet in de lijst voorkomt, klikt u op het **\+**-teken naast de dimensie en typt u de aangepaste naam. Vervolgens kunt u de waarde selecteren die u zoekt. Als u alle waarden van een dimensie wilt selecteren, klikt u op de knop **Selecteren\***. Als u geen waarde voor een dimensie kiest, wordt de dimensie tijdens de evaluatie genegeerd.
 
 ![Signaallogica configureren](./media/automation-tutorial-update-management/signal-logic.png)
-
-#### <a name="runbook-alert"></a>Runbook-melding
-
-Voor mislukte implementaties moet u een waarschuwing maken over de fout van het master-runbook.
-Ga in Azure Portal naar **Monitor** en selecteer vervolgens **Waarschuwing maken**.
-
-Klik onder **1. Meldingsvoorwaarde maken** op **Doel selecteren**. Selecteer onder **Filteren op resourcetype** de optie **Automation-accounts**. Selecteer uw Automation-account en selecteer **Gereed**.
-
-Klik bij **Runbooknaam** op het **\+**-teken en typ **Patch-MicrosoftOMSComputers** als aangepaste naam. Kies bij **Status** de optie **Mislukt** of klik op het **\+**-teken om **Mislukt** te typen.
-
-![Signaallogica voor runbooks configureren](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 Voer onder **Waarschuwingslogica** voor **Drempelwaarde** in: **1**. Wanneer u klaar bent, selecteert u **Gereed**.
 
@@ -133,7 +109,7 @@ Selecteer bij **2. Waarschuwingsdetails definiëren** een naam en beschrijving v
 
 ![Signaallogica configureren](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Selecteer onder **3. Actiegroep definiëren** de optie **Nieuwe actiegroep**. Een actiegroep is een groep acties die u op meerdere waarschuwingen kunt toepassen. Deze acties kunnen bestaan uit, maar zijn niet beperkt tot, e-mailmeldingen, runbooks, webhooks en nog veel meer. Raadpleeg [Actiegroepen maken en beheren](../monitoring-and-diagnostics/monitoring-action-groups.md) voor meer informatie over actiegroepen.
+Selecteer onder **Actiegroepen** de optie **Nieuwe maken**. Een actiegroep is een groep acties die u op meerdere waarschuwingen kunt toepassen. Deze acties kunnen bestaan uit, maar zijn niet beperkt tot, e-mailmeldingen, runbooks, webhooks en nog veel meer. Raadpleeg [Actiegroepen maken en beheren](../azure-monitor/platform/action-groups.md) voor meer informatie over actiegroepen.
 
 Voer in het vak **Naam van actiegroep** een naam in voor de waarschuwing en een korte naam. De korte naam wordt gebruikt in plaats van een volledige naam voor de actiegroep als er meldingen worden verzonden door deze groep te gebruiken.
 
@@ -161,7 +137,7 @@ Geef onder **Nieuwe update-implementatie** de volgende informatie op:
 
 * **Groepen om bij te werken (preview)**: definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie
 
-* **Bij te werken computers**: selecteer een opgeslagen zoekopdracht, geïmporteerde groep of kies een computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
+* **Bij te werken computers**: selecteer een opgeslagen zoekopdracht of geïmporteerde groep, of kies Computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
 
 * **Updateclassificatie**: selecteer de typen software die de update-implementatie moet opnemen in de implementatie. Voor deze zelfstudie laat u alle typen geselecteerd.
 
@@ -176,14 +152,14 @@ Geef onder **Nieuwe update-implementatie** de volgende informatie op:
 
 * **Updates om op te nemen/uit te sluiten**: hiermee opent u de pagina **Opnemen/uitsluiten**. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie [Werking van opname](automation-update-management.md#inclusion-behavior) voor meer informatie over hoe de opname wordt verwerkt
 
-* **Planningsinstellingen**: het deelvenster **Planningsinstellingen** wordt geopend. De standaard begintijd is 30 minuten na de huidige tijd. U kunt de starttijd op elke gewenste tijd instellen, maar minstens 10 minuten na de huidige tijd.
+* **Planningsinstellingen**: Het deelvenster **Planningsinstellingen** wordt geopend. De standaard begintijd is 30 minuten na de huidige tijd. U kunt de starttijd op elke gewenste tijd instellen, maar minstens 10 minuten na de huidige tijd.
 
    U kunt ook opgeven dat de implementatie eenmaal moet worden uitgevoerd, of u kunt een planning met meerdere implementaties instellen. Selecteer onder **Terugkeerpatroon** de optie **Eenmaal**. Laat de standaardwaarde staan op 1 dag en selecteer **OK**. Hiermee stelt u een terugkerend schema in.
 
 * **Voorafgaande scripts en navolgende scripts**: selecteer de scripts die moeten worden uitgevoerd vóór en na de implementatie. Zie[Manage Pre and Post scripts](pre-post-scripts.md) (Voorafgaande en navolgende scripts beheren) voor meer informatie.
-* **Onderhoudsvenster (minuten)**: laat hier de standaardwaarde staan. U kunt het tijdvenster instellen waarin de update-implementatie moet plaatsvinden. Met deze instelling zorgt u ervoor dat wijzigingen worden uitgevoerd binnen de gedefinieerde onderhoudsvensters.
+* **Onderhoudsvenster (minuten)**: Laat de standaardwaarde staan. U kunt het tijdvenster instellen waarin de update-implementatie moet plaatsvinden. Met deze instelling zorgt u ervoor dat wijzigingen worden uitgevoerd binnen de gedefinieerde onderhoudsvensters.
 
-* **Opties voor opnieuw opstarten**: met deze instelling wordt bepaald hoe het opnieuw opstarten moet worden verwerkt. De volgende opties zijn beschikbaar:
+* **Opties voor opnieuw opstarten**: met deze instelling wordt bepaald hoe het opnieuw opstarten moet worden afgehandeld. De volgende opties zijn beschikbaar:
   * Opnieuw opstarten indien nodig (standaard)
   * Altijd opnieuw opstarten
   * Nooit opnieuw opstarten
@@ -211,8 +187,8 @@ Onder **Updateresultaten** ziet u een overzicht van het totale aantal updates en
 De volgende lijst toont de beschikbare waarden:
 
 * **Niet geprobeerd**: de update is niet geïnstalleerd omdat er onvoldoende tijd beschikbaar was op basis van de opgegeven onderhoudsperiode.
-* **Geslaagd**: de update is voltooid.
-* **Mislukt**: de update is mislukt.
+* **Geslaagd**: De update is bijgewerkt.
+* **Mislukt**: De update is mislukt.
 
 Selecteer **Alle logboeken** als u alle logboekvermeldingen wilt zien die tijdens de implementatie zijn gemaakt.
 

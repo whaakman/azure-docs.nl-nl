@@ -1,6 +1,7 @@
 ---
-title: 'Zelfstudie: Een afbeeldingsclassificatiemodel implementeren in Azure Container Instance (ACI) met de Azure Machine Learning-service'
-description: In deze zelfstudie ontdekt u hoe u de Azure Machine Learning-service kunt gebruiken om een afbeeldingsclassificatiemodel met scikit-learn in een Python Jupyter-notebook te implementeren.  Deze zelfstudie is deel 2 van een tweedelige reeks.
+title: 'Zelfstudie over de classificatie van afbeeldingen: Modellen implementeren'
+titleSuffix: Azure Machine Learning service
+description: In deze zelfstudie ontdekt u hoe u de Azure Machine Learning-service kunt gebruiken om een afbeeldingsclassificatiemodel met scikit-learn in een Python Jupyter-notebook te implementeren. Deze zelfstudie is deel 2 van een tweedelige reeks.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,29 +10,30 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: ea446c89fc74fca444793a5e0f803a54fa251ed1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864057"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312167"
 ---
-# <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Zelfstudie 2: Een afbeeldingsclassificatiemodel implementeren in Azure Container Instance (ACI)
+# <a name="tutorial--deploy-an-image-classification-model-in-azure-container-instance"></a>Zelfstudie:  Een afbeeldingsclassificatiemodel implementeren in Azure Container Instance
 
 Deze zelfstudie is **deel twee van een tweedelige reeks**. In de [vorige zelfstudie](tutorial-train-models-with-aml.md) hebt u Machine Learning-modellen getraind en vervolgens een model geregistreerd in uw werkruimte in de cloud.  
 
-Nu kunt u het model als webservice implementeren in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Een webservice is een afbeelding, in dit geval een Docker-installatiekopie, die bestaat uit de scorelogica en het model zelf. 
+Nu kunt u het model als webservice implementeren in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). Een webservice is een afbeelding, in dit geval een Docker-installatiekopie, die bestaat uit de scorelogica en het model zelf. 
 
-In dit gedeelte van de zelfstudie wordt uitgelegd hoe u Azure Machine Learning-service voor het volgende gebruikt:
+In dit gedeelte van de zelfstudie wordt uitgelegd hoe u Azure Machine Learning Service voor het volgende gebruikt:
 
 > [!div class="checklist"]
 > * Uw testomgeving instellen
 > * Het model ophalen uit uw werkruimte
 > * Het model lokaal testen
-> * Het model implementeren in ACI
+> * Het model implementeren in Container Instances
 > * Het geïmplementeerde model testen
 
-ACI is niet ideaal voor productie-implementaties, maar het is uiterst geschikt om de werkstroom te testen en om inzicht in de werkstroom te krijgen. Voor schaalbare productie-implementaties is het misschien beter om [Azure Kubernetes Service](how-to-deploy-to-aks.md) te gebruiken.
+Container Instances is niet ideaal voor productie-implementaties, maar het is uiterst geschikt om de werkstroom te testen en om inzicht in de werkstroom te krijgen. Voor schaalbare productie-implementaties is het misschien beter om Azure Kubernetes Service te gebruiken. Zie het document [Hoe implementeren en waar](how-to-deploy-and-where.md) voor meer informatie.
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
@@ -40,11 +42,11 @@ Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> Code in dit artikel is getest met de Azure Machine Learning SDK versie 1.0.2
+> Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.2.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voltooi de training van het model in de notebook in [Zelfstudie 1: Een afbeeldingsclassificatiemodel trainen met Azure Machine Learning](tutorial-train-models-with-aml.md).  
+Voltooi de modeltraining in het volgende notebook: [Zelfstudie 1: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).  
 
 
 ## <a name="set-up-the-environment"></a>De omgeving instellen
@@ -145,10 +147,10 @@ In de uitvoer wordt de verwarringsmatrix weergegeven:
     Overall accuracy: 0.9204
    
 
-Gebruik `matplotlib` om de verwarringsmatrix weer te geven in een grafiek. In deze grafiek staat de X-as voor de daadwerkelijke waarden en de Y-as voor de voorspelde waarden. De kleur van elke cel staat voor de foutfrequentie. Hoe lichter de kleur, hoe hoger de foutfrequentie. De 5 is vaak verkeerd ingedeeld als een 3. Daarom ziet u een lichtgekleurde cel bij (5,3).
+Gebruik `matplotlib` om de verwarringsmatrix weer te geven in een grafiek. In deze grafiek staat de X-as voor de daadwerkelijke waarden en de Y-as voor de voorspelde waarden. De kleur van elke cel staat voor de foutfrequentie. Hoe lichter de kleur, hoe hoger de foutfrequentie. De 5 wordt vaak verkeerd ingedeeld als een 3. Daarom ziet u een lichtgekleurde cel bij (5,3).
 
 ```python
-# normalize the diagnal cells so that they don't overpower the rest of the cells when visualized
+# normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
 row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
@@ -168,23 +170,23 @@ plt.savefig('conf.png')
 plt.show()
 ```
 
-![verwarringsmatrix](./media/tutorial-deploy-models-with-aml/confusion.png)
+![Grafiek met een verwarringsmatrix](./media/tutorial-deploy-models-with-aml/confusion.png)
 
 ## <a name="deploy-as-web-service"></a>Als webservice implementeren
 
-Zodra u het model hebt getest en tevreden bent met de resultaten, kunt u het model implementeren als webservice die wordt gehost in ACI. 
+Zodra u het model hebt getest en tevreden bent met de resultaten, kunt u het model implementeren als webservice die wordt gehost in Container Instances. 
 
-Geef de volgende zaken op om de juiste omgeving te maken voor ACI:
+Geef de volgende zaken op om de juiste omgeving te maken voor Container Instances:
 * Een scoring-script dat aangeeft hoe het model moet worden gebruikt
 * Een omgevingsbestand dat aangeeft welke pakketten moeten worden geïnstalleerd
-* Een configuratiebestand om de ACI mee te bouwen
+* Een configuratiebestand om de containerinstantie mee te bouwen
 * Het model dat u eerder hebt getraind
 
 <a name="make-script"></a>
 
 ### <a name="create-scoring-script"></a>Scoring-script maken
 
-Maak een scoring-script, met de naam score.py, dat door de aanroep van de webservice wordt gebruikt om aan te geven hoe het model moet worden gebruikt.
+Maak een scoring-script met de naam score.py. Bij het aanroepen van de webservice wordt dit gebruikt om te tonen hoe het model moet worden gebruikt.
 
 Er zijn twee functies die u verplicht in het scoring-script moet opnemen:
 * De functie `init()`, die het model doorgaans in een algemeen object laadt. Deze functie wordt slechts één keer uitgevoerd wanneer de Docker-container wordt gestart. 
@@ -239,7 +241,7 @@ with open("myenv.yml","r") as f:
 
 ### <a name="create-configuration-file"></a>Een configuratiebestand maken
 
-Maak een configuratiebestand voor de implementatie en geef het aantal CPU's en het aantal gigabytes aan RAM-geheugen op dat nodig is voor uw ACI-container. Het verschilt per model, maar voor de meeste modellen is de standaardhoeveelheid van 1 kerngeheugen en 1 gigabyte aan RAM-geheugen wel voldoende. Als u er later meer nodig hebt, moet u de installatiekopie opnieuw maken en de service opnieuw implementeren.
+Maak een configuratiebestand voor de implementatie en geef het aantal CPU's en het aantal gigabytes aan RAM-geheugen op dat nodig is voor uw Container Instances-container. Het verschilt per model, maar voor de meeste modellen is de standaardhoeveelheid van 1 kerngeheugen en 1 gigabyte aan RAM-geheugen wel voldoende. Als u er later meer nodig hebt, moet u de installatiekopie opnieuw maken en de service opnieuw implementeren.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -250,18 +252,18 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Predict MNIST with sklearn')
 ```
 
-### <a name="deploy-in-aci"></a>Implementeren in ACI
+### <a name="deploy-in-container-instances"></a>Implementeren in Container Instances
 Geschatte duur: **ongeveer 7-8 minuten**
 
 Configureer en implementeer de installatiekopie. De volgende code doorloopt de volgende stappen:
 
 1. Bouw een installatiekopie met behulp van:
-   * Het scoring-bestand (`score.py`)
-   * Het omgevingsbestand (`myenv.yml`)
-   * Het modelbestand
+   * Het scoring-bestand (`score.py`).
+   * Het omgevingsbestand (`myenv.yml`).
+   * Het modelbestand.
 1. Registreer die installatiekopie in de werkruimte. 
-1. Verzend de installatiekopie naar de ACI-container.
-1. Start een container op in ACI met behulp van de installatiekopie.
+1. Verzend de installatiekopie naar de Container Instances-container.
+1. Start een Container Instances-container met behulp van de installatiekopie.
 1. Haal het HTTP-eindpunt van de webservice op.
 
 
@@ -296,7 +298,7 @@ print(service.scoring_uri)
 Eerder hebt u alle testgegevens gescoord met de lokale versie van het model. Nu kunt u het geïmplementeerde model testen met een steekproef van 30 afbeeldingen uit de testgegevens.  
 
 De volgende code doorloopt de volgende stappen:
-1. Verzend de gegevens als JSON-matrix naar de webservice die wordt gehost in ACI. 
+1. Verzend de gegevens als JSON-matrix naar de webservice die wordt gehost in Container Instances. 
 
 1. Gebruik de API `run` van de SDK om de service aan te roepen. U kunt ook onbewerkte aanroepen doen met behulp van een HTTP-hulpprogramma zoals curl.
 
@@ -337,7 +339,7 @@ for s in sample_indices:
 plt.show()
 ```
 
-Dit is het resultaat van één steekproef van testafbeeldingen: ![resultaten](./media/tutorial-deploy-models-with-aml/results.png)
+Dit is het resultaat van één steekproef van testafbeeldingen: ![Afbeelding met resultaten](./media/tutorial-deploy-models-with-aml/results.png)
 
 U kunt ook HTTP-aanvragen op basis van onbewerkte gegevens verzenden om de webservice te testen.
 
@@ -365,7 +367,7 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de resourcegroep en werkruimte wilt bewaren voor andere zelfstudies en voor verkenning, kunt u deze API-aanroep gebruiken om alleen de ACI-implementatie te verwijderen:
+Als u de resourcegroep en werkruimte wilt bewaren voor andere zelfstudies en voor verkenning, kunt u deze API-aanroep gebruiken om alleen de Container Instances-implementatie te verwijderen:
 
 ```python
 service.delete()
@@ -376,13 +378,6 @@ service.delete()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie over de Azure Machine Learning-service hebt u Python gebruikt om het volgende te doen:
++ Meer informatie over alle [implementatieopties voor Azure Machine Learning Service](how-to-deploy-and-where.md), met inbegrip van ACI, Azure Kubernetes Service, FPGA's en IoT Edge.
 
-> [!div class="checklist"]
-> * Uw testomgeving instellen
-> * Het model ophalen uit uw werkruimte
-> * Het model lokaal testen
-> * Het model implementeren in ACI
-> * Het geïmplementeerde model testen
- 
-U kunt ook de zelfstudie [Automatische selectie van algoritmen](tutorial-auto-train-models.md) uitproberen om te zien hoe Azure Machine Learning automatisch het beste algoritme voor uw model selecteert en het daarop afstemt, en hoe het dat model voor u bouwt.
++ Ontdek hoe Azure Machine Learning automatisch het beste algoritme voor uw model selecteert en het daarop afstemt, en hoe het dat model voor u bouwt. Ga ook aan de slag met de zelfstudie [Automatisch algoritmen selecteren](tutorial-auto-train-models.md). 

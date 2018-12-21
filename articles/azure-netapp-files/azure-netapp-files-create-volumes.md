@@ -12,23 +12,25 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/28/2018
+ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: 42e475f4da2102bb8b010daec6e6451ba7f13848
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8fc76c33055f7131444a073d2f8560e136c0701d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011089"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413238"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Een volume maken voor Azure NetApp Files
 
 Capaciteitsgebruik van een volume wordt in mindering gebracht op de ingerichte capaciteit van de pool.  U kunt meerdere volumes maken in een capaciteitspool, maar het totale capaciteitsverbruik van deze volumes mag niet groter zijn dan de grootte van de pool. 
 
 ## <a name="before-you-begin"></a>Voordat u begint 
-U dient al een capaciteitspool te hebben ingesteld.  
+U dient al een capaciteitspool te hebben ingesteld.   
+[Een capaciteitspool instellen](azure-netapp-files-set-up-capacity-pool.md)   
+Er moet een subnet zijn gedelegeerd aan Azure NetApp Files.  
+[Een subnet delegeren aan Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-[Een capaciteitspool instellen](azure-netapp-files-set-up-capacity-pool.md)
 
 ## <a name="steps"></a>Stappen 
 1.  Klik in de blade Capaciteitspools beheren op de blade **Volumes**. 
@@ -38,26 +40,40 @@ U dient al een capaciteitspool te hebben ingesteld.
 3.  Klik in het venster Nieuw volume op **Maken** en vul de volgende velden in:   
     * **Naam**      
         Geef de naam op voor het volume dat u wilt maken.   
-        De naam moet uniek zijn binnen de resourcegroep. De naam moet ten minste 3 tekens bevatten.  U kunt hiervoor alle alfanumerieke tekens gebruiken.
+
+        De naam moet uniek zijn binnen de resourcegroep. De naam moet minstens drie tekens bevatten.  U kunt hiervoor alle alfanumerieke tekens gebruiken.
 
     * **Bestandspad**  
         Geef het bestandspad op dat wordt gebruikt om het exportpad voor het nieuwe volume te maken. Het exportpad wordt gebruikt om het volume te koppelen en benaderen.   
-        Een koppeldoel is het eindpunt van het IP-adres van de NFS-service. Deze waarde wordt automatisch gegenereerd.    
+     
         Het bestandspad mag alleen letters, cijfers en afbreekstreepjes ('-') bevatten. Het bestandspad moet tussen de 16 en 40 tekens lang zijn.  
 
     * **Quotum**  
         Geef de hoeveelheid logische opslag op die u wilt toewijzen aan het volume.  
+
         Het veld **Beschikbare quotum** toont hoeveel ongebruikte ruimte er is in de gekozen capaciteitspool, die u kunt gebruiken om een nieuw volume te maken. De grootte van het nieuwe volume mag niet groter zijn dan het beschikbare quotum.  
 
     * **Virtueel netwerk**  
-        Geef het virtuele Azure-netwerk (Vnet) op dat u wilt gebruiken om het volume te benaderen. Azure NetApp Files moet zijn geconfigureerd op het Vnet dat u opgeeft. De service Azure NetApp Files is alleen bereikbaar vanaf een Vnet dat zich op dezelfde locatie bevindt als het volume.   
+        Geef het virtuele Azure-netwerk (Vnet) op dat u wilt gebruiken om het volume te benaderen.  
 
-    ![Nieuw volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        Het opgegeven VNet moet een subnet bevatten dat is gedelegeerd aan Azure NetApp Files. De Azure NetApp Files-service is alleen toegankelijk vanuit hetzelfde VNet, of vanuit een VNet in dezelfde regio als het volume via VNet-peering. Het volume is ook toegankelijk vanuit uw on-premises netwerk via ExpressRoute.   
+
+    * **Subnet**  
+        Geef het subnet op dat u wilt gebruiken voor het volume.  
+        Het opgegeven subnet moet zijn gedelegeerd aan Azure NetApp Files. 
+        
+        Als u geen subnet hebt gedelegeerd, kunt u klikken op **Nieuwe maken** op de pagina Een volume maken. Geef vervolgens op de pagina Subnet maken de subnetgegevens op, en selecteer **Microsoft.NetApp/volumes** om het subnet te delegeren aan Azure NetApp Files.    
+ 
+        ![Nieuw volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+    
+        ![Subnet maken](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
 
 4.  Klik op **OK**. 
  
 Een volume neemt het abonnement, de resourcegroep en de locatiekenmerken over van de bijbehorende capaciteitspool. U kunt de implementatiestatus van het volume controleren vanuit het tabblad Meldingen.
 
 ## <a name="next-steps"></a>Volgende stappen  
-[Exportbeleid voor een volume configureren (optioneel)](azure-netapp-files-configure-export-policy.md)
+* [Exportbeleid voor een volume configureren (optioneel)](azure-netapp-files-configure-export-policy.md)
+* Meer informatie over [Integratie van virtuele netwerken voor Azure-services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Portal: een SQL Managed Instance maken | Microsoft Docs'
+title: 'Azure Portal: Een SQL Managed Instance maken | Microsoft Docs'
 description: Een SQL Managed Instance, een netwerkomgeving en een client-VM maken om toegang te krijgen.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: d5be25abc634200e0c0afed6946b38fd163fb78e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 4b8c67cfff89b54b4776ebc8b4586cd8f52950b3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890497"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342609"
 ---
-# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snelstart: Een beheerd exemplaar van een Azure SQL-database maken
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snelstartgids: Een beheerd exemplaar van een Azure SQL-database maken
 
 In deze snelstartgids leert u hoe u een [beheerd exemplaar](sql-database-managed-instance.md) van een Azure SQL-database maakt in de Azure-portal.
 
@@ -48,7 +48,7 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
    |**Beheerdersaanmeldgegevens voor het beheerde exemplaar**|Een geldige gebruikersnaam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen. Maak geen gebruik van 'serverbeheerder' aangezien dit een rol is die op serverniveau is gereserveerd.|
    |**Wachtwoord**|Een geldig wachtwoord|Het wachtwoord moet minstens 16 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Locatie**|De locatie waarop u het beheerde exemplaar wilt maken|Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's.|
-   |**Virtueel netwerk**|Selecteer **Nieuw virtueel netwerk maken** of een virtueel netwerk dat u eerder hebt gemaakt in de resourcegroep die u eerder hebt opgegeven op dit formulier.| Als u een virtueel netwerk voor een beheerd exemplaar wilt configureren met aangepaste instellingen, leest u [SQL Managed Instance Virtual Network Environment](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) in Github. Zie [Een VNet configureren voor een beheerd exemplaar van Azure SQL Database](sql-database-managed-instance-vnet-configuration.md) voor informatie over de vereisten voor het configureren van de netwerkomgeving voor een beheerd exemplaar. |
+   |**Virtueel netwerk**|Selecteer **Nieuw virtueel netwerk maken** of een geldig virtueel netwerk en subnet.| Als een netwerk/subnet niet beschikbaar is, moet het worden [gewijzigd om te voldoen aan de netwerkvereisten](sql-database-managed-instance-configure-vnet-subnet.md) voordat u het als doel voor het nieuwe beheerde exemplaar kunt selecteren. Zie [Een VNet configureren voor een beheerd exemplaar van Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md) voor informatie over de vereisten voor het configureren van de netwerkomgeving voor een beheerd exemplaar. |
    |**Resourcegroep**|Een nieuwe of bestaande resourcegroep|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen.|
 
    ![formulier voor beheerd exemplaar](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

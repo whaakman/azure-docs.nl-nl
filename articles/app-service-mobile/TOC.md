@@ -2,7 +2,7 @@
 
 # Overzicht
 ## [Wat zijn mobiele apps?](app-service-mobile-value-prop.md)
-## [App Service-abonnementen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [App Service-abonnementen](../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Snelstartgidsen
 ## [Android](app-service-mobile-android-get-started.md)
@@ -19,8 +19,8 @@
 ### [Verificatie en autorisatie in Azure Mobile Apps](app-service-mobile-auth.md)
 ### [Offlinesynchronisatie van gegevens in Azure Mobile Apps](app-service-mobile-offline-data-sync.md)
 ### [Aanbevolen procedures voor Azure App Service](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Meer informatie over App Service-abonnementen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Hosting met hoge dichtheid](../app-service/environment/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Meer informatie over App Service-abonnementen](../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Hosting met hoge dichtheid](../app-service/manage-scale-per-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service-omgeving](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Ontwikkelen
@@ -81,7 +81,7 @@
 ## Implementeren
 ### [Cloudsynchronisatie implementeren](../app-service/deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Doorlopende implementatie](../app-service/deploy-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Faseringsomgevingen](../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Faseringsomgevingen](../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Lokale Git-implementatie](../app-service/deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Implementatie van Azure Resource Manager](../app-service/deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -95,14 +95,14 @@
 ## Beheren
 ### [Configureren](../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Aangepaste domeinen
-#### [Aangepaste domeinen kopen en configureren](../app-service/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Aangepaste domeinen kopen en configureren](../app-service/manage-custom-dns-buy-domain.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Uw eigen aangepaste domein toewijzen](../app-service/app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Aangepaste domeinen met Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [Een bestaande app klonen](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Resourcegroepen](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations)
-#### [Achtergrondtaken uitvoeren met WebJobs](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Achtergrondtaken uitvoeren met WebJobs](../app-service/webjobs-create.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 #### [Configureren](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Aangepaste configuratie-instellingen](../app-service/environment/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -136,24 +136,24 @@
 #### [Veilig verbinding maken met back-endresources](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Backup
-### [Back-up maken van uw app in Azure](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Back-up maken van uw app in Azure](../app-service/manage-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Een app in Azure herstellen](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Controle](../app-service/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Diagnostische logboekregistratie inschakelen](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Problemen met behulp van Visual Studio oplossen](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Diagnostische logboekregistratie inschakelen](../app-service/troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Problemen met behulp van Visual Studio oplossen](../app-service/troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Integreren
 ### [E-mail verzenden via SendGrid met Azure](../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Exporteren naar PowerApps en Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Een beheerde identiteit gebruiken](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Een beheerde identiteit gebruiken](../app-service/overview-managed-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Problemen oplossen
 ### Algemene probleemoplossing voor Mobile Apps
 #### [.NET-back-end](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
 #### [Node.js-back-end](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
-### [Diagnostische logboekregistratie inschakelen](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Problemen met behulp van Visual Studio oplossen](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Diagnostische logboekregistratie inschakelen](../app-service/troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Problemen met behulp van Visual Studio oplossen](../app-service/troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Naslaginformatie
 ## [SDK voor .NET-back-end](https://msdn.microsoft.com/library/azure/dn961176.aspx)

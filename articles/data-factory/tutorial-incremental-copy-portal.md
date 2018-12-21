@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 342fdce9a0e9b47380a8d8c975703ebb7f57e3b6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087126"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965544"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit een Azure SQL-database laden in Azure Blob Storage
 In deze zelfstudie maakt u een Azure-gegevensfactory met een pijplijn waarmee deltagegevens uit een tabel in een Azure SQL-database worden geladen naar Azure Blob Storage. 
@@ -43,7 +43,7 @@ In deze zelfstudie voert u de volgende stappen uit:
 ## <a name="overview"></a>Overzicht
 Hier volgt de diagramoplossing op hoog niveau: 
 
-![Stapsgewijs gegevens laden](media\tutorial-Incremental-copy-portal\incrementally-load.png)
+![Stapsgewijs gegevens laden](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
 Dit zijn de belangrijke stappen voor het maken van deze oplossing: 
 

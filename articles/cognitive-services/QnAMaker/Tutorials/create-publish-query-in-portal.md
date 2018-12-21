@@ -1,21 +1,22 @@
 ---
-title: 'Zelfstudie: Een knowledge base maken, publiceren en vragen erin beantwoorden in QnA Maker-portal'
+title: Maken, publiceren en antwoorden in QnA Maker
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie op basis van een portal gaat u via een programma een kennisdatabase maken en publiceren en vervolgens een vraag uit de knowledge base beantwoorden.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 08f708f740b90f27af5443b46c5d03bef688bd45
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221555"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164429"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Zelfstudie: Een knowledge base maken en vervolgens een vraag beantwoorden via de QnA Maker-portal
 
@@ -30,7 +31,7 @@ In deze zelfstudie leert u het volgende:
 * Curl gebruiken om een query uit te voeren op de knowledge base
 
 > [!NOTE] 
-> De programmaversie van deze zelfstudie is beschikbaar met een volledige oplossing in de [**Github-opslagplaats**Azure-Samples/cognitive-services-qnamaker-csharp](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> De programmaversie van deze zelfstudie is beschikbaar met een volledige oplossing in de GitHub-opslagplaats [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -96,7 +97,7 @@ Selecteer de knop **Publiceren** in het menu bovenaan. Wanneer u op de pagina Pu
 
 Nadat de KB is gepubliceerd, wordt het eindpunt weergegeven
 
-![Publiceren](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Eindpuntinstellingen van pagina publiceren](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>Curl gebruiken om naar een antwoord in Veelgestelde vragen te zoeken
 

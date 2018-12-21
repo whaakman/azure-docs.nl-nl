@@ -1,6 +1,6 @@
 ---
-title: Een Azure Search-service maken in de portal | Microsoft Docs
-description: Een Azure Search-service inrichten in de portal.
+title: Een Azure Search-service maken in de portal - Azure Search
+description: Een Azure Search-service inrichten in Azure Portal. Resourcegroepen, regio's en de SKU of prijscategorie kiezen.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.custom: seodec2018
+ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713924"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315976"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Een Azure Search-service maken in de portal
 
@@ -28,7 +29,7 @@ Hebt u liever PowerShell? Gebruik de [servicesjabloon](https://azure.microsoft.c
 U kunt ook [voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Als u een MSDN-abonnement hebt, ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken. 
 
 ## <a name="find-azure-search"></a>Azure Search vinden
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op het plusteken (+ Resource maken) in de linkerbovenhoek.
 3. Selecteer **Web** > **Azure Search**.
 
@@ -82,7 +83,7 @@ Als u resources toevoegt, wordt uw maandfactuur hoger. Met de [prijscalculator](
 > [!Important]
 > Een service moet [twee replica's hebben voor een alleen-lezen-SLA en drie replica's voor een lezen/schrijven-SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-1. Ga naar de pagina van uw zoekservice in de Azure-portal.
+1. Ga naar de pagina van uw zoekservice in Azure Portal.
 2. Selecteer in het navigatiedeelvenster aan de linkerkant **Instellingen** > **Schalen**.
 3. Gebruik de schuifbalk om resources van een bepaald type toe te voegen.
 

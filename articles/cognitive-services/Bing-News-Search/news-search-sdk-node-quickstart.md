@@ -1,7 +1,7 @@
 ---
-title: 'Snelstart: Bing Nieuws zoeken-SDK, Node'
+title: 'Snelstartgids: Nieuws zoeken - Bing News Search-SDK voor Node.js'
 titleSuffix: Azure Cognitive Services
-description: De Bing Nieuws zoeken-SDK-consoletoepassing instellen
+description: Gebruik deze snelstartgids om nieuws te zoeken met de Bing News Search-SDK voor Node.js en om het antwoord te verwerken.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 075ce771b6fa92663f172734aabf57b089b294a9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 0fa78474d6400f890626859c32915c8657f92d4e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316936"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249342"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-node"></a>Snelstart: Bing Nieuws zoeken-SDK met Node
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Snelstartgids: Nieuws zoeken met de Bing News Search-SDK voor Node.js
 
 De Bing Nieuws zoeken-SDK bevat de functionaliteit van de REST API voor nieuwsaanvragen en parseerresultaten. 
 

@@ -1,5 +1,5 @@
 ---
-title: Vergelijk machine learning-producten van Microsoft - Azure | Microsoft Docs
+title: Opties voor machine learning-producten van Microsoft vergelijken
 description: Vergelijk de verschillende producten van Microsoft om Machine Learning-modellen te bouwen, implementeren en beheren. Bepaal welke producten u wilt voor uw oplossing.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872541"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274107"
 ---
-# <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Wat zijn de machine learning-producten van Microsoft?
+# <a name="what-are-the-machine-learning-products-at-microsoft"></a>Wat zijn de machine learning-producten van Microsoft?
 
 Microsoft biedt tal van producten voor het bouwen, implementeren en beheren van Machine Learning-modellen. Vergelijk deze producten en kies wat u nodig hebt om uw machine learning-oplossingen zo effectief mogelijk te ontwikkelen.
 
@@ -41,8 +41,7 @@ Microsoft biedt tal van producten voor het bouwen, implementeren en beheren van 
 
 Gebruik Azure Machine Learning service om ML-modellen te trainen, implementeren en beheren met behulp van Python en CLI op cloudschaal.
 
->[!Note]
-> U kunt Azure Machine Learning gratis proberen. Een creditcard of een Azure-abonnement is niet vereist. Ga nu aan de slag. https://azure.microsoft.com/free/
+Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning-service](http://aka.ms/AMLFree).
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 

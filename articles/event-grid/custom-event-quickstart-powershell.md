@@ -1,21 +1,22 @@
 ---
-title: Aangepaste gebeurtenissen voor Azure Event Grid met PowerShell | Microsoft Docs
-description: Gebruik Azure Event Grid en PowerShell om een onderwerp te publiceren en u te abonneren op deze gebeurtenis.
+title: Aangepaste gebeurtenissen verzenden naar het webeindpunt - Event Grid, PowerShell
+description: Gebruik Azure Event Grid en PowerShell om een aangepast onderwerp te publiceren en u op gebeurtenissen voor dat onderwerp te abonneren. De gebeurtenissen worden verwerkt door een web-app.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 08/23/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 13620fbd6393c747285574cf16b519b9b6a1f324
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.custom: seodec18
+ms.openlocfilehash: 46278d0663cd748f88fcfa13d0688ec89a17bd89
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745181"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096668"
 ---
-# <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure PowerShell en Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Snelstartgids: Aangepaste gebeurtenissen naar het webeindpunt routeren met behulp van PowerShell en Event Grid
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u Azure PowerShell om een aangepast onderwerp te maken, u op het onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. Normaal gesproken verzendt u gebeurtenissen naar een eindpunt dat de gebeurtenisgegevens verwerkt en vervolgens in actie komt. Ter vereenvoudiging van dit artikel stuurt u hier de gebeurtenissen echter naar een web-app die de berichten verzamelt en weergeeft.
 
@@ -43,7 +44,7 @@ New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>Een aangepast onderwerp maken
 
-Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. In het volgende voorbeeld wordt het aangepaste onderwerp in uw resourcegroep gemaakt. Vervang `<your-topic-name>` door een unieke naam voor het onderwerp. De onderwerpnaam moet uniek zijn omdat deze deel uitmaakt van de DNS-vermelding.
+Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. In het volgende voorbeeld wordt het aangepaste onderwerp in uw resourcegroep gemaakt. Vervang `<your-topic-name>` door een unieke naam voor het onderwerp. De onderwerpnaam moet uniek zijn omdat deze deel uitmaakt van de DNS-vermelding. Daarnaast moet deze tussen 3 en 50 tekens lang zijn en mag deze alleen de waarden a-z, A-Z, 0-9 en '-' bevatten
 
 ```powershell-interactive
 $topicname="<your-topic-name>"

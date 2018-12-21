@@ -1,7 +1,7 @@
 ---
-title: 'Snelstartgids: Een zoekopdracht uitvoeren met Java - Bing Webzoekopdrachten-API'
+title: 'Snelstartgids: Een zoekopdracht op internet uitvoeren met Java - REST API voor Bing Web Search'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart leert u hoe u voor het eerst de Bing Webzoekopdrachten-API aanroept met Java en een JSON-antwoord ontvangt.
+description: Gebruik deze snelstartgids om aanvragen naar de REST API van Bing Web Search te verzenden via Java en een JSON-antwoord te ontvangen
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: bd6630f67e151dd2ee1e60654352f3070466899b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: f56d64151f36216652c21067d5f3c64270ca266c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312660"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260970"
 ---
-# <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Snelstart: Java gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Snelstartgids: Zoeken op internet met behulp van de REST API voor Bing Web Search en Java
 
 Gebruik deze snelstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en een JSON-antwoord te ontvangen.  
 

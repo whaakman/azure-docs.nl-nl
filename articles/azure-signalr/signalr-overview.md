@@ -1,23 +1,17 @@
 ---
-title: Wat is Azure SignalR | Microsoft Docs
+title: Wat is Azure SignalR
 description: Een overzicht van de service Azure SignalR.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: a159833936ec4762213f063e235fa4f9237af95b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e66326c6c4d93a92c579255cb00b6614ecc03b8c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951097"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255173"
 ---
 # <a name="what-is-azure-signalr-service"></a>Wat is de service Azure SignalR
 
@@ -25,7 +19,7 @@ Met de service Azure SignalR wordt het proces van het toevoegen van realtimewebf
 
 In dit artikel vindt u een overzicht van de service Azure SignalR.
 
-## <a name="what-is-azure-signalr-service-used-for"></a>Waarvoor wordt de service Azure SignalR gebruikt? 
+## <a name="what-is-azure-signalr-service-used-for"></a>Waarvoor wordt de service Azure SignalR gebruikt?
 
 Er zijn allerlei soorten toepassingen waarvoor inhoud in realtime moet worden bijgewerkt. De volgende voorbeelden zijn bij uitstek geschikt voor het gebruik van de service Azure SignalR:
 
@@ -45,4 +39,3 @@ Er zijn momenteel drie manieren om de service Azure SignalR te gebruiken:
 - **[Een ASP.NET Core SignalR-app schalen](signalr-overview-scale-aspnet-core.md)**: integreer de service Azure SignalR met een ASP.NET Core SignalR-toepassing om uit te schalen naar duizenden verbindingen.
 - **[Serverloze realtimeapps bouwen](signalr-overview-azure-functions.md)**: gebruik de integratie van Azure Functions met de service Azure SignalR om serverloze realtimetoepassingen te bouwen in talen zoals JavaScript, C# en Java.
 - **[Berichten van de server verzenden naar clients via REST API](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)**: de service Azure SignalR biedt REST API waarmee via toepassingen berichten kunnen worden verzonden naar clients die zijn verbonden met de service SignalR, in elke programmeertaal die compatibel is met REST.
-

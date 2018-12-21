@@ -1,23 +1,24 @@
 ---
-title: 'Snelstart: Knowledge base publiceren - REST, Java - QnA Maker'
-titleSuffix: Azure Cognitive Services
-description: Deze REST-quickstart helpt u bij het publiceren van uw knowledge base, waarbij de meest recente versie van de geteste knowledge base naar een specifieke Azure Search-index wordt gepusht die de gepubliceerde knowledge base vertegenwoordigt. Hiermee wordt ook een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
+title: Knowledge base publiceren, REST, Java
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: Deze REST-snelstartgids voor Java helpt u bij het publiceren van uw knowledge base, waarbij de meest recente versie van de geteste knowledge base naar een specifieke Azure Search-index wordt gepusht die de gepubliceerde knowledge base vertegenwoordigt. Hiermee wordt ook een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 58d34aa84d57c8c69a146666f23ce9f769554f88
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a115c5180044da1fe66349fefd9c28824fdd2e51
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165591"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163953"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Snelstart: Een knowledge base publiceren in QnA Maker met behulp van Java
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Snelstartgids: Een knowledge base publiceren in QnA Maker met behulp van Java
 
 In deze REST-quickstart wordt beschreven hoe u programmatisch uw KB (knowledge base ) kunt publiceren. Door te publiceren wordt de nieuwste versie van de knowledge base verstuurd naar een specifieke Azure Search-index en wordt er een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
 
@@ -40,7 +41,7 @@ In deze snelstart worden QnA Maker-API's aangeroepen:
     Als u nog geen knowledge base hebt, kunt u een voorbeeldexemplaar maken om te gebruiken met deze snelstart: [Een nieuwe knowledge base maken](create-new-kb-csharp.md).
 
 > [!NOTE] 
-> Het bestand of de bestanden van de volledige oplossing zijn beschikbaar in de Github-opslagplaats [**Azure-Samples/cognitive-services-qnamaker-java**](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> Het bestand of de bestanden van de volledige oplossing zijn beschikbaar in de GitHub-opslagplaats [**Azure-Samples/cognitive-services-qnamaker-java**](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-a-java-file"></a>Een Java-bestand maken
 
@@ -83,9 +84,9 @@ Voor alle andere antwoorden wordt het antwoord ongewijzigd geretourneerd.
 
 ## <a name="build-and-run-the-program"></a>Het programma bouwen en uitvoeren
 
-Bouw het programma en voer het uit vanaf de opdrachtregel. De aanvraag wordt automatisch verzonden naar de QnA Maker-API, waarna het antwoord wordt weergegeven in het consolevenster.
+Compileer het programma en voer het uit vanaf de opdrachtregel. De aanvraag wordt automatisch verzonden naar de QnA Maker-API, waarna het antwoord wordt weergegeven in het consolevenster.
 
-1. Het bestand bouwen:
+1. Het bestand compileren:
 
     ```bash
     javac -cp "lib/*" PublishKB.java

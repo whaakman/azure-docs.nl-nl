@@ -1,18 +1,18 @@
 ---
-title: Azure CLI-script - Een Azure Cosmos DB Gremlin-API-account, -database en -grafiek maken | Microsoft Docs
+title: Azure CLI-script - Een Azure Cosmos DB Gremlin-API-account, -database en -grafiek maken
 description: Azure CLI-voorbeeldscript - Een Azure Cosmos DB Gremlin-API-account, -database en -grafiek maken
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: c920fd55442897688fab8c88e599fe4837667cf9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0e870b00cefc235a99c084c5a405b69c07187907
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019545"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956666"
 ---
 # <a name="azure-cosmos-db-create-a-gremlin-api-account-using-azure-cli"></a>Azure Cosmos DB: een Gremlin-API-account maken met behulp van Azure CLI
 

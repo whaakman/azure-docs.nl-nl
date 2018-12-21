@@ -1,21 +1,22 @@
 ---
-title: Aangepaste gebeurtenissen voor Azure Event Grid met Azure Portal | Microsoft Docs
-description: Gebruik Azure Event Grid en PowerShell om een onderwerp te publiceren en u te abonneren op deze gebeurtenis.
+title: Aangepaste gebeurtenissen verzenden naar het webeindpunt - Event Grid, Azure Portal
+description: Gebruik Azure Event Grid en Azure Portal om een aangepast onderwerp te publiceren en u op gebeurtenissen voor dat onderwerp te abonneren. De gebeurtenissen worden verwerkt door een web-app.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: seodec18
+ms.openlocfilehash: e93ee410d1d6ac0de0646194c716d64ffb8e4316
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040623"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093442"
 ---
-# <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure Portal en Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Snelstartgids: Aangepaste gebeurtenissen routeren naar het webeindpunt met behulp van Azure Portal en Event Grid
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u Azure Portal om een aangepast onderwerp te maken, u op het aangepaste onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. Normaal gesproken verzendt u gebeurtenissen naar een eindpunt dat de gebeurtenisgegevens verwerkt en vervolgens in actie komt. Ter vereenvoudiging van dit artikel stuurt u hier de gebeurtenissen echter naar een web-app die de berichten verzamelt en weergeeft.
 
@@ -45,7 +46,7 @@ Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waaro
 
    ![Eerste stappen](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Geef een unieke naam op voor het aangepaste onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Gebruik niet de naam die in de afbeelding wordt weergegeven. Maak in plaats daarvan een eigen naam. Geef een naam op voor de resourcegroep. Selecteer **Maken**.
+1. Geef een unieke naam op voor het aangepaste onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Gebruik niet de naam die in de afbeelding wordt weergegeven. Maak in plaats daarvan uw eigen naam - deze moet tussen 3 en 50 tekens lang zijn en mag alleen de waarden a-z, A-Z, 0-9 en '-' bevatten. Geef een naam op voor de resourcegroep. Selecteer **Maken**.
 
    ![Waarden opgeven voor Event Grid-onderwerp](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

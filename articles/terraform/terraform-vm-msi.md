@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242089"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971161"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Een Microsoft Azure Marketplace-installatiekopie gebruiken om een virtuele Terraform Linux-machine te maken met een beheerde identiteit voor Azure-resources
 
@@ -31,13 +31,13 @@ Voordat u een virtuele Linux Terraform-machine kunt maken, moet u over een Azure
 
 Hier ziet u de stappen die u moet uitvoeren om een exemplaar van een virtuele Linux Terraform-machine te maken: 
 
-1. Ga in Azure Portal naar de lijst [Resource maken](https://ms.portal.azure.com/#create/hub).
+1. Ga in de Azure-portal naar de lijst [Resource maken](https://ms.portal.azure.com/#create/hub).
 
 2. Ga naar de zoekbalk **Zoeken in Marketplace** en zoek **Terraform**. Selecteer de sjabloon **Terraform**. 
 
 3. Ga naar het tabblad met Terraform-details (rechtsonder) en selecteer de knop **Maken**.
 
-    ![Een virtuele Terraform-machine maken](media\terraformmsi.png)
+    ![Een virtuele Terraform-machine maken](media/terraformmsi.png)
 
 4. De volgende gedeelten geven informatie voor alle stappen in de wizard om de virtuele Terraform Linux-machine te maken. In het volgende gedeelte staat de informatie die u nodig hebt om alle stappen te configureren.
 
@@ -48,8 +48,8 @@ Voer de volgende details in op het tabblad **Terraform maken**:
 1. **Basisinstellingen**
     
    * **Naam**: de naam van uw virtuele Terraform-machine.
-   * **Gebruikersnaam**: de aanmeld-id van de eerste account.
-   * **Wachtwoord**: het wachtwoord van de eerste account. (U kunt een openbare SSH-sleutel gebruiken in plaats van een wachtwoord.)
+   * **Gebruikersnaam**: de aanmeldings-id van het eerste account.
+   * **Wachtwoord**: het wachtwoord van het eerste account. (U kunt een openbare SSH-sleutel gebruiken in plaats van een wachtwoord.)
    * **Abonnement**: het abonnement waarop de machine moet worden gemaakt en gefactureerd. U hebt privileges voor het maken van resources nodig voor dit abonnement.
    * **Resourcegroep**: een nieuwe of bestaande resourcegroep.
    * **Locatie**: het meest geschikte datacenter. Doorgaans is dit het datacenter waarop de meeste van uw gegevens zijn opgeslagen of het datacenter dat fysiek het dichtst bij u in de buurt staat voor de snelste netwerktoegang.
@@ -57,7 +57,7 @@ Voer de volgende details in op het tabblad **Terraform maken**:
 2. **Aanvullende instellingen**
 
    * **Grootte**: de grootte van de virtuele machine. 
-   * **VM-schijftype**: SSD of HDD.
+   * **Type VM-schijf**: SSD of HDD.
 
 3. **Samenvatting Terraform**
 

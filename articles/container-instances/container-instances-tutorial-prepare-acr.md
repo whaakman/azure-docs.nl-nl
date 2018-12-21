@@ -1,21 +1,21 @@
 ---
-title: Zelfstudie voor Azure Container Instances - Azure Container Registry voorbereiden
-description: Zelfstudie voor Azure Container Instances, deel 2 van 3 - Azure Container Registry voorbereiden
+title: 'Zelfstudie: een containerregister voorbereiden voor Azure Container Instances'
+description: Zelfstudie voor Azure Container Instances, deel 2 van 3 - Azure-containerregister voorbereiden
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: e7cf9c5fad6219e71205c181b2dbb6828595afdd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eeb0fe5b19f23e101eab9393dca64e1e13bf6922
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855439"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188911"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Zelfstudie: Azure Container Registry implementeren en gebruiken
+# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Zelfstudie: een Azure-containerregister voorbereiden en een containerinstallatiekopie pushen
 
 Dit is deel 2 van een zelfstudie met drie delen. In [deel één](container-instances-tutorial-prepare-app.md) van de zelfstudie hebt u een Docker-containerinstallatiekopie gemaakt voor een Node.js-webtoepassing. In deze zelfstudie pusht u de installatiekopie naar Azure Container Registry. Als u nog geen containerinstallatiekopie hebt gemaakt, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopie maken](container-instances-tutorial-prepare-app.md).
 

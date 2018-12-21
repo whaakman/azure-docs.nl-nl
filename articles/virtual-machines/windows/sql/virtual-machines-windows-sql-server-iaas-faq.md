@@ -102,11 +102,11 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
  
    Ja. Alle klanten zich registreren bij de nieuwe SQL-VM-resourceprovider. Echter alleen klanten met Software Assurance-voordeel kunnen activeren de [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (of byol-model) op een virtuele machine van SQL Server. 
 
-1. **Wat gebeurt er met de _* Microsoft.SqlVirtualMachine_* resource als de VM-resource is verplaatst of verwijderd?** 
+1. **Wat gebeurt er met de _\*Microsoft.SqlVirtualMachine_\* resource als de VM-resource is verplaatst of verwijderd?** 
 
    Wanneer de Microsoft.Compute/VirtualMachine-resource is verwijderd of verplaatst, en vervolgens de gekoppelde Microsoft.SqlVirtualMachine-resource is op de hoogte gesteld aan de bewerking asynchroon te repliceren.
 
-1. **Wat gebeurt er met de virtuele machine als de _* Microsoft.SqlVirtualMachine_* resource wordt verwijderd?**
+1. **Wat gebeurt er met de virtuele machine als de _\*Microsoft.SqlVirtualMachine_\* resource wordt verwijderd?**
 
    De resource Microsoft.Compute/VirtualMachine wordt niet negatief beïnvloed wanneer de Microsoft.SqlVirtualMachine-resource is verwijderd. De licentie wijzigingen wordt echter standaard terug naar de oorspronkelijke bron van installatiekopie. 
 

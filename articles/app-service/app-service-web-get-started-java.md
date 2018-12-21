@@ -1,5 +1,5 @@
 ---
-title: Uw eerste Java-web-app in Azure maken
+title: Een Java-web-app maken - Azure App Service
 description: In dit artikel leest u hoe u door het implementeren van een eenvoudige Java-app leert hoe u web-apps uitvoert in App Service.
 services: app-service\web
 documentationcenter: ''
@@ -14,24 +14,24 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.custom: seodec18
+ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283925"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253152"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Uw eerste Java-web-app in Azure maken
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze snelstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/).
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze Quickstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](https://www.eclipse.org/).
 
 > [!NOTE]
 >
 > De stappen in deze snelstart laten zien hoe u de Eclipse IDE kunt gebruiken voor het publiceren van een Java-web-app naar App Service. U kunt de IntelliJ IDEA Ultimate Edition of Community Edition gebruiken. Zie [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) (Een Hallo wereld-web-app voor Azure maken met IntelliJ) voor meer informatie.
 >
 
-Wanneer u deze snelstart hebt voltooid en uw toepassing in een webbrowser bekijkt, ziet uw toepassing er ongeveer als volgt uit:
+Wanneer u deze quickstart hebt voltooid en uw toepassing in een webbrowser bekijkt, ziet uw toepassing er ongeveer als volgt uit:
 
 !['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -39,9 +39,9 @@ Wanneer u deze snelstart hebt voltooid en uw toepassing in een webbrowser bekijk
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze onderdelen moeten zijn geïnstalleerd om deze snelstart te kunnen voltooien:
+Deze onderdelen moeten zijn geïnstalleerd om deze Quickstart te kunnen voltooien:
 
-* De gratis <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE voor Java EE-ontwikkelaars</a>. Deze snelstart maakt gebruik van Eclipse Neon.
+* De gratis <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE voor Java EE-ontwikkelaars</a>. Deze Quickstart maakt gebruik van Eclipse Neon.
 * De <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit voor Eclipse</a>.
 
 > [!NOTE]
@@ -121,9 +121,9 @@ In het dialoogvenster **App Service maken**:
 * Selecteer een Azure-abonnement.
 * Op het tabblad **App Service-plan**:
 
-  * **Nieuwe maken**: gebruik de standaardwaarde, wat de naam van het App Service-plan is.
-  * **Locatie**: selecteer **West-Europa** of een locatie bij u in de buurt.
-  * **Prijscategorie**: selecteer een gratis variant. Voor een functiebeschrijving zie [App Service-prijzen](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+  * **Nieuwe maken**: Gebruik de standaardinstelling. Dit is de naam van het App Service-plan.
+  * **Locatie**: Selecteer **West-Europa** of een locatie bij u in de buurt.
+  * **Prijscategorie**: Selecteer de gratis optie. Voor een functiebeschrijving zie [App Service-prijzen](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
    ![Het dialoogvenster App Service maken](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
@@ -165,7 +165,7 @@ Als het publiceren is voltooid, selecteert u de koppeling **Gepubliceerd** in he
 
 ![Het dialoogvenster Azure-activiteitenlogboek](./media/app-service-web-get-started-java/aal.png)
 
-Gefeliciteerd. De web-app is nu geïmplementeerd in Azure. 
+Gefeliciteerd! De web-app is nu geïmplementeerd in Azure. 
 
 !['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -201,7 +201,7 @@ Selecteer **Resourcegroepen** in het linkermenu.
 
 ![Portalnavigatie naar resourcegroepen](media/app-service-web-get-started-java/rg.png)
 
-Selecteer de resourcegroep. De pagina bevat de resources die u in deze snelstart hebt gemaakt.
+Selecteer de resourcegroep. De pagina bevat de resources die u in deze Quickstart hebt gemaakt.
 
 ![Resourcegroep](media/app-service-web-get-started-java/rg2.png)
 

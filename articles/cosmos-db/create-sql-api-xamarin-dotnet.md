@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: een taken-app ontwikkelen met Xamarin'
+title: 'Azure Cosmos DB: Een taken-app ontwikkelen met Xamarin'
 description: Biedt een Xamarin-voorbeeldcode die u kunt gebruiken om verbinding te maken met en query's uit te voeren op Azure Cosmos DB
 services: cosmos-db
 author: codemillmatt
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 0099bacb98d921a852ece8787bcb7152c5eae3f2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f955e0386cd601212eb992870f02607538b537e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838563"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252623"
 ---
-# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: een taken-app ontwikkelen met Xamarin
+# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Een taken-app ontwikkelen met Xamarin
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -90,7 +90,7 @@ Nu gaat u de SQL API-app voor Xamarin klonen vanuit GitHub, de code controleren,
 
 Ga terug naar Azure Portal om de API-sleutelgegevens op te halen en deze in de app te kopiëren.
 
-1. Klik in [Azure Portal](http://portal.azure.com/), in uw SQL API-account voor Azure Cosmos DB, in het linker navigatiegedeelte op **Sleutels** en klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en Primaire sleutel in het bestand APIKeys.cs te kopiëren.
+1. Klik in [Azure Portal](https://portal.azure.com/), in uw SQL API-account voor Azure Cosmos DB, in het linker navigatiegedeelte op **Sleutels** en klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en Primaire sleutel in het bestand APIKeys.cs te kopiëren.
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-xamarin-dotnet/keys.png)
 
@@ -114,9 +114,9 @@ Deze oplossing laat zien hoe u een taken-app kunt maken met behulp van de SQL AP
 
 De code in de takenoplossing bevat:
 
-* ToDoItems.Core: dit is een standaard .NET-project met een Xamarin.Forms-project en een logische code voor gedeelde toepassingen die taken in Azure Cosmos DB bijhoudt.
-* ToDoItems.Android: dit project bevat de Android-app.
-* ToDoItems.iOS: dit project bevat de iOS-app.
+* ToDoItems.Core: Dit is een standaard .NET-project met een Xamarin.Forms-project en een logische code voor gedeelde toepassingen die taken in Azure Cosmos DB bijhoudt.
+* ToDoItems.Android: Dit project bevat de Android-app.
+* ToDoItems.iOS: Dit project bevat de iOS-app.
 
 Laten we nog eens kort bekijken hoe de app met Azure Cosmos DB communiceert.
 

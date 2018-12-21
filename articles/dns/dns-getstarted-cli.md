@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: 914f6ff67fb3f178a1cc8ad6aa698527cdbf40b4
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: e61975d81fd5920feb5fd47845c67d0aa5293ae6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889766"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962008"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Snelstart: Een Azure DNS-zone en -record maken met behulp van de Azure CLI
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Snelstartgids: Een Azure DNS-zone en -record maken met behulp van Azure CLI
 
 Dit artikel begeleidt u stapsgewijs door de procedure voor het maken van uw eerste DNS-zone en -record met behulp van de Azure-CLI die beschikbaar is voor Windows, Mac en Linux. U kunt deze stappen ook uitvoeren met [Azure Portal](dns-getstarted-portal.md) of Azure[ PowerShell](dns-getstarted-powershell.md).
 
@@ -90,7 +90,7 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 }
 ```
 
-Deze naamservers moeten worden geconfigureerd met de domeinnaamregistrar (waar u de domeinnaam hebt gekocht). Uw registrar zal u de mogelijkheid bieden om de naamservers voor het domein in te stellen. Zie [Zelfstudie: uw domein in Azure DNS hosten](dns-delegate-domain-azure-dns.md#delegate-the-domain) voor meer informatie.
+Deze naamservers moeten worden geconfigureerd met de domeinnaamregistrar (waar u de domeinnaam hebt gekocht). Uw registrar zal u de mogelijkheid bieden om de naamservers voor het domein in te stellen. Zie [Zelfstudie: Uw domein hosten in Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain) voor meer informatie.
 
 ## <a name="delete-all-resources"></a>Alle resources verwijderen
  

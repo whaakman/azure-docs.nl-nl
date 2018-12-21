@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Een afbeelding analyseren - SDK, C# - Computer Vision'
+title: 'Snelstartgids: een afbeelding analyseren - SDK, C# - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart analyseert u een afbeelding met behulp van de Computer Vision Windows C#-clientbibliotheek.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 7de7a87c73c2dabddf2268a6a0bc2992d6017e4d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0983978221e9872e92ca366edd3bd3f2bfd9c3f4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853928"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413316"
 ---
-# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Snelstart: een afbeelding analyseren met de Computer Vision-SDK en C#
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Snelstartgids: Een afbeelding analyseren met de Computer Vision-SDK en C#
 
 In deze snelstart analyseert u zowel een lokale als een externe afbeelding om visuele functies te extraheren met behulp van de Computer Vision Windows-clientbibliotheek.
 
@@ -162,7 +162,7 @@ namespace ImageAnalyze
 
 Een geslaagd antwoord geeft het meest relevante bijschrift voor elke afbeelding.
 
-Zie [API : een lokale afbeelding analyseren met C#](../QuickStarts/CSharp-analyze.md#examine-the-response) voor een voorbeeld van onbewerkte JSON-uitvoer.
+Zie [API-snelstartgidsen: Een lokale afbeelding analyseren met C#](../QuickStarts/CSharp-analyze.md#examine-the-response) voor een voorbeeld van onbewerkte JSON-uitvoer.
 
 ```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg

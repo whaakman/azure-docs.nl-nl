@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 2bc0579d3dd60d66a23a29dabff7e43ca8dfee76
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578346"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435392"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Service-principals met AKS (Azure Kubernetes Service)
 
@@ -113,6 +113,10 @@ Mogelijk hebt u toegang nodig tot bestaande schijfresources in een andere resour
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
 - U kunt ook de ingebouwde rol [Inzender voor opslagaccounts][rbac-storage-contributor] toewijzen aan de resourcegroep
+
+### <a name="azure-container-instances"></a>Azure Container Instances
+
+Als u Virtual Kubelet gebruikt om te integreren met AKS en ervoor kiest Azure Container Instances (ACI) uit te voeren in de resourcegroep, los van de AKS-cluster, dan moet u de AKS-service-principal de machtiging *Inzender* voor de ACI-resourcegroep verlenen.
 
 ## <a name="additional-considerations"></a>Aanvullende overwegingen
 

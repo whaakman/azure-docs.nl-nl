@@ -1,30 +1,22 @@
 ---
-title: Snelstart voor serverloze Azure SignalR Service - C# | Microsoft Docs
-description: Een snelstart waarin u leert hoe u Azure SignalR Service en Azure Functions gebruikt om een chatruimte te maken.
-services: signalr
-documentationcenter: ''
+title: Snelstart voor de serverloze Azure SignalR Service - C#
+description: Een quickstart waarin u leert hoe u de service Azure SignalR en Azure Functions gebruikt om een chatruimte te maken.
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
 ms.date: 09/23/2018
 ms.author: zhshang
-ms.openlocfilehash: 7c28385c9b29f98968bcdf758f4a9a5b08da3f9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: db54282563acc6afac4dada7a45f6dff0716879a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993101"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255054"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Snelstart: Een chatruimte maken met Azure Functions en SignalR Service met behulp van C#
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Snelstart: Een chatruimte maken met Azure Functions en SignalR Service met behulp van C\#
 
-Met Azure SignalR Service kunt u eenvoudig realtime functionaliteit toevoegen aan uw toepassing. Azure Functions is een serverloos platform waarmee u uw code kunt uitvoeren zonder een infrastructuur te moeten beheren. In deze snelstart leert u hoe u SignalR Service en Functions gebruikt om een serverloze, realtime chattoepassing te bouwen.
-
+Met de service Azure SignalR kunt u eenvoudig realtimefunctionaliteit toevoegen aan een toepassing. Azure Functions is een serverloos platform waarmee u code kunt uitvoeren zonder een infrastructuur te beheren. In deze quickstart leert u hoe u de service SignalR en Functions gebruikt om een serverloze, realtimechattoepassing te bouwen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -32,32 +24,29 @@ Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
 Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
-
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-
-## <a name="configure-and-run-the-azure-function-app"></a>De Azure Functions-app uitvoeren
+## <a name="configure-and-run-the-azure-function-app"></a>De Azure-functie-app configureren en uitvoeren
 
 1. Start Visual Studio en open de oplossing in de map *chat\src\csharp* van de gekloonde opslagplaats.
 
 1. Controleer in de browser waarin de Azure Portal is geopend of het SignalR Service-exemplaar dat u eerder hebt geïmplementeerd, is gemaakt. Daarvoor typt u de naam ervan in het zoekvak bovenaan de portal. Selecteer het exemplaar om het te openen.
 
-    ![Het SignalR Service-exemplaar zoeken](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
+    ![Het service-exemplaar van SignalR zoeken](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-1. Selecteer **Sleutels** om de verbindingsreeksen voor het SignalR Service-exemplaar weer te geven.
+1. Selecteer **Sleutels** om de verbindingsreeksen voor het service-exemplaar van SignalR weer te geven.
 
 1. Selecteer en kopieer de primaire verbindingsreeks.
 
 1. Terug in Visual Studio wijzigt u in Solution Explorer de naam van *local.settings.sample.json* in *local.settings.json*.
 
-1. In **local.settings.json** plakt u de verbindingsreeks in de waarde van de instelling **AzureSignalRConnectionString**. Sla het bestand op.
+1. Plak in **local.settings.json** de verbindingsreeks in de waarde van de instelling **AzureSignalRConnectionString**. Sla het bestand op.
 
 1. Open **Functions.cs**. Deze functie-app bevat twee HTTP-geactiveerde functies:
 
@@ -68,9 +57,7 @@ Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
 
     ![Fouten in de toepassing opsporen](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
 
-
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
-
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

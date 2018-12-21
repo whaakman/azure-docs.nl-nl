@@ -1,6 +1,6 @@
 ---
-title: 'Snelstart: Azure IoT Edge + Linux | Microsoft Docs'
-description: In deze snelstart leert u hoe u vooraf geschreven code op afstand implementeert op een IoT Edge-apparaat.
+title: 'Snelstartgids: een Azure IoT Edge-apparaat maken in Linux | Microsoft Docs'
+description: In deze snelstartgids leert u hoe u een IoT Edge-apparaat maakt en daarna kant-en-klare code op afstand implementeert vanuit Azure Portal.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,15 +8,15 @@ ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2d988d70285e64414277bc2337a564aa87e45201
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1bc7425d1979b2e1a35884c0800117455aebe9b6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888134"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338053"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snelstart: uw eerste IoT Edge-module implementeren op een Linux x64-apparaat
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snelstartgids: Uw eerste IoT Edge-module implementeren op een Linux x64-apparaat
 
 Met Azure IoT Edge kunt u profiteren van de kracht van de cloud op uw Internet of Things-apparaten. In deze snelstart gebruikt u de cloudinterface om vooraf geschreven code op afstand te implementeren op een IoT Edge-apparaat.
 
@@ -27,7 +27,7 @@ In deze snelstart leert u de volgende zaken:
 3. De IoT Edge-runtime op uw apparaat installeren en starten.
 4. Op afstand een module implementeren op een IoT Edge-apparaat.
 
-![Snelstartarchitectuur](./media/quickstart-linux/install-edge-full.png)
+![Diagram - Snelstartarchitectuur voor apparaat en cloud](./media/quickstart-linux/install-edge-full.png)
 
 In deze snelstart verandert u uw Linux-computer of virtuele machine in een IoT Edge-apparaat. Vervolgens implementeert u een module vanuit Azure Portal op uw apparaat. De module die u in deze snelstart implementeert, is een gesimuleerde sensor waarmee temperatuur-, luchtvochtigheids- en drukgegevens worden gegenereerd. De andere Azure IoT Edge-zelfstudies bouwen voort op het werk dat u hier doet door modules te implementeren waarmee de gesimuleerde gegevens worden geanalyseerd voor zakelijke inzichten.
 
@@ -71,7 +71,7 @@ IoT Edge-apparaat:
 
 Begin met de snelstart door uw IoT Hub met Azure CLI te maken.
 
-![IoT Hub maken](./media/quickstart-linux/create-iot-hub.png)
+![Diagram - Een IoT-hub maken in de cloud](./media/quickstart-linux/create-iot-hub.png)
 
 Het gratis niveau van IoT Hub werkt voor deze snelstart. Als u in het verleden IoT Hub hebt gebruikt en al een gratis hub hebt gemaakt, kunt u die IoT-hub gebruiken. Elk abonnement biedt toegang tot slechts één gratis IoT-hub. 
 
@@ -86,7 +86,7 @@ Met de volgende code wordt een gratis **F1**-hub gemaakt in de resourcegroep **I
 ## <a name="register-an-iot-edge-device"></a>Een IoT Edge-apparaat registreren
 
 Registreer een IoT Edge-apparaat bij uw net gemaakte IoT Hub.
-![Een apparaat registreren](./media/quickstart-linux/register-device.png)
+![Diagram - Een apparaat registreren met een IoT Hub-entiteit](./media/quickstart-linux/register-device.png)
 
 Maak een apparaat-id voor uw gesimuleerde apparaat, zodat het met uw IoT-hub kan communiceren. De apparaat-id is opgeslagen in de cloud, en u gebruikt een unieke apparaatverbindingsreeks om een fysiek apparaat te koppelen aan een apparaat-id. 
 
@@ -111,7 +111,7 @@ Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd da
 ## <a name="connect-the-iot-edge-device-to-iot-hub"></a>Verbind het IoT Edge-apparaat met IoT Hub.
 
 Installeer en start de Azure IoT Edge-runtime op uw IoT Edge-apparaat. 
-![Een apparaat registreren](./media/quickstart-linux/start-runtime.png)
+![Diagram - De runtime op apparaat starten](./media/quickstart-linux/start-runtime.png)
 
 De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. Deze bevat drie onderdelen. De **IoT Edge-beveiligingsdaemon** wordt telkens gestart wanneer een Edge-apparaat wordt opgestart en start het apparaat op door de IoT Edge-agent te starten. De **IoT Edge-agent** faciliteert de implementatie en bewaking van modules op het IoT Edge-apparaat, inclusief de IoT Edge-hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd. 
 
@@ -171,7 +171,7 @@ Uw IoT Edge-apparaat is nu geconfigureerd. Het is gereed voor de uitvoering van 
 ## <a name="deploy-a-module"></a>Een module implementeren
 
 Beheer uw Azure IoT Edge-apparaat vanuit de cloud om een module te implementeren waarmee telemetriegegevens worden verzonden naar IoT Hub.
-![Een apparaat registreren](./media/quickstart-linux/deploy-module.png)
+![Diagram - Module implementeren vanuit cloud op apparaat](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
@@ -197,7 +197,7 @@ De berichten bekijken die vanuit de module tempSensor worden verzonden:
 
 De temperatuursensormodule wacht mogelijk op verbinding met Edge Hub als de laatste regel die u in het logboek ziet `Using transport Mqtt_Tcp_Only` is. Probeer de module te beëindigen en opnieuw te laten starten door de Edge-agent. U kunt de module beëindigen met de opdracht `sudo docker stop tempSensor`.
 
-U kunt de berichten ook zien binnenkomen bij uw IoT Hub door de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) te gebruiken. 
+U kunt de berichten ook zien binnenkomen bij uw IoT Hub door de [Azure IoT Hub Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (voorheen Azure IoT Toolkit-extensie) te gebruiken. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

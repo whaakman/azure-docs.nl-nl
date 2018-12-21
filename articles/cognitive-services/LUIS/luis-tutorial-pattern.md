@@ -1,23 +1,24 @@
 ---
-title: 'Zelfstudie 3: Patronen voor het verbeteren van LUIS-voorspellingen'
+title: Patronen
 titleSuffix: Azure Cognitive Services
 description: Gebruik patronen voor het verhogen van intent- en entiteitsvoorspelling terwijl er minder voorbeeld-utterances nodig zijn. Het patroon wordt geleverd via een voorbeeld van een sjabloon-utterance, met de syntaxis voor het identificeren van entiteiten en te negeren tekst.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138324"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075519"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Zelfstudie 3: Algemene vormen van utterances toevoegen
+# <a name="tutorial-3-add-common-utterance-formats"></a>Zelfstudie 3: Algemene vormen voor uitingen toevoegen
 
 Gebruik in deze zelfstudie patronen voor het verhogen van intent- en entiteitsvoorspelling terwijl er minder voorbeeld-utterances nodig zijn. Het patroon wordt geleverd via een voorbeeld van een sjabloon-utterance, met de syntaxis voor het identificeren van entiteiten en te negeren tekst. Een patroon is een combinatie van het vergelijken van expressies en machine learning.  Het voorbeeld van de sjabloon-utterance geeft samen met de intent-utterances LUIS een beter beeld van welke utterances het beste bij de intent passen. 
 
@@ -106,7 +107,7 @@ Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert 
 
 2. Ga naar het einde van de URL in het adres en voer `Who is the boss of Jill Jones?` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -229,7 +230,7 @@ In deze zelfstudie voegt u twee nieuwe intenties toe: `OrgChart-Manager` en `Org
 
 Nadat LUIS een voorspelling naar de client-app heeft geretourneerd, kan de naam van de intent als functienaam in de client-app worden gebruikt en de werknemer-entiteit kan worden gebruikt als parameter voor deze functie.
 
-```Javascript
+```nodejs
 OrgChartManager(employee){
     ///
 }
@@ -277,7 +278,7 @@ Houd er rekening mee dat werknemers werden gemaakt in de [zelfstudie voor de lij
 
 3. Ga naar het einde van de URL in het adres en voer `Who is the boss of Jill Jones?` in als utterance. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {

@@ -1,21 +1,22 @@
 ---
-title: Azure Event Hubs-gegevens migreren naar SQL Data Warehouse | Microsoft Docs
+title: Gebeurtenisgegevens migreren naar SQL Data Warehouse - Azure Event Hubs | Microsoft Docs
 description: In deze zelfstudie leest u hoe u gegevens uit uw Event Hub vastlegt in een SQL Data Warehouse met behulp van een Azure-functie die wordt geactiveerd door een Event Grid.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
-ms.date: 08/27/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 9673a7bff8e2d22764be28abef807434c53cc552
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 03ebdabf60882a73eb15cbd36481068591bbd3bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145130"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086280"
 ---
-# <a name="process-and-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Vastgelegde Event Hub-gegevens verwerken en migreren naar een SQL Data Warehouse met behulp van Event Grid en Azure Functions
+# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Vastgelegde Event Hub-gegevens migreren naar een SQL Data Warehouse met behulp van Event Grid en Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) is de eenvoudigste manier om automatisch gestreamde gegevens in Event Hubs te verzenden naar een Azure Blob Storage of Azure Data Lake Store. U kunt de gegevens vervolgens verwerken en verzenden naar andere opslagdoelen van uw keuze, zoals SQL Data Warehouse of Cosmos DB. In deze zelfstudie leest u hoe u gegevens uit uw Event Hub vastlegt in een SQL Data Warehouse met behulp van een Azure-functie die wordt geactiveerd door een [Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 

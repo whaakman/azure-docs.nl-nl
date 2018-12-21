@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 96141ddeeb73c7483935d5da49b9341436c10c18
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0351ab3213ac75559cc025f2ef71e2f098a7504c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429687"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993186"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Snelstart: Een serverfirewall configureren - Portal
 
@@ -21,12 +21,12 @@ Deze snelstart helpt u bij het configureren van een firewall voor uw Azure Analy
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Azure Analysis Services-server in uw abonnement. Zie [Snelstart: Een server maken - Portal](analysis-services-create-server.md) of [Snelstart: Een server maken - PowerShell](analysis-services-create-powershell.md) voor meer informatie.
+- Een Azure Analysis Services-server in uw abonnement. Raadpleeg voor meer informatie [Snelstart: Een server maken - Portal](analysis-services-create-server.md) of [Snelstart: Een server maken - PowerShell](analysis-services-create-powershell.md)
 - Een of meer IP-adresbereiken voor clientcomputers (indien nodig).
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal 
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal 
 
-[Meld u aan bij de portal](https://portal.azure.com).
+[Aanmelden bij de portal](https://portal.azure.com)
 
 ## <a name="configure-a-firewall"></a>Een firewall configureren
 

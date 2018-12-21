@@ -1,7 +1,7 @@
 ---
-title: 'Snelstart: Bing Nieuws zoeken-API, C#'
+title: 'Snelstartgids: Nieuws zoeken met C# - REST API voor Bing News Search'
 titlesuffix: Azure Cognitive Services
-description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Nieuws zoeken-API.
+description: Gebruik deze snelstartgids om een aanvraag naar de REST API van Bing News Search te verzenden via C# en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: b69e00a31d5746b7f25ef6156b703a4505a89630
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 20a5e24a4fce2bb8dc817cb74c2a58a1bc304fae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314837"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250413"
 ---
-# <a name="quickstart-bing-news-search-api-with-c"></a>Snelstart: Bing Nieuws zoeken-API met C#
+# <a name="quickstart-perform-a-news-search-using-c-and-the-bing-news-search-rest-api"></a>Snelstartgids: Nieuws zoeken met C# en de REST API van Bing News Search
 
 In dit artikel wordt beschreven hoe u de Bing Zoeken-API gebruikt, die onderdeel vormt van Microsoft Cognitive Services in Azure. Hoewel in dit artikel C# wordt gebruikt, is de API een RESTful-webservice die compatibel is met elke programmeertaal die HTTP-aanvragen kan doen en JSON kan parseren. 
 

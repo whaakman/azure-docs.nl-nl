@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277967"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434950"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor federatieve domeinen
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory-deelname configureren voor federatieve domeinen
 
 Net zoals een gebruiker, wordt een apparaat ook een identiteit die u wilt beschermen en die u wilt gebruiken om uw bronnen altijd en overal te beschermen. U kunt dit doel bereiken door de identiteiten van uw apparaten naar Azure AD te brengen met een van de volgende methoden:
 
@@ -53,9 +53,12 @@ In deze zelfstudie wordt ervan uitgegaan dat u bekend bent met:
 -  [De hybride Azure AD-deelname van uw apparaten beheren](hybrid-azuread-join-control.md)
 
 
+
 Voor het configureren van het scenario in deze zelfstudie hebt u het volgende nodig:
 
 - Windows Server 2012 R2 met AD FS
+
+- Een on-premises Active Directory (AD) met schemaniveau 85 of hoger. Zie voor meer informatie [Upgrade your Active Directory Schema](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema) (Upgrade van uw Active Directory-schema uitvoeren).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) versie 1.1.819.0 of hoger. 
  

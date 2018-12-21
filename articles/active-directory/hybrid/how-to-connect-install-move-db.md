@@ -10,12 +10,12 @@ ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a42deb6bc039602c4bda523d2ab1ee5a69bb5644
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cbc86405225cca0d5144b48b113cf41607ce16f4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303533"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434117"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Azure AD Connect-database verplaatsen van SQL Server Express naar SQL Server 
 
@@ -30,7 +30,7 @@ Hier volgt kort wat informatie over dit scenario.  In dit scenario is Azure AD C
 Voer de volgende stappen uit om de Azure AD Connect-database te verplaatsen naar een externe SQL-server.
 
 1.  Ga op de Azure AD Connect-server naar **Services** en stop de service **Microsoft Azure AD Sync**.
-2. Ga naar de map **%Program Files%\Microsoft Azure AD Sync/Data/** en kopieer de bestanden **ADSync.mdf** en **ADSync_log.mdf** naar de externe SQL-server.
+2. Ga naar de map **%Program Files%\Microsoft Azure AD Sync/Data/** en kopieer de bestanden **ADSync.mdf** en **ADSync_log.ldf** naar de externe SQL-server.
 3. Start de service **Microsoft Azure AD Sync** opnieuw op de Azure AD Connect-server.
 4. Verwijder Azure AD Connect in het configuratiescherm bij Programma’s > Programma's en onderdelen.  Selecteer Microsoft Azure AD Connect en klik bovenaan op Verwijderen.
 5. Open SQL Server Management Studio op de externe SQL-server.

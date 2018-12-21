@@ -1,5 +1,5 @@
 ---
-title: ACR gebruiken met een Azure DC/OS-cluster
+title: (AFGESCHAFT) ACR gebruiken met een Azure DC/OS-cluster
 description: Een Azure Container Registry met een DC/OS-cluster gebruiken in Azure Container Service
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 81b5bd18ea367b68adfc41ee97768b3b28967a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a27f6c017d9d648414637f900e0cf7c4be147bfe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986625"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996334"
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>ACR met een DC/OS-cluster gebruiken om uw toepassing te implementeren
+# <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(AFGESCHAFT) ACR met een DC/OS-cluster gebruiken om uw toepassing te implementeren
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In dit artikel wordt uitgelegd hoe u Azure Container Registry gebruikt met een DC/OS-cluster. Als u ACR gebruikt, kunt u containerinstallatiekopieën privé opslaan en beheren. Deze zelfstudie bestaat uit de volgende taken:
 

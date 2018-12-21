@@ -1,23 +1,24 @@
 ---
-title: Python-snelstart - Model wijzigen en LUIS-app trainen
-titleSuffix: Azure Cognitive Services
-description: In deze Python-snelstart leert u hoe u voorbeelden van utterances toevoegt aan een Home Automation-app en de app traint. Voorbeeldutterances zijn teksten uit gesprekken met gebruikers die worden toegewezen aan een intentie. Door voorbeeldutterances op te geven voor intenties leert u LUIS welke soorten door de gebruiker geleverde tekst bij welke intentie horen.
+title: Wijzigen, app trainen, Python
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: In deze Python-snelstart leert u hoe u voorbeelden van utterances toevoegt aan een Home Automation-app en de app traint.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6d05859977a7cba385877298405b9ce77034da68
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040173"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166350"
 ---
-# <a name="quickstart-change-model-using-python"></a>Snelstart: Model wijzigen met behulp van Python
+# <a name="quickstart-change-model-using-python"></a>Snelstartgids: Model wijzigen met behulp van Python
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -27,7 +28,7 @@ ms.locfileid: "47040173"
 * [Python 3.6](https://www.python.org/downloads/) of later.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>JSON-bestand met voorbeeldutterances
 
@@ -46,7 +47,7 @@ Voer de toepassing vanaf een opdrachtregel uit met Python 3.6.
 
 Het aanroepen van add-utterance zonder argumenten voegt een utterance aan de app toe, zonder deze te trainen.
 
-```CMD
+```console
 > python add-utterances-3-6.py
 ```
 
@@ -83,7 +84,7 @@ Het volgende toont het resultaat van een succesvolle trainingsaanvraag:
 }
 ```
 
-```JSON
+```json
 Requested training status.
 [
    {

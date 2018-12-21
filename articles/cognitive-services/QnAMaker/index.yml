@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a4402d33bda8ece965608a19c8150ec616118b1c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a6afbd8e2ffd76ca29be294f5badbc7fa2edbc9a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105968"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650011"
 documentType: LandingData
 title: Documentatie voor QnA Maker
 metadata:
@@ -18,10 +18,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/10/2018
+  ms.date: 12/18/2018
   ms.author: tulasim
 abstract:
-  description: Met QnA Maker kunt u een vraag- en antwoordservice maken op basis van uw semi-gestructureerde inhoud zoals FAQ-documenten of URL's en producthandleidingen.
+  description: QnA Maker is een cloudgebaseerde API-service voor het maken van een vraag- en antwoordlaag over uw gegevens in gespreksstijl. Met QnA Maker kunt u een vraag- en antwoordservice maken op basis van uw semi-gestructureerde inhoud zoals FAQ-documenten, URL's en producthandleidingen. De QnA Maker-service beantwoordt de in natuurlijke taal gestelde vragen van uw gebruikers door deze te koppelen aan de best mogelijke antwoorden uit de QnA's in uw kennisbank.
   aside:
     image:
       alt: 
@@ -32,6 +32,27 @@ abstract:
     href: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
     width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/qnamaker/overview/overview
+      html: <p>Meer informatie over QnA Maker.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is QnA Maker?
+    - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
+      html: '<p>Quickstart: Leer hoe u een knowledge base maakt, traint en publiceert.</p>'
+      image:
+        src: ../media/index/i_tasks.svg
+      title: Een knowledge base maken, trainen en publiceren
+    - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
+      html: <p>Leer hoe u een knowledge base maakt.</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: Gegevensbronnen begrijpen
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
@@ -59,6 +80,15 @@ sections:
         src: media/index/logo_python.svg
       text: Python
       href: Quickstarts/create-new-kb-python
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: 'Leer apps te ontwikkelen met QnA Maker:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">Maak een knowledge base en beantwoord vragen</a></li>
+    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">Een QnA Maker-bot maken</a></li>
 - title: Naslaginformatie
   items:
   - type: list

@@ -1,21 +1,22 @@
 ---
 title: 'Zelfstudie: Een taalmodel maken met Speech Service'
 titlesuffix: Azure Cognitive Services
-description: Leer hoe u een taalmodel maakt met Speech Service.
+description: Leer hoe u een taalmodel maakt met Speech Service. Gebruik dit aangepaste taalmodel in combinatie met bestaande geavanceerde spraakmodellen van Microsoft om spraakinteractie toe te voegen aan uw toepassing.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468990"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093449"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Zelfstudie: Een aangepast taalmodel maken
 
@@ -48,7 +49,7 @@ De zinnen hoeven niet volledig of grammaticaal correct te zijn, maar moeten wel 
 
 De gegevens van het taalmodel moeten in UTF-8 BOM zijn geschreven. Het tekstbestand moet één voorbeeld (zin, utterance of query) per regel bevatten.
 
-Als u wilt dat sommige termen een hoger gewicht hebben (belangrijker zijn), kunt u aan uw gegevens verschillende utterances toevoegen die deze termen bevatten. 
+Als u wilt dat sommige termen een hoger gewicht hebben (belangrijker zijn), kunt u aan uw gegevens verschillende utterances toevoegen die deze termen bevatten.
 
 De belangrijkste vereisten voor de taalgegevens worden samengevat in de volgende tabel.
 
@@ -75,7 +76,7 @@ Selecteer de knop **Import** (importeren) in de rij **Language Datasets** (taalg
 
 Wanneer u er klaar voor bent om uw taalgegevensset te importeren, meldt u zich aan bij de [Speech Service-portal](https://customspeech.ai). Klik op de vervolgkeuzelijst **Custom Speech** (Aangepaste spraak) in het bovenste lint. Selecteer vervolgens**Adaptation Data** (Aanpassingsgegevens). Als dit de eerste keer is dat u gegevens naar Speech Services probeert te uploaden, ziet u een lege tabel met de naam **Datasets** (Gegevenssets).
 
-Voor het importeren van een nieuwe gegevensset selecteert u de knop **Import** (Importeren) in de rij **Language Datasets** (Taalgegevenssets). Vervolgens wordt er een pagina weergegeven waar u een nieuwe gegevensset kunt uploaden. Voer een **naam** en **beschrijving** in zodat u de gegevensset later gemakkelijk kunt herkennen en kies de gewenste taalinstelling. 
+Voor het importeren van een nieuwe gegevensset selecteert u de knop **Import** (Importeren) in de rij **Language Datasets** (Taalgegevenssets). Vervolgens wordt er een pagina weergegeven waar u een nieuwe gegevensset kunt uploaden. Voer een **naam** en **beschrijving** in zodat u de gegevensset later gemakkelijk kunt herkennen en kies de gewenste taalinstelling.
 
 Gebruik vervolgens de knop **Choose File** (Bestand kiezen) om het tekstbestand met taalgegevens op te zoeken. Selecteer **Import** (Importeren). De gegevensset wordt geüpload. Afhankelijk van de grootte van de gegevensset kan het importeren enkele minuten duren.
 
@@ -97,9 +98,9 @@ Zodra de gegevens van uw taal gereed zijn, selecteert u **Language Models** (Taa
 
 De juiste landinstelling moet worden geselecteerd voordat er actie wordt ondernomen. De huidige landinstelling wordt aangegeven in de tabeltitel op alle gegevens-, model- en implementatiepagina's. Als u de landinstelling wilt wijzigen, selecteert u de knop **Change Locale** (Landinstelling wijzigen) onder de tabeltitel.  Hiermee wordt een bevestigingspagina voor de landinstelling geopend. Selecteer **OK** om terug te keren naar de tabel.
 
-Voer op de pagina Create Language Model (Taalmodel maken) een **naam** en **beschrijving** in om relevante informatie over dit model bij te houden, zoals de gegevensset die wordt gebruikt. Selecteer vervolgens het **Base Language Model** (Basistaalmodel) in de vervolgkeuzelijst. Dit model is het startpunt voor uw aanpassing. 
+Voer op de pagina Create Language Model (Taalmodel maken) een **naam** en **beschrijving** in om relevante informatie over dit model bij te houden, zoals de gegevensset die wordt gebruikt. Selecteer vervolgens het **Base Language Model** (Basistaalmodel) in de vervolgkeuzelijst. Dit model is het startpunt voor uw aanpassing.
 
-U kunt kiezen uit twee basistaalmodellen. Het Search and Dictation-model (Zoeken en dicteren) is geschikt voor spraak gericht op een toepassing, zoals opdrachten, zoekquery's of dicteren. Het Conversational model (Conversatiemodel) is geschikt voor het herkennen van spraak in een conversatiestijl. Dit type spraak is doorgaans gericht op een andere persoon en vindt plaats in callcenters of vergaderingen. 
+U kunt kiezen uit twee basistaalmodellen. Het Search and Dictation-model (Zoeken en dicteren) is geschikt voor spraak gericht op een toepassing, zoals opdrachten, zoekquery's of dicteren. Het Conversational model (Conversatiemodel) is geschikt voor het herkennen van spraak in een conversatiestijl. Dit type spraak is doorgaans gericht op een andere persoon en vindt plaats in callcenters of vergaderingen.
 
 Het Search and Dictation-model (Zoeken en dicteren) is geschikt voor spraak gericht op een toepassing, zoals opdrachten, zoekquery's of dicteren. Het Conversational model (Conversatiemodel) is geschikt voor het herkennen van spraak in een conversatiestijl. Dit type spraak is doorgaans gericht op een andere persoon en vindt plaats in callcenters of vergaderingen. Er is ook een nieuw model met de naam 'Universal' (universeel) openbaar beschikbaar. Universal streeft ernaar om alle scenario's aan te pakken en uiteindelijk de modellen Search and Dictation en Conversational te vervangen.
 

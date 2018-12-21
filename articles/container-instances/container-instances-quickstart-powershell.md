@@ -1,21 +1,21 @@
 ---
-title: Snelstart - Een toepassing uitvoeren in Azure Container Instances
-description: In deze snelstart gebruikt u Azure PowerShell om een toepassing in een Docker-container te implementeren in Azure Container Instances
+title: 'Snelstartgids: Een toepassing uitvoeren in Azure Container Instances - PowerShell'
+description: In deze snelstartgids gebruikt u Azure PowerShell om een Docker-containertoepassing te implementeren in Azure Container Instances met Azure PowerShell
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 33444e810a2deebee11e535c73ce3e249f42b340
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b17cca7f0c00aba260b97b29345ff33156a50138
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854640"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183944"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Snelstart - Een toepassing uitvoeren in Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Snelstartgids: Een containertoepassing uitvoeren in Azure Container Instances met Azure PowerShell
 
 Gebruik Azure Container Instances om Docker-containers in Azure snel en eenvoudig uit te voeren. U hoeft geen virtuele machines te implementeren en u hoeft geen volledig container-indelingsplatform zoals Kubernetes te gebruiken. In deze snelstart gebruikt u Azure Portal om een Windows-container te maken in Azure en maakt u de bijbehorende toepassing beschikbaar met een FQDN (Fully Qualified Domain Name). Een paar seconden nadat u één implementatieopdracht hebt uitgevoerd, kunt u bladeren naar de toepassing die wordt uitgevoerd:
 

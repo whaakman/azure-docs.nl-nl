@@ -1,23 +1,23 @@
 ---
-title: Zelfstudie voor MongoDB, Angular en Node voor Azure - deel 5
+title: Node.Js, Angular-app die gebruikmaakt van MongoB-API (deel 5)
+titleSuffix: Azure Cosmos DB
 description: Deel 5 van de serie zelfstudies voor het maken van een MongoDB-app met Angular en Node op Azure Cosmos DB, waarbij gebruik wordt gemaakt van dezelfde API's als voor MongoDB
-services: cosmos-db
 author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 12/06/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: ce4ad1c069d34e79c81b8335bf2d58cb95068b9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: bda500c07e2ecccc317b5b669a947a415aaf147f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866173"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134128"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 5: Mongoose gebruiken om verbinding te maken met Azure Cosmos DB
+# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-connect-to-azure-cosmos-db"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 5: Verbinding maken met Azure Cosmos DB 
 
 In deze meerdelige zelfstudie leert u hoe u een nieuwe Node.js-app maakt met Express, Angular en een verbinding maakt tussen de app en een [Azure Cosmos DB MongoDB API](mongodb-introduction.md)-account.
 
@@ -70,7 +70,7 @@ Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de 
     const mongoose = require('mongoose');
     /**
      * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
+     * Per https://mongoosejs.com/docs/promises.html
      */
     mongoose.Promise = global.Promise;
 
@@ -124,7 +124,7 @@ Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de 
 
 4. Kopieer de primaire sleutel in het bestand environment.js als de `key`-waarde.
 
-    De app heeft nu alle gegevens die nodig zijn om verbinding te maken met Azure Cosmos DB. Deze informatie kan ook worden opgehaald in Azure Portal. Zie [Get the MongoDB connection string to customize](connect-mongodb-account.md#GetCustomConnection) (MongoDB-verbindingsreeks ophalen om aan te passen) voor meer informatie. De gebruikersnaam in Azure Portal is gelijk aan dbName in environments.js. 
+    De app heeft nu alle gegevens die nodig zijn om verbinding te maken met Azure Cosmos DB. Deze informatie kan ook worden opgehaald in de Azure-portal. Zie [Get the MongoDB connection string to customize](connect-mongodb-account.md#GetCustomConnection) (MongoDB-verbindingsreeks ophalen om aan te passen) voor meer informatie. De gebruikersnaam in de Azure-portal is gelijk aan dbName in environments.js. 
 
 ## <a name="create-a-hero-model"></a>Een Hero-model maken
 
@@ -228,7 +228,7 @@ Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de 
 
 3. Open in de browser ontwikkelhulpprogramma's en het tabblad Netwerk, en ga naar http://localhost:3000. Hier ziet u de toepassing.
 
-    ![Nieuw Azure Cosmos DB-account in Azure Portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
+    ![Nieuw Azure Cosmos DB-account in de Azure-portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
    In de app zijn nog geen hero's opgeslagen, maar in de volgende stap van de zelfstudie gaan we de functies Put, Push en Delete toevoegen, zodat we hero's vanuit de gebruikersinterface kunnen toevoegen en bijwerken of eruit verwijderen met behulp van Mongoose-verbindingen met de Azure Cosmos DB-database. 
 

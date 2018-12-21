@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 8b9daa0fbbf84e0f602498a0847c9e120f709b17
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057557"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408932"
 ---
-# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Snelstart: Een cluster maken voor Batch AI-trainingstaken met de Azure-portal
+# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Snelstartgids: Een cluster maken voor Batch AI-trainingstaken met Azure Portal
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 In deze snelstart leert u hoe u de Azure-portal gebruikt om een Batch AI-cluster te maken dat u kunt gebruiken om AI- en machine learning-modellen te trainen. Batch AI is een beheerde service voor gegevenswetenschappers en AI-onderzoekers om AI- en machine learning-modellen op schaal te trainen in clusters virtuele Azure-machines.
 
@@ -44,7 +47,7 @@ Voor meer gedetailleerde informatie over hoe u SSH-sleutelparen maakt, raadpleeg
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure-portal op https://portal.azure.com.
+Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="create-a-batch-ai-workspace"></a>Een Batch AI-werkruimte maken
 
@@ -91,7 +94,7 @@ Met de volgende stappen maakt u een cluster met één GPU-knooppunt. Het cluster
    |**VM-grootte**     |Standard NC6|
    |**Beoogd aantal knooppunten**     |1|
 
-3. Geef een **Gebruikersnaam van beheerder** op en kopieer de inhoud van uw openbare SSH-sleutelbestand naar **SSH-sleutel**. Accepteer de standaardinstellingen voor de resterende waarden op deze pagina en selecteer **Volgende: Knooppunt instellen**.
+3. Geef een **Gebruikersnaam van beheerder** op en kopieer de inhoud van uw openbare SSH-sleutelbestand naar **SSH-sleutel**. Accepteer de standaardinstellingen voor de resterende waarden op deze pagina en selecteer **Volgende: knooppunt instellen**.
 
    ![Basisgegevens voor cluster invoeren](./media/quickstart-create-cluster-portal/create-cluster.png)
 

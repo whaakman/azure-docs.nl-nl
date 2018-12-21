@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854521"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995524"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Berichten aan een Azure Storage-wachtrij toevoegen met behulp van Functions
 
@@ -31,7 +31,7 @@ Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 * Volg de instructies in [Uw eerste functie maken vanuit Azure Portal](functions-create-first-azure-function.md) en voer de stap **Resources opschonen** niet uit. In deze snelstartgids worden de functie-app en de functie gemaakt die u hier gebruikt.
 
-* Installeer [Microsoft Azure Storage Explorer](http://storageexplorer.com/). Dit is een hulpprogramma dat u gebruikt om wachtrijberichten te onderzoeken die worden gemaakt met de uitvoerbinding.
+* Installeer [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Dit is een hulpprogramma dat u gebruikt om wachtrijberichten te onderzoeken die worden gemaakt met de uitvoerbinding.
 
 ## <a name="add-binding"></a>Een uitvoerbinding toevoegen
 
@@ -67,7 +67,7 @@ Nu u een uitvoerbinding hebt gedefinieerd, moet u de code bijwerken, zodat u de 
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Code toevoegen die gebruikmaakt van de uitvoerbinding
 
-In deze sectie voegt u code toe waarmee een bericht wordt geschreven naar de uitvoerwachtrij. Het bericht bevat de waarde die wordt doorgegeven aan de HTTP-trigger in de querytekenreeks. Als de querytekenreeks bijvoorbeeld `name=Azure` bevat, is het wachtrijbericht: *Naam wordt doorgegeven aan de functie: Azure*.
+In deze sectie voegt u code toe waarmee een bericht wordt geschreven naar de uitvoerwachtrij. Het bericht bevat de waarde die wordt doorgegeven aan de HTTP-trigger in de querytekenreeks. Als de querytekenreeks bijvoorbeeld `name=Azure` bevat, is het wachtrijbericht *Naam wordt doorgegeven aan de functie: Azure*.
 
 1. Selecteer de functie om de functiecode in de editor weer te geven.
 
@@ -122,7 +122,7 @@ Wanneer de uitvoerbinding voor het eerst wordt gebruikt, wordt er door de runtim
 
 Sla deze sectie over als u Storage Explorer al hebt geïnstalleerd en hebt verbonden met het opslagaccount dat u gebruikt voor deze snelstartgids.
 
-2. Voer het hulpprogramma [Microsoft Azure Storage Explorer](http://storageexplorer.com/) uit, selecteer het verbindingspictogram aan de linkerkant, kies **Een opslagaccountnaam en -sleutel gebruiken** en selecteer **Volgende**.
+2. Voer het hulpprogramma [Microsoft Azure Storage Explorer](https://storageexplorer.com/) uit, selecteer het verbindingspictogram aan de linkerkant, kies **Een opslagaccountnaam en -sleutel gebruiken** en selecteer **Volgende**.
 
     ![Voer het hulpprogramma Storage Account Explorer uit.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -150,7 +150,7 @@ Sla deze sectie over als u Storage Explorer al hebt geïnstalleerd en hebt verbo
 
 1. Vouw het knooppunt **Wachtrijen** uit en selecteer vervolgens de wachtrij met de naam **outqueue**. 
 
-   De wachtrij bevat het bericht dat met de Queue Storage-uitvoerbinding is gemaakt toen u de met HTTP geactiveerde functie hebt uitgevoerd. Als u de functie hebt aangeroepen met de standaardwaarde `name` van *Azure*, is het wachtrijbericht *Naam is doorgegeven aan de functie: Azure*.
+   De wachtrij bevat het bericht dat met de Queue Storage-uitvoerbinding is gemaakt toen u de met HTTP geactiveerde functie hebt uitgevoerd. Als u de functie hebt aangeroepen met de standaardwaarde voor `name`, namelijk *Azure*, is het wachtrijbericht *Naam is doorgegeven aan de functie: Azure*.
 
     ![Wachtrijbericht weergegeven in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 

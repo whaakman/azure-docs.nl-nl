@@ -1,6 +1,6 @@
 ---
-title: Cloud Foundry in Azure maken
-description: Meer informatie over het instellen van parameters die nodig zijn voor het inrichten van een PCF-cluster voor Cloud Foundry op Azure
+title: Een Pivotal Cloud Foundry-cluster maken op Azure
+description: Meer informatie over het instellen van parameters die nodig zijn voor het inrichten van een PCF-cluster (Pivotal Cloud Foundry) op Azure
 services: Cloud Foundry
 documentationcenter: CloudFoundry
 author: ruyakubu
@@ -14,18 +14,18 @@ ms.service: Cloud Foundry
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: a0a3379a8a2579080d9b686917395feec9cf8f3d
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 9514118e1f29faab937ed01899b5947789ca9735
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250580"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101395"
 ---
-# <a name="create-cloud-foundry-on-azure"></a>Cloud Foundry in Azure maken
+# <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Een Pivotal Cloud Foundry-cluster maken op Azure
 
-Deze zelfstudie biedt snelle stappen voor het maken en genereren van parameters voor het inrichten van een PCF-cluster van Pivotal Cloud Foundry op Azure.  De Pivotal Cloud Foundry-oplossing kan worden gevonden door het uitvoeren van een zoekopdracht op Azure [MarketPlace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Deze zelfstudie biedt snelle stappen voor het maken en genereren van parameters voor het inrichten van een PCF-cluster (Pivotal Cloud Foundry) op Azure. U vindt de Pivotal Cloud Foundry-oplossing door het uitvoeren van een zoekopdracht in Azure [MarketPlace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
-![Alt-tekst voor afbeelding](media/deploy/pcf-marketplace.png "Pivotal Cloud Foundry zoeken in Azure")
+![Pivotal Cloud Foundry zoeken in Azure](media/deploy/pcf-marketplace.png)
 
 
 ## <a name="generate-an-ssh-public-key"></a>Een openbare SSH-sleutel genereren
@@ -35,55 +35,56 @@ Er zijn verschillende manieren om een openbare SSH-sleutel te genereren met behu
 ```Bash
 ssh-keygen -t rsa -b 2048
 ```
-- Klik hier om [instructies]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) voor uw omgeving te zien.
+
+Zie voor meer informatie, [SSH-sleutels gebruiken met Windows op Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
 ## <a name="create-a-service-principal"></a>Een service-principal maken
 
 > [!NOTE]
 >
-> Om een service-principal te maken, is een machtiging voor het eigenaarsaccount vereist.  U kunt bovendien een script schrijven om het maken van de service-principal te automatiseren. Bijvoorbeeld met behulp van Azure CLI [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
+> Voor het maken van een service-principal is een machtiging voor het eigenaarsaccount vereist. U kunt bovendien een script schrijven om het maken van de service-principal te automatiseren. Bijvoorbeeld met behulp van de Azure CLI-opdracht [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
 
 1. Meld u aan bij uw Azure-account.
 
     `az login`
 
-    ![Alt-tekst voor afbeelding](media/deploy/az-login-output.png "Aanmelding bij Azure CLI")
+    ![Aanmelding bij Azure CLI](media/deploy/az-login-output.png )
  
-    Kopieer de waarde 'id' als uw **abonnements-ID** en de **tenantId**-waarde die later zal worden gebruikt.
+    Kopieer de waarde 'id' als uw **abonnements-ID** en kopieer de waarde 'tenantId' voor later gebruik.
 
 2. Stel uw standaardabonnement voor deze configuratie in.
 
     `az account set -s {id}`
 
-3. Maak een AAD-toepassing voor uw PCF en geef een uniek alfanumeriek wachtwoord op.  Sla het wachtwoord op als uw **clientSecret** dat later zal worden gebruikt.
+3. Een Azure Active Directory-toepassing maken voor uw PCF. Geef een uniek alfanumeriek wachtwoord op. Sla het wachtwoord op als uw **clientSecret** voor later gebruik.
 
-    `az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
 
-    Kopieer de waarde 'appId' in de uitvoer als uw **ClientID** die later zal worden gebruikt.
+    Kopieer de waarde 'appId' in de uitvoer als uw **ClientID** voor later gebruik.
 
     > [!NOTE]
     >
-    > Kies uw eigen toepassingsstartpagina en ID-URI.  Bijvoorbeeld http://www.contoso.com.
+    > Kies uw eigen toepassingsstartpagina en id-URI, bijvoorbeeld http://www.contoso.com.
 
-4. Maak een service-principal met uw nieuwe 'appId'.
+4. Maak een service-principal met uw nieuwe app-id.
 
     `az ad sp create --id {appId}`
 
-5. Stel de machtigingsrol van de service-principal in als **Inzender**.
+5. Stel de machtigingsrol van de service-principal in als Inzender.
 
     `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
 
-    Maar u kunt ook gebruikmaken van...
+    U kunt ook
 
     `az role assignment create --assignee {service-princ-name} --role “Contributor” `
 
-    ![Alt-tekst voor afbeelding](media/deploy/svc-princ.png "Roltoewijzing van de service-principal")
+    ![de roltoewijzing van de service-principal gebruiken](media/deploy/svc-princ.png )
 
-6. Controleer of u zich kunt aanmelden bij uw service-principal met behulp van de appId, het wachtwoord en de tenantid.
+6. Controleer of u zich kunt aanmelden bij uw service-principal met behulp van de app-id, het wachtwoord en de tenant-id.
 
-    `az login --service-principal -u {appId} -p {your-passward}  --tenant {tenantId}`
+    `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. Maak een .json-bestand in de volgende indeling met behulp van alle bovenstaande waarden voor **abonnements-ID**, **tenantId**, **clientID** en **clientSecret** die u hierboven hebt gekopieerd.  Sla het bestand op.
+7. Maak een JSON-bestand in de volgende indeling. Gebruik de waarden van **abonnements-id**, **tenantID**, **clientID** en **clientSecret** die u eerder hebt gekopieerd. Sla het bestand op.
 
     ```json
     {
@@ -97,34 +98,34 @@ ssh-keygen -t rsa -b 2048
 ## <a name="get-the-pivotal-network-token"></a>Het Pivotal Network-token ophalen
 
 1. Registreer u of meld u aan bij uw [Pivotal Network](https://network.pivotal.io)-account.
-2. Klik op uw profielnaam rechtsboven op de pagina en selecteer **Edit Profile'.
-3. Ga naar de onderkant van de pagina en kopieer de **LEGACY API TOKEN**-waarde.  Dit is de waarde van uw **Pivotal Network-token** die later zal worden gebruikt.
+2. Selecteer uw profielnaam rechtsboven op de pagina. Selecteer **Profiel bewerken**.
+3. Ga naar de onderkant van de pagina en kopieer de waarde van **LEGACY API TOKEN**. Dit is de waarde die u later zult gebruiken als uw **Pivotal Network-token**.
 
-## <a name="provision-your-cloud-foundry-on-azure"></a>Cloud Foundry op Azure inrichten
+## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Cloud Foundry-cluster op Azure inrichten
 
-1. Nu hebt u alle parameters die nodig zijn voor het inrichten van uw [Pivotal Cloud Foundry op Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)-cluster.
-2. Voer de parameters in en maak uw PCF-cluster.
+Nu hebt u alle parameters die nodig zijn voor het inrichten van uw [Pivotal Cloud Foundry-cluster op Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Voer de parameters in en maak uw PCF-cluster.
 
-## <a name="verify-the-deployment-and-log-into-the-pivotal-ops-manager"></a>Controleer de implementatie en meld u aan bij Pivotal Ops Manager
+## <a name="verify-the-deployment-and-sign-in-to-the-pivotal-ops-manager"></a>Controleer de implementatie en meld u aan bij Pivotal Ops Manager
 
-1. Er moet nu in uw PCF-cluster een implementatiestatus worden weergegeven.
+1. Er wordt nu in uw PCF-cluster een implementatiestatus weergegeven.
 
-    ![Alt-tekst voor afbeelding](media/deploy/deployment.png "Status van de Azure-implementatie")
+    ![Azure-implementatiestatus](media/deploy/deployment.png )
 
-2. Klik op de koppeling **Deployments** in het linkernavigatievenster om referenties voor uw PCF Ops Manager op te halen en klik vervolgens op de **implementatienaam** op de volgende pagina.
-3. Klik in het linkernavigatievenster op de koppeling **Outputs** om de URL, de gebruikersnaam en het wachtwoord voor de PCF Ops Manager weer te geven.  De waarde 'OPSMAN-FQDN-naam' is de URL.
+2. Selecteer de koppeling **Deployments** (Implementaties) in de navigatiebalk aan de linkerkant om referenties voor uw PCF Ops Manager op te halen. Selecteer de **Deployment Name** (naam van de implementatie) op de volgende pagina.
+3. Selecteer de koppeling **Outputs** (uitvoergegevens) om de URL, de gebruikersnaam en het wachtwoord voor de PCF Ops Manager weer te geven. De waarde 'OPSMAN-FQDN' is de URL.
  
-    ![Alt-tekst voor afbeelding](media/deploy/deploy-outputs.png "Uitvoer voor Cloud Foundry-implementatie")
+    ![Uitvoer voor Cloud Foundry-implementatie](media/deploy/deploy-outputs.png )
  
-4. Start de URL in een webbrowser en voer de referenties uit de vorige stap in om u aan te melden.
+4. Start de URL in een webbrowser. Voer de referenties van de vorige stap in om u aan te melden.
 
-    ![Alt-tekst voor afbeelding](media/deploy/pivotal-login.png "Pivotal-aanmeldingspagina")
+    ![Aanmeldingspagina van Pivotal](media/deploy/pivotal-login.png )
          
     > [!NOTE]
     >
-    > Als het met Internet Explorer als browser niet lukt vanwege een waarschuwingsbericht dat de site niet veilig is, klikt u op "Meer informatie" en gaat u naar de webpagina.  Klik in Firefox op Advance en voeg de certificering toe om door te gaan.
+    > Als het met Internet Explorer als browser niet lukt vanwege een waarschuwingsbericht dat de site niet veilig is, klikt u op **Meer informatie** en gaat u naar de webpagina. Klik in Firefox op **Advance** en voeg de certificering toe om door te gaan.
 
-5. De PCF Ops Manager moet de geïmplementeerde Azure-instanties weergeven. U kunt nu hier beginnen met het implementeren en beheren van uw toepassingen.
+5. In PCF Ops Manager worden de geïmplementeerde Azure-exemplaren weergeven. Nu kunt u uw toepassingen hier implementeren en beheren.
                
-    ![Alt-tekst voor afbeelding](media/deploy/ops-mgr.png "Azure-instantie geïmplementeerd in Pivotal")
+    ![Geïmplementeerd Azure-exemplaar in Pivotal](media/deploy/ops-mgr.png )
  

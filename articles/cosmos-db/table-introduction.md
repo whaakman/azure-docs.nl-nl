@@ -8,14 +8,14 @@ ms.component: cosmosdb-table
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 5d50b50d05877b213f0211a6ca8fa89f69231f52
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2647065d251caea571e2bfcd5703bbb3bec08345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866488"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074301"
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Inleiding tot Azure Cosmos DB: tabel-API
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Inleiding tot Azure Cosmos DB: Tabel-API
 
 [Azure Cosmos DB](introduction.md) biedt de Table-API voor toepassingen die zijn geschreven voor Azure Table-opslag en die premium-mogelijkheden nodig hebben, zoals:
 
@@ -23,7 +23,7 @@ ms.locfileid: "52866488"
 * [Speciale doorvoer](partition-data.md) overal ter wereld.
 * Latentie van slechts enkele milliseconden op het 99e percentiel.
 * Gegarandeerde hoge beschikbaarheid.
-* [Automatische secundaire indexering](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+* [Automatische secundaire indexering](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 Toepassingen die zijn geschreven voor Azure Table-opslag kunnen met behulp van de Table-API zonder codeaanpassingen worden gemigreerd naar Azure Cosmos DB en zo gebruikmaken van premium-mogelijkheden. In Table-API zijn client-SDK's beschikbaar voor .NET, Java, Python en Node.js.
 

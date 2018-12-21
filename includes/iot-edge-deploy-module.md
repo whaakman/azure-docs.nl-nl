@@ -5,52 +5,44 @@ services: iot-edge
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 10/14/2018
+ms.date: 12/7/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 536857a5fe3ec3cc037f21835a4152f93197bcb8
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 1a750a97cdc940c0f0a3d7e33d6be0d33f811425
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977391"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53108019"
 ---
-Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules voor uw IoT Edge-apparaten mee kunt implementeren vanuit de cloud. Een IoT Edge-module is een uitvoerbaar pakket dat is geïmplementeerd als container. In deze sectie implementeert u een module die telemetrie genereert voor uw gesimuleerde apparaat.
+Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules voor uw IoT Edge-apparaten mee kunt implementeren vanuit de cloud. Een IoT Edge-module is een uitvoerbaar pakket dat is geïmplementeerd als container. In deze sectie wordt een vooraf samengestelde module geïmplementeerd vanuit de [IoT Edge-Modules-sectie van de Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Deze module genereert telemetrie voor uw gesimuleerde apparaat.
 
-1. Ga in Azure Portal naar uw IoT-hub.
+1. Voer in Azure Portal `Simulated Temperature Sensor` in het zoekvak in en open het resultaat van Marketplace.
 
-2. Ga onder **Automatisch apparaatbeheer** naar **IoT Edge** en selecteer uw IoT Edge-apparaat.
+   ![Gesimuleerde temperatuursensor in Azure Portal zoeken](./media/iot-edge-deploy-module/search-for-temperature-sensor.png)
 
-3. Selecteer **Modules instellen**. In de portal wordt een wizard geopend die bestaat uit drie stappen. Deze helpen u bij het toevoegen van modules, het opgeven van routes en het beoordelen van de implementatie. 
+2. In het veld **Abonnement** selecteert u het abonnement met de IoT Hub die u gebruikt, als dit nog niet is geselecteerd.
 
-4. Ga in de stap **Modules toevoegen** van de wizard naar de sectie **Implementatiemodules**. Klik op **Toevoegen** en selecteer vervolgens **IoT Edge-module**.
+3. In het veld **IoT Hub** selecteert u de naam van de IoT Hub die u gebruikt, als deze nog niet is geselecteerd.
 
-   ![Een nieuwe IoT Edge-module toevoegen](./media/iot-edge-deploy-module/add-module.png)
+4. Klik op **Apparaat vinden**, selecteer uw IoT Edge-apparaat (met de naam `myEdgeDevice`) en selecteer vervolgens **Maken**.
 
-5. Voer in het veld **Naam** `tempSensor` in.
+5. In de stap **Modules toevoegen** van de wizard, klikt u op de module **SimulatedTemperatureSensor** om de configuratie-instellingen te controleren, klikt u op **Opslaan** en selecteert u **Volgende**.
 
-6. Voer in het veld **URI installatiekopie** `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` in.
-
-7. Laat de overige instellingen ongewijzigd en selecteer **Opslaan**.
-
-   ![Sla de IoT Edge-module op nadat u de URI van de naam en installatiekopie het ingevoerd](./media/iot-edge-deploy-module/name-image.png)
-
-8. Als u weer in de eerste stap van de wizard bent, selecteert u **Volgende**.
-
-9. In de stap **Routes opgeven** van de wizard moet u beschikken over een standaardroute waarmee alle berichten van alle modules worden verzonden naar IoT Hub. Voeg anders de volgende code toe en selecteer **Volgende**.
+6. In de stap **Routes opgeven** van de wizard controleert u of de routes correct zijn ingesteld met de standaardroute waarmee alle berichten van alle modules worden verzonden naar IoT Hub (`$upstream`). Voeg anders de volgende code toe en selecteer **Volgende**.
 
    ```json
-   {
-       "routes": {
-           "route": "FROM /messages/* INTO $upstream"
-       }
-   }
+    {
+    "routes": {
+        "route": "FROM /messages/* INTO $upstream"
+        }
+    }
    ```
 
-10. Selecteer in de stap **Implementatie beoordelen** van de wizard de optie **Verzenden**.
+7. Selecteer in de stap **Implementatie beoordelen** van de wizard de optie **Verzenden**.
 
-11. Ga terug naar de detailpagina van het apparaat en selecteer **Vernieuwen**. Naast de module edgeAgent, die u hebt gemaakt toen u de service voor het eerst startte, ziet u een andere runtimemodule met de naam **edgeHub** en de module **tempSensor** in de lijst.
+8. Ga terug naar de detailpagina van het apparaat en selecteer **Vernieuwen**. Naast de module edgeAgent, die u hebt gemaakt toen u de service voor het eerst startte, worden ook een andere runtimemodule met de naam **edgeHub** en de module **SimulatedTemperatureSensor** in de lijst weergegeven.
 
    Het kan enkele minuten duren voordat de nieuwe modules worden weergegeven. Op het IoT Edge-apparaat moeten de nieuw implementatiegegevens worden opgehaald uit de cloud, de containers worden gestart, en de nieuwe status weer worden gemeld bij IoT Hub. 
 
-   ![Geef tempSensor weer in een lijst met geïmplementeerde modules](./media/iot-edge-deploy-module/deployed-modules.png)
+   ![Weergave SimulatedTemperatureSensor in de lijst met geïmplementeerde modules](./media/iot-edge-deploy-module/deployed-modules-marketplace-temp.png)

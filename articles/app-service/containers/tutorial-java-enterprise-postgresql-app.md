@@ -1,5 +1,5 @@
 ---
-title: Een Java Enterprise-web-app maken in Azure App Service onder Linux | Microsoft Docs
+title: Een Java Enterprise-web-app maken onder Linux - Azure App Service | Microsoft Docs
 description: Leer hoe u een Java Enterprise-app kunt maken die in Wildfly in Azure App Service onder Linux kan worden uitgevoerd.
 author: JasonFreeberg
 manager: routlaw
@@ -10,16 +10,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165455"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344224"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Zelfstudie: een Java EE- en Postgres-web-app in Azure maken
 
-In deze zelfstudie leert u hoe u een Java Enterprise Edition (EE)-web-app maakt in Azure App Service en deze met een Postgres-database verbindt. Wanneer u klaar bent, hebt u een [WildFly](http://www.wildfly.org/about/)-toepassing die gegevens opslaat in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) en wordt uitgevoerd op [Azure App Service voor Linux](app-service-linux-intro.md).
+In deze zelfstudie leert u hoe u een Java Enterprise Edition (EE)-web-app maakt in Azure App Service en deze met een Postgres-database verbindt. Wanneer u klaar bent, hebt u een [WildFly](https://www.wildfly.org/about/)-toepassing die gegevens opslaat in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) en wordt uitgevoerd op [Azure App Service voor Linux](app-service-linux-intro.md).
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
@@ -32,8 +33,8 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 1. [Download en installeer Git](https://git-scm.com/)
-1. [Download and install Maven 3](https://maven.apache.org/install.html) (Maven downloaden en installeren)
-1. [Azure CLI downloaden en installeren](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [Download and install Maven 3](https://maven.apache.org/install.html) (Maven downloaden en installeren)
+3. [Azure CLI downloaden en installeren](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="clone-and-edit-the-sample-app"></a>Voorbeeld-app klonen en bewerken
 

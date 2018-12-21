@@ -1,6 +1,6 @@
 ---
-title: Wat is Azure Search | Microsoft Docs
-description: Azure Search is een volledig beheerde cloudzoekservice. Meer informatie ziet u in dit functieoverzicht.
+title: Wat is Azure Search-service? - Azure Search
+description: Azure Search is een volledig beheerde cloudzoekservice. Bekijk de beschrijvingen van functies, een werkstroom voor het ontwikkelen en een vergelijking van Azure Search met andere producten en lees hoe u aan de slag gaat.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec2018
+ms.openlocfilehash: 81b9aef553b4cdc214fbcc681a2e5a91b833e6be
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285132"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313493"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
 Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. De query wordt uitgevoerd op een door de gebruiker gedefinieerde index.
@@ -63,7 +64,7 @@ Met het pull-model worden gegevens opgehaald uit externe gegevensbronnen. Het mo
 
 Het push-model wordt geboden via de SDK of REST API’s, en gebruikt om bijgewerkte documenten naar een index te verzenden. U kunt gegevens uit nagenoeg elke gegevensset pushen met behulp van de JSON-indeling. Zie [Add, update, or delete Documents](/rest/api/searchservice/addupdate-or-delete-documents) (Documenten toevoegen, bijwerken of verwijderen) of [How to use the .NET SDK](search-howto-dotnet-sdk.md) (De .NET SDK gebruiken) voor informatie over het laden van gegevens.
 
-### <a name="step-4-search"></a>Stap 4: Zoeken
+### <a name="step-4-search"></a>Stap 4: Search
 Nadat u een index hebt gevuld, kunt u [zoekquery’s verzenden](/rest/api/searchservice/Search-Documents) naar het service-eindpunt met behulp van eenvoudige HTTP-aanvragen met REST API of de .NET SDK.
 
 ## <a name="how-it-compares"></a>Vergelijking
@@ -105,7 +106,7 @@ Azure-abonnees kunnen [een service inrichten in de gratis laag](search-create-se
 
 Als u geen abonnee bent, kunt u [gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). U krijgt een tegoed om de betaalde Azure-services uit te proberen. Als uw tegoed op is, kunt u het account behouden en de [gratis Azure-services](https://azure.microsoft.com/free/) gebruiken. Er worden nooit kosten in rekening gebracht bij uw creditcard tenzij u de instellingen expliciet wijzigt en aangeeft dat u wilt betalen.
 
-U kunt ook [de voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): bij uw MSDN-abonnement ontvangt u elke maand een tegoed dat u kunt gebruiken voor betaalde Azure-services. 
+U kunt ook [voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Via uw MSDN-abonnement ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken. 
 
 ## <a name="how-to-get-started"></a>Hoe gaat u aan de slag
 
@@ -116,7 +117,7 @@ U kunt ook [de voordelen voor MSDN-abonnees activeren](https://azure.microsoft.c
 3. Ga verder met code met behulp van de .NET of REST-API:
 
   + In [De .NET SDK gebruiken](search-howto-dotnet-sdk.md) wordt de hoofdwerkstroom voor beheerde code gedemonstreerd.  
-  + In [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) (Aan de slag met REST API) worden dezelfde stappen getoond met behulp van de REST API. U kunt deze snelstart ook gebruiken om REST-API's van Postman of Fiddler aan te roepen: [REST API's voor Azure Search verkennen ](search-fiddler.md).
+  + In [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) (Aan de slag met REST API) worden dezelfde stappen getoond met behulp van de REST API. U kunt deze snelstartgids ook gebruiken om REST-API's aan te roepen vanuit Postman of Fiddler: [REST API's voor Azure Search verkennen ](search-fiddler.md).
 
 ## <a name="watch-this-video"></a>Deze video bekijken
 

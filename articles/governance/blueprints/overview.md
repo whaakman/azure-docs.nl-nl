@@ -4,17 +4,17 @@ description: Azure Blueprints is een service in Azure waarmee u artefacten kunt 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498602"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967688"
 ---
 # <a name="what-is-azure-blueprints"></a>Wat is Azure Blueprints?
 
@@ -111,7 +111,7 @@ Als u een blauwdruk wilt toewijzen of de toewijzing ongedaan wilt maken, heeft u
 > [!NOTE]
 > Omdat blauwdruktoewijzingen op een abonnement worden gemaakt, moeten de machtigingen voor het toewijzen van blauwdrukken en het ongedaan maken van toewijzingen worden toegekend op abonnementsbereik of worden overgenomen in een abonnementsbereik.
 
-Behalve toewijzingsmachtigingen voor blauwdrukken zijn deze machtigingen opgenomen in de rol **​​Eigenaar** en de **Inzender**-rollen. Als deze ingebouwde rollen niet aan uw beveiligingsbehoeften voldoen, kunt u een [aangepaste rol](../../role-based-access-control/custom-roles.md) maken.
+Alle bovenstaande machtigingen zijn opgenomen in de rol **Eigenaar**. De rol **Inzender** beschikt over machtigingen voor het maken en verwijderen van blauwdrukken. Er is geen sprake van blauwdruktoewijzingsmachtigingen. Als deze ingebouwde rollen niet aan uw beveiligingsbehoeften voldoen, kunt u een [aangepaste rol](../../role-based-access-control/custom-roles.md) maken.
 
 > [!NOTE]
 > De service-principal voor Azure Blueprint vereist de **Eigenaar**-rol op het toegewezen abonnement om implementatie mogelijk te maken. Als u de portal gebruikt, wordt deze rol automatisch verleend en ingetrokken voor de implementatie. Als u de REST API gebruikt, moet deze rol handmatig worden toegekend, maar wordt deze automatisch ingetrokken nadat de implementatie is voltooid.

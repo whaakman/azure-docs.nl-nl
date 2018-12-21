@@ -12,87 +12,89 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: d7b5c6b95cd11cd90f9d326e03e787a7196dcfd0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/05/2018
+ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913152"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091387"
 ---
-# <a name="quickstart-azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Snelstart: Azure-portal: de SQL-queryeditor gebruiken om verbinding te maken en gegevens te doorzoeken
+# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snelstartgids: Gebruik de SQL-queryeditor van Azure Portal om verbinding te maken en query's op gegevens uit te voeren
 
-De SQL-queryeditor is een hulpprogramma voor het uitvoeren van query's in de browser waarmee u op een efficiënte en eenvoudige manier SQL-query's kunt uitvoeren op een Azure SQL-database of Azure SQL-datawarehouse zonder Azure Portal te verlaten. In deze quickstart ziet u hoe u de queryeditor gebruikt om verbinding te maken met een SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen.
+De SQL-queryeditor is een Azure Portal-browsertool die een eenvoudige manier biedt om SQL-query's uit te voeren op uw Azure SQL Database of Azure SQL Data Warehouse. In deze snelstartgids ziet u hoe u de queryeditor gebruikt om verbinding te maken met een SQL-database en vervolgens Transact-SQL-instructies uitvoert om gegevens te zoeken, in te voegen, bij te werken en te verwijderen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-In deze Quick Start wordt uitgegaan van de resources die u hebt gemaakt in een van deze Quick Starts:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 > [!NOTE]
-> Zorg ervoor dat de optie Toegang tot Azure-services toestaan is ingesteld op 'AAN' in de firewall-instellingen van SQL Server. Met deze optie geeft de SQL-queryeditor toegang tot uw databases en datawarehouses.
+> Zorg ervoor dat de optie **Toegang tot Azure-services toestaan** is ingesteld op **AAN** in de firewall-instellingen van SQL Server. Met deze optie geeft de SQL-queryeditor toegang tot uw databases en datawarehouses.
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-the-azure-portal"></a>Meld u aan bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-
 ## <a name="connect-using-sql-authentication"></a>Verbinding maken met behulp van SQL-verificatie
 
-1. Klik in het linkermenu op **SQL-database** en vervolgens op de database waarop u een query wilt uitvoeren.
+1. Selecteer **SQL-databases** in het menu links en selecteer vervolgens **mySampleDatabase**.
 
-2. Klik op de SQL Database-pagina voor uw database in het linkermenu op **Queryeditor (preview)**.
+2. Zoek in het linkermenu **Query-editor (preview)** en selecteer deze optie. De pagina **Aanmelden** wordt weergegeven.
 
     ![queryeditor zoeken](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. Klik op **Aanmelden** en selecteer **SQL Server-verificatie** wanneer hierom wordt gevraagd. Geef vervolgens de gebruikersnaam en het wachtwoord van de serverbeheerder op die u hebt opgegeven toen u de database hebt gemaakt.
+3. Selecteer in de vervolgkeuzelijst **Autorisatietype** de optie **SQL Server-verificatie** en voer de gebruikersnaam en het wachtwoord van het serverbeheerdersaccount in dat wordt gebruikt om de database te maken.
 
-    ![aanmelding](./media/sql-database-connect-query-portal/login-menu.png)
+    ![aanmelden](./media/sql-database-connect-query-portal/login-menu.png) 
 
-4. Klik op **OK** om u aan te melden.
+4. Selecteer **OK**.
 
 
-## <a name="connect-using-azure-ad"></a>Verbinding maken met behulp van Azure AD
+## <a name="connect-using-azure-active-directory"></a>Verbinding maken met Azure Active Directory
 
-Als u een Active Directory-beheerder instelt, kunt u gebruikmaken van één identiteit om u aan te melden bij Azure Portal en uw SQL-database. Volg onderstaande stappen voor het configureren van een Active Directory-beheerder voor de SQL-server die u hebt gemaakt.
+Als u een Active Directory-beheerder (AD) instelt, kunt u gebruikmaken van één identiteit om u aan te melden bij Azure Portal en uw SQL-database. Volg de onderstaande stappen om een AD-beheerder te configureren voor uw SQL Server.
 
 > [!NOTE]
-> E-mailaccounts (bijvoorbeeld outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) worden nog niet ondersteund als Active Directory-beheerders. Kies een gebruiker die ofwel in het systeem zelf in Azure Active Directory is gemaakt, ofwel gefedereerd in Azure Active Directory.
+* E-mailaccounts (bijvoorbeeld outlook.com, gmail.com, yahoo.com, enzovoort) worden nog niet ondersteund als AD-beheerders. Kies een gebruiker die ofwel systeemeigen is gemaakt in de Azure AD ofwel federatief in Azure AD.
+* Azure AD-beheerdersaanmelding werkt niet met accounts waarvoor tweeledige verificatie is ingeschakeld.
 
-1. Selecteer **SQL-servers** in het linkermenu en selecteer uw SQL-server in de lijst met servers.
+1. Selecteer **Alle resources** in het menu links en selecteer vervolgens uw SQL Server.
 
-2. Selecteer de instelling **Active Directory-beheerder** in het menu Instellingen van de SQL-server.
+2. Selecteer in het menu **Instellingen** van uw SQL Server de optie **Active Directory-beheerder**.
 
-3. Klik in de blade Active Directory-beheerder op de opdracht **Beheerder instellen** en selecteer de gebruiker of groep die als Active Directory-beheerder fungeert.
+3. Selecteer op de werkbalk van de AD-beheerderspagina de optie **Beheerder instellen** en kies de gebruiker of groep als uw AD-beheerder.
 
     ![active directory selecteren](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. Klik bovenaan de blade Active Directory-beheerder op de opdracht **Opslaan** om de Active Directory-beheerder in te stellen.
+4. Selecteer **Opslaan** op de werkbalk van de AD-beheerderspagina.
 
-Navigeer naar de SQL-database waarin u wilt zoeken, en klik in het linkermenu op **Data Explorer (preview)**. De pagina Data Explorer wordt geopend en er wordt automatisch verbinding gemaakt met de database.
+5. Navigeer naar de database **mySampleDatabase** en selecteer in het menu links **Query-editor (preview)**. De pagina **Aanmelden** wordt weergegeven. Als u een AD-beheerder bent, wordt aan de rechterkant, onder **Active Directory: eenmalige aanmelding** een bericht weergegeven met de mededeling dat u bent aangemeld. 
+   
+6. Selecteer **OK**.
 
 
-## <a name="run-query-using-query-editor"></a>Query's uitvoeren met de queryeditor
+## <a name="view-data"></a>Gegevens weergeven
 
-Nadat u bent geverifieerd, typt u de volgende query in het deelvenster van de queryeditor om een query op categorie uit te voeren op de belangrijkste twintig producten.
+1. Nadat u bent geverifieerd, plakt u de volgende SQL in de queryeditor om de belangrijkste twintig producten op categorie op te halen.
 
-```sql
- SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
- FROM SalesLT.ProductCategory pc
- JOIN SalesLT.Product p
- ON pc.productcategoryid = p.productcategoryid;
-```
+   ```sql
+    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+    FROM SalesLT.ProductCategory pc
+    JOIN SalesLT.Product p
+    ON pc.productcategoryid = p.productcategoryid;
+   ```
 
-Klik op **Uitvoeren** en bekijk de resultaten van de query in het deelvenster **Resultaten**.
+2. Selecteer op de werkbalk de optie **Uitvoeren** en bekijk de uitvoer in het deelvenster **Resultaten**.
 
 ![resultaten queryeditor](./media/sql-database-connect-query-portal/query-editor-results.png)
 
-## <a name="insert-data-using-query-editor"></a>Gegevens invoegen met de queryeditor
+## <a name="insert-data"></a>Gegevens invoegen
 
-Gebruik de volgende code om een nieuw product in te voegen in de tabel SalesLT.Product. Gebruik de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
+Gebruik de volgende [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-instructie uit Transact-SQL om een nieuw product toe te voegen in de tabel `SalesLT.Product`.
 
-1. Vervang in het queryvenster de vorige query door de volgende query:
+1. Vervang de vorige query door deze.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -114,13 +116,15 @@ Gebruik de volgende code om een nieuw product in te voegen in de tabel SalesLT.P
            ,GETDATE() );
    ```
 
-2. Klik in de werkbalk op **Uitvoeren** om een nieuwe rij in te voegen in de tabel Product.
 
-## <a name="update-data-using-query-editor"></a>Gegevens bijwerken met de queryeditor
+2. Selecteer **Uitvoeren** om een nieuwe rij in te voegen in de tabel Product. Het deelvenster **Berichten** toont **Query voltooid: Betroffen rijen: 1**.
 
-Gebruik de volgende code om het nieuwe product bij te werken dat u eerder hebt toegevoegd. Gebruik de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
-1. Vervang in het queryvenster de vorige query door de volgende query:
+## <a name="update-data"></a>Gegevens bijwerken
+
+Gebruik de volgende [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)-instructie uit Transact-SQL om uw nieuwe product te wijzigen.
+
+1. Vervang de vorige query door deze.
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -128,45 +132,39 @@ Gebruik de volgende code om het nieuwe product bij te werken dat u eerder hebt t
    WHERE Name = 'myNewProduct';
    ```
 
-2. Klik in de werkbalk op **Uitvoeren** om de opgegeven rij in de tabel Product bij te werken.
+2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel Product bij te werken. Het deelvenster **Berichten** toont **Query voltooid: Betroffen rijen: 1**.
 
-## <a name="delete-data-using-query-editor"></a>Gegevens verwijderen met de queryeditor
+## <a name="delete-data"></a>Gegevens verwijderen
 
-Gebruik de volgende code om het nieuwe product te verwijderen dat u eerder hebt toegevoegd. Gebruik de Transact-SQL-instructie [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
+Gebruik de volgende [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)-instructie uit Transact-SQL om uw nieuwe product te verwijderen.
 
-1. Vervang in het queryvenster de vorige query door de volgende query:
+1. Vervang de vorige query door deze:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Klik in de werkbalk op **Uitvoeren** om de opgegeven rij in de tabel Product te verwijderen.
+2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel Product te verwijderen. Het deelvenster **Berichten** toont **Query voltooid: Betroffen rijen: 1**.
 
 
-## <a name="query-editor-considerations"></a>Overwegingen bij queryeditor
+## <a name="query-editor-considerations"></a>Overwegingen met betrekking tot de queryeditor
 
-U moet enkele dingen weten voordat u met de queryeditor gaat werken:
+U moet enkele dingen weten voordat u met de queryeditor gaat werken.
 
-1. Zorg ervoor dat de optie Toegang tot Azure-services toestaan is ingesteld op 'AAN' in de firewall-instellingen van Azure SQL Server. Met deze optie geeft de SQL-queryeditor toegang tot uw SQL-databases en datawarehouses.
+* U kunt de query-editor niet gebruiken om query's uit te voeren op SQL Server-databases in een virtueel netwerk.
 
-2. Als de SQL-server zich in een virtueel netwerk bevindt, kan de queryeditor niet worden gebruikt om query’s uit te voeren in de databases op die server.
+* Wanneer u op F5 drukt, wordt de pagina van de queryeditor vernieuwd en gaan query's waaraan wordt gewerkt, verloren.
 
-3. Door op de F5-toets te drukken, wordt de pagina Queryeditor vernieuwd en wordt de query waaraan wordt gewerkt, beëindigd. U kunt de knop Uitvoeren op de werkbalk gebruiken om query's uit te voeren.
+* De queryeditor biedt geen ondersteuning voor het maken van verbinding met de masterdatabase.
 
-4. De queryeditor biedt geen ondersteuning voor het maken van verbinding met de masterdatabase
+* Er is een time-out van vijf minuten voor uitvoering van de query.
 
-5. Er is een time-out van vijf minuten voor uitvoering van de query.
+* De queryeditor ondersteunt alleen cilindrische projectie voor geografiegegevenstypen.
 
-6. Het aanmelden bij Azure Active Directory Administrator-beheerders werkt niet met accounts waarvoor tweeledige authenticatie is ingeschakeld.
-
-7. E-mailaccounts (bijvoorbeeld outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) worden nog niet ondersteund als Active Directory-beheerders. Kies een gebruiker die ofwel in het systeem zelf in Azure Active Directory is gemaakt, ofwel gefedereerd in Azure Active Directory
-
-8. De queryeditor ondersteunt alleen cilindrische projectie voor geografiegegevenstypen.
-
-9. Er is geen ondersteuning voor IntelliSense voor databasetabellen en -views. Het automatisch aanvullen van namen die al eerder zijn getypt, wordt wel ondersteund.
+* Er is geen ondersteuning voor IntelliSense voor databasetabellen en -weergaven. Het automatisch aanvullen van namen die al eerder zijn getypt, wordt wel ondersteund.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [Transact-SQL-verschillen tijdens in SQL Database oplossen](sql-database-transact-sql-information.md) voor informatie over Transact-SQL die in Azure SQL-databases wordt ondersteund.
+Zie [Transact-SQL-verschillen oplossen tijdens migratie naar SQL Database](sql-database-transact-sql-information.md) voor informatie over de Transact-SQL die in Azure SQL-databases wordt ondersteund.

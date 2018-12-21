@@ -9,14 +9,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 8d2272ca468f7c415d9d03506ecaa3fbe667f0c0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
+ms.openlocfilehash: c758b3f56d8935b8d0d7873df41a965be1281044
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873169"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407573"
 ---
-# <a name="tutorial-build-a-nodejs-console-app-with-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Zelfstudie: Een Node.js-console-app bouwen met JavaScript SDK voor het beheren van gegevens in Azure Cosmos DB SQL API
+# <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Zelfstudie: Een Node.js-console-app bouwen met de JavaScript SDK voor het beheren van gegevens in Azure Cosmos DB SQL API
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -28,19 +29,17 @@ ms.locfileid: "52873169"
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-In deze zelfstudie ziet u hoe u een Node.js-consoletoepassing bouwt voor het maken van Azure Cosmos DB-resources en om deze resources te doorzoeken.
+Als ontwikkelaar hebt u mogelijk toepassingen die gebruikmaken van NoSQL-documentgegevens. U kunt een SQL-API-account in Azure Cosmos DB gebruiken om deze documentgegevens op te slaan en te openen. In deze zelfstudie ziet u hoe u een Node.js-consoletoepassing bouwt voor het maken van Azure Cosmos DB-resources en om deze resources te doorzoeken.
 
-Deze zelfstudie bestaat uit de volgende taken:
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een Azure Cosmos DB-account maken en er verbinding mee maken
-> * Uw toepassing instellen
-> * Een database maken
-> * Een container maken
-> * Items toevoegen aan de container
-> * CRUD-bewerkingen uitvoeren op de items, container en database
-
-Hebt u geen tijd om de toepassing te maken? Geen probleem. De volledige oplossing is beschikbaar via [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started ). Raadpleeg de sectie [De volledige oplossing gebruiken](#GetSolution) in dit artikel voor snelle instructies.
+> * Een Azure Cosmos DB-account maken en er verbinding mee maken.
+> * Uw toepassing instellen.
+> * Een database maken.
+> * Een container maken.
+> * Items toevoegen aan de container.
+> * Basisbewerkingen uitvoeren op de items, container en database.
 
 ## <a name="prerequisites"></a>Vereisten 
 
@@ -50,15 +49,17 @@ Zorg ervoor dat u over de volgende bronnen beschikt:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js](https://nodejs.org/) versie v6.0.0 of hoger.
+* [Node.js](https://nodejs.org/) v6.0.0 of hoger.
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Stap 1: een Azure Cosmos DB-account maken
+## <a name="create-azure-cosmos-db-account"></a>Een Azure Cosmos DB-account maken
 
 Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt dat u wilt gebruiken, kunt u verder naar de stap [Uw Node.js-toepassing instellen](#SetupNode). Als u de Azure Cosmos DB-emulator gebruikt, volgt u de stappen in [Azure Cosmos DB-emulator](local-emulator.md) om de emulator in te stellen en meteen naar [Uw Node.js-toepassing instellen](#SetupNode) te gaan. 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupNode"></a>Stap 2: Uw Node.js-toepassing instellen
+## <a id="SetupNode"></a>Uw Node.js-toepassing instellen
+
+Voordat u begint met het schrijven van code voor het maken van de toepassing, kunt u het framework bouwen voor uw app. Voer de volgende stappen uit voor het instellen van uw Node.js-toepassing die de frameworkcode bevat:
 
 1. Open uw favoriete terminal.
 2. Ga naar de map of directory waarin u de Node.js-toepassing wilt opslaan.
@@ -75,7 +76,9 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
 4. Installeer de @azure/cosmos-module via npm. Gebruik de volgende opdracht:
    * ```npm install @azure/cosmos --save```
 
-## <a id="Config"></a>Stap 3: de configuratie van de app instellen
+## <a id="Config"></a>De configuratie van de app instellen
+
+Nu uw app bestaat, moet u controleren of deze kan communiceren met Azure Cosmos DB. Zoals wordt weergegeven in de volgende stappen, kunt u door het bijwerken van een aantal configuratie-instellingen uw app instellen voor communicatie met Azure Cosmos DB:
 
 1. Open ```config.js``` in uw favoriete teksteditor.
 
@@ -91,7 +94,7 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
    config.primaryKey = "~your primary key here~";
    ``` 
 
-1. Kopieer de ```database```-, ```container```- en ```items```-gegevens en plak deze in uw ```config```-object hieronder, waar u de eigenschappen ```config.endpoint``` en ```config.primaryKey``` instelt. Als u al gegevens hebt die u in de database wilt opslaan, kunt u het [hulpprogramma voor gegevensmigratie](import-data.md) van Azure Cosmos DB gebruiken in plaats van de gegevens hier te definiëren.
+1. Kopieer de ```database```-, ```container```- en ```items```-gegevens en plak deze in uw ```config```-object hieronder, waar u de eigenschappen ```config.endpoint``` en ```config.primaryKey``` instelt. Als u al gegevens hebt die u in de database wilt opslaan, kunt u het hulpprogramma voor gegevensmigratie in Azure Cosmos DB gebruiken in plaats van de gegevens hier te definiëren.
 
    ```nodejs
    var config = {}
@@ -165,7 +168,7 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
    };
    ```
 
-   Als u bekend bent met de vorige versie van de JavaScript SDK, komen de termen 'verzameling' en 'document' u vertrouwd voor. Azure Cosmos DB biedt ondersteuning voor [meerdere API-modellen](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities). Daarom wordt in versie 2.0+ van de JavaScript-SDK gebruikgemaakt van de generieke termen 'container' en 'item'. Een container kan een verzameling, een graaf of een tabel zijn. Een item kan een document, rand/hoekpunt of rij zijn en is de inhoud binnen een container. 
+   De JavaScript SDK maakt gebruik van de algemene termen *container* en *item*. Een container kan een verzameling, een graaf of een tabel zijn. Een item kan een document, rand/hoekpunt of rij zijn en is de inhoud binnen een container. 
 
 1. Als laatste exporteert u uw ```config```-object zodat u ernaar kunt verwijzen binnen het ```app.js```-bestand.
 
@@ -179,7 +182,7 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
    module.exports = config;
    ```
 
-## <a id="Connect"></a>Stap 4: verbinding maken met een Azure Cosmos DB-account
+## <a id="Connect"></a>Verbinding maken met een Azure Cosmos DB-account
 
 1. Open uw lege ```app.js```-bestand in de teksteditor. Kopieer en plak de onderstaande code om de ```@azure/cosmos```-module en de zojuist gemaakte ```config```-module te importeren.
 
@@ -205,7 +208,7 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
 
 Nu u de code hebt om de Azure Cosmos DB-client te initialiseren, kunt u zich verder verdiepen in het werken met Azure Cosmos DB-resources.
 
-## <a name="step-5-create-a-database"></a>Stap 5: een database maken
+## <a name="create-a-database"></a>Een database maken
 
 1. Kopieer en plak de onderstaande code om de database-id en de container-id in te stellen. Op basis van deze id's zoekt de Azure Cosmos DB-client de juiste database en container.
 
@@ -219,7 +222,7 @@ Nu u de code hebt om de Azure Cosmos DB-client te initialiseren, kunt u zich ver
    const containerId = config.container.id;
    ```
 
-   Er kan een database worden gemaakt met behulp van de functie [createIfNotExists](/javascript/api/%40azure/cosmos/databases) of [create](/javascript/api/%40azure/cosmos/databases) van de klasse **Databases**. Een database is de logische container voor items die zijn gepartitioneerd in containers. 
+   Er kan een database worden gemaakt met behulp van de functie `createIfNotExists` of create van de klasse **Databases**. Een database is de logische container voor items die zijn gepartitioneerd in containers. 
 
 2. Kopieer en plak de methoden **createDatabase** en **readDatabase** in het app.js-bestand onder de definitie van ```databaseId``` en ```containerId```. Als de database nog niet bestaat wordt met de functie **createDatabase** een nieuwe database gemaakt met id ```FamilyDatabase```, opgegeven vanuit het ```config```-object. De functie **readDatabase** leest de definitie van de database om ervoor te zorgen dat de database bestaat.
 
@@ -321,14 +324,14 @@ Nu u de code hebt om de Azure Cosmos DB-client te initialiseren, kunt u zich ver
    node app.js
    ```
 
-Gefeliciteerd! U hebt een Azure Cosmos DB-database gemaakt.
+## <a id="CreateContainer"></a>Een container maken
 
-## <a id="CreateContainer"></a>Stap 6: een container maken
+Maak vervolgens een container in het Azure Cosmos DB-account, zodat u de gegevens kunt opslaan en opvragen. 
 
 > [!WARNING]
-> Door het aanroepen van de functie **createContainer** wordt er een nieuwe container gemaakt. Hiervoor worden kosten in rekening gebracht. Zie onze [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) voor meer informatie.
+Het maken van een container heeft gevolgen voor de prijzen. Ga naar onze [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/), zodat u wat weet u kunt verwachten.
 
-Er kan een container worden gemaakt met behulp van de functie [createIfNotExists](/javascript/api/%40azure/cosmos/containers) of [create](/javascript/api/%40azure/cosmos/containers) van de klasse **Containers**.  Een container bestaat uit items - in het geval van de SQL-API zijn dit JSON-documenten - en bijbehorende JavaScript-toepassingslogica.
+Er kan een container worden gemaakt met behulp van de functie `createIfNotExists` of create van de klasse **Containers**.  Een container bestaat uit items - in het geval van de SQL-API zijn dit JSON-documenten - en bijbehorende JavaScript-toepassingslogica.
 
 1. Kopieer en plak de functies **createContainer** en **readContainer** onder de functie **readDatabase** in het app.js-bestand. Als de database nog niet bestaat wordt met de functie **createContainer** een nieuwe container gemaakt met id ```containerId```, opgegeven vanuit het ```config```-object. De functie **readContainer** leest de containerdefinitie om te verifiëren of de container bestaat.
 
@@ -441,11 +444,9 @@ Er kan een container worden gemaakt met behulp van de functie [createIfNotExists
    node app.js
    ```
 
-Gefeliciteerd! U hebt nu een Azure Cosmos DB-container gemaakt.
+## <a id="CreateItem"></a>Een item maken
 
-## <a id="CreateItem"></a>Stap 7: een item maken
-
-Er kan een item worden gemaakt met de functie [create](/javascript/api/%40azure/cosmos/items) van de klasse **Items**. Als u de SQL-API gebruikt, worden items als documenten geprojecteerd. Deze zijn door de gebruiker gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een item invoegen in Azure Cosmos DB.
+Er kan een item worden gemaakt met de functie create van de klasse **Items**. Als u de SQL-API gebruikt, worden items als documenten geprojecteerd. Deze zijn door de gebruiker gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een item invoegen in Azure Cosmos DB.
 
 1. Kopieer de functie **createFamilyItem** en plak deze onder de functie **readContainer**. De functie **createFamilyItem** maakt de items met de JSON-gegevens die in het ```config```-object zijn opgeslagen. Voordat het item wordt gemaakt, wordt gecontroleerd of er niet al een item bestaat met dezelfde id.
 
@@ -494,13 +495,11 @@ Er kan een item worden gemaakt met de functie [create](/javascript/api/%40azure/
    node app.js
    ```
 
-Gefeliciteerd! U hebt nu een Azure Cosmos DB-item gemaakt.
 
+## <a id="Query"></a>Query's uitvoeren op Azure Cosmos DB-resources
+Azure Cosmos DB biedt ondersteuning voor uitgebreide query's voor de JSON-documenten die in elke container zijn opgeslagen. In de volgende voorbeeldcode ziet u een query die u kunt uitvoeren op de documenten in uw container.
 
-## <a id="Query"></a>Stap 8: query's uitvoeren op Azure Cosmos DB-resources
-Azure Cosmos DB biedt ondersteuning voor [uitgebreide query's](how-to-sql-query.md) voor de JSON-documenten die in elke container zijn opgeslagen. In de volgende voorbeeldcode ziet u een query die u kunt uitvoeren op de documenten in uw container.
-
-1. Kopieer en plak de functie **queryContainer** onder de functie **createFamilyItem** in het app.js-bestand. Azure Cosmos DB biedt ondersteuning voor SQL-achtige query's, zoals hieronder wordt weergegeven. Zie de [Query Playground](https://www.documentdb.com/sql/demo) (Queryspeelplaats) en de [querydocumentatie](how-to-sql-query.md) voor meer informatie over het bouwen van complexe query's.
+1. Kopieer en plak de functie **queryContainer** onder de functie **createFamilyItem** in het app.js-bestand. Azure Cosmos DB biedt ondersteuning voor SQL-achtige query's, zoals hieronder wordt weergegeven.
 
    ```nodejs
    /**
@@ -552,9 +551,8 @@ Azure Cosmos DB biedt ondersteuning voor [uitgebreide query's](how-to-sql-query.
    node app.js
    ```
 
-Gefeliciteerd! U hebt een query uitgevoerd op Azure Cosmos DB-items.
 
-## <a id="ReplaceItem"></a>Stap 9: een item vervangen
+## <a id="ReplaceItem"></a>Een item vervangen
 Azure Cosmos DB biedt ondersteuning voor het vervangen van inhoud van items.
 
 1. Kopieer en plak de functie **replaceFamilyItem** onder de functie **queryContainer** in het app.js-bestand. Merk op dat de waarde van de eigenschap 'grade' van een onderliggend item van 5 is gewijzigd in 6.
@@ -598,9 +596,8 @@ Azure Cosmos DB biedt ondersteuning voor het vervangen van inhoud van items.
    node app.js
    ```
 
-Gefeliciteerd! U hebt een Azure Cosmos DB-item vervangen.
 
-## <a id="DeleteItem"></a>Stap 10: een item verwijderen
+## <a id="DeleteItem"></a>Een item verwijderen
 
 Azure Cosmos DB biedt ondersteuning voor het verwijderen van JSON-items.
 
@@ -644,9 +641,8 @@ Azure Cosmos DB biedt ondersteuning voor het verwijderen van JSON-items.
    node app.js
    ```
 
-Gefeliciteerd! U hebt een Azure Cosmos DB-item verwijderd.
 
-## <a id="DeleteDatabase"></a>Stap 11: de database verwijderen
+## <a id="DeleteDatabase"></a>Database verwijderen
 
 Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (containers, items, enzovoort) verwijderd.
 
@@ -683,7 +679,7 @@ Als u de gemaakte database verwijdert, worden de database en alle onderliggende 
       .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
    ```
 
-## <a id="Run"></a>Stap 12: uw Note.js-toepassing uitvoeren
+## <a id="Run"></a>Uw Node.js-toepassing uitvoeren
 
 De code moet er nu als volgt uit zien:
 
@@ -876,36 +872,35 @@ U ziet de uitvoer van uw GetStarted-app. De uitvoer moet overeenkomen met de ond
     Press any key to exit
    ```
 
-Gefeliciteerd! U hebt de Node.js-zelfstudie voltooid en beschikt nu over uw eerste Azure Cosmos DB-consoletoepassing.
+## <a id="GetSolution"></a>De volledige Node.js-zelfstudieoplossing gebruiken 
 
-## <a id="GetSolution"></a>De volledige Node.js-zelfstudieoplossing gebruiken
+Als u geen tijd hebt gehad om de stappen in deze zelfstudie uit te voeren of als u alleen de code wilt downloaden, kunt u deze ophalen van [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started ). 
 
-Als u geen tijd hebt gehad om de stappen in deze zelfstudie uit te voeren of als u alleen de code wilt downloaden, kunt u deze ophalen van [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started ).
+Als u de Aan de slag-oplossing wilt uitvoeren met alle code uit dit artikel, hebt u het volgende nodig: 
 
-Als u de Aan de slag-oplossing wilt uitvoeren met alle code uit dit artikel, hebt u de volgende stappen nodig:
+* Een [Azure Cosmos DB-account][create-account]. 
+* De [Aan de slag](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started)-oplossing die beschikbaar is via GitHub. 
 
-* Een [Azure Cosmos DB-account][create-account].
-* De [Aan de slag](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started)-oplossing die beschikbaar is via GitHub.
+Installeer de **@azure/cosmos**-module via npm. Gebruik de volgende opdracht: 
 
-Installeer de **@azure/cosmos**-module via npm. Gebruik de volgende opdracht:
+* ```npm install @azure/cosmos --save``` 
 
-* ```npm install @azure/cosmos --save```
+Daarna gebruikt u in het bestand ```config.js``` de waarden config.endpoint en config.primaryKey, zoals wordt beschreven in [Stap 3: de configuratie van de app instellen](#Config).  
 
-Daarna gebruikt u in het bestand ```config.js``` de waarden config.endpoint en config.primaryKey, zoals wordt beschreven in [Stap 3: de configuratie van de app instellen](#Config). 
+Zoek vervolgens het ```app.js```-bestand in de terminal en voer de volgende opdracht uit:  
 
-Zoek vervolgens het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: 
-
-```bash 
-node app.js
+```bash  
+node app.js 
 ```
 
-Dat is alles, u kunt nu verder. 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+U kunt de resourcegroep, het Azure Cosmos DB-account en alle gerelateerde resources verwijderen wanneer u de resources niet meer nodig hebt. Hiertoe selecteert u de resourcegroep die u hebt gebruikt voor het Azure Cosmos DB-account en selecteert u **Verwijderen**. Vervolgens bevestigt u de naam van de resourcegroep die u wilt verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Wilt u een complexer Node.js-voorbeeld? Zie [Een Node.js-webtoepassing bouwen met Azure Cosmos DB](sql-api-nodejs-application.md).
-* Leer hoe het [bewaken van een Azure Cosmos DB-account](monitor-accounts.md) werkt.
-* Voer query's uit op onze voorbeeldgegevensset in de [Queryspeelplaats](https://www.documentdb.com/sql/demo).
+> [!div class="nextstepaction"]
+> [Een Azure Cosmos DB-account controleren](monitor-accounts.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-nodejs-get-started/node-js-tutorial-keys.png

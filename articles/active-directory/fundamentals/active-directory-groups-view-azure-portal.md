@@ -1,6 +1,6 @@
 ---
-title: Snelstartgids voor het weergeven van de groepen en leden van uw organisatie in Azure Active Directory | Microsoft Docs
-description: Snelstartgids met stapsgewijze instructies om via de Azure-portal groepen van uw organisatie en hun toegewezen leden te zoeken en weer te geven.
+title: Snelstartgids voor het weergeven van de groepen en leden van uw organisatie - Azure Active Directory | Microsoft Docs
+description: Instructies voor het zoeken en weergeven van uw organisatiegroepen en hun toegewezen leden.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,14 +10,14 @@ ms.component: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 9da9f055163f5df4ea064bd46caa811e39fba20c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 002b4bb4ab20e531132b461f90857cfab6aecfd3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056400"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087470"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -43,11 +43,11 @@ Maak een nieuwe groep, met de naam _MDM-beleid - West_. Zie [Een groep maken en 
 
 2. Vul de pagina **Groep** in:
     
-    - **Groepstype:** selecteer **Beveiliging**
+    - **Groepstype:** Selecteer **Beveiliging**
     
-    - **Groepsnaam:** type _MDM-beleid - West_
+    - **Groepsnaam:** Voer _MDM-beleid - West_ in
     
-    - **Type lidmaatschap:** selecteer **Toegewezen**.
+    - **Type lidmaatschap:** Selecteer **Toegewezen**.
 
 3. Selecteer **Maken**.
 
@@ -58,9 +58,9 @@ Maak een nieuwe gebruiker met de naam _Alain Charon_. Een gebruiker moet bestaan
 
 2. Vul de pagina **Gebruiker** in:
 
-    - **Naam:** type _Alain Charon_.
+    - **Naam:** Voer _Alain Charon_ in.
 
-    - **Gebruikersnaam:** type *alain@contoso.com*.
+    - **Gebruikersnaam:** Voer *alain@contoso.com* in.
 
 3. Kopieer het automatisch gegenereerde wachtwoord in het vak **Wachtwoord** en selecteer vervolgens **Maken**.
 

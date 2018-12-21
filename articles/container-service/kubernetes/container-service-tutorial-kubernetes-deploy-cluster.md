@@ -1,24 +1,27 @@
 ---
-title: 'Zelfstudie Azure Container Service: Cluster implementeren'
+title: '(AFGESCHAFT) Zelfstudie Azure Container Service: Cluster implementeren'
 description: 'Zelfstudie Azure Container Service: Cluster implementeren'
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d77396cdcaa3f2f291aff52dfd1e6793aee4039c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434421"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997846"
 ---
-# <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Een Kubernetes-cluster implementeren in Azure Container Service
+# <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(AFGESCHAFT) Een Kubernetes-cluster implementeren in Azure Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Voor de bijgewerkte versie van deze zelfstudie, die gebruikmaakt van Azure Kubernetes Service, raadpleegt u [Zelfstudie: Een AKS-cluster (Azure Kubernetes Service) implementeren](../../aks/tutorial-kubernetes-deploy-cluster.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Kubernetes biedt een gedistribueerd platform voor toepassingen in containers. Met Azure Container Service kunt u eenvoudig en snel een Kubernetes-cluster inrichten dat gereed is voor productie. In deze zelfstudie, deel 3 van 7, wordt een Kubernetes-cluster in Azure Container Service geïmplementeerd. Dit zijn de uitgevoerde stappen:
 

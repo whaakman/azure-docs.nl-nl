@@ -1,23 +1,24 @@
 ---
-title: 'Zelfstudie 5: relatie tussen bovenliggende en onderliggende items - LUIS - Hiërarchische entiteit voor contextueel geleerde gegevens'
+title: Hiërarchische entiteit
 titleSuffix: Azure Cognitive Services
 description: Zoek gerelateerde gegevens op basis van de context. Een bestemmings- en doellocatie voor de fysieke verhuizing tussen twee gebouwen zijn bijvoorbeeld aan elkaar gerelateerd.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424697"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104404"
 ---
-# <a name="tutorial-5-extract-contextually-related-data"></a>Zelfstudie 5: contextgerelateerde gegevens herkennen
+# <a name="tutorial-5-extract-contextually-related-data"></a>Zelfstudie 5: Contextgerelateerde gegevens herkennen
 In deze zelfstudie zoekt u gerelateerde gegevens op basis van context. Een bestemmings- en doellocatie voor de fysieke verhuizing tussen twee gebouwen zijn bijvoorbeeld aan elkaar gerelateerd. Voor het maken van een werkorder zijn mogelijk beide gegevenselementen vereist - deze zijn aan elkaar gerelateerd.  
 
 Met deze app wordt bepaald waar een werknemer naartoe wordt verplaatst van de locatie van herkomst (gebouw en kantoor) naar de bestemmingslocatie (gebouw en kantoor). Hierbij wordt de entiteit Hierarchical gebruikt om vast te stellen wat de locaties binnen de utterance zijn. Het doel van de entiteit **Hierarchical** is het vinden van gerelateerde gegevens binnen de utterance op basis van context. 
@@ -32,7 +33,6 @@ De entiteit Hierarchical is geschikt voor dit type gegevens omdat het volgende g
 
 **In deze zelfstudie leert u het volgende:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Bestaande zelfstudie-app gebruiken
 > * Intentie toevoegen 
@@ -55,7 +55,7 @@ Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert 
 3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `hier`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Vooraf gedefinieerde cijferentiteit uit app verwijderen
-Om de volledige utterance te zien en de onderliggende entiteiten Hierarchical te kunnen markeren, moet u de vooraf gedefinieerde cijferentiteit tijdelijk verwijderen.
+Om de volledige utterance te zien en de onderliggende entiteiten hiërarchisch te kunnen markeren, moet u [de vooraf gedefinieerde cijferentiteit tijdelijk verwijderen](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -90,7 +90,7 @@ LUIS moet kunnen vaststellen wat een locatie is door de herkomst en bestemming i
 
 Kijk eens naar de volgende utterance:
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
@@ -100,19 +100,19 @@ Als slechts één onderliggend element (herkomst of bestemming) van een hiërarc
 
 1. Selecteer het woord `g-2323` in de utterance, `Displace 425-555-0000 away from g-2323 toward hh-2345`. Er wordt een vervolgkeuzelijst weergegeven met bovenaan een tekstvak. Typ de entiteitsnaam `Locations` in het tekstvak en selecteer vervolgens **Create new entity** in de vervolgkeuzelijst. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Schermopname van het maken van een nieuwe entiteit op de intentiepagina")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Schermopname van het maken van een nieuwe entiteit op de intentiepagina](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Schermopname van het maken van een nieuwe entiteit op de intentiepagina")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. Selecteer in het pop-upvenster het entiteittype **Hierarchical** met `Origin` en `Destination` als de onderliggende entiteiten. Selecteer **Done**.
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Schermopname van het pop-upvenster voor het maken van een nieuwe entiteit van het type Location")
+    ![Schermopname van het pop-upvenster voor het maken van een entiteit voor een nieuwe entiteit Location](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Schermopname van het pop-upvenster voor het maken van een entiteit voor een nieuwe entiteit Location")
 
 3. Het label voor `g-2323` is gemarkeerd als `Locations` omdat LUIS niet weet of de term verwijst naar de plaats van herkomst of van bestemming, of geen van beide. Selecteer `g-2323`, vervolgens **Locations** en selecteer `Origin` in het menu aan de rechterkant.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Schermopname van pop-updialoogvenster om met behulp van labels in een onderliggend entiteit de locaties te wijzigen")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Schermopname van het pop-upvenster voor het labelen van entiteiten om de onderliggende entiteit Locations te wijzigen](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Schermopname van het pop-upvenster voor het labelen van entiteiten om de onderliggende entiteit Locations te wijzigen")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. Voorzie de andere locaties in alle andere utterances van labels door het gebouw en kantoor in de utterance te selecteren, vervolgens Locations de selecteren en `Origin` of `Destination` in het rechtermenu te selecteren. Wanneer alle locaties van een label zijn voorzien, beginnen de utterances in **Tokens View** er als een patroon uit te zien. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Schermopname van de gelabelde entiteit Locations in utterances")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Schermopname van de entiteit Locations die is gelabeld in utterances](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Schermopname van de entiteit Locations die is gelabeld in utterances")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>Vooraf gedefinieerde cijferentiteit aan app toevoegen
 De vooraf gedefinieerde cijferentiteit opnieuw toevoegen aan de toepassing.
@@ -140,7 +140,7 @@ De vooraf gedefinieerde cijferentiteit opnieuw toevoegen aan de toepassing.
 
 2. Ga naar het einde van de URL in de adresbalk en voer `Please relocation jill-jones@mycompany.com from x-2345 to g-23456` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intent `MoveEmployee` als resultaat moet geven met de entiteit Hierarchical geëxtraheerd.
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

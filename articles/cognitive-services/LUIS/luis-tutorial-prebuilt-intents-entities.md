@@ -1,23 +1,24 @@
 ---
-title: 'Zelfstudie 2: Vooraf gedefinieerde intents en entiteiten - gebruik vooraf gedefinieerde algemene utterances - extraheer algemene gegevens in LUIS'
+title: Vooraf gemaakte intenties en entiteiten
 titleSuffix: Azure Cognitive Services
 description: Voeg vooraf gemaakte intenties en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft utterances niet te labelen met vooraf gedefinieerde entiteiten. De entiteit wordt automatisch gedetecteerd.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422419"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074061"
 ---
-# <a name="tutorial-2-identify-common-intents-and-entities"></a>Zelfstudie 2: Algemene intents en entiteiten identificeren
+# <a name="tutorial-2-identify-common-intents-and-entities"></a>Zelfstudie 2: Algemene intenties en entiteiten identificeren
 In deze zelfstudie wijzigt u de Human Resources-app. Voeg vooraf gemaakte intenties en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft niet alle utterances met vooraf gedefinieerde entiteiten te labelen omdat de entiteit automatisch wordt gedetecteerd.
 
 Met vooraf gecompileerde modellen van algemene onderwerpsdomeinen en gegevenstypen kunt u uw model snel compileren, maar ook een voorbeeld geven van hoe een model eruitziet. 
@@ -90,7 +91,7 @@ LUIS biedt verschillende vooraf gemaakte entiteiten voor het ophalen van algemen
 
 2. Ga naar het einde van de URL in de adresbalk van de browser en voer `I want to cancel on March 3` in. De laatste parameter van de queryreeks is `q`, de utterance**query**. 
 
-    ```JSON
+    ```json
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {

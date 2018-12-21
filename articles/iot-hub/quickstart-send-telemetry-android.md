@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/05/2018
 ms.author: wesmc
-ms.openlocfilehash: 66c1380070c9f9732369cb0d209e428525d53ce8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d90595d3d557293bfbc6b06aca638eb1b7c08d30
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427646"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164310"
 ---
-# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Quickstart: IoT-telemetrie verzenden vanaf een Android-apparaat
+# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Snelstart: IoT-telemetrie verzenden vanaf een Android-apparaat
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -35,7 +35,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 * Voor het voorbeeld in dit artikel wordt Android SDK 27 gebruikt. 
 
-* De [Android-voorbeeldtoepassing](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) die u uitvoert in deze quickstart, maakt onderdeel uit van de opslagplaats azure-iot-samples-java in GitHub. Download of kloon de opslagplaats [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+* De [Android-voorbeeldtoepassing](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) die u uitvoert in deze snelstartgids, maakt deel uit van de opslagplaats azure-iot-samples-java in GitHub. Download of kloon de opslagplaats [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
 
 
@@ -51,7 +51,7 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
-   **MyAndroidDevice**: MyAndroidDevice is de naam die is opgegeven voor het geregistreerde apparaat. Gebruik MyAndroidDevice zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
+   **MyAndroidDevice**: MyAndroidDevice is de naam van het geregistreerde apparaat. Gebruik MyAndroidDevice zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -120,5 +120,5 @@ In deze quickstart hebt u een IoT-hub geconfigureerd, een apparaat geregistreerd
 Ga verder met de volgende snelstartgids als u wilt weten hoe u een gesimuleerd apparaat beheert vanuit een back-endtoepassing.
 
 > [!div class="nextstepaction"]
-> [Snelstartgids: Een apparaat beheren dat is verbonden met een IoT-hub](quickstart-control-device-android.md)
+> [Snelstart: Een apparaat beheren dat is verbonden met een IoT-hub](quickstart-control-device-android.md)
 

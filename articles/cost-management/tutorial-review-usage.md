@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7b9c9a600d105d4b7fbbeb4f52ee42b5eb2bcaaa
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275867"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093604"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -43,7 +43,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="open-the-cloudyn-portal"></a>De Cloudyn-portal openen
 
-U bekijkt het gebruik en de kosten in de Cloudyn-portal. Open de Cloudyn-portal vanuit Azure Portal of ga naar https://azure.cloudyn.com en meld u aan.
+U bekijkt het gebruik en de kosten in de Cloudyn-portal. Open de Cloudyn-portal vanuit de Azure-portal of ga naar https://azure.cloudyn.com en meld u aan.
 
 ## <a name="track-usage-and-cost-trends"></a>Gebruiks- en kostentrends bijhouden
 
@@ -51,15 +51,15 @@ U houdt de werkelijke uitgaven voor gebruik en kosten bij met rapporten om trend
 
 Hier volgt een voorbeeldrapport:
 
-![voorbeeldrapport](./media/tutorial-review-usage/actual-cost01.png)
+![Voorbeeld: rapport Werkelijke kosten in de loop der tijd](./media/tutorial-review-usage/actual-cost01.png)
 
 Het rapport toont alle uitgaven gedurende de afgelopen 30 dagen. Als u alleen uitgaven voor Azure-services wilt weergeven, past u de groep Service toe en filtert u op alle Azure-services. In de volgende afbeelding ziet u de gefilterde services.
 
-![gefilterde services](./media/tutorial-review-usage/actual-cost02.png)
+![Voorbeeld met gefilterde Azure-services](./media/tutorial-review-usage/actual-cost02.png)
 
 In het voorgaande voorbeeld is vanaf 29/10/2018 minder geld uitgegeven. Te veel kolommen kunnen een duidelijke trend echter moeilijk zichtbaar maken. U kunt de rapportweergave wijzigen in een lijn- of vlakdiagram om de gegevens in andere weergaven te zien. In de volgende afbeelding wordt de trend duidelijker weergegeven.
 
-![trend in rapport](./media/tutorial-review-usage/actual-cost03.png)
+![Voorbeeld met een afnemende kostentrend voor Azure-VM](./media/tutorial-review-usage/actual-cost03.png)
 
 In het voorbeeld ziet u dat de kosten voor Azure-VM zijn gedaald. Kosten voor andere Azure-services begonnen op deze dag ook te dalen. Wat veroorzaakte deze verlaging in de uitgaven? In dit voorbeeld is een groot werkproject voltooid, waardoor het verbruik van veel Azure-services ook is gedaald.
 
@@ -77,19 +77,19 @@ Het rapport Cost Effective Sizing Recommendations (Aanbevelingen voor kosteneffe
 
 Klik op het menu bovenaan in de portal en klik op **Optimizer** > **Sizing Optimization** > **Cost Effective Sizing Recommendations**. Pas, indien nuttig, een filter toe om het aantal resultaten te verkleinen. Hier ziet u een voorbeeldafbeelding.
 
-![Azure-VM's](./media/tutorial-review-usage/sizing01.png)
+![Rapport Aanbeveling voor kosten-effectieve aanpassing voor virtuele Azure-machines](./media/tutorial-review-usage/sizing01.png)
 
 In dit voorbeeld kan $ 2.382 worden bespaard door de aanbevelingen voor het wijzigen van de VM-exemplaartypen op te volgen. Klik op het plusteken (+) onder **Details** voor de eerste aanbeveling. Hier vindt u meer informatie over de eerste aanbeveling.
 
-![details van de aanbeveling](./media/tutorial-review-usage/sizing02.png)
+![Voorbeeld met details van de aanbeveling](./media/tutorial-review-usage/sizing02.png)
 
 Bekijk de id's van de VM-exemplaren door te klikken op het plusteken naast **List of Candidates**.
 
-![Lijst met kandidaten](./media/tutorial-review-usage/sizing03.png)
+![Voorbeeld met een lijst met VM-kandidaten waarvan het formaat kan worden aangepast](./media/tutorial-review-usage/sizing03.png)
 
 Zie [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) als u een zelfstudievideo wilt bekijken over het detecteren van inefficiënt gebruik.
 
-Azure Cost Management biedt ook aanbevelingen over kostenbesparingen voor Azure-services. Zie [Zelfstudie: kosten optimaliseren met behulp van aanbevelingen](tutorial-acm-opt-recommendations.md) voor meer informatie.
+Azure Cost Management biedt ook aanbevelingen over kostenbesparingen voor Azure-services. Zie [Zelfstudie: kosten optimaliseren op basis van aanbevelingen](tutorial-acm-opt-recommendations.md) voor meer informatie.
 
 ## <a name="create-alerts-for-unusual-spending"></a>Waarschuwingen maken voor ongebruikelijke uitgaven
 
@@ -99,7 +99,7 @@ U maakt een waarschuwing voor elke uitgave met behulp van een kostenrapport. In 
 
 Gebruik in het vak Save or Schedule this report het tabblad **Scheduling** om uzelf een e-mail met het rapport te sturen met de gewenste frequentie. Selecteer **Send via email**. Eventuele labels, groepen en filters die u gebruikt, worden toegepast op het rapport dat u per e-mail wordt toegezonden. Klik op het tabblad **Theshold** en selecteer **Actual Cost vs. Threshold**. Als u een totaal budget van $ 20.000 hebt en een melding wilt ontvangen wanneer de kosten in de buurt van de helft komen, maakt u een **rode waarschuwing** voor $ 10.000 en een **gele waarschuwing** voor $ 9.000. Gebruik geen komma's in waarden die u invoert. Kies vervolgens het aantal achtereenvolgende waarschuwingen. Wanneer u het totaal aantal waarschuwingen hebt ontvangen dat u hebt opgegeven, worden er geen extra waarschuwingen meer verzonden. Sla het geplande rapport op.
 
-![voorbeeldrapport](./media/tutorial-review-usage/schedule-alert01.png)
+![Voorbeeld met rode en gele waarschuwingen op basis van uitgavedrempelwaarden](./media/tutorial-review-usage/schedule-alert01.png)
 
 U kunt ook de drempeloptie Cost Percentage vs. Budget kiezen om waarschuwingen te maken. Als u deze optie kiest, kunt u budgetpercentages in plaats van bedragen gebruiken.
 

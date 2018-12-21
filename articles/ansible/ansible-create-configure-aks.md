@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f17998957db6fca5b109b5a05aa624e238af8dca
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810817"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257536"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Azure Kubernetes Service-clusters maken en configureren in Azure met behulp van Ansible
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken voor het beheren van uw Azure Kubernetes Service (AKS). Dit artikel laat zien hoe u Ansible gebruikt om een Azure Kubernetes Service-cluster te maken en beheren.
@@ -79,7 +79,7 @@ Voor het maken van het AKS-cluster met Ansible slaat u het voorgaande playbook-v
 
 De uitvoer van de **ansible-playbook*-opdracht lijkt op het volgende, dat laat zien dat het AKS-cluster is aangemaakt:
 
-  ```bash
+  ```Output
   PLAY [Create AKS] ****************************************************************************************
 
   TASK [Gathering Facts] ********************************************************************************************
@@ -140,7 +140,7 @@ Als u het Azure Kubernetes Service-cluster wilt schalen met Ansible, slaat u het
 
 In de volgende uitvoer ziet u dat het AKS-cluster is aangemaakt:
 
-  ```bash
+  ```Output
   PLAY [Scale AKS cluster] ***************************************************************
 
   TASK [Gathering Facts] ******************************************************************
@@ -178,7 +178,7 @@ Als u het Azure Kubernetes Service-cluster met Ansible wilt verwijderen, slaat u
   ```
 
 In de volgende uitvoer ziet u dat het AKS-cluster is verwijderd:
-  ```bash
+  ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
 
 TASK [Gathering Facts] ********************************************************************
@@ -192,4 +192,4 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
   
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
-> [Zelfstudie: Een toepassing schalen in AKS (Azure Kubernetes Service)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)
+> [Zelfstudie: een toepassing schalen in AKS (Azure Kubernetes Service)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

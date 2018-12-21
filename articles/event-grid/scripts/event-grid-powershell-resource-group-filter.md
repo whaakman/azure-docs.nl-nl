@@ -9,14 +9,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: ed77e8f09af841a1414212d7df6b60655ac158cd
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 21719ab4e6b999f262ff53adf31d855d6e1833b4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39482580"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271399"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-powershell"></a>Abonneren op gebeurtenissen voor een resourcegroep en filteren op een resource met PowerShell
 
@@ -24,25 +24,16 @@ Met dit script maakt u een Event Grid-abonnement op de gebeurtenissen voor een r
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Voorbeeldscript
+Voor het voorbeeldscript van de preview is de Event Grid-module vereist. Voer `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery` uit om deze te installeren
 
-```powershell
-# Provide an endpoint for handling the events.
-$myEndpoint = "<endpoint URL>"
+## <a name="sample-script---stable"></a>Voorbeeldscript - stabiel
 
-# Select the Azure subscription that contains the resource group.
-Set-AzureRmContext -Subscription "Contoso Subscription"
+[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events/filter-events.ps1 "Filter events")]
 
-# Get the resource ID to filter events
-$resourceId = (Get-AzureRmResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
+## <a name="sample-script---preview-module"></a>Voorbeeldscript - preview-module
 
-# Subscribe to the resource group. Provide the name of the resource group you want to subscribe to.
-New-AzureRmEventGridSubscription `
-  -Endpoint $myEndpoint `
-  -EventSubscriptionName demoSubscriptionToResourceGroup `
-  -ResourceGroupName myResourceGroup `
-  -SubjectBeginsWith $resourceId
-```
+[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events-preview/filter-events-preview.ps1 "Filter events")]
+
 
 ## <a name="script-explanation"></a>Uitleg van het script
 

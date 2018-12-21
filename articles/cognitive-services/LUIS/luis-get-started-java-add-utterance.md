@@ -1,23 +1,24 @@
 ---
-title: Java-snelstart - Model wijzigen en LUIS-app trainen
-titleSuffix: Azure Cognitive Services
-description: Voeg in deze Java-snelstart voorbeeldutterances toe aan een Home Automation-app en train de app. Voorbeeldutterances zijn teksten uit gesprekken met gebruikers die worden toegewezen aan een intentie. Door voorbeeldutterances op te geven voor intenties leert u LUIS welke soorten door de gebruiker geleverde tekst bij welke intentie horen.
+title: Wijzigen, app trainen, Java
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Voeg in deze Java-snelstart voorbeeldutterances toe aan een Home Automation-app en train de app.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bfe4aae25a34799370e52c8677871a62935ab5c2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 206b345fedb033a6b98e350fec8c66a3496f5236
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419738"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080823"
 ---
-# <a name="quickstart-change-model-using-java"></a>Snelstart: Model wijzigen met behulp van Java 
+# <a name="quickstart-change-model-using-java"></a>Snelstartgids: Model wijzigen met behulp van Java 
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -71,14 +72,14 @@ ms.locfileid: "50419738"
 
 AddUtterance compileren met de afhankelijkheden
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## <a name="run-code"></a>Code uitvoeren
 Het aanroepen van `AddUtterance` zonder argumenten voegt de LUIS-utterances aan de app toe, zonder deze te trainen.
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 

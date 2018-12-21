@@ -1,10 +1,10 @@
 ---
-title: "SSMS: verbinding maken met Azure SQL Database en query's uitvoeren voor gegevens | Microsoft Docs"
+title: "SSMS: Verbinding maken en query's uitvoeren op gegevens in Azure SQL Database | Microsoft Docs"
 description: Ontdek hoe u verbinding maakt met SQL Database in Azure met behulp van SQL Server Management Studio (SSMS). Voer vervolgens T-SQL-instructies (Transact-SQL) uit om query's uit te voeren voor gegevens en om gegevens te bewerken.
 keywords: verbinding maken met SQL-database,Sql Server Management Studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: scenario
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,29 +12,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: f8d153ef415bcab85720f6733d4e01e9b44c9e50
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: b3342164aec49967e819c316827dca9a65f2674f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870993"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098928"
 ---
-# <a name="quickstart-azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Snelstart: Azure SQL Database: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren voor gegevens
+# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database
 
-[SSMS][ssms-install-latest-84g] (SQL Server Management Studio) is een geïntegreerde omgeving voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows. In deze Quick Start ziet u hoe u SSMS gebruikt om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen. 
+U kunt [SSMS][ssms-install-latest-84g] (SQL Server Management Studio) gebruiken voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows. In deze snelstartgids ziet u hoe u SSMS gebruikt om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies uitvoert om gegevens te zoeken, in te voegen, bij te werken en te verwijderen. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-In deze Quick Start wordt uitgegaan van de resources die u hebt gemaakt in een van deze Quick Starts:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-Voor deze snelstart is ook vereist dat u een firewallregel op serverniveau configureert. Bekijk [Een firewallregel op serverniveau maken](sql-database-get-started-portal-firewall.md) voor een snelstart die laat zien hoe u dat doet.
+* Een geconfigureerde serverfirewallregel. Zie [Een serverfirewallregel maken](sql-database-get-started-portal-firewall.md) voor meer informatie.
 
 #### <a name="install-the-latest-ssms"></a>De nieuwste SSMS installeren
 
-Voordat u begint, zorgt u ervoor dat u de nieuwste versie van [SSMS][ssms-install-latest-84g] hebt geïnstalleerd. 
+Voordat u begint, controleert u of u de meest recente [SSMS][ssms-install-latest-84g] hebt geïnstalleerd. 
 
 ## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
 
@@ -42,43 +42,44 @@ Voordat u begint, zorgt u ervoor dat u de nieuwste versie van [SSMS][ssms-instal
 
 ## <a name="connect-to-your-database"></a>Verbinding maken met uw database
 
-Gebruik SQL Server Management Studio om verbinding te maken met uw Azure SQL Database-server. 
+In SMSS maakt u verbinding met uw Azure SQL Database-server. 
 
 > [!IMPORTANT]
-> Een logische Azure SQL Database-server luistert naar poort 1433. Als u vanachter een bedrijfsfirewall probeert verbinding te maken met een logische Azure SQL Database-server, moet deze poort in de bedrijfsfirewall zijn geopend om verbinding te kunnen maken.
+> Een logische Azure SQL Database-server luistert naar poort 1433. Om verbinding te maken met een logische server achter een firewall van het bedrijf, moet de firewall voor deze poort zijn geopend.
 >
 
-1. Open SQL Server Management Studio.
+1. Open SQL Server Management Studio. Het dialoogvenster **Verbinding maken met server** wordt geopend.
 
-2. Voer in het dialoogvenster **Verbinding maken met server** de volgende informatie in:
+2. Voer de volgende informatie in:
 
    | Instelling      | Voorgestelde waarde    | Beschrijving | 
    | ------------ | ------------------ | ----------- | 
-   | **Servertype** | Database-engine | Deze waarde is verplicht. |
-   | **Servernaam** | De volledig gekwalificeerde servernaam | De naam moet er ongeveer als volgt uitzien: **mijnnieuweserver20170313.database.windows.net**. |
-   | **Verificatie** | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat we in deze zelfstudie hebben geconfigureerd. |
-   | **Aanmelding** | Het beheerdersaccount voor de server | Dit is het account dat u hebt opgegeven tijdens het maken van de server. |
-   | **Wachtwoord** | Het wachtwoord voor het beheerdersaccount voor de server | Dit is het wachtwoord dat u hebt opgegeven tijdens het maken van de server. |
+   | **Servertype** | Database-engine | Vereiste waarde. |
+   | **Servernaam** | De volledig gekwalificeerde servernaam | Dit moet er ongeveer als volgt uitzien: **mijnnieuweserver20170313.database.windows.net**. |
+   | **Verificatie** | SQL Server-verificatie | In deze zelfstudie wordt gebruik gemaakt van SQL-verificatie. |
+   | **Aanmelding** | Gebruikers-id voor het beheerdersaccount voor de server | De gebruikers-id van het serverbeheerdersaccount dat wordt gebruikt voor het maken van de server. |
+   | **Wachtwoord** | Het wachtwoord voor het serverbeheerdersaccount | Het wachtwoord van het serverbeheerdersaccount dat wordt gebruikt voor het maken van de server. |
    ||||
 
    ![verbinding maken met server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Klik op **Opties** in het dialoogvenster **Verbinding maken met server**. Voer in de sectie **Verbinding maken met database** **mySampleDatabase** in om verbinding te maken met deze database.
+3. Selecteer **Opties** in het dialoogvenster **Verbinding maken met server**. In de vervolgkeuzelijst **Verbinding maken met database** selecteert u **mySampleDatabase**.
 
    ![verbinding maken met database op server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Klik op **Verbinden**. Het venster Objectverkenner wordt geopend in SQL Server Management Studio. 
+4. Selecteer **Verbinden**. Het venster Objectverkenner wordt geopend. 
 
-   ![verbonden met server](./media/sql-database-connect-query-ssms/connected.png)  
+5. Als u de objecten van de database wilt weergeven, vouwt u **Databases** uit en vouwt u vervolgens **mySampleDatabase** uit.
 
-5. In Objectverkenner vouwt u **Databases** en daarna **mySampleDatabase** uit om de objecten in de voorbeelddatabase weer te geven.
+   ![databaseobjecten weergeven](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>Querygegevens
 
-Gebruik de volgende code om op categorie een query uit te voeren voor de 20 populairste producten. Gebruik de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
+Gebruik de volgende [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)-code uit Transact-SQL om op categorie een query uit te voeren voor de twintig populairste producten.
 
-1. Klik in Objectverkenner met de rechtermuisknop op **mySampleDatabase** en klik vervolgens op **Nieuwe query**. Er wordt een leeg queryvenster geopend dat is verbonden met uw database.
-2. Voer de volgende query in het queryvenster in:
+1. Klik in Objectverkenner met de rechtermuisknop op **mySampleDatabase** en selecteer vervolgens **Nieuwe query**. Er wordt een leeg queryvenster geopend dat is verbonden met uw database.
+
+1. Plak deze SQL-query in het queryvenster.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -87,15 +88,15 @@ Gebruik de volgende code om op categorie een query uit te voeren voor de 20 popu
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. Klik in de werkbalk op **Uitvoeren** om gegevens op te halen uit de tabellen Product en ProductCategory.
+3. Selecteer op de werkbalk **Uitvoeren** om gegevens op te halen uit de tabellen `Product` en `ProductCategory`.
 
-    ![query](./media/sql-database-connect-query-ssms/query.png)
+    ![query voor het ophalen van gegevens uit twee tabellen](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Gegevens invoegen
 
-Gebruik de volgende code om een nieuw product in te voegen in de tabel SalesLT.Product. Gebruik de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
+Gebruik de volgende [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)-code uit Transact-SQL om een nieuw product te maken in de tabel `SalesLT.Product`.
 
-1. Vervang in het queryvenster de vorige query door de volgende query:
+1. Vervang de vorige query door de volgende.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -105,8 +106,7 @@ Gebruik de volgende code om een nieuw product in te voegen in de tabel SalesLT.P
            , [ProductCategoryID]
            , [StandardCost]
            , [ListPrice]
-           , [SellStartDate]
-           )
+           , [SellStartDate] )
      VALUES
            ('myNewProduct'
            ,123456789
@@ -117,15 +117,26 @@ Gebruik de volgende code om een nieuw product in te voegen in de tabel SalesLT.P
            ,GETDATE() );
    ```
 
-2. Klik in de werkbalk op **Uitvoeren** om een nieuwe rij in te voegen in de tabel Product.
+2. Selecteer **Uitvoeren** om een nieuwe rij in te voegen in de tabel Product. In het deelvenster **Berichten** wordt **(1 rij beïnvloedt)** weergegeven.
 
-    <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
+## <a name="view-the-result"></a>Het resultaat weergeven
 
-## <a name="update-data"></a>Gegevens bijwerken
+1. Vervang de vorige query door de volgende.
 
-Gebruik de volgende code om het nieuwe product bij te werken dat u eerder hebt toegevoegd. Gebruik de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
+   ```sql
+   SELECT * FROM [SalesLT].[Product] 
+   WHERE Name='myNewProduct' 
 
-1. Vervang in het queryvenster de vorige query door de volgende query:
+2. Select **Execute**. The following result appears. 
+
+   ![result](./media/sql-database-connect-query-ssms/result.png)
+
+ 
+## Update data
+
+Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+
+1. Replace the previous query with this one.
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -133,28 +144,24 @@ Gebruik de volgende code om het nieuwe product bij te werken dat u eerder hebt t
    WHERE Name = 'myNewProduct';
    ```
 
-2. Klik in de werkbalk op **Uitvoeren** om de opgegeven rij in de tabel Product bij te werken.
-
-    <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
+2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel Product bij te werken. In het deelvenster **Berichten** wordt **(1 rij beïnvloedt)** weergegeven.
 
 ## <a name="delete-data"></a>Gegevens verwijderen
 
-Gebruik de volgende code om het nieuwe product te verwijderen dat u eerder hebt toegevoegd. Gebruik de Transact-SQL-instructie [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
+Gebruik de volgende Transact-SQL-code [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) om het nieuwe product te verwijderen dat u eerder hebt toegevoegd.
 
-1. Vervang in het queryvenster de vorige query door de volgende query:
+1. Vervang de vorige query door de volgende.
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Klik in de werkbalk op **Uitvoeren** om de opgegeven rij in de tabel Product te verwijderen.
-
-    <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
+2. Selecteer **Uitvoeren** om de opgegeven rij in de tabel Product te verwijderen. In het deelvenster **Berichten** wordt **(1 rij beïnvloedt)** weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [SQL Server Management Studio gebruiken](https://msdn.microsoft.com/library/ms174173.aspx) voor meer informatie over SSMS.
+- Zie [SQL Server Management Studio ](https://msdn.microsoft.com/library/ms174173.aspx) voor meer informatie over SSMS.
 - Als u verbinding wilt maken en query's wilt uitvoeren met Azure Portal, raadpleegt u [Connect and query with the Azure Portal SQL query editor](sql-database-connect-query-portal.md) (Verbinding maken en query's uitvoeren met de SQL-query-editor in Azure Portal).
 - Zie [Verbinding maken en query's uitvoeren met Visual Studio Code](sql-database-connect-query-vscode.md) als u verbinding wilt maken en query’s wilt uitvoeren met Visual Studio Code.
 - Zie [Verbinding maken en query’s uitvoeren met .NET](sql-database-connect-query-dotnet.md) als u verbinding wilt maken en query’s wilt uitvoeren met .NET.

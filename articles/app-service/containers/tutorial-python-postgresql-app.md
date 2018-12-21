@@ -1,5 +1,5 @@
 ---
-title: Een Python- en PostgreSQL-web-app in Azure App Service maken | Microsoft Docs
+title: Een Python-web-app bouwen met PostgreSQL in Linux - Azure App Service | Microsoft Docs
 description: Informatie over het uitvoeren van een Python-app op basis van gegevens in Azure, gekoppeld aan een PostgreSQL-database.
 services: app-service\web
 documentationcenter: python
@@ -11,13 +11,13 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
-ms.custom: mvc
-ms.openlocfilehash: 3963e2ffb521a4b4732814e9b2992f4e83af1835
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865621"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337985"
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Een Python- en PostgreSQL-web-app in Azure App Service maken
 
@@ -205,7 +205,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 > [!NOTE]
 > Met deze instelling worden netwerkverbindingen toegestaan vanaf alle IP-adressen binnen het Azure-netwerk. Voor gebruik in productieomgevingen moet u proberen om de meest beperkende firewallregels te configureren door [alleen de uitgaande IP-adressen te gebruiken die uw app gebruikt](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-Voer in Cloud Shell de opdracht opnieuw uit om toegang vanaf uw lokale computer mogelijk te maken door *\<your_ip_address>* te vervangen door [uw lokale IPv4 IP-adres](http://www.whatsmyip.org/).
+Voer in Cloud Shell de opdracht opnieuw uit om toegang vanaf uw lokale computer mogelijk te maken door *\<your_ip_address>* te vervangen door [uw lokale IPv4 IP-adres](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -287,7 +287,7 @@ In Django wordt de `HTTP_HOST`-header gevalideerd in binnenkomende aanvragen. U 
 ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
-Django biedt geen ondersteuning voor [het gebruiken van statische bestanden in een productieomgeving](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/). U moet dit dus handmatig inschakelen. Voor deze zelfstudie gebruikt u [WhiteNoise](http://whitenoise.evans.io/en/stable/). Het WhiteNoise-pakket is al opgenomen in _requirements.txt_. U hoeft alleen maar Django te configureren om dit pakket te gebruiken. 
+Django biedt geen ondersteuning voor [het gebruiken van statische bestanden in een productieomgeving](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/). U moet dit dus handmatig inschakelen. Voor deze zelfstudie gebruikt u [WhiteNoise](https://whitenoise.evans.io/en/stable/). Het WhiteNoise-pakket is al opgenomen in _requirements.txt_. U hoeft alleen maar Django te configureren om dit pakket te gebruiken. 
 
 Ga in _azuresite/settings.py_ naar de `MIDDLEWARE`-instelling en voeg de middleware `whitenoise.middleware.WhiteNoiseMiddleware` toe aan de lijst, net onder de middleware `django.middleware.security.SecurityMiddleware`. De `MIDDLEWARE`-instelling ziet er ongeveer als volgt uit:
 
@@ -307,7 +307,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 
-Zie de [WhiteNoise-documentatie](http://whitenoise.evans.io/en/stable/) voor meer informatie over het configureren van WhiteNoise.
+Zie de [WhiteNoise-documentatie](https://whitenoise.evans.io/en/stable/) voor meer informatie over het configureren van WhiteNoise.
 
 > [!IMPORTANT]
 > In de sectie met database-instellingen worden de aanbevolen beveiligingsprocedures gevolgd voor het gebruik van omgevingsvariabelen. Zie de [Django-documentatie: controlelijst voor implementaties](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/) voor de volledige aanbevelingen voor implementaties.

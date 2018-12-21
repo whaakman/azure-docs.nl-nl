@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297448"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253949"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Zelfstudie: Een app van één pagina maken met de Bing Afbeeldingen zoeken-API
 
@@ -318,10 +318,10 @@ Met de Bing Afbeeldingen zoeken-API kunnen vier typen zoeksuggesties worden gere
 
 | Suggestie         | Beschrijving                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pivotSuggestions` | Query’s waarmee een beschrijvend woord in de oorspronkelijke zoekopdracht wordt vervangen door een ander beschrijvend woord. Als u bijvoorbeeld zoekt naar ‘rode bloemen’, is ‘rood’ een beschrijvend woord, en is ‘gele bloemen’ een mogelijke suggestie. |
-| `queryExpansions`  | Query’s die de oorspronkelijke zoekopdracht verfijnen door meer zoektermen toe te voegen. Als u bijvoorbeeld zoekt naar ‘Microsoft Surface’, is ‘Microsoft Surface Pro’ een mogelijke uitbreiding van de query.                                   |
-| `relatedSearches`  | Query’s die ook zijn ingevoerd door andere gebruikers die de oorspronkelijke zoekopdracht hebben ingevoerd. Als u bijvoorbeeld zoekt naar ‘Mount Rainier’, is ‘Mt. Saint Helens’ een gerelateerde zoekopdracht.                       |
-| `similarTerms`     | Query’s die qua betekenis vergelijkbaar zijn met de oorspronkelijke zoekopdracht. Als u bijvoorbeeld zoekt naar 'kittens', is 'schattig' een vergelijkbare term.                                                                   |
+| `pivotSuggestions` | Query's die een beschrijvend woord in de oorspronkelijke zoekopdracht vervangen door een ander beschrijvend woord. Als u bijvoorbeeld zoekt naar ‘rode bloemen', is ‘rood' een beschrijvend woord, en is ‘gele bloemen' een mogelijke suggestie. |
+| `queryExpansions`  | Query's die de oorspronkelijke zoekopdracht verfijnen door meer zoektermen toe te voegen. Als u bijvoorbeeld zoekt naar ‘Microsoft Surface', is ‘Microsoft Surface Pro' een mogelijke uitbreiding van de query.                                   |
+| `relatedSearches`  | Query's die ook zijn ingevoerd door andere gebruikers die de oorspronkelijke zoekopdracht hebben ingevoerd. Als u bijvoorbeeld zoekt naar ‘Mount Rainier', is ‘Mt. Saint Helens' een gerelateerde zoekopdracht.                       |
+| `similarTerms`     | Query's die qua betekenis vergelijkbaar zijn met de oorspronkelijke zoekopdracht. Als u bijvoorbeeld zoekt naar 'kittens', is 'schattig' een vergelijkbare term.                                                                   |
 
 Met deze toepassing worden alleen de `relatedItems`-suggesties weergegeven. De bijbehorende koppelingen worden in de zijbalk van de pagina geplaatst.
 
@@ -348,7 +348,7 @@ De parameters `index` en `count` worden gebruikt om resultaten te nummeren, HTML
 
 * De grootte van de miniatuur van de afbeelding berekenen (de breedte varieert, met een minimum van 120 pixels, terwijl de hoogte altijd 90 pixels bedraagt).
 * De HTML-`<img>`-tag wordt gebouwd om de miniatuur weer te geven.
-* De HTML-`<a>`-codes worden gebouwd die zijn gekoppeld aan de afbeelding en aan de pagina die de afbeelding bevat.
+* De HTML-`<a>`-tags worden gebouwd die zijn gekoppeld aan de afbeelding en aan de pagina die de afbeelding bevat.
 * De beschrijving met informatie over de afbeelding en de bijbehorende site wordt samengesteld.
 
 ```javascript
@@ -377,22 +377,22 @@ Antwoorden van de Bing Zoeken-API’s kunnen een `X-MSEdge-ClientID`-header omva
 
 Door de `X-MSEdge-ClientID`-header op te geven kunnen met Bing-API's alle zoekopdrachten van een gebruiker worden gekoppeld. Dit is handig, want
 
-Ten eerste kan met de Bing-zoekmachine vroegere context worden toegepast op zoekopdrachten om beter kloppende resultaten te vinden voor de gebruiker. Als een gebruiker bijvoorbeeld eerder heeft gezocht naar termen die zijn gerelateerd aan zeilen, kan bij een latere zoekopdracht naar ‘knopen’ de voorkeur worden gegeven aan informatie over knopen die worden gebruikt bij zeilen.
+Ten eerste kan met de Bing-zoekmachine vroegere context worden toegepast op zoekopdrachten om beter kloppende resultaten te vinden voor de gebruiker. Als een gebruiker bijvoorbeeld eerder heeft gezocht naar termen die zijn gerelateerd aan zeilen, kan bij een latere zoekopdracht naar ‘knopen' de voorkeur worden gegeven aan informatie over knopen die worden gebruikt bij zeilen.
 
 Ten tweede kunnen in Bing willekeurig gebruikers worden geselecteerd om nieuwe functies te proberen voordat deze algemeen beschikbaar worden. Door bij elke aanvraag dezelfde client-id op te geven, zien gebruikers die de functie zien, deze altijd. Zonder de client-id kan het gebeuren dat de gebruiker een functie, schijnbaar willekeurig, ziet verschijnen en verdwijnen in de zoekresultaten.
 
 Beveiligingsbeleid voor browsers (CORS) kan ervoor zorgen dat de `X-MSEdge-ClientID`-header niet beschikbaar is in JavaScript. Deze beperking treedt op wanneer het antwoord op een zoekopdracht een andere oorsprong heeft dan de pagina waarop de zoekopdracht is uitgevoerd. In een productieomgeving kunt u dit beleid omzeilen door een serverscript te hosten waarmee de API wordt aangeroepen in hetzelfde domein als de webpagina. Omdat het script dezelfde oorsprong heeft als de webpagina, is de `X-MSEdge-ClientID`-header vervolgens beschikbaar voor JavaScript.
 
 > [!NOTE]
-> In een webtoepassing die bedoeld is voor productie, moet u de aanvraag toch aan de serverzijde uitvoeren. Anders moet de sleutel voor de Bing Zoeken-API worden opgenomen op de webpagina, waar deze beschikbaar is voor iedereen die de bron weergeeft. Al uw gebruik van de API-abonnementssleutel wordt in rekening gebracht, zelfs aanvragen die zijn gedaan door partijen die niet zijn gemachtigd. Het is daarom van groot belang dat u uw sleutel niet algemeen beschikbaar maakt.
+> In een webtoepassing die bedoeld is voor productie, moet u de aanvraag toch aan de serverzijde uitvoeren. Anders moet de sleutel voor de Bing Search-API worden opgenomen op de webpagina, waar deze beschikbaar is voor iedereen die de bron weergeeft. Al uw gebruik van de API-abonnementssleutel wordt in rekening gebracht, zelfs aanvragen die zijn gedaan door partijen die niet zijn gemachtigd. Het is daarom van groot belang dat u uw sleutel niet algemeen beschikbaar maakt.
 
-Voor ontwikkelingsdoeleinden kunt u de aanvraag van de Bing Webzoekopdrachten-API via een CORS-proxy doen. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
+Voor ontwikkelingsdoeleinden kunt u de aanvraag van de Bing Web Search-API via een CORS-proxy doen. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
 
 U kunt eenvoudig een CORS-proxy installeren zodat de zelfstudie-app toegang krijgt tot de client-id-header. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer vervolgens de volgende opdracht uit in een opdrachtvenster:
 
     npm install -g cors-proxy-server
 
-Wijzig vervolgens het Bing Webzoekopdrachten-eindpunt in het HTML-bestand in:
+Wijzig vervolgens het Bing Web Search-eindpunt in het HTML-bestand in:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 

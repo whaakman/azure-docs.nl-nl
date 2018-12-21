@@ -1,21 +1,22 @@
 ---
-title: Aangepaste gebeurtenissen voor Azure Event Grid verzenden naar opslagwachtrij | Microsoft Docs
+title: Aangepaste gebeurtenissen verzenden naar opslagwachtrij - Event Grid, Azure CLI
 description: Gebruik Azure Event Grid en Azure CLI om een onderwerp te publiceren en u te abonneren op deze gebeurtenis. Er wordt een opslagwachtrij gebruikt voor het eindpunt.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: c9b5e33f7994209bf1530200cf14d812fa1cf67d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.custom: seodec18
+ms.openlocfilehash: 065ace2f34f95cf0813f0088a188c7fdb1d66d2e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299143"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093961"
 ---
-# <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Aangepaste gebeurtenissen naar Azure Queue Storage routeren met behulp van Azure CLI en Event Grid
+# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Snelstart: Aangepaste gebeurtenissen naar Azure Queue Storage routeren met behulp van Azure CLI en Event Grid
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. Azure Queue Storage is een van de ondersteunde gebeurtenis-handlers. In dit artikel gebruikt u de Azure CLI om een aangepast onderwerp te maken, u op het aangepaste onderwerp te abonneren en de gebeurtenis te activeren om het resultaat weer te geven. U verstuurt de gebeurtenissen naar de opslagwachtrij.
 

@@ -1,5 +1,5 @@
 ---
-title: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
+title: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken | Microsoft Docs
 description: Informatie over de JavaScript-clientbibliotheek en het bijbehorende programmeermodel van Azure Time Series Insights.
 author: ashannon7
 manager: cshankar
@@ -8,14 +8,15 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 33dcf6f69d1287b4e040b3cccf4164667db2b75f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706990"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269971"
 ---
-# <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Zelfstudie: JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
+# <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Zelfstudie: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
 
 Om webontwikkelaars te helpen bij het opvragen en visualiseren van gegevens die zijn opgeslagen in Time Series Insights (TSI), is de TSI-clientbibliotheek op basis van JavaScript D3 ontwikkeld.  Aan de hand van een voorbeeld van een webtoepassing maakt u in deze zelfstudie kennis met de clientbibliotheek van TSI en het bijbehorende programmeermodel.
 
@@ -82,7 +83,7 @@ Laten we eerst eens kijken naar de HTML- en JavaScript-broncode achter de pagina
 
 3. Als u het `<div class="chartsWrapper">`-element uitvouwt, vindt u meer onderliggende `<div>`-elementen. Deze elementen worden gebruikt voor het plaatsen van alle voorbeelden van grafiekbesturingselementen. Er zijn verschillende paren van `<div>`-elementen, één voor elk grafiekvoorbeeld:
 
-   - Het eerste element (`class="rowOfCardsTitle"`) bevat een beschrijvende titel om samen te vatten wat de grafiek(en) laten zien. Bijvoorbeeld: 'Static Line Charts With Full Size Legends'.
+   - Het eerste element (`class="rowOfCardsTitle"`) bevat een beschrijvende titel om samen te vatten wat de grafiek(en) laten zien. Bijvoorbeeld: Static Line Charts With Full Size Legends.
    - Het tweede element (`class="rowOfCards"`) is een bovenliggend item dat aanvullende onderliggende `<div>`-elementen bevat die de feitelijke grafiekbesturingselementen in een rij plaatsen.
 
    ![Verschillende berichttekstelementen](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -95,8 +96,8 @@ Laten we eerst eens kijken naar de HTML- en JavaScript-broncode achter de pagina
 
 Hoewel we de TSI-clientbibliotheek **tsclient.js** niet in detail gaan bekijken, biedt de bibliotheek in essentie een abstractie voor twee belangrijke categorieën:
 
-- **Wrapper-methoden voor het aanroepen van de query-API's van TSI** - REST-API's waarmee u met behulp van samenvoegingsexpressies query's kunt uitvoeren op TSI-gegevens. De methoden zijn georganiseerd onder de `TsiClient.Server`-naamruimte van de bibliotheek.
-- **Methoden voor het maken en vullen van verschillende typen grafiekbesturingselementen**: methoden die worden gebruikt om de samengevoegde TSI-gegevens weer te geven op een webpagina. De methoden zijn georganiseerd onder de `TsiClient.UX`-naamruimte van de bibliotheek.
+- **Wrapper-methoden voor het aanroepen van de Query-API's voor TSI**: REST-API's waarmee u met behulp van samenvoegingsexpressies query's kunt uitvoeren op TSI-gegevens. De methoden zijn georganiseerd onder de `TsiClient.Server`-naamruimte van de bibliotheek.
+- **Methoden voor het maken en vullen van verschillende typen grafiekbesturingselementen**: Methoden die worden gebruikt om de TSI-gegevens te visualiseren op een webpagina. De methoden zijn georganiseerd onder de `TsiClient.UX`-naamruimte van de bibliotheek.
 
 De volgende concepten zijn universeel en van toepassing op de API's van de TSI-clientbibliotheek in het algemeen.
 
@@ -235,15 +236,15 @@ Bekijk de code achter de HTML-sectie onder de opmerking `// Example 13/14/15`. M
 
 1. Eerst wordt er een reeks aangepaste acties gedefinieerd. Elke actie bevat een matrix met een of meer elementen. Elk element definieert één contextmenuopdracht:
 
-   - `barChartActions`: deze actie definieert het contextmenu voor het cirkeldiagram, met één element voor het definiëren van één menuopdracht:
-     - `name`: de tekst die wordt gebruikt voor de menuopdracht: 'Print parameters to console'.
-     - `action`: de actie die aan de menuopdracht is gekoppeld. De actie is altijd een anonieme functie die drie argumenten accepteert. Deze zijn gebaseerd op de samenvoegingsexpressie die is gebruikt voor het maken van de grafiek. In dit geval worden de argumenten weggeschreven naar het consolevenster van de browser:
-       - `ae`: de matrix met de samenvoegingsexpressie.
-       - `splitBy`: de waarde voor splitBy.
-       - `timestamp`: het tijdstempel.
+   - `barChartActions`: Deze actie definieert het contextmenu voor het cirkeldiagram, met één element voor het definiëren van één menuopdracht:
+     - `name`: De tekst die wordt gebruikt voor de menuopdracht: Parameters afdrukken naar console.
+     - `action`: De actie die aan de menuopdracht is gekoppeld. De actie is altijd een anonieme functie die drie argumenten accepteert. Deze zijn gebaseerd op de samenvoegingsexpressie die is gebruikt voor het maken van de grafiek. In dit geval worden de argumenten weggeschreven naar het consolevenster van de browser:
+       - `ae`: De matrix met de samenvoegingsexpressie.
+       - `splitBy`: De waarde voor splitBy.
+       - `timestamp`: Het tijdstempel.
 
-   - `pieChartActions`: deze actie definieert het contextmenu voor het staafdiagram, dat één element bevat voor het definiëren van één menuopdracht. De vorm en het schema zijn hetzelfde als van het vorige `barChartActions`-element, maar u ziet dat de functie `action` er heel anders uitziet: hiermee wordt het staafdiagram geïnstantieerd en weergegeven. Het argument `ae` wordt gebruikt om de matrix met de samenvoegingsexpressie op te geven die in runtime wordt doorgegeven wanneer de menuopdracht wordt geopend. Met de functie wordt ook de eigenschap `ae.contextMenu` ingesteld met het contextmenu `barChartActions`.
-   - `contextMenuActions`: deze actie definieert het contextmenu voor het lijndiagram, dat drie elementen bevat voor het definiëren van drie menuopdrachten. De vorm en het schema voor elk element zijn hetzelfde als voor de eerder beschreven elementen. Net als bij het `barChartActions`-element, worden met de eerste opdracht drie functieargumenten weggeschreven naar het consolevenster van de browser. Net als bij het `pieChartActions`-elementen, worden met de volgende twee items respectievelijk de cirkel- en staafdiagrammen geïnstantieerd en weergegeven. Met de volgende twee items worden ook hun eigenschappen `ae.contextMenu` ingesteld met respectievelijk de contextmenu's `pieChartActions` en `barChartActions`.
+   - `pieChartActions`: Deze actie definieert het contextmenu voor het staafdiagram, dat één element bevat voor het definiëren van één menuopdracht. De vorm en het schema zijn hetzelfde als van het vorige `barChartActions`-element, maar u ziet dat de functie `action` er heel anders uitziet: hiermee wordt het staafdiagram geïnstantieerd en weergegeven. Het argument `ae` wordt gebruikt om de matrix met de samenvoegingsexpressie op te geven die in runtime wordt doorgegeven wanneer de menuopdracht wordt geopend. Met de functie wordt ook de eigenschap `ae.contextMenu` ingesteld met het contextmenu `barChartActions`.
+   - `contextMenuActions`: Deze actie definieert het contextmenu voor het lijndiagram, dat drie elementen bevat voor het definiëren van drie menuopdrachten. De vorm en het schema voor elk element zijn hetzelfde als voor de eerder beschreven elementen. Net als bij het `barChartActions`-element, worden met de eerste opdracht drie functieargumenten weggeschreven naar het consolevenster van de browser. Net als bij het `pieChartActions`-elementen, worden met de volgende twee items respectievelijk de cirkel- en staafdiagrammen geïnstantieerd en weergegeven. Met de volgende twee items worden ook hun eigenschappen `ae.contextMenu` ingesteld met respectievelijk de contextmenu's `pieChartActions` en `barChartActions`.
 
 2. Daarna worden twee samenvoegingsexpressies naar de matrix met de samenvoegingsexpressie `aes` gepusht en wordt voor elk item de matrix `contextMenuActions` opgegeven. Deze expressies worden gebruikt met het besturingselement voor het lijndiagram.
 
@@ -262,10 +263,10 @@ Kwasten of penselen worden gebruikt om een tijdbereik te bepalen voor acties zoa
 De code die wordt gebruikt om het werken met kwasten te demonstreren, wordt weergegeven in het vorige voorbeeld ('Line Chart with Context Menu to Create Pie/Bar Chart'), waarin [Pop-upcontextmenu's](#popup-context-menus-section) worden beschreven.
 
 1. Kwastacties lijken erg op een contextmenu, in zoverre dat hiermee een reeks aangepaste acties voor de kwast kan worden gedefinieerd. Elke actie bevat een matrix met een of meer elementen. Elk element definieert één contextmenuopdracht:
-   - `name`: de tekst die wordt gebruikt voor de menuopdracht: 'Print parameters to console'.
-   - `action`: de actie die is gekoppeld aan het de menuopdracht, die altijd een anonieme functie is die twee argumenten accepteert. In dit geval worden de argumenten weggeschreven naar het consolevenster van de browser:
-      - `fromTime`: het 'van'-tijdstempel van de kwastselectie.
-      - `toTime`: het 'tot'-tijdstempel van de kwastselectie.
+   - `name`: De tekst die wordt gebruikt voor de menuopdracht: Parameters afdrukken naar console.
+   - `action`: De actie die is gekoppeld aan de menuopdracht, die altijd een anonieme functie is die twee argumenten accepteert. In dit geval worden de argumenten weggeschreven naar het consolevenster van de browser:
+      - `fromTime`: Het 'van'-tijdstempel van de kwastselectie.
+      - `toTime`: Het 'tot'-tijdstempel van de kwastselectie.
 
 2. Kwastacties worden toegevoegd als een eigenschap voor grafiekopties. Let op de eigenschap `brushContextMenuActions: brushActions` die wordt doorgegeven aan de aanroep `linechart.Render`.
 

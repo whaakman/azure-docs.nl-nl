@@ -1,21 +1,21 @@
 ---
-title: Ansible (preview) gebruiken om webverkeer te beheren met Azure Application Gateway
+title: Ansible gebruiken om webverkeer te beheren met Azure Application Gateway
 description: Meer informatie over hoe u Ansible gebruikt om een Azure Application Gateway te maken en te configureren voor het beheren van webverkeer
 ms.service: ansible
-keywords: ansible, azure, devops, bash, playbook, azure application gateway, load balancer, webverkeer
+keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, webverkeer
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: e3c165c87d6c179141f2ddd44f00f0f62a84b285
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: af7f22ae5c289a01e6876d8ce586cb32383c8d3b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912863"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253349"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible-preview"></a>Ansible (preview) gebruiken om webverkeer te beheren met Azure Application Gateway
+# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Ansible gebruiken om webverkeer te beheren met Azure Application Gateway
 
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is een load balancer voor webverkeer waarmee u het verkeer naar uw webapps kunt beheren.
 
@@ -34,7 +34,7 @@ In deze zelfstudie ontdekt u hoe u:
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 is vereist om de volgende voorbeeld-playbooks in deze zelfstudie uit te voeren. U kunt Ansible 2.7 RC installeren door `sudo pip install ansible[azure]==2.7.0rc2` uit te voeren. Nadat Ansible 2.7 is uitgebracht, hoeft u de versie niet op te geven.
+> Ansible 2.7 is vereist om de volgende voorbeeld-playbooks in deze zelfstudie uit te voeren. 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 

@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 84bdc560a135f8f1eb7d6c86fe4f3749135ff7e1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395070"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139041"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Het gebruik van de Digital Rights Management-service voor dynamische versleuteling en licentielevering
 
@@ -40,7 +41,7 @@ Dit artikel is gebaseerd op het voorbeeld waarbij [DRM wordt gebruikt voor de ve
 
         Door de app wordt voor het beleid een beperking voor tokens van het type JWT-tokens ingesteld.
 
-* Maak een StreamingLocator voor de opgegeven asset en met de naam van het opgegeven streamingbeleid. In dit geval wordt het vooraf gedefinieerde beleid gebruikt. Er worden twee inhoudssleutels ingesteld voor de StreamingLocator: AES-128 (envelop) en CENC (PlayReady en Widevine).  
+* Maak een StreamingLocator voor de opgegeven asset en met de naam van het opgegeven streamingbeleid. In dit geval wordt het vooraf gedefinieerde beleid gebruikt. Er worden twee inhoudssleutels ingesteld op de StreamingLocator: AES-128 (envelop) en CENC (PlayReady en Widevine).  
     
     Zodra de StreamingLocator is gemaakt wordt de uitvoerasset gepubliceerd en kunnen deze op clients worden afgespeeld.
 
@@ -51,14 +52,14 @@ Dit artikel is gebaseerd op het voorbeeld waarbij [DRM wordt gebruikt voor de ve
 
     U kunt een browser openen en de resulterende URL erin plakken om de demopagina van Azure Media Player te starten waarin de URL en token al zijn ingevuld.  
 
-    ![beschermen met drm](./media/protect-with-drm/playready_encrypted_url.png)
+    ![Beschermen met drm](./media/protect-with-drm/playready_encrypted_url.png)
 
 > [!NOTE]
 > U kunt elke asset met meerdere versleutelingstypen versleutelen (AES-128, PlayReady, Widevine, FairPlay). Zie [Streamingprotocollen en versleutelingstypen](content-protection-overview.md#streaming-protocols-and-encryption-types) voor nuttige combinaties.
 
 In het voorbeeld in dit artikel wordt het volgende resultaat bereikt:
 
-![beschermen met drm](./media/protect-with-drm/ams_player.png)
+![AMS met door DRM beschermde video](./media/protect-with-drm/ams_player.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -116,7 +117,7 @@ In deze zelfstudie maakt u invoer voor de taak op basis van een bestand dat rech
 
 De taak neemt enige tijd in beslag en wanneer deze is voltooid, wordt u hiervan op de hoogte gesteld. In het onderstaande codevoorbeeld ziet u hoe de status van de [taak](https://docs.microsoft.com/rest/api/media/jobs) kan worden opgevraagd in de service. Polling is geen aanbevolen best practice voor productietoepassingen vanwege mogelijke latentie. Polling kan worden beperkt bij een te intensief gebruik op een account. Ontwikkelaars moeten in plaats daarvan Event Grid gebruiken. Zie [Gebeurtenissen routeren naar een aangepast eindpunt](job-state-events-cli-how-to.md).
 
-De **taak** doorloopt meestal de volgende statussen: **gepland**, **in wachtrij**, **wordt verwerkt**, **voltooid** (definitieve status). Als bij de taak een fout is opgetreden is, krijgt u de status **Fout**. Als de taak momenteel wordt geannuleerd, krijgt u de melding **Wordt geannuleerd** en **Geannuleerd** wanneer het annuleren is voltooid.
+De **taak** doorloopt meestal de volgende statussen: **Gepland**, **In de wachtrij geplaatst**, **Verwerken**, **Voltooid** (de eindstatus). Als bij de taak een fout is opgetreden is, krijgt u de status **Fout**. Als de taak momenteel wordt geannuleerd, krijgt u de melding **Wordt geannuleerd** en **Geannuleerd** wanneer het annuleren is voltooid.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 

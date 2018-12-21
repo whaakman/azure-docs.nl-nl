@@ -9,14 +9,14 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 984a027a1fe2f9c894701058452490bdf12b66c4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633561"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338733"
 ---
-# <a name="example-how-to-detect-language-in-text-analytics"></a>Voorbeeld: Hoe taal detecteren in Text Analytics
+# <a name="example-how-to-detect-language-in-text-analytics"></a>Voorbeeld: Taal detecteren in Text Analytics
 
 De [Taaldetectie-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evalueert tekstinvoer voor elk document en retourneert de taal-id's met een score die wijst op de sterkte van de analyse. Text Analytics herkent maximaal 120 talen.
 
@@ -52,17 +52,17 @@ De documentgrootte moet onder maximaal 5000 tekens per document zijn, en u kunt 
             },                
             {
                 "id": "5",
-                "text": "Этот документ находится на английском языке."
+                "text": "Этот документ на английском языке."
             }
         ]
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>Stap 1: Structuur van de aanvraag
+## <a name="step-1-structure-the-request"></a>Stap 1: Structureer de aanvraag
 
 Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Analytics-API aanroepen](text-analytics-how-to-call-api.md). De volgende punten zijn voor uw gemak opnieuw geformuleerd:
 
-+ Maak een **POST**-aanvraag. Controleer de API-documentatie voor deze aanvraag: [Taaldetectie-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [API voor taaldetectie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
 + Stel het HTTP-eindpunt voor taaldetectie in, met behulp van een Text Analytics-resource in Azure of een geïnstantieerde [Text Analytics-container](text-analytics-how-to-install-containers.md). Deze moet de `/languages`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages` bevatten
 
@@ -73,7 +73,7 @@ Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Anal
 > [!Tip]
 > Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API-testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) om de aanvraag te structureren en POST deze in de service.
 
-## <a name="step-2-post-the-request"></a>Stap 2: De aanvraag posten
+## <a name="step-2-post-the-request"></a>Stap 2: Plaats de aanvraag
 
 Analyse wordt uitgevoerd na ontvangst van de aanvraag. De service accepteert maximaal 100 aanvragen per minuut. Elke aanvraag kan maximaal 1 MB zijn.
 

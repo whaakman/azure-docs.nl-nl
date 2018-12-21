@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f7b3826e1e77933b49f0a742ebf8dfb994bf7ea9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fb8e2b11ce6178c10fb9dc7d13c5c7d817ece821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848728"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344105"
 ---
-# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Query uitvoeren op Azure Cosmos DB-gegevens met SQL-query's
+# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Voorbeelden van SQL-query's voor het uitvoeren van query's vanuit Azure Cosmos DB
 
 Azure Cosmos DB biedt ondersteuning voor het uitvoeren van query's op items met behulp van SQL (Structured Query Language) als een JSON-querytaal in SQL-API-accounts. Het ontwerp van de querytaal voor Azure Cosmos DB is gebaseerd op de volgende twee doelen:
 
@@ -21,7 +21,7 @@ Azure Cosmos DB biedt ondersteuning voor het uitvoeren van query's op items met 
 
 * De querytaal in Azure Cosmos DB is gebaseerd op het JavaScript-programmeermodel. De SQL-API maakt gebruik van het JavaScript-typesysteem, evaluatie van expressies, en functieaanroepen. Dat biedt op zijn beurt weer een natuurlijk programmeermodel voor relationele projecties, hiërarchische navigatie voor JSON-items, self-joins, ruimtelijke query's, en het aanroepen van door de gebruiker gedefinieerde functies (UDF's) die zijn geschreven in JavaScript, en nog veel meer.
 
-Dit artikel bevat enkele voorbeelden van SQL-query's met eenvoudige JSON-items. Zie voor meer informatie over de syntaxis van de SQL-taal in Azure Cosmos DB het artikel met [naslaginformatie over SQL-syntaxis](sql-api-sql-query-reference.md).
+Dit artikel bevat enkele voorbeelden van SQL-query's met eenvoudige JSON-items. Zie voor meer informatie over de syntaxis van de SQL-taal in Azure Cosmos DB het artikel met [naslaginformatie over SQL-syntaxis](sql-api-query-reference.md).
 
 ## <a id="GettingStarted"></a>Aan de slag met SQL-opdrachten
 
@@ -86,7 +86,7 @@ Hier volgt een tweede item met één subtiel verschil: in plaats van `firstName`
 
 Nu we gaan enkele query's op deze gegevens uitvoeren zodat u enkele belangrijke aspecten van de SQL-querytaal van Azure Cosmos DB beter begrijpt.
 
-**Query1**: met de volgende query worden bijvoorbeeld de items geretourneerd waarvan het id-veld overeenkomt met `AndersenFamily`. Omdat het een `SELECT *` is, is de uitvoer van de query het volledige JSON-item. Zie [SELECT-instructie](sql-api-sql-query-reference.md#select-query) voor meer informatie over de syntaxis:
+**Query1**: met de volgende query worden bijvoorbeeld de items geretourneerd waarvan het id-veld overeenkomt met `AndersenFamily`. Omdat het een `SELECT *` is, is de uitvoer van de query het volledige JSON-item. Zie [SELECT-instructie](sql-api-query-reference.md#select-query) voor meer informatie over de syntaxis:
 
 ```sql
     SELECT *
@@ -116,7 +116,7 @@ Nu we gaan enkele query's op deze gegevens uitvoeren zodat u enkele belangrijke 
     }]
 ```
 
-**Query2**: stel nu dat we de JSON-uitvoer moeten wijzigen in een andere vorm. Met deze query wordt een nieuw JSON-object met twee geselecteerde velden, Naam en Plaats, geprojecteerd als de plaatsnaam van het adres overeenkomt met de naam van de staat. In dit geval is dat "NY, NY".
+**Query2:** stel nu dat we de JSON-uitvoer moeten wijzigen in een andere vorm. Met deze query wordt een nieuw JSON-object met twee geselecteerde velden, Naam en Plaats, geprojecteerd als de plaatsnaam van het adres overeenkomt met de naam van de staat. In dit geval is dat "NY, NY".
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -166,7 +166,7 @@ Hier volgen enkele aspecten van de Cosmos DB-querytaal in de voorbeelden die u t
 
 ## <a id="SelectClause"></a>SELECT-component
 
-Elke query bestaat uit een SELECT-component en optionele FROM- en WHERE-componenten conform ANSI-SQL-standaarden. Normaal gesproken wordt de bron in de FROM-component voor elke query geïnventariseerd. Vervolgens wordt het filter in de WHERE-component op de bron toegepast om een subset van JSON-items op te halen. Ten slotte wordt de SELECT-component gebruikt om de vereiste JSON-waarden in de SELECT-lijst te projecten. Zie [SELECT-syntaxis](sql-api-sql-query-reference.md#bk_select_query) voor meer informatie over de syntaxis.
+Elke query bestaat uit een SELECT-component en optionele FROM- en WHERE-componenten conform ANSI-SQL-standaarden. Normaal gesproken wordt de bron in de FROM-component voor elke query geïnventariseerd. Vervolgens wordt het filter in de WHERE-component op de bron toegepast om een subset van JSON-items op te halen. Ten slotte wordt de SELECT-component gebruikt om de vereiste JSON-waarden in de SELECT-lijst te projecten. Zie [SELECT-syntaxis](sql-api-query-reference.md#bk_select_query) voor meer informatie over de syntaxis.
 
 In het volgende voorbeeld ziet u een typische SELECT-query.
 
@@ -260,7 +260,7 @@ Bekijk de rol van `$1`. De component `SELECT` moet een JSON-object maken maar om
 
 ## <a id="FromClause"></a>FROM-component
 
-De component <from_specification> is optioneel, tenzij de bron verderop in de query wordt gefilterd of geprojecteerd. Zie [FROM-syntaxis](sql-api-sql-query-reference.md#bk_from_clause) voor meer informatie over de syntaxis. Een query zoals `SELECT * FROM Families` geeft aan dat de hele container Families de bron is die u wilt inventariseren. Een speciale ROOT-id kan worden gebruikt om de container aan te duiden in plaats van de containernaam te gebruiken.
+De component <from_specification> is optioneel, tenzij de bron verderop in de query wordt gefilterd of geprojecteerd. Zie [FROM-syntaxis](sql-api-query-reference.md#bk_from_clause) voor meer informatie over de syntaxis. Een query zoals `SELECT * FROM Families` geeft aan dat de hele container Families de bron is die u wilt inventariseren. Een speciale ROOT-id kan worden gebruikt om de container aan te duiden in plaats van de containernaam te gebruiken.
 De volgende lijst bevat de regels die voor elke query worden afgedwongen:
 
 * Voor de container kunt u een alias gebruiken, zoals `SELECT f.id FROM Families AS f` of gewoon `SELECT f.id FROM Families f`. Hier is `f` het equivalent van `Families`. `AS` is een optioneel sleutelwoord dat wordt gebruikt als alias voor de id.  
@@ -313,7 +313,7 @@ De bron kan ook worden teruggebracht tot een kleinere subset. Als u bijvoorbeeld
     ]
 ```
 
-In het bovenstaande voorbeeld is een matrix gebruikt als de bron. Een object kan ook worden gebruikt als de bron, zoals u kunt zien in het volgende voorbeeld: elke geldige JSON-waarde (niet Undefined) die in de bron kan worden gevonden, kan worden opgenomen in het resultaat van de query. Families die geen waarde voor `address.state` bevatten, worden uitgesloten van het queryresultaat.
+In het bovenstaande voorbeeld wordt een matrix als bron gebruikt. U kunt ook een object als bron gebruiken. Dit wordt in het volgende voorbeeld getoond: Elke geldige JSON-waarde (niet ongedefinieerd) die in de bron kan worden gevonden, wordt beschouwd voor opname in het resultaat van de query. Families die geen waarde voor `address.state` bevatten, worden uitgesloten van het queryresultaat.
 
 **Query**
 
@@ -333,7 +333,7 @@ In het bovenstaande voorbeeld is een matrix gebruikt als de bron. Een object kan
 
 ## <a id="WhereClause"></a>WHERE-component
 
-De WHERE-component (**`WHERE <filter_condition>`**) is optioneel. Hiermee geeft u de voorwaarde(n) op waaraan de JSON-items in de bron moet(en) voldoen om te worden opgenomen in het resultaat. Elk JSON-item wordt pas opgenomen in het resultaat als het evaluatieresultaat van de opgegeven voorwaarden "true" is. De WHERE-component wordt door de indexlaag gebruikt om de kleinste absolute subset van bronitems die deel kunnen uitmaken van het resultaat te bepalen. Zie [WHERE-syntaxis](sql-api-sql-query-reference.md#bk_where_clause) voor meer informatie over de syntaxis.
+De WHERE-component (**`WHERE <filter_condition>`**) is optioneel. Hiermee geeft u de voorwaarde(n) op waaraan de JSON-items in de bron moet(en) voldoen om te worden opgenomen in het resultaat. Elk JSON-item wordt pas opgenomen in het resultaat als het evaluatieresultaat van de opgegeven voorwaarden "true" is. De WHERE-component wordt door de indexlaag gebruikt om de kleinste absolute subset van bronitems die deel kunnen uitmaken van het resultaat te bepalen. Zie [WHERE-syntaxis](sql-api-query-reference.md#bk_where_clause) voor meer informatie over de syntaxis.
 
 Met de volgende query worden de items opgevraagd die een naameigenschap met de waarde `AndersenFamily` bevatten. Elk ander item dat geen naameigenschap bevat, of waarvan de waarde niet overeenkomt met `AndersenFamily`, worden uitgesloten.
 
@@ -831,7 +831,7 @@ De volgende tabel bevat de lijst met ondersteunde statistische functies in de SQ
 Statistische functies kunnen ook worden uitgevoerd op de resultaten van een herhaling van de matrix. Zie [Herhaling van de matrix in query's](#Iteration) voor meer informatie.
 
 > [!NOTE]
-> Wanneer u Data Explorer van Azure Portal gebruikt, moet u er rekening mee houden dat met statistische functies mogelijk slechts een gedeelte van de resultaten van een querypagina wordt geretourneerd. De SDK's produceren één cumulatieve waarde, die is berekend over alle pagina's.
+> Wanneer u Data Explorer van de Azure-portal gebruikt, moet u er rekening mee houden dat met statistische functies mogelijk slechts een gedeelte van de resultaten van een querypagina wordt geretourneerd. De SDK's produceren één cumulatieve waarde, die is berekend over alle pagina's.
 >
 > Als u statistische query's wilt uitvoeren met behulp van code, hebt u .NET SDK 1.12.0, .NET Core SDK 1.1.0 of Java SDK 1.9.5 of hoger nodig.
 >
@@ -1411,14 +1411,14 @@ Met de typecontrolefuncties kunt u het type van een expressie in SQL-query's con
 
 | **Gebruik** | **Beschrijving** |
 |-----------|------------|
-| [IS_ARRAY (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een matrix is. |
-| [IS_BOOL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een Booleaanse waarde is. |
-| [IS_NULL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde null is. |
-| [IS_NUMBER (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een getal is. |
-| [IS_OBJECT (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een JSON-object is. |
-| [IS_STRING (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een tekenreeks is. |
-| [IS_DEFINED (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined) | Retourneert een Booleaanse waarde die aangeeft of aan de eigenschap een waarde is toegewezen. |
-| [IS_PRIMITIVE (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een tekenreeks, getal, Booleaanse waarde of null is. |
+| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een matrix is. |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een Booleaanse waarde is. |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde null is. |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een getal is. |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een JSON-object is. |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een tekenreeks is. |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | Retourneert een Booleaanse waarde die aangeeft of aan de eigenschap een waarde is toegewezen. |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een tekenreeks, getal, Booleaanse waarde of null is. |
 
 Met deze functies kunt u nu bijvoorbeeld query's uitvoeren zoals die in het volgende voorbeeld:
 
@@ -1440,22 +1440,22 @@ Met de volgende scalaire functies wordt een bewerking op een tekenreeksinvoerwaa
 
 | Gebruik | Beschrijving |
 | --- | --- |
-| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) | Retourneert het aantal tekens van de opgegeven tekenreeksexpressie |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) | Retourneert een tekenreeks die het resultaat is van het samenvoegen van twee of meer tekenreekswaarden. |
-| [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) | Retourneert een deel van een tekenreeksexpressie. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie begint met de tweede |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie eindigt met de tweede |
-| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie de tweede bevat. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) | Retourneert de beginpositie van het eerste exemplaar van de tweede tekenreeksexpressie binnen de eerste opgegeven tekenreeksexpressie, of -1 als de tekenreeks niet is gevonden. |
-| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) | Retourneert het linkerdeel van een tekenreeks met het opgegeven aantal tekens. |
-| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) | Retourneert het rechterdeel van een tekenreeks met het opgegeven aantal tekens. |
-| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) | Retourneert een tekenreeksexpressie na het verwijderen van lege voorlooptekens. |
-| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) | Retourneert een tekenreeksexpressie na het afkappen van alle lege volgtekens. |
-| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) | Retourneert een tekenreeksexpressie na het converteren van tekens in hoofdletters naar kleine letters. |
-| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) | Retourneert een tekenreeksexpressie na het converteren van tekens in kleine letters naar hoofdletters. |
-| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) | Vervangt alle exemplaren van een opgegeven tekenreekswaarde door een andere tekenreekswaarde. |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Retourneert het aantal tekens van de opgegeven tekenreeksexpressie |
+| [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Retourneert een tekenreeks die het resultaat is van het samenvoegen van twee of meer tekenreekswaarden. |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Retourneert een deel van een tekenreeksexpressie. |
+| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie begint met de tweede |
+| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie eindigt met de tweede |
+| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie de tweede bevat. |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Retourneert de beginpositie van het eerste exemplaar van de tweede tekenreeksexpressie binnen de eerste opgegeven tekenreeksexpressie, of -1 als de tekenreeks niet is gevonden. |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Retourneert het linkerdeel van een tekenreeks met het opgegeven aantal tekens. |
+| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Retourneert het rechterdeel van een tekenreeks met het opgegeven aantal tekens. |
+| [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Retourneert een tekenreeksexpressie na het verwijderen van lege voorlooptekens. |
+| [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | Retourneert een tekenreeksexpressie na het afkappen van alle lege volgtekens. |
+| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Retourneert een tekenreeksexpressie na het converteren van tekens in hoofdletters naar kleine letters. |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | Retourneert een tekenreeksexpressie na het converteren van tekens in kleine letters naar hoofdletters. |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Vervangt alle exemplaren van een opgegeven tekenreekswaarde door een andere tekenreekswaarde. |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | Herhaalt een tekenreekswaarde een opgegeven aantal keren. |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) | Retourneert een tekenreekswaarde in de omgekeerde volgorde. |
+| [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Retourneert een tekenreekswaarde in de omgekeerde volgorde. |
 
 Met deze functies kunt u nu query's uitvoeren zoals die in het volgende voorbeeld. Zo kunt u bijvoorbeeld de familienaam als volgt retourneren in hoofdletters:
 
@@ -1522,10 +1522,10 @@ Met de volgende scalaire functies wordt een bewerking op een matrixinvoerwaarde 
 
 | Gebruik | Beschrijving |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Retourneert het aantal elementen van de opgegeven matrixexpressie. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Retourneert een matrix die het resultaat is van het samenvoegen van twee of meer matrixwaarden. |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Retourneert een Booleaanse waarde die aangeeft of de matrix de opgegeven waarde bevat. U kunt kiezen tussen een volledige of gedeeltelijke overeenkomst. |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Retourneert een deel van een matrixexpressie. |
+| [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Retourneert het aantal elementen van de opgegeven matrixexpressie. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |Retourneert een matrix die het resultaat is van het samenvoegen van twee of meer matrixwaarden. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Retourneert een Booleaanse waarde die aangeeft of de matrix de opgegeven waarde bevat. U kunt kiezen tussen een volledige of gedeeltelijke overeenkomst. |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |Retourneert een deel van een matrixexpressie. |
 
 Matrixfuncties kunnen worden gebruikt voor het bewerken van matrices in JSON. Met de volgende query worden bijvoorbeeld alle items geretourneerd waarbij een van de ouders 'Robin Wakefield' is. 
 
@@ -1627,7 +1627,7 @@ In de volgende afbeelding ziet u de architectuur voor ondersteunende LINQ-query'
 
 ### <a name="net-and-json-mapping"></a>.NET- en JSON-toewijzing
 
-De toewijzing tussen .NET-objecten en JSON-items spreekt voor zich. Elk gegevenslidveld wordt toegewezen aan een JSON-object, waarbij de naam van het veld wordt toegewezen aan het sleutelgedeelte van het object en het waardegedeelte recursief wordt toegewezen aan het waardegedeelte van het object. Houd rekening met het volgende voorbeeld: het gemaakte familieobject wordt toegewezen aan het JSON-object, zoals hieronder wordt weergegeven. Het JSON-item wordt op zijn beurt ook weer toegewezen aan een .NET-object.
+De toewijzing tussen .NET-objecten en JSON-items spreekt voor zich. Elk gegevenslidveld wordt toegewezen aan een JSON-object, waarbij de naam van het veld wordt toegewezen aan het sleutelgedeelte van het object en het waardegedeelte recursief wordt toegewezen aan het waardegedeelte van het object. Kijk een naar het volgende voorbeeld: het gemaakte object Family wordt toegewezen aan het JSON-object, zoals hieronder wordt weergegeven. Het JSON-item wordt op zijn beurt ook weer toegewezen aan een .NET-object.
 
 **C#-klasse**
 
@@ -1738,16 +1738,16 @@ Hier volgt een lijst met ondersteunde LINQ-operatoren in de LINQ-provider die bi
 * **Select**: projecties worden omgezet naar de SQL-instructie SELECT inclusief objectconstructie
 * **Where**: filters worden omgezet naar de SQL-instructie WHERE en bieden ondersteuning voor omzetting van &&, || en ! naar de SQL-operatoren
 * **SelectMany**: maakt het mogelijk om matrices af te wikkelen naar de SQL-JOIN-component. Kan worden gebruikt om keten- of geneste expressies te maken om te filteren op matrixelementen
-* **OrderBy en OrderByDescending**: wordt omgezet naar ORDER BY oplopend/aflopend
+* **OrderBy en OrderByDescending**: wordt omgezet naar ORDER BY oplopen/aflopend
 * Operatoren **Count**, **Sum**, **Min**, **Max** en **Average** voor statistische functies en de bijbehorende asynchrone equivalenten **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** en **AverageAsync**.
 * **CompareTo**: wordt omgezet naar bereikvergelijkingen. Dit wordt vaak gebruikt voor tekenreeksen, omdat deze kunnen worden vergeleken in .NET
 * **Take**: wordt omgezet naar de SQL-instructie TOP om het aantal resultaten van een query te beperken
-* **Math Functions**: biedt ondersteuning voor het omzetten van de .NET-functies Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan en Truncate naar de equivalente ingebouwde SQL-functies.
-* **String Functions**: biedt ondersteuning voor het omzetten van de .NET-functies Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString en ToUpper naar de equivalente ingebouwde SQL-functies.
-* **Array Functions**: biedt ondersteuning voor het omzetten van de .NET-functies Concat, Contains en Count naar de equivalente ingebouwde SQL-functies.
-* **Geospatial Extension Functions**: biedt ondersteuning voor het omzetten van de stubmethoden Distance, Within, IsValid en IsValidDetailed naar de equivalente ingebouwde SQL-functies.
-* **User-Defined Function Extension Function**: biedt ondersteuning voor het omzetten van de stubmethode UserDefinedFunctionProvider.Invoke naar de corresponderende door de gebruiker gedefinieerde functie.
-* **Miscellaneous**: biedt ondesteuning voor het omzetten van de samenvoegings- en voorwaardelijke operatoren. Kan Contains omzetten naar STRING_CONTAINS, ARRAY_CONTAINS of de SQL-instructie IN, afhankelijk van de context.
+* **Wiskundige functies**: bieden ondersteuning voor het omzetten van de .NET-functies Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan en Truncate naar de equivalente ingebouwde SQL-functies.
+* **Tekenreeksfuncties**: bieden ondersteuning voor het omzetten van de .NET-functies Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString en ToUpper naar de equivalente ingebouwde SQL-functies.
+* **Matrixfuncties**: bieden ondersteuning voor het omzetten van de .NET-functies Concat, Contains en Count naar de equivalente ingebouwde SQL-functies.
+* **Georuimtelijke extensiefuncties**: bieden ondersteuning voor het omzetten van de stubmethoden Distance, Within, IsValid en IsValidDetailed naar de equivalente ingebouwde SQL-functies.
+* **Door de gebruiker gedefinieerde extensiefunctie**: biedt ondersteuning voor het omzetten van de stubmethode UserDefinedFunctionProvider.Invoke naar de corresponderende door de gebruiker gedefinieerde functie.
+* **Miscellaneous**: biedt ondersteuning voor het omzetten van de samenvoegings- en voorwaardelijke operatoren. Kan Contains omzetten naar STRING_CONTAINS, ARRAY_CONTAINS of de SQL-instructie IN, afhankelijk van de context.
 
 ### <a name="sql-query-operators"></a>Operatoren voor SQL-query's
 
@@ -2117,7 +2117,7 @@ Voor het beheren van het beleid voor gegevensconsistentie voor query's, gebruikt
 
 Als de opgegeven query niet wordt ondersteund door het geconfigureerde indexeringsbeleid voor de container, retourneert de Azure Cosmos DB-server het foutbericht '400 - Ongeldige aanvraag'. Dit foutbericht wordt geretourneerd voor bereikquery's op paden die zijn geconfigureerd voor hash-zoekopdrachten (gelijkheid) en voor paden die expliciet zijn uitgesloten van indexering. U kunt de header `x-ms-documentdb-query-enable-scan` opgeven om een scanbewerking door de query te laten uitvoeren als een index niet beschikbaar is.
 
-U kunt gedetailleerde metrische gegevens ophalen bij het uitvoeren van query's door de header `x-ms-documentdb-populatequerymetrics` in te stellen op `True`. Zie [Metrische gegevens van SQL-query's voor Azure Cosmos DB](sql-api-sql-query-metrics.md) voor meer informatie.
+U kunt gedetailleerde metrische gegevens ophalen bij het uitvoeren van query's door de header `x-ms-documentdb-populatequerymetrics` in te stellen op `True`. Zie [Metrische gegevens van SQL-query's voor Azure Cosmos DB](sql-api-query-metrics.md) voor meer informatie.
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 
@@ -2253,14 +2253,14 @@ Het volgende voorbeeld laat zien hoe u queryDocuments in de JavaScript-server-AP
 ## <a id="References"></a>Naslaginformatie
 
 1. [Inleiding tot Azure Cosmos DB][introduction]
-2. [SQL-specificatie voor Azure Cosmos DB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [SQL-specificatie voor Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [.NET-voorbeelden voor Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Consistentieniveaus van Azure Cosmos DB][consistency-levels]
-5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [http://json.org/](http://json.org/)
-7. JavaScript-specificatie [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Query-evaluatiemethoden voor grote databases [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON [https://json.org/](https://json.org/)
+7. JavaScript-specificatie [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+9. Query-evaluatiemethoden voor grote databases [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.

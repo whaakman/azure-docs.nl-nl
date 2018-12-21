@@ -1,6 +1,6 @@
 ---
 title: .NET Core gebruiken om een query uit te voeren voor een Azure SQL-database | Microsoft Docs
-description: In dit onderwerp ziet u hoe u .NET Core gebruikt om een programma te maken dat is verbonden met een Azure SQL-database, en hoe u een query voor deze database uitvoert met behulp van Transact-SQL-instructies.
+description: In dit onderwerp wordt beschreven hoe u .NET Core gebruikt om een programma te maken waarmee u verbinding maakt met een Azure SQL-database en waarmee u query's voor deze database uitvoert met behulp van Transact-SQL-instructies.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,65 +11,73 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 646b75e845e1940a87a9a2f45aecda2840a96d81
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/10/2018
+ms.openlocfilehash: 471d2b0b8d98651d4b9ef4e88df0e863715b0c88
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913067"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341776"
 ---
-# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snelstart: .NET Core (C#) gebruiken om een query uit te voeren voor een Azure SQL-database
+# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snelstartgids: .NET Core (C#) gebruiken om een query uit te voeren voor een Azure SQL-database
 
-In deze snelstart wordt gedemonstreerd hoe u [.NET Core](https://www.microsoft.com/net/) gebruikt in Windows/Linux/macOS om een C#-programma te maken dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor de gegevens.
+In deze snelstartgids wordt beschreven hoe u met [.NET Core](https://www.microsoft.com/net/) en C#-code verbinding maakt met een Azure SQL-database en een Transact-SQL-instructie toepast om een query uit te voeren voor de gegevens.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Een [firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) voor het openbare IP-adres van de computer die u gebruikt voor deze snelstart.
+- [Een firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) voor het openbare IP-adres van uw computer.
 
-- U hebt [.NET Core voor uw besturingssysteem](https://www.microsoft.com/net/core) geïnstalleerd. 
+- [.NET Core voor uw besturingssysteem](https://www.microsoft.com/net/core) moet zijn geïnstalleerd. 
 
-## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
+> [!NOTE]
+> In deze snelstartgids wordt gebruik gemaakt van de *mySampleDatabase*-database. Als u een andere database wilt gebruiken, moet u de databaseverwijzingen wijzigen en de `SELECT`-query aanpassen in de C#-code.
+
+
+## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-#### <a name="for-adonet"></a>Voor ADO.NET
+#### <a name="get-adonet-connection-information-optional"></a>ADO.NET-verbindingsgegevens ophalen (optioneel)
 
-1. Ga verder door op **Databaseverbindingsreeksen tonen** te klikken.
+1. Navigeer naar de pagina **mySampleDatabase** en selecteer vervolgens onder **Instellingen** de optie **Verbindingsreeksen**.
 
 2. Bekijk de volledige **ADO.NET**-verbindingsreeks.
 
-    ![ADO.NET-verbindingsreeks](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+    ![ADO.NET-verbindingsreeks](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
 
-> [!IMPORTANT]
-> U moet een firewallregel hebben ingesteld voor het openbare IP-adres van de computer waarop u deze zelfstudie uitvoert. Als u een andere computer gebruikt of een ander openbaar IP-adres hebt, maakt u een [firewallregel op serverniveau met behulp van Azure Portal](sql-database-get-started-portal-firewall.md). 
->
+3. Kopieer de **ADO.NET**-verbindingsreeks als u van plan bent om deze te gebruiken.
   
-## <a name="create-a-new-net-project"></a>Een nieuw .NET-project maken
+## <a name="create-a-new-net-core-project"></a>Een nieuw .NET Core-project maken
 
-1. Open een opdrachtprompt en maak een map met de naam *sqltest*. Navigeer naar de map die u hebt gemaakt, en voer de volgende opdracht uit:
+1. Open een opdrachtprompt en maak een map met de naam **sqltest**. Navigeer naar deze map en voer de volgende opdracht uit.
 
-    ```
+    ```cmd
     dotnet new console
     ```
+    Hiermee maakt u nieuwe app-projectbestanden, waaronder een eerste C#-codebestand (**Program.cs**), een XML-configuratiebestand (**sqltest.csproj**) en de benodigde binaire bestanden.
 
-2. Open ***sqltest.csproj*** met uw favoriete teksteditor en voeg System.Data.SqlClient als een afhankelijkheid met de volgende code toe:
+2. Open **sqltest.csproj** in een teksteditor en plak de volgende XML-code tussen de `<Project>`-tags. Hiermee voegt u `System.Data.SqlClient` toe als een afhankelijkheid.
 
     ```xml
     <ItemGroup>
-        <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
     </ItemGroup>
     ```
 
 ## <a name="insert-code-to-query-sql-database"></a>Code invoegen om een query uit te voeren voor een SQL-database
 
-1. Open **Program.cs** in uw ontwikkelomgeving of favoriete teksteditor.
+1. Open **Program.cs** in een teksteditor.
 
-2. Vervang de inhoud door de volgende code en voeg de juiste waarden toe voor de server, de database, de gebruiker en het wachtwoord.
+2. Vervang de inhoud door de volgende code en voeg de juiste waarden toe voor de server, de database, de gebruikersnaam en het wachtwoord.
+
+> [!NOTE]
+> Als u een ADO.NET-verbindingsreeks wilt gebruiken, vervangt u de vier regels in de code waarmee de server, de database, de gebruikersnaam en het wachtwoord worden ingesteld door de onderstaande regel. Stel in de verbindingsreeks uw gebruikersnaam en wachtwoord in.
+>
+>    `builder.ConnectionString="<your_ado_net_connection_string>";`
 
 ```csharp
 using System;
@@ -85,11 +93,12 @@ namespace sqltest
             try 
             { 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "your_server.database.windows.net"; 
-                builder.UserID = "your_user";            
-                builder.Password = "your_password";     
-                builder.InitialCatalog = "your_database";
 
+                builder.DataSource = "<your_server.database.windows.net>"; 
+                builder.UserID = "<your_username>";            
+                builder.Password = "<your_password>";     
+                builder.InitialCatalog = "<your_database>";
+         
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     Console.WriteLine("\nQuery data example:");
@@ -119,7 +128,8 @@ namespace sqltest
             {
                 Console.WriteLine(e.ToString());
             }
-            Console.ReadLine();
+            Console.WriteLine("\nDone. Press enter.");
+            Console.ReadLine(); 
         }
     }
 }
@@ -127,19 +137,47 @@ namespace sqltest
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-1. Voer bij de opdrachtprompt de volgende opdrachten uit:
+1. Voer in de prompt de volgende opdrachten uit.
 
-   ```csharp
+   ```cmd
    dotnet restore
    dotnet run
    ```
 
-2. Controleer of de bovenste 20 rijen worden geretourneerd, en sluit vervolgens het toepassingsvenster.
+2. Controleer of de bovenste twintig rijen worden geretourneerd.
 
+   ```text
+   Query data example:
+   =========================================
+
+   Road Frames HL Road Frame - Black, 58
+   Road Frames HL Road Frame - Red, 58
+   Helmets Sport-100 Helmet, Red
+   Helmets Sport-100 Helmet, Black
+   Socks Mountain Bike Socks, M
+   Socks Mountain Bike Socks, L
+   Helmets Sport-100 Helmet, Blue
+   Caps AWC Logo Cap
+   Jerseys Long-Sleeve Logo Jersey, S
+   Jerseys Long-Sleeve Logo Jersey, M
+   Jerseys Long-Sleeve Logo Jersey, L
+   Jerseys Long-Sleeve Logo Jersey, XL
+   Road Frames HL Road Frame - Red, 62
+   Road Frames HL Road Frame - Red, 44
+   Road Frames HL Road Frame - Red, 48
+   Road Frames HL Road Frame - Red, 52
+   Road Frames HL Road Frame - Red, 56
+   Road Frames LL Road Frame - Black, 58
+   Road Frames LL Road Frame - Black, 60
+   Road Frames LL Road Frame - Black, 62
+
+   Done. Press enter.
+   ```
+3. Druk op **Enter** om het toepassingsvenster te sluiten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Aan de slag met .NET Core in Windows/Linux/macOS met behulp van de opdrachtregel ](/dotnet/core/tutorials/using-with-xplat-cli).
 - Meer informatie over [verbinding maken met en een query uitvoeren voor een Azure SQL-database met behulp van het .NET Framework en Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
-- Meer informatie over [Uw eerste Azure SQL-database ontwerpen met behulp van SSMS](sql-database-design-first-database.md) of [Uw eerste Azure SQL-database ontwerpen met behulp van .NET](sql-database-design-first-database-csharp.md).
+- Meer informatie over [Uw eerste Azure SQL-database ontwerpen met behulp van SSMS](sql-database-design-first-database.md) of [Een Azure SQL-database ontwerpen en hiermee verbinding maken met behulp van C# en ADO.NET](sql-database-design-first-database-csharp.md).
 - Raadpleeg de [.NET-documentatie](https://docs.microsoft.com/dotnet/) voor meer informatie over .NET.

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer'
+title: 'Snelstart: Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer'
 description: In deze snelstart leert u hoe u gegevens opneemt (laadt) in Azure Data Explorer met behulp van Python.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: fe405416e166b69ebe6b72e519ace4930c3062d8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 390cdddf09f6880368d4d199eef41be19b54d9f0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871721"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339243"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Snelstart: gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer
+# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Snelstart: Gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt twee clientbibliotheken voor Python: een [ingest-bibliotheek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) en [een data-bibliotheek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Met deze bibliotheken kunt u gegevens opnemen (laden) in een cluster en gegevens bevragen vanuit uw code. In deze snelstart maakt u eerst een tabel en gegevenstoewijzing in een testcluster. Vervolgens plaatst u op te nemen gegevens in de wachtrij en valideert u de resultaten.
 
@@ -73,7 +73,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE  = "<DatabaseName>"
 ```
 
-Stel nu de verbindingsreeks samen. In dit voorbeeld wordt apparaatverificatie gebruikt voor toegang tot het cluster. U kunt ook een AAD-toepassingscertificaat, een AAD-toepassingssleutel en een AAD-gebruiker en -wachtwoord gebruiken.
+Stel nu de verbindingsreeks samen. In dit voorbeeld wordt apparaatverificatie gebruikt voor toegang tot het cluster. U kunt ook een [AAD-toepassingscertificaat](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), een [AAD-toepassingssleutel](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) en een [AAD-gebruiker en -wachtwoord](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34) gebruiken.
 
 U maakt de doeltabel en toewijzing in een latere stap.
 
@@ -105,7 +105,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + 
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Een tabel maken in het testcluster
 
-Maak een tabel die overeenkomt met het schema van de gegevens in het bestand StormEvents.csv. Wanneer deze code wordt uitgevoerd, wordt er een bericht als het volgende geretourneerd: *Als u zich wilt aanmelden, opent u de pagina https://microsoft.com/devicelogin met een webbrowser. Voer de code F3W4VWZDM in om te verifiëren*. Volg de stappen om u aan te melden en ga vervolgens terug om het volgende codeblok uit te voeren. Als volgende codeblokken verbinding moeten maken, moet u zich opnieuw aanmelden.
+Maak een tabel die overeenkomt met het schema van de gegevens in het bestand StormEvents.csv. Wanneer deze code wordt uitgevoerd, wordt een bericht als het volgende geretourneerd: *Als u zich wilt aanmelden, opent u de pagina https://microsoft.com/devicelogin met een webbrowser. Voer de code F3W4VWZDM in om te verifiëren*. Volg de stappen om u aan te melden en ga vervolgens terug om het volgende codeblok uit te voeren. Als volgende codeblokken verbinding moeten maken, moet u zich opnieuw aanmelden.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)

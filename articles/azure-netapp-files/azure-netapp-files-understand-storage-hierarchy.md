@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 6f5ed4e7ede9a098d69b7a40f44dd60f9b400472
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fa498c39123e09c212466c900e6000c0138db467
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010987"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413095"
 ---
 # <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Informatie over de opslaghiërarchie van Azure NetApp Files
 
@@ -35,17 +35,19 @@ Voordat u een volume maakt in Azure NetApp Files, moet u een pool kopen en inste
 ## <a name="capacity_pools"></a>Capaciteitspools
 
 - Een capaciteitspool wordt gemeten aan de hand van de ingerichte capaciteit.  
-- De capaciteit wordt ingericht met de vaste SKU's die u hebt gekocht (bijvoorbeeld een capaciteit van 4 TB).
+- De capaciteit wordt ingericht met de vaste SKU's die u hebt gekocht (bijvoorbeeld een capaciteit van 4 TiB).
+- De minimumgrootte van één capaciteitspool is 4 TiB, de maximumgrootte is 500 TiB. 
 - Een capaciteitspool kan slechts één serviceniveau hebben.  
   Momenteel is alleen het Premium-serviceniveau beschikbaar.
-- Elke capaciteitspool is geassocieerd met slechts één NetApp-account.  
+- Elke capaciteitspool kan deel uitmaken van slechts één NetApp-account. Er kunnen echter meerdere capaciteitspools binnen een NetApp-account bestaan.  
 - Een capaciteitspool kan niet worden verplaatst tussen NetApp-accounts.   
   In het onderstaande [conceptueel diagram van een opslaghiërarchie](#conceptual_diagram_of_storage_hierarchy) kan Capaciteitspool 1 bijvoorbeeld niet worden verplaatst van het NetApp-account in US oost naar het NetApp-account in US west 2.  
 
 ## <a name="volumes"></a>Volumes
 
-- Een volume wordt gemeten aan de hand van het logische capaciteitsverbruik en is schaalbaar tot 100 TB per volume.
+- Een volume wordt gemeten aan de hand van het logische capaciteitsverbruik en is schaalbaar. De minimumgrootte van één volume is 100 GiB, de maximumgrootte is 92 TiB.
 - Capaciteitsgebruik van een volume wordt in mindering gebracht op de ingerichte capaciteit van de pool.
+-   Het maximaal aantal volumes per Azure-abonnement per regio bedraagt honderd. 
 - Elk volume is gekoppeld aan slechts één pool, maar een pool kan meerdere volumes bevatten. 
 - U kunt een volume binnen hetzelfde NetApp-account tussen verschillende pools verplaatsen.    
   In het onderstaande [conceptueel diagram van een opslaghiërarchie](#conceptual_diagram_of_storage_hierarchy) kunt u de volumes van Capaciteitspool 1 verplaatsen naar Capaciteitspool 2.
@@ -57,7 +59,4 @@ Het volgende voorbeeld toont de relaties tussen een Azure-abonnement, NetApp-acc
 
 ## <a name="next-steps"></a>Volgende stappen
 
-1. [Een NetApp-account maken](azure-netapp-files-create-netapp-account.md)
-2. [Een capaciteitspool instellen](azure-netapp-files-set-up-capacity-pool.md)
-3. [Een volume maken voor Azure NetApp Files](azure-netapp-files-create-volumes.md)
-4. [Exportbeleid voor een volume configureren (optioneel)](azure-netapp-files-configure-export-policy.md)
+[Registreren voor Azure NetApp Files](azure-netapp-files-register.md)

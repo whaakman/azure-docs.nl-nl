@@ -9,14 +9,14 @@ ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: ce3001a2984726332b036eea69d4e18e3d7d300b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 4be24b00c3ac4ffadf7eafdc7397f59113ec03b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890429"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088358"
 ---
-# <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Snelstart: Hallo wereld implementeren in Service Fabric Mesh
+# <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Snelstartgids: Hallo wereld implementeren in Service Fabric Mesh
 
 Met [Service Fabric Mesh](service-fabric-mesh-overview.md) kunt u eenvoudig microservicetoepassingen in Azure maken en beheren, zonder dat u daarvoor virtuele machines hoeft in te richten. In deze snelstart gaat u een Hallo wereld-toepassing maken in Azure en deze op internet beschikbaar maken. Deze bewerking wordt uitgevoerd in één opdracht. In slechts een paar minuten ziet u deze weergave in uw browser:
 
@@ -48,10 +48,10 @@ az group create --name myResourceGroup --location eastus
 Maak uw toepassing in de resourcegroep met de opdracht `az mesh deployment create`.  Voer het volgende uit:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
-Met de voorgaande opdracht wordt een Linux-toepassing geïmplementeerd met [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Gebruik [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json) als u een Windows-toepassing wilt implementeren. Windows-containerinstallatiekopieën zijn groter dan Linux-containerinstallatiekopieën en het kan langer duren om ze te implementeren.
+Met de voorgaande opdracht wordt een Linux-toepassing geïmplementeerd met [linux.json template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json). Gebruik [windows.json template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.windows.json) als u een Windows-toepassing wilt implementeren. Windows-containerinstallatiekopieën zijn groter dan Linux-containerinstallatiekopieën en het kan langer duren om ze te implementeren.
 
 Deze opdracht genereert een JSON-fragment dat hieronder wordt weergegeven. Kopieer de ```publicIPAddress```-eigenschap in de sectie ```outputs``` van de JSON-uitvoer.
 

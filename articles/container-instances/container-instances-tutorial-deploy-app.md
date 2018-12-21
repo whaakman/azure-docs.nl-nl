@@ -1,21 +1,21 @@
 ---
-title: Zelfstudie voor Azure Container Instances - App implementeren
-description: Zelfstudie voor Azure Container Instances deel 3 van 3 - App implementeren
+title: 'Zelfstudie: een container-app implementeren in Azure Container Instances'
+description: 'Zelfstudie 3 van 3 voor Azure Container Instances: een containertoepassing implementeren in Azure Container Instances'
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9e8a72564151bea9194ef5180589fa8eae001df5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863717"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191088"
 ---
-# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Zelfstudie: een container implementeren in Azure Container Instances
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Zelfstudie: een containertoepassing implementeren in Azure Container Instances
 
 Dit is de laatste zelfstudie in een reeks van drie. U hebt eerder in de reeks [een containerinstallatiekopie gemaakt](container-instances-tutorial-prepare-app.md) en [gepusht naar Azure Container Registry](container-instances-tutorial-prepare-acr.md). In dit artikel wordt de reeks afgerond door de container te implementeren in Azure Container Instances.
 

@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287231"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311062"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snelstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snelstartgids: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 Als u een Android-toepassing ontwikkelt, maakt Microsoft het voor u eenvoudig om Azure Active Directory (Azure AD) gebruikers in te laten loggen. Met Azure Active Directory heeft uw toepassing toegang tot gebruikergegevens via Microsoft Graph of uw eigen beschermde web-API.
 
-De Azure AD Authentication Library (ADAL) Android bibltioheek geeft uw app de mogelijkheid om de [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://developer.microsoft.com/graph) te gebruiken door [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/services/active-directory/) te ondersteunen die de industriestandaard OAuth 2.0 en OpenID Connect gebruiken.
+De Azure AD Authentication Library (ADAL) Android biblioheek geeft uw app de mogelijkheid om de [Microsoft Azure Cloud](https://cloud.microsoft.com) en [Microsoft Graph API](https://developer.microsoft.com/graph) te gebruiken door [Microsoft Azure Active Directory-accounts](https://azure.microsoft.com/services/active-directory/) te ondersteunen die de industriestandaard OAuth 2.0 en OpenID Connect gebruiken.
 
 In deze snelstart leert u het volgende:
 
@@ -43,7 +43,7 @@ In deze snelstart leert u het volgende:
 
 U hebt een Azure Active Directory tenant nodig om van start te gaan waar u gebruikers kunt aanmaken en een toepassing kunt registreren. [Lees hier hoe u een tenant kunt verkrijgen](quickstart-create-new-tenant.md) als u er nog geen hebt.
 
-## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Scenario: gebruikers inloggen en Microsoft Graph aanroepen
+## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Scenario: Gebruikers aanmelden en Microsoft Graph aanroepen
 
 ![Topologie](./media/quickstart-v1-android/active-directory-android-topology.png)
 
@@ -51,23 +51,23 @@ U kunt deze app gebruiken voor alle Azure Active Directory accounts. Het onderst
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
-U vindt de volledige code [op Github](https://github.com/Azure-Samples/active-directory-android).
+U vindt de volledige code [op GitHub](https://github.com/Azure-Samples/active-directory-android).
 
 ```Java
 // Initialize your app with MSAL
 AuthenticationContext mAuthContext = new AuthenticationContext(
-        MainActivity.this, 
-        AUTHORITY, 
+        MainActivity.this,
+        AUTHORITY,
         false);
 
 
 // Perform authentication requests
 mAuthContext.acquireToken(
-    getActivity(), 
-    RESOURCE_ID, 
-    CLIENT_ID, 
-    REDIRECT_URI,  
-    PromptBehavior.Auto, 
+    getActivity(),
+    RESOURCE_ID,
+    CLIENT_ID,
+    REDIRECT_URI,
+    PromptBehavior.Auto,
     getAuthInteractiveCallback());
 
 // ...
@@ -76,7 +76,7 @@ mAuthContext.acquireToken(
 mAuthResult.getAccessToken()
 ```
 
-## <a name="step-1-register-and-configure-your-app"></a>Stap 1: Registeer en configureer uw app
+## <a name="step-1-register-and-configure-your-app"></a>Stap 1: Registreer en configureer uw app
 
 U dient een native client-toepassing geregistreerd te hebben bij Microsoft via het [Azure Portal](https://portal.azure.com).
 
@@ -95,13 +95,13 @@ U dient een native client-toepassing geregistreerd te hebben bij Microsoft via h
     - Selecteer **Toevoegen**, in **Selecteer een API** selecteer ***Microsoft Graph***.
     - Selecteer de machtiging **Inloggen en gebruikersprofiel lezen**, en klik dan op **Selecteren** om op te slaan.
         - Deze machtiging gaat over de `User.Read` omvang.
-    - Optioneel: In **Vereiste machtigingen > Windows Azure Active Directory**, verwijder de geselecteerde machtiging **Inloggen en gebruikerprofiel lezen**. Daarmee wordt voorkomen dat de pagina gebruikerstoestemming de machtiging twee keer laat zien.
+    - Optioneel: Verwijder in **Vereiste machtigingen > Windows Azure Active Directory** de geselecteerde machtiging **Aanmelden en gebruikersprofiel lezen**. Daarmee wordt voorkomen dat de pagina gebruikerstoestemming de machtiging twee keer laat zien.
 
 4. Gefeliciteerd! Uw app is geconfigureerd. In het volgende deel dient u:
     - `Application ID`
     - `Redirect URI`
 
-## <a name="step-2-get-the-sample-code"></a>Stap 2: De voorbeeldcode ophalen
+## <a name="step-2-get-the-sample-code"></a>Stap 2: De voorbeeldcode halen
 
 1. De code klonen.
     ```
@@ -117,7 +117,7 @@ U vindt alle configuratiegegevens voor deze code in het bestand ***src/main/java
 1. Vervang de constante factor `CLIENT_ID` met de `ApplicationID`.
 2. Vervang de constante factor `REDIRECT URI` met de `Redirect URI` die u eerder hebt geconfigureerd (`http://localhost`).
 
-## <a name="step-4-run-the-sample"></a>Stap 4: Voer het voorbeeld uit
+## <a name="step-4-run-the-sample"></a>Stap 4: De voorbeeldtoepassing uitvoeren
 
 1. Selecteer **Bouw > Schoon project**.
 2. Selecteer **Run > Run app**.

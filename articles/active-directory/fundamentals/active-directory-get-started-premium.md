@@ -1,6 +1,6 @@
 ---
-title: Hoe u zich kunt registreren voor de Azure Active Directory Premium-edities| Microsoft Docs
-description: Stapsgewijze instructies voor aanmelden voor de Azure Active Directory Premium-edities.
+title: Registreren voor Premium-edities - Azure Active Directory | Microsoft Docs
+description: Instructies voor aanmelden voor de Azure Active Directory Premium-edities.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro
-ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394694"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073989"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Hoe registreren voor Azure Active Directory Premium
-U kunt Azure Active Directory (Azure AD) Premium kopen en deze koppelen aan uw Azure-abonnement. Als u een nieuw Azure-abonnement moet maken, moet u ook uw licentieabonnement en toegang tot de Azure AD-service activeren.
+# <a name="sign-up-for-azure-active-directory-premium-editions"></a>Registreren voor Azure Active Directory Premium-edities
+U kunt Azure Active Directory (Azure AD) Premium-edities kopen en deze koppelen aan uw Azure-abonnement. Als u een nieuw Azure-abonnement moet maken, moet u ook uw licentieabonnement en toegang tot de Azure AD-service activeren.
 
 > [!NOTE]
 >De Azure AD-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De Azure AD Premium en Basic-edities worden momenteel niet ondersteund in de Azure-service die wordt beheerd door 21Vianet in China. Neem contact met ons op via het [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/) voor meer informatie.

@@ -1,6 +1,6 @@
 ---
-title: Azure-functies implementeren met Azure IoT Edge | Microsoft Docs
-description: In deze zelfstudie implementeert u een Azure-functie als een module op een Edge-apparaat.
+title: 'Zelfstudie: een Azure-functie implementeren op een apparaat - Azure IoT Edge | Microsoft Docs'
+description: In deze zelfstudie ontwikkelt u een Azure-functie als een IoT Edge-module en implementeert u die functie op een Edge-apparaat.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: d0ae009db0d9470942a4ff5d7c09e2cdd7bcdd53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165612"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081877"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Zelfstudie: Azure-functies implementeren als IoT Edge-modules
 
@@ -27,7 +27,7 @@ U kunt Azure-functies gebruiken voor het implementeren van code die uw bedrijfsl
 > * Gefilterde gegevens weergeven.
 
 <center>
-![Architectuurdiagram voor zelfstudie](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+![Diagram - zelfstudie-architectuur, functiemodule faseren en implementeren](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -59,11 +59,11 @@ Ontwikkelingsresources:
 
 In deze zelfstudie gebruikt u de Azure IoT Edge-extensie voor Visual Studio Code om een module te bouwen en maakt u een **containerinstallatiekopie** van de bestanden. Vervolgens pusht u deze installatiekopie naar een **register** waarin uw installatiekopieën worden opgeslagen en beheerd. Tot slot implementeert u de installatiekopie uit het register voor uitvoering op uw IoT Edge-apparaat.  
 
-U kunt een Docker-register gebruiken om uw containerinstallatiekopieën op te slaan. Twee populaire Docker-registerservices zijn [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) en [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In deze zelfstudie wordt Azure Container Registry gebruikt. 
+U kunt een Docker-register gebruiken om de containerinstallatiekopieën op te slaan. Twee populaire Docker-registerservices zijn [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) en [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In deze zelfstudie wordt Azure Container Registry gebruikt. 
 
 1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Container Registry**.
 
-    ![Een containerregister maken](./media/tutorial-deploy-function/create-container-registry.png)
+    ![Een containerregister maken in Azure Portal](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. Geef de volgende waarden op om uw containerregister te maken:
 
@@ -80,7 +80,7 @@ U kunt een Docker-register gebruiken om uw containerinstallatiekopieën op te sl
 
 6. Nadat het containerregister is gemaakt, bladert u ernaartoe en selecteert u vervolgens **Toegangssleutels**. 
 
-7. Kopieer de waarden voor **Aanmeldingsserver**, **Gebruikersnaam** en **wachtwoord**. U gebruikt deze waarden later in de zelfstudie om toegang te verschaffen tot het containerregister. 
+7. Kopieer de waarden voor **Aanmeldingsserver**, **Gebruikersnaam** en **wachtwoord**. U gebruikt deze waarden later in de zelfstudie om toegang te verlenen tot het containerregister. 
 
 ## <a name="create-a-function-project"></a>Een functieproject maken
 
@@ -225,9 +225,9 @@ U kunt de Azure-portal gebruiken om uw functiemodule op een IoT Edge-apparaat te
 
 1. Selecteer **View** > **Command Palette** en open het VS Code-opdrachtpalet.
 
-2. Zoek de opdracht **Azure: aanmelden** en voer deze uit. Volg de instructies om u aan te melden bij uw Azure-account. 
+2. Zoek de opdracht **Azure: Aanmelden** en voer deze uit. Volg de instructies om u aan te melden bij uw Azure-account. 
 
-3. Zoek in het opdrachtpalet de opdracht **Azure IoT Hub: IoT-hub selecteren** en voer deze uit. 
+3. Zoek in het opdrachtenpalet de opdracht **Azure IoT Hub: Select IoT Hub**. 
 
 4. Selecteer het abonnement dat de IoT-hub bevat. Selecteer vervolgens de IoT-hub waartoe u toegang wilt.
 
@@ -243,11 +243,11 @@ U kunt de Azure-portal gebruiken om uw functiemodule op een IoT Edge-apparaat te
 
 ## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
-U kunt alle berichten zien die bij de IoT-hub binnenkomen door in het opdrachtpalet de opdracht **Azure IoT Hub: Start Monitoring D2C Message** uit te voeren.
+U kunt alle berichten zien die bij de IoT-hub binnenkomen door in het opdrachtpalet de opdracht **Azure IoT Hub: Start Monitoring D2C Message** (Controle D2C-bericht starten) uit te voeren.
 
 U kunt de weergave ook filteren om alle berichten te zien die bij de IoT-hub binnenkomen vanuit een specifiek apparaat. Klik met de rechtermuisknop op het apparaat in de sectie **Azure IoT Hub Devices** en selecteer **Start Monitoring D2C Messages**.
 
-Als u het controleren van berichten wilt stoppen, voert u de opdracht **Azure IoT Hub: Stop monitoring D2C message** in het opdrachtpalet uit. 
+Als u wilt stoppen met het bewaken van berichten, voert u de opdracht **Azure IoT Hub: Stop monitoring D2C message** in het opdrachtpalet uit. 
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen

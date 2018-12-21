@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie voor Azure Container Registry: een Azure-containerregister met geo-replicatie voorbereiden'
+title: 'Zelfstudie: Een Docker-register met geo-replicatie maken in Azure'
 description: Een Azure-containerregister maken, geo-replicatie configureren, een Docker-installatiekopie voorbereiden en implementeren in het register. Deel één van een serie van drie.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854300"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261310"
 ---
-# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Zelfstudie: een Azure-containerregister met geo-replicatie voorbereiden
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Zelfstudie: Een Azure-containerregister met geo-replicatie voorbereiden
 
 Een Azure-containerregister is een privé Docker-register dat is geïmplementeerd in Azure en uw netwerk dicht bij uw implementaties houdt. In deze set van drie zelfstudieartikelen leert u over het gebruik van geo-replicatie om een ASP.NET Core-webtoepassing die wordt uitgevoerd in een Linux-container te implementeren in twee [Web App for Containers](../app-service/containers/index.yml)-instanties. U ziet hoe Azure de installatiekopie automatisch vanuit de dichtstbijzijnde opslagplaats met geo-replicatie op elke Web App-instantie implementeert.
 
@@ -49,7 +49,7 @@ Selecteer **Een resource maken** > **Containers** > **Azure Container Registry**
 
 Configureer uw nieuwe register met de volgende instellingen:
 
-* **Registernaam**: maak een registernaam die globaal uniek is binnen Azure en 5-50 alfanumerieke tekens bevat
+* **Registernaam**: Een registernaam maken die globaal uniek is binnen Azure en 5-50 alfanumerieke tekens bevat
 * **Resourcegroep**: **Nieuwe maken** > `myResourceGroup`
 * **Locatie**: `West US`
 * **Gebruiker met beheerdersrechten**: `Enable` (vereist voor Web App for Containers voor het pullen van installatiekopieën)

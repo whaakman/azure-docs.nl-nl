@@ -1,6 +1,6 @@
 ---
-title: C#-zelfstudie over synoniemen in Azure Search | Microsoft Docs
-description: In deze zelfstudie voegt u de synoniemenfunctie toe aan een index in Azure Search.
+title: C#-zelfstudie over synoniemen - Azure Search
+description: In deze C#-zelfstudie leert u hoe u de synoniemenfunctie toevoegt aan een index in Azure Search. Een synoniemenkaart is een lijst met equivalente termen. Voor velden met ondersteuning voor synoniemen worden query's uitgebreid met de door de gebruiker opgegeven term en alle gerelateerde synoniemen.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990558"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309226"
 ---
 # <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Zelfstudie: Synoniemen toevoegen voor Azure Search in C#
 

@@ -1,6 +1,6 @@
 ---
 title: Een gesimuleerd X.509-apparaat met C# inrichten voor Azure IoT Hub | Microsoft Docs
-description: 'Azure-snelstart: een gesimuleerd X.509-apparaat met de SDK voor C# maken en inrichten voor Azure IoT Hub Device Provisioning Service. In deze snelstart wordt gebruikgemaakt van afzonderlijke registraties.'
+description: 'Azure-snelstart: een gesimuleerd X.509-apparaat met de SDK voor C# maken en inrichten voor Azure IoT Hub Device Provisioning Service. In deze snelstart wordt gebruikgemaakt van afzonderlijke inschrijvingen.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/18
@@ -10,23 +10,23 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: ae5601cf35540b6f506521a851b4d90dfaf0a20a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d9b4777067ed1ee9f253714bc82c2a20aaa0d127
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156456"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997029"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd X.509-apparaat met de SDK voor C# maken en inrichten voor IoT Hub Device Provisioning Service
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-In deze stappen ziet u hoe u met de [SDK voor C# voor Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-csharp) een gesimuleerd X.509-apparaat maakt op een ontwikkelcomputer met Windows OS en het codevoorbeeld gebruikt om dit gesimuleerde apparaat te verbinden met de Device Provisioning Service en uw IoT-hub.
+Deze stappen laten u zien hoe u de [Azure IoT-voorbeelden voor C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) gebruikt om een X.509-apparaat te simuleren op een ontwikkelcomputer met het Windows-besturingssysteem. In het voorbeeld wordt het gesimuleerde apparaat ook verbonden met een IoT Hub met behulp van de Device Provisioning Service.
 
-Als u niet bekend bent met het proces van automatische inrichting, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
+Als u niet bekend bent met het proces van automatisch inrichten, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
 
-Azure IoT Device Provisioning Service ondersteunt twee typen registraties:
-- [Registratiegroepen](concepts-service.md#enrollment-group): voor het registreren van gerelateerde apparaten.
-- [Afzonderlijke registraties](concepts-service.md#individual-enrollment): voor het registreren van afzonderlijke apparaten.
+Azure IoT Device Provisioning Service ondersteunt twee typen inschrijvingen:
+- [Inschrijvingsgroepen](concepts-service.md#enrollment-group): Wordt gebruikt om meerdere gerelateerde apparaten in te schrijven.
+- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): Wordt gebruikt om één apparaat in te schrijven.
 
 In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
@@ -35,14 +35,14 @@ In dit artikel worden afzonderlijke registraties gedemonstreerd.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>De ontwikkelomgeving voorbereiden 
 
-1. Zorg ervoor dat de [core-SDK voor .NET](https://www.microsoft.com/net/download/windows) op uw computer geïnstalleerd. 
+1. Controleer of de [.NET Core 2.1 SDK of hoger](https://www.microsoft.com/net/download/windows) op uw computer is geïnstalleerd. 
 
 1. Zorg ervoor dat `git` op de computer wordt geïnstalleerd en toegevoegd aan de omgevingsvariabelen die voor het opdrachtvenster toegankelijk zijn. Zie [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) (Git-clienthulpprogramma's van Software Freedom Conservancy) om de nieuwste versie van `git`-hulpprogramma's te installeren, waaronder **Git Bash**, de opdrachtregel-app die u kunt gebruiken voor interactie met de lokale Git-opslagplaats. 
 
-4. Open een opdrachtprompt of Git Bash. Kloon de GitHub-opslagplaats [Azure IoT SDK voor C#](https://github.com/Azure/azure-iot-sdk-csharp):
+1. Open een opdrachtprompt of Git Bash. Kloon de Azure IoT-voorbeelden GitHub-opslagplaats voor C#:
     
     ```cmd
-    git clone --recursive https://github.com/Azure/azure-iot-sdk-csharp.git
+    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Een zelfondertekend X.509-certificaat voor apparaten en een vermelding voor afzonderlijke registratie maken
@@ -52,13 +52,13 @@ In deze sectie gebruikt u een zelf-ondertekend X.509-certificaat. Het is hierbij
 * Zelfondertekende certificaten zijn alleen voor testdoeleinden en moeten niet in productieomgevingen worden gebruikt.
 * De standaardvervaltermijn voor een zelfondertekend certificaat is één jaar.
 
-U gaat voorbeeldcode van de [Azure IoT C-SDK voor .NET](https://github.com/Azure/azure-iot-sdk-csharp.git) gebruiken om het certificaat te maken dat moet worden gebruikt met de afzonderlijke inschrijvingsvermelding voor het gesimuleerde apparaat.
+U gaat voorbeeldcode uit [Provisioning Device Client Sample - X.509 Attestation](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) gebruiken om het certificaat te maken dat moet worden gebruikt met de afzonderlijke inschrijvingsvermelding voor het gesimuleerde apparaat.
 
 
 1. Ga op een opdrachtprompt naar de projectmap met de voorbeeldcode voor het inrichten van het de X.509-apparaat.
 
     ```cmd
-    cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientX509
+    cd .\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample
     ```
 
 2. De voorbeeldcode is ingesteld voor het gebruik van X.509-certificaten die zijn opgeslagen in een met PKCS12 opgemaakt bestand (certificate.pfx) met wachtwoordbeveiliging. Bovendien hebt u een certificaatbestand met een openbare sleutel (certificate.cer) nodig om later in deze quickstart een afzonderlijke registratie te maken. Voer de volgende opdracht uit om een zelfondertekend certificaat en de bijbehorende CER- en PFX-bestanden te genereren:

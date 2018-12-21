@@ -1,6 +1,6 @@
 ---
-title: Een ASP.NET-app migreren naar Azure App Service met behulp van een Windows-container (preview) | Microsoft Docs
-description: Leer hoe u een aangepaste Windows-container implementeert in Azure App Service.
+title: Een ASP.NET-app bouwen met behulp van een Windows-container (preview) - Azure App Service | Microsoft Docs
+description: Leer hoe u een aangepaste Windows-container implementeert in Azure App Service en hoe u aangepaste software implementeert in de container.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 8f6268a345a861ae65a10c3220d1992ba2d45928
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.custom: seodec18
+ms.openlocfilehash: 96f83f86a03b4fa6b12962c28ce1488d4250ba5a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980335"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384578"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Een ASP.NET-app migreren naar Azure App Service met behulp van een Windows-container (preview)
 
-[Azure App Service](app-service-web-overview.md) biedt vooraf gedefinieerde toepassingsstacks in Windows, zoals ASP.NET of Node.js, die worden uitgevoerd in IIS. Met de vooraf geconfigureerde Windows-omgeving wordt het besturingssysteem vergrendeld voor beheerderstoegang, software-installaties, wijzigingen aan de Global Assembly Cache, enzovoort. (Zie [Functionaliteit van besturingssystemen in Azure App Service](web-sites-available-operating-system-functionality.md).) Als u echter een aangepaste Windows-container in App Service gebruikt, kunt u besturingssysteemwijzigingen aanbrengen die uw app nodig heeft, zodat het eenvoudig is om een on-premises app te migreren waarvoor aangepaste besturingssysteem- en softwareconfiguraties nodig zijn. Dit zelfstudie laat zien hoe u een ASP.NET-app naar App Service migreert die aangepaste lettertypen gebruikt die zijn geïnstalleerd in de Windows-lettertypenbibliotheek. U implementeert een aangepaste geconfigureerde Windows-installatiekopie van Visual Studio naar [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) en voert deze vervolgens uit in de App-service.
+[Azure App Service](app-service-web-overview.md) biedt vooraf gedefinieerde toepassingsstacks in Windows, zoals ASP.NET of Node.js, die worden uitgevoerd in IIS. Met de vooraf geconfigureerde Windows-omgeving wordt het besturingssysteem vergrendeld voor beheerderstoegang, software-installaties, wijzigingen aan de Global Assembly Cache, enzovoort. (Zie [Functionaliteit van besturingssystemen in Azure App Service](operating-system-functionality.md).) Als u echter een aangepaste Windows-container in App Service gebruikt, kunt u besturingssysteemwijzigingen aanbrengen die uw app nodig heeft, zodat het eenvoudig is om een on-premises app te migreren waarvoor aangepaste besturingssysteem- en softwareconfiguraties nodig zijn. Dit zelfstudie laat zien hoe u een ASP.NET-app naar App Service migreert die aangepaste lettertypen gebruikt die zijn geïnstalleerd in de Windows-lettertypenbibliotheek. U implementeert een aangepaste geconfigureerde Windows-installatiekopie van Visual Studio naar [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) en voert deze vervolgens uit in de App-service.
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
@@ -32,9 +32,9 @@ ms.locfileid: "46980335"
 Vereisten voor het voltooien van deze zelfstudie:
 
 - <a href="https://hub.docker.com/" target="_blank">Registreren voor een Docker Hub-account</a>
-- <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installeer Docker voor Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers" target="_blank">Schakel Docker over op het uitvoeren van Windows-containers</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installeer Visual Studio 2017</a> met de werkbelastingen **ASP.NET- en webontwikkeling** en **Azure-ontwikkeling**. Als u Visual Studio 2017 al hebt geïnstalleerd:
+- <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Docker voor Windows installeren</a>.
+- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers" target="_blank">Docker instellen voor het uitvoeren van Windows-containers</a>.
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 installeren</a> met de workloads **ASP.NET and web development** en **Azure development**. Als u Visual Studio 2017 al hebt geïnstalleerd:
     - Installeer de nieuwste updates in Visual Studio door te klikken op **Help** > **Check for Updates**.
     - Voeg de werkbelastingen toe in Visual Studio door te klikken op **Tools** > **Get Tools and Features**.
 

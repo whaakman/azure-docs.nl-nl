@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: ee6b93c26918b4f70eb23e7055db813f35d3787d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2cce962058357e104ee2f8b8677af8fa4a31f80a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445732"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409272"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -41,15 +41,24 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 > We raden altijd aan de meest recente KB voor uw versie van Windows te nemen.
 
 ## <a name="prerequisites"></a>Vereisten 
-* **Naam van het opslagaccount**: voor het koppelen van een Azure-bestandsshare hebt u de naam van het opslagaccount nodig.
+* **Naam van opslagaccount**: Voor het koppelen van een Azure-bestandsshare hebt u de naam van het opslagaccount nodig.
 
-* **Sleutel van het opslagaccount**: voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
+* **Sleutel van het opslagaccount**: Voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
 
-* **Zorg ervoor dat poort 445 open is**: het SMB-protocol vereist dat TCP-poort 445 open is; verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. Vergeet niet om `your-storage-account-name` te vervangen door de desbetreffende namen van uw opslagaccount.
+* **Zorg ervoor dat poort 445 open is**: Het SMB-protocol vereist dat TCP-poort 445 open is. Verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. Bij de volgende PowerShell-code wordt ervan uitgegaan dat u de AzureRM PowerShell-module heeft geïnstalleerd. Raadpleeg [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resoure-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.windows.net -Port 445
-    
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
+
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
     ```
 
     Als de verbinding is geslaagd, hoort u de volgende uitvoer te zien:

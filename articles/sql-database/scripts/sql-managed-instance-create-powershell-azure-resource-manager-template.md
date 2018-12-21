@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e2075f8a8e54a091dbb82f9ed6d1c8ddaa9da4d0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7df94a465cac03a65bd1df15bf5c1cabda315551
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869837"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336457"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-database-managed-instance"></a>PowerShell gebruiken met een Azure Resource Manager-sjabloon om een MI te maken
 
@@ -36,6 +36,15 @@ Azure PowerShell-opdrachten kunnen een implementatie starten met behulp van een 
 - Sortering op serverniveau van het exemplaar (preview).
 
 Exemplaarnaam, gebruikersnaam van SQL-beheerder, VNet/subnet en sortering kunnen later niet worden gewijzigd. Andere exemplaareigenschappen kunnen worden gewijzigd.
+
+## <a name="prerequisites"></a>Vereisten
+
+In dit voorbeeld wordt ervan uitgegaan dat u[ een geldige netwerkomgeving hebt gemaakt](../sql-database-managed-instance-create-vnet-subnet.md) of [ een bestaand VNet](../sql-database-managed-instance-configure-vnet-subnet.md) hebt gewijzigd van uw beheerde exemplaar. In het voorbeeld worden de commandlets [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) en [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) gebruikt, dus zorg ervoor dat u de volgende PowerShell-modules hebt geïnstalleerd:
+
+```
+Install-Module AzureRM.Network
+Install-Module AzureRM.Resources
+```
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
 

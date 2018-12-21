@@ -1,5 +1,5 @@
 ---
-title: Een Node.js maken in Azure App Service op Linux | Microsoft Docs
+title: Een Node.js-web-app maken in Linux - Azure App Service | Microsoft Docs
 description: Implementeer in enkele minuten uw eerste Node.js-app (Hallo wereld) in Azure App Service op Linux.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.custom: seodec18
+ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969541"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253564"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Een Node.js-web-app maken in Azure App Service op Linux
 
@@ -56,7 +56,7 @@ The installed extension 'webapp' is in preview.
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-Maak een map 'quickstart' in de Cloud Shell en ga er vervolgens naartoe.
+Maak een map 'snelstart' in de Cloud Shell en ga er vervolgens naartoe.
 
 ```bash
 mkdir quickstart
@@ -64,7 +64,7 @@ mkdir quickstart
 cd quickstart
 ```
 
-Voer vervolgens de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen naar de map 'quickstart'.
+Voer vervolgens de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen naar de map 'snelstart'.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
@@ -154,7 +154,7 @@ De Node.js-voorbeeldcode wordt uitgevoerd in een web-app met een ingebouwde inst
 
 ## <a name="update-and-redeploy-the-code"></a>De code bijwerken en opnieuw implementeren
 
-Typ `nano index.js` in de Cloud Shell om de nano-teksteditor te openen.
+Typ `nano index.js` in Cloud Shell om de nano-teksteditor te openen.
 
 ![Nano index.js](media/quickstart-nodejs/nano-indexjs.png)
 

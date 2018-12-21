@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 5d209d0290d8ca813101b531f18fc0f08a6edf8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b03a0538e92ac126a50a1346eb1bf7fb003189f9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246885"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966854"
 ---
-# <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Zelfstudie: voorraad bijwerken met Azure Portal en onderwerpen/abonnementen
+# <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Zelfstudie: Voorraad bijwerken met Azure Portal en onderwerpen/abonnementen
 
 Microsoft Azure Service Bus is een multitenant-cloudberichtenservice waarmee u gegevens kunt versturen tussen toepassingen en services. Asynchrone bewerkingen bieden flexibele, Brokered Messaging, samen met gestructureerde FIFO-berichtenuitwisseling (first in, first out) en mogelijkheden voor publiceren/abonneren. In deze zelfstudie leert hoe u onderwerpen en abonnementen van Service Bus kunt gebruiken in een scenario met detailhandelvoorraad, waarbij gebruik wordt gemaakt van kanalen voor publiceren/abonneren met Azure Portal en .NET.
 
@@ -70,7 +70,7 @@ Bij het maken van een nieuwe naamruimte wordt automatisch een eerste SAS-regel (
 1. Klik op **Alle resources** en klik vervolgens op de zojuist gemaakte naam voor de naamruimte.
 2. Klik in het venster van de naamruimte op **Beleid voor gedeelde toegang**.
 3. Klik in het scherm **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
-4. Klik in het scherm **Beleid: RootManageSharedAccessKey** op de knop **Kopiëren** naast **Primaire verbindingsreeks** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
+4. Klik in het venster **Beleid: RootManageSharedAccessKey** op de knop **Kopiëren** naast **Primaire verbindingsreeks** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
 
     ![connection-string][connection-string]
 5. Herhaal de vorige stap: het kopiëren en plakken van de waarde voor de **Primaire sleutel** voor een tijdelijke locatie zodat u deze later kunt gebruiken.
@@ -91,7 +91,7 @@ Als u een Service Bus-wachtrij wilt maken, moet u de naamruimte opgeven waarin u
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Filterregels voor abonnementen maken
 
-Nadat de naamruimte en onderwerp/abonnementen zijn ingericht en u over de benodigde referenties beschikt, bent u klaar om filterregels voor de abonnementen te maken, en kunt u vervolgens berichten verzenden en ontvangen. U kunt de code in [deze GitHub-voorbeeldmap](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters) controleren.
+Nadat de naamruimte en onderwerp/abonnementen zijn ingericht en u over de benodigde referenties beschikt, bent u klaar om filterregels voor de abonnementen te maken, en kunt u vervolgens berichten verzenden en ontvangen. U kunt de code in [deze GitHub-voorbeeldmap](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters) controleren.
 
 ### <a name="send-and-receive-messages"></a>Berichten verzenden en ontvangen
 

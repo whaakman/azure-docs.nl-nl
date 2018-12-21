@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Cassandra-API met Node.js - Azure Cosmos DB'
+title: 'Snelstartgids: Cassandra-API met Node.js - Azure Cosmos DB'
 description: In deze quickstart ziet u hoe u de Cassandra-API in Azure Cosmos DB gebruikt om een profieltoepassing te maken met Node.js
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: e7b4bc51ab71fa1043afdab019d27fd089d0356c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1015331af3b31fa34170db6c1729b8e38bcbd04
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980080"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251046"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Quickstart: Een Cassandra-app bouwen met Node.js en Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Snelstartgids: Een Cassandra-app bouwen met Node.js en Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -36,7 +36,7 @@ Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van 
 
 U hebt verder nodig:
 * [Node.js](https://nodejs.org/en/) versie v0.10.29 of hoger
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
@@ -158,7 +158,7 @@ Deze stap is optioneel. Als u wilt weten hoe de databaseresources met de code wo
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. De verbindingsreeks stelt uw app in staat om te communiceren met de gehoste database.
 
-1. Selecteer **Verbindingsreeks** in de [Azure-portal](http://portal.azure.com/). 
+1. Selecteer **Verbindingsreeks** in de [Azure-portal](https://portal.azure.com/). 
 
     Gebruik de ![knop Kopiëren](./media/create-cassandra-nodejs/copy.png) aan de rechterkant van het scherm om de bovenste waarde (het CONTACT POINT) te kopiëren.
 

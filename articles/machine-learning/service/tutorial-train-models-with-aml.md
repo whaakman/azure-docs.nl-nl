@@ -1,5 +1,6 @@
 ---
-title: 'Zelfstudie: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning-service'
+title: 'Zelfstudie over classificatie van afbeeldingen: Modellen trainen'
+titleSuffix: Azure Machine Learning service
 description: In deze zelfstudie leert u hoe u met de service Azure Machine Learning een model voor het classificeren van afbeeldingen traint met scikit-learn in een Python Jupyter-notebook. Deze zelfstudie is deel één van een serie van twee.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879482"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310110"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Zelfstudie 1: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning-service
+# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Zelfstudie: een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service
 
 In deze zelfstudie gaat u een machine learning-model zowel lokaal als op externe rekenresources trainen. U gebruikt de werkstroom voor training en implementatie voor de Azure Machine Learning-service in een Python Jupyter-notebook.  Vervolgens kunt u het notebook gebruiken als een sjabloon voor het trainen van uw eigen machine learning-model met uw eigen gegevens. Deze zelfstudie is **deel één van een serie van twee**.  
 
@@ -33,10 +35,10 @@ Leer hoe u het volgende doet:
 
 In [deel twee van deze zelfstudie](tutorial-deploy-models-with-aml.md) leert u hoe u een model selecteert en dit implementeert. 
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
+Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 >[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.2
+> Code in dit artikel is getest met de Azure Machine Learning SDK versie 1.0.2
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
@@ -382,15 +384,15 @@ In totaal duurt de eerste run **ongeveer tien minuten**. Voor latere runs wordt 
 
 Dit is wat er gebeurt terwijl u wacht:
 
-- **Maken van afbeelding**: er wordt een Docker-afbeelding gemaakt die overeenkomt met de Python-omgeving die is opgegeven met de estimator. De afbeelding wordt naar de werkruimte geüpload. Het maken en uploaden van de afbeelding duurt **circa vijf minuten**. 
+- **Afbeelding maken**: er wordt een Docker-afbeelding gemaakt die overeenkomt met de Python-omgeving die is opgegeven met de estimator. De afbeelding wordt naar de werkruimte geüpload. Het maken en uploaden van de afbeelding duurt **circa vijf minuten**. 
 
   Deze fase vindt eenmaal plaats voor elke Python-omgeving, aangezien de container voor volgende runs in de cache wordt opgeslagen.  Tijdens het maken van de afbeelding, worden er logboeken gestreamd naar de uitvoeringsgeschiedenis. U kunt de voortgang van het maken van afbeeldingen volgen aan de hand van deze logboeken.
 
-- **Schalen**: als het externe cluster meer knooppunten vereist voor het uitvoeren van de uitvoering dan er momenteel beschikbaar zijn, worden er automatisch extra knooppunten toegevoegd. Het schalen duurt meestal **ongeveer vijf minuten.**
+- **Schalen**: als het externe cluster meer knooppunten vereist voor het uitvoeren van de run dan er momenteel beschikbaar zijn, worden er automatisch extra knooppunten toegevoegd. Het schalen duurt meestal **ongeveer vijf minuten.**
 
-- **Uitvoering**: in deze fase worden de noodzakelijke scripts en bestanden verzonden naar het rekendoel, waarna er gegevensarchieven worden gekoppeld/gekopieerd en ten slotte entry_script wordt uitgevoerd. Terwijl de taak wordt uitgevoerd, worden stdout en de map ./logs naar de uitvoeringsgeschiedenis gestreamd. U kunt de voortgang van de rum volgen aan de hand van deze logboeken.
+- **Uitvoeren**: in deze fase worden de noodzakelijke scripts en bestanden verzonden naar het rekendoel, waarna er gegevensarchieven worden gekoppeld/gekopieerd en ten slotte entry_script wordt uitgevoerd. Terwijl de taak wordt uitgevoerd, worden stdout en de map ./logs naar de uitvoeringsgeschiedenis gestreamd. U kunt de voortgang van de rum volgen aan de hand van deze logboeken.
 
-- **Nabewerking**: de map ./outputs van de run wordt naar de uitvoeringsgeschiedenis in uw werkruimte gekopieerd, zodat u deze resultaten kunt bekijken.
+- **Nabewerken**: de map ./outputs van de run wordt naar de uitvoeringsgeschiedenis in uw werkruimte gekopieerd, zodat u deze resultaten kunt bekijken.
 
 
 U kunt de voortgang van een actieve taak op verschillende manieren controleren. In deze zelfstudie wordt een Jupyter-widget, evenals de methode `wait_for_completion`. 

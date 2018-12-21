@@ -11,71 +11,77 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 2ab5b7a5b17daef00cb62f69a7d2a798c18456bb
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/10/2018
+ms.openlocfilehash: b9c33da4f002504a55802e4253d648ff87847d92
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912948"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271824"
 ---
-# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Snelstart: Python gebruiken om een query uit te voeren voor een Azure SQL-database
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Snelstartgids: Python gebruiken om een query uit te voeren voor een Azure SQL-database
 
- In deze Quick Start wordt gedemonstreerd hoe u [Python](https://python.org) gebruikt om verbinding te maken met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor de gegevens. Voor meer informatie voor sdk, bekijk onze [verwijzings](https://docs.microsoft.com/python/api/overview/azure/sql)-documentatie, een pyodbc-[voorbeeld](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), en de [pyodbc-](https://github.com/mkleehammer/pyodbc/wiki/) GitHub-opslagplaats.
+ In deze Quick Start wordt gedemonstreerd hoe u [Python](https://python.org) gebruikt om verbinding te maken met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor de gegevens. Bekijk onze [verwijzings](https://docs.microsoft.com/python/api/overview/azure/sql)-documentatie, de [pyodbc GitHub-opslagplaats](https://github.com/mkleehammer/pyodbc/wiki/) en een [pyodbc-voorbeeld](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) voor meer informatie voor SDK.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
+  
 - Een [firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) voor het openbare IP-adres van de computer die u gebruikt voor deze snelstart.
+  
+- Python en verwante software voor uw besturingssysteem:
+  
+  - **MacOS**: Installeer Homebrew en Python, installeer het ODBC-stuurprogramma en SQLCMD, en installeer vervolgens het Python-stuurprogramma voor SQL Server. Zie stappen 1.2, 1.3 en 2.1 in [Python-apps maken met behulp van SQL Server in macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/). Zie [Het Microsoft ODBC-stuurprogramma installeren in Linux en macOS](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server) voor meer informatie.
+    
+  - **Ubuntu**: Installeer Python en andere vereiste pakketten met `sudo apt-get install python python-pip gcc g++ build-essential`. Download en installeer het ODBC-stuurprogramma, SQLCMD en het Python-stuurprogramma voor SQL Server. Zie voor instructies [Een ontwikkelomgeving configureren voor pyodbc Python-ontwikkeling](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
+    
+  - **Windows**: Installeer Python, het ODBC-stuurprogramma en SQLCMD, en het Python-stuurprogramma voor SQL Server. Zie [Een ontwikkelomgeving configureren voor pyodbc Python-ontwikkeling](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows) voor instructies.
 
-- U hebt Python en verwante software voor het besturingssysteem geïnstalleerd:
-
-    - **MacOS**: installeer Homebrew en Python, installeer het ODBC-stuurprogramma en SQLCMD, en installeer vervolgens het Python-stuurprogramma voor SQL Server. Zie [Stap 1.2, 1.3 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
-    - **Ubuntu**: installeer Python en andere vereiste pakketten, en installeer vervolgens het Python-stuurprogramma voor SQL Server. Zie [stap 1.2, 1.3 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
-    - **Windows**: installeer de nieuwste versie van Python (de omgevingsvariabele wordt nu voor u geconfigureerd), installeer het ODBC-stuurprogramma en SQLCMD, en installeer vervolgens het Python-stuurprogramma voor SQL Server. Zie [Stap 1.2, 1.3 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/). 
-
-## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
+## <a name="get-sql-server-connection-information"></a>Verbindingsgegevens voor SQL Server ophalen
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
     
-## <a name="insert-code-to-query-sql-database"></a>Code invoegen om een query uit te voeren voor een SQL-database 
+## <a name="create-code-to-query-your-sql-database"></a>Code maken om query's uit te voeren op uw SQL-database 
 
-1. Maak een nieuw bestand in uw favoriete teksteditor **sqltest.py**.  
-
-2. Vervang de inhoud door de volgende code en voeg de juiste waarden toe voor de server, de database, de gebruiker en het wachtwoord.
-
-```Python
-import pyodbc
-server = 'your_server.database.windows.net'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
-row = cursor.fetchone()
-while row:
-    print (str(row[0]) + " " + str(row[1]))
-    row = cursor.fetchone()
-```
+1. Maak in een teksteditor een nieuw bestand met de naam *sqltest.py*.  
+   
+1. Voeg de volgende code toe. Gebruik uw eigen waarden voor \<server >, \<database >, \<gebruikersnaam > en \<wachtwoord >.
+   
+   >[!IMPORTANT]
+   >Voor de code in dit voorbeeld worden de voorbeeldgegevens gebruikt van AdventureWorksLT, die u als bron kunt kiezen bij het maken van uw database. Als in uw database andere gegevens staan, kunt u tabellen uit uw eigen database gebruiken in de SELECT-query. 
+   
+   ```python
+   import pyodbc
+   server = '<server>.database.windows.net'
+   database = '<database>'
+   username = '<username>'
+   password = '<password>'
+   driver= '{ODBC Driver 17 for SQL Server}'
+   cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
+   cursor = cnxn.cursor()
+   cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
+   row = cursor.fetchone()
+   while row:
+       print (str(row[0]) + " " + str(row[1]))
+       row = cursor.fetchone()
+   ```
+   
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-1. Voer bij de opdrachtprompt de volgende opdrachten uit:
+1. Voer de volgende opdracht uit op een opdrachtprompt:
 
-   ```Python
+   ```cmd
    python sqltest.py
    ```
 
-2. Controleer of de bovenste 20 rijen worden geretourneerd, en sluit vervolgens het toepassingsvenster.
+1. Controleer of de bovenste twintig rijen Categorie/Product worden geretourneerd en sluit vervolgens het opdrachtvenster.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Uw eerste Azure SQL-database ontwerpen](sql-database-design-first-database.md)
 - [Microsoft Python-stuurprogramma's voor SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
-- [Python Developer Center](https://azure.microsoft.com/develop/python/?v=17.23h)
+- [Python-ontwikkelaarscentrum](https://azure.microsoft.com/develop/python/?v=17.23h)
 

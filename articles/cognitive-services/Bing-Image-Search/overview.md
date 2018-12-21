@@ -1,5 +1,5 @@
 ---
-title: Wat is Bing Afbeeldingen zoeken?
+title: Wat is de Bing Afbeeldingen zoeken-API?
 titleSuffix: Azure Cognitive Services
 description: "Met de Bing Afbeeldingen zoeken-API kunt u de cognitieve zoekfunctionaliteit voor afbeeldingen van Bing in uw toepassing gebruiken. Door gebruikerszoekquery's te verzenden met de API kunt u relevante en hoogwaardige afbeeldingen ophalen en weergeven die vergelijkbaar zijn met Bing: afbeeldingen."
 services: cognitive-services
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
-ms.openlocfilehash: 5d5d69eea3a064679cbc5ddc41891a73e77e55ea
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: eb5f508916ef0944a61d556725ae1ba04123584b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295356"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258301"
 ---
-# <a name="what-is-bing-image-search"></a>Wat is Bing Afbeeldingen zoeken?
+# <a name="what-is-the-bing-image-search-api"></a>Wat is de Bing Afbeeldingen zoeken-API?
 
 Met de Bing Afbeeldingen zoeken-API kunt u de cognitieve zoekfunctionaliteit voor afbeeldingen van Bing in uw toepassing gebruiken. Door gebruikerszoekquery's te verzenden met de API kunt u relevante en hoogwaardige afbeeldingen ophalen en weergeven die vergelijkbaar zijn met [Bing - Afbeeldingen](https://www.bing.com/images).
 

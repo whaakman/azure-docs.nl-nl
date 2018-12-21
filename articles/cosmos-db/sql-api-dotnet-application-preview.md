@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: ef805ff82b8f44f4caeeafdc8867d851f4501894
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c0b1ed5aff7f22000a179983396239c24d21a311
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852547"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101327"
 ---
-# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Zelfstudie: een ASP.NET MVC-webtoepassing ontwikkelen met Azure Cosmos DB met behulp van de .Net SDK (preview) 
+# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Zelfstudie: een ASP.NET MVC-webtoepassing ontwikkelen met Azure Cosmos DB met behulp van de .NET SDK (preview) 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -47,7 +47,7 @@ In deze zelfstudie komt het volgende aan bod:
 
 Voordat u de instructies in dit artikel uitvoert, moet u beschikken over de volgende resources:
 
-* **Een actief Azure-account**: als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
+* **Een actief Azure-account:** Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -57,7 +57,7 @@ Voordat u de instructies in dit artikel uitvoert, moet u beschikken over de volg
 
 Alle schermopnamen in dit artikel zijn gemaakt met Microsoft Visual Studio Community 2017. Als uw systeem is geconfigureerd met een andere versie, is het mogelijk dat de schermen en opties niet volledig overeenkomen. Als u echter aan de bovenstaande vereisten voldoet, moet deze oplossing werken.
 
-## <a name="create-an-azure-cosmos-account"></a>Stap 1: een Azure Cosmos-account maken
+## <a name="create-an-azure-cosmos-account"></a>Stap 1: Een Azure Cosmos-account maken
 
 Begin met het maken van een Azure Cosmos-account. Als u al een SQL-API-account voor Azure Cosmos DB hebt of de Azure Cosmos DB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar het gedeelte [Een nieuwe ASP.NET MVS-toepassing maken](#create-a-new-mvc-application).
 
@@ -67,7 +67,7 @@ Begin met het maken van een Azure Cosmos-account. Als u al een SQL-API-account v
 
 In het volgende gedeelte maakt u een nieuwe ASP.NET MVC-toepassing. 
 
-## <a name="create-a-new-mvc-application"></a>Stap 2: Een nieuwe ASP.NET MVC-toepassing maken
+## <a name="create-a-new-mvc-application"></a>Stap 2: nieuwe ASP.NET MVC-toepassing maken
 
 1. Ga in Visual Studio in het menu **Bestand** naar **Nieuw** en selecteer vervolgens **Project**. Het dialoogvenster **Nieuw project** wordt weergegeven.
 
@@ -103,7 +103,7 @@ Nu we de meeste code voor de ASP.NET MVC-framework hebben die nodig is voor deze
 
 3. Nadat het pakket is geïnstalleerd, moet uw Visual Studio-oplossing de twee nieuwe bibliotheekverwijzingen naar Microsoft.Azure.Cosmos.Client en Newtonsoft.Json bevatten.
   
-## <a name="set-up-the-mvc-application"></a>Stap 4: De ASP.NET MVC-toepassing instellen
+## <a name="set-up-the-mvc-application"></a>Stap 4: ASP.NET MVC-toepassing instellen
 
 U kunt nu de modellen, weergaven en controllers toevoegen aan deze MVC-toepassing:
 
@@ -194,7 +194,7 @@ En tot slot voegt u een weergave voor het bewerken van items toe met de volgende
 
 Zodra dit is gebeurd, sluit u alle cshtml-documenten in Visual Studio. U keert later naar deze weergaven terug.
 
-## <a name="connect-to-cosmosdb"></a>Stap 5: verbinding maken met Azure Cosmos DB 
+## <a name="connect-to-cosmosdb"></a>Stap 5: Verbinding maken met Azure Cosmos DB 
 
 Nu de standaardwerkzaamheden voor MVC zijn voltooid, kunt u de code voor het verbinding maken met Azure Cosmos DB toevoegen en CRUD-bewerkingen uitvoeren. 
 
@@ -264,7 +264,7 @@ Volg deze stappen als u de toepassing wilt testen op een lokale machine:
 
 5. Zodra u de app hebt getest, drukt u op Ctrl + F5 om de foutopsporing voor de app te stoppen. U kunt de app nu implementeren.
 
-## <a name="deploy-the-application-to-azure"></a>Stap 7: de toepassing implementeren 
+## <a name="deploy-the-application-to-azure"></a>Stap 7: De toepassing implementeren 
 Nu de volledige toepassing correct werkt met Azure Cosmos DB, kunt u de web-app implementeren in Azure App Service.  
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren** om de toepassing te publiceren.
@@ -288,8 +288,8 @@ In deze zelfstudie hebt u geleerd hoe u een ASP.NET MVC-webtoepassing maakt die 
 > [Een Java-toepassing maken voor toegang tot gegevens die zijn opgeslagen in een SQL-API-account van Azure Cosmos DB]( sql-api-java-application.md)
 
 
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
+[Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-todo-app

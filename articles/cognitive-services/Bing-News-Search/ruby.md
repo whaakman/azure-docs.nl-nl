@@ -1,7 +1,7 @@
 ---
-title: 'Snelstartgids: Bing Nieuws zoeken-API, Ruby'
+title: 'Snelstartgids: Nieuws zoeken met Ruby - REST API voor Bing News Search'
 titlesuffix: Azure Cognitive Services
-description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Nieuws zoeken-API.
+description: Gebruik deze snelstartgids om een aanvraag naar de REST API van Bing News Search te verzenden via Ruby en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: 714f28166b8d24a5b8a69fe4f76ba1737de56e1d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 02b603c0a7e1f84b2677511f73f96eee20a613d9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315083"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250226"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Snelstartgids voor Bing Nieuws zoeken-API met Ruby
+# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Snelstartgids: Nieuws zoeken met Ruby en de REST API van Bing News Search
 
 In dit artikel wordt beschreven hoe u de Bing Nieuws zoeken-API gebruikt, die onderdeel is van Microsoft Cognitive Services in Azure. Hoewel in dit artikel Ruby wordt geïmplementeerd, is de API een RESTful-webservice die compatibel is met elke programmeertaal waarmee HTTP-aanvragen kunnen worden ingediend en JSON kan worden geparseerd. 
 

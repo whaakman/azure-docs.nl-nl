@@ -10,12 +10,12 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d1e9afc32625cdbf97f576ee091d7dc03271e2fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887748"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164803"
 ---
 # <a name="tutorial-anomaly-detection-with-python-application"></a>Zelfstudie: Anomaliedetectie met Python-toepassing
 
@@ -25,13 +25,13 @@ De zelfstudie laat zien hoe u de Anomaliedetectie-API in Python gebruikt en hoe 
 
 ## <a name="prerequisites"></a>Vereisten
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op Anomaliedetectie en haal de abonnementssleutel op 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op Anomaliedetectie en haal een abonnementssleutel op 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
 ## <a name="download-the-example-code"></a>Download de voorbeeldcode
 
-1. Ga naar het [notitieblok van de zelfstudie in Github](https://github.com/MicrosoftAnomalyDetection/python-sample).
+1. Ga naar de [zelfstudie-notebook in Github](https://github.com/MicrosoftAnomalyDetection/python-sample).
 2. Klik op de groene knop om de zelfstudie te klonen of downloaden. 
 
 ## <a name="opening-the-tutorial-notebook-in-jupyter"></a>Het notitieblok van de zelfstudie openen in Jupyter

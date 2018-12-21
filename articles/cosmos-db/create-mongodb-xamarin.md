@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: een Xamarin.Forms-app ontwikkelen met .NET en de MongoDB-API'
+title: 'Azure Cosmos DB: Een Xamarin.Forms-app ontwikkelen met .NET en de MongoDB-API'
 description: Biedt een voorbeeld van Xamarin-code dat u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren
 services: cosmos-db
 author: codemillmatt
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 4fde6d203999b15f0f60d4879c2fdc595e1fb7e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ece6780803809829e69fccc320ae65a0c7b0f94b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835553"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089255"
 ---
-# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Snelstart: een MongoDB API Xamarin.Forms-web-app ontwikkelen met .NET en Azure Portal
+# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Snelstartgids: Een MongoDB API Xamarin.Forms-web-app ontwikkelen met .NET en Azure Portal
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -156,7 +156,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit de klasse `MongoService`,
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
-1. Klik in [Azure Portal](http://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Verbindingsreeks** en klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stappen gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de Primaire verbindingsreeks te kopiëren.
+1. Klik in [Azure Portal](https://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Verbindingsreeks** en klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stappen gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de Primaire verbindingsreeks te kopiëren.
 
 2. Open het bestand **APIKeys.cs** in de directory **Helpers** van het project **TaskList.Core**.
 

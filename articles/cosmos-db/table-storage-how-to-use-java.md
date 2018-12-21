@@ -9,12 +9,12 @@ ms.devlang: Java
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: d7be0ed8d59063f75b3d4fadbf69237bdb2d0d13
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e6bae31f0e3558f274ee638c380e69c15b7c3889
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863683"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079310"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Azure Table Storage of de Azure Cosmos DB Table-API van Java gebruiken
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -455,7 +455,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Een query uitvoeren op een subset van entiteitseigenschappen
-Met een query naar een tabel kunnen slechts enkele eigenschappen van een entiteit worden opgehaald. Deze methode, projectie genoemd, verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. Met de query in de volgende code gebruikt u de methode **select** om alleen de e-mailadressen van de entiteiten in de tabel te retourneren. De resultaten worden geprojecteerd in een verzameling van **String** met een **entiteitResolver**. Deze voert de typeconversie uit op de entiteiten die van de server worden geretourneerd. Meer informatie over projectie vindt u in [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Azure-tabellen: introductie tot upsert en queryprojectie). Houd er rekening mee dat projectie niet wordt ondersteund in de emulator van de lokale opslag. Deze code wordt dus alleen uitgevoerd als u een account gebruikt in de Tabelservice.
+Met een query naar een tabel kunnen slechts enkele eigenschappen van een entiteit worden opgehaald. Deze methode, projectie genoemd, verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. Met de query in de volgende code gebruikt u de methode **select** om alleen de e-mailadressen van de entiteiten in de tabel te retourneren. De resultaten worden geprojecteerd in een verzameling van **String** met een **entiteitResolver**. Deze voert de typeconversie uit op de entiteiten die van de server worden geretourneerd. U vindt meer informatie over projectie in [Azure Tables: Introductie tot upsert en queryprojectie][Azure Tables: Introductie tot upsert en queryprojectie]. Houd er rekening mee dat projectie niet wordt ondersteund in de emulator van de lokale opslag. Deze code wordt dus alleen uitgevoerd als u een account gebruikt in de Tabelservice.
 
 ```java
 try
@@ -497,7 +497,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Een entiteit invoegen of vervangen
-Vaak zult u een entiteit aan een tabel willen toevoegen zonder te weten of deze entiteit al in de tabel bestaat. Met een bewerking voor invoegen of vervangen, kunt u één aanvraag maken waarmee de entiteit wordt ingevoegd als deze niet bestaat of wordt vervangen als er al een bestaat. Op basis van de vorige voorbeelden voegt u met de volgende code de entiteit voor ‘Walter Harp’ in of vervangt u met de code deze entiteit. Na het maken van een nieuwe entiteit roept u met deze code de methode **TableOperation.insertOrReplace** aan. Met deze code roept u vervolgens **execute** op het **CloudTable**-object aan met de tabel en de tabelbewerking voor invoegen of vervangen als parameters. Als u slechts een deel van een entiteit wilt bijwerken, kunt u de methode **TableOperation.insertOrMerge** gebruiken. Houd er rekening mee dat invoegen of vervangen niet wordt ondersteund in de emulator van de lokale opslag. Deze code wordt dus alleen uitgevoerd als u een account gebruikt in de tabelservice. U kunt meer lezen over invoegen of vervangen en invoegen of samenvoegen in het artikel [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Azure-tabellen: introductie in upsert en queryprojectie).
+Vaak zult u een entiteit aan een tabel willen toevoegen zonder te weten of deze entiteit al in de tabel bestaat. Met een bewerking voor invoegen of vervangen, kunt u één aanvraag maken waarmee de entiteit wordt ingevoegd als deze niet bestaat of wordt vervangen als er al een bestaat. Op basis van de vorige voorbeelden voegt u met de volgende code de entiteit voor ‘Walter Harp’ in of vervangt u met de code deze entiteit. Na het maken van een nieuwe entiteit roept u met deze code de methode **TableOperation.insertOrReplace** aan. Met deze code roept u vervolgens **execute** op het **CloudTable**-object aan met de tabel en de tabelbewerking voor invoegen of vervangen als parameters. Als u slechts een deel van een entiteit wilt bijwerken, kunt u de methode **TableOperation.insertOrMerge** gebruiken. Houd er rekening mee dat invoegen of vervangen niet wordt ondersteund in de emulator van de lokale opslag. Deze code wordt dus alleen uitgevoerd als u een account gebruikt in de tabelservice. U leest meer over invoegen of vervangen en invoegen of samenvoegen in het artikel [Azure Tables: Introductie tot upsert en queryprojectie][Azure Tables: Introductie tot upsert en queryprojectie].
 
 ```java
 try
@@ -598,14 +598,12 @@ catch (Exception e)
 * [Azure Storage SDK voor Java][Azure Storage SDK for Java]
 * [Azure Storage Client SDK-referentie][Azure Storage Client SDK-referentie]
 * [Azure Storage REST API][Azure Storage REST API]
-* [Blog van het Azure Storage-team][Azure Storage Team Blog]
+* [Azure Storage-teamblog][Azure Storage-teamblog]
 
 Voor meer informatie gaat u naar [Azure voor Java-ontwikkelaars](/java/azure).
 
-[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure Storage Client SDK-referentie]: http://azure.github.io/azure-storage-java/
+[Azure Storage Client SDK-referentie]: https://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

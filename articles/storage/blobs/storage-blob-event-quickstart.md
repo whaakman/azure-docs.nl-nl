@@ -1,21 +1,22 @@
 ---
-title: Gebeurtenissen van Azure Blob Storage routeren naar een aangepast eindpunt op het web | Microsoft Docs
-description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage.
+title: Azure Blob Storage-gebeurtenissen verzenden naar een webeindpunt - Azure CLI | Microsoft Docs
+description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage. De gebeurtenissen naar een webhook verzenden. De gebeurtenissen in een webtoepassing verwerken.
 services: storage,event-grid
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/23/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 78ee6f198bf4e16e3b2b0deb8fdb0b68c0fe9b73
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec18
+ms.openlocfilehash: 2586b7f9c2a182ee065daab1d2a43eb5e0e2c99c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735080"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073717"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Gebeurtenissen van Blob Storage routeren naar een aangepast eindpunt op het web met Azure CLI
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Snelstartgids: Opslaggebeurtenissen routeren naar een webeindpunt met Azure CLI
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u de Azure CLI om u te abonneren op gebeurtenissen van Blob Storage, waarna u vervolgens een gebeurtenis activeert om het resultaat weer te geven.
 
@@ -32,7 +33,7 @@ Als u de stappen in dit artikel hebt voltooid, ziet u dat de gebeurtenisgegevens
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel de nieuwste versie van Azure CLI (2.0.24 of hoger) uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-Als u Cloud Shell niet gebruikt, moet u eerst zich aanmelden met `az login`.
+Als u Cloud Shell niet gebruikt, moet u zich eerst aanmelden met `az login`.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -117,7 +118,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk uw web-app om de gebeurtenis te zien die u zojuist hebt verzonden.
+U hebt de gebeurtenis geactiveerd en Event Grid heeft het bericht verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk uw web-app om de gebeurtenis te zien die u zojuist hebt verzonden.
 
 
 ```json

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: spraak herkennen in Java (Windows of Linux)'
+title: 'Snelstartgids: Spraak herkennen, Java - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Meer informatie over spraak herkennen in Java (Windows of Linux)
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 2b39084443690b99391268acb6352763657e2a3c
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218573"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103112"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Snelstart: Spraak herkennen in Java (Windows of Linux) met behulp van de Speech Service-SDK
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Snelstartgids: Spraak herkennen in Java (Windows of Linux) met behulp van de Speech Service-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

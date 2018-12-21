@@ -1,24 +1,27 @@
 ---
-title: Service-principal voor Azure Kubernetes-cluster
+title: (AFGESCHAFT) Service-principal voor Azure Kubernetes-cluster
 description: Een service-principal voor Azure Active Directory voor een Kubernetes-cluster in Azure Container Service maken en beheren
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 53bb09824a88980a171fa4067a9efd2fc067a898
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954569"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992149"
 ---
-# <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Een service-principal voor Azure AD voor een Kubernetes-cluster in Container Service instellen
+# <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(AFGESCHAFT) Een service-principal voor Azure Active Directory voor een Kubernetes-cluster in Container Service instellen
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Voor de bijgewerkte versie van dit artikel, dat gebruikmaakt van Azure Kubernetes Service, raadpleegt u [Service-principals met AKS (Azure Kubernetes Service)](../../aks/kubernetes-service-principal.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In Azure Container Service is voor een Kubernetes-cluster een [service-principal voor Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) vereist voor gebruik met Azure-API's. De service-principal is nodig om resources zoals door [gebruikers gedefinieerde routes](../../virtual-network/virtual-networks-udr-overview.md) en de [Azure Load Balancer uit laag vier](../../load-balancer/load-balancer-overview.md) dynamisch te beheren.
 
@@ -30,7 +33,7 @@ In dit artikel worden verschillende opties getoond om een service-principal in t
 
 U kunt een bestaande Azure AD-service-principal gebruiken die voldoet aan de volgende vereisten, maar u kunt ook een nieuwe maken.
 
-* **Bereik**: resourcegroep
+* **Bereik**: Resourcegroep
 
 * **Rol**: Inzender
 
@@ -40,7 +43,7 @@ U kunt een bestaande Azure AD-service-principal gebruiken die voldoet aan de vol
 > Als u een service-principal wilt maken, moet u beschikken over machtigingen voor het registreren van een toepassing bij uw Azure AD-tenant. U moet ook machtigingen hebben om de toepassing aan een rol toe te wijzen in uw abonnement. [Open de portal](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) om te controleren of u over de vereiste machtigingen beschikt.
 >
 
-## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Optie 1: een service-principal maken in Azure AD
+## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Optie 1: een service-principal maken in Azure Active Directory
 
 Azure biedt verschillende methoden om een Azure AD-service-principal te maken voordat u het Kubernetes-cluster implementeert.
 

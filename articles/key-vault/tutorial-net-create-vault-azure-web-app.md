@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: defe1a109381c7ee44c6fc5e5db4c6f6ecc5ac6f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706837"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322138"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Zelfstudie - Azure Key Vault gebruiken met een Azure-web-app in .NET
+# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Zelfstudie: Azure Key Vault gebruiken met een Azure-web-app in .NET
 
 Met Azure Key Vault kunt u geheimen beveiligen, zoals API-sleutels en databaseverbindingsreeksen. Het biedt u toegang tot uw toepassingen, services en IT-resources.
 
@@ -56,7 +56,7 @@ Lees, vóórdat u verdergaat, eerst [Basisconcepten van Key Vault](key-vault-wha
 
 In Azure Key Vault worden referenties veilig opgeslagen zodat ze zich niet in uw code bevinden. U moet u echter verifiëren bij Azure Key Vault om uw sleutels op te halen. En om u te verifiëren bij Key Vault, hebt u een referentie nodig. Dit is een klassiek bootstrap-dilemma. In MSI (Managed Service Identity) is dit probleem opgelost doordat er een _bootstrap-identiteit_ wordt geboden dat het proces vereenvoudigt.
 
-Wanneer u MSI inschakelt voor een Azure-service (bijvoorbeeld, Virtual Machines, App Service of Functions), wordt in Azure een [service-principal](key-vault-whatis.md#basic-concepts) gemaakt. Dit gebeurt voor het exemplaar van de service in Azure AD (Azure Active Directory). De referenties voor de service-principal worden in dit exemplaar geplaatst.
+Wanneer u MSI voor een Azure-service inschakelt (bijvoorbeeld: Virtual Machines, App Service of Functions), maakt Azure een [service-principal](key-vault-whatis.md#basic-concepts). Dit gebeurt voor het exemplaar van de service in Azure AD (Azure Active Directory). De referenties voor de service-principal worden in dit exemplaar geplaatst.
 
 ![MSI-diagram](media/MSI.png)
 
@@ -88,7 +88,7 @@ U gebruikt deze resourcegroep in de hele zelfstudie.
 
 Als u een sleutelkluis in de resourcegroep wilt maken, biedt u de volgende informatie:
 
-* Naam van de sleutelkluis: een tekenreeks van 3 tot en met 24 tekens, die alleen cijfers, letters en afbreekstreepjes mag bevatten (bijvoorbeeld: 0-9, a-z, A-Z en -)
+* Naam van de sleutelkluis: een tekenreeks van 3 tot en met 24 tekens, die alleen cijfers, letters en afbreekstreepjes mag bevatten (bijvoorbeeld: 0-9, a-z, A-Z, en -)
 * Naam van de resourcegroep
 * Locatie: **US - west**
 
@@ -132,7 +132,7 @@ Volg deze [zelfstudie](../app-service/app-service-web-get-started-dotnet.md) om 
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Importeer de volgende code in het bestand About.cshtml.cs:
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -140,7 +140,7 @@ Volg deze [zelfstudie](../app-service/app-service-web-get-started-dotnet.md) om 
 
 4. De code in de klasse AboutModel moet er als volgt uitzien:
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -220,7 +220,7 @@ Azure Key Vault biedt een manier voor het veilig opslaan van referenties en ande
 
 1. Noteer de `PrincipalId` wanneer u de toepassing publiceert in Azure. De uitvoer van de opdracht in stap 1 moet de volgende indeling hebben:
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",

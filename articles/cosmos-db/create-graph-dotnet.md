@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 132e13f213a681b2e6e8581200070fb316e7b582
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c44936604d0dcea2f00f237f27d27a03491c532e
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847096"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407674"
 ---
-# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>Azure Cosmos DB: een .NET Framework- of Core-toepassing ontwikkelen met de Gremlin-API
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>Azure Cosmos DB: Een .NET Framework- of Core-toepassing ontwikkelen met de Gremlin-API
 
 > [!div class="op_single_selector"]
 > * [Gremlin-console](create-graph-gremlin-console.md)
@@ -30,7 +30,7 @@ ms.locfileid: "52847096"
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-Deze snelstartgids laat zien hoe u een [Gremlin-API](graph-introduction.md)-account van Azure Cosmos DB, een database en een graaf (container) kunt maken met behulp van Azure Portal. U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
+Deze snelstartgids laat zien hoe u een [Gremlin-API](graph-introduction.md)-account van Azure Cosmos DB, een database en een graaf (container) kunt maken met behulp van Azure Portal. U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -142,14 +142,13 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand Program.cs.
 * Voer elke Gremlin-query uit met behulp van het `GremlinClient`-object met een asynchrone taak (regel 63). Hiermee worden de Gremlin-query's gelezen uit het hierboven gedefinieerde woordenboek (regel 26):
 
     ```csharp
-    var task = gremlinClient.SubmitAsync<dynamic>(query.Value);
-    task.Wait();
+    var results = await gremlinClient.SubmitAsync<dynamic>(query.Value);
     ```
 
 * Haal het resultaat op en lees de waarden, die zijn opgemaakt als een woordenboek, met behulp van de `JsonSerializer`-klasse vanuit Newtonsoft.Json:
 
     ```csharp
-    foreach (var result in task.Result)
+    foreach (var result in results)
     {
         // The vertex results are formed as dictionaries with a nested dictionary for their properties
         string output = JsonConvert.SerializeObject(result);
@@ -161,7 +160,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand Program.cs.
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
-1. Vanuit [Azure Portal](http://portal.azure.com/) gaat u naar uw grafiekdatabaseaccount. In het tabblad **Overzicht** ziet u twee eindpunten: 
+1. Vanuit [Azure Portal](https://portal.azure.com/) gaat u naar uw grafiekdatabaseaccount. In het tabblad **Overzicht** ziet u twee eindpunten: 
  
    **.Net SDK URI**: deze waarde wordt gebruikt wanneer u verbinding met het grafiekaccount maakt met behulp van de Microsoft.Azure.Graphs-bibliotheek. 
 

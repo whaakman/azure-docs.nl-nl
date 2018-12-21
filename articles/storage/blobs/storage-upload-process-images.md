@@ -2,7 +2,6 @@
 title: Afbeeldingsgegevens uploaden in de cloud met Azure Storage | Microsoft Docs
 description: Azure Blob-opslag gebruiken met een web-app om toepassingsgegevens op te slaan
 services: storage
-documentationcenter: ''
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
@@ -10,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 371a679978c501c71da6e8360d7541c31a6a720f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: c55e63d813c462db8a6c404894b8754f4130d935
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682320"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097944"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Zelfstudie: Afbeeldingsgegevens uploaden in de cloud met Azure Storage
 
@@ -114,7 +113,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 De web-app biedt een hostingruimte voor de code van de voorbeeld-app. De ruimte wordt geïmplementeerd vanuit de GitHub-voorbeeld opslagplaats. Maak een [web-app](../../app-service/app-service-web-overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp#az_webapp_create).  
 
-Vervang `<web_app>` in de volgende opdracht door een unieke naam. Geldige tekens zijn `a-z`, `0-9` en `-`. Als `<web_app>` niet uniek is, wordt er een foutbericht weergegeven: _Er bestaat al een website met de naam `<web_app>`._ De standaard-URL van de web-app is `https://<web_app>.azurewebsites.net`.  
+Vervang `<web_app>` in de volgende opdracht door een unieke naam. Geldige tekens zijn `a-z`, `0-9` en `-`. Als `<web_app>` niet uniek is, krijgt u het volgende foutbericht: _Er bestaat al een website met de naam `<web_app>`._ De standaard-URL van de web-app is `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan
@@ -266,7 +265,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Controleren of de afbeelding in het opslagaccount wordt weergegeven
 
-Meld u aan bij [Azure Portal](https://portal.azure.com). In het linkermenu selecteert u **opslagaccounts** en vervolgens de naam van uw opslagaccount. Selecteer onder **Blob-service** de optie **Blobs** en selecteer de container **images**.
+Meld u aan bij de [Azure-portal](https://portal.azure.com). In het linkermenu selecteert u **opslagaccounts** en vervolgens de naam van uw opslagaccount. Selecteer onder **Blob-service** de optie **Blobs** en selecteer de container **images**.
 
 Controleer of de afbeelding in de container wordt weergegeven.
 
@@ -276,7 +275,7 @@ Controleer of de afbeelding in de container wordt weergegeven.
 
 Als u de weergave van miniaturen wilt testen, uploadt u een afbeelding naar de container **thumbnails** om te controleren of de app de container **thumbnails** kan lezen.
 
-Meld u aan bij [Azure Portal](https://portal.azure.com). In het linkermenu selecteert u **opslagaccounts** en vervolgens de naam van uw opslagaccount. Selecteer onder **Blob-service** de optie **Blobs**en selecteer vervolgens de container **thumbnails**. Selecteer **Uploaden** om het deelvenster **Blob uploaden** te openen.
+Meld u aan bij de [Azure-portal](https://portal.azure.com). In het linkermenu selecteert u **opslagaccounts** en vervolgens de naam van uw opslagaccount. Selecteer onder **Blob-service** de optie **Blobs**en selecteer vervolgens de container **thumbnails**. Selecteer **Uploaden** om het deelvenster **Blob uploaden** te openen.
 
 Kies een bestand met de bestandenkiezer en selecteer **Uploaden**.
 
@@ -290,7 +289,7 @@ Ga terug naar de app om te controleren of de naar de **thumbnails**-container ge
 
 ---
 
-In deel twee van de serie automatiseert u het maken van miniatuurafbeeldingen zodat u deze afbeelding niet nodig hebt. In de **thumbnails**-container in Azure Portal selecteert u de geüploade afbeelding en vervolgens **Verwijderen** om de afbeelding te verwijderen. 
+In deel twee van de serie automatiseert u het maken van miniatuurafbeeldingen zodat u deze afbeelding niet nodig hebt. In de **thumbnails**-container in de Azure-portal selecteert u de geüploade afbeelding en vervolgens **Verwijderen** om de afbeelding te verwijderen. 
 
 U kunt CDN naar cache-inhoud inschakelen vanuit het Azure-opslagaccount. Voor informatie over hoe u CDN inschakelt met uw Azure-opslagaccount, gaat u naar [Een Azure-opslagaccount integreren met Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 

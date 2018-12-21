@@ -1,5 +1,5 @@
 ---
-title: Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps| Microsoft Docs
+title: Bestaande aangepaste DNS-naam toewijzen - Azure App Service | Microsoft Docs
 description: Informatie over het toevoegen van een bestaande aangepaste DNS-domeinnaam (vanity-domein) aan een web-app, back-end voor een mobiele app of een API-app in Azure App Service.
 keywords: app service, azure app service, domeintoewijzing, domeinnaam, bestaand domein, hostnaam
 services: app-service\web
@@ -15,13 +15,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.custom: seodec18
+ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664884"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270260"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps
 
@@ -52,7 +52,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 ## <a name="prepare-the-app"></a>De app voorbereiden
 
-Om een aangepaste DNS-naam toe te wijzen aan een web-app, moet het [App Service-plan](https://azure.microsoft.com/pricing/details/app-service/) van de web-app een betaalde categorie zijn (**Shared**, **Basic**, **Standard** of  **Premium**). In deze stap zorgt u ervoor dat de App Service-app zich in de ondersteunde prijscategorie bevindt.
+Om een aangepaste DNS-naam toe te wijzen aan een web-app, moet het [App Service-plan](https://azure.microsoft.com/pricing/details/app-service/) van de web-app een betaalde categorie zijn (**Shared**, **Basic**, **Standard**,  **Premium** of **Consumption** voor Azure Functions). In deze stap zorgt u ervoor dat de App Service-app zich in de ondersteunde prijscategorie bevindt.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 

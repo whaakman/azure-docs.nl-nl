@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van een Resource Manager-sjabloon '
+title: 'Snelstartgids: Apache Hadoop-clusters maken met behulp van Resource Manager en gegevens opvragen met Apache Hive - Azure HDInsight'
 description: Informatie over het maken van HDInsight-clusters en het opvragen van gegevens met Hive.
 keywords: aan de slag met hadoop, hadoop linux, hadoop quickstart, aan de slag met hive, hive quickstart
 services: hdinsight
@@ -7,19 +7,19 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017,mvc
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.openlocfilehash: cc726156273591215e5a311065ae2fe6dd87402c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 845aa85a025d75dcc0e80b59fbc1620d8cbae082
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634433"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435733"
 ---
-# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Snelstart: aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van een Resource Manager-sjabloon
+# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Snelstartgids: Aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van een Resource Manager-sjabloon
 
-In dit artikel leert u hoe u [Apache Hadoop](http://hadoop.apache.org/)-clusters maakt in HDInsight met behulp van een Resource Manager-sjabloon en hoe u vervolgens Hive-taken uitvoert in HDInsight. De meeste Hadoop-taken zijn batchtaken. U maakt een cluster, voert enkele taken uit en verwijdert het cluster vervolgens. In dit artikel gaat u al deze drie taken uitvoeren.
+In dit artikel leert u hoe u [Apache Hadoop](https://hadoop.apache.org/)-clusters maakt in HDInsight met behulp van een Resource Manager-sjabloon en hoe u vervolgens Hive-taken uitvoert in HDInsight. De meeste Hadoop-taken zijn batchtaken. U maakt een cluster, voert enkele taken uit en verwijdert het cluster vervolgens. In dit artikel gaat u al deze drie taken uitvoeren.
 
 In deze snelstart gebruikt u Resource Manager-sjabloon voor het maken van een Hadoop-cluster in HDInsight. U kunt ook een cluster maken met behulp van [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).
 
@@ -38,7 +38,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van een Azure 
 
 2. Typ of selecteer de waarden zoals voorgesteld in de volgende schermafbeelding:
 
-    > [!NOTE]
+    > [!NOTE]  
     > De opgegeven waarden moeten uniek zijn en moeten voldoen aan deze richtlijnen voor naamgeving. De sjabloon voert geen validatiecontroles uit. Als de waarden die u opgeeft, al in gebruik zijn of niet aan de richtlijnen voldoen, krijgt u een foutmelding nadat u de sjabloon hebt verzonden.       
     > 
     >
@@ -57,7 +57,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van een Azure 
     |**Gebruikersnaam/Wachtwoord voor clusteraanmeldgegevens**     | De standaardaanmeldingsnaam is **admin**. Het wachtwoord moet uit minstens tien tekens bestaan en moet minstens één cijfer, één hoofdletter, één kleine letter en één niet-alfanumeriek teken bevatten (uitgezonderd ' " ` \). Zorg ervoor dat u **geen makkelijk te raden** wachtwoorden gebruikt, zoals 'Pass@word1'.|
     |**SSH-gebruikersnaam en SSH-wachtwoord**     | De standaardgebruikersnaam is **sshuser**.  U kunt de SSH-gebruikersnaam wijzigen.  Voor het SSH-gebruikerswachtwoord gelden dezelfde vereisten als voor het aanmeldingswachtwoord voor het cluster.|
        
-    Sommige eigenschappen zijn vastgelegd in de sjabloon.  U kunt deze waarden uit de sjabloon configureren. Raadpleeg voor meer uitleg over deze eigenschappen [Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+    Sommige eigenschappen zijn vastgelegd in de sjabloon.  U kunt deze waarden uit de sjabloon configureren. Raadpleeg voor meer uitleg over deze eigenschappen [Apache Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden** en **Vastmaken aan dashboard**, en selecteer vervolgens **Kopen**. U ziet een nieuwe tegel met de mededeling dat **de implementatie wordt verzonden**. Het duurt ongeveer 20 minuten om een cluster te maken.
 
@@ -70,10 +70,9 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van een Azure 
 5. De tegel bevat ook de standaardopslag die aan het cluster is gekoppeld. Elk cluster is afhankelijk van een [Azure Storage-account](../hdinsight-hadoop-use-blob-storage.md) of een [Azure Data Lake-account](../hdinsight-hadoop-use-data-lake-store.md). Dit wordt het standaardopslagaccount genoemd. HDInsight-cluster en het standaard opslagaccount moeten samen in dezelfde Azure-regio worden geplaatst. Het opslagaccount wordt niet verwijderd wanneer er clusters worden verwijderd.
     
 
-> [!NOTE]
+> [!NOTE]  
 > Zie [HDInsight-clusters maken](../hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden om clusters te maken en inzicht te krijgen in de eigenschappen die worden gebruikt in deze zelfstudie.       
-> 
->
+
 
 ## <a name="use-vscode-to-run-hive-queries"></a>VSCode gebruiken om Hive-query's uit te voeren
 
@@ -96,11 +95,11 @@ Met HDInsight-hulpprogramma’s voor VSCode kunt u interactieve Hive-query’s v
 
    ![Resultaten van interactieve Hive-query’s](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
 
-    - Paneel **RESULTATEN**: u kunt het hele resultaat op een lokaal pad opslaan als een CSV-, JSON- of Excel-bestand, of gewoon meerdere regels selecteren.
+    - Deelvenster **RESULTATEN**: U kunt het hele resultaat op een lokaal pad opslaan als een CSV-, JSON- of Excel-bestand, of gewoon meerdere regels selecteren.
 
-    - Paneel **BERICHTEN**: wanneer u **Regelnummer** selecteert, gaat u naar de eerste regel van het actieve script.
+    - Deelvenster **BERICHTEN**: Wanneer u **Regelnummer** selecteert, gaat u naar de eerste regel van het actieve script.
 
-Het uitvoeren van de interactieve query kost veel minder tijd dan het [uitvoeren van een Hive-batchtaak](#submit-hive-batch-scripts).
+Het uitvoeren van de interactieve query kost veel minder tijd dan het [uitvoeren van een Apache Hive-batchtaak](#submit-hive-batch-scripts).
 
 ### <a name="submit-hive-batch-scripts"></a>Hive-batchscripts verzenden
 
@@ -113,7 +112,7 @@ Het uitvoeren van de interactieve query kost veel minder tijd dan het [uitvoeren
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. Klik met de rechtermuisknop op de scripteditor en selecteer vervolgens **HDInsight: Hive Batch** om een Hive-taak te verzenden. 
+4. Klik met de rechtermuisknop op de scripteditor en selecteer vervolgens **HDInsight: Hive-Batch** om een Hive-taak te verzenden. 
 
 5. Selecteer het cluster waarnaar u de taak wilt verzenden.  
 
@@ -121,7 +120,7 @@ Het uitvoeren van de interactieve query kost veel minder tijd dan het [uitvoeren
 
    ![Hive-taakresultaat verzenden](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
 
-[Het verzenden van interactieve Hive-query’s](#submit-interactive-hive-queries) gaat veel sneller dan het verzenden van een batchtaak.
+[Het verzenden van interactieve Apache Hive-query's](#submit-interactive-hive-queries) gaat veel sneller dan het verzenden van een batchtaak.
 
 ## <a name="use-visualstudio-to-run-hive-queries"></a>Visual Studio gebruiken om Hive-query’s uit te voeren
 
@@ -148,7 +147,7 @@ Ad-hocquery's maken en uitvoeren:
    
     ![Schermafbeelding van een HDInsight Visual Studio Tools IntelliSense-voorbeeld 2](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-column-name.png "U-SQL IntelliSense")
    
-   > [!NOTE]
+   > [!NOTE]  
    > IntelliSense suggereert alleen de metagegevens van het cluster dat in de HDInsight-werkbalk is geselecteerd.
    > 
    
@@ -181,7 +180,7 @@ Een Hive-oplossing maken en uitvoeren:
 
 ## <a name="run-hive-queries"></a>Hive-query's uitvoeren
 
-[Apache Hive](hdinsight-use-hive.md) is het meest populaire onderdeel dat in HDInsight wordt gebruikt. Er zijn veel manieren om Hive-taken uit te voeren in HDInsight. In deze zelfstudie gebruikt u de Ambari Hive-weergave in de portal. Voor andere methoden voor het indienen van Hive-taken raadpleegt u [Hive gebruiken in HDInsight](hdinsight-use-hive.md).
+[Apache Hive](hdinsight-use-hive.md) is het meest populaire onderdeel dat in HDInsight wordt gebruikt. Er zijn veel manieren om Hive-taken uit te voeren in HDInsight. In deze zelfstudie gebruikt u de Ambari Hive-weergave in de portal. Raadpleeg [Apache Hive gebruiken in HDInsight](hdinsight-use-hive.md) voor andere methoden voor het indienen van Hive-taken.
 
 1. Als u Ambari wilt openen, selecteert u **Clusterdashboard** in de vorige schermafbeelding.  U kunt ook bladeren naar **https://&lt;ClusterName>. azurehdinsight.net**, waarbij &lt;ClusterName> het cluster is dat u in de vorige sectie hebt gemaakt.
 
@@ -199,10 +198,9 @@ Een Hive-oplossing maken en uitvoeren:
 
     ![HDInsight Hive-weergaven](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive-weergave Query Editor")
    
-   > [!NOTE]
+   > [!NOTE]  
    > Puntkomma is vereist voor Hive.       
-   > 
-   > 
+
 
 5. Selecteer **Uitvoeren**. Er wordt een tabblad **RESULTATEN** weergegeven onder het tabblad **QUERY** met informatie over de taak. 
    
@@ -218,7 +216,7 @@ Een Hive-oplossing maken en uitvoeren:
 
     ![Resultaat van Hive-query opslaan](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-hive-view-save-results.png "Resultaat van Hive-query opslaan")
 
-Nadat u een Hive-taak hebt voltooid, kunt u [de resultaten exporteren naar een Azure SQL-database of een SQL Server-database](apache-hadoop-use-sqoop-mac-linux.md). U kunt ook [de resultaten weergeven in Excel](apache-hadoop-connect-excel-power-query.md). Zie voor meer informatie over het gebruik van Hive in HDInsight [Hive en HiveQL gebruiken met Hadoop in HDInsight voor het analyseren van een voorbeeldbestand van de Apache-log4j](hdinsight-use-hive.md).
+Nadat u een Hive-taak hebt voltooid, kunt u [de resultaten exporteren naar een Azure SQL-database of een SQL Server-database](apache-hadoop-use-sqoop-mac-linux.md). U kunt ook [de resultaten weergeven in Excel](apache-hadoop-connect-excel-power-query.md). Zie [Apache Hive en HiveQL gebruiken met Apache Hadoop in HDInsight voor het analyseren van een voorbeeldbestand van de Apache-log4j](hdinsight-use-hive.md) voor meer informatie over het gebruik van Hive in HDInsight.
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
@@ -227,10 +225,8 @@ Zie [Vereisten voor toegangsbeheer](../hdinsight-administer-use-portal-linux.md#
 ## <a name="clean-up-resources"></a>Resources opschonen
 Nadat u het artikel hebt voltooid, kunt u het cluster verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. 
 
-> [!NOTE]
+> [!NOTE]  
 > Als u *meteen* verder wilt gaan met de volgende zelfstudie om te leren hoe u ETL-bewerkingen uitvoert met behulp van Hadoop in HDInsight, kunt u het cluster beter behouden. In die zelfstudie hebt u namelijk ook een Hadoop-cluster nodig. Als u echter niet direct verdergaat met de volgende zelfstudie, moet u het cluster nu verwijderen.
-> 
-> 
 
 **Het cluster en/of het standaardopslagaccount verwijderen**
 
@@ -251,13 +247,13 @@ In dit artikel hebt u geleerd hoe u een HDInsight-cluster op basis van Linux maa
 Als u klaar bent om te gaan werken met uw eigen gegevens en meer wilt weten over hoe HDInsight gegevens opslaat of hoe u gegevens in HDInsight krijgt, raadpleegt u de volgende artikelen:
 
 * Zie [Azure Storage gebruiken met HDInsight](../hdinsight-hadoop-use-blob-storage.md) voor meer informatie over hoe HDInsight Azure Storage gebruikt.
-* Zie [Snelstart: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) voor meer informatie over het maken van een HDInsight-cluster met Data Lake Storage
+* Zie voor meer informatie over hoe u een HDInsight-cluster maakt met Data Lake Storage [Snelstart: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * Zie [Gegevens uploaden naar HDInsight](../hdinsight-upload-data.md) voor meer informatie over het uploaden van gegevens naar HDInsight.
 
 Zie de volgende artikelen voor meer informatie over het analyseren van gegevens met HDInsight:
 
-* Zie [Hive gebruiken met HDInsight](hdinsight-use-hive.md) voor meer informatie over het gebruik van Hive met HDInsight, waaronder over het uitvoeren van Hive-query's vanuit Visual Studio.
-* Zie [Pig gebruiken met HDInsight](hdinsight-use-pig.md) voor meer informatie over Pig, een taal die wordt gebruikt voor het omzetten van gegevens.
+* Zie [Apache Hive gebruiken met HDInsight](hdinsight-use-hive.md) voor meer informatie over het gebruik van Hive met HDInsight, waaronder over het uitvoeren van Hive-query's vanuit Visual Studio.
+* Zie [Apache Pig gebruiken met HDInsight](hdinsight-use-pig.md) voor meer informatie over Pig, een taal die wordt gebruikt voor het omzetten van gegevens.
 * Zie [MapReduce gebruiken met HDInsight](hdinsight-use-mapreduce.md) voor meer informatie over MapReduce, een middel om programma's te schrijven die gegevens verwerken op Hadoop.
 * Zie voor meer informatie over het gebruik van de HDInsight-hulpprogramma's voor Visual Studio om gegevens op HDInsight te analyseren [Aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
 * Zie [Azure HDInsight-hulpprogramma’s voor Visual Studio Code gebruiken](../hdinsight-for-vscode.md) voor meer informatie over het gebruik van de HDInsight-hulpprogramma's voor VSCode om gegevens te analyseren in HDInsight.
@@ -265,7 +261,7 @@ Zie de volgende artikelen voor meer informatie over het analyseren van gegevens 
 
 Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, raadpleegt u de volgende artikelen:
 
-* Zie voor meer informatie over het beheren van uw HDInsight-cluster op basis van Linux [HDInsight-clusters beheren met Ambari](../hdinsight-hadoop-manage-ambari.md).
+* Zie [HDInsight-clusters beheren met Apache Ambari](../hdinsight-hadoop-manage-ambari.md) voor meer informatie over het beheren van uw HDInsight-cluster op basis van Linux.
 * Zie voor meer informatie over de opties die u kunt selecteren bij het maken van een HDInsight-cluster [HDInsight op Linux maken met aangepaste opties](../hdinsight-hadoop-provision-linux-clusters.md).
 
 
@@ -275,5 +271,3 @@ Als u meer informatie wilt over het maken of beheren van een HDInsight-cluster, 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

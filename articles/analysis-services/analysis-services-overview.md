@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429436"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970192"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 
@@ -29,7 +29,7 @@ Azure Analysis Services is een volledig beheerd platform als een service (PaaS) 
 
 In Azure Portal kunt u binnen enkele minuten [een server maken](analysis-services-create-server.md). En met Azure Resource Manager-[sjablonen](../azure-resource-manager/resource-manager-create-first-template.md) en PowerShell kunt u servers maken met behulp van een declaratieve sjabloon. Met één enkele sjabloon kunt u meerdere serverresources implementeren, samen met andere Azure-onderdelen als opslagaccounts en Azure Functions. 
 
-**Video:** Bekijk [Implementatie automatiseren](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) voor meer informatie over hoe u Azure Automation kunt gebruiken om sneller servers te maken.
+**Video:** Bekijk [Implementatie automatiseren](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) en ontdek hoe u met Azure Automation sneller servers kunt maken.
 
 Azure Analysis Services kan worden geïntegreerd met veel Azure-services, zodat u geavanceerde analyseoplossingen kunt creëren. Integratie met [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) biedt beveiligde, op rollen gebaseerde toegang tot kritieke gegevens. Integreer met [Azure Data Factory](../data-factory/introduction.md)-pijplijnen door een activiteit toe te voegen die gegevens in het model laadt. [Azure Automation](../automation/automation-intro.md) en [Azure Functions](../azure-functions/functions-overview.md) kunnen worden gebruikt voor de eenvoudige indeling van modellen met behulp van aangepaste code. 
 
@@ -146,7 +146,7 @@ Tabellarische modellen in Azure Analysis Services ondersteunen een breed scala a
 
 ## <a name="your-data-is-secure"></a>Gegevens zijn beveiligd
 
-Azure Analysis Services beveiligt uw gevoelige gegevens op meerdere niveaus. Op serverniveau: firewall, Azure-verificatie, serverbeheerdersrollen en serverversleuteling. En op gegevensmodelniveau zorgen gebruikersrollen en beveiliging op rijniveau en objectniveau ervoor dat uw gegevens veilig zijn en alleen worden gezien door de gebruikers voor wie ze bestemd zijn.
+Azure Analysis Services beveiligt uw gevoelige gegevens op meerdere niveaus. Op serverniveau: Firewall, Azure-verificatie, serverbeheerdersrollen en serverversleuteling. En op gegevensmodelniveau zorgen gebruikersrollen en beveiliging op rijniveau en objectniveau ervoor dat uw gegevens veilig zijn en alleen worden gezien door de gebruikers voor wie ze bestemd zijn.
 
 ### <a name="firewall"></a>Firewall
 
@@ -182,7 +182,7 @@ Service-principals zijn een Azure Active Directory-toepassingsresource die u in 
 
 ### <a name="azure-governance"></a>Azure-governance
 
-Azure Analysis Services is onderhevig aan de [gebruiksvoorwaarden van Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) en de [privacyverklaring van Microsoft](https://privacy.microsoft.com/privacystatement).
+Azure Analysis Services is onderhevig aan de [gebruiksvoorwaarden van Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) en de [privacyverklaring van Microsoft](https://privacy.microsoft.com/privacystatement).
 Ga naar het [Microsoft Vertrouwenscentrum](https://www.microsoft.com/trustcenter) voor meer informatie over Azure-beveiliging.
 
 ## <a name="use-the-tools-you-already-know"></a>Werken met de tools die u al kent
@@ -251,7 +251,7 @@ Analysis Services heeft een zeer actieve gebruikerscommunity. Doe mee op [het Az
 > [Meld u aan voor een gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Snelstart: Een server maken - Portal](analysis-services-create-server.md)   
+> [Snelstartgids: Een server maken - portal](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Snelstart: Een server maken - PowerShell](analysis-services-create-powershell.md)  
+> [Snelstartgids: Een server maken - PowerShell](analysis-services-create-powershell.md)  

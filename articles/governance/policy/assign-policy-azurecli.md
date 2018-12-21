@@ -1,21 +1,22 @@
 ---
-title: Gebruik Azure CLI om een beleidstoewijzing te maken voor het identificeren van niet-compatibele resources in uw Azure-omgeving
-description: PowerShell gebruiken om een Azure Policy-toewijzing te maken om niet-compatibele resources te identificeren.
+title: Een beleid maken om niet-conforme resources te identificeren met Azure CLI
+description: Gebruik Azure CLI om een Azure Policy-toewijzing te maken om niet-conforme resources te identificeren.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
-ms.openlocfilehash: 4954ca42af1755ea62e7142048d48805397b6a0a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: carmonm
+ms.custom: seodec18
+ms.openlocfilehash: 99e8b782f3f52ed89b5188de19d70cb276a0eb84
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968478"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315831"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Een beleidstoewijzing maken om niet-compatibele resources te identificeren in uw Azure-omgeving met Azure CLI
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Een beleidstoewijzing maken om niet-conforme resources met Azure CLI te identificeren
 
 De eerste stap in het begrijpen van naleving in Azure is het identificeren van de status van uw resources.
 In deze quickstart gaat u een beleidstoewijzing maken voor het identificeren van virtuele machines die geen beheerde schijven gebruiken.
@@ -32,7 +33,7 @@ Voor deze quickstart moet u versie 2.0.4 of hoger van Azure CLI uitvoeren om de 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Registreer de resourceprovider Policy Insights met behulp van Azure CLI. Als u de resourceprovider registreert, controleer dan of uw abonnement ermee werkt. Als u een resourceprovider wilt registreren, moet u toestemming hebben om de registreeractie voor de resourceprovider uit te voeren. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Voer de volgende opdracht uit om de resourceprovider te registreren:
+Registreer de resourceprovider Policy Insights met behulp van Azure CLI. Als u de resourceprovider registreert, controleer dan of uw abonnement ermee werkt. Als u een resourceprovider wilt registreren, moet u toestemming hebben om de bewerking van de resourceprovider te registeren. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Voer de volgende opdracht uit om de resourceprovider te registreren:
 
 ```azurecli-interactive
 az provider register --namespace 'Microsoft.PolicyInsights'
@@ -49,14 +50,14 @@ In deze snelstart maakt u een beleidstoewijzing en wijst u de definitie **Contro
 Voer de volgende opdracht uit om een beleidstoewijzing te maken:
 
 ```azurecli-interactive
-az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
+az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit VMs without managed disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 De voorgaande opdracht maakt gebruik van de volgende informatie:
 
 - **Naam**: de werkelijke naam van de toewijzing.  Voor dit voorbeeld is *audit-vm-manageddisks* gebruikt.
 - **Weergavenaam**: de weergavenaam voor de beleidstoewijzing. In dit geval gebruikt u de toewijzing *Virtuele machines zonder beheerde schijven controleren*.
-- **Beleid**: de id van de beleidsdefinitie, op basis waarvan u de toewijzing maakt. In dit geval is het de id van de beleidsdefinitie *VM’s controleren die geen beheerde schijven gebruiken*. Voer de volgende opdracht uit om de id van de beleidstoewijzing te verkrijgen: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **Beleid**: de id van de beleidsdefinitie, op basis waarvan u de toewijzing maakt. In dit geval is het de id van de beleidsdefinitie *Virtuele machines zonder beheerde schijven controleren*. Voer de volgende opdracht uit om de id van de beleidstoewijzing te verkrijgen: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Bereik**: een bereik bepaalt voor welke resources of groep resources de beleidstoewijzing wordt afgedwongen. Dit kan variëren van een abonnement tot resourcegroepen. Vergeet niet om &lt;scope&gt; te vervangen door de naam van uw resourcegroep.
 
 ## <a name="identify-non-compliant-resources"></a>Niet-compatibele resources identificeren
@@ -64,7 +65,7 @@ De voorgaande opdracht maakt gebruik van de volgende informatie:
 Als u de resources wilt zien die niet compatibel zijn onder deze nieuwe toewijzing, voert u de volgende opdrachten uit om de id van de beleidstoewijzing te verkrijgen:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -106,7 +107,7 @@ De resultaten zijn vergelijkbaar met wat in de weergave van de Azure-portal mees
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere handleidingen in deze verzameling zijn op deze quickstart gebaseerd. Als u verder wilt gaan met volgende zelfstudies, verwijder dan niet de resources die u in deze quickstart hebt gemaakt. Als u niet van plan bent om verder te gaan, verwijdert u de toewijzing die u hebt gemaakt. Voer daarvoor de volgende opdracht uit:
+Voer de volgende opdracht uit om de beleidstoewijzing te verwijderen:
 
 ```azurecli-interactive
 az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
@@ -116,7 +117,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 In deze Quick Start hebt u een beleidsdefinitie toegewezen om niet-compatibele resources in uw Azure-omgeving te identificeren.
 
-Voor meer informatie over het toewijzen van beleid en hoe u ervoor zorgt dat resources die u in de **toekomst** gaat maken compatibel zijn, gaat u verder met de zelfstudie voor:
+Ga voor meer informatie over het toewijzen van beleid om te controleren of nieuwe resources conform zijn verder met de zelfstudie voor:
 
 > [!div class="nextstepaction"]
 > [Beleid maken en beheren](./tutorials/create-and-manage.md)

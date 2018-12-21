@@ -1,5 +1,5 @@
 ---
-title: Aangepaste gebeurtenissen voor Azure Event Grid verzenden naar Event Hubs | Microsoft Docs
+title: Aangepaste gebeurtenissen verzenden naar Event Hubs - Event Grid, Azure CLI
 description: Gebruik Azure Event Grid en Azure CLI om een onderwerp te publiceren en u te abonneren op deze gebeurtenis. Een event hub wordt gebruikt voor het eindpunt.
 services: event-grid
 keywords: ''
@@ -8,14 +8,15 @@ ms.author: tomfitz
 ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 0d8504dc002fa43c25f689b4c5b3f78c822cf5b0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.custom: seodec18
+ms.openlocfilehash: 08039932583fce24db9cd264a15f31b6df782627
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069417"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086896"
 ---
-# <a name="route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Aangepaste gebeurtenissen naar Azure Event Hubs routeren met behulp van Azure CLI en Event Grid
+# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Snelstart: Aangepaste gebeurtenissen naar Azure Event Hubs routeren met behulp van Azure CLI en Event Grid
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. Azure Event Hubs is een van de ondersteunde gebeurtenishandlers. In dit artikel gebruikt u de Azure CLI om een aangepast onderwerp te maken, u op het aangepaste onderwerp te abonneren en de gebeurtenis te activeren om het resultaat weer te geven. U verzendt de gebeurtenissen naar een event hub.
 
@@ -86,7 +87,7 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Ter vereenvoudiging van dit artikel gebruikt u voorbeeldgebeurtenisgegevens om naar het aangepaste onderwerp te verzenden. Meestal worden de gebeurtenisgegevens verzonden via een toepassing of Azure-service. CURL is een hulpprogramma waarmee HTTP-aanvragen worden verzonden. In dit artikel gebruiken we CURL om de gebeurtenis naar het aangepaste onderwerp te verzenden.  In het volgende voorbeeld worden drie gebeurtenissen verstuurd naar het onderwerp van Event Grid:
+Om dit artikel zo eenvoudig mogelijk te maken, gebruikt u voorbeeldgebeurtenisgegevens om naar het aangepaste onderwerp te verzenden. Meestal worden de gebeurtenisgegevens verzonden via een toepassing of Azure-service. CURL is een hulpprogramma waarmee HTTP-aanvragen worden verzonden. In dit artikel gebruiken we CURL om de gebeurtenis naar het aangepaste onderwerp te verzenden.  In het volgende voorbeeld worden drie gebeurtenissen verstuurd naar het onderwerp van Event Grid:
 
 ```azurecli-interactive
 for i in 1 2 3

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 2c417a0e9a3f50032aa3c97ced57d3249bc7c93a
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 549194ce1dcab5cd449c60c934421b3bea154d6a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620661"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015684"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren
 
@@ -38,7 +38,7 @@ Wat u leert:
 ## <a name="availability"></a>Beschikbaarheid
 
 > [!NOTE]
-> Interne cache is niet beschikbaar in de laag **Verbruik** van Azure API Management. U kunt in plaats daarvan [een externe Redis-cache gebruiken](api-management-howto-cache-external.md).
+> Interne cache is niet beschikbaar in de laag **Verbruik** van Azure API Management. U kunt in plaats daarvan [een externe Azure Cache voor Redis gebruiken](api-management-howto-cache-external.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -76,7 +76,7 @@ Met de cachebeleidsregels in dit voorbeeld wordt met de eerste aanvraag voor de 
     Met **Duur** wordt het vervalinterval opgegeven van de antwoorden in de cache. In dit voorbeeld bedraagt het interval **20** seconden.
 
 > [!TIP]
-> Als u een externe cache gebruikt, zoals is beschreven in [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md) (Een externe Redis-cache gebruiken in Azure API Management), wilt u misschien het kenmerk `cache-preference` van het cachebeleid opgeven. Zie [API Management caching policies](api-management-caching-policies.md) (Cache-beleidsregels van API Management) voor meer informatie.
+> Als u een externe cache gebruikt, zoals is beschreven in [Een externe Azure Cache voor Redis gebruiken in Azure API Management](api-management-howto-cache-external.md), wilt u misschien het kenmerk `cache-preference` van het cachebeleid opgeven. Zie [API Management caching policies](api-management-caching-policies.md) (Cache-beleidsregels van API Management) voor meer informatie.
 
 ## <a name="test-operation"> </a>Een bewerking aanroepen en het opslaan in de cache testen
 Als u opslaan in de cache in actie wilt zien, roept u de bewerking aan vanuit de ontwikkelaarsportal.
@@ -91,7 +91,7 @@ Als u opslaan in de cache in actie wilt zien, roept u de bewerking aan vanuit de
 ## <a name="next-steps"> </a>Volgende stappen
 * Zie [Cachebeleidsregels][Caching policies] in [Naslaginformatie over beleid voor API Management][API Management policy reference] voor meer informatie over cachebeleidsregels.
 * Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
-* Voor meer informatie over het gebruik van de externe Redis-cache raadpleegt u [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md) (Een externe Redis-cache gebruiken in Azure API Management).
+* Voor meer informatie over het gebruik van de externe Azure Cache voor Redis raadpleegt u [Een externe Azure Cache voor Redis gebruiken in Azure API Management](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

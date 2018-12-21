@@ -42,7 +42,7 @@ items:
     - name: Met behulp van Azure Storage
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Met behulp van Azure Data Lake Store
+    - name: Met behulp van Azure Data Lake Storage
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: Ontwikkelen
@@ -93,14 +93,14 @@ items:
       href: apache-spark-zeppelin-notebook.md
   - name: Gebruiken met andere Azure-services
     items:
-    - name: Gebruiken met Data Lake Store
+    - name: Gebruiken met Data Lake Storage
       href: apache-spark-use-with-data-lake-store.md
     - name: Verbinding maken met Azure SQL Database
       href: apache-spark-connect-to-sql-database.md
     - name: Een lambda-architectuur implementeren met Apache Spark en Cosmos DB
       href: ../../cosmos-db/lambda-architecture.md
       maintainContext: true
-  - name: Spark-streaming
+  - name: Apache Spark-streaming
     items:
     - name: Overzicht van streaming
       href: apache-spark-streaming-overview.md
@@ -281,7 +281,7 @@ items:
     - name: Gegevens uploaden voor Apache Hadoop-taken
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: Meerdere HDInsight-clusters met Data Lake Store
+    - name: Meerdere HDInsight-clusters met Data Lake Storage
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: Gegevens importeren en exporteren met Apache Sqoop
@@ -300,7 +300,7 @@ items:
         href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
         maintainContext: true
       maintainContext: true
-    - name: Oozie gebruiken voor werkstromen
+    - name: Apache Oozie gebruiken voor werkstromen
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
     - name: Op tijd gebaseerde Apache Oozie-coördinatoren gebruiken
@@ -456,9 +456,9 @@ items:
   - name: Windows-hulpprogramma's voor HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 35ef5face0f64b6766993eeb7f546923726bd166
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 550e028ec66d9f82fd8b1102c6f56b62b9aad8b9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584329"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630713"

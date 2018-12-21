@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: een Flask web-app ontwikkelen met Python en de MongoDB-API van Azure Cosmos DB'
+title: 'Azure Cosmos DB: Een Flask web-app ontwikkelen met Python en de MongoDB-API van Azure Cosmos DB'
 description: Biedt een voorbeeld van Python Flask-code dat u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren
 services: cosmos-db
 author: slyons
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.author: sclyon
-ms.openlocfilehash: 70a103aa7c03abeed98237a3b1dc3ec8b514810a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849054"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165109"
 ---
-# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: een Flask-app maken met de MongoDB-API
+# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: Een Flask-app maken met de MongoDB-API
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -120,7 +120,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand app.py en geb
 
 Als u wilt testen hoe de code met een actief Azure Cosmos DB-account werkt, gaat u naar Azure Portal om een account te maken en haalt u uw verbindingsreeksgegevens op. Kopieer deze vervolgens in de app.
 
-1. Klik in [Azure Portal](http://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Verbindingsreeks** en klik vervolgens op **Sleutels voor lezen/schrijven**. U gebruikt de kopieerknoppen aan de rechterkant van het scherm om de Gebruikersnaam, het Wachtwoord, en de Host naar het bestand Dal.cs te kopiëren. Dit doet u in de volgende stap.
+1. Klik in [Azure Portal](https://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Verbindingsreeks** en klik vervolgens op **Sleutels voor lezen/schrijven**. U gebruikt de kopieerknoppen aan de rechterkant van het scherm om de Gebruikersnaam, het Wachtwoord, en de Host naar het bestand Dal.cs te kopiëren. Dit doet u in de volgende stap.
 
 2. Open het bestand **app.py** in de hoofdmap.
 
@@ -134,7 +134,7 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 ## <a name="deploy-to-azure"></a>Implementeren in Azure
 
-Als u deze app wilt implementeren, kunt u een nieuwe web-app maken in Azure en continue implementatie inschakelen met een fork van deze Github-opslagplaats. Volg deze [zelfstudie](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) voor het instellen van continue implementatie met Github in Azure.
+Als u deze app wilt implementeren, kunt u een nieuwe web-app maken in Azure en continue implementatie inschakelen met een fork van deze GitHub-opslagplaats. Volg deze [zelfstudie](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) voor het instellen van continue implementatie met GitHub in Azure.
 
 Wanneer u Azure implementeert, moet u de sleutels van uw toepassing verwijderen en controleren of de onderstaande sectie als opmerking is opgenomen:
 
@@ -149,11 +149,11 @@ Vervolgens moet u uw MONGOURL, MONGO_PASSWORD en MONGO_USERNAME toevoegen aan de
 Als u van deze opslagplaats geen fork wilt maken, kunt u ook op de knop Implementeren naar Azure hieronder klikken. Vervolgens gaat u naar Azure en stelt u daar de toepassingsinstellingen in op basis van de gegevens van uw Cosmos DB-account.
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
-<img src="http://azuredeploy.net/deploybutton.png"/>
+<img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]
-> Als u van plan bent uw code in Github of andere opties voor bronbeheer op te slaan, moet u uw verbindingsreeksen uit de code verwijderen. Ze kunnen ook worden ingesteld met toepassingsinstellingen voor de web-app.
+> Als u van plan bent uw code in GitHub of andere opties voor bronbeheer op te slaan, moet u uw verbindingsreeksen uit de code verwijderen. Ze kunnen ook worden ingesteld met toepassingsinstellingen voor de web-app.
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 

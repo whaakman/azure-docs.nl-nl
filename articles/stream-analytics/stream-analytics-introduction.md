@@ -4,21 +4,20 @@ description: Lees over Stream Analytics, een beheerde service waarmee u streamin
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.workload: data-services
-ms.custom: mvc
-ms.date: 03/27/2018
-ms.openlocfilehash: 7b38548ce3266d74ffd51ce75ffa92bdb4ac24b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.custom: seodec18
+ms.date: 12/07/2018
+ms.openlocfilehash: 9cd1a8a095c697c4baeaa435f80c136ce49e0313
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437617"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098573"
 ---
-# <a name="what-is-stream-analytics"></a>Wat is een Stream Analytics?
+# <a name="what-is-azure-stream-analytics"></a>Wat is Azure Stream Analytics?
 
 Azure Stream Analytics is een gebeurtenissen verwerkende engine waarmee u grote volumina gegevens kunt bekijken die vanaf apparaten worden gestreamd. De inkomende gegevens kunnen afkomstig zijn van apparaten, sensoren, websites, socialemediafeeds, toepassingen, enzovoort. Het ondersteunt tevens het extraheren van gegevens uit gegevensstromen, het identificeren van patronen en relaties. U kunt deze patronen gebruiken om andere acties, zoals waarschuwingen, downstream te activeren, gegevens in een rapportageprogramma in te voeren of op te slaan voor later gebruik.
 
@@ -42,13 +41,13 @@ Nadat de binnenkomende gegevens zijn geanalyseerd, geeft u een uitvoer op voor d
 
 In de volgende afbeelding ziet u de Stream Analytics-pijplijn. De Stream Analytics-taak kan gebruikmaken van alle of een bepaald deel van de in- en uitvoer. In deze afbeelding wordt getoond hoe gegevens naar Stream Analytics worden verzonden, geanalyseerd en verder verzonden voor andere acties, zoals opslag of presentatie:
 
-![Stream Analytics-pijplijn](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
+![Pijplijn voor binnenkomende gegevens voor Stream Analytics](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
 
 ## <a name="key-capabilities-and-benefits"></a>Belangrijkste mogelijkheden en voordelen
 
 Azure Stream Analytics is gebruiksvriendelijk, flexibel, betrouwbaar en schaalbaar tot elke taakgrootte. Het is beschikbaar voor meerdere datacenters en ook voor onafhankelijke clouds. In de volgende afbeelding worden de belangrijkste mogelijkheden van Azure Stream Analytics getoond:
 
-![Belangrijkste mogelijkheden van Azure Stream Analytics](./media/stream-analytics-introduction/stream_analytics_key_capabilities.png)
+![Belangrijkste mogelijkheden van Azure Stream Analytics](./media/stream-analytics-introduction/stream-analytics-key-capabilities.png)
 
 ## <a name="ease-of-getting-started"></a>Eenvoudig aan de slag
 

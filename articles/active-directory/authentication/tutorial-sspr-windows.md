@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844835"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437143"
 ---
-# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
+# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Zelfstudie: Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
 In deze zelfstudie gaat u gebruikers in staat stellen om hun wachtwoorden op het aanmeldingsscherm van Windows 10 opnieuw in te stellen. Met de nieuwe Windows-update van 10 april 2018 kunnen gebruikers met apparaten die zijn toegevoegd aan **Azure Active Directory** of **hybride Azure Active Directory**, de koppeling 'Wachtwoord opnieuw instellen' op hun aanmeldingsscherm gebruiken. Wanneer gebruikers op deze koppeling klikken, worden ze omgeleid naar dezelfde selfservice voor wachtwoordherstel (SSPR) als waarmee ze al bekend zijn.
 
@@ -29,8 +29,8 @@ In deze zelfstudie gaat u gebruikers in staat stellen om hun wachtwoorden op het
 ## <a name="prerequisites"></a>Vereisten
 
 * Windows-update van 10 april 2018 of nieuwere client die:
-   * [Toegevoegd is aan Azure AD](../device-management-azure-portal.md) of 
-   * [lid is van hybride Azure Active Directory](../device-management-hybrid-azuread-joined-devices-setup.md)
+   * [Azure AD heeft computer toegevoegd](../device-management-azure-portal.md) of
+   * [hybride Azure AD heeft computer toegevoegd](../device-management-hybrid-azuread-joined-devices-setup.md) met netwerkconnectiviteit aan een domeincontroller.
 * Self-service voor wachtwoordherstel voor Azure AD moet zijn ingeschakeld.
 
 ## <a name="configure-reset-password-link-using-intune"></a>De koppeling Wachtwoord opnieuw instellen configureren met Intune
@@ -39,7 +39,7 @@ Intune gebruiken om de configuratie te wijzigen zodat gebruikers het wachtwoord 
 
 ### <a name="create-a-device-configuration-policy-in-intune"></a>Een beleid voor apparaatconfiguratie maken in Intune
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Intune**.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Intune**.
 2. Maak een nieuw apparaatconfiguratieprofiel door te gaan naar **Apparaatconfiguratie** > **Profielen** > **Profiel maken**
    * Geef een beschrijvende naam op voor het profiel
    * Geef eventueel een duidelijke beschrijving van het profiel op
@@ -61,7 +61,7 @@ Intune gebruiken om de configuratie te wijzigen zodat gebruikers het wachtwoord 
 
 #### <a name="create-a-group-to-apply-device-configuration-policy-to"></a>Een groep maken waarop het beleid voor apparaatconfiguratie moet worden toegepast
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Azure Active Directory**.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Azure Active Directory**.
 2. Blader naar **Gebruikers en groepen** > **Alle groepen** > **Nieuwe groep**
 3. Geef een naam op voor de groep en kies onder **Type lidmaatschap** de optie **Toegewezen**
    * Kies onder **Leden** de aan Azure AD toegevoegde Windows 10-apparaten waarop u het beleid wilt toepassen.
@@ -72,7 +72,7 @@ Meer informatie over het maken van groepen vindt u in het artikel [Toegang tot r
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>Beleid voor apparaatconfiguratie toewijzen aan een apparaatgroep
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Intune**.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Intune**.
 2. Zoek het apparaatconfiguratieprofiel dat u eerder hebt gemaakt door te gaan naar **Apparaatconfiguratie** > **Profielen** en te klikken op het profiel
 3. Het profiel toewijzen aan een groep apparaten 
    * Klik op **Toewijzingen** > onder **Opnemen** > **Groepen selecteren die moeten worden opgenomen**
@@ -125,7 +125,11 @@ Van de volgende beleidsinstellingen is bekend dat ze de mogelijkheid om wachtwoo
    * EnableLostMode, indien ingesteld op het apparaat
    * Explorer.exe is vervangen door een aangepaste shell
 
+Deze functie werkt niet voor netwerken waarvoor 802.1x-netwerkverificatie is geïmplementeerd en de optie Onmiddellijk uitvoeren voor gebruiker zich aanmeldt. Voor netwerken waarvoor 802.1x-netwerkverificatie is geïmplementeerd, wordt het aanbevolen computerverificatie te gebruiken om deze functie in te schakelen.
+
 Als uw Windows 10-computers zich achter een proxyserver of firewall bevinden, is HTTPS-verkeer (443) naar passwordreset.microsoftonline.com en ajax.aspnetcdn.com toegestaan.
+
+Voor scenario's waarbij wordt deelgenomen aan een hybride domein, bestaat er een scenario waar de SSPR-werkstroom wordt voltooid zonder dat er een Active Directory-domeincontroller is vereist. Connectiviteit met een domeincontroller is vereist om het nieuwe wachtwoord de eerste keer te gebruiken.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

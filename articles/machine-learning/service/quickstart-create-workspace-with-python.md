@@ -1,6 +1,7 @@
 ---
-title: 'Snelstart: De Python-SDK gebruiken om een werkruimte voor de Machine Learning service te maken - Azure Machine Learning'
-description: Aan de slag met Azure Machine Learning. Installeer de Python-SDK en gebruik deze om een werkruimte te maken. Deze werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren, trainen en implementeren van machine learning-modellen met Azure Machine Learning.
+title: 'Snelstart:  Aan de slag met Python'
+titleSuffix: Azure Machine Learning service
+description: Aan de slag met de Azure Machine Learning Service in Python. Gebruik de Python-SDK om een werkruimte te maken, het basisblok in de cloud dat u gebruikt voor het experimenteren, trainen en het implementeren van machine learning-modellen.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +10,17 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 12/04/2018
-ms.openlocfilehash: f16d39238b46a811f34fdfe291d6c09bee662b9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870062"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268497"
 ---
-# <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Snelstart: Python gebruiken om aan de slag te gaan met Azure Machine Learning
+# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Snelstart: De Python-SDK gebruiken om aan de slag te gaan met Azure Machine Learning
 
-In deze quickstart gebruikt u de Azure Machine Learning-SDK voor Python om een [werkruimte](concept-azure-machine-learning-architecture.md) voor de Machine Learning-service te maken. Deze werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning. In deze snelstart begint u met het configureren van uw eigen Python-omgeving en Jupyter-notebook-server. Zie [Snelstart: Azure Portal gebruiken om aan de slag te gaan met Azure Machine Learning](quickstart-get-started.md) als u dit wilt uitvoeren zonder installatie.
+In deze quickstart gebruikt u de Azure Machine Learning-SDK voor Python om een [werkruimte](concept-azure-machine-learning-architecture.md) voor de Machine Learning-service te maken. Deze werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning. In deze snelstart begint u met het configureren van uw eigen Python-omgeving en Jupyter-notebook-server. Als u zonder installatie aan de slag wilt, ziet u [Snelstart: Azure Portal gebruiken om aan de slag te gaan met Azure Machine Learning](quickstart-get-started.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -38,14 +40,12 @@ De volgende Azure-resources worden automatisch toegevoegd aan uw werkruimte wann
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
->[!NOTE]
-> De code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.2 
-
-
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
-
+Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 ## <a name="install-the-sdk"></a>De SDK installeren
+
+>[!NOTE]
+> Voor de code in dit artikel is Azure Machine Learning SDK-versie 1.0.2 of hoger vereist. 
 
 *Sla deze sectie over als u een virtuele machine voor datatechnologie gebruikt die is gemaakt na 27 september 2018.* Deze virtuele machines voor datatechnologie worden geleverd met de Python SDK er vooraf op geïnstalleerd.
 
@@ -204,6 +204,6 @@ U hebt nog enkele pakketten in uw omgeving nodig om te gebruiken voor de Machine
 Nadat u deze pakketten hebt geïnstalleerd, volgt u de zelfstudies om een model te trainen en implementeren. 
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: een model voor de classificatie van afbeeldingen trainen](tutorial-train-models-with-aml.md)
+> [Zelfstudie: een model trainen voor de classificatie van afbeeldingen](tutorial-train-models-with-aml.md)
 
 U kunt ook [meer geavanceerde voorbeelden op GitHub](https://aka.ms/aml-notebooks) verkennen.

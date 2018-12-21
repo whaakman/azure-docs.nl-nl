@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: een knowledge base maken - REST, Python - QnA Maker'
+title: 'Snelstartgids: Een knowledge base maken - REST, Python - QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: In deze op Python REST gebaseerde snelstart wordt stapsgewijs uitgelegd hoe u, met behulp van een programma, een voorbeeldexemplaar van een knowledge base in QnA Maker kunt maken, dat wordt weergegeven op het Azure-dashboard van uw account voor de Cognitive Services-API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 598a861c207aaff6e61f7ffcb0fd6bf7a9b506a1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 423413d07b0c84b5d9461cef37c95f41c112764c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335793"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249687"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Snelstart: een knowledge base maken in QnA Maker met behulp van Python
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Snelstartgids: Een knowledge base maken in QnA Maker met behulp van Python
 
 In deze snelstart wordt beschreven hoe u programmatisch een voorbeeld van een QnA Maker-knowledge base kunt maken en publiceren. Met QnA Maker worden automatisch vragen en antwoorden opgehaald uit semi-gestructureerde inhoud, zoals veelgestelde vragen, vanuit [gegevensbronnen](../Concepts/data-sources-supported.md). Het model voor de knowledge base wordt gedefinieerd in de JSON die in de hoofdtekst van de API-aanvraag wordt verzonden. 
 
@@ -30,7 +30,7 @@ In deze snelstart worden QnA Maker-API's aangeroepen:
 * [Python 3.7](https://www.python.org/downloads/)
 * U moet een QnA Maker-service hebben. Selecteer onder Resourcebeheer de optie Sleutel om uw sleutel op te halen.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 ## <a name="create-a-knowledge-base-python-file"></a>Een Python-bestand met knowledge base maken
 

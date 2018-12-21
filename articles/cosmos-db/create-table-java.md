@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Table-API met Java - Azure Cosmos DB'
+title: 'Snelstartgids: Table-API met Java - Azure Cosmos DB'
 description: In deze quickstart ziet u hoe u de Table-API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en Java
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: f647e2fd551a8d7581f280eed5562c5ede6b4cb0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9ca1a4ba1a4eb8857314235a6294e2fa592fb55b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846382"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164242"
 ---
-# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Quickstart: Een Table-API compileren met Java en Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Snelstartgids: Een Table-API compileren met Java en Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -40,7 +40,7 @@ Daarnaast doet u het volgende:
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.
     * Zorg dat de omgevingsvariabele JAVA_HOME verwijst naar de map waarin de JDK is geïnstalleerd.
-* [Download](http://maven.apache.org/download.cgi) en [installeer](http://maven.apache.org/install.html) een binair [Maven](http://maven.apache.org/)-archief
+* [Download](https://maven.apache.org/download.cgi) en [installeer](https://maven.apache.org/install.html) een binair [Maven](https://maven.apache.org/)-archief
     * Op Ubuntu kunt u `apt-get install maven` uitvoeren om Maven te installeren.
 * [Git](https://www.git-scm.com/)
     * Op Ubuntu kunt u `sudo apt-get install git` uitvoeren om Git te installeren.
@@ -87,7 +87,7 @@ We gaan nu een Table-app klonen vanaf GitHub, de verbindingsreeks instellen en d
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. Hierdoor kan de app communiceren met de gehoste database. 
 
-1. Klik in [Azure Portal](http://portal.azure.com/) op **Verbindingsreeks**. 
+1. Klik in [Azure Portal](https://portal.azure.com/) op **Verbindingsreeks**. 
 
    ![De vereiste verbindingsreeksinformatie bekijken en kopiëren vanuit het deelvenster Verbindingsreeks](./media/create-table-java/connection-string.png)
 

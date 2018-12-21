@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Table-API met .NET - Azure Cosmos DB'
+title: 'Snelstartgids: Table-API met .NET - Azure Cosmos DB'
 description: In deze quickstart ziet u hoe u de Table-API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en .NET
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: a36c1e68ddd68e497966d50122e9f27c72609948
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 22b2f247de97a0bf0b4a145062c7b92fec61ee9a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834448"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074975"
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Quickstart: Een Table-API compileren met .NET en Azure Cosmos DB 
+# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Snelstartgids: Een Table-API-app ontwikkelen met .NET en Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -87,7 +87,7 @@ We gaan nu een Table-app klonen vanaf GitHub, de verbindingsreeks instellen en d
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. Hierdoor kan de app communiceren met de gehoste database. 
 
-1. Klik in [Azure Portal](http://portal.azure.com/) op **Verbindingsreeks**. 
+1. Klik in [Azure Portal](https://portal.azure.com/) op **Verbindingsreeks**. 
 
     Gebruik de kopieerknop aan de rechterkant van het venster om de **PRIMARY CONNECTION STRING** te kopiëren.
 

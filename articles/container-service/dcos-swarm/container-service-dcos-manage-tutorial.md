@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie Azure Container Service: DC/OS beheren'
+title: '(AFGESCHAFT) Zelfstudie voor Azure Container Service: DC/OS beheren'
 description: 'Zelfstudie Azure Container Service: DC/OS beheren'
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8f4b1c1c66243c06d46ef3fddec8ea495163fa07
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999610"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000427"
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Zelfstudie Azure Container Service: DC/OS beheren
+# <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(AFGESCHAFT) Zelfstudie voor Azure Container Service: DC/OS beheren
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS biedt een gedistribueerd platform voor het uitvoeren van moderne toepassingen in containers. Met Azure Container Service kunt u eenvoudig en snel een DC/OS-cluster inrichten dat gereed is voor productie. In deze zelfstudie worden de basisstappen beschreven die nodig zijn om een DC/OS-cluster te implementeren en een eenvoudige werkbelasting uit te voeren.
 

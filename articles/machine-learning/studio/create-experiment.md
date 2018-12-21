@@ -1,13 +1,12 @@
 ---
-title: Een eenvoudig experiment in Machine Learning Studio | Microsoft Docs
+title: Een eenvoudig experiment - Azure Machine Learning Studio | Microsoft Docs
 description: Deze zelfstudie over Machine Learning leidt u door een eenvoudig gegevenswetenschapexperiment. We voorspellen de prijs van een auto met behulp van een regressiealgoritme.
 keywords: experiment,lineaire regressie,machine learning-algoritmen,zelfstudie over machine learning,voorspellende modelleringstechnieken,gegevenswetenschapexperiment
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425707"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262415"
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Zelfstudie over Machine Learning: uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio
+# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Zelfstudie: Uw eerste gegevenswetenschappelijke experiment maken in Azure Machine Learning Studio
 
 Als u **Azure Machine Learning Studio** niet eerder hebt gebruikt, biedt deze zelfstudie een goede basis.
 
@@ -41,7 +40,7 @@ Hierin wordt beschreven hoe u aan de slag gaat met Studio en uw eerste Machine L
 - [Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md) (Basisbeginselen van Machine Learning met algoritmevoorbeelden) - Deze infographic is handig als u meer wilt weten over de verschillende soorten machine learning-algoritmen in Machine Learning Studio.
 - [Machine Learning Guide](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) (Machine Learning-handleiding) - Deze handleiding bevat vergelijkbare informatie als de bovenstaande infographic, maar in een interactieve indeling.
 - [Machine learning algorithm cheat sheet](algorithm-cheat-sheet.md) (Cheatsheet voor machine learning-algoritmen) en [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) (Algoritmen kiezen voor Microsoft Azure Machine Learning) - In deze downloadbare poster en het bijbehorende artikel worden de Studio-algoritmen in detail besproken.
-- [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) (Machine Learning Studio: hulp bij algoritmen en modules) - Dit is een volledig naslagwerk voor alle Studio-modules, inclusief de machine learning-algoritmen.
+- [Machine Learning Studio: Help voor algoritmen en modules](https://msdn.microsoft.com/library/azure/dn905974.aspx) - Dit is de volledige naslaginformatie voor alle Studio-modules, waaronder de machine learning-algoritmen.
 
 
 
@@ -67,25 +66,25 @@ Ga naar [https://studio.azureml.net](https://studio.azureml.net) om aan de slag 
 In deze machine learning-zelfstudie volgt u vijf eenvoudige stappen in Machine Learning Studio om een model te maken, te trainen en te beoordelen:
 
 - **Een model maken**
-    - [Stap 1: gegevens ophalen]
-    - [Stap 2: de gegevens voorbereiden]
-    - [Stap 3: functies definiëren]
+    - [Stap 1: Gegevens ophalen]
+    - [Stap 2: De gegevens voorbereiden]
+    - [Stap 3: Functies definiëren]
 - **Het model trainen**
-    - [Stap 4: een leeralgoritme kiezen en toepassen]
+    - [Stap 4: Een leeralgoritme kiezen en toepassen]
 - **Het model beoordelen en testen**
-    - [Stap 5: prijzen van nieuwe auto's voorspellen]
+    - [Stap 5: Prijzen van nieuwe auto's voorspellen]
 
-[Stap 1: gegevens ophalen]: #step-1-get-data
-[Stap 2: de gegevens voorbereiden]: #step-2-prepare-the-data
-[Stap 3: functies definiëren]: #step-3-define-features
-[Stap 4: een leeralgoritme kiezen en toepassen]: #step-4-choose-and-apply-a-learning-algorithm
-[Stap 5: prijzen van nieuwe auto's voorspellen]: #step-5-predict-new-automobile-prices
+[Stap 1: Gegevens ophalen]: #step-1-get-data
+[Stap 2: De gegevens voorbereiden]: #step-2-prepare-the-data
+[Stap 3: Functies definiëren]: #step-3-define-features
+[Stap 4: Een leeralgoritme kiezen en toepassen]: #step-4-choose-and-apply-a-learning-algorithm
+[Stap 5: Prijzen van nieuwe auto's voorspellen]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
 > U vindt een werkende kopie van het volgende experiment in de [Azure AI Gallery](https://gallery.cortanaintelligence.com). Ga naar **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** en klik op **Open in Studio** om een kopie van het experiment naar uw Machine Learning Studio-werkruimte te downloaden.
 
 
-## <a name="step-1-get-data"></a>Stap 1: gegevens ophalen
+## <a name="step-1-get-data"></a>Stap 1: Gegevens ophalen
 
 Het eerste wat u voor machine learning nodig hebt, zijn gegevens.
 Machine Learning Studio bevat een aantal voorbeeldgegevenssets die u kunt gebruiken. Daarnaast kunt u uit tal van bronnen gegevens importeren. Voor dit voorbeeld gebruiken we de voorbeeldgegevensset **Automobile price data (Raw)**. Deze is opgenomen in de werkruimte.
@@ -124,7 +123,7 @@ In de voorbeeldgegevensset wordt elke instantie van een auto weergegeven als een
 
 Sluit het visualisatievenster door op de **x** in de rechterbovenhoek te klikken.
 
-## <a name="step-2-prepare-the-data"></a>Stap 2: de gegevens voorbereiden
+## <a name="step-2-prepare-the-data"></a>Stap 2: De gegevens voorbereiden
 
 Normaal gesproken moet een gegevensset worden voorverwerkt voordat deze kan worden geanalyseerd. Het is u mogelijk opgevallen dat er waarden ontbreken in de kolommen van verschillende rijen. Deze ontbrekende waarden moeten worden opgeschoond, zodat de gegevens correct kunnen worden geanalyseerd. In ons geval verwijderen we de rijen met ontbrekende waarden. Ook in de kolom **normalized-losses** ontbreekt een groot deel van de waarden. Deze kolom zal daarom helemaal worden uitgesloten van het model.
 
@@ -186,7 +185,7 @@ Tot nu toe hebben we in het experiment alleen de gegevens opgeschoond. Als u de 
 
 Nu de gegevens zijn opgeschoond, kunt u opgeven welke functies u wilt gebruiken in het voorspellende model.
 
-## <a name="step-3-define-features"></a>Stap 3: functies definiëren
+## <a name="step-3-define-features"></a>Stap 3: Functies definiëren
 
 In machine learning zijn *functies* afzonderlijke meetbare eigenschappen van iets waarin u geïnteresseerd bent. In onze gegevensset staat elke rij voor één auto en elke kolom bevat een kenmerk van die auto.
 
@@ -219,7 +218,7 @@ Laten we een model bouwen dat gebruikmaakt van een subset kenmerken onze gegeven
 
 Dit resulteert in een gefilterde gegevensset met alleen de kenmerken die we willen doorgeven aan het learning-algoritme dat we in de volgende stap gebruiken. U kunt later terugkeren en het opnieuw proberen met een andere selectie kenmerken.
 
-## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>Stap 4: een leeralgoritme kiezen en toepassen
+## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>Stap 4: Een leeralgoritme kiezen en toepassen
 
 Nu de gegevens klaar zijn, kunt u een voorspellend model bouwen door het model te trainen en te testen. We gebruiken onze gegevens om het model te trainen. Vervolgens testen we het model om te controleren in hoeverre de prijzen met dit model kunnen worden voorspeld.
 <!-- For now, don't worry about *why* we need to train and then test a model.-->
@@ -273,7 +272,7 @@ Nu beschikken we over een getraind regressiemodel dat kan worden gebruikt om nie
 <br/>
 ***Zo ziet het experiment er ongeveer uit nadat het is uitgevoerd***
 
-## <a name="step-5-predict-new-automobile-prices"></a>Stap 5: prijzen van nieuwe auto's voorspellen
+## <a name="step-5-predict-new-automobile-prices"></a>Stap 5: Prijzen van nieuwe auto's voorspellen
 
 Nu we het model met 75 procent van de gegevens hebben getraind, kunnen we het model gebruiken om de overige 25 procent van onze gegevens te beoordelen om te zien hoe goed het model werkt.
 
@@ -304,11 +303,11 @@ Als u de uitvoer van de module [Evaluate Model][evaluate-model] wilt weergeven, 
 
 De volgende statistieken worden weergegeven voor het model:
 
-- **Mean Absolute Error** (MAE): het gemiddelde aan absolute fouten (een *fout* is het verschil tussen de voorspelde waarde en de werkelijke waarde).
-- **Root Mean Squared Error** (RMSE): de wortel uit het gemiddelde aan gekwadrateerde fouten voor de voorspellingen op basis van de testgegevensset.
-- **Relative Absolute Error**: het gemiddelde aan absolute fouten ten opzichte van het absolute verschil tussen de werkelijke waarden en het gemiddelde van alle werkelijke waarden.
-- **Relative Squared Error**: het gemiddelde aan gekwadrateerde fouten ten opzichte van het gekwadrateerde verschil tussen de werkelijke waarden en het gemiddelde van alle werkelijke waarden.
-- **Coefficient of Determination**: de determinatiecoëfficiënt, ook wel **R²-waarde** genoemd, is een statistische meetwaarde die aangeeft hoe goed het model is in het voorspellen van de gegevens.
+- **Gemiddelde absolute fout** (Mean Absolute Error of MAE): Het gemiddelde aan absolute fouten (een *fout* is het verschil tussen de voorspelde waarde en de werkelijke waarde).
+- **Standaardafwijking** (Root Mean Squared Error of RMSE): De vierkantswortel uit het gemiddelde aan kwadratische fouten voor de voorspellingen op basis van de testgegevensset.
+- **Relatieve absolute fout**: Het gemiddelde aan absolute fouten ten opzichte van het absolute verschil tussen de werkelijke waarden en het gemiddelde van alle werkelijke waarden.
+- **Relatieve kwadratische fout**: Het gemiddelde aan kwadratische fouten ten opzichte van het kwadratische verschil tussen de werkelijke waarden en het gemiddelde van alle werkelijke waarden.
+- **Determinatiecoëfficiënt**: ook wel **R²-waarde** genoemd, is een statistische meetwaarde die aangeeft hoe goed het model is in het voorspellen van de gegevens.
 
 Voor elk van de foutstatistieken geldt: hoe kleiner hoe beter. Een kleine waarde geeft aan dat de voorspelling dichter bij de werkelijke waarde ligt. Hoe dichter de **determinatiecoëfficiënt** bij één (1.0) ligt, hoe nauwkeuriger de voorspellingen.
 

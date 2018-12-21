@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 87aaf7108fabe0e4d96c4a2edd15db8531f1a828
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 793aa52c0eb49d122f520ead3ee80a869e7b62d9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578327"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251321"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snelstart: Een Spark-taak uitvoeren op Azure Databricks met de Resource Manager-sjabloon
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snelstart: Een Spark-taak uitvoeren op Azure Databricks met de Azure Resource Manager-sjabloon
 
 Deze snelstart laat zien hoe u een Azure Databricks-werkruimte maakt met behulp van de Azure Resource Manager-sjabloon. U gebruikt de werkruimte om een Apache Spark-cluster te maken en een Spark-taak uit te voeren op het Databricks-cluster. Zie [Wat is Azure Databricks?](what-is-azure-databricks.md) voor meer informatie over Azure Databricks.
 
@@ -80,7 +80,7 @@ Zie [Een Spark-cluster maken in Azure Databricks](https://docs.azuredatabricks.n
 Voordat u met deze sectie begint, moet u eerst aan de volgende vereisten voldoen:
 
 * [Maak een Azure Blob-opslagaccount](../storage/common/storage-quickstart-create-account.md).
-* Download een voorbeeld-JSON-bestand [vanuit Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+* Download een voorbeeld-JSON-bestand [vanuit GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 * Upload het JSON-voorbeeldbestand naar het Azure Blob-opslagaccount dat u hebt gemaakt. U kunt [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) gebruiken om bestanden te uploaden.
 
 Voer de volgende taken uit om een notitieblok in Databricks te maken. Configureer het notitieblok om de gegevens te lezen uit een Azure Blob-opslagaccount en voer vervolgens een Spark SQL-taak uit op de gegevens.

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6ad839b9cf1179e282b9163df5a38e13417408e2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7e11affece7e7eb133aa22e159ec07d4f15e96f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706225"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999604"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snelstart: Webverkeer omleiden met Azure Application Gateway - Azure Portal
 
@@ -25,7 +25,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op [http://portal.azure.com](http://portal.azure.com)
+Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
@@ -87,10 +87,10 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
     - *azureuser* als gebruikersnaam van de beheerder.
     - *Azure123456!* als het wachtwoord.
 
-   Accepteer de overige standaardwaarden en klik op **Next: Disks**.
-4. Accepteer de overige standaardwaarden en klik op **Next: Networking**.
+   Accepteer de overige standaardwaarden en klik op **Volgende: Schijven**.
+4. Accepteer de standaardwaarden voor schijven en klik op **Volgende: Netwerken**.
 5. Zorg ervoor dat **myVNet** is geselecteerd voor het virtuele netwerk en dat het subnet **myBackendSubnet** is.
-6. Accepteer de overige standaardwaarden en klik op **Next: Management**.
+6. Accepteer de overige standaardwaarden en klik op **Volgende: Beheer**.
 7. Klik op **Uit** om diagnostische gegevens over opstarten uit te schakelen. Accepteer de overige standaardwaarden en klik op **Review + create**.
 8. Controleer de instellingen op de overzichtspagina en klik op **Maken**.
 9. Wacht tot de virtuele machine is gemaakt voordat u verder gaat.

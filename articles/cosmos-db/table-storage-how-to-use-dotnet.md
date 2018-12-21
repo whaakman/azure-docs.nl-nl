@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: fd437e42c404bec71036e760b95aef7e005d3fd9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 23ee4142dbf3d3c07eb89640554a464d0ac51822
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880196"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102993"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Aan de slag met Azure Table Storage en de Azure Cosmos DB Table-API met behulp van .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -78,7 +78,7 @@ Er zijn drie aanbevolen pakketten waarnaar u in uw project moet verwijzen om dit
 
 * [Microsoft Azure Cosmos DB Table-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Dit pakket biedt programmatisch toegang tot gegevensbronnen in uw Azure Table Storage-account of Azure Cosmos DB Table-API-account. Deze bibliotheek is momenteel alleen beschikbaar voor .NET Standard, nog niet voor .NET Core.
 
-* [Configuration Manager-bibliotheek van Microsoft Azure voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
+* [Microsoft Azure Configuration Manager-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
 
 Volg deze stappen voor het verkrijgen van de NuGet-pakketten:
 
@@ -88,7 +88,7 @@ Volg deze stappen voor het verkrijgen van de NuGet-pakketten:
 4. Zoek online naar 'WindowsAzure.ConfigurationManager' en selecteer **Installeren** om de Microsoft Azure Configuration Manager-bibliotheek te installeren.
 
 > [!NOTE]
-> De ODataLib-afhankelijkheden in de algemene Storage-bibliotheek voor .NET worden omgezet met de ODataLib-pakketten, die beschikbaar zijn op NuGet, en niet vanuit WCF Data Services. U kunt de ODataLib-bibliotheken rechtstreeks downloaden of u kunt er via NuGet in uw codeproject naar verwijzen. De specifieke ODataLib-pakketten die door de Storage-clientbibliotheek worden gebruikt, zijn [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) en [Spatial](http://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken door de Azure Table Storage-klassen worden gebruikt, zijn het verplichte afhankelijkheden voor het programmeren met de algemene Storage-bibliotheek.
+> De ODataLib-afhankelijkheden in de algemene Storage-bibliotheek voor .NET worden omgezet met de ODataLib-pakketten, die beschikbaar zijn op NuGet, en niet vanuit WCF Data Services. U kunt de ODataLib-bibliotheken rechtstreeks downloaden of u kunt er via NuGet in uw codeproject naar verwijzen. De specifieke ODataLib-pakketten die door de Storage-clientbibliotheek worden gebruikt, zijn [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) en [Spatial](https://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken door de Azure Table Storage-klassen worden gebruikt, zijn het verplichte afhankelijkheden voor het programmeren met de algemene Storage-bibliotheek.
 > 
 > 
 
@@ -453,7 +453,7 @@ table.Execute(insertOrReplaceOperation);
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Een query uitvoeren op een subset van entiteitseigenschappen
-Met een tabelquery haalt u slechts enkele eigenschappen van een entiteit op in plaats van alle eigenschappen hiervan. Deze methode, projectie genoemd, verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. De query in de volgende code retourneert alleen de e-mailadressen van de entiteiten in de tabel. Dit wordt gedaan via een [DynamicTableEntity][dotnet_DynamicTableEntity]- en een [EntityResolver][dotnet_EntityResolver]-query. Meer informatie over projectie vindt u in het blogbericht [Introducing Upsert and Query Projection][blog_post_upsert] (Introductie tot upsert en queryprojectie). Projectie wordt niet ondersteund door de opslagemulator. Deze code wordt dus alleen uitgevoerd als u een account gebruikt in de Tabelservice.
+Met een tabelquery haalt u slechts enkele eigenschappen van een entiteit op in plaats van alle eigenschappen hiervan. Deze methode, projectie genoemd, verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. De query in de volgende code retourneert alleen de e-mailadressen van de entiteiten in de tabel. Dit wordt gedaan via een [DynamicTableEntity][dotnet_DynamicTableEntity]- en een [EntityResolver][dotnet_EntityResolver]-query. Projectie wordt niet ondersteund door de opslagemulator. Deze code wordt dus alleen uitgevoerd als u een account gebruikt in de Tabelservice.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -576,9 +576,6 @@ Nu u de basisprincipes van Table Storage hebt geleerd, volgt u deze koppelingen 
 * [Verbinding maken met SQL Database met behulp van .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) voor het opslaan van relationele gegevens.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
-[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-
-[blog_post_upsert]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
 [dotnet_api_ref]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [dotnet_CloudTableClient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtableclient.aspx

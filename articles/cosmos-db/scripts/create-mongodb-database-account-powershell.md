@@ -1,27 +1,22 @@
 ---
-title: Azure PowerShell-script - Een Azure Cosmos DB MongoDB-API-account maken | Microsoft Docs
+title: 'Azure PowerShell-script: een Azure Cosmos DB MongoDB-API-account maken'
 description: Azure PowerShell-voorbeeldscript - Een Azure Cosmos DB MongoDB-API-account maken
 services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/29/2018
-ms.author: sngun
-ms.openlocfilehash: d3f73651dda3dd57740d61fd341baf5700a20964
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1df8749f0032f60bc3d18f6d8352712e74c53fd5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41920033"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963893"
 ---
-# <a name="azure-cosmos-db-create-a-mongodb-api-account-using-powershell"></a>Azure Cosmos DB: Een MongoDB-API-account maken met behulp van PowerShell
+# <a name="azure-cosmos-db-create-a-mongodb-api-account-using-powershell"></a>Azure Cosmos DB: een MongoDB-API-account maken met behulp van PowerShell
 
 Met dit PowerShell-voorbeeldscript maakt u een Azure Cosmos DB MongoDB-API-account. 
 

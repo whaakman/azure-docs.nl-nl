@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie voor het indexeren van Azure SQL-databases in Azure Search | Microsoft Docs
+title: Zelfstudie voor het indexeren van Azure SQL-databases in Azure Portal - Azure Search
 description: In deze zelfstudie verkent u een Azure SQL-database om doorzoekbare gegevens op te halen en een Azure Search-index te vullen.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988792"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312048"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Zelfstudie: Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
 

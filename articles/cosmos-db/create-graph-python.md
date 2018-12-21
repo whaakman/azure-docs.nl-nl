@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Gremlin-API met Python - Azure Cosmos DB'
+title: 'Snelstartgids: Gremlin-API met Python - Azure Cosmos DB'
 description: In deze snelstart ziet u hoe u de Gremlin-API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en Python
 services: cosmos-db
 author: luisbosquez
@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: eb7959b1a41c602ce4f34750802d962fe4ff84cf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b8a26164145360bdd46656a86817b8ec61bcb56c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839310"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081486"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: een grafiekdatabase maken met behulp van Python en Azure Portal
+# <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Een grafiekdatabase maken met behulp van Python en Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Gremlin-console](create-graph-gremlin-console.md)
@@ -42,7 +42,7 @@ Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van 
 Daarnaast doet u het volgende:
 * [Python](https://www.python.org/downloads/) versie v3.5 of hoger
 * [pip package manager](https://pip.pypa.io/en/stable/installing/)
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Python-stuurprogramma voor Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
@@ -101,7 +101,7 @@ Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code wor
 
 Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in de app te kopiëren. Met behulp van deze instellingen kan de app communiceren met de gehoste database.
 
-1. Klik in [Azure Portal](http://portal.azure.com/) op **Sleutels**. 
+1. Klik in [Azure Portal](https://portal.azure.com/) op **Sleutels**. 
 
     Kopieer het eerste gedeelte van de URI-waarde.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie Azure Container Service: Toepassing schalen'
-description: 'Zelfstudie Azure Container Service: Toepassing schalen'
+title: '(AFGESCHAFT) Zelfstudie voor de Azure Container Service: toepassing schalen'
+description: 'Zelfstudie voor de Azure Container Service: toepassing schalen'
 services: container-service
 author: dlepow
 manager: jeconnoc
@@ -9,16 +9,19 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429879"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993074"
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes-schillen en Kubernetes-infrastructuur schalen
+# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(AFGESCHAFT) Kubernetes-schillen en Kubernetes-infrastructuur schalen
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Voor de bijgewerkte versie van deze zelfstudie, die gebruikmaakt van Azure Kubernetes Service, raadpleegt u [Zelfstudie: toepassingen schalen in AKS (Azure Kubernetes Service)](../../aks/tutorial-kubernetes-scale.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Als u de zelfstudies volgt, hebt u een werkend Kubernetes-cluster in Azure Container Service en hebt u de Azure Voting-app geïmplementeerd. 
 

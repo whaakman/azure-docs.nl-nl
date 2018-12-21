@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: a421527de275d38650c314d3722a7d2f93e8331d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 10de179c6055feb46439792ea74a0a3131f39646
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285013"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970643"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Quickstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snelstartgids: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -43,9 +43,9 @@ Controleer voor u aan de slag gaat of u voldoet aan deze vereisten:
 
 ![De werking van deze handleiding](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-In dit scenario krijgt een browser toegang tot een ASP.NET-website en wordt een gebruiker gevraagd om zich te verifiëren met behulp van een knop Aanmelden. In dit scenario vindt het grootste gedeelte van het werk om de webpagina weer te geven plaats aan de serverzijde.
+In dit scenario krijgt een browser toegang tot een ASP.NET-website en wordt een gebruiker gevraagd om zich te verifiëren met behulp van een aanmeldknop. In dit scenario vindt het grootste gedeelte van het werk om de webpagina weer te geven plaats aan de serverzijde.
 
-In deze quickstart wordt gedemonstreerd hoe u gebruikers kunt aanmelden in een ASP.NET-webtoepassing, beginnend met een lege sjabloon. De quickstart bevat stappen zoals het toevoegen van een knop Aanmelden, en alle controllers en methoden, en bespreekt de concepten achter deze taken. U kunt er ook voor kiezen om een project te maken om Azure AD-gebruikers aan te melden (via werk- en schoolaccounts) door de [Visual Studio-websjabloon](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) te gebruiken en **Organisatieaccounts** te selecteren, en vervolgens een van de cloudopties te kiezen. Deze optie maakt gebruik van een sjabloon met meer opmaak, met extra controllers, methoden en weergaven.
+In deze quickstart wordt gedemonstreerd hoe u gebruikers kunt aanmelden in een ASP.NET-webtoepassing, beginnend met een lege sjabloon. De quickstart bevat stappen zoals het toevoegen van een aanmeldknop en alle controllers en methoden, en bespreekt de concepten achter deze taken. U kunt er ook voor kiezen om een project te maken om Azure AD-gebruikers aan te melden (via werk- en schoolaccounts) door de [Visual Studio-websjabloon](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) te gebruiken en **Organisatieaccounts** te selecteren, en vervolgens een van de cloudopties te kiezen. Deze optie maakt gebruik van een sjabloon met meer opmaak, met extra controllers, methoden en weergaven.
 
 ## <a name="libraries"></a>Bibliotheken
 
@@ -56,9 +56,9 @@ In deze quickstart worden de volgende pakketten gebruikt:
 | [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | Middleware die een toepassing in staat stelt om OpenIdConnect te gebruiken voor verificatie |
 | [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |Middleware die een toepassing in staat stelt om een gebruikerssessie te onderhouden met behulp van cookies |
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | Maakt het mogelijk om OWIN-toepassingen uit te voeren op IIS met behulp van de ASP.NET-aanvraagpijplijn |
-|  |  | 
+|  |  |
 
-## <a name="step-1-set-up-your-project"></a>Stap 1: Het project instellen
+## <a name="step-1-set-up-your-project"></a>Stap 1: Uw project instellen
 
 Deze stappen laten zien hoe u de verificatiepijplijn kunt installeren en configureren via de OWIN-middleware in een ASP.NET-project met behulp van OpenID Connect.
 
@@ -66,16 +66,16 @@ Als u in plaats hiervan het Visual Studio-project uit dit voorbeeld wilt downloa
 1. [Download het project in GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
 1. Ga verder met de [Configuratiestap](#configure-your-webconfig-and-register-an-application) om het codevoorbeeld te configureren vóórdat u het uitvoert.
 
-## <a name="step-2-create-your-aspnet-project"></a>Stap 2: Het ASP.NET-project maken
+## <a name="step-2-create-your-aspnet-project"></a>Stap 2: Uw ASP.NET-project maken
 
 1. Ga in Visual Studio naar **Bestand > Nieuw > Project**.
 2. Selecteer onder **Visual C#\Web** de optie **ASP.NET-webtoepassing (.NET Framework)**.
-3. Geef de toepassing ene naam en selecteer **OK**.
-4. Selecteer **Leeg** en selecteer vervolgens het selectievakje om **MVC**-verwijzingen toe te voegen.
+3. Geef de toepassing een naam en selecteer **OK**.
+4. Selecteer **Leeg** en schakel vervolgens het selectievakje in om **MVC**-verwijzingen toe te voegen.
 
 ## <a name="step-3-add-authentication-components"></a>Stap 3: Onderdelen voor verificatie toevoegen
 
-1. Ga in Visual Studio naar **Hulpprogramma’s > NuGet Package Manager > Package Manager Console**.
+1. Ga in Visual Studio naar **Hulpprogramma's > NuGet Package Manager > Package Manager Console**.
 2. Voeg **NuGet-pakketten voor OWIN-middleware** toe door het volgende te typen in het Package Manager Console-venster:
 
     ```powershell
@@ -86,29 +86,29 @@ Als u in plaats hiervan het Visual Studio-project uit dit voorbeeld wilt downloa
 
 <!--start-collapse-->
 > ### <a name="about-these-packages"></a>Over deze pakketten
->De bovenstaande bibliotheken maken SSO (eenmalige aanmelding) met behulp van OpenID Connect mogelijk via verificatie op basis van cookies. Nadat de verificatie is voltooid en het token dat de gebruiker vertegenwoordigt, is verzonden naar de toepassing, wordt met OWIN-middleware een sessiecookie gemaakt. In de browser wordt dit cookie vervolgens gebruikt in volgende aanvragen. Op deze manier hoeft de gebruiker niet opnieuw te verifiëren en is er geen aanvullende verificatie meer vereist.
+>De bovenstaande bibliotheken maken SSO (eenmalige aanmelding) met behulp van OpenID Connect mogelijk via verificatie op basis van cookies. Nadat de verificatie is voltooid en het token dat de gebruiker vertegenwoordigt, is verzonden naar de toepassing, wordt met OWIN-middleware een sessiecookie gemaakt. In de browser wordt deze cookie vervolgens gebruikt in volgende aanvragen. Op deze manier hoeft de gebruiker niet opnieuw te verifiëren en is er geen aanvullende verificatie meer vereist.
 <!--end-collapse-->
 
 ## <a name="step-4-configure-the-authentication-pipeline"></a>Stap 4: De verificatiepijplijn configureren
 
-Volg deze stappen om een *Opstartklasse* van OWIN-middleware te maken om OpenID Connect-verificatie te configureren. Deze klasse wordt automatisch uitgevoerd.
+Volg deze stappen om een *opstartklasse* van OWIN-middleware te maken om OpenID Connect-verificatie te configureren. Deze klasse wordt automatisch uitgevoerd.
 
 > [!TIP]
 > Ga als volgt te werk als uw project geen `Startup.cs`-bestand bevat in de hoofdmap:<br/>
 > 1. Klik met de rechtermuisknop op de hoofdmap van het project: > **Toevoegen > Nieuw item... > OWIN-opstartklasse**<br/>
 > 2. Noem deze `Startup.cs`<br/>
 >
->> Zorg ervoor dat de geselecteerde klasse een OWIN-opstartklasse is, en niet een Standard C#-klasse. Verzeker u hiervan door te kijken of `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` wordt weergegeven boven de naamruimte.
+>> Zorg dat de geselecteerde klasse een OWIN-opstartklasse is, en geen C#-standaardklasse. Verzeker u hiervan door te kijken of `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` wordt weergegeven boven de naamruimte.
 
-Ga als volgt te werk om een *Opstartklasse* van OWIN-middleware maken:
+Ga als volgt te werk om een *opstartklasse* van OWIN-middleware maken:
 
 1. Voeg de naamruimten *OWIN* en *Microsoft.IdentityModel* toe aan `Startup.cs`:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
-2. Vervang Opstartklasse door de volgende code:
+2. Vervang de opstartklasse door de volgende code:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=Startup "Startup.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -129,23 +129,23 @@ Maak een nieuwe controller om de methoden voor aanmelden en afmelden beschikbaar
 4.  Noem deze `HomeController` en selecteer **Toevoegen**.
 5.  Voeg **OWIN**-naamruimten toe aan de klasse:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. Voeg de volgende methoden voor aanmelden en afmelden toe aan de controller door een verificatievraag te starten via code:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
 
-## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Stap 6: De startpagina van de app maken om gebruikers aan te melden via een knop Aanmelden
+## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Stap 6: De startpagina van de app maken om gebruikers aan te melden via een aanmeldknop
 
-Maak in Visual Studio een nieuwe weergave om de knop Aanmelden toe te voegen en gebruikersgegevens weer te geven na de verificatie:
+Maak in Visual Studio een nieuwe weergave om de aanmeldknop toe te voegen en gebruikersgegevens weer te geven na de verificatie:
 
 1. Klik met de rechtermuisknop op de map **Weergaven\Startpagina** en selecteer **Weergave toevoegen**.
 1. Noem deze **Index**.
-1. Voeg de volgende HTML toe aan het bestand. Deze bevat de knop Aanmelden:
+1. Voeg de volgende HTML toe aan het bestand. Deze bevat de aanmeldknop:
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> Met deze pagina wordt een knop Aanmelden toegevoegd, in de SVG-indeling met een zwarte achtergrond:<br/>![Aanmelden met Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Ga voor meer soorten knoppen voor aanmelden naar [Huisstijlrichtlijnen voor toepassingen](howto-add-branding-in-azure-ad-apps.md).
+<!--start-collapse--> Met deze pagina wordt een aanmeldknop toegevoegd, in de SVG-indeling met een zwarte achtergrond:<br/>![Aanmelden met Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Ga voor meer soorten aanmeldknoppen naar [Huisstijlrichtlijnen voor toepassingen](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Stap 7: Claims van gebruikers weergeven door een controller toe te voegen
@@ -156,16 +156,16 @@ Deze controller demonstreert het gebruik van het kenmerk `[Authorize]` om een co
 1. Selecteer **MVC-controller {versie} – Leeg**.
 1. Selecteer **Toevoegen**.
 1. Noem deze **ClaimsController**.
-1. Vervang de code van de controllerklasse door de volgende code: hierdoor wordt het kenmerk `[Authorize]` toegevoegd aan de klasse:
+1. Vervang de code van de controllerklasse door de volgende code, zodat het kenmerk `[Authorize]` wordt toegevoegd aan de klasse:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
-> Vanwege het gebruik van het kenmerk `[Authorize]` kunnen alle methoden van deze controller alleen worden uitgevoerd als de gebruiker is geverifieerd. Als een niet-geverifieerde gebruiker toegang probeert te krijgen tot de controller, wordt met OWIN een verificatievraag gestart en wordt de gebruiker gedwongen zich te verifiëren. De bovenstaande code kijkt naar de claimverzameling van de gebruiker voor specifieke kenmerken die zijn opgenomen in het token van de gebruiker. Deze kenmerken omvatten de volledige naam en gebruikersnaam van de gebruiker, en het globale onderwerp voor de gebruikers-id. Ze omvatten ook de *Tenant-id*. Dit is de id voor de organisatie van de gebruiker. 
+> Vanwege het gebruik van het kenmerk `[Authorize]` kunnen alle methoden van deze controller alleen worden uitgevoerd als de gebruiker is geverifieerd. Als een niet-geverifieerde gebruiker toegang probeert te krijgen tot de controller, wordt met OWIN een verificatievraag gestart en wordt de gebruiker gedwongen zich te verifiëren. De bovenstaande code kijkt naar de claimverzameling van de gebruiker voor specifieke kenmerken die zijn opgenomen in het token van de gebruiker. Deze kenmerken omvatten de volledige naam en gebruikersnaam van de gebruiker, en het globale onderwerp voor de gebruikers-id. Ze omvatten ook de *Tenant-id*. Dit is de id voor de organisatie van de gebruiker.
 <!--end-collapse-->
 
-## <a name="step-8-create-a-view-to-display-the-users-claims"></a>stap 8: Een weergave maken om de claims van de gebruiker weer te geven
+## <a name="step-8-create-a-view-to-display-the-users-claims"></a>Stap 8: Een weergave maken om de claims van de gebruiker weer te geven
 
 Maak in Visual Studio een nieuwe weergave om de claims van de gebruiker weer te geven op een webpagina:
 
@@ -187,7 +187,7 @@ Maak in Visual Studio een nieuwe weergave om de claims van de gebruiker weer te 
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
+    <add key="Authority" value="https://login.microsoftonline.com/{0}" />
     ```
 2. Selecteer het project in Solution Explorer en kijk naar het venster <i>Eigenschappen</i> (druk op F4 als u het venster Eigenschappen niet ziet)
 3. Wijzig SSL ingeschakeld in <code>True</code>
@@ -199,14 +199,14 @@ Maak in Visual Studio een nieuwe weergave om de claims van de gebruiker weer te 
 1. Ga naar [Microsoft Azure-portal - app-registratie](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) om een toepassing te registreren.
 2. Selecteer **Nieuwe toepassing registreren**.
 3. Voer een naam in voor de toepassing.
-4. Plak de *SSL-URL* van het Visual Studio-project in **Aanmeldings-URL**. Deze URL wordt ook automatisch toegevoegd aan de lijst met Antwoord-URL’s voor de toepassing die u registreert.
+4. Plak de *SSL-URL* van het Visual Studio-project in **Aanmeldings-URL**. Deze URL wordt ook automatisch toegevoegd aan de lijst met Antwoord-URL's voor de toepassing die u registreert.
 5. Selecteer **Maken** om de toepassing te registreren. Hierdoor keert u terug naar de lijst met toepassingen.
 6. Zoek en/of selecteer nu de toepassing die u zojuist hebt gemaakt, om de bijbehorende eigenschappen te openen.
 7. Kopieer de GUID bij **Toepassings-id** naar het klembord.
-8. Ga terug naar Visual Studio en vervang `Enter_the_Application_Id_here` in `web.config` door de Toepassings-id van de toepassing die u zojuist hebt geregistreerd.
+8. Ga terug naar Visual Studio en vervang `Enter_the_Application_Id_here` in `web.config` door de toepassings-id van de toepassing die u zojuist hebt geregistreerd.
 
 > [!TIP]
-> Als uw account is geconfigureerd voor toegang tot meerdere mappen, moet u ervoor zorgen dat de juiste map is geselecteerd voor de organisatie waar u de map wilt registreren, door in de rechterbovenhoek in de Azure-portal op uw accountnaam te klikken en vervolgens de geselecteerde map te verifiëren zoals aangegeven:<br/>![De juiste map selecteren](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
+> Als uw account is geconfigureerd voor toegang tot meerdere mappen, moet u ervoor zorgen dat de juiste map is geselecteerd voor de organisatie waar u de map wilt registreren. Dit doet u door in de rechterbovenhoek in de Azure-portal op uw accountnaam te klikken en vervolgens de geselecteerde map te verifiëren zoals aangegeven:<br/>![De juiste map selecteren](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## <a name="step-10-configure-sign-in-options"></a>Stap 10: Aanmeldingsopties configureren
 
@@ -227,10 +227,12 @@ Zie [Overzicht van multitenant](howto-convert-app-to-be-multi-tenant.md) voor me
 Deze optie is een veelvoorkomend scenario voor Line-Of-Business-toepassingen.
 
 Als u wilt dat in de toepassing alleen aanmeldingen worden geaccepteerd die horen bij een specifiek Azure AD-exemplaar (inclusief *gastaccounts* van dit exemplaar), volgt u deze stappen:
-1. Vervang de parameter `Tenant` in *web.config* uit `Common` met de tenantnaam van de organisatie, bijvoorbeeld *contoso.onmicrosoft.com*.
+
+1. Vervang de parameter `Tenant` in *web.config* uit `Common` door de tenantnaam van de organisatie, bijvoorbeeld *contoso.onmicrosoft.com*.
 1. Wijzig het argument `ValidateIssuer` in de [*OWIN-opstartklasse*](#configure-the-authentication-pipeline) in `true`.
 
 Als u alleen gebruikers van een lijst met specifieke organisaties wilt toestaan, volgt u deze stappen:
+
 1. Stel `ValidateIssuer` in op Waar.
 1. Gebruik de parameter `ValidIssuers` om een lijst met organisaties op te geven.
 
@@ -266,7 +268,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 ### <a name="sign-in"></a>Aanmelden
 
-Gebruik, als u klaar bent om te testen, een werkaccount (Azure AD) om u aan te melden.
+Als u klaar bent om te testen, gebruikt u een werkaccount (Azure AD) om u aan te melden.
 
 ![Aanmelden met het Microsoft-browservenster](./media/quickstart-v1-aspnet-webapp/aspnetbrowsersignin.png)
 

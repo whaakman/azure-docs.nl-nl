@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: c5200e7e4d5550f26343fab1561c214ee19d6741
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b385c3e3e5f39e812545143df4a3adcc08ebfce5
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572054"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002209"
 ---
-# <a name="container-service-frequently-asked-questions"></a>Veelgestelde vragen over Container Service
+# <a name="deprecated-container-service-frequently-asked-questions"></a>(AFGESCHAFT) Veelgestelde vragen over Container Service
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 ## <a name="orchestrators"></a>Orchestrators
 
@@ -33,7 +35,7 @@ In het algemeen bevelen we geen specifieke orchestrators aan. Als u ervaring heb
 Als uw situatie erom vraagt, kunt u ook aangepaste containeroplossingen bouwen en beheren met andere Azure-services. Deze services zijn onder andere [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/app-service-web-overview.md) en [Batch](../articles/batch/batch-technical-overview.md).  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Wat is het verschil tussen Azure Container Service en ACS Engine? 
-Azure Container Service is een Azure-service met SLA en functies in Azure Portal, Azure-opdrachtregelprogramma's en Azure-API's. Met de service kunt u clusters die standaardprogramma's voor containerorchestratie uitvoeren, snel implementeren en beheren met een relatief klein aantal configuratie-opties. 
+Azure Container Service is een Azure-service met SLA en functies in de Azure-portal, Azure-opdrachtregelprogramma's en Azure-API's. Met de service kunt u clusters die standaardprogramma's voor containerorchestratie uitvoeren, snel implementeren en beheren met een relatief klein aantal configuratie-opties. 
 
 [ACS Engine](http://github.com/Azure/acs-engine) is een open source-project waarmee hoofdgebruikers de clusterconfiguratie op elk niveau kunnen aanpassen. Deze mogelijkheid om de configuratie van de infrastructuur en de software te wijzigen, betekent dat we geen SLA voor ACS Engine bieden. Ondersteuning is beschikbaar via het open-source project op GitHub in plaats van via officiële Microsoft-kanalen. 
 
@@ -64,7 +66,7 @@ U kunt een cluster maken met 1, 3 of 5 hoofdknooppunten. U kunt maximaal 100 age
 Nadat het cluster is gemaakt, staat het aantal masters vast en kan dit niet worden gewijzigd. We raden u aan om bij het maken van het cluster meerdere masters te selecteren voor hogere beschikbaarheid.
 
 ### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>Hoe kan ik het aantal agents verhogen nadat een cluster is gemaakt? 
-U kunt het aantal agents in het cluster schalen via Azure Portal of met opdrachtregelprogramma's. Zie [Scale an Azure Container Service cluster](../articles/container-service/kubernetes/container-service-scale.md) (Een Azure Container Service-cluster schalen).
+U kunt het aantal agents in het cluster schalen via de Azure-portal of met opdrachtregelprogramma's. Zie [Scale an Azure Container Service cluster](../articles/container-service/kubernetes/container-service-scale.md) (Een Azure Container Service-cluster schalen).
 
 ### <a name="what-are-the-urls-of-my-masters-and-agents"></a>Wat zijn de URL's van mijn masters en agents? 
 De URL's van clusterresources in Azure Container Service zijn gebaseerd op het DNS-naamvoorvoegsel dat u opgeeft en de naam van de Azure-regio die u hebt gekozen voor implementatie. De volledig gekwalificeerde domeinnaam (FQDN) van het hoofdknooppunt ziet er bijvoorbeeld als volgt uit:
@@ -73,13 +75,13 @@ De URL's van clusterresources in Azure Container Service zijn gebaseerd op het D
 DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
-U vindt veelgebruikte URL's voor uw cluster in Azure Portal, Azure Resource Explorer of andere Azure-hulpprogramma's.
+U vindt veelgebruikte URL's voor uw cluster in de Azure-portal, Azure Resource Explorer of andere Azure-hulpprogramma's.
 
 ### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Hoe weet ik welke orchestratorversie wordt uitgevoerd in mijn cluster?
 
 * DC/OS: zie de [Mesosphere-documentatie](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
-* Docker Swarm: uitvoeren`docker version`
-* Kubernetes: uitvoeren`kubectl version`
+* Docker Swarm: voer `docker version` uit.
+* Kubernetes: voer `kubectl version` uit.
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Hoe kan ik de orchestrator upgraden na de implementatie?
 
@@ -87,7 +89,7 @@ Azure Container Service biedt momenteel geen hulpprogramma's voor het bijwerken 
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Waar vind ik de SSH-verbindingsreeks naar mijn cluster?
 
-U vindt de verbindingsreeks in Azure Portal of met behulp van Azure-opdrachtregelprogramma's. 
+U vindt de verbindingsreeks in de Azure-portal of met behulp van Azure-opdrachtregelprogramma's. 
 
 1. Navigeer in de portal naar de resourcegroep voor de clusterimplementatie.  
 

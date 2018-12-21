@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Een miniatuur genereren - REST, C# - Computer Vision'
+title: 'Snelstartgids: Een miniatuur genereren - REST, C# - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision-API en C#.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: ca498973ae736b44aadbdf44542ed3f863abfaff
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 67cd712869ce2d4bb3bd03725dc0bdf2fb428577
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854064"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962923"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c35-in-computer-vision"></a>Snelstart: Een miniatuur maken met de REST API en C&#35; in Computer Vision
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c35-in-computer-vision"></a>Snelstartgids: Een miniatuur maken met de REST API en C&#35; in Computer Vision
 
 In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de REST API van Computer Vision. Met de methode [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) kunt u een miniatuur van een afbeelding genereren. U geeft de hoogte en breedte op. Deze waarden mogen afwijken van de hoogte-breedteverhouding van de invoerafbeelding. Computer Vision maakt gebruik van slim bijsnijden om op intelligente wijze het interessegebied te bepalen en coördinaten voor het bijsnijden te genereren op basis van dat gebied.
 

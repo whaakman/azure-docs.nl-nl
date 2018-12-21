@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 3b766cfa339e6cbb568cf57383667d270153401f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dd47976bca75569142f1912eee06c66061e92fa6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262417"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097662"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Doorvoer inrichten voor een Azure Cosmos DB-container
 
@@ -28,6 +28,7 @@ In dit artikel wordt uitgelegd hoe u doorvoer inricht voor een container (collec
 
    * Maak een nieuwe database of gebruik een bestaande.
    * Voer de id in van een collectie (of tabel, graaf).
+   * Voer een waarde voor de partitiesleutel in, bijvoorbeeld `/userid`.
    * Voer een doorvoer in, bijvoorbeeld 1000 RU's.
    * Selecteer **OK**.
 

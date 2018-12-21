@@ -1,5 +1,5 @@
 ---
-title: Bestandsshare voor Azure DC/OS-cluster
+title: (AFGESCHAFT) Bestandsshare voor Azure DC/OS-cluster
 description: Een bestandsshare maken en aan een DC/OS-cluster koppelen in Azure Container Service
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 728f8ddbda35f27c0f89e1d72e98fd2d7669320e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973493"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999864"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Een bestandsshare maken en aan een DC/OS-cluster koppelen
+# <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(AFGESCHAFT) Een bestandsshare maken en aan een DC/OS-cluster koppelen
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In deze zelfstudie wordt uitgelegd hoe u een bestandsshare in Azure kunt maken en deze aan elke agent en master van de DC/OS-cluster kunt koppelen. Als u een bestandsshare maakt, kunt u gemakkelijker bestanden, zoals configuratie-, toegangs- en logboekbestanden, in uw cluster delen. In deze zelfstudie worden de volgende taken uitgevoerd:
 

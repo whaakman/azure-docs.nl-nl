@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 0cec1fb09503d3cc685b718c2497a363dfd15824
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 20a921a0248fdb8a3856e27ad5e2620f7adb70de
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868391"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962127"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -59,7 +59,7 @@ Dit zijn de belangrijke stappen voor het maken van deze oplossing:
 
     Hier volgt de diagramoplossing op hoog niveau: 
 
-    ![Stapsgewijs gegevens laden](media\tutorial-incremental-copy-multiple-tables-powershell\high-level-solution-diagram.png)
+    ![Stapsgewijs gegevens laden](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
 
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -268,7 +268,7 @@ Houd rekening met de volgende punten:
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen Inzender of Eigenaar, of moet dit een beheerder van het Azure-abonnement zijn.
-* Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, SQL Database, enzovoort) en berekeningen (Azure HDInsight, enzovoort) die worden gebruikt door de data factory, kunnen zich in andere regio's bevinden.
+* Voor een lijst met Azure-regio's waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio's waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, SQL Database, enzovoort) en berekeningen (Azure HDInsight, enzovoort) die worden gebruikt door de data factory, kunnen zich in andere regio's bevinden.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -704,22 +704,22 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 
 1. Selecteer **Alle services**, zoek met het trefwoord *gegevensfactory's* en selecteer **Gegevensfactory's**. 
 
-    ![Het menu voor gegevensfactory's](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
+    ![Het menu voor gegevensfactory's](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-data-factories-menu-1.png)
 
 1. Zoek naar uw data factory in de lijst met data factory’s, en selecteer deze om de pagina **Data Factory** te openen. 
 
-    ![Naar de data factory zoeken](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-search-data-factory-2.png)
+    ![Naar de data factory zoeken](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-search-data-factory-2.png)
 
 1. Selecteer op de pagina **Data Factory** de optie **Controleren en beheren**. 
 
-    ![De tegel Bewaking en beheer](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
+    ![De tegel Bewaking en beheer](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-monitor-manage-tile-3.png)
 
 1. De toepassing **Gegevensintegratie** wordt geopend op een afzonderlijk tabblad. U kunt alle pijplijnactiviteiten en hun status zien. Let erop dat in het volgende voorbeeld de status van de pijplijnactiviteit **Geslaagd** is. U kunt parameters controleren die zijn doorgegeven aan de pijplijn door de koppeling in de kolom **Parameters** te selecteren. Als er een fout is opgetreden, ziet u een koppeling in de kolom **Fout**. Selecteer de koppeling in de kolom **Acties**. 
 
-    ![Pijplijnuitvoeringen](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
+    ![Pijplijnuitvoeringen](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 1. Wanneer u de koppeling in de kolom **Acties** selecteert, ziet u de volgende pagina met alle uitvoeringen van activiteiten voor de pijplijn: 
 
-    ![Uitvoering van activiteiten](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
+    ![Uitvoering van activiteiten](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-activity-runs-5.png)
 
 1. Als u wilt teruggaan naar de weergave met **pijplijnuitvoeringen**, selecteert u **Pijplijnen** zoals weergegeven in de afbeelding. 
 
@@ -801,11 +801,11 @@ VALUES
     ```
 1. Volg de pijplijnuitvoeringen met behulp van de instructies in de sectie [De pijplijn bewaken](#monitor-the-pipeline). Omdat de pijplijnstatus **In uitvoering** is, ziet u een andere actiekoppeling onder **Acties** om de pijplijn te annuleren. 
 
-    ![Pijplijnuitvoeringen worden uitgevoerd](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)
+    ![Pijplijnuitvoeringen worden uitgevoerd](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-6.png)
 
 1. Klik op **Vernieuwen** om de lijst te vernieuwen totdat de uitvoering van de pijplijn is voltooid. 
 
-    ![Pijplijnuitvoeringen vernieuwen](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
+    ![Pijplijnuitvoeringen vernieuwen](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-succeded-7.png)
 
 1. Selecteer desgewenst de koppeling **Uitvoeringen van activiteit weergeven** onder **Acties** om alle activiteitsuitvoeringen te bekijken die gekoppeld zijn aan deze pijplijnuitvoering. 
 

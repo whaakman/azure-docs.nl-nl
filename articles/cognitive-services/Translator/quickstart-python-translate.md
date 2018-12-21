@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Tekst vertalen, Python - Translator Text-API'
+title: 'Snelstartgids: Tekst vertalen, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart vertaalt u binnen tien minuten tekst vanuit één taal naar een andere taal met de Translator Text-API en Python.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: db2328d09f9e06ccabdc2408327a342fe94fefe0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085975"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999592"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Snelstart: de Translator Text-API gebruiken om een tekenreeks te vertalen met Python
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Snelstartgids: De Translator Text-API gebruiken om een tekenreeks te vertalen met Python
 
 In deze snelstart leert u hoe u een tekenreeks van het Engels naar het Italiaans en Duits vertaalt met Python en de Translator Text REST API.
 
@@ -69,7 +69,7 @@ Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt 
 De `params` worden gebruikt voor het instellen van de uitvoertalen. In dit voorbeeld vertalen we van het Engels naar het Italiaans en het Duits: `it` en `de`.
 
 >[!NOTE]
-> Zie [Translator Text-API 3.0: vertalen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) voor meer informatie over eindpunten, routes en aanvraagparameters.
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: Vertalen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -161,7 +161,7 @@ Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze 
 
 ## <a name="see-also"></a>Zie ook
 
-U kunt met de Translator Text-API meer dan alleen tekst vertalen. U kunt ook:
+Meer informatie over het gebruik van de Translator Text-API voor:
 
 * [Tekst transcriberen](quickstart-python-transliterate.md)
 * [Een taal identificeren op basis van de invoer](quickstart-python-detect.md)

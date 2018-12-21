@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7d319c82da09ec5c960e1f40bc26edce8ee372b9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274420"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083560"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Zelfstudie: kosten beheren met Cloudyn
 
@@ -53,13 +53,11 @@ Wanneer u kostentoewijzing start, is het eerste wat u doet het definiëren van h
 
 Als u een aangepast model voor de toewijzing van kosten wilt maken, selecteert u **Costs** &gt; **Cost Management** &gt; **Cost Allocation 360°** in het menu van het rapport.
 
-![Selectie van Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Voorbeeld van een dashboard waarin u Cost Allocation 360 selecteert](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 Selecteer op de pagina **Cost Allocation 360** de optie **Add** en voer een naam en beschrijving in voor het kostenmodel. Selecteer alle accounts of individuele accounts. Als u individuele accounts wilt gebruiken, kunt u meerdere accounts selecteren van verschillende cloudserviceproviders. Klik vervolgens op **Categorization** om de gedetecteerde tags te kiezen voor het categoriseren van uw kostengegevens. Kies tags (categorieën) die u wilt opnemen in uw model. In het volgende voorbeeld is de tag **Unit** geselecteerd.
 
 ![Voorbeeld van onderverdeling in categorieën van kostenmodel](./media/tutorial-manage-costs/cost-model01.png)
-
-
 
 In het voorbeeld ziet u dat $19.680 niet is gecategoriseerd (zonder tags).
 
@@ -97,7 +95,7 @@ Als u een nieuwe regel wilt definiëren, kan dat in het gebied **Rules**. Voer b
 
 De volgende afbeelding toont een voorbeeld van regels die zijn gemaakt voor een nieuwe categorie met de naam **Work-Load**:
 
-![Voorbeeld van categorie](./media/tutorial-manage-costs/category01.png)
+![Voorbeeld van de nieuwe categorie werkbelasting](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>Tagbronnen en rapporten
 
@@ -124,7 +122,7 @@ De methode die organisaties gebruiken om showback en chargeback uit te voeren, v
 
 Als u de resultaten van de kostentoewijzing wilt bekijken, opent u het kostenanalyserapport en selecteert u het kostenmodel dat u hebt gemaakt. Vervolgens voegt u een groepering door op een of meer van de tags die zijn geselecteerd in het kostenmodel.
 
-![Kostenanalyserapport](./media/tutorial-manage-costs/cost-analysis.png)
+![Rapport Kostenanalyse met een voorbeeld van gegevens met de nieuwe kosten](./media/tutorial-manage-costs/cost-analysis.png)
 
 U kunt eenvoudig rapporten maken en opslaan die zijn toegespitst op specifieke services die zijn verbruikt door bepaalde groepen. Stel dat een afdeling binnen uw organisatie intensief gebruikmaakt van VM's van Azure. U kunt dan een rapport maken dat is gefilterd op VM's van Azure om het verbruik en de kosten inzichtelijk te maken.
 

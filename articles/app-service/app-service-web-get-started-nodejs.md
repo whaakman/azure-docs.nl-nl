@@ -1,5 +1,5 @@
 ---
-title: Een Node.js-web-app maken in Azure | Microsoft Docs
+title: Een Node.js-web-app maken - Azure App Service | Microsoft Docs
 description: Implementeer in enkele minuten uw eerste Node.js-app (Hallo wereld) in Azure App Service Web Apps.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 6d3f367ce21e9574282805737f2eff6c83ea6157
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.custom: seodec18
+ms.openlocfilehash: 4646456acb44f3054ef948a17d3db330e4e1e727
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248187"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257966"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Een Node.js-web-app maken in Azure
 
@@ -119,10 +119,10 @@ Stel de Node-runtime in op 8.11.1. Voer [`az webapp list-runtimes`](/cli/azure/w
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
-Blader naar uw nieuwe web-app. Vervang _&lt;app-naam>_ door een unieke app-naam.
+Blader naar uw nieuwe web-app. Vervang `<app_name>` door een unieke app-naam.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 Zo zou uw nieuwe web-app er moeten uitzien:

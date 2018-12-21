@@ -1,5 +1,5 @@
 ---
-title: Een app met meerdere containers (preview) maken in Azure-Web App for Containers met behulp van een configuratie van Docker Compose
+title: Een app met meerdere containers maken met Docker Compose - Azure App Service
 description: Uw eerste app met meerdere containers binnen enkele minuten implementeren in Azure Web-App for Containers
 keywords: azure-appservice, web-app, linux, docker, compose, multicontainer, meerdere containers, web-app voor containers, meerdere containers, container, kubernetes, wordpress, azure db voor mysql, productiedatabase met containers
 services: app-service\web
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 1d54d914edb306b89dc6f2604aa5af3d17cb535d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec18
+ms.openlocfilehash: 404be7a064e0e4b09178830b7802192e8775e121
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576779"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316571"
 ---
-# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Een app met meerdere containers (preview) maken in Web App for Containers
+# <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Een app met meerdere containers (preview) maken met behulp van een configuratie van Docker Compose
 
 Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. Deze snelstart laat zien hoe u een app met meerdere containers implementeert in Web App for Containers in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) met behulp van een configuratie van Docker Compose. Voor Kubernetes en een volledige end-to-end-oplossing met behulp van Azure DB voor MySQL, volgt u de [meerdere containers zelfstudie](tutorial-multi-container-app.md).
 

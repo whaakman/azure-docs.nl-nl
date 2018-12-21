@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: een web-app ontwikkelen met .NET en de MongoDB-API'
+title: 'Azure Cosmos DB: Een web-app ontwikkelen met .NET en de MongoDB-API'
 description: Biedt een voorbeeld van .NET-code die u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren
 services: cosmos-db
 author: slyons
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: sclyon
-ms.openlocfilehash: a0255257ca4f9ebfd0ae230a872be34c4dbec02a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 170f3132084da07ccf98a0dfed651bbfd7220615
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846701"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081027"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: een MongoDB-API-web-app ontwikkelen met .NET en de Azure Portal
+# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Een MongoDB-API-web-app ontwikkelen met .NET en Azure Portal
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -132,7 +132,7 @@ De volgende codefragmenten zijn alle overgenomen uit het bestand Dal.cs in de ma
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
-1. Klik in [Azure Portal](http://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Verbindingsreeks** en klik vervolgens op **Sleutels voor lezen/schrijven**. U gebruikt de kopieerknoppen aan de rechterkant van het scherm om de Gebruikersnaam, het Wachtwoord, en de Host naar het bestand Dal.cs te kopiëren. Dit doet u in de volgende stap.
+1. Klik in [Azure Portal](https://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Verbindingsreeks** en klik vervolgens op **Sleutels voor lezen/schrijven**. U gebruikt de kopieerknoppen aan de rechterkant van het scherm om de Gebruikersnaam, het Wachtwoord, en de Host naar het bestand Dal.cs te kopiëren. Dit doet u in de volgende stap.
 
 2. Open het bestand **Dal.cs** in de map **DAL**. 
 

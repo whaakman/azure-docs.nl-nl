@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 48b2cdb26994d01dfced8216bb70493802f672a7
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265259"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413673"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met behulp van Azure Databricks
+# <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Zelfstudie: Gegevens uitpakken, transformeren en laden met Azure Databricks
 
 In deze zelfstudie voert u een ETL-bewerking (Extraction, Transformation, and Loading) uit met behulp van Azure Databricks. U haalt gegevens op uit Azure Data Lake Store en draagt deze over naar Azure Databricks, voert transformaties uit op de gegevens in Azure Databricks, waarna u de getransformeerde gegevens in Azure SQL Data Warehouse laadt.
 
@@ -44,9 +44,9 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 ## <a name="prerequisites"></a>Vereisten
 
 Zorg ervoor dat u aan de volgende vereisten voldoet voordat u met deze zelfstudie begint:
-- Maak een Azure SQL Data Warehouse, maak een firewallregel op serverniveau en maak verbinding met de server als serverbeheerder. Volg de instructies bij [Snelstart: Een Azure SQL-datawarehouse maken](../sql-data-warehouse/create-data-warehouse-portal.md)
+- Maak een Azure SQL Data Warehouse, maak een firewallregel op serverniveau en maak verbinding met de server als serverbeheerder. Volg de instructies in [Quick Start: Een Azure SQL Data Warehouse maken](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Maak een databasehoofdsleutel voor Azure SQL Data Warehouse. Volg de instructies bij [Een databasehoofdsleutel maken](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Maak een Azure Blob-opslagaccount met daarin een container. Haal ook de toegangssleutel op voor toegang tot het opslagaccount. Volg de instructies bij [Quickstart: Een Azure Blob-opslagaccount maken](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Maak een Azure Blob-opslagaccount met daarin een container. Haal ook de toegangssleutel op voor toegang tot het opslagaccount. Volg de instructies in [Quick Start: Een Azure Blob Storage-account maken](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
@@ -54,7 +54,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Een Azure Databricks-werkruimte maken
 
-In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure Portal. 
+In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure Portal.
 
 1. Selecteer in Azure Portal **Een resource maken** > **Gegevens en analyses** > **Azure Databricks**.
 
@@ -65,7 +65,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
     ![Een Azure Databricks-werkruimte maken](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Een Azure Databricks-werkruimte maken")
 
     Geef de volgende waarden op:
-     
+    
     |Eigenschap  |Beschrijving  |
     |---------|---------|
     |**Werkruimtenaam**     | Geef een naam op voor uw Databricks-werkruimte.        |
@@ -106,11 +106,11 @@ In deze sectie maakt u een Azure Data Lake Store-account waaraan u een service-p
 
 1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Een resource maken** > **Opslag** > **Data Lake Store**.
 3. In de blade **Nieuwe Data Lake Store** geeft u de waarden op zoals u ze in de volgende schermafbeelding ziet:
-   
+
     ![Een nieuw Azure Data Lake Store-account maken](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "Een nieuw Azure Data Lake Store-account maken")
 
-    Geef de volgende waarden op: 
-     
+    Geef de volgende waarden op:
+    
     |Eigenschap  |Beschrijving  |
     |---------|---------|
     |**Naam**     | Voer een unieke naam in voor het Data Lake Store-account.        |
@@ -125,7 +125,7 @@ In deze sectie maakt u een Azure Data Lake Store-account waaraan u een service-p
 U gaat nu een service-principal voor Azure Active Directory maken en deze koppelen aan het Azure Data Lake Store-account dat u hebt gemaakt.
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>Een service-principal voor Azure Active Directory maken
-   
+
 1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Alle services** en zoek naar **Azure Active Directory**.
 
 2. Selecteer **App-registraties**.
@@ -193,7 +193,7 @@ Wanneer u zich programmatisch aanmeldt, moet u de tenant-id samen met uw verific
 
 ## <a name="upload-data-to-data-lake-store"></a>Gegevens uploaden naar Data Lake Store
 
-In deze sectie uploadt u een voorbeeldgegevensbestand naar Data Lake Store. Dit bestand gebruikt u later in Azure Databricks om enkele transformaties uit te voeren. Het voorbeeldgegevensbestand (**small_radio_json.json**) dat u in deze zelfstudie gebruikt, is beschikbaar in deze [Github-opslagplaats](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+In deze sectie uploadt u een voorbeeldgegevensbestand naar Data Lake Store. Dit bestand gebruikt u later in Azure Databricks om enkele transformaties uit te voeren. De voorbeeldgegevens (**small_radio_json.json**) die u in deze zelfstudie gebruikt, zijn beschikbaar in deze [GitHub-opslagplaats](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
 1. Selecteer in [Azure Portal](https://portal.azure.com) het Data Lake Store-account dat u hebt gemaakt.
 
@@ -378,7 +378,7 @@ In deze sectie uploadt u de getransformeerde gegevens naar Azure SQL Data Wareho
 
 Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Blob Storage als een tijdelijke opslaglocatie voor het uploaden van gegevens tussen Azure Databricks en Azure SQL Data Warehouse. U begint met het opgeven van de configuratie om verbinding te maken met het opslagaccount. U moet het account al hebben gemaakt als onderdeel van de vereisten voor dit artikel.
 
-1. Geef de configuratie op voor toegang tot het Azure Storage-account vanuit Azure Databricks. Als u de URL voor de blob-opslag vanuit de portal kopiëren, moet u *https://* van het begin verwijderen. 
+1. Geef de configuratie op voor toegang tot het Azure Storage-account vanuit Azure Databricks. Als u de URL voor de blob-opslag vanuit de portal kopiëren, moet u *https://* van het begin verwijderen.
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -410,7 +410,7 @@ Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Bl
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)

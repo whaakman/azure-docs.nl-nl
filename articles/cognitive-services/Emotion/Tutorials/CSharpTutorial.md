@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3a84a68718fba29e2a4b2fae057e68976119c95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: da605ec4013fb11606f99f3d9a2dcfcfcab00d3b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237021"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163324"
 ---
 # <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Zelfstudie: Emoties op een gezicht in een afbeelding herkennen.
 
@@ -34,12 +34,12 @@ Voordat u het voorbeeld maakt, moet u zich abonneren op Emotion-API, die deel ui
 
 #### <a name="get-the-client-library-and-example"></a>De clientbibliotheek en het voorbeeld downloaden  
 U kunt de clientbibliotheek van de Emotion-API downloaden via de [SDK](https://www.github.com/microsoft/cognitive-emotion-windows). Het gedownloade ZIP-bestand moet worden uitgepakt naar een map van uw keuze. Veel gebruikers kiezen hiervoor de map Visual Studio 2015.
-## <a name="Step1">Stap 1: het voorbeeld openen</a>
+## <a name="Step1">Stap 1: Het voorbeeld openen</a>
 1.  Start Microsoft Visual Studio 2015, klik op **File** en selecteer achtereenvolgens **Open** en **Project/Solution**.
 2.  Blader naar de map waar u de gedownloade bestanden van de Emotion-API hebt opgeslagen. Klik achtereenvolgens op **Emotion**, **Windows** en de map **Sample-WPF**.
 3.  Dubbelklik om het Visual Studio 2015-oplossingsbestand (.sln) met de naam **EmotionAPI-WPF-Samples.sln** te openen. De oplossing wordt nu geopend in Visual Studio.
 
-## <a name="Step2">Stap 2: het voorbeeld bouwen</a>
+## <a name="Step2">Stap 2: Het voorbeeld bouwen</a>
 1. Klik in **Solution Explorer** met de rechtermuisknop op **References** en selecteer **Manage NuGet Packages**.
 
   ![NuGet Package Manager openen](../Images/EmotionNuget.png)
@@ -50,21 +50,21 @@ U kunt de clientbibliotheek van de Emotion-API downloaden via de [SDK](https://w
 
 3.  Druk op Ctrl+Shift+B of klik op **Build** in het lintmenu en selecteer vervolgens **Build Solution**.
 
-## <a name="Step3">Stap 3: het voorbeeld uitvoeren</a>
+## <a name="Step3">Stap 3: Het voorbeeld uitvoeren</a>
 1.  Als het compileren is voltooid, drukt u op **F5** of klikt u op **Start** op het lintmenu om het voorbeeld uit te voeren.
 2.  Zoek het venster van de Emotion-API met het **tekstvak** '**Paste your subscription key here to start**'. Plak uw abonnementssleutel in het tekstvak zoals wordt weergegeven in de schermafbeelding hieronder. U kunt ervoor kiezen om de abonnementssleutel op te slaan op uw pc of laptop door op de knop Save Key te klikken. Als u de abonnementssleutel wilt verwijderen van uw computer, klikt u op Delete Key.
 
   ![Interface van Emotion-API](../Images/EmotionKey.png)
 
 3.  Klik onder **Select a scenario** op het scenario dat u wilt gebruiken, **Detect emotion using a stream** of **Detect emotion using a URL**, en volg de instructies op het scherm. Microsoft ontvangt de afbeeldingen die u uploadt en kan deze gebruiken om de Emotion-API en gerelateerde services te verbeteren. Door het indienen van een afbeelding bevestigt u dat u zich hebt gehouden aan onze [gedragscode voor ontwikkelaars](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
-4.  Er zijn voorbeeldafbeeldingen beschikbaar voor gebruik met deze voorbeeldtoepassing. U vindt deze afbeeldingen in de [Github-opslagplaats Face API](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data), onder de map **Data**. Het gebruik van deze afbeeldingen is in licentie gegeven onder de Fair Use-overeenkomst, wat betekent dat u ze mag gebruiken voor het testen van dit voorbeeld, maar niet voor herpublicatie.
+4.  Er zijn voorbeeldafbeeldingen beschikbaar voor gebruik met deze voorbeeldtoepassing. U vindt deze afbeeldingen in de [GitHub-opslagplaats Face API](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data), onder de map **Data**. Het gebruik van deze afbeeldingen is in licentie gegeven onder de Fair Use-overeenkomst, wat betekent dat u ze mag gebruiken voor het testen van dit voorbeeld, maar niet voor herpublicatie.
 
 ## <a name="Review">Bekijken en leren</a>
 Nu u een werkende toepassing hebt, gaan we kijken hoe deze voorbeeld-app kan worden geïntegreerd met Microsoft Cognitive Services. Dit maakt het eenvoudiger om deze app verder te ontwikkelen of om uw eigen app te bouwen met de Emotion-API van Microsoft.
 
 Deze voorbeeld-app maakt gebruik van de clientbibliotheek van de Emotion-API, een thin C#-client-wrapper voor de Emotion-API van Microsoft. Wanneer u de voorbeeld-app volgens de bovenstaande instructies hebt gebouwd, hebt u de clientbibliotheek al ontvangen via het NuGet-pakket. U kunt de broncode van de clientbibliotheek bekijken in de map met de naam [Client Library](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary), onder **Emotion**, **Windows**, **Client Library**, die deel uitmaakt van de gedownloade opslagplaats voor bestanden die hierboven wordt genoemd in [Vereisten](#Prerequisites).
 
-U kunt ook in **Solution Explorer** informatie vinden voor het werken met de code van de clientbibliotheek. Vouw onder **EmotionAPI WPF_Samples** het onderdeel **DetectEmotionUsingStreamPage.xaml** uit en zoek **DetectEmotionUsingStreamPage.xaml.cs**. Dit bestand wordt gebruikt om te bladeren naar een lokaal opgeslagen bestand. U kunt ook **DetectEmotionUsingURLPage.xaml** uitvouwen om naar  **DetectEmotionUsingURLPage.xaml.cs** te gaan. Dit bestand wordt gebruikt bij het uploaden van een afbeeldings-URL. Dubbelklik op de. xaml.cs-bestanden om ze te openen in nieuwe vensters in Visual Studio.
+In **Solution Explorer** vindt u ook informatie voor het werken met de code van de clientbibliotheek: Vouw onder **EmotionAPI WPF_Samples** het onderdeel **DetectEmotionUsingStreamPage.xaml** uit en zoek **DetectEmotionUsingStreamPage.xaml.cs**. Dit bestand wordt gebruikt om te bladeren naar een lokaal opgeslagen bestand. U kunt ook **DetectEmotionUsingURLPage.xaml** uitvouwen om naar  **DetectEmotionUsingURLPage.xaml.cs** te gaan. Dit bestand wordt gebruikt bij het uploaden van een afbeeldings-URL. Dubbelklik op de. xaml.cs-bestanden om ze te openen in nieuwe vensters in Visual Studio.
 
 Om te zien hoe de clientbibliotheek van de Emotion-API wordt gebruikt in onze voorbeeld-app, bekijken we twee codefragmenten uit **DetectEmotionUsingStreamPage.xaml.cs** en **DetectEmotionUsingURLPage.xaml.cs**. Beide bestanden bevatten de codeopmerkingen 'KEY SAMPLE CODE STARTS HERE' en 'KEY SAMPLE CODE ENDS HERE' om u te helpen de codefragmenten te vinden die u hieronder ziet.
 

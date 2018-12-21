@@ -4,15 +4,15 @@ description: Biedt een overzicht van de service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839731"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250570"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -22,10 +22,10 @@ De service Azure Migrate beoordeelt on-premises workloads voor migratie naar Azu
 
 Azure Migrate helpt u bij het volgende:
 
-- **Azure-gereedheid beoordelen**: bepalen of uw on-premises machines geschikt zijn om te worden uitgevoerd in Azure.
-- **Aanbevelingen voor de grootte geven**: aanbevolen groottes voor virtuele Azure-machines na de migratie, op basis van de prestatiegeschiedenis van de on-premises virtuele machines.
-- **Schatting van maandelijkse kosten**: de geschatte kosten voor het uitvoeren van on-premises machines in Azure.  
-- **Migreren met hoge betrouwbaarheid**: visualiseren afhankelijkheden van lokale computers maken van groepen computers die u wilt beoordelen en tegelijk migreren.
+- **Azure-gereedheid beoordelen**: Bepaal of uw on-premises machines geschikt zijn om te worden uitgevoerd in Azure.
+- **Aanbevelingen voor grootte krijgen**: Krijg aanbevolen groottes voor virtuele Azure-machines na de migratie, op basis van de prestatiegeschiedenis van de on-premises virtuele machines.
+- **Schatting van maandelijkse kosten**: Krijg de geschatte kosten voor het uitvoeren van on-premises machines in Azure.  
+- **Migreren met hoge betrouwbaarheid**: Visualiseer afhankelijkheden van lokale computers om groepen computers te maken die u samen wilt beoordelen en migreren.
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 
@@ -34,10 +34,14 @@ Azure Migrate helpt u bij het volgende:
 - U kunt maximaal 1500 VM's detecteren in een enkele detectieronde en maximaal 1500 VM's in een enkel project. Bovendien kunt u maximaal 1500 VM's beoordelen in een enkele beoordeling.
 - Als u een grotere omgeving wilt detecteren, kunt u de detectie splitsen en meerdere projecten maken. [Meer informatie](how-to-scale-assessment.md). Azure Migrate ondersteunt maximaal 20 projecten per abonnement.
 - Azure Migrate biedt voor migratiebeoordeling alleen ondersteuning voor beheerde schijven.
--  U kunt een Azure Migrate-project alleen maken in de geografie van de Verenigde Staten. U kunt echter wel een migratie plannen voor elke Azure-doellocatie.
-    - Alleen gedetecteerde metagegevens uit de on-premises omgeving worden opgeslagen in de migratieprojectregio.
-    - Metagegevens worden opgeslagen in een van de regio’s in de geselecteerde geografie: US - west-centraal/US - oost.
-    - Als u visualisatie van afhankelijkheden gebruikt door een nieuwe Log Analytics-werkruimte te maken, wordt deze gemaakt in dezelfde als het project.
+-  U kunt een Azure Migrate-project alleen in de volgende geografische gebieden maken. Dit beperkt echter niet de mogelijkheid voor het maken van beoordelingen voor andere Azure-doellocaties.
+    **Geografie** | **Opslaglocatie**
+    --- | ---
+    Verenigde Staten | US - west-centraal of US - oost
+    Azure Government | VS (overheid) - Virginia
+
+    De geografie die bij het migratieproject hoort, wordt gebruikt om de gedetecteerde metagegevens uit de on-premises omgeving op te slaan. Metagegevens worden opgeslagen in een van de regio's op basis van de geografische locatie die voor het migratieproject is opgegeven. Als u visualisatie van afhankelijkheden gebruikt door een nieuwe Log Analytics-werkruimte te maken, wordt deze gemaakt in dezelfde als het project.
+- De functie voor visualisatie van afhankelijkheden is niet beschikbaar in Azure Government.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Waar moet ik voor betalen?
@@ -94,7 +98,7 @@ On-premises VM | Log Analytics-werkruimte | [TCP 443] | [De Microsoft Monitoring
 Nadat u de on-premises machines hebt beoordeeld, kunt u een aantal hulpprogramma's gebruiken om de migratie uit te voeren:
 
 - **Azure Site Recovery**: U kunt Azure Site Recovery gebruiken om te migreren naar Azure. Hiervoor moet u [de Azure-onderdelen voorbereiden](../site-recovery/tutorial-prepare-azure.md) die u nodig hebt, met inbegrip van een opslagaccount en een virtueel netwerk. On-premises moet u [uw VMware-omgeving voorbereiden](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Als alles voorbereid is, stelt en schakelt u replicatie naar Azure in en migreert u de virtuele machines. [Meer informatie](../site-recovery/vmware-azure-tutorial.md).
-- **Azure Database Migration**: Als uw on-premises machines een database zoals SQL Server, MySQL of Oracle uitvoeren, kunt u de [Azure Database Migration Service](../dms/dms-overview.md) gebruiken om ze te migreren naar Azure.
+- **Databasemigratie in Azure**: Als op uw on-premises machines een database zoals SQL Server, MySQL of Oracle wordt uitgevoerd, kunt u de [Azure Database Migration Service](../dms/dms-overview.md) gebruiken om ze te migreren naar Azure.
 
 
 ## <a name="next-steps"></a>Volgende stappen

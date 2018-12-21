@@ -1,5 +1,5 @@
 ---
-title: Een Azure Blueprint maken in de portal
+title: Een blauwdruk maken in de portal
 description: Gebruik Azure Blueprints om artefacten te maken, te definiëren en te implementeren.
 services: blueprints
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 2c53c5c51a6e93fa99f32400e512f0e13503b436
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092124"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315295"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Een Azure Blueprint definiëren en toewijzen in de portal
 
@@ -47,22 +47,22 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
    > [!NOTE]
    > Blauwdrukdefinities kunnen alleen worden opgeslagen in beheergroepen. Volg [deze stappen](../management-groups/create.md) om uw eerste beheergroep te maken.
 
-1. Controleer of de gegevens correct zijn (de velden **Blauwdruknaam** en **Definitielocatie** kunnen later niet meer worden gewijzigd) en klik op **Volgende: artefacten** onderaan de pagina of het tabblad **Artefacten** boven aan de pagina.
+1. Controleer of de gegevens correct zijn (de velden **Blauwdruknaam** en **Definitielocatie** kunnen later niet meer worden gewijzigd) en klik op **Volgende: artefacten** onderaan de pagina of op het tabblad **Artefacten** bovenaan de pagina.
 
-1. Roltoewijzing toevoegen aan abonnement: klik in de rij **+ Artefact toevoegen...**  onder **Abonnement** om het venster Artefact toevoegen aan de rechterkant van de browser te openen. Selecteer Roltoewijzing als _Type artefact_. Selecteer onder _Rol_ de optie Inzender en laat het selectievakje _Gebruiker, app of groep toevoegen_ ingeschakeld om een **dynamische parameter** aan te geven. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
+1. Voeg de roltoewijzing toe aan het abonnement: klik in de rij **+ Artefact toevoegen...**  onder **Abonnement** om het venster Artefact toevoegen aan de rechterkant van de browser te openen. Selecteer Roltoewijzing als _Type artefact_. Selecteer onder _Rol_ de optie Inzender en laat het selectievakje _Gebruiker, app of groep toevoegen_ ingeschakeld om een **dynamische parameter** aan te geven. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
 
    ![Artefact: roltoewijzing](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > De meeste _artefacten_ ondersteunen parameters. Een parameter die wordt toegewezen tijdens het maken van een waarde is een **statische parameter**. Een parameter die wordt toegewezen tijdens het toewijzen van de blauwdruk, is een **dynamische parameter**. Zie [Blauwdrukparameters](./concepts/parameters.md) voor meer informatie.
 
-1. Beleidstoewijzing toevoegen aan abonnement: klik in de rij **+ Artefact toevoegen...** , direct onder het **Abonnement**. Selecteer Beleidstoewijzing als _Type artefact_. Wijzig _Type_ in Ingebouwd en typ 'tag' in _Zoeken_. Klik buiten het veld _Zoeken_ om de filtering weer te geven. Selecteer Tag met standaardwaarde op resourcegroepen toepassen door erop te klikken. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
+1. Beleidstoewijzing toevoegen aan een abonnement: klik in de rij **+ Artefact toevoegen...** , direct onder het **abonnement**. Selecteer Beleidstoewijzing als _Type artefact_. Wijzig _Type_ in Ingebouwd en typ 'tag' in _Zoeken_. Klik buiten het veld _Zoeken_ om de filtering weer te geven. Selecteer Tag met standaardwaarde op resourcegroepen toepassen door erop te klikken. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
 
 1. Klik in de rij van de beleidstoewijzing Tag met standaardwaarde op resourcegroepen toepassen. Het venster waarin u parameters voor het artefact kunt opgeven als onderdeel van de blauwdrukdefinitie wordt geopend. Hier kunt u de parameters voor alle toewijzingen instellen (**statische parameters**) op basis van deze blauwdruk in plaats van tijdens de toewijzing (**dynamische parameters**). In dit voorbeeld worden **dynamische parameters** gebruikt tijdens de blauwdruktoewijzing. Laat daarom de standaardwaarden staan en klik op **Annuleren**.
 
-1. Resourcegroep toevoegen aan abonnement: klik in de rij **+ Artefact toevoegen...**  onder **Abonnement**. Selecteer Resourcegroep als _Type artefact_. Laat de velden _Naam resourcegroep_ en _Locatie_ leeg, maar zorg dat het selectievakje voor elke eigenschap is ingeschakeld zodat het **dynamische parameters** zijn. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
+1. Resourcegroep toevoegen aan een abonnement: klik in de rij **+ Artefact toevoegen...** , direct onder **Abonnement**. Selecteer Resourcegroep als _Type artefact_. Laat de velden _Naam resourcegroep_ en _Locatie_ leeg, maar zorg dat het selectievakje voor elke eigenschap is ingeschakeld zodat het **dynamische parameters** zijn. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
 
-1. Sjabloon toevoegen onder resourcegroep: klik in de rij **+ Artefact toevoegen...** direct onder de vermelding **ResourceGroup**. Selecteer Azure Resource Manager-sjabloon als _Type artefact_, stel _Weergavenaam van artefact_ in op StorageAccount en laat de eigenschap _Beschrijving_ leeg. Op het tabblad **Sjabloon** van het editorvak plakt u de volgende Resource Manager-sjabloon. Na het plakken van de sjabloon klikt u op het tabblad **Parameters** en u ziet dat de sjabloonparameter **storageAccountType** en de standaardwaarde **Standard_LRS** automatisch zijn gedetecteerd en ingevuld. Ze zijn echter geconfigureerd als een **dynamische parameter**. Wanneer u het vinkje uit het selectievakje verwijdert, ziet u dat de vervolgkeuzelijst alleen waarden bevat die in de Resource Manager-sjabloon onder **allowedValues** voorkomen. Schakel het selectievakje weer in om de parameters terug te zetten op een **dynamische parameter**. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
+1. Sjabloon toevoegen aan een resourcegroep: klik op de rij **+ Artefact toevoegen..** direct onder de vermelding **ResourceGroup**. Selecteer Azure Resource Manager-sjabloon als _Type artefact_, stel _Weergavenaam van artefact_ in op StorageAccount en laat de eigenschap _Beschrijving_ leeg. Op het tabblad **Sjabloon** van het editorvak plakt u de volgende Resource Manager-sjabloon. Na het plakken van de sjabloon klikt u op het tabblad **Parameters** en u ziet dat de sjabloonparameter **storageAccountType** en de standaardwaarde **Standard_LRS** automatisch zijn gedetecteerd en ingevuld. Ze zijn echter geconfigureerd als een **dynamische parameter**. Wanneer u het vinkje uit het selectievakje verwijdert, ziet u dat de vervolgkeuzelijst alleen waarden bevat die in de Resource Manager-sjabloon onder **allowedValues** voorkomen. Schakel het selectievakje weer in om de parameters terug te zetten op een **dynamische parameter**. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
 
    > [!IMPORTANT]
    > Controleer bij het importeren van de sjabloon of het bestand alleen JSON is en geen HTML-code bevat. Wanneer u verwijst naar een URL op GitHub, zorg er dan voor dat u op **RAW** hebt geklikt om het zuivere JSON-bestand op te halen en niet het bestand met HTML, om weer te geven op GitHub. Er treedt een fout op als de geïmporteerde sjabloon geen zuivere JSON is.
@@ -125,11 +125,11 @@ In [Een blauwdruk maken](#create-a-blueprint) hebt u geen beschrijving opgegeven
 
 1. Klik in de lijst met blauwdrukken met de rechtermuisknop op de blauwdruk die u eerder hebt gemaakt en kies **Blauwdruk bewerken**.
 
-1. Geef in **Beschrijving van blauwdruk** informatie op over de blauwdruk en de artefacten waaruit deze bestaat.  Voer in dat geval iets in als: 'Deze blauwdruk stelt het tagbeleid en de roltoewijzing op abonnement in, maakt een ResourceGroup en implementeert een resourcesjabloon en wijst een rol toe aan die resourcegroep.'
+1. Geef in **Beschrijving van blauwdruk** informatie op over de blauwdruk en de artefacten waaruit deze bestaat.  Voer in dit geval iets als het volgende in: 'Met deze blauwdruk worden het tagbeleid en de roltoewijzing op abonnement ingesteld, wordt er een resourcegroup gemaakt en worden een resourcesjabloon en roltoewijzing geïmplementeerd voor die resourcegroep.'
 
 1. Klik op **Volgende: artefacten** onderaan de pagina of op het tabblad **Artefacten** bovenaan de pagina.
 
-1. Roltoewijzing toevoegen onder resourcegroep: klik in de rij **+ Artefact toevoegen...**  direct onder de vermelding **ResourceGroup**. Selecteer Roltoewijzing als _Type artefact_. Selecteer onder _Rol_ de optie Eigenaar en schakel het selectievakje _Gebruiker, app of groep toevoegen_ uit en selecteer de gebruiker, app of groep die u wilt toevoegen. Dit artefact maakt gebruik van een **statische parameter** die in elke toewijzing van deze blauwdruk is ingesteld. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
+1. Een roltoewijzing toevoegen aan een resourcegroep: klik in de rij **+ Artefact toevoegen...** , direct onder de vermelding **ResourceGroup**. Selecteer Roltoewijzing als _Type artefact_. Selecteer onder _Rol_ de optie Eigenaar en schakel het selectievakje _Gebruiker, app of groep toevoegen_ uit en selecteer de gebruiker, app of groep die u wilt toevoegen. Dit artefact maakt gebruik van een **statische parameter** die in elke toewijzing van deze blauwdruk is ingesteld. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
 
    ![Artefact: roltoewijzing 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -173,7 +173,7 @@ Wanneer een blauwdruk is gepubliceerd, kan deze worden toegewezen aan een abonne
 
 1. Laat **Toewijzing vergrendelen** staan op de standaardwaarde **Niet vergrendelen**. Zie voor meer informatie [Vergrendeling van blauwdrukresources](./concepts/resource-locking.md).
 
-1. Voor de roltoewijzing op abonnementsniveau **[gebruikersgroep of toepassingsnaam]: Inzender** selecteert u een gebruiker, app of groep.
+1. Voor roltoewijzing op abonnementsniveau **[naam gebruikersgroep of toepassing]: inzender** zoekt u naar en selecteert u een gebruiker, app of groep.
 
 1. Voor de beleidstoewijzing op abonnementsniveau stelt u de **Tagnaam** in op CostCenter en de **Tagwaarde** op ContosoIT.
 

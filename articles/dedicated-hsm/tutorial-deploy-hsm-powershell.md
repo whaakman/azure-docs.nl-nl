@@ -1,6 +1,6 @@
 ---
-title: "Zelfstudie: PowerShell gebruiken om Azure Toegewezen HSM's te implementeren in een bestaand virtueel netwerk | Microsoft Docs"
-description: PowerShell gebruiken om HSM's te implementeren in een bestaand virtueel netwerk
+title: 'Zelfstudie: PowerShell gebruiken voor implementatie in een bestaand virtueel netwerk - Azure Toegewezen HSM | Microsoft Docs'
+description: Zelfstudie voor het implementeren van een toegewezen HSM in een bestaand virtueel netwerk met behulp van PowerShell
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,17 +8,17 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a714a52ecd6398fde459c5814b8a6cf223655eff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318753"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086301"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Zelfstudie: PowerShell gebruiken om HSM's te implementeren in een bestaand virtueel netwerk
 
@@ -37,7 +37,7 @@ Deze zelfstudie richt zich op twee HSM's en de vereiste ExpressRoute-gateway (zi
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure Toegewezen HSM is momenteel niet beschikbaar in de Azure-portal, dus alle interactie met de service loopt via de opdrachtregel of PowerShell. In deze zelfstudie wordt PowerShell in de Azure Cloud Shell gebruikt. Als u niet bekend bent met PowerShell, volg dan de instructies in [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
+Azure Toegewezen HSM is momenteel niet beschikbaar in de Azure-portal, dus alle interactie met de service loopt via de opdrachtregel of PowerShell. In deze zelfstudie wordt PowerShell in de Azure Cloud Shell gebruikt. Als u niet bekend bent met PowerShell, volg dan de instructies in: [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
 
 Veronderstellingen:
 
@@ -139,6 +139,14 @@ $compute = New-AzureRmVirtualNetworkSubnetConfig `
 $delegation = New-AzureRmDelegation `
   -Name "myDelegation" `
   -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+
+```
+
+```powershell
+$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+  -Name hsmsubnet ` 
+  -AddressPrefix 10.2.1.0/24 ` 
+  -Delegation $delegation 
 
 ```
 

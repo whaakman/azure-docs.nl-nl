@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Containerinstallatiekopieën bouwen in de cloud met Azure Container Registry Tasks'
+title: 'Zelfstudie: Containerinstallatiekopieën bouwen in de cloud met Azure Container Registry-taken'
 description: In deze zelfstudie leert u hoe een Docker-containerinstallatiekopie in Azure bouwt met Azure Container Registry Tasks (ACR Tasks) en deze vervolgens implementeert naar Azure Container Instances.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7ac4fb62c6832920634de96c3e5befb15ce3b3a4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eafd6a75b4297056bcf4c5415f77179cefde6541
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854725"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256686"
 ---
-# <a name="tutorial-build-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Zelfstudie: Containerinstallatiekopieën bouwen in de cloud met Azure Container Registry Tasks
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Zelfstudie: Containerinstallatiekopieën bouwen in de cloud met Azure Container Registry-taken
 
 **ACR Tasks** is een suite met functies in Azure Container Registry die gestroomlijnde en efficiënte builds van Docker-containerinstallatiekopieën mogelijk maakt in Azure. In dit artikel leert u hoe u de functie *quick task* van ACR Tasks gebruikt.
 
@@ -220,8 +220,8 @@ az keyvault secret set \
 
 U hebt een Azure Key Vault gemaakt en er twee geheimen in opgeslagen:
 
-* `$ACR_NAME-pull-usr`: de service principal-ID, voor gebruik als de **gebruikersnaam** van het containerregister.
-* `$ACR_NAME-pull-pwd`: het service principal-wachtwoord, voor gebruik als het **wachtwoord** van het containerregister.
+* `$ACR_NAME-pull-usr`: De service-principal-id, voor gebruik als de **gebruikersnaam** van het containerregister.
+* `$ACR_NAME-pull-pwd`: Het service-principal-wachtwoord, voor gebruik als het **wachtwoord** van het containerregister.
 
 U kunt nu op naam naar deze geheime gegevens verwijzen wanneer u of uw toepassingen en services installatiekopieën uit het register halen.
 

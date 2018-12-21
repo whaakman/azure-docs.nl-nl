@@ -1,24 +1,27 @@
 ---
-title: 'Snelstart: Azure Kubernetes-cluster voor Linux'
+title: (AFGESCHAFT) Snelstartgids - Azure Kubernetes-cluster voor Linux
 description: Leer snel een Kubernetes-cluster te maken voor Linux-containers in Azure Container Service met de Azure CLI.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2186bd8c28851552bdbd80a74ba7cefd9f7a82d7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c5320a541e189043fc27f5c4bcd29afd5d7c70f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950349"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994168"
 ---
-# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Kubernetes-cluster voor Linux-containers implementeren
+# <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(AFGESCHAFT) Een Kubernetes-cluster voor Linux-containers implementeren
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Voor de bijgewerkte versie van deze snelstartgids die gebruikmaakt van Azure Kubernetes Service gaat u naar [Snelstartgids: Een AKS-cluster (Azure Kubernetes Service) implementeren](../../aks/kubernetes-walkthrough.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In deze snelstartgids wordt een Kubernetes-cluster geïmplementeerd met behulp van de Azure CLI. Vervolgens wordt er een toepassing met meerdere containers die bestaat uit een web-front-end en een Redis-exemplaar, geïmplementeerd en uitgevoerd op het cluster. Zodra de toepassing is voltooid, is deze toegankelijk via internet. 
 

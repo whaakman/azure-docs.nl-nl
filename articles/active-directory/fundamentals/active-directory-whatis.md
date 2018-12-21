@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure Active Directory | Microsoft Docs
+title: What is Azure Active Directory? (Engelstalig) | Microsoft Docs
 description: Meer informatie over Azure Active Directory, inclusief de vereiste terminologie, publiek, basisbeginselen over licenties en bijbehorende functies.
 services: active-directory
 author: eross-msft
@@ -8,12 +8,13 @@ ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
-ms.openlocfilehash: 1b1561ed8470c39b13def72774e253db28bf58d8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686582"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085923"
 ---
 # <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig) 
 Azure Active Directory (Azure AD) is de identiteits- en toegangsbeheerservice van Microsoft op basis van de cloud. Met Azure AD kunnen uw medewerkers zich aanmelden en toegang krijgen tot resources:
@@ -51,7 +52,7 @@ Om uw Azure AD-implementatie te verbeteren, kunt u ook betaalde mogelijkheden to
 
 - **Functielicenties met Betalen per gebruik.** U kunt ook aanvullende functielicenties krijgen, zoals Azure Active Directory Business-to-Customer (B2C). Met B2C kunt u identiteits- en toegangsbeheeroplossingen bieden voor klantgerichte apps. Voor meer informatie raadpleegt u de [documentatie over Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 
-Voor meer informatie over het koppelen van een Azure-abonnement aan Azure AD, raadpleegt u [Procedure: een Azure-abonnement koppelen of toevoegen aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md). Voor meer informatie over het toewijzen van licenties aan uw gebruikers, raadpleegt u [Procedure: licenties voor Azure Active Directory toewijzen of verwijderen](license-users-groups.md).
+Meer informatie over het koppelen van een Azure-abonnement aan Azure AD is te vinden in [Procedure: Een Azure-abonnement koppelen of toevoegen aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md); meer informatie over het toewijzen van licenties aan uw gebruikers is te vinden in [Procedure: Azure Active Directory-licenties toewijzen of verwijderen](license-users-groups.md).
 
 ## <a name="terminology"></a>Terminologie
 Lees de volgende terminologie voor een beter begrip van Azure AD en de bijbehorende documentatie.

@@ -1,6 +1,6 @@
 ---
-title: Een query uitvoeren voor een index (REST-API - Azure Search) | Microsoft Docs
-description: Een zoekquery samenstellen in Azure Search en gebruikmaken van zoekparameters om zoekresultaten te filteren en te sorteren.
+title: In code een query uitvoeren voor een index met behulp van REST API - Azure Search
+description: HTTP-opdrachten en REST API-code voor het samenstellen van een zoekquery in Azure Search. Voeg zoekparameters toe om de zoekresultaten te filteren en te sorteren.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 035dc4ac349513867253e5593e01fab4fec62f6b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: ccdb872646dded34cb50cd64f56733445132c4b7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186508"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316919"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Een query uitvoeren in uw Azure Search-index met behulp van de REST-API
 > [!div class="op_single_selector"]

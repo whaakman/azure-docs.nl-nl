@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: .NET-voorbeelden voor de SQL API'
-description: Vind C# .NET-voorbeelden op github voor veelvoorkomende taken met de SQL API in Azure Cosmos DB, zoals CRUD-bewerkingen.
+description: Vind C# .NET-voorbeelden op GitHub voor veelvoorkomende taken met de SQL-API in Azure Cosmos DB, zoals CRUD-bewerkingen.
 keywords: Voorbeeld van NoSQL
 author: rnagpal
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.component: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 39eacca1e5ddb4c7024c5195dc1823f2c3c651e7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9c16a882e49ceec4fc733cb3a8c1061dd1949e28
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875260"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166622"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-voorbeelden voor de SQL API
 > [!div class="op_single_selector"]
@@ -37,11 +37,11 @@ De meest recente codevoorbeelden voor de .NET-SDK versie 3.0 (preview) vindt u i
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
-- U kunt de [voordelen voor Visual Studio-abonnees activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): via uw Visual Studio-abonnement ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken.
+- U kunt [voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Via uw Visual Studio-abonnement ontvangt u elke maand een tegoed dat u voor betaalde Azure-services kunt gebruiken.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-U hebt ook het pakket [Microsoft.Azure.DocumentDB NuGet](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) nodig. 
+U hebt ook het pakket [Microsoft.Azure.DocumentDB NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) nodig. 
 
 > [!NOTE]
 > Elk voorbeeld staat op zichzelf. Het stelt zichzelf in en aan het einde worden de gegevens automatisch opgeschoond. Als zodanig, wordt in de voorbeelden CreateDocumentCollectionAsync() meerdere keren aangeroepen. Telkens wanneer dit wordt gedaan, wordt uw abonnement gefactureerd voor 1 uur gebruik per prestatielaag van de verzameling die wordt gemaakt. 
@@ -146,7 +146,7 @@ In het voorbeeld van wijzigingenfeeds [azure-documentdb-dotnet/samples/code-samp
 | [Wijzigingenfeed lezen](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) | 
 | [Partitiesleutelbereiken lezen](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync.aspx) | 
 
-In het voorbeeld van wijzigingenfeedprocessor: [Migratiehulpmiddel wijzigingenfeeds](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) ziet u hoe u de wijzigingenfeed-processorbibliotheek gebruikt om gegevens te repliceren naar een andere Cosmos DB-verzameling.   
+Voorbeeld van verwerker van wijzigingenfeed:  In [Change Feed Migration Tool](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) (Migratiehulpmiddel voor wijzigen van feed) ziet u hoe u de verwerkerbibliotheek voor de wijzigingenfeed gebruikt om gegevens te repliceren naar een andere Cosmos DB-verzameling.   
 
 ## <a name="server-side-programming-examples"></a>Voorbeelden van programmering op de server
 In het bestand voor programmering op de server[azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), ziet u hoe de volgende taken worden uitgevoerd.
@@ -161,7 +161,7 @@ In het bestand voor programmering op de server[azure-documentdb-dotnet/samples/c
 | [Een navolgende trigger maken](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [Een door gebruiker gedefinieerde functie (UDF) maken](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-Zie voor meer informatie over het programmeren op de server [Programmeren op de server met Azure Cosmos DB: opgeslagen procedures, databasetriggers en UDF's](programming.md).
+Zie  [Werken met Azure Cosmos DB opgeslagen procedures, triggers en gebruikersgedefinieerde functies](programming.md) voor meer informatie over programmeren aan de serverzijde.
 
 ## <a name="user-management-examples"></a>Voorbeelden van gebruikersbeheer
 In het gebruikersbeheerbestand [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs) ziet u hoe de volgende taken worden uitgevoerd.

@@ -1,23 +1,24 @@
 ---
-title: Nog 10 minuten tot uw eerste LUIS-app
-titleSuffix: Azure Cognitive Services
+title: 'Snelstartgids: Een app maken'
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Maak een LUIS-app die gebruikmaakt van het vooraf gemaakte domein `HomeAutomation` voor het in- en uitschakelen van lichten en apparaten. Dit vooraf gemaakte domein biedt u intenties, entiteiten voorbeelden van utterances. Wanneer u klaar bent, hebt u een LUIS-eindpunt in de cloud.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 657f5b6879f7782cbd94588657dc0082eff1f9c5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71f3084be697dd84f3f262d2a79cd04a0ba76d8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423327"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086807"
 ---
-# <a name="quickstart-use-prebuilt-home-automation-app"></a>Snelstart: Een vooraf gemaakte app voor huisautomatisering gebruiken
+# <a name="quickstart-use-prebuilt-home-automation-app"></a>Snelstartgids: Een vooraf gemaakte app voor huisautomatisering gebruiken
 
 In deze snelstart maakt u een LUIS-app die gebruikmaakt van het vooraf gemaakte domein `HomeAutomation` voor het in- en uitschakelen van lichten en apparaten. Dit vooraf gemaakte domein biedt u intenties, entiteiten voorbeelden van utterances. Wanneer u klaar bent, hebt u een LUIS-eindpunt in de cloud.
 
@@ -32,11 +33,11 @@ U kunt uw toepassingen maken en beheren in **Mijn apps**.
 
 2. Selecteer **Create new app**.
 
-    [![](media/luis-quickstart-new-app/app-list.png "Schermopname van de lijst met apps")](media/luis-quickstart-new-app/app-list.png)
+    [![Schermafbeelding van de lijst met apps](media/luis-quickstart-new-app/app-list.png "Schermafbeelding van de lijst met apps")](media/luis-quickstart-new-app/app-list.png)
 
 3. Geef in het dialoogvenster uw toepassing de naam 'Home Automation'.
 
-    [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Schermopname van het pop-upvenster voor de naam van een nieuwe app")](media/luis-quickstart-new-app/create-new-app-dialog.png)
+    [![Schermafbeelding van het dialoogvenster Nieuwe app maken](media/luis-quickstart-new-app/create-new-app-dialog.png "Schermafbeelding van het dialoogvenster Nieuwe app maken")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
 4. Kies de cultuur voor uw toepassing. Kies voor deze Home Automation-app de optie Engels. Selecteer vervolgens **Done**. De Home Automation-app wordt door LUIS gemaakt. 
 
@@ -47,11 +48,11 @@ U kunt uw toepassingen maken en beheren in **Mijn apps**.
 
 Selecteer **Prebuilt domains** in het navigatiedeelvenster aan de linkerkant. Zoek vervolgens naar 'Home'. Selecteer **Add domain**.
 
-[![](media/luis-quickstart-new-app/home-automation.png "Schermafbeelding van het domein 'Home Automation' opgeroepen in het menu met vooraf gemaakte domeinen")](media/luis-quickstart-new-app/home-automation.png)
+[![Schermafbeelding van het Home Automation-domein dat is te zien in het menu met vooraf gemaakte domeinen](media/luis-quickstart-new-app/home-automation.png "Schermafbeelding van het Home Automation-domein dat is te zien in het menu met vooraf gemaakte domeinen")](media/luis-quickstart-new-app/home-automation.png)
 
 Wanneer het vooraf gemaakte domein is toegevoegd, wordt in het vak met vooraf gemaakte domeinen de knop **Remove domain** weergegeven.
 
-[![](media/luis-quickstart-new-app/remove-domain.png "Schermafbeelding van het domein 'Home Automation' met de knop Remove")](media/luis-quickstart-new-app/remove-domain.png)
+[![Schermafbeelding van het Home Automation-domein met een verwijderknop](media/luis-quickstart-new-app/remove-domain.png "Schermafbeelding van het Home Automation-domein met een verwijderknop")](media/luis-quickstart-new-app/remove-domain.png)
 
 ## <a name="intents-and-entities"></a>Intenties en entiteiten
 
@@ -62,7 +63,7 @@ Selecteer **Intents** in het navigatiedeelvenster aan de linkerkant om de intent
 
 Selecteer de intentie **HomeAutomation.TurnOff**. U kunt zien dat de intentie een lijst met utterances bevat die zijn gelabeld met entiteiten.
 
-[![](media/luis-quickstart-new-app/home-automation-turnon.png "Schermopname van de intentie HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![Schermafbeelding van de intentie HomeAutomation.TurnOff bedoeling](media/luis-quickstart-new-app/home-automation-turnon.png "Schermafbeelding van de intentie HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
 ## <a name="train-the-luis-app"></a>LUIS-app trainen
 
@@ -79,7 +80,7 @@ Controleer of de best scorende intentie overeenkomt met de intentie die u verwac
 
 In dit voorbeeld wordt 'Turn off the lights' correct geïdentificeerd als de best scorende intentie van 'HomeAutomation.TurnOff'.
 
-[![](media/luis-quickstart-new-app/test.png "Schermafbeelding van deelvenster Test met utterance gemarkeerd")](media/luis-quickstart-new-app/test.png)
+[![Schermafbeelding van het testdeelvenster met een utterance gemarkeerd](media/luis-quickstart-new-app/test.png "Schermafbeelding van het testdeelvenster met een utterance gemarkeerd")](media/luis-quickstart-new-app/test.png)
 
 
 Selecteer **Test** nogmaals om het deelvenster samen te vouwen. 
@@ -96,7 +97,7 @@ Selecteer **Test** nogmaals om het deelvenster samen te vouwen.
 
 2. Ga naar het einde van de URL in het adres, voer `turn off the living room light` in en druk op Enter. Het JSON-antwoord van uw HTTP-eindpunt wordt weergegeven in de browser.
 
-    [![](media/luis-quickstart-new-app/turn-off-living-room.png "Schermafbeelding van browser met JSON-resultaat waarin de intentie TurnOff is gedetecteerd")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    [![Schermafbeelding van browser met JSON-resultaat: de intentie TurnOff is gedetecteerd](media/luis-quickstart-new-app/turn-off-living-room.png "Schermafbeelding van browser met JSON-resultaat: de intentie TurnOff is gedetecteerd")](media/luis-quickstart-new-app/turn-off-living-room.png)
     
 ## <a name="clean-up-resources"></a>Resources opschonen
 

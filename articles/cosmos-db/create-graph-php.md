@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Gremlin-API met PHP - Azure Cosmos DB'
+title: 'Snelstartgids: Gremlin-API met PHP - Azure Cosmos DB'
 description: In deze snelstart ziet u hoe u de Gremlin API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en PHP
 services: cosmos-db
 author: luisbosquez
@@ -10,14 +10,14 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e5a7d40007076d09695d166148d84684c1cccee5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f6ff46f391ce03f67619ef685f841dcf95a1fd92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839607"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089463"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: een grafiekdatabase maken met behulp van PHP en Azure Portal
+# <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Een grafiekdatabase maken met behulp van PHP en Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Gremlin-console](create-graph-gremlin-console.md)
@@ -37,7 +37,7 @@ Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen.
 
 Daarnaast doet u het volgende:
-* [PHP](http://php.net/) 5.6 of hoger
+* [PHP](https://php.net/) 5.6 of hoger
 * [Composer](https://getcomposer.org/download/)
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
@@ -104,7 +104,7 @@ Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code wor
 
 Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in de app te kopiëren. Met behulp van deze instellingen kan de app communiceren met de gehoste database.
 
-1. Klik in [Azure Portal](http://portal.azure.com/) op **Sleutels**. 
+1. Klik in [Azure Portal](https://portal.azure.com/) op **Sleutels**. 
 
     Kopieer het eerste gedeelte van de URI-waarde.
 

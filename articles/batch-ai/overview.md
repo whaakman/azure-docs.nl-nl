@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37f1bf5dc20d097f7f5f560e3bf1fdd25dc38045
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052696"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408048"
 ---
 # <a name="what-is-azure-batch-ai"></a>Wat is Azure Batch AI?
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Azure Batch AI is een beheerde service waarmee gegevenswetenschappers en AI-onderzoekers machine learning en AI-modellen op schaal trainen en testen in Azure, zonder dat er een complexe infrastructuur hoeft te worden beheerd. U beschrijft de compute-resources, de taken die u wilt uitvoeren en waar de in- en uitvoer van het model moet worden opgeslagen, en Batch AI zorgt voor de rest.
 
@@ -49,13 +52,13 @@ Nadat u een model hebt getraind, kunt u Batch AI gebruiken om het model te teste
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Gebruik Batch AI-SDK's, opdrachtregelscripts of de Azure-portal om rekenresources te beheren en AI-trainingstaken en testen te plannen: 
+Gebruik Batch AI-SDK's, opdrachtregelscripts of de Azure-portal om rekenresources te beheren en AI-trainingstaken en testen te plannen: 
 
 * **VM-clusters inrichten en schalen** - Kies het aantal knooppunten (VM's) en selecteer een VM met GPU of een andere VM-grootte in overeenstemming met uw trainingsbehoeften. Schaal het aantal knooppunten automatisch of handmatig omhoog of omlaag zodat u alleen resources gebruikt wanneer dat nodig is. 
 
 * **Afhankelijkheden en containers beheren** - Standaard worden Batch AI-clusters uitgevoerd onder Linux VM-installatiekopieën met afhankelijkheden die vooraf zijn geïnstalleerd om op containers gebaseerde trainingsframeworks uit te voeren op GPU's of CPU's. Voeg aangepaste installatiekopieën toe of voer opstartscripts uit voor aanvullende configuratieopties.
 
-* **Gegevens distribueren** -Kies een of meer opslagopties voor het beheren van invoergegevens, scripts en taakuitvoer: Azure Files, Azure Blob-opslag of een beheerde NFS-server. Batch AI biedt ook ondersteuning voor aangepaste opslagoplossingen, zoals krachtige parallelle bestandssystemen. Koppel opslagbestandssystemen aan de clusterknooppunten en taakcontainers met behulp van eenvoudige configuratiebestanden.
+* **Gegevens distribueren**: kies een of meer opslagopties voor het beheren van invoergegevens, scripts en taakuitvoer: Azure Files, Azure Blob Storage of een beheerde NFS-server. Batch AI biedt ook ondersteuning voor aangepaste opslagoplossingen, zoals krachtige parallelle bestandssystemen. Koppel opslagbestandssystemen aan de clusterknooppunten en taakcontainers met behulp van eenvoudige configuratiebestanden.
 
 * **Taken plannen** - Plaats taken in wachtrijen op basis van prioriteit om clusterbronnen te delen en te profiteren van VM's met lage prioriteit en gereserveerde instanties.
 

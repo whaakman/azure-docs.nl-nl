@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Cassandra-API met .NET - Azure Cosmos DB'
+title: 'Snelstartgids: Cassandra-API met .NET - Azure Cosmos DB'
 description: In deze quickstart ziet u hoe u de Cassandra-API in Azure Cosmos DB gebruikt om een profieltoepassing te maken met Azure Portal en .NET
 services: cosmos-db
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3708027b766ff9070831dd3677e821565e0dd4fa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50c2362e961d882afc109a0554303d364d52384b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994952"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089422"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Quickstart: Een Cassandra-app bouwen met .NET en Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Snelstartgids: Een Cassandra-app bouwen met .NET en Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -48,7 +48,7 @@ U hebt verder nodig:
 
 Nu gaan we werken met code. We gaan een Cassandra API-app klonen vanuit GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een opdrachtprompt. Maak een nieuwe map met de naam `git-samples`. Sluit de opdrachtprompt.
+1. Open een opdrachtprompt. Maak een nieuwe map met de naam `git-samples`. Sluit vervolgens de opdrachtprompt.
 
     ```bash
     md "C:\git-samples"
@@ -70,7 +70,7 @@ Nu gaan we werken met code. We gaan een Cassandra API-app klonen vanuit GitHub, 
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Deze stap is optioneel. Als u wilt weten hoe de code de databaseresources maakt, kunt u de volgende codefragmenten bekijken. De fragmenten zijn alle afkomstig uit het `Program.cs`-bestand dat is geïnstalleerd in de map `C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample`. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-string).
+Deze stap is optioneel. Als u wilt weten hoe de databaseresources met de code worden gemaakt, kunt u de volgende codefragmenten bekijken. De fragmenten zijn alle afkomstig uit het `Program.cs`-bestand dat is geïnstalleerd in de map `C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample`. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-string).
 
 * Initialiseer de sessie door verbinding te maken met een eindpunt van het Cassandra-cluster. De Cassandra-API voor Azure Cosmos DB biedt alleen ondersteuning voor TLSv1.2. 
 
@@ -96,7 +96,7 @@ Deze stap is optioneel. Als u wilt weten hoe de code de databaseresources maakt,
 * Voeg gebruikersentiteiten toe met behulp van het IMapper-object in een nieuwe sessie die verbinding maakt met de uprofile-keyspace.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Voer een query uit voor het ophalen van de gebruikersgegevens van alle gebruikers.
@@ -118,7 +118,7 @@ Deze stap is optioneel. Als u wilt weten hoe de code de databaseresources maakt,
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. De verbindingsreeksinformatie stelt uw app in staat om te communiceren met de gehoste database.
 
-1. Selecteer **Verbindingsreeks** in de [Azure-portal](http://portal.azure.com/).
+1. Selecteer **Verbindingsreeks** in de [Azure-portal](https://portal.azure.com/).
 
     Gebruik de ![knop Kopiëren](./media/create-cassandra-dotnet/copy.png) aan de rechterkant van het scherm om de waarde USERNAME te kopiëren.
 

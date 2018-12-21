@@ -1,28 +1,49 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: af2dad930f4c236923b79481651f358ab747c84e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ecaced4404a2f2769db96a978ae5ee4f2d246b8b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338247"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651234"
 documentType: LandingData
-title: Documentatie voor Face Service
+title: Documentatie voor Face-API
 metadata:
-  title: Documentatie voor Face Service - Snelstarts, zelfstudies, API-naslag - Azure Cognitive Services | Microsoft Docs
-  description: Informatie over het gebruik van de Face-service voor het opsporen en identificeren van gezichten in afbeeldingen en het retourneren van gezichtsinformatie. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de API.
+  title: Documentatie voor Face-API - Quickstarts, zelfstudies, API-naslag - Azure Cognitive Services | Microsoft Docs
+  description: Informatie over het gebruik van de Face-API voor het opsporen en identificeren van gezichten in afbeeldingen en het retourneren van gezichtsinformatie. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de API.
   services: cognitive-services
   author: PatrickFarley
-  manager: nolachar
+  manager: cgronlun
   ms.service: cognitive-services
-  ms.component: computer-vision
+  ms.component: face-api
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/31/2018
-  ms.author: nolachar
+  ms.date: 12/20/2018
+  ms.author: nitinme
 abstract:
   description: De cloud-gebaseerde Face-API geeft ontwikkelaars toegang tot geavanceerde gezichtsalgoritmen. Microsoft Face-algoritmen maken detectie van gezichtskenmerken en gezichtsherkenning mogelijk. Leer hoe u inhoud op verschillende manieren kunt analyseren met behulp van snelstarts, zelfstudies en voorbeelden.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/face/overview
+      html: <p>Meer informatie over Face-API.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is Face-API?
+    - href: /azure/cognitive-services/face/face-api-how-to-topics/howtodetectfacesinimage
+      html: <p>Leer hoe u gezichten in een afbeelding detecteert.</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: Gezichten in afbeeldingen detecteren
+    - href: /azure/cognitive-services/face/face-how-to-install-containers
+      html: <p>Informatie over hoe u Face-API in containers gebruikt.</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: Face-API in containers gebruiken
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
@@ -53,12 +74,20 @@ sections:
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
-    text: 'Leer apps te ontwikkelen die gebruikmaken van de Face-service:'
+    text: 'Leer apps te ontwikkelen die gebruikmaken van de Face-API:'
   - type: list
     style: unordered
     items:
     - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Gezichten in een afbeelding detecteren en omlijsten in Windows</a></li>
     - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Gezichten in een afbeelding detecteren en omlijsten in Android</a></li>
+- title: Voorbeelden
+  items:
+  - type: paragraph
+    text: 'Voorbeelden zoeken voor de container voor Face-API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=Relevance">Codevoorbeelden</a>
 - title: Naslaginformatie
   items:
   - type: list
@@ -68,4 +97,8 @@ sections:
     - title: API's
       html: <p><a href="APIReference">Face-API</a></p>
     - title: SDK's
-      html: <p><a href="https://github.com/Microsoft/Cognitive-Face-Windows">Windows</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules">Node.js</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-Python">Python</a></p> <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face">Go</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-Android">Android</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest">Node</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face">Go</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure-CLI</a></p>

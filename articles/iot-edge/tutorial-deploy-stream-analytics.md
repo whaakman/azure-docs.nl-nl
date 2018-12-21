@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: ASA-taken implementeren op Azure IoT Edge-apparaten | Microsoft Docs'
+title: 'Zelfstudie: een Azure Stream Analytics-taak implementeren op een apparaat - Azure IoT Edge | Microsoft Docs'
 description: In deze zelfstudie implementeert u Azure Stream Analytics als module op een Iot Edge-apparaat
 author: kgremban
 manager: philmea
@@ -7,16 +7,15 @@ ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566938"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139808"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Stream Analytics implementeren als een IoT Edge-module (preview)
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Zelfstudie: Azure Stream Analytics implementeren als een IoT Edge-module
 
 Veel IoT-oplossingen maken gebruik van analyseservices om inzicht te krijgen in gegevens wanneer deze binnenkomen vanaf IoT-apparaten. Met Azure IoT Edge kunt u de logica van [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) verplaatsen naar het apparaat zelf. Door telemetriestromen te verwerken kunt u de hoeveelheid geüploade gegevens verkleinen en tijd besparen bij het reageren op inzichten waarvoor een actie kan worden uitgevoerd.
 
@@ -34,11 +33,9 @@ In deze zelfstudie leert u het volgende:
 > * De Azure Stream Analytics-taak implementeren op een IoT Edge-apparaat vanuit Azure Portal.
 
 <center>
-![Architectuurdiagram voor zelfstudie](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+![Diagram - zelfstudie-architectuur, ASA-taak faseren en implementeren](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
->[!NOTE]
->Azure Stream Analytics-modules voor IoT Edge zijn in de [openbare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -100,7 +97,7 @@ Met behulp van de drie elementen invoer, uitvoer en query wordt in deze sectie e
 
 1. Onder **Taaktopologie** selecteert u **Invoer** en vervolgens **Stroominvoer toevoegen**.
 
-   ![Azure Stream Analytics-invoer](./media/tutorial-deploy-stream-analytics/asa_input.png)
+   ![Azure Stream Analytics-invoer toevoegen](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
 1. Kies **Edge Hub** in de vervolgkeuzelijst.
 
@@ -110,7 +107,7 @@ Met behulp van de drie elementen invoer, uitvoer en query wordt in deze sectie e
 
 1. Open onder **Taaktopologie** de optie **Uitvoer** en selecteer vervolgens **Toevoegen**.
 
-   ![Azure Stream Analytics-uitvoer](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure Stream Analytics-uitvoer toevoegen](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 1. Kies **Edge Hub** in de vervolgkeuzelijst.
 
@@ -207,7 +204,7 @@ In deze zelfstudie gaat u twee modules implementeren. De eerste is **tempSensor*
 
     U ziet nu dat de nieuwe Stream Analytics-module wordt uitgevoerd, samen met de IoT Edge-agentmodule en de IoT Edge-hub.
 
-    ![Module-uitvoer](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![tempSensor en ASA-module die zijn gerapporteerd door apparaat](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Gegevens weergeven
 
@@ -229,7 +226,7 @@ U kunt nu naar het IoT Edge-apparaat gaan om de interactie tussen de Azure Strea
 
 U ziet nu dat de temperatuur van de machine geleidelijk stijgt totdat deze gedurende 30 seconden 70 graden is. Vervolgens worden met de Stream Analytics-module de beginwaarden ingesteld. De temperatuur van de machine zakt nu weer naar 21 graden. 
 
-   ![Docker-logboek](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![Uitvoer van de opdracht in de logboeken van de module opnieuw instellen](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen 
 

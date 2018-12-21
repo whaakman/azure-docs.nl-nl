@@ -1,6 +1,6 @@
 ---
-title: Een Azure Blueprint maken met REST API
-description: Gebruik Azure Blueprints om artefacten te maken, definiëren en implementeren.
+title: Een blauwdruk maken met de REST-API
+description: Gebruik Azure Blueprints om artefacten te maken, te definiëren en te implementeren.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,13 +8,13 @@ ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283543"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311419"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Een Azure Blueprint definiëren en toewijzen met REST API
 

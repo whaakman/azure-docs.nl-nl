@@ -1,6 +1,6 @@
 ---
-title: Aangepaste instellingen voor App Service-omgevingen
-description: Aangepaste configuratie-instellingen voor App Service-omgevingen
+title: Aangepaste instellingen voor App Service Environment-omgevingen - Azure
+description: Aangepaste configuratie-instellingen voor App Service Environment-omgevingen
 services: app-service
 documentationcenter: ''
 author: stefsch
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/22/2016
 ms.author: stefsch
-ms.custom: mvc
-ms.openlocfilehash: d60cdca78c143996fa5935726db0631321c9e2fe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.custom: seodec18
+ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129512"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271349"
 ---
-# <a name="custom-configuration-settings-for-app-service-environments"></a>Aangepaste configuratie-instellingen voor App Service-omgevingen
+# <a name="custom-configuration-settings-for-app-service-environments"></a>Aangepaste configuratie-instellingen voor App Service Environment-omgevingen
 ## <a name="overview"></a>Overzicht
-Omdat App Service-omgevingen beperkt tot één klant zijn, zijn er bepaalde configuratie-instellingen die uitsluitend op App Service-omgevingen kunnen worden toegepast. In dit artikel worden de verschillende specifieke aanpassingen die beschikbaar voor App Service-omgevingen zijn.
+Omdat App Service Environment-omgevingen per klant geïsoleerd zijn, zijn er bepaalde configuratie-instellingen die uitsluitend op App Service Environment-omgevingen kunnen worden toegepast. In dit artikel vindt u een beschrijving van de specifieke aanpassingen die beschikbaar zijn voor App Service-omgevingen.
 
-Als u geen App Service-omgeving, Zie [het maken van een App-serviceomgeving](app-service-web-how-to-create-an-app-service-environment.md).
+Raadpleeg [Een App Service Environment-omgeving maken](app-service-web-how-to-create-an-app-service-environment.md) als u nog geen App Service Environment-omgeving hebt.
 
-U kunt de App Service-omgeving aanpassingen opslaan met behulp van een matrix in de nieuwe **clusterSettings** kenmerk. Dit kenmerk is gevonden in de woordenlijst 'Eigenschappen' van de *hostingEnvironments* Azure Resource Manager-entiteit.
+U kunt App Service Environment-aanpassingen opslaan met behulp van een matrix in het nieuwe kenmerk **clusterSettings**. Dit kenmerk is te vinden in de woordenlijst 'Eigenschappen' van de Azure Resource Manager-entiteit *hostingEnvironments*.
 
-De volgende afgekort Resource Manager-sjabloon codefragment bevat de **clusterSettings** kenmerk:
+Het volgende verkorte Resource Manager-sjablooncodefragment bevat het kenmerk **clusterSettings**:
 
     "resources": [
     {
@@ -50,25 +50,25 @@ De volgende afgekort Resource Manager-sjabloon codefragment bevat de **clusterSe
        }
     }
 
-De **clusterSettings** kenmerk kan worden opgenomen in een Resource Manager-sjabloon voor het bijwerken van de App Service-omgeving.
+Het kenmerk **clusterSettings** kan worden opgenomen in een Resource Manager-sjabloon om de App Service Environment-omgeving bij te werken.
 
-## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Azure Resource Explorer gebruiken voor het bijwerken van een App-serviceomgeving
-U kunt ook de App Service-omgeving bijwerken met behulp van [Azure Resource Explorer](https://resources.azure.com).  
+## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Een App Service Environment-omgeving bijwerken met behulp van Azure Resource Explorer
+U kunt de App Service Environment-omgeving ook bijwerken met behulp van [Azure Resource Explorer](https://resources.azure.com).  
 
-1. In Resource Explorer, gaat u naar het knooppunt voor de App Service-omgeving (**abonnementen** > **resourceGroups** > **providers**  >  **Microsoft.Web** > **hostingEnvironments**). Klik vervolgens op de specifieke App Service-omgeving, die u wilt bijwerken.
-2. Klik in het rechterdeelvenster **lezen/schrijven** in de bovenste werkbalk om toe te staan interactieve bewerken in Resource Explorer.  
-3. Klik op de blauwe **bewerken** knop om te zorgen dat de Resource Manager-sjabloon worden bewerkt.
-4. Ga naar de onderkant van het rechter deelvenster. De **clusterSettings** kenmerk helemaal onder, kunt u opgeven of werk de waarde is.
-5. Typ (of kopieer en plak) de matrix van configuratiewaarden die u wilt dat in de **clusterSettings** kenmerk.  
-6. Klik op de groene **plaatsen** knop die aan de bovenkant van het rechter deelvenster doorvoeren van de wijziging aan de App Service-omgeving heeft gevonden.
+1. In Resource Explorer gaat u naar het knooppunt voor de App Service Environment-omgeving (**subcriptions** > **resourceGroups** > **providers**  >  **Microsoft.Web** > **hostingEnvironments**). Klik vervolgens op de specifieke App Service Environment-omgeving die u wilt bijwerken.
+2. Klik in het rechterdeelvenster op **Read/Write** (Lezen/Schrijven) in de bovenste werkbalk om interactieve bewerkingen in Resource Explorer toe te staan.  
+3. Klik op de blauwe knop **Edit** (Bewerken) zodat de Resource Manager-sjabloon kan worden bewerkt.
+4. Schuif omlaag naar het einde van het rechterdeelvenster. Het kenmerk **clusterSettings** staat helemaal onderaan, waar u de waarde ervan kunt invoeren of bijwerken.
+5. Typ (of kopieer en plak) de matrix van de gewenste configuratiewaarden in het kenmerk **clusterSettings**.  
+6. Klik op de groene knop **PUT** bovenin het rechterdeelvenster om de wijziging door te voeren in de App Service Environment-omgeving.
 
-Maar u de wijziging dient, duurt het ongeveer 30 minuten vermenigvuldigd met het nummer van de front-ends in de App Service-omgeving om de wijziging van kracht te laten worden.
-Bijvoorbeeld, als een App Service-omgeving vier front-ends heeft, duurt het ongeveer twee uur voor de configuratie-update te voltooien. Tijdens het wijzigen van de configuratie uitgerold, geen andere vergroten/verkleinen operations of configuratie wijzigen-bewerkingen kunnen worden uitgevoerd in App Service-omgeving.
+Als u de wijziging hebt ingediend, duurt het ongeveer 30 minuten maal het aantal front-ends in de App Service Environment-omgeving om de wijziging door te voeren.
+In een App Service Environment-omgeving met vier front-ends duurt het ongeveer twee uur voordat de configuratie is bijgewerkt. Tijdens het doorvoeren van de configuratiewijziging kunt u geen andere schaalbewerkingen of configuratiewijzigingen uitvoeren in de App Service-omgeving.
 
 ## <a name="disable-tls-10"></a>TLS 1.0 uitschakelen
-Een terugkerende vraag van klanten, vooral klanten die zijn betreft de PCI-naleving audits, is het TLS 1.0 expliciet uitschakelen voor hun apps.
+Een terugkerende vraag van klanten, met name van klanten die te maken hebben met PCI-nalevingscontroles, is hoe ze TLS 1.0 expliciet kunnen uitschakelen voor hun apps.
 
-TLS 1.0 kan worden uitgeschakeld via de volgende **clusterSettings** post:
+TLS 1.0 kan worden uitgeschakeld via de volgende **clusterSettings**-invoer:
 
         "clusterSettings": [
             {
@@ -77,8 +77,8 @@ TLS 1.0 kan worden uitgeschakeld via de volgende **clusterSettings** post:
             }
         ],
 
-## <a name="change-tls-cipher-suite-order"></a>Volgorde van wijziging TLS-coderingssuites
-Een andere vraag van klanten is als ze de lijst met door de server onderhandeld coderingen wijzigen en dit kan worden gerealiseerd kunnen door het wijzigen van de **clusterSettings** zoals hieronder wordt weergegeven. De lijst met coderingssuites die beschikbaar kan worden opgehaald uit [deze MSDN-artikel](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+## <a name="change-tls-cipher-suite-order"></a>Volgorde van TLS-suite met coderingsmethoden wijzigen
+Een andere vraag van klanten is of ze de lijst met door hun server onderhandelde codes kunnen wijzigen. Dat kan door **clusterSettings** als volgt te wijzigen. De lijst met beschikbare suites met coderingsmethoden kan worden opgehaald uit [dit MSDN-artikel](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
 
         "clusterSettings": [
             {
@@ -88,12 +88,12 @@ Een andere vraag van klanten is als ze de lijst met door de server onderhandeld 
         ],
 
 > [!WARNING]
-> Als onjuiste waarden worden ingesteld voor de coderingssuite die SChannel kan niet begrijpt, kan alle TLS-communicatie met de server mogelijk niet meer. In dat geval moet u verwijderen de *FrontEndSSLCipherSuiteOrder* vermelding uit **clusterSettings** en het verzenden van de bijgewerkte Resource Manager-sjabloon als u wilt terugkeren naar de standaard coderingssuite Instellingen.  Wees voorzichtig met deze functionaliteit gebruik.
+> Als er onjuiste waarden voor de suite met coderingsmethoden worden ingesteld en deze niet worden begrepen in SChannel, is er wellicht geen TLS-communicatie met de server meer mogelijk. In dat geval moet u de vermelding *FrontEndSSLCipherSuiteOrder* uit **clusterSettings** verwijderen en de bijgewerkte Resource Manager-sjabloon opnieuw indienen om de standaardinstellingen voor de suite met coderingsmethoden terug te zetten.  Gebruik deze functionaliteit voorzichtig.
 > 
 > 
 
 ## <a name="get-started"></a>Aan de slag
-De Azure Quickstart-Resource Manager sjabloonsite bevat een sjabloon met de basisdefinitie voor [maken van een App-serviceomgeving](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
+De website met Azure Quick Start Resource Manager-sjablonen bevat een sjabloon met de basisdefinitie voor het [maken van een App Service Environment-omgeving](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->
 

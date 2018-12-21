@@ -9,40 +9,42 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 812b707b9711d61d0a1326a86644e57ecbe84513
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f574c85252614fd24734657affe3264d72130dd3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157887"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997010"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd TPM-apparaat met de SDK voor C# maken en inrichten voor IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-In deze stappen ziet u hoe u met de SDK voor C# voor Azure IoT Hub een gesimuleerd TPM-apparaat maakt op een ontwikkelcomputer met Windows OS en het codevoorbeeld gebruikt om dit gesimuleerde apparaat te verbinden met de Device Provisioning Service en uw IoT-hub. De voorbeeldcode gebruikt de Windows TPM-simulator als de [HSM (Hardware Security Module)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) van het apparaat. 
+Deze stappen laten u zien hoe u de [Azure IoT-voorbeelden voor C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp) gebruikt om een TPM-apparaat te simuleren op een ontwikkelcomputer met het Windows-besturingssysteem. In het voorbeeld wordt het gesimuleerde apparaat ook verbonden met een IoT Hub met behulp van een apparaatinrichtingsservice. 
 
-Als u niet bekend bent met het proces van automatische inrichting, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
+De voorbeeldcode gebruikt de Windows TPM-simulator als de [HSM (Hardware Security Module)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) van het apparaat. 
+
+Als u niet bekend bent met het proces van automatisch inrichten, bekijk dan ook de [Concepten voor automatische inrichting](concepts-auto-provisioning.md). Controleer ook of u de stappen in [IoT Hub Device Provisioning Service instellen met Azure Portal](./quick-setup-auto-provision.md) hebt voltooid voordat u verdergaat. 
 
 Azure IoT Device Provisioning Service ondersteunt twee typen inschrijvingen:
-- [Inschrijvingsgroepen](concepts-service.md#enrollment-group): voor het inschrijven van meerdere gerelateerde apparaten.
-- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): voor het inschrijven van een enkel apparaat.
+- [Inschrijvingsgroepen](concepts-service.md#enrollment-group): Wordt gebruikt om meerdere gerelateerde apparaten in te schrijven.
+- [Afzonderlijke inschrijvingen](concepts-service.md#individual-enrollment): Wordt gebruikt om één apparaat in te schrijven.
 
-In dit artikel worden afzonderlijke inschrijvingen gedemonstreerd.
+In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>De ontwikkelomgeving voorbereiden 
 
-1. Zorg ervoor dat de [core-SDK voor .NET](https://www.microsoft.com/net/download/windows) op uw computer geïnstalleerd. 
+1. Zorg ervoor dat de [core-SDK 2.1 of hoger voor .NET](https://www.microsoft.com/net/download/windows) op uw computer is geïnstalleerd. 
 
 1. Zorg ervoor dat `git` op de computer wordt geïnstalleerd en toegevoegd aan de omgevingsvariabelen die voor het opdrachtvenster toegankelijk zijn. Zie [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) (Git-clienthulpprogramma's van Software Freedom Conservancy) om de nieuwste versie van `git`-hulpprogramma's te installeren, waaronder **Git Bash**, de opdrachtregel-app die u kunt gebruiken voor interactie met de lokale Git-opslagplaats. 
 
-4. Open een opdrachtprompt of Git Bash. Kloon de GitHub-opslagplaats Azure IoT SDK voor C#:
+1. Open een opdrachtprompt of Git Bash. Kloon de Azure IoT-voorbeelden GitHub-opslagplaats voor C#:
     
     ```cmd
-    git clone --recursive https://github.com/Azure/azure-iot-sdk-csharp.git
+    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="provision-the-simulated-device"></a>Het gesimuleerde apparaat inrichten
@@ -56,7 +58,7 @@ In dit artikel worden afzonderlijke inschrijvingen gedemonstreerd.
 2. Ga op een opdrachtprompt naar de projectmap met de voorbeeldcode voor het inrichten van het de TPM-apparaat.
 
     ```cmd
-    cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientTpm
+    cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
     ```
 
 2. Typ de volgende opdracht om de voorbeeldcode voor het TPM-apparaat te bouwen en uit te voeren. Vervang de waarde voor `<IDScope>` door het id-bereik voor uw provisioning-service. 
@@ -65,21 +67,22 @@ In dit artikel worden afzonderlijke inschrijvingen gedemonstreerd.
     dotnet run <IDScope>
     ```
 
-1. In het opdrachtvenster ziet u waarden voor **_Endorsement Key_**, **_Registration ID_** en een voorgestelde **_Device ID_**. Deze waarden hebt u nodig voor registratie van het apparaat. Noteer deze waarden. 
+    Met deze opdracht wordt de TPM-chip-simulator in een aparte opdrachtprompt gestart.  
+
+1. In het opdrachtvenster ziet u waarden voor **_Endorsement Key_**, **_Registration ID_** en een voorgestelde **_Device ID_**. Deze waarden hebt u nodig voor registratie van het apparaat. Noteer deze waarden. U gebruikt deze waarde om een afzonderlijke inschrijving te maken in uw Device Provisioning Service-instantie. 
    > [!NOTE]
    > Verwar het venster met opdrachtuitvoer niet met het venster dat uitvoer van de TPM-simulator bevat. U moet mogelijk in het opdrachtvenster klikken om dit naar de voorgrond te halen.
 
     ![Uitvoer van het opdrachtvenster](./media/quick-create-simulated-device-tpm-csharp/output1.png) 
 
-
 4. Selecteer in Azure Portal **Inschrijvingen beheren** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke registraties** en klik vervolgens op de knop **Afzonderlijke inschrijving toevoegen** bovenaan. 
 
 5. Voer onder **Inschrijving toevoegen** de volgende gegevens in:
     - Selecteer **TPM** als *mechanisme* voor identiteitscontrole.
-    - Voer de *registratie-id* en *goedkeuringssleutel* voor het TPM-apparaat in. 
+    - Voer de *registratie-id* en *goedkeuringssleutel* voor het TPM-apparaat in, die u eerder hebt genoteerd.
     - Selecteer eventueel een IoT-hub die is gekoppeld aan uw inrichtingsservice.
     - Voer een unieke apparaat-id in. U kunt de apparaat-id invoeren die wordt voorgesteld in de voorbeelduitvoer of u kunt uw eigen id invoeren. In het laatste geval moet u geen gevoelige gegevens gebruiken bij het benoemen van uw apparaat. 
-    - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat.
+    - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat (optioneel).
     - Klik op de knop **Save** als u klaar bent. 
 
     ![Gegevens van apparaatinschrijving invoeren in de portalblade](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  

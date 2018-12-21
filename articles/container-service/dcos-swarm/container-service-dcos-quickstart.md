@@ -1,5 +1,5 @@
 ---
-title: Quickstart voor Azure Container Service - Een DC/OS-cluster implementeren
+title: (AFGESCHAFT) Snelstartgids voor Azure Container Service - Een DC/OS-cluster implementeren
 description: Quickstart voor Azure Container Service - Een DC/OS-cluster implementeren
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cd7f2284f3449fe8abdf1a6f8e85b9b0b712d7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efaf82c3f378f572c289b587dbe5df1923a58c62
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998556"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000517"
 ---
-# <a name="deploy-a-dcos-cluster"></a>Een DC/OS-cluster implementeren
+# <a name="deprecated-deploy-a-dcos-cluster"></a>(AFGESCHAFT) Een DC/OS-cluster implementeren
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS biedt een gedistribueerd platform voor het uitvoeren van moderne toepassingen in containers. Met Azure Container Service kunt u eenvoudig en snel een DC/OS-cluster inrichten dat gereed is voor productie. Deze quickstart biedt details over de basisstappen die nodig zijn om een DC/OS-cluster te implementeren en een eenvoudige workload uit te voeren.
 

@@ -1,5 +1,6 @@
 ---
-title: Zelfstudies voor Azure Machine Learning Service in Jupyter-notebooks
+title: Voorbeelden van Jupyter-notebooks
+titleSuffix: Azure Machine Learning service
 description: Jupyter-voorbeeldnotebooks vinden en gebruiken om Azure Machine Learning Service in Python te ontdekken.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 5ec010d6e0539e9ba316b48dc02110dc19e4b13e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883709"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434525"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Jupyter-notebooks gebruiken om Azure Machine Learning Service te verkennen
 
@@ -27,7 +29,7 @@ Ontdek hoe u de service gebruikt met de documentatie op deze site en hoe u de no
 
 Voltooi de [Python-quickstart voor Azure Machine Learning](quickstart-get-started.md) om een werkruimte te maken en Azure Notebooks te starten.
 
-## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Probeer Azure Notebooks: gratis Jupyter-notebooks in de cloud
+## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Azure Notebooks proberen: Gratis Jupyter-notebooks in de cloud
 
 U kunt eenvoudig aan de slag met Azure Notebooks. De [Azure Machine Learning SDK](https://aka.ms/aml-sdk) voor Python is al voor u geïnstalleerd en geconfigureerd in Azure Notebooks. De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
   
@@ -96,7 +98,7 @@ U kunt een van de bovenstaande opties gebruiken, maar u kunt ook de omgeving ins
    >[!NOTE]
    >U kunt een bestaande conda gebruiken mits deze versie 4.4.10 of hoger is. Gebruik `conda -V` om de versie weer te geven. U kunt een conda-versie bijwerken met deze opdracht: `conda update conda`. Het is niet nodig om specifiek mini-conda te installeren.
 
-1. Download de voorbeeldnotebooks uit [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+1. Download de voorbeeldnotebooks uit [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
 ) als een zip en pak de inhoud uit naar een lokale map. De Automated machine learning-notebooks staan de map `how-to-use-azureml/automated-machine-learning`.
 
 1. Stel een nieuwe Conda-omgeving in. 
@@ -114,9 +116,10 @@ U kunt een van de bovenstaande opties gebruiken, maar u kunt ook de omgeving ins
       + Configureert de widget
       + Start een Jupyter-notebook
       
-      Het script gebruikt de naam van de conda-omgeving als een optionele parameter. De standaardnaam van de conda-omgeving is `azure_automl`. De exacte opdracht is afhankelijk van het besturingssysteem. 
+   >[!NOTE]
+   > Het script gebruikt de naam van de conda-omgeving als een optionele parameter. De standaardnaam van de conda-omgeving is `azure_automl`. De exacte opdracht is afhankelijk van het besturingssysteem. Dit is handig als u een nieuwe omgeving maakt of een upgrade naar een nieuwe versie uitvoert. U kunt bijvoorbeeld de opdracht 'automl_setup.cmd azure_automl_sandbox' gebruiken voor het maken van een omgeving met de naam azure_automl_sandbox. 
       
-      Als het script is voltooid, wordt de startpagina van een Jupyter-notebook weergegeven in uw browser.
+1. Als het script is voltooid, wordt de startpagina van een Jupyter-notebook weergegeven in uw browser.
 
 1. Ga naar het pad waar u de notebooks hebt opgeslagen. 
 

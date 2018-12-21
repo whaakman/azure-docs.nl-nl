@@ -1,21 +1,22 @@
 ---
-title: 'Zelfstudie: Een knowledge base maken, publiceren en vragen erin beantwoorden - REST, C# - QnA Maker'
-titleSuffix: Azure Cognitive Services
+title: Maken, publiceren, antwoorden
+titleSuffix: QnA Maker - Azure Cognitive Services
 description: In deze REST-zelfstudie gaat u via een programma een kennisdatabase maken en publiceren, en vervolgens een vraag uit de knowledge base beantwoorden.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 013b74165afe6eafee337bd00ca88b1034ad5662
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: dd5bc95be3959e7af5911d8a765791718680581a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299556"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162933"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Zelfstudie: C# gebruiken, een knowledge base maken en vervolgens een vraag beantwoorden
 
@@ -43,7 +44,7 @@ In deze snelstart worden QnA Maker-API's aangeroepen:
 * U moet een [QnA Maker-service ](../How-To/set-up-qnamaker-service-azure.md) hebben. Selecteer onder **Resourcebeheer** de optie **Sleutel** om uw sleutel op te halen. 
 
 > [!NOTE] 
-> Het bestand of de bestanden van de volledige oplossing zijn beschikbaar in de Github-opslagplaats [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> Het bestand of de bestanden van de volledige oplossing zijn beschikbaar in de GitHub-opslagplaats [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="create-a-knowledge-base-project"></a>Een project met knowledge base maken
 

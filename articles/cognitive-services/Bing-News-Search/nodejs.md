@@ -1,7 +1,7 @@
 ---
-title: 'Snelstartgids: Bing Nieuws zoeken-API, Node.js'
+title: 'Snelstartgids: Nieuws zoeken met Node.js - REST API voor Bing News Search'
 titlesuffix: Azure Cognitive Services
-description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Nieuws zoeken-API.
+description: Gebruik deze snelstartgids om een aanvraag naar de REST API van Bing News Search te verzenden via Node.js en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: d0bb2d9b35c93d8730ca17fbf70e41df5deb1834
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 17307aaac531924b02c92ac37151d10bfbc48143
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316903"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252300"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-nodejs"></a>Snelstartgids voor Bing Nieuws zoeken-API met Node.js
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Snelstartgids: Nieuws zoeken met Node.js en de REST API voor Bing News Search
 
 In dit artikel wordt beschreven hoe u de Bing Nieuws zoeken-API gebruikt, die onderdeel is van Microsoft Cognitive Services in Azure. Hoewel in dit artikel Node.js wordt geïmplementeerd, is de API een RESTful-webservice die compatibel is met elke programmeertaal die HTTP-aanvragen kan doen en JSON kan parseren. 
 

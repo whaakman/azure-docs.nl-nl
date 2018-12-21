@@ -4,22 +4,22 @@ description: Leer hoe u de functie voor het routeren van gebeurtenissen van Azur
 services: iot-hub
 documentationcenter: ''
 author: kgremban
-manager: timlt
+manager: philmea
 editor: ''
 ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242516"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135012"
 ---
-# <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>E-mailmeldingen over gebeurtenissen van Azure IoT Hub verzenden met Logic Apps
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Zelfstudie: E-mailmeldingen over gebeurtenissen van Azure IoT Hub verzenden met Logic Apps
 
 Azure Event Grid maakt het mogelijk om te reageren op gebeurtenissen in IoT Hub door acties in zakelijke toepassingen verderop in de werkstroom te activeren.
 
@@ -37,19 +37,16 @@ U gaat eerst een logische app maken en een trigger voor Event Grid toevoegen die
 
 ### <a name="create-a-logic-app-resource"></a>Een logische app maken
 
-1. Selecteer in [Azure Portal](https://portal.azure.com) achtereenvolgens **Nieuw** > **Integratie** > **Logische app**.
+1. Selecteer in [Azure Portal](https://portal.azure.com) **Een resource maken** > **Integratie** > **Logische app**.
 
    ![Logische app maken](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. Geef een naam op voor de logische app die uniek is in uw abonnement en selecteer vervolgens het abonnement, de resourcegroep en de locatie van uw IoT-hub. 
-3. Als u klaar bent, selecteert u **Vastmaken aan dashboard** en kiest u **Maken**.
+3. Selecteer **Maken**.
 
-   U hebt nu een Azure-resource voor uw logische app gemaakt. Nadat de logische app is geïmplementeerd, toont de ontwerper van logische apps sjablonen voor algemene patronen, zodat u sneller aan de slag kunt.
+4. Als de resource is gemaakt, navigeert u naar uw logische app. 
 
-   > [!NOTE] 
-   > Als u **Vastmaken aan Dashboard** selecteert, wordt de logische app automatisch geopend in de functie Ontwerper van logische apps. Anders kunt u de logische app handmatig zoeken en openen.
-
-4. Kies in Ontwerper van logische apps onder **Sjablonen** de optie **Lege logische app**, zodat u de logische app helemaal zelf kunt ontwerpen.
+5. In de ontwerper van Logic Apps worden sjablonen voor veelvoorkomende patronen weergegeven zodat u sneller aan de slag kunt. Kies in Ontwerper van logische apps onder **Sjablonen** de optie **Lege logische app**, zodat u de logische app helemaal zelf kunt ontwerpen.
 
 ### <a name="select-a-trigger"></a>Een trigger selecteren
 
@@ -66,51 +63,51 @@ Een trigger is een specifieke gebeurtenis waarmee uw logische app wordt gestart.
 
 4. Plak de volgende voorbeeldcode van JSON in het tekstvak en selecteer vervolgens **Gereed**:
 
-```json
-[{
-  "id": "56afc886-767b-d359-d59e-0da7877166b2",
-  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
-  "subject": "devices/LogicAppTestDevice",
-  "eventType": "Microsoft.Devices.DeviceCreated",
-  "eventTime": "2018-01-02T19:17:44.4383997Z",
-  "data": {
-    "twin": {
-      "deviceId": "LogicAppTestDevice",
-      "etag": "AAAAAAAAAAE=",
-      "deviceEtag": "null",
-      "status": "enabled",
-      "statusUpdateTime": "0001-01-01T00:00:00",
-      "connectionState": "Disconnected",
-      "lastActivityTime": "0001-01-01T00:00:00",
-      "cloudToDeviceMessageCount": 0,
-      "authenticationType": "sas",
-      "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-      },
-      "version": 2,
-      "properties": {
-        "desired": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        },
-        "reported": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        }
-      }
-    },
-    "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
+   ```json
+   [{
+     "id": "56afc886-767b-d359-d59e-0da7877166b2",
+     "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+     "subject": "devices/LogicAppTestDevice",
+     "eventType": "Microsoft.Devices.DeviceCreated",
+     "eventTime": "2018-01-02T19:17:44.4383997Z",
+     "data": {
+       "twin": {
+         "deviceId": "LogicAppTestDevice",
+         "etag": "AAAAAAAAAAE=",
+         "deviceEtag": "null",
+         "status": "enabled",
+         "statusUpdateTime": "0001-01-01T00:00:00",
+         "connectionState": "Disconnected",
+         "lastActivityTime": "0001-01-01T00:00:00",
+         "cloudToDeviceMessageCount": 0,
+         "authenticationType": "sas",
+         "x509Thumbprint": {
+           "primaryThumbprint": null,
+           "secondaryThumbprint": null
+         },
+         "version": 2,
+         "properties": {
+           "desired": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           },
+           "reported": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           }
+         }
+       },
+       "hubName": "egtesthub1",
+       "deviceId": "LogicAppTestDevice"
+     },
+     "dataVersion": "1",
+     "metadataVersion": "1"
+   }]
+   ```
 
 5. Er kan een melding worden weergegeven dat u niet moet vergeten **in uw aanvraag een header Content-type op te nemen die is ingesteld op application/json**. U kunt deze suggestie zonder problemen negeren en verdergaan met de volgende sectie. 
 
@@ -119,16 +116,20 @@ Een trigger is een specifieke gebeurtenis waarmee uw logische app wordt gestart.
 Acties zijn stappen die worden uitgevoerd nadat de trigger de werkstroom van de logische app heeft gestart. Voor deze zelfstudie is de actie het verzenden van een e-mailmelding via uw e-mailprovider. 
 
 1. Selecteer **Nieuwe stap**. **Kies een actie** in het venster dat wordt geopend.
+
 2. Zoek naar **e-mail**.
+
 3. Zoek en selecteer de bijbehorende connector op basis van uw e-mailprovider. In deze zelfstudie wordt **Office 365 Outlook** gebruikt. De stappen voor andere e-mailproviders zijn vergelijkbaar. 
 
    ![Connector voor e-mailprovider selecteren](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
 
 4. Selecteer de actie **Een e-mail verzenden**. 
+
 5. Meld u aan bij uw e-mailaccount als dat wordt gevraagd. 
+
 6. Stel de e-mailsjabloon samen. 
-   * **Aan**: voer het e-mailadres in waarop u de e-mailmeldingen wilt ontvangen. Gebruik voor deze zelfstudie een e-mailaccount dat toegankelijk is voor testdoeleinden. 
-   * **Onderwerp** en **Hoofdtekst**: typ hier het onderwerp en de tekst voor uw e-mail. Selecteer JSON-eigenschappen in het selectiehulpmiddel om dynamische inhoud op te nemen op basis van gegevens van gebeurtenissen.  
+   * **Aan**: Voer het e-mailadres in waarop u de e-mailmeldingen wilt ontvangen. Gebruik voor deze zelfstudie een e-mailaccount dat toegankelijk is voor testdoeleinden. 
+   * **Onderwerp** en **Hoofdtekst**: Typ hier het onderwerp en de tekst voor uw e-mail. Selecteer JSON-eigenschappen in het selectiehulpmiddel om dynamische inhoud op te nemen op basis van gegevens van gebeurtenissen.  
 
    Uw e-mailsjabloon ziet er nu misschien uit als in dit voorbeeld:
 
@@ -161,22 +162,24 @@ In deze sectie configureert u de IoT-hub voor het publiceren van gebeurtenissen 
    ![Nieuw gebeurtenisabonnement maken](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Maak het gebeurtenisabonnement met de volgende waarden: 
-    * **Gebeurtenistype**: schakel Abonneren op alle gebeurtenistypen uit en selecteer **Het apparaat is gemaakt** in het menu.
-    * **Eindpuntdetails**: selecteer Eindpunttype als **Webhook**, klik op Eindpunt selecteren, plak de URL die u hebt gekopieerd in uw logische app en bevestig uw selectie.
+    * **Gebeurtenistype**: Schakel Abonneren op alle gebeurtenistypen uit en selecteer **Het apparaat is gemaakt** in het menu.
+    * **Eindpuntdetails**: Selecteer Eindpunttype als **Webhook**, klik op Eindpunt selecteren, plak de URL die u hebt gekopieerd in uw logische app en bevestig uw selectie.
 
     ![eindpunt-URL selecteren](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Gebeurtenisabonnementdetails**: geef een beschrijvende naam op en selecteer **Gebeurtenisrasterschema**.
-
-  U kunt het gebeurtenisabonnement nu opslaan en dan meldingen ontvangen voor elk apparaat dat wordt gemaakt in uw IoT-hub. Voor deze zelfstudie gaan we echter de optionele velden gebruiken om te filteren op specifieke apparaten: 
-
-  * **Onderwerp begint met**: voer `devices/Building1_` in om te filteren op apparaatgebeurtenissen in gebouw 1.
-  * **Onderwerp eindigt met**: voer `_Temperature` in om te filteren op apparaatgebeurtenissen die te maken hebben met temperatuur.
+    * **Gebeurtenisabonnementdetails**: Geef een beschrijvende naam op en selecteer **Gebeurtenisrasterschema**
 
   Als u klaar bent, moet het formulier er als volgt uitzien: 
 
     ![Voorbeeld van formulier voor gebeurtenisabonnement](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
-    
+
+5. U kunt het gebeurtenisabonnement nu opslaan en dan meldingen ontvangen voor elk apparaat dat wordt gemaakt in uw IoT-hub. Voor deze zelfstudie gaan we echter de optionele velden gebruiken om te filteren op specifieke apparaten. Selecteer **Aanvullende functies** boven aan het formulier. 
+
+6. Maak de volgende filters:
+
+  * **Onderwerp begint met**: Voer `devices/Building1_` in om te filteren op apparaatgebeurtenissen in gebouw 1.
+  * **Onderwerp eindigt met**: Voer `_Temperature` in om te filteren op apparaatgebeurtenissen die te maken hebben met temperatuur.
+
 5. Selecteer **Maken** om het gebeurtenisabonnement op te slaan.
 
 ## <a name="create-a-new-device"></a>Een nieuw apparaat maken

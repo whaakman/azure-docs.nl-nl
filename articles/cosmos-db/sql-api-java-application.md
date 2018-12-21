@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 01b1a770959b29969fbfd0b4575a45b9c53318b6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bdfe390314f2d2174a26e9b321022a3589a06467
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867967"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086536"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Een Java-webtoepassing maken met Azure Cosmos DB en de SQL-API
 
@@ -49,13 +49,13 @@ Voordat u met deze zelfstudie over het ontwikkelen van toepassingen aan de slag 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks).
-* [Eclipse IDE voor Java EE-ontwikkelaars.](http://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
+* [Eclipse IDE voor Java EE-ontwikkelaars.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Azure Web Sites waarvoor een Java Runtime Environment (bijvoorbeeld Tomcat of Jetty) is ingeschakeld.](../app-service/app-service-web-get-started-java.md)
 
-Als u deze hulpprogramma's voor het eerst installeert, kunt u op coreservlets.com in de Quick Start-sectie van het artikel[Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Zelfstudie: TomCat7 installeren en gebruiken met Eclipse) een overzicht van het installatieproces vinden.
+Als u deze hulpprogramma's voor het eerst installeert, kunt u op coreservlets.com in de Quick Start-sectie van het artikel [Tutorial: Installing TomCat7 and Using it with Eclipse](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Zelfstudie: TomCat7 installeren en gebruiken met Eclipse) een overzicht van het installatieproces vinden.
 
-## <a id="CreateDB"></a>Stap 1: een Azure Cosmos DB-account maken
-Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt of de Azure Cosmos DB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar [Stap 2: de Java JSP-toepassing maken](#CreateJSP).
+## <a id="CreateDB"></a>Stap 1: Maak een Azure Cosmos DB-account
+Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt of de Azure Cosmos DB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar [Stap 2: De Java JSP-toepassing maken](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -83,8 +83,8 @@ De JSP-toepassing maken:
    
     ![Hello World – Zelfstudie Java-toepassing](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Stap 3: de SQL Java SDK installeren
-De eenvoudigste manier om de SQL Java SDK en de bijbehorende afhankelijkheden op te halen, is via [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Stap 3: De SQL Java SDK installeren
+De eenvoudigste manier om de SQL Java SDK en de bijbehorende afhankelijkheden op te halen, is via [Apache Maven](https://maven.apache.org/).
 
 Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar een Maven-project:
 
@@ -106,7 +106,7 @@ Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar
 6. Klik op **OK** zodat Maven de SQL Java SDK installeert.
 7. Sla het bestand pom.xml op.
 
-## <a id="UseService"></a>Stap 4: de Azure Cosmos DB-service in een Java-toepassing gebruiken
+## <a id="UseService"></a>Stap 4: De Azure Cosmos DB-service in een Java-toepassing gebruiken
 1. Laten we eerst het object TodoItem in TodoItem.java definiëren:
    
         @Data
@@ -118,7 +118,7 @@ Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar
             private String name;
         }
    
-    In dit project, gebruikt u [Project Lombok](http://projectlombok.org/) om de constructor, getters, setters en een opbouwfunctie te genereren. U kunt u deze code eventueel ook handmatig schrijven of door de IDE laten genereren.
+    In dit project, gebruikt u [Project Lombok](https://projectlombok.org/) om de constructor, getters, setters en een opbouwfunctie te genereren. U kunt u deze code eventueel ook handmatig schrijven of door de IDE laten genereren.
 2. Als u de Azure Cosmos DB-service wilt aanroepen, moet u een nieuwe **DocumentClient** maken. Doorgaans kunt u de **DocumentClient** het best opnieuw gebruiken, zodat u niet voor elke volgende aanvraag en nieuwe client hoeft te maken. De client kan opnieuw worden gebruikt door deze in een **DocumentClientFactory** te verpakken. In DocumentClientFactory.java moet u de URI en de waarde voor PRIMARY KEY plakken die u in [stap 1](#CreateDB) naar het klembord hebt gekopieerd. Vervang [YOUR\_ENDPOINT\_HERE] door de URI en vervang [YOUR\_KEY\_HERE] door uw PRIMAIRE SLEUTEL.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
@@ -712,7 +712,7 @@ Nu het merendeel van het werk is voltooid, hoeven we alleen nog maar een gebruik
 5. Mooi. Nu hoeft de toepassing alleen nog maar te worden getest. Voer de toepassing lokaal uit en voeg enkele Todo-items toe door de itemnaam en categorie in te vullen en op **Taak toevoegen** te klikken.
 6. Zodra het item wordt weergegeven, kunt u bijwerken of het item is voltooid door het selectievakje in of uit te schakelen en op **Taken bijwerken** te klikken.
 
-## <a id="Deploy"></a>Stap 6: de Java-toepassing implementeren op Azure Web Sites
+## <a id="Deploy"></a>Stap 6: De Java-toepassing implementeren op Azure Web Sites
 Met Azure Web Sites kunt u heel eenvoudig, alsof u de toepassing als een WAR-bestand exporteert, Java-toepassingen implementeren en uploaden via broncodebeheer (bijvoorbeeld Git) of FTP.
 
 1. Als u de toepassing wilt exporteren als een WAR-bestand, klikt u met de rechtermuisknop op uw project in **Projectverkenner** en klikt u achtereenvolgens op **Exporteren** en **WAR-bestand**.
@@ -729,7 +729,7 @@ Met Azure Web Sites kunt u heel eenvoudig, alsof u de toepassing als een WAR-bes
 ## <a id="GetProject"></a>Het project ophalen van GitHub
 Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.com/Azure-Samples/documentdb-java-todo-app)-project op GitHub. Als u het todo-project wilt importeren in Eclipse, moet u over de software en resources beschikken die worden vermeld in de sectie [Vereisten](#Prerequisites) en gaat u als volgt te werk:
 
-1. Installeer [Project Lombok](http://projectlombok.org/). Lombok wordt gebruikt om de constructors, getters, setters in het project te genereren. Zodra u het bestand lombok.jar hebt gedownload, dubbelklikt u op het bestand om het te installeren of installeert u het bestand vanaf de opdrachtregel.
+1. Installeer [Project Lombok](https://projectlombok.org/). Lombok wordt gebruikt om de constructors, getters, setters in het project te genereren. Zodra u het bestand lombok.jar hebt gedownload, dubbelklikt u op het bestand om het te installeren of installeert u het bestand vanaf de opdrachtregel.
 2. Als Eclipse is geopend, sluit en opent u Eclipse opnieuw om Lombok te laden.
 3. Klik in Eclipse in het menu **File** (Bestand) op **Import** (Importeren).
 4. Klik in het venster the **Import** (Importeren) achtereenvolgens op **Git**, **Projects from Git** (Projecten van Git) en **Next** (Volgende).

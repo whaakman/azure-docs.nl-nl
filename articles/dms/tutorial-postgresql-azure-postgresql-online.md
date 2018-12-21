@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: ba27ceb784cf139c288a89f3191282fb9b364ddc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 8780e145845d820ef0c6ff2c43891287c1902e2c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864373"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000917"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Zelfstudie: PostgreSQL online migreren naar Azure Database for PostgreSQL met behulp van DMS
+# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Zelfstudie: PostgreSQL migreren naar Azure Database for PostgreSQL online met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken om de databases met minimale downtime te migreren van een on-premises PostgreSQL-exemplaar naar [Azure Database for MySQL](https://docs.microsoft.com/azure/postgresql/). Met andere woorden, de migratie is mogelijk met minimale downtime van de toepassing. In deze zelfstudie migreert u de voorbeelddatabase **DVD-verhuur** van een on-premises exemplaar van PostgreSQL 9.6 naar Azure Database for PostgreSQL met behulp van een online migratieactiviteit in de Azure Database Migration Service.
 
 In deze zelfstudie leert u het volgende:
@@ -38,7 +38,7 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-- Download en installeer [PostgreSQL Community Edition](https://www.postgresql.org/download/) 9.5, 9.6 of 10.3. De bronversie van PostgreSQL Server moet versie 9.5.11, 9.6.7, 10.3 of hoger zijn. Zie voor meer informatie het artikel [Supported PostgreSQL Database Versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) (Ondersteunde PostgreSQL-databaseversies).
+- Download en installeer [PostgreSQL Community Edition](https://www.postgresql.org/download/) 9.5, 9.6 of 10. De bronversie van PostgreSQL Server moet versie 9.5.11, 9.6.7, 10 of hoger zijn. Zie voor meer informatie het artikel [Supported PostgreSQL Database Versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) (Ondersteunde PostgreSQL-databaseversies).
 
     Bovendien moet de on-premises versie van PostgreSQL overeenkomen met de versie van Azure Database for PostgreSQL. PostgreSQL 9.5.11.5 kan bijvoorbeeld alleen migreren naar Azure Database for PostgreSQL 9.5.11 en niet naar versie 9.6.7.
 
@@ -52,7 +52,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 - Er zijn twee methoden voor het aanroepen van de CLI:
     - Klik in de rechterbovenhoek van de Azure Portal en selecteer de knop Cloud Shell:
  
-       ![Knop Cloud Shell in de Azure Portal](media\tutorial-postgresql-to-azure-postgresql-online\cloud-shell-button.png)
+       ![Knop Cloud Shell in de Azure Portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
  
     - Installeer de CLI lokaal en voer deze uit. CLI 2.0 is het opdrachtregelprogramma voor het beheer van Azure-resources.
      
@@ -191,7 +191,7 @@ Om alle databaseobjecten zoals tabelschema’s, indexen en opgeslagen procedures
     - Locatie: US - oost 2
     - Abonnement: 97181df2-909d-420b-ab93-1bff15acb6b7
     - Naam resourcegroep: PostgresDemo
-    - Naam DMS-service: PostgresCLI
+    - DMS-servicenaam: PostgresCLI
 
     ```
     az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores

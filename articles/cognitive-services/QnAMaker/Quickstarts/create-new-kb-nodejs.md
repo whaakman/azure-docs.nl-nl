@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: knowledge base maken - REST, Node.js - QnA Maker'
+title: 'Snelstartgids: Een knowledge base maken - REST, Node.js - QnA Maker'
 description: In deze op REST gebaseerde snelstart wordt stapsgewijs uitgelegd hoe u, met behulp van een programma, een voorbeeldexemplaar van een knowledge base in QnA Maker kunt maken, dat wordt weergegeven op het Azure-dashboard van uw account voor de Cognitive Services-API.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: a9a6470e8dc7b9f82ae8db586fcbd6629d8ed757
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8d9f1bf746c98d16539fdd3332977611f072bfff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235561"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259695"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Snelstart: Een knowledge base maken in QnA Maker met behulp van Node.js
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Snelstartgids: Een knowledge base maken in QnA Maker met behulp van Node.js
 
 In deze snelstart wordt beschreven hoe u programmatisch een voorbeeld van een QnA Maker-knowledge base kunt maken en publiceren. Met QnA Maker worden automatisch vragen en antwoorden opgehaald uit semi-gestructureerde inhoud, zoals veelgestelde vragen, vanuit [gegevensbronnen](../Concepts/data-sources-supported.md). Het model voor de knowledge base wordt gedefinieerd in de JSON die in de hoofdtekst van de API-aanvraag wordt verzonden. 
 
@@ -29,7 +29,7 @@ In deze snelstart worden QnA Maker-API's aangeroepen:
 * [Node.js 6+](https://nodejs.org/en/download/)
 * U moet een [QnA Maker-service ](../How-To/set-up-qnamaker-service-azure.md) hebben. Selecteer onder **Resourcebeheer** de optie **Sleutel** om uw sleutel op te halen. 
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## <a name="create-a-knowledge-base-nodejs-file"></a>Een Node.js-bestand voor de knowledge base maken
 

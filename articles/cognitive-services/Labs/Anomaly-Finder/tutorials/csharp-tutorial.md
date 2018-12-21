@@ -10,12 +10,12 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ea9083d530d9a94825b8c568ef4c3dbc847c44c0
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887646"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162457"
 ---
 # <a name="tutorial-anomaly-detection-with-c-application"></a>Zelfstudie: Anomaliedetectie met C#-toepassing
 
@@ -35,7 +35,7 @@ Het voorbeeld is ontwikkeld voor het .NET Framework met behulp van [Visual Studi
 
 ## <a name="get-and-use-the-example"></a>Het voorbeeld downloaden en gebruiken
 
-U kunt de voorbeeldtoepassing van Anomaliedetectie naar uw computer klonen vanaf [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
+U kunt de voorbeeldtoepassing van Anomaliedetectie naar uw computer klonen vanaf [GitHub](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
 <a name="Step1"></a>
 ### <a name="install-the-example"></a>Het voorbeeld installeren
 

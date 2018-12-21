@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie voor het toevoegen van automatisch aanvullen aan het zoekvak met Azure Search | Microsoft Docs
+title: Zelfstudie voor het toevoegen van automatisch aanvullen aan het zoekvak - Azure Search
 description: Voorbeelden van hoe u voor het verbeteren van de eindgebruikerservaring van uw gegevensgerichte toepassingen met behulp van Azure Search-API's voor automatisch aanvullen en het bieden van suggesties.
 manager: pablocas
 author: mrcarter8
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578171"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316179"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Zelfstudie: Automatisch aanvullen aan het zoekvak toevoegen met Azure Search
 
@@ -126,7 +127,7 @@ Nu u de JavaScript-code voor het voorbeeld hebt bekeken, gaat u de code van de C
 
 1. Open het bestand HomeController.cs in de map Controllers. 
 
-1. Het eerste wat u mogelijk zal opvallen is een methode met de naam InitSearch die zich boven in de klasse bevindt.  Hiermee wordt een geverifieerde HTTP-indexclient voor de Azure Search-service gemaakt.  Als u meer informatie wilt over hoe dit werkt, raadpleegt u de volgende zelfstudie:[Weten hoe u Azure Search gebruikt via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. Het eerste wat u mogelijk zal opvallen is een methode met de naam InitSearch die zich boven in de klasse bevindt.  Hiermee wordt een geverifieerde HTTP-indexclient voor de Azure Search-service gemaakt.  Als u meer informatie wilt over hoe dit werkt, raadpleegt u de volgende zelfstudie: [Weten hoe u Azure Search gebruikt via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Ga naar de functie Voorstellen.
 

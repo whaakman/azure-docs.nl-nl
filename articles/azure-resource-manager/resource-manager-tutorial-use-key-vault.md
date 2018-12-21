@@ -13,12 +13,13 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 3a84f9ed35bac7f56d4a6aa2af94d1c28e335b74
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334207"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093196"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie
 
@@ -48,7 +49,7 @@ Als u dit artikel wilt voltooien, hebt u het volgende nodig:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault is ontworpen om cryptografische sleutels en andere geheimen te beveiligen. Zie [Zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie](./resource-manager-tutorial-use-key-vault.md) voor meer informatie. We raden u ook aan om uw wachtwoord elke drie maanden te wijzigen.
+    Azure Key Vault is ontworpen om cryptografische sleutels en andere geheimen te beveiligen. Zie [Zelfstudie:  Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie](./resource-manager-tutorial-use-key-vault.md) voor meer informatie. We raden u ook aan om uw wachtwoord elke drie maanden te wijzigen.
 
 ## <a name="prepare-the-key-vault"></a>Key Vault voorbereiden
 
@@ -81,7 +82,7 @@ Een sleutelkluis maken:
 
 1. Selecteer de volgende afbeelding om u aan te melden bij Azure en een sjabloon te openen. Met de sjabloon worden een sleutelkluis en een sluitelkluisgeheim gemaakt.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" /></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Typ of selecteer de volgende waarden.  Selecteer **Aankoop** niet nadat u de waarden hebt ingevoerd.
 
@@ -94,8 +95,8 @@ Een sleutelkluis maken:
     * **Tenant-id**: met de sjabloonfunctie wordt uw tenant-id automatisch opgehaald.  Wijzig de standaardwaarde niet
     * **AD-gebruikers-id**: voer de gebruikersobject-id voor Azure AD in die u hebt opgehaald tijdens de laatste procedure.
     * **Geheime naam**: de standaardnaam is **vmAdminPassword**. Als u de naam van het geheim hier wijzigt, moet u de naam van het geheim bijwerken wanneer u de virtuele machine implementeert.
-    * **Geheime waarde**: voer uw geheim in.  Het geheim is het wachtwoord dat u gebruikt om zich aan te melden bij de virtuele machine. Het wordt aanbevolen om het wachtwoord dat tijdens de afgelopen procedure is gemaakt, te gebruiken.
-    * **Ik ga akkoord met de bovenstaande voorwaarden**: selecteer dit.
+    * **Geheime waarde**: voer het geheim in.  Het geheim is het wachtwoord dat u gebruikt om zich aan te melden bij de virtuele machine. Het wordt aanbevolen om het wachtwoord dat tijdens de afgelopen procedure is gemaakt, te gebruiken.
+    * **Ik ga akkoord met de bovenstaande voorwaarden**: Selecteren.
 3. Selecteer **Parameters bewerken** bovenin om de sjabloon te bekijken.
 4. Blader naar regel 28 van het JSON-sjabloonbestand. Dit is de Key Vault-resourcedefinitie.
 5. Blader naar regel 35:
@@ -191,7 +192,7 @@ Wanneer u de sjabloon implementeert, gebruikt u dezelfde resourcegroep als bij d
 
 Wanneer u de virtuele machine hebt geïmplementeerd, test u of u zich kunt aanmelden met het wachtwoord dat in de sleutelkluis is opgeslagen.
 
-1. Open de [Azure Portal](https://portal.azure.com).
+1. Open de [Azure-portal](https://portal.azure.com).
 2. Selecteer **Resourcegroepen**/**Naam van uw resourcegroep>**/**simpleWinVM**
 3. Selecteer bovenaan de optie **Verbinding maken**.
 4. Selecteer **RDP-bestand downloaden** en volg de instructies voor het aanmelden bij de virtuele machine, met het wachtwoord dat is opgeslagen in de sleutelkluis.
@@ -200,7 +201,7 @@ Wanneer u de virtuele machine hebt geïmplementeerd, test u of u zich kunt aanme
 
 Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt, op door de resourcegroep te verwijderen.
 
-1. Selecteer **Resourcegroep** in het linkermenu van Azure Portal.
+1. Selecteer **Resourcegroep** in het linkermenu van de Azure-portal.
 2. Voer de naam van de resourcegroep in het veld **Filter by name** in.
 3. Selecteer de naam van de resourcegroep.  U ziet in totaal zes resources in de resourcegroep.
 4. Selecteer **Resourcegroep verwijderen** in het bovenste menu.

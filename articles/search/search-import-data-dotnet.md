@@ -1,6 +1,6 @@
 ---
-title: Gegevens uploaden (.NET - Azure Search) | Microsoft Docs
-description: Informatie over het uploaden van gegevens naar een index in Azure Search met behulp van de .NET SDK.
+title: In code gegevens uploaden met behulp van .NET SDK - Azure Search
+description: Lees hoe u gegevens uploadt naar een doorzoekbare volledige-tekstindex in Azure Search met behulp van C#-voorbeeldcode en de .NET SDK.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/13/2017
-ms.openlocfilehash: dc59531b282f6c99dd399ac384a8c6264ee260ea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: ae723e07f92a05f128ca78a7c5974cd0ebc55ac6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258762"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313289"
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Gegevens uploaden naar Azure Search met behulp van de .NET SDK
 > [!div class="op_single_selector"]
@@ -204,7 +205,7 @@ public partial class Hotel
 }
 ```
 
-Het eerste dat opvalt, is dat elke openbare eigenschap van `Hotel` overeenkomt met een veld in de definitie van de index. Er is echter een cruciaal verschil: de naam van elk veld begint met een kleine letter ("kamelen"), terwijl de naam van elke openbare eigenschap van `Hotel` met een hoofdletter ("Pascal") begint. Dit is een algemeen scenario in .NET-toepassingen die gegevens koppelen waarbij het doelschema buiten de controle van de ontwikkelaar van de toepassing valt. In plaats van het schenden van de .NET-naamgevingsregels door een eigenschap met bijvoorbeeld de naam "kamelen" te maken, kunt u instellen dat de SDK de eigenschapsnamen automatisch moet toewijzen aan het `[SerializePropertyNamesAsCamelCase]`-kenmerk.
+Het eerste dat opvalt is dat elke openbare eigenschap van `Hotel` overeenkomt met een veld in de indexdefinitie, maar met één cruciaal verschil: De naam van elk veld begint met een kleine letter ('camelCase'), terwijl de naam van elke openbare eigenschap van `Hotel` begint met een hoofdletter ('Pascal case'). Dit is een algemeen scenario in .NET-toepassingen die gegevens koppelen waarbij het doelschema buiten de controle van de ontwikkelaar van de toepassing valt. In plaats van het schenden van de .NET-naamgevingsregels door een eigenschap met bijvoorbeeld de naam "kamelen" te maken, kunt u instellen dat de SDK de eigenschapsnamen automatisch moet toewijzen aan het `[SerializePropertyNamesAsCamelCase]`-kenmerk.
 
 > [!NOTE]
 > De Azure Search .NET SDK maakt gebruik van de [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm)-bibliotheek voor het serialiseren en deserialiseren van uw aangepaste modelobjecten naar en van JSON. U kunt deze serialisatie indien nodig aanpassen. Meer informatie vindt u in [Aangepaste serialisatie met JSON.NET](search-howto-dotnet-sdk.md#JsonDotNet). Een voorbeeld hiervan is het gebruik van het `[JsonProperty]`-kenmerk in de eigenschap `DescriptionFr` in de bovenstaande voorbeeldcode.
@@ -224,7 +225,7 @@ De mogelijkheid om uw eigen klassen te gebruiken als documenten werkt beide kant
 
 Bij het ontwerpen van uw eigen modelklassen die u wilt toewijzen aan een Azure Search-index raden we u aan om eigenschappen van waardentypen `bool` en `int` in te stellen op null-waarden (bijvoorbeeld `bool?` in plaats van `bool`). Als u een niet-nullbare eigenschap gebruikt, moet u **garanderen** dat de documenten in de index geen null-waarde voor het betreffende veld bevatten. Noch de SDK noch de Azure Search-service helpt u om dit af te dwingen.
 
-Dit is niet alleen een hypothetische probleem: Stel een scenario voor waarin u een nieuw veld toevoegt aan een bestaande index van het type `DataType.Int32`. Na het bijwerken van de indexdefinitie hebben alle documenten een null-waarde voor het nieuwe veld (omdat alle typen null in Azure Search zijn). Als u vervolgens een modelklasse met een niet-nullbare `int`-eigenschap voor dat veld gebruikt, ontvangt u een `JsonSerializationException` zoals deze bij het ophalen van documenten:
+Dit is niet alleen een hypothetisch probleem: Stelt u zich een scenario voor waarin u een nieuw veld toevoegt aan een bestaande index van het type `DataType.Int32`. Na het bijwerken van de indexdefinitie hebben alle documenten een null-waarde voor het nieuwe veld (omdat alle typen null in Azure Search zijn). Als u vervolgens een modelklasse met een niet-nullbare `int`-eigenschap voor dat veld gebruikt, ontvangt u een `JsonSerializationException` zoals deze bij het ophalen van documenten:
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 

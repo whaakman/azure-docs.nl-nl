@@ -1,21 +1,21 @@
 ---
 title: Uw Azure Enterprise Overeenkomst registreren bij Cloudyn | Microsoft Docs
-description: Gebruik uw Enterprise Overeenkomst om u te registreren bij Cloudyn.
+description: In deze quickstart vindt u de details van de registratieprocedure voor het maken van een Cloudyn-proefabonnement en het aanmelden bij de Cloudyn-portal.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
-ms.custom: ''
+ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 7a3ed93814407df8f3adfe7d16ba50258fcb323e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273560"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082324"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Een Azure Enterprise Overeenkomst registreren en kostengegevens weergeven
 
@@ -25,22 +25,22 @@ Azure Cost Management biedt vergelijkbare functionaliteit als Cloudyn. Azure Cos
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-- Meld u aan bij Azure Portal op http://portal.azure.com.
+- Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="register-with-cloudyn"></a>Registreren bij Cloudyn
 
 1. Klik in Azure Portal, in de lijst met services, op **Cost Management en facturering**.
 2. Klik onder **Overzicht** op **Cloudyn**  
-    ![Cloudyn-pagina](./media/quick-register-ea/cost-mgt-billing-service.png)
+    ![Cloudyn-pagina die wordt weergegeven in Azure Portal](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. Klik op de **Cloudyn**-pagina op **Go to Cloudyn** om de registratiepagina van Cloudyn te openen in een nieuw venster.
 4. Typ op de pagina voor de registratie van het proefabonnement in de Cloudyn-portal de naam van uw bedrijf en selecteer **Azure Enterprise Enrollment Administrator**.  
-    ![registratie voor proefabonnement](./media/quick-register-ea/trial-reg.png)
-5. Voer de API-sleutel voor de Enterprise Portal-registratie in. Als u de sleutel niet bij de hand hebt, klikt u op de koppeling [Enterprise Portal](https://ea.azure.com) en voert u de volgende stappen uit:
+5. Voer de API-sleutel voor de Enterprise Portal-registratie in. Als u de sleutel niet bij de hand hebt, klikt u op de koppeling [Enterprise Portal](https://ea.azure.com) en voert u de volgende stappen uit:  
+    ![Plak uw API-sleutel op het tabblad Facturering](./media/quick-register-ea/trial-reg.png)
   1. Meld u aan bij de Azure Enterprise-website en klik op **Rapporten**, klik op **API Access Key** en kopieer de primaire sleutel.  
-    ![EA API-sleutel](./media/quick-register-ea/ea-key.png)
+    ![Voorbeeld van een EA API-sleutel in de EA-portal](./media/quick-register-ea/ea-key.png)
   3. Ga terug naar de registratiepagina en plak de API-sleutel erin.
 6. Accepteer de Gebruiksvoorwaarden en valideer de sleutel. Klik op **Volgende** om Cloudyn te autoriseren Azure-brongegevens te verzamelen. De gegevens die worden verzameld zijn onder meer gegevens over gebruik, prestaties, facturering en tags van uw abonnementen.  
-    ![validatie van de sleutel](./media/quick-register-ea/ea-key-validated.png)
+    ![Voorbeeld van een geslaagde validatie van de EA API-sleutel](./media/quick-register-ea/ea-key-validated.png)
 7. Onder **Invite other stakeholders** kunt u gebruikers toevoegen door hun e-mailadressen in te voeren. Klik op **Volgende** als u klaar bent. Afhankelijk van de grootte van uw Azure-inschrijving duurt het maximaal 24 uur voor al uw factureringsgegevens zijn toegevoegd aan Cloudyn.
 8. Klik op **Go to Cloudyn** op de Cloudyn-portal te openen. Op de pagina **Cloud Accounts Management** zou u de geregistreerde EA-accountgegevens moeten kunnen zien.
 

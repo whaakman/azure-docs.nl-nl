@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7e71b4f93f3b890ea73e36052570f9047fc8f32
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43a059e13945be3e39f65995e18ccd552727b874
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228229"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312565"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Snelstart: Een Java Reliable Services-toepassing maken voor Service Fabric
+# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Snelstartgids: Een Java Reliable Services-toepassing maken voor Service Fabric
 
 Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en distribueren van microservices en containers.
 
@@ -67,7 +67,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 2. Open Eclipse.
 3. Klik op Bestand -> Importeren -> Gradle -> Bestaand Gradle-project en volg de wizard.
-4. Klik op Map en kies de map `Voting` uit de map `service-fabric-java-quickstart` die u hebt gekloond vanuit Github. Klik op Voltooien. 
+4. Klik op Map en kies de map `Voting` uit de map `service-fabric-java-quickstart` die u hebt gekloond vanuit GitHub. Klik op Voltooien.
 
     ![Het importdialoogvenster van Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -116,9 +116,9 @@ Als u Service Fabric Explorer wilt gebruiken, moet u het PFX-certificaatbestand 
 
 Gebruik de methode die u het handigst vindt om het certificaat naar uw systeem te importeren. Bijvoorbeeld:
 
-* Voor Windows: dubbelklik op het PFX-bestand en volg de aanwijzingen om het certificaat in uw persoonlijke archief, `Certificates - Current User\Personal\Certificates`, te installeren. U kunt ook de PowerShell-opdracht in de **Leesmij**-instructies gebruiken.
-* Voor Mac: dubbelklik op het PFX-bestand en volg de aanwijzingen om het certificaat in uw Sleutelhanger te installeren.
-* Voor Ubuntu: Mozilla Firefox is de standaardbrowser in Ubuntu 16.04. U kunt het certificaat importeren in Firefox door te klikken op de menuknop in de rechterbovenhoek van uw browser en te klikken op **Opties**. Op de pagina **Voorkeuren** gebruikt u het zoekvak om te zoeken naar 'certificaten'. Klik op **Certificaten bekijken**, selecteer het tabblad **Uw certificaten**, klik op **Importeren** en volg de aanwijzingen om het certificaat te importeren.
+* In Windows: Dubbelklik op het PFX-bestand en volg de aanwijzingen om het certificaat in uw persoonlijke archief, `Certificates - Current User\Personal\Certificates`, te installeren. U kunt ook de PowerShell-opdracht in de **Leesmij**-instructies gebruiken.
+* Op de Mac: Dubbelklik op het PFX-bestand en volg de aanwijzingen om het certificaat in uw Sleutelhanger te installeren.
+* Op Ubuntu: Mozilla Firefox is de standaardbrowser in Ubuntu 16.04. U kunt het certificaat importeren in Firefox door te klikken op de menuknop in de rechterbovenhoek van uw browser en te klikken op **Opties**. Op de pagina **Voorkeuren** gebruikt u het zoekvak om te zoeken naar 'certificaten'. Klik op **Certificaten bekijken**, selecteer het tabblad **Uw certificaten**, klik op **Importeren** en volg de aanwijzingen om het certificaat te importeren.
 
    ![Certificaat installeren in Firefox](./media/service-fabric-quickstart-java/install-cert-firefox.png)
 
@@ -132,7 +132,7 @@ Vingerafdruk van certificaat moet aan uw toepassing worden toegevoegd omdat het 
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. Voeg in het bestand `Voting/VotingApplication/ApplicationManifest.xml` het volgende fragment uit onder het label **ApplicationManifest**. **X509FindValue** moet de vingerafdruk zijn uit de vorige stap (geen puntkomma's). 
+2. Voeg in het bestand `Voting/VotingApplication/ApplicationManifest.xml` het volgende fragment uit onder het label **ApplicationManifest**. **X509FindValue** moet de vingerafdruk zijn uit de vorige stap (geen puntkomma's).
 
     ```xml
     <Certificates>

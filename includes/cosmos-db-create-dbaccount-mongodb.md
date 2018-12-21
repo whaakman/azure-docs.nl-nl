@@ -8,26 +8,29 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 690c5f07a2b0f7a88e16f0b0bbbaa9ca78e37317
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8b5b7126a264d6a15010fc18288f4a4ba1263344
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38728985"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53285984"
 ---
 1. Meld u in een nieuw venster aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik in het menu links op **Een resource maken**, klik op **Databases** en klik vervolgens onder **Azure Cosmos DB** op **Maken**.
    
    ![Schermopname van Azure Portal waarbij Meer services en Azure Cosmos DB zijn gemarkeerd](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
-3. Geef op de blade **Nieuw account** **MongoDB** op als de API en voer de gewenste configuratiegegevens in voor het Azure Cosmos DB-account.
+3. Voer op de pagina **Azure Cosmos DB-account maken** de instellingen in voor het nieuwe Azure Cosmos DB-account. 
  
-    * **Id** moet een unieke naam zijn voor het Azure Cosmos DB-account. De id mag alleen kleine letters, cijfers en het minteken ('-') bevatten, en moet tussen de 3 en 50 tekens lang zijn.
-    * Bij **Abonnement** wordt automatisch uw Azure-abonnement ingevuld.
-    * **Resourcegroep** verwijst naar de naam van de resourcegroep voor uw Azure Cosmos DB-account. Selecteer **Nieuwe maken** en voer een naam voor de nieuwe resourcegroep voor uw account in. Gebruik dezelfde naam als uw id om het uzelf gemakkelijk te maken.
-    * **Locatie** is de geografische locatie van uw exemplaar van Azure Cosmos DB. Kies de locatie die het dichtst bij uw gebruikers is.
+    Instelling|Waarde|Beschrijving
+    ---|---|---
+    Abonnement|Uw abonnement|Selecteer het Azure-abonnement dat u voor dit Azure Cosmos DB-account wilt gebruiken. 
+    Resourcegroep|Nieuwe maken<br><br>Voer de unieke naam in die u in ID hebt opgegeven|Selecteer **Nieuw maken**. Voer daarna een nieuwe resourcegroepnaam in voor het account. Gebruik voor het gemak dezelfde naam als uw id. 
+    Accountnaam|Voer een unieke naam in|Voer een unieke naam in om uw Azure Cosmos DB-account te identificeren. Gebruik een unieke id omdat *documents.azure.com* is toegevoegd aan de id die u hebt opgegeven om uw URI te maken.<br><br>De id mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. De id moet tussen de 3 en 31 tekens lang zijn.
+    API|MongoDB|De API bepaalt het type te maken account. Azure Cosmos DB heeft vijf API's: Core(SQL) voor documentdatabases, Gremlin voor grafiekdatabases, MongoDB voor documentdatabases, Azure Table en Cassandra. Op dit moment moet u voor elke API een afzonderlijk account maken. <br><br>Selecteer **MongoDB**, omdat u in deze snelstartgids een tabel maakt die geschikt is voor de MongoDB-API.|
+    Locatie|Selecteer de regio het dichtst in de buurt van uw gebruikers|Selecteer een geografische locatie waar u het Azure Cosmos DB-account wilt hosten. Gebruik de locatie die zich het dichtst bij uw gebruikers bevindt, zodat ze de snelst mogelijke toegang tot de gegevens hebben.
 
-    Klik vervolgens op **Maken**.
+    Selecteer **Beoordelen en maken**. U kunt de secties **Netwerk** en **Tags** overslaan. 
 
     ![De pagina Nieuw account voor Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png)
 

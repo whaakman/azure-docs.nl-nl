@@ -1,20 +1,20 @@
 ---
-title: Visualiseer gegevensanomalieën binnen in realtime naar Azure Event Hubs verzonden gebeurtenissen | Microsoft Docs
-description: 'Zelfstudie: gegevensanomalieën binnen in realtime naar Microsoft Azure Event Hubs verzonden gebeurtenissen visualiseren'
+title: Gegevensanomalieën in realtimegebeurtenissen visualiseren - Azure Event Hubs | Microsoft Docs
+description: 'Zelfstudie: Gegevensanomalieën binnen in realtime naar Microsoft Azure Event Hubs verzonden gebeurtenissen visualiseren'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.author: shvija
-ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.custom: mvc
-ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004110"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091676"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Zelfstudie: gegevensanomalieën binnen in realtime naar Azure Event Hubs verzonden gebeurtenissen visualiseren
 
@@ -162,7 +162,7 @@ De Event Hubs-[voorbeelden op GitHub](https://github.com/Azure/azure-event-hubs/
 
 3. Open Program.cs en vervang **Event Hubs connection string** door de verbindingsreeks die u bij het uitvoeren van het script hebt opgeslagen. 
 
-4. Vervang **Event Hub naam** door de naam van uw Event Hub. Klik op F5 om de toepassing uit te voeren. Deze begint met het verzenden van gebeurtenissen naar uw Event Hub en gaat door totdat er 1000 gebeurtenissen zijn verzonden. Er zijn een paar gevallen waarin u alleen gegevens kunt ophalen als de app actief is. Deze gevallen worden waar nodig aangegeven in de volgende instructies.
+4. Vervang **Event Hub name** door de naam van uw Event Hub. Klik op F5 om de toepassing uit te voeren. Deze begint met het verzenden van gebeurtenissen naar uw Event Hub en gaat door totdat er 1000 gebeurtenissen zijn verzonden. Er zijn een paar gevallen waarin u alleen gegevens kunt ophalen als de app actief is. Deze gevallen worden waar nodig aangegeven in de volgende instructies.
 
 ## <a name="set-up-azure-stream-analytics"></a>Azure Stream Analytics instellen
 
@@ -170,17 +170,17 @@ U kunt nu gegevens streamen naar uw Event Hub. Als u die gegevens in een Power B
 
 ### <a name="create-the-stream-analytics-job"></a>De Stream Analytics-taak maken
 
-1. Klik in Azure Portal op **Een resource maken**. Typ **stream analytics** in het zoekvak en druk op **Enter**. Selecteer **Stream Analytics Job**. Klik op **Maken** in het taakvenster van Stream Analytics. 
+1. Klik in de Azure-portal op **Een resource maken**. Typ **stream analytics** in het zoekvak en druk op **Enter**. Selecteer **Stream Analytics Job**. Klik op **Maken** in het taakvenster van Stream Analytics. 
 
 2. Voer de volgende informatie in voor de taak:
 
    **Taaknaam**: gebruik **contosoEHjob**. Dit veld is de naam van de taak en moet globaal uniek zijn.
 
-   **Abonnement**: selecteer uw abonnement.
+   **Abonnement**: Selecteer uw abonnement.
 
    **Resourcegroep**: gebruik dezelfde resourcegroep die wordt gebruikt door uw Event Hub (**ContosoResourcesEH**).
 
-   **Locatie**: gebruik dezelfde locatie die u in het instellingsscript hebt gebruikt (**US - west**).
+   **Locatie**: gebruik dezelfde locatie die u in het installatiescript hebt gebruikt (**US - west**).
 
    ![Schermopname waarin wordt weergegeven hoe u een nieuwe Azure Stream Analytics-taak maakt.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -199,17 +199,17 @@ De invoer voor de Stream Analytics-taak zijn de creditcardtransacties van de Eve
 
 2. Klik in het deelvenster **Invoer** op **Stroominvoer toevoegen** en selecteer Event Hubs. Vul de volgende velden in op het scherm dat wordt weergegeven:
 
-   **Invoeralias**: gebruik **contosoinputs**. Dit veld is de naam van de invoerstroom die wordt gebruikt bij het definiëren van de query voor de gegevens.
+   **Invoeralias**: Gebruik **contosoinputs**. Dit veld is de naam van de invoerstroom die wordt gebruikt bij het definiëren van de query voor de gegevens.
 
-   **Abonnement**: selecteer uw abonnement.
+   **Abonnement**: Selecteer uw abonnement.
 
    **Event Hubs-naamruimte**: selecteer uw Event Hub-naamruimte ($**eventHubNamespace**). 
 
    **Event Hub-naam**: klik op **Bestaande gebruiken** en selecteer uw Event Hub ($**eventHubName**).
 
-   **Event Hubs-beleidsnaam**: selecteer **RootManageSharedAccessKey**.
+   **Naam van het Event Hubs-beleid**: selecteer **RootManageSharedAccessKey**.
 
-   **Event Hubs-consumentengroep**: laat dit veld leeg als u de standaard-consumergroep wilt gebruiken.
+   **Event Hubs-consumentengroep**: laat dit veld leeg als u de standaardconsumentengroep wilt gebruiken.
 
    Accepteer de standaardwaarden voor de rest van de velden.
 

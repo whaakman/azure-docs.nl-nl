@@ -1,22 +1,25 @@
 ---
-title: Quickstart Go-taal - model wijzigen en LUIS-app trainen
-description: Voer in deze snelstart over de Go-taal voorbeeldutterances toe aan een Home Automation-app en train de app. Voorbeeldutterances zijn teksten uit gesprekken met gebruikers die worden toegewezen aan een intentie. Door voorbeeldutterances op te geven voor intenties leert u LUIS welke soorten door de gebruiker geleverde tekst bij welke intentie horen.
-titleSuffix: Microsoft Cognitive Services
+title: Wijzigen, app trainen, Go
+description: Voer in deze snelstart over de Go-taal voorbeeldutterances toe aan een Home Automation-app en train de app.
+titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2cd8c1aa2deb2af97d4f720efa0e40146b15b888
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e3fb6b2532f2dc99a48cc3c2eac9029367c52185
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031863"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100281"
 ---
-# <a name="quickstart-change-model-using-go"></a>Snelstart: Model wijzigen met behulp van Go
+# <a name="quickstart-change-model-using-go"></a>Snelstartgids: Model wijzigen met behulp van Go
+
+In deze snelstart leest u hoe u utterances doorgeeft aan een LUIS-eindpunt en intenties en entiteiten terugkrijgt.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -66,7 +69,7 @@ ms.locfileid: "47031863"
 
 2. Voer de Go-toepassing uit vanaf de opdrachtregel door de volgende tekst in te voeren in de opdrachtprompt: 
 
-    ```CMD
+    ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
     ```
@@ -75,7 +78,7 @@ ms.locfileid: "47031863"
 
     De resultaten worden weergegeven met deze opdrachtprompt:
 
-    ```CMD
+    ```console
     add example utterances requested
     [
         {

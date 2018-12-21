@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Gesproken tekst herkennen in Java onder Android met behulp van de Speech Service SDK'
+title: 'Snelstartgids: Spraak herkennen, Java (Android) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Leer gesproken tekst herkennen in Java onder Android met behulp van de Speech Service SDK
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 0785383d8b5a8ab282d8097d5229fa5a8aade06f
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219423"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090105"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in Java onder Android met behulp van de Speech SDK
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in Java onder Android met behulp van de Speech-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -42,7 +42,7 @@ U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids
 
    ![Schermafbeelding van de wizard Create New Project](media/sdk/qs-java-android-02-create-android-project.png)
 
-1. Selecteer in het scherm **Target Android Devices** alleen **Phone and Tablet**. Kies in de vervolgkeuzelijst eronder **API 23: Android 6.0 (Marshmallow)** en selecteer **Next**.
+1. Selecteer in het scherm **Target Android Devices** alleen **Phone and Tablet**. Kies in de vervolgkeuzelijst eronder **API 23:  Android 6.0 (Marshmallow)** en selecteer **Volgende**.
 
    ![Schermafbeelding van de wizard Create New Project](media/sdk/qs-java-android-03-target-android-devices.png)
 
@@ -63,7 +63,7 @@ De huidige versie van de Speech SDK van Cognitive Services is `1.1.0`.
 De Speech SDK voor Android wordt aangeboden als een [AAR (Android Library)](https://developer.android.com/studio/projects/android-library) die de vereiste bibliotheken bevat, evenals de vereiste Android-machtigingen voor het gebruik ervan.
 De SDK wordt gehost in een Maven-opslagplaats op https://csspeechstorage.blob.core.windows.net/maven/.
 
-Stel uw project in voor gebruik van de Speech SDK. Open het venster Project Structure door **File** > **Project Structure** te kiezen in de menubalk van Android Studio. Breng in het venster Project Structure de volgende wijzigingen aan: 
+Stel uw project in voor gebruik van de Speech SDK. Open het venster Project Structure door **File** > **Project Structure** te kiezen in de menubalk van Android Studio. Breng in het venster Project Structure de volgende wijzigingen aan:
 
 1. Selecteer **Project** in de lijst aan de linkerkant van het venster. Bewerk de instellingen voor **Default Library Repository** door een komma toe te voegen en dan de URL van onze Maven-opslagplaats tussen enkele aanhalingstekens. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
@@ -118,7 +118,7 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * De methode `onCreate` omvat code die toestemming vraagt voor gebruik van de microfoon en internet, en initialiseert de binding met het native platform. Configuratie van bindingen voor het native platform hoeft maar één keer. Dit moet gebeuren in een vroeg stadium tijdens de initialisatie van de toepassing.
-   
+
    * De methode `onSpeechButtonClicked` is, zoals eerder gezegd, de methode voor het afhandelen van het klikken op de knop. Een klik op de knop betekent dat de spraak wordt omgezet in tekst.
 
 1. Vervang in hetzelfde bestand de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel.

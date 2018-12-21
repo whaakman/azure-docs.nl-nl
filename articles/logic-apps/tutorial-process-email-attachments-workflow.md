@@ -1,25 +1,25 @@
 ---
-title: Werkstromen bouwen die e-mails en bijlagen verwerken - Azure Logic Apps |Microsoft Docs
-description: In deze zelfstudie leert u hoe u geautomatiseerde werkstromen maakt, zodat u e-mails en bijlagen kunt verwerken met Azure Logic Apps, Azure Storage en Azure Functions
+title: 'Zelfstudie: het verwerken van e-mails en bijlagen automatiseren - Azure Logic Apps |Microsoft Docs'
+description: 'Zelfstudie: maak geautomatiseerde werkstromen om e-mails en bijlagen af te handelen met Azure Logic Apps, Azure Storage en Azure Functions'
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231965"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140503"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>E-mails en bijlagen verwerken met Azure Logic Apps
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Zelfstudie: Afhandelen van e-mails en bijlagen automatiseren met Azure Logic Apps
 
-Azure Logic Apps helpt u om uw werkstromen te automatiseren en om gegevens te integreren in Azure-services, Microsoft-services, andere SaaS-apps (software als een service) en on-premises systemen. In deze zelfstudie leert u hoe u een [logische app](../logic-apps/logic-apps-overview.md) bouwt die binnenkomende e-mails en eventuele bijlagen verwerkt. Deze logische app verwerkt die inhoud, bewaart de inhoud in een Azure-opslag en verzendt een melding om die inhoud te bekijken. 
+Azure Logic Apps helpt u om uw werkstromen te automatiseren en om gegevens te integreren in Azure-services, Microsoft-services, andere SaaS-apps (software als een service) en on-premises systemen. In deze zelfstudie leert u hoe u een [logische app](../logic-apps/logic-apps-overview.md) bouwt die binnenkomende e-mails en eventuele bijlagen verwerkt. Deze logische app analyseert de inhoud van de e-mails, bewaart de inhoud in een Azure-opslag en verzendt een melding om die inhoud te bekijken. 
 
 In deze zelfstudie leert u het volgende:
 
@@ -48,9 +48,9 @@ Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/fr
 
 * Download en installeer de <a href="https://storageexplorer.com/" target="_blank">gratis Microsoft Azure Storage Explorer</a>. Dit hulpprogramma help u om te controleren of uw opslagcontainer correct is ingesteld.
 
-## <a name="sign-in-to-azure-portal"></a>Meld u aan bij Azure Portal
+## <a name="sign-in-to-azure-portal"></a>Meld u aan bij de Azure-portal
 
-Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
+Gebruik de referenties van uw Azure-account om u aan melden bij de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>.
 
 ## <a name="set-up-storage-to-save-attachments"></a>De opslag instellen om bijlagen te bewaren
 
@@ -68,7 +68,7 @@ U kunt binnenkomende e-mails en bijlagen als blobs opslaan in een [Azure-opslagc
    | **Prestaties** | Standard | Deze instelling bepaalt de gegevenstypen die worden ondersteund en de media die moeten worden opgeslagen. Zie [Typen opslagaccounts](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Veilige overdracht vereist** | Uitgeschakeld | Deze instelling bepaalt de beveiliging die nodig is voor het aanvragen van verbindingen. Zie [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (veilige overdracht vereist). | 
    | **Abonnement** | <*your-Azure-subscription-name*> | De naam van uw Azure-abonnement | 
-   | **Resourcegroep** | LA-Tutorial-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren en te beheren. <p>**Opmerking:** resourcegroepen bestaan binnen een bepaalde regio. Hoewel de items in deze zelfstudie mogelijk niet in alle regio's beschikbaar zijn, dient u, wanneer mogelijk, dezelfde regio te gebruiken. | 
+   | **Resourcegroep** | LA-Tutorial-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren en te beheren. <p>**Opmerking:** er is een resourcegroep aanwezig binnen een bepaalde regio. Hoewel de items in deze zelfstudie mogelijk niet in alle regio's beschikbaar zijn, dient u, wanneer mogelijk, dezelfde regio te gebruiken. | 
    | **Virtuele netwerken configureren** | Uitgeschakeld | Behoud voor deze zelfstudie de instelling **Uitgeschakeld**. | 
    |||| 
 
@@ -96,7 +96,7 @@ U kunt binnenkomende e-mails en bijlagen als blobs opslaan in een [Azure-opslagc
    3. Onder **Nieuwe container** voert u 'bijlagen' in als containernaam. 
    Selecteer onder **Niveau openbare toegang** **Container (anonieme leestoegang voor containers en blobs)** en kies vervolgens **OK**.
 
-      Wanneer u klaar bent, vindt u uw opslagcontainer in uw opslagaccount hier in Azure Portal:
+      Wanneer u klaar bent, vindt u uw opslagcontainer in uw opslagaccount hier in de Azure-portal:
 
       ![Voltooide opslagcontainer](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
@@ -148,7 +148,7 @@ Gebruik nu het codefragment in deze stappen om een Azure-functie te maken waarme
    | **Application Insights** | Uit | Hiermee schakelt u toepassingsbewaking met [Application Insights](../application-insights/app-insights-overview.md) in, maar kies voor deze zelfstudie de instelling **Uit**. | 
    |||| 
 
-   Als uw functie-app na de implementatie niet automatisch opent, kunt u uw app in <a href="https://portal.azure.com" target="_blank">Azure Portal</a> terugvinden. Selecteer in het Azure-hoofdmenu **Functie-apps** en selecteer uw functie-app. 
+   Als uw functie-app na de implementatie niet automatisch opent, kunt u uw app in de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> terugvinden. Selecteer in het Azure-hoofdmenu **Functie-apps** en selecteer uw functie-app. 
 
    ![Functie-app selecteren](./media/tutorial-process-email-attachments-workflow/select-function-app.png)
 
@@ -246,11 +246,11 @@ Voeg vervolgens een [trigger](../logic-apps/logic-apps-overview.md#logic-app-con
 
 ## <a name="monitor-incoming-email"></a>Binnenkomende e-mail controleren
 
-1. In de ontwerpfunctie in het zoekvenster voert u 'wanneer er nieuwe e-mail binnenkomt' in als filter. Selecteer deze trigger voor uw e-mailprovider: **Wanneer er nieuwe e-mail binnenkomt - <*uw e-mailprovider*>**
+1. In de ontwerpfunctie in het zoekvenster voert u 'wanneer er nieuwe e-mail binnenkomt' in als filter. Selecteer deze trigger voor uw e-mailprovider: **Wanneer een nieuwe e-mail binnenkomt - <*uw-e-mailprovider*>**
 
    Bijvoorbeeld:
 
-   ![Selecteer deze trigger voor e-mailprovider: 'Wanneer er een nieuwe e-mail binnenkomt'](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
+   ![Selecteer deze trigger voor de e-mailprovider: Wanneer een nieuwe e-mail binnenkomt](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
    * Voor werk- of schoolaccounts van Azure selecteert u Outlook van Office 365. 
    * Selecteer Outlook.com voor persoonlijke Microsoft-accounts. 
@@ -313,7 +313,7 @@ Voeg nu een voorwaarde toe waarmee er alleen e-mails met bijlagen worden geselec
 
    2. In het middelste vakje behoud u **is gelijk aan** voor de operator.
 
-   3. Voer in het rechtervakje **Waar** in als waarde, zodat de eigenschapswaarde **Heeft bijlage** wordt vergeleken met de trigger.
+   3. Voer in het rechtervakje **waar** in als waarde, zodat de eigenschapswaarde **Heeft bijlage** wordt vergeleken met de trigger.
 
       ![Voorwaarde bouwen](./media/tutorial-process-email-attachments-workflow/finished-condition.png)
 
@@ -328,7 +328,7 @@ Voeg nu een voorwaarde toe waarmee er alleen e-mails met bijlagen worden geselec
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -377,7 +377,7 @@ Met deze stap wordt uw eerder gemaakte Azure-functie toegevoegd aan uw logische 
 
    ![In vertakking 'indien waar', actie toevoegen](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-2. Zoek in het zoekvenster naar 'azure-functies' en selecteer deze actie: **Een Azure-functie kiezen - Azure Functions**
+2. Zoek 'azure-functies' in het zoekvak en selecteer deze actie: **Een Azure-functie kiezen - Azure Functions**
 
    ![Selecteer actie voor 'Een Azure-functie kiezen'](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -518,7 +518,7 @@ Vervolgens voegt u de actie toe waarmee elke bijlage als blob in uw opslagcontai
 
    ![Actie aan lus toevoegen](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
-2. Voer in het zoekvenster 'blob maken' in als uw filter en selecteer vervolgens deze actie: **Blob maken - Azure Blob Storage**
+2. Voer in het zoekvenster 'blob maken' in als uw filter en selecteer deze actie: **Blob maken - Azure Blob Storage**
 
    ![Actie toevoegen om blob te maken](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
@@ -572,7 +572,7 @@ Voeg vervolgens een actie toe, zodat uw logische app een e-mail verzendt om meld
 
 ## <a name="send-email-notifications"></a>E-mailmeldingen verzenden
 
-1. In de vertakking **Indien waar** bij de lus **Voor elke e-mailbijlage** kiest u **Een actie toevoegen**. 
+1. Kies in de vertakking **Indien waar**, bij de lus **Voor elke e-mailbijlage**, de optie **Een actie toevoegen**. 
 
    ![Actie toevoegen onder lus 'voor elke'](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 

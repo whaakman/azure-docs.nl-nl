@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982079"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957024"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Wat is Computer Vision API versie 1.0?
 
@@ -38,13 +38,13 @@ De cloud-gebaseerde Computer Vision-API geeft ontwikkelaars toegang tot geavance
 * [Foto's bijsnijden voor gebruik als miniaturen.](#Thumbnails)
 
 ## <a name="requirements"></a>Vereisten
-* Ondersteunde invoermethoden: binaire gegevens over onbewerkte afbeeldingen in de vorm van een toepassings-/octetstream of afbeeldings-URL.
+* Ondersteunde invoermethoden: Binaire gegevens over onbewerkte afbeeldingen in de vorm van een toepassings-/octetstream- of afbeeldings-URL.
 * Ondersteunde afbeeldingsindelingen: JPEG, PNG, GIF, BMP.
-* Bestandsgrootte van afbeeldingen: minder dan 4 MB.
-* Afmetingen van afbeeldingen: meer dan 50 x 50 pixels.
+* Grootte van het afbeeldingsbestand: Kleiner dan 4 MB.
+* Afbeeldingsgrootte: Groter dan 50 x 50 pixels.
 
 ## <a name="tagging-images"></a>Afbeeldingen taggen
-Computer Vision-API retourneert tags op basis van meer dan 2000 herkenbare objecten, levende wezens, landschappen en acties. Wanneer tags ambigu of niet algemeen bekend zijn, geeft de API-reactie tips om de betekenis van de tag in de context van een bekende situatie te verduidelijken. Tags zijn niet ingedeeld als taxonomie en er bestaan geen overnamehiërarchieën. Een verzameling inhoudstags vormt de basis voor een 'beschrijving van de afbeelding, weergegeven als voor mensen leesbare taal opgemaakt in volledige zinnen. Houd er rekening mee dat Engels op dit moment de enige ondersteunde taal is voor de beschrijving van afbeeldingen.
+Computer Vision-API retourneert tags op basis van duizenden herkenbare objecten, levende wezens, landschappen en acties. Wanneer tags ambigu of niet algemeen bekend zijn, geeft de API-reactie tips om de betekenis van de tag in de context van een bekende situatie te verduidelijken. Tags zijn niet ingedeeld als taxonomie en er bestaan geen overnamehiërarchieën. Een verzameling inhoudstags vormt de basis voor een 'beschrijving van de afbeelding, weergegeven als voor mensen leesbare taal opgemaakt in volledige zinnen. Houd er rekening mee dat Engels op dit moment de enige ondersteunde taal is voor de beschrijving van afbeeldingen.
 
 Wanneer een afbeelding is geüpload of een afbeeldings-URL is opgegeven, worden door de algoritmen van de Computer Vision-API tags gegenereerd op basis van de objecten, levende wezens en acties die in de afbeelding zijn geïdentificeerd. U kunt tagging niet alleen gebruiken voor het hoofdonderwerp, zoals een persoon op de voorgrond, maar ook voor de omgeving (binnen of buiten), meubels, gereedschap, planten, dieren, accessoires, gadgets enzovoort.
 
@@ -137,9 +137,9 @@ Detecteert menselijke gezichten in een afbeelding en genereert de gezichtscoörd
 
 Installatiekopie|Antwoord
 ----|----
-![Vision-analyse Vrouw op dak-gezicht](./Images/woman_roof_face.png) | [ { "leeftijd": 23, "geslacht": "vrouw", "faceRectangle": { "links": 1379, "boven": 320, "breedte": 310, "hoogte": 310 } } ]
-![Vision-analyse Moeder en dochter-gezicht](./Images/mom_daughter_face.png) | [ { "leeftijd": 28, "geslacht": "vrouw", "faceRectangle": { "links": 447, "boven": 195, "breedte": 162, "hoogte": 162 } }, { "leeftijd": 10, "geslacht": "man", "faceRectangle": { "links": 355, "boven": 87, "breedte": 143, "hoogte": 143 } } ]
-![Vision-analyse Familiefoto-gezicht](./Images/family_photo_face.png) | [ { "leeftijd": 11, "geslacht": "man", "faceRectangle": { "links": 113, "boven": 314, "breedte": 222, "hoogte": 222 } }, { "leeftijd": 11, "geslacht": "vrouw", "faceRectangle": { "links": 1200, "boven": 632, "breedte": 215, "hoogte": 215 } }, { "leeftijd": 41, "geslacht": "man", "faceRectangle": { "links": 514, "boven": 223, "breedte": 205, "hoogte": 205 } }, { "leeftijd": 37, "geslacht": "vrouw", "faceRectangle": { "links": 1008, "boven": 277, "breedte": 201, "hoogte": 201 } } ]
+![Vision-analyse Vrouw op dak-gezicht](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
+![Vision-analyse Moeder en dochter-gezicht](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "Gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
+![Vision-analyse Familiefoto-gezicht](./Images/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "geslacht": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
 
 
 ## <a name="domain-specific-content"></a>Domeinspecifieke inhoud detecteren
@@ -231,7 +231,7 @@ De groep met inhoud van voor volwassenen en ongepaste inhoud is een van de visue
 ## <a name="optical-character-recognition-ocr"></a>Optische tekenherkenning (OCR)
 OCR-technologie detecteert tekstinhoud in een afbeelding en extraheert de herkende tekst naar een machinaal leesbare tekenstroom. U kunt het resultaat gebruiken voor zoekopdrachten en talloze andere doeleinden, zoals medische dossiers, beveiliging en bankieren. Taal wordt automatisch gedetecteerd. Met OCR besparen gebruikers tijd en kunnen ze eenvoudig foto’s van tekst maken in plaats van deze over te schrijven.
 
-OCR ondersteunt 25 talen. Ondersteunde talen zijn: Arabisch, Chinees (traditioneel), Chinees (vereenvoudigd), Deens, Duits, Engels, Fins, Frans, Grieks, Hongaars, Italiaans, Japans, Koreaans, Nederlands, Noors, Pools, Portugees, Roemeens, Russisch, Servisch (Cyrillisch en Latijns) Slowaaks, Spaans, Tsjechisch, Turks en Zweeds.
+OCR ondersteunt 25 talen. Deze talen zijn: Arabisch, Chinees (traditioneel), Chinees (vereenvoudigd), Deens, Duits, Engels, Fins, Frans, Grieks, Hongaars, Italiaans, Japans, Koreaans, Nederlands, Noors, Pools, Portugees, Roemeens, Russisch, Servisch (Cyrillisch en Latijns) Slowaaks, Spaans, Tsjechisch, Turks en Zweeds.
 
 Via OCR wordt zo nodig de draaiing van de herkende tekst gecorrigeerd, in graden, rond de horizontale as van de afbeelding. OCR biedt de framecoördinaten van elk woord, zoals weergegeven in onderstaande afbeelding.
 
@@ -250,7 +250,7 @@ De nauwkeurigheid van de tekstherkenning is afhankelijk van de kwaliteit van de 
 - Te grote of geen hoofdletter aan het begin van woorden
 - Subscript, superscript of doorgehaalde tekst.
 
-Beperkingen: op bepaalde foto's waarin tekst het dominante element is, kunnen fout-positieven worden veroorzaakt door gedeeltelijk herkende woorden. Precisie kan op sommige foto's, met name foto's zonder tekst, sterk variëren afhankelijk van het type afbeelding.
+Beperkingen: Op bepaalde foto's waarin tekst het dominante element is, kunnen fout-positieven worden veroorzaakt door gedeeltelijk herkende woorden. Precisie kan op sommige foto's, met name foto's zonder tekst, sterk variëren afhankelijk van het type afbeelding.
 
 ## <a name="recognize-handwritten-text"></a>Handgeschreven tekst herkennen
 Met deze technologie kunt u handgeschreven tekst detecteren en extraheren uit notities, brieven, essays, whiteboards, formulieren enzovoort. Deze technologie kan worden gebruikt voor verschillende oppervlakken en achtergronden, zoals wit papier, gele plaknotities en whiteboards.

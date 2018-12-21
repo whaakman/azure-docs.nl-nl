@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957920"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106070"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Wijzigingen in virtuele machines bewaken met Azure Event Grid en Logic Apps
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Zelfstudie: Wijzigingen in virtuele machines bewaken met Azure Event Grid en Logic Apps
 
 U kunt een geautomatiseerde [werkstroom van een logische app](../logic-apps/logic-apps-overview.md) starten wanneer specifieke gebeurtenissen plaatsvinden in Azure-resources of in resources van derden. Deze resources kunnen die gebeurtenissen publiceren naar een [Azure-gebeurtenisraster](../event-grid/overview.md). Het gebeurtenisraster verstuurt die gebeurtenissen vervolgens naar abonnees die webhooks, wachtrijen of [gebeurtenishubs](../event-hubs/event-hubs-what-is-event-hubs.md) als eindpunt hebben. Als een abonnee kan uw logische app wachten op die gebeurtenissen uit het gebeurtenisraster voordat geautomatiseerde werkstromen worden gestart voor het uitvoeren van taken, zonder dat u hiervoor code hoeft te schrijven.
 
@@ -81,9 +81,9 @@ U gaat eerst een logische app maken en een trigger voor Event Grid toevoegen die
    U ziet nu [*connectors*](../connectors/apis-list.md) en [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) die u gebruiken kunt om te beginnen met uw logische app, en ook acties die u kunt toevoegen na een trigger om taken uit te voeren. Een trigger is een gebeurtenis die een exemplaar van een logic app maakt en de werkstroom van uw logische app start. 
    Het eerste item van een logische app moet een trigger zijn.
 
-6. Typ 'event grid' als filter in het zoekvak. Selecteer deze trigger: **Azure Event Grid - Wanneer een Event Grid-resourcegebeurtenis optreedt**.
+6. Typ 'event grid' als filter in het zoekvak. Selecteer deze trigger: **Azure Event Grid - Wanneer een resourcegebeurtenis optreedt**
 
-   ![Selecteer deze trigger: Azure Event Grid - Wanneer een Event Grid-resourcegebeurtenis optreedt](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Selecteer deze trigger: 'Azure Event Grid - Wanneer een resourcegebeurtenis optreedt'](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 7. Wanneer dat wordt gevraagd, meldt u zich aan bij Azure Event Grid met uw Azure-referenties.
 
@@ -101,7 +101,7 @@ U gaat eerst een logische app maken en een trigger voor Event Grid toevoegen die
    | **Abonnement** | *{Azure-abonnement-virtuele-machine}* | Selecteer het Azure-abonnement van de gebeurtenisuitgever. Selecteer voor deze zelfstudie het Azure-abonnement voor uw virtuele machine. | 
    | **Resourcetype** | Microsoft.Resources.resourceGroups | Selecteer het resourcetype van de gebeurtenisuitgever. Selecteer voor deze zelfstudie de opgegeven waarde, zodat uw logische app alleen resourcegroepen bewaakt. | 
    | **Resourcenaam** | *{naam-van-resourcegroep-virtuele-machine}* | Selecteer de resourcenaam van de uitgever. Selecteer voor deze zelfstudie de naam van de resourcegroep voor uw virtuele machine. | 
-   | Kies **Geavanceerde opties weergeven** om optionele instellingen op te geven. | *{zie de beschrijvingen}* | * **Voorvoegselfilter**: laat deze instelling leeg voor deze zelfstudie. Het standaardgedrag komt overeen met alle waarden. U kunt echter een voorvoegseltekenreeks opgeven als een filter, bijvoorbeeld een pad en een parameter voor een specifieke resource. <p>* **Achtervoegselfilter**: laat deze instelling leeg voor deze zelfstudie. Het standaardgedrag komt overeen met alle waarden. U kunt echter een achtervoegseltekenreeks opgeven als een filter, bijvoorbeeld een bestandsnaamextensie, als u alleen bepaalde bestandstypen wilt gebruiken.<p>* **Abonnementsnaam**: geef een unieke naam op voor het gebeurtenisabonnement. |
+   | Kies **Geavanceerde opties weergeven** om optionele instellingen op te geven. | *{zie de beschrijvingen}* | * **Voorvoegselfilter**: Laat deze instelling leeg voor deze zelfstudie. Het standaardgedrag komt overeen met alle waarden. U kunt echter een voorvoegseltekenreeks opgeven als een filter, bijvoorbeeld een pad en een parameter voor een specifieke resource. <p>* **Achtervoegselfilter**: Laat deze instelling leeg voor deze zelfstudie. Het standaardgedrag komt overeen met alle waarden. U kunt echter een achtervoegseltekenreeks opgeven als een filter, bijvoorbeeld een bestandsnaamextensie, als u alleen bepaalde bestandstypen wilt gebruiken.<p>* **Abonnementsnaam**: Geef een unieke naam op voor het gebeurtenisabonnement. |
    | | | 
 
    Als u klaar bent, ziet de trigger voor het gebeurtenisraster er mogelijk zo uit:
@@ -182,8 +182,8 @@ U gaat nu een [*actie*](../logic-apps/logic-apps-overview.md#logic-app-concepts)
    | Instelling | Voorgestelde waarde | Beschrijving | 
    | ------- | --------------- | ----------- | 
    | **Aan** | *{e-mailadres-geadresseerde}* |Voer het e-mailadres van de ontvanger in. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
-   | **Onderwerp** | Resource updated: **Onderwerp**| Voer de inhoud van het onderwerp van de e-mail in. Voor deze zelfstudie voert u de voorgestelde tekst in en selecteert u het veld **Onderwerp** van de gebeurtenis. Hier bevat het onderwerp van de e-mail de naam voor de bijgewerkte resource (virtuele machine). | 
-   | **Hoofdtekst** | Resourcegroep: **Onderwerp** <p>Gebeurtenistype: **Gebeurtenistype**<p>Gebeurtenis-id: **Id**<p>Tijd: **Tijd van gebeurtenis** | Voer de inhoud voor de hoofdtekst van de e-mail in. Voor deze zelfstudie voert u de voorgestelde tekst in en selecteert u de velden **Onderwerp**, **Gebeurtenistype**, **Id** en **Tijd van gebeurtenis** van de gebeurtenis, zodat uw e-mailbericht de naam van de resourcegroep bevat, evenals het type gebeurtenis, het tijdstempel van de gebeurtenis en de gebeurtenis-id voor de update. <p>U kunt lege regels toevoegen aan de inhoud door op Shift+Enter te drukken. | 
+   | **Onderwerp** | Resource bijgewerkt: **Onderwerp**| Voer de inhoud van het onderwerp van de e-mail in. Voor deze zelfstudie voert u de voorgestelde tekst in en selecteert u het veld **Onderwerp** van de gebeurtenis. Hier bevat het onderwerp van de e-mail de naam voor de bijgewerkte resource (virtuele machine). | 
+   | **Hoofdtekst** | Resourcegroep: **Onderwerp** <p>Gebeurtenistype: **Gebeurtenistype**<p>Gebeurtenis-id: **ID**<p>Tijdstip: **Tijdstip van gebeurtenis** | Voer de inhoud voor de hoofdtekst van de e-mail in. Voor deze zelfstudie voert u de voorgestelde tekst in en selecteert u de velden **Onderwerp**, **Gebeurtenistype**, **Id** en **Tijd van gebeurtenis** van de gebeurtenis, zodat uw e-mailbericht de naam van de resourcegroep bevat, evenals het type gebeurtenis, het tijdstempel van de gebeurtenis en de gebeurtenis-id voor de update. <p>U kunt lege regels toevoegen aan de inhoud door op Shift+Enter te drukken. | 
    | | | 
 
    > [!NOTE] 

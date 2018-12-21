@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dc92524843f47b1327af5e9d3f237656cad2a37
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947530"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313782"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Zelfstudie: Containerinstallatiekopieën maken in een Service Fabric-cluster in Linux
 
@@ -208,7 +208,7 @@ Bij het voltooien van de zelfstudie is de containerinstallatiekopie opgeslagen i
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie is een toepassing opgehaald uit Github en zijn containerinstallatiekopieën gemaakt en naar een register gepusht. De volgende stappen zijn voltooid:
+In deze zelfstudie is een toepassing opgehaald uit GitHub en zijn containerinstallatiekopieën gemaakt en naar een register gepusht. De volgende stappen zijn voltooid:
 
 > [!div class="checklist"]
 > * Een toepassingsbron klonen vanuit GitHub

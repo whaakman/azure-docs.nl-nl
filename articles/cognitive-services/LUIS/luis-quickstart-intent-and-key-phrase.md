@@ -1,21 +1,22 @@
 ---
-title: 'Zelfstudie 8: Sleuteltermen extraheren in LUIS'
+title: Sleuteltermextractie
 titleSuffix: Azure Cognitive Services
 description: Leer hoe u met de vooraf gedefinieerde entiteit keyPhrase belangrijke informatie kunt extraheren uit utterances. U hoeft utterances niet te labelen met vooraf gedefinieerde entiteiten. De entiteit wordt automatisch gedetecteerd.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424809"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096924"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Zelfstudie 8: Sleuteltermen extraheren uit een utterance
 In deze zelfstudie gebruikt u de vooraf gedefinieerde entiteit keyPhrase om belangrijke informatie te extraheren uit utterances. U hoeft utterances niet te labelen met vooraf gedefinieerde entiteiten. De entiteit wordt automatisch gedetecteerd.
@@ -31,7 +32,6 @@ Uw clienttoepassing kan deze waarden gebruiken, samen met andere geëxtraheerde 
 
 **In deze zelfstudie leert u het volgende:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Bestaande zelfstudie-app gebruiken
 > * KeyPhrase-entiteit toevoegen 
@@ -84,7 +84,7 @@ Voeg de vooraf gedefinieerde entiteit keyPhrase toe om belangrijke informatie op
 
 2. Ga naar het einde van de URL in het adres en voer `does form hrf-123456 cover the new dental benefits and medical plan` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {

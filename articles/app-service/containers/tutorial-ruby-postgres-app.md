@@ -1,5 +1,5 @@
 ---
-title: Een Ruby- en een Postgres-web-app maken in Azure App Service op Linux | Microsoft Docs
+title: Een Ruby-web-app bouwen met Post in Linux - Azure App Service | Microsoft Docs
 description: Informatie over het uitvoeren van een Ruby-app in Azure, met verbinding naar een PostgreSQL-database in Azure.
 services: app-service\web
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445073"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271025"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Een Ruby- en een Postgres-web-app maken in Azure App Service op Linux
 
-[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie ziet u hoe u een Ruby-web-app maakt en deze verbindt met een PostgreSQL-database. Wanneer u klaar bent, hebt u een [Ruby on Rails](http://rubyonrails.org/)-app die op App Service op Linux wordt uitgevoerd.
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie ziet u hoe u een Ruby-web-app maakt en deze verbindt met een PostgreSQL-database. Wanneer u klaar bent, hebt u een [Ruby on Rails](https://rubyonrails.org/)-app die op App Service op Linux wordt uitgevoerd.
 
 ![Ruby on Rails-app uitgevoerd in Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -43,7 +43,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 * [Git installeren](https://git-scm.com/)
 * [Ruby 2.3 installeren](https://www.ruby-lang.org/en/documentation/installation/)
-* [Ruby on Rails 5.1 installeren](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Ruby on Rails 5.1 installeren](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [PostgreSQL installeren en uitvoeren](https://www.postgresql.org/download/)
 
 ## <a name="prepare-local-postgres"></a>Lokale Postgres voorbereiden
@@ -92,7 +92,7 @@ bundle install --path vendor/bundle
 
 ### <a name="run-the-sample-locally"></a>Het voorbeeld lokaal uitvoeren
 
-Voer [de Rails-migraties](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) uit om de tabellen te maken die de toepassing nodig heeft. Als u wilt zien welke tabellen worden gemaakt in de migraties, zoek dan in de map _db/migreren_ in de Git-opslagplaats.
+Voer [de Rails-migraties](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations) uit om de tabellen te maken die de toepassing nodig heeft. Als u wilt zien welke tabellen worden gemaakt in de migraties, zoek dan in de map _db/migreren_ in de Git-opslagplaats.
 
 ```bash
 rake db:create

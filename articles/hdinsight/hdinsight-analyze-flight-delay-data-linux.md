@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: fa84d5a09eab56dc01a6e841323ca11d12886582
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c0123008e5b15d6d3edce27245a7ed1fa6c431e7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495514"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015038"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Zelfstudie: Gegevens uitpakken, transformeren en laden met Apache Hive in Azure HDInsight
 
@@ -315,7 +315,7 @@ In deze zelfstudie hebt u geleerd hoe u gegevens kunt extraheren, transformeren 
 
 Zie de volgende artikelen voor andere manieren om te werken met gegevens in HDInsight:
 
-* [Zelfstudie: Gegevens uitpakken, transformeren en laden met Apache Hive in Azure HDInsight](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
+* [Zelfstudie: Gegevens extraheren, transformeren en laden met Apache Hive in Azure HDInsight](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
 * [Apache Pig gebruiken met HDInsight][hdinsight-use-pig]
 * [Java MapReduce-programma's ontwikkelen voor Apache Hadoop in HDInsight][hdinsight-develop-mapreduce]
@@ -325,13 +325,13 @@ Zie de volgende artikelen voor andere manieren om te werken met gegevens in HDIn
 
 
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md

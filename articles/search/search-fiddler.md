@@ -1,5 +1,5 @@
 ---
-title: REST API's verkennen in Fiddler of Postman (Azure Search REST) | Microsoft Docs
+title: REST API's verkennen in webtestprogramma's van Fiddler of Postman voor HTTP-aanvragen - Azure Search
 description: Fiddler of Postman gebruiken om HTTP-aanvragen en REST API-aanroepen naar Azure Search te doen.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: f73ec81686575efde70b7f90239299ec4deca00c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190182"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312973"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>REST API's voor Azure Search verkennen met Fiddler of Postman
 
@@ -110,13 +111,13 @@ Als u een HTTP 504-respons ontvangt, controleert u of de URL HTTPS bevat. Als de
 
 ### <a name="fiddler"></a>Fiddler
 
-Kopieer de indexdefinitie naar het hoofdgedeelte van de aanvraag, zoals in de volgende schermopname, en klik vervolgens op **Execute** rechtsboven om de voltooide aanvraag te verzenden.
+Kopieer de indexdefinitie naar het hoofdgedeelte van de aanvraag, zoals in de volgende schermopname en klik vervolgens op **Execute** (Uitvoeren) rechtsboven om de voltooide aanvraag te verzenden.
 
 ![Het hoofdgedeelte van de aanvraag in Fiddler][7]
 
 ### <a name="postman"></a>Postman
 
-Kopieer de indexdefinitie naar het hoofdgedeelte van de aanvraag, zoals in de volgende schermopname, en klik vervolgens op **Send** rechtsboven om de voltooide aanvraag te verzenden.
+Kopieer de indexdefinitie naar het hoofdgedeelte van de aanvraag, zoals in de volgende schermopname en klik vervolgens op **Send** (Verzenden) rechtsboven om de voltooide aanvraag te verzenden.
 
 ![Het hoofdgedeelte van de aanvraag in Postman][8]
 
@@ -200,13 +201,13 @@ Als u een 207-respons ontvang, is minimaal één document niet geüpload. Als u 
 
 ### <a name="fiddler"></a>Fiddler
 
-Wijzig de bewerking in **POST**. Wijzig de URL zodat deze `/docs/index` bevat. Kopieer het document naar het hoofdgedeelte van de aanvraag, zoals in de volgende schermopname, en voer de aanvraag uit.
+Wijzig de bewerking in **POST**. Wijzig de URL zodat deze `/docs/index` bevat. Kopieer de documenten naar het hoofdgedeelte van de aanvraag, zoals in de volgende schermopname, en voer de aanvraag uit.
 
 ![Aanvraagpayload in Fiddler][9]
 
 ### <a name="postman"></a>Postman
 
-Wijzig de bewerking in **POST**. Wijzig de URL zodat deze `/docs/index` bevat. Kopieer het document naar het hoofdgedeelte van de aanvraag, zoals in de volgende schermopname, en voer de aanvraag uit.
+Wijzig de bewerking in **POST**. Wijzig de URL zodat deze `/docs/index` bevat. Kopieer de documenten naar het hoofdgedeelte van de aanvraag, zoals in de volgende schermopname, en voer de aanvraag uit.
 
 ![Aanvraagpayload in Postman][10]
 
@@ -217,7 +218,7 @@ Nu er een index en documenten zijn geladen, kunt u hier query's op uitvoeren. Zi
 + Verander het eindpunt zodat dit queryparameters bevat, waaronder zoekreeksen. Een query-URL ziet er bijvoorbeeld uit als `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`.
 + Laat de aanvraagheaders ongewijzigd.
 
-Deze query zoekt de term 'motel' en retourneert het aantal documenten in de zoekresultaten. De aanvraag en de reactie moeten eruitzien als in de volgende schermopname voor Postman nadat u op **Send** hebt geklikt. De statuscode moet 200 zijn.
+Deze query zoekt de term 'motel' en retourneert het aantal documenten in de zoekresultaten. De aanvraag en het antwoord moeten eruitzien als in de volgende schermopname voor Postman nadat u op **Send** (Verzenden) hebt geklikt. De statuscode moet 200 zijn.
 
  ![Reactie op Postman-query][11]
 

@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd10581888da64114debec40cba8564023033864
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990158"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278505"
 ---
-# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Zelfstudie: classificeren van Iris deel 1 - gegevens voorbereiden
+# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Zelfstudie 1: Iris classificeren - gegevens voorbereiden
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -45,11 +45,11 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
 - Een Azure Machine Learning Experimenten-account
 - Azure Machine Learning Workbench moet zijn geïnstalleerd
 
-Als u nog niet aan deze vereisten voldoet, volgt u de stappen in het artikel [Snelstart: installeren en starten](quickstart-installation.md) om uw accounts in te stellen en de toepassing Azure Machine Learning Workbench te installeren. 
+Als u deze vereisten nog niet hebt, volgt u de stappen in het artikel [Quick Start: Installeren en starten](quickstart-installation.md) om uw accounts in te stellen en de toepassing Azure Machine Learning Workbench te installeren. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Een nieuw project maken in Workbench
 
-Als u de stappen in het artikel [Quickstart: Install and start](quickstart-installation.md) (Snelstart: installeren en starten) hebt gevolgd, hebt u dit project al gemaakt en kunt u doorgaan met de volgende sectie.
+Als u de stappen in het artikel [Quick Start: Installeren en starten](quickstart-installation.md) hebt gevolgd, hebt u dit project al gemaakt en kunt u doorgaan met de volgende sectie.
 
 1. Open de app Azure Machine Learning Workbench en meld u indien nodig aan. 
    
@@ -152,7 +152,7 @@ Dit pakket kan later worden overgedragen aan een runtime, zoals local-C#/CoreCLR
    1. Klik met de rechtermuisknop om deze te selecteren. 
    1. Selecteer **Value Counts** (Aantallen waarden) in de vervolgkeuzelijst. 
 
-   Het deelvenster **Inspectors** wordt geopend onder de gegevens. Een histogram met vier balken wordt weergegeven. U ziet dat de doelkolom vier afzonderlijke waarden heeft: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** en een **(null)**-waarde.
+   Het deelvenster **Inspectors** wordt geopend onder de gegevens. Een histogram met vier balken wordt weergegeven. De doelkolom bevat vier afzonderlijke waarden: **Iris-virginica**, **Iris-versicolor**, **Iris-setosa** en een **(null)**-waarde.
 
    ![Selecteer Value Counts](media/tutorial-classifying-iris/value_count.png)
 

@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 1c50b1bc362a66b17097575336bcb2c9bd4856ca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0bab289fedbbceb2d5cb763bd0f55e455bb60a29
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866080"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093015"
 ---
-# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL-zelfstudie: een SQL-API Java-consoletoepassing maken
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL-zelfstudie: Een SQL-API Java-consoletoepassing maken
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -56,14 +56,14 @@ Zorg ervoor dat u over de volgende zaken beschikt:
 
 * [Git](https://git-scm.com/downloads).
 * [Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks).
-* [Maven](http://maven.apache.org/download.cgi).
+* [Maven](https://maven.apache.org/download.cgi).
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Stap 1: een Azure Cosmos DB-account maken
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Stap 1: Maak een Azure Cosmos DB-account
 Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt dat u wilt gebruiken, kunt u verder naar de stap [Het GitHub-project klonen](#GitClone). Als u de Azure Cosmos DB-emulator gebruikt, volgt u de stappen in [Azure Cosmos DB-emulator](local-emulator.md) om de emulator in te stellen en meteen naar [Het GitHub-project klonen](#GitClone) te gaan.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Stap 2: het GitHub-project klonen
+## <a id="GitClone"></a>Stap 2: Het GitHub-project klonen
 Kloon eerst de GitHub-opslagplaats voor [Get Started with Azure Cosmos DB and Java](https://github.com/Azure-Samples/documentdb-java-getting-started) (Aan de slag met Azure Cosmos DB en Java). Voer bijvoorbeeld vanuit een lokale map het volgende uit als u het voorbeeldproject lokaal wilt ophalen.
 
     git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -78,7 +78,7 @@ De map bevat een `pom.xml` voor het project en een `src`-map met Java-broncode, 
         <version>LATEST</version>
     </dependency>
 
-## <a id="Connect"></a>Stap 3: verbinding maken met een Azure Cosmos DB-account
+## <a id="Connect"></a>Stap 3: Verbinding maken met een Azure Cosmos DB-account
 Ga vervolgens terug naar [Azure Portal](https://portal.azure.com) om uw eindpunt en primaire hoofdsleutel op te halen. Uw toepassing heeft het Azure Cosmos DB-eindpunt en de primaire sleutel nodig om te bepalen waarmee verbinding moet worden gemaakt en om ervoor te zorgen dat Azure Cosmos DB de verbinding van uw toepassing vertrouwt.
 
 Navigeer in Azure Portal naar uw Azure Cosmos DB-account en klik daarna op **Sleutels**. Kopieer in de portal de URI en plak deze in `https://FILLME.documents.azure.com` in het bestand Program.java. Kopieer vervolgens de PRIMAIRE SLEUTEL van de portal en plak deze in `FILLME`.
@@ -91,14 +91,14 @@ Navigeer in Azure Portal naar uw Azure Cosmos DB-account en klik daarna op **Sle
 
 ![Schermopname van Azure Portal die voor de NoSQL-zelfstudie wordt gebruikt om een Java-consoletoepassing te maken. Schermopname van Azure Portal waarin een Azure Cosmos DB-account wordt weergegeven met de hub ACTIEF gemarkeerd. Verder is de knop SLEUTELS gemarkeerd op de Azure Cosmos DB-accountblade en zijn de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de blade Sleutels][keys]
 
-## <a name="step-4-create-a-database"></a>Stap 4: een database maken
+## <a name="step-4-create-a-database"></a>Stap 4: Een database maken
 Uw Azure Cosmos DB-[database](databases-containers-items.md#azure-cosmos-databases) kan worden gemaakt met de methode [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) van de klasse **DocumentClient**. Een database is een logische container voor een JSON-documentopslag, gepartitioneerd in verzamelingen.
 
     Database database = new Database();
     database.setId("familydb");
     this.client.createDatabase(database, null);
 
-## <a id="CreateColl"></a>Stap 5: een verzameling maken
+## <a id="CreateColl"></a>Stap 5: Een verzameling maken
 > [!WARNING]
 > Met **createCollection** maakt u een nieuwe verzameling met gereserveerde doorvoer, wat gevolgen heeft voor de kosten. Zie onze [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) voor meer informatie.
 > 
@@ -140,7 +140,7 @@ U kunt een document maken met de methode [createDocument](/java/api/com.microsof
 
 ![Diagram waarin u de hiërarchische relatie ziet tussen het account, de online database, de verzameling en de documenten die in de NoSQL-zelfstudie worden gebruikt om een Java-consoletoepassing te maken](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Stap 7: query's uitvoeren op Azure Cosmos DB-resources
+## <a id="Query"></a>Stap 7: Query's uitvoeren op Azure Cosmos DB-resources
 Azure Cosmos DB biedt ondersteuning voor uitgebreide [query's](how-to-sql-query.md) op de JSON-documenten die zijn opgeslagen in elke verzameling.  De volgende voorbeeldcode laat zien hoe u query's kunt toepassen op documenten in Azure Cosmos DB met behulp van de SQL-syntaxis met de methode [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
@@ -169,12 +169,12 @@ Azure Cosmos DB ondersteunt ook het verwijderen van JSON-documenten met behulp v
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
-## <a id="DeleteDatabase"></a>Stap 10: de database verwijderen
+## <a id="DeleteDatabase"></a>Stap 10: De database verwijderen
 Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (verzamelingen, documenten enz.) verwijderd.
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a id="Run"></a>Stap 11: uw Java-consoletoepassing volledig uitvoeren
+## <a id="Run"></a>Stap 11: Uw Java-consoletoepassing volledig uitvoeren
 Als u de toepassing in de console wilt uitvoeren, gaat u naar de projectmap en compileert u de code met Maven:
     
     mvn package

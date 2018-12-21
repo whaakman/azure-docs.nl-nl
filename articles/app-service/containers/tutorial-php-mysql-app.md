@@ -1,6 +1,6 @@
 ---
-title: Een PHP- en MySQL-web-app maken in Azure App Service in Linux | Microsoft Docs
-description: Informatie over het werkend krijgen van een PHP-app in Azure, met verbinding naar een MySQL-database in Azure.
+title: Een PHP-web-app ontwikkelen met MySQL in Linux - Azure App Service | Microsoft Docs
+description: Informatie over het verkrijgen van een PHP-app die in Azure App Service onder Linux kan worden gebruikt, met verbinding met een MySQL-database in Azure.
 services: app-service\web
 author: cephalin
 manager: erikre
@@ -10,13 +10,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 91beef3076005fc7b95b1ffd208be238e23a7b8b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: 5d9843eecfed56f09c3a6d659976ca1ce5f42d80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291484"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342355"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Een PHP- en MySQL-web-app maken in Azure App Service in Linux
 
@@ -45,9 +45,9 @@ In deze zelfstudie leert u het volgende:
 Vereisten voor het voltooien van deze zelfstudie:
 
 * [Git installeren](https://git-scm.com/)
-* [Installeer PHP 5.6.4 of hoger](http://php.net/downloads.php)
+* [Installeer PHP 5.6.4 of hoger](https://php.net/downloads.php)
 * [Composer installeren](https://getcomposer.org/doc/00-intro.md)
-* Schakel de volgende PHP-extensies in die Laravel nodig heeft: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* Schakel de volgende PHP-extensies in die nodig zijn voor Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [MySQL installeren en starten](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Lokale MySQL voorbereiden
@@ -62,7 +62,7 @@ Maak in een terminalvenster verbinding met uw lokale MySQL-server. U kunt dit te
 mysql -u root -p
 ```
 
-Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het `root`-account. Als u het wachtwoord van uw rootaccount niet meer weet, bekijkt u [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het `root`-account. Als u het wachtwoord van uw hoofdaccount niet meer weet, raadpleegt u [MySQL: Het hoofdwachtwoord opnieuw instellen](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Als uw opdracht succesvol is uitgevoerd, wordt uw MySQL-server uitgevoerd. Als dit niet het geval is, zorgt u ervoor dat de lokale MySQL-server is gestart door de [Stappen na installatie van MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) te volgen.
 
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > U kunt uw firewallregel nog beperkender maken door [alleen de uitgaande IP-adressen te gebruiken die in uw app worden gebruikt](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-Voer in Cloud Shell de opdracht opnieuw uit om toegang vanaf uw lokale computer mogelijk te maken door *\<your_ip_address>* te vervangen door [uw lokale IPv4 IP-adres](http://www.whatsmyip.org/).
+Voer in Cloud Shell de opdracht opnieuw uit om toegang vanaf uw lokale computer mogelijk te maken door *\<your_ip_address>* te vervangen door [uw lokale IPv4 IP-adres](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
@@ -350,7 +350,7 @@ De volgende opdracht configureert de app-instellingen `DB_HOST`, `DB_DATABASE`, 
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-U kunt de PHP-methode [getenv](http://php.net/manual/en/function.getenv.php) gebruiken voor toegang tot de instellingen. De Laravel-code gebruikt een [env](https://laravel.com/docs/5.4/helpers#method-env)-wrapper boven de PHP `getenv`. Zo is de MySQL-configuratie in _config/database.php_ bijvoorbeeld vergelijkbaar met de volgende code:
+U kunt de PHP-methode [getenv](https://php.net/manual/en/function.getenv.php) gebruiken voor toegang tot de instellingen. De Laravel-code gebruikt een [env](https://laravel.com/docs/5.4/helpers#method-env)-wrapper boven de PHP `getenv`. Zo is de MySQL-configuratie in _config/database.php_ bijvoorbeeld vergelijkbaar met de volgende code:
 
 ```php
 'mysql' => [

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e25cdd0677efce0ea8d40ad1c8ae07a5d071a67f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614512"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969784"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -61,7 +61,7 @@ Dit zijn de belangrijke stappen voor het maken van deze oplossing:
 
     Hier volgt de diagramoplossing op hoog niveau: 
 
-    ![Stapsgewijs gegevens laden](media\tutorial-incremental-copy-multiple-tables-portal\high-level-solution-diagram.png)
+    ![Stapsgewijs gegevens laden](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -277,7 +277,7 @@ Als u gegevens uit een gegevensopslag in een particulier netwerk (on-premises) n
 1. Voer **MySelfHostedIR** in bij **Name** en klik op **Next**. 
 
    ![Zelf-hostende IR-naam](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. Klik in de sectie **Optie 1: snelle installatie** op **Klik hier om de snelle installatie voor deze computer te starten**. 
+1. Klik in de sectie **Optie 1: snelle installatie** op **Klik hier om de snelle installatie voor deze computer te starten**.  
 
    ![Klik op de koppeling Snelle installatie](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Klik in het venster **Snelle installatie van integratieruntime (zelf-hostend)** op **Sluiten**. 

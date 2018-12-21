@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Transliteratie van tekst, Python - Translator Text-API'
+title: 'Snelstartgids: Teksttransliteratie, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u tekst van het ene script translitereert (converteert) naar een ander met behulp van Python en de Translator Text REST API. In dit voorbeeld is sprake van transliteratie van Japans voor gebruik van het Latijnse alfabet.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 24887e39b98c41cbafbe962cb81391571d8b86b9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4f6418602fcf1de6ea98c45635029f71aa6fdf06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247875"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999289"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Quickstart: De Translator Text-API gebruiken voor transliteratie van tekst met Python
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Snelstartgids: De Translator Text-API gebruiken voor transliteratie van tekst met Python
 
 In deze quickstart leert u hoe u tekst van het ene script translitereert (converteert) naar een ander met behulp van Python en de Translator Text REST API. In het gegeven voorbeeld is sprake van transliteratie van Japans voor gebruik van het Latijnse alfabet.
 
@@ -69,7 +69,7 @@ Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt 
 De `params` worden gebruikt om de invoertaal, en het invoer- en uitvoerscript in te stellen. In dit voorbeeld is sprake van transliteratie van Japans naar het Latijnse alfabet.
 
 >[!NOTE]
-> Zie [Translator Text-API 3.0: transliteratie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate) voor meer informatie over eindpunten, routes en aanvraagparameters.
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: Transliteratie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -104,7 +104,7 @@ body = [{
 }]
 ```
 
-Vervolgens maakt u een POST-aanvraag via de module `requests`. Hier zijn drie argumenten voor nodig: de samengevoegde URL, de aanvraagheaders en de aanvraagbody:
+Vervolgens maakt u een POST-aanvraag met de `requests`-module. Hier zijn drie argumenten voor nodig: de samengevoegde URL, de aanvraagheaders en de aanvraagbody:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -151,7 +151,7 @@ Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze 
 
 ## <a name="see-also"></a>Zie ook
 
-Naast transliteratie van tekst kunt u de Translator Text-API ook gebruiken voor het volgende:
+Meer informatie over het gebruik van de Translator Text-API voor:
 
 * [Tekst vertalen](quickstart-python-translate.md)
 * [Een taal identificeren op basis van de invoer](quickstart-python-detect.md)

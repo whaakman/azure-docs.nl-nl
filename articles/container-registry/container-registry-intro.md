@@ -1,5 +1,5 @@
 ---
-title: Privé-Docker-containerregisters in Azure
+title: Privé-Docker-containerregisters in Azure - overzicht
 description: Kennismaking met de Azure Container Registry-service, waarmee u cloudgebaseerde, beheerde en persoonlijke Docker-registers kunt maken.
 services: container-registry
 author: stevelas
@@ -7,13 +7,13 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
-ms.custom: mvc
-ms.openlocfilehash: 3cc44b58d3e715a1e3c264be03b887f27c0c753c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b2ea63ec13e1e0b79a87b7bfa5bae4a6cf409331
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633492"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253235"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Inleiding tot privé-Docker-containerregisters in Azure
 
@@ -36,7 +36,7 @@ Configureer [ACR Tasks](#azure-container-registry-build) om toepassingsinstallat
 
 ## <a name="key-concepts"></a>Belangrijkste concepten
 
-* **Register**: maak een of meerdere containerregisters in uw Azure-abonnement. Registers zijn beschikbaar in drie SKU's, [Basic, Standard en Premium](container-registry-skus.md), die alle ondersteuning bieden voor integratie van webhooks, registerverificatie met Azure Active Directory en functionaliteit voor verwijderen. Maak een register op dezelfde Azure-locatie als uw implementaties om te profiteren van lokale opslag dichtbij in het netwerk van uw containerinstallatiekopieën. Gebruik de [geo-replicatie](container-registry-geo-replication.md)functie van Premium-registers voor geavanceerde replicatie- en distributiescenario's voor containerinstallatiekopieën. Een volledig gekwalificeerde registernaam heeft de notatie `myregistry.azurecr.io`.
+* **Register**: maak een of meerdere containerregisters in uw Azure-abonnement. Registers zijn beschikbaar in drie SKU's: [Basic, Standard en Premium](container-registry-skus.md), die alle ondersteuning bieden voor integratie van webhooks, registerverificatie met Azure Active Directory en functionaliteit voor verwijderen. Maak een register op dezelfde Azure-locatie als uw implementaties om te profiteren van lokale opslag dichtbij in het netwerk van uw containerinstallatiekopieën. Gebruik de [geo-replicatie](container-registry-geo-replication.md)functie van Premium-registers voor geavanceerde replicatie- en distributiescenario's voor containerinstallatiekopieën. Een volledig gekwalificeerde registernaam heeft de notatie `myregistry.azurecr.io`.
 
   U kunt [toegang beheren](container-registry-authentication.md) tot een containerregister met behulp van een [service-principal](../active-directory/develop/app-objects-and-service-principals.md) ondersteund door Azure Active Directory of een opgegeven beheeraccount. Voer de standaardopdracht `docker login` uit om deze te verifiëren met een register.
 

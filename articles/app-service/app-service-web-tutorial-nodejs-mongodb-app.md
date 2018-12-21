@@ -1,5 +1,5 @@
 ---
-title: Een web-app voor Node.js en MongoDB bouwen in Azure | Microsoft Docs
+title: Een Node.js-app ontwikkelen met MongoDB - Azure App Service | Microsoft Docs
 description: Informatie over hoe u een Node.js-web-app kunt laten werken in Azure, gekoppeld aan een Cosmos DB-database met een MongoDB-verbindingsreeks.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 2363f7f2e17bfc451ea9fd5486ba60fbc8ccb993
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 3666af764fa20a8343addedbddcdb12de0daf4a1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364282"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251501"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Zelfstudie: Een web-app voor Node.js en MongoDB bouwen in Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "49364282"
 > In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een Node.js- en MongoDB-web-app bouwen in Azure App Service onder Linux ](./containers/tutorial-nodejs-mongodb-app.md) om een app te implementeren in App Service onder _Linux_.
 >
 
-Azure Web Apps biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze zelfstudie wordt getoond hoe u een Node.js-web-app maakt en verbinding laat maken met een MongoDB-database. Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, AngularJS en Node.js) die wordt uitgevoerd in [Azure App Service](app-service-web-overview.md). In het voorbeeld wordt ter vereenvoudiging gebruikgemaakt van het [MEAN.js-webframework](http://meanjs.org/).
+Azure Web Apps biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze zelfstudie wordt getoond hoe u een Node.js-web-app maakt en verbinding laat maken met een MongoDB-database. Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, AngularJS en Node.js) die wordt uitgevoerd in [Azure App Service](app-service-web-overview.md). In het voorbeeld wordt ter vereenvoudiging gebruikgemaakt van het [MEAN.js-webframework](https://meanjs.org/).
 
 ![MEAN.js-app uitgevoerd in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -49,10 +49,10 @@ Wat u leert:
 Vereisten voor het voltooien van deze zelfstudie:
 
 1. [Git installeren](https://git-scm.com/)
-1. [Node.js en NPM installeren](https://nodejs.org/)
-1. [Bower installeren ](https://bower.io/) (vereist voor [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Gulp.js installeren ](http://gulpjs.com/) (vereist voor [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [MongoDB Community Edition installeren en uitvoeren](https://docs.mongodb.com/manual/administration/install-community/) 
+2. [Node.js en NPM installeren](https://nodejs.org/)
+3. [Bower installeren ](https://bower.io/) (vereist voor [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+4. [Gulp.js installeren ](https://gulpjs.com/) (vereist voor [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+5. [MongoDB Community Edition installeren en uitvoeren](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## <a name="test-local-mongodb"></a>MongoDB lokaal testen
 
@@ -310,10 +310,10 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
-Het implementatieproces voert [Gulp](http://gulpjs.com/) na `npm install` uit. In App Service worden tijdens de implementatie geen Gulp- of Grunt-taken uitgevoerd, dus deze voorbeeldopslagplaats bevat twee extra bestanden in de hoofdmap om deze in te schakelen: 
+Het implementatieproces voert [Gulp](https://gulpjs.com/) na `npm install` uit. In App Service worden tijdens de implementatie geen Gulp- of Grunt-taken uitgevoerd, dus deze voorbeeldopslagplaats bevat twee extra bestanden in de hoofdmap om deze in te schakelen: 
 
 - _.deployment_: dit bestand meldt App Service om `bash deploy.sh` uit te voeren als het aangepaste implementatiescript.
 - _deploy.sh_: het aangepaste implementatiescript. Als u het bestand bekijkt, ziet u dat `gulp prod` wordt uitgevoerd na `npm install` en `bower install`. 
