@@ -304,7 +304,7 @@ In deze stap maakt u invoer- en uitvoergegevenssets die invoer- en uitvoergegeve
 ## <a name="create-pipeline"></a>Pijplijn maken
 In deze stap maakt u een **pijplijn** met een **Kopieeractiviteit** die gebruikmaakt van **EmpOnPremSQLTable** als invoer en **OutputBlobTable** als de uitvoer.
 
-1. In Data Factory-Editor, klikt u op **... Meer** en vervolgens op **Nieuwe pijplijn.
+1. In Data Factory-Editor, klikt u op **... Meer** en vervolgens op **Nieuwe pijplijn**.
 2. Vervang de JSON in het rechterdeelvenster met de volgende tekst:    
 
     ```JSON   
