@@ -1,23 +1,17 @@
 ---
-title: Real-time-apps ontwikkelen met Azure Functions en Azure SignalR | Microsoft Docs
+title: Real-time-apps ontwikkelen met Azure Functions en Azure SignalR
 description: Een overzicht van het gebruik van de Azure SignalR-service in serverloze toepassingen.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 587752b25e3c98bbabbd42bd4d838fd19ae9fd45
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 9380c6434902c6882f84312a3d6999791bf15115
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318704"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256006"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Real-time-apps ontwikkelen met Azure Functions en Azure SignalR-service
 
@@ -71,4 +65,3 @@ In dit artikel hebt u een overzicht gekregen van hoe u Azure Functions kunt gebr
 
 * [Snelstart voor serverloze Azure SignalR-service - C#](signalr-quickstart-azure-functions-csharp.md)
 * [Snelstart voor serverloze Azure SignalR-service - JavaScript](signalr-quickstart-azure-functions-javascript.md)
-

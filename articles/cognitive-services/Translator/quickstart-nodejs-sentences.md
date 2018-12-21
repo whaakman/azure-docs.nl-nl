@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Zinlengtes ophalen, Node.js - Translator Text-API'
+title: 'Snelstartgids: Zinlengtes ophalen, Node.js - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u zinlengtes kunt bepalen (in tekens) met behulp van Node.js en de Translator Text-API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 08c01f8c73f8d25b824a97d31f1681d9a7eb302e
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 09d0c855aada753b0a3e594055ec188c2698e677
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249099"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998985"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Quickstart: De Translator Text-API gebruiken om zinlengtes te bepalen met Node.js
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Snelstartgids: De Translator Text-API gebruiken om de zinlengte te bepalen met Node.js
 
 In deze quickstart leert u hoe u zinlengtes kunt bepalen (in tekens) met behulp van Node.js en de Translator Text-API.
 
@@ -63,12 +63,12 @@ if (!subscriptionKey) {
 };
 ```
 
-## <a name="configure-the-request"></a>De aanvraag configureren
+## <a name="configure-the-request"></a>Aanvraag configureren
 
 Met de methode `request()`, beschikbaar gesteld via de aanvraagmodule, kunt u de HTTP-methode, URL, aanvraagparameters, headers en de JSON-hoofdtekst doorgeven als een `options`-object. In dit codefragment configureert u de aanvraag:
 
 >[!NOTE]
-> Zie [Translator Text-API 3.0: regeleinden in woordenlijst](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) voor meer informatie over eindpunten, routes en aanvraagparameters.
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: Einde van de zin](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```javascript
 let options = {
@@ -96,7 +96,7 @@ U kunt aanvragen het eenvoudigst verifiëren door uw abonnementssleutel op te ge
 
 ## <a name="make-the-request-and-print-the-response"></a>De aanvraag maken en het antwoord afdrukken
 
-Vervolgens maakt u de aanvraag via de methode `request()`. Deze gebruikt het `options`-object dat in de vorige sectie is gemaakt, als het eerste argument, waarna het opgemaakte JSON-antwoord wordt afgedrukt.
+Vervolgens maakt u de aanvraag via de methode `request()`. Deze gebruikt het `options`-object dat in de vorige sectie als eerste argument is gemaakt, waarna het opgemaakte JSON-antwoord wordt afgedrukt.
 
 ```javascript
 request(options, function(err, res, body){

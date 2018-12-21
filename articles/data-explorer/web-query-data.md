@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: query’s uitvoeren op gegevens in Azure Data Explorer'
+title: "Snelstart: Query's uitvoeren op gegevens in Azure Data Explorer"
 description: In deze snelstart leert u hoe u query's uitvoert op gegevens in Azure Data Explorer en hoe u gegevens deelt.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7b9bc52e07bccf931593cd2dbddd68e973d1b26c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394354"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106444"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Snelstart: query’s uitvoeren op gegevens in Azure Data Explorer
+# <a name="quickstart-query-data-in-azure-data-explorer"></a>Snelstart: Query's uitvoeren op gegevens in Azure Data Explorer
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer is een webtoepassing voor het uitvoeren en delen van query's. De toepassing is beschikbaar in de Azure Portal en als een zelfstandige webtoepassing. In dit artikel werkt u in de zelfstandige versie, waarmee u verbinding kunt maken met meerdere clusters en dieptekoppelingen naar uw query's kunt delen.
 
@@ -134,7 +134,7 @@ Nu u hebt gezien hoe eenvoudige query's werken, gaan we kijken hoe u het tabelra
 
 1. Voer de volgende query uit.
 
-    ```Kutso
+    ```Kusto
     StormEvents
     | sort by StartTime desc
     | where DamageProperty > 5000
@@ -148,7 +148,7 @@ Nu u hebt gezien hoe eenvoudige query's werken, gaan we kijken hoe u het tabelra
 
     Dit deelvenster is vergelijkbaar met de lijst met draaitabelvelden in Excel en stelt u in staat om aanvullende analyse uit te voeren in het raster zelf.
 
-1. Select **Pivot Mode** en sleep als volgt kolommen: **State** naar **Row Groups**, **DamageProperty** naar **Values** en **EventType** naar **Column labels**.  
+1. Selecteer **Pivot Mode** en versleep de kolommen als volgt: **State** naar **Row Groups**, **DamageProperty** naar **Values** en **EventType** naar **Column labels**.  
 
     ![Pivot Mode](media/web-query-data/pivot-mode.png)
 

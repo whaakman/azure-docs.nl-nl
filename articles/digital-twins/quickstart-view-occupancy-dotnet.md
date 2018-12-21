@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582391"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105509"
 ---
-# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snelstart: beschikbare ruimten zoeken met behulp van Azure Digital Twins
+# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snelstart: Beschikbare ruimten zoeken met behulp van Azure Digital Twins
 
 Met de Azure Digital Twins-service kunt u opnieuw een digitale kopie van uw fysieke omgeving maken. U kunt vervolgens een melding ontvangen van gebeurtenissen in uw omgeving en uw reacties hierop aanpassen. 
 
@@ -71,7 +71,7 @@ In deze stap wordt uw ruimtelijke Digital Twins-grafiek ingericht met:
 - Een aangepaste functie. 
 - Een roltoewijzing.
  
-De ruimtelijke grafiek wordt ingericht met behulp van het bestand [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
+De ruimtelijke grafiek wordt ingericht met behulp van het bestand [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml). 
 
 1. Voer `dotnet run ProvisionSample` uit.
     >[!NOTE]
@@ -88,6 +88,9 @@ De ruimtelijke grafiek wordt ingericht met behulp van het bestand [provisionSamp
 1. Aan het einde van de uitvoering, kopieert u de `ConnectionString` van het apparaat voor gebruik in de voorbeeldapparaatsimulator. Kopieer alleen de tekenreeks die wordt beschreven in deze afbeelding.
 
     ![Voorbeeld van inrichting][1]
+
+    >[!TIP]
+    > U kunt de ruimtelijke grafiek bekijken en aanpassen met de [Graph Viewer voor Azure Digital Twins](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## <a name="send-sensor-data"></a>Sensorgegevens verzenden
 

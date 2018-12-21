@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 0d4ba7edfb22a6710222c854ceb2bf86284d2d77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1ea12c9a544704ea91b85ae944e611e6769b5592
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057589"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407130"
 ---
-# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Snelstart: een cluster maken voor Batch AI-trainingstaken met de Azure CLI
+# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Snelstartgids: Een cluster maken voor Batch AI-trainingstaken met de Azure CLI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 In deze snelstart leert u hoe u de Azure CLI gebruikt om een Batch AI-cluster te maken dat u kunt gebruiken om AI- en machine learning-modellen te trainen. Batch AI is een beheerde service voor gegevenswetenschappers en AI-onderzoekers om AI- en machine learning-modellen op schaal te trainen in clusters virtuele Azure-machines.
 

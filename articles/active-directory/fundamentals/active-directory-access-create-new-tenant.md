@@ -1,6 +1,6 @@
 ---
-title: Snelstart voor toegang tot Azure Active Directory en om een nieuwe tenant | Microsoft Docs te maken
-description: Snelstart met stappen over het vinden van Azure Active Directory en het maken van een nieuwe tenant voor uw organisatie.
+title: Snelstartgids over het maken en gebruiken van een nieuwe tenant - Azure Active Directory | Microsoft Docs
+description: Instructies over het zoeken van Azure Active Directory en het maken van een nieuwe tenant voor uw organisatie.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
-custom: it-pro
-ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: cd179d371ec75a2e6ca258a1efbc2361e50a5438
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023541"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083261"
 ---
-# <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Snelstart voor toegang tot Azure Active Directory en om een nieuwe tenant te maken
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snelstartgids: Een nieuwe tenant maken in Azure Active Directory
 U kunt al uw administratieve taken uitvoeren met behulp van de portal van Azure Active Directory (Azure AD), met inbegrip van het maken van een nieuwe tenant voor uw organisatie. 
 
 In deze Snelstartgids leert u hoe u bij de Azure Portal en Azure Active Directory komt en hoe u een eenvoudige tenant voor uw organisatie maakt.

@@ -1,6 +1,6 @@
 ---
-title: Wat is id-beveiligingsscore in Azure AD? - preview | Microsoft Docs
-description: Lees hoe u de id-beveiligingsscore kunt gebruiken om het beveiligingspostuur van uw Azure AD-tenant te verbeteren.
+title: Wat is een id-beveiligingsscore? - Azure Active Directory (openbare preview) | Microsoft Docs
+description: Informatie over het gebruiken van de id-beveiligingsscore om het beveiligingspostuur van uw Azure AD-tenant te verbeteren.
 services: active-directory
 keywords: id-beveiligingsscore, Azure AD, beveiligde toegang tot bedrijfsbronnen
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a9bb22cae2e9fcd607a81d442f4fb51f12c43454
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro
+ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224134"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092064"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>Wat is de id-beveiligingsscore in Azure AD? - preview
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>Wat is de id-beveiligingsscore in Azure Active Directory? (openbare preview)
 
 Hoe veilig is uw Azure AD-tenant? Als u het antwoord op deze vraag schuldig moet blijven, leest u dit artikel om erachter te komen hoe de id-beveiligingsscore kan helpen om het beveiligingspostuur van uw identiteit te controleren en te verbeteren. 
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a0aed1fd65444397b3ca084cc0100aa5af49c918
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839500"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341045"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Uw eerste Durable Function maken in C\#
 
@@ -76,7 +76,7 @@ Visual Studio maakt een leeg Function-app-project.  Het bevat wel de elementaire
 
 Een nieuwe Durable Function wordt toegevoegd aan de app.  Open het nieuwe bestand om de inhoud weer te geven.  Deze Durable Function is een eenvoudig voorbeeld van het koppelen van functies.  
 
-* De `RunOrchestrator`-methode is gekoppeld aan de Orchestrator-functie.  Deze functie wordt gestart, maakt een lijst en voegt het resultaat van drie functieaanroepen toe aan de lijst.  Wanneer de drie functieaanroepen zijn voltooid, wordt de lijst geretourneerd.  De functie die wordt aangeroepen, is de `SayHello`-methode (standaard wordt deze aangeroepen als '<NameOfFile>_Hello').
+* De `RunOrchestrator`-methode is gekoppeld aan de Orchestrator-functie.  Deze functie wordt gestart, maakt een lijst en voegt het resultaat van drie functieaanroepen toe aan de lijst.  Wanneer de drie functieaanroepen zijn voltooid, wordt de lijst geretourneerd.  De functie die wordt aangeroepen, is de `SayHello`-methode (standaard wordt deze `<NameOfFile>_Hello` genoemd).
 * De `SayHello`-functie geeft als resultaat een Hello.
 * De `HttpStart`-methode beschrijft de functie waarmee exemplaren van de orchestrator worden gestart.  Deze is gekoppeld aan een [HTTP-trigger](../functions-bindings-http-webhook.md) die een nieuw exemplaar van de orchestrator start en de statuscontrole retourneert.
 
@@ -92,7 +92,7 @@ Met Azure Functions Core-hulpprogramma's kunt u een Azure Functions-project uitv
 
     ![Lokale Azure-runtime](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
-3. Plak de URL van de HTTP-aanvraag in de adresbalk van uw browser en voer de aanvraag uit. Hieronder ziet u de reactie op de lokale GET-aanvraag die door de functie wordt geretourneerd, weergegeven in de browser: 
+3. Plak de URL van de HTTP-aanvraag in de adresbalk van uw browser en voer de aanvraag uit. Hieronder ziet u de reactie op de lokale GET-aanvraag die door de functie wordt geretourneerd, weergegeven in de browser:
 
     ![De reactie van de lokale host van de functie in de browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 

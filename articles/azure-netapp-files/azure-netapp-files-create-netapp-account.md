@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ad8cc550ce69e4dc4c19a569718fa873a65b3620
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010341"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413180"
 ---
 # <a name="create-a-netapp-account"></a>Een NetApp-account maken
 Als u een NetApp-account maakt, kunt u een capaciteitspool instellen en vervolgens een volume maken. U gebruikt de Azure NetApp Files-blade om een nieuw NetApp-account te maken.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-U moet zijn goedgekeurd voor toegang tot de Microsoft.NetApp Azure Resource Provider en zodanig zijn geconfigureerd dat u de Azure NetApp Files-service kunt gebruiken.  
+U moet uw abonnement hebben geregistreerd voor het gebruik van de NetApp-resourceprovider en de functie voor openbare previews.
 
-[Registratiepagina Openbare Preview Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+[Registreren voor Azure NetApp Files](azure-netapp-files-register.md)
 
 ## <a name="steps"></a>Stappen 
 
-1. Zoek in uw preview-uitnodiging de URL voor de preview van de Azure-portal en meld u aan bij de portal. 
+1. Zoek in uw preview-uitnodiging de URL voor de preview van Azure Portal en meld u aan bij de portal. 
 2.  Verkrijg toegang tot de Azure NetApp Files-blade via een van de volgende methoden:  
   * Zoek naar **Azure NetApp Files** in het zoekvak van de Azure-portal.  
   * Klik in de navigatie op **Alle services** en filter vervolgens op Azure NetApp Files.  
@@ -60,6 +60,5 @@ U moet zijn goedgekeurd voor toegang tot de Microsoft.NetApp Azure Resource Prov
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-1. [Een capaciteitspool instellen](azure-netapp-files-set-up-capacity-pool.md)
-2. [Een volume maken voor Azure NetApp Files](azure-netapp-files-create-volumes.md)
-3. [Exportbeleid voor een volume configureren (optioneel)](azure-netapp-files-configure-export-policy.md)
+[Een capaciteitspool instellen](azure-netapp-files-set-up-capacity-pool.md)
+

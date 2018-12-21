@@ -1,23 +1,24 @@
 ---
-title: 'Snelstart: Knowledge base maken - REST, C# - QnA Maker'
-titlesuffix: Azure Cognitive Services
+title: Knowledge base maken - REST, C#
+titlesuffix: QnA Maker- Azure Cognitive Services
 description: In deze op C# REST gebaseerde snelstart wordt stapsgewijs uitgelegd hoe u met behulp van een programma een voorbeeldexemplaar van een knowledge base in QnA Maker kunt maken, dat wordt weergegeven op het Azure-dashboard van uw account voor de Cognitive Services-API.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 190a937a4239c08d844d271d2e1d8e858215a5c2
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 36f056003ec35f49120a36b15c0809b06daaecbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334956"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254806"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Snelstart: Een knowledge base maken in QnA Maker met behulp van C#
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Snelstartgids: Een knowledge base maken in QnA Maker met behulp van C#
 
 In deze snelstart wordt beschreven hoe u programmatisch een voorbeeld van een QnA Maker-knowledge base kunt maken en publiceren. Met QnA Maker worden automatisch vragen en antwoorden opgehaald uit semi-gestructureerde inhoud, zoals veelgestelde vragen, vanuit [gegevensbronnen](../Concepts/data-sources-supported.md). Het model voor de knowledge base wordt gedefinieerd in de JSON die in de hoofdtekst van de API-aanvraag wordt verzonden. 
 
@@ -32,7 +33,7 @@ In deze snelstart worden QnA Maker-API's aangeroepen:
 * U moet een [QnA Maker-service ](../How-To/set-up-qnamaker-service-azure.md) hebben. Selecteer onder **Resourcebeheer** de optie **Sleutel** om uw sleutel op te halen. 
 
 > [!NOTE] 
-> Het bestand of de bestanden van de volledige oplossing zijn beschikbaar in de Github-opslagplaats [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
+> Het bestand of de bestanden van de volledige oplossing zijn beschikbaar in de GitHub-opslagplaats [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
 
 ## <a name="create-a-knowledge-base-project"></a>Een project met knowledge base maken
 

@@ -14,14 +14,14 @@ ms.date: 08/08/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8ebdb22ba5ca04a5c811b3b368055f5f4371c75f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8c5d980f25e196add6885d250665eae7127456f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40208877"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273116"
 ---
-# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Snelstart: naambeleid voor groepen in Azure Active Directory
+# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Snelstartgids: Naamgevingsbeleid voor groepen in Azure Active Directory
 
 In deze snelstart stelt u naambeleid in uw Azure Active Directory (Azure AD)-tenant in voor Office 365-groepen die door gebruikers zijn gemaakt. Hierdoor kunt u de groepen van de tenant sorteren en doorzoeken. U kunt het naambeleid onder meer gebruiken voor:
 
@@ -50,7 +50,7 @@ Als u wordt gevraagd een niet-vertrouwde opslagplaats te openen, typt u **Y**. H
 
 ## <a name="set-up-naming-policy"></a>Naambeleid instellen
 
-### <a name="step-1-sign-in-using-powershell-cmdlets"></a>Stap 1: aanmelden met behulp van PowerShell-cmdlets
+### <a name="step-1-sign-in-using-powershell-cmdlets"></a>Stap 1: Aanmelden met behulp van PowerShell-cmdlets
 
 1. Open de Windows PowerShell-app. U hebt geen verhoogde bevoegdheden nodig.
 
@@ -64,7 +64,7 @@ Als u wordt gevraagd een niet-vertrouwde opslagplaats te openen, typt u **Y**. H
 
 3. Volg de stappen in [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](groups-settings-cmdlets.md) om groepsinstellingen voor deze tenant te maken.
 
-### <a name="step-2-view-the-current-settings"></a>Stap 2: huidige instellingen weergeven
+### <a name="step-2-view-the-current-settings"></a>Stap 2: Huidige instellingen weergeven
 
 1. Bekijk de instellingen voor het huidige naambeleid.
   
@@ -78,9 +78,9 @@ Als u wordt gevraagd een niet-vertrouwde opslagplaats te openen, typt u **Y**. H
   $Setting.Values
   ````
   
-### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Stap 3: naambeleid en eventuele aangepaste, geblokkeerde woorden instellen
+### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Stap 3: Naamgevingsbeleid en eventuele aangepaste, geblokkeerde woorden instellen
 
-1. Stel de voor- en achtervoegsels van de groepsnaam in in Azure AD PowerShell.
+1. Stel de voor- en achtervoegsels van de groepsnaam in in Azure AD PowerShell. [GroupName] moet in de instelling worden opgenomen om de functie goed te laten werken.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -102,19 +102,19 @@ Dat is alles. U hebt het naambeleid ingesteld en uw aangepaste, geblokkeerde woo
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-1. Stel de voor- en achtervoegsels van de groepsnaam in in Azure AD PowerShell.
+1. Wis de voor- en achtervoegsels van de groepsnaam in Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =""
   ````
   
-2. Stel de aangepaste, geblokkeerde woorden in die u wilt verbieden. In het volgende voorbeeld wordt getoond hoe u uw eigen aangepaste woorden kunt toevoegen.
+2. Maak de aangepaste lijst met geblokkeerde woorden leeg.
   
   ````
   $Setting["CustomBlockedWordsList"]=""
   ````
   
-3. Sla de instellingen voor het nieuwe beleid op zodat het van kracht wordt, zoals in het volgende voorbeeld.
+3. Sla de instellingen op.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting

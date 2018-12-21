@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Zinlengtes ophalen, Python - Translator Text-API'
+title: 'Snelstartgids: Zinlengtes ophalen, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u zinlengtes kunt bepalen (in tekens) met behulp van Python en de Translator Text-API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 64831f13811029263a2b76f8030589d9329dd318
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 1d7ba50bf57a5c7f88f4380c4874d6053f07082e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086128"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992597"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Quickstart: de Translator Text-API gebruiken om zinlengten te bepalen met Python
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Snelstartgids: De Translator Text-API gebruiken om de zinlengte te bepalen met Python
 
 In deze quickstart leert u hoe u zinlengtes kunt bepalen (in tekens) met behulp van Python en de Translator Text-API.
 
@@ -69,7 +69,7 @@ Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt 
 De `params` in dit voorbeeld worden gebruikt om de taal van de opgegeven tekst in te stellen. `params` zijn niet vereist voor de route `breaksentence`. Wanneer de taal niet is vermeld in de aanvraag, wordt geprobeerd om met de API de taal van de opgegeven tekst te detecteren, en in het antwoord deze informatie te bieden samen met een betrouwbaarheidsscore.
 
 >[!NOTE]
-> Zie [Translator Text-API 3.0: talen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) voor meer informatie over eindpunten, routes en aanvraagparameters.
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: Talen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -103,7 +103,7 @@ body = [{
 }]
 ```
 
-Vervolgens maakt u een POST-aanvraag via de module `requests`. Hier zijn drie argumenten voor nodig: de samengevoegde URL, de aanvraagheaders en de aanvraagbody:
+Vervolgens maakt u een POST-aanvraag met de `requests`-module. Hier zijn drie argumenten voor nodig: de samengevoegde URL, de aanvraagheaders en de aanvraagbody:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -153,7 +153,7 @@ Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze 
 
 ## <a name="see-also"></a>Zie ook
 
-Naast transliteratie van tekst kunt u de Translator Text-API ook gebruiken voor het volgende:
+Meer informatie over het gebruik van de Translator Text-API voor:
 
 * [Tekst vertalen](quickstart-python-translate.md)
 * [Tekst transcriberen](quickstart-python-transliterate.md)

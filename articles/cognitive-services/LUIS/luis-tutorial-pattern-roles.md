@@ -1,7 +1,8 @@
 ---
-title: 'Zelfstudie 4: Rolpatronen maken voor contextgerelateerde gegevens'
+title: Patroonrollen
 titleSuffix: Azure Cognitive Services
 description: Gebruik een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens, zoals de locatie van de oorsprong en die van het doel, te extraheren.
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427485"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094403"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Zelfstudie 4: Contextgerelateerde patronen extraheren
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Zelfstudie 4: Contextgerelateerde patronen herkennen
 
 In deze zelfstudie gebruikt u een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens, zoals de locatie van de oorsprong en die van het doel, te extraheren.  Met patronen zijn er minder voorbeeld-utterances nodig voor de intentie.
 
@@ -28,7 +29,7 @@ De naam van de nieuwe werknemer, Billy Patterson, maakt nog geen deel uit van de
 
 De nieuwe werknemer en zijn gezin moeten verhuizen van hun huidige woonplaats naar een plaats waar het fictieve bedrijf is gevestigd. Omdat een nieuwe medewerker uit willekeurig welke plaats kan komen, moeten de locaties worden gedetecteerd. Een ingestelde lijst, zoals een lijstentititeit, werkt in dit geval niet omdat alleen de plaatsen in de lijst zouden worden geëxtraheerd.
 
-De rolnamen die zijn gekoppeld aan de plaats van oorsprong en de plaats van bestemming moeten uniek zijn binnen alle entiteiten. Een eenvoudige manier om ervoor te zorgen dat de rollen uniek zijn, is door ze met behulp van een naamgevingsstrategie binden aan de containerentiteit. De entiteit **NewEmployeeRelocation** is een enkele entiteit met twee rollen: **NewEmployeeReloOrigin** en **NewEmployeeReloDestination**. Relo is de afkorting van relocation (verhuizing).
+De rolnamen die zijn gekoppeld aan de plaats van oorsprong en de plaats van bestemming moeten uniek zijn binnen alle entiteiten. Een eenvoudige manier om ervoor te zorgen dat de rollen uniek zijn, is door ze met behulp van een naamgevingsstrategie binden aan de containerentiteit. De entiteit **NewEmployeeRelocation** is een eenvoudige entiteit met twee rollen: **NewEmployeeReloOrigin** en **NewEmployeeReloDestination**. Relo is de afkorting van relocation (verhuizing).
 
 Omdat de voorbeeld-utterance `Move new employee Robert Williams from Sacramento and San Francisco` alleen door de computer aangeleerde entiteiten bevat, is het belangrijk om voldoende utterances voor de intentie te verstrekken, zodat de entiteiten worden gedetecteerd.  
 
@@ -128,7 +129,7 @@ Het labelen van de entiteiten in deze stappen is misschien eenvoudiger als u de 
 
 2. Ga naar het einde van de URL in het adres en voer `Move Wayne Berry from Miami to Mount Vernon` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -258,7 +259,7 @@ Plaatsnamen zijn net als persoonsnamen erg lastig omdat ze uit een combinatie va
 
 2. Ga naar het einde van de URL in het adres en voer `Move wayne berry from miami to mount vernon` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

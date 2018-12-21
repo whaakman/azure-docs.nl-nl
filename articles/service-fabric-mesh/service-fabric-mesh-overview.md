@@ -9,12 +9,12 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: f753d7273c685a7ec3e4e0877e171df04e69e5b4
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: da5370e274aa1904f803227d8c85912a7d26c533
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978312"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000665"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Wat is Service Fabric?
 
@@ -50,6 +50,7 @@ Met Service Fabric Mesh kunt u het volgende:
 - Implementeren en beheren van resources met behulp van [Azure Portal](https://portal.azure.com), Resource Manager-sjablonen of Azure CLI/PowerShell-bibliotheken.
 - Instellen van operationele bewaking en waarschuwingen met behulp van [Application Insights](/azure/application-insights/) (of een hulpprogramma naar keuze) om de operationele en diagnostische traceringen van het platform vast te leggen.
 - Toegang krijgen tot diagnostische gegevens van de toepassing die afkomstig zijn uit het toepassingmodel via [Application Insights](/azure/application-insights/) of een hulpprogramma naar keuze.
+- Resourcegebruik optimaliseren door regels voor automatisch schalen voor de services op te geven in de definitie van de toepassing.
 
 ## <a name="mission-critical-platform-capabilities"></a>Bedrijfskritieke platformmogelijkheden
 

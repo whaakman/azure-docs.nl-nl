@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: afbeelding uploaden voor Bing Visual Search'
+title: 'Zelfstudie: Afbeelding uploaden voor Bing Visual Search'
 titleSuffix: Azure Cognitive Services
 description: Hierin wordt het proces geanalyseerd waarmee een afbeelding naar Bing wordt geüpload om er inzichten over te verkrijgen en vervolgens het antwoord wordt geparseerd en weergegeven.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 24b4bacd6a369812a07095b1d9c114f557d10d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443454"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960054"
 ---
-# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Zelfstudie: uploaden naar Bing Visual Search analyseren
+# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Zelfstudie: Uploaden naar Bing Visual Search analyseren
 
 In deze zelfstudie wordt het proces van het uploaden van een afbeelding naar Bing en het terugkrijgen van inzichten geanalyseerd. Ook ziet u hoe u toegang kunt krijgen tot de inzichten in het JSON-antwoord en deze weergeven. Zie voor het volledige HTML- en JavaScript-voorbeeld de [volledige code](#complete-code).
 
@@ -1340,4 +1340,4 @@ Hier is het volledige HTML- en JavaScript-voorbeeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [zelfstudie over Bing Visual Search SDK ImageInsightsToken](.\tutorial-visual-search-insights-token.md) om te zien hoe het ophalen van inzichten met een inzichttoken werkt.
+Zie de [zelfstudie over Bing Visual Search SDK ImageInsightsToken](./tutorial-visual-search-insights-token.md) om te zien hoe het ophalen van inzichten met een inzichttoken werkt.

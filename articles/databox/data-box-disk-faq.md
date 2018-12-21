@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 12/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f437f1fd61cfdaa4d2ff908f6e294fa0c679b9a5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238128"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273049"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Wat is Azure Data Box Disk? (Preview)
 
@@ -59,7 +59,7 @@ A.  Data Box Disks is tijdens de previewfase beschikbaar in de V.S., Canada, Aus
 A. Data Box Disk wordt voor preview ondersteund in alle regio's binnen de V.S., Canada, Australië, en West- en Noord-Europa. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>V. Met wie moet ik contact opnemen als ik een probleem krijg met Data Box-schijven?
-A. Bij problemen met Data Box-schijven neemt u contact op met [Data Box Disk Support](mailto:expresspodsupport@microsoft.com).
+A. Neem bij problemen met Data Box-schijven contact op met [Microsoft Ondersteuning](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
 
 ## <a name="configure-and-connect"></a>Configureren en verbinding maken
  
@@ -72,7 +72,7 @@ A.  Ga in Azure Portal naar uw Data Box Disk-bestelling en vervolgens naar **App
 Voor stapsgewijze instructies gaat u naar [Schijven ontgrendelen op een Windows-client](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) of [Schijven ontgrendelen op een Linux-client](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box-disks"></a>V. Kan ik een Linux-hostcomputer gebruiken om verbinding te maken met de gegevens en deze naar de Data Box-schijven te kopiëren?
-A.  Ja. Zowel de Linux- als de Windows-client kan worden gebruikt om verbinding te maken en gegevens te kopiëren naar de Data Box-schijven. Ga naar de lijst met [ondersteunde besturingssystemen](data-box-disk-system-requirements.md) voor uw hostcomputer voor meer informatie.
+A.  Ja. Zowel de Linux- als de Windows-client kan worden gebruikt om verbinding te maken en gegevens te kopiëren naar de Data Box-schijven. Ga naar de lijst met [Ondersteunde besturingssystemen](data-box-disk-system-requirements.md) voor uw hostcomputer voor meer informatie.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>V. Mijn schijven zijn verzonden, maar ik wil de bestelling annuleren. Waarom is er geen knop Annuleren?
 A.  U kunt de bestelling alleen annuleren nadat de schijven zijn besteld en voordat ze worden verzonden. Zodra de schijven zijn verzonden, kunt u de bestelling niet meer annuleren. Tijdens de previewfase kunt u de schijven kosteloos terugsturen, maar dat kan waarschijnlijk niet meer als deze oplossing algemeen beschikbaar is. 
@@ -108,7 +108,7 @@ A.  Gebruik een SMB-kopieerprogramma als Robocopy of Diskboss als u gegevens naa
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>V. Zijn er tips om het kopiëren van gegevens te versnellen?
 A.  U kunt het kopieerproces als volgt versnellen:
 
-- Gebruik meerdere gegevensstromen. In bijvoorbeeld Robocopy kunt u de optie voor meerdere threads gebruiken. Ga naar [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md#copy-data-to-disks) (Zelfstudie: Gegevens naar Azure Data Box kopiëren en verifiëren) voor meer informatie over de opdracht die u moet gebruiken.
+- Gebruik meerdere gegevensstromen. In bijvoorbeeld Robocopy kunt u de optie voor meerdere threads gebruiken. Meer informatie over de opdracht die u moet gebruiken is te vinden in [Zelfstudie: Gegevens kopiëren naar de Azure Data Box-schijf en deze gegevens controleren](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Gebruik meerdere sessies.
 - In plaats van te kopiëren via een netwerkshare (waarbij de netwerksnelheid beperkend kan zijn), zorgt u ervoor dat de gegevens lokaal aanwezig zijn op de computer waarmee de schijven zijn verbonden.
 - Zorg ervoor dat u USB 3.0 of hoger gebruikt gedurende het hele kopieerproces. Download en gebruik het hulpprogramma [USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) om de USB-controllers en de USB-apparaten te identificeren die met de computer zijn verbonden.

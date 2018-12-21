@@ -1,21 +1,22 @@
 ---
-title: 'Zelfstudie 1: Intenties zoeken in aangepaste LUIS-app'
+title: Intenties voorspellen
 titleSuffix: Azure Cognitive Services
 description: Maak een aangepaste app waarmee de intentie van een gebruiker wordt voorspeld. Deze app is het eenvoudigste type LUIS-app omdat de app geen verschillende gegevenselementen uit de utterancetekst extraheert, zoals e-mailadressen of datums.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426856"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097791"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Zelfstudie 1: Aangepaste app compileren om gebruikersintents te bepalen
 
@@ -43,11 +44,11 @@ Nadat LUIS de JSON-reactie heeft geretourneerd, is LUIS klaar met deze aanvraag.
 
 2. Selecteer **Create new app**.  
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Schermafbeelding van de pagina My Apps van Language Understanding (LUIS)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+    [![Schermafbeelding van de pagina Mijn apps in Language Understanding (LUIS)](media/luis-quickstart-intents-only/app-list.png "Schermafbeelding van de pagina Mijn apps in Language Understanding (LUIS)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. Typ de naam in het pop-updialoogvenster `HumanResources` en houd de standaardcultuur, **Engels**, aan. Laat de beschrijving leeg.
 
-    ![Nieuwe LUIS-app](./media/luis-quickstart-intents-only/create-app.png)
+    ![Nieuwe HumanResources-app in LUIS maken](./media/luis-quickstart-intents-only/create-app.png)
 
     Vervolgens geeft de app de pagina **Intents** weer met de intent **None**.
 
@@ -55,7 +56,7 @@ Nadat LUIS de JSON-reactie heeft geretourneerd, is LUIS klaar met deze aanvraag.
 
 1. Selecteer **Create new intent**. Voer de naam `GetJobInformation` in voor de nieuwe intent. Deze intent wordt voorspeld telkens wanneer een gebruiker informatie wil over vacatures in het bedrijf.
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Schermafbeelding van het dialoogvenster New intent van Language Understanding (LUIS) My Apps")
+    ![Schermafbeelding van het dialoogvenster Nieuwe intentie in Language Understanding (LUIS)](media/luis-quickstart-intents-only/create-intent.png "Schermafbeelding van het dialoogvenster Nieuwe intentie in Language Understanding (LUIS)")
 
 2. Door _voorbeelden van utterances_ op te geven traint u LUIS met het soort utterances dat voor deze intent kan worden voorspeld. Voeg verschillende voorbeelden van utterances toe aan deze intent waarnaar een gebruiker waarschijnlijk zal vragen, zoals:
 
@@ -69,7 +70,7 @@ Nadat LUIS de JSON-reactie heeft geretourneerd, is LUIS klaar met deze aanvraag.
     |Nieuwe vacatures?|
     |Zijn er nieuwe vacatures in het kantoor in Seattle?|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Schermopname van het invoeren van nieuwe utterances voor MyStore-intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![Schermafbeelding van het invoeren van nieuwe uitingen voor MyStore-intentie](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Schermafbeelding van het invoeren van nieuwe uitingen voor MyStore-intentie")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
@@ -150,7 +151,7 @@ Ga terug naar de website van LUIS en maak een nieuwe intent om te bepalen of de 
     |Hier is mijn cv voor vacature 654234|
     |Vacature 567890 en mijn papierwerk|
 
-    [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "Schermopname van het invoeren van nieuwe utterances voor ApplyForJob-intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+    [![Schermafbeelding van het invoeren van nieuwe uitingen voor ApplyForJob-intentie](media/luis-quickstart-intents-only/utterance-applyforjob.png "Schermafbeelding van het invoeren van nieuwe uitingen voor ApplyForJob-intentie")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
     De gelabelde intent is rood omlijnd omdat LUIS momenteel niet zeker weet of de intent juist is. Door de app te trainen weet LUIS wanneer de utterances voor de juiste intent zijn. 
 
@@ -168,7 +169,7 @@ Ga terug naar de website van LUIS en maak een nieuwe intent om te bepalen of de 
 
 2. Voer in het nieuwe browservenster `Can I submit my resume for job 235986` in aan het einde van de URL. 
 
-    ```JSON
+    ```json
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {

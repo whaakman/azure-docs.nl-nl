@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 16e2da864d51cbc44457715813e851fd873c8746
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276666"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997129"
 ---
 # <a name="what-is-azure-cost-management"></a>Wat is Azure Cost Management?
 
@@ -29,7 +29,7 @@ U kunt de Azure Portal of verschillende API’s gebruiken voor geautomatiseerde 
 
 ## <a name="plan-and-control-expenses"></a>Uitgaven plannen en beheren
 
-De manieren waarop Cost Management u helpt uw kosten te plannen en beheren omvatten: kostenanalyses, budgetten, aanbevelingen en het exporteren van kostenbeheergegevens.
+Verschillende manieren waarop Cost Management u kan helpen bij het plannen en beheren van uw kosten: Kosten analyseren, budgetten, aanbevelingen en kostenbeheergegevens exporteren.
 
 U gebruikt kostenanalyse om de kosten van Azure voor uw bedrijf te verkennen en te analyseren. U kunt de totale kosten per bedrijf weergeven, zodat u begrijpt waar de kosten worden opgebouwd en uitgavenpatronen kunt identificeren. En u kunt de totale kosten bekijken om geschatte kostentrends per maand, per kwartaal en zelfs per jaar naast een budget te leggen.
 

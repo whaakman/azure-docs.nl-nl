@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech Service-SDK'
+title: 'Snelstart: Spraak herkennen, Objective-C - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Informatie over het herkennen van gesproken tekst in Objective-C in iOS met behulp van de Speech Service-SDK
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 7d1e05e13e55b8b7bc07eda71d63f96f12c81ff9
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219185"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090196"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Snelstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech Service-SDK
 
@@ -25,8 +25,11 @@ In dit artikel leert u hoe u een iOS-toepassing in Objective-C maakt met behulp 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een abonnementssleutel voor de Speech-service. Zie [Probeer de Speech-service gratis uit](get-started.md).
-* Een Mac met Xcode 9.4.1 geïnstalleerd als iOS-ontwikkelomgeving. Deze zelfstudie is gericht op iOS-versies 11.4. Als u nog geen Xcode hebt, kunt u dit installeren vanuit de [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
+Voordat u begint, bekijkt u de lijst vereisten:
+
+* Een [abonnementssleutel](get-started.md) voor Speech Service
+* Een macOS-computer met [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) of hoger
+* Het doel is ingesteld op iOS-versie 11.4 of hoger
 
 ## <a name="get-the-speech-sdk-for-ios"></a>De Speech-SDK voor iOS ophalen
 
@@ -37,7 +40,7 @@ De huidige versie van de Speech SDK van Cognitive Services is `1.1.0`.
 De Cognitive Services Speech-SDK voor Mac en iOS wordt momenteel gedistribueerd als een Cocoa-framework.
 Dit kan worden gedownload van https://aka.ms/csspeech/iosbinary. Download het bestand naar uw basismap.
 
-## <a name="create-an-xcode-project"></a>Een Xcode-project maken 
+## <a name="create-an-xcode-project"></a>Een Xcode-project maken
 
 Start Xcode en start een nieuw project starten door te klikken op **File** > **New** > **Project**.
 Kies in het dialoogvenster voor het selecteren van sjablonen de sjabloon 'iOS Single View App'.
@@ -54,7 +57,7 @@ Maak in de dialoogvensters die volgen de volgende selecties:
     1. Kies uw basismap waarin u het project wilt plaatsen. Hiermee maakt u een map `helloworld` in uw basismap die alle bestanden voor het Xcode-project bevat.
     1. Schakel het maken van een Git-opslagplaats uit voor dit voorbeeldproject.
     1. Pas de paden naar de SDK aan in de *projectinstellingen*.
-        1. Voeg op het tabblad **General** onder de kop **Embedded Binaries** de SDK-bibliotheek toe als een framework: **Add embedded binaries** > **Add other...** > navigeer naar uw basismap en kies het bestand `MicrosoftCognitiveServicesSpeech.framework`. Hiermee wordt ook de SDK-bibliotheek automatisch toegevoegd aan de kop **Linked Framework and Libraries**.
+        1. Op het tabblad **Algemeen**, onder de header **Ingesloten binaire bestanden** voegt u de SDK-bibliotheek toe als framework: **Ingesloten binaire bestanden toevoegen** > **Overige toevoegen...** > Navigeer naar uw basismap en kies het bestand `MicrosoftCognitiveServicesSpeech.framework`. Hiermee wordt ook de SDK-bibliotheek automatisch toegevoegd aan de kop **Linked Framework and Libraries**.
         ![Framework toegevoegd](media/sdk/qs-objectivec-framework.png)
         1. Ga naar het tabblad **Build Settings** en activeer **alle** instellingen.
         1. Voeg de map `$(SRCROOT)/..` toe aan de *Framework Search Paths* onder de kop **Search Paths**.
@@ -103,4 +106,3 @@ Zoek naar dit voorbeeld in de map `quickstart/objectivec-ios`.
 
 > [!div class="nextstepaction"]
 > [Onze voorbeelden ophalen](speech-sdk.md#get-the-samples)
-

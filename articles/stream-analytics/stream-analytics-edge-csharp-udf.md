@@ -4,21 +4,21 @@ description: Informatie over het schrijven van door de gebruiker gedefinieerde C
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389065"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086897"
 ---
-# <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>Zelfstudie: Een door de gebruiker gedefinieerde C#-functie schrijven voor een Azure Stream Analytics Edge-taak in Visual Studio (preview)
+# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Zelfstudie: Een door de gebruiker gedefinieerde C#-functie schrijven voor een Azure Stream Analytics Edge-taak (preview)
 
-Met door de gebruiker gedefinieerde C#-functies (UDF’s) die zijn gemaakt in Visual Studio kunt u de Azure Stream Analytics-querytaal uitbreiden met uw eigen functies. U kunt bestaande code (inclusief DLL-bestanden) opnieuw gebruiken en wiskundige of complexe logica gebruiken met C#. Er zijn drie manieren om UDF’s te implementeren: CodeBehind-bestanden in een Stream Analytics-project, UDF's in een lokaal C#-project of UDF's van een bestaand pakket van een opslagaccount. In deze zelfstudie wordt de CodeBehind-methode gebruikt om een eenvoudige C#-functie te implementeren. De UDF-functie voor Stream Analytics Edge-taken is momenteel in de preview-fase en moet niet worden gebruikt voor productieworkloads.
+Met door de gebruiker gedefinieerde C#-functies (UDF’s) die zijn gemaakt in Visual Studio kunt u de Azure Stream Analytics-querytaal uitbreiden met uw eigen functies. U kunt bestaande code (inclusief DLL-bestanden) opnieuw gebruiken en wiskundige of complexe logica gebruiken met C#. Er zijn drie manieren waarop UDF's kunnen worden geïmplementeerd: CodeBehind-bestanden in een Stream Analytics-project, UDF's in een lokaal C#-project of UDF's van een bestaand pakket van een opslagaccount. In deze zelfstudie wordt de CodeBehind-methode gebruikt om een eenvoudige C#-functie te implementeren. De UDF-functie voor Stream Analytics Edge-taken is momenteel in de preview-fase en moet niet worden gebruikt voor productieworkloads.
 
 In deze zelfstudie leert u het volgende:
 
@@ -115,11 +115,11 @@ Een CodeBehind-bestand is een C#-bestand dat is gekoppeld aan een enkel ASA Edge
 
 2. Vouw in **Solution Explorer** **Invoer** uit, klik met de rechtermuisknop op **Input.json** en selecteer **Lokale invoer toevoegen**.
 
-   ![Lokale invoer toevoegen aan Azure Stream Analytics-taak in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
+   ![Lokale invoer toevoegen aan een Stream Analytics-taak in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
 3. Geef het pad van het lokale invoerbestand op voor de voorbeeldgegevens die u hebt gedownload en selecteer **Opslaan**.
 
-    ![Lokale invoer configureren voor Azure Stream Analytics-taak in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
+    ![Lokale invoer configureren voor een Stream Analytics-taak in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
 4. Klik op **Lokaal uitvoeren** in de scripteditor. Nadat de resultaten van het uitvoeren zijn opgeslagen, drukt u op een willekeurige toets om de resultaten weer te geven in tabelindeling. 
 
@@ -134,11 +134,11 @@ U kunt lokaal fouten opsporen in uw C# UDF, op dezelfde manier als dat u fouten 
 
 1. Onderbrekingspunten in uw C#-functie toevoegen.
 
-    ![Onderbrekingspunten toevoegen aan een door de gebruiker gedefinieerde C#-functie schrijven voor een Azure Stream Analytics Edge-taak in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
+    ![Onderbrekingspunten toevoegen aan een door de gebruiker gedefinieerde Stream Analytics-functie in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
 
 2. Druk op **F5** om de foutopsporing te starten. Het programma stopt bij de onderbrekingspunten, zoals verwacht.
 
-    ![Resultaten van foutopsporing weergeven voor een door de gebruiker gedefinieerde C#-functie voor een Azure Stream Analytics Edge-taak in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
+    ![De foutopsporingsresultaten van de door de gebruiker gedefinieerde Stream Analytics-functie weergeven](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## <a name="publish-your-job-to-azure"></a>Uw taak publiceren naar Azure
 Nadat u de query lokaal hebt getest, selecteert u **Verzenden naar Azure** in de scripteditor om de taak naar Azure te publiceren.
@@ -155,4 +155,4 @@ In deze zelfstudie hebt u een eenvoudige door de gebruiker gedefinieerde C#-func
 Als u meer wilt weten over de verschillende manieren waarop u door de gebruiker gedefinieerde C#-functies voor Stream Analytics Edge-taken kunt gebruiken, gaat u verder met het volgende artikel:
 
 > [!div class="nextstepaction"]
-> [Door de gebruiker gedefinieerde C#-functies schrijven in Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)
+> [C#-functies schrijven in Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)

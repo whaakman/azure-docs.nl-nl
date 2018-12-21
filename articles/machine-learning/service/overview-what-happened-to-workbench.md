@@ -1,6 +1,7 @@
 ---
-title: Wat gebeurd er met Azure Machine Learning Workbench? | Microsoft Docs
-description: Meer informatie over wat er met de Workbench-toepassing gebeurt, wat er in Azure Machine Learning is veranderd en wat de ondersteuningstijdlijn is.
+title: Wat is er gebeurd met Workbench?
+titleSuffix: Azure Machine Learning service
+description: Meer informatie over wat er met de Workbench-toepassing is gebeurd, wat er in Azure Machine Learning Service is veranderd en wat de ondersteuningstijdlijn is.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: db09203e86c32a7e03b4b2c4bcc670d16583ab20
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: c9559e07cc70cbd7adafd75c23b9e67d45bee48a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879431"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184302"
 ---
-# <a name="what-is-happening-to-workbench-in-azure-machine-learning"></a>Wat gebeurt er met Workbench in Azure Machine Learning?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-service"></a>Wat gebeurt er met Workbench in Azure Machine Learning Service?
 
 De Workbench-toepassing en een aantal andere vroege functies zijn afgeschaft en vervangen in de versie van september 2018 om plaats te maken voor een verbeterde [architectuur](concept-azure-machine-learning-architecture.md). De nieuwe versie bevat veel belangrijke updates op basis van feedback van klanten om uw ervaring te verbeteren. De kernfunctionaliteit voor experimentele uitvoeringen tot modelimplementatie is niet gewijzigd, maar nu kunt u de robuuste <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> en [CLI](reference-azure-machine-learning-cli.md) gebruiken om uw machine learning-taken en -pijplijnen uit te voeren.  
 
@@ -82,13 +84,13 @@ Ontdek hoe u aan de slag kunt gaan [in Python met de belangrijkste SDK](quicksta
  
 De modellen die u in uw oude modelregister hebt geregistreerd, moeten worden gemigreerd naar uw nieuwe werkruimte als u ze wilt blijven gebruiken. U kunt dit doen door [de modellen te downloaden en ze opnieuw te registreren](how-to-migrate.md) in uw nieuwe werkruimte. 
 
-De installatiekopieën die u in uw oude installatiekopieregister hebt gemaakt, moeten opnieuw worden gemaakt in de nieuwe werkruimte om ze te blijven gebruiken. U kunt dit doen door het gedeelte [create docker image](how-to-deploy-to-aci.md#configure-an-image) (Docker-installatiekopie maken) te volgen. 
+De installatiekopieën die u in uw oude installatiekopieregister hebt gemaakt, moeten opnieuw worden gemaakt in de nieuwe werkruimte om ze te blijven gebruiken. U kunt dit doen door het gedeelte [Installatiekopie configureren en maken](how-to-deploy-and-where.md#configureimage) te volgen. 
 
 ## <a name="what-about-deployed-web-services"></a>Hoe zit het met geïmplementeerde webservices?
 
 De modellen die u als webservices hebt geïmplementeerd met behulp van uw Modelbeheer-account blijven werken zolang Azure Container Service (ACS) wordt ondersteund. Deze webservices blijven zelfs werken nadat de ondersteuning voor Modelbeheer-accounts is beëindigd. Wanneer de ondersteuning voor de oude CLI echter wordt beëindigd, geldt dat ook voor de mogelijkheid om deze webservices te beheren.
 
-In de nieuwere versie worden modellen als webservices geïmplementeerd naar ACI-clusters ([Azure Container Instances](how-to-deploy-to-aci.md)) of AKS-clusters ([Azure Kubernetes Service](how-to-deploy-to-aks.md)). U kunt ook [naar FPGA's en IoT Edge implementeren](how-to-deploy-and-where.md). U kunt uw modellen opnieuw implementeren met de nieuwe SDK of CLI, zonder dat u uw scoring-bestanden, afhankelijkheden of schema's hoeft te wijzigen. 
+In de nieuwere versie worden modellen als webservices geïmplementeerd in ACI-clusters (Azure Container Instances) of AKS-clusters (Azure Kubernetes Service). U kunt ook in FPGA's en de IoT Edge implementeren. Zie het document [Hoe implementeren en waar](how-to-deploy-and-where.md) voor meer informatie. U kunt uw modellen opnieuw implementeren met de nieuwe SDK of CLI, zonder dat u uw scoring-bestanden, afhankelijkheden of schema's hoeft te wijzigen. 
 
 ## <a name="what-about-the-old-sdk--cli"></a>Hoe zit het met de oude SDK en CLI?
 

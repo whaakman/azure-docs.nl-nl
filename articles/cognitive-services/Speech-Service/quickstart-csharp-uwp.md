@@ -1,23 +1,24 @@
 ---
-title: 'Snelstart: Gesproken tekst in C# herkennen in een UWP-app met behulp van de Speech Service-SDK'
+title: 'Snelstartgids: Spraak herkennen, C# (UWP) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Leer hoe u gesproken tekst in een UWP-app herkent met behulp van de Speech Service-SDK
+description: In dit artikel maakt u in C# een UWP-app (Universal Windows Platform) met behulp van de Speech-SDK van Cognitive Services. U gaat in realtime spraak naar tekst transcriberen via de microfoon van uw apparaat. De toepassing is gemaakt met het Speech-SDK NuGet-pakket en Microsoft Visual Studio 2017.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.custom: seodec18
+ms.openlocfilehash: 55988ef65e223c76a485c3cbec13626abf68d3b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218886"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104626"
 ---
-# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in een UWP-app met behulp van de Speech SDK
+# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in een UWP-app met behulp van de Speech-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,7 +35,7 @@ U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids
 
 1. Start Visual Studio 2017.
 
-1. Zorg ervoor dat de workload **Universal Windows Platform development** beschikbaar is. Kies **Tools** > **Get Tools and Features** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als deze workload al is ingeschakeld, sluit u het dialoogvenster. 
+1. Zorg ervoor dat de workload **Universal Windows Platform development** beschikbaar is. Kies **Tools** > **Get Tools and Features** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als deze workload al is ingeschakeld, sluit u het dialoogvenster.
 
     ![Schermopname van het installatieprogramma van Visual Studio, met het tabblad Workloads gemarkeerd](media/sdk/vs-enable-uwp-workload.png)
 

@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fe5c44e834826f9dc62acd30e853c3736b432ee
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621256"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412432"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Meerdere exemplaren van Azure AD federeren met één exemplaar van AD FS
 
@@ -39,13 +39,13 @@ Een enkele AD FS-farm met hoge beschikbaarheid kan meerdere forests federeren al
 
 Ga ervan uit dat het domein contoso.com in de Azure Active Directory contoso.onmicrosoft.com al is gefedereerd met de on-premises AD FS die is geïnstalleerd in de on-premises Active Directory-omgeving contoso.com. Fabrikam.com is een domein in de Azure Active Directory fabrikam.onmicrosoft.com.
 
-## <a name="step-1-establish-a-two-way-trust"></a>Stap 1: een tweerichtingsvertrouwensrelatie tot stand brengen
+## <a name="step-1-establish-a-two-way-trust"></a>Stap 1: Een tweerichtingsvertrouwensrelatie tot stand brengen
  
 AD FS in contoso.com kan alleen gebruikers in fabrikam.com verifiëren als er een tweerichtingsvertrouwensrelatie tussen contoso.com en fabrikam.com bestaat. Volg de stappen in [dit artikel](https://technet.microsoft.com/library/cc816590.aspx) om een tweerichtingsvertrouwensrelatie tot stand te brengen.
  
-## <a name="step-2-modify-contosocom-federation-settings"></a>Stap 2: federatie-instellingen voor contoso.com wijzigen 
+## <a name="step-2-modify-contosocom-federation-settings"></a>Stap 2: Federatie-instellingen voor contoso.com wijzigen 
  
-De standaardverlener die is ingesteld voor één met AD FS gefedereerd domein is http://ADFSServiceFQDN/adfs/services/trust, bijvoorbeeld http://fs.contoso.com/adfs/services/trust. Voor Azure Active Directory is een unieke verlener vereist voor elk federatief domein. Aangezien dezelfde AD FS twee domeinen gaat federeren, moet de waarde voor de verlener zodanig worden gewijzigd dat deze uniek is voor elk domein dat AD FS federeert met Azure Active Directory. 
+De standaardverlener die is ingesteld voor één met AD FS gefedereerd domein is http://ADFSServiceFQDN/adfs/services/trust, bijvoorbeeld `http://fs.contoso.com/adfs/services/trust`. Voor Azure Active Directory is een unieke verlener vereist voor elk federatief domein. Aangezien dezelfde AD FS twee domeinen gaat federeren, moet de waarde voor de verlener zodanig worden gewijzigd dat deze uniek is voor elk domein dat AD FS federeert met Azure Active Directory. 
  
 Op de AD FS-server opent u Azure AD PowerShell (controleer of de MSOnline-module is geïnstalleerd) en voert u de volgende stappen uit:
  
@@ -55,7 +55,7 @@ De verlener in de federatie-instelling van het domein wordt gewijzigd in http://
  
 ## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Stap 3: fabrikam.com federeren met AD FS
  
-Voer de volgende stappen uit in een PowerShell-sessie in Azure AD: maak verbinding met de Azure Active Directory met het domein fabrikam.com.
+Voer de volgende stappen uit in de Azure AD PowerShell-sessie: Maak verbinding met de Azure Active Directory die het domein fabrikam.com bevat
 
     Connect-MsolService
 Converteer het beheerde domein fabrikam.com dat u wilt federeren:

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Lijst van ondersteunde talen ophalen, Python - Translator Text-API'
+title: 'Snelstartgids: Lijst van ondersteunde talen ophalen, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met Python.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 4c261a46b96865900a92bc53e4973fa3df094289
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8b78ec4e358f654342140df1491e19d3fc62fee7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246555"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992400"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Snelstart: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Python
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Snelstartgids: De Translator Text-API gebruiken om een lijst met ondersteunde talen op te halen met Python
 
 In deze snelstart leert u hoe u een GET-aanvraag maakt waarmee u een lijst met ondersteunde talen kunt ophalen met behulp van Python en de Translator Text-REST API.
 
@@ -67,7 +67,7 @@ else:
 Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt ingesteld als de `base_url`. Met `path` wordt de `languages`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
 
 >[!NOTE]
-> Voor meer informatie over eindpunten, routes en aanvraagparameters raadpleegt u [Translator Text-API 3.0: Talen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: talen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -215,7 +215,7 @@ Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze 
 
 ## <a name="see-also"></a>Zie ook
 
-Behalve tekstomzetting leert u ook hoe u Translator Text-API gebruikt voor het volgende:
+Meer informatie over het gebruik van de Translator Text-API voor:
 
 * [Tekst vertalen](quickstart-python-translate.md)
 * [Tekst transcriberen](quickstart-python-transliterate.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 0dd7e3e19d9b7949803cdaf1dfb5eac6ea345dbd
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eb7354f8e099f28f4a3476b16c11f5f2d8feda00
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011174"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412484"
 ---
 # <a name="introduction-to-azure-netapp-files"></a>Kennismaking met Azure NetApp Files
 De service Azure NetApp Files is een bestandsopslagservice op enterprise-niveau met hoge prestaties die naar gebruik wordt gefactureerd. Azure NetApp Files biedt ondersteuning voor elk type werkbelasting en is standaard maximaal beschikbaar. U kunt gegarandeerde service- en prestatieniveaus selecteren en via de service momentopnamen instellen. 
@@ -27,12 +27,13 @@ De service Azure NetApp Files is een bestandsopslagservice op enterprise-niveau 
 De documentatie van Azure NetApp Files biedt instructies voor het maken en beheren van volumes met behulp van Azure NetApp Files. 
 
 > [!IMPORTANT] 
-> Voor alle taken die in deze documentatie worden beschreven, is vereist dat u deel uitmaakt van het Openbare Preview-programma en toegang hebt gekregen tot de Microsoft.NetApp Azure Resource Provider. Raadpleeg voor meer informatie over deelname aan het Openbare Preview-programma de [Azure NetApp Files Public Preview signup page](https://aka.ms/nfspublicpreview) (Registratiepagina Openbare Preview Azure NetApp Files). 
+> Voor alle taken die in deze documentatie worden beschreven, is vereist dat u deel uitmaakt van het Openbare Preview-programma en toegang hebt gekregen tot de Microsoft.NetApp Azure Resource Provider. Raadpleeg [registreren voor Azure NetApp Files](azure-netapp-files-register.md) om een verzoek in te dienen voor deelname aan het openbare preview-programma. 
 
 **Aan de slag** 
+1. [Registreren voor Azure NetApp Files](azure-netapp-files-register.md)
 1. [Een NetApp-account maken](azure-netapp-files-create-netapp-account.md)
-2. [Een capaciteitspool instellen](azure-netapp-files-set-up-capacity-pool.md)
-3. [Een volume maken voor Azure NetApp Files](azure-netapp-files-create-volumes.md)
-4. [Exportbeleid voor een volume configureren (optioneel)](azure-netapp-files-configure-export-policy.md)
+1. [Een capaciteitspool instellen](azure-netapp-files-set-up-capacity-pool.md)
+1. [Een volume maken voor Azure NetApp Files](azure-netapp-files-create-volumes.md)
+1. [Exportbeleid voor een volume configureren (optioneel)](azure-netapp-files-configure-export-policy.md)
 
 

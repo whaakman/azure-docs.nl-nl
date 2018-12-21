@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 12/11/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 9085bea06553bcb2b8cf871153ddd1fb767c04f4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445704"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277740"
 ---
-# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snelstart, de kosten van Azure verkennen en analyseren met Kostenanalyse
+# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snelstart: Kosten verkennen en analyseren met Kostenanalyse
 
 Voordat u de kosten van Azure goed kunt beheren en optimaliseren, moet u de oorsprong van de kosten in uw bedrijf weten. Het is ook handig om te weten hoeveel uw diensten kosten en welke omgevingen en systemen erdoor worden ondersteund. Inzicht in de volle breedte van alle kosten is noodzakelijk om nauwkeurig de uitgavenpatronen van uw bedrijf te leren kennen. Uitgavenpatronen kunnen worden gebruikt om kostenbeheersingsmechanismen als budgetten af te dwingen.
 
@@ -43,7 +43,7 @@ Kostenanalyse is beschikbaar voor alle klanten met een [Enterprise Overeenkomst 
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-- Meld u aan bij Azure Portal op http://portal.azure.com.
+- Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="review-costs-in-cost-analysis"></a>Kosten in kostenanalyse beoordelen
 
@@ -63,7 +63,7 @@ De initiële kostenanalyseweergave omvat de volgende gebieden:
 
 **Draaigrafieken (ringdiagrammen)**, bieden dynamische draaigrafieken en specificeren de totale kosten, gedetailleerd per algemene standaardeigenschappen. Hiermee ziet u het grootste en kleinste bedrag aan opgebouwde kosten voor de huidige maand. U kunt draaigrafieken op elk moment wijzigen door een andere pivot te selecteren. Kosten worden standaard weergegeven op: service (metercategorie), locatie (regio) en onderliggend bereik. Inschrijvingsaccounts bijvoorbeeld onder factureringsaccounts, resourcegroepen onder abonnementen en bronnen onder brongroepen.
 
-![Oorspronkelijke weergave van kostenanalyse](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+![Oorspronkelijke weergave van Kostenanalyse in Azure Portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
 ## <a name="customize-cost-views"></a>Kostenweergaven aanpassen
 
@@ -76,21 +76,23 @@ Er zijn echter veel gevallen waar u een meer gedetailleerde analyse nodig hebt. 
 
 Kostenanalyse toont standaard de gegevens voor de huidige maand. Gebruik de datumselector om snel te schakelen naar: afgelopen maand, deze maand, dit kwartaal, dit jaar of een aangepast datumbereik van uw keuze. De selectie van de laatste maand is de snelste manier om uw laatste Azure-factuur te analyseren en eenvoudig kosten te vergelijken. De opties voor het huidige kwartaal en jaar helpen kosten te traceren voor langeretermijnbudgetten. U kunt ook een ander datumbereik selecteren. U kunt bijvoorbeeld een enkele dag, de afgelopen zeven dagen of een datum die maximaal een jaar vóór de huidige maand valt, kiezen.
 
-![Datumselector](./media/quick-acm-cost-analysis/date-selector.png)
+![Datumselector met een voorbeeldselectie voor deze maand](./media/quick-acm-cost-analysis/date-selector.png)
 
 Kostenanalyse toont standaard **opgebouwde** kosten. Opgebouwde kosten zijn inclusief alle kosten voor elke dag plus de afgelopen dagen, voor een continu groeiend zicht op uw dagelijks opgebouwde kosten. Deze weergave is geoptimaliseerd om u te laten zien hoe u het doet in verhouding met het budget voor het geselecteerde tijdsbereik.
 
 Er is ook de **dagelijkse** weergave die de kosten voor elke dag toont. De dagelijkse weergave toont geen groeitrend. De weergave is ontworpen om u onregelmatigheden als pieken of dalen in de kosten per dag te laten zien. Als u een budget hebt geselecteerd, toont de dagelijkse weergave ook een schatting van hoe uw dagelijkse budget eruit zou kunnen zien. Als uw dagelijkse kosten stelselmatig boven het geschatte dagelijkse budget uitkomen, dan kunt u ervan uitgaan dat u uw maandelijkse budget overschrijdt. Het geschatte dagelijkse budget is eenvoudig een manier om u te helpen uw budget op een lager niveau te visualiseren. Wanneer u schommelingen hebt in uw dagelijkse kosten dan is de vergelijking tussen het geschatte dagelijkse budget en uw maandelijkse budget minder nauwkeurig.
 
-![Dagelijkse weergave](./media/quick-acm-cost-analysis/daily-view.png)
+Over het algemeen zijn binnen acht uur gegevens of meldingen te zien over de verbruikte resources.
+
+![Voorbeeld van een dagelijkse weergave waarin te zien is wat de dagelijkse kosten zijn in de huidige maand](./media/quick-acm-cost-analysis/daily-view.png)
 
 U kunt **Groeperen op** kiezen om een groepencategorie te selecteren om de gegevens te wijzigen die worden weergegeven in het bovengebied van de grafiek. Met een groepering kunt u snel zien hoe uw uitgaven worden gecategoriseerd op algemene resource- en gebruikseigenschappen, zoals resourcegroep of resourcetags. Als u wilt groeperen op tags, selecteert u de tagcode waarop u wilt groeperen. De kosten worden dan weergegeven, onderverdeeld in tagwaarde, met een extra segment voor resources waarop die tag niet is toegepast. Cost Management biedt alleen ondersteuning voor resourcetags vanaf de datum waarop de tags rechtstreeks zijn toegepast op de resource. Resourcegroepstags worden op dit moment nog niet ondersteund. Dit is een overzicht van Azure-servicekosten voor een weergave van de afgelopen maand.
 
-![Gegroepeerd per dagelijks opgebouwde kosten](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
+![Gegroepeerde, dagelijks samengevoegde weergave met een voorbeeld van Azure-servicekosten van de afgelopen maand](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
 Draaigrafieken onder de hoofdgrafiek tonen verschillende groeperingen om u een breder beeld te geven van de totale kosten voor de geselecteerde periode en filters. Selecteer een eigenschap of tag om geaggregeerde kosten voor een dimensie weer te geven. De volledige set gegevens voor de totale weergave vindt u door onderaan het scherm de lade **Gegevens** uit te vouwen of door bovenaan het scherm **Exporteren > CSV downloaden** te selecteren. Hier volgt een voorbeeld van de gegevenslade voor resourcegroepen.
 
-![Alle gegevens voor de huidige weergave](./media/quick-acm-cost-analysis/full-data-set.png)
+![Volledige gegevens van de huidige weergave, waarbij de resourcegroepnamen worden weergegeven](./media/quick-acm-cost-analysis/full-data-set.png)
 
 De voorgaande afbeelding toont de resourcegroepnamen. Hoewel u op tags kunt groeperen om de totale kosten per tag weer te geven, is het niet mogelijk om alle tags per resource of resourcegroep weer te geven in een van de weergaven voor kostenanalyse.
 

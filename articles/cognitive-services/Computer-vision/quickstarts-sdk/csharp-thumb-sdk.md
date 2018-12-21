@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Een miniatuur genereren - SDK, C# - Computer Vision'
+title: 'Snelstartgids: Een miniatuur genereren - SDK, C# - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision Windows C#-clientbibliotheek.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: d3340131c1f174201cc9fd1dcb31bd4a4b8cd07a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854081"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413282"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Quickstart: Een miniatuur genereren met de Computer Vision SDK en C#
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Snelstartgids: Een miniatuur genereren met de Computer Vision-SDK en C#
 
 In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision Windows-clientbibliotheek.
 
@@ -32,7 +32,7 @@ In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Com
 > [!TIP]
 > Haal de nieuwste code als Visual Studio-oplossing op uit [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
-De methoden `GenerateThumbnailAsync` en `GenerateThumbnailInStreamAsync` verpakken de [Get Thumbnail-API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) voor respectievelijk externe en lokale afbeeldingen.  U kunt deze methoden gebruiken om een miniatuur van een afbeelding te genereren. U geeft de hoogte en breedte op. Deze mag afwijken van de hoogte-breedteverhouding van de ingevoerde afbeelding. Computer Vision maakt gebruik van slim bijsnijden om op intelligente wijze het interessegebied te bepalen en coördinaten voor het bijsnijden te genereren op basis van dat gebied.
+De methoden `GenerateThumbnailAsync` en `GenerateThumbnailInStreamAsync` verpakken de [Get Thumbnail-API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) voor respectievelijk externe en lokale afbeeldingen.  U kunt deze methoden gebruiken om een miniatuur van een afbeelding te genereren. U geeft de hoogte en breedte op. Deze waarden mogen afwijken van de hoogte-breedteverhouding van de invoerafbeelding. Computer Vision maakt gebruik van slim bijsnijden om op intelligente wijze het interessegebied te bepalen en coördinaten voor het bijsnijden te genereren op basis van dat gebied.
 
 U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
 

@@ -1,6 +1,6 @@
 ---
-title: Blob-opslaggebeurtenissen voor Azure Event Grid met Azure Portal | Microsoft Docs
-description: Gebruik Azure Event Grid en Azure Portal om een Blob-opslagaccount te maken en u aan te melden voor de gebeurtenissen ervan.
+title: Blob Storage-gebeurtenissen verzenden naar een webeindpunt - Portal | Microsoft Docs
+description: Gebruik Azure Event Grid en Azure Portal om een Blob-opslagaccount te maken en u aan te melden voor de gebeurtenissen ervan. De gebeurtenissen naar een webhook verzenden.
 services: event-grid
 keywords: ''
 author: tfitzmac
@@ -8,14 +8,15 @@ ms.author: tomfitz
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 44e258069515ad6c409c193312f3a714a5096541
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec18
+ms.openlocfilehash: 6fd48ecd6def6a4fcd56751b6a137f75b16896ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404219"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086960"
 ---
-# <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Blob-opslaggebeurtenissen maken en routeren met Azure Portal en Event Grid
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snelstartgids: Blob Storage-gebeurtenissen routeren naar een webeindpunt met Azure Portal
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u Azure Portal om een Blob-opslagaccount te maken, u aan te melden bij gebeurtenissen voor die blob-opslag en een gebeurtenis te activeren om het resultaat weer te geven. Normaal gesproken verzendt u gebeurtenissen naar een eindpunt dat de gebeurtenisgegevens verwerkt en vervolgens in actie komt. Ter vereenvoudiging van dit artikel stuurt u hier de gebeurtenissen echter naar een web-app die de berichten verzamelt en weergeeft.
 

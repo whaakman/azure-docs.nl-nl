@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Gesproken tekst herkennen in C++ onder Windows met behulp van de Speech Service SDK'
+title: 'Snelstartgids: Spraak herkennen, C++ (Windows) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Informatie over het herkennen van gesproken tekst in C++ onder Windows Desktop met behulp van de Speech Service SDK
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218730"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075184"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in C++ onder Windows met behulp van de Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in C++ onder Windows met behulp van de Speech-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -31,11 +31,11 @@ U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids
 
 1. Start Visual Studio 2017.
 
-1. Zorg ervoor dat de workload **Desktop development with C++** beschikbaar is. Kies **Tools** > **Get Tools and Features** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als de werkbelasting al is ingeschakeld, gaat u naar de volgende stap. 
+1. Zorg ervoor dat de workload **Desktop development with C++** beschikbaar is. Kies **Tools** > **Get Tools and Features** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als de werkbelasting al is ingeschakeld, gaat u naar de volgende stap.
 
     ![Schermafbeelding van het tabblad Workloads van Visual Studio](media/sdk/vs-enable-cpp-workload.png)
 
-    Schakel anders het selectievakje naast **Desktop development with C++** in. 
+    Schakel anders het selectievakje naast **Desktop development with C++** in.
 
 1. Zorg ervoor dat het onderdeel **NuGet package manager** beschikbaar is. Ga naar het tabblad **Individual components** van het dialoogvenster van het installatieprogramma van Visual Studio en selecteer **NuGet package manager** als deze optie nog niet is ingeschakeld.
 

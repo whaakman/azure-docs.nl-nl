@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Een ASP.NET-web-app met Azure Cosmos DB bouwen met behulp van de SQL API en de Azure-portal'
+title: 'Snelstart: Een ASP.NET-web-app met Azure Cosmos DB bouwen met behulp van de SQL API en Azure Portal'
 description: In deze quickstart gebruikt u de Azure Cosmos DB SQL API en de Azure-portal om een ASP.NET-web-app te maken
 author: deborahc
 ms.service: cosmos-db
@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
 clicktale: true
-ms.openlocfilehash: 7686baf2476942748a67ae7c73b02596b6588607
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4422e656759418d715fb0bd26643581a0ca99a4f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853403"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089119"
 ---
-# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Quickstart: Een ASP.NET-web-app met Azure Cosmos DB bouwen met behulp van de SQL API en de Azure-portal
+# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Snelstart: Een ASP.NET-web-app met Azure Cosmos DB bouwen met behulp van de SQL API en Azure Portal
 
 > [!div class="op_single_selector"]
-> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
+> * [.NET (preview)](create-sql-api-dotnet-preview.md)
 > * [.NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
@@ -117,7 +117,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand ToDoItemServi
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
-1. Ga in [Azure Portal](http://portal.azure.com/) naar uw Azure Cosmos DB-account en klik in de linkernavigatie op **Sleutels**. Klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en primaire sleutel in het bestand web.config te kopiëren.
+1. Ga in [Azure Portal](https://portal.azure.com/) naar uw Azure Cosmos DB-account en klik in de linkernavigatie op **Sleutels**. Klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en primaire sleutel in het bestand web.config te kopiëren.
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-dotnet/keys.png)
 

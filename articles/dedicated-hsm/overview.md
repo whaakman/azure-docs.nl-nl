@@ -1,6 +1,6 @@
 ---
-title: Wat is Toegewezen HSM? | Microsoft Docs
-description: Azure Toegewezen HSM biedt mogelijkheden voor sleutelopslag binnen Azure die voldoen aan de FIPS 140-2 Niveau 3-certificatie
+title: Wat is Toegewezen HSM? - Azure Toegewezen HSM | Microsoft Docs
+description: Overzicht van Azure Toegewezen HSM, welke mogelijkheden biedt voor sleutelopslag binnen Azure die voldoet aan de FIPS 140-2 Niveau 3-certificering
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
@@ -10,19 +10,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
-ms.date: 11/26/2018
+ms.custom: mvc, seodec18
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 92d77ec886a0f37c28f5e3031a7e14f63299c8aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 1eeafa33c8c1cdbcd7d0e55e3860dda1b8d451fe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427111"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080075"
 ---
-# <a name="what-is-dedicated-hsm"></a>Wat is Toegewezen HSM?
+# <a name="what-is-azure-dedicated-hsm"></a>Wat is Azure Toegewezen HSM?
 
-Azure Toegewezen HSM biedt cryptografische sleutelopslag in Azure die voldoet aan de strengste beveiligingsvereisten. Toegewezen HSM is de ideale oplossing voor klanten die apparaten willen gebruiken die zijn gevalideerd met FIPS 140-2 Niveau 3. De HSM-apparaten zijn wereldwijd geïmplementeerd in verschillende Azure-regio's en kunnen eenvoudig worden ingericht als een paar apparaten en worden geconfigureerd voor hoge beschikbaarheid. HSM's kunnen ook worden ingericht in verschillende regio's als oplossing voor een eventuele failover op regionaal niveau. Microsoft levert de Toegewezen HSM-service met behulp van het apparaat [SafeNet Luna Network HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) van Gemalto. Dit apparaat biedt de hoogste prestatieniveaus en de beste opties voor cryptografische integratie. Als HSM's zijn ingericht, zijn ze rechtstreeks verbonden met het virtuele netwerk van een klant. Ze zijn dan ook toegankelijk voor on-premises hulpprogramma's voor toepassingen en beheer door een punt-naar-site-verbinding of site-naar-site-verbinding te configureren voor het VPN. Klanten krijgen in de Gemalto-ondersteuningsportal software en documentatie om de HSM-apparaten te configureren en te beheren.
+Azure Toegewezen HSM is een Azure-service die opslag van cryptografische sleutels biedt in Azure. Toegewezen HSM voldoet aan de strengste beveiligingseisen. Dit is de ideale oplossing voor klanten die apparaten willen gebruiken die zijn gevalideerd met FIPS 140-2 Niveau 3 en die volledige en exclusieve controle over het HSM-apparaat willen. De HSM-apparaten zijn wereldwijd geïmplementeerd in verschillende Azure-regio's en kunnen eenvoudig worden ingericht als een paar apparaten en worden geconfigureerd voor hoge beschikbaarheid. HSM's kunnen ook worden ingericht in verschillende regio's als oplossing voor een eventuele failover op regionaal niveau. Microsoft levert de Toegewezen HSM-service met behulp van het apparaat [SafeNet Luna Network HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) van Gemalto. Dit apparaat biedt de hoogste prestatieniveaus en de beste opties voor cryptografische integratie. Als HSM's zijn ingericht, zijn ze rechtstreeks verbonden met het virtuele netwerk van een klant. Ze zijn dan ook toegankelijk voor on-premises hulpprogramma's voor toepassingen en beheer door een punt-naar-site-verbinding of site-naar-site-verbinding te configureren voor het VPN. Klanten krijgen in de Gemalto-ondersteuningsportal software en documentatie om de HSM-apparaten te configureren en te beheren.
 
 ## <a name="why-use-azure-dedicated-hsm"></a>Waarom een Azure Toegewezen HSM gebruiken?
 

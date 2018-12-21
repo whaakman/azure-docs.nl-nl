@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Teksttaal detecteren, Python - Translator Text-API'
+title: 'Snelstartgids: Teksttaal detecteren, Python - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u de taal van opgegeven tekst kunt identificeren met behulp van Python en de Translator Text-API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 564a12de2a0823372ce267f9ff2759ab17199a80
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: cfc2565c0ee2b51eaff40647cfcd7505e0479e64
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086033"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993815"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Quickstart: de Translator Text-API gebruiken om teksttaal te detecteren met Python
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Snelstartgids: De Translator Text-API gebruiken om teksttaal te detecteren met Python
 
 In deze quickstart leert u hoe u de taal van opgegeven tekst kunt detecteren met behulp van Python en de Translator Text-API.
 
@@ -67,7 +67,7 @@ else:
 Op dit moment is er één eindpunt beschikbaar voor Translator Text. Deze wordt ingesteld als de `base_url`. Met `path` wordt de `detect`-route ingesteld en wordt bepaald dat we versie 3 van de API willen gebruiken.
 
 >[!NOTE]
-> Zie [Translator Text-API 3.0: detecteren](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) voor meer informatie over eindpunten, routes en aanvraagparameters.
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: Detecteren](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -100,7 +100,7 @@ body = [{
 }]
 ```
 
-Vervolgens maakt u een POST-aanvraag via de module `requests`. Hier zijn drie argumenten voor nodig: de samengevoegde URL, de aanvraagheaders en de aanvraagbody:
+Vervolgens maakt u een POST-aanvraag met de `requests`-module. Hier zijn drie argumenten voor nodig: de samengevoegde URL, de aanvraagheaders en de aanvraagbody:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -163,7 +163,7 @@ Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze 
 
 ## <a name="see-also"></a>Zie ook
 
-Naast taaldetectie kunt u de Translator Text-API ook gebruiken voor het volgende:
+Meer informatie over het gebruik van de Translator Text-API voor:
 
 * [Tekst vertalen](quickstart-python-translate.md)
 * [Tekst transcriberen](quickstart-python-transliterate.md)

@@ -3,18 +3,18 @@ title: Overzicht van Azure Digital Twins | Microsoft Docs
 description: Kom meer te weten over Azure Digital Twins, een Azure-IoT-oplossing voor ruimtelijke intelligentie.
 author: julieseto
 ms.author: jseto
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 84f329c0a97d0f79a5f612fb3054b82a182e4da9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287367"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437109"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Overzicht van Azure Digital Twins
 
@@ -27,12 +27,12 @@ Met Azure Digital Twins kunt u gegevens opvragen van een fysieke ruimte in plaat
 - Optimaliseren van het gebruik van beschikbare ruimte voor een kantoorgebouw.
 
 Azure Digital Twins is van toepassing op allerlei typen omgevingen. Magazijnen, kantoren, scholen, ziekenhuizen en banken zijn slechts enkele voorbeelden. Het kan ook worden gebruikt voor stadions, fabrieken, parkeerplaatsen, parken, smart grids en steden. Azure Digital Twins kan ook in de volgende voorbeeldscenario's worden gebruikt voor:
- 
-- Volgen van de dagelijkse temperatuur voor meerdere locaties. 
+
+- Volgen van de dagelijkse temperatuur voor meerdere locaties.
 - Bewaken van vliegroutes met intensief droneverkeer.
-- Identificeren van zelfrijdende voertuigen. 
-- Analyseren van de bezettingsgraad van een gebouw. 
-- Vinden van de meestgebruikte kassa in uw winkel. 
+- Identificeren van zelfrijdende voertuigen.
+- Analyseren van de bezettingsgraad van een gebouw.
+- Vinden van de meestgebruikte kassa in uw winkel.
 
 Wat uw bedrijfsscenario ook is, er kan een overeenkomstig digitaal exemplaar worden ingericht via Azure Digital Twins.
 
@@ -94,7 +94,7 @@ Azure Digital Twins is geschikt om een voorstelling te maken van de fysieke were
 
 Azure Digital Twins gebruikt Azure IoT Hub om een verbinding tot stand te brengen tussen de IoT-apparaten en sensoren die alles up-to-date houden met de fysieke wereld. In het volgende diagram ziet u hoe Azure Digital Twins zich verhoudt tot andere Azure IoT-services.
 
-![Azure Digital Twins is een service die is gebouwd op Azure IoT Hub](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+![Azure Digital Twins is een service die is gebouwd op Azure IoT Hub][1]
 
 Zie [Azure IoT-technologieën en -oplossingen](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies) voor meer informatie over IoT.
 
@@ -102,15 +102,18 @@ Zie [Azure IoT-technologieën en -oplossingen](https://docs.microsoft.com/azure/
 
 Ga naar een korte demo over Azure Digital Twins:
 
-> [!div class="nextstepaction"]
-> [Snelstart: beschikbare ruimten zoeken met behulp van Azure Digital Twins](./quickstart-view-occupancy-dotnet.md)
+>[!div class="nextstepaction"]
+>[Snelstart: Beschikbare ruimten zoeken met behulp van Azure Digital Twins](./quickstart-view-occupancy-dotnet.md)
 
 Kijk eens nauwkeuriger naar een toepassing voor faciliteitenbeheer met behulp van Azure Digital Twins:
 
-> [!div class="nextstepaction"]
-> [Zelfstudie: Azure Digital Twins implementeren en een ruimtelijke grafiek configureren](./tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[Zelfstudie: Azure Digital Twins implementeren en een ruimtelijke grafiek configureren](./tutorial-facilities-setup.md)
 
 Meer informatie over de basisconcepten van Azure Digital Twins:
 
-> [!div class="nextstepaction"]
-> [Informatie over het objectmodel en de grafiek voor ruimtelijke intelligentie van Digital Twins](./concepts-objectmodel-spatialgraph.md)
+>[!div class="nextstepaction"]
+>[Informatie over het objectmodel en de grafiek voor ruimtelijke intelligentie van Digital Twins](./concepts-objectmodel-spatialgraph.md)
+
+<!-- Images -->
+[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png
