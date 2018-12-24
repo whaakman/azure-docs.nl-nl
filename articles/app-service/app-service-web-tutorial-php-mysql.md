@@ -1,5 +1,5 @@
 ---
-title: Een PHP- en MySQL-web-app bouwen in Azure | Microsoft Docs
+title: Een PHP-app ontwikkelen met MySQL - Azure App Service | Microsoft Docs
 description: Informatie over het werkend krijgen van een PHP-app in Azure, met verbinding naar een MySQL-database in Azure.
 services: app-service\web
 documentationcenter: php
@@ -14,15 +14,15 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 9a1468c27e668663ca9079f5f1c9e5e97e51d2d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291282"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251671"
 ---
-# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Zelfstudie: een PHP- en MySQL-web-app bouwen in Azure
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Zelfstudie: Een PHP- en MySQL-web-app bouwen in Azure
 
 > [!NOTE]
 > In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een PHP- en MySQL-web-app bouwen in Azure App Service onder Linux ](./containers/tutorial-php-mysql-app.md) om een app te implementeren in App Service onder _Linux_.
@@ -49,9 +49,9 @@ In deze zelfstudie leert u het volgende:
 Vereisten voor het voltooien van deze zelfstudie:
 
 * [Git installeren](https://git-scm.com/)
-* [Installeer PHP 5.6.4 of hoger](http://php.net/downloads.php)
+* [Installeer PHP 5.6.4 of hoger](https://php.net/downloads.php)
 * [Composer installeren](https://getcomposer.org/doc/00-intro.md)
-* Schakel de volgende PHP-extensies in die Laravel nodig heeft: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* Schakel de volgende PHP-extensies in die nodig zijn voor Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [MySQL installeren en starten](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Lokale MySQL voorbereiden
@@ -66,7 +66,7 @@ Maak in een terminalvenster verbinding met uw lokale MySQL-server. U kunt dit te
 mysql -u root -p
 ```
 
-Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het `root`-account. Als u het wachtwoord van uw rootaccount niet meer weet, bekijkt u [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het `root`-account. Als u het wachtwoord van uw hoofdaccount niet meer weet, raadpleegt u [MySQL: Het hoofdwachtwoord opnieuw instellen](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Als uw opdracht succesvol is uitgevoerd, wordt uw MySQL-server uitgevoerd. Als dit niet het geval is, zorgt u ervoor dat de lokale MySQL-server is gestart door de [Stappen na installatie van MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) te volgen.
 
@@ -598,9 +598,9 @@ Nadat logboekstreaming is gestart, vernieuwt u de Azure-web-app in de browser om
 Typ `Ctrl`+`C` om op elk gewenst moment te stoppen met logboekstreaming.
 
 > [!TIP]
-> Een PHP-toepassing kan gebruikmaken van de standaard [error_log()](http://php.net/manual/function.error-log.php) voor uitvoer naar de console. De voorbeeldtoepassing hanteert deze benadering in _app/Http/routes.php_.
+> Een PHP-toepassing kan gebruikmaken van de standaard [error_log()](https://php.net/manual/function.error-log.php) voor uitvoer naar de console. De voorbeeldtoepassing hanteert deze benadering in _app/Http/routes.php_.
 >
-> Als webframework [maakt Laravel gebruik van Monolog](https://laravel.com/docs/5.4/errors) als provider voor logboekregistratie. Zie [PHP: het gebruik van Monolog voor aanmelding bij console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out) om ervoor te zorgen dat Monolog berichten uitvoert naar de console.
+> Als webframework [maakt Laravel gebruik van Monolog](https://laravel.com/docs/5.4/errors) als provider voor logboekregistratie. Als u wilt weten hoe u met Monolog berichten uitvoert naar de console, raadpleegt u [PHP: Met Monolog berichten registreren bij de console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 
