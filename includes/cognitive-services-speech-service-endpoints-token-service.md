@@ -14,7 +14,7 @@ ms.locfileid: "51713653"
 Regio| Token service-eindpunt
 -|-
 US - west| https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
-VS - west 2| https://westus2.api.cognitive.microsoft.com/sts/v1.0/issueToken
+US - west 2| https://westus2.api.cognitive.microsoft.com/sts/v1.0/issueToken
 US - oost| https://eastus.api.cognitive.microsoft.com/sts/v1.0/issueToken
 US - oost 2| https://eastus2.api.cognitive.microsoft.com/sts/v1.0/issueToken
 Azië - oost| https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken

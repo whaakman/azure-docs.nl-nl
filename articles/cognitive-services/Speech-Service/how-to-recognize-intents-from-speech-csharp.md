@@ -110,7 +110,7 @@ Vervang de tijdelijke aanduidingen in deze methode als volgt door de sleutel, re
 |Tijdelijke aanduiding|Vervangen door|
 |-----------|------------|
 |`YourLanguageUnderstandingSubscriptionKey`|Uw LUIS-endpoint-sleutel Zoals eerder vermeld, moet dit een sleutel zijn die u hebt verkregen via uw Azure-dashboard, niet een 'starter-key'. U kunt de sleutel vinden op de pagina Keys and Endpoints van uw app (onder Manage) in de [LUIS-portal](https://www.luis.ai/home).|
-|`YourLanguageUnderstandingServiceRegion`|De korte id voor de regio van uw LUIS-abonnement, zoals `westus` voor West US. Zie [Regio's](regions.md).|
+|`YourLanguageUnderstandingServiceRegion`|De korte id voor de regio van uw LUIS-abonnement, zoals `westus` voor US - west. Zie [Regio's](regions.md).|
 |`YourLanguageUnderstandingAppId`|De id van de LUIS-app. U kunt deze vinden op de pagina Settings van de [LUIS-portal](https://www.luis.ai/home).|
 
 Als u klaar bent met deze wijzigingen, kunt u de toepassing voor de zelfstudie compileren (Ctrl-Shift-B) en uitvoeren (F5). Als dat wordt gevraagd, zegt u "Turn off the lights" in de microfoon van uw pc. Het resultaat wordt weergegeven in het consolevenster.

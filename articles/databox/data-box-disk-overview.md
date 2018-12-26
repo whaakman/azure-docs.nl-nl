@@ -101,7 +101,7 @@ Tijdens de preview kan Data Box Disk gegevens overdragen in de volgende Azure-re
 |Azure-regio  |Azure-regio  |
 |---------|---------|
 |US - west-centraal     |Canada - midden       |        
-|VS - west 2     |Canada - oost         |     
+|US - west 2     |Canada - oost         |     
 |US - west     | Europa -west        |      
 |US - zuid-centraal   |Europa - noord     |         
 |US - centraal     |Australië - oost|
