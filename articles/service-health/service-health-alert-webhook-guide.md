@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 5d32c3539446482f2dcdaeb954bb704dc9b78c58
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 740adefbb8bfa53e96b5ed0e1c7181abf22f1490
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274918"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580266"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Meldingen van de status van bestaande probleem management systemen met behulp van een webhook configureren
 
@@ -119,5 +119,5 @@ Dit laat zien dat er problemen met 'Waarschuwingen en metrische gegevens' in Aus
 
 ## <a name="next-steps"></a>Volgende stappen
 - Controleer de [activiteit log waarschuwing webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Meer informatie over [health servicemeldingen](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Meer informatie over [health servicemeldingen](../azure-monitor/platform/service-notifications.md).
 - Meer informatie over [actiegroepen](../azure-monitor/platform/action-groups.md).

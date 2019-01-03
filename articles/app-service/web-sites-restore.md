@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 603a6bab75c4a5da4425bcc57d2cc5ccda728636
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274116"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721458"
 ---
 # <a name="restore-an-app-in-azure"></a>Een app in Azure herstellen
-Dit artikel leest u hoe u een app in herstellen [Azure App Service](../app-service/app-service-web-overview.md) die u eerder hebt back-up (Zie [maakt u een Back-up van uw app in Azure](web-sites-backup.md)). U kunt uw app met de daaraan gekoppelde databases op verzoek herstellen naar een vorige versie, of een nieuwe app maken op basis van back-ups van uw oorspronkelijke app. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
+Dit artikel leest u hoe u een app in herstellen [Azure App Service](../app-service/overview.md) die u eerder hebt back-up (Zie [maakt u een Back-up van uw app in Azure](manage-backup.md)). U kunt uw app met de daaraan gekoppelde databases op verzoek herstellen naar een vorige versie, of een nieuwe app maken op basis van back-ups van uw oorspronkelijke app. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
@@ -91,8 +91,8 @@ U kunt back-upbeheer met scripts automatiseren met behulp van de [Azure CLI](/cl
 
 Zie voor voorbeelden:
 
-- [Azure CLI-voorbeelden](app-service-cli-samples.md)
-- [Voorbeelden van Azure PowerShell](app-service-powershell-samples.md)
+- [Azure CLI-voorbeelden](samples-cli.md)
+- [Voorbeelden van Azure PowerShell](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

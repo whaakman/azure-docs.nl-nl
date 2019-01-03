@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: feb2e2f9f36ab20c0b96fab9432df41faf4f9569
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3131afb31fd08903bb349f86634d2b9e6449c59e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407929"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752653"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systeemprestatiemeteritems in Application Insights
 
@@ -42,7 +42,7 @@ De huidige standaard prestatiemeteritems die worden verzameld voor .NET-webtoepa
          - ASP.NET Applications\\Requests In Application Queue
          - Processor(_Total)\\% Processor Time
 
-Als u wilt zien van de handigste grafieken op één plek, maakt u een [dashboard](app-insights-dashboards.md) en deze vastmaken aan het.
+Als u wilt zien van de handigste grafieken op één plek, maakt u een [dashboard](../azure-monitor/app/app-insights-dashboards.md) en deze vastmaken aan het.
 
 ## <a name="add-counters"></a>Items toevoegen
 
@@ -99,7 +99,7 @@ Of u kunt hetzelfde doen met aangepaste metrische gegevens die u hebt gemaakt:
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Prestatiemeteritems in Analytics
-U kunt zoeken en weergeven van prestaties teller rapporten in [Analytics](app-insights-analytics.md).
+U kunt zoeken en weergeven van prestaties teller rapporten in [Analytics](../azure-monitor/app/analytics.md).
 
 De **performanceCounters** schema wordt aangegeven dat de `category`, `counter` naam, en `instance` naam van elk prestatiemeteritem.  In de telemetrie voor elke toepassing ziet u alleen de items voor de toepassing. Bijvoorbeeld, als u wilt zien zijn welke items beschikbaar: 
 
@@ -120,15 +120,15 @@ Andere telemetrie, zoals **performanceCounters** heeft ook een kolom `cloud_Role
 
 * *Aantal uitzonderingen* is van een prestatiemeteritem system. De CLR telt alle de verwerkte en onverwerkte uitzonderingen die worden gegenereerd en de totale in een interval van steekproeven worden gedeeld door de lengte van het interval. De Application Insights SDK dit resultaat verzamelt en verzendt ze naar de portal.
 
-* *Uitzonderingen* is een telling van de TrackException-rapporten ontvangen door de portal in het controle-interval van de grafiek. Het bevat alleen de verwerkte uitzonderingen waar u TrackException aanroepen in uw code en bevat geen alle hebt geschreven [onverwerkte uitzonderingen](app-insights-asp-net-exceptions.md). 
+* *Uitzonderingen* is een telling van de TrackException-rapporten ontvangen door de portal in het controle-interval van de grafiek. Het bevat alleen de verwerkte uitzonderingen waar u TrackException aanroepen in uw code en bevat geen alle hebt geschreven [onverwerkte uitzonderingen](../azure-monitor/app/asp-net-exceptions.md). 
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Prestatiemeteritems in ASP.Net Core-toepassingen
 Prestatiemeteritems worden alleen ondersteund als de toepassing is die gericht is op het volledige .NET Framework. Er is geen mogelijkheid voor het verzamelen van prestatiemeteritems voor .net Core-toepassingen.
 
 ## <a name="alerts"></a>Waarschuwingen
-Net als andere metrische gegevens, kunt u [een melding instellen](app-insights-alerts.md) om u te waarschuwen als een prestatiemeteritem gaat buiten een grens die u opgeeft. Open het deelvenster waarschuwingen en klik op waarschuwing toevoegen.
+Net als andere metrische gegevens, kunt u [een melding instellen](../azure-monitor/app/alerts.md) om u te waarschuwen als een prestatiemeteritem gaat buiten een grens die u opgeeft. Open het deelvenster waarschuwingen en klik op waarschuwing toevoegen.
 
 ## <a name="next"></a>Volgende stappen
-* [Bijhouden van afhankelijkheid](app-insights-asp-net-dependencies.md)
-* [Uitzonderingen bijhouden](app-insights-asp-net-exceptions.md)
+* [Bijhouden van afhankelijkheid](../azure-monitor/app/asp-net-dependencies.md)
+* [Uitzonderingen bijhouden](../azure-monitor/app/asp-net-exceptions.md)
 

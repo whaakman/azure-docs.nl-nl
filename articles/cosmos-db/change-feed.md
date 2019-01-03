@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c8870fdb0ff0a62c9b1a3b690724aa004e911bb3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133744"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810879"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>In Azure Cosmos DB-wijzigingenfeed
 
@@ -32,7 +32,7 @@ De in Azure Cosmos DB-wijzigingenfeed kunt u efficiënt en schaalbare oplossinge
 
 Deze functie wordt momenteel ondersteund door de volgende Azure Cosmos DB-API's en client-SDK's.
 
-| **-Clientstuurprogramma 's** | **Azure-CLI** | **SQL-API** | **Cassandra-API** | **MongoDB-API** | **Gremlin-API**|**Tabel-API** |
+| **-Clientstuurprogramma 's** | **Azure-CLI** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API**|**Tabel-API** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | N.v.t. | Ja | Nee | Nee | Ja | Nee |
 |Java|N.v.t.|Ja|Nee|Nee|Ja|Nee|

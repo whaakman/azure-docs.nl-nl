@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 19a5dee53bee20438098d1aaeb773ebf08f252d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408031"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993447"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategieën voor het testen van uw code in Azure Functions
 
@@ -29,7 +29,7 @@ De inhoud die volgt is opgesplitst in twee verschillende secties die zijn bedoel
 - [C#in Visual Studio met xUnit](#c-in-visual-studio)
 - [JavaScript in VS Code met Jest](#javascript-in-vs-code)
 
-De opslagplaats van de voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
+De voorbeeld-opslagplaats is beschikbaar op [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## <a name="c-in-visual-studio"></a>C#in Visual Studio
 Het volgende voorbeeld wordt beschreven hoe u een C# functie-app in Visual Studio en worden uitgevoerd en getest met [xUnit](https://xunit.github.io).
@@ -43,8 +43,9 @@ Als u uw omgeving instelt, een functie maken en testen van de app. De volgende s
 1. [Maak een nieuwe Azure Functions-app](./functions-create-first-azure-function.md) en noem het *functies*
 2. [Een HTTP-functie maken vanuit de sjabloon](./functions-create-first-azure-function.md) en noem het *HttpTrigger*.
 3. [Een timerfunctie maken vanuit de sjabloon](./functions-create-scheduled-function.md) en noem het *TimerTrigger*.
-4. [Maken van een Test-app met xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) en noem het *Functions.Test*.
-5. [Naslaginformatie over de *functies* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) van *Functions.Test* app.
+4. [Maken van een Test-app met xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) in Visual Studio door te klikken op **bestand > Nieuw > Project > Visual C# > .NET Core > xUnit testproject** en noem het *Functions.Test*. 
+5. Nuget gebruiken om toe te voegen een verwijzingen van de app test [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) en [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. [Naslaginformatie over de *functies* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) van *Functions.Test* app.
 
 ### <a name="create-test-classes"></a>Test klassen maken
 
@@ -203,7 +204,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -212,7 +213,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -220,7 +221,7 @@ namespace Functions.Tests
         public void Timer_should_log_message()
         {
             var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
-            TimerFunction.Run(null, logger);
+            TimerTrigger.Run(null, logger);
             var msg = logger.Logs[0];
             Assert.Contains("C# Timer trigger function executed at", msg);
         }

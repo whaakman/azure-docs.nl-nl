@@ -9,25 +9,31 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: f0e543263c7a9890abc485d0f0cd6bec88f16dd4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 79c279e351ce467bea8affc313da09ce8087bd2a
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135189"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994892"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entiteitstypen en hun ten behoeve van LUIS
 
 Entiteiten zijn woorden of zinsdelen in uitingen die belangrijke gegevens in het domein van uw toepassing zijn.
 
 ## <a name="entity-compared-to-intent"></a>Entiteit in vergelijking met opzet
-De entiteit vertegenwoordigt een woord of zinsdeel in de utterance die u wilt dat opgehaald. Een utterance kan bevatten veel entiteiten of geen helemaal. Een entiteit vertegenwoordigt een klasse met inbegrip van een verzameling van soortgelijke objecten (plaatsen, dingen, personen, gebeurtenissen en concepten). Entiteiten informatie die relevant zijn voor de bedoeling beschrijven en soms ze zijn essentieel voor uw app de taak uit te voeren. Een app nieuws zoeken kan bijvoorbeeld entiteiten, zoals 'onderwerp', 'bron', 'sleutelwoord' en 'publiceren datum', die belangrijke gegevens om te zoeken naar nieuws. Zijn belangrijke informatie voor vlucht reserveren (relevant zijn voor het doel "Bookflight") in een reservering reis-app, de 'locatie', 'datum', "luchtvaartmaatschappij", "reizen class" en 'tickets'.
+
+De entiteit vertegenwoordigt een woord of zinsdeel in de utterance die u wilt dat opgehaald. Een utterance kan bevatten veel entiteiten of geen helemaal. Een entiteit vertegenwoordigt een klasse met inbegrip van een verzameling van soortgelijke objecten (plaatsen, dingen, personen, gebeurtenissen en concepten). Entiteiten informatie die relevant zijn voor de bedoeling beschrijven en soms ze zijn essentieel voor uw app de taak uit te voeren. Een app nieuws zoeken kan bijvoorbeeld entiteiten, zoals 'onderwerp', 'bron', 'sleutelwoord' en 'publiceren datum', die belangrijke gegevens om te zoeken naar nieuws. Zijn belangrijke informatie voor vlucht reserveren (relevant zijn voor het doel 'Book flight') in een reservering reis-app, de 'locatie', 'datum', "luchtvaartmaatschappij", "reizen class" en 'tickets'.
 
 Ter vergelijking, vertegenwoordigt de bedoeling de voorspelling van de gehele utterance. 
 
+## <a name="entities-help-with-data-extraction-only"></a>Entiteiten help met alleen gegevensextractie
+
+U een label of entiteiten is ingeschakeld voor de entiteit extractie alleen it niet eenvoudiger door intentie voorspelling.
+
 ## <a name="entities-represent-data"></a>Entiteiten vertegenwoordigen gegevens
+
 Entiteiten zijn gegevens die u wilt gebruiken om op te halen uit de utterance. Dit kan een naam, datum, naam van het product of een groep van woorden zijn. 
 
 |Utterance|Entiteit|Gegevens|
@@ -36,13 +42,15 @@ Entiteiten zijn gegevens die u wilt gebruiken om op te halen uit de utterance. D
 |Een ticket van de New York naar Londen kopen op 5 maart|Location.Origin<br>Location.Destination<br>Vooraf gedefinieerde datetimeV2|New York<br>Londen<br>5 maart 2018|
 
 ## <a name="entities-are-optional-but-highly-recommended"></a>Entiteiten zijn optioneel, maar sterk aanbevolen
-Intents zijn vereist, zijn entiteiten optioneel. U hoeft niet te maken van entiteiten voor elke concept in uw app, maar alleen voor die nodig zijn voor de app om actie te ondernemen. 
+
+Intents zijn vereist, zijn entiteiten optioneel. U hoeft niet te maken van entiteiten voor elke concept in uw app, maar alleen voor die vereist zijn voor de clienttoepassing om actie te ondernemen. 
 
 Als uw uitingen geen details van die uw bot moet om door te gaan, hoeft u niet wilt toevoegen. Als uw app zich verder ontwikkelt, kunt u deze later toevoegen. 
 
-Als u niet zeker weet hoe u de gegevens wilt gebruiken, een paar algemene vooraf gemaakte entiteiten zoals datetimeV2, rangtelwoord, e-mailadres en telefoonnummer toevoegen.
+Als u niet zeker weet hoe u de gegevens wilt gebruiken, voegt u enkele algemene vooraf gemaakte entiteiten zoals [datetimeV2](luis-reference-prebuilt-datetimev2.md), [rangtelwoord](luis-reference-prebuilt-ordinal.md), [e](luis-reference-prebuilt-email.md), en [telefoonnummer ](luis-reference-prebuilt-phonenumber.md).
 
 ## <a name="label-for-word-meaning"></a>Label voor de betekenis van woord
+
 Als het woord keuze of word-indeling hetzelfde is, maar geen betekent dit hetzelfde te doen dat, u deze niet labelen met de entiteit. 
 
 De volgende uitingen, het woord `fair` een homograaf is. Deze hetzelfde is gespeld, maar heeft een andere betekenis:
@@ -55,53 +63,176 @@ De volgende uitingen, het woord `fair` een homograaf is. Deze hetzelfde is gespe
 Als u een entiteit gebeurtenis te vinden van alle gegevens van de gebeurtenis, een label het woord `fair` in de eerste utterance, maar niet in de tweede.
 
 ## <a name="entities-are-shared-across-intents"></a>Entiteiten worden gedeeld via intents
-Entiteiten worden gedeeld tussen intents. Ze behoren niet tot een enkel doel. Intenties en entiteiten kunnen worden semantisch gekoppeld, maar het is niet een exclusieve relatie.
 
-In de utterance 'Book me een ticket naar Parijs","Parijs"is een entiteit van het type locatie. Door het herkennen van de entiteiten die worden vermeld in de invoer van de gebruiker, kunt LUIS u de specifieke acties te ondernemen om te voldoen aan een doel kiezen.
+Entiteiten worden gedeeld tussen intents. Ze behoren niet tot een enkel doel. Intenties en entiteiten kunnen semantisch gekoppeld, maar het is niet een exclusieve relatie.
 
-## <a name="assign-entities-in-none-intent"></a>Geen intentie-entiteiten toewijzen
-Alle intents, met inbegrip van de **geen** doel entiteiten met het label moeten hebben. Dit helpt LUIS meer informatie over waar de entiteiten in de uitingen en wat woorden rond de entiteiten zijn. 
+In de utterance 'Book me een ticket naar Parijs","Parijs"is een entiteit die verwijzen naar de locatie. Door het herkennen van de entiteiten die worden vermeld in van de gebruiker utterance, kunt LUIS u uw clienttoepassing kiest u de specifieke acties te ondernemen om te voldoen aan de aanvraag van de gebruiker.
+
+## <a name="mark-entities-in-none-intent"></a>Markeren van entiteiten in geen intentie
+
+Alle intents, met inbegrip van de **geen** doel, entiteiten, indien mogelijk moeten zijn gemarkeerd. Dit helpt LUIS meer informatie over waar de entiteiten in de uitingen en wat woorden rond de entiteiten zijn. 
 
 ## <a name="entity-status-for-predictions"></a>Status van de entiteit voor voorspellingen
 
-Zie [entiteit Status voorspellingen](luis-how-to-add-example-utterances.md#entity-status-predictions) voor meer informatie. 
+De LUIS-portal wordt aangegeven wanneer de entiteit in een voorbeeld-utterance is anders dan de gemarkeerde entiteit of te sluiten met een andere entiteit en daarom niet duidelijk is. Hiermee wordt aangegeven door een rood onderstreept in de voorbeeld-utterance. 
+
+Zie voor meer informatie, [voorspellingen van de Status van de entiteit](luis-how-to-add-example-utterances.md#entity-status-predictions). 
 
 ## <a name="types-of-entities"></a>Typen entiteiten
-LUIS biedt veel soorten entiteiten; vooraf gemaakte entiteiten, aangepaste machine hebt geleerd entiteiten en lijst met entiteiten.
 
-| Name | Kan label | Description |
-| -- |--|--|
-| **Vooraf gedefinieerde** <br/>[Aangepaste](#prebuilt)| |  **Definitie**<br>Ingebouwde typen die algemene concepten vertegenwoordigen. <br><br>**Lijst met**<br/>sleuteluitdrukkingen nummer, het rangtelwoord voor temperatuur, dimensie, geld, leeftijd, percentage, e-mailadres, URL, telefoonnummer en sleuteluitdrukkingen. <br><br>Namen van vooraf gemaakte entiteiten zijn gereserveerd. <br><br>Alle vooraf gedefinieerde entiteiten die zijn toegevoegd aan de toepassing worden geretourneerd in de [eindpunt](luis-glossary.md#endpoint) query. Zie voor meer informatie, [vooraf gemaakte entiteiten](./luis-prebuilt-entities.md). <br/><br/>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Reguliere expressie**<br/>[Reguliere expressie](#regex)||**Definitie**<br>Aangepaste reguliere expressie voor opmaak onbewerkte utterance tekst. Deze aanvraag wordt genegeerd en worden genegeerd culturele variant.  <br><br>Deze entiteit is handig voor woorden of zinsdelen die consistent zijn geformatteerd met een wijziging die ook consistent is.<br><br>Reguliere expressie die overeenkomt met is na spellingcontrole wijzigingen op het niveau van het teken, niet het niveau van de token toegepast. Maakt gebruik van onderdeel maar niet alle van de [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) bibliotheek.<br><br>Als de reguliere expressie te complex is is, zoals het gebruik van veel vierkante haken, bent u niet de expressie toevoegen aan het model. <br><br>**Voorbeeld**<br>`kb[0-9]{6,}` komt overeen met kb123456.<br/><br/>[Snelstartgids](luis-quickstart-intents-regex-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md)|
-| **Eenvoudige** <br/>[Machine geleerd](#machine-learned) | ✔ | **Definitie**<br>Een enkele entiteit is een algemene entiteit die een enkele concept wordt beschreven en wordt geleerd van context machine geleerd. Context zijn woord keuze, word plaatsing en utterance lengte.<br/><br/>Dit is een goede entiteit naar woorden of zinsdelen die niet consistent zijn opgemaakt maar wijzen om hetzelfde te doen. <br/><br/>[Snelstartgids](luis-quickstart-primary-and-secondary-data.md)<br/>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#simple-entity-data)|  
-| **Lijst met** <br/>[Exacte overeenkomst](#exact-match)|| **Definitie**<br>Lijst met entiteiten vertegenwoordigen een vaste en gesloten set verwante woorden samen met hun synoymns in uw systeem. <br><br>Elke entiteit lijst mogelijk een of meer formulieren. Het best worden gebruikt voor een bekende set varianten van de manieren om weer te geven van hetzelfde concept.<br/><br/>LUIS detecteert geen aanvullende waarden voor de lijst met entiteiten. Gebruik de **raden** functie om te bekijken van suggesties voor nieuwe woorden op basis van de huidige lijst.<br/><br>Als er meer dan één lijst entiteit met dezelfde waarde, wordt elke entiteit in de query eindpunt geretourneerd. <br/><br/>[Snelstartgids](luis-quickstart-intent-and-list-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#list-entity-data)| 
-| **Pattern.any** <br/>[Gemengde modus](#mixed) | ✔|**Definitie**<br>Patterns.any is een tijdelijke aanduiding voor de variabele lengte gebruikt alleen in een patroon van sjabloon utterance markeren waar de entiteit begint en eindigt.  <br><br>**Voorbeeld**<br>Uitgaande van een zoekopdracht utterance voor rapporten op basis van de titel, haalt de pattern.any de volledige titel. Een sjabloon utterance met behulp van pattern.any is `Who wrote {BookTitle}[?]`.<br/><br/>[Zelfstudie](luis-tutorial-pattern.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Samengestelde** <br/>[Machine geleerd](#machine-learned) | ✔|**Definitie**<br>Een samengestelde entiteit is opgebouwd uit andere entiteiten, zoals de vooraf gemaakte entiteiten, eenvoudige, regex, hiërarchische lijst. De afzonderlijke entiteiten vormen een hele entiteit. <br><br>**Voorbeeld**<br>Een samengestelde entiteit met de naam PlaneTicketOrder mogelijk onderliggende entiteiten vooraf gedefinieerde `number` en `ToLocation`. <br/><br/>[Zelfstudie](luis-tutorial-composite-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Hiërarchische** <br/>[Machine geleerd](#machine-learned) |✔ | **Definitie**<br>Een hiërarchische entiteit is een categorie contextueel geleerde eenvoudige entiteiten.<br><br>**Voorbeeld**<br>Een hiërarchische entiteit van het gegeven `Location` met onderliggende `ToLocation` en `FromLocation`, elke onderliggende kan worden bepaald op basis van de **context** binnen de utterance. In de utterance `Book 2 tickets from Seattle to New York`, wordt de `ToLocation` en `FromLocation` contextueel verschillen op basis van de tekst eromheen. <br/><br/>**Gebruik niet als**<br>Als u naar een entiteit die overeenkomt met de exacte tekst voor kinderen, ongeacht de context zoekt, moet u een lijst met entiteit. Als u naar een bovenliggende / onderliggende relatie met andere Entiteitstypen zoekt, moet u de samengestelde entiteit.<br/><br/>[Snelstartgids](luis-quickstart-intent-and-hier-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#hierarchical-entity-data)|
+LUIS biedt veel soorten entiteiten. Kies de entiteit op basis van hoe de gegevens moeten worden geëxtraheerd en hoe deze moet worden weergegeven nadat deze is uitgepakt.
 
-<a name="prebuilt"></a>
-**Vooraf gedefinieerde** entiteiten zijn aangepaste entiteiten die worden geleverd door LUIS. Sommige van deze entiteiten zijn gedefinieerd in de open-source [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text) project. Er zijn veel [voorbeelden](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) in de map /Specs voor de ondersteunde culturen. Als uw specifieke cultuur of de entiteit wordt momenteel niet ondersteund, dragen bij aan het project. 
+Entiteiten kunnen worden geëxtraheerd met machine-learning, waardoor LUIS om meer over hoe de entiteit wordt weergegeven in de utterance. Entiteiten kunnen worden geëxtraheerd zonder machine learning, die overeenkomt met de exacte tekst of een reguliere expressie. Entiteiten in patronen kunnen worden geëxtraheerd met een gemengde-implementatie. 
 
-<a name="machine-learned"></a>
-**Machine geleerd** entiteiten werken het beste wanneer getest [eindpunt query's](luis-concept-test.md#endpoint-testing) en [eindpunt uitingen controleren](luis-how-to-review-endoint-utt.md). 
+Nadat de entiteit is uitgepakt, kunt u de entiteitsgegevens weergegeven als één eenheid van informatie of in combinatie met andere entiteiten om te vormen een eenheid met gegevens die de client-toepassing kunt gebruiken.
 
-<a name="regex"></a>
-**Reguliere expressie entiteiten** worden gedefinieerd met een reguliere expressie die de gebruiker als onderdeel van de entiteitsdefinitie van de biedt. 
+|Machine geleerd|Kunt markeren|Zelfstudie|Voorbeeld<br>Antwoord|Entiteitstype|Doel|
+|--|--|--|--|--|--|
+|✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Samengestelde**](#composite-entity)|Groepering van entiteiten, ongeacht het entiteitstype.|
+|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiërarchische**](#hierarchical-entity)|Groepering van eenvoudige entiteiten.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Lijst met**](#list-entity)|Lijst met items en hun synoniemen geëxtraheerd met exact overeenkomende tekst overeenkomen.|
+|Gemengd||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|De entiteit waarin einde van de entiteit moeilijk is te bepalen.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Vooraf gedefinieerde**](#prebuilt-entity)|Al getraind om op te halen van verschillende soorten gegevens.|
+|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Reguliere expressie**](#regular-expression-entity)|Maakt gebruik van reguliere expressie zodat deze overeenkomen met de tekst.|
+|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Eenvoudige**](#simple-entity)|Een enkele concept in woord of woordgroep bevat.|
 
-<a name="exact-match"></a>
-**Exacte overeenkomst** entiteiten maken gebruik van de tekst in de entiteit waarmee een exact overeenkomende tekst overeenkomen.
+Alleen entiteiten hebt geleerd van een Machine moeten worden gemarkeerd in de voorbeeld-uitingen voor elke doel. Machine geleerde entiteiten werken het beste wanneer getest [eindpunt query's](luis-concept-test.md#endpoint-testing) en [eindpunt uitingen controleren](luis-how-to-review-endoint-utt.md). 
 
-<a name="mixed"></a>
-**Gemengde** entiteiten maken gebruik van een combinatie van detectiemethoden entiteit.
+Pattern.any entiteiten moeten worden gemarkeerd de [patroon](luis-how-to-model-intent-pattern.md) sjabloonvoorbeelden, niet de bedoeling gebruiker voorbeelden. 
+
+Gemengde entiteiten maken gebruik van een combinatie van detectiemethoden entiteit.
+
+## <a name="composite-entity"></a>Samengestelde entiteit
+
+Een samengestelde entiteit is opgebouwd uit andere entiteiten, zoals de vooraf gemaakte entiteiten eenvoudig, reguliere expressie, lijst en hiërarchische entiteiten. De afzonderlijke entiteiten vormen een hele entiteit. 
+
+Deze entiteit is een goede passen wanneer de gegevens:
+
+* Aan elkaar zijn gerelateerd. 
+* Ze zijn aan elkaar gerelateerd in de context van de utterance.
+* Verschillende Entiteitstypen gebruiken.
+* Moet worden gegroepeerd en verwerkt door de clienttoepassing als een eenheid van gegevens.
+* Beschikken over een verscheidenheid aan gebruiker uitingen waarvoor machine learning.
+
+![Samengestelde entiteit](./media/luis-concept-entities/composite-entity.png)
+
+[Zelfstudie](luis-tutorial-composite-entity.md)<br>
+[Voorbeeld van JSON-antwoord voor entiteit](luis-concept-data-extraction.md#composite-entity-data)<br>
+
+## <a name="hierarchical-entity"></a>Hiërarchische entiteit
+
+Een hiërarchische entiteit is een categorie contextueel geleerde eenvoudige entiteiten kinderen genoemd.
+
+Deze entiteit is een goede passen wanneer de gegevens:
+
+* Het zijn entiteiten van het type Simple.
+* Ze zijn aan elkaar gerelateerd in de context van de utterance.
+* Gebruik specifieke word keuze om aan te geven van elke onderliggende entiteit. Voorbeelden van deze woorden zijn: van/naar verlaten/gaan naar, weg van/naar.
+* Kinderen zijn vaak in de dezelfde utterance. 
+* Moet als eenheid informatie worden gegroepeerd en verwerkt door de client-app.
+
+Gebruik niet als:
+
+* U moet een entiteit die overeenkomt met de exacte tekst voor kinderen, ongeacht de context. Gebruik een [entiteit lijst](#list-entity) in plaats daarvan. 
+* U moet een entiteit voor een bovenliggende / onderliggende relatie met andere Entiteitstypen. Gebruik de [samengestelde entiteit](#composite-entity).
+
+![hiërarchische entiteit](./media/luis-concept-entities/hierarchical-entity.png)
+
+[Zelfstudie](luis-quickstart-intent-and-hier-entity.md)<br>
+[Voorbeeld van JSON-antwoord voor entiteit](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
+
+### <a name="roles-versus-hierarchical-entities"></a>Functies ten opzichte van hiërarchische entiteiten
+
+[Rollen](luis-concept-roles.md#roles-versus-hierarchical-entities) oplossen van een patroon hetzelfde probleem als hiërarchische entiteiten, maar van toepassing op alle Entiteitstypen zijn. Rollen zijn momenteel alleen beschikbaar in de patronen. Rollen zijn niet beschikbaar in de intents voorbeeld uitingen.  
+
+## <a name="list-entity"></a>Lijstentiteit
+
+Lijst met entiteiten vertegenwoordigen een vaste en gesloten set verwante woorden samen met hun synoniemen. LUIS detecteert geen aanvullende waarden voor de lijst met entiteiten. Gebruik de **raden** functie om te bekijken van suggesties voor nieuwe woorden op basis van de huidige lijst. Als er meer dan één lijst entiteit met dezelfde waarde, wordt elke entiteit in de query eindpunt geretourneerd. 
+
+De entiteit is een goede passen wanneer de gegevens:
+
+* Een bekende set zijn.
+* De set maximale [begrenzingen](luis-boundaries.md) van LUIS voor dit entiteitstype niet overschrijdt.
+* De tekst in de utterance is een exact overeenkomst met een synoniem of de canonieke naam. LUIS niet de lijst buiten komt overeen met exact overeenkomende tekst gebruiken. Als gevolg meervouden en andere variaties niet worden opgelost met een lijst met entiteit. Voor het beheren van afwijkingen, kunt u overwegen een [patroon](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) met de syntaxis van de optionele tekst.
+
+![lijst met entiteiten](./media/luis-concept-entities/list-entity.png)
+
+[Zelfstudie](luis-quickstart-intent-and-list-entity.md)<br>
+[Voorbeeld van JSON-antwoord voor entiteit](luis-concept-data-extraction.md#list-entity-data)
+
+## <a name="patternany-entity"></a>Pattern.any-entiteit
+
+Pattern.any is een tijdelijke aanduiding voor de variabele lengte gebruikt alleen in een patroon van sjabloon utterance markeren waar de entiteit begint en eindigt.  
+
+De entiteit is een goede aanpassen wanneer:
+
+* Het einde van de entiteit kan worden verward met de resterende tekst van de utterance. 
+
+[Zelfstudie](luis-tutorial-pattern.md)<br>
+[Voorbeeld van JSON-antwoord voor entiteit](luis-concept-data-extraction.md#patternany-entity-data)
+
+**Voorbeeld**  
+Een clienttoepassing die zoekt naar opgegeven voor rapporten op basis van de titel, haalt de pattern.any de volledige titel. Een sjabloon utterance pattern.any gebruiken voor deze zoekopdracht book is `Was {BookTitle} written by an American this year[?]`. 
+
+In de volgende tabel heeft elke rij twee versies van de utterance. De bovenste utterance is hoe LUIS in eerste instantie zien de utterance, waar het is onduidelijk met de titel van het boek begint en eindigt. De onderste utterance is hoe LUIS weet de titel van het boek wanneer een patroon voor het ophalen van is. 
+
+|Utterance|
+|--|
+|Is de Man die aangezien zijn vrouw voor een Hat en andere klinische verhalen geschreven door een Amerikaans dit jaar?<br>Is **de Man die aangezien zijn vrouw voor een Hat en andere klinische verhalen** geschreven door een Amerikaans dit jaar?|
+|Is de helft slaapstand in kikker Pajamas geschreven door een Amerikaans dit jaar?<br>Is **halve slaapstand in kikker Pajamas** geschreven door een Amerikaans dit jaar?|
+|De specifieke verdriet van citroensap taart is: Een nieuwe geschreven door een Amerikaans dit jaar?<br>Is **de bepaalde verdriet van citroensap taart: Een nieuwe** die is geschreven door een Amerikaans dit jaar?|
+|Is dat er sprake is van een Wocket In mijn Pocket! die is geschreven door een Amerikaans dit jaar?<br>Is **er is een Wocket In mijn Pocket!** die is geschreven door een Amerikaans dit jaar?|
+
+## <a name="prebuilt-entity"></a>Vooraf gemaakte entiteiten
+
+Vooraf gemaakte entiteiten zijn ingebouwde typen die staan voor algemene concepten, zoals e-mail, URL en telefoonnummer. Namen van vooraf gemaakte entiteiten zijn gereserveerd. [Alle vooraf gedefinieerde entiteiten](luis-prebuilt-entities.md) die zijn toegevoegd aan de toepassing in de voorspelling eindpunt query worden geretourneerd als ze worden gevonden in de utterance. 
+
+De entiteit is een goede aanpassen wanneer:
+
+* De gegevens komt overeen met een algemene use-case wordt ondersteund door vooraf gemaakte entiteiten voor uw taal-cultuur. 
+
+Vooraf gemaakte entiteiten kunnen worden toegevoegd en verwijderd op elk gewenst moment. Als u dat een vooraf gedefinieerde entiteit wordt vastgesteld voor een voorbeeld-utterance, waardoor de markering van uw aangepaste entiteit onmogelijk, de vooraf gedefinieerde entiteit verwijderen uit de app, uw entiteit markeren en vervolgens weer de vooraf gedefinieerde entiteit toevoegen. 
+
+![Aantal vooraf gedefinieerde entiteit](./media/luis-concept-entities/number-entity.png)
+
+[Zelfstudie](luis-tutorial-prebuilt-intents-entities.md)<br>
+[Voorbeeld van JSON-antwoord voor entiteit](luis-concept-data-extraction.md#prebuilt-entity-data)
+
+Sommige van deze vooraf gemaakte entiteiten zijn gedefinieerd in de open-source [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text) project. Als uw specifieke cultuur of de entiteit wordt momenteel niet ondersteund, dragen bij aan het project. 
+
+## <a name="regular-expression-entity"></a>Een entiteit in de vorm van een reguliere expressie 
+
+Een reguliere expressie wordt aanbevolen voor utterance onbewerkte tekst. Deze aanvraag wordt genegeerd en worden genegeerd culturele variant.  Reguliere expressie die overeenkomt met is na spellingcontrole wijzigingen op het niveau van het teken, niet het niveau van de token toegepast. Als de reguliere expressie te complex is is, zoals het gebruik van veel vierkante haken, bent u niet de expressie toevoegen aan het model. Maakt gebruik van onderdeel maar niet alle van de [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) bibliotheek. 
+
+De entiteit is een goede aanpassen wanneer:
+
+* De gegevens worden consistent met een wijziging die ook consistent opgemaakt.
+* De reguliere expressie hoeft niet meer dan 2 geneste niveaus. 
+
+![Een entiteit in de vorm van een reguliere expressie](./media/luis-concept-entities/regex-entity.png)
+
+[Zelfstudie](luis-quickstart-intents-regex-entity.md)<br>
+[Voorbeeld van JSON-antwoord voor entiteit](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+
+## <a name="simple-entity"></a>Eenvoudige entiteit 
+
+Een enkele entiteit is een algemene entiteit die beschrijft een enkele concept en in de context hebt geleerd van een machine wordt geleerd. Omdat de eenvoudige entiteiten zijn algemeen namen, zoals namen van bedrijven, productnamen of andere categorieën van namen, toevoegen een [woordgroepenlijst](luis-concept-feature.md) bij het gebruik van een enkele entiteit om het signaal van de namen die worden gebruikt te verbeteren. 
+
+De entiteit is een goede aanpassen wanneer:
+
+* De gegevens consistent zijn niet ingedeeld maar duiden op hetzelfde te doen. 
+
+![eenvoudige entiteit](./media/luis-concept-entities/simple-entity.png)
+
+[Zelfstudie](luis-quickstart-primary-and-secondary-data.md)<br/>
+[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#simple-entity-data)<br/>
 
 ## <a name="entity-limits"></a>Limieten voor entiteit
+
 Beoordeling [limieten](luis-boundaries.md#model-boundaries) om te begrijpen hoe vaak elk type entiteit kunt u toevoegen aan een model.
 
-## <a name="roles-versus-hierarchical-entities"></a>Functies ten opzichte van hiërarchische entiteiten
-
-Zie [Rollen versus hiërarchische entiteiten](luis-concept-roles.md#roles-versus-hierarchical-entities) voor meer informatie.
-
 ## <a name="composite-vs-hierarchical-entities"></a>Samengestelde vs hiërarchische entiteiten
+
 Samengestelde entiteiten en hiërarchische entiteiten zowel hebben relaties tussen bovenliggende en onderliggende en machine hebt geleerd. De machine learning kunt LUIS om te begrijpen van de entiteiten op basis van verschillende contexten (rangschikking van woorden). Samengestelde entiteiten zijn flexibel omdat ze verschillende Entiteitstypen als onderliggende items toegestaan. Een hiërarchische entiteit kinderen zijn alleen eenvoudige entiteiten. 
 
 |Type|Doel|Voorbeeld|
@@ -109,114 +240,15 @@ Samengestelde entiteiten en hiërarchische entiteiten zowel hebben relaties tuss
 |Hiërarchische|Bovenliggende / onderliggende van eenvoudige entiteiten|Location.Origin=New York<br>Location.Destination=London|
 |Samengestelde|Bovenliggende / onderliggende entiteiten: vooraf gemaakte, lijst met eenvoudige, hiërarchische| getal = 3<br>lijst met = first class<br>prebuilt.datetimeV2=March 5|
 
-## <a name="data-matching-multiple-entities"></a>Gegevens die overeenkomen met meerdere entiteiten
-Als een woord of woordgroep komt overeen met meer dan één entiteit, retourneert de query eindpunt elke entiteit. Als u zowel vooraf gedefinieerde numerieke entiteit en prebuild datetimeV2 toevoegen, en een utterance moet `create meeting on 2018/03/12 for lunch with wayne`, LUIS herkent alle entiteiten en retourneert een matrix van entiteiten als onderdeel van het JSON-eindpunt-antwoord: 
-
-```JSON
-{
-  "query": "create meeting on 2018/03/12 for lunch with wayne",
-  "topScoringIntent": {
-    "intent": "Calendar.Add",
-    "score": 0.9333419
-  },
-  "entities": [
-    {
-      "entity": "2018/03/12",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 18,
-      "endIndex": 27,
-      "resolution": {
-        "values": [
-          {
-            "timex": "2018-03-12",
-            "type": "date",
-            "value": "2018-03-12"
-          }
-        ]
-      }
-    },
-    {
-      "entity": "2018",
-      "type": "builtin.number",
-      "startIndex": 18,
-      "endIndex": 21,
-      "resolution": {
-        "value": "2018"
-      }
-    },
-    {
-      "entity": "03/12",
-      "type": "builtin.number",
-      "startIndex": 23,
-      "endIndex": 27,
-      "resolution": {
-        "value": "0.25"
-      }
-    }
-  ]
-}
-```
-
-## <a name="data-matching-multiple-list-entities"></a>Gegevens die overeenkomen met meerdere lijst met entiteiten
-Als een woord of woordgroep komt overeen met meer dan één entiteit van de lijst, retourneert de query eindpunt elke entiteit die lijst.
-
-Voor de query `when is the best time to go to red rock?`, en de app is het woord `red` in meer dan één lijst LUIS herkent alle entiteiten en retourneert een matrix van entiteiten als onderdeel van het JSON-eindpunt-antwoord: 
-
-```JSON
-{
-  "query": "when is the best time to go to red rock?",
-  "topScoringIntent": {
-    "intent": "Calendar.Find",
-    "score": 0.06701678
-  },
-  "entities": [
-    {
-      "entity": "red",
-      "type": "Colors",
-      "startIndex": 31,
-      "endIndex": 33,
-      "resolution": {
-        "values": [
-          "Red"
-        ]
-      }
-    },
-    {
-      "entity": "red rock",
-      "type": "Cities",
-      "startIndex": 31,
-      "endIndex": 38,
-      "resolution": {
-        "values": [
-          "Destinations"
-        ]
-      }
-    }
-  ]
-}
-```
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Als u meer dan het maximum aantal entiteiten 
 
 U moet mogelijk hiërarchische en samengestelde entiteiten gebruiken. Hiërarchische entiteiten weer de relatie tussen entiteiten die dezelfde kenmerken, of lid zijn van een categorie. De onderliggende entiteiten zijn alle leden van de bovenliggende categorie. Bijvoorbeeld, een hiërarchische entiteit met de naam PlaneTicketClass mogelijk de onderliggende entiteiten EconomyClass en bewegingssensoren. De hiërarchie omvat slechts één niveau van diepte.  
 
 Samengestelde entiteiten vertegenwoordigen onderdelen van een volledig. Een samengestelde entiteit met de naam PlaneTicketOrder kan bijvoorbeeld onderliggende entiteiten luchtvaartmaatschappij, doel, DepartureCity, vertrekdatum en PlaneTicketClass hebben. U maakt een samengestelde entiteit op basis van bestaande eenvoudige entiteiten, onderliggende items van hiërarchische entiteiten of vooraf gemaakte entiteiten.  
 
-LUIS biedt ook het type van de lijst met entiteit die niet voor machine geleerd, maar kan uw LUIS-app om op te geven van een vaste lijst met waarden. Zie [LUIS grenzen](luis-boundaries.md) verwijzing naar de grenzen van het type van de entiteit lijst bekijken. 
+LUIS biedt ook het type van de lijst met entiteit die niet hebt geleerd van een machine maar kan uw LUIS-app om op te geven van een vaste lijst met waarden. Zie [LUIS grenzen](luis-boundaries.md) verwijzing naar de grenzen van het type van de entiteit lijst bekijken. 
 
 Als u hebt besloten hiërarchische, composite, en lijst met entiteiten en moet het nog steeds meer dan de limiet, contact op met ondersteuning. Om dit te doen, verzamelt gedetailleerde informatie over uw systeem, gaat u naar de [LUIS](luis-reference-regions.md#luis-website) website, en selecteer vervolgens **ondersteuning**. Als uw Azure-abonnement voor ondersteuningsservices bevat, neem dan contact op met [technische ondersteuning van Azure](https://azure.microsoft.com/support/options/). 
-
-## <a name="best-practices"></a>Aanbevolen procedures
-
-Maak een [entiteit](luis-concept-entity-types.md) wanneer de aanroepende toepassing of bot moet bepaalde parameters of de gegevens uit de utterance vereist voor het uitvoeren van een actie. Een entiteit is een woord of zinsdeel in de utterance die u nodig hebt uitgepakt--misschien als een parameter voor een functie. 
-
-Om het juiste type entiteit toevoegen aan uw toepassing selecteert, moet u weten hoe die gegevens worden ingevoerd door gebruikers. Elk entiteitstype is gevonden met behulp van een ander mechanisme, zoals machine learning, gesloten lijst of reguliere expressie. Als u niet zeker weet, beginnen met een enkele entiteit en het woord of woordgroep die dat de gegevens in alle uitingen over alle intents aangeeft, met inbegrip van de geen intentie te labelen.  
-
-Bekijk eindpunt uitingen regelmatig veelvoorkomend gebruik waar een entiteit kan worden geïdentificeerd als een reguliere expressie of gevonden met een overeenkomst exact overeenkomende tekst zoeken.  
-
-Als onderdeel van de beoordeling, houd rekening met het toevoegen van een woordgroepenlijst om toe te voegen een signaal naar LUIS woorden of zinsdelen die belangrijk zijn om uw domein, maar nog niet precies overeenkomen en LUIS geen waarvoor een hoge betrouwbaarheid.  
-
-Zie [aanbevolen procedures](luis-concept-best-practices.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

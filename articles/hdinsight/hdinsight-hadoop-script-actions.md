@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0d6c22d54de0486ad679f93343f0e7b208f21f4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384042"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720183"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Voor clusters op basis van HDInsight Windows Script Action-scripts ontwikkelen
 Informatie over het schrijven van scripts met Script Action voor HDInsight. Zie voor meer informatie over het gebruik van Script Action-scripts [aanpassen HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster.md). Zie voor hetzelfde artikel is geschreven voor Linux gebaseerde HDInsight-clusters, [ontwikkelen Script Action-scripts voor HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -32,8 +32,6 @@ Script Action kan worden gebruikt om aanvullende software die wordt uitgevoerd o
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage: De term 'Opslaan-HDIFile' wordt niet herkend als de naam van een cmdlet, functie, scriptbestand of programma. Controleer de spelling van de naam, of als een pad opgenomen is, dat het pad juist is en probeer het opnieuw.
 > 
 > Dit is omdat u niet de helpermethoden hebt opgenomen.  Zie [helpermethoden voor aangepaste scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
->
->
 
 ## <a name="sample-scripts"></a>Voorbeeldscripts
 De scriptactie is voor het maken van HDInsight-clusters op Windows-besturingssysteem, Azure PowerShell-script. Het volgende script is een voorbeeld voor het configureren van de bestanden van de site-configuratie:

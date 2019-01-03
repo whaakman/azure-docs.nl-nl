@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: 0187ef3d3b6853c1d1225fc9f208f2508372978d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425724"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994841"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -49,7 +49,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Welke bronnen worden momenteel ondersteund als onderdeel van de back-endpool?
 
-Back-endpools kunnen bestaan uit NIC's, virtuele-machineschaalsets, openbare IP-adressen, namen van interne IP-adressen, de volledig gekwalificeerde domeinnaam (FQDN) en multitenant back-ends, zoals Azure Webapps. Back-endpoolleden voor Application Gateway zijn niet gekoppeld aan een beschikbaarheidsset. Leden van de back-endpools kunnen zich in meerdere computerclusters, datacenters, of buiten Azure, zolang ze IP-connectiviteit hebben.
+Back-endpools kunnen bestaan uit NIC's, virtuele-machineschaalsets, openbare IP-adressen, namen van interne IP-adressen, de volledig gekwalificeerde domeinnaam (FQDN) en multitenant back-ends, zoals Azure Appservice. Back-endpoolleden voor Application Gateway zijn niet gekoppeld aan een beschikbaarheidsset. Leden van de back-endpools kunnen zich in meerdere computerclusters, datacenters, of buiten Azure, zolang ze IP-connectiviteit hebben.
 
 ### <a name="what-regions-is-the-service-available-in"></a>Welke regio's is de service beschikbaar is in?
 
@@ -88,9 +88,11 @@ Slechts één openbaar IP-adres wordt ondersteund in een toepassingsgateway.
 Application Gateway verbruikt één privé IP-adres per exemplaar, plus een andere privé-IP-adres als een privé front-end-IP-configuratie is geconfigureerd. Ook Azure reserveert de eerste vier en laatste IP-adres in elk subnet voor intern gebruik.
 Bijvoorbeeld, als een application gateway is ingesteld op drie exemplaren en geen privé front-end-IP, klikt u vervolgens een/29 subnet, grootte of hoger is vereist. In dit geval de application gateway maakt gebruik van drie IP-adressen. Als u drie exemplaren en een IP-adres voor de privé front-end-IP-configuratie, klikt u vervolgens een/28 hebt subnet groot of groter is nodig omdat tijdens vier IP-adressen zijn vereist.
 
-### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>V. Kan ik meer dan één Application Gateway-resource met één subnet implementeren? **
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>V. Kan ik meer dan één Application Gateway-resource met één subnet implementeren?
 
 Ja, naast de meerdere exemplaren van een bepaalde implementatie van de Application Gateway, kunt u een andere unieke Application Gateway-resource aan een bestaand subnet met een andere resource van Application Gateway inrichten.
+
+Met een combinatie van Standard_v2 en Standard Application Gateway in hetzelfde subnet wordt niet ondersteund. Als automatisch schalen is ingeschakeld, kan een subnet bovendien slechts één application gateway hebben.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway biedt ondersteuning voor x doorgestuurd voor headers?
 
@@ -103,6 +105,8 @@ Application Gateway voegt ook X-oorspronkelijke-Host-header met de oorspronkelij
 Nieuwe Application Gateway v1-SKU-implementaties kunnen maximaal 20 minuten duren om in te richten. Wijzigingen in exemplaren grootte zijn niet verstorende en de gateway blijft actief gedurende deze tijd.
 
 V2-SKU-implementaties kunnen ongeveer vijf of zes minuten duren om in te richten.
+
+Application Gateway biedt ondersteuning voor x doorgestuurd voor headers?
 
 ## <a name="configuration"></a>Configuratie
 
@@ -210,7 +214,7 @@ Ja. U kunt configureren als u wilt wijzigen van de leden in een back endpool zon
 
 ### <a name="what-are-application-gateway-sizes"></a>Wat is application gateway-grootten?
 
-Application Gateway wordt momenteel aangeboden in drie grootten: **klein**, **middelgroot** en **groot**. Kleine exemplaargrootten zijn bedoeld voor het ontwikkelen en testen van scenario's.
+Application Gateway wordt momenteel aangeboden in drie grootten: **Kleine**, **gemiddeld**, en **grote**. Kleine exemplaargrootten zijn bedoeld voor het ontwikkelen en testen van scenario's.
 
 Zie [Servicelimieten voor Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) voor een volledige lijst van toepassingsgateway-limieten.
 
@@ -316,9 +320,9 @@ WAF via registratie in diagnoselogboek wordt bewaakt, meer informatie over het v
 
 Detectiemodus registreert Nee, alleen verkeer, waardoor een WAF-regel geactiveerd.
 
-### <a name="how-do-i-customize-waf-rules"></a>Hoe ik de WAF-regels aanpassen?
+### <a name="can-i-customize-waf-rules"></a>Kan ik de WAF-regels aanpassen?
 
-Ja, WAF-regels kunnen worden aangepast, voor meer informatie over hoe u ze aan te passen Zie [regels en regelgroepen van WAF aanpassen](application-gateway-customize-waf-rules-portal.md)
+Ja, de WAF-regels kunnen worden aangepast. Zie voor meer informatie, [regels en regelgroepen van WAF aanpassen](application-gateway-customize-waf-rules-portal.md)
 
 ### <a name="what-rules-are-currently-available"></a>Welke regels zijn momenteel beschikbaar
 

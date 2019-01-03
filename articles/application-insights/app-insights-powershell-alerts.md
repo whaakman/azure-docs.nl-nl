@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: dda4e26de74dbd5579f2dd45ea47f42c904f028f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 74776a658c7a0002df40b1b3ccb572e9b9262540
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271722"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972922"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell gebruiken om waarschuwingen in te stellen in Application Insights
-U kunt de configuratie van automatiseren [waarschuwingen](app-insights-alerts.md) in [Application Insights](app-insights-overview.md).
+U kunt de configuratie van automatiseren [waarschuwingen](../azure-monitor/app/alerts.md) in [Application Insights](app-insights-overview.md).
 
 Bovendien kunt u [webhooks voor het automatiseren van reacties op een waarschuwing instellen](../azure-monitor/platform/alerts-webhooks.md).
 
@@ -81,7 +81,7 @@ De GUID is de abonnements-ID (niet de instrumentatiesleutel van de toepassing).
      -Location "East US" -RuleType Metric
 
 ## <a name="example-2"></a>Voorbeeld 2
-Ik heb een toepassing die ik gebruik [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) voor het rapporteren van een metrische waarde met de naam "salesPerHour." Stuur dat een e-mail naar Mijn collega's als "salesPerHour" lager dan 100 komt, gemiddelde meer dan 24 uur.
+Ik heb een toepassing die ik gebruik [TrackMetric()](../azure-monitor/app/api-custom-events-metrics.md#trackmetric) voor het rapporteren van een metrische waarde met de naam "salesPerHour." Stuur dat een e-mail naar Mijn collega's als "salesPerHour" lager dan 100 komt, gemiddelde meer dan 24 uur.
 
     Add-AzureRmMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -94,7 +94,7 @@ Ik heb een toepassing die ik gebruik [TrackMetric()](app-insights-api-custom-eve
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-Dezelfde regel kan worden gebruikt voor de metrische gegevens gerapporteerd met behulp van de [meting parameter](app-insights-api-custom-events-metrics.md#properties) van een andere bijhouden aanroep zoals TrackEvent of trackPageView.
+Dezelfde regel kan worden gebruikt voor de metrische gegevens gerapporteerd met behulp van de [meting parameter](../azure-monitor/app/api-custom-events-metrics.md#properties) van een andere bijhouden aanroep zoals TrackEvent of trackPageView.
 
 ## <a name="metric-names"></a>Metrische namen
 | Naam van de meetwaarde | De schermnaam van het | Description |
@@ -120,16 +120,16 @@ Dezelfde regel kan worden gebruikt voor de metrische gegevens gerapporteerd met 
 | `request.rate` |Aanvraagsnelheid |Snelheid van alle aanvragen naar de toepassing per seconde. |
 | `requestFailed.count` |Mislukte aanvragen |Aantal HTTP-aanvragen dat heeft geresulteerd in een responscode > = 400 |
 | `view.count` |Paginaweergaven |Het aantal aanvragen van clientgebruikers voor webpagina's. Synthetisch verkeer is gefilterd. |
-| {uw eigen aangepaste metrische naam} |{De naam van de meetwaarde} |De waarde van de metrische gegevens die zijn gerapporteerd door [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) of in de [metingen parameter van de aanroep van een tracering](app-insights-api-custom-events-metrics.md#properties). |
+| {uw eigen aangepaste metrische naam} |{De naam van de meetwaarde} |De waarde van de metrische gegevens die zijn gerapporteerd door [TrackMetric](../azure-monitor/app/api-custom-events-metrics.md#trackmetric) of in de [metingen parameter van de aanroep van een tracering](../azure-monitor/app/api-custom-events-metrics.md#properties). |
 
 De metrische gegevens worden verzonden door de verschillende telemetrie-modules:
 
 | Metrische groep | Collector-module |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>weergeven |[Browser JavaScript](app-insights-javascript.md) |
-| performanceCounter |[Prestaties](app-insights-configuration-with-applicationinsights-config.md) |
-| remoteDependencyFailed |[Afhankelijkheid](app-insights-configuration-with-applicationinsights-config.md) |
-| -aanvraag<br/>requestFailed |[Serveraanvraag](app-insights-configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>weergeven |[Browser JavaScript](../azure-monitor/app/javascript.md) |
+| performanceCounter |[Prestaties](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Afhankelijkheid](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| -aanvraag<br/>requestFailed |[Serveraanvraag](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhooks
 U kunt [automatiseren van reacties op een waarschuwing](../azure-monitor/platform/alerts-webhooks.md). Azure roept een webadres van uw keuze wanneer een waarschuwing wordt gegenereerd.

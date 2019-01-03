@@ -1,19 +1,20 @@
 ---
 title: Bewaking in digitale dubbels voor Azure configureren | Microsoft Docs
-description: Bewaking in Azure, digitale dubbels configureren
+description: Hoe u bewaking in Azure, digitale dubbels configureren.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/26/2018
 ms.author: adgera
-ms.openlocfilehash: 1c8f1931a29ae9769f7d8ad57a184e3240105a1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.custom: seodec18
+ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945810"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807581"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Bewaking in Azure, digitale dubbels configureren
 
@@ -23,7 +24,7 @@ In dit artikel bevat een overzicht van logboekregistratie en bewaking opslagopti
 
 ## <a name="review-activity-logs"></a>Activiteitenlogboeken bekijken
 
-Azure [activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden snel inzicht krijgen in de geschiedenis gebeurtenis en de bewerking op abonnementsniveau voor elke Azure-service-exemplaar.
+Azure [activiteitenlogboeken](../azure-monitor/platform/activity-logs-overview.md) bieden snel inzicht krijgen in de geschiedenis gebeurtenis en de bewerking op abonnementsniveau voor elke Azure-service-exemplaar.
 
 Gebeurtenissen op abonnementsniveau zijn onder andere:
 
@@ -54,7 +55,7 @@ Voor geavanceerde logboekregistratie voor activiteit:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Klant logboeken met diagnostische gegevens inschakelen
 
-Azure [diagnostische instellingen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) kan worden ingesteld voor elke Azure-instantie om te voorzien in activiteitenregistratie. Activiteitenlogboeken hebben betrekking op gebeurtenissen op abonnementsniveau, biedt registratie in diagnoselogboek inzicht in de operationele geschiedenis van de resources zelf.
+Azure [diagnostische instellingen](../azure-monitor/platform/diagnostic-logs-overview.md) kan worden ingesteld voor elke Azure-instantie om te voorzien in activiteitenregistratie. Activiteitenlogboeken hebben betrekking op gebeurtenissen op abonnementsniveau, biedt registratie in diagnoselogboek inzicht in de operationele geschiedenis van de resources zelf.
 
 Voorbeelden van het vastleggen van diagnostische gegevens zijn:
 
@@ -74,7 +75,7 @@ Diagnostische logboeken voor een exemplaar inschakelen:
 
     ![Diagnostische instellingen twee][5]
 
-    Diagnostische logboeken zijn vaak opgeslagen met [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide) en gedeeld met [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal). Beide opties kunnen worden geselecteerd.
+    Diagnostische logboeken zijn vaak opgeslagen met [Azure File Storage](../storage/files/storage-files-deployment-guide.md) en gedeeld met [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Beide opties kunnen worden geselecteerd.
 
 >[!TIP]
 >Gebruik **diagnostische logboeken** voor inzicht in bewerkingen van resources.
@@ -91,7 +92,7 @@ Voorbeelden van het gebruik zijn:
 * Logboeken voor verschillende door de gebruiker gedefinieerde functies bekijken
 * Logboeken voor twee of meer services weergeven binnen een bepaalde periode
 
-Volledige logboek uitvoeren van query's wordt geboden via [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Om in te stellen deze krachtige functies:
+Volledige logboek uitvoeren van query's wordt geboden via [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md). Om in te stellen deze krachtige functies:
 
 1. Zoeken naar **Log Analytics** in Azure portal.
 1. U ziet uw beschikbare **Log Analytics** exemplaren. Kies een en selecteer **logboeken** query:
@@ -106,7 +107,7 @@ Zodra uw **Log Analytics** exemplaar is ingericht, mag u krachtige query's naar 
 
    ![Logboekbeheer][8]
 
-Zie voor meer informatie over krachtige querybewerkingen [aan de slag met query's](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Zie voor meer informatie over krachtige querybewerkingen [aan de slag met query's](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Een vertraging van 5 minuten kunnen optreden bij het verzenden van gebeurtenissen naar **Log Analytics** voor de eerste keer.
@@ -120,15 +121,15 @@ Azure Log Analytics biedt ook krachtige fout en waarschuwingsmeldingen services,
 
 ## <a name="other-options"></a>Andere opties
 
-Azure van digitale dubbels biedt ook ondersteuning voor toepassingsspecifieke logboekregistratie en beveiligingscontrole. Zie voor een uitgebreide overzicht van alle opties voor logboekregistratie van Azure beschikbaar is voor uw Azure digitale Twins-exemplaar, de [Azure log audit](https://docs.microsoft.com/azure/security/azure-log-audit) artikel.
+Azure van digitale dubbels biedt ook ondersteuning voor toepassingsspecifieke logboekregistratie en beveiligingscontrole. Zie voor een uitgebreide overzicht van alle opties voor logboekregistratie van Azure beschikbaar is voor uw Azure digitale Twins-exemplaar, de [Azure log audit](../security/azure-log-audit.md) artikel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over Azure [activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).
+- Meer informatie over Azure [activiteitenlogboeken](../azure-monitor/platform/activity-logs-overview.md).
 
-Duik dieper in Azure diagnostische instellingen lezen een [overzicht van diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Duik dieper in Azure diagnostische instellingen lezen een [overzicht van diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Meer informatie over [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal).
+- Meer informatie over [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

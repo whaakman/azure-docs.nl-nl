@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386892"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974842"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>ScaleR en SparkR in HDInsight combineren
 
@@ -21,7 +21,7 @@ Dit document laat zien hoe u om te voorspellen van vertragingen van vluchten aan
 
 Hoewel beide pakketten worden uitgevoerd op de engine voor het uitvoeren van Apache Hadoop Spark, hebben ze geen toegang tot de in-memory-gegevens delen die ze elk hun eigen respectieve Spark-sessie nodig hebt. Totdat dit probleem is opgelost in een toekomstige versie van ML-Server, is de tijdelijke oplossing om niet-overlappende Spark sessies onderhouden, en voor het uitwisselen van gegevens door middel van tussenliggende bestanden. De volgende instructies laten zien dat deze vereisten eenvoudig zijn te bereiken.
 
-In dit voorbeeld is in eerste instantie in een presentatie op Strata 2016 gedeeld door Mario Inchiosa en Roni Burd. U vindt deze lezing op [het bouwen van een schaalbare Data Science-Platform met R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
+In dit voorbeeld is in eerste instantie in een presentatie op Strata 2016 gedeeld door Mario Inchiosa en Roni Burd. U vindt deze lezing op [het bouwen van een schaalbare Data Science-Platform met R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
 De code is oorspronkelijk geschreven voor ML-Server op Spark wordt uitgevoerd in een HDInsight-cluster op Azure. Maar het concept van een combinatie van het gebruik van SparkR en ScaleR in één script is ook geldig in de context van on-premises omgevingen.
 
@@ -29,9 +29,9 @@ De stappen in dit document wordt ervan uitgegaan dat u een tussenliggende niveau
 
 ## <a name="the-airline-and-weather-datasets"></a>De gegevenssets luchtvaartmaatschappij en weer
 
-De vluchtgegevens van vertragingen van is beschikbaar via de [US government-archieven](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Het is ook beschikbaar als een zip van [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+De vluchtgegevens van vertragingen van is beschikbaar via de [US government-archieven](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Het is ook beschikbaar als een zip van [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-De weergegevens kan worden gedownload als zip-bestanden in onbewerkte vorm per maand, vanaf de [National Oceanic and Atmospheric Administration opslagplaats](http://www.ncdc.noaa.gov/orders/qclcd/). In dit voorbeeld moet u de gegevens voor mei 2007: December 2012 downloaden. Gegevensbestanden die per uur gebruiken en `YYYYMMMstation.txt` bestand in elk van de zips. 
+De weergegevens kan worden gedownload als zip-bestanden in onbewerkte vorm per maand, vanaf de [National Oceanic and Atmospheric Administration opslagplaats](https://www.ncdc.noaa.gov/orders/qclcd/). In dit voorbeeld moet u de gegevens voor mei 2007: December 2012 downloaden. Gegevensbestanden die per uur gebruiken en `YYYYMMMstation.txt` bestand in elk van de zips. 
 
 ## <a name="setting-up-the-spark-environment"></a>Instellen van de Spark-omgeving
 
@@ -41,7 +41,7 @@ Gebruik de volgende code voor het instellen van de Spark-omgeving:
 workDir        <- '~'  
 myNameNode     <- 'default' 
 myPort         <- 0
-inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+inputDataDir   <- 'wasb://hdfs@myAzureAccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 
@@ -535,7 +535,7 @@ In dit artikel hebben we laten zien hoe het is mogelijk om het gebruik van Spark
 
 ## <a name="next-steps-and-more-information"></a>Volgende stappen en meer informatie
 
-- Zie voor meer informatie over het gebruik van Apache Spark ML Server, de [aan de slag-handleiding](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Zie voor meer informatie over het gebruik van Apache Spark ML Server, de [aan de slag-handleiding](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
 - Raadpleeg voor algemene informatie over ML Server, de [aan de slag met R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artikel.
 
@@ -543,6 +543,6 @@ In dit artikel hebben we laten zien hoe het is mogelijk om het gebruik van Spark
 
 Zie voor meer informatie over het gebruik van SparkR.:
 
-- [Apache SparkR document](https://spark.apache.org/docs/2.1.0/sparkr.html)
+- [Apache SparkR document](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [Overzicht van SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) van Databricks
+- [Overzicht van SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) van Databricks.

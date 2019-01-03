@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 35813573be9b069cc920f5ede813503ab1b99b4a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0db6cc02be385ab82d41ecef214c5b158892c415
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227211"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628131"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure PowerShell gebruiken met Azure Storage
 
@@ -34,7 +34,9 @@ In dit artikel vindt u koppelingen naar diverse andere artikelen in PowerShell v
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-In deze oefening vereist moduleversie 4.4 of hoger van Azure PowerShell. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+In deze oefening is de Azure PowerShell-module Az 0,7 of hoger vereist. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-Az-ps). 
 
 Voor deze oefening hebt u de opdrachten kunt invoeren in een reguliere PowerShell-venster, of kunt u de [Windows PowerShell Integrated Scripting Environment (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) en typt u de opdrachten in een editor, en vervolgens een of meer opdrachten tegelijk als testen u doorlopen de voorbeelden. U kunt de rijen die u wilt uitvoeren en klikt u op geselecteerde uitvoeren alleen uitvoeren van deze opdrachten markeren.
 
@@ -42,18 +44,18 @@ Zie voor meer informatie over de storage-accounts, [Inleiding tot Storage](stora
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzureRmAccount` en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzAccount` en volg de instructies op het scherm.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>Lijst van de storage-accounts in het abonnement
 
-Voer de [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) cmdlet voor het ophalen van de lijst met opslagaccounts in het huidige abonnement. 
+Voer de [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) cmdlet voor het ophalen van de lijst met opslagaccounts in het huidige abonnement. 
 
 ```powershell
-Get-AzureRMStorageAccount | Select StorageAccountName, Location
+Get-AzStorageAccount | Select StorageAccountName, Location
 ```
 
 ## <a name="get-a-reference-to-a-storage-account"></a>Een verwijzing naar een opslagaccount ophalen
@@ -62,13 +64,13 @@ Vervolgens moet u een verwijzing naar een opslagaccount. U kunt een nieuw opslag
 
 ### <a name="use-an-existing-storage-account"></a>Een bestaand opslagaccount gebruiken 
 
-Als u wilt ophalen van een bestaand opslagaccount, moet u de naam van de resourcegroep en de naam van het storage-account. Stel de variabelen voor deze twee velden in en gebruik vervolgens de [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) cmdlet. 
+Als u wilt ophalen van een bestaand opslagaccount, moet u de naam van de resourcegroep en de naam van het storage-account. Stel de variabelen voor deze twee velden in en gebruik vervolgens de [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) cmdlet. 
 
 ```powershell
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
 
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
 ```
 
@@ -76,23 +78,23 @@ U hebt nu $storageAccount, die naar een bestaand opslagaccount verwijst.
 
 ### <a name="create-a-storage-account"></a>Create a storage account 
 
-Het volgende script toont het maken van een opslagaccount voor algemeen gebruik door middel [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Nadat u het account hebt gemaakt, haal de opslagaccountcontext op, die in de volgende opdrachten kan worden gebruikt in plaats van de verificatie met elke aanroep op te geven.
+Het volgende script toont het maken van een opslagaccount voor algemeen gebruik door middel [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Nadat u het account hebt gemaakt, haal de opslagaccountcontext op, die in de volgende opdrachten kan worden gebruikt in plaats van de verificatie met elke aanroep op te geven.
 
 ```powershell
 # Get list of locations and select one.
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "eastus"
 
 # Create a new resource group.
 $resourceGroup = "teststoragerg"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location 
 
 # Set the name of the storage account and the SKU name. 
 $storageAccountName = "testpshstorage"
 $skuName = "Standard_LRS"
     
 # Create the storage account.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName $skuName
@@ -103,11 +105,11 @@ $ctx = $storageAccount.Context
 
 Het script maakt gebruik van de volgende PowerShell-cmdlets: 
 
-*   [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) --haalt een lijst van de geldige locaties. Het voorbeeld wordt `eastus` voor de locatie.
+*   [Get-AzLocation](/powershell/module/az.resources/get-azlocation) --haalt een lijst van de geldige locaties. Het voorbeeld wordt `eastus` voor de locatie.
 
-*   [Nieuwe-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) --wordt een nieuwe resourcegroep. Een resourcegroep is een logische container waarin uw Azure-resources worden geïmplementeerd en beheerd. Onze heet `teststoragerg`. 
+*   [Nieuwe AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) --wordt een nieuwe resourcegroep. Een resourcegroep is een logische container waarin uw Azure-resources worden geïmplementeerd en beheerd. Onze heet `teststoragerg`. 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) --het storage-account wordt gemaakt. Het voorbeeld wordt `testpshstorage`.
+*   [Nieuwe AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) --het storage-account wordt gemaakt. Het voorbeeld wordt `testpshstorage`.
 
 De SKU-naam geeft het type van de replicatie voor de storage-account, zoals LRS (lokaal redundante opslag). Zie voor meer informatie over replicatie [Azure Storage-replicatie](storage-redundancy.md).
 
@@ -123,7 +125,7 @@ Nu dat u een verwijzing naar een nieuw opslagaccount of een bestaand opslagaccou
 
 ### <a name="storage-account-properties"></a>Eigenschappen van het opslagaccount
 
-U kunt de instellingen voor een storage-account wijzigen met [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount). Terwijl u de locatie van een storage-account of de resourcegroep waarin deze zich bevindt niet wijzigen, kunt u veel van de andere eigenschappen kunt wijzigen. Hieronder vindt u enkele van de eigenschappen die u kunt wijzigen met behulp van PowerShell.
+U kunt de instellingen voor een storage-account wijzigen met [Set AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). Terwijl u de locatie van een storage-account of de resourcegroep waarin deze zich bevindt niet wijzigen, kunt u veel van de andere eigenschappen kunt wijzigen. Hieronder vindt u enkele van de eigenschappen die u kunt wijzigen met behulp van PowerShell.
 
 * De **aangepast domein** toegewezen aan de storage-account.
 
@@ -137,19 +139,19 @@ U kunt de instellingen voor een storage-account wijzigen met [Set-AzureRmStorage
 
 ### <a name="manage-the-access-keys"></a>De toegangssleutels beheren
 
-Een Azure Storage-account wordt geleverd met twee sleutels. Als u wilt ophalen van de sleutels gebruiken [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey). In dit voorbeeld wordt de eerste sleutel opgehaald. Als u wilt een ophalen, gebruikt u `Value[1]` in plaats van `Value[0]`.
+Een Azure Storage-account wordt geleverd met twee sleutels. Als u wilt ophalen van de sleutels gebruiken [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey). In dit voorbeeld wordt de eerste sleutel opgehaald. Als u wilt een ophalen, gebruikt u `Value[1]` in plaats van `Value[0]`.
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzureRmStorageAccountKey `
+    (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroup `
     -Name $storageAccountName).Value[0]
 ```
 
-Als u wilt de sleutel opnieuw genereren, gebruikt u [New-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccountKey). 
+Als u wilt de sleutel opnieuw genereren, gebruikt u [New-AzStorageAccountKey](/powershell/module/az.Storage/New-azStorageAccountKey). 
 
 ```powershell
-New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
+New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -KeyName key1 
 ```
@@ -159,15 +161,15 @@ Als u wilt de andere sleutel opnieuw genereren, gebruikt u `key2` als de naam va
 Een van de sleutels opnieuw genereren en vervolgens opnieuw uit om te zien of de nieuwe waarde kunt ophalen.
 
 > [!NOTE] 
-> U moet uitvoeren voordat u het opnieuw genereren van de sleutel voor een productie-storage-account een zorgvuldige planning. Een of beide sleutels opnieuw genereren, worden ongeldig de toegang voor elke toepassing met behulp van de sleutel die is gegenereerd. Zie voor meer informatie, [toegangssleutels](storage-account-manage.md#access-keys).
+> U moet uitvoeren voordat u het opnieuw genereren van de sleutel voor een productie-storage-account een zorgvuldige planning. Een of beide sleutels opnieuw genereren, worden ongeldig de toegang voor elke toepassing met behulp van de sleutel die is gegenereerd. Ga voor meer informatie naar [Toegangssleutels](storage-account-manage.md#access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Een opslagaccount verwijderen 
 
-Als u wilt verwijderen van een storage-account, gebruikt u [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount).
+Als u wilt verwijderen van een storage-account, gebruikt u [Remove-AzStorageAccount](/powershell/module/az.storage/Remove-azStorageAccount).
 
 ```powershell
-Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
+Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
 > [!IMPORTANT]
@@ -179,9 +181,9 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 Alle opslagaccounts zijn standaard toegankelijk is via een netwerk dat toegang tot internet heeft. U kunt echter netwerkregels zodat alleen de toepassingen van specifieke virtuele netwerken voor toegang tot een opslagaccount. Zie voor meer informatie, [configureren van Azure Storage-Firewalls en virtuele netwerken](storage-network-security.md). 
 
 Het artikel wordt beschreven hoe u kunt deze instellingen met de volgende PowerShell-cmdlets beheren:
-* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Remove-AzureRmStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.storage/remove-azurermstorageaccountnetworkrule?view=azurermps-6.8.1)
+* [Voeg AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
+* [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
+* [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
 ## <a name="use-storage-analytics"></a>Storage analytics gebruiken  
 
@@ -231,7 +233,7 @@ Zie voor informatie over hoe u toegang tot deze clouds en hun opslag met PowerSh
 Als u een nieuwe resourcegroep en een opslagaccount voor deze oefening hebt gemaakt, kunt yous alle activa die u hebt gemaakt door het verwijderen van de resourcegroep verwijderen. Hiermee verwijdert u ook alle resources binnen de groep. In dit geval verwijderd het de storage-account gemaakt en de resourcegroep zelf.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -248,6 +250,6 @@ In dit artikel bevat informatie over algemene bewerkingen met behulp van de cmdl
 
 In dit artikel vindt u verwijzingen naar verschillende andere artikelen, zoals over het beheren van de gegevensobjecten, het inschakelen van de Storage Analytics en over toegang tot de Azure-onafhankelijke clouds, zoals China-Cloud, Duitse Cloud en Government-Cloud. Hier volgen enkele andere gerelateerde artikelen en resources ter referentie:
 
-* [Azure Storage besturingselement vlak van het PowerShell-cmdlets](/powershell/module/AzureRM.Storage/)
+* [Azure Storage besturingselement vlak van het PowerShell-cmdlets](/powershell/module/az.storage/)
 * [Azure Storage-gegevens vlak PowerShell-cmdlets](/powershell/module/azure.storage/)
 * [Windows PowerShell-referentie](https://msdn.microsoft.com/library/ms714469.aspx)

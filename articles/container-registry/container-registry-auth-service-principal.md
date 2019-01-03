@@ -1,18 +1,18 @@
 ---
-title: Azure Container Registry-verificatie met service-principals
-description: Informatie over het bieden van toegang tot afbeeldingen in uw persoonlijke containerregister met behulp van een service-principal voor Azure Active Directory.
+title: Azure Container Registry-verificatie met een service-principal
+description: Bieden toegang tot afbeeldingen in uw persoonlijke containerregister met behulp van een service-principal voor Azure Active Directory.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 30f0eb04b4b7d07785854e3079bc6656889edec6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854476"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754200"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container Registry-verificatie met service-principals
 
@@ -20,9 +20,9 @@ U kunt een service-principal voor Azure Active Directory (Azure AD) gebruiken vo
 
 ## <a name="what-is-a-service-principal"></a>Wat is een service-principal?
 
-Azure AD *service-principals* bieden toegang tot Azure-resources binnen uw abonnement. U kunt zien van een service principal een gebruikers-id voor een service, waarbij 'service' is een toepassing, service of -platform die toegang tot de resources nodig heeft. U kunt een service-principal configureren met toegangsrechten binnen het bereik van alleen de resources die u opgeeft. U kunt vervolgens uw toepassing of service voor het gebruik van de service-principal-referenties voor toegang tot deze resources configureren.
+Azure AD *service-principals* bieden toegang tot Azure-resources binnen uw abonnement. U kunt zien van een service principal een gebruikers-id voor een service, waarbij 'service' is een toepassing, service of -platform die toegang tot de resources nodig heeft. U kunt een service-principal configureren met toegangsrechten binnen het bereik van alleen de resources die u opgeeft. Configureer vervolgens uw toepassing of service voor het gebruik van de service-principal-referenties voor toegang tot deze resources.
 
-In de context van Azure Container Registry, kunt u een Azure AD service-principal met pull, push als pull of de eigenaar van machtigingen aan uw persoonlijke Docker-register in Azure.
+In de context van Azure Container Registry, kunt u een Azure AD service-principal met pull, push als pull of andere machtigingen naar het persoonlijke register in Azure. Zie voor een volledige lijst [Azure Container Registry-rollen en machtigingen](container-registry-roles.md).
 
 ## <a name="why-use-a-service-principal"></a>Waarom een service-principal gebruiken?
 

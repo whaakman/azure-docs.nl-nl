@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 7e547f49ec14bdb69a85dd916ef435c3f30f6ef2
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: b1550fc07ee4edfe98482a2e880f201ceb66705f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413724"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995677"
 ---
 ### <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -54,7 +54,7 @@ Firewall van Azure biedt ondersteuning voor binnenkomend en uitgaand filteren. B
 
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Welke services logboekregistratie en analyse worden ondersteund door de Firewall van Azure?
 
-Firewall van Azure is geïntegreerd met Azure Monitor voor het weergeven en analyseren van de firewall-Logboeken. Logboeken kunnen worden verzonden naar Log Analytics, Azure Storage of Event Hubs. Ze kunnen worden geanalyseerd in Log Analytics of met verschillende hulpprogramma's zoals Excel en Power BI. Zie voor meer informatie, [zelfstudie: Azure-Firewall-logboeken bewaken](../articles/firewall/tutorial-diagnostics.md).
+Firewall van Azure is geïntegreerd met Azure Monitor voor het weergeven en analyseren van de firewall-Logboeken. Logboeken kunnen worden verzonden naar Log Analytics, Azure Storage of Event Hubs. Ze kunnen worden geanalyseerd in Log Analytics of met verschillende hulpprogramma's zoals Excel en Power BI. Zie [Zelfstudie: Azure-Firewall-logboeken bewaken](../articles/firewall/tutorial-diagnostics.md).
 
 ### <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Hoe Azure Firewall werkt anders van bestaande services zoals NVA's in de marketplace?
 
@@ -92,7 +92,7 @@ Bijvoorbeeld:
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"
+$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
@@ -119,7 +119,7 @@ Ja, kunt u Azure-Firewall in een hub-netwerk te routeren en filteren verkeer tus
 
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Kan Azure Firewall doorsturen en filteren van netwerkverkeer tussen subnetten in het hetzelfde virtuele netwerk of de gekoppelde virtuele netwerken?
 
-Verkeer tussen subnetten in hetzelfde virtuele netwerk of in een rechtstreeks gekoppeld virtueel netwerk wordt rechtstreeks doorgestuurd, zelfs als de UDR verwijst naar de Firewall van Azure als de standaard-gateway. De aanbevolen methode voor de segmentering van het interne netwerk is het gebruik van Netwerkbeveiligingsgroepen. Voor het subnet naar subnet verkeer verzenden naar de firewall in dit scenario, moet de UDR het doel netwerk subnetvoorvoegsel expliciet op beide subnetten bevatten.
+Verkeer tussen subnetten in hetzelfde virtuele netwerk of in een rechtstreeks gekoppeld virtueel netwerk wordt rechtstreeks doorgestuurd, zelfs als de UDR verwijst naar de Firewall van Azure als de standaard-gateway. De aanbevolen methode voor de segmentering van het interne netwerk is het gebruik van Netwerkbeveiligingsgroepen. Als u in dit scenario subnet-naar-subnet-verkeer wilt verzenden, moet UDR het voorvoegsel van het doelsubnetwerk expliciet op beide subnetten bevatten.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>Zijn er firewall beperkingen van de resource?
 

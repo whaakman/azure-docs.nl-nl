@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim88
-ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 004f09eb77d1bc32e44e1940186e8a631c45846d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166588"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608474"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Met behulp van metagegevens en de GenerateAnswer-API
 
-QnA Maker kunt u metagegevens in de vorm van sleutel/waarde-paren, toevoegen aan uw vraag/antwoord-sets. Deze informatie kan worden gebruikt voor het filteren van resultaten voor query's van gebruikers en voor het opslaan van aanvullende informatie die kan worden gebruikt in follow-up conversaties. Zie voor meer informatie, [Knowledge base](../Concepts/knowledge-base.md).
+QnA Maker kunt u metagegevens in de vorm van sleutel / waarde-paren, toevoegen aan uw vraag/antwoord-sets. Deze informatie kan worden gebruikt voor het filteren van resultaten voor query's van gebruikers en voor het opslaan van aanvullende informatie die kan worden gebruikt in follow-up conversaties. Zie voor meer informatie, [Knowledge base](../Concepts/knowledge-base.md).
 
 ## <a name="qna-entity"></a>QnA-entiteit
 
@@ -113,11 +113,11 @@ U aanroepen GenerateAnswer met een HTTP POST-aanvraag. Voorbeeld van code die la
 
 ## <a name="metadata-example"></a>Voorbeeld van de metagegevens
 
-Houd rekening met de onderstaande veelgestelde vragen over gegevens voor restaurants in Hyderabad. Metagegevens toevoegen aan uw knowledge base door te klikken op het tandwielpictogram.
+Houd rekening met de onderstaande veelgestelde vragen over gegevens. Metagegevens toevoegen aan uw knowledge base door te klikken op het pictogram van de metagegevens.
 
 ![metagegevens toevoegen](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### <a name="filter-results-with-strictfilters"></a>Resultaten met strictFilters filteren
+### <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Resultaten met strictFilters voor metagegevenstags filteren
 
 Houd rekening met de vraag van de gebruiker "Wanneer wordt deze hotel sluiten?" Wanneer de bedoeling is impliciet voor het restaurant "Paradise."
 

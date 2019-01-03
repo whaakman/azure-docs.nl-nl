@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 12/12/2018
-ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314394"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789904"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
@@ -135,9 +135,8 @@ Andere artikelen over probleemoplossing van WMI kunnen worden gevonden op de vol
 
 ## <a name="unsupported-operating-systems"></a>Niet-ondersteunde besturingssystemen
 
-Een andere meest voorkomende reden voor mislukken kan worden veroorzaakt door niet-ondersteund besturingssysteem. Zorg ervoor dat u gebruikmaakt van de ondersteunde versie van het besturingssysteem/Kernel voor geslaagde installatie van de Mobility-service.
-
-Raadpleeg voor meer informatie over welke besturingssystemen worden ondersteund door Azure Site Recovery, onze [matrix ondersteuningsdocument](vmware-physical-azure-support-matrix.md#replicated-machines).
+Een andere meest voorkomende reden voor mislukken kan worden veroorzaakt door niet-ondersteund besturingssysteem. Zorg ervoor dat u gebruikmaakt van de ondersteunde versie van het besturingssysteem/Kernel voor geslaagde installatie van de Mobility-service. Vermijd het gebruik van persoonlijke patch.
+De lijst van besturingssystemen en versies van de kernel wordt ondersteund door Azure Site Recovery wilt weergeven, raadpleegt u onze [matrix ondersteuningsdocument](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Opstart- en systeempartities / -volumes zijn niet dezelfde schijf (Aanroepstatus: 95309)
 
@@ -146,6 +145,10 @@ Voordat u 9.20 versie, opstart- en systeempartities / volumes op verschillende s
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>De systeempartitie op meerdere schijven (Aanroepstatus: 95313)
 
 Is een niet-ondersteunde configuratie voor 9.20 versie root partitie of het volume dat is verspreid over meerdere schijven. Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), deze configuratie wordt ondersteund. Gebruik de meest recente versie voor deze ondersteuning.
+
+## <a name="grub-uuid-failure-errorid-95320"></a>UUID van WORMGATEN fout (Aanroepstatus: 95320)
+
+Als de GRUB van de bronmachine apparaatnaam in plaats van de UUID gebruikt is, mislukt de installatie van de mobility-agent. Contact opnemen met de systeembeheerder beschikken de wijzigingen aanbrengen in de GRUB-bestand.
 
 ## <a name="lvm-support-from-920-version"></a>LVM-ondersteuning van 9.20 versie
 

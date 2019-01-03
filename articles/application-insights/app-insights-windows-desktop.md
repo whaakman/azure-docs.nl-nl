@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10044f17baee8fb4d7afe9223abdbb518952e71f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: da5064c7a064498378b37972fd76dc1c9a8d16e0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52741855"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807887"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Gebruik en prestaties bewaken in Klassieke Windows-bureaublad-apps
 
-Toepassingen die on-premises worden gehost, in Azure, en in andere clouds, kunnen allemaal profiteren van Application Insights. De enige beperking is de noodzaak om [communicatie toe te staan](app-insights-ip-addresses.md) met de Application Insights-service. Voor het bewaken van UWP-toepassingen (Universal Windows Platform), raden we [Visual Studio App Center](app-insights-mobile-center-quickstart.md) aan.
+Toepassingen die on-premises worden gehost, in Azure, en in andere clouds, kunnen allemaal profiteren van Application Insights. De enige beperking is de noodzaak om [communicatie toe te staan](../azure-monitor/app/ip-addresses.md) met de Application Insights-service. Voor het bewaken van UWP-toepassingen (Universal Windows Platform), raden we [Visual Studio App Center](app-insights-mobile-center-quickstart.md) aan.
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Telemetrie verzenden naar Application Insights vanuit een Klassieke Windows-toepassing
 1. Maak in de [Azure Portal](https://portal.azure.com) [een Application Insights-resource](app-insights-create-new-resource.md). Kies ASP.NET-app als het toepassingstype.
@@ -36,7 +36,7 @@ Toepassingen die on-premises worden gehost, in Azure, en in andere clouds, kunne
     `<InstrumentationKey>`*uw sleutel*`</InstrumentationKey>` 
    
     Als u ApplicationInsights.config gebruikt, moet u ervoor zorgen dat de bijbehorende eigenschappen in Solution Explorer zijn ingesteld op **Buildactie = Inhoud, Naar uitvoermap kopiëren = Kopiëren**.
-5. [Gebruik de API](app-insights-api-custom-events-metrics.md) om telemetrie te verzenden.
+5. [Gebruik de API](../azure-monitor/app/api-custom-events-metrics.md) om telemetrie te verzenden.
 6. Voer de app uit en bekijk de telemetrie in de resource die u hebt gemaakt in de Azure Portal.
 
 ## <a name="telemetry"></a>Voorbeeldcode
@@ -77,8 +77,8 @@ Toepassingen die on-premises worden gehost, in Azure, en in andere clouds, kunne
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een dashboard maken](app-insights-dashboards.md)
-* [Diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md)
+* [Een dashboard maken](../azure-monitor/app/app-insights-dashboards.md)
+* [Diagnostische gegevens doorzoeken](../azure-monitor/app/diagnostic-search.md)
 * [Metrische gegevens verkennen](app-insights-metrics-explorer.md)
-* [Analytics-query's schrijven](app-insights-analytics.md)
+* [Analytics-query's schrijven](../azure-monitor/app/analytics.md)
 

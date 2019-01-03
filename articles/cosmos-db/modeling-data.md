@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0197c11673f49214dc2cea09b53290993a00c6b3
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166639"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744935"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modellering van documentgegevens van het voor NoSQL-databases
 
@@ -71,7 +71,7 @@ Nu eens kijken hoe we dezelfde gegevens als een zelfstandige entiteit in een doc
         ] 
     }
 
-Met behulp van de bovenstaande benadering, nu we hebben **gedenormaliseerde** de persoon vastleggen waar we **ingesloten** alle informatie met betrekking tot deze persoon, zoals de contactgegevens en adressen, in op een enkele JSON het document.
+Met behulp van de bovenstaande benadering, nu we hebben **gedenormaliseerde** de persoon vastleggen waar we **ingesloten** alle informatie met betrekking tot deze persoon, zoals hun contactgegevens en -adressen in een enkel JSON het document.
 Bovendien hebben we de flexibiliteit voor handelingen zoals met gegevens van de contactpersoon van verschillende vormen volledig omdat we niet tot een vast schema beperkt bent. 
 
 Het ophalen van een die volledige persoonsrecord uit de database is nu één bewerking op basis van één verzameling en voor één document lezen. Bijwerken van de persoonsrecord van een, met hun contactgegevens en -adressen, is ook een één schrijfbewerking voor één document.
@@ -172,7 +172,7 @@ Deze JSON-codefragment duren.
         ]
     }
 
-Dit kan leiden tot slot portfolio van een persoon. We hebben gekozen om in te sluiten van de voorraad informatie in voor elk document portfolio. In een omgeving waar de gerelateerde gegevens vaak worden gewijzigd, gaat zoals een voorraad trading van toepassing, voor het insluiten van gegevens die vaak veranderen betekenen dat u elk document portfolio voortdurend wordt bijgewerkt telkens wanneer een bestand wordt verhandeld.
+Dit kan leiden tot slot portfolio van een persoon. We hebben gekozen om in te sluiten van de voorraad gegevens in elk document portfolio. In een omgeving waar de gerelateerde gegevens vaak worden gewijzigd, gaat zoals een voorraad trading van toepassing, voor het insluiten van gegevens die vaak veranderen betekenen dat u elk document portfolio voortdurend wordt bijgewerkt telkens wanneer een bestand wordt verhandeld.
 
 Voorraad *zaza* mogen worden verhandeld veel honderd keer in één dag en duizenden gebruikers kunnen hebben *zaza* op hun portfolio. Met een gegevensmodel, zoals de bovenstaande we zelf zou moeten werken duizenden portfolio documenten aantal keren dat elke dag leidt tot een systeem dat wordt niet goed worden geschaald. 
 
@@ -259,7 +259,7 @@ Als we kijken naar de onderstaande JSON van uitgevers en boeken modellen.
     ...
     {"id": "100", "name": "Learn about Azure Cosmos DB" }
     ...
-    {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
 Als het aantal boeken per uitgever kleine met een groei van beperkt is, kan klikt u vervolgens opslaan van het boek naslaginformatie voor de publisher-document nuttig zijn. Echter, als het aantal boeken per publisher niet-gebonden is, vervolgens dit gegevensmodel zou leiden tot veranderlijke, groeiende matrices, zoals in het bovenstaande voorbeeld van de uitgever document. 
 
@@ -278,7 +278,7 @@ Schakelen tussen dingen rond een bits zou leiden tot een model dat u nog steeds 
     ...
     {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
     ...
-    {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
+    {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
 
 In het bovenstaande voorbeeld hebben we de niet-gebonden verzameling verwijderd op de publisher-document. In plaats daarvan hebben we net een verwijzing naar de uitgever op elk boekdocument.
 
@@ -298,7 +298,7 @@ Het is mogelijk dat er geneigd te repliceren van hetzelfde te doen met behulp va
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
     {"id": "b4", "name": "Learn about Azure Cosmos DB" }
-    {"id": "b5", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
     Joining documents: 
     {"authorId": "a1", "bookId": "b1" }
@@ -319,7 +319,7 @@ Overweeg het volgende.
     {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
+    {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
 Nu, als ik had een auteur, ik direct weten welke boeken die ze hebben geschreven en als ik een van geladen boekdocument zou ik daarentegen de id van de auteur (s) kent. Hiermee slaat u deze tussenliggende query op basis van het join-tabel verminderen het aantal servers netwerkretouren uw toepassing heeft om te maken. 
 
@@ -381,7 +381,7 @@ Zorg ervoor dat, als de naam van de auteur gewijzigd of zij wil bijwerken hun fo
 
 In het voorbeeld zijn er **vooraf berekende aggregaties** waarden dure verwerking opslaan op een leesbewerking. In het voorbeeld zijn sommige van de gegevens die zijn ingesloten in het document de auteur van gegevens die tijdens de uitvoering wordt berekend. Telkens wanneer een nieuw rapport is gepubliceerd, wordt een boekdocument gemaakt **en** het veld countOfBooks is ingesteld op een berekende waarde op basis van het aantal book documenten die beschikbaar zijn voor een bepaalde auteur. Deze optimalisatie is goed in lezen zware systemen waar we erg berekeningen op schrijfbewerkingen doen om het optimaliseren van leesbewerkingen.
 
-De mogelijkheid om een model met vooraf berekende velden wordt mogelijk gemaakt omdat Azure Cosmos DB biedt ondersteuning voor **transacties met meerdere documenten**. Veel NoSQL-archieven kunnen pas transacties meerdere documenten en daarom advocate ontwerpbeslissingen, zoals "altijd insluiten van alles wat' vanwege deze beperking. Met Azure Cosmos DB, kunt u server-side-triggers of opgeslagen procedures, die rapporten invoeg- en auteurs allemaal binnen een ACID-transactie. Nu u dit niet doet **hebt** insluiten alles in één document alleen om ervoor te zorgen dat uw gegevens consistent blijft.
+De mogelijkheid om een model met vooraf berekende velden wordt mogelijk gemaakt omdat Azure Cosmos DB biedt ondersteuning voor **transacties met meerdere documenten**. Veel NoSQL-archieven kunnen pas transacties meerdere documenten en daarom advocate ontwerpbeslissingen, zoals "altijd insluiten van alles wat' vanwege deze beperking. Met Azure Cosmos DB, kunt u server-side-triggers of opgeslagen procedures, die rapporten invoeg- en auteurs allemaal binnen een ACID-transactie. Nu u dit niet doet **hebt** alles in één document alleen om ervoor te zorgen dat uw gegevens consistent blijft insluiten.
 
 ## <a name="NextSteps"></a>Volgende stappen
 De grootste takeaways uit dit artikel zijn om te begrijpen dat gegevens modelleren in een wereld schema's kunnen net zo belangrijk als ooit worden. 

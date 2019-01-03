@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824299"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976357"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Problemen met Windows Azure virtuele machine-activering
 
@@ -40,7 +40,7 @@ Als u probeert te activeren van een Windows Azure VM, krijgt u een fout bericht 
 **Fout: 0xC004F074 die de Software-LicensingService gerapporteerd dat de computer niet kan worden geactiveerd. Er is geen sleutel managementservice zijn (KMS) kan worden bereikt. Raadpleeg het toepassingsgebeurtenislogboek voor meer informatie.**
 
 ## <a name="cause"></a>Oorzaak
-Over het algemeen optreden activeringsproblemen virtuele Azure-machine als de Windows-VM niet is geconfigureerd met behulp van de desbetreffende Installatiecode voor KMS-client of de Windows-VM een verbindingsprobleem met de Azure-KMS-service (kms.core.windows.net, poort 1668 heeft). 
+Over het algemeen optreden activeringsproblemen virtuele Azure-machine als de Windows-VM niet is geconfigureerd met behulp van de desbetreffende Installatiecode voor KMS-client of de Windows-VM een verbindingsprobleem met de Azure-KMS-service (kms.core.windows.net, poort 1688 heeft). 
 
 ## <a name="solution"></a>Oplossing
 
@@ -86,7 +86,7 @@ Deze stap is niet van toepassing op Windows 2012 of Windows 2008 R2. De functie 
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    De opdracht moet worden geretourneerd: naam van de Key Management Service-machine ingesteld op kms.core.windows.net:1688 is.
+    De opdracht moet retourneren: Computernaam van de Key Management Service is ingesteld op kms.core.windows.net:1688.
 
 4. Controleer of met behulp van Psping dat u verbinding met de KMS-server hebben. Ga naar de map waar u het downloaden van het Pstools.zip uitgepakt en voer het volgende:
   
@@ -94,7 +94,7 @@ Deze stap is niet van toepassing op Windows 2012 of Windows 2008 R2. De functie 
     \psping.exe kms.core.windows.net:1688
     ```
   
-  Zorg ervoor dat u ziet in de tweede laatste regel van de uitvoer: verzonden = 4, ontvangen = 4, verloren = 0 (0% verlies).
+  Zorg dat u ziet in de tweede laatste regel van de uitvoer: Verzonden = 4, ontvangen = 4, verloren = 0 (0% verlies).
 
   Als verloren is groter dan 0 (nul), is de virtuele machine heeft geen verbinding met de KMS-server. In dit geval is als de virtuele machine zich in een virtueel netwerk en heeft een aangepaste DNS-server opgegeven, moet u ervoor zorgen dat DNS-server kunnen omzetten van kms.core.windows.net. Of de DNS-server wijzigt in een kms.core.windows.net is opgelost.
 

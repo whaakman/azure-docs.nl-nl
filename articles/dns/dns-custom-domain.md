@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/19/2018
 ms.author: victorh
-ms.openlocfilehash: 9c0ccb7c5ccb3eced32ea5bcd9f1961c5ccd2110
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173840"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727145"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Azure DNS gebruiken om aangepaste domein-instellingen voor een Azure-service te geven
 
@@ -45,7 +45,7 @@ Navigeer naar de DNS-Zone en klikt u op **+ Recordset**. Vul de volgende informa
 
 |Eigenschap  |Waarde  |Beschrijving  |
 |---------|---------|---------|
-|Naam     | myfunctionapp        | Deze waarde samen met het label van de domeinnaam is de FQDN-naam voor de aangepaste domeinnaam.        |
+|Name     | myfunctionapp        | Deze waarde samen met het label van de domeinnaam is de FQDN-naam voor de aangepaste domeinnaam.        |
 |Type     | CNAME        | Gebruik een CNAME-record maakt gebruik van een alias.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting van de         |
@@ -70,7 +70,7 @@ Navigeer naar de DNS-Zone en klikt u op **+ Recordset**. Vul de volgende informa
 
 |Eigenschap  |Waarde  |Beschrijving  |
 |---------|---------|---------|
-|Naam     | mywebserver        | Deze waarde samen met het label van de domeinnaam is de FQDN-naam voor de aangepaste domeinnaam.        |
+|Name     | mywebserver        | Deze waarde samen met het label van de domeinnaam is de FQDN-naam voor de aangepaste domeinnaam.        |
 |Type     | A        | Als de resource een IP-adres, gebruikt u een A-record.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting van de         |
@@ -97,7 +97,7 @@ Navigeer naar de DNS-Zone en klikt u op **+ Recordset**. Vul de volgende informa
 
 |Eigenschap  |Waarde  |Beschrijving  |
 |---------|---------|---------|
-|Naam     | mywebserver        | Deze waarde samen met het label van de domeinnaam is de FQDN-naam voor de aangepaste domeinnaam.        |
+|Name     | mywebserver        | Deze waarde samen met het label van de domeinnaam is de FQDN-naam voor de aangepaste domeinnaam.        |
 |Type     | CNAME        | Gebruik een CNAME-record maakt gebruik van een alias. Als de resource een IP-adres gebruikt, zou een A-record worden gebruikt.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting van de         |
@@ -116,7 +116,7 @@ Nadat het proces voltooid is, voert **nslookup** valideren naamomzetting werkt.
 
 Voor meer informatie over een aangepast domein toewijzen aan App Service, gaat u naar [een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-Als u een aangepast domein kopen wilt, gaat u naar [een aangepaste domeinnaam voor Azure Web Apps kopen](../app-service/custom-dns-web-site-buydomains-web-app.md) voor meer informatie over App Service-domeinen.
+Als u een aangepast domein kopen wilt, gaat u naar [een aangepaste domeinnaam voor Azure Web Apps kopen](../app-service/manage-custom-dns-buy-domain.md) voor meer informatie over App Service-domeinen.
 
 ## <a name="blob-storage"></a>Blob Storage
 
@@ -131,7 +131,7 @@ Navigeer naar de DNS-Zone en klikt u op **+ Recordset**. Vul de volgende informa
 
 |Eigenschap  |Waarde  |Beschrijving  |
 |---------|---------|---------|
-|Naam     | asverify.mystorageaccount        | Deze waarde samen met het label van de domeinnaam is de FQDN-naam voor de aangepaste domeinnaam.        |
+|Name     | asverify.mystorageaccount        | Deze waarde samen met het label van de domeinnaam is de FQDN-naam voor de aangepaste domeinnaam.        |
 |Type     | CNAME        | Gebruik een CNAME-record maakt gebruik van een alias.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting van de         |
@@ -159,7 +159,7 @@ Navigeer naar de DNS-Zone en klikt u op **+ Recordset**. Vul de volgende informa
 
 |Eigenschap  |Waarde  |Beschrijving  |
 |---------|---------|---------|
-|Naam     | cdnverify.mycdnendpoint        | Deze waarde samen met het label van de domeinnaam is de FQDN-naam voor de aangepaste domeinnaam.        |
+|Name     | cdnverify.mycdnendpoint        | Deze waarde samen met het label van de domeinnaam is de FQDN-naam voor de aangepaste domeinnaam.        |
 |Type     | CNAME        | Gebruik een CNAME-record maakt gebruik van een alias.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting van de         |

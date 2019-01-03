@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833938"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633007"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen
 
@@ -31,7 +31,7 @@ Voer de stappen in [aan de slag met aangepaste beleidsregels](active-directory-b
 
 U kunt het uiterlijk van een aangepast beleid aanpassen met behulp van de pagina-functie voor het aanpassen van de gebruikersinterface. U kunt er ook voor zorgen dat er visuele en merkconsistentie is tussen uw toepassing en Azure AD B2C.
 
-Hoe het werkt als volgt: Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). U kunt eerst een URL opgeven in het aangepaste beleid met aangepaste HTML-inhoud. Azure AD B2C combineert elementen van de gebruikersinterface met de HTML-inhoud die vanaf de URL wordt geladen en geeft vervolgens de pagina weer aan de klant.
+Dit is hoe het werkt: Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). U kunt eerst een URL opgeven in het aangepaste beleid met aangepaste HTML-inhoud. Azure AD B2C combineert elementen van de gebruikersinterface met de HTML-inhoud die vanaf de URL wordt geladen en geeft vervolgens de pagina weer aan de klant.
 
 ## <a name="create-your-html5-content"></a>Uw HTML5 inhoud maken
 
@@ -50,9 +50,6 @@ HTML-inhoud met de naam van uw product maken in de titel.
    </body>
    </html>
    ```
-
-   >[!NOTE]
-   >Uit veiligheidsoverwegingen is het gebruik van JavaScript momenteel geblokkeerd voor aanpassing.
 
 2. Plak de gekopieerde codefragment in een teksteditor en sla het bestand op als *aanpassen ui.html*.
 
@@ -124,7 +121,7 @@ Als u wilt configureren voor UI-aanpassing, kopieert u de **ContentDefinition** 
 3. Open het extensiebestand. Bijvoorbeeld, *TrustFrameworkExtensions.xml*. Zoek de **BuildingBlocks** element. Als het element niet bestaat, deze toevoegen.
 4. Plak de volledige inhoud van de **ContentDefinitions** element dat u hebt gekopieerd als onderliggende site van de **BuildingBlocks** element. 
 5. Zoek de **ContentDefinition** element bevat `Id="api.signuporsignin"` in het XML-bestand dat u hebt gekopieerd.
-6. Wijzig de waarde van **LoadUri** naar de URL van het HTML-bestand dat u hebt geüpload naar de opslag. Bijvoorbeeld 'https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. Wijzig de waarde van **LoadUri** naar de URL van het HTML-bestand dat u hebt geüpload naar de opslag. Bijvoorbeeld https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
     
     Het aangepaste beleid ziet er als volgt uit:
 
@@ -170,7 +167,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 De map sample_templates/wingtip bevat de volgende HTML-bestanden:
 
-| HTML5-sjabloon | Beschrijving |
+| HTML5-sjabloon | Description |
 |----------------|-------------|
 | *phonefactor.HTML* | Dit bestand gebruiken als een sjabloon voor een multi-factor authentication-pagina. |
 | *resetpassword.html* | Dit bestand gebruiken als een sjabloon voor een pagina voor vergeten wachtwoorden. |
@@ -180,7 +177,7 @@ De map sample_templates/wingtip bevat de volgende HTML-bestanden:
 
 In de [, wijzigt u de beleidssectie van uw aangepaste voor registreren of aanmelden](#modify-your-sign-up-or-sign-in-custom-policy), u hebt geconfigureerd dat de definitie van de inhoud voor `api.idpselections`. De volledige set met inhoud roldefinitie-id's die worden herkend door de Azure AD B2C identiteitservaring-framework en de bijbehorende beschrijvingen zijn in de volgende tabel:
 
-| De definitie van de inhoud-ID | Beschrijving | 
+| De definitie van de inhoud-ID | Description | 
 |-----------------------|-------------|
 | *api.error* | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
 | *api.idpselections* | **Pagina voor het id-provider selecteren**. Deze pagina bevat een lijst met id-providers die de gebruiker uit tijdens het aanmelden kiezen kan. Deze opties zijn enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |

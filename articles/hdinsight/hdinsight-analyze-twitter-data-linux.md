@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 01d1ef428804838df4257a4c28dfcddbdd8f156b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a3687a4b8bb4e0d900ee96f52c40352db4e96df6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010991"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635558"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Twitter-gegevens met Apache Hive en Apache Hadoop in HDInsight analyseren
 
 Meer informatie over het gebruik van [Apache Hive](https://hive.apache.org/) verwerken Twitter-gegevens. Het resultaat is een lijst van Twitter-gebruikers die de meeste tweets met een bepaald woord verzonden.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in dit document zijn getest in HDInsight 3.6.
 >
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="get-the-data"></a>De gegevens ophalen
 
-Twitter kunt u de gegevens voor elke tweet ophalen als een document JavaScript Object Notation (JSON) via een REST-API. [OAuth](http://oauth.net) is vereist voor verificatie aan de API.
+Twitter kunt u de gegevens voor elke tweet ophalen als een document JavaScript Object Notation (JSON) via een REST-API. [OAuth](https://oauth.net) is vereist voor verificatie aan de API.
 
 ### <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
 
@@ -41,7 +41,7 @@ Twitter kunt u de gegevens voor elke tweet ophalen als een document JavaScript O
    |:--- |:--- |
    | Name |MyHDInsightApp |
    | Description |MyHDInsightApp |
-   | Website |http://www.myhdinsightapp.com |
+   | Website |https://www.myhdinsightapp.com |
 
 4. Controleer **Ja, ik ga akkoord**, en klik vervolgens op **uw Twitter-toepassing maken**.
 
@@ -59,7 +59,7 @@ Twitter kunt u de gegevens voor elke tweet ophalen als een document JavaScript O
 
 De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een bestand met de naam **tweets.txt**.
 
-> [!NOTE]
+> [!NOTE]  
 > De volgende stappen worden uitgevoerd op het HDInsight-cluster, omdat Python al is geïnstalleerd.
 
 1. Maak verbinding met het HDInsight-cluster via SSH:
@@ -70,7 +70,7 @@ De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een b
 
     Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-3. Gebruik de volgende opdrachten voor het installeren van [Tweepy](http://www.tweepy.org/), [voortgangsbalk](https://pypi.python.org/pypi/progressbar/2.2), en andere vereiste pakketten:
+3. Gebruik de volgende opdrachten voor het installeren van [Tweepy](https://www.tweepy.org/), [voortgangsbalk](https://pypi.python.org/pypi/progressbar/2.2), en andere vereiste pakketten:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -145,7 +145,7 @@ De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een b
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Vervang de tijdelijke aanduiding voor de volgende items met de gegevens uit uw twitter-toepassing:
     >
     > * `consumer_secret`
@@ -153,7 +153,7 @@ De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een b
     > * `access_token`
     > * `access_token_secret`
 
-    > [!TIP]
+    > [!TIP]  
     > Het filter van de onderwerpen in de laatste regel voor het bijhouden van populaire trefwoorden aanpassen. Met populaire trefwoorden op het moment dat u het script uitvoert beschikt u over snellere vastleggen van gegevens.
 
 6. Gebruik **Ctrl + X**, klikt u vervolgens **Y** op te slaan.
@@ -166,7 +166,7 @@ De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een b
 
     Er verschijnt een voortgangsindicator. Deze telt tot 100% als de tweets worden gedownload.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Als het duurt lang voordat de voortgangsbalk om door te gaan, moet u het filter voor het volgen van actuele onderwerpen op wijzigen. Wanneer er veel tweets over een onderwerp in het filter, krijgt u snel de 10000 tweets die nodig zijn.
 
 ### <a name="upload-the-data"></a>De gegevens uploaden
@@ -317,7 +317,7 @@ Deze opdrachten worden de gegevens opslaan op een locatie die toegankelijk is vo
 
     Deze query retourneert maximaal 10 tweets waarin het woord bevatten **Azure** in de berichttekst.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Als u het filter in gewijzigd de `gettweets.py` script, Vervang **Azure** met een van de filters die u hebt gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -327,7 +327,7 @@ U hebt geleerd hoe een niet-gestructureerde JSON-gegevensset omzetten in een ges
 * [Aan de slag met HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight met gegevens van vertragingen van vluchten analyseren](hdinsight-analyze-flight-delay-data-linux.md)
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial

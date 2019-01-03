@@ -12,17 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2018
+ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 78315409c5d83a98321e16913b1090e8996ed8ce
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230281"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653541"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-toepassing- en servicemanifesten
 Dit artikel wordt beschreven hoe Service Fabric-toepassingen en services worden gedefinieerd en is samengesteld met behulp van de bestanden ApplicationManifest.xml en ServiceManifest.xml.  Zie voor meer voorbeelden van gedetailleerde [toepassing en service manifest van de voorbeelden](service-fabric-manifest-examples.md).  Het XML-schema voor deze manifestbestanden wordt gedocumenteerd in [ServiceFabricServiceModel.xsd schemadocumentatie](service-fabric-service-model-schema.md).
+
+> [!WARNING]
+> Het manifest schema van de XML-bestand dwingt de juiste volgorde van de onderliggende elementen.  Als een gedeeltelijke oplossing "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" in Visual Studio te openen tijdens het ontwerpen of wijzigen van een van de Service Fabric-manifesten. Hiermee kunt u om te controleren of de volgorde van de onderliggende elementen en biedt beschikt.
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>Een service in ServiceManifest.xml beschrijven
 Het servicemanifest definieert declaratief het servicetype en de versie. Het geeft de metagegevens zoals servicetype, health eigenschappen, taakverdeling metrische gegevens, de binaire bestanden en -configuratiebestanden.  Anders gezegd, beschrijft de code, configuratie en gegevens pakketten waaruit een servicepakket ter ondersteuning van een of meer servicetypen. Een servicemanifest kan bevatten meerdere code, configuratie en gegevenspakketten die onafhankelijk is samengesteld kunnen zijn. Dit is een servicemanifest voor de ASP.NET Core web-front-endservice van de [stemmen voorbeeldtoepassing](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (en hier volgen enkele [meer gedetailleerde voorbeelden van](service-fabric-manifest-examples.md)):

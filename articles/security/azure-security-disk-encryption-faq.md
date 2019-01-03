@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ba955e9e71926a513f6c083acb6508b3ec330d17
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cc9368bfe95aba3da3dba3a4ac4293790bb09cd3
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094556"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754081"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor Iaas-VM's Veelgestelde vragen
 
@@ -44,10 +44,10 @@ Azure Disk Encryption wordt ondersteund op de volgende server Linux-distributies
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Besturingssysteem- en schijf |
 | Ubuntu | 14.04.5-DAILY-LTS | Besturingssysteem- en schijf |
-| RHEL | 7.5 | Gegevens schijf * |
-| RHEL | 7.4 | Gegevens schijf * |
-| RHEL | 7.3 | Gegevens schijf * |
-| RHEL | 7.2 | Gegevens schijf * |
+| RHEL | 7.5 | Besturingssysteem- en schijf * |
+| RHEL | 7.4 | Besturingssysteem- en schijf * |
+| RHEL | 7.3 | Besturingssysteem- en schijf * |
+| RHEL | 7.2 | Besturingssysteem- en schijf * |
 | RHEL | 6.8 | Gegevens schijf * |
 | RHEL | 6.7 | Gegevens schijf * |
 | CentOS | 7.4 | Besturingssysteem- en schijf |
@@ -67,7 +67,7 @@ Azure Disk Encryption wordt ondersteund op de volgende server Linux-distributies
 | SLES | 11 SP4 | Gegevensschijf |
 
 
-*__ADE wordt ondersteund voor RHEL voor de gegevensschijf. De huidige ADE-implementatie voor de besturingssysteemschijf werkt wel, maar momenteel gezamenlijk wordt niet ondersteund. Zowel Microsoft en Red Hat werken aan een gezamenlijk ondersteunde oplossing. In de tussentijd kunt u verwijzen naar de [Azure Disk Encryption voor Linux](azure-security-disk-encryption-linux.md) artikel.__
+*__Nieuwe ade-implementatie wordt ondersteund voor RHEL-besturingssysteem en de gegevensschijf voor RHEL7 betalen per gebruik-installatiekopieën. ADE wordt momenteel niet ondersteund voor installatiekopieën van RHEL Bring-Your-Own-abonnement (BYOS). Neem ook verwijzen naar de [Azure Disk Encryption voor Linux](azure-security-disk-encryption-linux.md) artikel voor meer informatie.__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Hoe kan ik beginnen met Azure Disk Encryption?
 

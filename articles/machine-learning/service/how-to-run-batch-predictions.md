@@ -11,27 +11,27 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a711b80471da0677c5e2d0dd0ee5e371e5a16f75
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7b0e3bc14c97c874b9d5936c025f4534665a461e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268643"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752619"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Batch voorspellingen uitvoeren op grote gegevenssets met Azure Machine Learning-service
 
-In dit artikel leert u hoe u snel en efficiënt om voorspellingen te doen van grote hoeveelheden gegevens asynchroon met behulp van Azure Machine Learning-service.
+In dit artikel leert u hoe u om voorspellingen te doen op grote hoeveelheden gegevens asynchroon, met behulp van de Azure Machine Learning-service.
 
-Batch voorspelling (of batchscore) biedt rendabele Deductie met ongeëvenaarde doorvoer voor asynchrone toepassingen. Batch voorspelling pijplijnen kunnen schalen om uit te voeren Deductie op terabytes aan productiegegevens. Voorspelling van de batch is geoptimaliseerd om een hoge doorvoersnelheid en voorspellingen fire-and-forgetstromen voor een grote verzameling van gegevens.
+Batch voorspelling (of batchscore) biedt rendabele Deductie, met ongeëvenaarde doorvoer van asynchrone toepassingen. Batch voorspelling pijplijnen kunnen schalen om uit te voeren Deductie op terabytes aan productiegegevens. Voorspelling van de batch is geoptimaliseerd voor hoge doorvoer en voorspellingen fire-and-forgetstromen voor een grote verzameling van gegevens.
 
->[!NOTE]
-> Als uw systeem met lage latentie verwerking (proces een document of een kleine documenten snel set) is vereist, gebruikt u [realtime scoren](how-to-consume-web-service.md) in plaats van batch voorspelling.
+>[!TIP]
+> Als uw systeem vereist met lage latentie verwerking (voor het snel verwerken van een document of een kleine set documenten), gebruikt u [realtime scoren](how-to-consume-web-service.md) in plaats van batch voorspelling.
 
-In de volgende stappen maakt u een [machine learning-pijplijn](concept-ml-pipelines.md) een dat computer vision-model te registreren ([oprichting V3](https://arxiv.org/abs/1512.00567)) en vervolgens het pretrained model gebruiken om u te batch scoring in afbeeldingen beschikbaar in uw Azure blob-account. Deze installatiekopieën gebruikt voor het scoren zijn niet-gelabelde afbeeldingen van de [ImageNet](http://image-net.org/) gegevensset.
+In de volgende stappen maakt u een [machine learning-pijplijn](concept-ml-pipelines.md) een dat computer vision-model te registreren ([oprichting V3](https://arxiv.org/abs/1512.00567)). Vervolgens gebruikt u het model pretrained batch beoordelingen op de installatiekopieën die beschikbaar zijn in uw Azure Blob storage-account. Deze installatiekopieën gebruikt voor het scoren zijn niet-gelabelde afbeeldingen van de [ImageNet](http://image-net.org/) gegevensset.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u geen Azure-abonnement hebt, een gratis account maken voordat u begint. Probeer de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree) vandaag nog.
+- Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree).
 
 - Configureer uw ontwikkelomgeving voor het installeren van de SDK van Azure Machine Learning. Zie voor meer informatie, [een ontwikkelomgeving configureren voor Azure Machine Learning](how-to-configure-environment.md).
 
@@ -48,18 +48,18 @@ In de volgende stappen maakt u een [machine learning-pijplijn](concept-ml-pipeli
 
 ## <a name="set-up-machine-learning-resources"></a>Machine learning-resources instellen
 
-De volgende stappen uit wordt om de resources die u wilt uitvoeren van een pijplijn stellen:
+De volgende stappen uit om de resources die u wilt uitvoeren van een pijplijn te stellen:
 
 - Toegang tot het gegevensarchief die al heeft het model dat, invoer labels en afbeeldingen om te beoordelen (dit is al ingesteld voor u).
 - Instellen van een gegevensarchief voor het opslaan van de uitvoer.
-- Configureer DataReference objecten om te verwijzen naar de gegevens in de voorgaande gegevensopslag.
+- Configureer `DataReference` objecten om te verwijzen naar de gegevens in de voorgaande gegevensopslag.
 - Instellen van de compute-machines of clusters waarop de pijplijn-stappen uitvoert.
 
 ### <a name="access-the-datastores"></a>Toegang tot de gegevensopslag
 
 Eerst toegang krijgen tot de gegevensopslag met het model, labels en afbeeldingen.
 
-U gebruikt een openbare blob-container met de naam *sampledata* in de *pipelinedata* account waarin afbeeldingen uit de set ImageNet-evaluatie. De naam van de gegevensopslag voor deze openbare container is *images_datastore*. Registreer deze gegevensopslag met uw werkruimte:
+U gebruikt een openbare blob-container met de naam *sampledata*, in de *pipelinedata* account waarin afbeeldingen uit de set ImageNet-evaluatie. De naam van de gegevensopslag voor deze openbare container is *images_datastore*. Registreer deze gegevensopslag met uw werkruimte:
 
 ```python
 # Public blob container details
@@ -74,9 +74,9 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
                       overwrite=True)
 ```
 
-Installatie van de volgende, met de standaard gegevensopslag voor de uitvoer.
+Vervolgens wordt ingesteld voor het gebruik van de standaard gegevensopslag voor de uitvoer.
 
-Wanneer u uw werkruimte maakt een [Azure filestorage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) en een [blobopslag](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) zijn gekoppeld aan de werkruimte standaard. Azure file storage is de 'standaard-gegevensopslag' voor een werkruimte, maar u kunt ook de blob-opslag gebruiken als gegevensopslag. Meer informatie over [opslagopties van Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+Wanneer u uw werkruimte maakt [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) en [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) zijn gekoppeld aan de werkruimte standaard. Azure Files is de standaard gegevensopslag voor een werkruimte, maar u kunt Blob storage ook gebruiken als gegevensopslag. Zie voor meer informatie, [opslagopties van Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -86,7 +86,7 @@ def_data_store = ws.get_default_datastore()
 
 Nu verwijzen naar de gegevens in de pijplijn als invoer voor de stappen van de pijplijn.
 
-Een gegevensbron in een pijplijn wordt vertegenwoordigd door een [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) object. Het object DataReference verwijst naar gegevens die zich bevinden of uit een gegevensarchief toegankelijk is. U DataReference objecten voor de map die wordt gebruikt voor invoer installatiekopieën van de directory waarin het pretrained model is opgeslagen, moet de map voor de labels en de uitvoermap.
+Een gegevensbron in een pijplijn wordt vertegenwoordigd door een [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) object. De `DataReference` object verwijst naar gegevens die zich bevinden of toegankelijk is vanuit een gegevensarchief. U moet `DataReference`  objecten voor de map die wordt gebruikt voor invoer installatiekopieën van de directory waarin het pretrained model is opgeslagen, de map voor de labels en de uitvoermap.
 
 ```python
 input_images = DataReference(datastore=batchscore_blob, 
@@ -111,7 +111,7 @@ output_dir = PipelineData(name="scores",
 
 ### <a name="set-up-compute-target"></a>Compute-doel instellen
 
-In Azure Machine Learning verwijst compute (of compute-doel) naar de machines of clusters die door de rekenkundige stappen worden uitgevoerd in de machine learning-pijplijn. Bijvoorbeeld, kunt u een `Azure Machine Learning compute`.
+In Azure Machine Learning, *compute* (of *compute-doel*) verwijst naar de machines of clusters die de rekenkundige stappen in uw machine learning-pijplijn uitvoeren. Bijvoorbeeld, kunt u een `Azure Machine Learning compute`.
 
 ```python
 compute_name = "gpucluster"
@@ -148,7 +148,7 @@ Voordat u het pretrained model gebruiken kunt, moet u het model downloaden en te
 
 ### <a name="download-the-pretrained-model"></a>Download het pretrained model
 
-Download de dat computer vision-model (InceptionV3) van <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Nadat u hebt gedownload, uitpakken naar de `models` submap.
+Download de dat computer vision-model (InceptionV3) van <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Vervolgens uitpakken naar de `models` submap.
 
 ```python
 import os
@@ -165,7 +165,9 @@ tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall(model_dir)
 ```
 
-### <a name="register-the-model"></a>Registreer het model
+### <a name="register-the-model"></a>Het model registreren
+
+Dit is hoe u het model te registreren:
 
 ```python
 import shutil
@@ -183,7 +185,7 @@ model = Model.register(
 ## <a name="write-your-scoring-script"></a>De scoring-script schrijven
 
 >[!Warning]
->De volgende code is slechts een voorbeeld van wat is opgenomen in de [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) die worden gebruikt door de [voorbeeld notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb) , moet u uw eigen scoring-script voor uw scenario te maken.
+>De volgende code is slechts een voorbeeld van wat is opgenomen in de [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) die worden gebruikt door de [voorbeeld notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb). U moet maken van uw eigen scoring-script voor uw scenario.
 
 De `batch_score.py` script neemt invoer afbeeldingen *dataset_path*, modellen in dat *model_dir,* en levert *resultaten label.txt* naar *output_dir*.
 
@@ -241,7 +243,7 @@ Hebt u alles wat die u moet de pijplijn bouwen, nu dus we alles combineren.
 
 ### <a name="prepare-the-run-environment"></a>Voorbereiden van de uitvoeringsomgeving
 
-Geef het conda-afhankelijkheden voor het script. U moet dit object wanneer u de stap pijplijn later maakt.
+Geef het conda-afhankelijkheden voor het script. Hebt u dit object later nodig bij het maken van de pijplijn-stap.
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
@@ -258,7 +260,7 @@ amlcompute_run_config.environment.spark.precache_packages = False
 
 ### <a name="specify-the-parameter-for-your-pipeline"></a>Geef de parameter voor de pijplijn
 
-Maak een pijplijn parameter met een [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) object met een standaardwaarde.
+De pijplijnparameter van een maken met behulp van een [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) object met een standaardwaarde.
 
 ```python
 batch_size_param = PipelineParameter(
@@ -268,7 +270,7 @@ batch_size_param = PipelineParameter(
 
 ### <a name="create-the-pipeline-step"></a>De stap pijplijn maken
 
-Maak de pijplijn stap met behulp van het script, de configuratie van de omgeving en de parameters. Geef de compute-doel dat u al gekoppeld aan uw werkruimte als het doel van de uitvoering van het script. Gebruik [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) om de stap van de pijplijn te maken.
+De stap pijplijn maken met behulp van het script, de configuratie van de omgeving en de parameters. Geef de compute-doel dat u al gekoppeld aan uw werkruimte als het doel van de uitvoering van het script. Gebruik [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) om de stap van de pijplijn te maken.
 
 ```python
 inception_model_name = "inception_v3.ckpt"
@@ -290,14 +292,14 @@ batch_score_step = PythonScriptStep(
 
 ### <a name="run-the-pipeline"></a>De pijplijn uitvoeren
 
-Nu de uitvoering van de pijplijn en bekijk de uitvoer geproduceerd. De uitvoer heeft een score die overeenkomt met elke afbeelding.
+Nu de uitvoering van de pijplijn en bekijk de uitvoer geproduceerd. De uitvoer bevat een score die overeenkomt met elke afbeelding.
 
 ```python
 # Run the pipeline
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
 pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline, pipeline_params={"param_batch_size": 20})
 
-# Wait for the run to finish (this may take several minutes)
+# Wait for the run to finish (this might take several minutes)
 pipeline_run.wait_for_completion(show_output=True)
 
 # Download and review the output
@@ -312,7 +314,7 @@ df.head()
 
 ## <a name="publish-the-pipeline"></a>De pijplijn publiceren
 
-Wanneer u tevreden met het resultaat van de uitvoering bent, publiceert u de pijplijn, zodat u deze later met verschillende waarden voor de invoer kunt uitvoeren. Als u een pijplijn publiceert, krijgt u een REST-eindpunt dat wordt aangeroepen met de set parameters die u hebt al verwerkt met behulp van de pijplijn accepteert [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py).
+Nadat u tevreden met het resultaat van de uitvoering bent, publiceert u de pijplijn, zodat u deze later met verschillende waarden voor de invoer kunt uitvoeren. Als u een pijplijn publiceert, krijgt u een REST-eindpunt. Dit eindpunt accepteert de aanroepen van de pijplijn met de set parameters die u al hebt opgenomen met behulp van [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py).
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline(
@@ -321,9 +323,9 @@ published_pipeline = pipeline_run.publish_pipeline(
     version="1.0")
 ```
 
-## <a name="rerun-the-pipeline-using-the-rest-endpoint"></a>De pijplijn met behulp van de REST-eindpunt opnieuw uitvoeren
+## <a name="rerun-the-pipeline-by-using-the-rest-endpoint"></a>De pijplijn opnieuw uitvoeren met behulp van de REST-eindpunt
 
-Als u wilt de pijplijn opnieuw uitvoeren, moet u een Azure Active Directory-verificatietoken header zoals beschreven in [AzureCliAuthentication klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
+Als u wilt de pijplijn opnieuw uitvoeren, moet u een token van de koptekst in de Azure Active Directory-verificatie, zoals beschreven in [AzureCliAuthentication klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -344,7 +346,7 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt zien deze werkende end-to-end, probeert de batchscore-notebook in ([how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). 
+Als u wilt zien deze werkende end-to-end, probeert de batchscore-notebook in [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

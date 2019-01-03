@@ -10,14 +10,14 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5cbdad82e25baa95c0342eb514f39c7026f1618b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345353"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753071"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Snelstartgids: De Bing-spraakherkenning REST-API gebruiken
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Quickstart: De Bing-spraakherkenning REST-API gebruiken
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -66,7 +66,7 @@ In de volgende tabel vindt u enkele voorbeelden van URI's-service.
 | Herkennings-modus  | Taal | Uitvoerindeling | Service-URI |
 |---|---|---|---|
 | `interactive` | pt-BR | Standaard | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | nl-NL | Gedetailleerd |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `conversation` | en-US | Gedetailleerd |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | Eenvoudig | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
@@ -76,7 +76,7 @@ In de volgende tabel vindt u enkele voorbeelden van URI's-service.
 
 De volgende velden moeten worden ingesteld in de aanvraagheader:
 
-- `Ocp-Apim-Subscription-Key`: Telkens wanneer die aanroepen van de service, moet u uw abonnementssleutel in doorgeven de `Ocp-Apim-Subscription-Key` header. Speech Service biedt ook ondersteuning voor autorisatie doorgegeven tokens in plaats van abonnementssleutels. Zie voor meer informatie, [verificatie](../How-to/how-to-authentication.md).
+- `Ocp-Apim-Subscription-Key`: Elke keer dat u de service roept, moet u uw abonnementssleutel in doorgeven de `Ocp-Apim-Subscription-Key` header. Speech Service biedt ook ondersteuning voor autorisatie doorgegeven tokens in plaats van abonnementssleutels. Zie [Verificatie](../How-to/how-to-authentication.md) voor meer informatie.
 - `Content-type`: De `Content-type` veld Beschrijving van de indeling en codec van de audio-stream. Op dit moment alleen WAV-bestand en PCM Mono 16000 codering wordt ondersteund. De waarde van de Content-type voor deze indeling is `audio/wav; codec=audio/pcm; samplerate=16000`.
 
 Het veld `Transfer-Encoding` is optioneel. Als u dit veld ingesteld op `chunked`, kunt u de audio afgeknipt in kleine chunks. Zie voor meer informatie, [gesegmenteerde overdrachtscodering overdracht](../How-to/how-to-chunked-transfer.md).
@@ -100,7 +100,7 @@ Het volgende voorbeeld ziet hoe u een spraak opname-aanvraag verzendt naar spraa
 > [!NOTE]
 > Vervang `YOUR_AUDIO_FILE` met het pad naar uw vooraf opgenomen audiobestand. Vervang `YOUR_SUBSCRIPTION_KEY` door uw eigen abonnementssleutel.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -135,7 +135,7 @@ Het voorbeeld wordt curl gebruikt op Linux met bash. Als deze niet beschikbaar i
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;
@@ -184,7 +184,7 @@ Na het verwerken van de aanvraag, retourneert Speech Service de resultaten in ee
 
 Het volgende codefragment toont een voorbeeld van hoe u het antwoord van de stroom kunt lezen.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 # show the response in JSON format
@@ -199,7 +199,7 @@ In dit voorbeeld retourneert curl rechtstreeks het antwoordbericht in een tekenr
 curl -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE | jq
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 /*

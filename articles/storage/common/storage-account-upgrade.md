@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 10dc25740eca43c7cbd39b8ec783084e048d2af2
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637598"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631428"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Een upgrade uitvoert naar een opslagaccount voor algemeen gebruik v2
 
@@ -34,12 +34,14 @@ Een upgrade naar een opslagaccount voor algemeen gebruik v2 in uw voor algemeen 
 
 ## <a name="upgrade-with-powershell"></a>Een upgrade uitvoeren met PowerShell
 
-Als u wilt een account voor algemeen gebruik v1 upgraden naar een algemeen gebruik v2-account met behulp van PowerShell, moet u eerst PowerShell voor het gebruik van de meest recente versie van bijwerken de **AzureRm.Storage** module. Zie [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van PowerShell. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Als u wilt een account voor algemeen gebruik v1 upgraden naar een algemeen gebruik v2-account met behulp van PowerShell, moet u eerst PowerShell voor het gebruik van de meest recente versie van bijwerken de **Az.Storage** module. Zie [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van PowerShell. 
 
 Daarna roept u de volgende opdracht uit om het account, vervangen door de naam van de resourcegroep en storage-account te werken:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
 
 ## <a name="upgrade-with-azure-cli"></a>Een upgrade uitvoeren met Azure CLI
@@ -56,7 +58,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 Voor algemeen gebruik v2-accounts ondersteunen alle Azure-opslagservices en gegevensobjecten, maar toegangslagen zijn alleen beschikbaar voor blok-blobs in Blob-opslag. Wanneer u een naar een opslagaccount voor algemeen gebruik v2 upgrade, kunt u een toegangslaag opgeven voor uw blob-gegevens. 
 
-Laag kunnen u de meest rendabele opslag op basis van uw Verwachte gebruikspatronen kiezen. Blok-blobs kunnen worden opgeslagen in een laag warm, koud of archief. Zie voor meer informatie over toegangslagen [Azure Blob storage: Hot, Cool, en Archiefopslaglaag](../blobs/storage-blob-storage-tiers.md).
+Laag kunnen u de meest rendabele opslag op basis van uw Verwachte gebruikspatronen kiezen. Blok-blobs kunnen worden opgeslagen in een laag warm, koud of archief. Zie voor meer informatie over toegangslagen [Azure Blob-opslag: Hot, Cool, en Archiefopslaglaag](../blobs/storage-blob-storage-tiers.md).
 
 Standaard een nieuw opslagaccount wordt gemaakt in de hot Storage-toegangslaag en een opslagaccount voor algemeen gebruik v1 is bijgewerkt naar de hot Storage-toegangslaag. Als u welke toegangslaag moet worden gebruikt voor uw na de gegevensupgrade verkennen weet, kunt u uw scenario. Er zijn twee scenario's voor normale gebruiker voor het migreren naar een algemeen gebruik v2-account:
 
@@ -69,17 +71,17 @@ In beide gevallen is de eerste prioriteit schat de kosten voor opslag, toegang t
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 Alle opslagaccounts maken gebruik van een prijsmodel voor het opslaan van blobs op basis van laag van elke blob. Als u een opslagaccount gebruikt, zijn de volgende factureringsvoorwaarden van toepassing:
 
-* **Opslagkosten**: de kosten voor het opslaan van gegevens hangen niet alleen af van de hoeveelheid opgeslagen gegevens, maar ook van de gebruikte opslaglaag. De kosten per GB nemen af als de laag minder dynamisch ('cooler') wordt.
+* **Kosten voor opslag**: Naast de hoeveelheid gegevens die zijn opgeslagen, wordt de kosten voor opslag van gegevens is afhankelijk van de storage-laag. De kosten per GB nemen af als de laag minder dynamisch ('cooler') wordt.
 
-* **Kosten van gegevenstoegang**: de kosten voor gegevenstoegang nemen toe als de laag minder dynamisch ('cooler') wordt. Voor gegevens in de lagen Cool Storage en Archive Storage worden kosten per GB in rekening gebracht aan gegevenstoegang voor leesbewerkingen.
+* **Kosten van gegevenstoegang**: Kosten voor gegevenstoegang vergroten als de laag cooler. Voor gegevens in de lagen Cool Storage en Archive Storage worden kosten per GB in rekening gebracht aan gegevenstoegang voor leesbewerkingen.
 
-* **Transactiekosten**: er gelden kosten per transactie voor alle lagen. Deze kosten nemen toe als de laag minder dynamisch wordt.
+* **Transactiekosten**: Er is een kosten per transactie voor alle lagen die wordt verhoogd als de laag cooler.
 
-* **Kosten voor gegevensoverdracht met geo-replicatie**: deze kosten zijn alleen van toepassing op accounts waarvoor geo-replicatie is geconfigureerd, inclusief GRS en RA-GRS. Kosten voor gegevensoverdracht met geo-replicatie worden in rekening gebracht per GB.
+* **Kosten voor gegevensoverdracht geo-replicatie**: Deze kosten is alleen van toepassing op accounts waarvoor geo-replicatie is geconfigureerd, inclusief GRS en RA-GRS. Kosten voor gegevensoverdracht met geo-replicatie worden in rekening gebracht per GB.
 
-* **Kosten voor uitgaande gegevensoverdracht**: uitgaande gegevensoverdracht (gegevens die buiten een Azure-regio worden overgedragen) worden gefactureerd voor bandbreedtegebruik per GB, net zoals bij opslagaccounts voor algemeen gebruik.
+* **Kosten voor uitgaande gegevensoverdracht**: Uitgaande gegevensoverdracht (gegevens die buiten een Azure-regio worden overgedragen) worden gefactureerd voor bandbreedtegebruik per GB per, consistent met opslagaccounts voor algemeen gebruik.
 
-* **De opslaglaag wijzigen**: als u de accountopslaglaag wijzigt van 'cool' naar 'hot', worden kosten in rekening gebracht die overeenkomen met de kosten voor het lezen van alle bestaande gegevens in het opslagaccount. Bij een wijziging van de accountopslaglaag van dynamisch naar statisch, worden echter kosten in rekening gebracht die gelijk zijn aan die voor het schrijven van alle gegevens in de statische laag (alleen GPv2-accounts).
+* **Als u de opslaglaag wijzigt**: Als u de opslaglaag wijzigt van cool naar hot leidt tot kosten voor het lezen van alle bestaande gegevens in de storage-account. Bij een wijziging van de accountopslaglaag van dynamisch naar statisch, worden echter kosten in rekening gebracht die gelijk zijn aan die voor het schrijven van alle gegevens in de statische laag (alleen GPv2-accounts).
 
 > [!NOTE]
 > Zie de pagina [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie over het prijsmodel voor opslagaccounts. Zie de pagina [Prijsinformatie voor bandbreedte](https://azure.microsoft.com/pricing/details/data-transfers/) voor meer informatie over de kosten voor uitgaande gegevensoverdracht.

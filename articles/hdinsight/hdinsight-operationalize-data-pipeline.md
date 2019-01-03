@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436157"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744442"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Een pijplijn voor gegevensanalyse operationeel maken
 
@@ -551,7 +551,7 @@ Zoals u ziet, wordt de meerderheid van de coördinator alleen configuratie-infor
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    Een coördinator is verantwoordelijk voor het plannen van acties in de `start` en `end` datumbereik, op basis van het interval dat is opgegeven door de `frequency` kenmerk. Elke geplande actie op zijn beurt de werkstroom wordt uitgevoerd zoals geconfigureerd. In het definitie van de coördinator hierboven, is de coördinator geconfigureerd voor het uitvoeren van acties vanaf 1 januari 2017 tot en met 5 januari 2017. De frequentie is ingesteld op 1 dag door de [Oozie expressietaal](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequentie expressie `${coord:days(1)}`. Dit resulteert in de coördinator plannen van een actie (en dus de werkstroom) één keer per dag. Voor datumbereiken die zich in het verleden, zoals in dit voorbeeld wordt de actie om uit te voeren zonder vertraging worden gepland. Het begin van de datum van waaruit een actie is gepland voor uitvoering heet de *nominale tijd*. Bijvoorbeeld, voor het verwerken van de gegevens voor 1 januari 2017 de coördinator wordt gepland actie met een nominaal bedrag tijd van 2017-01-01T00:00:00 GMT.
+    Een coördinator is verantwoordelijk voor het plannen van acties in de `start` en `end` datumbereik, op basis van het interval dat is opgegeven door de `frequency` kenmerk. Elke geplande actie op zijn beurt de werkstroom wordt uitgevoerd zoals geconfigureerd. In het definitie van de coördinator hierboven, is de coördinator geconfigureerd voor het uitvoeren van acties vanaf 1 januari 2017 tot en met 5 januari 2017. De frequentie is ingesteld op 1 dag door de [Oozie expressietaal](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequentie expressie `${coord:days(1)}`. Dit resulteert in de coördinator plannen van een actie (en dus de werkstroom) één keer per dag. Voor datumbereiken die zich in het verleden, zoals in dit voorbeeld wordt de actie om uit te voeren zonder vertraging worden gepland. Het begin van de datum van waaruit een actie is gepland voor uitvoering heet de *nominale tijd*. Bijvoorbeeld, voor het verwerken van de gegevens voor 1 januari 2017 de coördinator wordt gepland actie met een nominaal bedrag tijd van 2017-01-01T00:00:00 GMT.
 
 * Punt 2: Binnen het datumbereik van de werkstroom, de `dataset` element geeft aan waar de gegevens voor een bepaald datumbereik zoeken in HDFS en configureert u hoe Oozie bepaalt of de gegevens beschikbaar zijn voor verwerking.
 
@@ -651,6 +651,6 @@ Voor het uitvoeren van de pijplijn met een coördinator, gaan op dezelfde manier
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Apache Oozie-documentatie](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Apache Oozie-documentatie](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

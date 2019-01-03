@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 48b0085e52c1752c0b5ecc89ce229a5a82f74345
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 52bdeb5fe517430497c57a5c34b822df5933e3ff
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310433"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608882"
 ---
 # <a name="api-management-caching-policies"></a>Cachebeleidsregels van API Management
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -118,8 +118,8 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 | cache-voorkeur               | Kiezen uit de volgende waarden van het kenmerk:<br />- `internal` de ingebouwde API Management-cache gebruiken<br />- `external` de externe-cache gebruiken, zoals beschreven in [een externe Azure-Cache gebruiken voor Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` om te gebruiken externe cache als geconfigureerd of de interne cache anders. | Nee       | `prefer-external` |
 | downstream-caching-type        | Dit kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -geen - downstream opslaan in cache is niet toegestaan.<br />-persoonlijke - downstream in een privécache is toegestaan.<br />-openbare - persoonlijke en gedeelde downstream opslaan in cache is toegestaan.                                                                                                          | Nee       | geen              |
 | moet revalidate                | Als downstream opslaan in cache is ingeschakeld. dit kenmerk schakelt in of uit de `must-revalidate` cache-control instructie in antwoorden van een gateway.                                                                                                                                                                                                                      | Nee       | true              |
-| door ontwikkelaars verschillen              | Ingesteld op `true` cache antwoorden per [abonnementssleutel](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | Ja      |                   |
-| variëren-in-ontwikkelaars-groepen       | Ingesteld op `true` cache antwoorden per [gebruikersgroep](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Ja      |                   |  
+| door ontwikkelaars verschillen              | Ingesteld op `true` cache antwoorden per [abonnementssleutel](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | Ja      |         False          |
+| variëren-in-ontwikkelaars-groepen       | Ingesteld op `true` cache antwoorden per [gebruikersgroep](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Ja      |       False            |  
 
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

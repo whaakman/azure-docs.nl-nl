@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 951292a34f59fd143a7997571513a3c852bbce81
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fb3826a2c93ee19e1bb84028a6621d637ce27077
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497994"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810710"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Application Insights-logboekbestanden met telemetrie met Apache Spark in HDInsight analyseren
 
@@ -28,7 +28,7 @@ Meer informatie over het gebruik van [Apache Spark](https://spark.apache.org/) o
 
 * Als u bekend bent met het maken van een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie, [maakt Apache Spark in HDInsight](apache-spark-jupyter-spark-sql.md).
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Een webbrowser.
@@ -49,9 +49,9 @@ Het volgende diagram illustreert de servicearchitectuur van dit voorbeeld:
 
 Application Insights kunnen worden geconfigureerd voor het continu telemetriegegevens exporteren naar blobs. HDInsight kan vervolgens lezen van gegevens die zijn opgeslagen in de blobs. Er zijn echter enkele vereisten die u moet volgen:
 
-* **Locatie**: als het Opslagaccount en HDInsight zich in verschillende locaties, kan deze hogere latentie. Het verhoogt ook kosten, als uitgaande kosten worden toegepast op gegevens verplaatsen tussen regio's.
+* **Locatie**: Als het Opslagaccount en HDInsight zich in verschillende locaties, kan deze latentie verhogen. Het verhoogt ook kosten, als uitgaande kosten worden toegepast op gegevens verplaatsen tussen regio's.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Met behulp van een Storage-Account in een andere locatie dan HDInsight wordt niet ondersteund.
 
 * **Blobtype**: HDInsight biedt alleen ondersteuning voor blok-blobs. Application Insights-standaardinstellingen voor het gebruik van blok-blobs, dus kunnen worden gebruikt standaard met HDInsight.
@@ -60,11 +60,11 @@ Zie voor meer informatie over het toevoegen van opslag aan een bestaand cluster 
 
 ### <a name="data-schema"></a>Gegevensschema
 
-Application Insights biedt [gegevensmodel exporteren](../../application-insights/app-insights-export-data-model.md) informatie voor de indeling van de telemetrie naar blobs worden geëxporteerd. Spark SQL de stappen in dit document gebruiken om te werken met de gegevens. Spark SQL kan automatisch genereren van een schema voor de JSON-gegevensstructuur die door Application Insights geregistreerd.
+Application Insights biedt [gegevensmodel exporteren](../../azure-monitor/app/export-data-model.md) informatie voor de indeling van de telemetrie naar blobs worden geëxporteerd. Spark SQL de stappen in dit document gebruiken om te werken met de gegevens. Spark SQL kan automatisch genereren van een schema voor de JSON-gegevensstructuur die door Application Insights geregistreerd.
 
 ## <a name="export-telemetry-data"></a>Telemetrie exporteren
 
-Volg de stappen in [continue Export configureren](../../application-insights/app-insights-export-telemetry.md) naar uw Application Insights configureren voor telemetriegegevens exporteren naar een Azure storage-blob.
+Volg de stappen in [continue Export configureren](../../azure-monitor/app/export-telemetry.md) naar uw Application Insights configureren voor telemetriegegevens exporteren naar een Azure storage-blob.
 
 ## <a name="configure-hdinsight-to-access-the-data"></a>HDInsight voor toegang tot de gegevens configureren
 
@@ -111,7 +111,7 @@ Gebruik de informatie in de Azure Storage-Account toevoegen aan een bestaand clu
 
     Het geretourneerde wasb-pad is de locatie van de telemetriegegevens van Application Insights. Wijzig de `hdfs dfs -ls` regel in de cel in het wasb-pad dat is geretourneerd, en gebruik vervolgens **SHIFT + ENTER** opnieuw uit te voeren de cel. Deze tijd het resultaat moeten de mappen met de telemetrische gegevens worden weergegeven.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Voor de rest van de stappen in deze sectie de `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory is gebruikt. De directorystructuur van uw kan afwijken.
 
 6. Voer de volgende code in de volgende cel: Vervang `WASB_PATH` met het pad van de vorige stap.
@@ -200,7 +200,7 @@ Gebruik de informatie in de Azure Storage-Account toevoegen aan een bestaand clu
 
     Deze query retourneert de stad-informatie voor de top 20 records waarin context.location.city niet null is.
 
-   > [!NOTE]
+   > [!NOTE]  
    > De structuur van de context is aanwezig zijn in alle telemetrie die zijn vastgelegd door Application Insights. De stad-element kan niet worden ingevuld in uw Logboeken. Het schema gebruiken voor het identificeren van de andere elementen die u kunt een query die gegevens voor uw logboeken kunnen bevatten.
 
     Deze query wordt informatie weergegeven die vergelijkbaar is met de volgende tekst:
@@ -252,7 +252,7 @@ Gebruik de informatie in de Azure Storage-Account toevoegen aan een bestaand clu
 
     Het geretourneerde wasb-pad is de locatie van de telemetriegegevens van Application Insights. Wijzig de `hdfs dfs -ls` regel in de cel in het wasb-pad dat is geretourneerd, en gebruik vervolgens **SHIFT + ENTER** opnieuw uit te voeren de cel. Deze tijd het resultaat moeten de mappen met de telemetrische gegevens worden weergegeven.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Voor de rest van de stappen in deze sectie de `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory is gebruikt. Deze map bestaat niet, tenzij de telemetriegegevens voor een web-app.
 
 6. Voer de volgende code in de volgende cel: Vervang `WASB\_PATH` met het pad van de vorige stap.
@@ -343,7 +343,7 @@ Gebruik de informatie in de Azure Storage-Account toevoegen aan een bestaand clu
 
     Deze query retourneert de stad-informatie voor de top 20 records waarin context.location.city niet null is.
 
-   > [!NOTE]
+   > [!NOTE]  
    > De structuur van de context is aanwezig zijn in alle telemetrie die zijn vastgelegd door Application Insights. De stad-element kan niet worden ingevuld in uw Logboeken. Het schema gebruiken voor het identificeren van de andere elementen die u kunt een query die gegevens voor uw logboeken kunnen bevatten.
    >
    >
@@ -364,9 +364,9 @@ Gebruik de informatie in de Azure Storage-Account toevoegen aan een bestaand clu
 
 Zie de volgende documenten voor meer voorbeelden van het gebruik van Apache Spark voor het werken met gegevens en services in Azure:
 
-* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 Zie de volgende documenten voor meer informatie over het maken en uitvoeren van Spark-toepassingen:

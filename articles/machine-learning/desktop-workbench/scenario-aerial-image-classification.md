@@ -12,12 +12,12 @@ services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: e71de2d543c8f29b7195e74d574855bcbe739162
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9dd4ca4b4f156823aff3b8a475e06ea63f98be6c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260547"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975292"
 ---
 # <a name="aerial-image-classification"></a>Afbeeldingsclassificatie van
 
@@ -174,7 +174,7 @@ Onze aanbevolen methode voor het maken van een HDInsight-cluster maakt gebruik v
 
 1. De sjabloon voor HDInsight Spark-cluster is het bestand 'template.json' onder de submap "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" van dit project. Standaard maakt de sjabloon een Spark-cluster met 40 worker-knooppunten. Als u dit nummer aanpassen moet, opent u de sjabloon in uw favoriete teksteditor en alle exemplaren van "40" vervangen door het aantal worker-knooppunt van uw keuze.
     - U tegenkomen-geheugen fouten later als het aantal worker-knooppunten die u kiest kleiner is. Bestrijden bij geheugenfouten, mag u de trainings- en uitoefening scripts uitvoeren op een subset van de beschikbare gegevens zoals verderop in dit document beschreven.
-2. Kies een unieke naam en het wachtwoord voor het HDInsight-cluster en schrijft ze indien vermeld in de volgende opdracht: vervolgens het cluster te maken met behulp van de opdrachten:
+2. Kies een unieke naam en het wachtwoord voor het HDInsight-cluster en schrijft ze indien vermeld in de volgende opdracht: Vervolgens maken van het cluster met behulp van de opdrachten:
 
     ```
     set HDINSIGHT_CLUSTER_NAME=[HDInsight cluster name]
@@ -332,7 +332,7 @@ pip install matplotlib azure-storage==0.36.0 pillow scikit-learn azure-mgmt-batc
 
 ## <a name="data-acquisition-and-understanding"></a>Gegevens verzamelen en begrijpen
 
-In dit scenario maakt gebruik van openbaar beschikbare Luchtfoto beeldmateriaal gegevens uit de [nationale landbouw beeldmateriaal programma](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) resolutie van 1-meter. We hebben gegenereerd sets 224 pixel x 224 pixel PNG-bestanden uit de oorspronkelijke NAIP gegevens bijgesneden en gesorteerd op basis van land gebruik labels van de [nationale Land betrekking hebben op Database](https://www.mrlc.gov/nlcd2011.php). Een van voorbeeldafbeelding met het label 'Developed' wordt weergegeven op volledige grootte:
+In dit scenario maakt gebruik van openbaar beschikbare Luchtfoto beeldmateriaal gegevens uit de [nationale landbouw beeldmateriaal programma](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) resolutie van 1-meter. We hebben gegenereerd sets 224 pixel x 224 pixel PNG-bestanden uit de oorspronkelijke NAIP gegevens bijgesneden en gesorteerd op basis van land gebruik labels van de [nationale Land betrekking hebben op Database](https://www.mrlc.gov/data/references/national-land-cover-database-2011-nlcd2011). Een van voorbeeldafbeelding met het label 'Developed' wordt weergegeven op volledige grootte:
 
 ![De tegel van een voorbeeld van ontwikkelde land](media/scenario-aerial-image-classification/sample-tile-developed.png)
 

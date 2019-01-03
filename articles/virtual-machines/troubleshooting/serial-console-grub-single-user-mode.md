@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f22e5159acc93d9632c8cd268e24e8f972cbd7dd
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211380"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580141"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Seriële Console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker
 WORMGATEN is het eindtotaal Unified Bootloader. Vanaf WORMGATEN, u kunt wijzigen van de opstartconfiguratie om op te starten in de modus voor één gebruiker, onder andere.
@@ -28,10 +28,10 @@ Modus voor één gebruiker is een minimale omgeving met een minimale functionali
 
 Modus voor één gebruiker is ook handig in situaties waar uw virtuele machine kan alleen worden geconfigureerd om te accepteren van SSH-sleutels om aan te melden. In dit geval wordt u mogelijk modus voor één gebruiker gebruiken om te maken van een account met wachtwoordverificatie.
 
-Om in te voeren modus voor één gebruiker, moet u WORMGATEN invoeren wanneer uw virtuele machine wordt opgestart, en de configuratie van de opstartinstallatiekopie in WORMGATEN wijzigen. Dit kan worden gedaan met de seriële console van de virtuele machine. 
+Om in te voeren modus voor één gebruiker, moet u WORMGATEN invoeren wanneer uw virtuele machine wordt opgestart, en de configuratie van de opstartinstallatiekopie in WORMGATEN wijzigen. Dit kan worden gedaan met de seriële console van de virtuele machine.
 
 ## <a name="general-grub-access"></a>Algemene GRUB-toegang
-Voor toegang tot WORMGATEN, moet u opnieuw opstarten van uw virtuele machine terwijl de seriële console-blade geopend. Bepaalde distributies moeten toetsenbordinvoer om weer te geven van WORMGATEN, terwijl anderen automatisch worden WORMGATEN voor een paar seconden weergeven en toetsenbord gebruikersinvoer om te annuleren de time-out toestaan. 
+Voor toegang tot WORMGATEN, moet u opnieuw opstarten van uw virtuele machine terwijl de seriële console-blade geopend. Bepaalde distributies moeten toetsenbordinvoer om weer te geven van WORMGATEN, terwijl anderen automatisch worden WORMGATEN voor een paar seconden weergeven en toetsenbord gebruikersinvoer om te annuleren de time-out toestaan.
 
 U wordt om ervoor te zorgen dat WORMGATEN is ingeschakeld op de virtuele machine om te kunnen toegangsmodus voor één gebruiker. Afhankelijk van uw distributie worden sommige work instellen om ervoor te zorgen dat de GRUB is ingeschakeld. Distributie-specifieke informatie vindt u hieronder en op [deze koppeling](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
@@ -56,18 +56,18 @@ RHEL doorlaat u in de modus voor één gebruiker automatisch als het niet normaa
 ### <a name="grub-access-in-rhel"></a>Toegang tot WORMGATEN in RHEL
 RHEL wordt geleverd met WORMGATEN standaard ingeschakeld. Om in te voeren WORMGATEN, start opnieuw op uw virtuele machine met `sudo reboot` en druk op een willekeurige toets. Hier ziet u de GRUB-scherm weergegeven.
 
-> Opmerking: De Red Hat biedt ook de documentatie voor opstart in de modus redden, EMS-modus, foutopsporingsmodus en het root-wachtwoord opnieuw instellen. [Klik hier voor toegang tot deze](https://aka.ms/rhel7grubterminal).
+> Opmerking: Red Hat biedt ook de documentatie voor opstart in de modus redden, EMS-modus, foutopsporingsmodus en het root-wachtwoord opnieuw instellen. [Klik hier voor toegang tot deze](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Toegang tot de hoofdmap voor de modus voor één gebruiker in RHEL instellen
 Modus voor één gebruiker in RHEL is vereist voor de hoofdgebruiker zijn ingeschakeld, die standaard is uitgeschakeld. Als u een noodzaak voor het inschakelen van de modus voor één gebruiker hebt, gebruikt u de volgende instructies:
 
 1. Meld u aan bij het Red Hat-systeem via SSH
 1. Overschakelen naar de hoofdmap
-1. Wachtwoord voor de hoofdgebruiker inschakelen 
+1. Wachtwoord voor de hoofdgebruiker inschakelen
     * `passwd root` (een sterke root-wachtwoord instellen)
 1. Controleer of hoofdgebruiker kunt alleen aanmelden via ttyS0
     * `edit /etc/ssh/sshd_config` en zorg ervoor dat PermitRootLogIn is ingesteld op no
-    * `edit /etc/securetty file` om toe te staan alleen aanmelden via ttyS0 
+    * `edit /etc/securetty file` om toe te staan alleen aanmelden via ttyS0
 
 Nu als het systeem wordt opgestart naar de modus voor één gebruiker kunt u aanmelden via hoofdwachtwoord.
 
@@ -83,7 +83,7 @@ Als u hebt ingesteld WORMGATEN en root openen met de bovenstaande instructies, d
 1. Voeg het volgende toe aan het einde van de regel: `systemd.unit=rescue.target`
     * Dit zal u start in de modus voor één gebruiker. Als u gebruiken noodherstelmodus bevindt wilt, voegt u toe `systemd.unit=emergency.target` aan het einde van de regel in plaats van `systemd.unit=rescue.target`
 1. Druk op Ctrl + X af te sluiten en opnieuw opstarten met de toegepaste instellingen
-1. U wordt gevraagd het beheerderswachtwoord modus voor één gebruiker invoeren voordat u: dit is de hetzelfde wachtwoord dat u hebt gemaakt in de bovenstaande instructies    
+1. U wordt gevraagd het beheerderswachtwoord modus voor één gebruiker invoeren voordat u: dit is de hetzelfde wachtwoord dat u hebt gemaakt in de bovenstaande instructies
 
     ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
@@ -104,11 +104,11 @@ Als u niet de stappen hierboven om in te schakelen van de hoofdgebruiker hebt do
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Opmerking: De bovenstaande instructies wilt doorlopen doorlaat u in noodgevallen shell, zodat u kunt ook taken zoals het bewerken van `fstab`. Het algemeen aanvaarde voorstel is echter het root-wachtwoord opnieuw instellen en gebruiken die voor het invoeren van de modus voor één gebruiker. 
+> Opmerking: De bovenstaande instructies wilt doorlopen doorlaat u in noodgevallen shell, zodat u kunt ook taken zoals het bewerken van `fstab`. Het algemeen aanvaarde voorstel is echter het root-wachtwoord opnieuw instellen en gebruiken die voor het invoeren van de modus voor één gebruiker.
 
 
 ## <a name="access-for-centos"></a>Toegang voor CentOS
-Veel, zoals Red Hat Enterprise Linux vereist modus voor één gebruiker in CentOS WORMGATEN en de hoofdgebruiker zijn ingeschakeld. 
+Veel, zoals Red Hat Enterprise Linux vereist modus voor één gebruiker in CentOS WORMGATEN en de hoofdgebruiker zijn ingeschakeld.
 
 ### <a name="grub-access-in-centos"></a>Toegang tot WORMGATEN in CentOS
 CentOS wordt geleverd met WORMGATEN standaard ingeschakeld. Om in te voeren WORMGATEN, start opnieuw op uw virtuele machine met `sudo reboot` en druk op een willekeurige toets. Hier ziet u de GRUB-scherm weergegeven.
@@ -116,8 +116,8 @@ CentOS wordt geleverd met WORMGATEN standaard ingeschakeld. Om in te voeren WORM
 ### <a name="single-user-mode-in-centos"></a>Modus voor één gebruiker in CentOS
 Volg de instructies voor RHEL hierboven om in te schakelen van modus voor één gebruiker in CentOS.
 
-## <a name="access-for-ubuntu"></a>Toegang voor Ubuntu 
-Ubuntu-installatiekopieën hebben een hoofdwachtwoord niet nodig. Als het systeem wordt opgestart in de modus voor één gebruiker, kunt u deze kunt gebruiken zonder aanvullende referenties. 
+## <a name="access-for-ubuntu"></a>Toegang voor Ubuntu
+Ubuntu-installatiekopieën hebben een hoofdwachtwoord niet nodig. Als het systeem wordt opgestart in de modus voor één gebruiker, kunt u deze kunt gebruiken zonder aanvullende referenties.
 
 ### <a name="grub-access-in-ubuntu"></a>In Ubuntu WORMGATEN toegang
 Voor toegang tot WORMGATEN, houdt u 'Esc' ingedrukt terwijl de virtuele machine wordt opgestart.
@@ -137,8 +137,17 @@ Ubuntu doorlaat u in de modus voor één gebruiker automatisch als het niet norm
 1. Voeg `single` nadat `ro`, ervoor zorgen dat er is een ruimte voor en na `single`
 1. Druk op Ctrl + X op te starten met de volgende instellingen en geef de modus voor één gebruiker
 
+### <a name="using-grub-to-invoke-bash-in-ubuntu"></a>Met behulp van WORMGATEN om aan te roepen bash in Ubuntu
+Mogelijk zijn er situaties (zoals een wachtwoord vergeten hoofdmap) waar u kunt nog steeds mogelijk geen toegang krijgen tot de modus voor één gebruiker in uw Ubuntu-VM nadat u hebt geprobeerd de bovenstaande instructies. U kunt ook de kernel uit te voeren /bin/bash als init, in plaats van het systeem init, wat wordt krijgt u een bash-shell en toestaan voor systeemonderhoud vertellen. Gebruik de volgende instructies:
+
+1. Van WORMGATEN, drukt u op 'e' uw opstartvermelding (de Ubuntu-vermelding) bewerken
+1. Zoek de regel die met begint `linux`, zoek naar `ro`
+1. Vervang `ro` met `rw init=/bin/bash`
+    - Hiermee koppelt uw bestandssysteem als lezen / schrijven en /bin/bash gebruiken als de init-proces
+1. Druk op Ctrl + X opnieuw op te starten met deze instellingen
+
 ## <a name="access-for-coreos"></a>Toegang voor CoreOS
-Modus voor één gebruiker in CoreOS vereist WORMGATEN moet worden ingeschakeld. 
+Modus voor één gebruiker in CoreOS vereist WORMGATEN moet worden ingeschakeld.
 
 ### <a name="grub-access-in-coreos"></a>Toegang tot WORMGATEN in CoreOS
 Voor toegang tot WORMGATEN, drukt u op een willekeurige toets wanneer uw virtuele machine wordt opgestart.
@@ -151,13 +160,13 @@ CoreOS doorlaat u in de modus voor één gebruiker automatisch als het niet norm
 1. Druk op Ctrl + X op te starten met de volgende instellingen en geef de modus voor één gebruiker
 
 ## <a name="access-for-suse-sles"></a>Toegang voor SUSE SLES
-Nieuwe afbeeldingen van SLES 12 SP3 + toestaan toegang via de seriële console als het systeem wordt opgestart in de noodherstelmodus bevindt. 
+Nieuwe afbeeldingen van SLES 12 SP3 + toestaan toegang via de seriële console als het systeem wordt opgestart in de noodherstelmodus bevindt.
 
 ### <a name="grub-access-in-suse-sles"></a>Toegang tot WORMGATEN in SUSE SLES
 Toegang tot WORMGATEN in SLES vereist bootloader configuratie via YaST. U doet dit door deze instructies te volgen:
 
-1. SSH in uw SLES VM en voer `sudo yast bootloader`. Gebruik de `tab` sleutel `enter` sleutel en de pijltoetsen om te navigeren via het menu. 
-1. Navigeer naar `Kernel Parameters`, en Controleer `Use serial console`. 
+1. SSH in uw SLES VM en voer `sudo yast bootloader`. Gebruik de `tab` sleutel `enter` sleutel en de pijltoetsen om te navigeren via het menu.
+1. Navigeer naar `Kernel Parameters`, en Controleer `Use serial console`.
 1. Voeg `serial --unit=0 --speed=9600 --parity=no` naar de Console-argumenten
 
 1. Druk op F10 om uw instellingen opslaan en sluiten
@@ -176,7 +185,7 @@ U wordt automatisch verwijderd in noodgevallen shell als SLES niet normaal mag o
 > Houd er rekening mee dat u wordt verwijderd in noodgevallen shell met een _alleen-lezen_ bestandssysteem. Als u maken van alle wijzigingen aan alle bestanden wilt, moet u te koppelen van het bestandssysteem met machtigingen voor lezen / schrijven. U doet dit door Voer `mount -o remount,rw /` in shell
 
 ## <a name="access-for-oracle-linux"></a>Toegang voor Oracle Linux
-Veel, zoals Red Hat Enterprise Linux vereist modus voor één gebruiker in Oracle Linux WORMGATEN en de hoofdgebruiker zijn ingeschakeld. 
+Veel, zoals Red Hat Enterprise Linux vereist modus voor één gebruiker in Oracle Linux WORMGATEN en de hoofdgebruiker zijn ingeschakeld.
 
 ### <a name="grub-access-in-oracle-linux"></a>Toegang tot WORMGATEN in Oracle Linux
 Oracle Linux wordt geleverd met WORMGATEN standaard ingeschakeld. Om in te voeren WORMGATEN, start opnieuw op uw virtuele machine met `sudo reboot` en druk op 'Esc'. Hier ziet u de GRUB-scherm weergegeven.

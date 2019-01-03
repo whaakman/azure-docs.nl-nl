@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264438"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995680"
 ---
-# <a name="internet-of-things-security-architecture"></a>Internet of Things-beveiligingsarchitectuur
+# <a name="internet-of-things-iot-security-architecture"></a>Internet of Things (IoT)-beveiligingsarchitectuur
 
 Bij het ontwerpen van een systeem, is het belangrijk dat u de potentiële bedreigingen voor dat systeem te begrijpen en dienovereenkomstig, juiste beveiliging toevoegen wanneer het systeem worden ontworpen en ontworpen. Het is belangrijk om te ontwerpen van het product vanaf het begin rekening met beveiliging omdat informatie over hoe een aanvaller kan mogelijk een systeem kunt u ervoor dat de juiste oplossingen worden in plaats van het begin.
 
@@ -27,23 +27,23 @@ Het doel van risicomodel is om te begrijpen hoe een aanvaller kan een systeem en
 
 Veel ontwikkelteams werkzaamheden een uitstekende vastleggen van de functionele vereisten voor het systeem waarmee klanten profiteren. Identificeren van niet-duidelijk manieren dat iemand het systeem mogelijk misbruik is echter moeilijker. Risicomodel kunt ontwikkelteams begrijpen wat een aanvaller kan doen en waarom. Risicomodel is een gestructureerde proces waarmee een discussie over de beveiliging ontwerpbeslissingen maakt in het systeem, evenals wijzigingen in het ontwerp dat weg zijn aangebracht die gevolgen-beveiliging. Terwijl een risicomodel gewoon een document is, wordt in deze documentatie ook een ideale manier om ervoor te zorgen voor bedrijfscontinuïteit te waarborgen van de kennis, behoud van de lessen hebt geleerd en help nieuw team snel vrijgeven vertegenwoordigt. Ten slotte is het resultaat van risicomodel waarmee u rekening houden met andere aspecten van beveiliging, zoals welke beveiligingsverplichtingen die u wilt bieden aan uw klanten. Deze verplichtingen in combinatie met risicomodel kennis en station testen van uw Internet of Things (IoT)-oplossing.
 
-### <a name="when-to-threat-model"></a>Wanneer u het model van bedreigingen
+### <a name="when-to-do-threat-modeling"></a>Wanneer u moet modellering van bedreigingen
 
 [Risicomodel](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) biedt de grootste waarde wanneer u deze in de ontwerpfase opnemen. Wanneer u ontwerpt, hebt u de grootste flexibiliteit om wijzigingen aanbrengen in de bedreigingen te elimineren. Verwijderen van dreigingen standaard is het gewenste resultaat. Het is veel eenvoudiger dan oplossingen toevoegen, testen en ervoor te zorgen dat ze actueel blijven en bovendien die verwijdering is niet altijd mogelijk. Er wordt het moeilijker om te voorkomen van bedreigingen zoals een product meer volwassen wordt en uiteindelijk op zijn beurt vereist meer werk en vaak veel moeilijker compromissen dan threat modeling vroeg in de ontwikkeling.
 
-### <a name="what-to-threat-model"></a>Wat u moet het model van bedreigingen
+### <a name="what-to-consider-for-threat-modeling"></a>Wat u moet overwegen voor risicomodel
 
-U moet de oplossing als geheel model van bedreigingen en ook richt u zich op de volgende gebieden:
+U ziet op de oplossing als een geheel en ook zijn gericht op de volgende gebieden:
 
 * De beveiliging en privacy-functies
 * De functies waarvoor fouten beveiliging relevante zijn
 * De functies die grens van een vertrouwensrelatie touch
 
-### <a name="who-threat-models"></a>Die modellen van bedreigingen
+### <a name="who-performs-threat-modeling"></a>Wie risicomodel uitvoert
 
 Risicomodel is een proces zoals elk ander. Het is een goed idee om het document threat model, zoals elk ander onderdeel van de oplossing worden behandeld en te valideren. Veel ontwikkelteams werkzaamheden een uitstekende vastleggen van de functionele vereisten voor het systeem waarmee klanten profiteren. Identificeren van niet-duidelijk manieren dat iemand het systeem mogelijk misbruik is echter moeilijker. Risicomodel kunt ontwikkelteams begrijpen wat een aanvaller kan doen en waarom.
 
-### <a name="how-to-threat-model"></a>Het model van bedreigingen
+### <a name="how-to-perform-threat-modeling"></a>Het uitvoeren van risicomodel
 
 De threat modeling proces bestaat uit vier stappen; de stappen zijn:
 
@@ -57,16 +57,21 @@ De threat modeling proces bestaat uit vier stappen; de stappen zijn:
 Drie vuistregels waarmee u rekening moet houden bij het bouwen van een risicomodel:
 
 1. Diagram van een buiten-referentiearchitectuur maken.
-1. Reikwijdte mobiliteit beginnen. Bekijk een overzicht en inzicht in het systeem als geheel, deep wilt voordat. Deze aanpak zorgt ervoor dat u nader bekeken in de juiste plaatsen worden uitgevoerd.
-1. Station van het proces, niet toestaan dat het proces beslissingen. Als u een probleem in de fase modelleren gevonden en wilt verkennen, gaat u voor deze! Hoeft dat u moet deze stappen slavishly.
+
+2. Reikwijdte mobiliteit beginnen. Bekijk een overzicht en inzicht in het systeem als geheel, deep wilt voordat. Deze aanpak zorgt ervoor dat u nader bekeken in de juiste plaatsen worden uitgevoerd.
+
+3. Station van het proces, niet toestaan dat het proces beslissingen. Als u een probleem in de fase modelleren gevonden en wilt verkennen, gaat u voor deze! Hoeft dat u moet deze stappen slavishly.
 
 #### <a name="threats"></a>Bedreigingen
 
 De vier belangrijkste elementen van een risicomodel zijn:
 
 * Processen zoals webservices, Win32-services, en * nix daemons. Sommige complexe entiteiten (bijvoorbeeld veldgateways en sensoren) kunnen worden geabstraheerd als een proces wanneer een technische Inzoomen op deze gebieden niet mogelijk is.
+
 * Gegevensarchieven (overal gegevens worden opgeslagen, zoals een configuratiebestand of database)
+
 * Gegevensoverdracht (waarbij gegevens worden verplaatst tussen de andere elementen in de toepassing)
+
 * Externe entiteiten (Alles die communiceert met het systeem, maar is niet onder het beheer van de toepassing, zijn bijvoorbeeld gebruikers en satelliet feeds)
 
 Alle elementen in het architectuurdiagram zijn afhankelijk van verschillende bedreigingen; in dit artikel de verkorte STRIDE weergave. Lezen [Threat Modeling opnieuw, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) voor meer informatie over de STRIDE-elementen.
@@ -101,11 +106,11 @@ De onderdelen binnen elke grens die ook worden onderworpen aan STRIDE, waardoor 
 
 De volgende secties worden besproken standaardonderdelen gewoonlijk in deze zones.
 
-### <a name="the-device-zone"></a>De apparaat-Zone
+### <a name="the-device-zone"></a>De apparaat-zone
 
 De apparaat-omgeving is de onmiddellijke fysieke ruimte rond het apparaat, waar fysieke toegang en/of 'lokale netwerk' digitale peer-to-peer-toegang tot het apparaat haalbaar is. Een 'lokale netwerk' wordt ervan uitgegaan dat een netwerk dat is uniek en geïsoleerd – maar een beperkt bereik draadloze radio-technologie waarmee peer-to-peer-communicatie van apparaten mogelijk naar het openbare Internet overbrugd. Dit gebeurt *niet* bevatten netwerk-virtualisatietechnologie die het maken van de illusie van een lokaal netwerk en het bevat ook geen openbare operator netwerken waarvoor twee apparaten om te communiceren via een openbaar netwerk ruimte als ze zijn om in te voeren van de relatie van een peer-to-peer-communicatie.
 
-### <a name="the-field-gateway-zone"></a>De Zone van de Gateway veld
+### <a name="the-field-gateway-zone"></a>De zone van de gateway veld
 
 Veldgateway is een apparaat/apparaat of bepaalde computersoftware voor algemeen gebruik-server die als factor voor communicatie en mogelijk, als een apparaat besturingssysteem en een apparaat gegevensverwerking hub fungeert. De zone van de gateway veld bevat het veldgateway zelf en alle apparaten die zijn gekoppeld aan deze. Als de naam al aangeeft, veldgateways buiten toegewezen gegevensverwerking faciliteiten fungeren, zijn meestal afhankelijk van locatie, zijn mogelijk onderworpen aan fysieke indringing en beperkte operationele redundantie. Alle als u wilt bijvoorbeeld een veldgateway is meestal een ding kan een touch en sabotage en wat de functie is.
 
@@ -135,7 +140,7 @@ Verbonden apparaten voor speciale doeleinden hebben een groot aantal potentiële
 
 Als u de interactie patronen ontdekken, bekijken "apparaat controle" en "apparaat" met hetzelfde niveau van aandacht tijdens risicomodel. 'Apparaatbeheer ' kan worden geclassificeerd als alle gegevens die met het doel van wijzigen of het gedrag van het naar de status of de status van de omgeving invloed op een apparaat wordt geleverd door een partij. 'Apparaatgegevens' kunnen worden geclassificeerd als alle informatie op die een apparaat naar een andere partij over de status en de waargenomen status van de omgeving verzendt.
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Threat modeling van de Azure IoT-referentiearchitectuur
+## <a name="performing-threat-modeling-for-the-azure-iot-reference-architecture"></a>Uitvoeren van threat modeling voor de Azure IoT-referentiearchitectuur
 
 Microsoft maakt gebruik van het framework eerder beschreven hiervoor threat modeling voor Azure IoT. De volgende sectie wordt het concrete voorbeeld van Azure IoT Reference Architecture om te demonstreren hoe om na te denken over threat modeling voor IoT en hoe de bedreigingen die verhelpen. In dit voorbeeld bevat vier hoofdgebieden van focus:
 
@@ -164,15 +169,15 @@ Deze sectie gaat in op de architectuur die worden beschreven eerder het gaat om 
 
 In elk van de categorieën die worden beschreven in de Azure IoT-architectuur is in dit voorbeeld probeert om een aantal verschillende bedreigingen in de verschillende fasen bestaat gegevens/informatie in: proces, communicatie en opslag. Hieronder volgt een overzicht van de meest voorkomende voor de categorie 'proces', gevolgd door een overzicht van hoe deze bedreigingen beste kan mogelijk worden verholpen:
 
-**Adresvervalsing (spoofing) (S)**: een aanvaller kan cryptografische sleutelmateriaal onttrekken aan een apparaat, ofwel op het niveau van de software of hardware, en vervolgens toegang tot het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal heeft is afkomstig uit. Een goede illustratie is beheer op afstand die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
+**Adresvervalsing (spoofing) (S)**: Een aanvaller kan cryptografische sleutelmateriaal extraheren uit een apparaat, op de software of hardwareniveau, en vervolgens toegang tot die het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is genomen van. Een goede illustratie is beheer op afstand die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
 
-**Denial of Service (D)**: een apparaat kan worden gerenderd waarvoor niet werkt of de communicatie door te keuzerondje frequenties of knippen draden verstoren. Gegevens, kan bijvoorbeeld helemaal niet een camera toezicht op waarop de stroom of de netwerk-verbinding opzettelijk toenemende rapporteren.
+**Denial of Service (D)**: Een apparaat kan worden gerenderd waarvoor niet werkt of de communicatie door te keuzerondje frequenties of knippen draden verstoren. Gegevens, kan bijvoorbeeld helemaal niet een camera toezicht op waarop de stroom of de netwerk-verbinding opzettelijk toenemende rapporteren.
 
-**(T) knoeien**: een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat, waardoor de vervangen software gebruikmaken van de legitieme identiteit van het apparaat als het sleutelmateriaal of de cryptografische faciliteiten met sleutel materiaal zijn illegale beschikbaar. Een aanvaller kan bijvoorbeeld gebruikmaken van uitgepakte sleutelmateriaal onderscheppen en gegevens van het apparaat op het communicatiepad onderdrukken en vervang deze door de waarde false gegevens die met de gestolen sleutelmateriaal is geverifieerd.
+**(T) knoeien**: Een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat, waardoor de vervangen software gebruikmaken van de legitieme identiteit van het apparaat als het sleutelmateriaal of de cryptografische sleutel materiaal houden-installaties zijn beschikbaar voor de illegaal programma. Een aanvaller kan bijvoorbeeld gebruikmaken van uitgepakte sleutelmateriaal onderscheppen en gegevens van het apparaat op het communicatiepad onderdrukken en vervang deze door de waarde false gegevens die met de gestolen sleutelmateriaal is geverifieerd.
 
-**Openbaarmaking van informatie (I)**: als het apparaat gezelschapsdieren software wordt uitgevoerd, dergelijke gezelschapsdieren software kan mogelijk leiden tot het lekken gegevens naar niet-gemachtigde gebruikers. Een aanvaller kan bijvoorbeeld gebruikmaken van geëxtraheerde sleutelmateriaal zelf invoeren in het communicatiepad tussen het apparaat en een veld of controller gateway of cloudgateway naar siphon uit informatie.
+**Openbaarmaking van informatie (I)**: Als het apparaat gezelschapsdieren software wordt uitgevoerd, kan deze gezelschapsdieren software gegevens naar niet-geautoriseerde partijen mogelijk lekken. Een aanvaller kan bijvoorbeeld gebruikmaken van geëxtraheerde sleutelmateriaal zelf invoeren in het communicatiepad tussen het apparaat en een veld of controller gateway of cloudgateway naar siphon uit informatie.
 
-**Kan leiden tot misbruik van bevoegdheden (E)**: een apparaat dat specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
+**Misbruik van bevoegdheden (E)**: Een apparaat dat specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
 
 | **Onderdeel** | **Bedreiging** | **Risicobeperking** | **Risk** | **Implementatie** |
 | --- | --- | --- | --- | --- |
@@ -185,33 +190,33 @@ In elk van de categorieën die worden beschreven in de Azure IoT-architectuur is
 
 Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
 
-**Adresvervalsing (spoofing)**: een aanvaller kan cryptografische sleutelmateriaal ophalen vanaf een apparaat, ofwel op het niveau van de software of hardware, en vervolgens toegang tot het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is afkomstig uit.
+**Adresvervalsing (spoofing)**: Een aanvaller kan cryptografische sleutelmateriaal extraheren uit een apparaat, op de software of hardwareniveau, en vervolgens toegang tot die het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is genomen van.
 
-**DOS-aanval**: een apparaat kan worden gerenderd waarvoor niet werkt of de communicatie door te keuzerondje frequenties of knippen draden verstoren. Gegevens, kan bijvoorbeeld helemaal niet een camera toezicht op waarop de stroom of de netwerk-verbinding opzettelijk toenemende rapporteren.
+**Denial of Service**: Een apparaat kan worden gerenderd waarvoor niet werkt of de communicatie door te keuzerondje frequenties of knippen draden verstoren. Gegevens, kan bijvoorbeeld helemaal niet een camera toezicht op waarop de stroom of de netwerk-verbinding opzettelijk toenemende rapporteren.
 
-**Knoeien**: een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat, waardoor de vervangen software gebruikmaken van de legitieme identiteit van het apparaat als het sleutelmateriaal of de cryptografische faciliteiten met sleutel materiaal zijn illegale beschikbaar.
+**Knoeien**: Een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat, waardoor de vervangen software gebruikmaken van de legitieme identiteit van het apparaat als het sleutelmateriaal of de cryptografische sleutel materiaal houden-installaties zijn beschikbaar voor de illegaal programma.
 
-**Knoeien**: een toezicht camera die wordt weergegeven een afbeelding zichtbaar spectrum van een lege gang kan worden gericht op een foto van een dergelijke hotellobby. Een sensor rook of brand kan iemand met een lichtere daaronder reporting. In beide gevallen moet het apparaat mogelijk technisch volledig vertrouwen op het systeem, maar deze rapporteert gezelschapsdieren informatie.
+**Knoeien**: Een camera toezicht dat wordt weergegeven een afbeelding zichtbaar spectrum van een lege gang kan worden gericht op een foto van een dergelijke hotellobby. Een sensor rook of brand kan iemand met een lichtere daaronder reporting. In beide gevallen moet het apparaat mogelijk technisch volledig vertrouwen op het systeem, maar deze rapporteert gezelschapsdieren informatie.
 
-**Knoeien**: een aanvaller kan gebruikmaken van de uitgepakte sleutelmateriaal onderscheppen en gegevens van het apparaat op het communicatiepad onderdrukken en vervang deze door de waarde false gegevens die met de gestolen sleutelmateriaal is geverifieerd.
+**Knoeien**: Een aanvaller kan gebruikmaken van de uitgepakte sleutelmateriaal onderscheppen en gegevens van het apparaat op het communicatiepad onderdrukken en vervang deze door de waarde false gegevens die met de gestolen sleutelmateriaal is geverifieerd.
 
-**Knoeien**: een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat, waardoor de vervangen software gebruikmaken van de legitieme identiteit van het apparaat als het sleutelmateriaal of de cryptografische faciliteiten houden sleutel materiaal zijn illegale beschikbaar.
+**Knoeien**: Een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat, waardoor de vervangen software gebruikmaken van de legitieme identiteit van het apparaat als het sleutelmateriaal of de cryptografische sleutel materiaal houden-installaties beschikbaar zijn aan het programma illegale.
 
-**Openbaarmaking van informatie**: als het apparaat gezelschapsdieren software wordt uitgevoerd, dergelijke gezelschapsdieren software kan mogelijk leiden tot het lekken gegevens naar niet-gemachtigde gebruikers.
+**Openbaarmaking van informatie**: Als het apparaat gezelschapsdieren software wordt uitgevoerd, kan deze gezelschapsdieren software gegevens naar niet-geautoriseerde partijen mogelijk lekken.
 
-**Openbaarmaking van informatie**: een aanvaller kan gebruikmaken van de uitgepakte sleutelmateriaal zelf invoeren in het communicatiepad tussen de gateway-apparaat en een domeincontroller of een veld of de cloudgateway naar siphon uit informatie.
+**Openbaarmaking van informatie**: Een aanvaller kan gebruikmaken van de uitgepakte sleutelmateriaal zelf invoeren in het communicatiepad tussen het apparaat en een veld of controller gateway of cloudgateway naar siphon uit informatie.
 
-**DOS-aanval**: het apparaat kan worden uitgeschakeld of ingeschakeld op een modus waarbij communicatie is niet mogelijk (dit is opzettelijk in veel industriële machines).
+**Denial of Service**: Het apparaat kan worden uitgeschakeld of omgezet in een modus waarbij communicatie is niet mogelijk (dit is opzettelijk in veel industriële machines).
 
-**Knoeien**: het apparaat opnieuw kan worden geconfigureerd om te werken in een status onbekend op het systeem (buiten bekende kalibreren parameters) en dus zorgen dat gegevens die kan worden geïnterpreteerd
+**Knoeien**: Het apparaat opnieuw kan worden geconfigureerd om te werken in een status onbekend op het systeem (buiten bekende kalibreren parameters) en dus zorgen dat gegevens die kan worden geïnterpreteerd
 
-**Misbruik van bevoegdheden**: een apparaat dat specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
+**Misbruik van bevoegdheden**: Een apparaat dat specifieke functie kan worden gedwongen om iets anders te doen. Bijvoorbeeld, kunt een klep die is geprogrammeerd om te openen halverwege worden misleiden helemaal openen.
 
-**DOS-aanval**: het apparaat kan worden omgezet in een status waar communicatie niet mogelijk is.
+**Denial of Service**: Het apparaat kan worden omgezet in een status waar communicatie niet mogelijk is.
 
-**Knoeien**: het apparaat opnieuw kan worden geconfigureerd om te werken in een status onbekend op het systeem (buiten bekende kalibreren parameters) en dus zorgen dat gegevens die kan worden geïnterpreteerd.
+**Knoeien**: Het apparaat kan opnieuw worden geconfigureerd om te werken in een status onbekend op het systeem (buiten bekende kalibreren parameters) en dus zorgen dat gegevens die kan worden geïnterpreteerd.
 
-**Adresvervalsing (spoofing) / Tampering/ontkenning**: als niet-beveiligd (dit is slechts zelden het geval met beheer op afstand consumenten), een aanvaller de status van een apparaat anoniem kunt bewerken. Een goede illustratie is beheer op afstand die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
+**Adresvervalsing (spoofing) / knoeien/ontkenning**: Als niet-beveiligd (dit is slechts zelden het geval met beheer op afstand consumenten), een aanvaller de status van een apparaat anoniem kunt bewerken. Een goede illustratie is beheer op afstand die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
 
 #### <a name="communication"></a>Communicatie
 
@@ -227,9 +232,9 @@ Bedreigingen rond het communicatiepad tussen apparaten, apparaten en veldgateway
 
 Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
 
-**DOS-aanval**: beperkte-apparaten worden in het algemeen DoS threat wanneer ze actief naar binnenkomende verbindingen of ongevraagde datagrammen in een netwerk, luisteren omdat een aanvaller kan veel verbindingen parallel Open en die niet worden deze service of -service ze langzaam, of het apparaat kan worden overspoeld met ongevraagd verkeer. In beide gevallen wordt kan het apparaat effectief worden weergegeven in het netwerk niet meer werkt.
+**Denial of Service**: Beperkte-apparaten worden in het algemeen DoS threat wanneer ze actief naar binnenkomende verbindingen of ongevraagde datagrammen in een netwerk, luisteren omdat een aanvaller kan veel verbindingen open parallel en die niet worden deze of ze langzaam service of het apparaat kan worden overspoeld met ongevraagd verkeer. In beide gevallen wordt kan het apparaat effectief worden weergegeven in het netwerk niet meer werkt.
 
-**Adresvervalsing (spoofing), openbaarmaking van informatie**: beperkte apparaten en apparaten voor speciale doeleinden vaak faciliteiten one-voor-all-beveiliging, zoals wachtwoord of PINCODE protection hebt, of ze volledig vertrouwen op het netwerk, wat betekent dat ze toegang verlenen tot vertrouwen informatie over wanneer een apparaat zich op hetzelfde netwerk, en dat netwerk is vaak alleen beveiligd met een gedeelde sleutel. Dit betekent dat wanneer het gedeelde geheim op het apparaat of het netwerk wordt vermeld, is het mogelijk voor het beheren van het apparaat of gegevens die afkomstig zijn van het apparaat te observeren.  
+**Vervalsing, openbaarmaking van informatie**: Beperkte apparaten en apparaten voor speciale doeleinden hebben vaak een voor alle zekerheid faciliteiten, zoals wachtwoord of PINCODE beveiliging, of dat ze geheel afhankelijk zijn van het vertrouwen van het netwerk, wat betekent dat ze toegang verlenen tot gegevens wanneer een apparaat zich op hetzelfde netwerk, en dat het netwerk is vaak alleen beveiligd met een gedeelde sleutel. Dit betekent dat wanneer het gedeelde geheim op het apparaat of het netwerk wordt vermeld, is het mogelijk voor het beheren van het apparaat of gegevens die afkomstig zijn van het apparaat te observeren.  
 
 **Adresvervalsing (spoofing)**: een aanvaller kan worden onderschept gedeeltelijk overschrijven de uitzending en vervalsen de oorspronkelijke aanvrager (man in het midden)
 
@@ -258,7 +263,7 @@ Cloudgateway is voornamelijk aangepaste ingebouwde stukje software die wordt uit
 
 Een besturingssysteem (of een domeincontroller) is een oplossing voor software die is gekoppeld aan een apparaat, of een veldgateway of cloudgateway voor het beheren van een of meerdere apparaten en/of voor het verzamelen en/of opslaan en/of analyseren van gegevens van het apparaat voor presentatie, of volgende controledoeleinden. Systemen voor toegangsbeheer zijn de worden alleen entiteiten in het bereik van deze discussie die interactie met mensen onmiddellijk vergemakkelijken. De uitzonderingen zijn tussenliggende fysieke besturingselement oppervlakken op apparaten, zoals een switch waarmee een gebruiker het apparaat uitschakelen of andere eigenschappen wijzigen, en waarvoor er geen functioneel equivalent die digitaal kan worden geopend is.
 
-Tussenliggende fysieke besturingselement oppervlakken zijn wanneer de functie van de fysieke beheren van surface van bestuur logische beperkt dat een gelijkwaardige-functie op afstand kan worden gestart of invoer veroorzaakt een conflict met externe invoer kunnen worden vermeden – zoals intermediated besturingselement oppervlakken zijn conceptueel gezien op een lokale besturingssysteem die gebruikmaakt van dezelfde onderliggende functionaliteit als elk ander systeem beheer op afstand die het apparaat mogelijk gelijktijdig worden gekoppeld aan gekoppeld. Belangrijkste bedreigingen voor de cloud computing kan worden gelezen op [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) pagina.
+Tussenliggende fysieke besturingselement oppervlakken zijn wanneer de functie van de fysieke beheren van surface van bestuur logische beperkt dat een gelijkwaardige-functie op afstand kan worden gestart of invoer veroorzaakt een conflict met externe invoer kunnen worden vermeden – zoals intermediated besturingselement oppervlakken zijn conceptueel gezien op een lokale besturingssysteem die gebruikmaakt van dezelfde onderliggende functionaliteit als elk ander systeem beheer op afstand die het apparaat mogelijk gelijktijdig worden gekoppeld aan gekoppeld. Belangrijkste bedreigingen voor de cloud computing kan worden gelezen op [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/) pagina.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

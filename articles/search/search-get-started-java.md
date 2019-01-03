@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316960"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629898"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Aan de slag met Azure Search in Java
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ De volgende software is gebruik om deze sample te maken en te testen:
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Over de gegevens
-In deze voorbeeldtoepassing wordt gebruikgemaakt van gegevens van [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), gefilterd op de staat Rhode Island om de grootte van de gegevensset te reduceren. We gebruiken deze gegevens om een zoektoepassing te bouwen die kenmerkende gebouwen, zoals ziekenhuizen of scholen, gebouwen zoals ziekenhuizen en scholen, maar ook geologische kenmerken, zoals stromen, meren en toppen, retourneert.
+In deze voorbeeldtoepassing wordt gebruikgemaakt van gegevens van [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), gefilterd op de staat Rhode Island om de grootte van de gegevensset te reduceren. We gebruiken deze gegevens om een zoektoepassing te bouwen die kenmerkende gebouwen, zoals ziekenhuizen of scholen, gebouwen zoals ziekenhuizen en scholen, maar ook geologische kenmerken, zoals stromen, meren en toppen, retourneert.
 
 In deze toepassing zorgt het programma **SearchServlet.java** er met een [indexeerfunctie](https://msdn.microsoft.com/library/azure/dn798918.aspx) voor dat de index wordt gebouwd en geladen en dat de gefilterde USGS-gegevensset uit een openbare Azure SQL-database wordt opgehaald. De programmacode bevat de vooraf gedefinieerde referenties en gegevens voor verbinding met de onlinegegevensbron. Voor de toegang tot de gegevens hoeft u verder niets te configureren.
 
@@ -87,7 +87,7 @@ Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor d
 ## <a name="configure-the-service-url-and-api-key"></a>Configureer de service-URL en API-sleutel
 1. Dubbelklik in **Projectverkenner** op **config.properties** om de configuratie-instellingen met de servernaam en API-sleutel te bewerken.
 2. Raadpleeg de eerdere stappen in dit artikel, waarin u de service-URL en API-sleutel in de [Azure-portal](https://portal.azure.com) hebt gevonden, om de waarden te verkrijgen die u nu moet opgeven in **config.properties**.
-3. In **config.properties** vervangt u 'Api Key' door de API-sleutel voor uw service. Vervolgens worden de naam van service (het eerste onderdeel van de URL http://servicename.search.windows.net) vervangt de "service de naam" in hetzelfde bestand.
+3. In **config.properties** vervangt u 'Api Key' door de API-sleutel voor uw service. Vervolgens worden de naam van service (het eerste onderdeel van de URL https://servicename.search.windows.net) vervangt de "service de naam" in hetzelfde bestand.
    
     ![][5]
 
@@ -105,7 +105,7 @@ Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor d
 7. Klik op **Voltooien**.
 8. Selecteer **Window** (Venster) > **Preferences** (Voorkeuren) > **Java** > **Installed JREs**(Geïnstalleerde JRE's) > **Add** (Toevoegen).
 9. Selecteer in het venster **Add JRE** (JRE toevoegen) de optie **Standard VM** (Standaard-VM).
-10. Klik op **Volgende**.
+10. Klik op **volgende**.
 11. Klik in JRE Definition (JRE-definitie), in JRE home (JRE-startpagina), op **Directory**.
 12. Navigeer naar **Program Files** > **Java** en selecteer de JDK die u eerder hebt geïnstalleerd. Het is belangrijk dat JDK als de JRE wordt geselecteerd.
 13. Kies bij Installed JREs (Geïnstalleerd JRE's) de optie **JDK**. Uw instellingen zijn vergelijkbaar met de volgende schermopname.

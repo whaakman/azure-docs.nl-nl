@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273932"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600859"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
-Deze pagina bevat informatie over Azure SQL Database en prestatieproblemen Managed Instance gedetecteerd via de [Intelligent Insights](sql-database-intelligent-insights.md) database prestaties-diagnoselogboek. De telemetrie diagnostisch logboek kan worden gestreamd naar [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), of een oplossing van derden voor aangepaste waarschuwingen van DevOps en rapportagemogelijkheden.
+Deze pagina bevat informatie over Azure SQL Database en prestatieproblemen Managed Instance gedetecteerd via de [Intelligent Insights](sql-database-intelligent-insights.md) database prestaties-diagnoselogboek. De telemetrie diagnostisch logboek kan worden gestreamd naar [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), of een oplossing van derden voor aangepaste waarschuwingen van DevOps en rapportagemogelijkheden.
 
 > [!NOTE]
 > Zie voor een snelle prestaties van SQL Database problemen oplossen met behulp van intelligente inzichten met, de [aanbevolen oplossingen stroom](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) stroomdiagram in dit document.
@@ -332,4 +332,4 @@ Intelligent Insights moet meestal één uur van de tijd om uit te voeren van de 
 - Informatie over [Intelligent Insights](sql-database-intelligent-insights.md) concepten.
 - Gebruik de [diagnoselogboek voor Intelligent Insights Azure SQL Database performance](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Monitor [Azure SQL Database met behulp van Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Meer informatie over het [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+- Meer informatie over het [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../azure-monitor/platform/diagnostic-logs-overview.md).

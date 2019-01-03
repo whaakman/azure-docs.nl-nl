@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 9af4f5223dfe269ace459c8a7de07fe6dd0c2427
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238508"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973958"
 ---
 # <a name="part-of-speech-tagging"></a>Part-of-Speech Tagging
 
 > [!IMPORTANT]
-> De Preview-versie voor de linguïstische analyse uit gebruik is genomen op 9 augustus 2018. Wordt u aangeraden [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) voor tekst-verwerking en analyse.
+> De preview van Linguistic Analysis is op 9 augustus 2018 uit gebruik genomen. We raden u aan [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) te gebruiken voor tekstverwerking en -analyse.
 
 ## <a name="background-and-motivation"></a>Achtergrond en motivatie
 
@@ -30,7 +30,7 @@ Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mense
 
 ## <a name="list-of-part-of-speech-tags"></a>Lijst met Part-of-Speech Tags
 
-| Label | Beschrijving | Voorbeeld van de woorden |
+| Label | Description | Voorbeeld van de woorden |
 |-----|-------------|---------------|
 | $ | dollar | $ |
 | \`\` | aanhalingsteken openen | \` \`\` |
@@ -80,4 +80,4 @@ Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mense
 
 ## <a name="specification"></a>Specificatie
 
-Als voor tokeniseren, we zijn afhankelijk van de specificatie van de [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Als voor tokeniseren, we zijn afhankelijk van de specificatie van de [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

@@ -13,12 +13,12 @@ ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6a7f62d4018e5a8bd39cbf2bb2b1418137d93638
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 16795ce1fd53b9634dbc2ff7513d1c39752b8848
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720147"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974587"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analyse van gebruikers, sessies en gebeurtenissen in Application Insights
 
@@ -34,20 +34,20 @@ Als er geen gegevens in de gebruikers, sessies of gebeurtenissen blades in de Ap
 
 Drie van de blades gebruik hetzelfde hulpprogramma gebruiken om te opdelen telemetrie van uw web-app uit drie perspectieven. Door te filteren en de gegevens worden gesplitst, kunt u inzichten over het relatieve gebruik van verschillende pagina's en onderdelen.
 
-* **Hulpprogramma gebruikers**: hoeveel mensen uw app en de bijbehorende functies gebruikt.  Gebruikers worden met behulp van anonieme id's die zijn opgeslagen in de browsercookies geteld. Gebruik van verschillende browsers of machines één persoon wordt geteld als meer dan één gebruiker.
-* **Programma sessies**: het aantal sessies van gebruikersactiviteit worden geleverd in bepaalde pagina's en functies van uw app. Een sessie wordt geteld na een halfuur van inactiviteit van de gebruiker, of na 24 uur continu gebruik.
-* **Gebeurtenissen hulpprogramma**: hoe vaak bepaalde pagina's en functies van uw app worden gebruikt. De weergave van een pagina wordt geteld als een pagina in een browser wordt geladen in uw app, mits u [geïnstrumenteerd deze](app-insights-javascript.md). 
+* **Hulpprogramma gebruikers**: Hoeveel mensen uw app en de functies gebruikt.  Gebruikers worden met behulp van anonieme id's die zijn opgeslagen in de browsercookies geteld. Gebruik van verschillende browsers of machines één persoon wordt geteld als meer dan één gebruiker.
+* **Programma sessies**: Het aantal sessies van gebruikersactiviteit hebt opgenomen bepaalde pagina's en functies van uw app. Een sessie wordt geteld na een halfuur van inactiviteit van de gebruiker, of na 24 uur continu gebruik.
+* **Gebeurtenissen hulpprogramma**: Hoe vaak bepaalde pagina's en functies van uw app worden gebruikt. De weergave van een pagina wordt geteld als een pagina in een browser wordt geladen in uw app, mits u [geïnstrumenteerd deze](../azure-monitor/app/javascript.md). 
 
-    Een aangepaste gebeurtenis vertegenwoordigt één exemplaar van dat er iets gebeurt in uw app, vaak een tussenkomst van de gebruiker, zoals een knop klikt u op of de voltooiing van een taak. U code invoegen in uw app [aangepaste gebeurtenissen genereren](app-insights-api-custom-events-metrics.md#trackevent).
+    Een aangepaste gebeurtenis vertegenwoordigt één exemplaar van dat er iets gebeurt in uw app, vaak een tussenkomst van de gebruiker, zoals een knop klikt u op of de voltooiing van een taak. U code invoegen in uw app [aangepaste gebeurtenissen genereren](../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Query's uitvoeren voor bepaalde gebruikers
 
 Verken de verschillende groepen gebruikers door de opties voor query's aan de bovenkant van het hulpprogramma gebruikers aan te passen:
 
 * Weergeven: Kies een cohort van gebruikers om te analyseren.
-* Die gebruik hebben gemaakt: Kies aangepaste gebeurtenissen en paginaweergaven.
-* Tijdens: Kies een tijdsbereik.
-* Door: Kies hoe u aan de bucket van de gegevens door een bepaalde periode of door een ander domein zoals browser of een plaats.
+* Die gebruik hebben gemaakt: Aangepaste gebeurtenissen en paginaweergaven kiezen.
+* Tijdens de: Kies een tijdsbereik.
+* Door: Kiezen hoe u aan de bucket van de gegevens door een bepaalde periode of door een ander domein zoals browser of een plaats.
 * Splitsen op basis van: Kies een eigenschap waarmee te splitsen of een segment de gegevens. 
 * Filters toevoegen: De query beperken tot bepaalde gebruikers, sessies of gebeurtenissen op basis van hun eigenschappen, zoals de browser of een plaats. 
  

@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 056c44de4f89b04149c275b1508c7ea8f397d6e6
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405594"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810776"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gastbesturingssystemen die worden ondersteund in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 ## <a name="windows"></a>Windows
 
 Azure Stack biedt ondersteuning voor de Windows-gastbesturingssystemen die worden vermeld in de volgende tabel:
 
-| Besturingssysteem | Beschrijving | Beschikbaar in de Marketplace |
+| Besturingssysteem | Description | Beschikbaar in de Marketplace |
 | --- | --- | --- | --- | --- | --- |
 | Windows Server, versie 1709 | 64-bits | Core met Containers |
 | Windows Server 2016 | 64-bits |  Datacenter, Datacenter-Core, Datacenter met Containers |
@@ -56,7 +56,7 @@ Linux-distributies die worden vermeld als beschikbaar in de Marketplace bevatten
 >
 > [cloud-init](https://cloud-init.io/) wordt niet ondersteund in Azure Stack op dit moment.
 
-| Distributie | Beschrijving | Uitgever | Marketplace |
+| Distributie | Description | Uitgever | Marketplace |
 | --- | --- | --- | --- | --- | --- |
 | Op basis van centOS 6,9 | 64-bits | Rogue Wave | Ja |
 | Op basis van centOS 7.4 | 64-bits | Rogue Wave | Ja |
@@ -71,11 +71,11 @@ Linux-distributies die worden vermeld als beschikbaar in de Marketplace bevatten
 | Ubuntu 16.04-LTS | 64-bits | Canonical | Ja |
 | Ubuntu 18.04-LTS | 64-bits | Canonical | Ja |
 
-Raadpleeg voor informatie over Red Hat Enterprise Linux, [Red Hat en Azure Stack: veelgestelde vragen over](https://access.redhat.com/articles/3413531).
+Zie voor informatie over Red Hat Enterprise Linux, [Red Hat en Azure Stack: Veelgestelde vragen over](https://access.redhat.com/articles/3413531).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over Azure Stack Marketplace, de volgende artikelen:
 
-[Marketplace-items downloaden](azure-stack-download-azure-marketplace-item.md)  
-[Een Marketplace-item maken en publiceren](azure-stack-create-and-publish-marketplace-item.md)
+- [Marketplace-items downloaden](azure-stack-download-azure-marketplace-item.md)  
+- [Een Marketplace-item maken en publiceren](azure-stack-create-and-publish-marketplace-item.md)

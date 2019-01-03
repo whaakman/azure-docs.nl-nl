@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: patricka
 ms.openlocfilehash: fcd71f74e0b00934958828024094773e42496b66
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51017267"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53797943"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -17,7 +17,7 @@ Gebruik de instellingen die zijn opgegeven in de tabel, om de web-API te registr
 
 ![Voorbeeld van registratie-instellingen voor een nieuwe web-API](./media/active-directory-b2c-register-web-api/b2c-new-web-api-settings.png)
 
-| Instelling      | Voorbeeldwaarde  | Beschrijving                                        |
+| Instelling      | Voorbeeldwaarde  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Naam** | Contoso B2C-API | Voer een **Naam** in voor de toepassing waarmee de API wordt beschreven voor consumenten. | 
 | **Web-app / web-API opnemen** | Ja | Selecteer **Ja** voor een web-API. |

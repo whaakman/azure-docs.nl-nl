@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625263"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652146"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -31,7 +31,9 @@ Er zijn twee plaatsen waar u de gemelde risico bekijken:
  - **Azure AD-rapportage** -risicogebeurtenissen zijn onderdeel van Azure AD-beveiligingsgroep rapporten. Zie voor meer informatie de [gebruikers lopen risico beveiligingsrapport](concept-user-at-risk.md) en de [riskante aanmeldingen beveiligingsrapport](concept-risky-sign-ins.md).
 
  - **Azure AD Identity Protection** -risicogebeurtenissen zijn ook deel uit van de rapportagemogelijkheden van [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-    
+
+Bovendien kunt u de [risicogebeurtenissen Identity Protection API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) programmatische toegang tot beveiligingsdetecties met behulp van Microsoft Graph. Zie voor meer informatie, [aan de slag met Azure Active Directory Identity Protection en Microsoft Graph](../identity-protection/graph-get-started.md). 
+
 Azure Active Directory detecteert momenteel zes typen risicogebeurtenissen:
 
 - [Gebruikers met de referenties zijn gelekt](#leaked-credentials) 
@@ -125,11 +127,11 @@ De ernst van de risicogebeurtenis vertegenwoordigt de kracht van het signaal ide
 
 Bijvoorbeeld: 
 
-* **Hoge**: hoge betrouwbaarheid en de risicogebeurtenis hoge urgentie. Deze gebeurtenissen zijn sterk indicatoren die de identiteit van de gebruiker is aangetast, en eventuele betrokken gebruikersaccounts onmiddellijk moeten worden hersteld.
+* **Hoge**: Hoge betrouwbaarheid en de risicogebeurtenis hoge urgentie. Deze gebeurtenissen zijn sterk indicatoren die de identiteit van de gebruiker is aangetast, en eventuele betrokken gebruikersaccounts onmiddellijk moeten worden hersteld.
 
-* **Gemiddeld**: hoge urgentie, maar lagere vertrouwen risicogebeurtenis, of vice versa. Deze gebeurtenissen zijn potentieel risicovolle en eventuele betrokken gebruikersaccounts moeten worden hersteld.
+* **Gemiddeld**: Urgentie hoog, maar lagere vertrouwen risicogebeurtenis, of vice versa. Deze gebeurtenissen zijn potentieel risicovolle en eventuele betrokken gebruikersaccounts moeten worden hersteld.
 
-* **Lage**: lage vertrouwen en de risicogebeurtenis met lage urgentie. Deze gebeurtenis mogelijk een directe actie is vereist, maar in combinatie met andere risicogebeurtenissen kan bieden een sterke indicatie dat de identiteit is geknoeid.
+* **Lage**: Lage vertrouwen en de risicogebeurtenis met lage urgentie. Deze gebeurtenis mogelijk een directe actie is vereist, maar in combinatie met andere risicogebeurtenissen kan bieden een sterke indicatie dat de identiteit is geknoeid.
 
 ![Risiconiveau](./media/concept-risk-events/01.png)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261820"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715602"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Aanbevolen procedures voor Azure App Service
 In dit artikel bevat een overzicht van aanbevolen procedures voor het gebruik van [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -39,7 +39,7 @@ U ziet u wanneer u een app verbruikt meer geheugen dan verwacht als aangegeven m
 ## <a name="CPUresources"></a>Wanneer apps gebruiken meer CPU nodig is dan verwacht
 Wanneer u ziet dat een app verbruikt meer CPU nodig is dan verwacht of ervaringen herhaalde CPU pieken zoals wordt aangegeven via aanbevelingen voor bewaking of service, kunt u omhoog of uitschalen van het App Service-plan. Als uw toepassing stateful is, is omhoog schalen de enige optie, terwijl als uw toepassing is staatloze, vergroten/verkleinen out meer flexibiliteit en mogelijkheden voor hogere schaal biedt. 
 
-Bekijk deze video voor meer informatie over 'stateful' vs 'stateless' toepassingen: [Planning van een schaalbare End-to-End-toepassing met meerdere lagen op Microsoft Azure-Web-App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Zie voor meer informatie over opties voor het schalen en automatisch schalen van App Service, [een Web-App schalen in Azure App Service](web-sites-scale.md).  
+Bekijk deze video voor meer informatie over 'stateful' vs 'stateless' toepassingen: [Een schaalbare toepassing met meerdere lagen End-to-End van Azure App Service plan](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Zie voor meer informatie over opties voor het schalen en automatisch schalen van App Service, [een Web-App schalen in Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Wanneer de socket resources zijn uitgeput
 Een veelvoorkomende reden voor uitput uitgaande TCP-verbindingen is het gebruik van clientbibliotheken, die niet worden geïmplementeerd om TCP-verbindingen opnieuw te gebruiken, of wanneer een hoger niveau protocol zoals HTTP - keepalive niet wordt gebruikt. Raadpleeg de documentatie voor elk van de bibliotheken waarnaar wordt verwezen door de apps in uw App Service-Plan om te controleren of ze zijn geconfigureerd of geopend in de programmacode voor efficiënte hergebruik van uitgaande verbindingen. Volg ook de bibliotheekhulp-documentatie voor het maken van goede en release of opschoning om te voorkomen dat verbindingen lekken. Hoewel deze bibliotheken client verificaties uitgevoerd worden, kan invloed worden verholpen door uitschalen naar meerdere exemplaren.
@@ -68,7 +68,7 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ## <a name="appbackup"></a>Wanneer uw app back-up starten mislukt
 De twee meest voorkomende redenen waarom app back-up mislukt zijn: ongeldige Opslaginstellingen en ongeldige database-configuratie. Deze fouten gebeurt meestal wanneer er wijzigingen in de opslag- of database-resources of wijzigingen in hoe u toegang tot deze resources (bijvoorbeeld referenties bijgewerkt in verband met de database die is geselecteerd in de back-upinstellingen). Back-ups wordt doorgaans uitgevoerd volgens een schema en toegang tot opslag (voor het uitvoeren van de back-up-bestanden) en databases (voor het kopiëren en lezen van de inhoud moet worden opgenomen in de back-up) nodig hebben. Het resultaat van krijgt geen toegang tot een van deze resources zijn consistent back-upfouten. 
 
-Wanneer er back-ups fouten optreden, bekijk meest recente resultaten voor meer informatie over welk type fout plaatsvindt. Voor opslag toegangsfouten, controleren en bijwerken van de storage-instellingen die in de back-upconfiguratie. Bekijk voor database toegangsfouten, en werk de referentietekenreeksen van uw verbindingen als onderdeel van appinstellingen. vervolgens gaat u verder met het bijwerken van uw back-upconfiguratie voor correct zijn onder meer de vereiste databases. Zie voor meer informatie over back-ups [maakt u een Back-up van een web-app in Azure App Service](web-sites-backup.md).
+Wanneer er back-ups fouten optreden, bekijk meest recente resultaten voor meer informatie over welk type fout plaatsvindt. Voor opslag toegangsfouten, controleren en bijwerken van de storage-instellingen die in de back-upconfiguratie. Bekijk voor database toegangsfouten, en werk de referentietekenreeksen van uw verbindingen als onderdeel van appinstellingen. vervolgens gaat u verder met het bijwerken van uw back-upconfiguratie voor correct zijn onder meer de vereiste databases. Zie voor meer informatie over back-ups [maakt u een Back-up van een web-app in Azure App Service](manage-backup.md).
 
 ## <a name="nodejs"></a>Wanneer nieuwe Node.js-apps zijn geïmplementeerd in Azure App Service
 Azure App Service-standaardconfiguratie voor Node.js-apps is bedoeld om het beste de behoeften van de meest voorkomende apps. Als de configuratie voor uw Node.js-app voordeel hebben veel van persoonlijke afstemmen om de prestaties verbeteren of Resourcegebruik voor de CPU/geheugen/netwerkbronnen te optimaliseren, raadpleegt [aanbevolen procedures en gids voor probleemoplossing voor knooppunttoepassingen in Azure-App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). In dit artikel beschrijft de iisnode-instellingen u mogelijk wilt configureren voor uw Node.js-app, worden de verschillende scenario's beschreven of problemen met uw app kan worden aangesloten, en laat zien hoe u deze problemen op te lossen.

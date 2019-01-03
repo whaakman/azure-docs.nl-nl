@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409519"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743853"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>SSH-Tunneling gebruiken voor toegang tot de Apache Ambari-Webgebruikersinterface, JobHistory, NameNode, Apache Oozie en andere webgebruikersinterfaces
 
@@ -47,7 +47,7 @@ Als u uw cluster aanpassen met scriptacties, moeten de services en hulpprogramma
 
 * Een webbrowser die kan worden geconfigureerd voor het gebruik van een proxy SOCKS5.
 
-    > [!WARNING]
+    > [!WARNING]  
     > De ondersteuning van de SOCKS-proxy die is ingebouwd in de instellingen voor Windows Internet biedt geen ondersteuning voor SOCKS5 en werkt niet met de stappen in dit document. De volgende browsers zijn afhankelijk van de proxy-instellingen voor Windows en momenteel niet werkt met de stappen in dit document:
     >
     > * Microsoft Edge
@@ -78,7 +78,7 @@ Als de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 o
 
 ## <a name="useputty"></a>Maken van een tunnel met PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) is een grafische SSH-client voor Windows. Als u niet bekend met PuTTY bent, raadpleegt u de [PuTTY-documentatie](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Gebruik de volgende stappen uit om te maken van een SSH-tunnel gebruiken van PuTTY:
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) is een grafische SSH-client voor Windows. Als u niet bekend met PuTTY bent, raadpleegt u de [PuTTY-documentatie](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Gebruik de volgende stappen uit om te maken van een SSH-tunnel gebruiken van PuTTY:
 
 ### <a name="create-or-load-a-session"></a>Maken of een sessie laden
 
@@ -120,7 +120,7 @@ Als de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 o
    > [!NOTE]  
    > Selecteren **externe DNS** wordt omgezet Domain Name System (DNS)-aanvragen met behulp van het HDInsight-cluster. Deze instelling wordt omgezet DNS met behulp van het hoofdknooppunt van het cluster.
 
-2. Controleer of de tunnel werkt via een site, zoals [ http://www.whatismyip.com/ ](http://www.whatismyip.com/). Het geretourneerde IP-adres moet worden gebruikt door de Microsoft Azure-datacenter.
+2. Controleer of de tunnel werkt via een site, zoals [ https://www.whatismyip.com/ ](https://www.whatismyip.com/). Het geretourneerde IP-adres moet worden gebruikt door de Microsoft Azure-datacenter.
 
 ## <a name="verify-with-ambari-web-ui"></a>Controleren met Ambari-Webinterface
 

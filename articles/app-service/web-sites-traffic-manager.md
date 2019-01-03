@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 85405a96d141188203ddc88410c96654667fa83a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 11e5a654f2bfcb497eec3a4dfea81f3684f5b551
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270107"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599805"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure App Service-verkeer met Azure Traffic Manager beheren
 > [!NOTE]
@@ -52,7 +52,7 @@ Als u Azure Traffic Manager voor Azure, houd rekening met de volgende punten:
 * U kunt slechts één App Service-eindpunt per regio opgeven in een profiel. Wanneer u een app als een eindpunt voor één regio selecteert, worden de resterende apps in deze regio niet beschikbaar voor selectie voor dit profiel.
 * De App Service-eindpunten die u opgeeft in een Azure Traffic Manager-profiel wordt weergegeven onder de **domeinnamen** sectie op de pagina configureren voor de app in het profiel, maar kan niet worden geconfigureerd er.
 * Nadat u een app aan een profiel toevoegen, de **Site-URL** op het Dashboard van de portal op de pagina van de app wordt het aangepaste domein-URL van de app weergegeven als u een hebt ingesteld. Anders wordt de Traffic Manager-profiel-URL (bijvoorbeeld `contoso.trafficmanager.net`). Zowel de directe domeinnaam van de app en de Traffic Manager-URL worden weergegeven op de configuratiepagina van de app onder de **domeinnamen** sectie.
-* Uw aangepaste domeinnamen werken zoals verwacht, maar naast deze toe te voegen aan uw apps, moet u uw DNS-kaart om te verwijzen naar de Traffic Manager-URL ook configureren. Zie voor meer informatie over het instellen van een aangepast domein voor een App Service-app [een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](app-service-web-tutorial-custom-domain.md).
+* Uw aangepaste domeinnamen werken zoals verwacht, maar naast deze toe te voegen aan uw apps, moet u uw DNS-kaart om te verwijzen naar de Traffic Manager-URL ook configureren. Zie voor meer informatie over het instellen van een aangepast domein voor een App Service-app [een bestaande aangepaste DNS-naam toewijzen in Azure App Service](app-service-web-tutorial-custom-domain.md).
 * U kunt alleen apps die in de standard- of premium-modus voor een Azure Traffic Manager-profiel zijn toevoegen.
 
 ## <a name="next-steps"></a>Volgende stappen

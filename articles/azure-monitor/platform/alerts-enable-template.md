@@ -7,20 +7,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
-ms.component: metric
-ms.openlocfilehash: 4fcde6773bcdfe7ac522c813151518785dc14e25
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: metrics
+ms.openlocfilehash: a5e38f1400b99c6030799121d37721c26e16649c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383558"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721135"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Een klassieke waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
 Dit artikel wordt beschreven hoe u kunt een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) Azure metrische waarschuwingen te configureren. Hiermee kunt u waarschuwingen op uw bronnen automatisch instellen wanneer dit wordt gemaakt om ervoor te zorgen dat alle resources correct worden bewaakt.
 
 > [!NOTE]
 > 
-> In dit artikel beschrijft het maken van **klassieke metrische waarschuwingen** met behulp van Resource Manager-sjablonen. Als u op zoek bent voor het maken van [nieuwere metrische waarschuwingen](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) met behulp van sjablonen, [in dit artikel](alerts-metric-create-templates.md) bevat de details.
+> In dit artikel beschrijft het maken van **klassieke metrische waarschuwingen** met behulp van Resource Manager-sjablonen. Als u op zoek bent voor het maken van [nieuwere metrische waarschuwingen](../../azure-monitor/platform/alerts-metric-near-real-time.md) met behulp van sjablonen, [in dit artikel](alerts-metric-create-templates.md) bevat de details.
 >
 
 

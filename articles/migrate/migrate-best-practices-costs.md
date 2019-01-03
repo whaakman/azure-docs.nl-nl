@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d1acabd07e7c01445c55a57be9b0c9a36140aa5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163766"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995040"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Aanbevolen procedures voor workloads met kosten en sizing gemigreerd naar Azure
 
@@ -117,7 +117,7 @@ Azure biedt verschillende soorten opslagaccounts en prestatielagen.
 
 **Accounttype** | **Details** | **Gebruik**
 --- | --- | ---
-**Algemeen gebruik v2 Standard** | Biedt ondersteuning voor blobs (blokkeren, pagina, toevoegen), bestanden, schijven, wachtrijen en tabellen.<br/><br/> Biedt ondersteuning voor laag Hot, Cool en Archive. ZRS wordt ondersteund. | Gebruik voor de meeste scenario's en de meeste typen gegevens. Standard storage-accounts zijn HHD of op basis van SSD.
+**Algemeen gebruik v2 Standard** | Biedt ondersteuning voor blobs (blokkeren, pagina, toevoegen), bestanden, schijven, wachtrijen en tabellen.<br/><br/> Biedt ondersteuning voor laag Hot, Cool en Archive. ZRS wordt ondersteund. | Gebruik voor de meeste scenario's en de meeste typen gegevens. Standard storage-accounts kunnen worden harde schijf of op basis van SSD.
 **Algemeen gebruik v2 Premium** | Biedt ondersteuning voor Blob storage-gegevens (pagina-blobs). Biedt ondersteuning voor laag Hot, Cool en Archive. ZRS wordt ondersteund.<br/><br/> Opgeslagen op SSD. | Microsoft adviseert om voor alle virtuele machines.
 **Algemeen gebruik v1** | Toegang tot meerdere lagen wordt niet ondersteund. Biedt geen ondersteuning voor ZRS | Gebruik deze optie als apps nodig hebben, het model van de klassieke Azure-implementatie.
 **Blob** | Gespecialiseerde storage-account voor het opslaan van ongestructureerde objecten. Biedt blok-blobs en toevoeg-blobs alleen (Er is geen bestand, wachtrij, tabel of schijf storage-services). Biedt de dezelfde duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties als algemeen gebruik v2. | u pagina-blobs niet opslaan in deze accounts en daarom kan VHD-bestanden niet opslaan. U kunt een toegangslaag Hot of Cool instellen.
@@ -248,7 +248,7 @@ U betaalt voor wat u gebruikt, wanneer resources worden verbruikt, en u niet bet
 **Meer informatie:**
 - Bekijk een overzicht van [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) en [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview).
 - [Ophalen](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations) Advisor aanbevelingen kosten.
-- [Meer informatie over het [kosten van aanbevelingen optimaliseren](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), en [onverwachte kosten te voorkomen dat](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+- [Meer informatie over het [kosten van aanbevelingen optimaliseren](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), en [onverwachte kosten te voorkomen dat](https://docs.microsoft.com/azure/billing/billing-getting-started).
 - [Meer informatie over](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/) de Toolkit Azure-Resource-optimalisatie (ARO)
 
 ## <a name="best-practice-implement-resource-group-budgets"></a>Aanbevolen: Resource group budgetten implementeren

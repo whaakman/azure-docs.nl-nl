@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8951680ca9488dabffd02ee084e3f6827122276e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a51efa18672b81ef3e23e292abbe2b34c1936205
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957449"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994739"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Connectiviteit en betrouwbare uitwisseling van berichten met behulp van Azure IoT Hub apparaat-SDK's beheren
 
@@ -62,15 +62,15 @@ De volgende stappen beschrijven het proces opnieuw wanneer er fouten worden gede
 1. De SDK detecteert de fout en de bijbehorende fout in het netwerk, het protocol of de toepassing.
 1. De SDK gebruikt de fout-filter om te bepalen welk fouttype en bepalen of een nieuwe poging nodig is.
 1. Als de SDK identificeert een **onherstelbare fout**, bewerkingen, zoals verbinding, verzenden en ontvangen zijn gestopt. De SDK meldt de gebruiker. Voorbeelden van onherstelbare fouten zijn een verificatiefout en een ongeldig eindpunt-fout.
-1. Als de SDK identificeert een **onherstelbare fout**, het opnieuw probeert op basis van uw beleid voor de opgegeven opnieuw proberen totdat de opgegeven time-out is verstreken.
+1. Als de SDK identificeert een **onherstelbare fout**, het opnieuw probeert op basis van het opgegeven beleid totdat de opgegeven time-out is verstreken.  Houd er rekening mee dat de SDK gebruikt **exponentiële uitstelbewerking met jitter** beleid voor opnieuw proberen standaard.
 1. Wanneer de opgegeven time-out is verlopen, stopt de SDK probeert verbinding te maken of verzenden. Deze waarschuwt de gebruiker.
 1. De SDK kan de gebruiker te koppelen van een callback voor het ontvangen van de status verandert.
 
 De SDK's bieden dat drie beleidsregels voor opnieuw proberen:
 
-- **Exponentieel uitstel met jitter**: dit standaardbeleid voor opnieuw proberen is doorgaans agressief aan het begin en vertragen na verloop van tijd totdat een maximale vertraging is bereikt. Het ontwerp is gebaseerd op [richtlijnen van Azure Architecture Center voor opnieuw proberen](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
-- **Aangepaste nieuwe poging**: voor sommige talen SDK kunt u een beleid voor aangepaste opnieuw proberen dat beter geschikt is voor uw scenario en deze vervolgens invoeren in het RetryPolicy kunt ontwerpen. Aangepaste nieuwe poging is niet beschikbaar in de C-SDK.
-- **Er geen nieuwe**: U kunt instellen dat beleid voor opnieuw proberen te 'geen nieuwe poging doen,"waardoor de logica voor opnieuw proberen is uitgeschakeld. De SDK probeert verbinding maken met één keer en verzend een bericht eenmaal, ervan uitgaande dat de verbinding tot stand is gebracht. Dit beleid wordt doorgaans gebruikt in scenario's met de bandbreedte of kosten betreft. Als u deze optie kiest, worden de berichten die niet voldoen aan voor het verzenden van gaan verloren en kunnen niet worden hersteld.
+- **Exponentieel uitstel met jitter**: Dit standaardbeleid voor opnieuw proberen is doorgaans agressief aan het begin en vertragen na verloop van tijd totdat een maximale vertraging is bereikt. Het ontwerp is gebaseerd op [richtlijnen van Azure Architecture Center voor opnieuw proberen](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
+- **Aangepaste nieuwe poging**: U kunt een beleid voor aangepaste opnieuw proberen dat beter geschikt is voor uw scenario en deze vervolgens invoeren in het RetryPolicy ontwerpen voor sommige talen SDK. Aangepaste nieuwe poging is niet beschikbaar in de C-SDK.
+- **Er geen nieuwe**: Beleid voor opnieuw proberen te 'geen nieuwe poging doen,"waardoor de logica voor opnieuw proberen is uitgeschakeld, kunt u instellen. De SDK probeert verbinding maken met één keer en verzend een bericht eenmaal, ervan uitgaande dat de verbinding tot stand is gebracht. Dit beleid wordt doorgaans gebruikt in scenario's met de bandbreedte of kosten betreft. Als u deze optie kiest, worden de berichten die niet voldoen aan voor het verzenden van gaan verloren en kunnen niet worden hersteld.
 
 ### <a name="retry-policy-apis"></a>API's voor beleid voor opnieuw proberen
 

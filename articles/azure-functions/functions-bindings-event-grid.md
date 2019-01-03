@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: e5c5c7f667959426f015e207cd32d716c493e31e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995032"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810931"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Gebeurtenisraster voor Azure Functions
 
@@ -48,7 +48,7 @@ Zie het voorbeeld taalspecifieke voor een trigger van Event Grid:
 
 * [C#](#c-example)
 * [C# script (.csx)](#c-script-example)
-* [Java](#trigger---java-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
 
@@ -221,9 +221,14 @@ def main(event: func.EventGridEvent):
     logging.info("  Data: %s", event.get_json())
 ```
 
-### <a name="trigger---java-example"></a>Trigger - Java-voorbeeld
+### <a name="trigger---java-examples"></a>Trigger - Java-voorbeelden
 
-Het volgende voorbeeld ziet u de binding van een trigger in een *function.json* bestand en een [Java functie](functions-reference-java.md) die gebruikmaakt van de binding en afgedrukt een gebeurtenis.
+Deze sectie bevat de volgende voorbeelden:
+
+* [Trigger Gebeurtenisraster, queryreeks-parameter](#event-grid-trigger-string-parameter-java)
+* [Trigger Gebeurtenisraster, POJO parameter](#event-grid-trigger-pojo-parameter-java)
+
+De volgende voorbeelden ziet u de binding van de trigger in een *function.json* bestand en [Java-functies](functions-reference-java.md) die de binding kunt gebruiken en afdrukken van een gebeurtenis, ontvangt eerst de gebeurtenis als ```String``` en het tweede als een POJO.
 
 ```json
 {
@@ -237,16 +242,60 @@ Het volgende voorbeeld ziet u de binding van een trigger in een *function.json* 
 }
 ```
 
-Dit is de Java-code:
+#### <a name="event-grid-trigger-string-parameter-java"></a>Trigger Gebeurtenisraster, queryreeks-parameter (Java)
 
 ```java
-@FunctionName("eventGridMonitor")
+  @FunctionName("eventGridMonitorString")
   public void logEvent(
-     @EventGridTrigger(name = "event") String content,
-      final ExecutionContext context
-  ) {
-      context.getLogger().info(content);
-    }
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    String content, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: " + content);      
+  }
+```
+
+#### <a name="event-grid-trigger-pojo-parameter-java"></a>Trigger Gebeurtenisraster, POJO parameter (Java)
+
+In dit voorbeeld wordt de volgende POJO, dat de eigenschappen op het hoogste niveau van een Event Grid-gebeurtenis:
+
+```java
+import java.util.Date;
+import java.util.Map;
+
+public class EventSchema {
+
+  public String topic;
+  public String subject;
+  public String eventType;
+  public Date eventTime;
+  public String id;
+  public String dataVersion;
+  public String metadataVersion;
+  public Map<String, Object> data;
+
+}
+```
+
+Bij aankomst, JSON-nettolading van de gebeurtenis is opgeheven geserialiseerd in de ```EventSchema``` POJO voor gebruik door de functie. Hiermee wordt de functie voor toegang tot de eigenschappen van de gebeurtenis in een objectgeoriënteerde manier.
+
+```java
+  @FunctionName("eventGridMonitor")
+  public void logEvent(
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    EventSchema event, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: ");
+      context.getLogger().info("Subject: " + event.subject);
+      context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime
+      context.getLogger().info("Id: " + event.id);
+      context.getLogger().info("Data: " + event.data);
+  }
 ```
 
 In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `EventGridTrigger` aantekening op waarvan de waarde afkomstig van EventGrid zijn kan parameters. Parameters met deze aantekeningen ertoe leiden dat de functie moet worden uitgevoerd wanneer een gebeurtenis wordt ontvangen.  Deze aantekening kan worden gebruikt met systeemeigen Java-typen, pojo's of null-waarden met behulp van `Optional<T>`.

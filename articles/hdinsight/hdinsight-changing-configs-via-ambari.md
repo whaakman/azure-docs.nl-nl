@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498673"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722920"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari gebruiken om de configuraties van HDInsight-clusters optimaliseren
 
-HDInsight biedt [Apache Hadoop](https://hadoop.apache.org/) clusters voor toepassingen voor grootschalige gegevensverwerking. Beheer, controle en optimaliseren van deze complexe clusters met meerdere knooppunten kunnen lastig zijn. [Apache Ambari](http://ambari.apache.org/) is een webinterface voor het beheren en controleren van HDInsight Linux-clusters.  Voor Windows-clusters, gebruikt u de [Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight biedt [Apache Hadoop](https://hadoop.apache.org/) clusters voor toepassingen voor grootschalige gegevensverwerking. Beheer, controle en optimaliseren van deze complexe clusters met meerdere knooppunten kunnen lastig zijn. [Apache Ambari](https://ambari.apache.org/) is een webinterface voor het beheren en controleren van HDInsight Linux-clusters.  Voor Windows-clusters, gebruikt u de [Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Zie voor een inleiding tot het gebruik van de Ambari-Webgebruikersinterface, [beheren HDInsight-clusters met behulp van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)
 
@@ -68,7 +68,7 @@ De volgende secties beschrijven de configuratieopties voor het optimaliseren van
 
 ### <a name="set-the-hive-execution-engine"></a>De engine voor het uitvoeren van Hive instellen
 
-Hive biedt twee uitvoering motoren: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) en [Apache TEZ](https://tez.apache.org/). Tez is veel sneller dan MapReduce. HDInsight Linux-clusters hebben Tez als de standaard-uitvoeringsengine. Wijzigen van de engine voor het uitvoeren:
+Hive biedt twee motoren van de uitvoering: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) en [Apache TEZ](https://tez.apache.org/). Tez is veel sneller dan MapReduce. HDInsight Linux-clusters hebben Tez als de standaard-uitvoeringsengine. Wijzigen van de engine voor het uitvoeren:
 
 1. In de component **Peeringconfiguraties** tabblad, typt u **-uitvoeringsengine** in het filtervak.
 
@@ -82,8 +82,8 @@ Hive biedt twee uitvoering motoren: [Apache Hadoop MapReduce](https://hadoop.apa
 
 Hadoop probeert te splitsen (*kaart*) één bestand in meerdere bestanden en de resulterende proces parallel-bestanden. Het aantal mappers is afhankelijk van het aantal splitsingen. De volgende twee configuratieparameters station het aantal splitsingen voor de Tez-uitvoeringsengine:
 
-* `tez.grouping.min-size`: Lagere limiet voor de grootte van een gegroepeerde splitsing, met een standaardwaarde van 16 MB (16,777,216 bytes).
-* `tez.grouping.max-size`: De bovenste limiet voor de grootte van een gegroepeerde splitsing, met een standaardwaarde van 1 GB (1,073,741,824 bytes).
+* `tez.grouping.min-size`: De ondergrens van de grootte van een gegroepeerde splitsing, met een standaardwaarde van 16 MB (16,777,216 bytes).
+* `tez.grouping.max-size`: De bovengrens van de grootte van een gegroepeerde splitsing, met een standaardwaarde van 1 GB (1,073,741,824 bytes).
 
 Als een vuistregel prestaties afnemen beide van deze parameters latentie verbeteren, te verhogen voor hogere doorvoer.
 
@@ -189,7 +189,7 @@ Als een regel met de compressiemethode splitsbare is belangrijk, anders heel wei
 
     ![Hive exec comprimeren tussenliggende](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Voor het comprimeren van tussenliggende bestanden, kiest u een compressiecodec met lagere CPU kosten, zelfs als de codec beschikt niet over een hoge mate van compressie-uitvoer.
 
 1. De aangepaste eigenschap toevoegen om in te stellen de tussenliggende compressiecodec, `mapred.map.output.compression.codec` naar de `hive-site.xml` of `mapred-site.xml` bestand.
@@ -210,7 +210,7 @@ Als een regel met de compressiemethode splitsbare is belangrijk, anders heel wei
 
     Hiermee wordt het tijdelijke bestand met behulp van Snappy compressie comprimeren. Zodra de eigenschap is toegevoegd, wordt deze weergegeven in het deelvenster met aangepaste hive-site.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Hiermee wijzigt u deze procedure de `$HADOOP_HOME/conf/hive-site.xml` bestand.
 
 ### <a name="compress-final-output"></a>Comprimeren van de uiteindelijke uitvoer
@@ -299,12 +299,12 @@ Extra aanbevelingen voor het optimaliseren van de engine voor het uitvoeren van 
 
     ![Geavanceerde pig-eigenschappen](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > Sessie-niveau instellingen overschrijven eigenschapswaarden in het `pig.properties` bestand.
 
 ### <a name="tune-execution-engine"></a>Engine voor het uitvoeren van stemmen
 
-Twee motoren voor uitvoering beschikbaar zijn voor Pig-scripts uit te voeren: MapReduce en Tez. Tez is een engine voor geoptimaliseerde en is veel sneller dan MapReduce.
+Twee motoren van de uitvoering zijn beschikbaar voor Pig-scripts uit te voeren: MapReduce en Tez. Tez is een engine voor geoptimaliseerde en is veel sneller dan MapReduce.
 
 1. Wijzigen van de engine voor het uitvoeren, in de **geavanceerde pig-eigenschappen** in het deelvenster Zoeken van de eigenschap `exectype`.
 
@@ -408,7 +408,7 @@ De `hbase.client.scanner.caching` instelling bepaalt het aantal rijen lezen van 
 
 ![Het aantal rijen als resultaat HBase](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Stel de waarde niet, zodat de tijd tussen de aanroep van de volgende methode op een scanner groter dan de time-out van de scanner is. De duur van de scanner time-out wordt gedefinieerd door de `hbase.regionserver.lease.period` eigenschap.
 
 

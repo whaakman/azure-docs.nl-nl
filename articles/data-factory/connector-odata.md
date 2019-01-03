@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 349d3a6eacf22a0ce3f842dd30df19964cdf7f23
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d9e6678cb931b61b89a668a35cc7ce4fa79563e3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337322"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809570"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Gegevens kopiëren van een OData-bron met behulp van Azure Data Factory
 
@@ -35,7 +35,7 @@ U kunt gegevens uit een OData-bron kopiëren naar een ondersteunde sink-gegevens
 Om precies ondersteunt deze OData-connector:
 
 - OData versie 3.0 en 4.0.
-- Kopiëren van gegevens met behulp van een van de volgende verificaties: **Anonieme**, **Basic**, **Windows**, **AAD-Service-Principal**, en **beheerde Service-identiteit**.
+- Kopiëren van gegevens met behulp van een van de volgende verificaties: **Anonieme**, **Basic**, **Windows**, **AAD-service-principal**, en **beheerde identiteiten voor een Azure-resources**.
 
 ## <a name="get-started"></a>Aan de slag
 
@@ -114,7 +114,7 @@ De volgende eigenschappen worden ondersteund voor een gekoppelde OData-service:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "Windows",
             "userName": "<domain>\\<user>",
             "password": {
@@ -138,7 +138,7 @@ De volgende eigenschappen worden ondersteund voor een gekoppelde OData-service:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalKey",
@@ -147,7 +147,7 @@ De volgende eigenschappen worden ondersteund voor een gekoppelde OData-service:
                 "value": "<service principal key>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<AAD resource>"
+            "aadResourceId": "<AAD resource URL>"
         }
     },
     "connectVia": {
@@ -165,7 +165,7 @@ De volgende eigenschappen worden ondersteund voor een gekoppelde OData-service:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalCert",
@@ -234,7 +234,7 @@ Om gegevens te kopiëren uit OData-, stel de **bron** type in de Kopieeractivite
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Kopieeractiviteit-bron moet worden ingesteld op **RelationalSource**. | Ja |
-| query | OData-queryopties voor het filteren van gegevens. Voorbeeld: `"?$select=Name,Description&$top=5"`.<br/><br/>**Houd er rekening mee**: De OData-connector worden gegevens gekopieerd van de gecombineerde URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Zie voor meer informatie, [OData-URL-onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
+| query | OData-queryopties voor het filteren van gegevens. Voorbeeld: `"?$select=Name,Description&$top=5"`.<br/><br/>**Opmerking**: De OData-connector worden gegevens gekopieerd van de gecombineerde URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Zie voor meer informatie, [OData-URL-onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
 
 **Voorbeeld**
 

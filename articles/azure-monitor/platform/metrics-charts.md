@@ -5,19 +5,19 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/20/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: daa3a140e749700665427a011292f48ac8f163d2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8932f8aa1dd950693378e9fc58c79838fad6166b
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388841"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741756"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
-Azure Monitor Metrics Explorer is een onderdeel van de Microsoft Azure-portal die u kunt grafieken te tekenen, visueel correleren van trends en onderzoeken van pieken en dalen in de metrische waarden. Metrics Explorer is een essentiële beginpunt voor het onderzoeken van verschillende prestaties en van beschikbaarheidsproblemen met uw toepassingen en infrastructuur die wordt gehost in Azure of bewaakt door Azure Monitor-services. 
+Azure Monitor Metrics Explorer is een onderdeel van de Microsoft Azure-portal die u kunt grafieken te tekenen, visueel correleren van trends en onderzoeken van pieken en dalen in de metrische waarden. Metrics Explorer is een essentiële beginpunt voor het onderzoeken van verschillende prestaties en van beschikbaarheidsproblemen met uw toepassingen en infrastructuur die wordt gehost in Azure of bewaakt door Azure Monitor-services.
 
 ## <a name="metrics-in-azure"></a>Metrische gegevens in Azure
 
@@ -28,11 +28,11 @@ Metrische gegevens in Microsoft Azure, zijn de reeks meetwaarden en aantallen di
 1. De Azure-portal openen
 2. Navigeer naar de nieuwe **Monitor** tabblad, en selecteer vervolgens **metrische gegevens**.
 
-   ![Afbeelding van de metrische gegevens](./media/metrics-charts/0001.png)
+   ![Afbeelding van de metrische gegevens](./media/metrics-charts/00001.png)
 
 3. De **metrische selector** automatisch worden geopend voor u. Kies een resource in de lijst om de bijbehorende metrische gegevens weer te geven. Alleen bronnen met metrische gegevens worden weergegeven in de lijst.
 
-   ![Afbeelding van de metrische gegevens](./media/metrics-charts/0002.png)
+   ![Afbeelding van de metrische gegevens](./media/metrics-charts/00002.png)
 
    > [!NOTE]
    >Als u meer dan één Azure-abonnement hebt, Metrics Explorer worden de resources in alle abonnementen die zijn geselecteerd in de Portal-instellingen -> Filter door de abonnementenlijst met. Als u wilt wijzigen, klikt u op het tandwielpictogram voor instellingen van Portal boven op het scherm en selecteer welke abonnementen die u wilt gebruiken.
@@ -41,15 +41,15 @@ Metrische gegevens in Microsoft Azure, zijn de reeks meetwaarden en aantallen di
 
    Elke Azure-Storage heeft bijvoorbeeld metrische gegevens voor subservices 'Blobs', 'Files', 'Wachtrijen' en 'Tabellen', alle onderdelen van het storage-account zijn. De metriek "aantal Wachtrijberichten" is echter op een natuurlijke manier van toepassing op de subservice 'Wachtrij' en niet op een andere opslag account subservices.
 
-   ![Afbeelding van de metrische gegevens](./media/metrics-charts/0003.png)
+   ![Afbeelding van de metrische gegevens](./media/metrics-charts/00003.png)
 
 5. Selecteer een metrische waarde in de lijst. Als u een gedeeltelijke naam van de metrische gegevens die u wilt weten, kunt u beginnen te typen in een gefilterde lijst met beschikbare metrische gegevens zien:
 
-   ![Afbeelding van de metrische gegevens](./media/metrics-charts/0004.png)
+   ![Afbeelding van de metrische gegevens](./media/metrics-charts/00004.png)
 
 6. Na het selecteren van een metrische waarde, worden de grafiek weergegeven met de standaardaggregatie voor de geselecteerde metrische gegevens. Op dit punt hoeft u alleen op weg van de **metrische gegevens selector** om deze te sluiten. U kunt eventueel ook de grafiek overschakelen naar een andere aggregatie. Voor sommige metrische gegevens kunt schakelen tussen aggregatie u kiezen welke waarde u wilt zien op de grafiek. U kunt bijvoorbeeld schakelen tussen de gemiddelde, minimale en maximale waarden. 
 
-7. Door te klikken op het pictogram metrische gegevens toevoegen ![pictogram van metrische gegevens](./media/metrics-charts/icon001.png) en stap 3-6 herhalende kunt u meer metrische gegevens in dezelfde grafiek toevoegen.
+7. Door te klikken op **metrische waarde toevoegen** en herhalende stap 3-6, kunt u meer metrische gegevens op de dezelfde grafiek toevoegen.
 
    > [!NOTE]
    > Normaal gesproken u niet metrische gegevens met verschillende eenheden (dat wil zeggen "milliseconden" en 'kilobytes') of met aanmerkelijk verschillende schalen in een grafiek hebt. In plaats daarvan kunt u overwegen meerdere diagrammen. Klik op de knop grafiek toevoegen aan meerdere diagrammen maken in Metrics Explorer.
@@ -60,19 +60,19 @@ U kunt filters toepassen op de grafieken met metrische gegevens met dimensies. B
 
 ### <a name="to-add-a-filter"></a>Een filter toevoegen
 
-1. Klik op het pictogram Filter toevoegen ![filterpictogram](./media/metrics-charts/icon002.png) boven de grafiek
+1. Selecteer **filter toevoegen** boven de grafiek
 
 2. Selecteer welke dimensie (eigenschap) die u wilt filteren
 
-   ![de installatiekopie van de metrische gegevens](./media/metrics-charts/0006.png)
+   ![de installatiekopie van de metrische gegevens](./media/metrics-charts/00006.png)
 
 3. Selecteer welke dimensiewaarden die u opnemen wilt, wanneer het uitzetten van de grafiek (dit voorbeeld wordt gefilterd op de opslagaccount-transacties):
 
-   ![de installatiekopie van de metrische gegevens](./media/metrics-charts/0007.png)
+   ![de installatiekopie van de metrische gegevens](./media/metrics-charts/00007.png)
 
 4. Na het selecteren van de filterwaarden, klikt u op weg van de Selector Filter om deze te sluiten. Het diagram toont nu het aantal opslagtransacties zijn mislukt:
 
-   ![de installatiekopie van de metrische gegevens](./media/metrics-charts/0008.png)
+   ![de installatiekopie van de metrische gegevens](./media/metrics-charts/00008.png)
 
 5. U kunt de stappen 1-4 meerdere filters toepassen op de dezelfde grafieken herhalen.
 
@@ -82,23 +82,37 @@ U kunt een metrische waarde splitsen op dimensie om te visualiseren hoe verschil
 
 ### <a name="to-segment-a-chart"></a>Een grafiek in segmenten
 
-1. Klik op het pictogram groepering toevoegen  ![de installatiekopie van de metrische gegevens](./media/metrics-charts/icon003.png) boven de grafiek.
+1. Klik op **toepassen splitsen** boven de grafiek.
  
    > [!NOTE]
-   > U kunt meerdere filters, maar slechts één groepering op één grafiek hebben.
+   > U kunt meerdere filters, maar slechts één splitsen/segmentering waarde kan hebben op één grafiek.
 
-2. Kies een dimensie waarop u wilt indelen van de grafiek: 
+2. Kies een dimensie waarop u wilt indelen van de grafiek:
 
-   ![de installatiekopie van de metrische gegevens](./media/metrics-charts/0010.png)
+   ![de installatiekopie van de metrische gegevens](./media/metrics-charts/00010.png)
 
    Het diagram toont nu nu meerdere regels, één voor elk segment van dimensie:
 
-   ![de installatiekopie van de metrische gegevens](./media/metrics-charts/0012.png)
+   ![de installatiekopie van de metrische gegevens](./media/metrics-charts/00012.png)
 
 3. Klikt u op weg van de **groepering Selector** om deze te sluiten.
 
    > [!NOTE]
-   > Gebruik zowel filteren en groeperen op dezelfde dimensie verborgen segmenten die zijn niet relevant voor uw scenario en grafieken gemakkelijker te lezen.
+   > Filteren en splitsen in dezelfde dimensie gebruiken om te verbergen van de segmenten zijn niet relevant voor uw scenario en grafieken gemakkelijker te lezen.
+
+### <a name="new-alert-rule"></a>Nieuwe waarschuwingsregel
+
+Ook kunt u de criteria die u hebt ingesteld voor het visualiseren van uw metrische gegevens zoals de basis voor de onderliggende logica van een metrische waarde op basis van de waarschuwingsregel. 
+
+Als u klikt op **nieuwe waarschuwingsregel**
+
+![Knop nieuwe waarschuwingsregel rood gemarkeerd](./media/metrics-charts/015.png)
+
+U gaat naar het deelvenster voor het maken van waarschuwingsregel met de grootte van het onderliggende metrische gegevens van de grafiek die vooraf is ingevuld voor het genereren van regels voor aangepaste waarschuwingen te vereenvoudigen.
+
+![Waarschuwingsregel maken](./media/metrics-charts/016.png)
+
+Bekijk dit [artikel](alerts-metric.md) voor meer informatie over het instellen van metrische waarschuwingen.
 
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Grenzen van de vergrendeling van grafiek y-as
 
@@ -110,20 +124,20 @@ Een ander voorbeeld is een schommelingen in het beschikbare geheugen, waarbij de
 
 Gebruiken voor het beheren van de y-as-bereik, de '...' grafiek van menu en selecteer **grafiek bewerken** voor toegang tot geavanceerde grafiekinstellingen. Wijzig de waarden in de sectie y-as-bereik, of gebruik **automatisch** knop om terug te keren naar de standaardinstellingen.
 
-![de installatiekopie van de metrische gegevens](./media/metrics-charts/0014-manually-set-granularity.png)
+![de installatiekopie van de metrische gegevens](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > Vergrendelen van de grenzen van de y-as voor de grafieken die verschillende bijhouden telt of opgeteld gedurende een bepaalde tijd (en dus gebruik count, som, minimum of maximum aggregaties) moet u meestal een vaste tijdgranulatie op te geven in plaats van afhankelijk zijn van de automatische standaardwaarden. Dit is nodig omdat de waarden in grafieken wijzigen wanneer de tijdgranulatie wordt automatisch gewijzigd door de gebruiker vergroten of verkleinen browservenster of als een schermresolutie gaan. De resulterende wijzigen in tijd granulariteit effecten het uiterlijk van de grafiek, ongeldig huidige selectie van y-as-bereik.
 
 ## <a name="pin-charts-to-dashboards"></a>Grafieken vastmaken aan dashboards
 
-Na het configureren van de grafieken, kunt u deze toevoegen aan de dashboards, zodat u kunt opnieuw mogelijk in de context van andere bewaking telemetrie bekijken of met uw team delen. 
+Na het configureren van de grafieken, kunt u deze toevoegen aan de dashboards, zodat u kunt opnieuw mogelijk in de context van andere bewaking telemetrie bekijken of met uw team delen.
 
 Voor een geconfigureerde grafiek vastmaken aan een dashboard:
 
 Na het configureren van de grafiek, klik op de **grafiek acties** menu in de rechter hoek van de grafiek belangrijkste, en klikt u op **vastmaken aan dashboard**.
 
-![de installatiekopie van de metrische gegevens](./media/metrics-charts/0013.png)
+![de installatiekopie van de metrische gegevens](./media/metrics-charts/00013.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

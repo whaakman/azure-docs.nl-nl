@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8d6e768e5cf846cb2c34ceb61d269854418e1dc5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238621"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976593"
 ---
 # <a name="constituency-parsing"></a>Frasestructuur parseren
 
 > [!IMPORTANT]
-> De Preview-versie voor de linguïstische analyse uit gebruik is genomen op 9 augustus 2018. Wordt u aangeraden [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) voor tekst-verwerking en analyse.
+> De preview van Linguistic Analysis is op 9 augustus 2018 uit gebruik genomen. We raden u aan [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) te gebruiken voor tekstverwerking en -analyse.
 
 Het doel van frasestructuur parseren (ook wel bekend als ' woordgroep structuur parseren') is het identificeren van de items in de tekst.
 Dit kan nuttig zijn bij het uitpakken van informatie uit tekst.
@@ -61,11 +61,11 @@ Een natuurlijke weergave van de volgende zinnen is een structuur, zoals het volg
 ![Boomstructuur](./Images/tree.png)
 
 In deze structuur zijn de branches die zijn gemarkeerd als "NP" zelfstandig naamwoord zinnen.
-Er zijn verschillende dergelijke zinnen: *ik*, *een nieuwe hybride auto*, *Bluetooth*, en *een nieuwe hybride auto met Bluetooth*.
+Er zijn verschillende dergelijke zinnen: *Ik*, *een nieuwe hybride auto*, *Bluetooth*, en *een nieuwe hybride auto met Bluetooth*.
 
 ## <a name="phrase-types"></a>Woordgroep typen
 
-| Label | Beschrijving | Voorbeeld |
+| Label | Description | Voorbeeld |
 |-------|-------------|---------|
 |ADJP   | Bijvoeglijke naamwoorden woordgroep | "daarom ruwe" |
 |ADVP   | Bewerkingsparameter woordgroep | "wissen via" |
@@ -97,4 +97,4 @@ Er zijn verschillende dergelijke zinnen: *ik*, *een nieuwe hybride auto*, *Bluet
 
 ## <a name="specification"></a>Specificatie
 
-Structuren hier gebruik van de S-expressies uit de [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Structuren hier gebruik van de S-expressies uit de [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

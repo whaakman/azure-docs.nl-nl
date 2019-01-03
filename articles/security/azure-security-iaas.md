@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 42958576a127fee5e0a275e53203edd4e4dee6f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321457"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540249"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -68,7 +68,7 @@ Als uw virtuele machine wordt uitgevoerd voor kritieke toepassingen die u wilt e
 
 Een beschikbaarheidsset is een logische groep die u in Azure gebruiken kunt om ervoor te zorgen dat de VM-resources die u erin geïsoleerd van elkaar zijn wanneer deze zijn geïmplementeerd in een Azure-datacenter. Azure zorgt ervoor dat de virtuele machines die u in een beschikbaarheidsset plaatst uitvoeren voor meerdere fysieke servers, compute rekken, opslageenheden en netwerkswitches instellen. Als er een hardware- of softwarestoring in Azure optreedt, alleen een subset van uw virtuele machines zijn getroffen en blijft uw totale toepassing beschikbaar zijn voor uw klanten. Beschikbaarheidssets zijn essentieel wanneer u betrouwbare cloudoplossingen bouwen.
 
-## <a name="protect-against-malware"></a>Beschermen tegen malware
+## <a name="protect-against-malware"></a>Bescherming tegen malware
 Bescherming tegen malware om te helpen identificeren en virussen, spyware en andere schadelijke software verwijderen, moet u installeren. U kunt installeren [Microsoft Antimalware](azure-security-antimalware.md) of oplossing voor eindpuntbeveiliging is een Microsoft-partner ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection), en [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
 
 Microsoft Antimalware bevat functies zoals realtime-beveiliging, geplande scannen, oplossen van malware, handtekeningupdates, engine-updates, rapportage-voorbeelden en uitsluitingsverzameling gebeurtenis. Voor omgevingen die afzonderlijk worden gehost in uw productieomgeving, kunt u een anti-malware-extensie voor het beveiligen van uw virtuele machines en cloudservices.
@@ -137,7 +137,7 @@ Misbruik van de resource is een probleem wanneer VM processen meer bronnen dan z
 
 Het is raadzaam dat u [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) te krijgen van inzicht in de status van uw resource. Azure Monitor-functies:
 
-- [Diagnostische logboeken bronbestanden](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): Uw VM-resources bewaakt en identificeert mogelijke problemen die prestaties en beschikbaarheid beschadigen mogelijk.
+- [Diagnostische logboeken bronbestanden](../azure-monitor/platform/diagnostic-logs-overview.md): Uw VM-resources bewaakt en identificeert mogelijke problemen die prestaties en beschikbaarheid beschadigen mogelijk.
 - [Azure Diagnostics-extensie](../azure-monitor/platform/diagnostics-extension-overview.md): Biedt mogelijkheden voor controle en diagnostische gegevens op Windows-VM's. U kunt deze mogelijkheden inschakelen met de extensie opnemen als onderdeel van de [Azure Resource Manager-sjabloon](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Organisaties die geen VM-prestaties controleren kunnen niet bepalen of bepaalde wijzigingen in prestatiepatronen normale of abnormale zijn. Een virtuele machine die wordt verbruikt meer bronnen dan normaal kan wijzen op een aanval van een externe resource of een verdachte proces wordt uitgevoerd in de virtuele machine.

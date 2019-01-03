@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4a18e009f7defc8d41846b867f9b7a65d2b853dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842336"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993328"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Oplossen van problemen met de voortdurende replicatie van Azure naar Azure VM
 
@@ -22,13 +22,13 @@ Dit artikel beschrijft de voorkomende problemen in Azure Site Recovery bij het r
 
 ## <a name="recovery-points-not-getting-generated"></a>Herstelpunten niet gegenereerd
 
-Foutbericht: Er is geen crashconsistent herstelpunt beschikbaar voor de virtuele machine in de afgelopen 60 minuten.</br>
+FOUTBERICHT: Er is geen crashconsistent herstelpunt beschikbaar voor de virtuele machine in de afgelopen 60 minuten.</br>
 FOUT-ID: 153007 </br>
 
 Azure Site Recovery repliceert gegevens van de bronregio naar de Dr-regio consistent en crash-consistent herstelpunt maakt om de 5 minuten. Als u Site Recovery kan maken van herstelpunten gedurende 60 minuten, waarschuwt gebruikers. Hieronder vindt u de oorzaken die tot deze fout leiden kunnen:
 
-**1 oorzaak: [hoge gegevenswijzigingssnelheid op de virtuele bronmachine](#high-data-change-rate-on-the-source-virtal-machine)**    
-**2 oorzaak: [connectiviteitsprobleem met het netwerk ](#Network-connectivity-issue)**
+**1 oorzaak: [Hoge gegevenswijzigingssnelheid op de virtuele bronmachine](#high-data-change-rate-on-the-source-virtal-machine)**    
+**2 oorzaak: [Probleem met de netwerkverbinding ](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen
 
@@ -68,18 +68,18 @@ Als u wilt zoeken veranderingssnelheid de van gegevens van de betreffende virtue
 
 In gevallen, zoals hierboven als dit een gegevensburst af en toe is en de veranderingssnelheid van gegevens is groter dan 10 MBps (voor Premium) en 2 MBps (voor Standard) voor enige tijd en wordt geleverd, wordt replicatie achterstand. Maar als het verloop dan de ondersteunde limiet voor de meeste gevallen is, klikt u vervolgens kunt u overwegen een van de onderstaande optie indien mogelijk:
 
-**Optie 1:** uitsluiten van de schijf die wordt veroorzaakt door hoge gegevenswijzigingssnelheid: </br>
+**Optie 1:** De schijf die wordt veroorzaakt door hoge gegevenswijzigingssnelheid uitsluiten: </br>
 U kunt op dit moment uitsluiten voor de schijf met [Site Recovery Powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)
 
-**Optie 2:** de disaster recovery opslaglaag schijf wijzigen: </br>
+**Optie 2:** Wijzig de disaster recovery opslaglaag schijf: </br>
 Deze optie is alleen mogelijk als de gegevensverloop van bronschijf minder dan 10 MB/s is. Stel dat een virtuele machine met P10, kunnen heeft schijf een gegevensverloop van meer dan 8 MB/s, maar minder dan 10 MB/s. Als klant P30-schijf voor de doel-opslagaccount tijdens beveiliging gebruiken kunt, kan het probleem worden opgelost.
 
 ### <a name="Network-connectivity-issue"></a>Probleem met de netwerkverbinding
 
 #### <a name="network-latency-to-cache-storage-account-"></a>De netwerklatentie voor Cache-opslagaccount:
  Site Recovery gerepliceerde gegevens verzendt naar de cache-opslagaccount en het probleem kan optreden als het uploaden van de gegevens van virtuele machine naar het cacheopslagaccount trager is die 4 MB in 3 seconden. Om te controleren of er een probleem met betrekking tot latentie gebruik [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) voor het uploaden van gegevens van de virtuele machine naar de cache-opslagaccount.<br>
-Als de latentie hoog is, controleert u als u een virtuele netwerkapparaten gebruikt voor het beheren van uitgaande netwerkverkeer van virtuele machines. Het apparaat mogelijk te maken met beperkingen als het replicatieverkeer wordt doorgegeven via de NVA. Het wordt aangeraden om een service-eindpunt van het netwerk maken in uw virtuele netwerk voor 'Opslag', zodat het replicatieverkeer niet naar de NVA. Raadpleeg [netwerkconfiguratie virtueel apparaat](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+Als de latentie hoog is, controleert u als u een virtuele netwerkapparaten gebruikt voor het beheren van uitgaande netwerkverkeer van virtuele machines. Het apparaat mogelijk te maken met beperkingen als het replicatieverkeer wordt doorgegeven via de NVA. Het wordt aangeraden om een service-eindpunt van het netwerk maken in uw virtuele netwerk voor 'Opslag', zodat het replicatieverkeer niet naar de NVA. Raadpleeg [netwerkconfiguratie virtueel apparaat](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
 
 #### <a name="network-connectivity"></a>Verbinding met het netwerk
 Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde URL's of IP-bereiken zijn van de virtuele machine. Als uw VM zich achter een firewall bevindt of regels voor network security group (NSG) gebruikt voor het beheren van uitgaande connectiviteit, kunt u een van deze problemen kan tegenkomen.</br>
-Raadpleeg [uitgaande connectiviteit voor URL's van Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) om te controleren of alle URL's zijn verbonden 
+Raadpleeg [uitgaande connectiviteit voor URL's van Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) om te controleren of alle URL's zijn verbonden 

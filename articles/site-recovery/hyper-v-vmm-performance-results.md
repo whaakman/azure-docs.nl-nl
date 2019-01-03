@@ -1,18 +1,18 @@
 ---
 title: Testresultaten voor replicatie van Hyper-V-machines in VMM-clouds naar een secundaire site met Azure Site Recovery | Microsoft Docs
 description: In dit artikel bevat informatie over de prestatietests voor replicatie van Hyper-V virtuele machines in VMM-clouds naar een secundaire site met Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: raynew
-ms.openlocfilehash: d4540a00ed08f4c5a54108192868b4555eba3fa9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/27/2018
+ms.author: sutalasi
+ms.openlocfilehash: 62137f64f0f138ea1c2dfbdf97bde791227617db
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850921"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793033"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultaten van belastingstests voor Hyper-V-replicatie naar een secundaire site
 

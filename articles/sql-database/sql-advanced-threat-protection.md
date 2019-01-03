@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/16/2018
+ms.openlocfilehash: 40f6b6effa509fd2cfa40ecfc758ac37e0a66778
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997591"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538607"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection voor Azure SQL-Database
 
@@ -30,7 +30,7 @@ SQL geavanceerde Threat Protection (ATP) biedt een geavanceerde SQL-beveiligings
 - [Evaluatie van beveiligingsproblemen](sql-vulnerability-assessment.md) is een eenvoudig te configureren service waarmee u potentiële zwakke plekken in de beveiliging van de database kunt detecteren, volgen en verhelpen. Deze service biedt u inzicht in de status van de beveiliging en bruikbare stappen om beveiligingsproblemen op te lossen en de beveiliging van uw database te verbeteren.
 - [Detectie van bedreigingen](sql-database-threat-detection-overview.md) detecteert vreemde activiteiten die duiden op ongebruikelijke en mogelijk schadelijke pogingen toegang te verkrijgen tot of aanvallen uit te voeren op uw database. Hiermee wordt uw database continu gecontroleerd op verdachte activiteiten en wordt u onmiddellijk gewaarschuwd bij mogelijke beveiligingsproblemen, SQL-injectieaanvallen en afwijkende databasetoegangspatronen. De waarschuwingen bevatten detailinformatie over verdachte activiteiten en aanbevelingen voor het onderzoeken en tegenhouden ervan.
 
-Schakel SQL ATP eenmaal zodat al deze functies opgenomen. U kunt met één klik ATP inschakelen op uw volledige databaseserver, waarmee wordt toegepast op alle databases op de server. 
+Schakel SQL ATP eenmaal zodat al deze functies opgenomen. U kunt met één klik ATP inschakelen op uw volledige databaseserver, waarmee wordt toegepast op alle databases op de server. Inschakelen van of een ATP-instellingen beheren moet uitmaken van de [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) rol, beheerdersrol voor SQL database of SQL server-beheerdersrol. 
 
 ATP-prijzen worden uitgelijnd met Azure Security Center standard-laag, waarbij elke beveiligde SQL Database-server wordt beschouwd als één knooppunt. Nieuw beveiligde resources in aanmerking komen voor een gratis proefversie van Security Center standard-laag. Zie voor meer informatie de [pagina met prijzen van Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 

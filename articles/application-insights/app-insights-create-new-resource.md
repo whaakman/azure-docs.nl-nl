@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3c3ff606958503efcf2df5fd99b6e52e4687de4a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3e642e5954a8c1154ca5b07f06f9450e4e9ee39a
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996261"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807921"
 ---
 # <a name="create-an-application-insights-resource"></a>Een Application Insights-resource maken
 Azure Application Insights geeft gegevens over uw toepassing in een Microsoft Azure *resource*. Het maken van een nieuwe resource maakt daarom deel uit van [Application Insights instellen voor het bewaken van een nieuwe toepassing][start]. In veel gevallen, kan het maken van een resource automatisch worden uitgevoerd door de IDE. Maar in sommige gevallen, maakt u een resource handmatig - bijvoorbeeld als afzonderlijke resources voor de ontwikkeling en productie builds van uw toepassing.
@@ -69,15 +69,15 @@ Als u meer gegevens verwacht, klikt u op **vernieuwen** na een paar seconden.
 U kunt schrijven een [PowerShell-script](app-insights-powershell.md) voor het automatisch maken van een resource.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een dashboard maken](app-insights-dashboards.md)
-* [Diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md)
+* [Een dashboard maken](../azure-monitor/app/app-insights-dashboards.md)
+* [Diagnostische gegevens doorzoeken](../azure-monitor/app/diagnostic-search.md)
 * [Metrische gegevens verkennen](app-insights-metrics-explorer.md)
-* [Analytics-query's schrijven](app-insights-analytics.md)
+* [Analytics-query's schrijven](../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[diagnostic]: app-insights-diagnostic-search.md
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [start]: app-insights-overview.md
 

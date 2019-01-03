@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 79921a3adc043dd84317b7613286ec5cdc460bde
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5f6ce470399540f6d8cf00d404d658cb3da345ad
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993758"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974506"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Application Insights-resources maken met PowerShell
-Dit artikel leest u hoe u voor het automatiseren van het maken en bijwerken van de [Application Insights](app-insights-overview.md) resources automatisch met behulp van Azure Resource Management. U kunt bijvoorbeeld doen als onderdeel van een buildproces. Samen met de basic Application Insights-resource, kunt u [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)Stel [waarschuwingen](app-insights-alerts.md), stel de [prijzen schema](app-insights-pricing.md), en andere Azure-resources maken .
+Dit artikel leest u hoe u voor het automatiseren van het maken en bijwerken van de [Application Insights](app-insights-overview.md) resources automatisch met behulp van Azure Resource Management. U kunt bijvoorbeeld doen als onderdeel van een buildproces. Samen met de basic Application Insights-resource, kunt u [webtests voor beschikbaarheid](../azure-monitor/app/monitor-web-app-availability.md)Stel [waarschuwingen](../azure-monitor/app/alerts.md), stel de [prijzen schema](app-insights-pricing.md), en andere Azure-resources maken .
 
 De sleutel voor het maken van deze resources is JSON-sjablonen voor [Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md). Kortom, de procedure is: downloaden van de JSON-definities van bestaande resources. bepaalde waarden, zoals namen; parameteriseren en voer vervolgens de sjabloon wanneer u wilt maken van een nieuwe resource. Kunt u verschillende bronnen samen verpakken, om ze te maken in een Ga - bijvoorbeeld een app bewaken met betrekking tot beschikbaarheidstests, waarschuwingen en opslag voor continue export. Er zijn enkele finesses tot een aantal van de parameteriseringen, wordt hier uitgelegd.
 

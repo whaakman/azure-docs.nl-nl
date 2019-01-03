@@ -4,14 +4,14 @@ description: Veelgestelde vragen over Azure Migrate adressen
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: snehaa
-ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257791"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975471"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -48,12 +48,13 @@ Azure Migrate is een hulpprogramma voor migratieplanning en Azure Site Recovery 
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Welke Azure-regio's worden ondersteund door Azure Migrate?
 
-Azure Migrate ondersteunt momenteel Verenigde Staten en Azure Government als de project-locaties. Hoewel u alleen migration-projecten in deze regio's maken kunt, kunt u nog steeds uw machines voor beoordelen [doellocaties voor meerdere](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). De geografische locatie van project wordt alleen gebruikt voor het opslaan van de gedetecteerde metagegevens.
+Azure Migrate ondersteunt momenteel Europa, Verenigde Staten en Azure Government als de project-locaties. Hoewel u alleen migration-projecten in deze regio's maken kunt, kunt u nog steeds uw machines voor beoordelen [doellocaties voor meerdere](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). De geografische locatie van project wordt alleen gebruikt voor het opslaan van de gedetecteerde metagegevens.
 
 **Geografie** | **De metagegevens van opslaglocatie**
 --- | ---
-Koppelt statussen zijn netwerk | West-Centraal VS of VS-Oost
 Azure Government | VS (overheid) - Virginia
+Europa | Noord-Europa of West-Europa
+Verenigde Staten | VS-Oost van West-Centraal VS
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hoe worden de on-premises site, maakt verbinding met Azure Migrate?
 

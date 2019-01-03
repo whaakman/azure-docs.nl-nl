@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: activitylog
-ms.openlocfilehash: 9129ccdd66b07fc53fe46aa64317f7f064eb7e0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: logs
+ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389007"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714828"
 ---
 # <a name="azure-activity-log-event-schema"></a>Gebeurtenisschema in het Azure-activiteitenlogboek
-De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](./tutorial-dashboards.md) wordt geleverd aan het einde van het artikel.
+De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](./tutorial-dashboards.md) wordt geleverd aan het einde van het artikel.
 
 ## <a name="administrative"></a>Administratief
 Deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie bewerkingen uitgevoerd via Resource Manager. Voorbeelden van de typen gebeurtenissen u in deze categorie ziet zijn 'virtuele machine maken' en 'netwerkbeveiligingsgroep verwijderen' elke actie op die door een gebruiker of een toepassing met behulp van Resource Manager is gemodelleerd als een bewerking op een bepaald resourcetype. Als het bewerkingstype schrijven, verwijderen of actie is, worden de records van de begin- en het slagen of mislukken van deze bewerking worden opgenomen in de beheercategorie. De beheercategorie omvat ook eventuele wijzigingen in de op rollen gebaseerd toegangsbeheer in een abonnement.
@@ -191,7 +191,7 @@ Deze categorie bevat de record van de service health incidenten die hebben plaat
   }
 }
 ```
-Raadpleeg de [health servicemeldingen](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) artikel voor documentatie over de waarden in de eigenschappen.
+Raadpleeg de [health servicemeldingen](./../../azure-monitor/platform/service-notifications.md) artikel voor documentatie over de waarden in de eigenschappen.
 
 ## <a name="resource-health"></a>Status van resources
 Deze categorie bevat de record van een resource health-gebeurtenissen die hebben plaatsgevonden naar uw Azure-resources. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Virtuele Machine health-status gewijzigd in niet beschikbaar." Resource health-gebeurtenissen kunnen gelden voor een van de vier health-statussen: Beschikbaar, niet beschikbaar is, verminderde en onbekend. Resource health-gebeurtenissen kunnen ook worden gecategoriseerd als Platform die gebruiker geïnitieerd of.
@@ -676,5 +676,5 @@ Bij het streamen van de Azure-activiteitenlogboek naar een opslagaccount of Even
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over het activiteitenlogboek (voorheen controlelogboeken)](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
-* [Stream het Azure-activiteitenlogboek naar Eventhubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [Meer informatie over het activiteitenlogboek (voorheen controlelogboeken)](../../azure-monitor/platform/activity-logs-overview.md)
+* [Stream het Azure-activiteitenlogboek naar Eventhubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

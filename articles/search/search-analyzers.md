@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310535"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631937"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyzers om tekst te verwerken in Azure Search
 
@@ -76,7 +76,7 @@ Als een zoekopdracht niet de verwachte resultaten worden geretourneerd, is het m
 
 ### <a name="compare-english-analyzers"></a>Engelse analyzers vergelijken
 
-De [Search Analyzer-Demo](http://alice.unearth.ai/) is een derde partij demo-app van de vergelijking van de standaard Lucene analyzer, de Engelse taal-analysefunctie van Lucene en Microsofts Engelse natuurlijke taal processor van side-by-side. De index is opgelost; Deze bevat tekst uit een populaire verhaal. Voor elke invoer zoeken opgeeft u, resultaten van elke analyzer worden weergegeven in de deelvensters van de aangrenzende, zodat u een beeld van hoe elke analyzer dezelfde tekenreeks verwerkt. 
+De [Search Analyzer-Demo](https://alice.unearth.ai/) is een derde partij demo-app van de vergelijking van de standaard Lucene analyzer, de Engelse taal-analysefunctie van Lucene en Microsofts Engelse natuurlijke taal processor van side-by-side. De index is opgelost; Deze bevat tekst uit een populaire verhaal. Voor elke invoer zoeken opgeeft u, resultaten van elke analyzer worden weergegeven in de deelvensters van de aangrenzende, zodat u een beeld van hoe elke analyzer dezelfde tekenreeks verwerkt. 
 
 ## <a name="examples"></a>Voorbeelden
 
@@ -244,13 +244,13 @@ Velden met tekenreeksen in verschillende talen kunt een taalanalyse, terwijl and
 
 + Bekijk onze uitgebreide uitleg van [hoe volledige tekst zoeken werkt in Azure Search](search-lucene-query-architecture.md). In dit artikel bevat voorbeelden waarin wordt uitgelegd gedragingen die op het oppervlak vindt lijkt.
 
-+ Probeer van aanvullende query-syntaxis van de [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) voorbeeld in deze sectie of [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in de portal.
++ Probeer van aanvullende query-syntaxis van de [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) voorbeeld in deze sectie of [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in de portal.
 
 + Meer informatie over het toepassen van [taalspecifieke lexicale analyse](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configureren van aangepaste analyse](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) voor minimale verwerking of gespecialiseerde verwerking op afzonderlijke velden.
 
-+ [Standaard- en Engelse analyzers vergelijken](http://alice.unearth.ai/) in aangrenzende deelvensters op deze demo-website. 
++ [Standaard- en Engelse analyzers vergelijken](https://alice.unearth.ai/) in aangrenzende deelvensters op deze demo-website. 
 
 ## <a name="see-also"></a>Zie ook
 

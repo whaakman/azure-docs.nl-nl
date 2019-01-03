@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274561"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993280"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hoe u uw hybride Azure Active Directory join-implementatie plannen
 
@@ -146,9 +146,9 @@ Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-kop
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Ondersteuning voor alternatieve aanmeldings-Id in hybride Azure AD join
 
-Windows 10 hybride Azure AD join biedt beperkte ondersteuning voor [alternatieve aanmeldings-id's](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) op basis van het type van de alternatieve aanmeldings-id, [verificatiemethode](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), domeintype en Windows 10-versie. Er zijn twee soort alternatieve aanmeldings-id's die kunnen optreden in uw omgeving.
+Windows 10 hybride Azure AD join biedt beperkte ondersteuning voor [alternatieve aanmeldings-id's](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) op basis van het type van de alternatieve aanmeldings-id, [verificatiemethode](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domeintype en Windows 10-versie. Er zijn twee soort alternatieve aanmeldings-id's die kunnen optreden in uw omgeving.
 
- - Routeerbaar alternatieve aanmeldings-id: Een routeerbaar alternatieve aanmeldings-id heeft een ongeldig geverifieerd domein, die is geregistreerd bij een domeinregistrar. Bijvoorbeeld, als het primaire domein contoso.com is contoso.org en contoso.co.uk zijn geldige domeinen die eigendom zijn van Contoso en [geverifieerd in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ - Routeerbaar alternatieve aanmeldings-id: Een routeerbaar alternatieve aanmeldings-id heeft een ongeldig geverifieerd domein, die is geregistreerd bij een domeinregistrar. Bijvoorbeeld, als het primaire domein contoso.com is contoso.org en contoso.co.uk zijn geldige domeinen die eigendom zijn van Contoso en [geverifieerd in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
  - Niet-routeerbare alternatieve aanmeldings-id: Een niet-routeerbare alternatieve aanmeldings-id beschikt niet over een geverifieerd domein. Het is van toepassing alleen binnen het particuliere netwerk van uw organisatie. Bijvoorbeeld, als het primaire domein contoso.com is contoso.local is niet een geverifieerd domein in het internet, maar binnen Contoso netwerk wordt gebruikt.
  

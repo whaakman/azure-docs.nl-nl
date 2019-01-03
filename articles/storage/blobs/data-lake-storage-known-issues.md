@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: d42d05046f4ef133aa3dfb52bbe4e2b72255ccce
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bc6f59922286663435782623a72345c19adb494c
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322889"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995029"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -66,10 +66,6 @@ Ondersteuning is bij de keuze van de provider van elke toepassing van derden. Op
 AzCopy versie 8 biedt geen ondersteuning voor Azure Data Lake Storage Gen2.
 
 In plaats daarvan gebruikt u de meest recente preview-versie van AzCopy ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) als het Azure Data Lake Storage Gen2 eindpunten ondersteunt.
-
-## <a name="oauth-authentication"></a>OAuth-verificatie
-
-Services zoals HDInsight en Azure Data Factory integreren niet nog met Azure Active Directory (Azure AD) OAuth bearer-token verificatie.
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 

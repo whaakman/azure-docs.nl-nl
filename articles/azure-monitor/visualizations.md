@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 76e3a219d440bab4c6e277887aabb1e01f5e1d9c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435443"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728343"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
 In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van logboek- en metrische gegevens die zijn opgeslagen in Azure Monitor.
@@ -32,7 +32,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 ### <a name="advantages"></a>Voordelen
 - Diepe integratie in Azure. Visualisaties kunnen worden vastgemaakt aan dashboards vanuit meerdere Azure pagina's, zoals metrische gegevens analytics, log analytics en Application Insights.
 - Biedt ondersteuning voor metrische gegevens en Logboeken.
-- Combineer gegevens uit meerdere bronnen, met inbegrip van de uitvoer van [Metrics explorer](../azure-monitor/platform/metrics-charts.md), [Log Analytics-query's](../azure-monitor/log-query/log-query-overview.md), en [toegewezen](../application-insights/app-insights-app-map.md) en [beschikbaarheid]()in Application Insights.
+- Combineer gegevens uit meerdere bronnen, met inbegrip van de uitvoer van [Metrics explorer](../azure-monitor/platform/metrics-charts.md), [Log Analytics-query's](../azure-monitor/log-query/log-query-overview.md), en [toegewezen](../azure-monitor/app/app-map.md) en [beschikbaarheid]()in Application Insights.
 - De optie voor persoonlijke of gedeelde dashboards. Geïntegreerd met Azure [verificatie op basis van rollen (RBAC)](../role-based-access-control/overview.md).
 - Automatische vernieuwing. Metrische gegevens over Gegevensvernieuwing is afhankelijk van tijdsbereik met ten minste vijf minuten. Logboeken vernieuwen op één minuut.
 - Constructorreeks mag metrische gegevens over dashboards met tijdstempel en aangepaste parameters.

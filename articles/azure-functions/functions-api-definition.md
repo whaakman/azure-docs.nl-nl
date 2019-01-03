@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999927"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606211"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Ondersteuning voor OpenAPI 2.0-metagegevens in Azure Functions (preview)
 OpenAPI 2.0 (voorheen Swagger) ondersteuning voor metagegevens in Azure Functions is een preview-functie die u gebruiken kunt om te schrijven van de definitie van een OpenAPI 2.0 in een functie-app. U kunt vervolgens dat bestand hosten met behulp van de functie-app.
@@ -23,7 +23,7 @@ OpenAPI 2.0 (voorheen Swagger) ondersteuning voor metagegevens in Azure Function
 > [!IMPORTANT]
 > De OpenAPI-preview-functie is alleen vandaag beschikbaar in de runtime 1.x. Meer informatie over het maken van een 1.x-functie-app [vindt u hier](./functions-versions.md#creating-1x-apps).
 
-[OpenAPI-metagegevens](https://swagger.io/) kunt u een functie die als host fungeert voor een REST-API om te worden verbruikt door een groot aantal andere software. Deze software bevat Microsoft-aanbiedingen zoals PowerApps en de [API Apps-functie van Azure App Service](../app-service/app-service-web-overview.md), hulpprogramma's voor ontwikkelaars van derden, zoals [Postman](https://www.getpostman.com/docs/importing_swagger), en [nog veel meer pakketten](https://swagger.io/tools/).
+[OpenAPI-metagegevens](https://swagger.io/) kunt u een functie die als host fungeert voor een REST-API om te worden verbruikt door een groot aantal andere software. Deze software bevat Microsoft-aanbiedingen zoals PowerApps en de [API Apps-functie van Azure App Service](../app-service/overview.md), hulpprogramma's voor ontwikkelaars van derden, zoals [Postman](https://www.getpostman.com/docs/importing_swagger), en [nog veel meer pakketten](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -57,7 +57,7 @@ In de volgende tabel staat voor de Azure portal-instellingen en de bijbehorende 
 |:----|:-----|:-----|
 |[Host](https://swagger.io/specification/#fixed-fields-15)|**Functie van app-instellingen** > **App Service-instellingen** > **overzicht** > **URL**|*Niet aanwezig*
 |[Paden](https://swagger.io/specification/#paths-object-29)|**Integreer** > **geselecteerde HTTP-methoden**|Bindingen: Route
-|[Pad-Item](https://swagger.io/specification/#path-item-object-32)|**Integreer** > **Routesjabloon**|Bindingen: methoden
+|[Pad-Item](https://swagger.io/specification/#path-item-object-32)|**Integreer** > **Routesjabloon**|Bindingen: Methoden
 |[Beveiliging](https://swagger.io/specification/#security-scheme-object-112)|**sleutels**|*Niet aanwezig*|
 |bewerkings-id *|**Route + toegestane bewerkingen**|Route + toegestane bewerkingen|
 

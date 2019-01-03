@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268713"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714297"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Kopen en configureren van een SSL-certificaat voor Azure App Service
 
@@ -35,7 +35,7 @@ Deze zelfstudie leert u hoe u uw web-app beveiligt door te maken (schaffen) een 
 In deze gebruiksaanwijzing volgen:
 
 - [Een App Service-app maken](/azure/app-service/)
-- [Een domeinnaam toewijzen aan uw web-app](app-service-web-tutorial-custom-domain.md) of [kopen en configureren in Azure](custom-dns-web-site-buydomains-web-app.md)
+- [Een domeinnaam toewijzen aan uw web-app](app-service-web-tutorial-custom-domain.md) of [kopen en configureren in Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -91,7 +91,7 @@ Selecteer **App Service-verificatie**. Nadat u het domein al aan uw web-app toeg
 > Vier typen verificatiemethoden domein worden ondersteund: 
 > 
 > - **App Service** -de meest geschikte optie bij het domein al aan een App Service-app in hetzelfde abonnement toegewezen is. Het maakt gebruik van het feit dat de App Service-app al het domeineigendom is geverifieerd.
-> - **Domein** -Controleer of een [App Service-domein dat u hebt aangeschaft via Azure](custom-dns-web-site-buydomains-web-app.md). Azure wordt automatisch de verificatie-TXT-record voor u wordt toegevoegd en het proces is voltooid.
+> - **Domein** -Controleer of een [App Service-domein dat u hebt aangeschaft via Azure](manage-custom-dns-buy-domain.md). Azure wordt automatisch de verificatie-TXT-record voor u wordt toegevoegd en het proces is voltooid.
 > - **E-mail** -Controleer of het domein door een e-mailbericht verzenden naar de beheerder van het domein. Instructies vindt u wanneer u de optie selecteert.
 > - **Handmatige** -Controleer of het domein met een HTML-pagina (**Standard** alleen het certificaat) of een DNS TXT-record. Instructies vindt u wanneer u de optie selecteert.
 

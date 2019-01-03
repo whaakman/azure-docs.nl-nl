@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 5b21ec36215dfde964b845a1ee28c02b562e1dd7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4e136d4a0a60838af7d2b1a111982b0c16b06dd2
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340671"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975148"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integratie van virtuele netwerken voor Azure-services
 
 Integratie van Azure-services met een Azure-netwerk kunt persoonlijke toegang aan de service van virtuele machines of compute-resources in het virtuele netwerk.
-U kunt Azure-services integreren in uw virtuele netwerk met de volgende opties: Rechtstreeks implementeren van specifieke exemplaren van de service in een virtueel netwerk. De services vervolgens privé toegankelijk zijn vanuit het virtuele netwerk en on-premises netwerken.
-Door het uitbreiden van een virtueel netwerk naar de service, via service-eindpunten. Service-eindpunten kunt afzonderlijke-serviceresources worden beveiligd met het virtuele netwerk.
+U kunt Azure-services integreren in uw virtuele netwerk met de volgende opties:
+- Toegewezen instanties van de service in een virtueel netwerk implementeren. De services vervolgens privé toegankelijk zijn vanuit het virtuele netwerk en on-premises netwerken.
+- Uitbreiden van een virtueel netwerk naar de service, via service-eindpunten. Service-eindpunten kunt afzonderlijke-serviceresources worden beveiligd met het virtuele netwerk.
 
 Als u wilt integreren in meerdere Azure-services met het virtuele netwerk, kunt u een of meer van de bovenstaande patronen combineren. U kunt bijvoorbeeld HDInsight implementeren in uw virtuele netwerk en een opslagaccount om het HDInsight-subnet via Service-eindpunten te beveiligen.
  

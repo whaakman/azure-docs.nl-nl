@@ -7,27 +7,27 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 57832b59d8b43f5aa157b278e67c50b25084c86c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8b86f79cb5af34105a666613152acc0acfb08f56
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962832"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808924"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Maak Qlik Sense verbinding met Azure Cosmos DB en Visualiseer uw gegevens
 
 Qlik Sense is een hulpmiddel voor gegevensvisualisatie waarin gegevens uit verschillende bronnen worden gecombineerd in één weergave. Qlik Sense indexeert elke mogelijke relatie in uw gegevens zodat u inzicht in de gegevens krijgt. U kunt Azure Cosmos DB-gegevens visualiseren met behulp van Qlik Sense. In dit artikel wordt beschreven hoe u verbinding maken met Azure Cosmos DB Qlik Sense en Visualiseer uw gegevens. 
 
 > [!NOTE]
-> Qlik Sense verbinden met Azure Cosmos DB wordt momenteel ondersteund voor Azure Cosmos DB SQL API en MongoDB-API-accounts.
+> Qlik Sense verbinden met Azure Cosmos DB wordt momenteel ondersteund voor SQL-API en Azure Cosmos DB-API voor MongoDB-accounts.
 
 U kunt Qlik Sense verbinding maken met Azure Cosmos DB met:
 
 * Cosmos DB SQL API met behulp van de ODBC-connector.
 
-* Cosmos DB MongoDB-API met behulp van de connector Qlik Sense MongoDB (momenteel in Preview-versie).
+* Azure Cosmos-DB-API voor MongoDB met behulp van de connector Qlik Sense MongoDB (momenteel in Preview-versie).
 
-* Cosmos DB MongoDB-API en SQL-API met behulp van REST-API-connector in Qlik Sense.
+* Azure Cosmos DB API voor MongoDB en SQL-API met behulp van REST-API-connector in Qlik Sense.
 
 * Cosmos DB Mongo DB API met behulp van de connector gRPC voor Qlik Core.
 Dit artikel beschrijft de details van het verbinding maken met de Cosmos DB SQL API via de ODBC-connector.

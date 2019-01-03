@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: bcaf59e1d9b36dfbb17f1e0b8089cd88e626e2b9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437126"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743643"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migreren van een HDInsight op basis van een Windows-cluster naar een cluster op basis van Linux
 
@@ -119,7 +119,7 @@ In deze sectie bevat informatie over de verschillen in het maken van clusters.
 
 ### <a name="ssh-user"></a>SSH gebruiker
 
-HDInsight op basis van Linux-clusters gebruiken de **Secure Shell (SSH)** protocol voor externe toegang tot de clusterknooppunten. In tegenstelling tot op basis van een extern bureaublad voor Windows-clusters bieden de meeste SSH-clients geen een grafische gebruikersinterface. SSH-clients bieden in plaats daarvan een opdrachtregel weergegeven die kunt u opdrachten uitvoeren op het cluster. Sommige clients (zoals [MobaXterm](http://mobaxterm.mobatek.net/)) bieden een grafische bestand system browser naast een extern vanaf de opdrachtregel.
+HDInsight op basis van Linux-clusters gebruiken de **Secure Shell (SSH)** protocol voor externe toegang tot de clusterknooppunten. In tegenstelling tot op basis van een extern bureaublad voor Windows-clusters bieden de meeste SSH-clients geen een grafische gebruikersinterface. SSH-clients bieden in plaats daarvan een opdrachtregel weergegeven die kunt u opdrachten uitvoeren op het cluster. Sommige clients (zoals [MobaXterm](https://mobaxterm.mobatek.net/)) bieden een grafische bestand system browser naast een extern vanaf de opdrachtregel.
 
 Tijdens het maken, moet u een SSH-gebruiker en ofwel een **wachtwoord** of **openbare-sleutelcertificaat** voor verificatie.
 
@@ -199,7 +199,7 @@ De volgende tabel bevat richtlijnen over het migreren van uw Hive-workloads.
 | `set hive.execution.engine=tez;` inschakelen van Tez |Apache Tez is de engine voor het uitvoeren van standaard voor op basis van Linux-clusters, zodat de set-instructie is niet meer nodig. |
 | C#-door gebruiker gedefinieerde functies | Zie voor meer informatie over het valideren van C#-onderdelen met HDInsight op basis van Linux [migreren .NET-oplossingen op Linux gebaseerde HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD-bestanden of scripts op de server worden aangeroepen als onderdeel van een Hive-taak |Bash-scripts gebruiken |
-| `hive` opdracht van extern bureaublad |Gebruik [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) of [Apache Hive van een SSH-sessie](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` opdracht van extern bureaublad |Gebruik [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md) of [Apache Hive van een SSH-sessie](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -220,7 +220,7 @@ De volgende tabel bevat richtlijnen over het migreren van uw Hive-workloads.
 > [!IMPORTANT]  
 > Als u een externe Oozie-metastore gebruikt, moet u back-up van de metastore voordat u deze gebruikt met HDInsight op basis van Linux. HDInsight op basis van Linux is beschikbaar met een nieuwere versie van Oozie, die mogelijk compatibiliteitsproblemen met metastores gemaakt met eerdere versies.
 
-Oozie werkstromen shell acties voor toestaan. Shell-acties gebruiken de standaardshell voor het besturingssysteem om uit te voeren opdrachtregelopdrachten. Als u Oozie-werkstromen die afhankelijk van de Windows-shell zijn hebt, moet u de workflows zijn afhankelijk van de Linux-shell-omgeving (Bash) herschrijven. Zie voor meer informatie over het gebruik van shell-acties met Oozie [Oozie shell action-extensie](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
+Oozie werkstromen shell acties voor toestaan. Shell-acties gebruiken de standaardshell voor het besturingssysteem om uit te voeren opdrachtregelopdrachten. Als u Oozie-werkstromen die afhankelijk van de Windows-shell zijn hebt, moet u de workflows zijn afhankelijk van de Linux-shell-omgeving (Bash) herschrijven. Zie voor meer informatie over het gebruik van shell-acties met Oozie [Oozie shell action-extensie](https://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
 
 Als u een werkstroom die gebruikmaakt van een C#-toepassing hebt, controleert u deze toepassingen in een Linux-omgeving. Zie voor meer informatie, [migreren .NET-oplossingen op Linux gebaseerde HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 

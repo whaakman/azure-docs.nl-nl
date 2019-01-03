@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 6d063eb0ae2a468bc8aa73d18b88135f1f119bec
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a5b82cb5f2ea90876001fe2db0f62d8b1df64f0c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346101"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580243"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
 
-Dit artikel wordt beschreven hoe u kunt een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) configureren [nieuwere metrische waarschuwingen](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) in Azure Monitor. Resource Manager-sjablonen kunnen u programmatisch waarschuwingen instellen op een consistente en reproduceerbare manier in uw omgevingen. Nieuwere metrische waarschuwingen zijn momenteel beschikbaar op [deze set resourcetypen](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Dit artikel wordt beschreven hoe u kunt een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) configureren [nieuwere metrische waarschuwingen](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Azure Monitor. Resource Manager-sjablonen kunnen u programmatisch waarschuwingen instellen op een consistente en reproduceerbare manier in uw omgevingen. Nieuwere metrische waarschuwingen zijn momenteel beschikbaar op [deze set resourcetypen](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > Resource Manager-sjabloon opgegeven voor de waarschuwing voor metrische gegevens werkt niet voor het resourcetype: Microsoft.OperationalInsights/workspaces; biedt ondersteuning voor metrische gegevens van Log Analytics is in preview. Gebruikers geïnteresseerd in de preview-functionaliteit gebruiken met resource-sjabloon, kunt contact opnemen met [Feedback voor Azure-waarschuwingen](mailto:azurealertsfeedback@microsoft.com)

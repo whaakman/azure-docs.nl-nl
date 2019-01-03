@@ -9,27 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/22/2018
 ms.author: juliako
-ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d74ce913a2189dd1062b30f9def919cbbabe7b64
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085492"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742521"
 ---
 # <a name="streaming-policies"></a>Beleid voor streaming
 
-In Azure Media Services v3 kunt beleid voor Streaming u protocollen voor streaming- en versleutelingsopties voor uw StreamingLocators definiëren. U kunt de naam opgeven van Streaming-beleid dat u hebt gemaakt of gebruik een van de vooraf gedefinieerde beleidsregels voor Streaming. De vooraf gedefinieerde Streaming beleidsregels die momenteel beschikbaar zijn: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' en ' Predefined_ MultiDrmStreaming'.
+In Azure Media Services v3 kunt beleid voor Streaming u protocollen voor streaming- en versleutelingsopties voor uw StreamingLocators definiëren. U kunt de naam opgeven van Streaming-beleid dat u hebt gemaakt of gebruik een van de vooraf gedefinieerde beleidsregels voor Streaming. De vooraf gedefinieerde Streaming beleidsregels die momenteel beschikbaar zijn: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' en 'Predefined_MultiDrmStreaming'.
 
 > [!IMPORTANT]
-> Wanneer u een aangepast [streamingbeleid](https://docs.microsoft.com/rest/api/media/streamingpolicies) gebruikt, moet u een beperkte set met dergelijke beleidsregels ontwerpen voor uw Media Service-account, en deze opnieuw gebruiken voor de StreamingLocators wanneer dezelfde versleutelingsopties en protocollen nodig zijn. Uw Media Service-account heeft een quotum voor het aantal StreamingPolicy-vermeldingen. U dient geen nieuw StreamingPolicy voor elke StreamingLocator te maken.
+> Wanneer u een aangepaste [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), moet u een beperkte set van dergelijk beleid ontwerpen voor uw Media Service-account en opnieuw gebruiken voor uw Streaming-Locators wanneer de dezelfde versleutelingsopties en protocollen die nodig zijn. Uw Media Service-account heeft een quotum voor het aantal vermeldingen van het toegangsbeleid voor Streaming. U moet niet worden het maken van een nieuw beleid voor Streaming voor elke Streaming-Locator gemaakt.
 
 ## <a name="streamingpolicy-definition"></a>StreamingPolicy definitie
 
 De volgende tabel ziet u de eigenschappen van de StreamingPolicy en biedt de definities.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|Volledig gekwalificeerde resource-ID voor de resource.|
 |naam|De naam van de resource.|
@@ -65,7 +65,7 @@ Beschrijving van de operator:
 
 De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de StreamingPolicy-eigenschappen: 
 
-|Naam|Filteren|Bestellen|
+|Name|Filteren|Bestellen|
 |---|---|---|
 |id|||
 |naam|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|

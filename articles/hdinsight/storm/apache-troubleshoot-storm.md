@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8b0f1cfe56923cbd8a5b1c517cfdc3b174088715
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5634d812b3fbd4e904516767b008f63104b3d7b7
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086136"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632735"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Apache Storm oplossen met behulp van Azure HDInsight
 
@@ -54,7 +54,7 @@ De bibliotheekmap heeft JAR-bestanden met de implementatie voor de bewerking voo
 
 Voer de [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) script uit de ZooKeeper-knooppunten om te exporteren en vervolgens gegevens te importeren. Het script bijwerken naar de juiste versie van Hortonworks Data Platform (HDP). (We werken op het maken van deze scripts algemene in HDInsight. Algemene scripts kunnen uitvoeren op elk knooppunt in het cluster zonder wijzigingen door de gebruiker.)
 
-De exportopdracht de metagegevens worden geschreven naar een Apache Hadoop Distributed File System (HDFS)-pad (in een Azure Blob Storage of Azure Data Lake Store-store) op een locatie die u hebt ingesteld.
+De exportopdracht de metagegevens worden geschreven naar een Apache Hadoop Distributed File System (HDFS)-pad (in Azure Blob Storage of Azure Data Lake Storage) op een locatie die u hebt ingesteld.
 
 ### <a name="examples"></a>Voorbeelden
 
@@ -87,7 +87,7 @@ Binaire storm-bestanden voor de huidige HDP-stack zijn in /usr/hdp/current/storm
  
 Er zijn meerdere binaire bestanden voor specifieke HDP-versies in /usr/hdp (bijvoorbeeld /usr/hdp/2.5.0.1233/storm). De map /usr/hdp/current/storm-client is symlinked naar de nieuwste versie die wordt uitgevoerd op het cluster.
 
-Zie voor meer informatie, [verbinding maken met een HDInsight-cluster met behulp van SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) en [Storm](http://storm.apache.org/).
+Zie voor meer informatie, [verbinding maken met een HDInsight-cluster met behulp van SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) en [Apache Storm](https://storm.apache.org/).
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Hoe bepaal ik de topologie van de implementatie van een Storm-cluster?
 Bepaal eerst alle onderdelen die zijn geïnstalleerd met HDInsight Storm. Een Storm-cluster bestaat uit vier categorieën van knooppunt:

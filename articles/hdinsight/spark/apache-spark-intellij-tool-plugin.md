@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: maxluk
-ms.openlocfilehash: b2bf79d90c741e09c683e4520b05b31ba2fee1da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 621d41c5c9558b5cb17d2a1e5a03d68f8af0df19
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582765"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600638"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor IntelliJ gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster
 
@@ -26,7 +26,7 @@ Gebruik de Azure Toolkit voor IntelliJ-invoegtoepassing voor het ontwikkelen van
 
 Voor het maken van uw project, geven de [Apache Spark-toepassingen maken met de Azure Toolkit voor IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) video.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > U kunt deze invoegtoepassing gebruiken om te maken en verzenden van toepassingen alleen voor een HDInsight Spark-cluster op Linux.
 > 
 
@@ -180,22 +180,22 @@ Na het maken van een Scala-toepassing, kunt u deze indient aan het cluster.
 
     * Selecteer een artefact in het project IntelliJ of Selecteer een van de vaste schijf.
 
-    * **De naam van de Main-klasse** veld: de standaardwaarde is de hoofdklasse van het geselecteerde bestand. U kunt de klasse wijzigen door het beletselteken (**...** ) en het kiezen van een andere klasse.   
+    * **De naam van de Main-klasse** veld: De standaardwaarde is de hoofdklasse van het geselecteerde bestand. U kunt de klasse wijzigen door het beletselteken (**...** ) en het kiezen van een andere klasse.   
 
-    * **Taak configuraties** veld: de standaardwaarden zijn ingesteld als de afbeelding hierboven wordt weergegeven. U kunt de waarde wijzigen of toevoegen van nieuwe sleutel/waarde voor het verzenden van taken. Voor meer informatie: [Apache Livy REST-API](http://livy.incubator.apache.org./docs/latest/rest-api.html)
+    * **Taak configuraties** veld:  De standaardwaarden zijn ingesteld als de afbeelding hierboven wordt weergegeven. U kunt de waarde wijzigen of toevoegen van nieuwe sleutel/waarde voor het verzenden van taken. Voor meer informatie: [Apache Livy REST-API](http://livy.incubator.apache.org./docs/latest/rest-api.html)
 
       ![De verzending van Spark dialoogvenster vak taak configuratie betekenis](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
 
-    * **Opdrachtregelargumenten** veld: kunt u de argumenten waarden splitsen op basis van de ruimte voor de main-klasse, indien nodig.
+    * **Opdrachtregelargumenten** veld: U kunt de argumenten waarden splitsen op basis van de ruimte voor de main-klasse indien nodig kunt invoeren.
 
-    * **Waarnaar wordt verwezen JAR-bestanden** en **bestanden waarnaar wordt verwezen** velden: Geef de paden voor de waarnaar wordt verwezen, JAR-bestanden en bestanden indien van toepassing. Voor meer informatie: [configuratie van een Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
+    * **Waarnaar wordt verwezen JAR-bestanden** en **bestanden waarnaar wordt verwezen** velden: Indien van toepassing, kunt u de paden voor de waarnaar wordt verwezen, JAR-bestanden en bestanden. Voor meer informatie: [Configuratie van een Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
 
       ![Betekenis van de verzending van Spark dialoogvenster vak jar-bestanden](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
 
-       > [!NOTE]
-       > Als u wilt uploaden uw JARs waarnaar wordt verwezen en bestanden waarnaar wordt verwezen, Raadpleeg: [over het uploaden van resources aan het cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
+       > [!NOTE]  
+       > Als u wilt uploaden uw JARs waarnaar wordt verwezen en bestanden waarnaar wordt verwezen, Zie: [Over het uploaden van resources aan het cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
                          
-    * **Pad uploaden**: kunt u de opslaglocatie voor het verzenden van Jar of Scala, een project resources aangeven. Er zijn drie opslagtypen ondersteund: **Azure Blob**, **interactieve sessie Spark gebruiken voor het uploaden van artefacten**, en **cluster standaardopslagaccount gebruiken**, en **ADLS Gen1**. In de schermafbeelding hieronder volgt een voorbeeld van Azure Blob.
+    * **Pad uploaden**: U kunt de opslaglocatie voor het verzenden van Jar of Scala, een project resources aan te geven. Er zijn drie opslagtypen ondersteund: **Azure Blob**, **interactieve sessie Spark gebruiken voor het uploaden van artefacten**, en **cluster standaardopslagaccount gebruiken**, en **ADLS Gen1**. In de schermafbeelding hieronder volgt een voorbeeld van Azure Blob.
 
         ![Het dialoogvenster voor het indienen van Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -310,7 +310,7 @@ U kunt de bestaande Spark Scala converteren toepassingen die u hebt gemaakt in I
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-### <a name="error-in-local-run-please-use-a-larger-heap-size"></a>Fout bij lokaal uitvoeren: *gebruik een grotere heapgrootte*
+### <a name="error-in-local-run-please-use-a-larger-heap-size"></a>Fout bij lokaal uitvoeren: *Gebruik een grotere heapgrootte*
 Als u een 32-bits-SDK voor Java bij lokaal uitvoeren, kunt u in Spark 1.6, de volgende fouten optreden:
 
     Exception in thread "main" java.lang.IllegalArgumentException: System memory 259522560 must be at least 4.718592E8. Please use a larger heap size.
@@ -350,18 +350,18 @@ Als u suggesties of feedback hebt, of als u problemen ondervindt wanneer u deze 
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
-* Create Scala-project (video): [Apache Spark Scala-toepassingen maken](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Foutopsporing op afstand (video): [Azure-Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand op HDInsight-Cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Maak Scala-project (video): [Apache Spark Scala-toepassingen maken](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Externe foutopsporing (video): [Azure Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand op HDInsight-Cluster gebruiken](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-hulpprogramma's](apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-hulpprogramma 's](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Het maken en uitvoeren van toepassingen
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [Azure Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand via VPN-verbinding gebruiken](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)

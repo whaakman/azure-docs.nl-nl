@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 77b19b708b32003edc4555745a233a01d6f60b71
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: eab9f13ad41d4109bb44ae196a7f8e2177886532
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026276"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994195"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -282,13 +282,13 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>Exemplaar metagegevens gegevenscategorieën
 De volgende gegevenscategorieën zijn beschikbaar via de Instance Metadata Service:
 
-Gegevens | Beschrijving | Versie geïntroduceerd 
+Gegevens | Description | Versie geïntroduceerd 
 -----|-------------|-----------------------
 location | Azure-regio de virtuele machine wordt uitgevoerd in | 2017-04-02 
 naam | Naam van de virtuele machine | 2017-04-02
 aanbieding | Biedt informatie over de VM-installatiekopie. Deze waarde is alleen aanwezig zijn voor installatiekopieën die zijn geïmplementeerd vanuit de galerie met installatiekopieën van Azure. | 2017-04-02
 Uitgever | Uitgever van de VM-installatiekopie | 2017-04-02
-SKU | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
+sku | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
 versie | Versie van de VM-installatiekopie | 2017-04-02
 besturingssysteemtype | Linux of Windows | 2017-04-02
 platformUpdateDomain |  [Updatedomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
@@ -409,6 +409,50 @@ Azure heeft verschillende onafhankelijke clouds, zoals [Azure Government](https:
   echo $environment
 ```
 
+### <a name="failover-clustering-in-windows-server"></a>Failover Clustering in WindowsServer
+
+Voor bepaalde scenario's, bij het opvragen van Instance Metadata Service met Failover Clustering, dit is nodig om een route toevoegen aan de routeringstabel.
+
+1. Open de opdrachtprompt met beheerdersbevoegdheden.
+
+2. Voer de volgende opdracht uit en noteer het adres van de Interface voor het netwerkadres (`0.0.0.0`) in de routetabel voor IPv4.
+
+```bat
+route print
+```
+
+> [!NOTE] 
+> De volgende voorbeelduitvoer van een Windows Server-VM met Failover-Cluster ingeschakeld bevat alleen de IPv4-Route-Table voor het gemak.
+
+```bat
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         10.0.1.10    266
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
+```
+
+3. Voer de volgende opdracht uit en gebruik het adres van de Interface voor doel-netwerk (`0.0.0.0`) die is (`10.0.1.10`) in dit voorbeeld.
+
+```bat
+route add 169.254.169.254/32 10.0.1.10 metric 1 -p
+```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Voorbeelden van het aanroepen van metadata-service met behulp van verschillende talen in de virtuele machine 
 

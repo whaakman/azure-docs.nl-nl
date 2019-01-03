@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 11/27/2018
-ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: de77dfc40306f014a10e1ab11f2581392d3c160b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437059"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993740"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-servicelaag, Azure Hybrid Benefit en migratie
 
@@ -33,9 +33,9 @@ vCore-model kunt u gebruiken [Azure Hybrid Benefit voor SQL Server](https://azur
 
 ## <a name="service-tier-characteristics"></a>Service tier kenmerken
 
-Het vCore-model biedt twee Servicelagen voor algemeen gebruik en bedrijfskritiek. Service-lagen van elkaar worden onderscheiden door een bereik van de compute-grootten, ontwerp voor hoge beschikbaarheid, foutisolatie, soorten opslag en i/o-bereik. De klant moet afzonderlijk configureren voor de vereiste periode voor de opslag en de bewaarperiode voor back-ups. U moet de vereiste periode voor de opslag en de bewaarperiode voor back-ups afzonderlijk configureren. In de Azure-portal, gaat u naar de Server (niet de database) > beheerde back-ups > beleid configureren > punt In tijd herstel configuratie > 7 en 35 dagen.
+Het vCore-model biedt drie Servicelagen voor algemeen gebruik, flexibele en bedrijfskritiek. Service-lagen van elkaar worden onderscheiden door een bereik van de compute-grootten, ontwerp voor hoge beschikbaarheid, foutisolatie, typen en grootte van opslag en i/o-bereik. U moet de vereiste periode voor de opslag en de bewaarperiode voor back-ups afzonderlijk configureren. In de Azure-portal, gaat u naar de Server (niet de database) > beheerde back-ups > beleid configureren > punt In tijd herstel configuratie > 7 en 35 dagen.
 
-De volgende tabel kunt u weten wat de verschillen tussen deze twee lagen:
+De volgende tabel kunt u weten wat de verschillen tussen de drie lagen:
 
 ||**Algemeen gebruik**|**Bedrijfskritiek**|**Zeer grootschalige (preview)**|
 |---|---|---|---|
@@ -63,7 +63,7 @@ Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-In het op vCore gebaseerde aankoopmodel, kunt u uw bestaande licenties voor gereduceerde tarieven voor SQL-Database met behulp van exchange de [Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Dit voordeel van Azure kunt u uw on-premises SQL Server-licenties gebruiken tot 30% besparen op Azure SQL Database met behulp van uw on-premises SQL Server-licenties met Software Assurance.
+In het op vCore gebaseerde aankoopmodel, kunt u uw bestaande licenties voor gereduceerde tarieven voor SQL-Database met behulp van exchange de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Dit voordeel van Azure kunt u uw on-premises SQL Server-licenties gebruiken tot 30% besparen op Azure SQL Database met behulp van uw on-premises SQL Server-licenties met Software Assurance.
 
 ![prijzen](./media/sql-database-service-tiers/pricing.png)
 

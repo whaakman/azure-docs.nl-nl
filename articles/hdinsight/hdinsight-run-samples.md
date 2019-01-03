@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b00982cbc30b2345d9eacea376e3c5164ce1b078
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408677"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745054"
 ---
-# <a name="run-apache-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Apache Hadoop MapReduce-voorbeelden uitvoeren in HDInsight op basis van Windows
+# <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Voorbeelden van MapReduce in HDInsight op basis van Windows worden uitgevoerd
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 Een reeks voorbeelden wordt waarmee u kunt halen gestart actieve MapReduce-taken op Apache Hadoop-clusters met behulp van Azure HDInsight geleverd. Deze voorbeelden zijn beschikbaar op elk van de beheerde HDInsight-clusters die u maakt. Deze voorbeelden wordt uitgevoerd, raakt u vertrouwd met het gebruik van Azure PowerShell-cmdlets uitvoeren op Hadoop-clusters.
@@ -167,7 +167,7 @@ Het script dat is opgegeven voor dit voorbeeld verzendt een Hadoop-jar-taak en i
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10 GB Graysort
-In dit voorbeeld maakt gebruik van een gemiddelde hoeveelheden 10 GB aan gegevens zodat deze kan relatief snel kan worden uitgevoerd. Maakt gebruik van de MapReduce-toepassingen die zijn ontwikkeld door Owen O'Malley en Arun Murthy die de jaarlijkse voor algemeen gebruik ("daytona") terabyte sorteren benchmark in 2009 met een snelheid van 0.578 TB/min (100 TB in 173 minuten gewonnen). Zie voor meer informatie over deze en andere sorteren benchmarks de [Sortbenchmark](http://sortbenchmark.org/) site.
+In dit voorbeeld maakt gebruik van een gemiddelde hoeveelheden 10 GB aan gegevens zodat deze kan relatief snel kan worden uitgevoerd. Maakt gebruik van de MapReduce-toepassingen die zijn ontwikkeld door Owen O'Malley en Arun Murthy die de jaarlijkse voor algemeen gebruik ("daytona") terabyte sorteren benchmark in 2009 met een snelheid van 0.578 TB/min (100 TB in 173 minuten gewonnen). Zie voor meer informatie over deze en andere sorteren benchmarks de [Sortbenchmark](https://sortbenchmark.org/) site.
 
 In dit voorbeeld maakt gebruik van drie sets MapReduce-programma's:
 
@@ -383,7 +383,7 @@ Het pi estimator Java-code met de functies toewijzen en reducer is beschikbaar v
 * "License"); you may not use this file except in compliance
 * with the License. You may obtain a copy of the License at
 *
-* http://www.apache.org/licenses/LICENSE-2.0
+* https://www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -722,7 +722,7 @@ De code voor de TeraSort MapReduce-programma wordt voor inspectie in deze sectie
     * "License"); you may not use this file except in compliance
     * with the License.  You may obtain a copy of the License at
     *
-    *     http://www.apache.org/licenses/LICENSE-2.0
+    *     https://www.apache.org/licenses/LICENSE-2.0
     *
     * Unless required by applicable law or agreed to in writing, software
     * distributed under the License is distributed on an "AS IS" BASIS,

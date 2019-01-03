@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/13/2018
+ms.date: 12/26/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: fa99fa3b6ae9e809718121787cc986d02bcf824b
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 35078d9cf705351a9f64f52738c9eaca90814f7a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678178"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53805760"
 ---
 > [!TIP]
 > Een voorbeeld van Swagger eerst wordt geleverd ter illustratie van de API-functie instellen.
@@ -25,7 +25,7 @@ U kunt toegang tot uw eigen gegenereerde Swagger-Management-API-documentatie op:
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Naam | Vervangen door |
+| Name | Vervangen door |
 | --- | --- |
 | YOUR_INSTANCE_NAME | De naam van uw Azure digitale Twins-exemplaar |
-| YOUR_LOCATION | Welke regio u uw exemplaar wordt gehost op server |
+| YOUR_LOCATION | De serverregio waarin het exemplaar wordt gehost |

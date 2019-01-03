@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496886"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725266"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Gebruikers machtigen voor Apache Ambari-weergaven
 
 [Enterprise Security Package (ESP) ingeschakeld HDInsight-clusters](./domain-joined/apache-domain-joined-introduction.md) bieden geavanceerde mogelijkheden, met inbegrip van Azure Active Directory gebaseerde verificatie. U kunt [nieuwe gebruikers synchroniseren](hdinsight-sync-aad-users-to-cluster.md) toegevoegd aan Azure AD-groepen die toegang tot het cluster, zodat deze bepaalde gebruikers bepaalde acties uit te voeren. Werken met gebruikers, groepen en machtigingen in [Apache Ambari](https://ambari.apache.org/) wordt ondersteund voor zowel ESP HDInsight-clusters en standard HDInsight-clusters.
 
-Active Directory: gebruikers kunnen aanmelden bij de clusterknooppunten met hun domeinreferenties. Ze kunnen hun domeinreferenties ook gebruiken om te verifiëren van de cluster-interacties met andere goedgekeurde eindpunten, zoals [Hue](http://gethue.com/), Ambari-weergaven, ODBC, JDBC, PowerShell en REST-API's.
+Active Directory: gebruikers kunnen aanmelden bij de clusterknooppunten met hun domeinreferenties. Ze kunnen hun domeinreferenties ook gebruiken om te verifiëren van de cluster-interacties met andere goedgekeurde eindpunten, zoals [Hue](https://gethue.com/), Ambari-weergaven, ODBC, JDBC, PowerShell en REST-API's.
 
-> [!WARNING]
+> [!WARNING]  
 > Wijzig het wachtwoord van de Ambari-watchdog (hdinsightwatchdog) op uw Linux gebaseerde HDInsight-cluster niet. Wijzigen van het wachtwoord, verbreekt de mogelijkheid om te gebruiken van scriptacties of vergroten / verkleinen met uw cluster uit te voeren.
 
 Als u hebt nog niet gedaan, voert u de [deze instructies](./domain-joined/apache-domain-joined-configure.md) voor het inrichten van een nieuw ESP-cluster.
@@ -100,7 +100,7 @@ De lijst van machtigingen die aan elke rol wilt bekijken, klikt u op de blauwe v
 
 ![Menu-koppeling rollen](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
 
-Op deze pagina, er zijn twee verschillende weergaven die u gebruiken kunt voor het beheren van rollen voor gebruikers en groepen: blok- en lijst.
+Op deze pagina zijn er twee verschillende weergaven die u gebruiken kunt voor het beheren van rollen voor gebruikers en groepen: Blok- en lijst.
 
 ### <a name="block-view"></a>Weergave blokkeren
 
@@ -110,7 +110,7 @@ De weergave blokkeren wordt elke rol in een eigen rij weergegeven, en bevat de *
 
 ### <a name="list-view"></a>Lijstweergave
 
-De lijstweergave biedt snelle bewerkingsmogelijkheden in twee categorieën: gebruikers en groepen.
+De lijstweergave biedt snelle bewerkingsmogelijkheden in twee categorieën: Gebruikers en groepen.
 
 * De categorie van de gebruikers van de lijstweergave geeft een lijst van alle gebruikers, zodat u een rol voor elke gebruiker in de vervolgkeuzelijst selecteren.
 

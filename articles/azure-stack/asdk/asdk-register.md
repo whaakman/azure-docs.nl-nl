@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/28/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 84924900403a4aa2a65143c65a0b26f2c95a1e5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 00c4d750d0617d36ab476719ce31c8038065511c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962644"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807207"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registratie
 U kunt de installatie van de Azure Stack Development Kit (ASDK) registreren met Azure marketplace-items van Azure downloaden en het instellen van rapportage terug naar Microsoft commercegegevens. Registratie is vereist voor ondersteuning van de volledige functionaliteit van Azure Stack, met inbegrip van marketplace-syndicatie. Registratie wordt aanbevolen omdat hiermee u voor het testen van belangrijke Azure Stack-functionaliteit, zoals marketplace-syndicatie en rapportage over het gebruik kunt. Nadat u Azure Stack hebt geregistreerd, wordt gebruik gerapporteerd aan Azure commerce. U kunt het zien onder het abonnement dat u voor de registratie gebruikt. Echter ASDK gebruikers niet in rekening gebracht voor het gebruik die ze rapporteren.
@@ -69,7 +69,7 @@ Volg deze stappen voor het registreren van de ASDK met Azure.
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. Wanneer het script is voltooid, ziet u dit bericht: **uw omgeving is nu geregistreerd en worden geactiveerd met behulp van de opgegeven parameters.**
+3. Wanneer het script is voltooid, moet u dit bericht ziet: **Uw omgeving is nu geregistreerd en geactiveerd met behulp van de opgegeven parameters.**
 
     ![Uw omgeving is nu geregistreerd](media/asdk-register/1.PNG)
 
@@ -201,21 +201,21 @@ U kunt ook kunt u de **Get-inhoud** cmdlet om te verwijzen naar een bestand met 
 Wanneer de activering is voltooid, ziet u een bericht dat lijkt op **uw omgeving het proces voor registratie en -activering is voltooid.**
 
 ## <a name="verify-the-registration-was-successful"></a>Controleer of dat de registratie is geslaagd
-Volg deze stappen om te controleren of de ASDK registratie bij Azure **in verbonden omgevingen** is geslaagd.
+
+U kunt de **regiobeheer** tegel om te controleren of de Azure Stack-registratie geslaagd is. Deze tegel is beschikbaar op de standaard-dashboard in de beheerdersportal.
 
 1. Aanmelden bij de [Azure Stack-beheerportal](https://adminportal.local.azurestack.external).
 
-2. Klik op **Marketplace Management** > **toevoegen vanuit Azure**.
+2. Selecteer in het Dashboard, **regiobeheer**.
 
-    ![](media/asdk-register/2.PNG)
+    [ ![De tegel beheer regio](media/asdk-register/admin1sm.png "regio management tegel") ](media/asdk-register/admin1.png#lightbox)
 
-3. Als u een lijst met items die beschikbaar zijn in Azure ziet, wordt de activering is voltooid.
-
-    ![](media/asdk-register/3.PNG)
+3. Selecteer **eigenschappen**. Deze blade ziet u de status en details van uw omgeving. De status kan zijn **geregistreerde** of **niet geregistreerd**. Als geregistreerd, ook ziet u de ID van de Azure-abonnement dat u gebruikt voor het registreren van uw Azure Stack, samen met de registratie-resourcegroep en de naam.
 
 ## <a name="move-a-registration-resource"></a>Een registratie-resource verplaatsen
 Een registratie-resource verplaatsen tussen resourcegroepen onder hetzelfde abonnement **is** ondersteund. Zie voor meer informatie over het verplaatsen van resources naar een nieuwe resourcegroep [resources verplaatsen naar een nieuwe resourcegroep of abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een Azure Stack marketplace-item toevoegen](../azure-stack-marketplace.md)
+
+- [Een Azure Stack marketplace-item toevoegen](../azure-stack-marketplace.md)

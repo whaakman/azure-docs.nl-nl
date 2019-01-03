@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 57dd6fc822e0285b33368987d2af7c690d4f7786
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337815"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994756"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL Database Managed Instance met virtuele netwerken en in de buurt van 100% compatibiliteit gebruiken
 
@@ -30,7 +30,7 @@ Het volgende diagram geeft een overzicht van de belangrijkste functies van het b
 
 ![belangrijke functies](./media/sql-database-managed-instance/key-features.png)
 
-Azure SQL Database Managed Instance is ontworpen voor klanten die willen migreren van een groot aantal apps van on-premises of IaaS, zelf is ingebouwd, of ISV-omgeving volledig beheerde PaaS-cloudomgeving, met als lage migratie inspanning mogelijk worden opgegeven. Met behulp van de volledig geautomatiseerde [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, klanten kunnen lift- en shift van hun on-premises SQL Server naar een beheerd exemplaar biedt compatibiliteit met SQL Server on-premises en volledig isoleren de exemplaren van de klant met ondersteuning voor systeemeigen VNet.  Met Software Assurance, kunt u exchange-hun bestaande licenties voor kortingstarieven op een SQL Database Managed Instance met de [Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren die hoge beveiliging en een uiterst programmeerbare oppervlak vereisen.
+Azure SQL Database Managed Instance is ontworpen voor klanten die willen migreren van een groot aantal apps van on-premises of IaaS, zelf is ingebouwd, of ISV-omgeving volledig beheerde PaaS-cloudomgeving, met als lage migratie inspanning mogelijk worden opgegeven. Met behulp van de volledig geautomatiseerde [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, klanten kunnen lift- en shift van hun on-premises SQL Server naar een beheerd exemplaar biedt compatibiliteit met SQL Server on-premises en volledig isoleren de exemplaren van de klant met ondersteuning voor systeemeigen VNet.  Met Software Assurance, kunt u exchange-hun bestaande licenties voor kortingstarieven op een SQL Database Managed Instance met de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  SQL Database Managed Instance is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren die hoge beveiliging en een uiterst programmeerbare oppervlak vereisen.
 
 Door de algemene beschikbaarheid, Managed Instance is erop gericht om te leveren dicht bij surface area van 100% compatibiliteit met de nieuwste versie van on-premises SQL Server via een gefaseerde release-plan.
 
@@ -70,7 +70,7 @@ De belangrijkste functies van Managed Instance worden in de volgende tabel weerg
 
 ## <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
 
-De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) in het beheerde exemplaar biedt u flexibiliteit, controle, transparantie en een eenvoudige manier te vertalen van de vereisten van de on-premises workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van uw workloadbehoefte wijzigen. Het vCore-model is ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) in het beheerde exemplaar biedt u flexibiliteit, controle, transparantie en een eenvoudige manier te vertalen van de vereisten van de on-premises workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van uw workloadbehoefte wijzigen. Het vCore-model is ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 In het vCore-model, kunt u kiezen tussen verschillende hardwaregeneraties.
 
@@ -146,7 +146,7 @@ Azure SQL Database biedt een set geavanceerde beveiligingsfuncties die kunnen wo
 - [Beveiliging op rijniveau](/sql/relational-databases/security/row-level-security) kunt u om te bepalen de toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld door het groepslidmaatschap of uitvoeringscontext context groep). Beveiliging op rijniveau (RLS) vereenvoudigt het ontwerp en de code van de beveiliging in uw toepassing. Met RLS kunt u beperkingen instellen voor de toegang tot gegevens in rijen. Bijvoorbeeld, ervoor te zorgen dat werknemers alleen de rijen met gegevens die relevant voor hun afdeling zijn, of een gegevenstoegang beperken tot alleen de relevante gegevens.
 - [Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) Azure SQL Database Managed Instance-gegevensbestanden, bekend als het versleutelen van gegevens in rust worden versleuteld. TDE voert realtime i/o-versleuteling en ontsleuteling van de gegevens en logboekbestanden. De versleuteling gebruikt een databaseversleutelingssleutel (DEK), dat is opgeslagen in de database-bootrecord voor beschikbaarheid tijdens het herstel. U kunt alle databases in het beheerde exemplaar met transparante gegevensversleuteling beveiligen. TDE is van de SQL Server beproefde versleuteling-at-rest-technologie die is volgens veel nalevingsstandaarden vereist voor bescherming tegen diefstal van opslagmedia.
 
-Migratie van een versleutelde database naar SQL Managed Instance wordt via de Azure Database Migration Service (DMS) of systeemeigen terugzetten ondersteund. Als u van plan bent voor het migreren van versleutelde database met behulp van systeemeigen restore, is de migratie van het bestaande TDE-certificaat van de SQL Server on-premises of SQL Server-VM aan het beheerde exemplaar is een vereiste stap. Zie voor meer informatie over opties voor de migratie, [SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
+Migratie van een versleutelde database naar SQL Managed Instance wordt via de Azure Database Migration Service (DMS) of systeemeigen terugzetten ondersteund. Als u van plan bent te migreren van een versleutelde database met behulp van systeemeigen restore, is de migratie van het bestaande TDE-certificaat van de SQL Server on-premises of SQL Server-VM aan het beheerde exemplaar is een vereiste stap. Zie voor meer informatie over opties voor de migratie, [SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Integratie van Azure Active Directory
 

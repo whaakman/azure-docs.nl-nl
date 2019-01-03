@@ -10,21 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bd0bcd79bb21dc3973b34086f6dad21b47a95c2f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 409647da146a2844384204cb03de5028d45e5763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240865"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792387"
 ---
 # <a name="demo-password-reset"></a>Demo: Wachtwoord opnieuw instellen
-Deze demonstratie ziet u een eenvoudige technische ondersteuning-bot die u bij het opnieuw instellen van wachtwoorden helpen kan. 
-
-Hier ziet u hoe Conversatiecursist essentieel dialoogvenster stromen, zet meerdere reeksen, met inbegrip van een klasse out-van-domein kunt leren. Deze demonstratie gebruikt geen eventuele code of entiteiten.
+In deze zelfstudie worden een bot eenvoudig technische ondersteuning die u bij het opnieuw instellen van wachtwoorden mogelijk gemaakt door Conversatiecursist helpen kan gepresenteerd. Model van de bot kunt leren essentieel dialoogvenster stromen en schakelt u meerdere reeksen met inbegrip van de klassen van een out-van-domein. De taak kan worden bereikt zonder code of entiteiten.
 
 ## <a name="video"></a>Video
 
-[![Voorbeeld van de demo-wachtwoord](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
+[![Voorbeeld van de demo-wachtwoord](https://aka.ms/cl_Tutorial_v3_DemoPassword_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPassword)
 
 ## <a name="requirements"></a>Vereisten
 In deze zelfstudie is vereist dat het wachtwoord opnieuw instellen van bot wordt uitgevoerd
@@ -37,41 +35,48 @@ Klik in de lijst Model van de web-UI op zelfstudie Demo wachtwoord opnieuw inste
 
 ### <a name="actions"></a>Acties
 
-We hebt set acties waarbij de gebruiker hulp nodig met het wachtwoord hebt is, inclusief oplossingen gemaakt.
+Het Model bevat een set acties die zijn ontworpen om u te helpen gebruikers oplossen van veelvoorkomende problemen met wachtwoord.
 
 ![](../media/tutorial_pw_reset_actions.PNG)
 
 ### <a name="training-dialogs"></a>Dialoogvensters voor training
 
-Er zijn een aantal training-dialoogvensters. Er zijn ook demonstraties van een out-of domain-klasse--bijvoorbeeld aanvragen van gebruikers, zoals 'routebeschrijvingen' zich buiten het domein. de bot voorbeelden van enkele buiten het domein aanvragen heeft gekregen en kan reageren met 'Ik niet kan helpen bij die.'
+Het Model bevat ook enkele Train-dialoogvensters, inclusief een aantal die laten buiten het domein klasse training zien. Bijvoorbeeld, zoals gebruikers die kunnen u vragen een routebeschrijving. De voorbeeld-bot is getraind op een enkele voor demonstratiedoeleinden te gebruiken, en gewoon reageert door deze met de mededeling 'kunnen niet te helpen bij die." De lijst met bestaande Train-dialoogvensters bevindt zich onder het 'Train-dialoogvensters' in het linkerpaneel.
 
 ![](../media/tutorial_pw_reset_entities.PNG)
 
-Bijvoorbeeld: we proberen een sessie voor onderwijs.
+1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
+2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "ik verloren mijn wachtwoord."
+3. Klik op de knop 'Acties Score'.
+4. Selecteer het antwoord, "Is die voor uw lokaal account of een Microsoft-account?"
+5. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u in "lokaal account."
+6. Klik op de knop 'Acties Score'.
+7. Selecteer het antwoord, "welke versie van Windows hebt u?"
+8. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'windows xp'
+9. Klik op de knop 'Acties Score'.
+10. Klik op het "+ actie" knop.
+11. In de 'van de Bot response...' veld, typt u ' oplossing: Het wachtwoord opnieuw instellen op Windows XP.."
+12. Klik op de knop 'Maken'.
 
-1. Klik op de trein dialoogvensters, en vervolgens Nieuw dialoogvenster van de trein.
-1. Voer 'Ik mijn wachtwoord verloren'.
-2. Klik op Score actie.
-3. Klik om te selecteren, Is dat u voor uw lokaal account of een Microsoft-account?'
-4. Voer 'Lokale account'.
-5. Klik op Score acties.
-3. Klik om te selecteren, welke versie van Windows hebt u?"
-4. Voer ' Windows 8'.
-5. Klik op Score acties.
-6. Selecteer ' oplossing: het wachtwoord opnieuw instellen op Windows 8.'
-4. Klik op het onderwijs gereed.
+### <a name="training-dialogs-for-out-of-domain-scenarios"></a>Dialoogvensters voor Out-van-domein-scenario's voor training
 
-We proberen de bot leert hoe een klasse out-van-domein.
-
-1. Klik op de trein dialoogvensters, en vervolgens Nieuw dialoogvenster van de trein.
-1. Voer 'zoeken op het web'.
-    - Dit is een voorbeeld van de klasse out-van-domein. 
-2. Klik op Score actie.
-3. Klik om te selecteren 'Sorry, ik niet kan helpen bij die'.
-    - U ziet dat de score voor deze optie is momenteel laag. Maar na iets meer onderwijs, de score hoger wordt ontvangen.
-4. Klik op het onderwijs gereed.
-
-U hebt nu gezien over het maken van een basic-technische ondersteuning-demo en hoe deze oplossingen bieden, en ook verwerken buiten voorbeeldquery's leert.
+1. In het linkerdeelvenster, klik op "Train-dialoogvensters" en vervolgens de bestaande 'software winkels' dialoogvenster van de trein.
+2. Klik op de utterance 'software winkels' in het deelvenster chat.
+3. In het veld 'Toevoegen... alternatieve invoer' enter type 'zoeken op het web' en druk op.
+4. In het veld 'Toevoegen alternatieve invoer...' enter 'vlucht reserveren' en druk op.
+5. Klik op de knop 'Wijzigingen opslaan'.
+6. Klik op de knop 'Opslaan bewerken'.
+7. Klik op "Log-dialoogvensters" en vervolgens de knop 'Dialoogvenster voor een nieuwe Log' in het linkerdeelvenster.
+8. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Ik kan mijn wachtwoord niet vinden"
+9. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'Microsoft-account
+10. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Bedankt"
+11. Klik op de knop 'Gedaan testen'.
+12. Klik op het logboek "Ik kan mijn wachtwoord niet vinden" dialoogvenster van de rasterweergave.
+13. Klik op het niet correct weergegeven in het deelvenster chat ' oplossing: Het antwoord van het opnieuw instellen van het wachtwoord van een Microsoft-Account'.
+14. Klik op het "+ actie" knop.
+15. In de 'van de Bot response...' veld, typt u "U bent Welkom"
+16. Klik op de knop 'Maken'.
+17. Klik op de knop 'Opslaan als Train dialoogvenster'.
 
 ## <a name="next-steps"></a>Volgende stappen
 
