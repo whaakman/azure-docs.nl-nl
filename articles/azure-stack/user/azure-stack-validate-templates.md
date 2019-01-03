@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.reviewer: ''
+ms.openlocfilehash: f6ef1dfdef68136ae129faced7443302e738d5b9
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060628"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810370"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Neem contact op uw sjablonen voor Azure Stack met het hulpprogramma voor het valideren van sjabloon
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 U kunt een hulpprogramma voor het valideren van de sjabloon gebruiken om te controleren of uw Azure Resource Manager [sjablonen](azure-stack-arm-templates.md) gereed zijn voor het implementeren op Azure Stack. Hulpprogramma voor het valideren van de sjabloon is beschikbaar als onderdeel van de hulpprogramma's voor Azure Stack. De hulpprogramma's voor Azure Stack downloaden met behulp van de stappen in de [hulpprogramma's downloaden vanuit GitHub](azure-stack-powershell-download.md) artikel.
 
@@ -32,25 +32,25 @@ U kunt een hulpprogramma voor het valideren van de sjabloon gebruiken om te cont
 
 Voor het valideren van een sjabloon die u hebt voor het bouwen van een cloud mogelijkheden eerst het bestand en voer vervolgens het hulpprogramma voor het valideren. U gebruikt de volgende PowerShell-modules van hulpprogramma's voor Azure Stack:
 
-- In de **CloudCapabilities** map:<br>         AzureRM.CloudCapabilities.psm1 maakt een cloud mogelijkheden JSON-bestand voor de services en -versies in een Azure Stack-cloud.
+- In de **CloudCapabilities** map:<br>         `AzureRM.CloudCapabilities.psm1` Hiermee maakt u een cloud mogelijkheden JSON-bestand voor de services en -versies in een Azure Stack-cloud.
 - In de **TemplateValidator** map:<br>
-AzureRM.TemplateValidator.psm1 maakt gebruik van een JSON-bestand van de cloud-mogelijkheden voor het testen van sjablonen voor implementatie in Azure Stack.
+`AzureRM.TemplateValidator.psm1` maakt gebruik van een JSON-bestand van de cloud-mogelijkheden voor het testen van sjablonen voor implementatie in Azure Stack.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Het bestand van de mogelijkheden voor cloud maken
 
-Voordat u de validatie van de sjabloon gebruikt, voert u de AzureRM.CloudCapabilities PowerShell-module voor het bouwen van een JSON-bestand.
+Voordat u de validatie van de sjabloon gebruikt, voert u de **AzureRM.CloudCapabilities** PowerShell-module voor het bouwen van een JSON-bestand.
 
 >[!NOTE]
 >Als u uw geïntegreerde systeem bijwerken of nieuwe services of virtuele-extensies toevoegen, moet u deze module opnieuw uitvoeren.
 
 1. Zorg ervoor dat u verbinding hebt met Azure Stack. Deze stappen kunnen worden uitgevoerd vanuit de Azure Stack development kit host, of kunt u een [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) verbinding maken vanaf uw werkstation.
-2. Importeer de AzureRM.CloudCapabilities PowerShell-module:
+2. Importeren van de **AzureRM.CloudCapabilities** PowerShell-module:
 
     ```PowerShell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Gebruik de cmdlet Get-CloudCapabilities Serviceversies ophalen en maken van een JSON-bestand van de cloud-mogelijkheden. Als u geen opgeeft **- OutputPath**, het bestand AzureCloudCapabilities.Json in de huidige map wordt gemaakt. Gebruik uw werkelijke locatie:
+3. Gebruik de `Get-CloudCapabilities` cmdlet Serviceversies ophalen en maken van een JSON-bestand van de cloud-mogelijkheden. Als u geen opgeeft **- OutputPath**, het bestand AzureCloudCapabilities.Json in de huidige map wordt gemaakt. Gebruik uw werkelijke locatie:
 
     ```PowerShell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -58,9 +58,9 @@ Voordat u de validatie van de sjabloon gebruikt, voert u de AzureRM.CloudCapabil
 
 ## <a name="validate-templates"></a>Valideren van sjablonen
 
-Volg deze stappen voor het valideren van sjablonen met behulp van de AzureRM.TemplateValidator PowerShell-module. U kunt uw eigen sjablonen gebruiken of valideren de [snelstartsjablonen van Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
+Volg deze stappen voor het valideren van sjablonen met behulp van de **AzureRM.TemplateValidator** PowerShell-module. U kunt uw eigen sjablonen gebruiken of valideren de [snelstartsjablonen van Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
-1. Importeer de AzureRM.TemplateValidator.psm1 PowerShell-module:
+1. Importeren van de **AzureRM.TemplateValidator.psm1** PowerShell-module:
 
     ```PowerShell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
@@ -95,13 +95,13 @@ De validatie van de sjabloon ondersteunt de volgende parameters.
 
 ### <a name="examples"></a>Voorbeelden
 
-In dit voorbeeld alle valideert de [snelstartsjablonen van Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) gedownload naar de lokale opslag. Het voorbeeld valideert ook grootten van virtuele machines en -extensies op basis van de mogelijkheden van Azure Stack Development Kit.
+In dit voorbeeld alle valideert de [snelstartsjablonen van Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) gedownload naar de lokale opslag. Het voorbeeld valideert ook grootten van virtuele machines en -extensies op basis van Azure Stack Development Kit mogelijkheden:
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
--TemplatePattern MyStandardTemplateName.json`
--IncludeComputeCapabilities`
+-TemplatePattern MyStandardTemplateName.json `
+-IncludeComputeCapabilities `
 -Report TemplateReport.html
 ```
 

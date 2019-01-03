@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341895"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717868"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-opslag: Verschillen en overwegingen
 
@@ -34,8 +34,8 @@ In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschille
 | Functie | Azure (wereldwijd) | Azure Stack |
 | --- | --- | --- |
 |File Storage|Cloud-gebaseerde SMB-bestandsshares wordt ondersteund|Nog niet ondersteund
-|Azure storage-serviceversleuteling voor data-at-Rest|256-bits AES-versleuteling|BitLocker-128-bits AES-versleuteling
-|Type opslagaccount|Voor algemene doeleinden en Azure blob storage-accounts|Voor algemeen gebruik alleen.
+|Azure storage-serviceversleuteling voor data-at-Rest|256-bits AES-versleuteling. Ondersteuning voor versleuteling door de klant beheerde sleutels in Key Vault.|BitLocker-128-bits AES-versleuteling. Versleuteling door de klant beheerde sleutels wordt niet ondersteund.
+|Type opslagaccount|Voor algemeen gebruik V1, V2 en Blob storage-accounts|Alleen voor algemeen gebruik V1.
 |Opties voor gegevensreplicatie|Lokaal redundante opslag, geografisch redundante opslag, geografisch redundante opslag met leestoegang en zone-redundante opslag|Lokaal redundante opslag.
 |Premium Storage|Volledig ondersteund|Kan worden ingericht, maar er is geen prestatielimiet voor of garanderen.
 |Managed Disks|Premium en standaard worden ondersteund|Als u versie 1808 of hoger ondersteund.
@@ -44,11 +44,14 @@ In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschille
 |Pagina-blob-momentopname kopiëren|Back-up Azure niet-beheerde VM-schijven die zijn gekoppeld aan een actieve virtuele machine die wordt ondersteund|Nog niet ondersteund.
 |Pagina blob-momentopname van incrementele kopie|Premium en standard-pagina in Azure blobs ondersteund|Nog niet ondersteund.
 |Opslaglagen voor blob-opslag|Hot, cool en archive storage-lagen.|Nog niet ondersteund.
-Voorlopig verwijderen voor blob-opslag|Preview|Nog niet ondersteund.
+|Voorlopig verwijderen voor blob-opslag|Algemeen beschikbaar|Nog niet ondersteund.
 |Maximale grootte voor pagina-blob|8 TB|1 TB
 |Paginaformaat voor pagina-blob|512 bytes|4 KB
 |Partitiesleutel van de tabel- en recordsleutels sleutelgrootte|1024 tekens (2048 bytes)|400 tekens (800 bytes)
-|BLOB-momentopname|Het maximum aantal momentopnamen van een blob is niet beperkt.|Het maximum aantal momentopnamen van een blob is 1000.|
+|BLOB-momentopname|Het maximum aantal momentopnamen van een blob is niet beperkt.|Het maximum aantal momentopnamen van een blob is 1000.
+|Azure AD-verificatie voor opslag|In preview|Nog niet ondersteund.
+|Onveranderbare BLOB 's|Algemeen beschikbaar|Nog niet ondersteund.
+|Firewall- en virtuele-netwerkregels voor opslag|Algemeen beschikbaar|Nog niet ondersteund.|
 
 Er zijn ook verschillen met metrische gegevens over opslag:
 
@@ -61,7 +64,17 @@ De volgende versies worden ondersteund met Azure Stack-opslag:
 
 Azure Storage service-API's:
 
-1802 bijwerken of hoger:
+1811 update of nieuwere versies:
+
+ - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+ - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [07-2015-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+
+update 1802 1809 update:
 
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
@@ -79,6 +92,12 @@ Azure Storage-services beheer-API's:
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
+Vorige versies:
+
+ - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ 
 ## <a name="sdk-versions"></a>SDK-versies
 
 Azure Stack-storage ondersteunt de volgende clientbibliotheken:

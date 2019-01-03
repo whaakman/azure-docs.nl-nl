@@ -1,7 +1,7 @@
 ---
 title: Detecteren van gezichten - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepten met betrekking tot het detecteren van gezichten wordt uitgevoerd met de Computer Vision-API.
+description: Concepten met betrekking tot de face detection-functie van de Computer Vision-API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: bf358d1e8f60f989ced8db966bbf0a5179fab25b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0c6485bff4ad11aab37139cd2aa2d3660bddac0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342310"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580533"
 ---
-# <a name="detecting-faces"></a>Gezichten detecteren
+# <a name="face-detection-with-computer-vision"></a>Gezichtsdetectie met Computer Vision
 
 Computer Vision detecteert menselijke gezichten op een afbeelding en genereert de leeftijd, geslacht en rechthoek voor elk gezicht gedetecteerd. Computer Vision biedt een subset van de functionaliteit die beschikbaar is in [Face](/azure/cognitive-services/face/) en u kunt de Face-service gebruiken voor gedetailleerdere analyse, zoals gezichtsherkenning en houdingsdetectie.  
 
@@ -25,7 +26,7 @@ Computer Vision detecteert menselijke gezichten op een afbeelding en genereert d
 
 Het eerste voorbeeld ziet u de JSON-antwoord geretourneerd door de Computer Vision voor een afbeelding met een enkele menselijke gezichten.
 
-![Vision vrouw plafond Face analyseren](./Images/woman_roof_face.png)
+![Vision-analyse Vrouw op dak-gezicht](./Images/woman_roof_face.png)
 
 ```json
 {

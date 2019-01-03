@@ -13,14 +13,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2bba11cd8b0e90f7835872e496c790aa56fcddc8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 47a89da808e2f53cf8dfc901c64eba3d78842d13
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277285"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652027"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Hoe: problemen oplossen aanmelden met behulp van Azure Active Directory-rapporten
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedure: Aanmelden-fouten oplossen met behulp van Azure Active Directory-rapporten
 
 De [aanmeldingenrapport](concept-sign-ins.md) in Azure Active Directory (Azure AD) kunt u zoeken naar antwoorden op vragen over het beheren van toegang tot de toepassingen in uw organisatie, met inbegrip van:
 
@@ -35,13 +35,13 @@ Bovendien kunt het aanmeldingenrapport u ook problemen oplossen met mislukte aan
 
 U hebt de volgende zaken nodig:
 
-* Een Azure AD-tenant met een licentie premium (P1/P2). 
-* Een gebruiker, die in de **hoofdbeheerder**, **beveiligingsbeheerder**, **beveiligingslezer** of **rapporteren lezer** rol voor de tenant. Bovendien kan elke gebruiker toegang tot hun eigen aanmeldingen. 
+* Een Azure AD-tenant met een licentie premium (P1/P2). Zie [aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) upgrade uw versie van Azure Active Directory.
+* Een gebruiker die de rol **Globale beheerder**, **Beveiligingsbeheerder**, **Beveiligingslezer** of **Rapportlezer** voor de tenant heeft. Bovendien kan elke gebruiker toegang krijgen tot eigen aanmeldingen. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Aanmelden-fouten oplossen met behulp van de rapport-aanmeldingen
 
-1. Navigeer naar de [Azure-portal](https://portal.azure.com) en selecteer uw directory.
-2. Selecteer **Azure Active Directory** en selecteer **aanmeldingen** uit de **bewaking** sectie. 
+1. Ga naar de [Azure-portal](https://portal.azure.com) en selecteer uw map.
+2. Selecteer **Azure Active Directory** en selecteer in de sectie **Controle** de optie **Aanmeldingen**. 
 3. De opgegeven filters gebruiken om de fout, ofwel door de gebruikersnaam of object-id, de toepassingsnaam of de datum verfijnen. Selecteer daarnaast **fout** uit de **Status** vervolgkeuzelijst om alleen de mislukte aanmeldingen weer te geven. 
 
     ![Resultaten filteren](./media/howto-troubleshoot-sign-in-errors/filters.png)

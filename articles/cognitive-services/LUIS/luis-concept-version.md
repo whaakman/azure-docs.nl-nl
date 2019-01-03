@@ -1,7 +1,7 @@
 ---
 title: Versiebeheer
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Informatie over het gebruik van versies voor het beheren van wijzigingen in Language Understanding (LUIS)
+description: Versies in LUIS, zijn vergelijkbaar met versies in traditionele programmeren. Elke versie is een momentopname in de tijd van de app. Voordat u wijzigingen in de app aanbrengt, maakt u een nieuwe versie. Het is eenvoudiger om terug te gaan naar de exacte app, klikt u vervolgens probeert te unpeel en het doel en de uitingen naar een eerdere status van de app.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 3dae1256e93bb15777225ada742539c5a0ebdccc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 522f1cff2d735081daecc8be6384badcd378fd75
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015565"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599583"
 ---
-# <a name="versions"></a>Versies
+# <a name="understand-how-and-when-to-use-a-luis-version"></a>Begrijpen hoe en wanneer een LUIS-versie te gebruiken
+
+Versies in LUIS, zijn vergelijkbaar met versies in traditionele programmeren. Elke versie is een momentopname in de tijd van de app. Voordat u wijzigingen in de app aanbrengt, maakt u een nieuwe versie. Het is eenvoudiger om terug te gaan naar de exacte app, klikt u vervolgens probeert te unpeel en het doel en de uitingen naar een eerdere status van de app. 
+
 Maken van verschillende modellen van dezelfde app met [versies](luis-how-to-manage-versions.md). 
 
 ## <a name="version-id"></a>Versie-ID

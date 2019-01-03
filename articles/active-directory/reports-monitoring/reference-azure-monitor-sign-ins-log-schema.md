@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4a610780d11452a8207a1108e4469bc9de62ecb8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0c44501a483b9a988c3ef048d12455eb3e5ae337
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620915"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546396"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Het schema van de logboeken voor aanmelding bij Azure AD in Azure Monitor (preview) interpreteren
 
@@ -150,7 +150,7 @@ Dit artikel beschrijft het schema van de inloggen in Azure Active Directory (Azu
 
 ## <a name="field-descriptions"></a>Beschrijving van veld
 
-| Veldnaam | Beschrijving |
+| Veldnaam | Description |
 |------------|-------------|
 | Time | De datum en tijd in UTC. |
 | ResourceId | Deze waarde is niet-toegewezen en u kunt dit veld veilig negeren.  |
@@ -167,9 +167,9 @@ Dit artikel beschrijft het schema van de inloggen in Azure Active Directory (Azu
 | Identiteit | De identiteit van het token dat is opgegeven wanneer u de aanvraag heeft ingediend. Een gebruikersaccount, systeem-account of service-principal kan het zijn. |
 | Niveau | Geeft het type van het bericht. Voor controle, is het altijd *ter informatie*. |
 | Locatie | Bevat de locatie van de activiteit aanmelden. |
-| Eigenschappen | Geeft een lijst van alle eigenschappen die gekoppeld aan aanmeldingen zijn. Zie voor meer informatie, [Microsoft Graph API Reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Dit schema maakt gebruik van de namen van dezelfde als de resource-in voor de leesbaarheid.
+| Properties | Geeft een lijst van alle eigenschappen die gekoppeld aan aanmeldingen zijn. Zie voor meer informatie, [Microsoft Graph API Reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Dit schema maakt gebruik van de namen van dezelfde als de resource-in voor de leesbaarheid.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md) (Auditlogboekenschema interpreteren in Azure Monitor)
-* [Lees meer over de diagnostische logboeken in Azure](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Lees meer over de diagnostische logboeken in Azure](../../azure-monitor/platform/diagnostic-logs-overview.md)

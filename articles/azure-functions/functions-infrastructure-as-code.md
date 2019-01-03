@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 484cf0976ce10e80ca7eaf9b215329b81ed4bb13
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 428e1bed4e62b4fcbd7a4e03601cfc5c630b6583
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994661"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715525"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiseer de implementatie van de resource voor uw functie-app in Azure Functions
 
@@ -167,7 +167,7 @@ Bovendien twee extra instellingen in de configuratie van de site in een verbruik
 
 ## <a name="deploy-a-function-app-on-the-app-service-plan"></a>Implementeren van een functie-app op het App Service-plan
 
-In de App Service-plan is de functie-app wordt uitgevoerd op toegewezen virtuele machines op basis, standaard en Premium-SKU's, vergelijkbaar met de web-apps. Zie voor meer informatie over de werking van de App Service-plan de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+In de App Service-plan is de functie-app wordt uitgevoerd op toegewezen virtuele machines op basis, standaard en Premium-SKU's, vergelijkbaar met de web-apps. Zie voor meer informatie over de werking van de App Service-plan de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/overview-hosting-plans.md). 
 
 Zie voor een voorbeeld van Azure Resource Manager-sjabloon, [functie-app in Azure App Service-plan].
 

@@ -8,21 +8,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: c63e2e3ec922d2cf26603fe19606008b1e8d3f45
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: eba66d4abf84603f1fdb5761d3ea1987983908de
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498180"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607027"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Caffe gebruiken op Azure HDInsight Spark voor gedistribueerde deep learning
 
 
 ## <a name="introduction"></a>Inleiding
 
-Deep learning is van invloed op Alles van healthcare vervoer naar productie, en meer. Bedrijven deep learning moeilijke problemen wilt oplossen, wordt [afbeeldingsclassificatie](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [spraakherkenning](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), opname-object en vertalen van de computer. 
+Deep learning is van invloed op Alles van healthcare vervoer naar productie, en meer. Bedrijven deep learning moeilijke problemen wilt oplossen, wordt [afbeeldingsclassificatie](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [spraakherkenning](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), opname-object en vertalen van de computer. 
 
-Er zijn [veel populaire frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), waaronder [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, enzovoort. [Caffe](http://caffe.berkeleyvision.org/) is een van de grootste beroemdheid niet symbolische (imperatieve) neural network-frameworks en veelvuldig worden gebruikt in veel gebieden, met inbegrip van de computer vision. Bovendien [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combineert Caffe met Apache Spark, in welk geval deep learning eenvoudig kan worden gebruikt op een bestaande Hadoop-cluster. Voor volledige oplossing learning kunt u deep learning met Spark ' ETL-pijplijnen, te reduceren system complexiteit en latentie.
+Er zijn [veel populaire frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), waaronder [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, enzovoort. [Caffe](https://caffe.berkeleyvision.org/) is een van de grootste beroemdheid niet symbolische (imperatieve) neural network-frameworks en veelvuldig worden gebruikt in veel gebieden, met inbegrip van de computer vision. Bovendien [CaffeOnSpark](https://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combineert Caffe met Apache Spark, in welk geval deep learning eenvoudig kan worden gebruikt op een bestaande Hadoop-cluster. Voor volledige oplossing learning kunt u deep learning met Spark ' ETL-pijplijnen, te reduceren system complexiteit en latentie.
 
 [HDInsight](https://azure.microsoft.com/services/hdinsight/) is een cloud Apache Hadoop aanbieding waarmee de geoptimaliseerde clusters voor open source-Analytics voor Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka en ML-Services. HDInsight wordt ondersteund door een SLA van 99,9%. Elk van deze big data-technologieën en ISV-toepassingen is eenvoudig te implementeren als beheerde clusters met beveiliging en bewaking voor ondernemingen.
 
@@ -37,13 +37,13 @@ Er zijn vier stappen om de taak te voltooien:
 
 Omdat HDInsight een PaaS-oplossing is, biedt uitstekende platformfuncties - zodat u gemakkelijk sommige taken uit te voeren. Een van de functies die worden gebruikt in dit blogbericht heet [scriptactie](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), waarmee u de shell-opdrachten voor het aanpassen van de clusterknooppunten (hoofdknooppunt, worker-knooppunt of edge-knooppunt) kunt uitvoeren.
 
-## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Stap 1: Installeer de vereiste afhankelijkheden op alle knooppunten
+## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Stap 1:  Installeer de vereiste afhankelijkheden op alle knooppunten
 
 Om te beginnen, moet u de afhankelijkheden te installeren. De Caffe-site en [CaffeOnSpark site](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) biedt enkele nuttige wiki voor het installeren van de afhankelijkheden voor Spark op YARN-modus. HDInsight maakt ook gebruik van Spark op YARN-modus. U moet echter een paar meer afhankelijkheden voor HDInsight-platform toevoegen. Om dit te doen, moet u een scriptactie gebruiken en uitvoeren op de hoofdknooppunten en worker-knooppunten. Deze scriptactie duurt ongeveer 20 minuten, zoals die afhankelijkheden is ook afhankelijk van andere pakketten zijn. U moet deze in een locatie die toegankelijk is voor uw HDInsight-cluster, zoals een GitHub-locatie of de standaard BLOB storage-account geplaatst.
 
     #!/bin/bash
     #Please be aware that installing the below will add additional 20 mins to cluster creation because of the dependencies
-    #installing all dependencies, including the ones mentioned in http://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
+    #installing all dependencies, including the ones mentioned in https://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
     #It seems numpy will only needed during compilation time, but for safety purpose you install them on all the nodes
 
     sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler maven libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev build-essential  libboost-all-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
@@ -62,14 +62,14 @@ Om te beginnen, moet u de afhankelijkheden te installeren. De Caffe-site en [Caf
 
 Er zijn twee stappen in de scriptactie. De eerste stap is het de vereiste bibliotheken installeren. Deze bibliotheken bevatten de benodigde bibliotheken voor zowel Caffe (zoals gflags, glog) compileren en uitvoeren van Caffe (zoals numpy). u libatlas gebruikt voor de optimalisatie van de CPU, maar u kunt altijd de wiki CaffeOnSpark volgen over het installeren van andere bibliotheken optimalisatie, zoals MKL of CUDA (voor GPU).
 
-De tweede stap is om te downloaden, compileren en protobuf 2.5.0 voor Caffe tijdens runtime installeren. Protobuf 2.5.0 [is vereist](https://github.com/yahoo/CaffeOnSpark/issues/87), maar deze versie niet beschikbaar als een pakket op Ubuntu 16, is dus moet u tijdens het compileren van de broncode. Er zijn ook enkele bronnen op het Internet over het compileren. Zie voor meer informatie, [hier](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
+De tweede stap is om te downloaden, compileren en protobuf 2.5.0 voor Caffe tijdens runtime installeren. Protobuf 2.5.0 [is vereist](https://github.com/yahoo/CaffeOnSpark/issues/87), maar deze versie niet beschikbaar als een pakket op Ubuntu 16, is dus moet u tijdens het compileren van de broncode. Er zijn ook enkele bronnen op het Internet over het compileren. Zie voor meer informatie, [hier](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
 Om te beginnen, kunt u alleen uitvoeren met deze scriptactie op basis van uw cluster op alle worker-knooppunten en hoofdknooppunten (voor HDInsight 3.5). U kunt de scriptacties uitvoeren op een bestaand cluster of u scriptacties gebruiken tijdens het maken van het cluster. Zie de documentatie voor meer informatie over de scriptacties [hier](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
 
 ![Scriptacties voor het installeren van afhankelijkheden](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>Stap 2: Bouw Caffe op Apache Spark voor HDInsight op het hoofdknooppunt
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>Stap 2: Caffe op Apache Spark voor HDInsight opbouwen op het hoofdknooppunt
 
 De tweede stap is het Caffe bouwen op het hoofdknooppunt en distribueert u vervolgens de gecompileerde bibliotheken die u moet alle worker-knooppunten. In deze stap moet u [ssh in uw hoofdknooppunt](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Hierna kunt u moet volgen de [CaffeOnSpark bouwproces](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Hieronder ziet u het script dat kunt u CaffeOnSpark bouwen met een paar extra stappen. 
 
@@ -124,7 +124,7 @@ Wanneer u eerst probeert te maken van CaffeOnSpark, soms de status
 
 Schoon de codeopslagplaats door 'Maak schone' en voer 'zorg bouwen"om op te lossen dit probleem als u de juiste afhankelijkheden hebben.
 
-### <a name="troubleshooting-maven-repository-connection-time-out"></a>Voor probleemoplossing: Verbindingstime van de Maven-opslagplaats
+### <a name="troubleshooting-maven-repository-connection-time-out"></a>Probleemoplossing: Verbindingstime-out maven-opslagplaats
 
 Maven biedt ook een verbinding time-outfout optreedt, vergelijkbaar met het volgende codefragment:
 
@@ -136,7 +136,7 @@ Maven biedt ook een verbinding time-outfout optreedt, vergelijkbaar met het volg
 U moet na een paar minuten opnieuw.
 
 
-### <a name="troubleshooting-test-failure-for-caffe"></a>Probleemoplossing: Fout bij testen voor Caffe
+### <a name="troubleshooting-test-failure-for-caffe"></a>Probleemoplossing: Fout bij het testen van Caffe
 
 Waarschijnlijk ziet u een testfout bij het uitvoeren van de laatste controle CaffeOnSpark. Dit is waarschijnlijk gerelateerd met UTF-8-codering, maar mag niet van invloed op het gebruik van Caffe
 
@@ -146,7 +146,7 @@ Waarschijnlijk ziet u een testfout bij het uitvoeren van de laatste controle Caf
     Tests: succeeded 6, failed 1, canceled 0, ignored 0, pending 0
     *** 1 TEST FAILED ***
 
-## <a name="step-3-distribute-the-required-libraries-to-all-the-worker-nodes"></a>Stap 3: De vereiste bibliotheken om alle worker-knooppunten te verdelen
+## <a name="step-3-distribute-the-required-libraries-to-all-the-worker-nodes"></a>Stap 3: Distribueren van de vereiste bibliotheken op alle worker-knooppunten
 
 De volgende stap is het distribueren van de bibliotheken (in feite de bibliotheken in CaffeOnSpark/caffe-openbare/distribueren/lib/en CaffeOnSpark/caffe-distri/distribueren/lib /) voor alle knooppunten. In stap 2, u deze bibliotheken in de BLOB-opslag plaatsen en in deze stap maakt u scriptacties gebruiken om te kopiëren naar de hoofdknooppunten en worker-knooppunten.
 
@@ -169,7 +169,7 @@ Het model dat u training is een voorbeeldmodel voor MNIST-training. De MNIST-dat
 
 CaffeOnSpark bevat enkele voorbeelden van netwerk-topologieën voor MNIST-training. Er is een goed ontwerp van het splitsen van de netwerkarchitectuur (de topologie van het netwerk) en optimalisatie. In dit geval zijn er twee bestanden vereist: 
 
-het bestand 'Solver' (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) wordt gebruikt voor toezicht houden op de optimalisatie van en het genereren van de parameter-updates. Bijvoorbeeld: bepaalt of CPU of GPU wordt gebruikt, wat is het momentum, het aantal iteraties zijn, enzovoort. Het definieert ook welke netwerktopologie neuron gemaakt die het programma moet gebruiken (dit is de tweede bestand dat u nodig hebt). Zie voor meer informatie over Solver [Caffe documentatie](http://caffe.berkeleyvision.org/tutorial/solver.html).
+het bestand 'Solver' (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) wordt gebruikt voor toezicht houden op de optimalisatie van en het genereren van de parameter-updates. Bijvoorbeeld: bepaalt of CPU of GPU wordt gebruikt, wat is het momentum, het aantal iteraties zijn, enzovoort. Het definieert ook welke netwerktopologie neuron gemaakt die het programma moet gebruiken (dit is de tweede bestand dat u nodig hebt). Zie voor meer informatie over Solver [Caffe documentatie](https://caffe.berkeleyvision.org/tutorial/solver.html).
 
 Omdat u CPU in plaats van GPU, moet u voor dit voorbeeld wordt de laatste regel te wijzigen:
 
@@ -187,7 +187,7 @@ De tweede bestand (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) defi
 
 ![Caffe Config](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
-Raadpleeg voor meer informatie over het definiëren van het netwerk, de [Caffe documentatie over MNIST-gegevensset](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)
+Raadpleeg voor meer informatie over het definiëren van het netwerk, de [Caffe documentatie over MNIST-gegevensset](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
 In dit artikel, moet u dit voorbeeld MNIST gebruiken. De volgende opdrachten uitvoeren vanaf het hoofdknooppunt:
 
@@ -294,8 +294,8 @@ In deze documentatie, hebt je geprobeerd CaffeOnSpark installeren met het uitvoe
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>Resources beheren
 * [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](apache-spark-resource-manager.md)

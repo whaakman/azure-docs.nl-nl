@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 75c021f7b2c2584580f2d9dbf30cbcdf11d3fdc5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7bf1a3af7705858432b9ff8caf5064b0794568df
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875362"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602457"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Query's uitvoeren voor clouddatabases met verschillende schema's (preview)
 ![Query's uitvoeren voor tabellen in verschillende databases][1]
@@ -117,8 +117,8 @@ Het volgende voorbeeld laat zien hoe de lijst met externe tabellen ophalen uit d
 ### <a name="remarks"></a>Opmerkingen
 Elastische query een uitbreiding voor de syntaxis van de bestaande externe tabel voor het definiëren van externe tabellen die gebruikmaken van externe gegevensbronnen van het type RDBMS. De definitie van een externe tabel voor verticale partities bevat informatie over de volgende aspecten: 
 
-* **Schema**: de externe DDL-tabel definieert een schema dat uw query's kunnen gebruiken. Het opgegeven in de definitie van de externe tabel schema moet overeenkomen met het schema van de tabellen in de externe database waar de werkelijke gegevens worden opgeslagen. 
-* **Verwijzing naar externe database**: de externe tabel DDL naar een externe gegevensbron verwijst. De externe gegevensbron Hiermee geeft u de logische servernaam en databasenaam op van de externe database waar de werkelijke tabelgegevens is opgeslagen. 
+* **Schema**: De externe DDL-tabel definieert een schema dat uw query's kunnen gebruiken. Het opgegeven in de definitie van de externe tabel schema moet overeenkomen met het schema van de tabellen in de externe database waar de werkelijke gegevens worden opgeslagen. 
+* **Verwijzing naar externe database**: De externe tabel DDL verwijst naar een externe gegevensbron. De externe gegevensbron Hiermee geeft u de logische servernaam en databasenaam op van de externe database waar de werkelijke tabelgegevens is opgeslagen. 
 
 Met behulp van een externe gegevensbron zoals wordt beschreven in de vorige sectie, is de syntaxis voor het maken van externe tabellen als volgt: 
 
@@ -130,7 +130,7 @@ De volgende DDL-instructie komt een bestaande definitie van de externe tabel uit
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Machtigingen voor de externe tabel maken/DROP**: machtigingen voor een externe gegevensbron ALTER nodig zijn voor de externe tabel-DDL die ook nodig is om te verwijzen naar de onderliggende gegevensbron.  
+**Machtigingen voor externe tabel maken/DROP**: EEN externe gegevensbron ALTER machtigingen nodig zijn voor de externe tabel-DDL die ook nodig is om te verwijzen naar de onderliggende gegevensbron.  
 
 ## <a name="security-considerations"></a>Beveiligingsoverwegingen
 Gebruikers met toegang tot de externe tabel krijgen automatisch toegang tot de onderliggende externe tabellen onder de referentie gegeven in de definitie van de externe gegevensbron. U moet toegang tot de externe tabel zorgvuldig beheren om te voorkomen dat ongewenste verhoging van bevoegdheden via de referentie van de externe gegevensbron. Machtigingen voor reguliere SQL kunnen worden gebruikt voor het verlenen of INTREKKEN van toegang tot een externe tabel net alsof het een gewone tabellen.  
@@ -156,10 +156,10 @@ De volgende query voert een koppeling drie richtingen tussen de twee lokale tabe
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Opgeslagen procedure voor uitvoering op afstand T-SQL: sp\_execute_remote
 Elastische query introduceert ook een opgeslagen procedure die rechtstreekse toegang tot de externe database biedt. De opgeslagen procedure is aangeroepen [sp\_uitvoeren \_externe](https://msdn.microsoft.com/library/mt703714) en kan worden gebruikt voor het uitvoeren van extern opgeslagen procedures of T-SQL-code op de externe database. Het bevat de volgende parameters: 
 
-* Naam van de gegevensbron (nvarchar): de naam van de externe gegevensbron van het type RDBMS. 
-* Query (nvarchar): de T-SQL-query moet worden uitgevoerd op de externe database. 
-* Parameterdeclaratie (nvarchar) - optioneel: de tekenreeks met typedefinities gegevens voor de parameters die in de queryparameter (zoals sp_executesql) gebruikt. 
-* Waarde parameterlijst - optionele: door komma's gescheiden lijst met parameterwaarden (zoals sp_executesql).
+* Naam van gegevensbron (nvarchar): De naam van de externe gegevensbron van het type RDBMS. 
+* Query (nvarchar): De T-SQL-query moet worden uitgevoerd op de externe database. 
+* Parameterdeclaratie (nvarchar) - optionele: De tekenreeks met gegevens typedefinities voor de parameters die in de queryparameter (zoals sp_executesql) gebruikt. 
+* Waarde parameterlijst - optionele: Door komma's gescheiden lijst met parameterwaarden (zoals sp_executesql).
 
 De sp\_uitvoeren\_extern maakt gebruik van de externe gegevensbron die is opgegeven in de Aanroepparameters voor het uitvoeren van de gegeven T-SQL-instructie op de externe database. De referentie van de externe gegevensbron maakt verbinding met de externe database.  
 

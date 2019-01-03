@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 2188451e987aad7e4edfaa2097a828ab9714d706
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138341"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793771"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Bewaken en fouten opsporen in een Azure Batch .NET-toepassing met Application Insights
 
@@ -56,14 +56,14 @@ Naar Application Insights verwijzen vanuit uw .NET-toepassing met behulp van de 
 
 ## <a name="instrument-your-code"></a>Instrumenteer uw code
 
-Als u wilt instrumenteren van uw code, uw oplossing moet maken van een Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). In het voorbeeld wordt de TelemetryClient laadt de configuratie van de [ApplicationInsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md) bestand. Zorg ervoor dat u ApplicationInsights.config in de volgende projecten bijwerken met de Application Insights-instrumentatiesleutel: Microsoft.Azure.Batch.Samples.TelemetryStartTask en TopNWordsSample.
+Als u wilt instrumenteren van uw code, uw oplossing moet maken van een Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). In het voorbeeld wordt de TelemetryClient laadt de configuratie van de [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) bestand. Zorg ervoor dat ApplicationInsights.config in de volgende projecten bijwerken met de Application Insights-instrumentatiesleutel: Microsoft.Azure.Batch.Samples.TelemetryStartTask en TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
 Ook de instrumentatiesleutel in het bestand TopNWords.cs toevoegen.
 
-Het voorbeeld in TopNWords.cs gebruikgemaakt van de volgende [instrumentation aanroepen](../application-insights/app-insights-api-custom-events-metrics.md) uit de Application Insights-API:
+Het voorbeeld in TopNWords.cs gebruikgemaakt van de volgende [instrumentation aanroepen](../azure-monitor/app/api-custom-events-metrics.md) uit de Application Insights-API:
 * `TrackMetric()` -Wordt bijgehouden hoe lang, Gemiddeld, een rekenknooppunt duurt om de vereiste tekst-bestand te downloaden.
 * `TrackTrace()` -Toegevoegd foutopsporing aanroepen naar uw code.
 * `TrackEvent()` -Nummers interessante gebeurtenissen vast te leggen.
@@ -125,7 +125,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### <a name="azure-batch-telemetry-initializer-helper"></a>Azure Batch telemetrie-initializer helper
-Tijdens het rapporteren van telemetrie voor een bepaalde server en het exemplaar, Application Insights maakt gebruik van de Azure VM-rol en de VM-naam voor de standaardwaarden. In de context van Azure Batch ziet het voorbeeld u hoe u de naam van de toepassingen en compute knooppuntnaam in plaats daarvan. Gebruik een [telemetrische initializer](../application-insights/app-insights-api-filtering-sampling.md#add-properties) voor de onderdrukking van de standaardwaarden. 
+Tijdens het rapporteren van telemetrie voor een bepaalde server en het exemplaar, Application Insights maakt gebruik van de Azure VM-rol en de VM-naam voor de standaardwaarden. In de context van Azure Batch ziet het voorbeeld u hoe u de naam van de toepassingen en compute knooppuntnaam in plaats daarvan. Gebruik een [telemetrische initializer](../azure-monitor/app/api-filtering-sampling.md#add-properties) voor de onderdrukking van de standaardwaarden. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;

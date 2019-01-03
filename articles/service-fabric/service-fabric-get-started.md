@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: 968c9f2455269cf41a701de685e4f47255b46847
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 064d73aa3d1a9183eddd53b1a1b8ddbf02afb04d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386417"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792846"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Uw ontwikkelomgeving voorbereiden in Windows
 > [!div class="op_single_selector"]
@@ -50,6 +50,9 @@ De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeli
 ## <a name="install-the-sdk-and-tools"></a>De SDK en hulpprogramma's installeren
 Webplatforminstallatieprogramma (WebPI) is de aanbevolen manier voor het installeren van de SDK en hulpprogramma's. Als u de runtime-fouten met WebPI ontvangt, kunt u ook directe koppelingen naar de installatieprogramma's vinden in de release-opmerkingen voor een specifieke release van Service Fabric. Opmerkingen bij de release kunnen u vinden in de verschillende aankondigingen op de [Service Fabric-teamblog](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
+> [!NOTE]
+> Lokale Service Fabric-ontwikkeling cluster upgrades worden niet ondersteund.
+
 ### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017 gebruiken
 De hulpprogramma's voor Service Fabric vormen een onderdeel van de Azure-workload voor ontwikkeling in Visual Studio 2017. Schakel deze workload in als onderdeel van de Visual Studio-installatie.
 Bovendien moet u de Microsoft Azure Service Fabric SDK en runtime installeren met behulp van het webplatforminstallatieprogramma.
@@ -66,8 +69,8 @@ Als u alleen de SDK nodig hebt, kunt u dit pakket installeren:
 * [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
 De huidige versies zijn:
-* Service Fabric SDK en hulpprogramma's 3.3.617
-* Service Fabric-runtime 6.4.617
+* Service Fabric SDK en hulpprogramma's 3.3.622
+* Service Fabric-runtime 6.4.622
 * Service Fabric Tools voor Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15,9 inch bevat Service Fabric Tools voor Visual Studio 2.4.11024.1 
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055138"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789463"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Inleiding tot Cloudservice controleren
 
-U kunt de van de belangrijkste metrische prestatiegegevens voor elke cloudservice bewaken. De rol van elke cloud-service verzamelt minimale gegevens: CPU-gebruik, netwerkgebruik en schijfgebruik. Als de service in de cloud heeft de `Microsoft.Azure.Diagnostics` extensie toegepast op een rol die rol kan extra punten van de gegevens worden verzameld. In dit artikel bevat een inleiding tot Azure Diagnostics voor Cloud Services.
+U kunt de van de belangrijkste metrische prestatiegegevens voor elke cloudservice bewaken. Elke cloudservicerol minimale gegevens worden verzameld: CPU-gebruik, netwerkgebruik en schijfgebruik. Als de service in de cloud heeft de `Microsoft.Azure.Diagnostics` extensie toegepast op een rol die rol kan extra punten van de gegevens worden verzameld. In dit artikel bevat een inleiding tot Azure Diagnostics voor Cloud Services.
 
 Met eenvoudige controle, gegevens van prestatiemeteritems van instanties van de voorbeelden worden gemaakt en die worden verzameld met 3 minuten durende intervallen. Deze eenvoudige bewaking gegevens worden niet opgeslagen in uw storage-account en is zonder extra kosten aan gekoppeld.
 
@@ -93,13 +93,13 @@ Waarschijnlijk hebt u twee **.cscfg** bestanden, één met de naam **ServiceConf
 
 ## <a name="use-application-insights"></a>Application Insights gebruiken
 
-Wanneer u de Cloud-Service van Visual Studio publiceert, krijgt u de optie voor het verzenden van diagnostische gegevens naar Application Insights. U kunt maken van de Application Insights-Azure-resource op dat moment of de gegevens verzenden naar een bestaande Azure-resource. Uw cloudservice kan worden bewaakt door Application Insights voor beschikbaarheid, prestaties, fouten en gebruik. Aangepaste grafieken kunnen worden toegevoegd aan Application Insights, zodat u de gegevens kunt zien die het meest belangrijk is. Gegevens van exemplaar van rol kunnen worden verzameld met behulp van de Application Insights SDK in uw cloud service-project. Zie voor meer informatie over hoe u Application Insights integreert [Application Insights met Cloud Services](../application-insights/app-insights-cloudservices.md).
+Wanneer u de Cloud-Service van Visual Studio publiceert, krijgt u de optie voor het verzenden van diagnostische gegevens naar Application Insights. U kunt maken van de Application Insights-Azure-resource op dat moment of de gegevens verzenden naar een bestaande Azure-resource. Uw cloudservice kan worden bewaakt door Application Insights voor beschikbaarheid, prestaties, fouten en gebruik. Aangepaste grafieken kunnen worden toegevoegd aan Application Insights, zodat u de gegevens kunt zien die het meest belangrijk is. Gegevens van exemplaar van rol kunnen worden verzameld met behulp van de Application Insights SDK in uw cloud service-project. Zie voor meer informatie over hoe u Application Insights integreert [Application Insights met Cloud Services](../azure-monitor/app/cloudservices.md).
 
 Houd er rekening mee dat wanneer u Application Insights gebruiken kunt om weer te geven van de prestatiemeteritems (en de andere instellingen) u hebt opgegeven via de Windows Azure Diagnostics-extensie, u alleen een rijkere ervaring krijgen door de integratie van Application Insights SDK in uw Worker en webservice-rollen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie over Application Insights met Cloudservices](../application-insights/app-insights-cloudservices.md)
+- [Meer informatie over Application Insights met Cloudservices](../azure-monitor/app/cloudservices.md)
 - [Instellen van prestatiemeteritems](diagnostics-performance-counters.md)
 

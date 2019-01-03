@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963591"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600298"
 ---
-# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Verklarende woordenlijst voor Microsoft Azure: een woordenlijst met cloud-terminologie op het Azure-platform
+# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Verklarende woordenlijst voor Microsoft Azure: Een woordenlijst met cloud-terminologie op het Azure-platform
 
 De verklarende woordenlijst van Microsoft Azure is een korte woordenlijst met cloud-terminologie voor de Azure-platform. Zie ook:
 
@@ -37,7 +37,7 @@ Zie [zich aanmelden voor een Azure-abonnement met uw Office 365-account](billing
 Een andere naam voor [App Service-app](#app-service-app).
 
 ## <a name="app-service-app"></a>App Service-app
-De rekenresources die [Azure App Service](app-service/app-service-web-overview.md) biedt voor het hosten van een website of web-toepassing, web-API of [mobiele back-end](app-service-mobile/app-service-mobile-value-prop.md). App Service-apps worden ook aangeduid als *App Services*, *web-apps*, *API apps*, en *mobiele apps*.
+De rekenresources die [Azure App Service](app-service/overview.md) biedt voor het hosten van een website of web-toepassing, web-API of [mobiele back-end](app-service-mobile/app-service-mobile-value-prop.md). App Service-apps worden ook aangeduid als *App Services*, *web-apps*, *API apps*, en *mobiele apps*.
 
 ## <a name="availability-set"></a>Beschikbaarheidsset
 Een verzameling van virtuele machines die samen worden beheerd voor toepassing redundantie en betrouwbaarheid. Het gebruik van een beschikbaarheidsset zorgt ervoor dat tijdens een geplande of onvoorziene onderhoudsgebeurtenis ten minste één virtuele machine beschikbaar is.  
@@ -70,7 +70,7 @@ Zie [actieve Geo-replicatie voor Azure SQL-Database](sql-database/sql-database-g
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>image
-Een bestand met het besturingssysteem en de configuratie van de toepassing die kan worden gebruikt voor het maken van een willekeurig aantal virtuele machines. In Azure zijn twee soorten afbeeldingen: VM-installatiekopie en de installatiekopie van het besturingssysteem. Een VM-installatiekopie bevat een besturingssysteem en alle schijven die zijn gekoppeld aan een virtuele machine, wanneer de installatiekopie is gemaakt. Een installatiekopie van het besturingssysteem bevat alleen een gegeneraliseerde besturingssysteem met schijfconfiguraties die geen gegevens.  
+Een bestand met het besturingssysteem en de configuratie van de toepassing die kan worden gebruikt voor het maken van een willekeurig aantal virtuele machines. Er zijn twee typen installatiekopieën in Azure: VM-installatiekopie en de installatiekopie van het besturingssysteem. Een VM-installatiekopie bevat een besturingssysteem en alle schijven die zijn gekoppeld aan een virtuele machine, wanneer de installatiekopie is gemaakt. Een installatiekopie van het besturingssysteem bevat alleen een gegeneraliseerde besturingssysteem met schijfconfiguraties die geen gegevens.  
 Zie [navigeren door en selecteren installatiekopieën van Windows-machines in Azure met PowerShell of CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="limits"></a>Limieten
@@ -106,13 +106,13 @@ Zie [overzicht van Azure Resource Manager](azure-resource-manager/resource-group
 Een JSON-bestand waarmee een of meer Azure-resources declaratief worden gedefinieerd en die afhankelijkheden tussen de geïmplementeerde resources definieert. De sjabloon kan worden gebruikt om de resources consistent en herhaaldelijk te implementeren.  
 Zie [Authoring Azure Resource Manager-sjablonen](resource-group-authoring-templates.md)
 
-## <a name="resource-provider"></a>resourceprovider
+## <a name="resource-provider"></a>Resourceprovider
 Een service die de resources levert die u kunt implementeren en beheren via Resource Manager. Elke resourceprovider biedt bewerkingen voor het werken met de resources die zijn geïmplementeerd. Resourceproviders is toegankelijk via de Azure-portal, Azure PowerShell en diverse programming SDK's.  
 Zie [overzicht van Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
 ## <a name="role"></a>rol
 Een manier voor het beheren van toegang die kan worden toegewezen aan gebruikers, groepen en services. Rollen zijn bewerkingen zoals het maken, beheren, en meer over Azure-resources kunt uitvoeren.  
-Zie [RBAC: ingebouwde rollen](role-based-access-control/built-in-roles.md)
+Zie [RBAC: Ingebouwde rollen](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>service level agreement (SLA)
 De overeenkomst die worden toezeggingen van Microsoft voor actieve tijdsduur en connectiviteit beschreven. Elke Azure-service heeft een specifieke SLA.  

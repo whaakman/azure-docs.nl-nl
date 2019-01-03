@@ -6,25 +6,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1d5a6dc6db3eaa46f6f2bd9944af7aefe759fbc7
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 59d32657b3f65ee3e087ea8da3b95fff8a79a6fd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496124"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975420"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>HDInsight verbinden met uw on-premises netwerk
 
 Leer hoe u met HDInsight uw on-premises netwerk te maken met Azure Virtual Networks en een VPN-gateway. Dit document vindt u planningsinformatie op:
 
 * Met behulp van HDInsight in een Azure-netwerk dat is verbonden met uw on-premises netwerk.
-
 * Configureren van DNS-naamomzetting tussen het virtuele netwerk en uw on-premises netwerk.
-
 * Configuratie van netwerkbeveiligingsgroepen toegang tot internet beperken tot HDInsight.
-
 * Poorten die door HDInsight op het virtuele netwerk.
 
 ## <a name="create-the-virtual-network-configuration"></a>De configuratie van het virtuele netwerk maken
@@ -32,9 +29,7 @@ Leer hoe u met HDInsight uw on-premises netwerk te maken met Azure Virtual Netwo
 Gebruik de volgende documenten voor meer informatie over het maken van een Azure-netwerk dat is verbonden met uw on-premises netwerk:
     
 * [Azure Portal gebruiken](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-
 * [Azure PowerShell gebruiken](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-
 * [Azure CLI gebruiken](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
 ## <a name="configure-name-resolution"></a>Naamomzetting configureren
@@ -42,15 +37,12 @@ Gebruik de volgende documenten voor meer informatie over het maken van een Azure
 Als u wilt toestaan dat HDInsight en resources in het netwerk is toegevoegd aan om te communiceren met de naam, moet u de volgende acties uitvoeren:
 
 * Maak een aangepaste DNS-server in de Azure-netwerk.
-
 * Het virtuele netwerk voor het gebruik van de aangepaste DNS-server in plaats van de standaard Azure recursieve naamomzetting configureren.
-
 * Doorsturen van tussen de aangepaste DNS-server en uw on-premises DNS-server configureren.
 
 Deze configuratie kunt het volgende gedrag:
 
 * Aanvragen voor de volledig gekwalificeerde domeinnamen waarvoor het DNS-achtervoegsel __voor het virtuele netwerk__ worden doorgestuurd naar de aangepaste DNS-server. De aangepaste DNS-server stuurt deze aanvragen vervolgens door aan de recursieve Resolver van Azure, dat het IP-adres wordt geretourneerd.
-
 * Alle andere aanvragen worden doorgestuurd naar de lokale DNS-server. Ook aanvragen voor het openbare internet-bronnen zoals microsoft.com worden doorgestuurd naar de lokale DNS-server voor naamomzetting.
 
 Groen regels zijn in het volgende diagram aanvragen voor bronnen die op de DNS-achtervoegsel van het virtuele netwerk eindigen. Blauwe lijnen zijn aanvragen voor bronnen in de on-premises netwerk of op het openbare internet.
@@ -62,49 +54,61 @@ Groen regels zijn in het volgende diagram aanvragen voor bronnen die op de DNS-a
 > [!IMPORTANT]
 > U moet maken en configureren van de DNS-server voor de installatie van HDInsight in het virtuele netwerk.
 
-Het maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/downloads/bind/) DNS-software, gebruikt u de volgende stappen uit:
+Deze stappen wordt gebruikgemaakt van de [Azure-portal](https://portal.azure.com) te maken van een virtuele Machine van Azure. Zie voor andere manieren om te maken van een virtuele machine, [VM maken - Azure CLI](../virtual-machines/linux/quick-create-cli.md) en [VM maken - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md).  Het maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/downloads/bind/) DNS-software, gebruikt u de volgende stappen uit:
 
-> [!NOTE]
-> De volgende stappen uitvoeren om de [Azure-portal](https://portal.azure.com) te maken van een virtuele Machine van Azure. Voor andere manieren om een virtuele machine maken, Zie de volgende documenten:
->
-> * [Virtuele machine maken - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
-> * [Virtuele machine maken - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
+  
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+  
+1. Selecteer in het menu links **+ een resource maken**.
+ 
+1. Selecteer **Compute**.
 
-1. Uit de [Azure-portal](https://portal.azure.com), selecteer __+__, __Compute__, en __Ubuntu Server 16.04 LTS__.
+1. Selecteer **Ubuntu Server 18.04 LTS**.<br />  
 
     ![Een virtuele Ubuntu-machine maken](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Geef in de sectie __Basisbeginselen__ de volgende gegevens op:
-
-    * __Naam__: een beschrijvende naam ter identificatie van deze virtuele machine. Bijvoorbeeld, __DNSProxy__.
-    * __Gebruikersnaam__: de naam van het SSH-account.
-    * __Openbare SSH-sleutel__ of __wachtwoord__: de verificatiemethode voor de SSH-account. Wordt u aangeraden openbare sleutels, omdat ze beter te beveiligen zijn. Zie voor meer informatie de [maken en gebruik SSH-sleutels voor Linux-VM's](../virtual-machines/linux/mac-create-ssh-keys.md) document.
-    * __Resourcegroep__: Selecteer __gebruik bestaande__, en selecteer vervolgens de resourcegroep waarin het virtuele netwerk eerder hebt gemaakt.
-    * __Locatie__: Selecteer de dezelfde locatie als het virtuele netwerk.
+1. Uit de __basisbeginselen__ tabblad, voer de volgende informatie:  
+  
+    | Veld | Waarde |
+    | --- | --- |
+    |Abonnement |Selecteer het juiste abonnement.|
+    |Resourcegroep |Selecteer de resourcegroep waarin het virtuele netwerk eerder hebt gemaakt.|
+    |Naam van de virtuele machine | Voer een beschrijvende naam ter identificatie van deze virtuele machine. In dit voorbeeld wordt **DNSProxy**.|
+    |Regio | Selecteer dezelfde regio bevinden als het virtuele netwerk eerder hebt gemaakt.  Niet alle VM-grootten zijn beschikbaar in alle regio's.  |
+    |Beschikbaarheidsopties |  Selecteer het gewenste niveau van beschikbaarheid.  Azure biedt een scala aan opties voor het beheren van beschikbaarheid en tolerantie voor uw toepassingen.  Uw oplossing voor het gebruik van gerepliceerde VM's in Beschikbaarheidszones of Beschikbaarheidssets aan uw apps en gegevens beschermen tegen storingen van de datacenter en onderhoud voor ontwerpen. In dit voorbeeld wordt **geen infrastructuur redundantie vereist**. |
+    |Installatiekopie | Selecteer het basisbesturingssysteem of de toepassing voor de virtuele machine.  Selecteer de optie kleinste en de laagste kosten voor dit voorbeeld. |
+    |Verificatietype | __Wachtwoord__ of __openbare SSH-sleutel__: De verificatiemethode voor de SSH-account. Wordt u aangeraden openbare sleutels, omdat ze beter te beveiligen zijn. Dit voorbeeld wordt een openbare sleutel.  Zie voor meer informatie de [maken en gebruik SSH-sleutels voor Linux-VM's](../virtual-machines/linux/mac-create-ssh-keys.md) document.|
+    |Gebruikersnaam |Voer de gebruikersnaam van de beheerder voor de virtuele machine.  In dit voorbeeld wordt **sshuser**.|
+    |Wachtwoord of SSH de openbare sleutel | Het veld beschikbaar wordt bepaald door uw keuze voor **verificatietype**.  Voer de juiste waarde.|
+    |||
 
     ![Basisinformatie over de configuratie virtuele machine](./media/connect-on-premises-network/vm-basics.png)
 
-    Andere vermeldingen laat de standaardwaarden en selecteer vervolgens __OK__.
+    Andere vermeldingen laat de standaardwaarden en selecteer vervolgens de **netwerken** tabblad.
 
-3. Uit de __Kies een grootte__ sectie, selecteer de VM-grootte. Selecteer de optie kleinste en de laagste kosten voor deze zelfstudie. Als u wilt doorgaan, gebruikt u de __Selecteer__ knop.
+1. Uit de **netwerken** tabblad, voer de volgende informatie: 
 
-4. Uit de __instellingen__ sectie, voer de volgende informatie:
-
-    * __Virtueel netwerk__: Selecteer het virtuele netwerk dat u eerder hebt gemaakt.
-
-    * __Subnet__: Selecteer de standaard-subnet voor het virtuele netwerk. Voer __niet__ selecteert u het subnet dat wordt gebruikt door de VPN-gateway.
-
-    * __Opslagaccount voor diagnostische gegevens__: Selecteer een bestaand opslagaccount of maak een nieuwe.
+    | Veld | Waarde |
+    | --- | --- |
+    |Virtueel netwerk | Selecteer het virtuele netwerk dat u eerder hebt gemaakt.|
+    |Subnet | Selecteer de standaard-subnet voor het virtuele netwerk dat u eerder hebt gemaakt. Voer __niet__ selecteert u het subnet dat wordt gebruikt door de VPN-gateway.|
+    |Openbare IP | Gebruik de waarde automatisch ingevuld.  |
 
     ![Instellingen voor virtueel netwerk](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Laat de overige items op de standaardwaarde, en selecteer vervolgens __OK__ om door te gaan.
+    Andere vermeldingen laat de standaardwaarden en selecteer vervolgens de **revisie + maken**.
 
-5. Uit de __aankoop__ sectie, selecteer de __aankoop__ om te maken van de virtuele machine.
+1. Uit de **revisie + maken** tabblad **maken** te maken van de virtuele machine.
+ 
 
-6. Nadat de virtuele machine is gemaakt, de __overzicht__ sectie wordt weergegeven. Selecteer in de lijst aan de linkerkant __eigenschappen__. Sla de __openbaar IP-adres__ en __privé IP-adres__ waarden. Deze wordt gebruikt in de volgende sectie.
+### <a name="review-ip-addresses"></a>IP-adressen bekijken
+Zodra de virtuele machine is gemaakt, ontvangt u een **implementatie is voltooid** melding met een **naar de resource gaan** knop.  Selecteer **naar de resource gaan** om naar uw nieuwe virtuele machine te gaan.  Volg deze stappen voor het identificeren van de bijbehorende IP-adressen van de standaardweergave voor uw nieuwe virtuele machine:
 
-    ![Openbare en persoonlijke IP-adressen](./media/connect-on-premises-network/vm-ip-addresses.png)
+1. Van **instellingen**, selecteer **eigenschappen**. 
+
+1. Houd er rekening mee de waarden voor **openbare IP-adres/DNS-NAAMLABEL** en **PARTICULIER IP-adres** voor later gebruik.
+
+   ![Openbare en persoonlijke IP-adressen](./media/connect-on-premises-network/vm-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Installeren en configureren van de binding (DNS-software)
 
@@ -116,7 +120,7 @@ Het maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/
 
     Vervang `sshuser` met de SSH-gebruikersaccount dat u hebt opgegeven bij het maken van het cluster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Er zijn verschillende manieren om op te halen de `ssh` hulpprogramma. Op Linux, Unix- en Mac OS, is deze geleverd als onderdeel van het besturingssysteem. Als u Windows gebruikt, kunt u overwegen een van de volgende opties:
     >
     > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
@@ -157,7 +161,7 @@ Het maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/
                 listen-on { any; };
         };
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Vervang de waarden in de `goodclients` sectie met het IP-adresbereik van het virtuele netwerk en de on-premises netwerk. Deze sectie worden de adressen die deze DNS-server aanvragen van accepteert gedefinieerd.
     >
     > Vervang de `192.168.0.1` vermelding in de `forwarders` sectie met het IP-adres van uw on-premises DNS-server. Deze vermelding via DNS-aanvragen naar uw on-premises DNS-server voor het omzetten van geleid.
@@ -190,7 +194,7 @@ Het maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/
             forwarders {168.63.129.16;}; # The Azure recursive resolver
         };
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > U moet vervangen de `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` met de DNS-achtervoegsel dat u eerder hebt opgehaald.
 
     Als u wilt dit bestand bewerken, moet u de volgende opdracht gebruiken:
@@ -214,7 +218,7 @@ Het maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/
     nslookup dns.mynetwork.net 10.0.0.4
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Vervang `dns.mynetwork.net` met de volledig gekwalificeerde domeinnaam (FQDN) van een resource in uw on-premises netwerk.
     >
     > Vervang `10.0.0.4` met de __interne IP-adres__ van uw aangepaste DNS-server in het virtuele netwerk.
@@ -230,11 +234,19 @@ Het maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/
 
 ### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Het virtuele netwerk voor het gebruik van de aangepaste DNS-server configureren
 
-Het virtuele netwerk voor het gebruik van de aangepaste DNS-server in plaats van de Azure recursieve naamomzetting configureren, gebruiken de volgende stappen uit:
+Gebruik de volgende stappen uit voor het configureren van het virtuele netwerk voor het gebruik van de aangepaste DNS-server in plaats van de recursieve Azure-resolver, de [Azure-portal](https://portal.azure.com):
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer het virtuele netwerk en selecteer vervolgens __DNS-Servers__.
+1. Selecteer in het menu links **alle services**.  
 
-2. Selecteer __aangepaste__, en voer de __interne IP-adres__ van de aangepaste DNS-server. Selecteer ten slotte __opslaan__.
+1. Onder **netwerken**, selecteer **virtuele netwerken**.  
+
+1. Selecteer het virtuele netwerk in de lijst, waardoor de standaardweergave voor uw virtuele netwerk wordt geopend.  
+
+1. De standaardweergave onder **instellingen**, selecteer **DNS-servers**.  
+
+1. Selecteer __aangepaste__, en voer de **PARTICULIER IP-adres** van de aangepaste DNS-server.   
+
+1. Selecteer __Opslaan__.  <br />  
 
     ![Stel de aangepaste DNS-server voor het netwerk](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -267,21 +279,21 @@ Dit voorbeeld wordt de lokale DNS-server op 196.168.0.4 om op te lossen van de n
 
 U kunt netwerkbeveiligingsgroepen (NSG) of de gebruiker gedefinieerde routes (UDR) gebruiken voor het beheren van netwerkverkeer. Nsg's kunnen u binnenkomend en uitgaand verkeer, filteren en toestaan of weigeren van het verkeer. Udr's kunnen u bepalen hoe verkeer stroomt tussen resources in het virtuele netwerk, het internet en de on-premises netwerk.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight is vereist voor inkomende toegang vanaf specifieke IP-adressen in de Azure-cloud en onbeperkte uitgaande toegang. Wanneer u nsg's of udr's verkeer beheren, moet u de volgende stappen uitvoeren:
 
 1. De IP-adressen voor de locatie waarin het virtuele netwerk niet vinden. Zie voor een lijst met vereiste IP-adressen per locatie, [vereiste IP-adressen](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
 
 2. Voor de IP-adressen in stap 1 hebt geïdentificeerd, kunt u binnenkomend verkeer toestaan van die-IP-adressen.
 
-   * Als u __NSG__: toestaan __inkomende__ verkeer op poort __443__ voor de IP-adressen.
+   * Als u __NSG__: Toestaan dat __inkomende__ verkeer op poort __443__ voor de IP-adressen.
    * Als u __UDR__: Stel de __' volgende hop '__ type van de route naar __Internet__ voor de IP-adressen.
 
 Zie voor een voorbeeld van het gebruik van Azure PowerShell of Azure CLI nsg's maken, de [HDInsight uitbreiden met Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) document.
 
 ## <a name="create-the-hdinsight-cluster"></a>Het HDInsight-cluster maken
 
-> [!WARNING]
+> [!WARNING]  
 > U moet de aangepaste DNS-server configureren voor het installeren van HDInsight in het virtuele netwerk.
 
 Gebruik de stappen in de [maken van een HDInsight-cluster met behulp van de Azure-portal](./hdinsight-hadoop-create-linux-clusters-portal.md) document om een HDInsight-cluster te maken.
@@ -323,7 +335,7 @@ Om rechtstreeks verbinding maken met HDInsight via het virtuele netwerk, gebruik
 
 2. Zie het vaststellen van de poort die een service is beschikbaar in de [poorten die worden gebruikt door de services van Apache Hadoop op HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Sommige services die worden gehost op de hoofdknooppunten zijn alleen actief is op één knooppunt tegelijk. Als u probeert toegang tot een service op één hoofdknooppunt en dat mislukt, kunt u overschakelen naar het hoofdknooppunt.
     >
     > Apache Ambari is bijvoorbeeld alleen actief is op één hoofdknooppunt op een tijdstip. Als u probeert toegang tot Ambari op één hoofdknooppunt en er een 404-fout retourneert, wordt klikt u vervolgens deze uitgevoerd op het hoofdknooppunt.

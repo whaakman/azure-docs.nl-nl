@@ -9,17 +9,42 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0496d9b3fde8b0194ddf57b3bbfec98eb7fda7fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250846"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744226"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
 Dit artikel worden veelvoorkomende problemen met betrekking tot Microsoft Azure-bestanden wanneer u verbinding vanaf Windows-clients maakt. Het biedt ook mogelijke oorzaken en oplossingen voor deze problemen. Naast de stappen in dit artikel, kunt u ook gebruiken [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) om ervoor te zorgen dat de Windows client-omgeving juiste vereisten heeft. AzFileDiagnostics automatiseert de detectie van de meeste van de symptomen die in dit artikel worden vermeld en helpt bij het instellen van uw omgeving om de optimale prestaties. U kunt ook deze informatie vinden in de [probleemoplosser voor Azure-bestandsshares](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) waarmee de stappen om u te helpen met problemen die verbinding maken/toewijzing/koppelen Azure-bestandsshares.
 
+<a id="error5"></a>
+## <a name="error-5-when-you-mount-an-azure-file-share"></a>Fout 5 wanneer u een Azure-bestandsshare koppelen
+
+Wanneer u een bestandsshare koppelen probeert, kunt u de volgende fout ontvangen:
+
+- Systeemfout 5 is opgetreden. Toegang geweigerd
+
+### <a name="cause-1-unencrypted-communication-channel"></a>1 oorzaak: Niet-versleuteld communicatiekanaal
+
+Uit veiligheidsoverwegingen worden verbindingen met Azure-bestandsshares worden geblokkeerd als het communicatiekanaal is niet versleuteld en als de verbindingspoging is niet gemaakt in hetzelfde datacenter waar de Azure-bestandsshares zich bevinden. Niet-versleutelde verbindingen binnen hetzelfde datacenter kunnen ook worden geblokkeerd als de [veilige overdracht vereist](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is ingeschakeld op het storage-account. Een versleuteld communicatiekanaal gebeurt alleen als de gebruiker clientbesturingssysteem biedt ondersteuning voor SMB-versleuteling.
+
+Windows 8, Windows Server 2012 en latere versies van elk systeem onderhandelen over aanvragen met SMB 3.0, die ondersteuning biedt voor versleuteling.
+
+### <a name="solution-for-cause-1"></a>Oplossing voor oorzaak 1
+
+1. Verbinding maken vanaf een client die ondersteuning biedt voor SMB-versleuteling (Windows 8, WindowsServer 2012 of hoger) of verbinding maken vanuit een virtuele machine in hetzelfde datacenter als de Azure storage-account dat wordt gebruikt voor de Azure-bestandsshare.
+2. Controleer of de [veilige overdracht vereist](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is uitgeschakeld op het storage-account als de client geen ondersteuning biedt voor SMB-versleuteling.
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>2 oorzaak: Virtueel netwerk of firewall-regels zijn ingeschakeld op het storage-account 
+
+Als virtueel netwerk (VNET) en firewall-regels zijn geconfigureerd op het storage-account, het netwerkverkeer wordt de toegang geweigerd, tenzij de client-IP-adres of het virtuele netwerk toegang is toegestaan.
+
+### <a name="solution-for-cause-2"></a>Oplossing voor oorzaak 2
+
+Controleer of het virtuele netwerk en firewall-regels correct zijn geconfigureerd voor het opslagaccount. Als u wilt testen, als het probleem wordt veroorzaakt door virtuele netwerk of firewall-regels, de instelling op het storage-account tijdelijk wijzigen **zodat toegang vanaf alle netwerken**. Zie voor meer informatie, [Azure Storage configureren van firewalls en virtuele netwerken](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Fout 53 of fout 67 87 fout bij het koppelen of ontkoppelen van een Azure-bestandsshare
@@ -30,39 +55,47 @@ Wanneer u probeert te koppelen van een bestandsshare van on-premises of in een a
 - Systeemfout 67 is opgetreden. Naam van het netwerk kan niet worden gevonden.
 - Systeemfout 87 is opgetreden. De parameter is onjuist.
 
-### <a name="cause-1-unencrypted-communication-channel"></a>Oorzaak 1: De niet-versleuteld communicatiekanaal
-
-Uit veiligheidsoverwegingen worden verbindingen met Azure-bestandsshares worden geblokkeerd als het communicatiekanaal is niet versleuteld en als de verbindingspoging is niet gemaakt in hetzelfde datacenter waar de Azure-bestandsshares zich bevinden. Niet-versleutelde verbindingen binnen hetzelfde datacenter kunnen ook worden geblokkeerd als de [veilige overdracht vereist](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is ingeschakeld op het storage-account. Communicatie-kanaalversleuteling geleverd alleen als de gebruiker clientbesturingssysteem biedt ondersteuning voor SMB-versleuteling.
-
-Windows 8, Windows Server 2012 en latere versies van elk systeem onderhandelen over aanvragen met SMB 3.0, die ondersteuning biedt voor versleuteling.
-
-### <a name="solution-for-cause-1"></a>Oplossing voor oorzaak 1
-
-1. Controleer of de [veilige overdracht vereist](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is uitgeschakeld op het storage-account.
-2. Verbinding maken vanaf een client die een van de volgende:
-
-    - Voldoet aan de vereisten van Windows 8 en Windows Server 2012 of hoger
-    - Verbinding maakt vanaf een virtuele machine in hetzelfde datacenter als de Azure storage-account dat wordt gebruikt voor de Azure-bestandsshare
-
-### <a name="cause-2-port-445-is-blocked"></a>2 oorzaak: Poort 445 is geblokkeerd
+### <a name="cause-1-port-445-is-blocked"></a>1 oorzaak: Poort 445 is geblokkeerd
 
 Fout 53 of Systeemfout 67 kan zich voordoen als poort 445 uitgaande communicatie naar een Azure Files-datacenter wordt geblokkeerd. Overzicht van de ISP's die toestaan of weigeren van toegang via poort 445, Ga naar [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Als u wilt weten of dit de reden achter het bericht "System error 53" is, kunt u Portqry query uitvoeren op het eindpunt TCP:445. Als het eindpunt TCP:445 wordt weergegeven als gefilterd, worden de TCP-poort is geblokkeerd. Hier volgt een voorbeeld van een query:
+Gebruik om te controleren als poort 445 wordt geblokkeerd door uw firewall of Internet-provider, de [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) hulpprogramma of `Test-NetConnection` cmdlet. 
 
-  `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+Gebruik de `Test-NetConnection` cmdlet, de AzureRM PowerShell-module moet worden geïnstalleerd, Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resoure-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
 
-Als de TCP-poort 445 wordt geblokkeerd door een regel op het netwerkpad, ziet u de volgende uitvoer:
+   
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-  `TCP port 445 (microsoft-ds service): FILTERED`
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-Zie [Description of the Portqry.exe command-line utility](https://support.microsoft.com/help/310099) (Beschrijving van het opdrachtregelhulpprogramma Portqry.exe) voor meer informatie over het gebruik van Portqry.
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+  
+    
+Als de verbinding is geslaagd, hoort u de volgende uitvoer te zien:
+    
+  
+    ComputerName     : <storage-account-host-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+ 
 
-### <a name="solution-for-cause-2"></a>Oplossing voor oorzaak 2
+> [!Note]  
+> De bovenstaande opdracht retourneert het huidige IP-adres van het opslagaccount. Dit IP-adres blijft niet noodzakelijkerwijs hetzelfde en kan op elk moment veranderen. Neem dit IP-adres niet op in scripts of in de firewallconfiguratie.
+
+### <a name="solution-for-cause-1"></a>Oplossing voor oorzaak 1
 
 Werken met uw IT-afdeling poort 445 uitgaand naar openen [IP-adresbereiken Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### <a name="cause-3-ntlmv1-is-enabled"></a>3 oorzaak: NTLMv1 is ingeschakeld
+### <a name="cause-2-ntlmv1-is-enabled"></a>2 oorzaak: NTLMv1 is ingeschakeld
 
 Fout 53 of systeemfout 87 kan optreden als NTLMv1-communicatie is ingeschakeld op de client. Azure Files ondersteunt alleen NTLMv2-authenticatie. Hiermee maakt u NTLMv1 ingeschakeld met een minder veilige-client. Communicatie wordt daarom geblokkeerd voor Azure Files. 
 
@@ -72,7 +105,7 @@ Om te bepalen of dit de oorzaak van de fout is, moet u controleren of de volgend
 
 Zie voor meer informatie de [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) onderwerp op TechNet.
 
-### <a name="solution-for-cause-3"></a>Oplossing voor oorzaak 3
+### <a name="solution-for-cause-2"></a>Oplossing voor oorzaak 2
 
 Herstellen de **LmCompatibilityLevel** waarde op de standaardwaarde van 3 in de volgende registersubsleutel:
 
@@ -88,6 +121,27 @@ Fout 1816 treedt op wanneer de bovenste limiet van gelijktijdige open ingangen d
 ### <a name="solution"></a>Oplossing
 
 Verminder het aantal gelijktijdige open ingangen door het aantal ingangen gesloten en probeer het vervolgens opnieuw. Zie voor meer informatie, [controlelijst voor de prestaties en schaalbaarheid van Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fout 'Toegang geweigerd' bij het bladeren naar een Azure-bestandsshare in de portal
+
+Wanneer u naar een Azure-bestandsshare in de portal bladert, wordt de volgende fout:
+
+Toegang geweigerd  
+U hebt geen toegang  
+Hebt u geen toegang tot deze inhoud. Als u toegang wilt, neem contact op met de eigenaar.  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>1 oorzaak: Uw gebruikersaccount heeft geen toegang tot het opslagaccount
+
+### <a name="solution-for-cause-1"></a>Oplossing voor oorzaak 1
+
+Blader naar het opslagaccount waar de Azure-bestandsshare zich bevindt, klikt u op **toegangsbeheer (IAM)** en controleer of uw gebruikersaccount heeft toegang tot het opslagaccount. Zie voor meer informatie, [over het beveiligen van uw opslagaccount met Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>2 oorzaak: Virtueel netwerk of firewall-regels zijn ingeschakeld op het storage-account
+
+### <a name="solution-for-cause-2"></a>Oplossing voor oorzaak 2
+
+Controleer of het virtuele netwerk en firewall-regels correct zijn geconfigureerd voor het opslagaccount. Als u wilt testen, als het probleem wordt veroorzaakt door virtuele netwerk of firewall-regels, de instelling op het storage-account tijdelijk wijzigen **zodat toegang vanaf alle netwerken**. Zie voor meer informatie, [Azure Storage configureren van firewalls en virtuele netwerken](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Trage bestand kopiëren van en naar Azure-bestanden in Windows
@@ -168,12 +222,12 @@ Gebruik een van de volgende oplossingen:
 
   `net use * \\storage-account-name.file.core.windows.net\share`
 
-Nadat u deze instructies volgt, mogelijk u het volgende foutbericht krijgt wanneer u net gebruiken voor het systeem-/ netwerkserviceaccount uitvoeren: 'Systeemfout 1312 is opgetreden. De sessie van een opgegeven gebruiker bestaat niet. Het is mogelijk al beëindigd." Als dit het geval is, zorg ervoor dat de gebruikersnaam die wordt doorgegeven aan net use domeininformatie bevat (bijvoorbeeld: "[storage-accountnaam]. file.core.windows .net ').
+Nadat u deze instructies volgt, mogelijk u het volgende foutbericht krijgt wanneer u net gebruiken voor het systeem-/ netwerkserviceaccount uitvoeren: Systeemfout ' 1312 is opgetreden. De sessie van een opgegeven gebruiker bestaat niet. Het is mogelijk al beëindigd." Als dit het geval is, zorg ervoor dat de gebruikersnaam die wordt doorgegeven aan net use domeininformatie bevat (bijvoorbeeld: "[storage-accountnaam]. file.core.windows .net ').
 
 <a id="doesnotsupportencryption"></a>
 ## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>Fout 'U kopieert een bestand naar een bestemming die geen ondersteuning biedt voor versleuteling'
 
-Wanneer een bestand wordt gekopieerd via het netwerk, wordt het bestand op de broncomputer ontsleuteld, verzonden als tekst zonder opmaak en opnieuw versleuteld op de bestemming. Echter, u de volgende fout kunt tegenkomen wanneer u probeert te kopiëren van een versleuteld bestand: "Kopieert u het bestand naar een bestemming die geen ondersteuning biedt voor versleuteling."
+Wanneer een bestand wordt gekopieerd via het netwerk, wordt het bestand op de broncomputer ontsleuteld, verzonden als tekst zonder opmaak en opnieuw versleuteld op de bestemming. U kunt echter de volgende fout tegenkomen wanneer u probeert te kopiëren van een versleuteld bestand: "Kopieert u het bestand naar een bestemming die geen ondersteuning biedt voor versleuteling."
 
 ### <a name="cause"></a>Oorzaak
 Dit probleem kan optreden als u van Encrypting File System (EFS gebruikmaakt). BitLocker-versleutelde bestanden kunnen worden gekopieerd naar Azure Files. Azure Files biedt echter geen ondersteuning voor NTFS EFS.

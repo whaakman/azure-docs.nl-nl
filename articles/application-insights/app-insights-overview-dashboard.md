@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: cd8bcc9345ec73f95e8e742446522ec41c1f0f65
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5d635ce63170cf9ec93f3996d608cfd5836de3b0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956940"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726320"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights een dashboard
 
@@ -37,7 +37,7 @@ Selectie van het tijdsbereik is vereenvoudigd naar een eenvoudige interface met 
 
 Algehele zijn prestaties aanzienlijk toegenomen. U hebt één klik toegang tot populaire functies zoals **zoeken** en **Analytics**. Elke dynamisch bijwerken van de KPI-tegel standaard biedt inzicht in de bijbehorende Application Insights-functies. Kunnen geen aanvragen selecteren voor meer informatie over **fouten** onder de **onderzoeken** header:
 
-![Mislukte pogingen](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
+![Aantal mislukte processen](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Toepassingsdashboard
 
@@ -65,4 +65,4 @@ Ga terug naar het overzicht-ervaring hoeft te selecteren:
 - [Trechters](usage-funnels.md)
 - [Retentie](app-insights-usage-retention.md)
 - [Gebruikersstromen](app-insights-usage-flows.md)
-- [Dashboards](app-insights-dashboards.md)
+- [Dashboards](../azure-monitor/app/app-insights-dashboards.md)

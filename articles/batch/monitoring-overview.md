@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 3053e136ab08c38d9460d60f64464a17f6f61574
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ee483c19aa59ca98226f77a5e56b1ee4eb4dede5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824078"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543407"
 ---
 # <a name="monitor-batch-solutions"></a>Batch-oplossingen controleren
 
@@ -26,7 +26,7 @@ Zie voor een overzicht van de Azure-onderdelen en services die beschikbaar zijn 
 
 ## <a name="subscription-level-monitoring"></a>Abonnement bewaking
 
-Op het abonnementsniveau, waaronder Batch-accounts, het [Azure-activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) verzamelt gegevens van operationele gebeurtenissen in [verschillende categorieën](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log).
+Op het abonnementsniveau, waaronder Batch-accounts, het [Azure-activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md) verzamelt gegevens van operationele gebeurtenissen in [verschillende categorieën](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
 
 Voor Batch-accounts verzamelt het activiteitenlogboek specifiek, gebeurtenissen met betrekking tot het maken en verwijderen en de sleutel accountbeheer.
 
@@ -34,7 +34,7 @@ Een manier om op te halen van gebeurtenissen uit uw activiteitenlogboek is het g
 
 ## <a name="batch-account-level-monitoring"></a>Bewaking van de batch-account op
 
-Controleer elke Batch-account met behulp van functies van [Azure Monitor](../azure-monitor/overview.md). Azure Monitor verzamelt [metrische gegevens](../azure-monitor/platform/data-collection.md#metrics) en eventueel [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) voor resources binnen het bereik op het niveau van een Batch-account, zoals pools, jobs en taken. Verzamelen en gebruiken van deze gegevens handmatig of via een programma voor het bewaken van activiteiten in uw Batch-account en om problemen te diagnosticeren. Zie voor meer informatie, [Batch-metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking](batch-diagnostics.md).
+Controleer elke Batch-account met behulp van functies van [Azure Monitor](../azure-monitor/overview.md). Azure Monitor verzamelt [metrische gegevens](../azure-monitor/platform/data-collection.md#metrics) en eventueel [diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md) voor resources binnen het bereik op het niveau van een Batch-account, zoals pools, jobs en taken. Verzamelen en gebruiken van deze gegevens handmatig of via een programma voor het bewaken van activiteiten in uw Batch-account en om problemen te diagnosticeren. Zie voor meer informatie, [Batch-metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking](batch-diagnostics.md).
  
 > [!NOTE]
 > Metrische gegevens in uw Batch-account zonder aanvullende configuratie standaard beschikbaar zijn en ze beschikken over een 30-daagse rolling-overzicht. U moet Diagnostische logboekregistratie inschakelen voor een Batch-account en u mogelijk extra kosten als u wilt opslaan of diagnostische logboekgegevens te verwerken. 

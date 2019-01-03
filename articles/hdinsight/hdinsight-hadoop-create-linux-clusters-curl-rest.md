@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: b6ec48085d5dd2ea31543e208e8d32b954cb0bca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fec87bf3af7f215b69a891c2d75cdd979a7b5a52
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872837"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789208"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Apache Hadoop-clusters met behulp van de Azure REST API maken
 
@@ -24,10 +24,10 @@ Informatie over het maken van een HDInsight-cluster met behulp van een Azure Res
 
 De Azure REST API kunt u beheerbewerkingen op services die worden gehost in de Azure-platform, met inbegrip van het maken van nieuwe resources zoals HDInsight-clusters.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-> [!NOTE]
+> [!NOTE]  
 > De stappen in dit document gebruiken de [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) hulpprogramma om te communiceren met de Azure REST API.
 
 ## <a name="create-a-template"></a>Een sjabloon maken
@@ -211,7 +211,7 @@ De volgende JSON-document is een fusie van de sjabloon en parameters-bestanden v
 
 In dit voorbeeld wordt gebruikt in de stappen in dit document. Vervang het voorbeeld *waarden* in de **Parameters** sectie met de waarden voor uw cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De sjabloon maakt gebruik van het aantal worker-knooppunten (4) voor een HDInsight-cluster. Als u van plan op meer dan 32 worker-knooppunten bent, moet u de grootte van een hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB RAM-geheugen selecteren.
 >
 > Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
@@ -222,7 +222,7 @@ Volg de stappen beschreven in [aan de slag met Azure CLI](https://docs.microsoft
 
 ## <a name="create-a-service-principal"></a>Een service-principal maken
 
-> [!NOTE]
+> [!NOTE]  
 > Deze stappen zijn een verkorte versie van de *service-principal maken met een wachtwoord* sectie van de [gebruik Azure CLI voor het maken van een service-principal toegang krijgen tot bronnen](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) document. Deze stappen maakt u een service-principal die wordt gebruikt voor verificatie bij de Azure REST API.
 
 1. Vanaf de opdrachtregel, gebruikt u de volgende opdracht uit om uw Azure-abonnementen weer te geven.
@@ -241,7 +241,7 @@ Volg de stappen beschreven in [aan de slag met Azure CLI](https://docs.microsoft
 
     Vervang de waarden voor de `--display-name`, `--homepage`, en `--identifier-uris` door uw eigen waarden. Een wachtwoord opgeven voor de nieuwe Active Directory-vermelding.
 
-   > [!NOTE]
+   > [!NOTE]  
    > De `--home-page` en `--identifier-uris` waarden niet nodig hebt om te verwijzen naar een webpagina die wordt gehost op het internet. De unieke URI's, moeten ze zijn.
 
    De geretourneerde waarde van deze opdracht wordt de __App-ID__ voor de nieuwe toepassing. Deze waarde wordt opgeslagen.
@@ -323,14 +323,14 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -d "{set your body string to the template and parameters}"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Als u de sjabloon naar een bestand hebt opgeslagen, kunt u de volgende opdracht uit in plaats van `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
 Als deze aanvraag geslaagd is, ontvangt u een antwoord 200-serie en de antwoordtekst bevat een JSON-document dat informatie bevat over de implementatiebewerking.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De implementatie is verzonden, maar is niet voltooid. Het kan enige tijd duren, meestal ongeveer 15, voor de installatie is voltooid.
 
 ## <a name="check-the-status-of-a-deployment"></a>Controleer de status van een implementatie
@@ -347,7 +347,7 @@ Met deze opdracht retourneert een JSON-document dat informatie bevat over de imp
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
+Zie [Vereisten voor toegangsbeheer](hdinsight-hadoop-create-linux-clusters-portal.md) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -357,7 +357,7 @@ Nu dat u een HDInsight-cluster hebt gemaakt, gebruikt u de volgende voor informa
 
 * [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
 * [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
-* [Apache Hadoop MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase-clusters
 

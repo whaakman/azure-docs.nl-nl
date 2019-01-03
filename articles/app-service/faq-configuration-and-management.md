@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 266c9df095e9153533dbd89b4cd557d12ddcdc66
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408881"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971304"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuratie en beheer Veelgestelde vragen voor Web-Apps in Azure
 
@@ -39,7 +39,7 @@ Voor antwoorden op veelgestelde vragen over het gebruik van een aangepaste domei
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>Hoe koop ik een nieuw aangepast domein voor mijn web-app?
 
-Zie voor informatie over het aanschaffen en het instellen van een aangepast domein voor uw App Service-web-app, [kopen en configureren van een aangepaste domeinnaam in App Service](custom-dns-web-site-buydomains-web-app.md).
+Zie voor informatie over het aanschaffen en het instellen van een aangepast domein voor uw App Service-web-app, [kopen en configureren van een aangepaste domeinnaam in App Service](manage-custom-dns-buy-domain.md).
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Hoe kan ik uploaden en een bestaand SSL-certificaat configureren voor mijn web-app?
@@ -72,9 +72,11 @@ De tijdzone van de server voor uw web-app instellen:
     * Waarde = *de tijdzone die u wilt*
 3. Selecteer **Opslaan**.
 
+Zie de **tijdzone** kolom in de [tijdzones standaard](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) artikel voor de geaccepteerde waarden.
+
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Waarom mijn doorlopende webtaken soms mislukt?
 
-Standaard worden web-apps uit het geheugen verwijderd als ze gedurende een bepaalde tijd niet actief zijn. Hiermee wordt het systeem te besparen. In de Basic en Standard-abonnement, kunt u inschakelen de **Always On** instellen om te voorkomen dat de WebApp steeds geladen. Als uw web-app wordt uitgevoerd doorlopende webtaken, schakelt u **Always On**, of de webtaken mogelijk niet betrouwbaar uit te voeren. Zie voor meer informatie, [maken van een doorlopend uitgevoerde webtaak](web-sites-create-web-jobs.md#CreateContinuous).
+Standaard worden web-apps uit het geheugen verwijderd als ze gedurende een bepaalde tijd niet actief zijn. Hiermee wordt het systeem te besparen. In de Basic en Standard-abonnement, kunt u inschakelen de **Always On** instellen om te voorkomen dat de WebApp steeds geladen. Als uw web-app wordt uitgevoerd doorlopende webtaken, schakelt u **Always On**, of de webtaken mogelijk niet betrouwbaar uit te voeren. Zie voor meer informatie, [maken van een doorlopend uitgevoerde webtaak](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Hoe krijg ik het uitgaande IP-adres voor mijn web-app?
 
@@ -124,7 +126,7 @@ Zie voor meer informatie, [Microsoft Azure App Service web app-naleving van PCI 
 
 In de Standard- en Premium App Service-abonnementen, wanneer u uw web-app in App Service implementeren, kunt u implementeren op een afzonderlijke implementatiesite in plaats van naar de standaard-productiesite. Implementatiesleuven zijn live web-apps waarvoor hun eigen hostnamen. Web-app-inhoud en configuratie-elementen kunnen worden gewisseld tussen twee implementatiesites, inclusief de productiesite.
 
-Zie voor meer informatie over het gebruik van implementatiesites [instellen van een faseringsomgeving in App Service](web-sites-staged-publishing.md).
+Zie voor meer informatie over het gebruik van implementatiesites [instellen van een faseringsomgeving in App Service](deploy-staging-slots.md).
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>Hoe kan ik toegang tot en WebJob-logboeken bekijken?
 
@@ -248,7 +250,7 @@ U kunt een geplande webtaak maken met behulp van de Cron-expressies:
     {month} {day of the week}" }
     ```
 
-Zie voor meer informatie over geplande webtaken [een geplande webtaak maken met behulp van een Cron-expressie](web-sites-create-web-jobs.md#CreateScheduledCRON).
+Zie voor meer informatie over geplande webtaken [een geplande webtaak maken met behulp van een Cron-expressie](webjobs-create.md#CreateScheduledCRON).
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Hoe voer ik indringingstests voor mijn App Service-app?
 

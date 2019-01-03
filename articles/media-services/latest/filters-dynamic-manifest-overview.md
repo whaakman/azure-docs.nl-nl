@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: 05c089c0e92672b3602bd9c7bfb3263c56db76ef
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633296"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728037"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters en dynamische manifesten
 
@@ -46,8 +46,8 @@ De volgende tabel ziet u enkele voorbeelden van URL's met filters:
 
 |Protocol|Voorbeeld|
 |---|---|
-|HLS V4-PROCESSORS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=myAccountFilter)`|
+|HLS V4-PROCESSORS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
 |MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
 
@@ -110,17 +110,17 @@ Afhankelijk van uw scenario, kunt u bepalen welk type een filter is beter geschi
 
 U de volgende eigenschappen voor het beschrijven van de filters gebruiken. 
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |firstQuality|De eerste kwaliteit bitrate van het filter.|
 |PresentationTimeRange|Het tijdsbereik van de presentatie. Deze eigenschap wordt gebruikt voor het filteren van manifest start/eindpunten, de lengte van de presentatie-venster en de beginpositie van live. <br/>Zie voor meer informatie, [PresentationTimeRange](#PresentationTimeRange).|
-|sporen te wissen|De voorwaarden van de nummers selectie. Zie voor meer informatie, [sporen te wissen](#tracks)|
+|Sporen te wissen|De voorwaarden van de nummers selectie. Zie voor meer informatie, [sporen te wissen](#tracks)|
 
 ### <a name="presentationtimerange"></a>PresentationTimeRange
 
 Gebruik deze eigenschap met **Asset Filters**. Het is niet raadzaam om in te stellen de eigenschap met de **Accountfilters**.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |**endTimestamp**|De grens van de absolute end-tijd. Van toepassing op Video on Demand (VoD). Voor de Live presentatie, wordt deze op de achtergrond genegeerd en toegepast wanneer de presentatie-ends en de stroom wordt weergegeven als VoD.<br/><br/>De waarde vertegenwoordigt een absolute eindpunt van de stroom. Dit wordt afgerond naar de dichtstbijzijnde volgende GOP starten.<br/><br/>Gebruik StartTimestamp en EndTimestamp waaruit de afspeellijst (manifest). Bijvoorbeeld, StartTimestamp = 40000000 en EndTimestamp = 100000000 een afspeellijst met media tussen StartTimestamp en EndTimestamp wordt gegenereerd. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in het manifest.<br/><br/>Zie ook de **forceEndTimestamp** definitie die volgt.|
 |**forceEndTimestamp**|Van toepassing op actieve filters.<br/><br/>**forceEndTimestamp** is de Booleaanse waarde die aangeeft of **endTimestamp** is ingesteld op een geldige waarde. <br/><br/>Als de waarde **waar**, wordt de **endTimestamp** waarde moet worden opgegeven. Als deze niet is opgegeven, wordt een onjuiste aanvraag geretourneerd.<br/><br/>Als bijvoorbeeld, u wilt definiëren van een filter op dat bij 5 minuten in de video-invoer begint en duurt tot het einde van de stroom, u stelt **forceEndTimestamp** op onwaar en laat de instelling **endTimestamp**.|
@@ -129,13 +129,13 @@ Gebruik deze eigenschap met **Asset Filters**. Het is niet raadzaam om in te ste
 |**startTimestamp**|Geldt voor VoD- of Live streams. De waarde vertegenwoordigt een absolute beginpunt van de stroom. De waarde wordt afgerond naar de dichtstbijzijnde volgende GOP starten.<br/><br/>Gebruik **startTimestamp** en **endTimestamp** waaruit de afspeellijst (manifest). Bijvoorbeeld, startTimestamp = 40000000 en endTimestamp = 100000000 een afspeellijst met media tussen StartTimestamp en EndTimestamp wordt gegenereerd. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in het manifest.|
 |**tijdschaal**|Geldt voor VoD- of Live streams. De tijdschaal die worden gebruikt door de tijdstempels en de hierboven opgegeven duur. De standaard-tijdschaal is 10000000. Een alternatieve tijdschaal kan worden gebruikt. De standaardwaarde is 10000000 HNS (100 nanoseconden).|
 
-### <a name="tracks"></a>Sporen te wissen
+### <a name="tracks"></a>sporen te wissen
 
 U geeft een lijst met filter bijhouden Eigenschapvoorwaarden (FilterTrackPropertyConditions) op basis van waarop de nummers van uw stream (Live of Video on Demand) moeten worden opgenomen in de dynamisch gemaakte manifest. De filters worden gecombineerd met behulp van een logische **en** en **of** bewerking.
 
 Eigenschap van de filtervoorwaarden bijhouden beschrijven tracktypen, waarden (in de volgende tabel beschreven) en bewerkingen (gelijk, NotEqual). 
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |**Bitrate**|Gebruik de bitrate van het spoor voor filteren.<br/><br/>De aanbevolen waarde is een reeks bitsnelheden in bits per seconde. Bijvoorbeeld: '0-2427000'.<br/><br/>Opmerking: tijdens een specifieke bitrate-waarde, zoals 250000 (bits per seconde), kunt u deze methode wordt niet aanbevolen, omdat de exacte bitsnelheden van een Asset naar een andere variëren kan.|
 |**Code**|Gebruik de waarde van de code van het spoor voor het filteren.<br/><br/>De waarde is het eerste element van codecs indeling, zoals opgegeven in [RFC 6381](https://tools.ietf.org/html/rfc6381). Op dit moment worden de volgende codecs ondersteund: <br/>Video: "Avc1", "hev1", "hvc1"<br/>Voor Audio: "Mp4a", "EG-3"<br/><br/>Om te bepalen van de waarden van de code voor de nummers in een actief [ophalen en bekijk het manifestbestand](#get-and-examine-manifest-files).|
@@ -206,7 +206,7 @@ Met dynamische Manifest u apparaatprofielen maken, zoals mobiele apparaten, cons
 
 ![Weergave filteren voorbeeld][renditions2]
 
-In het volgende voorbeeld is een coderingsprogramma gebruikt een tussentijds asset coderen in zeven ISO MP4s video voorinstelling (van 180p 1080p). De gecodeerde asset dynamisch kan worden verpakt in een van de volgende protocollen voor streaming: HLS, MPEG DASH en Smooth.  Aan de bovenkant van het diagram, het HLS-manifest voor de asset met geen filters wordt weergegeven (bevat alle zeven voorinstelling).  In de linksonder, wordt het HLS-manifest waarop een filter met de naam "ott" is toegepast weergegeven. Het filter "ott" Hiermee geeft u als u wilt verwijderen van alle bitsnelheden hieronder 1 Mbps, wat leidde tot de twee quality-niveaus van onder, worden verwijderd uit in het antwoord. In de rechts onderaan wordt het HLS-manifest waarop een filter met de naam 'mobiel' is toegepast weergegeven. Het filter 'mobiel' Hiermee geeft u het verwijderen van vertoningen waar de oplossing is groter dan 720p, wat leidde tot de twee 1080p voorinstelling wordt overblijft.
+In het volgende voorbeeld is een coderingsprogramma gebruikt een tussentijds asset coderen in zeven ISO MP4s video voorinstelling (van 180p 1080p). De gecodeerde asset kan dynamisch worden verpakt in een van de volgende protocollen voor streaming: HLS, MPEG DASH en Smooth.  Aan de bovenkant van het diagram, het HLS-manifest voor de asset met geen filters wordt weergegeven (bevat alle zeven voorinstelling).  In de linksonder, wordt het HLS-manifest waarop een filter met de naam "ott" is toegepast weergegeven. Het filter "ott" Hiermee geeft u als u wilt verwijderen van alle bitsnelheden hieronder 1 Mbps, wat leidde tot de twee quality-niveaus van onder, worden verwijderd uit in het antwoord. In de rechts onderaan wordt het HLS-manifest waarop een filter met de naam 'mobiel' is toegepast weergegeven. Het filter 'mobiel' Hiermee geeft u het verwijderen van vertoningen waar de oplossing is groter dan 720p, wat leidde tot de twee 1080p voorinstelling wordt overblijft.
 
 ![Weergavefiltering][renditions1]
 
@@ -216,7 +216,7 @@ Uw activa advies inwinnen bij meerdere audio talen zoals Engels, Spaans, Frans, 
 ![Taal filteren][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Begin van een asset bijsnijden
-Operators Voer enkele tests uit voordat u de werkelijke gebeurtenis in de meeste live streaming-gebeurtenissen. Bijvoorbeeld, ze een slate als volgt vóór het begin van de gebeurtenis kunnen bevatten: 'Programma wordt overgenomen door'. Als het archiveren van het programma is zijn de test- en slates gegevens ook gearchiveerd en opgenomen in de presentatie. Deze informatie moet niet worden weergegeven op de clients. U kunt met dynamische Manifest maken van een filter voor start en de ongewenste gegevens verwijderen uit het manifest.
+Operators Voer enkele tests uit voordat u de werkelijke gebeurtenis in de meeste live streaming-gebeurtenissen. Ze zijn bijvoorbeeld onder andere een slate als volgt vóór het begin van de gebeurtenis: 'Programma wordt overgenomen door'. Als het archiveren van het programma is zijn de test- en slates gegevens ook gearchiveerd en opgenomen in de presentatie. Deze informatie moet niet worden weergegeven op de clients. U kunt met dynamische Manifest maken van een filter voor start en de ongewenste gegevens verwijderen uit het manifest.
 
 ![Start bijsnijden][trim_filter]
 

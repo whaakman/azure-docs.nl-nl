@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: a2ac309afc6b25f7fdb4667b767ead59cae3b696
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9d8b5a487898a81517eb25563fbbef8ffc489d01
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877317"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808533"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Node.js-services en -apps bewaken met Application Insights
 
-Met [Azure Application Insights](app-insights-overview.md) bewaakt u back-endservices en onderdelen na de implementatie. Dit helpt u om [prestatieproblemen en andere problemen snel te detecteren en te onderzoeken](app-insights-detect-triage-diagnose.md). U kunt Application Insights voor Node.js-services die worden gehost in uw datacenter, gebruiken in virtuele Azure-machines en web-apps en zelfs in andere openbare clouds.
+Met [Azure Application Insights](app-insights-overview.md) bewaakt u back-endservices en onderdelen na de implementatie. Dit helpt u om [prestatieproblemen en andere problemen snel te detecteren en te onderzoeken](../azure-monitor/app/detect-triage-diagnose.md). U kunt Application Insights voor Node.js-services die worden gehost in uw datacenter, gebruiken in virtuele Azure-machines en web-apps en zelfs in andere openbare clouds.
 
 Neem de SDK op in de code en stel vervolgens een bijbehorende Application Insights-resource in Azure in om uw bewakingsgegevens te ontvangen, op te slaan en te onderzoeken. Met de SDK worden gegevens naar deze resource verzonden voor verdere analyse en onderzoek.
 
@@ -107,8 +107,8 @@ Er kan vertraging optreden voordat items worden weergegeven in de portal omdat m
 
 * Ga door met het gebruiken van de toepassing. Neem meer acties om meer telemetrie te genereren.
 * Klik op **Vernieuwen** in de resourceweergave van de portal. Grafieken worden periodiek automatisch gegeneerd, maar als u ze handmatig vernieuwt, worden ze onmiddellijk vernieuwd.
-* Controleer of de [vereiste uitgaande poorten](app-insights-ip-addresses.md) open zijn.
-* Gebruik [Zoeken](app-insights-diagnostic-search.md) om naar specifieke gebeurtenissen te zoeken.
+* Controleer of de [vereiste uitgaande poorten](../azure-monitor/app/ip-addresses.md) open zijn.
+* Gebruik [Zoeken](../azure-monitor/app/diagnostic-search.md) om naar specifieke gebeurtenissen te zoeken.
 * Raadpleeg de [Veelgestelde vragen][FAQ].
 
 
@@ -133,7 +133,7 @@ appInsights.setup("<instrumentation_key>")
 
 ## <a name="telemetryclient-api"></a>TelemetryClient-API
 
-Zie [Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md) voor een volledige beschrijving van de TelemetryClient-API.
+Zie [Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](../azure-monitor/app/api-custom-events-metrics.md) voor een volledige beschrijving van de TelemetryClient-API.
 
 U kunt elke aanvraag, gebeurtenis, metriek of uitzondering traceren met behulp van de Node.js SDK van Application Insights. Het volgende codevoorbeeld toont enkele API's die u kunt gebruiken:
 
@@ -210,7 +210,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw telemetrie in de portal bewaken](app-insights-dashboards.md)
+* [Uw telemetrie in de portal bewaken](../azure-monitor/app/app-insights-dashboards.md)
 * [Analysequery’s schrijven over uw telemetrie](../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

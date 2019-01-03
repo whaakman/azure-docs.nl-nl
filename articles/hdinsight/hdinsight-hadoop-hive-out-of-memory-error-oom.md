@@ -10,18 +10,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3b49959d167dbb735ebb9be9c75e91ef257c6a70
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9aff828dcb9dfea6d5f35ad92bb09ba7cd802fea
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383830"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711853"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Herstellen van een Apache Hive fout door onvoldoende geheugen in Azure HDInsight
 
 Meer informatie over het oplossen van een Apache Hive fout door onvoldoende geheugen (OOM) bij het verwerken van grote tabellen door het configureren van instellingen voor Hive-geheugen.
 
-## <a name="run-hive-query-against-large-tables"></a>Hive-query uitvoeren op grote tabellen
+## <a name="run-apache-hive-query-against-large-tables"></a>Apache Hive-query uitvoeren op grote tabellen
 
 Een klant een Hive-query is uitgevoerd:
 

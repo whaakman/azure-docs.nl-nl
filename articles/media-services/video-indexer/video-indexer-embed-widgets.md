@@ -7,39 +7,43 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/25/2018
 ms.author: juliako
-ms.openlocfilehash: a051f40cb5586cae58d8e4939f4fcee35438bf69
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292299"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791811"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer widgets insluiten in uw toepassingen
 
-In dit artikel leeft u hoe u Video Indexer-widgets insluit in uw toepassingen. Video Indexer biedt ondersteuning voor het insluiten van twee typen widgets in uw toepassing: **Inzichten** en **Speler**. 
+In dit artikel leeft u hoe u Video Indexer-widgets insluit in uw toepassingen. Video Indexer biedt ondersteuning voor insluiten twee typen widgets in uw toepassing: **Cognitieve inzichten** en **Player**. 
+
+> [!NOTE]
+> Vanaf 1 februari 2018, de versie 1 van de **cognitieve inzichten** widget wordt afgeschaft. De ingesloten URL-versie wordt teruggezet op `version=2`.
+
 ## <a name="widget-types"></a>Typen widget
 
 ### <a name="cognitive-insights-widget"></a>Widget Inzichten
 
 De widget **Inzichten** bevat alle visuele inzichten die tijdens het indexeringsproces zijn opgehaald uit uw video. De widget voor inzichten ondersteunt de volgende optionele URL-parameters:
 
-|Naam|Definitie|Beschrijving|
+|Name|Definitie|Description|
 |---|---|---|
-|widgets|Tekenreeksen gescheiden door komma's|Hiermee beheert u welke inzichten u wilt weergeven. <br/>Voorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` geeft alleen inzichten over personen en merken weer in de gebruikersinterface<br/>Beschikbare opties: mensen, trefwoorden, aantekeningen, merken, gevoelens, transcript, zoeken.<br/>niet ondersteund via de URL bij version=2<br/><br/>**Opmerking:** de URL-parameter **widgets** wordt niet ondersteund als **version=2** wordt gebruikt. |
-|version|Versies van de widget **Inzichten**|Als u de laatste updates voor inzichtwidgets wilt ophalen, voegt u de queryparameter `?version=2` toe aan de insluitings-URL. Bijvoorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Als u de oudere versie wilt gebruiken, verwijdert u de `version=2` uit de URL.
+|widgets|Tekenreeksen gescheiden door komma's|Hiermee beheert u welke inzichten u wilt weergeven. <br/>Voorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` geeft alleen inzichten over personen en merken weer in de gebruikersinterface<br/>Beschikbare opties: mensen, trefwoorden, aantekeningen, merken, gevoelens, transcript, zoeken.<br/>niet ondersteund via de URL bij version=2<br/><br/>**Opmerking:** De **widgets** URL-parameter wordt niet ondersteund als **versie 2 =** wordt gebruikt. |
+|versie|Versies van de widget **Inzichten**|Als u de laatste inzichten widget updates, toevoegen `?version=2` param naar de URL van de ingesloten query. Bijvoorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Als u de oudere versie wilt gebruiken, verwijdert u de `version=2` uit de URL.
 
 ### <a name="player-widget"></a>Widget Speler
 
 Met de widget **Speler** kunt u de video streamen met gebruik van een adaptieve bitrate. De spelerwidget ondersteunt de volgende optionele URL-parameters:
 
-|Naam|Definitie|Beschrijving|
+|Name|Definitie|Description|
 |---|---|---|
 |t|Seconden vanaf het begin|Laat de speler starten met afspelen vanaf het opgegeven moment.<br/>Voorbeeld: t=60|
 |captions|Taalcode|Haalt de ondertiteling in de opgegeven taal op tijdens het laden van de widget zodat deze beschikbaar is in het menu voor ondertiteling.<br/>Voorbeeld: captions=nl-NL|
 |showCaptions|Een booleaanse waarde|Zorgt ervoor dat speler wordt geladen met de ondertiteling al ingeschakeld.<br/>Voorbeeld: showCaptions=true|
-|type||Hiermee activeert u de weergave van een audiospeler (videogedeelte wordt verwijderd).<br/>Bijvoorbeeld: type=audio|
+|type||Hiermee activeert u de weergave van een audiospeler (videogedeelte wordt verwijderd).<br/>Bijvoorbeeld: type=audio|"
 |autoplay|Een booleaanse waarde|Geeft aan of de speler het afspelen van de video moet starten wanneer deze wordt geladen (de standaardinstelling is true).<br/>Voorbeeld: autoplay=false|
 |language|Taalcode|Hiermee bepaalt u de taal van de speler (de standaardinstelling is en-US)<br/>Voorbeeld: language=nl-NL|
 

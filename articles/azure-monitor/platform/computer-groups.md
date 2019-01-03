@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 3f7cfbea414561a50152f88ac9061d7f62c89e2a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc8688e06b430522d2aeb1bcc67f72dae2e9ac6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192390"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728398"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Computergroepen in Log Analytics-zoekopdrachten
 
@@ -31,7 +31,7 @@ U kunt een computergroep maken in Log Analytics met behulp van een van de method
 |:--- |:--- |
 | Zoekopdrachten in logboeken |Maak een logboekzoekopdracht die als resultaat een lijst van computers geeft. |
 | API voor zoeken in logboeken |De Log Search-API gebruiken om via een programma maakt een computergroep op basis van de resultaten van een logboekzoekopdracht. |
-| Active Directory |Automatisch scannen op het groepslidmaatschap van de agentcomputers die lid zijn van een Active Directory-domein en een groep in Log Analytics maken voor elke beveiligingsgroep. |
+| Active Directory |Automatisch scannen op het groepslidmaatschap van de agentcomputers die lid zijn van een Active Directory-domein en een groep in Log Analytics maken voor elke beveiligingsgroep. (Alleen Windows-machines)|
 | Configuratiebeheer | Verzamelingen importeren uit System Center Configuration Manager en maak een groep in Log Analytics voor elk. |
 | Windows Server updateservices |Automatisch scannen van WSUS-servers of clients die zijn gericht op groepen en voor elk een groep maken in Log Analytics. |
 
@@ -60,7 +60,10 @@ Gebruik de volgende procedure een computergroep maken vanuit een zoeken in Logbo
 
 
 ### <a name="active-directory"></a>Active Directory
-Als u Log Analytics configureren om Active Directory-groepslidmaatschappen importeren, wordt het groepslidmaatschap van computers met de Log Analytics-agent toegevoegd aan een domein geanalyseerd.  Een computergroep in Log Analytics is gemaakt voor elke beveiligingsgroep in Active Directory en elke computer wordt toegevoegd aan de computergroepen die overeenkomt met de beveiligingsgroepen die ze lid van zijn.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur.  
+Als u Log Analytics configureren om Active Directory-groepslidmaatschappen importeren, wordt het groepslidmaatschap van alle computers Windows toegevoegd aan een domein met de Log Analytics-agent geanalyseerd.  Een computergroep in Log Analytics is gemaakt voor elke beveiligingsgroep in Active Directory en elke Windows-computer is toegevoegd aan de computergroepen overeenkomt met de beveiligingsgroepen die ze lid van zijn.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur.  
+
+> [!NOTE]
+> Geïmporteerde Active Directory-groepen bevatten alleen Windows-machines.
 
 Configureren van Log Analytics voor het importeren van Active Directory-beveiligingsgroepen van Log Analytics **geavanceerde instellingen** in Azure portal.  Selecteer **computergroepen**, **Active Directory**, en vervolgens **importeren Active Directory-groepslidmaatschappen van computers**.  Er is geen verdere configuratie nodig.
 

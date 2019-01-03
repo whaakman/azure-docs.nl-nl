@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: caf3ecb64d0bdb5771b2fde705fdcbffdffccacb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957460"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969298"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Bijwerken van Azure Machine Learning-modellen met behulp van de activiteit resources bijwerken
-In dit artikel is een aanvulling op de belangrijkste versie van Azure Data Factory - artikel voor Azure Machine Learning-integratie: [voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory](transform-data-using-machine-learning.md). Als u dit nog niet hebt gedaan, lees dan het belangrijkste artikel voordat u lezen in dit artikel. 
+In dit artikel is een aanvulling op de belangrijkste versie van Azure Data Factory - artikel voor Azure Machine Learning-integratie: [Voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory](transform-data-using-machine-learning.md). Als u dit nog niet hebt gedaan, lees dan het belangrijkste artikel voordat u lezen in dit artikel. 
 
 ## <a name="overview"></a>Overzicht
 Uw model is getraind en opgeslagen als onderdeel van het proces voor het tot het operationaliseren van Azure Machine Learning-modellen. U vervolgens worden gebruikt om een voorspellende webservice te maken. De webservice kan vervolgens worden gebruikt in web sites, dashboards en mobiele apps.
@@ -61,7 +61,7 @@ De volgende JSON-fragment definieert een Azure Machine Learning Batch Execution-
 
 
 
-| Eigenschap                      | Beschrijving                              | Vereist |
+| Eigenschap                      | Description                              | Vereist |
 | :---------------------------- | :--------------------------------------- | :------- |
 | naam                          | Naam van de activiteit in de pijplijn     | Ja      |
 | description                   | Tekst die beschrijft wat de activiteit doet.  | Nee       |
@@ -93,7 +93,7 @@ Voor de tweede service van Azure Machine Learning is gekoppeld is de configurati
 Als de webservice voor het nieuwe type van de webservice die wordt aangegeven dat een Azure Resource Manager-eindpunt is, hoeft u niet om toe te voegen van de tweede **niet-standaard** eindpunt. De **updateResourceEndpoint** is in de gekoppelde service van de indeling: 
 
 ```
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
 ```
 
 U kunt waarden ophalen voor de tijdelijke aanduidingen in de URL bij het opvragen van de webservice op de [Azure Machine Learning Web Services-Portal](https://services.azureml.net/). 
@@ -118,7 +118,7 @@ Hier volgt een voorbeelddefinitie voor gekoppelde service:
             "type": "SecureString",
             "value": "APIKeyOfEndpoint1"
             },
-            "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. ",
+            "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
             "type": "SecureString",

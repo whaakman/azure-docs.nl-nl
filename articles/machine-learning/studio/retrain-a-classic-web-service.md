@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257604"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554755"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Een klassieke Azure Machine Learning Studio-webservice opnieuw trainen
-De voorspellende webservice die u hebt geïmplementeerd is de standaardinstelling scoringeindpunt. Standaardeindpunten worden bewaard gesynchroniseerd met de oorspronkelijke training en scoren van experimenten en daarom het getrainde model voor het standaardeindpunt kan niet worden vervangen. Als u wilt de webservice opnieuw trainen, moet u een nieuw eindpunt toevoegen aan de webservice. 
+De voorspellende webservice die u hebt geïmplementeerd is de standaardinstelling scoringeindpunt. Standaardeindpunten worden bewaard gesynchroniseerd met de oorspronkelijke training en scoren van experimenten en daarom het getrainde model voor het standaardeindpunt kan niet worden vervangen. Als u wilt de webservice opnieuw trainen, moet u een nieuw eindpunt toevoegen aan de webservice.
 
 ## <a name="prerequisites"></a>Vereisten
-U moet een opleidingsexperiment en een Voorspellend experiment hebt ingesteld zoals wordt weergegeven in [opnieuw trainen Machine Learning-modellen programmatisch](retrain-models-programmatically.md). 
+U moet een opleidingsexperiment en een Voorspellend experiment hebt ingesteld zoals wordt weergegeven in [opnieuw trainen Machine Learning-modellen programmatisch](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> De Voorspellend experiment moet worden geïmplementeerd als een klassieke virtuele machine learning-webservice. 
-> 
-> 
+> De Voorspellend experiment moet worden geïmplementeerd als een klassieke virtuele machine learning-webservice.
+>
+>
 
 Zie voor meer informatie over webservices implementeren, [een Azure Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Een nieuw eindpunt toevoegen
-De voorspellende webservice die u hebt geïmplementeerd, bevat een standaardexemplaar scoringeindpunt dat worden bewaard gesynchroniseerd met de oorspronkelijke training en scoren experimenten getrainde model. Voor het bijwerken van uw webservice om met een nieuwe getrainde model, moet u een nieuw scoring-eindpunt maken. 
+De voorspellende webservice die u hebt geïmplementeerd, bevat een standaardexemplaar scoringeindpunt dat worden bewaard gesynchroniseerd met de oorspronkelijke training en scoren experimenten getrainde model. Voor het bijwerken van uw webservice om met een nieuwe getrainde model, moet u een nieuw scoring-eindpunt maken.
 
 Een nieuw scoring-eindpunt, op de voorspellende webservice die kunnen worden bijgewerkt met het getrainde model maken:
 
 > [!NOTE]
 > Zorg ervoor dat u het eindpunt wilt toevoegen aan de voorspellende webservice, niet de Training-webservice. Als u goed zowel een Training en een voorspellende webservice hebt geïmplementeerd, ziet u twee afzonderlijke services die worden vermeld. De voorspellende webservice moet eindigen met '[voorspellende exp.]'.
-> 
-> 
+>
+>
 
 Er zijn twee manieren waarop u een nieuw eindpunt aan een webservice toevoegen kunt:
 
@@ -51,7 +51,7 @@ Er zijn twee manieren waarop u een nieuw eindpunt aan een webservice toevoegen k
 2. Gebruik de webservices van Microsoft Azure-portal
 
 ### <a name="programmatically-add-an-endpoint"></a>Een eindpunt via een programma toevoegen
-U kunt toevoegen scoring-eindpunten met behulp van de voorbeeldcode in dit [github-opslagplaats](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
+U kunt toevoegen scoring-eindpunten met behulp van de voorbeeldcode in dit [GitHub-opslagplaats](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Gebruik de webservices van Microsoft Azure-portal een eindpunt toevoegen
 1. In Machine Learning Studio, klikt u op de linkernavigatiekolom op Web Services.

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b760780912642dac664f68c1f2b9d8d4ebf8cbde
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001726"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809893"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Application Insights handmatig configureren voor .NET-toepassingen
 
-U kunt [Application Insights](app-insights-overview.md) configureren voor het bewaken van allerlei verschillende toepassingen of toepassingsrollen, onderdelen of microservices. Voor web-apps en services biedt Visual Studio [configuratie in één stap](app-insights-asp-net.md). Voor andere typen .NET-toepassingen, zoals back-end-serverfuncties of -desktoptoepassingen, kunt u Application Insights handmatig configureren.
+U kunt [Application Insights](app-insights-overview.md) configureren voor het bewaken van allerlei verschillende toepassingen of toepassingsrollen, onderdelen of microservices. Voor web-apps en services biedt Visual Studio [configuratie in één stap](../azure-monitor/app/asp-net.md). Voor andere typen .NET-toepassingen, zoals back-end-serverfuncties of -desktoptoepassingen, kunt u Application Insights handmatig configureren.
 
 ![Voorbeeld van grafieken met prestatiebewaking](./media/app-insights-windows-services/10-perf.png)
 
@@ -36,7 +36,7 @@ U hebt de volgende zaken nodig:
 
 De 'resource' is de plek waar uw gegevens worden verzameld en weergegeven in Azure Portal. U moet beslissen of u een nieuwe resource maakt of een bestaande gaat delen.
 
-### <a name="part-of-a-larger-app-use-existing-resource"></a>Onderdeel van een grotere app: bestaande resource gebruiken
+### <a name="part-of-a-larger-app-use-existing-resource"></a>Onderdeel van een grotere app: Bestaande resource gebruiken
 
 Als de webtoepassing verschillende onderdelen heeft (zoals een front-end web-app en een of meer back-end services), moet u telemetriegegevens van alle onderdelen naar dezelfde resource verzenden. Op deze manier kunnen de onderdelen worden weergegeven in één toepassingsoverzicht en is het mogelijk om een aanvraag van het ene naar het andere onderdeel te traceren.
 
@@ -44,7 +44,7 @@ Dus als u al andere onderdelen van deze app bewaakt, gebruikt u gewoon dezelfde 
 
 Open de resource in [Azure Portal](https://portal.azure.com/). 
 
-### <a name="self-contained-app-create-a-new-resource"></a>Zelfstandige app: nieuwe resource maken
+### <a name="self-contained-app-create-a-new-resource"></a>Zelfstandige app: Een nieuwe resource maken
 
 Als de nieuwe app helemaal losstaat van andere toepassingen, moet de app een eigen resource hebben.
 
@@ -90,7 +90,7 @@ Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hierv
 * Stel de instrumentatiesleutel in code in, bijvoorbeeld in`main()`: 
   
     `TelemetryConfiguration.Active.InstrumentationKey = "` *uw sleutel* `";` 
-* [Schrijf uw eigen telemetrie met behulp van de API](app-insights-api-custom-events-metrics.md#ikey).
+* [Schrijf uw eigen telemetrie met behulp van de API](../azure-monitor/app/api-custom-events-metrics.md#ikey).
 
 **Als u andere Application Insights-pakketten hebt geïnstalleerd** kunt u, indien gewenst, het .config-bestand gebruiken om de instrumentatiesleutel in te stellen:
 
@@ -119,7 +119,7 @@ Klik in een grafiek voor gedetailleerdere metrische gegevens. [Meer informatie o
 
 ### <a name="no-data"></a>Zijn er geen gegevens?
 * Gebruik de toepassing om verschillende pagina's te openen, zodat er telemetrie wordt gegenereerd.
-* Open de tegel [Zoeken](app-insights-diagnostic-search.md) om afzonderlijke gebeurtenissen te bekijken. Soms kan het even duren voordat de metrische gegevens van gebeurtenissen zijn opgehaald.
+* Open de tegel [Zoeken](../azure-monitor/app/diagnostic-search.md) om afzonderlijke gebeurtenissen te bekijken. Soms kan het even duren voordat de metrische gegevens van gebeurtenissen zijn opgehaald.
 * Wacht een paar seconden en klik op **Vernieuwen**. De grafieken worden regelmatig vernieuwd, maar u kunt ze ook handmatig vernieuwen als u op bepaalde gegevens wacht.
 * Zie [Probleemoplossing](app-insights-troubleshoot-faq.md).
 
@@ -134,7 +134,7 @@ Wanneer u de foutopsporingsmodus gebruikt, wordt de telemetrie direct doorgegeve
 Open poorten voor uitgaand verkeer in de firewall van uw server. Raadpleeg [deze pagina](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) voor de lijst met vereiste adressen 
 
 ### <a name="trouble-on-your-build-server"></a>Problemen op uw buildserver?
-Raadpleeg dit artikel voor [Probleemoplossing](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
+Raadpleeg dit artikel voor [Probleemoplossing](../azure-monitor/app/asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
 > Als uw app veel telemetriegegevens genereert, beperkt de adaptieve steekproefmodule automatisch het volume dat naar de portal wordt verzonden door alleen een representatieve fractie van de gebeurtenissen te sturen. Gebeurtenissen die betrekking hebben op dezelfde aanvraag, worden echter als groep geselecteerd of gedeselecteerd, zodat u tussen gerelateerde gebeurtenissen kunt navigeren. 
@@ -147,5 +147,5 @@ Raadpleeg dit artikel voor [Probleemoplossing](app-insights-asp-net-troubleshoot
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Voeg meer telemetrie](app-insights-asp-net-more.md) toe om een volledig inzicht in uw toepassing te krijgen.
+* [Voeg meer telemetrie](../azure-monitor/app/asp-net-more.md) toe om een volledig inzicht in uw toepassing te krijgen.
 

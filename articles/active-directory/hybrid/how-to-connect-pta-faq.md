@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: fdb316f5f5c1f67dbb92fe8847c0ffacce46ae07
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619811"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789089"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass through-verificatie: Veelgestelde vragen
 
@@ -62,7 +62,7 @@ Voor deze functie te gebruiken, moet u versie 1.1.750.0 of hoger voor Azure AD C
 
 Als u hebt geconfigureerd [wachtwoord terugschrijven](../authentication/concept-sspr-writeback.md) voor een specifieke gebruiker, en als de gebruiker zich aanmeldt met behulp van Pass through-verificatie, kunnen ze wijzigen of hun wachtwoord opnieuw instellen. De wachtwoorden worden teruggeschreven naar on-premises Active Directory, zoals verwacht.
 
-Als u het terugschrijven van wachtwoorden voor een specifieke gebruiker niet hebt geconfigureerd of als de gebruiker beschikt niet over een geldige Azure AD-licentie is toegewezen, de gebruiker het wachtwoord in de cloud kan niet bijwerken. Het wachtwoord bijwerken niet, zelfs als het wachtwoord is verlopen. De gebruiker in plaats daarvan ziet dit bericht: 'uw organisatie niet kunt u uw wachtwoord op deze site bij te werken. Bijgewerkt op basis van de door uw organisatie aanbevolen wijze of vraag uw beheerder als u hulp nodig hebt." De gebruiker of beheerder moet de hun on-premises Active Directory-wachtwoord opnieuw instellen.
+Als u het terugschrijven van wachtwoorden voor een specifieke gebruiker niet hebt geconfigureerd of als de gebruiker beschikt niet over een geldige Azure AD-licentie is toegewezen, de gebruiker het wachtwoord in de cloud kan niet bijwerken. Het wachtwoord bijwerken niet, zelfs als het wachtwoord is verlopen. De gebruiker in plaats daarvan ziet dit bericht: 'Uw organisatie niet kunt u uw wachtwoord op deze site bij te werken. Bijgewerkt op basis van de door uw organisatie aanbevolen wijze of vraag uw beheerder als u hulp nodig hebt." De gebruiker of beheerder moet de hun on-premises Active Directory-wachtwoord opnieuw instellen.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Hoe biedt Pass through-verificatie u bescherming tegen aanvallen met brute kracht wachtwoord?
 
@@ -74,7 +74,7 @@ Als u het terugschrijven van wachtwoorden voor een specifieke gebruiker niet heb
 - De verificatie-Agents moet HTTP-aanvragen via poort 80 voor het downloaden van de SSL-certificaatintrekkingslijsten (CRL's).
 
      >[!NOTE]
-     >Recente updates beperkt het aantal poorten die door de functie is vereist. Als u oudere versies van Azure AD Connect of de verificatie-Agent hebt, houd deze poorten open ook: 5671, 8080 9090, 9091, 9350, 9352 en 10100 10120.
+     >Recente updates beperkt het aantal poorten die door de functie is vereist. Als u oudere versies van Azure AD Connect of de verificatie-Agent, houd deze poorten ook open hebt: 5671, 8080, 9090 9091, 9350, 9352 en 10100 10120.
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Kan de Pass through-verificatie-Agents communiceren via een uitgaande webproxyserver?
 
@@ -83,7 +83,7 @@ Ja. Als Web Proxy Auto-Discovery (WPAD) is ingeschakeld in uw on-premises-omgevi
 Als u geen WPAD in uw omgeving, kunt u de proxy-informatie (zoals hieronder wordt weergegeven) om toe te staan een Pass through-verificatie-Agent om te communiceren met Azure AD toevoegen:
 - Proxy-informatie in Internet Explorer configureren voordat u de Pass through-verificatie-Agent op de server installeren. Hierdoor kunt u de installatie van de verificatie-Agent te voltooien, maar deze nog steeds wordt weergegeven als **inactief** in de beheerportal.
 - Navigeer naar 'C:\Program Files\Microsoft Azure AD Connect Authentication-Agent' op de server.
-- Bewerk het bestand van de configuratie 'AzureADConnectAuthenticationAgentService' en voeg de volgende regels (Vervang 'http://contosoproxy.com:8080' met uw werkelijke proxyadres):
+- Bewerk het bestand van de configuratie 'AzureADConnectAuthenticationAgentService' en voeg de volgende regels (Vervang ' http\:/ / contosoproxy.com:8080 ' met uw werkelijke proxyadres):
 
 ```
    <system.net>
@@ -156,7 +156,7 @@ Als u een Pass through-verificatie-Agent van een server verwijderen, worden de s
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Ik heb een oudere-tenant die is oorspronkelijk ingesteld met behulp van AD FS.  We onlangs is gemigreerd naar PTA maar nu onze synchroniseert met Azure AD UPN-wijzigingen niet ziet.  Waarom zijn onze UPN verandert niet wordt gesynchroniseerd?
 
-A: in de volgende omstandigheden kunnen de wijzigingen van uw on-premises UPN niet gesynchroniseerd als:
+A: In de volgende omstandigheden kunnen de wijzigingen van uw on-premises UPN niet gesynchroniseerd als:
 
 - Uw Azure AD-tenant is gemaakt vóór 15 juni-2015
 - U zijn in eerste instantie gefedereerd met uw Azure AD-tenant met behulp van AD FS voor verificatie
@@ -171,13 +171,13 @@ Tenants die zijn gemaakt na 15 juni-2015 hebben het standaardgedrag van de UPN-w
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Huidige beperkingen](how-to-connect-pta-current-limitations.md): informatie over welke scenario's worden ondersteund en welke niet.
-- [Quick start-](how-to-connect-pta-quick-start.md): aan de slag op Azure AD Pass-through-verificatie.
+- [Huidige beperkingen](how-to-connect-pta-current-limitations.md): Informatie over welke scenario's worden ondersteund en welke niet.
+- [Quick start-](how-to-connect-pta-quick-start.md): Aan de slag op Azure AD Pass-through-verificatie.
 - [Migreren van AD FS naar Pass-through-verificatie](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
-- [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): informatie over het configureren van de functie Smart Lockout op uw tenant om te beveiligen van gebruikersaccounts.
-- [Technische details](how-to-connect-pta-how-it-works.md): informatie over de werking van de functie voor Pass through-verificatie.
-- [Problemen oplossen](tshoot-connect-pass-through-authentication.md): informatie over het oplossen van veelvoorkomende problemen met de functie voor Pass through-verificatie.
-- [Grondig onderzoek van beveiliging](how-to-connect-pta-security-deep-dive.md): uitgebreide technische informatie over de functie voor Pass through-verificatie.
-- [Azure AD naadloze eenmalige aanmelding](how-to-connect-sso.md): meer informatie over deze aanvullende functie.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): de Azure Active Directory-Forum gebruiken om nieuwe functieaanvragen.
+- [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): Informatie over het configureren van de functie Smart Lockout op uw tenant om te beveiligen van gebruikersaccounts.
+- [Technische details](how-to-connect-pta-how-it-works.md): Informatie over de werking van de functie voor Pass through-verificatie.
+- [Problemen oplossen](tshoot-connect-pass-through-authentication.md): Informatie over het oplossen van veelvoorkomende problemen met de functie voor Pass through-verificatie.
+- [Grondig onderzoek van beveiliging](how-to-connect-pta-security-deep-dive.md): Uitgebreide technische informatie over de functie voor Pass through-verificatie ophalen.
+- [Naadloze eenmalige aanmelding voor Azure AD](how-to-connect-sso.md): Meer informatie over deze aanvullende functie.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): De Active Directory-Forum van Azure gebruiken om nieuwe functieaanvragen.
 

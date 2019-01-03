@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 013b63d0eb2cc69893dcb4075c1ca26a31ef2474
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: db7591c98147a5728486843efb0c807b6094557a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277978"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601471"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>De infrastructuur van uw extern bureaublad-Gateway met behulp van de extensie voor Network Policy Server (NPS) en Azure AD integreren
 
@@ -26,7 +26,7 @@ De Network Policy Server (NPS)-extensie voor Azure klanten kunnen ter beschermin
 In dit artikel bevat stapsgewijze instructies voor het integreren van de NPS-infrastructuur met Azure MFA met behulp van de NPS-extensie voor Azure. Hierdoor kunnen beveiligde verificatie voor gebruikers die zich aanmelden bij een extern bureaublad-Gateway.
 
 > [!NOTE]
-> In dit artikel mag niet worden gebruikt met MFA-Server-implementaties die alleen Azure MFA (cloudservice).
+> Dit artikel mag niet worden gebruikt met MFA-Server-implementaties en mag alleen worden gebruikt met Azure MFA-implementaties (cloudservice).
 
 De Network Policy and Access Services (NPS) biedt organisaties de mogelijkheid om het volgende te doen:
 
@@ -162,7 +162,7 @@ Voor het gebruik van het script, voorzien van de extensie Azure AD-beheerdersref
 
 1. Open een beheeropdrachtprompt van Windows PowerShell.
 1. Typ het volgende achter de PowerShell-prompt `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`, en druk op **ENTER**.
-1. Type `.\AzureMfsNpsExtnConfigSetup.ps1`, en druk op **ENTER**. Het script wordt gecontroleerd of de Azure Active Directory PowerShell-module is geïnstalleerd. Als niet is geïnstalleerd, installeert u de module met het script voor u.
+1. Type `.\AzureMfaNpsExtnConfigSetup.ps1`, en druk op **ENTER**. Het script wordt gecontroleerd of de Azure Active Directory PowerShell-module is geïnstalleerd. Als niet is geïnstalleerd, installeert u de module met het script voor u.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
