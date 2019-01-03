@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497275"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792778"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uitgebreide geschiedenis Server van de Apache Spark op fouten opsporen en diagnosticeren van Apache Spark-toepassingen gebruiken
 
@@ -26,7 +26,7 @@ Apache Spark geschiedenis-Server is de web-UI voor Spark-toepassingen is voltooi
 
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>De Webgebruikersinterface voor Apache Spark geschiedenis Server openen vanuit Azure portal
 
-1. Uit de [Azure-portal](https://portal.azure.com/), opent u het Spark-cluster. Zie voor meer informatie, [clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Uit de [Azure-portal](https://portal.azure.com/), opent u het Spark-cluster. Zie voor meer informatie, [clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Van **snelkoppelingen**, klikt u op **Clusterdashboard**, en klik vervolgens op **Spark geschiedenis Server**. Wanneer u hierom wordt gevraagd, voert u de beheerdersreferenties voor de Spark-cluster. 
 
     ![Spark-geschiedenis Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark-geschiedenis-Server")
@@ -106,11 +106,11 @@ Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma o
 
 + De taak afspelen door te klikken op de **afspelen** knop en op elk gewenst moment stoppen door te klikken op de knop stoppen. De weergave van de taak in kleur om verschillende status weer te geven bij het afspelen:
 
-    + Groen voor geslaagd: de taak is voltooid.
-    + Oranje voor geprobeerd: exemplaren van de taken die is mislukt, maar niet van invloed op het uiteindelijke resultaat van de taak. Deze taken heeft dubbele of probeer exemplaren die later mogelijk wel.
-    + Blauwe voor het uitvoeren: de taak wordt uitgevoerd.
-    + Voor de wachttijd-wit of overgeslagen: de taak wacht op om uit te voeren of de fase is overgeslagen.
-    + Rood voor is mislukt: de taak is mislukt.
+    + Groen voor geslaagd: De taak is voltooid.
+    + Oranje voor opnieuw geprobeerd: Exemplaren van de taken die is mislukt, maar niet van invloed op het uiteindelijke resultaat van de taak. Deze taken heeft dubbele of probeer exemplaren die later mogelijk wel.
+    + Blauw voor het werken met: De taak wordt uitgevoerd.
+    + Voor de wachttijd-wit of overgeslagen: De taak wacht op om uit te voeren of de fase is overgeslagen.
+    + Rood voor is mislukt: De taak is mislukt.
 
     ![Graph-kleurvoorbeeld uitgevoerd](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -119,7 +119,7 @@ Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma o
 
     ![Kleurvoorbeeld Graph, is mislukt](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > Afspelen voor elke taak is toegestaan. Afspelen wordt niet ondersteund voor onvolledige taak.
 
 
@@ -132,8 +132,8 @@ Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma o
     ![Knopinfo van de grafiek](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + In job graph tabblad fasen hebben knopinfo en het kleine pictogram weergegeven als ze beschikken over taken die voldoen aan de volgende voorwaarden:
-    + Gegevensverschil: gegevens gelezen grootte > gemiddelde gegevens gelezen grootte van alle taken in deze fase * 2 en gegevens gelezen grootte > 10 MB
-    + Tijdverschil: uitvoeringstijd > gemiddelde uitvoeringstijd van alle taken in deze fase * 2 en uitvoeringstijd > 2 minuten
+    + Gegevensverschil: gegevens gelezen grootte > gemiddelde gegevens gelezen grootte van alle taken in deze fase * 2 en gegevens gelezen grootte > 10 MB.
+    + Tijdverschil: uitvoeringstijd > gemiddelde uitvoeringstijd van alle taken in deze fase * 2 en uitvoeringstijd > 2 minuten.
 
     ![scheeftrekken grafiekpictogram](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
@@ -147,10 +147,10 @@ Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma o
     + Aantal rijen: de som van records, invoer, uitvoer records, gelezen records in willekeurige volgorde en schrijven records in willekeurige volgorde.
     + Wordt uitgevoerd.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Het knooppunt van de grafiek taak gegevens uit de laatste poging van elke fase (met uitzondering van de uitvoeringstijd van de fase) wordt weergegeven, maar tijdens het afspelen van graph knooppunt gegevens van elke poging weergegeven.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Voor de gegevensgrootte van lezen en schrijven we; gebruik 1 MB = 1000 KB = 1000 * 1000 Bytes.
 
 + Feedback met problemen verzenden door te klikken op **Geef ons feedback**.
@@ -168,7 +168,7 @@ Selecteer de taak-ID en klik vervolgens op **diagnose** in het menu Extra om uw 
 ### <a name="data-skew"></a>Gegevensverschil
 Klik op **gegevens scheeftrekken** tabblad, het bijbehorende ongelijke taken worden weergegeven op basis van de opgegeven parameters. 
 
-+ **Geef Parameters** -de eerste sectie worden de parameters die worden gebruikt voor het detecteren van gegevens is een Gegevensverschil weergegeven. De regel van de ingebouwde is: taak gegevens lezen is groter dan 3 keer van de gemiddelde taakgegevens lezen en de taakgegevens lezen is meer dan 10MB. Als u wilt voor het definiëren van uw eigen regel voor ongelijke taken, kunt u de parameters, de **ongelijkmatig fase**, en **scheeftrekken Char** sectie dienovereenkomstig worden vernieuwd.
++ **Geef Parameters** -de eerste sectie worden de parameters die worden gebruikt voor het detecteren van gegevens is een Gegevensverschil weergegeven. De regel van de ingebouwde is: Taak gegevens lezen is groter dan 3 keer de gemiddelde taak gegevens lezen en de taakgegevens lezen is meer dan 10MB. Als u wilt voor het definiëren van uw eigen regel voor ongelijke taken, kunt u de parameters, de **ongelijkmatig fase**, en **scheeftrekken Char** sectie dienovereenkomstig worden vernieuwd.
 
 + **Fase ook ongelijkmatig** -fasen die taken die voldoen aan de bovenstaande criteria hebben ongelijkmatig in de tweede sectie weergegeven. Als er meer dan één ongelijke taak in een fase, wordt in de faseringstabel ongelijke alleen de meest ongelijke taak (bijvoorbeeld de grootste gegevens voor gegevens scheeftrekken) weergegeven.
 

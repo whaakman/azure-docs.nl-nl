@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d6a1f2829352e8589c8d132a195a425edcbe62c3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b7d6b59ab03985c19ffa08a0a8266d449892046f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872935"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717820"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>SQL Data Sync bewaken met Log Analytics 
 
 Als u wilt het activiteitenlogboek van SQL Data Sync controleren en opsporen van fouten en waarschuwingen, eerder moest u handmatig SQL Data Sync controleren in Azure portal of PowerShell of de REST-API gebruiken. Volg de stappen in dit artikel voor het configureren van een aangepaste oplossing waarmee de controle-ervaring gegevenssynchronisatie worden verbeterd. U kunt deze oplossing voor uw scenario.
 
 Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
+
+> [!IMPORTANT]
+> Azure SQL Data Sync is **niet** ondersteuning voor Azure SQL Database Managed Instance op dit moment.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard van de controle voor alle synchronisatiegroepen 
 
@@ -181,9 +184,9 @@ Voor het configureren van de Log Analytics-weergave, moet u de volgende dingen d
 
 In de meeste gevallen is deze oplossing gratis.
 
-**Azure Automation:** mogelijk zijn er kosten in rekening gebracht met de Azure Automation-account, afhankelijk van het gebruik. De eerste 500 minuten aan taakuitvoertijd per maand zijn gratis. Deze oplossing wordt in de meeste gevallen verwacht gebruik van minder dan 500 minuten per maand. Om kosten te voorkomen, moet u het runbook om uit te voeren met een interval van twee uur of meer plannen. Zie voor meer informatie, [Automation-prijzen](https://azure.microsoft.com/pricing/details/automation/).
+**Azure Automation:** Mogelijk zijn er kosten in rekening gebracht met de Azure Automation-account, afhankelijk van het gebruik. De eerste 500 minuten aan taakuitvoertijd per maand zijn gratis. Deze oplossing wordt in de meeste gevallen verwacht gebruik van minder dan 500 minuten per maand. Om kosten te voorkomen, moet u het runbook om uit te voeren met een interval van twee uur of meer plannen. Zie voor meer informatie, [Automation-prijzen](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics:** mogelijk zijn er kosten verbonden met Log Analytics, afhankelijk van uw gebruik. De laag gratis omvat 500 MB opgenomen gegevens per dag. Deze oplossing wordt in de meeste gevallen verwacht voor het opnemen van minder dan 500 MB per dag. Om te reduceren het verbruik, gebruik van de alleen-fout filtering opgenomen in het runbook. Als u meer dan 500 MB per dag gebruikt, moet u een upgrade uitvoeren naar de prijscategorie betaald om te voorkomen dat het risico van analytics stoppen na het verstrijken van de beperking. Zie voor meer informatie, [Log Analytics-prijzen](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log Analytics:** Mogelijk zijn er kosten verbonden met Log Analytics, afhankelijk van uw gebruik. De laag gratis omvat 500 MB opgenomen gegevens per dag. Deze oplossing wordt in de meeste gevallen verwacht voor het opnemen van minder dan 500 MB per dag. Om te reduceren het verbruik, gebruik van de alleen-fout filtering opgenomen in het runbook. Als u meer dan 500 MB per dag gebruikt, moet u een upgrade uitvoeren naar de prijscategorie betaald om te voorkomen dat het risico van analytics stoppen na het verstrijken van de beperking. Zie voor meer informatie, [Log Analytics-prijzen](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Codevoorbeelden
 
@@ -198,7 +201,7 @@ Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
 
 -   Overzicht: [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md)
 -   Data Sync instellen
-    - In de portal: [Zelfstudie: SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
+    - In de portal - [zelfstudie: SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
     - Met PowerShell
         -  [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)

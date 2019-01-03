@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: pchoudh
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9f5aedfc28c8aa0835c865cc2041f66abef39d5f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081316"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724688"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Betrouwbaarheidsscore van een kennisdatabase QnA Maker
 Wanneer de aanvraag voor een gebruiker wordt vergeleken met een knowledge base, retourneert de QnA Maker relevante antwoorden, samen met een betrouwbaarheidsscore. Deze score geeft aan dat het vertrouwen dat het antwoord de juiste overeenkomst voor de opgegeven gebruiker-query is. 
@@ -38,7 +38,7 @@ De volgende tabel staan de typische vertrouwen die voor een bepaald scorebereik 
 
 |Score-waarde|Betekenis van score|Voorbeeld van een Query|
 |--|--|--|
-|90 - 100|Een bijna exact overeenkomen met de gebruikersquery en een vraag KB|"Mijn wijzigingen in de Knowledge base worden niet bijgewerkt nadat deze is gepubliceerd"|
+|90 - 100|Een bijna exact overeenkomen met de gebruikersquery en een vraag KB|"Mijn wijzigingen niet zijn bijgewerkt in KB nadat deze is gepubliceerd"|
 |> 70|Hoge betrouwbaarheid - doorgaans een goed antwoord die volledig vindt u antwoorden op query van de gebruiker|'Ik mijn KB gepubliceerd, maar deze niet wordt bijgewerkt'|
 |50 - 70|Gemiddeld vertrouwen - doorgaans een redelijk goed antwoord dat de belangrijkste doel van de gebruikersquery moet beantwoorden|"Moet ik mijn updates opslaan voordat ik mijn KB publiceren?"|
 |30 - 50|Lage vertrouwen - doorgaans een gerelateerde antwoord, die gedeeltelijk vindt u antwoorden op de intentie van de gebruiker|"Wat doet de opslaan en train?"|
@@ -58,7 +58,7 @@ Bij het kiezen van de drempelwaarde, houd rekening met de balans tussen nauwkeur
 > Nieuwere versies van QnA Maker zijn verbeteringen aangebracht aan scoring logica en invloed kunnen zijn op de drempelwaarde. Elk gewenst moment bijwerken van de service, zorg ervoor dat voor het testen en aanpassen van de drempelwaarde, indien nodig. U kunt uw versie van de QnA-Service controleren [hier](https://www.qnamaker.ai/UserSettings), en zien hoe u de meest recente updates [hier](../How-To/troubleshooting-runtime.md).
 
 ## <a name="improve-confidence-scores"></a>Vertrouwen van de scores verbeteren
-Ter verbetering van de betrouwbaarheidsscore van een bepaald antwoord op de gebruikersquery van een, kunt u de gebruikersquery toevoegen aan de knowledge base als een alternatieve vraag op dat-antwoord.
+Ter verbetering van de betrouwbaarheidsscore van een bepaald antwoord op de gebruikersquery van een, kunt u de gebruikersquery toevoegen aan de knowledge base als een alternatieve vraag op dat-antwoord. U kunt ook [wijzigingen in word](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) synoniemen toevoegen aan trefwoorden in uw KB.
 
 
 ## <a name="similar-confidence-scores"></a>Vergelijkbare vertrouwen scores

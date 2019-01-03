@@ -2,25 +2,21 @@
 title: Werken met bestaande on-premises proxy-servers en Azure AD | Microsoft Docs
 description: Bevat informatie over het werken met bestaande on-premises proxy-servers.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6409b9313aa9b036e24ea50435659b3653ac01e0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404950"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720098"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Werken met bestaande on-premises proxy-servers
 
@@ -107,15 +103,16 @@ Er zijn vier aspecten om te overwegen bij de uitgaande proxy:
 * SSL-inspectie
 
 #### <a name="proxy-outbound-rules"></a>Proxy regels voor uitgaand verkeer
-Toegang tot de volgende eindpunten voor toegang tot de connector-service toestaan:
+Sta toegang tot de volgende URL's toe:
 
-* *.msappproxy.net
-* *.servicebus.windows.net
+| URL | Hoe dat wordt gebruikt |
+| --- | --- |
+| \*.msappproxy.net<br>\*. servicebus.windows.net | Communicatie tussen de connector en de Application Proxy-cloudservice |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure gebruikt deze URL's om certificaten te controleren |
+| login.windows.net<br>login.microsoftonline.com | De connector gebruikt deze URL's tijdens het registratieproces. |
 
-Voor de eerste registratie toestaan toegang tot de volgende eindpunten:
+Als uw firewall of proxyserver kunt DNS-opname in de whitelist, kunt u verbindingen met geaccepteerde \*. msappproxy.net en \*. servicebus.windows.net. Als u niet het geval is, moet u toegang tot de [Azure DataCenter IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653). De IP-adresbereiken, elke week worden bijgewerkt.
 
-* login.windows.net
-* login.microsoftonline.com
 
 Als u kunt geen kunt u met FQDN-naam en moet in plaats daarvan IP-adresbereiken opgeven, gebruikt u deze opties:
 

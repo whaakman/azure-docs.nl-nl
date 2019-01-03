@@ -11,31 +11,31 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 4b3828e1857d17a128de346449d5cf2041709e50
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 721e904fa5e1ec839d5d236ba4bcda60201f5b26
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041072"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555384"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure data factory's visueel bewaken
 Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken.
-In deze quick start leert u hoe u pijplijnen van data factory v2 visueel bewaken zonder één regel code te schrijven.
+In deze snelstartgids leert u hoe u pijplijnen van data factory v2 visueel bewaken zonder één regel code te schrijven.
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="monitor-data-factory-v2-pipelines"></a>Data factory v2-pijplijnen bewaken
+## <a name="monitor-data-factory-pipelines"></a>Data Factory-pijplijnen bewaken
 
 1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 2. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
-3. Navigeer naar de gemaakte data factory-blade in Azure portal en klik op de tegel 'Bewaking en beheer'. Hiermee wordt de ADF v2 visual bewakingservaring geopend.
+3. Navigeer naar de gemaakte data factory-blade in Azure portal en klik op de tegel 'Controleren en beheren' om te starten van de Data Factory bewakingservaring voor de visual.
 
 ## <a name="list-view-monitoring"></a>Lijstweergave bewaking
 
-De pijplijn bewaken en de activiteit wordt uitgevoerd met een eenvoudige lijstweergave-interface. Alle uitvoeringen worden weergegeven in de lokale tijdzone van de browser. U kunt de tijdzone wijzigen en alle datum-/tijdvelden springen naar de geselecteerde tijdzone.  
+De pijplijn bewaken en de activiteit wordt uitgevoerd met een eenvoudige lijstweergave-interface. Alle uitvoeringen worden weergegeven in de lokale tijdzone van de browser. U kunt de tijdzone wijzigen en alle datum-/ tijdvelden uitlijnen op de geselecteerde tijdzone.  
 
-#### <a name="monitoring-pipeline-runs"></a>Controleren van Pijplijnuitvoeringen
+### <a name="monitoring-pipeline-runs"></a>Controleren van Pijplijnuitvoeringen
 Lijstweergave geeft elke pijplijnuitvoering voor uw v2-pijplijnen van uw gegevensfactory duidelijk weer. Opgenomen kolommen:
 
 | **De naam van kolom** | **Beschrijving** |
@@ -48,17 +48,17 @@ Lijstweergave geeft elke pijplijnuitvoering voor uw v2-pijplijnen van uw gegeven
 | Status | Is mislukt, is voltooid, wordt uitgevoerd |
 | Parameters | Pijplijnuitvoering parameters (naam, waarde-paren) |
 | Fout | Pijplijnuitvoering fout (indien/any) |
-| Run-id | Id van de pijplijnuitvoering |
+| Run-id | ID van de pijplijnuitvoering |
 
 ![Pijplijnuitvoeringen controleren](media/monitor-visually/pipeline-runs.png)
 
-#### <a name="monitoring-activity-runs"></a>Uitvoeringen van activiteit controleren
+### <a name="monitoring-activity-runs"></a>Uitvoeringen van activiteit controleren
 Lijstweergave geeft activiteituitvoeringen weer die corresponderen met elke pijplijnuitvoering. Klik op **'Uitvoeringen van activiteit'** pictogram onder de **'Acties'** kolom om weer te geven van de activiteit wordt uitgevoerd voor elke pijplijn-run. Opgenomen kolommen:
 
 | **De naam van kolom** | **Beschrijving** |
 | --- | --- |
 | Naam activiteit | Naam van de activiteit in de pijplijn. |
-| Type activiteit | Type activiteit dat wil zeggen kopiëren, HDInsightSpark, HDInsightHive enzovoort. |
+| Type activiteit | Het type van de activiteit, zoals kopiëren, HDInsightSpark, HDInsightHive, enzovoort. |
 | Uitvoering starten | Uitvoering van activiteit start datum en tijd (MM/DD/JJJJ uu: mm: SS AM/PM) |
 | Duur | Uitvoeringsduur (uu: mm:) |
 | Status | Is mislukt, is voltooid, wordt uitgevoerd |
@@ -74,14 +74,14 @@ Lijstweergave geeft activiteituitvoeringen weer die corresponderen met elke pijp
 
 ![Vernieuwen](media/monitor-visually/refresh.png)
 
-## <a name="features"></a>Functies
+## <a name="monitoring-features"></a>Bewakingsfuncties
 
-#### <a name="select-a-data-factory-to-monitor"></a>Selecteer een data factory te controleren
+### <a name="select-a-data-factory-to-monitor"></a>Selecteer een data factory te controleren
 Beweeg de muisaanwijzer op de **Data Factory** pictogram links bovenin. Klik op het pictogram 'Pijl' voor een overzicht van azure-abonnementen en gegevensfactory's die u kunt controleren.
 
 ![Data factory selecteren](media/monitor-visually/select-datafactory.png)
 
-#### <a name="rich-ordering-and-filtering"></a>Uitgebreid op volgorde plaatsen en filteren
+### <a name="rich-ordering-and-filtering"></a>Uitgebreid op volgorde plaatsen en filteren
 
 Volgorde pijplijnuitvoeringen in aflopende/oplopende op Run Start en filter pijplijnuitvoeringen door de volgende kolommen:
 
@@ -89,19 +89,19 @@ Volgorde pijplijnuitvoeringen in aflopende/oplopende op Run Start en filter pijp
 | --- | --- |
 | Pijplijnnaam | Naam van de pijplijn. Opties voor snelle filters bevatten voor 'afgelopen 24 uur', 'Afgelopen week', 'afgelopen 30 dagen' of een aangepaste datum en tijd selecteren. |
 | Uitvoering starten | Pijplijnuitvoering starten, datum en tijd |
-| Uitvoeringsstatus | Filter wordt uitgevoerd door de status dat wil zeggen is voltooid, is mislukt, wordt uitgevoerd |
+| Uitvoeringsstatus | Filter wordt uitgevoerd op status - geslaagd, mislukt, wordt uitgevoerd |
 
 ![Filteren](media/monitor-visually/filter.png)
 
-#### <a name="addremove-columns-in-list-view"></a>Kolommen in de lijstweergave toevoegen/verwijderen
-Klik met de rechtermuisknop op de lijstweergavekop en kies de kolommen die u wilt weergeven in de lijstweergave
+### <a name="addremove-columns-in-list-view"></a>Kolommen in de lijstweergave toevoegen/verwijderen
+Met de rechtermuisknop op de lijstweergavekop en kies de kolommen die u wilt weergeven in de lijstweergave
 
 ![Kolommen](media/monitor-visually/columns.png)
 
-#### <a name="reorder-column-widths-in-list-view"></a>Volgorde van kolombreedtes in lijstweergave
-Vergroot of verklein de kolombreedtes in lijstweergave door eenvoudig de muisaanwijzer boven de kolomkop
+### <a name="reorder-column-widths-in-list-view"></a>Volgorde van kolombreedtes in lijstweergave
+Vergroot of verklein de kolombreedtes in lijstweergave door de muiswijzer op de kolomkop
 
-#### <a name="user-properties"></a>Gebruikerseigenschappen
+### <a name="user-properties"></a>Gebruikerseigenschappen
 
 Zodat deze een entiteit die u kunt controleren, kunt u een eigenschap van een pijplijn activiteit als een eigenschap van het promoveren. Bijvoorbeeld, u kunt verhogen de **bron** en **bestemming** eigenschappen van de kopieeractiviteit in de pijplijn als eigenschappen van de gebruiker. U kunt ook selecteren **automatisch genereren** voor het genereren van de **bron** en **bestemming** gebruikerseigenschappen voor een kopieeractiviteit.
 
@@ -118,16 +118,52 @@ Nadat u de eigenschappen van de gebruiker hebt gemaakt, kunt u deze bewaken in d
 
 ![Uitvoeringen van activiteit lijst met kolommen voor de eigenschappen van de gebruiker](media/monitor-visually/monitor-user-properties-image4.png)
 
-#### <a name="guided-tours"></a>Rondleidingen
+### <a name="guided-tours"></a>Rondleidingen
 Klik op het 'informatiepictogram' linksonder in en klik op rondleidingen begeleide voor stapsgewijze instructies over het bewaken van de uitvoering van uw pijplijn en activiteit.
 
 ![Rondleidingen](media/monitor-visually/guided-tours.png)
 
-#### <a name="feedback"></a>Feedback
+### <a name="feedback"></a>Feedback
 Klik op het pictogram 'Feedback' om ons feedback over verschillende functies of eventuele problemen die u kunt te maken krijgen.
 
 ![Feedback](media/monitor-visually/feedback.png)
 
+## <a name="alerts"></a>Waarschuwingen
+
+U kunt waarschuwingen op ondersteunde metrische gegevens in Data Factory kunt verhogen. Selecteer Monitor -> waarschuwingen en metrische gegevens over de Data Factory-Monitor pagina om te beginnen.
+
+![](media/monitor-visually/alerts01.png)
+
+### <a name="create-alerts"></a>Waarschuwingen maken
+
+1.  Klik op **nieuwe waarschuwingsregel** om een nieuwe waarschuwing te maken.
+
+    ![](media/monitor-visually/alerts02.png)
+
+1.  Geef de regelnaam en selecteer de waarschuwing **ernst**.
+
+    ![](media/monitor-visually/alerts03.png)
+
+1.  Selecteer de waarschuwingscriteria.
+
+    ![](media/monitor-visually/alerts04.png)
+
+    ![](media/monitor-visually/alerts05.png)
+
+1.  Alert logic configureren. U kunt een waarschuwing voor de geselecteerde metrische gegevens voor alle bijbehorende activiteiten en pijplijnen kunt maken. U kunt ook een bepaalde activiteit-type, naam van de activiteit, de pijplijnnaam van de of een fouttype selecteren.
+
+    ![](media/monitor-visually/alerts06.png)
+
+1.  Configureer **e-mailadres/SMS/Push/stem** meldingen voor de waarschuwing. Maak of kies een bestaande **actiegroep** voor de meldingen van waarschuwingen.
+
+    ![](media/monitor-visually/alerts07.png)
+
+    ![](media/monitor-visually/alerts08.png)
+
+1.  De waarschuwingsregel maken.
+
+    ![](media/monitor-visually/alerts09.png)
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [bewaken en beheren van pijplijnen programmatisch](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) artikel voor meer informatie over het controleren en beheren van pijplijnen
+Zie [bewaken en beheren van pijplijnen programmatisch](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) artikel voor meer informatie over het controleren en beheren van pijplijnen.

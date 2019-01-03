@@ -9,20 +9,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163824"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653812"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Apache HBase-cluster-replicatie in virtuele Azure-netwerken instellen
 
-Meer informatie over het instellen van [Apache HBase](http://hbase.apache.org/) replicatie binnen een virtueel netwerk, of tussen twee virtuele netwerken in Azure.
+Meer informatie over het instellen van [Apache HBase](https://hbase.apache.org/) replicatie binnen een virtueel netwerk, of tussen twee virtuele netwerken in Azure.
 
 Replicatie in een cluster maakt gebruik van een bron-push-methode. Een HBase-cluster kan een bron of bestemming, of beide functies tegelijk kunnen worden verwerkt. Replicatie is asynchroon. Het doel van de replicatie is uiteindelijke consistentie. Wanneer de bron een bewerking een kolomfamilie ontvangt wanneer replicatie is ingeschakeld, wordt de bewerking wordt doorgegeven aan alle doelclusters. Wanneer gegevens worden gerepliceerd van het ene cluster naar een andere, zijn het broncluster en alle clusters die al voor de gegevens gebruikt hebben worden bijgehouden, om te voorkomen dat replicatie lussen.
 
-In deze zelfstudie, moet u de replicatie van een bron-doel instellen. Zie voor andere clustertopologieën de [Snelzoekgids voor Apache HBase](http://hbase.apache.org/book.html#_cluster_replication).
+In deze zelfstudie, moet u de replicatie van een bron-doel instellen. Zie voor andere clustertopologieën de [Snelzoekgids voor Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Hier volgen de HBase-replicatie gebruik aanvragen voor één virtueel netwerk:
 
@@ -121,7 +121,7 @@ Gebruik de volgende procedure voor het installeren van de binding voor:
 
     Vervang `sshuser` met de SSH-gebruikersaccount dat u hebt opgegeven bij het maken van de DNS-virtuele machine.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Er zijn verschillende manieren om op te halen de `ssh` hulpprogramma. Op Linux, Unix- en Mac OS, is deze geleverd als onderdeel van het besturingssysteem. Als u Windows gebruikt, kunt u overwegen een van de volgende opties:
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
@@ -162,7 +162,7 @@ Gebruik de volgende procedure voor het installeren van de binding voor:
     };
     ```
     
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Vervang de waarden in de `goodclients` sectie met het IP-adresbereik van de twee virtuele netwerken. Deze sectie worden de adressen die deze DNS-server aanvragen van accepteert gedefinieerd.
 
     Als u wilt dit bestand bewerken, moet u de volgende opdracht gebruiken:
@@ -197,7 +197,7 @@ Gebruik de volgende procedure voor het installeren van de binding voor:
     };
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > U moet vervangen de `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` met de DNS-achtervoegsel van het virtuele netwerk. En het IP-adres voor de doorstuurserver is het privé IP-adres van de DNS-server in het virtuele netwerk.
 
     Als u wilt dit bestand bewerken, moet u de volgende opdracht gebruiken:
@@ -221,7 +221,7 @@ Gebruik de volgende procedure voor het installeren van de binding voor:
     nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Vervang `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` met de volledig gekwalificeerde domeinnaam (FQDN) van de DNS-virtuele machine in het andere netwerk.
     >
     > Vervang `10.2.0.4` met de __interne IP-adres__ van uw aangepaste DNS-server in het virtuele netwerk.
@@ -258,7 +258,7 @@ sudo service bind9 status
 
 ## <a name="create-apache-hbase-clusters"></a>Apache HBase-clusters maken
 
-Maak een [Apache HBase](http://hbase.apache.org/) -cluster in elk van de twee virtuele netwerken met de volgende configuratie:
+Maak een [Apache HBase](https://hbase.apache.org/) -cluster in elk van de twee virtuele netwerken met de volgende configuratie:
 
 - **De naam van resourcegroep**: naam van de dezelfde resourcegroep gebruiken als u de virtuele netwerken die zijn gemaakt.
 - **Clustertype**: HBase
@@ -295,8 +295,7 @@ De volgende stappen wordt beschreven hoe u het script van de actie script aanroe
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    >[!note]
-    >
+    > [!NOTE]
     > Gebruik hostnaam in plaats van de FQDN-naam voor de bron- en doelserver cluster DNS-naam.
 
 6. Selecteer **Maken**. Het script kan even duren om uit te voeren, met name wanneer u de **- copydata** argument.

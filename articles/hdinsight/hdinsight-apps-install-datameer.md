@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9e9ccb1ba3d19e0240df869dfea1e27ac4124c34
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 947abea50685b04c3500a13a950375c32547efaf
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498770"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652962"
 ---
 # <a name="install-published-application---datameer"></a>Installeren van de gepubliceerde toepassing - Datameer
 
@@ -22,14 +22,14 @@ In dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [Datameer
 
 ## <a name="about-datameer"></a>Over Datameer
 
-Datameer is een systeemeigen toepassing voor de Hadoop-platform uitbreiden bestaande mogelijkheden voor Azure HDInsight en quick integration, voorbereiding en analyses van gestructureerde en ongestructureerde gegevens te leveren. Datameer hebben toegang tot meer dan 70 gegevensbronnen en indelingen: gestructureerde, semi-gestructureerde en ongestructureerde. U kunt rechtstreeks gegevens uploaden of gebruiken van hun unieke gegevenskoppelingen naar pull-gegevens op aanvraag. Datameer van self-servicefunctionaliteit en vertrouwde spreadsheetinterface vermindert de complexiteit van Big Data-technologie en versnelt de tijd tot insight. De spreadsheetinterface biedt een eenvoudig mechanisme voor het invoeren van declaratieve formules die vervolgens omgezet worden in het Hadoop-taken geoptimaliseerd. Met Datameer en uw business intelligence (BI) en het Excel-vaardigheden, kunt u Hadoop in de cloud snel. Zie voor meer informatie de [Datameer documentatie](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
+Datameer is een systeemeigen toepassing voor de Hadoop-platform uitbreiden bestaande mogelijkheden voor Azure HDInsight en quick integration, voorbereiding en analyses van gestructureerde en ongestructureerde gegevens te leveren. Datameer hebben toegang tot meer dan 70 gegevensbronnen en indelingen: gestructureerde, semi-gestructureerde en ongestructureerde. U kunt rechtstreeks gegevens uploaden of gebruiken van hun unieke gegevenskoppelingen naar pull-gegevens op aanvraag. Datameer van self-servicefunctionaliteit en vertrouwde spreadsheetinterface vermindert de complexiteit van Big Data-technologie en versnelt de tijd tot insight. De spreadsheetinterface biedt een eenvoudig mechanisme voor het invoeren van declaratieve formules die vervolgens omgezet worden in het Hadoop-taken geoptimaliseerd. Met Datameer en uw business intelligence (BI) en het Excel-vaardigheden, kunt u Hadoop in de cloud snel. Zie voor meer informatie de [Datameer documentatie](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Als u wilt deze app installeren op een nieuw HDInsight-cluster of een bestaand cluster, hebt u de volgende configuratie:
 
 * Cluster-laag: Standard
-* Clustertype: Hadoop
+* Cluster van het type: Hadoop
 * Clusterversie: 3.4
 
 ## <a name="install-the-datameer-published-application"></a>Gepubliceerde toepassing installeren de Datameer
@@ -106,9 +106,9 @@ Gefeliciteerd! U hebt een visualisatie van uw gegevens gemaakt zonder een code t
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Datameer documentatie](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
-* [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md): informatie over het implementeren van een niet-gepubliceerde HDInsight-toepassing op HDInsight.
-* [HDInsight-toepassingen publiceren](hdinsight-apps-publish-applications.md): informatie over het publiceren van aangepaste HDInsight-toepassingen in Azure Marketplace.
-* [MSDN: een HDInsight-toepassing installeren](https://msdn.microsoft.com/library/mt706515.aspx): informatie over het definiëren van HDInsight-toepassingen.
-* [HDInsight Linux gebaseerde clusters aanpassen met Script Action](hdinsight-hadoop-customize-cluster-linux.md): informatie over het gebruik scriptacties om extra toepassingen te installeren.
-* [Lege edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md): informatie over het gebruik van een lege edge-knooppunt voor toegang tot HDInsight-clusters, en voor het testen en HDInsight-toepassingen hosten.
+* [Datameer documentatie](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
+* [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md): Informatie over het implementeren van een niet-gepubliceerde HDInsight-toepassing op HDInsight.
+* [HDInsight-toepassingen publiceren](hdinsight-apps-publish-applications.md): Informatie over het publiceren van uw aangepaste HDInsight-toepassingen op Azure Marketplace.
+* [MSDN: Een HDInsight-toepassing installeren](https://msdn.microsoft.com/library/mt706515.aspx): Meer informatie over het definiëren van HDInsight-toepassingen.
+* [HDInsight Linux gebaseerde clusters aanpassen met Script Action](hdinsight-hadoop-customize-cluster-linux.md): Informatie over het gebruik scriptacties om extra toepassingen te installeren.
+* [Lege edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md): Leer hoe u een lege edge-knooppunt gebruiken voor toegang tot HDInsight-clusters, en voor het testen en HDInsight-toepassingen hosten.

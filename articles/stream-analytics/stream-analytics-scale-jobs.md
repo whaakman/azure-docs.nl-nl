@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: f7567d0c3bfdfc7bd44b918c9f2feda7499386e8
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984076"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554670"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Een Azure Stream Analytics-taak voor een betere doorvoer schalen
 Dit artikel ziet u hoe u een Stream Analytics-query voor een betere doorvoer voor Streaming Analytics-taken af te stemmen. U kunt de volgende procedure gebruiken voor het schalen van uw taak voor het verwerken van de hogere load en profiteer van meer systeembronnen (zoals meer bandbreedte, meer CPU-resources, meer geheugen).
@@ -34,7 +34,7 @@ Als uw query inherent volledig worden opgestart voor invoer partities is, kunt u
 4.  Nadat u hebt vastgesteld dat de grenzen van wat een 6 SU-taak kan bereiken, kunt u afleiden lineair de verwerkingscapaciteit van de taak als u meer su's toevoegen, ervan uitgaande dat u geen gegevens scheeftrekken waarmee bepaalde partitie 'hot'.
 
 > [!NOTE]
-> Kies het juiste aantal Streaming-eenheden: omdat de Stream Analytics maakt een verwerkingsknooppunt voor elke 6 SU toegevoegd, het is raadzaam om het aantal knooppunten een deler van het aantal invoer-partities, zodat de partities kunnen evenredig worden verdeeld over de knooppunten.
+> Kies het juiste aantal Streaming-eenheden: Omdat de Stream Analytics maakt een verwerkingsknooppunt voor elke 6 SU toegevoegd, is het aanbevolen om het aantal knooppunten een deler van het aantal invoer-partities, zodat de partities kunnen evenredig worden verdeeld over de knooppunten.
 > Bijvoorbeeld, hebt u uw 6 gemeten SU taak kan maar liefst 4 MB/s verwerken van snelheid en het aantal invoerpartitie is 4. U kunt uw taak uitvoeren met 12 SU naar ongeveer 8 MB/s-verwerkingssnelheid bereiken of 24 SU naar het bereiken van 16 MB/s. Vervolgens kunt u bepalen wanneer u SU getal voor de taak op welke waarde als een functie van de snelheid van de invoer verhogen.
 
 
@@ -48,15 +48,16 @@ Als uw query niet perfect parallel is, kunt u de volgende stappen volgen.
 
 Query:
 
-    WITH Step1 AS (
-    SELECT COUNT(*) AS Count, TollBoothId, PartitionId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1
-    GROUP BY TumblingWindow(minute, 3), TollBoothId
-
+ ```SQL
+ WITH Step1 AS (
+ SELECT COUNT(*) AS Count, TollBoothId, PartitionId
+ FROM Input1 Partition By PartitionId
+ GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+ )
+ SELECT SUM(Count) AS Count, TollBoothId
+ FROM Step1
+ GROUP BY TumblingWindow(minute, 3), TollBoothId
+ ```
 U bent in de bovenstaande query auto's per nummer tolloket per partitie tellen en vervolgens toe te voegen de telling van alle partities samen.
 
 Nadat is gepartitioneerd, voor elke partitie van de stap toewijzen maximaal 6 SU, elke partitie met 6 SU is het maximum, zodat elke partitie kan worden geplaatst op een eigen verwerkingsknooppunt.

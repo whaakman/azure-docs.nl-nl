@@ -1,5 +1,5 @@
 ---
-title: Voorbeeld van Azure Time Series Insights - aanbevolen procedures voor het kiezen van een Time Series-ID | Microsoft Docs
+title: Aanbevolen procedures voor het kiezen van een Time Series-ID in Azure Time Series Insights-Preview | Microsoft Docs
 description: Informatie over aanbevolen procedures als u ervoor een Time Series-ID in Azure Time Series Insights Preview kiest.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 766bd0c838ead707e5af3f43bf7be9f1ffd9658e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 44c6c8a55bbcbf76cf48fd17a6e52d188a5e99fc
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272538"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556608"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Aanbevolen procedures voor het kiezen van een Time Series-ID
 

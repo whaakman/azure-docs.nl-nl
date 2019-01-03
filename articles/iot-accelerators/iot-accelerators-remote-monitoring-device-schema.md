@@ -2,24 +2,27 @@
 title: Apparaat-schema in de oplossing voor externe controle - Azure | Microsoft Docs
 description: Dit artikel beschrijft de JSON-schema waarmee een gesimuleerd apparaat in de oplossing voor externe controle worden gedefinieerd.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338852"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635524"
 ---
 # <a name="understand-the-device-model-schema"></a>Schema van het Apparaatmodel begrijpen
 
-U kunt gesimuleerde apparaten in de oplossing voor externe controle gebruiken om het gedrag te testen. Wanneer u de oplossing voor externe controle implementeert, wordt automatisch een verzameling van gesimuleerde apparaten ingericht. U kunt de bestaande gesimuleerde apparaten aanpassen of maak uw eigen.
+U kunt gesimuleerde apparaten in de oplossing voor externe controle gebruiken om het gedrag te testen. De oplossing voor externe controle bevat een apparaat simuleren-service voor het uitvoeren van de gesimuleerde apparaten. Wanneer u de oplossing voor externe controle implementeert, wordt automatisch een verzameling van gesimuleerde apparaten ingericht. U kunt de bestaande gesimuleerde apparaten aanpassen of maak uw eigen.
 
 Dit artikel beschrijft het schema voor het model van apparaten die Hiermee geeft u de mogelijkheden en het gedrag van een gesimuleerd apparaat. Het model is opgeslagen in een JSON-bestand.
+
+> [!NOTE]
+> Dit apparaat modelschema is alleen voor de gesimuleerde apparaten die worden gehost in de device simulatie-service. Als u maken van een fysiek apparaat wilt, Zie [uw apparaat aansluiten op de oplossingsverbetering voor externe controle](iot-accelerators-connecting-devices.md).
 
 De volgende artikelen zijn gerelateerd aan het huidige artikel:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 378f52f0418c8c99e9ce6ca393ca10a77504698d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4210528003cdb1f584bec3dea80c1aa1db2f86df
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499586"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632013"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Windows-gebaseerde Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -55,12 +55,10 @@ HDInsight werkt met een breed bereik van Apache Hadoop-onderdelen. Zie voor een 
 * Gebruik de parameters voor het aanpassen van cluster in de HDInsight .NET SDK of Azure PowerShell tijdens het maken van clusters. Deze wijzigingen in de configuratie vervolgens via de levensduur van het cluster worden bewaard en worden niet beïnvloed door de cluster-knooppunt reimages die Azure-platform periodiek onderhoud wordt uitgevoerd. Zie voor meer informatie over het gebruik van de parameters van de aanpassing cluster [maken van HDInsight-clusters](hdinsight-hadoop-provision-linux-clusters.md).
 * Sommige systeemeigen Java-onderdelen, zoals [Apache Mahout](https://mahout.apache.org/) en [trapsgewijze](https://www.cascading.org/), kunnen worden uitgevoerd op het cluster als JAR-bestanden. Deze JAR-bestanden kunnen worden gedistribueerd naar Azure Blob storage en worden verzonden naar HDInsight-clusters met behulp van Hadoop-taak indienen mechanismen. Zie voor meer informatie, [indienen Apache Hadoop-taken via een programma](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
-  > [!NOTE]
+  > [!NOTE]  
   > Als u problemen ondervindt het JAR-bestanden implementeren met HDInsight-clusters of aanroepen van de JAR-bestanden op HDInsight-clusters, contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
   >
   > Trapsgewijze wordt niet ondersteund door HDInsight en is niet in aanmerking komen voor Microsoft Support. Zie voor lijsten met ondersteunde onderdelen, [wat is er nieuw in de clusterversies geleverd door HDInsight](hdinsight-component-versioning.md).
-  >
-  >
 
 De installatie van aangepaste software op het cluster met behulp van de verbinding met extern bureaublad wordt niet ondersteund. U dient te vermijden voor het opslaan van alle bestanden op de schijven van het hoofdknooppunt als ze verloren gaan als u nodig hebt om opnieuw de clusters te maken. Het is raadzaam bestanden opslaan op Azure Blob-opslag. BLOB-opslag is permanent.
 
@@ -75,59 +73,55 @@ De installatie van aangepaste software op het cluster met behulp van de verbindi
     ![Azure portal HDInsight-cluster essentials](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 
    * Voor het aanpassen van het menu met de rechtermuisknop op een willekeurige plaats in het menu en klik vervolgens op **aanpassen**.
-   * **Instellingen voor** en **alle instellingen**: geeft de **instellingen** blade voor het cluster, zodat u kunt de gedetailleerde configuratie-informatie voor het cluster.
-   * **Dashboard**, **Clusterdashboard** en **URL**: dit zijn alle manieren toegang krijgen tot de clusterdashboard, dat Ambari Web voor op basis van Linux-clusters is.
-   * **Secure Shell**: ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH)-verbinding.
-   * **Cluster schalen**: Hiermee kunt u het aantal worker-knooppunten voor dit cluster te wijzigen.
+   * **Instellingen voor** en **alle instellingen**: Geeft de **instellingen** blade voor het cluster, zodat u kunt de gedetailleerde configuratie-informatie voor het cluster.
+   * **Dashboard**, **Cluster-Dashboard** en **URL**: Dit zijn alle manieren toegang krijgen tot de clusterdashboard, dat Ambari Web voor op basis van Linux-clusters is.
+   * **Secure Shell**: Ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH)-verbinding.
+   * **Cluster schalen**: Hiermee kunt u het aantal worker-knooppunten voor dit cluster wijzigen.
    * **Verwijder**: Hiermee verwijdert u het cluster.
-   * **Snelstartgids**: geeft informatie weer die u helpen aan de slag met HDInsight.
+   * **Snelstartgids**: Geeft informatie weer die u helpen aan de slag met HDInsight.
    * **Gebruikers**: Hiermee kunt u machtigingen instellen voor *portal management* van dit cluster voor andere gebruikers in uw Azure-abonnement.
 
-     > [!IMPORTANT]
+     > [!IMPORTANT]  
      > Dit *alleen* is van invloed op toegang en machtigingen voor dit cluster in Azure portal en heeft geen invloed op wie kan verbinding maken met of verzenden van taken naar het HDInsight-cluster.
-     >
-     >
-   * **Tags**: Tags kunnen u instellen van sleutel/waarde-paren voor het definiëren van een aangepaste taxonomie van uw cloud-services. Bijvoorbeeld, u kunt maken met een sleutel met de naam **project**, en vervolgens een overeenkomende waarde gebruiken voor alle services die zijn gekoppeld aan een bepaald project.
-   * **Ambari-weergaven**: koppelingen naar Ambari Web.
 
-     > [!IMPORTANT]
+   * **Tags**: Tags kunnen u om in te stellen van sleutel/waarde-paren voor het definiëren van een aangepaste taxonomie van uw cloud-services. Bijvoorbeeld, u kunt maken met een sleutel met de naam **project**, en vervolgens een overeenkomende waarde gebruiken voor alle services die zijn gekoppeld aan een bepaald project.
+   * **Ambari-weergaven**: Koppelingen naar Ambari Web.
+
+     > [!IMPORTANT]  
      > Voor het beheren van de services die worden geleverd door het HDInsight-cluster, moet u de Ambari Web- of de Ambari REST-API gebruiken. Zie voor meer informatie over het gebruik van Ambari [beheren HDInsight-clusters met behulp van Apache Ambari](hdinsight-hadoop-manage-ambari.md).
-     >
-     >
 
      **Gebruik**:
 
      ![Gebruik Azure portal HDInsight-cluster](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
-5. Klik op **instellingen**.
+5. Klik op **Instellingen**.
 
     ![Gebruik Azure portal HDInsight-cluster](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
-   * **Eigenschappen**: de clustereigenschappen te bekijken.
+   * **Eigenschappen**: Bekijk de eigenschappen van het cluster.
    * **AAD-identiteit cluster**:
-   * **Azure Storage-sleutels**: bekijken van het standaardopslagaccount en de bijbehorende sleutel. Het opslagaccount is configuratie tijdens het maken van het cluster.
-   * **Cluster-aanmelding**: de cluster HTTP-gebruikersnaam en wachtwoord wijzigen.
-   * **Externe Metastores**: weergave de [Apache Hive](https://hive.apache.org/) en [Apache Oozie](https://oozie.apache.org/) metastores. De metastores kan alleen worden geconfigureerd tijdens het maken van het cluster.
-   * **Cluster schalen**: vergroten en verkleinen het aantal worker-clusterknooppunten.
-   * **Extern bureaublad**: inschakelen en uitschakelen van extern bureaublad (RDP)-toegang en configureren van de RDP-gebruikersnaam.  De RDP-gebruikersnaam moet verschillen van de naam van het HTTP-gebruiker.
+   * **Azure Storage-sleutels**: Bekijk het standaardaccount voor opslag en de bijbehorende sleutel. Het opslagaccount is configuratie tijdens het maken van het cluster.
+   * **Cluster-aanmelding**: De cluster HTTP-gebruikersnaam en wachtwoord wijzigen.
+   * **Externe Metastores**: Weergave de [Apache Hive](https://hive.apache.org/) en [Apache Oozie](https://oozie.apache.org/) metastores. De metastores kan alleen worden geconfigureerd tijdens het maken van het cluster.
+   * **Cluster schalen**: Verhogen en verlagen van het aantal worker-clusterknooppunten.
+   * **Extern bureaublad**: Inschakelen en uitschakelen van extern bureaublad (RDP)-toegang en configureren van de RDP-gebruikersnaam.  De RDP-gebruikersnaam moet verschillen van de naam van het HTTP-gebruiker.
    * **Partner van Record**:
 
-     > [!NOTE]
+     > [!NOTE]  
      > Dit is een algemeen overzicht van beschikbare instellingen. niet alle wordt aanwezig zijn voor alle clustertypen.
-     >
-     >
+
 6. Klik op **eigenschappen**:
 
     De sectie met eigenschappen geeft een lijst van de volgende:
 
-   * **Hostnaam**: de naam van het Cluster.
+   * **Hostnaam**: De naam van het cluster.
    * **Cluster-URL**.
-   * **Status**: zijn afgebroken, geaccepteerd, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, operationeel is, wordt uitgevoerd, fout, te verwijderen, verwijderd, time-out, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
+   * **Status**: Opnemen is afgebroken, geaccepteerd, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, operationeel is, wordt uitgevoerd, fout, te verwijderen, verwijderd, time-out, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
    * **Regio**: Azure-locatie. Zie voor een lijst van ondersteunde Azure-locaties, de **regio** vervolgkeuzelijst op [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Gegevens die zijn gemaakt**.
-   * **Besturingssysteem**: beide **Windows** of **Linux**.
+   * **Besturingssysteem**: Een van beide **Windows** of **Linux**.
    * **Type**: Hadoop, HBase, Storm, Spark.
    * **Versie**. Zie [HDInsight-versies](hdinsight-component-versioning.md)
-   * **Abonnement**: de naam van abonnement.
+   * **Abonnement**: Abonnementsnaam.
    * **Abonnements-ID**.
    * **Primaire gegevensbron**. De Azure Blob storage-account gebruikt als het standaardbestandssysteem voor Hadoop.
    * **Worker-knooppunten prijscategorie**.
@@ -145,10 +139,8 @@ Zie ook [onderbreken/clusters afsluiten](#pauseshut-down-clusters).
 ## <a name="scale-clusters"></a>Clusters schalen
 Het cluster schalen functie kunt u het aantal worker-knooppunten die worden gebruikt door een cluster dat wordt uitgevoerd in Azure HDInsight zonder te hoeven maken van het cluster opnieuw wijzigen.
 
-> [!NOTE]
+> [!NOTE]  
 > Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de eigenschappenpagina controleren.  Zie [clusters tonen en vermelden](#list-and-show-clusters).
->
->
 
 De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type cluster die door HDInsight worden ondersteund:
 
@@ -175,7 +167,7 @@ De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type cl
   * Apache Storm-Webgebruikersinterface
   * Opdrachtregelinterface (CLI)-hulpprogramma
 
-    Raadpleeg de [Apache Storm documentatie](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) voor meer informatie.
+    Raadpleeg de [Apache Storm documentatie](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) voor meer informatie.
 
     De Storm-webgebruikersinterface is beschikbaar op het HDInsight-cluster:
 
@@ -234,10 +226,8 @@ HDInsight-clusters hebben de volgende HTTP-webservices (al deze services hebben 
 
 Standaard worden deze services worden verleend om toegang te krijgen. U kunt in te trekken/verlenen toegang tot de vanuit Azure portal.
 
-> [!NOTE]
+> [!NOTE]  
 > Door de toegang verlenen/intrekken, stelt u de cluster-gebruikersnaam en wachtwoord.
->
->
 
 **Web-services toegang te verlenen of in te trekken HTTP**
 
@@ -264,10 +254,10 @@ Zie [clusters tonen en vermelden](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>HDInsight-Query-console openen
 De queryconsole van HDInsight omvat de volgende functies:
 
-* **Hive-Editor**: een GUI-webinterface voor het indienen van Hive-taken.  Zie [uitvoeren Apache Hive-query's met behulp van de Queryconsole](hadoop/apache-hadoop-use-hive-query-console.md).
+* **Hive-Editor**: Een GUI-webinterface voor het indienen van Hive-taken.  Zie [uitvoeren Apache Hive-query's met behulp van de Queryconsole](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive-editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
-* **Taakgeschiedenis**: Monitor Hadoop-taken.  
+* **Taakgeschiedenis**: Hadoop-taken bewaken.  
 
     ![HDInsight-portal Taakgeschiedenis](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
@@ -300,10 +290,8 @@ U kunt ook de **bladeren in het bestandssysteem** hulpprogramma van de **Hadoop 
 ## <a name="monitor-cluster-usage"></a>Cluster-gebruik bewaken
 De **gebruik** sectie van de HDInsight-cluster-blade vindt u informatie over het aantal kernen beschikbaar voor uw abonnement voor gebruik met HDInsight, evenals het aantal kernen dat is toegewezen aan dit cluster en hoe ze worden toegewezen voor de knooppunten in dit cluster. Zie [clusters tonen en vermelden](#list-and-show-clusters).
 
-> [!IMPORTANT]
-> Voor het controleren van de services die worden geleverd door het HDInsight-cluster, moet u de Ambari Web- of de Ambari REST-API gebruiken. Zie voor meer informatie over het gebruik van Ambari [beheren HDInsight-clusters met behulp van Apache Ambari](hdinsight-hadoop-manage-ambari.md)
->
->
+> [!IMPORTANT]  
+> Voor het controleren van de services die worden geleverd door het HDInsight-cluster, moet u de Ambari Web- of de Ambari REST-API gebruiken. Zie voor meer informatie over het gebruik van Ambari [beheren HDInsight-clusters met behulp van Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="open-hadoop-ui"></a>Open Hadoop-UI
 Voor het controleren van het cluster, het bestandssysteem, bladeren en controleert u Logboeken, klikt u op **Hadoop UI** aan de queryconsole van HDInsight. Zie [Open HDInsight queryconsole](#open-hdinsight-query-console).
@@ -325,10 +313,8 @@ De referenties voor het cluster dat u hebt opgegeven bij het maken van de geven 
 
     De standaardwaarden voor verloopt op is een week.
 
-   > [!NOTE]
+   > [!NOTE]  
    > U kunt ook de HDInsight .NET SDK gebruiken om in te schakelen van extern bureaublad op een cluster. Gebruik de **EnableRdp** methode voor het HDInsight-client-object in de volgende manier: **client. EnableRdp (clusternaam, locatie, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Op dezelfde manier als wilt uitschakelen extern bureaublad op het cluster, kunt u **client. DisableRdp (clusternaam, locatie)**. Zie voor meer informatie over deze methoden, [HDInsight .NET SDK-referentie](https://go.microsoft.com/fwlink/?LinkId=529017). Dit is alleen van toepassing op HDInsight-clusters die worden uitgevoerd op Windows.
-   >
-   >
 
 **Verbinding maken met een cluster met behulp van RDP**
 
@@ -347,7 +333,7 @@ Als u wilt verbinding maken met het cluster met behulp van extern bureaublad en 
 
     ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
-    Zie voor meer informatie over Hadoop-opdrachten [Apache Hadoop-opdrachten verwijzing](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
+    Zie voor meer informatie over Hadoop-opdrachten [Apache Hadoop-opdrachten verwijzing](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
 Naam van de map heeft in de vorige schermafbeelding, de Hadoop versienummer dat is ingesloten. Het versienummer kunt wijzigen op basis van de versie van de Hadoop-onderdelen geïnstalleerd op het cluster. U kunt omgevingsvariabelen Hadoop gebruiken om te verwijzen naar deze mappen. Bijvoorbeeld:
 

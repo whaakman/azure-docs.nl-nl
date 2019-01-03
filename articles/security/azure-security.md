@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a00f3d2ea4e191bb7860b88d39ff0ccaa338e0ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567159"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714233"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -53,7 +53,7 @@ In dit artikel geeft een overzicht van Microsoft-benadering tot beveiliging in d
 ## <a name="summary-azure-security-capabilities"></a>Overzicht Azure beveiligingsmogelijkheden
 De volgende tabel bieden een korte beschrijving van de beveiligingsfuncties die worden geïmplementeerd door Microsoft voor het beveiligen van de Azure-infrastructuur, gegevens van de klant en veilige toepassingen.
 ### <a name="security-features-implemented-to-secure-the-azure-platform"></a>Beveiligingsfuncties die is geïmplementeerd voor het beveiligen van het Azure-Platform:
-De functies in de lijst te volgen zijn mogelijkheden die u bekijken kunt om te bieden de garantie dat het Azure-Platform op een veilige manier wordt beheerd. Koppelingen zijn opgegeven voor het verder inzoomen op de manier waarop Microsoft vragen van klanten vertrouwen op vier gebieden adressen: beveiligd Platform, Privacy en besturingselementen, naleving en transparantie.
+De functies in de lijst te volgen zijn mogelijkheden die u bekijken kunt om te bieden de garantie dat het Azure-Platform op een veilige manier wordt beheerd. Koppelingen zijn opgegeven voor het verder inzoomen op de manier waarop Microsoft vragen van klanten vertrouwen op vier gebieden adressen: Beveilig Platform, Privacy en besturingselementen, naleving en transparantie.
 
 
 | [Een veilig Platform](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacy- en besturingselementen](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Naleving](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparantie](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
@@ -69,7 +69,7 @@ De functies in de lijst te volgen zijn mogelijkheden die u bekijken kunt om te b
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Beveiligingsfuncties die worden aangeboden door Azure voor het beveiligen van gegevens en toepassingen
 Afhankelijk van de cloud service-model, moet u er variabele verantwoordelijk is voor wie er verantwoordelijk is voor het beheren van de beveiliging van de toepassing of service is. Er zijn mogelijkheden beschikbaar in het Azure-Platform om u te helpen voldoen aan deze verantwoordelijkheden via de ingebouwde functies, en oplossingen van partners die kunnen worden geïmplementeerd in een Azure-abonnement.
 
-De ingebouwde mogelijkheden zijn ingedeeld in modules zes (6): bewerkingen, toepassingen, opslag, netwerken, rekenkracht en identiteit. Aanvullende informatie over de functies en mogelijkheden die beschikbaar zijn in het Azure-Platform op deze gebieden zes (6) worden geleverd via samenvattende informatie.
+De ingebouwde mogelijkheden zijn ingedeeld in zes (6) functionele aspecten: Bewerkingen, toepassingen, opslag, netwerken, rekenkracht en identiteit. Aanvullende informatie over de functies en mogelijkheden die beschikbaar zijn in het Azure-Platform op deze gebieden zes (6) worden geleverd via samenvattende informatie.
 
 ## <a name="operations"></a>Bewerkingen
 Deze sectie bevat meer informatie over belangrijke functies in beveiligingsbewerkingen en algemene informatie over deze mogelijkheden.
@@ -106,11 +106,11 @@ Log Analytics is een handig hulpmiddel in forensische en andere beveiligingsanal
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
 
 Bovendien helpt Azure Security Center bij de beveiligingsbewerkingen doordat u één dashboard dat oppervlakken meldingen en aanbevelingen die kunnen worden gereageerd onmiddellijk. U kunt vaak problemen met één klik in de Azure Security Center-console herstellen.
-## <a name="applications"></a>Toepassingen
+## <a name="applications"></a>Applicaties
 De sectie biedt meer informatie over de belangrijkste functies in de toepassing beveiligings- en samenvatting van informatie over deze mogelijkheden.
 
 ### <a name="web-application-vulnerability-scanning"></a>Web-toepassing scannen van beveiligingsproblemen
-Een van de eenvoudigste manieren om aan de slag met testen op beveiligingsproblemen op uw [App Service-app](https://docs.microsoft.com/azure/app-service/app-service-web-overview) is het gebruik van de [integratie met Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) beveiligingslek in één klik scannen op uw app uitvoeren. U kunt de resultaten van de weergeven in een rapport eenvoudig te begrijpen, en informatie over het oplossen van elk beveiligingsprobleem met stapsgewijze instructies.
+Een van de eenvoudigste manieren om aan de slag met testen op beveiligingsproblemen op uw [App Service-app](https://docs.microsoft.com/azure/app-service/overview) is het gebruik van de [integratie met Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) beveiligingslek in één klik scannen op uw app uitvoeren. U kunt de resultaten van de weergeven in een rapport eenvoudig te begrijpen, en informatie over het oplossen van elk beveiligingsprobleem met stapsgewijze instructies.
 
 ### <a name="penetration-testing"></a>Indringingstests
 Als u liever uw eigen indringingstests uit te voeren of een andere scanner suite of provider wilt gebruiken, volgt u de [Azure goedkeuringsproces voor indringingstests](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) en verkrijgen van voorafgaande goedkeuring om de gewenste indringingstests uit te voeren.
@@ -119,13 +119,13 @@ Als u liever uw eigen indringingstests uit te voeren of een andere scanner suite
 De web application firewall (WAF) in [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) beschermt webtoepassingen tegen veelvoorkomende webgebaseerde aanvallen, zoals SQL-injectie, aanvallen via cross-site scripting en sessiehijacking. Dit is vooraf geconfigureerd met beveiliging tegen bedreigingen die door de [Open Web Application Security Project (OWASP) als de top 10 belangrijkste kwetsbaarheden](https://msdn.microsoft.com/library/).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
-[App Service-verificatie / autorisatie](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) is een functie waarmee u een manier voor uw toepassing aan te melden bij de gebruikers, zodat u code op de back-end te wijzigen. Het biedt een eenvoudige manier voor het beveiligen van uw toepassing en werken met gegevens per gebruiker.
+[App Service-verificatie / autorisatie](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) is een functie waarmee u een manier voor uw toepassing aan te melden bij de gebruikers, zodat u code op de back-end te wijzigen. Het biedt een eenvoudige manier voor het beveiligen van uw toepassing en werken met gegevens per gebruiker.
 
 ### <a name="layered-security-architecture"></a>Gelaagde beveiligingsarchitectuur
 Aangezien [App Service-omgevingen](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) voorziet in een geïsoleerde runtime-omgeving geïmplementeerd in een [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), kunnen ontwikkelaars een gelaagde beveiligingsarchitectuur bieden verschillende niveaus van maken toegang tot het netwerk voor elke toepassingslaag. Er is een algemene wens verbergen API back-ends van algemene toegang tot Internet en API's om te worden aangeroepen door de upstream-web-apps alleen toestaan. [Netwerkbeveiligingsgroepen (nsg's)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) openbare toegang beperken tot de API-Apps op Azure Virtual Network-subnetten met App Service-omgevingen kunnen worden gebruikt.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Web server diagnostics en application diagnostics
-App Service WebApps bieden diagnosefunctionaliteit voor waardevolle informatie uit de webserver en de web-App. Deze logisch zijn gescheiden in [web server diagnostische](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) en [toepassingsdiagnose](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Webserver bevat twee belangrijke ontwikkelingen bij het opsporen en oplossen van problemen sites en toepassingen.
+App Service WebApps bieden diagnosefunctionaliteit voor waardevolle informatie uit de webserver en de web-App. Deze logisch zijn gescheiden in [web server diagnostische](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) en [toepassingsdiagnose](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Webserver bevat twee belangrijke ontwikkelingen bij het opsporen en oplossen van problemen sites en toepassingen.
 
 De eerste nieuwe functie is realtime statusinformatie over groepen van toepassingen, werkprocessen, sites, toepassingsdomeinen en uitvoeren van aanvragen. De tweede nieuwe voordelen zijn de gedetailleerde traceringsgebeurtenissen die een aanvraag gedurende de volledige aanvraag / antwoord-proces bijhouden.
 
@@ -141,7 +141,7 @@ U kunt inschakelen of uitschakelen van de volgende soorten logboeken:
 -   Web Server-logboekregistratie - informatie over HTTP-transacties met behulp van de uitgebreide indeling W3C. Dit is handig bij het bepalen van de algemene metrische sitegegevens, zoals het aantal aanvragen dat is verwerkt of het aantal aanvragen afkomstig zijn van een specifiek IP-adres.
 
 #### <a name="application-diagnostics"></a>Application diagnostics
-[Application diagnostics](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) kunt u voor het vastleggen van gegevens die worden geproduceerd door een web-App. ASP.NET-toepassingen kunnen gebruikmaken van de [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) klasse om informatie te registreren in het toepassingslogboek van diagnostische gegevens. In Application Diagnostics zijn er twee belangrijke gebeurtenistypen gebeurtenissen, die zijn gerelateerd aan de prestaties van toepassingen en die betrekking hebben op toepassingsfouten en fouten. De storingen en fouten kunnen worden onderverdeeld in problemen met connectiviteit, beveiliging en fout. Systeemfouten worden doorgaans veroorzaakt een probleem met de toepassingscode.
+[Application diagnostics](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) kunt u voor het vastleggen van gegevens die worden geproduceerd door een web-App. ASP.NET-toepassingen kunnen gebruikmaken van de [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) klasse om informatie te registreren in het toepassingslogboek van diagnostische gegevens. In Application Diagnostics zijn er twee belangrijke gebeurtenistypen gebeurtenissen, die zijn gerelateerd aan de prestaties van toepassingen en die betrekking hebben op toepassingsfouten en fouten. De storingen en fouten kunnen worden onderverdeeld in problemen met connectiviteit, beveiliging en fout. Systeemfouten worden doorgaans veroorzaakt een probleem met de toepassingscode.
 
 In Application Diagnostics, kunt u gebeurtenissen gegroepeerd op de volgende manieren bekijken:
 
@@ -291,7 +291,7 @@ De [Domain Name System](https://technet.microsoft.com/library/bb629410.aspx), of
 U kunt de volgende categorieën van diagnostische logboeken inschakelen voor nsg's:
 -   Gebeurtenis: Bevat vermeldingen voor welke NSG regels worden toegepast op virtuele machines en rolinstanties op basis van MAC-adres. De status van deze regels worden elke 60 seconden worden verzameld.
 
--   Teller voor regels: bevat vermeldingen voor het aantal keren dat elke NSG-regel is toegepast om te weigeren of verkeer toestaan.
+-   Regels voor item: Bevat vermeldingen voor het aantal keren dat elke NSG-regel is toegepast om te weigeren of verkeer toestaan.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 Security Center helpt u bij het voorkomen, detecteren en direct reageren op bedreigingen, en biedt dat u meer inzicht in en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen die anders onopgemerkt, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen te detecteren. Aanbevelingen Netwerkcentrum rond firewalls, Netwerkbeveiligingsgroepen en regels voor binnenkomend verkeer op configureren.

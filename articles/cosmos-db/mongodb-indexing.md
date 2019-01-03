@@ -1,24 +1,24 @@
 ---
-title: Indexeren in Azure Cosmos DB MongoDB-API
-description: In dit artikel vindt u een overzicht van de indexeringsmogelijkheden in de MongoDB-API van Azure Cosmos DB.
+title: Indexeren in Azure Cosmos DB-API voor MongoDB
+description: Geeft een overzicht van de Indexeringsmogelijkheden met Azure Cosmos DB-API voor MongoDB.
 services: cosmos-db
-author: orestis-ms
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: orkostak
-ms.openlocfilehash: bdb2ceb45950b99b1a5a351c6301599a791ef8cc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: 4c6ba4b12625433f0b0218dc88decf2d7cb7ad77
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875294"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792279"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexeren in de MongoDB-API van Azure Cosmos DB
+# <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexeren met Azure Cosmos DB-API voor MongoDB
 
-De MongoDB-API van Azure Cosmos DB maakt gebruik van de mogelijkheden voor automatisch indexbeheer van Azure Cosmos DB. Hierdoor hebben gebruikers toegang tot de standaardbeleidsregels voor indexering van Azure Cosmos DB. Dit betekent dat als er geen indexen zijn gedefinieerd door de gebruiker, of geen indexen zijn verwijderd, alle velden automatisch worden geïndexeerd wanneer ze worden ingevoegd in de verzameling. Voor de meeste scenario's wordt het aangeraden om het standaardindexeringsbeleid te gebruiken dat is ingesteld voor het account.
+Azure Cosmos DB API voor MongoDB maakt gebruik van mogelijkheden voor automatische index van Cosmos DB. Als gevolg hiervan hebben gebruikers toegang tot de standaardbeleidsregels voor indexering van Cosmos DB. Dus als er geen indexen zijn gedefinieerd door de gebruiker, of geen indexen zijn verwijderd, worden klikt u vervolgens alle velden automatisch geïndexeerd wanneer ze in een verzameling ingevoegd. Voor de meeste scenario's wordt het aangeraden om het standaardindexeringsbeleid te gebruiken dat is ingesteld voor het account.
 
 ## <a name="dropping-the-default-indexes"></a>De standaardindexen verwijderen
 
@@ -97,5 +97,5 @@ Met de bovenstaande opdracht worden alle documenten in de verzameling ```db.coll
 Op dit moment kunnen alleen unieke indexen worden gemaakt wanneer de verzameling geen documenten bevat. Veelgebruikte MongoDB-migratieprogramma's proberen de unieke indexen te maken nadat de gegevens zijn geïmporteerd. Om dit probleem te voorkomen, is het nodig dat gebruikers handmatig de bijbehorende verzamelingen en unieke indexen maken, in plaats van dit te laten doen door het migratieprogramma (voor ```mongorestore``` kan dit worden gedaan door de vlag--noIndexRestore te gebruiken op de opdrachtregel).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Indexering van gegevens door Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Gegevens in Azure Cosmos DB-verzamelingen automatisch laten verlopen met TTL](../cosmos-db/time-to-live.md)
+* [Indexering in Azure Cosmos DB](../cosmos-db/index-policy.md)
+* [Gegevens in Azure Cosmos DB met time to live van automatisch laten verlopen](../cosmos-db/time-to-live.md)

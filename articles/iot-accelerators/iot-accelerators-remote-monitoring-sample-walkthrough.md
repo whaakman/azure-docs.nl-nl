@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: e02492b3e80f71b4ae92066e5e4a2baf26818621
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2b6cb711bf0cd2f0ec7f5633bbb36ebaeb203690
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316162"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605531"
 ---
-# <a name="remote-monitoring-solution-accelerator-overview"></a>Externe bewaking accelerator overzicht van de oplossing
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Overzicht van de oplossingsversneller voor externe bewaking
 
 Externe bewaking [oplossingsverbetering](../iot-accelerators/about-iot-accelerators.md) een end-to-end oplossing voor prestatiecontrole voor meerdere machines geïmplementeerd op verafgelegen locaties bevinden. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. U kunt de oplossing gebruiken als uitgangspunt voor uw eigen implementatie en [aanpassen](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) te voldoen aan uw eigen specifieke zakelijke vereisten.
 
@@ -135,7 +135,7 @@ De [configuratie microservice](https://github.com/Azure/remote-monitoring-servic
 
 ### <a name="authentication-and-authorization-microservice"></a>Verificatie en autorisatie microservice
 
-De [verificatie en autorisatie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) beheert de gebruikers die zijn gemachtigd voor toegang tot de solution accelerator. Beheer van gebruikers kan worden gedaan met behulp van een identity-serviceprovider die ondersteuning biedt voor [OpenId Connect](http://openid.net/connect/).
+De [verificatie en autorisatie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) beheert de gebruikers die zijn gemachtigd voor toegang tot de solution accelerator. Beheer van gebruikers kan worden gedaan met behulp van een identity-serviceprovider die ondersteuning biedt voor [OpenId Connect](https://openid.net/connect/).
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 

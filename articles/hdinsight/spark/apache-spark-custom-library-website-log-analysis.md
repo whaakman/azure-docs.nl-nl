@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 26ee51da0065b15191c6a02bcd10597c1190dd0a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f8b479f55ea5ee22ae2510fad6279cac0aaa9c0d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497285"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608797"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Websitelogboeken analyseren met een aangepaste Python-bibliotheek met Apache Spark-cluster in HDInsight
 
 Dit notitieblok demonstreert hoe u voor het analyseren van logboekgegevens met behulp van een aangepaste bibliotheek met Apache Spark in HDInsight. De aangepaste bibliotheek die we gebruiken is een Python-bibliotheek met de naam **iislogparser.py**.
 
-> [!TIP]
+> [!TIP]  
 > In deze zelfstudie is ook beschikbaar als een Jupyter-notebook in een Spark (Linux)-cluster die u in HDInsight maakt. De notebookervaring kunt u de Python-codefragmenten uitvoeren vanuit het notitieblok zelf. Als u de zelfstudie uit binnen een laptop, een Spark-cluster maken, start u een Jupyter-notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), en voer vervolgens de notebook **logboeken analyseren met Spark met behulp van een aangepaste library.ipynb** onder de **PySpark**  map.
 >
 >
@@ -176,7 +176,7 @@ Wanneer uw gegevens is opgeslagen als een Apache Hive-tabel, in de volgende sect
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   De `%%sql` magic gevolgd door `-o averagetime` zorgt ervoor dat de uitvoer van de query lokaal worden bewaard op de Jupyter-server (meestal het hoofdknooppunt van het cluster). De uitvoer wordt opgeslagen als een [Pandas](http://pandas.pydata.org/) gegevensframe met de opgegeven naam **averagetime**.
+   De `%%sql` magic gevolgd door `-o averagetime` zorgt ervoor dat de uitvoer van de query lokaal worden bewaard op de Jupyter-server (meestal het hoofdknooppunt van het cluster). De uitvoer wordt opgeslagen als een [Pandas](https://pandas.pydata.org/) gegevensframe met de opgegeven naam **averagetime**.
 
    Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
@@ -202,13 +202,13 @@ Wanneer uw gegevens is opgeslagen als een Apache Hive-tabel, in de volgende sect
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om te maken en verzenden van Apache Spark Scala-toepassingen](apache-spark-intellij-tool-plugin.md)

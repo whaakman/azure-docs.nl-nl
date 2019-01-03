@@ -8,17 +8,17 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: e87f8a0d168db02bf0e93216991767f5a9be584c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89cf69ba8bc88a40582ea795b6a17fab4f286d64
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863513"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651977"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server-databasemigratie naar Azure SQL Database
 
@@ -33,9 +33,9 @@ In beide gevallen moet u ervoor zorgen dat de brondatabase compatibel met Azure 
 > [!NOTE]
 > Voor het migreren van een SQL Server-database, met inbegrip van Microsoft Access, Sybase, MySQL Oracle en DB2, naar Azure SQL Database raadpleegt u [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/) (Migratieassistent voor SQL Server).
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>Methode 1: Migratie die gepaard gaat met uitvaltijd
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Methode 1: Migratie met uitvaltijd tijdens de migratie
 
- Gebruik deze methode om te migreren naar één of een gegroepeerde-database als u het zich enige uitvaltijd permitteren kunt of als u latere migratie een testmigratie van een productiedatabase uitvoert. Zie voor een zelfstudie [migreren van een SQL Server-database](sql-database-migrate-your-sql-server-database.md).
+ Gebruik deze methode om te migreren naar één of een gegroepeerde-database als u het zich enige uitvaltijd permitteren kunt of als u latere migratie een testmigratie van een productiedatabase uitvoert. Zie voor een zelfstudie [migreren van een SQL Server-database](../dms/tutorial-sql-server-to-azure-sql.md).
 
 De volgende lijst bevat de algemene werkstroom voor de migratie van een SQL Server-database van één of een gegroepeerde-database met behulp van deze methode. Zie voor migratie naar Managed Instance [migratie naar een beheerd exemplaar](sql-database-managed-instance-migrate.md).
 

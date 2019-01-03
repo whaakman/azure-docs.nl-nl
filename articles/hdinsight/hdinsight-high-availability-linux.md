@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 41c8315bab1b716f79b47afb77c6d371a757691d
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386424"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743660"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Apache Hadoop-clusters in HDInsight
 
@@ -47,7 +47,7 @@ Nimbus-knooppunten zijn beschikbaar met Apache Storm-clusters. Het Nimbus-knoopp
 
 ### <a name="apache-zookeeper-nodes"></a>Apache Zookeeper-knooppunten
 
-[ZooKeeper](http://zookeeper.apache.org/) knooppunten worden gebruikt voor de selectie van leider van master services op de hoofdknooppunten. Ze worden ook gebruikt om ervoor te zorgen dat services, gegevensknooppunten (worker) en gateways weet welke hoofdknooppunt een hoofd-service is actief op. HDInsight biedt standaard drie ZooKeeper-knooppunten.
+[ZooKeeper](https://zookeeper.apache.org/) knooppunten worden gebruikt voor de selectie van leider van master services op de hoofdknooppunten. Ze worden ook gebruikt om ervoor te zorgen dat services, gegevensknooppunten (worker) en gateways weet welke hoofdknooppunt een hoofd-service is actief op. HDInsight biedt standaard drie ZooKeeper-knooppunten.
 
 ### <a name="worker-nodes"></a>Worker-knooppunten
 
@@ -192,7 +192,7 @@ Eenmaal verbinding hebben, krijgt u een `sftp>` prompt. Vanaf deze prompt, kunt 
 Voer voor een lijst van beschikbare opdrachten, `help` op de `sftp>` prompt.
 
 > [!NOTE]  
-> Er zijn ook grafische interfaces waarmee u kunt voor het visualiseren van het bestandssysteem als die zijn verbonden via SFTP. Bijvoorbeeld, [MobaXTerm](http://mobaxterm.mobatek.net/) kunt u bladeren naar het bestandssysteem via een interface die vergelijkbaar is met Windows Verkenner.
+> Er zijn ook grafische interfaces waarmee u kunt voor het visualiseren van het bestandssysteem als die zijn verbonden via SFTP. Bijvoorbeeld, [MobaXTerm](https://mobaxterm.mobatek.net/) kunt u bladeren naar het bestandssysteem via een interface die vergelijkbaar is met Windows Verkenner.
 
 ### <a name="ambari"></a>Ambari
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
-ms.reviewer: MightyPen
+ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b2c9f17bc9c6e9bbc280116d074bd0f1e3d3e38
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056588"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606041"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>SaaS-analytics met Azure SQL Database, SQL Data Warehouse, Data Factory en Power BI verkennen
 
@@ -142,11 +142,11 @@ In deze sectie behandelt de objecten die zijn gemaakt in de data factory. De vol
 Schakel over naar de pagina overzicht van **auteur** tabblad in het linkerdeelvenster en u ziet dat er drie zijn [pijplijnen](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) en drie [gegevenssets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) gemaakt.
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
-De drie geneste pijplijnen zijn: SQLDBToDW DBCopy en TableCopy.
+De drie geneste pijplijnen zijn: SQLDBToDW, DBCopy en TableCopy.
 
 **Pijplijn 1 - SQLDBToDW** zoekt de namen van de tenant-databases die zijn opgeslagen in de catalogusdatabase (de naam van tabel: [__ShardManagement]. [ ShardsGlobal]) en voor elke tenantdatabase voert de **DBCopy** pijplijn. Na voltooiing, de opgegeven **sp_TransformExtractedData** opgeslagen procedure-schema wordt uitgevoerd. Deze opgeslagen procedure de geladen gegevens in de faseringstabellen worden getransformeerd en vult de ster-schema-tabellen.
 
-**Pijplijn 2 - DBCopy** zoekt de namen van de brontabellen en kolommen uit een configuratiebestand opgeslagen in blob storage.  De **TableCopy** pijplijn wordt vervolgens uitgevoerd voor elk van de vier tabellen: TicketFacts, CustomerFacts EventFacts en VenueFacts. De **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** activiteit wordt uitgevoerd voor alle 20 databases parallel. ADF kunt maximaal 20 lus iteraties parallel worden uitgevoerd. Houd rekening met het maken van meerdere pijplijnen voor meer databases.    
+**Pijplijn 2 - DBCopy** zoekt de namen van de brontabellen en kolommen uit een configuratiebestand opgeslagen in blob storage.  De **TableCopy** pijplijn wordt vervolgens uitgevoerd voor elk van de vier tabellen: TicketFacts, CustomerFacts, EventFacts en VenueFacts. De **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** activiteit wordt uitgevoerd voor alle 20 databases parallel. ADF kunt maximaal 20 lus iteraties parallel worden uitgevoerd. Houd rekening met het maken van meerdere pijplijnen voor meer databases.    
 
 **Pijplijn 3 - TableCopy** gebruikt versienummers rij in SQL-Database (_rowversion_) voor het identificeren van rijen die zijn gewijzigd of bijgewerkt. Deze activiteit zoekt de begin- en de versie van de rij end om rijen uit de brontabellen. De **CopyTracker** tabel die zijn opgeslagen in elke tenantdatabase houdt de laatste rij opgehaald uit elke brontabel in elke uitvoering. Nieuwe of gewijzigde rijen worden gekopieerd naar de bijbehorende tijdelijke tabellen in het datawarehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues**, en **raw_ Gebeurtenissen**. Ten slotte de laatste versie van de rij wordt opgeslagen in de **CopyTracker** tabel moet worden gebruikt als de versie van de eerste rij voor de volgende extractie. 
 

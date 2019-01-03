@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857819"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603824"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Overzicht van Azure Cloudservices
-Azure Cloud Services is een voorbeeld van een [platform als een service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Zoals [Azure App Service](../app-service/app-service-web-overview.md), deze technologie is ontworpen ter ondersteuning van toepassingen die schaalbare, betrouwbare en voordelig uit te voeren. Op dezelfde manier dat App Service wordt gehost op virtuele machines (VM's), dus is Azure Cloud Services. U hebt echter meer controle over de virtuele machines. U kunt uw eigen software installeren op virtuele machines die gebruikmaken van Azure Cloud Services, en kunt u ze op afstand openen.
+Azure Cloud Services is een voorbeeld van een [platform als een service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Zoals [Azure App Service](../app-service/overview.md), deze technologie is ontworpen ter ondersteuning van toepassingen die schaalbare, betrouwbare en voordelig uit te voeren. Op dezelfde manier dat App Service wordt gehost op virtuele machines (VM's), dus is Azure Cloud Services. U hebt echter meer controle over de virtuele machines. U kunt uw eigen software installeren op virtuele machines die gebruikmaken van Azure Cloud Services, en kunt u ze op afstand openen.
 
 ![Azure Cloud Services-diagram](./media/cloud-services-choose-me/diagram.png)
 
@@ -29,9 +29,9 @@ Meer controle houdt ook minder gebruiksgemak. Tenzij u de extra controle-opties 
 
 Er zijn twee soorten Azure Cloud Services-rollen. Het enige verschil tussen de twee is hoe uw rol wordt gehost op de virtuele machines:
 
-* **Webrol**: automatisch wordt geïmplementeerd en als host fungeert voor uw app met IIS.
+* **Webrol**: Automatisch wordt geïmplementeerd en als host fungeert voor uw app met IIS.
 
-* **Werkrol**: geen gebruik maakt van IIS en wordt uw zelfstandige app wordt uitgevoerd.
+* **Werkrol**: Maakt geen gebruik van IIS en wordt uw zelfstandige app wordt uitgevoerd.
 
 Een eenvoudige toepassing kan bijvoorbeeld alleen een één-Webrol, die zijn voor een website gebruiken. Een complexere toepassing mogelijk een Webrol gebruiken voor het verwerken van binnenkomende aanvragen van gebruikers en geeft deze aanvragen bij een werkrol voor verwerking. (Deze communicatie mogelijk gebruik [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) of [Azure Queue storage](../storage/common/storage-introduction.md).)
 

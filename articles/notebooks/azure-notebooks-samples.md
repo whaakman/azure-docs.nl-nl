@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 8ba94cd94003ee51a621923d3b1dbf2a402c5cfb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 238d84c32a145c00648ce3923efaa86a8fa3d08e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082323"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971713"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Detecteren en voorbeeldnotitieblokken gebruiken
 
@@ -37,11 +37,11 @@ Wanneer u een laptop die u graag zou willen verkennen hebt geïdentificeerd, vin
 - [Galerie van interessante notitieblokken](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter-project op GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Fysieke van instructie van de [Physics afdeling op het Britse College London](https://notebooks.azure.com/cvanbreu/libraries)
-- [Azure Machine Learning aan de slag met voorbeelden](https://notebooks.azure.com/azureml/projects/0f41b597b1ea)
+- [Azure Machine Learning aan de slag met voorbeelden](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-- [Hoe: configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
-- [Hoe: werken met bestanden](work-with-project-data-files.md)
-- [Hoe: toegang tot gegevensbronnen](access-data-resources-jupyter-notebooks.md)
-- [Hoe: Azure Machine Learning-Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)
+- [Procedures: Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
+- [Procedures: Werken met bestanden](work-with-project-data-files.md)
+- [Procedures: Toegang tot gegevensresources](access-data-resources-jupyter-notebooks.md)
+- [Procedures: Azure Machine Learning-Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)

@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jejiang
 ms.custom: seodec18
-ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: fb758c12d699bb80f81b65db99e1fec68c4efabf
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138123"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809757"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Beheren van Azure Cosmos DB-resources met behulp van Azure Storage Explorer
 
-Het gebruik van Azure Cosmos DB in Azure Storage Explorer stelt gebruikers in staat om Azure Cosmos DB entiteiten te beheren, gegevens te manipuleren, en opgeslagen procedures en triggers bij te werken samen met andere Azure entiteiten zoals opslagblobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken om uw verschillende Azure entiteiten op één plek te beheren. Op dit moment ondersteunt Azure Storage Explorer SQL-, MongoDB-, Graph- en Table-accounts.
+Het gebruik van Azure Cosmos DB in Azure Storage Explorer stelt gebruikers in staat om Azure Cosmos DB entiteiten te beheren, gegevens te manipuleren, en opgeslagen procedures en triggers bij te werken samen met andere Azure entiteiten zoals opslagblobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken om uw verschillende Azure entiteiten op één plek te beheren. Op dit moment ondersteunt Azure Storage Explorer Cosmos-accounts die zijn geconfigureerd voor SQL, MongoDB, grafiek en tabel-API's.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Een Azure Cosmos DB-account voor de SQL API <!--or MongoDB API-->. Als u geen account hebt, kunt u er een maken in de Azure-portal, zoals beschreven in [Azure Cosmos DB: een SQL API-web-app ontwikkelen met .NET en de Azure Portal](create-sql-api-dotnet.md).
+Een Cosmos-account met de SQL-API of Azure Cosmos DB-API voor MongoDB. Als u geen account hebt, kunt u een in de Azure-portal maken zoals beschreven in [Azure Cosmos DB: Bouw een web-app van de SQL-API met .NET en Azure portal](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Installatie
 
-Installeer hier de nieuwste Azure Storage Explorer-bits: [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), nu ondersteunen we Windows, Linux en MAC-versie.
+Installeer de nieuwste Azure Storage Explorer-bits hier: [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), nu we Windows, Linux en MAC-versie ondersteunen.
 
 ## <a name="connect-to-an-azure-subscription"></a>Verbinding maken met een Azure-abonnement
 
@@ -222,9 +222,9 @@ Wanneer Storage Explorer een van deze zelfondertekende certificaten tegenkomt, k
 
 1. Installeer Open SSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (een van de lichte versies is prima)
-     - Mac- en Linux: moet bij het besturingssysteem zijn inbegrepen
+     - Mac- en Linux: Moeten worden opgenomen met het besturingssysteem
 2. Voer Open SSL uit
-    - Windows: ga naar de installatiemap, vervolgens naar **/bin/** en dubbelklik op **openssl.exe**.
+    - Windows: Ga naar de installatiemap, vervolgens **/bin/**, en dubbelklik op **openssl.exe**.
     - Mac- en Linux: voer **openssl** uit vanaf een terminal
 3. Voer `s_client -showcerts -connect microsoft.com:443` uit
 4. Zoek naar zelfondertekende certificaten. Als u niet zeker weet welke certificaten zelfondertekend zijn, zoek dan overal waar het onderwerp ('s:') en de certificaatverlener ('i') hetzelfde zijn.
@@ -241,7 +241,7 @@ Als u uw abonnementen niet kunt ophalen nadat u zich hebt aangemeld:
 - Zorg ervoor dat u bent aangemeld via de juiste omgeving ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Duitsland](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/) of Aangepaste omgeving/Microsoft Azure Stack)
 - Als u zich achter een proxy bevindt, controleert u of de Storage Explorer-proxy correct is geconfigureerd
 - Probeer het account te verwijderen en opnieuw toe te voegen
-- Verwijder de volgende bestanden uit de basismap (zoals: C:\Users\ContosoUser) en probeer vervolgens het account opnieuw toe te voegen:
+- Probeer te verwijderen van de volgende bestanden uit de basismap (zoals: C:\Users\ContosoUser), en vervolgens het account opnieuw toe te voegen:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -305,6 +305,6 @@ Als geen van de oplossingen voor u werken, stuurt u een e-mail naar het Azure Co
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Bekijk de volgende video om te zien hoe u Azure Cosmos DB in Azure Storage Explorer kunt gebruiken: [Azure Cosmos DB gebruiken in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* Bekijk de volgende video voor meer informatie over het gebruik van Azure Cosmos DB in Azure Storage Explorer: [Gebruik Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Meer informatie over Storage Explorer en verbinding maken met meer services vindt u in [Aan de slag met Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

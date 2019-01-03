@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 24a9b014028bf99673881904e17ec0911d0b5063
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94a072d3c8bde9e4fb16342db1e0705bfc22cf77
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952049"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539582"
 ---
 # <a name="application-types-for-v20"></a>Toepassingstypen voor v2.0
 
@@ -121,7 +121,7 @@ In deze stroom ontvangt de app een autorisatiecode van het v2.0-eindpunt wanneer
 
 ## <a name="daemons-and-server-side-apps"></a>Daemons en serverzijde apps
 
-Apps die langlopende processen hebben of die werken zonder interactie met een gebruiker moeten ook een manier om toegang te krijgen tot beveiligde bronnen, zoals Web-API's. Deze apps kunnen verifiëren en tokens verkrijgen met behulp van de identiteit van de app, in plaats van een gebruiker toegewezen identiteit, met de OAuth 2.0-clientreferentiestroom.
+Apps die langlopende processen hebben of die werken zonder interactie met een gebruiker moeten ook een manier om toegang te krijgen tot beveiligde bronnen, zoals Web-API's. Deze apps kunnen verifiëren en tokens verkrijgen met behulp van de identiteit van de app, in plaats van een gebruiker toegewezen identiteit, met de OAuth 2.0-clientreferentiestroom. U kunt de app identiteit bevestigen met een clientgeheim of een certificaat. Zie voor meer informatie, [zich verifiëren bij Azure AD in daemon-apps met certificaten](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
 In deze stroom, wordt de app communiceert rechtstreeks met de `/token` eindpunt om op te halen van eindpunten:
 

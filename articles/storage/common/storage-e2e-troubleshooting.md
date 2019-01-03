@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262315"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634504"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>End-to-end problemen oplossen met behulp van Azure Storage metrische gegevens en logboekregistratie, AzCopy en Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -94,6 +94,8 @@ Het configureren van logboekregistratie en metrische gegevens voor uw storage ac
 
 **Via PowerShell**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Als u wilt aan de slag met PowerShell voor Azure, Zie [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 1. Gebruik de [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet aan uw account Azure-gebruiker toevoegen aan het PowerShell-venster:
@@ -114,13 +116,13 @@ Als u wilt aan de slag met PowerShell voor Azure, Zie [hoe u Azure PowerShell in
 4. Logboekregistratie van opslag voor de Blob-service inschakelen:
    
     ```powershell
-    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 5. Inschakelen van metrische gegevens van storage voor de Blob-service, waardoor ervoor dat u instelt **- MetricsType** naar `Minute`:
    
     ```powershell
-    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 ### <a name="configure-net-client-side-logging"></a>.NET-clientzijde logboekregistratie configureren
@@ -198,11 +200,11 @@ Message Analyzer bevat activa voor de Azure-opslag die u helpen bij het analyser
 2. Message Analyzer starten.
 3. Uit de **extra** in het menu **Asset Intelligence-beheerder**. In de **Asset Intelligence-beheerder** dialoogvenster, selecteer **Downloads**, vervolgens te filteren op **Azure Storage**. U ziet de activa van de Azure-opslag, zoals wordt weergegeven in de volgende afbeelding.
 4. Klik op **synchronisatie alle weergegeven objecten** voor het installeren van de Azure Storage-activa. De beschikbare elementen zijn onder andere:
-   * **Kleurenregels voor Azure Storage:** kleurenregels voor Azure Storage kunnen u speciale filters definiëren waarmee u gebruik van kleur, tekst en lettertype stijlen op berichten die specifieke informatie in een tracering bevatten te markeren.
+   * **Kleurenregels voor Azure Storage:** Kleurenregels voor Azure Storage kunnen u speciale filters definiëren waarmee u kleur, tekst en lettertypen gebruiken om te markeren van berichten die specifieke informatie in een tracering bevatten.
    * **Azure Storage-grafieken:** Azure Storage-grafieken zijn vooraf gedefinieerde grafieken die een graph-logboekgegevens van de server. Houd er rekening mee dat voor het gebruik van Azure Storage-grafieken op dit moment, u alleen logboek van de server in het raster analyse laden mogelijk.
-   * **Azure Storage-Parsers:** parsers voor de Azure Storage de Azure Storage client-, server- en HTTP-logboeken parseren om ze in het raster analyse weer te geven.
+   * **Azure Storage-Parsers:** De Azure Storage-parsers parseren van de Azure Storage client-, server- en HTTP-Logboeken om ze in het raster analyse weer te geven.
    * **Azure Storage-Filters:** Azure Storage-filters zijn vooraf gedefinieerde criteria die u gebruiken kunt voor uw gegevens in het raster analyse op te vragen.
-   * **Azure Storage weergavelay-outs:** Azure Storage weergavelay-outs zijn vooraf gedefinieerde kolom lay-outs en groeperingen kunt zien in het raster analyse.
+   * **Azure Storage weergave-indelingen:** Azure Storage weergavelay-outs zijn vooraf gedefinieerde kolom lay-outs en groeperingen kunt zien in het raster analyse.
 5. Message Analyzer opnieuw nadat u de activa hebt geïnstalleerd.
 
 ![Message Analyzer Asset Intelligence-beheerder](./media/storage-e2e-troubleshooting/mma-start-page-1.png)

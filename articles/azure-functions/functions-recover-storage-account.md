@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 115a78993929b900b835450ea52d590e00ff7461
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887205"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604970"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Problemen oplossen met "functions-runtime is niet bereikbaar"
 
@@ -92,5 +92,5 @@ Nu dat uw functie-App terug en operationele is Bekijk onze snelstartgidsen en de
   Beschrijft de verschillende hulpprogramma’s en technieken voor het testen van uw functies.
 * [Azure Functions schalen](functions-scale.md)  
   Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoals het hostingabonnement Consumption, en helpt u bij het kiezen van het juiste abonnement. 
-* [Meer informatie over Azure App Service](../app-service/app-service-web-overview.md)  
+* [Meer informatie over Azure App Service](../app-service/overview.md)  
   Azure Functions maakt gebruik van Azure App Service voor kernfunctionaliteit zoals implementaties, omgevingsvariabelen en diagnostische procedures. 

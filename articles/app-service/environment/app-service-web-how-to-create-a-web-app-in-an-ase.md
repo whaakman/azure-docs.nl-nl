@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 84a8a0687a1da0eaf7842a9bf6115c1d0f5d3fd1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338138"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718092"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Een web-app maken in een App Service Environment v1
 
@@ -51,7 +51,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u een App Service-omgeving hebt gem
     *Resourcegroepen* kunt u gerelateerde Azure-resources beheren als een eenheid en zijn nuttig bij het maken van *op rollen gebaseerd toegangsbeheer* regels (RBAC) voor uw apps. Zie voor meer informatie, [overzicht van Azure Resource Manager][ResourceGroups]. 
 4. Selecteer of maak een App Service-plan.
    
-    *App Service-plannen* beheerde sets met web-apps.  Normaal gesproken wanneer u prijzen selecteert, wordt de prijs toegepast op de App Service-plan in plaats van de afzonderlijke apps. In een as-omgeving betaalt u voor de compute-exemplaren die is toegewezen aan de as-omgeving in plaats van wat u hebt opgenomen met uw ASP.  Als u wilt opschalen van het aantal exemplaren van een web-app opschalen van de exemplaren van uw App Service-plan en heeft invloed op alle van de web-apps in het plan.  Sommige functies, zoals sitesleuven of VNET-integratie hebben ook hoeveelheidsbeperkingen binnen het abonnement.  Zie voor meer informatie, [overzicht van Azure App Service-plannen](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
+    *App Service-plannen* beheerde sets met web-apps.  Normaal gesproken wanneer u prijzen selecteert, wordt de prijs toegepast op de App Service-plan in plaats van de afzonderlijke apps. In een as-omgeving betaalt u voor de compute-exemplaren die is toegewezen aan de as-omgeving in plaats van wat u hebt opgenomen met uw ASP.  Als u wilt opschalen van het aantal exemplaren van een web-app opschalen van de exemplaren van uw App Service-plan en heeft invloed op alle van de web-apps in het plan.  Sommige functies, zoals sitesleuven of VNET-integratie hebben ook hoeveelheidsbeperkingen binnen het abonnement.  Zie voor meer informatie, [overzicht van Azure App Service-plannen](../overview-hosting-plans.md)
    
     U kunt de App Service-plannen in uw as-omgeving identificeren door te kijken op de locatie die wordt vermeld onder de naam van het.  
    
@@ -108,7 +108,7 @@ Na het maken van uw web-app en App Service-plan is het een goed idee om omhoog t
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288541"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601148"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>De Remote Monitoring solution accelerator lokaal - Docker implementeren
 
@@ -27,7 +27,7 @@ Als u wilt dat de oplossingsverbetering voor externe controle uitvoeren in een I
 
 Voor het implementeren van de Azure-services die worden gebruikt door de oplossingsverbetering voor externe controle, moet u een actief Azure-abonnement.
 
-Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
 ### <a name="machine-setup"></a>Machine-instellingen
 
@@ -72,11 +72,11 @@ De eerste keer dat u deze opdracht uitvoert downloadt Docker de microservice-ins
 > [!TIP]
 > Microsoft publiceert regelmatig nieuwe Docker-installatiekopieën met nieuwe functionaliteit. U kunt de volgende reeks opdrachten worden opgeschoond gebruiken uw lokale Docker-containers en de bijbehorende afbeeldingen voordat u de meest recente waarden ophaalt:
 
-    ```cmd/sh
-    docker list
-    docker rm <list_of_containers>
-    docker rmi <list_of_images>
-    ```
+```cmd/sh
+docker list
+docker rm <list_of_containers>
+docker rmi <list_of_images>
+```
 
 U kunt een afzonderlijke shell gebruiken om de logboeken van de container weer te geven. Zoek eerst de container-ID met de `docker ps` opdracht. Gebruik vervolgens `docker logs {container-id} --tail 1000` om de laatste 1000 vermeldingen voor de opgegeven container weer te geven.
 

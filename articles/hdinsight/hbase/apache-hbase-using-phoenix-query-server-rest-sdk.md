@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: f36d89fb01e7892ef10576b7f5f0b5fa86d8a21b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b7c94fd2372f1d995c50439b2bd5eaefb237e175
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314248"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651398"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix-queryserver REST SDK
 
-[Apache Phoenix](http://phoenix.apache.org/) is een open source, uiterst parallelle relationele databaselaag boven [Apache HBase](apache-hbase-overview.md). Phoenix kunt u SQL-achtige query's gebruiken met HBase met de SSH-hulpprogramma's zoals [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix bevat ook een HTTP-server met de naam Phoenix Query Server (PQS), een thin client die ondersteuning biedt voor twee transportmechanismen voor clientcommunicatie: JSON en Protocol Buffers. Protocol Buffers is van het standaardmechanisme voor, en biedt meer efficiënte communicatie dan JSON.
+[Apache Phoenix](https://phoenix.apache.org/) is een open source, uiterst parallelle relationele databaselaag boven [Apache HBase](apache-hbase-overview.md). Phoenix kunt u SQL-achtige query's gebruiken met HBase met de SSH-hulpprogramma's zoals [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix bevat ook een HTTP-server met de naam Phoenix Query Server (PQS), een thin client die ondersteuning biedt voor twee transportmechanismen voor clientcommunicatie: JSON en Protocol Buffers. Protocol Buffers is van het standaardmechanisme voor, en biedt meer efficiënte communicatie dan JSON.
 
 In dit artikel wordt beschreven hoe u de PQS REST SDK gebruiken voor het maken van tabellen, upsert rijen afzonderlijk en bulksgewijs en selecteert u gegevens met behulp van SQL-instructies. De voorbeelden gebruiken de [Microsoft .NET-stuurprogramma voor Apache Phoenix-queryserver](https://www.nuget.org/packages/Microsoft.Phoenix.Client). Deze SDK is gebaseerd op [van Apache calciet Avatica](https://calcite.apache.org/avatica/) API's, die uitsluitend gebruik van Protocol Buffers voor de serialisatie-indeling.
 
@@ -72,7 +72,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 Hier volgen enkele eigenschappen van belang:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | -- | -- |
 | Committed | Een Booleaanse waarde die aangeeft of `autoCommit` is ingeschakeld voor Phoenix-transacties. |
 | ReadOnly | Een Booleaanse waarde die aangeeft of de verbinding alleen-lezen is. |
@@ -83,7 +83,7 @@ Hier volgen enkele eigenschappen van belang:
 
 Hier volgen de `TransactionIsolation` waarden:
 
-| Isolatie-waarde | Beschrijving |
+| Isolatie-waarde | Description |
 | -- | -- |
 | 0 | Transacties worden niet ondersteund. |
 | 1 | Dirty leesbewerkingen, niet kan worden herhaald leesbewerkingen en dummy leesbewerkingen kunnen zich voordoen. |

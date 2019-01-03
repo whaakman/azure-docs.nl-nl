@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 48432b4a415c0c544c4a64444c89cf818fa00e1f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955426"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972425"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Gebruiksanalyse met Application Insights
 
@@ -28,17 +28,28 @@ Welke functies van uw web- of mobiele app zijn meest populaire? Uw gebruikers hu
 
 De beste ervaring wordt verkregen door het installeren van Application Insights in de code van de app, en in uw webpagina's. De client en server-onderdelen van uw app verzenden van telemetrie naar de Azure-portal voor analyse.
 
-1. **Servercode:** Installeer de juiste module voor uw [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-overview.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), of [andere](app-insights-platforms.md) app.
+1. **Servercode:** Installeer de juiste module voor uw [ASP.NET](../azure-monitor/app/asp-net.md), [Azure](app-insights-overview.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](app-insights-nodejs.md), of [andere](app-insights-platforms.md) -App.
 
     * *Wilt u zich geen servercode installeren? Alleen [maken van een Azure Application Insights-resource](app-insights-create-new-resource.md).*
 
-2. **Webpagina-code:** opent de [Azure-portal](https://portal.azure.com), opent u de Application Insights-resource voor uw app en open vervolgens **aan de slag > bewaken en diagnosticeren van Client-Side**. 
+2. **Webpagina-code:** Het volgende script toevoegen aan uw webpagina's voor de afsluitende ``</head>``. Vervang de instrumentatiesleutel door de juiste waarde voor uw Application Insights-resource:
 
-    ![Kopieer het script in de kop van de master webpagina.](./media/app-insights-usage-overview/02-monitor-web-page.png)
+   ```javascript
+      <script type="text/javascript">
+        var appInsights=window.appInsights||function(a){
+            function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+        }({
+            instrumentationKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
+        });
+        
+        window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+    </script>
+    ```
+    Zie de [naslagdocumentatie over de JavaScript SDK API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md) als u meer wilt weten over geavanceerdere configuraties voor het controleren van websites.
 
-3. **Mobiele app-code:** App Center SDK gebruiken om te verzamelen van gebeurtenissen van uw app en exemplaren van deze gebeurtenissen verzenden naar Application Insights voor analyse door [stappen in dit artikel](app-insights-mobile-center-quickstart.md).
+3. **Mobiele app-code:** De App Center SDK gebruiken om te verzamelen van gebeurtenissen van uw app en exemplaren van deze gebeurtenissen verzenden naar Application Insights voor analyse door [stappen in dit artikel](app-insights-mobile-center-quickstart.md).
 
-4. **Telemetrie ontvangen:** uw project in de foutopsporingsmodus uitvoeren voor een paar minuten en zoek vervolgens de resultaten in de blade overzicht in Application Insights.
+4. **Telemetrie ontvangen:** Uw project in de foutopsporingsmodus uitvoeren voor een paar minuten en zoek vervolgens de resultaten in de blade overzicht in Application Insights.
 
     Publiceer uw app voor het bewaken van prestaties van uw app en ontdek wat uw gebruikers met uw app doen.
 
@@ -103,7 +114,7 @@ Of vanaf de server:
 
 U kunt eigenschapswaarden koppelen aan deze gebeurtenissen, zodat u kunt filteren of de gebeurtenissen wanneer u ze in de portal inspecteren splitsen. Bovendien wordt een standaardset aan eigenschappen gekoppeld aan elke gebeurtenis, zoals anonieme gebruikers-ID, zodat u kunt de volgorde van activiteiten van een afzonderlijke gebruiker traceren.
 
-Meer informatie over [aangepaste gebeurtenissen](app-insights-api-custom-events-metrics.md#trackevent) en [eigenschappen](app-insights-api-custom-events-metrics.md#properties).
+Meer informatie over [aangepaste gebeurtenissen](../azure-monitor/app/api-custom-events-metrics.md#trackevent) en [eigenschappen](../azure-monitor/app/api-custom-events-metrics.md#properties).
 
 ### <a name="slice-and-dice-events"></a>Opdelen gebeurtenissen
 
@@ -121,7 +132,7 @@ Voor deze methode, kunt u afzonderlijke eigenschapswaarden koppelen aan alle tel
 
 In de Application Insights-portal, filteren en uw gegevens op de eigenschapswaarden, zodat deze het vergelijken van de verschillende versies splitsen.
 
-Hiervoor [instellen met een telemetrische initializer](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
+Hiervoor [instellen met een telemetrische initializer](../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
 ```csharp
 

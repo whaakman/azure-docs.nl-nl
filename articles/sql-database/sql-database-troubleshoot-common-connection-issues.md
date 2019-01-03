@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
 ms.author: daleche
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 53061cde5621be06df8f992278a6510d62e51934
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5610679756e91637ac4713059a510bebb882ca7a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872575"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600553"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Verbindingsproblemen met Azure SQL Database oplossen
 Wanneer de verbinding met Azure SQL Database is mislukt, ontvangt u [foutberichten](sql-database-develop-error-messages.md). In dit artikel is een gecentraliseerde onderwerp waarmee u problemen met Azure SQL Database. Dit introduceert [de algemene oorzaken](#cause) van verbindingsproblemen, raadt [een hulpprogramma voor probleemoplossing](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) die identiteit het probleem, en bevat de stappen voor probleemoplossing om op te lossen [tijdelijke fouten](#troubleshoot-transient-errors) en [permanente of niet-tijdelijke fouten](#troubleshoot-persistent-errors). 

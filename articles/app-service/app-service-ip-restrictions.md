@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a152efb3979b4ffe3402ed668c0f683f5e9cc651
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 337d71c84ace7f44c2668cf2344d9083c4a85bee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337152"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651059"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Statische IP-beperkingen voor Azure App Service #
 
 IP-beperkingen kunt u een prioriteit geordende lijst toestaan/weigeren van IP-adressen die zijn toegestaan voor toegang tot uw app te definiëren. De acceptatielijst kan IPv4 en IPv6-adressen bevatten. Wanneer er een of meer vermeldingen, is er een impliciete weigeren alle die aan het einde van de lijst voorkomt. 
 
-De mogelijkheid IP-beperkingen werkt met alle App Service die wordt gehost werkbelastingen, waaronder; web-apps, api-apps, linux-apps, linux-container-apps en functies. 
+De mogelijkheid IP-beperkingen werkt met alle App Service die wordt gehost werkbelastingen, waaronder; web-apps, API-apps, Linux-apps, Linux-container-apps en functies. 
 
 Wanneer een aanvraag wordt gedaan aan uw app, wordt het van IP-adres geëvalueerd op basis van de lijst met IP-beperkingen. Als het adres is niet toegestaan voor toegang op basis van de regels in de lijst, de service reageert met een [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) statuscode.
 

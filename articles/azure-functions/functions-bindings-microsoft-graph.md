@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301013"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793985"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindingen voor Azure Functions
 
@@ -63,7 +63,7 @@ Als u Visual Studio gebruikt, kunt u de extensies krijgen door het installeren v
 
 ### <a name="configuring-authentication--authorization"></a>Configureren van verificatie / autorisatie
 
-De bindingen die worden beschreven in dit artikel is vereist voor een identiteit die moet worden gebruikt. Hiermee wordt de Microsoft Graph te dwingen, machtigingen en interacties controleren. De identiteit kan een gebruiker toegang tot uw toepassing of de toepassing zelf zijn. Instellen voor het configureren van deze identiteit [App Service-verificatie / autorisatie](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) met Azure Active Directory. U moet ook alle machtigingen voor resources die uw functies vereisen aanvragen.
+De bindingen die worden beschreven in dit artikel is vereist voor een identiteit die moet worden gebruikt. Hiermee wordt de Microsoft Graph te dwingen, machtigingen en interacties controleren. De identiteit kan een gebruiker toegang tot uw toepassing of de toepassing zelf zijn. Instellen voor het configureren van deze identiteit [App Service-verificatie / autorisatie](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) met Azure Active Directory. U moet ook alle machtigingen voor resources die uw functies vereisen aanvragen.
 
 > [!Note] 
 > De Microsoft Graph-extensie biedt alleen ondersteuning voor Azure AD-verificatie. Gebruikers moeten zich aanmelden met een account voor werk- of schoolaccount.
@@ -209,7 +209,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [To
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Token` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het verificatietoken. Zie [met behulp van een verificatietoken Invoerbinding vanuit code](#token-input-code).|
 |**type**||Vereist: moet worden ingesteld op `token`.|
@@ -226,7 +226,8 @@ De binding zelf geen eventuele Azure AD-machtigingen vereist, maar afhankelijk v
 
 Het token wordt altijd weergegeven voor de code als een tekenreeks.
 
-
+> [!Note]
+> Bij het lokaal ontwikkelen met een van de `userFromId`, `userFromToken` of `userFromRequest` , vereiste token kan alleen [handmatig verkregen](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) opgegeven in `X-MS-TOKEN-AAD-ID-TOKEN` aanvraagheader van een clienttoepassing aanroepen.
 
 
 <a name="excel-input"></a>
@@ -343,7 +344,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [Ex
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Excel` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**De naam**||Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor de Excel-tabel. Zie [Invoerbinding met behulp van een Excel-tabel vanuit code](#excel-input-code).|
 |**type**||Vereist: moet worden ingesteld op `excel`.|
@@ -504,7 +505,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [Ex
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Excel` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het verificatietoken. Zie [met behulp van een Excel-tabel-Uitvoerbinding vanuit code](#excel-output-code).|
 |**type**||Vereist: moet worden ingesteld op `excel`.|
@@ -649,7 +650,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [On
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `OneDrive` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het bestand. Zie [Invoerbinding met behulp van een OneDrive-bestand vanuit code](#onedrive-input-code).|
 |**type**||Vereist: moet worden ingesteld op `onedrive`.|
@@ -670,7 +671,7 @@ Deze binding hoort vereist de volgende Azure AD-machtigingen:
 De binding wordt aangegeven dat de volgende typen .NET-functies:
 - byte[]
 - Stream
-- tekenreeks
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -796,7 +797,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [On
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `OneDrive` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**De naam**||Vereist: de naam van de variabele die wordt gebruikt in de functiecode voor bestand. Zie [met behulp van een OneDrive-bestand-Uitvoerbinding vanuit code](#onedrive-output-code).|
 |**type**||Vereist: moet worden ingesteld op `onedrive`.|
@@ -817,7 +818,7 @@ Deze binding hoort vereist de volgende Azure AD-machtigingen:
 De binding wordt aangegeven dat de volgende typen .NET-functies:
 - byte[]
 - Stream
-- tekenreeks
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -946,7 +947,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [Ou
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Outlook` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het e-mailbericht. Zie [met behulp van een Outlook-bericht-Uitvoerbinding vanuit code](#outlook-output-code).|
 |**type**||Vereist: moet worden ingesteld op `outlook`.|
@@ -966,7 +967,7 @@ Deze binding hoort vereist de volgende Azure AD-machtigingen:
 De binding wordt aangegeven dat de volgende typen .NET-functies:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- tekenreeks
+- string
 - Aangepaste objecttypen (met behulp van de binding van de structurele model)
 
 
@@ -1088,7 +1089,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [Gr
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `GraphWebHookTrigger` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het e-mailbericht. Zie [met behulp van een Outlook-bericht-Uitvoerbinding vanuit code](#outlook-output-code).|
 |**type**||Vereist: moet worden ingesteld op `graphWebhook`.|
@@ -1240,7 +1241,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [Gr
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `GraphWebHookSubscription` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het e-mailbericht. Zie [met behulp van een Outlook-bericht-Uitvoerbinding vanuit code](#outlook-output-code).|
 |**type**||Vereist: moet worden ingesteld op `graphWebhookSubscription`.|
@@ -1381,7 +1382,7 @@ In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruikt u de [Gr
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `GraphWebHookSubscription` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**De naam**||Vereist: de naam van de variabele in functiecode gebruikt voor het e-mailbericht. Zie [met behulp van een Outlook-bericht-Uitvoerbinding vanuit code](#outlook-output-code).|
 |**type**||Vereist: moet worden ingesteld op `graphWebhookSubscription`.|
@@ -1396,7 +1397,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 ### <a name="webhook-output---usage"></a>Webhook uitvoer - gebruik
 
 De binding wordt aangegeven dat de volgende typen .NET-functies:
-- tekenreeks
+- string
 - Microsoft.Graph.Subscription
 
 

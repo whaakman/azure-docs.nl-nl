@@ -1,19 +1,17 @@
 ---
 title: Maken en beheren van lezen-replica's in Azure Database for MySQL
 description: Dit artikel wordt beschreven hoe u kunt instellen en lezen-replica's in Azure Database voor MySQL met behulp van de portal beheren.
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d779a492dde173df594ec332bb17bc4227d9d936
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e622a11c489618cf66e9cdddf369309e7188645
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988477"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548014"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Over het maken en beheren lezen-replica's in Azure Database for MySQL met behulp van de Azure portal
 

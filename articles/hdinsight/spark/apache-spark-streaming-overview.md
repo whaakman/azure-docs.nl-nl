@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583210"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652078"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Overzicht van Apache Spark-Streaming
 
@@ -138,7 +138,7 @@ U kunt vervolgens een query de DataFrame regelmatig om te zien van de huidige se
 
 De resulterende uitvoer ziet er als volgt uit:
 
-| waarde | tijd |
+| waarde | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -184,7 +184,7 @@ Het volgende voorbeeld werkt de code die gebruikmaakt van de DummySource voor he
 
 Na de eerste minuut zijn er 12 vermeldingen - zes vermeldingen van elk van de twee batches die worden verzameld in het venster.
 
-| waarde | tijd |
+| waarde | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158
@@ -203,7 +203,7 @@ Het sliding vensterfuncties die beschikbaar zijn in de Spark Streaming-API opnem
 
 ## <a name="checkpointing"></a>Controlepunten plaatsen
 
-Voor het leveren van tolerantie en fouttolerantie, Spark Streaming is afhankelijk van het plaatsen van controlepunten om ervoor te zorgen dat verwerking niet wordt onderbroken, zelfs bij storingen knooppunt. In HDInsight maakt Spark controlepunten duurzame opslag (Azure Storage of Data Lake Store). Deze controlepunten opslaan van de metagegevens over de streaming toepassing zoals de configuratie, de bewerkingen die zijn gedefinieerd door de toepassing en batches die in de wachtrij geplaatst, zijn, maar nog niet is verwerkt. In sommige gevallen worden de controlepunten ook bevatten de gegevens opslaan in de rdd's sneller opnieuw opbouwen van de status van de gegevens van wat aanwezig in de rdd's worden beheerd door Spark is.
+Voor het leveren van tolerantie en fouttolerantie, Spark Streaming is afhankelijk van het plaatsen van controlepunten om ervoor te zorgen dat verwerking niet wordt onderbroken, zelfs bij storingen knooppunt. In HDInsight maakt Spark controlepunten duurzame opslag (Azure Storage of Data Lake Storage). Deze controlepunten opslaan van de metagegevens over de streaming toepassing zoals de configuratie, de bewerkingen die zijn gedefinieerd door de toepassing en batches die in de wachtrij geplaatst, zijn, maar nog niet is verwerkt. In sommige gevallen worden de controlepunten ook bevatten de gegevens opslaan in de rdd's sneller opnieuw opbouwen van de status van de gegevens van wat aanwezig in de rdd's worden beheerd door Spark is.
 
 ## <a name="deploying-spark-streaming-applications"></a>Spark-Streaming-toepassingen implementeren
 
@@ -215,6 +215,6 @@ De status van alle toepassingen kan ook worden gecontroleerd met een GET-aanvraa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Maken van een Apache Spark-cluster in HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
+* [Een Apache Spark-cluster maken in Azure HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Apache Spark-Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
 * [Apache Spark-taken op afstand met Apache LIVY starten](apache-spark-livy-rest-interface.md)

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/19/2018
 ms.author: magoedte
-ms.openlocfilehash: fa7d89d749d50d62ce54ea71d604831e8919b454
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 581d5ddc0930a84bad4dd74a0e8dbcc3787f1a16
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189843"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652061"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
 Dit document is bedoeld voor specifieke informatie voor Log Analytics, dat een functie van Azure Monitor om te voorzien in de gegevens is op [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
@@ -60,7 +60,7 @@ Nadat uw gegevens worden opgenomen door de Log Analytics-service, worden de gege
 ## <a name="data-retention"></a>Bewaartijd van gegevens
 Geïndexeerde log search gegevens worden opgeslagen en behouden op basis van uw prijsplan. Zie voor meer informatie, [prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Als onderdeel van uw [abonnementsovereenkomst](https://azure.microsoft.com/support/legal/subscription-agreement/), behoudt Microsoft uw gegevens conform de bepalingen van de overeenkomst.  Wanneer de gegevens wordt verwijderd, verwijderen we ook het Azure Storage-Account waar de gegevens zich bevinden.  Wanneer gegevens van de klant wordt verwijderd, worden er zijn geen fysieke stations vernietigd.  
+Als onderdeel van uw [abonnementsovereenkomst](https://azure.microsoft.com/support/legal/subscription-agreement/), behoudt Microsoft uw gegevens conform de bepalingen van de overeenkomst.  Wanneer gegevens van de klant wordt verwijderd, worden er zijn geen fysieke stations vernietigd.  
 
 De volgende tabel vindt u enkele van de beschikbare oplossingen en bevat voorbeelden van het type van de gegevens die zij verzamelen.
 
@@ -150,7 +150,7 @@ Bij uw organisatie gegevens verzenden naar Log Analytics, configureert u een Win
 * [Organisatie-ID](../../active-directory/fundamentals/sign-up-organization.md)
 * [Microsoft-Account - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
-Een Log Analytics-werkruimte is waaruit gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd. Een werkruimte wordt voornamelijk gebruikt als een manier om gegevens te partitioneren en elke werkruimte is uniek. Bijvoorbeeld, als u wilt uw productiegegevens met één werkruimte worden beheerd en uw testgegevens die worden beheerd met een andere werkruimte. Werkruimten helpen ook een beheerder gebruikerstoegang tot de gegevens. Elke werkruimte kunnen meerdere gebruikersaccounts die zijn gekoppeld aan deze, en elk gebruikersaccount dat toegang tot meerdere Log Analytics-werkruimten. U maken werkruimten op basis van datacentrumregio. Elke werkruimte worden gerepliceerd naar andere datacenters in de regio, hoofdzakelijk voor de beschikbaarheid van de Log Analytics-service.
+Een Log Analytics-werkruimte is waaruit gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd. Een werkruimte wordt voornamelijk gebruikt als een manier om gegevens te partitioneren en elke werkruimte is uniek. Bijvoorbeeld, als u wilt uw productiegegevens met één werkruimte worden beheerd en uw testgegevens die worden beheerd met een andere werkruimte. Werkruimten helpen ook een beheerder gebruikerstoegang tot de gegevens. Elke werkruimte kunnen meerdere gebruikersaccounts die zijn gekoppeld aan deze, en elk gebruikersaccount dat toegang tot meerdere Log Analytics-werkruimten. U maken werkruimten op basis van datacentrumregio.
 
 Voor Operations Manager maakt de Operations Manager-beheergroep verbinding met een Log Analytics-service. U configureert welke agent beheerde systemen in de beheergroep zijn toegestaan voor het verzamelen en verzenden van gegevens naar de service. Gegevens van deze oplossingen zijn, afhankelijk van de oplossing die u hebt ingeschakeld, hetzij rechtstreeks vanuit een Operations Manager-beheerserver wordt verzonden naar de Log Analytics-service, of vanwege de hoeveelheid gegevens die zijn verzameld door het systeem door agents beheerde rechtstreeks vanuit worden verzonden de agent met de service. Voor systemen die niet worden bewaakt door Operations Manager, verbindt elk veilig met de service Log Analytics rechtstreeks.
 

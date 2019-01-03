@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: da8814cfd8fca8da061c27d9c5b69af15bff5007
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 42fd1c19a9cda0aa3d5d62bd265467327250a784
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054401"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606024"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Algemene richtlijnen voor het werken met Wingtip Tickets voorbeeld-SaaS-apps
 
@@ -57,7 +57,7 @@ Instellen van deze waarden hier gewoon zorgt ervoor dat u niet met deze implemen
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>De scripts uit te voeren door op F5 te drukken
 
-Verschillende scripts maken gebruik *$PSScriptRoot* om te navigeren van mappen, en *$PSScriptRoot* wordt pas geëvalueerd wanneer scripts worden uitgevoerd door te drukken **F5**.  Markeren en uitvoeren van een selectie (**F8**) kan fouten veroorzaken, dus druk op **F5** wanneer het uitvoeren van scripts.
+Verschillende scripts maken gebruik *$PSScriptRoot* om te navigeren van mappen, en *$PSScriptRoot* wordt pas geëvalueerd wanneer scripts worden uitgevoerd door te drukken **F5**.  Markeren en uitvoeren van een selectie (**F8**) kan fouten veroorzaken, dus druk op **F5** wanneer het uitvoeren van scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Doorloop de scripts stapsgewijs om de implementatie te kunnen bekijken
 
@@ -94,7 +94,7 @@ Een geslaagde demo-verbinding, zodat alle servers hebben een [firewallregel](sql
 
    ![catalogusserver](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Referenties voor Demo zijn: Gebruikersnaam = *developer*, Wachtwoord = *P@ssword1*
+3. Referenties voor demo zijn: Aanmelding = *developer*, wachtwoord = *P@ssword1*
 
     De onderstaande afbeelding ziet u de aanmelding voor de *per tenant-Database* patroon. 
     ![verbinding](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

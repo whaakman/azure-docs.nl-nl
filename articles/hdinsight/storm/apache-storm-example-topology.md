@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 985bb755e4754d2aa371d7b86594297c16fedd27
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 73a7c2ef80291920a6d19f0c3ab01b45c1d6b22a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583564"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53627721"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Voorbeeld van Apache Storm-topologieën en -onderdelen voor Apache Storm op HDInsight
 
-Hierna volgt een lijst van voorbeelden die zijn gemaakt en beheerd door Microsoft voor gebruik met [Apache Storm](http://storm.apache.org/) op HDInsight. Deze voorbeelden omvatten een verscheidenheid aan onderwerpen, van het maken van eenvoudige C# en Java-topologieën te werken met Azure-services zoals Event Hubs, Cosmos DB, SQL-Database, [Apache HBase](http://hbase.apache.org/) op HDInsight en Azure Storage. Enkele voorbeelden laten ook zien hoe u werkt met niet-Azure, of zelfs niet-Microsoft-technologieën, zoals SignalR en Socket.IO.
+Hierna volgt een lijst van voorbeelden die zijn gemaakt en beheerd door Microsoft voor gebruik met [Apache Storm](https://storm.apache.org/) op HDInsight. Deze voorbeelden omvatten een verscheidenheid aan onderwerpen, van het maken van eenvoudige C# en Java-topologieën te werken met Azure-services zoals Event Hubs, Cosmos DB, SQL-Database, [Apache HBase](https://hbase.apache.org/) op HDInsight en Azure Storage. Enkele voorbeelden laten ook zien hoe u werkt met niet-Azure, of zelfs niet-Microsoft-technologieën, zoals SignalR en Socket.IO.
 
-| Beschrijving | Ziet u | Taal/Framework |
+| Description | Ziet u | Taal/Framework |
 |:--- |:--- |:--- |
-| [Schrijven naar Azure Data Lake Store van Apache Storm](apache-storm-write-data-lake-store.md) |Schrijven naar Azure Data Lake Store |Java |
+| [Schrijven naar Azure Data Lake-opslag van Apache Storm](apache-storm-write-data-lake-store.md) |Schrijven naar Azure Data Lake-opslag |Java |
 | [Event Hub Spout en Bolt bron](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Bron voor de Event Hub Spout en Bolt |Java |
 | [Op Java gebaseerde topologieën ontwikkelen voor Apache Storm op HDInsight][5797064f] |Maven |Java |
 | [C#-topologieën ontwikkelen voor Apache Storm op HDInsight met behulp van Visual Studio][16fce2d1] |HDInsight-hulpprogramma's voor Visual Studio |C#, Java |
@@ -35,7 +35,7 @@ Hierna volgt een lijst van voorbeelden die zijn gemaakt en beheerd door Microsof
 | [Python gebruiken met Apache Storm op HDInsight](apache-storm-develop-python-topology.md) |Python-onderdelen met een topologie lichtstroom |Python |
 | [Apache Kafka gebruiken met Apache Storm op HDInsight](../hdinsight-apache-storm-with-kafka.md) | Apache Storm lezen en schrijven naar Apache Kafka | Java |
 
-> [!WARNING]
+> [!WARNING]  
 > De C#-voorbeelden in deze lijst zijn oorspronkelijk gemaakt en getest met HDInsight op basis van Windows en mei niet werken goed met HDInsight op basis van Linux-clusters. Op basis van Linux-clusters Mono gebruiken voor het uitvoeren van .NET-code, en mogelijk problemen met de compatibiliteit met de frameworks en -pakketten die in het voorbeeld.
 >
 > Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger.

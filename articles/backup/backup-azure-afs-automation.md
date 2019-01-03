@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 90623981f67bbed15ade743192525676e58a0a83
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 30fc36f29a7602e2bc3f192b445474bfc50e9434
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318683"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632632"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>PowerShell gebruiken om te back-up en herstellen van Azure-bestandsshares
 
@@ -34,11 +34,11 @@ Voor de naslaginformatie over AzureRm.RecoveryServices.Backup PowerShell-cmdlets
 ## <a name="setup-and-registration"></a>Installatie en registratie
 
 > [!NOTE]
-> Zoals opgemerkt [hier](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), ondersteuning voor nieuwe functies in AzureRM-module eindigt in november 2018. Daarom bieden we ondersteuning voor back-up van Azure-bestandsshares met de nieuwe 'Az' PS-module. We zijn ook van plan om te worden toegevoegd aan de GA-versie van de Az-module.
+> Zoals opgemerkt [hier](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), ondersteuning voor nieuwe functies in AzureRM-module eindigt in november 2018. Daarom bieden we ondersteuning voor back-up van Azure-bestandsshares met de nieuwe 'Az' PS-module nu beschikbaar in de algemene beschikbaarheid.
 
 Om te beginnen met:
 
-1. [Download de nieuwste versie van PowerShell 'Az'](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (de minimaal vereiste versie is: 0.7.0)
+1. [Download de nieuwste versie van PowerShell 'Az'](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (de minimaal vereiste versie is: 1.0.0)
 
 2. De beschikbare Azure Backup PowerShell-cmdlets vinden door de volgende opdracht te typen:
 
@@ -158,6 +158,8 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
+
+De 'NewAFSPolicy' neemt een dagelijkse back-up en behoudt deze gedurende 30 dagen.
 
 ### <a name="enable-protection"></a>Beveiliging inschakelen
 

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 9f320f508fd45b6ad70b1357e873663796825621
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: f40d88df7a46c73981b6f20bee0b119743c08257
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078794"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714488"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service op de opmerkingen bij de release van de Azure Stack update 2
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Deze releaseopmerkingen beschrijven de verbeteringen en oplossingen in Azure App Service op Azure Stack Update 2 en bekende problemen. Bekende problemen zijn onderverdeeld in problemen direct verband houden met de implementatie, het updateproces en problemen met de build (na de installatie).
 
@@ -66,7 +66,7 @@ Azure App Service op Azure Stack Update 2 omvat de volgende verbeteringen en opl
   - Bijgewerkt .net Core-onderdelen moet consistent zijn met Azure App Service in de openbare cloud.
   - Bijgewerkte Kudu
 
-- Automatisch wisselen van de implementatie van de functie is ingeschakeld - sleuven [configureren voor automatisch wisselen](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Automatisch wisselen van de implementatie van de functie is ingeschakeld - sleuven [configureren voor automatisch wisselen](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
 
 - Testen in productie-functie ingeschakeld - [Inleiding tot testen in productie](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
@@ -83,13 +83,13 @@ Azure App Service op Azure Stack Update 2 omvat de volgende verbeteringen en opl
 - Werknemers kunnen geen bestandsserver bereiken wanneer App Service is geïmplementeerd in een bestaand virtueel netwerk en de bestandsserver alleen beschikbaar op het particuliere netwerk is.
 
 Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen de worker-subnet en de bestandsserver aan te geven. Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
- * Bron:
+ * Bron: Alle
  * Poortbereik van bron: *
  * Bestemming: IP-adressen
- * Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
+ * Doel-IP-adresbereik: Bereik van IP-adressen voor uw bestandsserver
  * Poortbereik van doel: 445
  * Protocol: TCP
- * Actie: toestaan
+ * Actie: Toestaan
  * Prioriteit: 700
  * Naam: Outbound_Allow_SMB445
 

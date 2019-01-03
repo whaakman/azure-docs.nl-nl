@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409918"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743354"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage Shared Access Signatures gebruiken om u te beperken van toegang tot gegevens in HDInsight
 
@@ -180,10 +180,10 @@ Een voorbeeld van het maken van een HDInsight-cluster dat gebruik maakt van de S
    > [!IMPORTANT]  
    > Wanneer u hierom wordt gevraagd om de HTTP/s of SSH-gebruikersnaam en wachtwoord, moet u een wachtwoord dat voldoet aan de volgende criteria opgeven:
    >
-   > * Ten minste 10 tekens lang moet zijn
-   > * Moet ten minste één cijfer bevatten
-   > * Moet ten minste één niet-alfanumerieke tekens bevatten
-   > * Moet ten minste één hoofdletters of kleine letter bevatten
+   > * Moet ten minste 10 tekens lang zijn.
+   > * Moet ten minste één cijfer bevatten.
+   > * Moet ten minste één niet-alfanumeriek teken bevatten.
+   > * Moet ten minste één hoofdletters of kleine letter bevatten.
 
 Het duurt even voor dit script om uit te voeren, meestal ongeveer 15 minuten. Wanneer het script is voltooid zonder fouten, is het cluster gemaakt.
 
@@ -290,10 +290,10 @@ Eenmaal verbinding hebben met het cluster, gebruikt u de volgende stappen uit om
 
 **Resolutie**: Gebruik een wachtwoord dat voldoet aan de volgende criteria:
 
-* Ten minste 10 tekens lang moet zijn
-* Moet ten minste één cijfer bevatten
-* Moet ten minste één niet-alfanumerieke tekens bevatten
-* Moet ten minste één hoofdletters of kleine letter bevatten
+* Moet ten minste 10 tekens lang zijn.
+* Moet ten minste één cijfer bevatten.
+* Moet ten minste één niet-alfanumeriek teken bevatten.
+* Moet ten minste één hoofdletters of kleine letter bevatten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

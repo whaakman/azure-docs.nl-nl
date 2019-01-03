@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights verwijzen naar gegevens - hoe een referentiegegevensset toevoegen aan uw Azure Time Series Insights-omgeving | Microsoft Docs
+title: Een referentiegegevensset toevoegen aan uw Azure Time Series Insights-omgeving | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u een referentiegegevensset aan het verbeteren van de gegevens in uw Azure Time Series Insights-omgeving.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: de5f4735e7dde7a3e631d14c83d42ccb9fd5c9db
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f0110ea79d05c0da57ac2d2e1f52194bed12152c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273830"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555554"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Een referentiegegevensset voor uw Time Series Insights-omgeving met behulp van de Azure portal maken
 

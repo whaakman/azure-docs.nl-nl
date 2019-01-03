@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: cshoe
-ms.openlocfilehash: 39036f17b8ceafebbe3660f2074e2a6c84c4df03
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 765eab8dfc1163c4d9e0337a1af840278ae1a82c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248690"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546263"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions-bestand met externe Bindingen (experimenteel)
 In dit artikel laat zien hoe om bestanden van verschillende SaaS-providers (zoals Dropbox of Google Drive) in Azure Functions te manipuleren. Azure Functions ondersteunt activeren, invoeren en uitvoerbindingen voor externe bestanden. Deze bindingen API-verbindingen met SaaS-providers maken of bestaande API-verbindingen van de resourcegroep van uw functie-App gebruiken.
@@ -31,7 +31,7 @@ In dit artikel laat zien hoe om bestanden van verschillende SaaS-providers (zoal
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
+|[FTP](https://docs.microsoft.com/azure/app-service/deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive voor Bedrijven](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
@@ -115,7 +115,7 @@ module.exports = function(context) {
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand.
 
-|de eigenschap Function.JSON | Beschrijving|
+|de eigenschap Function.JSON | Description|
 |---------|---------|----------------------|
 |**type** | Moet worden ingesteld op `apiHubFileTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
@@ -311,7 +311,7 @@ module.exports = function(context) {
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand.
 
-|de eigenschap Function.JSON | Beschrijving|
+|de eigenschap Function.JSON | Description|
 |---------|---------|----------------------|
 |**type** | Moet worden ingesteld op `apiHubFile`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
@@ -349,7 +349,7 @@ Zie de [Invoerbinding voorbeeld](#input---example).
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand.
 
-|de eigenschap Function.JSON | Beschrijving|
+|de eigenschap Function.JSON | Description|
 |---------|---------|----------------------|
 |**type** | Moet worden ingesteld op `apiHubFile`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | Moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |

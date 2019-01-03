@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 52b6265722d5cfbf8baf54e1785ace627aa0892f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 07d3f5d365fa5c552ccb61c97532a9931b7e282e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341664"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583677"
 ---
-# <a name="extracting-text-with-ocr"></a>Tekst extraheren met OCr
+# <a name="extracting-text-with-optical-character-recognition"></a>Tekst met optische tekenherkenning extraheren
 
-Computer Vision-technologie voor optische tekenherkenning (OCR) detecteert tekstinhoud in een afbeelding en worden de herkende tekst naar een machinaal leesbare tekenstroom geëxtraheerd. U kunt het resultaat voor zoeken en talloze andere doeleinden, zoals medische dossiers, beveiliging en bankieren. Hij detecteert de taal automatisch. OCR bespaart tijd en biedt gebruikers gemak door ze om foto's van tekst in plaats van de tekst te transcriberen.
+Computer Vision-technologie voor optische tekenherkenning (OCR) detecteert tekstinhoud in een afbeelding en worden de herkende tekst naar een machinaal leesbare tekenstroom geëxtraheerd. U kunt het resultaat gebruiken voor zoekopdrachten en talloze andere doeleinden, zoals medische dossiers, beveiliging en bankieren. Taal wordt automatisch gedetecteerd. Met OCR besparen gebruikers tijd en kunnen ze eenvoudig foto’s van tekst maken in plaats van deze over te schrijven.
 
-OCR 25 talen worden ondersteund. Deze talen zijn: Arabisch, vereenvoudigd Chinees, traditioneel Chinees, Tsjechisch, Deens, Nederlands, Engels, Fins, Frans, Duits, Grieks, Hongaars, Italiaans, Japans, Koreaans, Noors, Pools, Portugees, Roemeens, Russisch, Servisch (Cyrillisch en Latijns) Slowaaks, Spaans, Zweeds en Turks.
+OCR ondersteunt 25 talen. Deze talen zijn: Arabisch, Chinees (traditioneel), Chinees (vereenvoudigd), Deens, Duits, Engels, Fins, Frans, Grieks, Hongaars, Italiaans, Japans, Koreaans, Nederlands, Noors, Pools, Portugees, Roemeens, Russisch, Servisch (Cyrillisch en Latijns) Slowaaks, Spaans, Tsjechisch, Turks en Zweeds.
 
-Indien nodig, corrigeert OCR de rotatie van de herkende tekst, in graden rond de afbeelding van de horizontale as. OCR biedt het frame-coördinaten van elk woord, zoals te zien is in de volgende afbeelding.
+Via OCR wordt zo nodig de draaiing van de herkende tekst gecorrigeerd, in graden, rond de horizontale as van de afbeelding. OCR biedt het frame-coördinaten van elk woord, zoals te zien is in de volgende afbeelding.
 
-![OCR-overzicht](./Images/vision-overview-ocr.png)
+![Een diagram met een afbeelding wordt gedraaid en de tekst wordt gelezen en afgebakend](./Images/vision-overview-ocr.png)
 
 ## <a name="ocr-requirements"></a>OCR-vereisten
 
@@ -39,14 +40,14 @@ De afbeelding kan worden gedraaid in meerdere van 90 graden plus een kleine hoek
 
 ## <a name="improving-ocr-accuracy"></a>Verbetering van de nauwkeurigheid van OCR
 
-De nauwkeurigheid van de tekstherkenning, is afhankelijk van de kwaliteit van de installatiekopie. Een lezen onnauwkeurige kan worden veroorzaakt door de volgende situaties:
+De nauwkeurigheid van de tekstherkenning is afhankelijk van de kwaliteit van de afbeelding. Een onnauwkeurige aflezing kan worden veroorzaakt door de volgende situaties:
 
-* Fuzzy afbeeldingen.
+* Wazige afbeeldingen.
 * Handgeschreven of cursieve tekst.
 * Artistieke lettertypestijlen.
-* Kleine tekengrootte.
-* Complexe achtergronden, schaduwen of schitterende via vervorming van tekst of een perspectief.
-* Ontbreekt of grote hoofdletters aan het begin van woorden
+* Kleine lettergrootte.
+* Complexe achtergronden, schaduwen of schittering op de tekst of vervorming van het perspectief.
+* Te grote of geen hoofdletter aan het begin van woorden
 * Subscript, superscript of doorgehaalde tekst.
 
 ### <a name="ocr-limitations"></a>OCR-beperkingen

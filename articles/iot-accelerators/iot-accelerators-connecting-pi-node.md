@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 696bd6ec80f39e8a9f3418426a754ffc038171e2
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fe0a84d9d88f5287ca3a114225bde619f9312e69
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325079"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628354"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Uw Raspberry Pi-apparaat verbinden met de Remote Monitoring solution accelerator (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie leert u hoe u een fysiek apparaat verbinden met de oplossingsverbetering voor externe controle. In deze zelfstudie gebruikt u Node.js, dit is een goede optie voor omgevingen met minimale resourcebeperkingen.
+Deze zelfstudie leert u hoe u een echt apparaat verbinden met de oplossingsverbetering voor externe controle. In deze zelfstudie gebruikt u Node.js, dit is een goede optie voor omgevingen met minimale resourcebeperkingen.
+
+Als u liever een apparaat simuleren, Zie [maken en test een nieuw gesimuleerd apparaat](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### <a name="required-hardware"></a>Vereiste hardware
 
@@ -36,7 +38,7 @@ Een desktopcomputer waarmee u kunt extern verbinding maken met de opdrachtregel 
 
 SSH-client moet u op de computer waarmee u kunt voor externe toegang tot de opdrachtregel op de Raspberry Pi.
 
-- Windows bevat geen een SSH-client. Wordt u aangeraden [PuTTY](http://www.putty.org/).
+- Windows bevat geen een SSH-client. Wordt u aangeraden [PuTTY](https://www.putty.org/).
 - De meeste Linux-distributies en Mac OS omvatten het SSH-opdrachtregelprogramma. Zie voor meer informatie, [SSH met behulp van Linux- of Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
 ### <a name="required-raspberry-pi-software"></a>Vereiste software voor Raspberry Pi
@@ -126,7 +128,6 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
     var temperatureSchema = 'chiller-temperature;v1';
     var humiditySchema = 'chiller-humidity;v1';
     var pressureSchema = 'chiller-pressure;v1';
-    var interval = "00:00:05";
     var deviceType = "Chiller";
     var deviceFirmware = "1.0.0";
     var deviceFirmwareUpdateStatus = "";
@@ -144,8 +145,6 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
         "TemperatureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}",
           "MessageSchema": {
             "Name": temperatureSchema,
             "Format": "JSON",
@@ -156,8 +155,6 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
           }
         },
         "HumiditySchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}",
           "MessageSchema": {
             "Name": humiditySchema,
             "Format": "JSON",
@@ -168,8 +165,6 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
           }
         },
         "PressureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}",
           "MessageSchema": {
             "Name": pressureSchema,
             "Format": "JSON",

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: fa2f16f1a7d99a825039e2191c69642a45ff728a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3b06335019cf15cc296c1814ee1fcf5ce50c3949
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845226"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971838"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Herstel na noodgevallen naar Azure voor on-premises fysieke servers instellen
 
@@ -137,7 +137,7 @@ IP-adressen gebaseerde firewallregels moeten communicatie met alle van de Azure-
 - **Commerciële IP-adressen** -toestaan dat de [Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/confirmation.aspx?id=41653), en de poort HTTPS (443). Toestaan dat IP-adresbereiken voor de Azure-regio van uw abonnement voor de ondersteuning van de AAD, back-up, replicatie en URL's voor opslag.  
 - **IP-adressen Government** -toestaan de [Azure Government IP-adresbereiken Datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=57063), en de poort HTTPS (443) voor alle USGov-regio's (Virginia, Texas, Arizona en Iowa) voor de ondersteuning van AAD, back-up, replicatie en URL's voor opslag.  
 
-#### <a name="run-setup"></a>Het installatieprogramma uitvoert
+#### <a name="run-setup"></a>Voer het installatieprogramma uit
 Als een lokale beheerder voor het installeren van de configuratieserver voor geïntegreerde Setup uitgevoerd. De processerver en de hoofddoelserver worden ook standaard geïnstalleerd op de configuratieserver.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]

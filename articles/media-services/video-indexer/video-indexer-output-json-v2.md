@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 8acb1c70dc21efc87e13e0e5e94d9a61acfe01e9
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292300"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554653"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
 
@@ -35,7 +35,7 @@ In dit artikel onderzoekt de JSON-inhoud die wordt geretourneerd door de **Video
 
 ## <a name="root-elements"></a>Basis-elementen
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |accountId|Van de afspeellijst VI account-ID.|
 |id|Van de afspeellijst-ID.|
@@ -75,11 +75,11 @@ In dit artikel onderzoekt de JSON-inhoud die wordt geretourneerd door de **Video
 
 In deze sectie bevat een overzicht van de inzichten.
 
-|Kenmerk | Beschrijving|
+|Kenmerk | Description|
 |---|---|
 |naam|De naam van de video. Bijvoorbeeld: Azure Monitor.|
-|shortId|De ID van de video. Bijvoorbeeld: 63c6d532ff.|
-|privacyMode|Uitsplitsing van uw kan hebben een van de volgende modi: **persoonlijke**, **openbare**. **Openbare** -de video is zichtbaar voor iedereen in uw account en iedereen met een koppeling naar de video. **Persoonlijke** -de video is zichtbaar voor iedereen in uw account.|
+|id|De ID van de video. Bijvoorbeeld: 63c6d532ff.|
+|privacyMode|Uitsplitsing van uw kan hebben een van de volgende modi: **Persoonlijke**, **openbare**. **Openbare** -de video is zichtbaar voor iedereen in uw account en iedereen met een koppeling naar de video. **Persoonlijke** -de video is zichtbaar voor iedereen in uw account.|
 |duur|Bevat een duur van de beschrijving van de tijd die een inzicht is opgetreden. Er is een duur in seconden.|
 |thumbnailVideoId|De ID van de video van waaruit de miniatuur is gehaald.
 |thumbnailId|Miniatuur van de video-id. Als u wilt de miniatuur van het werkelijke, roep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
@@ -95,7 +95,7 @@ In deze sectie bevat een overzicht van de inzichten.
 
 ## <a name="videos"></a>video's
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |accountId|Van de video VI account-ID.|
 |id|Van de video-ID.|
@@ -149,7 +149,7 @@ In deze sectie bevat een overzicht van de inzichten.
 
 De inzichten zijn een set van dimensies (bijvoorbeeld regels tekst, gezichten, merken, enzovoort), waarbij elke dimensie een lijst met unieke elementen (bijvoorbeeld face1, face2, face3), en elk element heeft een eigen metagegevens en een lijst van de exemplaren (die zijn tijd van reeksen met aanvullende optionele metagegevens).
 
-Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een lijst van de tijdelijke exemplaren (bijvoorbeeld: 00:00:05: 00:00:10, 00:01:00 - 00:02:30 en 00:41:21: 00:41:49.) Elke tijdelijke instantie kan aanvullende metagegevens hebben. Bijvoorbeeld, coördinaten van het gezichtsrechthoek (20,230,60,60).
+Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een lijst van de tijdelijke exemplaren (bijvoorbeeld: 00: 00:05 – 00:00:10, 00:01:00-00:02:30 en 00:41:21: 00:41:49.) Elke tijdelijke instantie kan aanvullende metagegevens hebben. Bijvoorbeeld, coördinaten van het gezichtsrechthoek (20,230,60,60).
 
 |Versie|De codeversie|
 |---|---|
@@ -193,14 +193,14 @@ Voorbeeld:
 
 #### <a name="blocks"></a>blokken
 
-Kenmerk | Beschrijving
+Kenmerk | Description
 ---|---
 id|ID van het blok.|
 instanties|Een lijst met tijdsbereiken van dit blok.|
 
 #### <a name="transcript"></a>transcript
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De regel-ID.|
 |tekst|Het transcript zelf.|
@@ -238,7 +238,7 @@ Voorbeeld:
 
 #### <a name="ocr"></a>OCR
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De OCR-regel-ID.|
 |tekst|De tekst.|
@@ -281,7 +281,7 @@ Voorbeeld:
 
 #### <a name="keywords"></a>trefwoorden
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|Het sleutelwoord-ID.|
 |tekst|De tekst trefwoord.|
@@ -328,7 +328,7 @@ Voorbeeld:
 
 #### <a name="faces"></a>gezichten
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De face-ID.|
 |naam|De naam van het gezicht. Kan het zijn ' Onbekende #, 0, een geïdentificeerde beroemdheden of een persoon met de klant.|
@@ -373,7 +373,7 @@ Voorbeeld:
 
 #### <a name="labels"></a>labels
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De label-ID.|
 |naam|De labelnaam (bijvoorbeeld 'Computer', 'Tv-programma's ').|
@@ -432,7 +432,7 @@ Voorbeeld:
 
 #### <a name="shots"></a>foto 's
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|Id van de schermopname.|
 |Hoofdframes|Een lijst met belangrijke frames in beeld (elk heeft een ID en een lijst met instanties tijdsbereik). Belangrijkste frames-exemplaren beschikken over een thumbnailId veld met de miniatuur van het sleutelframes-id.|
@@ -491,7 +491,7 @@ Voorbeeld:
 
 Bedrijfs- en merknamen gedetecteerd in de spraak-naar-tekst transcriptie en/of Video OCR. Dit omvat geen visual herkenning van merken of logo detectie.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De merk-ID.|
 |naam|De naam van merken.|
@@ -550,17 +550,17 @@ Bedrijfs- en merknamen gedetecteerd in de spraak-naar-tekst transcriptie en/of V
 
 #### <a name="statistics"></a>statistieken
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |CorrespondenceCount|Het aantal berichten in de video.|
-|WordCount|Het aantal woorden per spreker.|
+|SpeakerWordCount|Het aantal woorden per spreker.|
 |SpeakerNumberOfFragments|De hoeveelheid van de spreker in een video heeft fragmenten.|
 |SpeakerLongestMonolog|Van de spreker langste monolog. Als de spreker silences binnen de monolog is opgenomen. Stilte aan het begin en het einde van de monolog wordt verwijderd.| 
 |SpeakerTalkToListenRatio|De berekening is gebaseerd op de tijd die op van de spreker monolog (zonder de stilte in tussen) gedeeld door de totale tijd van de video. De tijd wordt afgerond op de derde decimaalteken.|
 
 #### <a name="audioeffects"></a>audioEffects
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De id van de audio-effect.|
 |type|Het type audio-effect (bijvoorbeeld klappen, spraak, stilte).|
@@ -589,7 +589,7 @@ Bedrijfs- en merknamen gedetecteerd in de spraak-naar-tekst transcriptie en/of V
 
 Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/negatieve). Bijvoorbeeld, 0-0.1, 0.1 0.2.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De id van de gevoelsscore.|
 |averageScore |Het gemiddelde van alle scores van alle exemplaren van dat type sentiment - positieve/neutraal/negatieve|
@@ -628,7 +628,7 @@ Het blok visualContentModeration bevat tijdsbereik die Video Indexer hebben moge
 
 Video's die zijn gevonden voor volwassenen of ongepaste inhoud mogelijk beschikbaar voor alleen persoonlijke weergave. Gebruikers hebben de optie voor het verzenden van een aanvraag voor een menselijke beoordeling van de inhoud in dit geval kan het kenmerk IsAdult het resultaat van de menselijke beoordeling bevat.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De id van de visual inhoudstoezicht.|
 |adultScore|De erotiekscore (van content moderator).|
@@ -664,7 +664,7 @@ Video's die zijn gevonden voor volwassenen of ongepaste inhoud mogelijk beschikb
 
 #### <a name="textualconentmoderation"></a>textualConentModeration 
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De tekstuele inhoudstoezicht-ID.|
 |bannedWordsCount |Het nummer van verboden woorden.|
@@ -674,7 +674,7 @@ Video's die zijn gevonden voor volwassenen of ongepaste inhoud mogelijk beschikb
 
 Video Indexer identificeert willekeurige emoties op basis van de spraak- en audio-hints. De geïdentificeerde emoties kan zijn: zelf, verdriet, boosheid of angst.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De emotion-ID.|
 |type|De emotion-even die is geïdentificeerd op basis van de spraak- en audio hints. De emotie kan vreugde, verdriet, boosheid of angst zijn.|
@@ -764,11 +764,11 @@ Video Indexer identificeert willekeurige emoties op basis van de spraak- en audi
 
 Video Indexer maakt Deductie van de belangrijkste onderwerpen uit transcripties. Indien mogelijk, niveau van de 1e [IPTC](https://iptc.org/standards/media-topics/) taxonomie is opgenomen. 
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|De onderwerp-ID.|
-|naam|Het onderwerp naam, bijvoorbeeld: 'Pharmaceuticals'.|
-|referenceId|Breadcrumbs zetten op basis van de hiërarchie van onderwerpen. Bijvoorbeeld: ' status en wellbeing / medicijnen en gezondheidszorg / Pharmaceuticals '.|
+|naam|De onderwerpnaam, bijvoorbeeld: 'Pharmaceuticals'.|
+|referenceId|Breadcrumbs zetten op basis van de hiërarchie van onderwerpen. Bijvoorbeeld: ' Status en wellbeing / medicijnen en gezondheidszorg / Pharmaceuticals '.|
 |vertrouwen|De betrouwbaarheidsscore binnen het bereik [0,1]. Hoger is meer vertrouwen hebben.|
 |language|De taal die wordt gebruikt in het onderwerp.|
 |iptcName|De media IPTC code naam, als wordt gedetecteerd.|

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 899792be583f3b2e2a16e42472fcdf87bf751893
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635489"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722903"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Queue storage en Visual Studio verbonden services (webtaak projecten)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -182,7 +182,7 @@ public static void GracefulShutdownDemo(
 }
 ```
 
-**Opmerking:** het Dashboard mogelijk niet correct weergegeven en de uitvoer van de functies die zijn afgesloten.
+**Opmerking:** Het Dashboard mogelijk niet correct weergegeven en de uitvoer van de functies die zijn afgesloten.
 
 Zie voor meer informatie, [WebJobs correct afsluiten](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
@@ -477,7 +477,7 @@ static void Main(string[] args)
 }
 ```
 
-**Opmerking:** Queue, table en blob-namen zijn opgelost telkens als een functie is aangeroepen, maar de namen van de blob-containers worden opgelost, alleen wanneer de toepassing wordt gestart. U kunt de naam van de blob-container niet wijzigen terwijl de taak wordt uitgevoerd.
+**Opmerking:** Queue, table en blob-namen worden opgelost, telkens wanneer een functie is aangeroepen, maar namen van de blob-containers worden opgelost, alleen wanneer de toepassing wordt gestart. U kunt de naam van de blob-container niet wijzigen terwijl de taak wordt uitgevoerd.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Hoe u een functie handmatig activeren
 Een functie als handmatig wilt activeren, gebruikt u de **aanroepen** of **CallAsync** methode voor het **JobHost** object en de **NoAutomaticTrigger** kenmerk van de functie, zoals wordt weergegeven in het volgende voorbeeld.
@@ -514,7 +514,7 @@ Uitvoer van de Console-methoden die u in een functie aanroepen of in de **Main()
 
 Console-uitvoer kan niet worden gekoppeld aan een bepaalde methodeaanroep omdat de-Console één thread, is terwijl veel taakfuncties kunnen worden uitgevoerd op hetzelfde moment. Daarom is de SDK biedt elke functieaanroepen met een eigen unieke log writer-object.
 
-Het schrijven van [tracering toepassingslogboeken](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), gebruiken **Console.Out** (wordt gemaakt van de logboeken die zijn gemarkeerd als INFO) en **Console.Error** (logboeken die zijn gemarkeerd als fout maakt). Een alternatief is het gebruik van [Trace- of TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)en waarmee u uitgebreid, waarschuwing, kritiek niveaus, naast informatie en de fout. Tracering van toepassingslogboeken worden weergegeven in de logboekbestanden web-app, Azure-tabellen, of, afhankelijk van hoe u uw Azure-web-app configureren voor Azure blobs. Geldt voor alle Console-uitvoer, weergegeven de meest recente 100 toepassingslogboeken ook in de Dashboard-pagina voor de webtaak, niet op de pagina voor een functie-aanroep.
+Het schrijven van [tracering toepassingslogboeken](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview), gebruiken **Console.Out** (wordt gemaakt van de logboeken die zijn gemarkeerd als INFO) en **Console.Error** (logboeken die zijn gemarkeerd als fout maakt). Een alternatief is het gebruik van [Trace- of TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)en waarmee u uitgebreid, waarschuwing, kritiek niveaus, naast informatie en de fout. Tracering van toepassingslogboeken worden weergegeven in de logboekbestanden web-app, Azure-tabellen, of, afhankelijk van hoe u uw Azure-web-app configureren voor Azure blobs. Geldt voor alle Console-uitvoer, weergegeven de meest recente 100 toepassingslogboeken ook in de Dashboard-pagina voor de webtaak, niet op de pagina voor een functie-aanroep.
 
 Console-uitvoer wordt weergegeven in het Dashboard alleen als het programma wordt uitgevoerd in een Azure-webtaak niet als het programma lokaal wordt uitgevoerd of in een andere omgeving.
 
@@ -550,7 +550,7 @@ In een doorlopende webtaak toepassingslogboeken weergegeven in/data/jobs/continu
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-In een Azure blob-de toepassing Logboeken eruit als volgt: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hallo wereld!, 2014-09-26T21:01:13, fout, contosoadsnew, 491e54, 635473620738373502,0,17404,19,console.Error - Hallo wereld!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hallo wereld!,
+In een Azure blob-de toepassing Logboeken eruit als volgt: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hallo wereld!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hallo wereld!, 2014-09-26T21 : 01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hallo wereld!,
 
 En in een Azure-tabel de **Console.Out** en **Console.Error** Logboeken als volgt uitzien:
 

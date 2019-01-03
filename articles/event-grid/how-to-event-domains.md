@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/17/2018
+ms.openlocfilehash: 08faef2eaf5c9cd09172d455c464531e293d5f3e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298525"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554585"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Onderwerpen beheren en publiceren van gebeurtenissen via event-domeinen
 
@@ -139,7 +139,7 @@ Machtigingen die zijn ingesteld voor een onderwerp worden opgeslagen in Azure Ac
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Publiceren van gebeurtenissen naar een Event Grid-domein
 
-Publiceren van gebeurtenissen naar een domein is hetzelfde als [publiceren naar een aangepast onderwerp](./post-to-custom-topic.md). Het enige verschil is dat u nodig hebt om op te geven van het onderwerp dat u wilt dat elke gebeurtenis naar. De volgende reeks gebeurtenissen zou leiden tot gebeurtenis met `"id": "1111"` onderwerp `foo` tijdens gebeurtenis met `"id": "2222"` worden verzonden naar onderwerp `bar`:
+Publiceren van gebeurtenissen naar een domein is hetzelfde als [publiceren naar een aangepast onderwerp](./post-to-custom-topic.md). Echter, in plaats van publiceren naar het aangepaste onderwerp u alle gebeurtenissen naar het eindpunt van het domein. In de gegevens van de JSON-gebeurtenis geeft u het onderwerp dat u wilt dat de gebeurtenissen om naar te gaan. De volgende reeks gebeurtenissen zou leiden tot gebeurtenis met `"id": "1111"` onderwerp `demotopic1` tijdens gebeurtenis met `"id": "2222"` worden verzonden naar onderwerp `demotopic2`:
 
 ```json
 [{
@@ -168,7 +168,15 @@ Publiceren van gebeurtenissen naar een domein is hetzelfde als [publiceren naar 
 }]
 ```
 
-Als u de sleutels voor een domein met Azure CLI, gebruikt u:
+Als u het eindpunt van het domein met Azure CLI, gebruikt
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+Als u de sleutels voor een domein, gebruikt u:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -176,7 +184,15 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-Gebruik voor PowerShell:
+Als u het eindpunt van het domein met PowerShell, gebruikt
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+Als u de sleutels voor een domein, gebruikt u:
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955127"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974434"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft diverse ingebouwde efficiëntie die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Initiële volledige back-ups wordt gewoonlijk grote hoeveelheden gegevens overdragen en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / plaatsvindt worden overgedragen. Door het proces van het offline-seeding, kunt Azure Backup gebruiken schijven voor de offline back-upgegevens uploaden naar Azure.
@@ -75,11 +75,11 @@ Deze sectie beschrijft de werkstroom voor offline back-ups, zodat uw gegevens ku
 
   De beschrijving van de invoer is als volgt:
 
-    * **Faseringslocatie**: de tijdelijke opslaglocatie waarop de eerste back-up is geschreven. Faseringslocatie mogelijk op een netwerkshare of een lokale computer. Als de computer kopiëren en de broncomputer verschillend zijn, wordt u aangeraden dat u het volledige netwerk-pad van de faseringslocatie opgeven.
-    * **Azure Resource Manager-Storage-account**: de naam van het Resource Manager type opslagaccount dat in elk Azure-abonnement.
-    * **Azure Storage-Container**: de naam van de bestemmings-blob-opslag in de Azure Storage-account waarin de back-upgegevens wordt geïmporteerd voordat ze worden gekopieerd naar de Recovery Services-kluis.
-    * **Azure-abonnements-ID**: de ID voor de Azure-abonnement waarin de Azure Storage-account is gemaakt.
-    * **Azure Import-taaknaam**: de unieke naam die Azure Import-service en Azure Backup de overdracht van gegevens die worden verzonden op schijven naar Azure bijhouden. 
+    * **Faseringslocatie**: De tijdelijke opslaglocatie waarop de eerste back-up is geschreven. Faseringslocatie mogelijk op een netwerkshare of een lokale computer. Als de computer kopiëren en de broncomputer verschillend zijn, wordt u aangeraden dat u het volledige netwerk-pad van de faseringslocatie opgeven.
+    * **Azure Resource Manager-Opslagaccount**: De naam van het Resource Manager type opslagaccount dat in elk Azure-abonnement.
+    * **Azure-Opslagcontainer**: De naam van de bestemmings-blob-opslag in de Azure Storage-account waarin de back-upgegevens wordt geïmporteerd voordat ze worden gekopieerd naar de Recovery Services-kluis.
+    * **Azure-abonnement-ID**: De ID voor de Azure-abonnement waarin de Azure Storage-account is gemaakt.
+    * **Azure Import-taaknaam**: De unieke naam die Azure Import-service en Azure Backup de overdracht van gegevens die worden verzonden op schijven naar Azure bijhouden. 
   
   Geef de invoer op het scherm en klik op **volgende**. De opgegeven opslaan *faseringslocatie* en de *Azure Import-taaknaam*, zoals deze informatie vereist voor het voorbereiden van de schijven is.
 
@@ -119,7 +119,7 @@ De *AzureOfflineBackupDiskPrep* hulpprogramma bereidt de SATA-schijven die worde
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | Parameter | Beschrijving |
+    | Parameter | Description |
     | --- | --- |
     | s:&lt;*pad naar de locatie van de fasering*&gt; |Verplichte invoer gebruikt voor het pad naar de faseringslocatie die u hebt ingevoerd in de **start offline back-up** werkstroom. |
     | p:&lt;*pad naar PublishSettingsFile*&gt; |Optionele invoer die wordt gebruikt voor het pad naar de **Azure Publish Settings** -bestand dat u hebt ingevoerd in de **start offline back-up** werkstroom. |

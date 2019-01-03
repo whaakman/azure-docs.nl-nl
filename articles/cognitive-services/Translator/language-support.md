@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0b1187083c14fc7c536f6a32f3a41957f53f299b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3d25cfd39b4b4278fedf33e042d394208fd5eafc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679712"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713176"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
@@ -28,10 +28,10 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 > [!NOTE]
 > V2 op 30 April 2018 is afgeschaft en zal worden buiten gebruik gesteld op 30 April 2019.
 
-* Alleen statistisch: Er is geen neurale systeem is beschikbaar voor deze taal.
-* Neurale beschikbaar: een neurale systeem beschikbaar is. Gebruik de parameter `category=generalnn` toegang tot het neurale systeem.
+* Statistisch: Er is geen neurale system is beschikbaar voor deze taal.
+* Neurale beschikbaar: Er is een neurale systeem beschikbaar. Gebruik de parameter `category=generalnn` toegang tot het neurale systeem.
 * Neurale standaard: Neurale is de vertaling van het systeem. Gebruik de parameter `category=smt` voor toegang tot de statistische systeem voor gebruik met de Microsoft Translator-Hub.
-* Alleen Neurale: slechts neurale vertalingen beschikbaar is.
+* Neurale alleen: Alleen neurale vertalingen is beschikbaar.
 
 **V3-API van Translator** de Translator-API V3 is standaard neurale en statistische systemen zijn alleen beschikbaar wanneer geen neurale systeem bestaat. Aangepaste Translator kan alleen worden gebruikt met neurale talen. 
 
@@ -39,9 +39,8 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 |:-----|:-----:|:-----|:-----|
 |Afrikaans| `af`    |Alleen statistisch|  Neurale|
 |Arabisch|    `ar`    |Neurale beschikbaar|  Neurale|
-|Arabisch, Levantine| `apc`   |Neurale beschikbaar|  Neurale|
 |Bengalees|    `bn`    |Neurale beschikbaar|  Neurale|
-|Bosnisch (Latijns)|   `bs`    |Alleen statistisch|  Statistische|
+|Bosnisch (Latijns)|   `bs`    |Neurale beschikbaar|  Neurale|
 |Bulgaars| `bg`    |Neurale beschikbaar|  Neurale|
 |Kantonees (Traditioneel)|   `yue`   |Alleen statistisch|  Statistische|
 |Catalaans|   `ca`    |Alleen statistisch|  Statistische|
@@ -109,26 +108,26 @@ De methode Transliterate ondersteunt de volgende talen. In de 'naar/van", '<>--'
 
 | Taal    | Taalcode | Script | Aan/uit | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Arabisch | ar | Arabisch | <--> | Latijns |
-|Bengalees  | bn | Bengaals | <--> | Latijns |
-| Chinees (vereenvoudigd) | zh-Hans | Vereenvoudigd Chinees | <--> | Latijns |
-| Chinees (vereenvoudigd) | zh-Hans | Vereenvoudigd Chinees | <--> | Traditioneel Chinees |
-| Chinees (traditioneel) | zh-Hant | Traditioneel Chinees | <--> | Latijns |
-| Chinees (traditioneel) | zh-Hant | Traditioneel Chinees | <--> | Vereenvoudigd Chinees |
-| Gujarati | Gu  | Gujarati | --> | Latijns |
-| Hebreeuws | hij | Hebreeuws | <--> | Latijns |
-| Hindi | Hallo | Devanagari | <--> | Latijns |
-| Japans | ja | Japans | <--> | Latijns |
-| Kanarees | kN | Kanarees | --> | Latijns |
-| Malayalam | ml | Malayalam | --> | Latijns |
-| Mahratti | MR | Devanagari | --> | Latijns |
-| Odia | of | Odia | <--> | Latijns |
-| Punjabi | Pa | Gurmukhi | <--> | Latijns  |
-| Servisch (Cyrillisch) | SR-Cyrl | Cyrillisch  | --> | Latijns |
-| Servisch (Latijns) | SR-Latn | Latijns | --> | Cyrillisch |
-| Tamil | TA | Tamil | --> | Latijns |
-| Telugu | Ken | Telugu | --> | Latijns |
-| Thais | e | Thais | <--> | Latijns |
+| Arabisch | `ar` | Arabisch `Arab` | <--> | Latijns `Latn` |
+|Bengalees  | `bn` | Bengaals `Beng` | <--> | Latijns `Latn` |
+| Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees `Hans`| <--> | Latijns `Latn` |
+| Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees `Hans`| <--> | Traditioneel Chinees `Hant`|
+| Chinees (traditioneel) | `zh-Hant` | Traditioneel Chinees `Hant`| <--> | Latijns `Latn` |
+| Chinees (traditioneel) | `zh-Hant` | Traditioneel Chinees `Hant`| <--> | Vereenvoudigd Chinees `Hans` |
+| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latijns `Latn` |
+| Hebreeuws | `he` | Hebreeuws `Hebr` | <--> | Latijns `Latn` |
+| Hindi | `hi` | Devanagari `Deva` | <--> | Latijns `Latn` |
+| Japans | `ja` | Japans `Jpan` | <--> | Latijns `Latn` |
+| Kanarees | `kn` | Kannada `Knda` | --> | Latijns `Latn` |
+| Malayalam | `ml` | Malajalam `Mlym` | --> | Latijns `Latn` |
+| Mahratti | `mr` | Devanagari `Deva` | --> | Latijns `Latn` |
+| Odia | `or` | Odia `Orya` | <--> | Latijns `Latn` |
+| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latijns `Latn`  |
+| Servisch (Cyrillisch) | `sr-Cyrl` | Cyrillisch `Cyrl`  | --> | Latijns `Latn` |
+| Servisch (Latijns) | `sr-Latn` | Latijns `Latn` | --> | Cyrillisch `Cyrl`|
+| Tamil | `ta` | Tamil `Taml` | --> | Latijns `Latn` |
+| Telugu | `te` | Telugu `Telu` | --> | Latijns `Latn` |
+| Thais | `th` | Thais `Thai` | <--> | Latijns `Latn` |
 
 ## <a name="dictionary"></a>Woordenlijst
 
@@ -187,9 +186,9 @@ De woordenlijst ondersteunt de volgende talen naar of van Engels met behulp van 
 | Vietnamees      | `vi`          |
 | Welsh      | `cy`          |
 
-## <a name="languages-detected-by-the-detect-method"></a>Talen die zijn gedetecteerd door de analyse-methode
+## <a name="detect"></a>Detecteren
 
-De volgende talen kunnen worden gedetecteerd door de analyse-methode. Detecteren van mei detecteren van talen die Microsoft Translator kan niet worden geconverteerd.
+De volgende talen worden ondersteund door de analyse-methode. Detecteren van mei identificeren van de talen die de Microsoft Translator-kan niet worden geconverteerd.
 
 | Taal    |
 |:----------- |
@@ -261,11 +260,55 @@ De volgende talen kunnen worden gedetecteerd door de analyse-methode. Detecteren
 | Welsh |
 | Jiddisch |
 
-## <a name="access-the-list-programmatically"></a>Via een programma toegang krijgen tot de lijst
+## <a name="access-the-translator-text-api-language-list-programmatically"></a>Via een programma toegang krijgen tot de lijst van de taal Translator Text-API
 
-U kunt toegang tot de lijst met ondersteunde talen programmatisch met behulp van de werking van de talen van de V3.0 Text-API. U kunt de lijst met door de functie, taal, evenals de naam van de taal weergeven in het Engels of een andere ondersteunde taal. Deze lijst wordt automatisch bijgewerkt door de service Microsoft Translator zodra nieuwe talen beschikbaar.
+U kunt een lijst met ondersteunde talen voor de Translator Text-API-v3.0 met behulp van de methode talen ophalen. U kunt de lijst met door de functie, taal, evenals de naam van de taal weergeven in het Engels of een andere ondersteunde taal. Deze lijst wordt automatisch bijgewerkt door de Microsoft Translator-service wanneer nieuwe talen beschikbaar worden gesteld.
 
 [Bekijk de naslagdocumentatie van talen bewerking](reference/v3-0-languages.md)
+
+## <a name="customization"></a>Aanpassing
+
+De volgende talen zijn beschikbaar voor het gebruik van de aanpassing [aangepaste Translator](http://aka.ms/CustomTranslator).
+
+| Taal    | Taalcode |
+|:----------- |:-------------:|
+| Arabisch       | `ar`          |
+| Bengalees      | `bn`          |
+| Bosnisch (Latijns)      | `bs`          |
+| Bulgaars      | `bg`          |
+| Vereenvoudigd Chinees      | `zh-Hans`          |
+| Kroatisch      | `hr`          |
+| Tsjechisch      | `cs`          |
+| Deens      | `da`          |
+| Nederlands      | `nl`          |
+| Nederlands    | `en`     |
+| Estisch      | `et`          |
+| Fins      | `fi`          |
+| Frans      | `fr`          |
+| Duits      | `de`          |
+| Grieks      | `el`          |
+| Hebreeuws      | `he`          |
+| Hindi      | `hi`          |
+| Hongaars      | `hu`          |
+| Italiaans      | `it`          |
+| Japans      | `ja`          |
+| Koreaans      | `ko`          |
+| Lets      | `lv`          |
+| Litouws      | `lt`          |
+| Noors      | `nb`          |
+| Pools      | `pl`          |
+| Portugees      | `pt`          |
+| Roemeens      | `ro`          |
+| Russisch      | `ru`          |
+| Servisch (Latijns)      | `sr-Latn`          |
+| Slowaaks     | `sk`          |
+| Sloveens      | `sl`          |
+| Spaans      | `es`          |
+| Zweeds      | `sv`          |
+| Thais      | `th`          |
+| Turks      | `tr`          |
+| Oekraïens      | `uk`          |
+| Vietnamees      | `vi`          |
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Toegang tot de lijst op de website van Microsoft Translator
 

@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496868"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631818"
 ---
 # <a name="scp-programming-guide"></a>SCP-programmeergids
-SCP is een platform voor het bouwen van realtime, betrouwbare en consistente en hoogwaardige gegevensverwerking toepassing. Het is gebouwd boven [Apache Storm](http://storm.incubator.apache.org/) --een verwerkingssysteem die is ontworpen door de OSS-community's. Storm is ontworpen door Nathan Marz en is open source op Twitter. Hierbij wordt gebruikgemaakt van [Apache ZooKeeper](http://zookeeper.apache.org/), een ander Apache-project om in te schakelen zeer betrouwbare gedistribueerd beheer coördinatie en status. 
+SCP is een platform voor het bouwen van realtime, betrouwbare en consistente en hoogwaardige gegevensverwerking toepassing. Het is gebouwd boven [Apache Storm](https://storm.incubator.apache.org/) --een verwerkingssysteem die is ontworpen door de OSS-community's. Storm is ontworpen door Nathan Marz en is open source op Twitter. Hierbij wordt gebruikgemaakt van [Apache ZooKeeper](https://zookeeper.apache.org/), een ander Apache-project om in te schakelen zeer betrouwbare gedistribueerd beheer coördinatie en status. 
 
 Niet alleen het SCP-project overgezet Storm op Windows, maar ook het project toegevoegd extensies en aanpassingen voor het Windows-ecosysteem. De uitbreidingen bevatten ervaring voor .NET-ontwikkelaars en -bibliotheken, de aanpassing geldt ook voor implementatie op basis van Windows. 
 
@@ -317,7 +317,7 @@ In het algemeen kunnen de SCP-invoegtoepassingen in hier twee modi worden uitgev
             void WriteMsgQueueToFile(string filepath, bool append = false);  
             void ReadFromFileToMsgQueue(string filepath);                    
         }
-2. Normale modus: In deze modus wordt de SCP-invoegtoepassingen zijn gestart door storm java-proces.
+2. Normale modus: In deze modus wordt worden de SCP-invoegtoepassingen gestart door storm java-proces.
    
     Hier volgt een voorbeeld van het SCP-invoegtoepassing starten:
    
@@ -346,7 +346,7 @@ In het algemeen kunnen de SCP-invoegtoepassingen in hier twee modi worden uitgev
         }
 
 ## <a name="topology-specification-language"></a>Topologie specificatietaal
-SCP-topologie-specificatie is een taal domeinspecifieke beschrijven en SCP-topologieën te configureren. Deze is gebaseerd op de Storm Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) en wordt uitgebreid door SCP.
+SCP-topologie-specificatie is een taal domeinspecifieke beschrijven en SCP-topologieën te configureren. Deze is gebaseerd op de Storm Clojure DSL (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) en wordt uitgebreid door SCP.
 
 Topologie specificaties kunnen worden verstuurd rechtstreeks naar de storm-cluster voor de uitvoering van via de ***runspec*** opdracht.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271382"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993057"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Woordgroep lijst met functies in uw LUIS-app
 
@@ -29,6 +29,10 @@ Een woordgroepenlijst bevat een reeks waarden (woorden of zinsdelen) die deel ui
 
 Een woordgroepenlijst wordt toegevoegd aan het vocabulaire van het domein van de app als een tweede signaal dat moet worden LUIS over deze woorden.
 
+## <a name="phrase-lists-help-all-models"></a>Woordgroep lijsten helpen alle modellen
+
+Woordgroep lijsten niet zijn gekoppeld aan een bepaald doel of de entiteit, maar als een boost worden toegevoegd aan alle modellen. Het doel hiervan is voor het verbeteren van intentie detectie en entiteit classificatie.
+
 ## <a name="how-to-use-phrase-lists"></a>Het gebruik van een lijst met woorden
 In de Human Resource-app [eenvoudige entiteit zelfstudie](luis-quickstart-primary-and-secondary-data.md), de app gebruikt een **taak** taaktypen zoals programmeur roofer en secretary woordgroepenlijst. Als u een van deze waarden als een entiteit hebt geleerd van een machine label, leren LUIS te herkennen de andere. 
 
@@ -40,6 +44,7 @@ Een woordgroepenlijst kan niet onderling verwisselbaar of niet-verwisselbaar. Ee
 |Niet-verwisselbaar|App vocabulaire, specifiek zijn voor uw app, meer, zodat er dan in het algemeen andere woorden in die taal.|
 
 Woordgroep bevat niet alleen hulp bij de detectie van de entiteit, maar ook intentie classificatie wanneer niet-verwisselbaar zinvol zoals het toevoegen van buiten het vocabulaire woorden die niet bekend zijn in het Engels.
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

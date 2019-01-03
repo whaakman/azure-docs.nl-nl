@@ -1,5 +1,5 @@
 ---
-Title: Synonyms for query expansion over a search index  - Azure Search
+title: Synoniemen voor de uitbreiding van de query via een search-index - Azure Search
 description: Maak een synoniemtoewijzing om uit te breiden het bereik van een zoekopdracht op een Azure Search-index. Bereik is vergroot zodat equivalente termen die u opgeeft in een lijst.
 author: brjohnstmsft
 services: search
@@ -10,12 +10,12 @@ ms.date: 04/20/2018
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: ce9eb8ed099a232128ba924da1466917df542fbb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cea95756f115e9efd6dc184fc85a0485ab49d1b9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315656"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634657"
 ---
 # <a name="synonyms-in-azure-search"></a>Synoniemen Azure Search
 

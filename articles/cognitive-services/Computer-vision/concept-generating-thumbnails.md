@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 371fa639b2edc300e44cc495393e89c9fce9c4bf
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966735"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580855"
 ---
-# <a name="generating-thumbnails"></a>Miniaturen genereren
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Genereren van miniaturen smart bijgesneden met Computer Vision
 
 Een miniatuur is een kleiner formaat weergave van een afbeelding. Miniaturen worden gebruikt om afbeeldingen en andere gegevens op een meer betaalbare en lay-out-vriendelijk manier vertegenwoordigen. De Computer Vision-API maakt gebruik van slim bijsnijden, samen met het formaat van de afbeelding, intuïtieve miniaturen voor een bepaalde installatiekopie maken.
 
@@ -42,9 +43,9 @@ De volgende tabel ziet u standaard miniatuurweergaven die worden gegenereerd doo
 
 | Installatiekopie | Miniatuur |
 |-------|-----------|
-|![Berglandschap](./Images/mountain_vista.png) | ![Buitengebruik Mountain miniatuur](./Images/mountain_vista_thumbnail.png) |
-|![Vision-analyse Bloem](./Images/flower.png) | ![Vision analyseren bloem miniatuur](./Images/flower_thumbnail.png) |
-|![Vrouw op dak](./Images/woman_roof.png) | ![Vrouw plafond miniatuur](./Images/woman_roof_thumbnail.png) |
+|![Een persoon die permanent op een rock mountain zonsondergang](./Images/mountain_vista.png) | ![Buitengebruik Mountain miniatuur](./Images/mountain_vista_thumbnail.png) |
+|![Een wit bloem met een groene achtergrond](./Images/flower.png) | ![Vision analyseren bloem miniatuur](./Images/flower_thumbnail.png) |
+|![Een vrouw die op het plafond van een gebouw apartment](./Images/woman_roof.png) | ![Vrouw plafond miniatuur](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Volgende stappen
 

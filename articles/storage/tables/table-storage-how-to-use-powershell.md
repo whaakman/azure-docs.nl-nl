@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: rogarana
 ms.component: cosmosdb-table
-ms.openlocfilehash: 219b5aa3c1f280ce02d2579f3fe2cc7ca7da490d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9aa3431e91196d7c33582d17494ddf0c32fba704
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125782"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634470"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure Table storage bewerkingen uitvoeren met Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,7 +32,9 @@ In dit artikel bevat informatie over algemene Azure Table storage-bewerkingen. I
 
 In dit artikel laat zien hoe een nieuw Azure Storage-account maken in een nieuwe resourcegroep, zodat u het gemakkelijk kunt verwijderen wanneer u klaar bent. Als u in plaats van een bestaand opslagaccount gebruikt, kunt u dat in plaats daarvan doen.
 
-De voorbeelden moet Azure PowerShell-moduleversie 4.4.0 of hoger. Voer in een PowerShell-venster `Get-Module -ListAvailable AzureRM` de versie te vinden. Als er niets wordt weergegeven, of u wilt upgraden, Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
+De voorbeelden moet Azure PowerShell-module `AzureRM` versie 4.4.0 of hoger. Voer in een PowerShell-venster `Get-Module -ListAvailable AzureRM` de versie te vinden. Als er niets wordt weergegeven, of u wilt upgraden, Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 Nadat Azure PowerShell is geïnstalleerd of bijgewerkt, moet u de module installeren **AzureRmStorageTable**, heeft de opdrachten voor het beheren van de entiteiten. Voor het installeren van deze module PowerShell ook uitvoeren als beheerder en gebruik de **Install-Module** opdracht.
 

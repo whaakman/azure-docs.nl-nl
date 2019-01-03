@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840202"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723668"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight-hulpprogramma's voor Visual Studio Code gebruiken
 
@@ -30,7 +30,7 @@ De volgende items zijn vereist voor de stappen in dit artikel:
 
 - Een HDInsight-cluster. Zie voor het maken van een cluster, [aan de slag met HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
-- [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono is alleen vereist voor Linux en macOS.
+- [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono is alleen vereist voor Linux en macOS.
 
 ## <a name="install-the-hdinsight-tools"></a>De HDInsight-hulpprogramma's installeren
    
@@ -72,7 +72,7 @@ Voordat u scripts naar HDInsight-clusters van VS Code verzendt kunt, moet u verb
 
 1. Maak een nieuwe werkmap en een nieuw scriptbestand als u ze nog niet hebt.
 
-2. Met de rechtermuisknop op de script-editor, en selecteer vervolgens in het contextmenu **HDInsight: aanmelding**. U kunt ook opgeven **Ctrl + Shift + P**, en voer vervolgens **HDInsight: aanmelding**.
+2. Met de rechtermuisknop op de script-editor, en selecteer vervolgens in het contextmenu **HDInsight: Aanmelding**. U kunt ook opgeven **Ctrl + Shift + P**, en voer vervolgens **HDInsight: Aanmelding**.
 
     ![HDInsight Tools voor Visual Studio Code-aanmelding](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -87,7 +87,7 @@ Voordat u scripts naar HDInsight-clusters van VS Code verzendt kunt, moet u verb
 
     Nadat u verbonden bent, wordt de naam van uw Azure-account wordt weergegeven op de statusbalk linksonder in het venster VS Code. 
 
-    > [!NOTE]
+    > [!NOTE]  
     > Vanwege een verificatieprobleem met bekende Azure-moet u een browser openen in de persoonlijke modus of incognito-modus. Als uw Azure-account twee factoren ingeschakeld heeft, wordt u aangeraden telefonische verificatie gebruiken in plaats van PINCODE-authenticatie.
   
 
@@ -105,7 +105,7 @@ Voordat u scripts naar HDInsight-clusters van VS Code verzendt kunt, moet u verb
 <h3 id="linkcluster">Om te koppelen van een cluster</h3>
 
 U kunt een normale cluster koppelen met behulp van een [Apache Ambari](https://ambari.apache.org/) beheerd gebruikersnaam of het koppelen van een onderneming beveiliging Pack beveiligde Hadoop-cluster met behulp van een domein-gebruikersnaam (bijvoorbeeld: user1@contoso.com).
-1. Open het opdrachtenpalet door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: koppeling van een Cluster**.
+1. Open het opdrachtenpalet door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: Koppeling van een Cluster**.
 
    ![de opdracht cluster koppelen](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -113,19 +113,19 @@ U kunt een normale cluster koppelen met behulp van een [Apache Ambari](https://a
    
    ![dialoogvenster van de cluster koppelen](./media/hdinsight-for-vscode/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > De gekoppelde gebruikersnaam en wachtwoord worden gebruikt als het cluster zowel geregistreerd in Azure-abonnement en een cluster is gekoppeld. 
    
 3. Ziet u een gekoppelde cluster met behulp van de opdracht **lijst Cluster**. U kunt nu een script voor dit cluster gekoppelde indienen.
 
    ![gekoppelde cluster](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. U kunt een cluster ook ontkoppelen door invoeren **HDInsight: ontkoppelen van een Cluster** van opdrachtenpalet.
+4. U kunt een cluster ook ontkoppelen door invoeren **HDInsight: Ontkoppelen van een Cluster** van opdrachtenpalet.
 
 
 ### <a name="to-link-a-generic-apache-livy-endpoint"></a>Om te koppelen van een algemene Apache Livy-eindpunt
 
-1. Open het opdrachtenpalet door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: koppeling van een Cluster**.
+1. Open het opdrachtenpalet door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: Koppeling van een Cluster**.
 2. Selecteer **algemene Livy eindpunt**.
 3. Voer het algemene Livy-eindpunt, bijvoorbeeld: http://10.172.41.42:18080.
 4. Selecteer **Basic** wanneer nodig autorisatie voor de algemene Livy eindpunt anders selecteert **geen**.
@@ -142,7 +142,7 @@ Als u wilt testen van de verbinding, kunt u uw HDInsight-clusters vermelden:
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>Voor HDInsight-clusters groeperen onder uw Azure-abonnement
 1. Een werkruimte opent, en maak verbinding met Azure. Zie voor meer informatie, [Open HDInsight-werkruimte](#open-hdinsight-workspace) en [verbinding maken met Azure](#connect-to-hdinsight-cluster).
 
-2. Met de rechtermuisknop op de script-editor, en selecteer vervolgens **HDInsight: lijst met Cluster** in het contextmenu. 
+2. Klik met de rechtermuisknop op de scripteditor en selecteer vervolgens **HDInsight: Overzicht van Cluster** in het contextmenu. 
 
 3. De HDInsight-clusters worden weergegeven in de **uitvoer** deelvenster.
 
@@ -151,7 +151,7 @@ Als u wilt testen van de verbinding, kunt u uw HDInsight-clusters vermelden:
 ## <a name="set-a-default-cluster"></a>Een standaardcluster instellen
 1. Een werkruimte opent en verbinding maken met Azure. Zie [Open HDInsight-werkruimte](#open-hdinsight-workspace) en [verbinding maken met Azure](#connect-to-hdinsight-cluster).
 
-2. Met de rechtermuisknop op de script-editor, en selecteer vervolgens **HDInsight: standaard Cluster instellen**. 
+2. Klik met de rechtermuisknop op de scripteditor en selecteer vervolgens **HDInsight: Instellen van de standaardcluster**. 
 
 3. Selecteer een cluster als het standaardcluster voor het huidige scriptbestand. De hulpprogramma's voor het configuratiebestand voor het automatisch bijwerken **. VSCode\settings.json**. 
 
@@ -181,15 +181,15 @@ Met HDInsight Tools voor VS Code, kunt u interactieve Hive-query's, Hive batchsc
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. Met de rechtermuisknop op de script-editor, selecteert u **HDInsight: interactieve Hive** om de query verzenden, of gebruik snelkoppeling **Ctrl + Alt + I**. Selecteer **HDInsight: Batch Hive** verzend het script of er snelkoppeling **Ctrl + Alt + H**. 
+4. Met de rechtermuisknop op de script-editor, selecteert u **HDInsight: Interactive hive** om de query verzenden, of gebruik snelkoppeling **Ctrl + Alt + I**. Selecteer **HDInsight: Hive-Batch** verzend het script of er snelkoppeling **Ctrl + Alt + H**. 
 
 5. Als u een standaardcluster hebt opgegeven, selecteert u het cluster. Met de hulpprogramma’s kunt u ook een codeblok verzenden in plaats van het hele scriptbestand, met behulp van het contextmenu. Na enkele ogenblikken worden de queryresultaten weergegeven in een nieuw tabblad.
 
    ![Resultaten van interactieve Hive-query’s](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
-    - Paneel **RESULTATEN**: u kunt het hele resultaat op een lokaal pad opslaan als een CSV-, JSON- of Excel-bestand, of gewoon meerdere regels selecteren.
+    - Deelvenster **RESULTATEN**: U kunt het hele resultaat op een lokaal pad opslaan als een CSV-, JSON- of Excel-bestand, of gewoon meerdere regels selecteren.
 
-    - Paneel **BERICHTEN**: wanneer u **Regelnummer** selecteert, gaat u naar de eerste regel van het actieve script.
+    - Deelvenster **BERICHTEN**: Wanneer u **Regelnummer** selecteert, gaat u naar de eerste regel van het actieve script.
 
 ## <a name="submit-interactive-pyspark-queries"></a>Interactieve PySpark-query's verzenden
 
@@ -213,7 +213,7 @@ Met HDInsight Tools voor VS Code, kunt u interactieve Hive-query's, Hive batchsc
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Markeer dit script. Klik met de rechtermuisknop op de script-editor en selecteer **HDInsight: interactieve PySpark**, of gebruikt u snelkoppeling **Ctrl + Alt + I**.
+4. Markeer dit script. Klik met de rechtermuisknop op de script-editor en selecteer **HDInsight: Interactieve PySpark**, of gebruikt u snelkoppeling **Ctrl + Alt + I**.
 
 5. Als u dit nog niet hebt geïnstalleerd het **Python** extensie in de VS Code, selecteer de **installeren** knop zoals wordt weergegeven in de volgende afbeelding:
 
@@ -231,7 +231,7 @@ Met HDInsight Tools voor VS Code, kunt u interactieve Hive-query's, Hive batchsc
 
    ![Python resultaat taak indienen](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) de verzending van de status wordt weergegeven aan de linkerkant van de status van de onderste balk wanneer u query's uitvoert. Geen andere query's verzenden wanneer de status **PySpark-Kernel (bezet)**. 
 
->[!NOTE]
+>[!NOTE]  
 >De clusters kunnen sessiegegevens onderhouden. De gedefinieerde variabele, de functie en de bijbehorende waarden worden bewaard in de sessie, zodat ze kunnen worden verwezen door meerdere serviceaanroepen voor hetzelfde cluster. 
 
 ### <a name="to-disable-environment-check"></a>Aan de omgeving controle uitschakelen
@@ -288,7 +288,7 @@ Volg de stappen voor het gebruik van Python2.x:
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. Met de rechtermuisknop op de script-editor, en selecteer vervolgens **HDInsight: PySpark Batch**, of gebruikt u snelkoppeling **Ctrl + Alt + H**. 
+4. Klik met de rechtermuisknop op de scripteditor en selecteer vervolgens **HDInsight: PySpark Batch**, of gebruikt u snelkoppeling **Ctrl + Alt + H**. 
 
 5. Selecteer een cluster waarop om de PySpark-taak te verzenden. 
 
@@ -321,20 +321,20 @@ U kunt ook een bestand verzenden, wordt u ziet dat de map .vscode automatisch to
     | naam | description | type | 
     | :- | :- | :- | 
     | bestand | Bestand met de toepassing uit te voeren | pad (vereist) | 
-    | proxyUser | Gebruiker imiteren bij het uitvoeren van de taak | tekenreeks | 
-    | Klassenaam | Toepassing Java/Spark-hoofdklasse | tekenreeks |
+    | proxyUser | Gebruiker imiteren bij het uitvoeren van de taak | string | 
+    | Klassenaam | Toepassing Java/Spark-hoofdklasse | string |
     | argumenten | Opdrachtregelargumenten voor de toepassing | lijst met tekenreeksen | 
     | JAR-bestanden | JAR-bestanden moet worden gebruikt in deze sessie | Lijst met tekenreeksen | 
     | pyFiles | Python-bestanden moet worden gebruikt in deze sessie | Lijst met tekenreeksen |
     | bestanden weergeven | bestanden in deze sessie moet worden gebruikt | Lijst met tekenreeksen |
-    | driverMemory | Hoeveelheid geheugen die moet worden gebruikt voor het stuurprogramma-proces | tekenreeks |
+    | driverMemory | Hoeveelheid geheugen die moet worden gebruikt voor het stuurprogramma-proces | string |
     | driverCores | Aantal kernen moet worden gebruikt voor het stuurprogramma-proces | int |
-    | executorMemory | Hoeveelheid geheugen per executorproces gebruiken | tekenreeks |
+    | executorMemory | Hoeveelheid geheugen per executorproces gebruiken | string |
     | executorCores | Aantal kernen moet worden gebruikt voor elke executor | int |
     | numExecutors | Aantal Executor voor deze sessie starten | int |
     | archiefbestanden | Archief moet worden gebruikt in deze sessie | Lijst met tekenreeksen |
-    | wachtrij | De naam van de YARN-wachtrij waarnaar verzonden | tekenreeks |
-    | naam | De naam van deze sessie | tekenreeks |
+    | wachtrij | De naam van de YARN-wachtrij waarnaar verzonden | string |
+    | naam | De naam van deze sessie | string |
     | conf | Spark-configuratie-eigenschappen | Kaart van sleutel = val |
 
     Hoofdtekst van de reactie   
@@ -346,7 +346,7 @@ U kunt ook een bestand verzenden, wordt u ziet dat de map .vscode automatisch to
     | appId | De toepassings-id van deze sessie |  Reeks |
     | appInfo | De gedetailleerde toepassingsinfo | Kaart van sleutel = val |
     | logboek | De regels van het logboek | lijst met tekenreeksen |
-    | state |   De batch-status | tekenreeks |
+    | state |   De batch-status | string |
 
 >[!NOTE]
 >De configuratie van de toegewezen livy in het deelvenster Uitvoer wordt weergegeven wanneer het script indienen.
@@ -406,9 +406,9 @@ HDInsight voor Visual Studio Code ondersteunt de volgende functies:
 * [Apache Zeppelin Apache Hive-query's uitvoeren in Azure HDInsight gebruiken ](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>Maken en uitvoeren van toepassingen

@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: aef706d18d558f5fe321735c7f93361a5ef50606
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 0723d0e2a60c0f43633e5e5ca771ccfe88d2db68
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139577"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808057"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Maak een virtuele machine en installeert u een certificaat dat is opgehaald uit een Azure Stack-sleutelkluis
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Informatie over het maken van een Azure Stack-virtuele machine (VM) met een key vault-certificaat dat is geïnstalleerd.
 
@@ -37,11 +37,11 @@ Certificaten worden gebruikt in veel scenario's, zoals verificatie bij Active Di
 
 ### <a name="process-description"></a>Beschrijving van proces
 
-De volgende stappen beschrijven het proces dat is vereist om een certificaat op de virtuele machine:
+De volgende stappen beschrijven het proces dat is vereist om een certificaat aan de virtuele machine:
 
 1. Maak een Key Vault geheim.
 2. Het bestand azuredeploy.parameters.json bijwerken.
-3. De sjabloon implementeren
+3. Implementeer de sjabloon.
 
 > [!NOTE]
 > U kunt deze stappen van de Azure Stack Development Kit, of van een externe client gebruiken als u via VPN-verbinding verbonden bent.
@@ -49,8 +49,8 @@ De volgende stappen beschrijven het proces dat is vereist om een certificaat op 
 ## <a name="prerequisites"></a>Vereisten
 
 * U moet zich abonneren op een aanbieding met de service Key Vault.
-* [Installeer PowerShell voor Azure Stack.](azure-stack-powershell-install.md)
-* [PowerShell-omgeving van de Azure Stack-gebruiker configureren](azure-stack-powershell-configure-user.md)
+* [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
+* [PowerShell-omgeving van de Azure Stack-gebruiker configureren](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-key-vault-secret"></a>Maak een Key Vault secret
 
@@ -60,7 +60,6 @@ Het volgende script maakt een certificaat in het PFX-indeling, maakt u een key v
 > Moet u de `-EnabledForDeployment` parameter bij het maken van de key vault. Deze parameter zorgt ervoor dat de key vault kan worden verwezen vanuit Azure Resource Manager-sjablonen.
 
 ```powershell
-
 # Create a certificate in the .pfx format
 New-SelfSignedCertificate `
   -certstorelocation cert:\LocalMachine\My `
@@ -117,16 +116,15 @@ Set-AzureKeyVaultSecret `
   -VaultName $vaultName `
   -Name $secretName `
    -SecretValue $secret
-
 ```
 
-Wanneer u het vorige script uitvoert, wordt in de uitvoer de geheime URI bevat. Maak een notitie van deze URI. U moet verwijzen naar deze in de [Push-certificaat naar Windows Resource Manager-sjabloon](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Download de [vm-push-certificaat-windows-sjabloon](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) map op uw ontwikkelcomputer. Deze map bevat de `azuredeploy.json` en `azuredeploy.parameters.json` bestanden, die u in de volgende stappen.
+Wanneer u het vorige script uitvoert, wordt in de uitvoer de geheime URI bevat. Maak een notitie van deze URI. U moet verwijzen naar deze in de [Push-certificaat naar Windows Resource Manager-sjabloon](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Download de [vm-push-certificaat-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) sjabloonmap op uw computer. Deze map bevat de `azuredeploy.json` en `azuredeploy.parameters.json` bestanden, die u in de volgende stappen.
 
-Wijzig de `azuredeploy.parameters.json` bestand op basis van de omgevingswaarden van uw. De parameters van speciaal belang zijn de naam van de kluis, de resourcegroep van de kluis en de geheime URI (zoals die worden gegenereerd door het vorige script). Het volgende bestand is een voorbeeld van een parameterbestand:
+Wijzig de `azuredeploy.parameters.json` bestand op basis van de omgevingswaarden van uw. De parameters van speciaal belang zijn de naam van de kluis, de resourcegroep van de kluis en de geheime URI (zoals die worden gegenereerd door het vorige script). De volgende sectie ziet u een voorbeeld van een parameterbestand.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Het bestand azuredeploy.parameters.json bijwerken
 
-Het bestand azuredeploy.parameters.json bijwerken met de vaultName, geheime URI, VmName en andere waarden aan de hand van uw omgeving. De volgende JSON-bestand toont een voorbeeld van het bestand met sjabloonparameters:
+Update de `azuredeploy.parameters.json` bestand met de `vaultName`, geheime URI `VmName`, en andere waarden aan de hand van uw omgeving. De volgende JSON-bestand toont een voorbeeld van het bestand met sjabloonparameters:
 
 ```json
 {
@@ -178,10 +176,10 @@ Wanneer de sjabloon is geïmplementeerd, resulteert dit in de volgende uitvoer:
 
 ![Implementatieresultaten van sjabloon](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-Azure Stack pushes het certificaat op de virtuele machine tijdens de implementatie. Locatie van het certificaat is afhankelijk van het besturingssysteem van de virtuele machine:
+Azure Stack pushes het certificaat aan de virtuele machine tijdens de implementatie. De certificaatlocatie is afhankelijk van het besturingssysteem van de virtuele machine:
 
-* Het certificaat is toegevoegd in Windows, naar de locatie van het certificaat LocalMachine /, met het certificaatarchief op die de gebruiker opgegeven.
-* Het certificaat is in Linux, geplaatst in de map /var/lib/waagent met de naam van het &lt;UppercaseThumbprint&gt;.crt voor de X509 certificaatbestand en &lt;UppercaseThumbprint&gt;.prv voor de persoonlijke sleutel .
+* In Windows, het certificaat is toegevoegd aan de **LocalMachine /** locatie van het certificaatarchief op die de gebruiker opgegeven certificaat.
+* Het certificaat is in Linux, geplaatst onder de `/var/lib/waagent directory`, met de naam van het &lt;UppercaseThumbprint&gt;.crt voor de X509 certificaatbestand en &lt;UppercaseThumbprint&gt;.prv voor de persoonlijke sleutel.
 
 ## <a name="retire-certificates"></a>Certificaten buiten gebruik stellen
 

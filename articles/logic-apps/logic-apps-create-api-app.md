@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233511"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600712"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Aangepaste API's die u vanuit Azure Logic Apps aanroepen kunt maken
 
@@ -25,11 +25,11 @@ Hoewel Azure Logic Apps biedt [meer dan 100 ingebouwde connectors](../connectors
 * Help klanten uw service gebruiken voor het beheren van professionele of persoonlijke taken.
 * Vouw in het bereik, zichtbaarheid en gebruik voor uw service.
 
-In principe zijn connectors web-API's die gebruikmaken van REST voor pluggable interfaces [Swagger-metagegevensindeling](http://swagger.io/specification/) voor documentatie en JSON als de exchange-indeling van gegevens. Omdat de connectors zijn REST-API's die via HTTP-eindpunten communiceren, kunt u elke taal, zoals .NET, Java of Node.js, gebruiken voor het bouwen van connectors. U kunt ook uw API's hosten op [Azure App Service](../app-service/app-service-web-overview.md), een platform-as-a-service (PaaS) dat een van de beste, eenvoudigste en meest schaalbare manier biedt voor het hosten van de API. 
+In principe zijn connectors web-API's die gebruikmaken van REST voor pluggable interfaces [Swagger-metagegevensindeling](http://swagger.io/specification/) voor documentatie en JSON als de exchange-indeling van gegevens. Omdat de connectors zijn REST-API's die via HTTP-eindpunten communiceren, kunt u elke taal, zoals .NET, Java of Node.js, gebruiken voor het bouwen van connectors. U kunt ook uw API's hosten op [Azure App Service](../app-service/overview.md), een platform-as-a-service (PaaS) dat een van de beste, eenvoudigste en meest schaalbare manier biedt voor het hosten van de API. 
 
 Aangepaste API's om te werken met logic apps, uw API kan bieden [ *acties* ](./logic-apps-overview.md#logic-app-concepts) die specifieke taken uitvoeren in logic app workflows. Uw API kan ook fungeren als een [ *trigger* ](./logic-apps-overview.md#logic-app-concepts) die een werkstroom voor logische Apps begint wanneer er nieuwe gegevens of een gebeurtenis aan een opgegeven voorwaarde voldoet. Dit onderwerp worden algemene patronen die u volgen kunt voor het bouwen van acties en triggers in uw API, op basis van het gedrag op dat u wilt dat uw API te geven.
 
-U kunt uw API's hosten op [Azure App Service](../app-service/app-service-web-overview.md), een platform-as-a-serviceoplossing (PaaS) waarmee de uiterst schaalbare webhostingservice met eenvoudige API die als host fungeert.
+U kunt uw API's hosten op [Azure App Service](../app-service/overview.md), een platform-as-a-serviceoplossing (PaaS) waarmee de uiterst schaalbare webhostingservice met eenvoudige API die als host fungeert.
 
 > [!TIP] 
 > Hoewel u uw API's als web-apps implementeren kunt, kunt u uw API's implementeren als API-apps die u van uw werk gemakkelijker maken kunnen bij het maken, hosten en gebruikmaken van API's in de cloud en on-premises. U hoeft niet te wijzigen van de code in uw API's--alleen implementeert uw code in een API-app. Bijvoorbeeld informatie over het bouwen van API-apps die zijn gemaakt met de volgende talen: 
@@ -104,9 +104,9 @@ Dit zijn de specifieke stappen voor uw API te volgen, vanuit het perspectief van
    
    De `202 ACCEPTED` antwoord moet deze headers bevatten:
    
-   * *Vereiste*: A `location` -header die Hiermee geeft u het absolute pad naar een URL waar de Logic Apps-engine de status van uw API's kan controleren
+   * *Vereiste*: Een `location` -header die Hiermee geeft u het absolute pad naar een URL waar de Logic Apps-engine de status van uw API's kan controleren
 
-   * *Optionele*: A `retry-after` -header het aantal seconden dat de engine wachten geeft voordat het controleren van moet de `location` URL voor de status van taak. 
+   * *Optionele*: Een `retry-after` -header het aantal seconden dat de engine wachten geeft voordat het controleren van moet de `location` URL voor de status van taak. 
 
      De engine controleert standaard elke 20 seconden. Als u een ander interval, bevatten de `retry-after` header en het aantal seconden tot de volgende poll.
 
@@ -134,9 +134,9 @@ Wanneer de taak is voltooid, de API maakt gebruik van de URL op de hoogte stelle
 
 Voor dit patroon worden twee eindpunten instellen op uw domeincontroller: `subscribe` en `unsubscribe`
 
-*  `subscribe` eindpunt: wanneer de uitvoering van uw API-bewerking in de werkstroom is bereikt, de Logic Apps-engine aanroepen de `subscribe` eindpunt. Deze stap zorgt ervoor dat de logische app voor het maken van een URL voor terugbellen waarmee uw API worden opgeslagen en wacht totdat de callback van uw API wanneer werk voltooid is. Uw API en vervolgens weer-aanroepen met een HTTP POST naar de URL en wordt elke geretourneerde inhoud en -koppen doorgegeven als invoer voor de logische app.
+*  `subscribe` Eindpunt: Wanneer de uitvoering van uw API-bewerking in de werkstroom is bereikt, de Logic Apps-engine aanroepen de `subscribe` eindpunt. Deze stap zorgt ervoor dat de logische app voor het maken van een URL voor terugbellen waarmee uw API worden opgeslagen en wacht totdat de callback van uw API wanneer werk voltooid is. Uw API en vervolgens weer-aanroepen met een HTTP POST naar de URL en wordt elke geretourneerde inhoud en -koppen doorgegeven als invoer voor de logische app.
 
-* `unsubscribe` eindpunt: als de uitvoering van de logische app is geannuleerd, de Logic Apps-engine aanroepen de `unsubscribe` eindpunt. Uw API kan vervolgens de URL voor terugbellen voor de registratie ongedaan maken en beëindigen alle processen indien nodig.
+* `unsubscribe` Eindpunt: Als de uitvoering van de logische app is geannuleerd, de Logic Apps-engine aanroepen de `unsubscribe` eindpunt. Uw API kan vervolgens de URL voor terugbellen voor de registratie ongedaan maken en beëindigen alle processen indien nodig.
 
 ![Webhook actie patroon](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -196,9 +196,9 @@ Als u wilt regelmatig controleren op uw service voor nieuwe bestanden, kan u bij
 Een webhook-trigger is een *push-trigger* dat wordt gewacht en luistert naar nieuwe gegevens of gebeurtenissen op uw service-eindpunt. Als u voldoet aan de opgegeven voorwaarde nieuwe gegevens of een gebeurtenis, wordt de trigger wordt geactiveerd en maakt een logische app-exemplaar, die vervolgens de gegevens als invoer verwerkt.
 Webhook-triggers fungeren lijkt veel op de [webhookacties](#webhook-actions) eerder in dit onderwerp wordt beschreven, en zijn ingesteld met `subscribe` en `unsubscribe` eindpunten. 
 
-* `subscribe` eindpunt: wanneer u toevoegen en opslaan van een webhook-trigger in uw logische app, de Logic Apps-engine aanroepen de `subscribe` eindpunt. Deze stap zorgt ervoor dat de logische app te maken van een URL voor terugbellen waarmee uw API worden opgeslagen. Wanneer er nieuwe gegevens of een gebeurtenis die voldoet aan de opgegeven voorwaarde, uw API-aanroepen weer met een HTTP POST naar de URL. De nettolading van inhoud en -koppen doorgeven als invoer voor de logische app.
+* `subscribe` Eindpunt: Wanneer u toevoegen en opslaan van een webhook-trigger in uw logische app, de Logic Apps-engine aanroepen de `subscribe` eindpunt. Deze stap zorgt ervoor dat de logische app te maken van een URL voor terugbellen waarmee uw API worden opgeslagen. Wanneer er nieuwe gegevens of een gebeurtenis die voldoet aan de opgegeven voorwaarde, uw API-aanroepen weer met een HTTP POST naar de URL. De nettolading van inhoud en -koppen doorgeven als invoer voor de logische app.
 
-* `unsubscribe` eindpunt: als de webhook-trigger of een hele logische app wordt verwijderd, de Logic Apps-engine aanroepen de `unsubscribe` eindpunt. Uw API kan vervolgens de URL voor terugbellen voor de registratie ongedaan maken en beëindigen alle processen indien nodig.
+* `unsubscribe` Eindpunt: Als de webhook-trigger of een hele logische app wordt verwijderd, de Logic Apps-engine aanroepen de `unsubscribe` eindpunt. Uw API kan vervolgens de URL voor terugbellen voor de registratie ongedaan maken en beëindigen alle processen indien nodig.
 
 ![Webhook-trigger-patroon](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 

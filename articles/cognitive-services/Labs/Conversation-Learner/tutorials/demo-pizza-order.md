@@ -10,23 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e23ff60a0a2ea10ace09130ba115e72b4e1c9ad7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9b35c0fd412dd48137a3cb362f20fae067c80461
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249809"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792625"
 ---
 # <a name="demo-pizza-order"></a>Demo: Pizza volgorde
-Deze demonstratie ziet u een pizza bot bestellen. Het ondersteunt ordening van een enkele pizza met deze functionaliteit:
+Deze demonstratie ziet u een bot, één pizza bestellen door ondersteuning te bestellen pizza:
 
-- pizza toppings in gebruiker uitingen herkennen
-- controleren of pizza toppings op voorraad of niet verkrijgbaar zijn en het reageren op de juiste wijze
-- pizza toppings vanuit een eerdere bestelling onthouden en aanbieding op - een nieuwe bestelling beginnen met de dezelfde toppings
+- pizza toppings van gebruiker uitingen herkennen
+- toppings inventaris beheren en erop reageren op de juiste wijze
+- Vorige bestellingen onthouden en sneller opnieuw ordenen van een identieke pizza
 
 ## <a name="video"></a>Video
 
-[![Demo Pizza-Preview](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
+[![Demo Pizza-Preview](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
 
 ## <a name="requirements"></a>Vereisten
 In deze zelfstudie is vereist dat de volgorde pizza bot wordt uitgevoerd
@@ -39,72 +39,66 @@ Klik in de lijst Model van de web-UI op TutorialDemo Pizza volgorde.
 
 ## <a name="entities"></a>Entiteiten
 
-U hebt drie entiteiten gemaakt.
+Het model bevat drie entiteiten:
 
-- Toppings: deze entiteit wordt de toppings die de gebruiker gevraagd om oplopen. Het bevat de geldige toppings die er op voorraad zijn. Er wordt gecontroleerd om te zien of een BBC in of niet verkrijgbaar.
-- NietInVoorraad: deze entiteit wordt gebruikt voor communicatie terug naar de gebruiker dat de geselecteerde BBC zich niet in voorraad.
-- LastToppings: zodra een bestelling wordt geplaatst, wordt deze entiteit gebruikt om te bieden aan de gebruiker de lijst met toppings van de volgorde.
+- "Toppings" stelt samen van de gebruiker opgegeven toppings, indien beschikbaar.
+- 'NietInVoorraad' geeft de gebruiker dat geselecteerde BBC valt buiten het aandeel
+- 'LastToppings' bevat de historische toppings van hun eerdere bestelling
 
 ![](../media/tutorial_pizza_entities.PNG)
 
 ### <a name="actions"></a>Acties
 
-U hebt een set acties, met inbegrip van de gebruiker wordt gevraagd ze willen op hun pizza gemaakt om aan te geven wat ze hebben toegevoegd tot nu toe, enzovoort.
+Het model bevat een set acties die van de gebruiker om de selectie BBC, samengevoegde toppings en meer vraagt.
 
-Er zijn ook twee API-aanroepen:
+Twee API-aanroepen worden ook geleverd:
 
-- FinalizeOrder: om de volgorde voor de pizza
-- UseLastToppings: voor het migreren van de toppings van eerdere bestelling 
+- 'FinalizeOrder' verwerkt orders
+- "UseLastToppings" verwerkt toppings historische gegevens
 
 ![](../media/tutorial_pizza_actions.PNG)
 
 ### <a name="training-dialogs"></a>Dialoogvensters voor training
-U kunt een handvol training-dialoogvensters hebt gedefinieerd. 
+
+Verschillende Training-dialoogvensters zijn gevonden in het Model.
 
 ![](../media/tutorial_pizza_dialogs.PNG)
 
-Bijvoorbeeld: we proberen een sessie voor onderwijs.
+Laten we trainen het Model iets meer door het maken van een ander dialoogvenster trainen.
 
-1. Klik op de trein dialoogvensters, en vervolgens Nieuw dialoogvenster van de trein.
-1. Voer 'order een pizza'.
-2. Klik op Score actie.
-3. Klik om te selecteren 'Wat wilt u dat op uw pizza?'
-4. Voer 'paddestoelen en kaas'.
-    - U ziet dat als Toppings LUIS heeft het label. Als dat niet juist is, kan u Klik om te markeren en vervolgens deze te corrigeren.
-    - Het teken '+' naast de entiteit houdt in dat deze wordt toegevoegd aan de set toppings.
-5. Klik op Score acties.
-    - U ziet dat `mushrooms` en `cheese` zich niet in het geheugen voor Toppings.
-3. Klik om te selecteren, hebt u $Toppings uw pizza'
-    - U ziet dat dit is een niet-wait-actie, zodat de bot wordt u gevraagd voor de volgende actie.
-6. Selecteer 'Wilt u iets anders?'
-7. Voer 'paddestoelen verwijderen en peppers toevoegen'.
-    - U ziet dat `mushroom` heeft een '-' aanmelding ernaast en om te worden verwijderd. En `peppers` heeft een teken '+' ernaast en toe te voegen aan de toppings.
-2. Klik op Score actie.
-    - U ziet dat `peppers` nu in vet weergegeven omdat deze is er nieuw is. En `mushrooms` is gepasseerd uit.
-8. Klik om te selecteren, hebt u $Toppings uw pizza'
-6. Selecteer 'Wilt u iets anders?'
-7. Voer 'add erwten'.
-    - `Peas` een voorbeeld van een toegenomen dat niet verkrijgbaar is is. Het is nog steeds met het label een toegenomen.
-2. Klik op Score actie.
-    - `Peas` wordt weergegeven als NietInVoorraad.
-    - Als u wilt zien hoe dit is gebeurd, opent u de code hier `C:\<\installedpath>\src\demos\demoPizzaOrder.ts`. De methode EntityDetectionCallback kijken. Deze methode wordt aangeroepen na elke BBC om te zien of er op voorraad. Zo niet, het wist u deze uit de set van toppings en toevoegt aan de entiteit NietInVoorraad. De variabele inStock is boven deze methode met de lijst in voorraad toppings gedefinieerd.
-6. Selecteer 'Er zijn geen $OutOfStock'.
-7. Selecteer 'Wilt u iets anders?'
-8. Voer 'Nee'.
-9. Klik op Score actie.
-10. Selecteer 'FinalizeOrder' API-aanroep. 
-    - Hiermee wordt de functie 'FinalizeOrder' is gedefinieerd in code aanroepen. Dit toppings worden gewist en wordt uw bestelling is onderweg. 
-2. Voer 'een andere volgorde'. Een nieuwe bestelling wordt gestart.
-9. Klik op Score actie.
-    - 'kaas' en 'peppers' zijn in het geheugen als toppings van de laatste order.
-1. Selecteer 'Wilt u $LastToppings'.
-2. Voer 'Ja'
-3. Klik op Score actie.
-    - De bot wil de UseLastToppings actie te ondernemen. De tweede van de twee callbackmethoden is. De laatste order toppings kopiëren naar toppings wordt en laatste toppings wissen. Dit is een manier om de laatste order onthouden en als de gebruiker aangeeft dat ze een andere pizza wilt dat, biedt deze toppings als opties.
-2. Klik om te selecteren, hebt u $Toppings uw pizza'.
-3. Selecteer 'Wilt u iets anders?'
-8. Voer 'Nee'.
-4. Klik op het onderwijs gereed.
+1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
+2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u in 'Een pizza met kaas Order'
+    - Het woord 'kaas' is door de entiteit-extractor uitgepakt.
+3. Klik op de knop 'Acties Score'.
+4. Selecteer het antwoord, "U hebt kaas op uw pizza."
+5. Selecteer het antwoord, "Wilt u iets anders?"
+6. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'paddestoelen en peppers toevoegen'
+7. Klik op de knop 'Acties Score'.
+8. Selecteer het antwoord, "U hebt kaas, paddestoelen en peppers op uw pizza."
+9. Selecteer het antwoord, "Wilt u iets anders?"
+10. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'peppers verwijderen en worst toevoegen'
+11. Klik op de knop 'Acties Score'.
+12. Selecteer het antwoord, "U hebt kaas, paddestoelen en worst op uw pizza."
+13. Selecteer het antwoord, "Wilt u iets anders?"
+14. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'yam toevoegen'
+15. Klik op de knop 'Acties Score'.
+    - De waarde 'yam' is toegevoegd aan 'NietInVoorraad' door de code van de callback in de entiteit detecteren, zoals de tekst komt niet overeen met alle ondersteunde onderdelen.
+16. Selecteer het antwoord, "NietInVoorraad"
+17. Selecteer het antwoord, "Wilt u iets anders?"
+18. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Nee"
+    - De "Nee" is niet gemarkeerd als een soort intentie. In plaats daarvan u we selecteert de relevante actie op basis van de huidige context.
+19. Klik op de knop 'Acties Score'.
+20. Selecteer het antwoord, "FinalizeOrder"
+    - Selecteren van deze actie heeft geresulteerd in de huidige toppings van de klant door de code van de callback FinalizeOrder ophalen opgeslagen in het 'LastToppings' entiteit en verwijderen van de entiteit 'Toppings'.
+21. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u in 'een andere order'
+22. Klik op de knop 'Acties Score'.
+23. Selecteer het antwoord, "Wilt u kaas, paddestoelen en worst?"
+    - Deze actie is nu beschikbaar vanwege de 'LastToppings' entiteit wordt ingesteld.
+24. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Ja"
+25. Klik op de knop 'Acties Score'.
+26. Selecteer het antwoord, "UseLastToppings"
+27. Selecteer het antwoord, "U hebt kaas, paddestoelen en worst op uw pizza."
+28. Selecteer het antwoord, "Wilt u iets anders?"
 
 ![](../media/tutorial_pizza_callbackcode.PNG)
 
@@ -113,4 +107,4 @@ Bijvoorbeeld: we proberen een sessie voor onderwijs.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Demo - VR-app starten](./demo-vr-app-launcher.md)
+> [Implementatie van een bot Conversatiecursist](../deploy-to-bf.md)

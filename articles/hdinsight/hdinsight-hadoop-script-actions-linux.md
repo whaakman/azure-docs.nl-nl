@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384191"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718925"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Ontwikkeling van scriptacties met HDInsight
 
@@ -134,7 +134,7 @@ Linux gebaseerde HDInsight-clusters bieden twee hoofdknooppunten die actief zijn
 
 ### <a name="bPS6"></a>Configureren van de aangepaste onderdelen voor het gebruik van Azure Blob-opslag
 
-Onderdelen die u op het cluster installeert wellicht een standaardconfiguratie die gebruikmaakt van Apache Hadoop Distributed File System (HDFS)-opslag. HDInsight maakt gebruik van Azure Storage of Data Lake Store als standaardopslag. Beide bieden een HDFS compatibele-bestandssysteem dat gegevens actief blijft zelfs als het cluster wordt verwijderd. U wilt configureren van onderdelen die u installeert voor het gebruik van WASB of ADL in plaats van HDFS.
+Onderdelen die u op het cluster installeert wellicht een standaardconfiguratie die gebruikmaakt van Apache Hadoop Distributed File System (HDFS)-opslag. HDInsight maakt gebruik van Azure Storage of Data Lake-opslag als de standaardopslag. Beide bieden een HDFS compatibele-bestandssysteem dat gegevens actief blijft zelfs als het cluster wordt verwijderd. U wilt configureren van onderdelen die u installeert voor het gebruik van WASB of ADL in plaats van HDFS.
 
 Voor de meeste bewerkingen hoeft u niet om op te geven van het bestandssysteem. Bijvoorbeeld, kopieert de volgende de giraph-examples.jar bestand uit het lokale bestandssysteem aan het cluster:
 
@@ -142,7 +142,7 @@ Voor de meeste bewerkingen hoeft u niet om op te geven van het bestandssysteem. 
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-In dit voorbeeld wordt de `hdfs` opdracht transparant maakt gebruik van de standaardopslag voor het cluster. Voor bepaalde bewerkingen moet u mogelijk de URI opgeven. Bijvoorbeeld, `adl:///example/jars` voor Data Lake Store of `wasb:///example/jars` voor Azure Storage.
+In dit voorbeeld wordt de `hdfs` opdracht transparant maakt gebruik van de standaardopslag voor het cluster. Voor bepaalde bewerkingen moet u mogelijk de URI opgeven. Bijvoorbeeld, `adl:///example/jars` voor Data Lake-opslag of `wasb:///example/jars` voor Azure Storage.
 
 ### <a name="bPS7"></a>Schrijven van gegevens in de STDOUT en STDERR
 
@@ -163,7 +163,7 @@ Standaard `echo` verzendt de tekenreeks naar STDOUT. Als u wilt de opdracht geve
 >&2 echo "An error occurred installing Foo"
 ```
 
-Dit leidt informatie geschreven naar de STDOUT, stderr (2) in plaats daarvan. Zie voor meer informatie over i/o-omleiding [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Dit leidt informatie geschreven naar de STDOUT, stderr (2) in plaats daarvan. Zie voor meer informatie over i/o-omleiding [ https://www.tldp.org/LDP/abs/html/io-redirection.html ](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Zie voor meer informatie over het weergeven van informatie die wordt geregistreerd door scriptacties [aanpassen HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
@@ -278,17 +278,17 @@ Scripts die worden gebruikt voor het aanpassen van een cluster moeten worden opg
 
 * Een __openbaar leesbare URI__. Bijvoorbeeld, een URL naar gegevens die zijn opgeslagen in OneDrive, Dropbox of andere bestandshostingservice.
 
-* Een __Azure Data Lake Store-account__ dat is gekoppeld aan het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Store met HDInsight [Quick Start: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Een __Azure Data Lake Storage-account__ dat is gekoppeld aan het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Storage met HDInsight [Quick Start: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]  
-    > De service-principal die HDInsight gebruikt voor toegang tot Data Lake Store moet leestoegang hebben tot het script.
+    > De HDInsight gebruikt voor toegang tot Data Lake Storage service-principal moet leestoegang hebben tot het script.
 
 Resources die worden gebruikt door het script moeten ook openbaar beschikbaar zijn.
 
-De bestanden opslaan in een Azure Storage-account of een Azure Data Lake Store biedt snel toegang, als zowel binnen het Azure-netwerk.
+De bestanden opslaan in een Azure Storage-account of een Azure Data Lake Storage biedt snel toegang, als zowel binnen het Azure-netwerk.
 
 > [!NOTE]  
-> De URI-indeling die wordt gebruikt om te verwijzen naar het script verschilt afhankelijk van de service wordt gebruikt. Voor storage-accounts die zijn gekoppeld aan het HDInsight-cluster, gebruikt u `wasb://` of `wasbs://`. Gebruik voor openbaar leesbare URI's, `http://` of `https://`. Gebruik voor Data Lake Store, `adl://`.
+> De URI-indeling die wordt gebruikt om te verwijzen naar het script verschilt afhankelijk van de service wordt gebruikt. Voor storage-accounts die zijn gekoppeld aan het HDInsight-cluster, gebruikt u `wasb://` of `wasbs://`. Gebruik voor openbaar leesbare URI's, `http://` of `https://`. Gebruik voor Data Lake Storage `adl://`.
 
 ### <a name="checking-the-operating-system-version"></a>De versie van besturingssysteem controleren
 

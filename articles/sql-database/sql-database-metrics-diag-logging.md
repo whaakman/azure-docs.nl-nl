@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 245372b39f4b730128c593ddd04225bd82875393
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 138368c8e79d68a9a9c5a711b99d8926da7dc68d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387094"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601556"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
@@ -32,7 +32,7 @@ Azure SQL Database, elastische pools Managed Instance en databases in Managed In
 Zie voor meer informatie over de metrische gegevens en logboekbestanden categorieën die door de verschillende Azure-services worden ondersteund:
 
 * [Overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Overzicht van diagnostische logboeken van Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Overzicht van diagnostische logboeken van Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Dit artikel bevat richtlijnen om u te helpen u bij het inschakelen van diagnostische gegevens telemetrie voor databases, elastische pools en Managed Instance. Ook kunt u informatie over het configureren van Azure SQL Analytics als een hulpprogramma voor bewaking voor het weergeven van database-telemetrie voor diagnostische gegevens.
 
@@ -691,7 +691,7 @@ Meer informatie over de [Intelligent Insights-logboekindeling](sql-database-inte
 Voor meer informatie over het inschakelen van logboekregistratie en om te begrijpen van de metrische gegevens en meld u categorieën die worden ondersteund door de verschillende Azure-services, Zie:
 
 * [Overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Overzicht van diagnostische logboeken van Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Overzicht van diagnostische logboeken van Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Voor meer informatie over Event Hubs, lezen:
 

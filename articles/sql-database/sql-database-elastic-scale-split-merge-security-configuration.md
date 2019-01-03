@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: de758d38626107f28211f79a4772c3e887085776
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964829"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599823"
 ---
 # <a name="split-merge-security-configuration"></a>Beveiligingsconfiguratie splitsen en samenvoegen
 Voor het gebruik van de service voor splitsen/samenvoegen, moet u goed beveiliging configureren. De service maakt deel uit van de functie Elastic Scale van Microsoft Azure SQL Database. Zie voor meer informatie, [elastische schaal splitsen en samenvoegen-Service-zelfstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -43,7 +43,7 @@ Als deze opties niet beschikbaar zijn, kunt u genereren **zelfondertekende certi
     Als u hebt geïnstalleerd, gaat u naar:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Ophalen van de WDK van [Windows 8.1: kits en hulpprogramma's downloaden](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Ophalen van de WDK van [Windows 8.1: Download kits en hulpprogramma 's](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Het SSL-certificaat configureren
 Een SSL-certificaat is vereist voor het versleutelen van de communicatie en de server te verifiëren. Kies het meest van toepassing van de volgende drie scenario's en voer alle stappen uit:
@@ -398,16 +398,16 @@ Volg deze stappen:
 ## <a name="export-certificate"></a>Certificaat exporteren
 In de **Export Wizard certificaat**:
 
-1. Klik op **Volgende**.
+1. Klik op **volgende**.
 2. Selecteer **Ja**, klikt u vervolgens **de persoonlijke sleutel exporteren**.
-3. Klik op **Volgende**.
+3. Klik op **volgende**.
 4. Selecteer de gewenste uitvoer-bestandsindeling.
 5. Controleer de gewenste opties.
 6. Controleer **wachtwoord**.
 7. Voer een sterk wachtwoord in en Bevestig het.
-8. Klik op **Volgende**.
+8. Klik op **volgende**.
 9. Typ of blader een bestandsnaam waar het certificaat wordt opgeslagen (gebruik een. PFX-extensie).
-10. Klik op **Volgende**.
+10. Klik op **volgende**.
 11. Klik op **Voltooien**.
 12. Klik op **OK**.
 
@@ -418,7 +418,7 @@ In de Wizard Certificaat importeren:
    
    * Selecteer **huidige gebruiker** als alleen de processen die worden uitgevoerd onder de huidige gebruiker heeft toegang tot de service
    * Selecteer **lokale Machine** als andere processen op deze computer de service tot
-2. Klik op **Volgende**.
+2. Klik op **volgende**.
 3. Als u importeert uit een bestand, controleert u of het bestandspad.
 4. Als het importeren van een. PFX-bestand:
    1. Voer het wachtwoord voor het beveiligen van de persoonlijke sleutel

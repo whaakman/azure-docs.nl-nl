@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a16024ad5d8b9d2355b579b9b508ef0de91f2ccd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5aa617edf13aee9c5899a59c46aeb729f202719f
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133856"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744204"
 ---
 # <a name="creating-filters-with-cli"></a>Filters maken met CLI 
 
@@ -37,7 +37,7 @@ Dit onderwerp wordt beschreven hoe u een filter voor een on-Demand Video asset c
 
 ## <a name="define-a-filter"></a>Definieer een filter 
 
-Het volgende voorbeeld definieert de track selectie voorwaarden die zijn toegevoegd aan het laatste manifest. Dit filter bevat alle audionummers die Engels met EG 3 en de video nummers die bitrate in de 0-1000000 hebben bereik.
+Het volgende voorbeeld definieert de track selectie voorwaarden die zijn toegevoegd aan het laatste manifest. Dit filter bevat alle audionummers die EG-3 en de video nummers die bitrate in de 0-1000000 hebben bereik.
 
 Filters zijn gedefinieerd in REST, bevatten de 'Eigenschappen' wrapper JSON-object.  
 
@@ -48,11 +48,6 @@ Filters zijn gedefinieerd in REST, bevatten de 'Eigenschappen' wrapper JSON-obje
             {
                 "property": "Type",
                 "value": "Audio",
-                "operation": "Equal"
-            },
-            {
-                "property": "Language",
-                "value": "en",
                 "operation": "Equal"
             },
             {
@@ -83,8 +78,16 @@ Filters zijn gedefinieerd in REST, bevatten de 'Eigenschappen' wrapper JSON-obje
 
 De volgende [az ams-account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) opdracht maakt u een account-filter met filter bijhouden selecties die waren [eerder hebt gedefinieerd](#define-a-filter). 
 
+De volgende opdracht kunt u een optie `--tracks` die een bestand accepteert. Als u de Azure CLI lokaal gebruikt, geeft u het volledige bestandspad:
+
 ```azurecli
-az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @C:\tracks.json
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json
+```
+
+Als u de Azure Cloud Shell gebruikt, moet u het bestand uploaden naar de Cloud Shell (zoeken naar de knop uploaden/downloaden van bestanden aan de bovenkant van de shell-venster). U kunt vervolgens verwijzen naar het bestand als volgt:
+
+```azurecli
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
 Zie ook [JSON-voorbeelden voor filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
@@ -93,8 +96,11 @@ Zie ook [JSON-voorbeelden voor filters](https://docs.microsoft.com/rest/api/medi
 
 De volgende [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) opdracht maakt u een filter asset met filter bijhouden selecties die waren [eerder hebt gedefinieerd](#define-a-filter). 
 
+> [!TIP]
+> Zie de informatie over het opgeven van de locatie van de bestandsnaam in de vorige sectie.
+
 ```azurecli
-az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @C:\tracks.json
+az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
 Zie ook [JSON-voorbeelden voor filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).

@@ -16,20 +16,23 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 87f5153ef71f74a0fa1a6be3c527fba03b65bf83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 04287d286aed872a2b951c47e0f67a93bd19c7b3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095564"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583473"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 
 ## <a name="overview"></a>Overzicht
 Azure Active Directory (Azure AD) kunt automatisch inrichten van gebruikers en groepen naar elke toepassing of identiteit store die door een webservice met de interface is fronted gedefinieerd in de [systeem voor meerdere domeinen Identity Management (SCIM) 2.0-protocol specificatie](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory kunt verzenden aanvragen voor het maken, wijzigen of verwijderen toegewezen gebruikers en groepen met de webservice. De webservice kan deze aanvragen vervolgens vertalen naar bewerkingen op de doel-id-store. 
 
+>[!IMPORTANT]
+>Het gedrag van de implementatie van Azure AD SCIM het laatst is bijgewerkt op 18 December 2018. Zie voor meer informatie over wat er nieuw [SCIM 2.0-protocol naleving van de Azure AD-gebruiker Provisioning-service](application-provisioning-config-problem-scim-compatibility.md).
+
 ![][0]
-*Afbeelding 1: Het inrichten van Azure Active Directory naar een archief voor de klantidentiteit via een webservice*
+*Afbeelding 1: Inrichten van Azure Active Directory naar een store identiteit via een webservice*
 
 Deze mogelijkheid kan worden gebruikt in combinatie met de functie 'bring your own app' in Azure AD. Deze mogelijkheid kan eenmalige aanmelding en automatisch gebruikers inrichten voor toepassingen die door een webservice SCIM zijn fronted.
 
@@ -68,11 +71,15 @@ Toepassingen die ondersteuning bieden voor het SCIM-profiel dat wordt beschreven
 5. In de **inrichting modus** in het menu **automatische**.
     
    ![][2]
-   *Afbeelding 3: Configureren van inrichten in Azure portal*
+   *Afbeelding 3: Configureren van het inrichten in Azure portal*
     
 6. In de **Tenant-URL** en voer de URL van SCIM-eindpunt van de toepassing. Voorbeeld: https://api.contoso.com/scim/v2/
 7. Als het eindpunt SCIM een OAuth-bearer-token van een uitgever dan Azure AD vereist, kopieert u de vereiste OAuth bearer-token naar de optionele **geheim Token** veld. Als dit veld leeg laat, opgenomen Azure AD een OAuth-bearer-token van Azure AD met elke aanvraag is uitgegeven. Apps die gebruikmaken van Azure AD als een id-provider kunt controleren of deze Azure AD-token dat is uitgegeven.
 8. Klik op de **testverbinding** knop met Azure Active Directory wilt verbinden met het eindpunt SCIM. Als de pogingen mislukken, wordt informatie over de fout wordt weergegeven.  
+
+    >[!NOTE]
+    >**Verbinding testen** query naar het eindpunt SCIM voor een gebruiker die niet bestaat, met behulp van een willekeurige GUID als de overeenkomende eigenschap in de Azure AD-configuratie is geselecteerd. De verwachte reactie van de juiste is HTTP 200 OK met een leeg SCIM ListResponse-bericht. 
+
 9. Als de pogingen tot verbinding maken met de toepassing te voltooien, klikt u op **opslaan** om op te slaan de beheerdersreferenties.
 10. In de **toewijzingen** sectie, zijn er twee sets selecteerbare Kenmerktoewijzingen: één voor gebruikersobjecten en één voor de groepsobjecten worden weergegeven. Selecteren om te controleren van de kenmerken die worden gesynchroniseerd vanuit Active Directory van Azure aan uw app. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikers en groepen in uw app voor update-bewerkingen. Selecteer de knop Opslaan om door te voeren van eventuele wijzigingen.
 
@@ -144,11 +151,15 @@ De eenvoudigste manier voor het implementeren van een eindpunt SCIM inrichting a
 5. In de **inrichting modus** in het menu **automatische**.
     
    ![][2]
-   *Afbeelding 4: Configureren van inrichten in Azure portal*
+   *Afbeelding 4: Configureren van het inrichten in Azure portal*
     
 6. In de **Tenant-URL** en voer de beschikbaar gesteld op internet-URL en poort van uw eindpunt SCIM. De vermelding is iets als http://testmachine.contoso.com:9000 of http://<ip-address>:9000/, waarbij < ip-adres > de internet is-IP-adres weergegeven.  
 7. Als het eindpunt SCIM een OAuth-bearer-token van een uitgever dan Azure AD vereist, kopieert u de vereiste OAuth bearer-token naar de optionele **geheim Token** veld. Als dit veld leeg laat, wordt Azure AD een OAuth-bearer-token dat is uitgegeven van Azure AD met elke aanvraag bevatten. Apps die gebruikmaken van Azure AD als een id-provider kunt controleren of deze Azure AD-token dat is uitgegeven.
 8. Klik op de **testverbinding** knop met Azure Active Directory wilt verbinden met het eindpunt SCIM. Als de pogingen mislukken, wordt informatie over de fout wordt weergegeven.  
+
+    >[!NOTE]
+    >**Verbinding testen** query naar het eindpunt SCIM voor een gebruiker die niet bestaat, met behulp van een willekeurige GUID als de overeenkomende eigenschap in de Azure AD-configuratie is geselecteerd. De verwachte reactie van de juiste is HTTP 200 OK met een leeg SCIM ListResponse-bericht
+
 9. Als de pogingen tot verbinding maken met de toepassing te voltooien, klikt u op **opslaan** om op te slaan de beheerdersreferenties.
 10. In de **toewijzingen** sectie, zijn er twee sets selecteerbare Kenmerktoewijzingen: één voor gebruikersobjecten en één voor de groepsobjecten worden weergegeven. Selecteren om te controleren van de kenmerken die worden gesynchroniseerd vanuit Active Directory van Azure aan uw app. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikers en groepen in uw app voor update-bewerkingen. Selecteer de knop Opslaan om door te voeren van eventuele wijzigingen.
 11. Onder **instellingen**, wordt de **bereik** veld wordt gedefinieerd welke gebruikers en groepen worden gesynchroniseerd. Selecteren 'Sync alleen toegewezen gebruikers en groepen' (aanbevolen) synchroniseert alleen gebruikers en groepen die zijn toegewezen de **gebruikers en groepen** tabblad.
@@ -163,7 +174,7 @@ De laatste stap bij het controleren van het voorbeeld is de TargetFile.csv-besta
 ### <a name="development-libraries"></a>Ontwikkelingsbibliotheken
 Voor het ontwikkelen van uw eigen webservice die aan de specificatie SCIM voldoet eerst raken met de volgende bibliotheken geleverd door Microsoft om te het ontwikkelingsproces versnellen: 
 
-1. Common Language Infrastructure (CLI)-bibliotheken worden aangeboden voor gebruik met de talen die op basis van die infrastructuur, zoals C#. Een van deze bibliotheken [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declareert een interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, dat is weergegeven in de volgende afbeelding: A ontwikkelaar met behulp van de bibliotheken wilt implementeren die interface met een klasse die kan worden verwezen naar algemeen, als een provider. De clientbibliotheken bieden de ontwikkelaar een webservice die voldoet aan de specificatie SCIM implementeren. De webservice kan ofwel worden gehost in Internet Information Services of een uitvoerbaar bestand Common Language Infrastructure-assembly. Aanvraag wordt omgezet in aanroepen van methoden van de provider, die door de ontwikkelaar zou worden geprogrammeerd om te worden uitgevoerd op bepaalde identiteitsarchief.
+1. Common Language Infrastructure (CLI)-bibliotheken worden aangeboden voor gebruik met de talen die op basis van die infrastructuur, zoals C#. Een van deze bibliotheken [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declareert een interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, dat is weergegeven in de volgende afbeelding:  Een ontwikkelaar met behulp van de bibliotheken wilt implementeren die interface met een klasse die kan worden verwezen naar algemeen, als een provider. De clientbibliotheken bieden de ontwikkelaar een webservice die voldoet aan de specificatie SCIM implementeren. De webservice kan ofwel worden gehost in Internet Information Services of een uitvoerbaar bestand Common Language Infrastructure-assembly. Aanvraag wordt omgezet in aanroepen van methoden van de provider, die door de ontwikkelaar zou worden geprogrammeerd om te worden uitgevoerd op bepaalde identiteitsarchief.
   
    ![][3]
   
@@ -390,7 +401,7 @@ Groep resources worden aangeduid met de schema-id en http://schemas.microsoft.co
 De volgende afbeelding ziet u de berichten die Azure Active Directory voor het beheren van de levenscyclus van een gebruiker in een andere identiteit store verzendt naar een SCIM-service. Het diagram toont ook hoe een service die SCIM wordt geïmplementeerd met behulp van de CLI-bibliotheken geleverd door Microsoft voor het bouwen dat dergelijke services deze aanvragen vertalen in aanroepen naar de methoden van een provider.  
 
 ![][4]
-*Afbeelding 5: Inrichten van gebruikers en ongedaan maken inrichting reeks*
+*Afbeelding 5: Inrichten van gebruikers en het ongedaan maken inrichting reeks*
 
 1. Azure Active Directory vraagt de service voor een gebruiker met een externalId kenmerkwaarde die overeenkomt met de waarde van het kenmerk mailNickname van een gebruiker in Azure AD. De query wordt uitgedrukt als een aanvraag Hypertext Transfer Protocol (HTTP) zoals in dit voorbeeld, waarin jyoung een voorbeeld van een mailNickname van een gebruiker in Azure Active Directory is: 
 
@@ -452,11 +463,11 @@ De volgende afbeelding ziet u de berichten die Azure Active Directory voor het b
    ```
 
    In het volgende voorbeeld van een query voor een gebruiker met een opgegeven waarde voor het kenmerk externalId zijn de waarden van de argumenten doorgegeven aan de Query-methode: 
-   * parameters.AlternateFilters.Count: 1
+   * de parameters. AlternateFilters.Count: 1
    * de parameters. AlternateFilters.ElementAt(0). AttributePath: "externalId"
-   * de parameters. AlternateFilters.ElementAt(0). Vergelijkingsoperator: ComparisonOperator.Equals
+   * de parameters. AlternateFilters.ElementAt(0). De vergelijkingsoperator: ComparisonOperator.Equals
    * de parameters. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
-   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
+   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. Aanvraag-id"] 
 
 2. Als het antwoord op een query met de webservice voor een gebruiker met een externalId kenmerk-waarde die overeenkomt met de waarde van het kenmerk mailNickname van een gebruiker geen gebruikers worden geretourneerd, klikt u vervolgens Azure Active Directory-aanvragen dat de service inrichten van een gebruiker die overeenkomt met de in Azure Active Directory.  Hier volgt een voorbeeld van een aanvraag voor: 
 
@@ -544,7 +555,7 @@ De volgende afbeelding ziet u de berichten die Azure Active Directory voor het b
 
    In het voorbeeld van een aanvraag voor het ophalen van de huidige status van een gebruiker, zijn de waarden van de eigenschappen van het object dat is opgegeven als de waarde van het argument parameters als volgt uit: 
   
-   * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * -ID: "54D382A4-2050-4C03-94D1-E769F1D15682"
    * SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. Als een verwijzingskenmerk worden bijgewerkt, wordt Azure Active Directory query naar de service om te bepalen of de huidige waarde van het verwijzingskenmerk in het identiteitsarchief op de al fronted door de service komt overeen met de waarde van dit kenmerk in Azure Active De map. Voor gebruikers is het enige kenmerk waarvan de huidige waarde op deze manier wordt gevraagd het kenmerk manager. Hier volgt een voorbeeld van een verzoek om te bepalen of het kenmerk manager van een bepaalde gebruiker-object op dat moment een bepaalde waarde heeft: 
@@ -558,14 +569,14 @@ De volgende afbeelding ziet u de berichten die Azure Active Directory voor het b
 
    Als de service is gebouwd met behulp van de Common Language Infrastructure-bibliotheken geleverd door Microsoft voor het implementeren van services SCIM, wordt klikt u vervolgens de aanvraag omgezet in een aanroep van de Query-methode van de provider van de service. De waarde van de eigenschappen van het object dat is opgegeven als de waarde van het argument parameters zijn als volgt: 
   
-   * parameters.AlternateFilters.Count: 2
-   * de parameters. AlternateFilters.ElementAt(x). AttributePath: 'ID'
-   * de parameters. AlternateFilters.ElementAt(x). Vergelijkingsoperator: ComparisonOperator.Equals
-   * de parameters. AlternateFilter.ElementAt(x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * de parameters. AlternateFilters.Count: 2
+   * de parameters. AlternateFilters.ElementAt(x). AttributePath: 'Id'
+   * de parameters. AlternateFilters.ElementAt(x). De vergelijkingsoperator: ComparisonOperator.Equals
+   * de parameters. AlternateFilter.ElementAt(x). ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
    * de parameters. AlternateFilters.ElementAt(y). AttributePath: "manager"
-   * de parameters. AlternateFilters.ElementAt(y). Vergelijkingsoperator: ComparisonOperator.Equals
-   * de parameters. AlternateFilter.ElementAt(y). ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-   * de parameters. RequestedAttributePaths.ElementAt(0): 'ID'
+   * de parameters. AlternateFilters.ElementAt(y). De vergelijkingsoperator: ComparisonOperator.Equals
+   * de parameters. AlternateFilter.ElementAt(y). ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
+   * de parameters. RequestedAttributePaths.ElementAt(0): 'Id'
    * de parameters. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
    Hier de waarde van de x-index kan zijn ingesteld op 0 en 1, kan worden door de waarde van de index van de y of de waarde van x mogelijk 1 en de waarde van y kan zijn ingesteld op 0, afhankelijk van de volgorde van de expressies van het filter-queryparameter.   
@@ -684,7 +695,7 @@ De volgende afbeelding ziet u de berichten die Azure Active Directory voor het b
    * (PatchRequest als PatchRequest2). Operations.ElementAt(0). Path.AttributePath: "manager"
    * (PatchRequest als PatchRequest2). Operations.ElementAt(0). Value.Count: 1
    * (PatchRequest als PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Verwijzing: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-   * (PatchRequest als PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Waarde: 2819c223-7f76-453a-919d-413861904646
+   * (PatchRequest als PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Waarde: 2819c223-7f76-453A-919d-413861904646
 
 6. Voor het inrichten ongedaan maken van een gebruiker vanuit een archief voor de klantidentiteit fronted door een SCIM-service, Azure AD een aanvraag verzendt, zoals: 
 
@@ -718,7 +729,7 @@ De volgende afbeelding ziet u de berichten die Azure AcD naar een SCIM-service v
 * Verzoeken om te bepalen of een verwijzingskenmerk een bepaalde waarde heeft zijn aanvragen over het kenmerk leden.  
 
 ![][5]
-*Afbeelding 6: Inrichting van de groep en het ongedaan maken inrichting reeks*
+*Afbeelding 6: Groepsinrichting en ongedaan maken inrichting reeks*
 
 ## <a name="related-articles"></a>Verwante artikelen:
 * [Gebruiker inrichting/ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](user-provisioning.md)

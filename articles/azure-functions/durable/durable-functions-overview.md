@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/7/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14e959e4aa26b04ec70cbb03ea3feaf0e93f31c1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: cf643c8c2a0921cfbe1f5599a9e96a27770ef1ef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344173"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718585"
 ---
 # <a name="durable-functions-overview"></a>Overzicht van duurzame functies
 
-*Duurzame functies* is een uitbreiding van [Azure Functions](../functions-overview.md) en [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) waarmee u het schrijven van stateful functies in een serverloze omgeving. Met de extensie worden status, controlepunten en het opnieuw opstarten voor u beheerd.
+*Duurzame functies* is een uitbreiding van [Azure Functions](../functions-overview.md) en [Azure WebJobs](../../app-service/webjobs-create.md) waarmee u het schrijven van stateful functies in een serverloze omgeving. Met de extensie worden status, controlepunten en het opnieuw opstarten voor u beheerd.
 
 De extensie kunt u definiëren stateful werkstromen in een nieuw type van de aangeroepen functie een [ *orchestrator-functie*](durable-functions-types-features-overview.md#orchestrator-functions). Hier volgen enkele van de voordelen van orchestrator-functies:
 

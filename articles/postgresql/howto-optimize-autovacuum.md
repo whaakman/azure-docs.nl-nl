@@ -3,16 +3,15 @@ title: Optimaliseren autovacuum in Azure Database for PostgreSQL-server
 description: Dit artikel wordt beschreven hoe u autovacuum in Azure Database for PostgreSQL-server kunt optimaliseren.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 3f35779337082b7280398bd13ef870c74f3ec082
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685987"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539786"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Autovacuum op Azure Database for PostgreSQL-server te optimaliseren 
 In dit artikel wordt beschreven hoe u effectief optimaliseren autovacuum op Azure Database voor PostgreSQL.
@@ -34,7 +33,7 @@ Als u niet van tijd tot tijd onderdruk uitvoert, wordt de dode tuples die worden
 - Hogere i/o's.
 
 ## <a name="monitoring-bloat-with-autovacuum-queries"></a>Bewaking van gegevensophoping met autovacuum query 's
-De volgende voorbeeldquery is ontworpen om u te identificeren van het aantal inactieve en liveregioservers tuples in een tabel met de naam 'XYZ': ' SELECT %{relname/, n_dead_tup, n_live_tup, (n_dead_tup / n_live_tup) als DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_ tabellen waar %{relname/ = 'XYZ' order door n_dead_tup DESC;'
+De volgende voorbeeldquery is ontworpen om het aantal inactieve en liveregioservers tuples in een tabel met de naam "XYZ" te identificeren: ' SELECT %{relname/, n_dead_tup, n_live_tup, (n_dead_tup / n_live_tup) als DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables waar %{relname/ = 'XYZ' order door n_dead_tup DESC;'
 
 ## <a name="autovacuum-configurations"></a>Autovacuum configuraties
 De configuratieparameters die autovacuum regelen gebaseerd op twee belangrijke vragen:
@@ -42,7 +41,7 @@ De configuratieparameters die autovacuum regelen gebaseerd op twee belangrijke v
 - Hoeveel moet het opschonen nadat deze is gestart?
 
 Hieronder worden enkele van de autovacuum configuratieparameters die u kunt bijwerken op basis van de bovenstaande vragen, samen met enkele richtlijnen:
-Parameter|Beschrijving|Standaardwaarde
+Parameter|Description|Standaardwaarde
 ---|---|---
 autovacuum_vacuum_threshold|Hiermee geeft u het minimum aantal bijgewerkte of verwijderde tuples die nodig zijn voor het activeren van een ONDERDRUK in de tabel. De standaardwaarde is 50 tuples. Deze parameter kan alleen worden ingesteld in het bestand postgresql.conf of op de server vanaf de opdrachtregel. De instelling kan worden overschreven voor afzonderlijke tabellen door het wijzigen van tabel storage parameters.|50
 autovacuum_vacuum_scale_factor|Hiermee geeft u een fractie van de grootte van de tabel toevoegen aan autovacuum_vacuum_threshold als u besluit een ONDERDRUK activeren. De standaardwaarde is 0.2 (20 procent van de tabelgrootte). Deze parameter kan alleen worden ingesteld in het bestand postgresql.conf of op de server vanaf de opdrachtregel. De instelling kan worden overschreven voor afzonderlijke tabellen door het wijzigen van tabel storage parameters.|5 procent

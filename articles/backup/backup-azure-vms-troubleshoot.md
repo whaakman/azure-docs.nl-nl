@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: b751fe4feab48e6ed706a2e28bba8406f4f4891c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9bbaf23999c04eba5157ebe7dff73ed47418c99a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185695"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634181"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 U kunt fouten opgetreden tijdens het gebruik van Azure Backup met de gegevens die worden vermeld in de volgende tabel kunt oplossen:
@@ -69,11 +69,11 @@ U kunt fouten opgetreden tijdens het gebruik van Azure Backup met de gegevens di
 | Het type opslagaccount dat is opgegeven voor de herstelbewerking niet online is: <br>Zorg ervoor dat het opslagaccount dat is opgegeven in de herstelbewerking opnieuw online is. |Deze fout kan optreden vanwege een tijdelijke fout in Azure Storage of vanwege een storing. Kies een ander opslagaccount. |
 | Het resourcegroepquotum is bereikt: <br>Sommige resourcegroepen verwijderen uit de Azure portal of neem contact op met ondersteuning van Azure om de limieten te verhogen. |Geen |
 | Het geselecteerde subnet bestaat niet: <br>Selecteer een subnet dat zich voordoet. |Geen |
-| De Backup-service heeft geen machtiging voor toegang tot resources in uw abonnement. |U kunt deze fout oplossen door eerst schijven herstellen met behulp van de stappen in [herstel de schijven van een back-up](backup-azure-arm-restore-vms.md#restore-backed-up-disks). Gebruik de stappen in de PowerShell [maken van een VM van herstelde schijven](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) te maken van een volledige VM van herstelde schijven. |
+| De Backup-service heeft geen machtiging voor toegang tot resources in uw abonnement. |U kunt deze fout oplossen door eerst schijven herstellen met behulp van de stappen in [herstel de schijven van een back-up](backup-azure-arm-restore-vms.md#create-new-restore-disks). Gebruik de stappen in de PowerShell [maken van een VM van herstelde schijven](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Back-up of herstel kost tijd
 Als uw back-up meer dan 12 uur wordt of terugzetten meer dan 6 uur heeft:
-* Inzicht in [factoren die aan de back-uptijd bijdragen](backup-azure-vms-introduction.md#total-vm-backup-time) en [factoren die bijdragen herstellen van tijd](backup-azure-vms-introduction.md#total-restore-time).
+* Inzicht in [factoren die aan de back-uptijd bijdragen](backup-azure-vms-introduction.md#time-considerations) en [factoren die bijdragen herstellen van tijd](backup-azure-vms-introduction.md#restore-considerations).
 * Zorg ervoor dat u volgt [back-up van aanbevolen procedures](backup-azure-vms-introduction.md#best-practices).
 
 ## <a name="vm-agent"></a>VM-Agent

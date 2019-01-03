@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315720"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632684"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Aanbevolen procedures en gids voor probleemoplossing voor knooppunttoepassingen in Azure App Service-Windows
 
-In dit artikel leert u aanbevolen procedures en stappen voor probleemoplossing voor [knooppunttoepassingen](app-service-web-get-started-nodejs.md) die worden uitgevoerd op Azure Web Apps (met [iisnode](https://github.com/azure/iisnode)).
+In dit artikel leert u aanbevolen procedures en stappen voor probleemoplossing voor [knooppunttoepassingen](app-service-web-get-started-nodejs.md) in Azure App Service (met [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Wees voorzichtig bij het gebruik van de stappen voor probleemoplossing in de productiesite. De aanbeveling is het oplossen van uw app op een niet-productie-installatie bijvoorbeeld de staging-site en als het probleem is opgelost, wisselen de staging-site met de productiesite.
@@ -44,18 +44,18 @@ Deze instelling bepaalt het pad naar de node.exe. U kunt deze waarde om te verwi
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-Deze instelling bepaalt het maximum aantal gelijktijdige aanvragen door iisnode naar elke node.exe verzonden. In Azure Web Apps is de standaardwaarde oneindig. Als deze niet worden gehost in Azure Web Apps, is de standaardwaarde 1024. U kunt de waarde, afhankelijk van hoeveel aanvragen ontvangt van uw toepassing en hoe snel uw toepassing verwerkt elke aanvraag configureren.
+Deze instelling bepaalt het maximum aantal gelijktijdige aanvragen door iisnode naar elke node.exe verzonden. In Azure App Service is de standaardwaarde oneindig. U kunt de waarde, afhankelijk van hoeveel aanvragen ontvangt van uw toepassing en hoe snel uw toepassing verwerkt elke aanvraag configureren.
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
-Deze instelling bepaalt u het maximum aantal keren dat het maken van de verbinding op de named pipe voor het verzenden van de aanvragen naar node.exe iisnode-pogingen. Deze instelling in combinatie met namedPipeConnectionRetryDelay bepaalt de totale time-out van elke aanvraag binnen iisnode. De standaardwaarde is 200 in Azure Web Apps. Totale time-out in seconden = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+Deze instelling bepaalt u het maximum aantal keren dat het maken van de verbinding op de named pipe voor het verzenden van de aanvragen naar node.exe iisnode-pogingen. Deze instelling in combinatie met namedPipeConnectionRetryDelay bepaalt de totale time-out van elke aanvraag binnen iisnode. De standaardwaarde is 200 op Azure App Service. Totale time-out in seconden = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
 ### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
 
 Deze instelling bepaalt de hoeveelheid tijd (in ms) iisnode wachttijd tussen nieuwe pogingen op de aanvraag verzenden naar node.exe via de named pipe. De standaardwaarde is 250 ms.
 Totale time-out in seconden = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
-Standaard is de totale time-out in iisnode in Azure Web Apps 200 \* 250 ms = 50 seconden.
+De totale time-out in iisnode in Azure App Service is standaard 200 \* 250 ms = 50 seconden.
 
 ### <a name="logdirectory"></a>logDirectory
 
@@ -128,7 +128,7 @@ Lezen [fouten opsporen in node.js-toepassingen op Windows](https://tomasz.janczu
 
 Veel toepassingen wilt uitgaande verbindingen maken als onderdeel van hun normale bewerking. Bijvoorbeeld, als een aanvraag binnenkomt, zou uw node-app willen contact op met een REST-API ergens anders en sommige informatie om de aanvraag te verwerken. U zou een keep alive-agent te gebruiken bij het aanroepen van http of https. U kunt de module agentkeepalive gebruiken als uw keep alive-agent bij het maken van deze uitgaande aanroepen.
 
-De module agentkeepalive zorgt ervoor dat sockets worden hergebruikt voor uw Azure Web-App VM. Het maken van een nieuwe socket op elke uitgaande aanvraag wordt toegevoegd overhead aan uw toepassing. Uw toepassing opnieuw gebruiken van sockets voor uitgaande aanvragen, zorgt u ervoor dat uw toepassing niet groter is dan de maxSockets die zijn toegewezen per virtuele machine. De aanbeveling in Azure Web Apps is de waarde van de maxSockets agentKeepAlive instellen op een totaal van (4 exemplaren van node.exe \* 40 maxSockets/exemplaar) 160 sockets per virtuele machine.
+De module agentkeepalive zorgt ervoor dat sockets worden hergebruikt voor uw Azure Web-App VM. Het maken van een nieuwe socket op elke uitgaande aanvraag wordt toegevoegd overhead aan uw toepassing. Uw toepassing opnieuw gebruiken van sockets voor uitgaande aanvragen, zorgt u ervoor dat uw toepassing niet groter is dan de maxSockets die zijn toegewezen per virtuele machine. De aanbeveling van Azure App Service is de waarde van de maxSockets agentKeepAlive instellen op een totaal van (4 exemplaren van node.exe \* 40 maxSockets/exemplaar) 160 sockets per virtuele machine.
 
 Voorbeeld [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuratie:
 
@@ -147,10 +147,10 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>Mijn node-toepassing is te veel CPU verbruikt
 
-U kunt een aanbeveling van Azure Web Apps ontvangen in de portal over hoog cpu-verbruik. U kunt ook monitors instellen om te bekijken voor bepaalde [metrische gegevens](web-sites-monitor.md). Tijdens het controleren van het CPU-gebruik op de [Azure Portal-Dashboard](../application-insights/app-insights-web-monitor-performance.md), Controleer de MAX-waarden voor CPU, zodat u de piek-waarden niet mist.
+Ontvangt u mogelijk een aanbeveling van Azure App Service op de portal over hoog cpu-verbruik. U kunt ook monitors instellen om te bekijken voor bepaalde [metrische gegevens](web-sites-monitor.md). Tijdens het controleren van het CPU-gebruik op de [Azure Portal-Dashboard](../application-insights/app-insights-web-monitor-performance.md), Controleer de MAX-waarden voor CPU, zodat u de piek-waarden niet mist.
 Als u denkt dat uw toepassing worden te veel CPU verbruikt en u kunt geen reden, kunt u uw knooppunttoepassing om erachter te profileren.
 
-#### <a name="profiling-your-node-application-on-azure-web-apps-with-v8-profiler"></a>Profileren van uw node-toepassing in Azure Web Apps met V8-Profiler
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profileren van uw node-toepassing in Azure App Service met V8-Profiler
 
 Stel dat u hebt een hello world-app die u wilt profileren als volgt:
 
@@ -220,7 +220,7 @@ U kunt zien dat 95% van de tijd die is verbruikt door de functie WriteConsoleLog
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Mijn node-toepassing is te veel geheugen verbruikt
 
-Als uw toepassing te veel geheugen verbruikt worden, ziet u een kennisgeving van Azure Web Apps in de portal over hoog geheugenverbruik. U kunt monitors instellen om te bekijken voor bepaalde [metrische gegevens](web-sites-monitor.md). Tijdens het controleren van het geheugengebruik op de [Azure Portal-Dashboard](../application-insights/app-insights-web-monitor-performance.md), Controleer de MAX-waarden voor het geheugen, zodat u de piek-waarden niet mist.
+Als uw toepassing te veel geheugen verbruikt worden, ziet u een kennisgeving van Azure App Service op de portal over hoog geheugenverbruik. U kunt monitors instellen om te bekijken voor bepaalde [metrische gegevens](web-sites-monitor.md). Tijdens het controleren van het geheugengebruik op de [Azure Portal-Dashboard](../application-insights/app-insights-web-monitor-performance.md), Controleer de MAX-waarden voor het geheugen, zodat u de piek-waarden niet mist.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Detectie- en Heap Diff lekken voor node.js
 
@@ -249,12 +249,12 @@ Uw toepassing is dat niet-onderschepte uitzonderingen: selectievakje `d:\\home\\
 
 ### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>Mijn node-toepassing duurt te lang om te starten (koude Start)
 
-De oorzaak van lange begintijden van toepassing is een groot aantal bestanden in het knooppunt\_modules. De toepassing probeert te laden van de meeste van deze bestanden bij het starten. Standaard, omdat de bestanden worden opgeslagen op de netwerkshare in Azure Web Apps, kan het laden van veel bestanden even duren.
+De oorzaak van lange begintijden van toepassing is een groot aantal bestanden in het knooppunt\_modules. De toepassing probeert te laden van de meeste van deze bestanden bij het starten. Standaard, omdat de bestanden worden opgeslagen op de netwerkshare op Azure App Service, kan het laden van veel bestanden even duren.
 Sommige oplossingen sneller om dit proces zijn:
 
 1. Zorg ervoor dat u hebt een platte afhankelijkheidsstructuur en er zijn geen dubbele afhankelijkheden met behulp van npm3 om uw modules te installeren.
 2. Probeer te langzaam laden van het knooppunt\_modules en alle modules aan begin van de toepassing niet worden geladen. Langzaam geladen modules, moet de aanroep van require('module') worden gemaakt wanneer u echt nodig hebt van de module binnen de functie voor de eerste uitvoering van code van de module.
-3. Azure Web Apps biedt een functie met de naam van de lokale cache. Deze functie kopieert de inhoud van de netwerkshare naar de lokale schijf op de virtuele machine. Omdat de bestanden lokale, de laadtijd van knooppunt zijn\_modules is veel sneller.
+3. Azure App Service biedt een functie met de naam van de lokale cache. Deze functie kopieert de inhoud van de netwerkshare naar de lokale schijf op de virtuele machine. Omdat de bestanden lokale, de laadtijd van knooppunt zijn\_modules is veel sneller.
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http-status en substatus
 
@@ -274,13 +274,13 @@ FREB voor uw toepassing om te zien van de win32-foutcode inschakelen (Zorg ervoo
 | 503 |1002 |Selectievakje win32-foutcode voor de werkelijke reden: de aanvraag kan niet worden verzonden naar een node.exe. |
 | 503 |1003 |Benoemde pipe is bezet: Controleer of als node.exe buitensporig CPU verbruikt |
 
-NODE.exe is ingesteld met de naam `NODE_PENDING_PIPE_INSTANCES`. Wanneer niet wordt geïmplementeerd in Azure Web Apps, is deze waarde standaard 4. Wat betekent dat node.exe slechts vier aanvragen kan accepteren op een tijdstip op de named pipe. Deze waarde is ingesteld op Azure Web Apps, tot 5000. Deze waarde moet goed genoeg is voor de meeste toepassingen voor knooppunten die worden uitgevoerd op Azure Web Apps. U moet 503.1003 niet zien in Azure Web Apps vanwege de hoge waarde voor de `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe is ingesteld met de naam `NODE_PENDING_PIPE_INSTANCES`. Deze waarde is ingesteld op Azure App Service, tot 5000. Wat betekent dat node.exe 5000 aanvragen kan accepteren op een tijdstip op de named pipe. Deze waarde moet goed genoeg is voor de meeste knooppunttoepassingen in Azure App Service. U moet 503.1003 niet zien in Azure App Service vanwege de hoge waarde voor de `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Meer bronnen
 
 Volg deze koppelingen voor meer informatie over de node.js-toepassingen in Azure App Service.
 
-* [Aan de slag met Node.js-Web-Apps in Azure App Service](app-service-web-get-started-nodejs.md)
+* [Aan de slag met Node.js-web-apps in Azure App Service](app-service-web-get-started-nodejs.md)
 * [Fouten opsporen in een Node.js web-app in Azure App Service](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Node.js-modules gebruiken met Azure-toepassingen](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service WebApps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)

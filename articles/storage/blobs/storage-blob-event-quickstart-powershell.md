@@ -9,14 +9,14 @@ ms.topic: article
 ms.service: storage
 ms.component: blobs
 ms.custom: seodec18
-ms.openlocfilehash: c7c8fd487bef0da7da84a23e18a4e999645106b3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 852b7a32bc27b0aa67d66c25d3b54ab864ee1612
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076420"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628252"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Snelstartgids: Route opslaggebeurtenissen naar eindpunt op het web met PowerShell
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Quickstart: Opslaggebeurtenissen doorsturen naar eindpunt op het web met PowerShell
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel hebt u Azure PowerShell gebruiken om u te abonneren op gebeurtenissen van Blob storage, trigger een gebeurtenis, en het resultaat weergeven. 
 
@@ -28,14 +28,16 @@ Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar de web-app zijn ver
 
 ## <a name="setup"></a>Instellen
 
-In dit artikel is vereist dat u de meest recente versie van Azure PowerShell uitvoert. Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps) als u de toepassing nog moet installeren of een upgrade moet uitvoeren.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+In dit artikel is vereist dat u de meest recente versie van Azure PowerShell uitvoert. Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-Az-ps) als u de toepassing nog moet installeren of een upgrade moet uitvoeren.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Aanmelden bij uw Azure-abonnement met de `Connect-AzureRmAccount` opdracht en volg de aanwijzingen aanwijzingen om te verifiëren.
+Aanmelden bij uw Azure-abonnement met de `Connect-AzAccount` opdracht en volg de aanwijzingen aanwijzingen om te verifiëren.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 In dit voorbeeld wordt **westus2** en slaat u de selectie in een variabele voor gebruik over de hele.
@@ -48,27 +50,27 @@ $location = "westus2"
 
 Event Grid-onderwerpen zijn Azure-resources en moeten in een Azure-resourcegroep worden geplaatst. De resourcegroep is een logische verzameling waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Maak een resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
+Maak een resourcegroep met de [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) opdracht.
 
 In het volgende voorbeeld wordt een resourcegroep met de naam **gridResourceGroup** gemaakt op de locatie **westus2**.  
 
 ```powershell
 $resourceGroup = "gridResourceGroup"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
 Blob-opslaggebeurtenissen zijn beschikbaar in v2-opslagaccounts en Blob-opslagaccounts. **Algemeen gebruik v2**-accounts ondersteunen alle functies voor alle opslagservices, waaronder Blobs, bestanden, wachtrijen en tabellen. Een **Blob-opslagaccount** is een opslagaccount dat speciaal is bedoeld om ongestructureerde gegevens als blobs (objecten) op te slaan in Azure Storage. Blob-opslagaccounts zijn vergelijkbaar met de opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie.
 
-Een Blob storage-account maken met het gebruik van LRS-replicatie [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), haal vervolgens de opslagaccountcontext op waarin het opslagaccount dat moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven. Dit voorbeeld maakt u een opslagaccount met de naam **gridstorage** met lokaal redundante opslag (LRS). 
+Een Blob storage-account maken met het gebruik van LRS-replicatie [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), haal vervolgens de opslagaccountcontext op waarin het opslagaccount dat moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven. Dit voorbeeld maakt u een opslagaccount met de naam **gridstorage** met lokaal redundante opslag (LRS). 
 
 > [!NOTE]
 > Namen van opslagaccounts zijn een globale naamruimte, moet u het aantal willekeurige tekens toevoegen aan de naam die in dit script worden opgegeven.
 
 ```powershell
 $storageName = "gridstorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageName `
   -Location $location `
   -SkuName Standard_LRS `
@@ -87,7 +89,7 @@ Vervang `<your-site-name>` door een unieke naam voor de web-app. De naam van de 
 ```powershell
 $sitename="<your-site-name>"
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
   -siteName $sitename `
@@ -105,10 +107,10 @@ Op de site zouden momenteel geen berichten moeten wijn weergeven.
 U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. In het volgende voorbeeld ziet u hoe u zich abonneert op het opslagaccount dat u hebt gemaakt, en hoe de URL van de web-app wordt doorgegeven als het eindpunt voor de gebeurtenismelding. Het eindpunt voor uw web-app moet het achtervoegsel `/api/updates/` bevatten.
 
 ```powershell
-$storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
+$storageId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
 $endpoint="https://$sitename.azurewebsites.net/api/updates"
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -EventSubscriptionName gridBlobQuickStart `
   -Endpoint $endpoint `
   -ResourceId $storageId
@@ -124,11 +126,11 @@ Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid n
 
 ```powershell
 $containerName = "gridcontainer"
-New-AzureStorageContainer -Name $containerName -Context $ctx
+New-AzStorageContainer -Name $containerName -Context $ctx
 
 echo $null >> gridTestFile.txt
 
-Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
+Set-AzStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
 U hebt de gebeurtenis geactiveerd en Event Grid heeft het bericht verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk uw web-app om de gebeurtenis te zien die u zojuist hebt verzonden.
@@ -164,7 +166,7 @@ U hebt de gebeurtenis geactiveerd en Event Grid heeft het bericht verzonden naar
 Als u van plan bent om door te gaan werken met dit storage-account en gebeurtenis-abonnement, niet schoon dan de resources die zijn gemaakt in dit artikel. Als u niet van plan bent om door te gaan, gebruikt u de volgende opdracht uit om de resources die in dit artikel hebt gemaakt te verwijderen.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

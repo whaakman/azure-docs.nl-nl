@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 0cf5cac341cb36029c09ee2da5477323fac79cf5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311640"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631147"
 ---
 # <a name="api-versions-in-azure-search"></a>API-versies in Azure Search
 Azure Search de regelmatig updates van de functie. Soms, maar niet altijd noodzakelijk een nieuwe versie van de API te behouden voor achterwaartse compatibiliteit. Publiceren van een nieuwe versie, kunt u bepalen wanneer en hoe u de search service-updates in uw code integreren.
 
 Het team van Azure Search publiceert als een regel, nieuwe versies alleen indien nodig, omdat dit betrekking op sommige inspanning om uw code hebben kan voor het gebruik van een nieuwe API-versie te upgraden. Een nieuwe versie is alleen nodig als een bepaald aspect van de API is gewijzigd op een manier die achterwaartse compatibiliteit. Dergelijke wijzigingen kunnen gebeuren vanwege problemen in bestaande functies of vanwege de nieuwe functies waarmee bestaande API-gebied worden gewijzigd.
 
-De dezelfde regel geldt voor SDK-updates. De Azure Search SDK volgt de [semantisch versiebeheer](http://semver.org/) regels, wat betekent dat de versie die bestaat uit drie delen: primaire, secundaire en build-nummer (bijvoorbeeld 1.1.0). Een nieuwe primaire versie van de SDK wordt vrijgegeven voor wijzigingen die voor achterwaartse compatibiliteit. Niet-belangrijke functie-updates van verkoopprognose nemen de secundaire versie en oplossingen voor problemen neemt alleen de build-versie.
+De dezelfde regel geldt voor SDK-updates. De Azure Search SDK volgt de [semantisch versiebeheer](https://semver.org/) regels, wat betekent dat de versie die bestaat uit drie delen: primaire, secundaire en build-nummer (bijvoorbeeld 1.1.0). Een nieuwe primaire versie van de SDK wordt vrijgegeven voor wijzigingen die voor achterwaartse compatibiliteit. Niet-belangrijke functie-updates van verkoopprognose nemen de secundaire versie en oplossingen voor problemen neemt alleen de build-versie.
 
 > [!NOTE]
 > Het exemplaar van uw Azure Search-service ondersteunt verschillende versies van de REST-API, met inbegrip van de meest recente versie. U kunt echter ook doorgaan met een versie wanneer het is niet meer de meest recente versie, maar het is raadzaam dat u uw code voor het gebruik van de nieuwste versie migreren. Wanneer u de REST-API gebruikt, moet u de API-versie opgeven in elke aanvraag via de api-versie-parameter. Wanneer u de .NET SDK gebruikt, bepaalt de versie van de SDK die u gebruikt de corresponderende versie van de REST-API. Als u een oudere SDK gebruikt, kunt u blijven om uit te voeren die code zonder wijzigingen, zelfs als de service wordt bijgewerkt ter ondersteuning van een nieuwere API-versie.

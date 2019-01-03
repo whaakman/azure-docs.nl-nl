@@ -1,20 +1,17 @@
 ---
 title: Het herstellen van een Server in Azure Database for MySQL
 description: In dit artikel wordt beschreven hoe u het herstellen van een server in Azure Database voor MySQL met behulp van de Azure-portal.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 7f75950a0f61c646d6cf36ea0903ebdefbd336ee
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e1545e830ac04000920c3881486b2add79744201
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138476"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548864"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure Database voor MySQL met behulp van de Azure-portal
 
@@ -66,7 +63,7 @@ De volgende stappen wordt de voorbeeldserver hersteld naar een punt-in-time:
 
    ![Azure Database voor MySQL - gegevens herstellen ](./media/howto-restore-server-portal/3-restore.png)
    - **Herstelpunt**: Selecteer de point-in-time-u wilt herstellen.
-   - **Doelserver**: Geef een naam op voor de nieuwe server.
+   - **Doelserver**: Geef een naam voor de nieuwe server.
    - **Locatie**: U kunt de regio niet selecteren. Het is standaard hetzelfde als de bronserver.
    - **Prijscategorie**: U kunt deze parameters niet wijzigen bij het uitvoeren van een point-in-time-restore. Deze is hetzelfde als de bronserver. 
 
@@ -85,7 +82,7 @@ Als u uw server voor geografisch redundante back-ups hebt geconfigureerd, kan ee
    ![De optie "Azure Database voor MySQL"](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
 
 2. In het formulier **bron selecteren** vervolgkeuzelijst kiezen **back-up**. Met deze actie wordt een lijst met servers die geografisch redundante back-ups ingeschakeld hebt. Selecteer een van deze back-ups om te worden van de bron van de nieuwe server.
-   ![Bron selecteren: De back-up en de lijst met geografisch redundante back-ups](./media/howto-restore-server-portal/2-georestore.png)
+   ![Bron selecteren: Lijst van geografisch redundante back-ups en back-up](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Als u een server maakt eerst kan het niet onmiddellijk beschikbaar voor geo-herstel zijn. Het duurt een paar uur voor de metagegevens die nodig zijn om te worden ingevuld.

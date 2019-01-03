@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8795930c6b676e7e710f112e8d9eedd6ab9084b5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: cf5035d4dd1c58baff66bd5edbdac42c08d6baab
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164562"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600169"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Besturingssysteem van de Query Store in Azure SQL-Database
 Query Store in Azure is een volledig beheerde database-functie die voortdurend worden verzameld en geeft gedetailleerde historische informatie over alle query's. U kunt zien over de Query Store vergelijken met van een vliegtuig flight data recorder die aanzienlijk eenvoudiger queryprestaties probleemoplossing voor cloud en on-premises-klanten. In dit artikel wordt uitgelegd dat specifieke aspecten van het besturingssysteem van de Query Store in Azure. Met deze vooraf verzamelde querygegevens, kunt u snel vaststellen en dus houd meer tijd te focussen op hun bedrijf en oplossen van problemen met prestaties. 
@@ -32,7 +32,7 @@ Query Store is [wereldwijd beschikbaar](https://azure.microsoft.com/updates/gene
 ## <a name="optimal-query-store-configuration"></a>Configuratie van de optimale Query Store
 Deze sectie wordt beschreven optimale standaardconfiguratie-instellingen die zijn ontworpen om ervoor te zorgen betrouwbare werking van de Query Store en afhankelijke onderdelen, zoals [SQL Database Advisor en Prestatiedashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Standaard-configuratie is geoptimaliseerd voor continu gegevens te verzamelen, die weinig tijd besteed in OFF/READ_ONLY Staten.
 
-| Configuratie | Beschrijving | Standaard | Opmerking |
+| Configuratie | Description | Standaard | Opmerking |
 | --- | --- | --- | --- |
 | MAX_STORAGE_SIZE_MB |Hiermee geeft u de limiet voor de gegevensruimte op de Query Store kunt uitvoeren in de klantendatabase |100 |Afgedwongen voor nieuwe databases |
 | INTERVAL_LENGTH_MINUTES |Bepaalt de grootte van de periode gedurende welke verzamelde runtime-statistieken voor query-plannen worden samengevoegd en opgeslagen. Elke actieve queryplan is maximaal één rij voor een bepaalde periode gedefinieerd met deze configuratie |60 |Afgedwongen voor nieuwe databases |

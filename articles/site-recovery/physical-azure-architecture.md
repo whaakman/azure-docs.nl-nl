@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 3f31fa8d26b0fb5f247a0b4c8c65abd50c5bc1e4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5602e68e546c59e3ee43442fdf0cdf33b9cf6a29
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865298"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975029"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fysieke server naar Azure disaster recovery-architectuur
 
@@ -63,15 +63,15 @@ Nadat replicatie is ingesteld en hebt u een Dr-herstelanalyse (testfailover) om 
 - Na de initiële failover wordt geactiveerd, wijst u het toe om toegang tot de workload via de Azure-VM.
 - Als uw primaire on-premises site weer beschikbaar is, kunt u een failback uitvoeren.
 - U moet voor het instellen van een infrastructuur voor failback, met inbegrip van:
-    - **Tijdelijke processerver in Azure**: failback van Azure, voor het instellen van een Azure-VM om te fungeren als een processerver, voor het afhandelen van replicatie van Azure. U kunt deze virtuele machine verwijderen wanneer de failback is voltooid.
-    - **VPN-verbinding**: als u wilt uitvoeren van een failback, moet u een VPN-verbinding (of Azure ExpressRoute) van het Azure-netwerk de on-premises site.
-    - **Afzonderlijke hoofddoelserver**: standaard, de hoofddoelserver die is geïnstalleerd met de configuratieserver op de on-premises virtuele VMware-machine, wordt de failback afgehandeld. Echter, als u back grote hoeveelheden verkeer mislukken wilt, u moet instellen een afzonderlijke on-premises hoofddoelserver voor dit doel.
-    - **Failbackbeleid**: als u wilt repliceren naar de on-premises site, hebt u een failbackbeleid nodig. Dit is automatisch gemaakt tijdens het maken van uw beleid voor replicatie van on-premises naar Azure.
-    - **VMware-infrastructuur**: U hebt een VMware-infrastructuur nodig voor failback. U kunt geen failback uitvoeren naar een fysieke server.
+    - **Tijdelijke processerver in Azure**: Failback van Azure, voor het instellen van een Azure-VM om te fungeren als een processerver, voor het afhandelen van replicatie van Azure. U kunt deze virtuele machine verwijderen wanneer de failback is voltooid.
+    - **VPN-verbinding**: Als u wilt uitvoeren van een failback, moet u een VPN-verbinding (of Azure ExpressRoute) van het Azure-netwerk de on-premises site.
+    - **Afzonderlijke hoofddoelserver**: De hoofddoelserver die is geïnstalleerd met de configuratieserver op de on-premises virtuele VMware-machine, wordt standaard de failback afgehandeld. Echter, als u back grote hoeveelheden verkeer mislukken wilt, u moet instellen een afzonderlijke on-premises hoofddoelserver voor dit doel.
+    - **Failbackbeleid**: Als u wilt repliceren naar uw on-premises site, moet u een beleid voor failback. Dit is automatisch gemaakt tijdens het maken van uw beleid voor replicatie van on-premises naar Azure.
+    - **VMware-infrastructuur**: U moet een VMware-infrastructuur voor failback. U kunt geen failback uitvoeren naar een fysieke server.
 - Nadat de onderdelen in plaats daarvan failback vindt plaats in drie fasen zijn:
     - Fase 1: De Azure VM's opnieuw beveiligen zodat ze van Azure worden gerepliceerd naar de on-premises VMware-machines.
-    - Fase 2: Een failover naar de on-premises site uitvoert.
-    - Fase 3: Nadat workloads failback, u weer inschakelen replicatie.
+    - Fase 2: Een failover uitvoeren naar de on-premises site.
+    - Fase 3: Nadat workloads failback, maar u opnieuw inschakelen replicatie.
 
 **VMware-failback van Azure**
 

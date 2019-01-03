@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 8801954ec5ff0277614f65217b9abab6bfb67035
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e8e81ab81e33302b9a0da3e0230d1366cc90d208
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098603"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635507"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
 
@@ -25,6 +25,8 @@ Een toepassing die toegang heeft tot een storage-account wanneer het netwerkrege
 > Firewall-regels voor uw storage-account inschakelen binnenkomende aanvragen voor gegevens standaard geblokkeerd, tenzij de aanvragen afkomstig zijn van een service die wordt uitgevoerd binnen een Azure Virtual Network (VNet). Aanvragen die zijn geblokkeerd omvatten die van andere Azure-services vanuit de Azure-portal van logboekregistratie en metrische gegevens over services, enzovoort.
 >
 > U kunt toegang verlenen tot Azure-services die worden uitgevoerd van binnen een VNet doordat het subnet van het service-exemplaar. Inschakelen van een beperkt aantal scenario's via de [uitzonderingen](#exceptions) mechanisme dat wordt beschreven in de volgende sectie. Voor toegang tot de Azure-portal, moet u zich op een computer in de vertrouwde grens (IP- of VNet) die u hebt ingesteld.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="scenarios"></a>Scenario's
 
@@ -65,24 +67,24 @@ U kunt de standaardregels voor netwerktoegang voor storage-accounts via Azure po
 
 #### <a name="powershell"></a>PowerShell
 
-1. Installeer de [Azure PowerShell](/powershell/azure/install-azurerm-ps) en [aanmelden](/powershell/azure/authenticate-azureps).
+1. Installeer de [Azure PowerShell](/powershell/azure/install-Az-ps) en [aanmelden](/powershell/azure/authenticate-azureps).
 
 1. De status van de standaardregel voor de storage-account weergeven.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
 1. De standaardregel voor het weigeren van toegang tot het netwerk standaard instellen.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
 1. De standaardregel waarmee toegang tot het netwerk standaard instellen.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
 #### <a name="cliv2"></a>CLIv2
@@ -153,32 +155,32 @@ U kunt virtuele-netwerkregels voor storage-accounts via Azure portal, PowerShell
 
 #### <a name="powershell"></a>PowerShell
 
-1. Installeer de [Azure PowerShell](/powershell/azure/install-azurerm-ps) en [aanmelden](/powershell/azure/authenticate-azureps).
+1. Installeer de [Azure PowerShell](/powershell/azure/install-Az-ps) en [aanmelden](/powershell/azure/authenticate-azureps).
 
 1. Lijst met regels voor virtueel netwerk.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
 1. Service-eindpunt voor Azure Storage inschakelen op een bestaand virtueel netwerk en subnet.
 
     ```PowerShell
-    Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzureRmVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
 1. Voeg een regel voor een virtueel netwerk en subnet toe.
 
     ```PowerShell
-    $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-    Add-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 1. Verwijderen van een regel voor een virtueel netwerk en subnet.
 
     ```PowerShell
-    $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-    Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 > [!IMPORTANT]
@@ -261,36 +263,36 @@ U kunt IP-netwerkregels voor storage-accounts via Azure portal, PowerShell of CL
 
 #### <a name="powershell"></a>PowerShell
 
-1. Installeer de [Azure PowerShell](/powershell/azure/install-azurerm-ps) en [aanmelden](/powershell/azure/authenticate-azureps).
+1. Installeer de [Azure PowerShell](/powershell/azure/install-Az-ps) en [aanmelden](/powershell/azure/authenticate-azureps).
 
 1. Lijst met regels voor IP-netwerk.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
 1. Voeg een regel voor een afzonderlijk IP-adres toe.
 
     ```PowerShell
-    Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Voeg een regel voor een IP-adresbereik toe.
 
     ```PowerShell
-    Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 1. Verwijderen van een regel voor een afzonderlijk IP-adres.
 
     ```PowerShell
-    Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Een regel voor een IP-adresbereik verwijderen.
 
     ```PowerShell
-    Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 > [!IMPORTANT]
@@ -378,24 +380,24 @@ U kunt uitzonderingen op netwerk via Azure portal, PowerShell of Azure CLI beher
 
 #### <a name="powershell"></a>PowerShell
 
-1. Installeer de [Azure PowerShell](/powershell/azure/install-azurerm-ps) en [aanmelden](/powershell/azure/authenticate-azureps).
+1. Installeer de [Azure PowerShell](/powershell/azure/install-Az-ps) en [aanmelden](/powershell/azure/authenticate-azureps).
 
 1. De uitzonderingen voor de storage-account-netwerkregels worden weergegeven.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
 1. De uitzonderingen aan de storage-account network-regels configureren.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
 1. Verwijder de uitzonderingen voor de netwerkregels voor storage-account.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
     ```
 
 > [!IMPORTANT]

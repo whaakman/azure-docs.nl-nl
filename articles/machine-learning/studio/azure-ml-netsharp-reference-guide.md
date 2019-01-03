@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272232"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631122"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Handleiding voor het Net # neurale-netwerkspecificatie voor Azure Machine Learning Studio
 
@@ -388,7 +388,7 @@ Het voorbeeld ziet u enkele eenvoudige opdrachten als volgt:
 
 + De eerste regel wordt gedefinieerd voor de invoer-laag (met de naam `Data`). Wanneer u gebruikt de `auto` trefwoord, het neurale netwerk omvat alle kolommen van de functie automatisch in de invoer voorbeelden. 
 + De tweede regel maakt de verborgen laag. De naam van de `H` is toegewezen aan de verborgen laag met 200 knooppunten. Deze laag is volledig wordt verbonden met de invoer-laag.
-+ De derde regel definieert de uitvoer-laag (met de naam `O`), die 10 uitvoerknooppunten bevat. Als het neurale netwerk wordt gebruikt voor classificatie, is er een uitvoer van de knooppunten per klasse. Het sleutelwoord **sigmoid** geeft aan dat de uitvoer-functie wordt toegepast op de uitvoer-laag.
++ De derde regel definieert de uitvoer-laag (met de naam `Out`), die 10 uitvoerknooppunten bevat. Als het neurale netwerk wordt gebruikt voor classificatie, is er een uitvoer van de knooppunten per klasse. Het sleutelwoord **sigmoid** geeft aan dat de uitvoer-functie wordt toegepast op de uitvoer-laag.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>Meerdere verborgen lagen definiëren: computer vision-voorbeeld
 

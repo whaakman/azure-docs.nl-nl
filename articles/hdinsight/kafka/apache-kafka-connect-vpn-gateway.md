@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a37e67f299262a7e0b353564c24c789859dcec7c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307471"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605004"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Verbinding maken met Apache Kafka in HDInsight via een Azure-netwerk
 
@@ -49,7 +49,7 @@ HDInsight kan geen rechtstreekse verbinding met Kafka via het openbare internet.
 
     Zie voor meer informatie de [verbinding maken met Apache Kafka met een VPN-client](#vpnclient) sectie.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Deze configuratie wordt alleen aanbevolen voor ontwikkelingsdoeleinden vanwege de volgende beperkingen:
     >
     > * Elke client moet verbinding maken met behulp van een VPN-softwareclient.
@@ -61,7 +61,7 @@ Zie voor meer informatie over het gebruik van HDInsight in een virtueel netwerk 
 
 Voor het maken van een Kafka-cluster die communiceert met uw on-premises netwerk, volg de stappen in de [HDInsight verbinden met uw on-premises netwerk](./../connect-on-premises-network.md) document.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Wanneer u de HDInsight-cluster maakt, selecteert u de __Kafka__ clustertype.
 
 Deze stappen maakt u de volgende configuratie:
@@ -186,7 +186,7 @@ Gebruik de stappen in deze sectie om te maken van de volgende configuratie:
         -VpnClientRootCertificates $p2sRootCert
     ```
 
-    > [!WARNING]
+    > [!WARNING]  
     > Het kan enige tijd duren voor dit proces is voltooid.
 
 5. Gebruik de volgende code om de Azure Storage-Account en blob-container te maken:
@@ -232,7 +232,7 @@ Gebruik de stappen in deze sectie om te maken van de volgende configuratie:
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]
+  > [!WARNING]  
   > Dit proces duurt ongeveer 15 minuten om te voltooien.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Kafka configureren voor IP-advertenties
@@ -317,7 +317,7 @@ Gebruik de volgende stappen om te maken en uitvoeren van een Python-producent en
 
     De geretourneerde gegevens voor gebruik opslaan in de volgende stappen.
 
-2. Gebruik de volgende voor het installeren van de [kafka-python](http://kafka-python.readthedocs.io/) client:
+2. Gebruik de volgende voor het installeren van de [kafka-python](https://kafka-python.readthedocs.io/) client:
 
         pip install kafka-python
 

@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3ea1048b1bd47a5cb4f8f4f7725f5ac4d3bbed8a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3bae6d93ffe7ea028d3329dcc69c2f33bdf7aa2a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582836"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635456"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Wat is Apache Storm in Azure HDInsight?
 
-[Apache Storm](http://storm.apache.org/) is een gedistribueerd, fouttolerant en open-source computingsysteem. U kunt Storm gebruiken om te verwerken gegevensstromen in realtime met [Apache Hadoop](https://hadoop.apache.org/). Dankzij de mogelijkheid om gegevens die de eerste keer niet zijn verwerkt, opnieuw te verwerken, bieden Storm-oplossingen u de garantie dat de gegevens worden verwerkt.
+[Apache Storm](https://storm.apache.org/) is een gedistribueerd, fouttolerant en open-source computingsysteem. U kunt Storm gebruiken om te verwerken gegevensstromen in realtime met [Apache Hadoop](https://hadoop.apache.org/). Dankzij de mogelijkheid om gegevens die de eerste keer niet zijn verwerkt, opnieuw te verwerken, bieden Storm-oplossingen u de garantie dat de gegevens worden verwerkt.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
@@ -27,22 +27,22 @@ ms.locfileid: "52582836"
 
 Storm op HDInsight biedt de volgende functies:
 
-* __99% Service Level Agreement (SLA) op Storm uptime__: zie voor meer informatie het document [SLA-gegevens voor HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __99% Service Level Agreement (SLA) op Storm uptime__: Zie [SLA-informatie voor HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) voor meer informatie.
 
 * Ondersteunt de mogelijkheid om eenvoudig aanpassingen te implementeren door tijdens of na het maken van een Storm-cluster scripts voor dat cluster uit te voeren. Zie [HDInsight-clusters aanpassen met scriptacties](../hdinsight-hadoop-customize-cluster-linux.md) voor meer informatie.
 
-* **Oplossingen maken in meerdere talen**: u kunt Storm-onderdelen schrijven in de taal van uw keuze, bijvoorbeeld in Java, C# of Python.
+* **Oplossingen maken in meerdere talen**: U kunt Storm-onderdelen schrijven in de taal van uw keuze, bijvoorbeeld in Java, C# of Python.
 
     * Integreert Visual Studio met HDInsight voor het ontwikkelen, beheren en controleren van C#-topologieën. Zie [C# Storm-topologieën met de hulpprogramma's van HDInsight voor Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md) voor meer informatie.
 
     * Biedt ondersteuning voor de Trident Java-interface. U kunt Storm-topologieën maken die ondersteuning bieden voor een eenmalige verwerking van berichten, transactionele DataStore-persistentie en een aantal algemene Stream Analytics-bewerkingen.
 
-* **Dynamische schaalbaarheid**: u kunt werkknooppunten toevoegen of verwijderen zonder de actieve Storm-topologieën te beïnvloeden.
+* **Dynamische schaalbaarheid**: U kunt werkknooppunten toevoegen of verwijderen zonder de actieve Storm-topologieën te beïnvloeden.
 
-    > [!NOTE]
+    > [!NOTE]  
     > U moet de lopende topologieën deactiveren en reactiveren om te profiteren van de nieuwe knooppunten die zijn toegevoegd via vergroten/verkleinen.
 
-* **Streaming-pijplijnen maken met meerdere Azure-services**: Storm op HDInsight kan worden geïntegreerd met andere Azure-services zoals Event Hubs, SQL-Database, Azure Storage en Azure Data Lake Store.
+* **Streaming-pijplijnen met meerdere Azure-services maken**: Storm op HDInsight kan worden geïntegreerd met andere Azure-services zoals Event Hubs, SQL-Database, Azure Storage en Azure Data Lake-opslag.
 
     Zie voor een Voorbeeldoplossing die kan worden geïntegreerd met Azure-services, [verwerken van gebeurtenissen van Event Hubs met Apache Storm op HDInsight](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
@@ -76,31 +76,31 @@ U kunt in enkele minuten een nieuw Storm-cluster op HDInsight maken. Zie [Aan de
 
 ## <a name="ease-of-use"></a>Gebruiksgemak
 
-* __SSH-connectiviteit (Secure Shell)__: u hebt via internet toegang tot de hoofdknooppunten van het Storm-cluster met behulp van SSH. U kunt opdrachten rechtstreeks op het cluster uitvoeren met behulp van SSH.
+* __Secure Shell (SSH)-connectiviteit__: U kunt toegang tot de hoofdknooppunten van het Storm-cluster via Internet met behulp van SSH. U kunt opdrachten rechtstreeks op het cluster uitvoeren met behulp van SSH.
 
   Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-* __Webconnectiviteit__: alle HDInsight-clusters bieden de Ambari-webgebruikersinterface. Met de Ambare-webgebruikersinterface kunt u eenvoudig services op het cluster controleren, configureren en beheren. Storm-clusters bieden ook de Storm-gebruikersinterface. Met behulp van de Storm-gebruikersinterface kunt u actieve Storm-topologieën controleren en beheren vanuit de browser.
+* __Webconnectiviteit__: Alle HDInsight-clusters bieden de Ambari-Webgebruikersinterface. Met de Ambare-webgebruikersinterface kunt u eenvoudig services op het cluster controleren, configureren en beheren. Storm-clusters bieden ook de Storm-gebruikersinterface. Met behulp van de Storm-gebruikersinterface kunt u actieve Storm-topologieën controleren en beheren vanuit de browser.
 
   Zie voor meer informatie de [beheren HDInsight met behulp van de Apache Ambari-Webgebruikersinterface](../hdinsight-hadoop-manage-ambari.md) en [bewaken en beheren met behulp van de Apache Storm-gebruikersinterface](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) documenten.
 
-* __Azure PowerShell en klassieke Azure-CLI__: PowerShell en klassieke CLI bevatten allebei opdrachtregelprogramma's die u vanuit het clientsysteem gebruiken kunt om te werken met HDInsight en andere Azure-services.
+* __Azure PowerShell en Azure klassieke CLI__: PowerShell en klassieke CLI bevatten allebei opdrachtregelprogramma's die u vanuit het clientsysteem gebruiken kunt om te werken met HDInsight en andere Azure-services.
 
-* __Visual Studio-integratie__: Azure Data Lake-tools voor Visual Studio bevatten projectsjablonen voor het maken van C# Storm-topologieën met behulp van het SCP.Net-framework. Data Lake Tools biedt ook hulpprogramma's voor het implementeren, bewaken en beheren van oplossingen met Storm op HDInsight.
+* __Visual Studio-integratie__: Azure Data Lake Tools voor Visual Studio bevatten projectsjablonen voor het maken van C# Storm-topologieën met behulp van het SCP.Net-framework. Data Lake Tools biedt ook hulpprogramma's voor het implementeren, bewaken en beheren van oplossingen met Storm op HDInsight.
 
   Zie [C# Storm-topologieën met de hulpprogramma's van HDInsight voor Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md) voor meer informatie.
 
 ## <a name="integration-with-other-azure-services"></a>Integratie met andere Azure-services
 
-* __Azure Data Lake Store__: voor een voorbeeld van het gebruik van Data Lake Store met een Storm-cluster raadpleegt u [Use Azure Data Lake Store with Apache Storm with HDInsight](apache-storm-write-data-lake-store.md) (Azure Data Lake Store gebruiken met Apache Storm in HDInsight).
+* __Azure Data Lake Storage__: Zie voor een voorbeeld van het gebruik van Data Lake-opslag met een Storm-cluster, [Azure Data Lake Storage gebruiken met Apache Storm op HDInsight](apache-storm-write-data-lake-store.md).
 
-* __Azure Event Hubs__: raadpleeg de volgende voorbeelden voor een voorbeeld van het gebruik van Event Hubs met een Storm-cluster:
+* __Eventhubs__: Zie de volgende voorbeelden voor een voorbeeld van het gebruik van Event Hubs met een Storm-cluster:
 
     * [Process events from Azure Event Hubs met Apache Storm op HDInsight (Java) gebeurtenissen](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 
     * [Verwerken van gebeurtenissen uit Azure Event Hubs met Apache Storm op HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL-Database__, __Cosmos DB__, __Event Hubs__ en __HBase__: in de Data Lake-hulpmiddelen voor Visual Studio zijn sjabloonvoorbeelden opgenomen. Zie voor meer informatie, [ontwikkelen een C# topologie voor Apache Storm op HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
+* __SQL-Database__, __Cosmos DB__, __Eventhubs__, en __HBase__: Er zijn sjabloonvoorbeelden opgenomen in de Data Lake Tools voor Visual Studio. Zie voor meer informatie, [ontwikkelen een C# topologie voor Apache Storm op HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="support"></a>Ondersteuning
 
@@ -136,17 +136,17 @@ Python kan ook worden gebruikt voor het ontwikkelen van Storm-onderdelen. Zie vo
 
 ### <a name="guaranteed-message-processing"></a>Gegarandeerde berichtverwerking
 
-Apache Storm kan verschillende niveaus van gegarandeerde berichtverwerking bieden. Bijvoorbeeld, een eenvoudige Storm-toepassing op de minst keer worden verwerkt, kan garanderen en [Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html) kunt garanderen exact één keer worden verwerkt.
+Apache Storm kan verschillende niveaus van gegarandeerde berichtverwerking bieden. Bijvoorbeeld, een eenvoudige Storm-toepassing op de minst keer worden verwerkt, kan garanderen en [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) kunt garanderen exact één keer worden verwerkt.
 
 Zie [Guarantees on data processing](https://storm.apache.org/about/guarantees-data-processing.html) (Garanties met betrekking tot de gegevensverwerking) op apache.org voor meer informatie.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-Het patroon voor het lezen van een invoer-tuple, het verzenden van nul of meer tuples om de invoer-tuple vervolgens onmiddellijk aan het einde van de uitvoeringsmethode te bevestigen, is een veelgebruikte methode. Storm biedt de [IBasicBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)-interface voor het automatiseren van dit patroon.
+Het patroon voor het lezen van een invoer-tuple, het verzenden van nul of meer tuples om de invoer-tuple vervolgens onmiddellijk aan het einde van de uitvoeringsmethode te bevestigen, is een veelgebruikte methode. Storm biedt de [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)-interface voor het automatiseren van dit patroon.
 
 ### <a name="joins"></a>Samenvoegingen
 
-Hoe gegevensstromen worden gekoppeld, varieert per toepassing. U kunt bijvoorbeeld elke tuple uit meerdere streams samenvoegen in één nieuwe stream, of u kunt alleen batches tuples voor een specifiek venster samenvoegen. In beide gevallen kunt u hiervoor [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) gebruiken. Veldgroepering is een manier om te definiëren hoe tuples worden gerouteerd naar bolts.
+Hoe gegevensstromen worden gekoppeld, varieert per toepassing. U kunt bijvoorbeeld elke tuple uit meerdere streams samenvoegen in één nieuwe stream, of u kunt alleen batches tuples voor een specifiek venster samenvoegen. In beide gevallen kunt u hiervoor [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) gebruiken. Veldgroepering is een manier om te definiëren hoe tuples worden gerouteerd naar bolts.
 
 In het volgende Java-voorbeeld wordt fieldsGrouping gebruikt om tuples die afkomstig zijn uit de onderdelen 1, 2 en 3, te routeren naar de MyJoiner-bolt:
 
@@ -160,11 +160,11 @@ Zie [PartialBoltCount.cs](https://github.com/hdinsight/hdinsight-storm-examples/
 
 ### <a name="caches"></a>Caches
 
-In-memory caching wordt vaak gebruikt als mechanisme om de verwerking te versnellen, omdat de veelgebruikte assets in het geheugen blijven staan. Omdat een topologie wordt verdeeld over meerdere knooppunten en meerdere processen binnen elk knooppunt, is het goed om het gebruik van [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) te overwegen. Gebruik `fieldsGrouping` om ervoor te zorgen dat tuples met velden die worden gebruikt voor het opzoeken van de cache, altijd naar hetzelfde proces worden gerouteerd. Met deze groeperingsfunctionaliteit voorkomt u dubbele cachevermeldingen voor verschillende processen.
+In-memory caching wordt vaak gebruikt als mechanisme om de verwerking te versnellen, omdat de veelgebruikte assets in het geheugen blijven staan. Omdat een topologie wordt verdeeld over meerdere knooppunten en meerdere processen binnen elk knooppunt, is het goed om het gebruik van [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) te overwegen. Gebruik `fieldsGrouping` om ervoor te zorgen dat tuples met velden die worden gebruikt voor het opzoeken van de cache, altijd naar hetzelfde proces worden gerouteerd. Met deze groeperingsfunctionaliteit voorkomt u dubbele cachevermeldingen voor verschillende processen.
 
 ### <a name="stream-top-n"></a>'Top N' van stromen
 
-Wanneer uw topologie afhankelijk is van de berekening van de waarde van een 'top N', moet u die waarde in parallel berekenen. Vervolgens moet u de uitvoer van die berekeningen samenvoegen tot een globale waarde. Dit kan door met [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) op veld te routeren voor parallelle verwerking. Vervolgens kunt u de uitvoer doorsturen naar een bolt die globaal de top N-waarde bepaalt.
+Wanneer uw topologie afhankelijk is van de berekening van de waarde van een 'top N', moet u die waarde in parallel berekenen. Vervolgens moet u de uitvoer van die berekeningen samenvoegen tot een globale waarde. Dit kan door met [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) op veld te routeren voor parallelle verwerking. Vervolgens kunt u de uitvoer doorsturen naar een bolt die globaal de top N-waarde bepaalt.
 
 Zie het [RollingTopWords](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/RollingTopWords.java)-voorbeeld voor een voorbeeld van een berekening van een top N-waarde.
 
@@ -182,6 +182,6 @@ Meer informatie over realtime analyseoplossingen met Apache Storm op HDInsight:
 * [Example Storm toplogies and components for Apache Storm on HDInsight](apache-storm-example-topology.md) (Voorbeelden van Storm-topologieën en -onderdelen in HDInsight)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
+[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: apache-storm-tutorial-get-started-linux.md

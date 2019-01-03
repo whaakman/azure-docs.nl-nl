@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 23003859b9a75fb986fe65f5528004f3dd150f9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312184"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633041"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Upgraden naar de nieuwste versie van Azure Search Service REST API
 Als u een eerdere versie van de [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/), in dit artikel ziet u een upgrade van uw toepassing voor het gebruik van de meest recente algemeen beschikbaar API-versie 2017-11-11.
@@ -59,7 +59,7 @@ Als uw code maakt gebruik van deze functies, wordt het niet mogelijk om te upgra
 ## <a name="conclusion"></a>Conclusie
 Als u meer informatie over het gebruik van de Azure Search Service REST API nodig hebt, raadpleegt u de onlangs bijgewerkte [API-verwijzing](https://docs.microsoft.com/rest/api/searchservice/) op MSDN.
 
-We stellen uw feedback op Azure Search. Als u problemen ondervindt, gerust ons vragen voor meer informatie over op de [Azure Search MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) of [StackOverflow](http://stackoverflow.com/). Als u bent een vraag stellen over Azure Search op StackOverflow, zorg ervoor dat u code met `azure-search`.
+We stellen uw feedback op Azure Search. Als u problemen ondervindt, gerust ons vragen voor meer informatie over op de [Azure Search MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) of [StackOverflow](https://stackoverflow.com/). Als u bent een vraag stellen over Azure Search op StackOverflow, zorg ervoor dat u code met `azure-search`.
 
 Hartelijk dank voor het gebruik van Azure Search.
 

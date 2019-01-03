@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e319c803b610005bc130e9c5d314d23c48c1e9a3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963739"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717180"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Toevoegen van tenant voor gebruik en facturering met Azure Stack
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
 In dit artikel wordt beschreven hoe u een gebruiker toevoegen aan Azure Stack beheerd door een Cloud Service Provider (CSP). Als u de nieuwe tenant maakt gebruik van resources, Azure Stack gebruik gemeld aan haar CSP-abonnement.
 
@@ -53,7 +53,7 @@ Als de eindklant hun eigen account beheren wilt, een gastgebruiker in de directo
  
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>De registratie wordt bijgewerkt met het klantabonnement dat einde
 
-Werk uw registratie met abonnement van de nieuwe klant. Azure-rapporten van de klant gebruik met behulp van de identiteit van de klant van Central-Partner. Deze stap zorgt ervoor dat elke klant gebruik onder de afzonderlijke CSP-abonnement van de klant wordt gerapporteerd. Dit maakt het gebruik van de gebruiker bijhouden en facturering veel eenvoudiger.
+Werk uw registratie met abonnement van de nieuwe klant. Azure-rapporten van de klant gebruik van de Partner Center met behulp van de identiteit van de klant. Deze stap zorgt ervoor dat elke klant gebruik onder de afzonderlijke CSP-abonnement van de klant wordt gerapporteerd. Dit maakt het gebruik van de gebruiker bijhouden en facturering veel eenvoudiger.
 
 > [!Note]  
 > Als u wilt deze stap is uitgevoerd, moet u hebben [geregistreerd Azure Stack](azure-stack-register.md).
@@ -67,13 +67,13 @@ Werk uw registratie met abonnement van de nieuwe klant. Azure-rapporten van de k
     New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>Nieuwe-AzureRmResource PowerShell-parameters
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- | 
 |registrationSubscriptionID | De Azure-abonnement dat is gebruikt voor de registratie van de Azure Stack.|
 | customerSubscriptionID | De Azure-abonnement (niet Azure Stack) die horen bij de klant worden geregistreerd. Moet worden gemaakt in de CSP-aanbieding; Dit betekent via Partner Center in de praktijk. Als een klant meer dan één Azure Active Directory-tenant heeft, kan dit abonnement moet worden gemaakt in de tenant die wordt gebruikt voor aanmelding bij Azure Stack. De abonnements-ID van de klant moet kleine letters gebruiken. |
-| ResourceGroup | De resourcegroep in Azure waarop uw registratie zijn opgeslagen. |
+| resourceGroup | De resourcegroep in Azure waarop uw registratie zijn opgeslagen. |
 | registrationName | De naam van de registratie van uw Azure Stack. Er is een object dat is opgeslagen in Azure. | 
-| Eigenschappen | Hiermee geeft u de eigenschappen voor de resource. Gebruik deze parameter om op te geven van de waarden van eigenschappen die specifiek voor het resourcetype zijn.
+| Properties | Hiermee geeft u de eigenschappen voor de resource. Gebruik deze parameter om op te geven van de waarden van eigenschappen die specifiek voor het resourcetype zijn.
 
 
 > [!Note]  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310994"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974706"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolatie in de openbare Cloud van Azure
 ##  <a name="introduction"></a>Inleiding
@@ -121,7 +121,7 @@ Zakelijke services met gecontroleerde certificeringen zoals ISO/IEC 27001 worden
 
 Als u alle gegevens verwijdert, worden de gegevens, met inbegrip van alle exemplaren in de cache of back-up verwijderd in Microsoft Azure. Voor de services binnen de regeling vallen, die verwijderen wordt uitgevoerd om binnen 90 dagen na het einde van de bewaarperiode. (In-scope services zijn gedefinieerd in de sectie gegevensverwerking voorwaarden van onze [voorwaarden voor onlineservices](https://aka.ms/Online-Services-Terms).)
 
-Als een schijf gebruikt voor de opslag leidt dit tot slechtere een hardwarestoring optreedt, is het veilig [worden gewist of vernietigd](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) voordat Microsoft wordt geretourneerd voor vervanging of reparatie van de fabrikant. Om ervoor te zorgen dat de gegevens kunnen niet worden hersteld door middel van de gegevens op de schijf overschreven.
+Als een schijf gebruikt voor de opslag leidt dit tot slechtere een hardwarestoring optreedt, is het veilig [worden gewist of vernietigd](https://microsoft.com/trustcenter/privacy/you-own-your-data) voordat Microsoft wordt geretourneerd voor vervanging of reparatie van de fabrikant. Om ervoor te zorgen dat de gegevens kunnen niet worden hersteld door middel van de gegevens op de schijf overschreven.
 
 ## <a name="compute-isolation"></a>COMPUTE-isolatie
 Microsoft Azure biedt verschillende cloud-gebaseerde computing services met een ruime keuze aan rekenprocessen en -services die u omhoog en omlaag automatisch schalen kunnen om te voldoen aan de behoeften van uw toepassing of enterprise. Deze compute-instantie en de service bieden isolatie op meerdere niveaus om gegevens te beveiligen zonder dat dit ten koste gaat van de flexibiliteit in de configuratie die vraag van klanten.
@@ -238,7 +238,7 @@ Versleuteling tijdens overdracht is een mechanisme om gegevens te beveiligen wan
 -   [Clientversleuteling](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), voor het versleutelen van de gegevens voordat deze wordt overgedragen naar de opslag en de gegevens nadat deze zijn overgebracht geen opslagruimte meer te ontsleutelen.
 
 #### <a name="encryption-at-rest"></a>Versleuteling-at-Rest
-Voor veel organisaties [gegevensversleuteling in rust](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is een verplichte stap voor privacy, naleving en onafhankelijkheid van gegevens. Er zijn drie Azure-functies die bieden van versleuteling van gegevens die zich 'in rust':
+Voor veel organisaties [gegevensversleuteling in rust](https://docs.microsoft.com/azure/security/azure-isolation) is een verplichte stap voor privacy, naleving en onafhankelijkheid van gegevens. Er zijn drie Azure-functies die bieden van versleuteling van gegevens die zich 'in rust':
 
 -   [Storage-Serviceversleuteling](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) Hiermee kunt u aanvragen dat de storage-service gegevens automatisch versleuteld bij het schrijven van deze naar Azure Storage.
 

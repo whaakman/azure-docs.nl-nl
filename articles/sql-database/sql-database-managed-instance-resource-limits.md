@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315635"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584493"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
@@ -48,16 +48,20 @@ Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en bedrijfskritiek. 
 | **Functie** | **Algemeen gebruik** | **Bedrijfskritiek** |
 | --- | --- | --- |
 | Het aantal vCores\* | Gen4: 8, 16, 24 uur per dag<br/>Gen5: 8, 16, 24 uur per dag, 32, 40, 64, 80 | Gen4: 8, 16, 24 uur per dag, 32 <br/> Gen5: 8, 16, 24 uur per dag, 32, 40, 64, 80 |
-| Geheugen | Gen4: 56GB - 156GB<br/>Gen5: 44GB - 440GB<br/>\*In verhouding staan tot het aantal vCores | Gen4: 56GB - 156GB <br/> Gen5: 44GB - 440GB<br/>\*In verhouding staan tot het aantal vCores |
+| Geheugen | Gen4: 56GB - 156GB<br/>Gen5: 44GB - 440GB<br/>\*In verhouding staan tot het aantal vCores | Gen4: 56GB - 156GB <br/> Gen5: 41GB - 408GB<br/>\*In verhouding staan tot het aantal vCores |
 | Maximumgrootte van opslag | 8 TB | Gen 4: 1 TB <br/> Gen 5: <br/>-1 TB voor 8, 16 vcores uitvoert<br/>-2 TB voor 24 vCores<br/>-4 TB voor 32, 40, 64, 80 vCores |
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
 | Maximumaantal databases per exemplaar | 100 | 100 |
 | Maximum aantal bestanden per exemplaar | Maximaal 280 | 32.767 bestanden per database |
-| IOPS (bij benadering) | 500-7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
+| Gegevens/Log IOPS (bij benadering) | 500-7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
+| Exemplaar Log doorvoer | 22MB/s per exemplaar | 3MB/s per vCore<br/>Max 48MB/s |
+| Doorvoer van gegevens (bij benadering) | 100-250 MB/s per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48MB/s per vCore |
 | I/o-latentie (bij benadering) | 5-10 ms | 1-2 ms |
-| Maximumgrootte van tempDB | 192 1920 GB (24 GB per vCore) | Bepaald door de maximale opslagruimte per exemplaar |
+| Maximumgrootte van tempDB | 192 1920 GB (24 GB per vCore) | Er zijn geen beperkingen - beperkt door de grootte van de maximale sessie |
 
-- Gebruikers- en systeemdatabases zijn opgenomen in de grootte van de instantie die wordt vergeleken met de maximale grootte opslaglimiet. Gebruik <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> door het systeemweergave om te bepalen het totale aantal gebruikte ruimte door databases. Foutenlogboeken zijn niet permanent en worden niet opgenomen in de grootte. Back-ups zijn niet opgenomen in de opslagruimte.
+**Opmerkingen bij de**:
+- Gegevens- en logboekbestanden bestandsgrootte in de gebruiker en de systeemdatabases zijn opgenomen in de grootte van de instantie die wordt vergeleken met de maximale grootte opslaglimiet. Gebruik <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> door het systeemweergave om te bepalen het totale aantal gebruikte ruimte door databases. Foutenlogboeken zijn niet permanent en worden niet opgenomen in de grootte. Back-ups zijn niet opgenomen in de opslagruimte.
+- Doorvoer en IOPS ook afhankelijk van het formaat van de pagina die niet expliciet is beperkt door een Managed Instance.
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
@@ -136,7 +140,7 @@ Het proces voor het verkrijgen van een grotere quotum initiëren:
 
      ![Probleem type quotum](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. Klik op **Volgende**.
+3. Klik op **volgende**.
 4. Op het tabblad probleem voor de nieuwe ondersteuningsaanvraag:
    - Voor **ernst**, selecteert u de ernst van het probleem.
    - Voor **Details**, bieden aanvullende informatie over uw probleem, met inbegrip van foutberichten.
@@ -150,7 +154,7 @@ Het proces voor het verkrijgen van een grotere quotum initiëren:
      > - Vereiste aantal exemplaren per servicelaag in bestaande subnetten na het quotum (als een van de bestaande subnetten moet worden uitgebreid verhogen
      > - Aantal nieuwe subnetten en totaal aantal exemplaren per servicelaag in de nieuwe subnetten vereist (als u implementeren van beheerde exemplaren in de nieuwe subnetten wilt).
 
-5. Klik op **Volgende**.
+5. Klik op **volgende**.
 6. Voer op het tabblad contact opnemen met informatie voor de nieuwe ondersteuningsaanvraag contactwijze (bijvoorbeeld e-mail of telefoon) en de gegevens van de contactpersoon.
 7. Klik op **Create**.
 

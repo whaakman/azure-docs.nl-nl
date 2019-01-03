@@ -7,16 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 20d3d3d755a35927550064ddfdf3b983348f93d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109766"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605548"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor het beheer van container-installatiekopie en beveiliging in Azure Kubernetes Service (AKS)
-
-Als u toepassingen ontwikkelen en in Azure Kubernetes Service (AKS uitvoeren), is de beveiliging van uw containers belangrijkste overweging. Containers die verouderd basisinstallatiekopieën of runtime voor de toepassing zijn introduceren een beveiligingsrisico en een mogelijke aanvalsvector. Om te beperken deze risico's, moet u de hulpprogramma's die zoeken en oplossen van problemen in uw containers integreren.
 
 Als u toepassingen ontwikkelen en in Azure Kubernetes Service (AKS uitvoeren), is de beveiliging van uw containers en containerinstallatiekopieën belangrijkste overweging. Containers die verouderd zijn basis afbeeldingen of niet-gepatchte toepassing runtimes introduceren een beveiligingsrisico en een mogelijke aanvalsvector. Om te beperken deze risico's, moet u de hulpprogramma's die zoeken en oplossen van problemen in uw containers op build-tijd, evenals runtime integreren. De eerder in het proces dat de kwetsbaarheid of verouderd basisinstallatiekopie wordt geblokkeerd, is het veiliger het cluster. In dit artikel *containers* betekent dat zowel de containerinstallatiekopieën worden opgeslagen in een container registry, en de actieve containers.
 

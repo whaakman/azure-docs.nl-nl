@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: da227151dd056dd5e852ae8790b6f20ac3c0c790
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308214"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653302"
 ---
-# <a name="apache-phoenix-performance-best-practices"></a>Aanbevolen procedures voor prestaties van Apache Phoenix
+# <a name="apache-phoenix-performance-best-practices"></a>Best practices voor Apache Phoenix-prestaties
 
-De belangrijkste aspecten van [Apache Phoenix](https://phoenix.apache.org/) prestaties is het optimaliseren van de onderliggende [Apache HBase](http://hbase.apache.org/). Phoenix maakt een relationeel gegevensmodel op HBase die SQL-query's in HBase-bewerkingen, zoals scans converteert. Het ontwerp van uw tabelschema, de selectie en volgorde van de velden in uw primaire sleutel en uw gebruik van alle indexen Phoenix prestaties beïnvloeden.
+De belangrijkste aspecten van [Apache Phoenix](https://phoenix.apache.org/) prestaties is het optimaliseren van de onderliggende [Apache HBase](https://hbase.apache.org/). Phoenix maakt een relationeel gegevensmodel op HBase die SQL-query's in HBase-bewerkingen, zoals scans converteert. Het ontwerp van uw tabelschema, de selectie en volgorde van de velden in uw primaire sleutel en uw gebruik van alle indexen Phoenix prestaties beïnvloeden.
 
 ## <a name="table-schema-design"></a>Schema tabelontwerp
 
@@ -32,21 +32,21 @@ De primaire sleutel gedefinieerd voor een tabel in Phoenix bepaalt hoe gegevens 
 
 Een tabel met contacten heeft bijvoorbeeld de voornaam, laatste naam, telefoonnummer, en het adres, allemaal in dezelfde kolomfamilie. U kunt een primaire sleutel op basis van een toenemende volgnummer definiëren:
 
-|rowkey|       Adres|   telefoon| Voornaam| lastName|
+|rowkey|       address|   telefoon| Voornaam| lastName|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Davids|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 Echter, als u regelmatig query's met lastName uitvoeren deze primaire sleutel kan niet uitvoeren, omdat voor elke query is vereist voor een volledige tabelcontrole uitgevoerd om te lezen van de waarde van elke lastName. In plaats daarvan kunt u een primaire sleutel op de achternaam, firstName en sociaal-fiscaal nummer kolommen. Deze laatste kolom is te onderscheiden van inwoners van de twee op hetzelfde adres met dezelfde naam, zoals een vader en zoon.
 
-|rowkey|       Adres|   telefoon| Voornaam| lastName| socialSecurityNum |
+|rowkey|       address|   telefoon| Voornaam| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Davids| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Met deze nieuwe primaire sleutel van de rij zou sleutels die worden gegenereerd door Phoenix zijn:
 
-|rowkey|       Adres|   telefoon| Voornaam| lastName| socialSecurityNum |
+|rowkey|       address|   telefoon| Voornaam| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Davids-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Davids| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
@@ -55,7 +55,7 @@ In de eerste rij boven, worden de gegevens voor de rowkey wordt weergegeven zoal
 
 |rowkey|       sleutel|   waarde| 
 |------|--------------------|---|
-|  Davids-John-111|Adres |1111 San Gabriel Dr.|  
+|  Davids-John-111|address |1111 San Gabriel Dr.|  
 |  Davids-John-111|telefoon |1-425-000-0002|  
 |  Davids-John-111|Voornaam |John|  
 |  Davids-John-111|lastName |Davids|  
@@ -114,7 +114,7 @@ Gedekte indexen zijn indexen die gegevens opnemen uit de rij samen met de waarde
 
 Bijvoorbeeld, in het voorbeeld contact op met tabel kunt u een secundaire index maken voor alleen de kolom socialSecurityNum. Deze secundaire index query's die op socialSecurityNum waarden filteren wilt versnellen, maar bij het ophalen van andere waarden moet een andere lezen op de belangrijkste tabel.
 
-|rowkey|       Adres|   telefoon| Voornaam| lastName| socialSecurityNum |
+|rowkey|       address|   telefoon| Voornaam| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Davids-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Davids| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
@@ -225,9 +225,9 @@ Als uw scenario schrijfsnelheid via de integriteit van gegevens ligt, kunt u ove
 
     CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
 
-Zie voor meer informatie over deze en andere opties [Phoenix grammatica](http://phoenix.apache.org/language/index.html#options).
+Zie voor meer informatie over deze en andere opties [Apache Phoenix grammatica](https://phoenix.apache.org/language/index.html#options).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Apache Phoenix Tuning Guide](https://phoenix.apache.org/tuning_guide.html)
-* [Secundaire indexen](http://phoenix.apache.org/secondary_indexing.html)
+* [Secundaire indexen](https://phoenix.apache.org/secondary_indexing.html)

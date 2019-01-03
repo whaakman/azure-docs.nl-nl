@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416389"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632311"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Veelgestelde vragen over Azure Storage-migratie
 
@@ -54,8 +54,8 @@ Er is geen optie voor het rechtstreeks een back-up van een hele storage-account.
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: De URI voor de bron-opslagaccount (tot de container) opgeven.  
-    - `/Dest`: Geef de URI voor het doelopslagaccount (tot de container).  
+    - `/Source`: Hiermee geeft u de URI voor de bron-storage-account (tot de container).  
+    - `/Dest`: Hiermee geeft u de URI voor de doel-opslagaccount (tot de container).  
     - `/SourceKey`: Geef de primaire sleutel voor de bron-storage-account. U kunt deze sleutel kopiëren vanuit Azure portal door het opslagaccount te selecteren.  
     - `/DestKey`: Geef de primaire sleutel voor het doelopslagaccount. U kunt deze sleutel kopiëren vanuit de portal door het opslagaccount te selecteren.
 
@@ -118,6 +118,8 @@ Zie voor meer informatie, [gegevens overdragen met AzCopy voor Windows](storage-
 
 **Hoe verplaats ik beheerde schijven naar een ander opslagaccount?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Volg deze stappen:
 
 1.  Stop de virtuele machine die de beheerde schijf is gekoppeld aan.
@@ -125,15 +127,15 @@ Volg deze stappen:
 2.  De beheerde schijf VHD van het ene gebied kopiëren naar een andere de volgende Azure PowerShell-script uit te voeren:
 
     ```
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  Een beheerde schijf maken met behulp van het VHD-bestand in een andere regio waarnaar u de VHD hebt gekopieerd. U doet dit door de volgende Azure PowerShell-script worden uitgevoerd:  
@@ -151,9 +153,9 @@ Volg deze stappen:
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 Zie voor meer informatie over het implementeren van een virtuele machine van een beheerde schijf [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
@@ -164,7 +166,7 @@ AzCopy gebruiken om de gegevens te downloaden. Zie voor meer informatie, [gegeve
 
 **Hoe kan ik de secundaire locatie in de regio Europa voor een storage-account wijzigen?**
 
-Als u een opslagaccount maakt, selecteert u de primaire regio voor het account. De selectie van de secundaire regio is gebaseerd op de primaire regio en kan niet worden gewijzigd. Zie voor meer informatie, [geografisch redundante opslag (GRS): replicatie voor Azure Storage-overschrijdende](storage-redundancy.md).
+Als u een opslagaccount maakt, selecteert u de primaire regio voor het account. De selectie van de secundaire regio is gebaseerd op de primaire regio en kan niet worden gewijzigd. Zie voor meer informatie, [geografisch redundante opslag (GRS): Regio-overschrijdend-replicatie voor Azure Storage](storage-redundancy.md).
 
 **Waar vind ik meer informatie over Azure Storage Service Encryption (SSE)?**  
   
@@ -234,7 +236,7 @@ Als u virtuele machines hebt, moet u extra stappen uitvoeren voordat u de gegeve
 
 **Hoe verplaats ik van een klassiek opslagaccount naar een Azure Resource Manager-opslagaccount?**
 
-U kunt de **Move-AzureStorageAccount** cmdlet. Deze cmdlet heeft meerdere stappen (valideren, voorbereiden, doorvoeren). U kunt de overstap kunt valideren voordat u deze maakt.
+U kunt de **verplaatsen AzStorageAccount** cmdlet. Deze cmdlet heeft meerdere stappen (valideren, voorbereiden, doorvoeren). U kunt de overstap kunt valideren voordat u deze maakt.
 
 Als u virtuele machines hebt, moet u extra stappen uitvoeren voordat u de gegevens van storage-account migreren. Zie voor meer informatie, [migreren IaaS-resources van klassiek naar Azure Resource Manager met behulp van Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -274,11 +276,11 @@ Zodat andere personen toegang tot de storage-resources:
 
 -   Als u geografisch redundante opslag met leestoegang, u kunt toegang tot gegevens van de secundaire regio op elk gewenst moment. Gebruik een van de volgende methoden:  
       
-    - **AzCopy**: Append **-secundaire** op de naam van het opslagaccount in de URL voor toegang tot het secundaire eindpunt. Bijvoorbeeld:  
+    - **AzCopy**: Toevoeg- **-secundaire** op de naam van het opslagaccount in de URL voor toegang tot het secundaire eindpunt. Bijvoorbeeld:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS-token**: een SAS-token gebruiken voor toegang tot gegevens van het eindpunt. Zie voor meer informatie, [voor gedeelde toegangshandtekeningen](storage-dotnet-shared-access-signature-part-1.md).
+    - **SAS-token**: Een SAS-token gebruiken voor toegang tot gegevens van het eindpunt. Zie voor meer informatie, [voor gedeelde toegangshandtekeningen](storage-dotnet-shared-access-signature-part-1.md).
 
 **Hoe gebruik ik een aangepast domein met HTTPS met mijn storage-account? Bijvoorbeeld, hoe zorg ik 'https://mystorageaccountname.blob.core.windows.net/images/image.gif'worden weergegeven als'https://www.contoso.com/images/image.gif'?**
 

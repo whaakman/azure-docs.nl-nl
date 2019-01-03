@@ -9,33 +9,32 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e00c52c17eac92edc3273e2d765d6c5fd76f59b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1601663266f59668918e6799b5c4a7ff606431c4
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970674"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600009"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Apache Spark-taken die worden uitgevoerd op Azure HDInsight
 
-In dit artikel leert u hoe u traceren en foutopsporing kunt uitvoeren [Apache Spark](https://spark.apache.org/) taken die worden uitgevoerd op HDInsight-clusters met behulp van de [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark-gebruikersinterface en de Server van de geschiedenis van Spark. Starten van een Spark-taak met behulp van een laptop beschikbaar met het Spark-cluster **Machine learning: Predictive Analytics op food inspectie gegevens met behulp van MLLib**. U kunt de volgende stappen uit om bij te houden van een toepassing die u wilde verzenden met behulp van een andere benadering, bijvoorbeeld **spark-submit**.
+In dit artikel leert u hoe u traceren en foutopsporing kunt uitvoeren [Apache Spark](https://spark.apache.org/) taken die worden uitgevoerd op HDInsight-clusters met behulp van de [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark-gebruikersinterface en de Server van de geschiedenis van Spark. Starten van een Spark-taak met behulp van een laptop beschikbaar met het Spark-cluster **Machine learning: Voorspellende analyse van voedsel inspectie gegevens met behulp van MLLib**. U kunt de volgende stappen uit om bij te houden van een toepassing die u wilde verzenden met behulp van een andere benadering, bijvoorbeeld **spark-submit**.
 
 ## <a name="prerequisites"></a>Vereisten
 U hebt het volgende:
 
 * Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Een Apache Spark-cluster in HDInsight. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
-* U moet zijn gestart voor het uitvoeren van de notebook  **[Machine learning: Predictive Analytics op food inspectie gegevens met behulp van MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Volg de koppeling voor instructies over het uitvoeren van dit notitieblok.  
+* U moet zijn gestart voor het uitvoeren van de notebook  **[Machine learning: Voorspellende analyse van voedsel inspectie gegevens met behulp van MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Volg de koppeling voor instructies over het uitvoeren van dit notitieblok.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Bijhouden van een toepassing in de gebruikersinterface van YARN
 1. Start de gebruikersinterface van YARN. Klik op **Yarn** onder **Clusterdashboards**.
    
     ![Gebruikersinterface van YARN starten](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
-   > [!TIP]
-   > U kunt ook kunt u ook de YARN-gebruikersinterface van de Ambari UI starten. Als u wilt de UI Ambari starten, klikt u op **Ambari home** onder **Clusterdashboards**. Klik op de UI Ambari **YARN**, klikt u op **snelkoppelingen**, klikt u op de actieve Resource Manager en klik vervolgens op **Resource Manager UI**.    
-   > 
-   > 
+   > [!TIP]  
+   > U kunt ook kunt u ook de YARN-gebruikersinterface van de Ambari UI starten. Als u wilt de UI Ambari starten, klikt u op **Ambari home** onder **Clusterdashboards**. Klik op de UI Ambari **YARN**, klikt u op **snelkoppelingen**, klikt u op de actieve Resource Manager en klik vervolgens op **Resource Manager UI**. 
+
 2. Omdat u de Spark-taak met behulp van Jupyter notebooks eerst, de toepassing heeft de naam van de **remotesparkmagics** (dit is de naam op voor alle toepassingen die worden gestart vanuit de notitieblokken). Klik op de toepassings-ID op basis van de naam van de toepassing voor meer informatie over de taak. Hiermee wordt de toepassingsweergave gestart.
    
     ![Spark-toepassing-ID vinden](./media/apache-spark-job-debugging/find-application-id.png)
@@ -72,10 +71,9 @@ In de Spark-gebruikersinterface kunt u inzoomen op de Spark-taken die zijn geïn
    
     Hiermee worden de Spark-gebeurtenissen weergegeven in de vorm van een tijdlijn. De tijdlijnweergave is beschikbaar op drie niveaus voor taken, binnen een taak en binnen een fase. De bovenstaande afbeelding bevat de tijdlijnweergave voor een bepaald tijdstip.
    
-   > [!TIP]
+   > [!TIP]  
    > Als u selecteert de **zoomen inschakelen** selectievakje, kunt u bladeren naar links en rechts in de tijdlijn weergeven.
-   > 
-   > 
+
 6. Andere tabbladen in de gebruikersinterface van Spark bevatten nuttige informatie over de Spark-instantie.
    
    * Tabblad van de opslag - als uw toepassing een rdd's maakt, kunt u informatie over die in het tabblad opslag vinden.
@@ -92,10 +90,9 @@ Als een taak is voltooid, wordt de informatie over de taak behouden in de Server
    
     ![Spark geschiedenis Server starten](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
-   > [!TIP]
+   > [!TIP]  
    > U kunt ook kunt u ook de Spark-geschiedenis Server gebruikersinterface van de Ambari UI starten. Als u wilt starten, de UI Ambari, op de blade overzicht klikt u op **Ambari home** onder **Clusterdashboards**. Klik op de UI Ambari **Spark**, klikt u op **snelkoppelingen**, en klik vervolgens op **Spark geschiedenis Server gebruikersinterface**.
-   > 
-   > 
+
 2. U ziet de voltooide toepassingen die worden vermeld. Klik op een toepassings-ID Inzoomen op een toepassing voor meer informatie.
    
     ![Spark geschiedenis Server starten](./media/apache-spark-job-debugging/view-completed-applications.png)
@@ -106,8 +103,8 @@ Als een taak is voltooid, wordt de informatie over de taak behouden in de Server
 
 ### <a name="for-data-analysts"></a>Voor gegevensanalisten
 
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Telemetrie analyse van Application Insights met Apache Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Caffe gebruiken op Azure HDInsight Spark voor gedistribueerde deep learning](apache-spark-deep-learning-caffe.md)

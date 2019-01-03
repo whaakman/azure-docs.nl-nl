@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: f0f0308233334e2662704e818c765c625a80019d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d013f2cdd9f33f55d579638386355e5cbaccb7e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878296"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714947"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Serverless database computing met behulp van Azure Cosmos DB en Azure Functions
 
@@ -29,7 +29,7 @@ Azure Cosmos DB en Azure Functions kunt u uw databases en serverloze apps integr
 * Binding van een functie met een Azure Cosmos DB-container met een **Uitvoerbinding**. Wanneer een functie is voltooid, uitvoerbindingen gegevens schrijven naar een container.
 
 > [!NOTE]
-> Azure Cosmos DB-trigger, invoerbindingen en uitvoerbindingen worden momenteel ondersteund voor gebruik met alleen de SQL-API. Voor alle andere Azure Cosmos DB-API's, moet u de database van de functie openen met behulp van de statische-client voor uw API, met inbegrip van de MongoDB-API, Cassandra-API, Gremlin-API en Table-API.
+> Azure Cosmos DB-trigger, invoerbindingen en uitvoerbindingen worden momenteel ondersteund voor gebruik met alleen de SQL-API. Voor alle andere Azure Cosmos DB-API's, moet u de database van de functie openen met behulp van de statische-client voor uw API.
 
 
 Het volgende diagram illustreert elk van deze drie integraties: 
@@ -49,7 +49,7 @@ De volgende gevallen gebruik laten zien hoe u een paar kunt u alles uit uw Azure
 
 In IoT-implementaties, kunt u een functie aanroepen wanneer het selectievakje engine licht wordt weergegeven in een aangesloten auto.
 
-**Implementatie:** gebruik van een Azure Cosmos DB-trigger en een Uitvoerbinding
+**Implementatie:** Gebruik een Azure Cosmos DB-trigger en een Uitvoerbinding
 
 1. Een **Azure Cosmos DB-trigger** wordt gebruikt voor het activeren van gebeurtenissen met betrekking tot waarschuwingen van auto's, zoals het controle-engine licht afkomstig is uit in een aangesloten auto.
 2. Wanneer het selectievakje engine licht afkomstig is, wordt de sensorgegevens verzonden naar Azure Cosmos DB.
@@ -67,7 +67,7 @@ De volgende afbeelding toont de code die is geschreven in de Azure-portal voor d
 
 In implementaties van financiële, kunt u een functie aanroepen wanneer het saldo voor een bankrekening onder een bepaalde hoeveelheid valt.
 
-**Implementatie:** een timertrigger met een Azure Cosmos DB-Invoerbinding
+**Implementatie:** Een timertrigger met een Azure Cosmos DB-Invoerbinding
 
 1. Met behulp van een [timertrigger](../azure-functions/functions-bindings-timer.md), vindt u het saldo bankgegevens die zijn opgeslagen in een Azure Cosmos DB-container met bepaalde tussenpozen met behulp van een **Invoerbinding**.
 2. Als het saldo lager dan de drempelwaarde saldo bijna op is ingesteld door de gebruiker is, klikt u vervolgens volgen met de actie van de Azure-functie.
@@ -83,7 +83,7 @@ De volgende afbeeldingen ziet de code in de Azure-portal voor dit scenario.
 
 In games, wanneer een nieuwe gebruiker wordt gemaakt. u kunt zoeken naar andere gebruikers die kent u ze met behulp van mogelijk de [Gremlin-API van Azure Cosmos DB](graph-introduction.md). U kunt de resultaten vervolgens schrijven naar een [Azure Cosmos DB SQL-database] voor eenvoudig op te halen.
 
-**Implementatie:** gebruik van een Azure Cosmos DB-trigger en een Uitvoerbinding
+**Implementatie:** Gebruik een Azure Cosmos DB-trigger en een Uitvoerbinding
 
 1. Met behulp van een Azure Cosmos DB [grafiekdatabase](graph-introduction.md) voor het opslaan van alle gebruikers, kunt u een nieuwe functie maken met een Azure Cosmos DB-trigger. 
 2. Wanneer een nieuwe gebruiker wordt ingevoegd, de functie is aangeroepen en vervolgens het resultaat wordt opgeslagen met behulp van een **Uitvoerbinding**.
@@ -94,7 +94,7 @@ In games, wanneer een nieuwe gebruiker wordt gemaakt. u kunt zoeken naar andere 
 
 In implementaties van een retailanalyse, wanneer een gebruiker een item toegevoegd aan het mandje hebt u nu de flexibiliteit voor het maken en functies voor het optionele business pijplijn-onderdelen aanroepen.
 
-**Implementatie:** meerdere Azure Cosmos DB-triggers te hebben geluisterd naar één container
+**Implementatie:** Meerdere Azure Cosmos DB-triggers te hebben geluisterd naar één container
 
 1. U kunt meerdere Azure Functions maken door toe te voegen met Azure Cosmos DB-triggers voor elk - die naar dezelfde luisteren wijzigingenfeed van winkelen winkelwagen gegevens. Houd er rekening mee dat wanneer meerdere functies luisteren naar dezelfde wijzigingenfeed, een nieuwe leaseverzameling is vereist voor elke functie. Zie voor meer informatie over verzamelingen lease [inzicht in de Change Feed Processor-bibliotheek](change-feed-processor.md).
 2. Wanneer een nieuw item wordt toegevoegd aan een winkelwagen gebruikers, wordt elke functie onafhankelijk aangeroepen door de wijzigingenfeed vanuit de shopping winkelwagen-container.
@@ -122,7 +122,7 @@ Azure Functions biedt de mogelijkheid om te maken van schaalbare eenheden van we
 
 Azure Cosmos DB is de aanbevolen database voor uw serverloze computing-architectuur voor de volgende redenen:
 
-* **Directe toegang tot al uw gegevens**: hebt u nauwkeurige toegang tot elke waarde die is opgeslagen, omdat Azure Cosmos DB [automatisch geïndexeerd](index-policy.md) alle gegevens standaard, en maakt deze indexen onmiddellijk beschikbaar. Dit betekent dat u zich kunt voortdurend query, bijwerken, en nieuwe items toevoegen aan uw database en directe toegang via Azure Functions hebben.
+* **Directe toegang tot al uw gegevens**: U hebt gedetailleerde toegang tot elke waarde die is opgeslagen, omdat Azure Cosmos DB [indexeert automatisch](index-policy.md) alle gegevens standaard, en maakt deze indexen onmiddellijk beschikbaar. Dit betekent dat u zich kunt voortdurend query, bijwerken, en nieuwe items toevoegen aan uw database en directe toegang via Azure Functions hebben.
 
 * **Schemaloos**. Azure Cosmos DB is schemaloos - dus is het een unieke overweg kan met elke gegevensuitvoer van een Azure-functie. Deze aanpak 'aankunnen,' maakt het eenvoudig om een verscheidenheid aan functies maken die alle uitvoer naar Azure Cosmos DB.
 

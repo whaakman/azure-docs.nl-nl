@@ -1,6 +1,6 @@
 ---
 title: Web-activiteit in Azure Data Factory | Microsoft Docs
-description: Meer informatie over hoe u Web-activiteit, een van de controlestroomactiviteiten ondersteund door Data Factory kunt gebruiken om aan te roepen een REST-eindpunt van een pijplijn.
+description: Lees hoe u Web-activiteit, een van de controlestroomactiviteiten ondersteund door Data Factory, kunt gebruiken om aan te roepen een REST-eindpunt van een pijplijn.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 71e89828645cadbbbf60527fca9968fd8ed568ff
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: adfb30b73bbc9929bbfe3b07bd830d3f278bcc27
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37058972"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723685"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webactiviteit in Azure Data Factory
 De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit. 
@@ -62,27 +62,27 @@ De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen 
 
 ## <a name="type-properties"></a>Type-eigenschappen
 
-Eigenschap | Beschrijving | Toegestane waarden | Vereist
+Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 naam | Naam van de webactiviteit | Reeks | Ja
 type | Moet worden ingesteld op **WebActivity**. | Reeks | Ja
-method | Rest-API-methode voor het doel-eindpunt. | tekenreeks. <br/><br/>Ondersteunde typen: 'GET', 'Posten', 'PUT' | Ja
-url | Doel-eindpunt en het pad | Tekenreeks (of een expressie met een resultType van een tekenreeks). De activiteit wordt een time-out op 1 minuut met een fout als het heeft geen reactie ontvangen van het eindpunt. | Ja
-headers | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, om de taal en type ingesteld op een aanvraag: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Tekenreeks (of een expressie met een resultType van een tekenreeks) | Ja, de header Content-type is vereist. `"headers":{ "Content-Type":"application/json"}`
-hoofdtekst | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt.  | Tekenreeks (of een expressie met een resultType van een tekenreeks). <br/><br/>Zie het schema van de nettolading van de aanvraag in [aanvraag nettolading schema](#request-payload-schema) sectie. | Vereist voor de methoden POST/PUT.
-verificatie | De verificatiemethode die wordt gebruikt voor het aanroepen van het eindpunt. Ondersteunde typen zijn "Basic of ClientCertificate." Zie voor meer informatie [verificatie](#authentication) sectie. Als verificatie niet vereist is, sluit u deze eigenschap. | Tekenreeks (of een expressie met een resultType van een tekenreeks) | Nee
-Gegevenssets | Lijst met gegevenssets doorgegeven aan het eindpunt. | Matrix van verwijzingen van de gegevensset. Een lege matrix kan zijn. | Ja
-linkedServices | Lijst met gekoppelde services doorgegeven aan eindpunt. | Matrix van verwijzingen van de gekoppelde service. Een lege matrix kan zijn. | Ja
+method | De rest-API-methode voor het doel-eindpunt. | tekenreeks. <br/><br/>Ondersteunde typen: 'OPHALEN', 'POST', 'PLAATS' | Ja
+url | Doel-eindpunt en het pad | Tekenreeks (of expressie resultType van de tekenreeks). De activiteit wordt een time-out op 1 minuut met een fout als het heeft geen reactie ontvangen van het eindpunt. | Ja
+Headers | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, de taal en het type instellen op een aanvraag: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Tekenreeks (of expressie resultType van de tekenreeks) | Ja, de Content-type-header is vereist. `"headers":{ "Content-Type":"application/json"}`
+hoofdtekst | Hiermee geeft u de nettolading die wordt verzonden naar het eindpunt.  | Tekenreeks (of expressie resultType van de tekenreeks). <br/><br/>Het schema van de nettolading van de aanvraag in [verzoek nettolading schema](#request-payload-schema) sectie. | Vereist voor POST/PUT-methoden.
+verificatie | De verificatiemethode die wordt gebruikt voor het aanroepen van het eindpunt. Ondersteunde typen zijn "Basic of ClientCertificate." Zie voor meer informatie, [verificatie](#authentication) sectie. Als verificatie niet vereist is, sluit u deze eigenschap. | Tekenreeks (of expressie resultType van de tekenreeks) | Nee
+gegevenssets | Lijst met gegevenssets doorgegeven aan het eindpunt. | Matrix van verwijzingen van de gegevensset. Geen lege matrix kan zijn. | Ja
+linkedServices | Lijst met gekoppelde services doorgegeven aan eindpunt. | Matrix van gekoppelde service verwijst naar. Geen lege matrix kan zijn. | Ja
 
 > [!NOTE]
-> REST-eindpunten die de activiteit webpagina roept moeten een antwoord van het type JSON retourneren. De activiteit wordt een time-out op 1 minuut met een fout als het heeft geen reactie ontvangen van het eindpunt.
+> REST-eindpunten die de webactiviteit aanroept moeten een antwoord van het type JSON. De activiteit wordt een time-out op 1 minuut met een fout als het heeft geen reactie ontvangen van het eindpunt.
 
-De volgende tabel worden de vereisten voor JSON-inhoud:
+De volgende tabel ziet u de vereisten voor JSON-inhoud:
 
-| Waardetype | Aanvraagtekst | Antwoordtekst |
+| Waardetype | Aanvraagbody | De hoofdtekst van antwoord |
 |---|---|---|
 |JSON-object | Ondersteund | Ondersteund |
-|JSON-matrix | Ondersteund <br/>(Momenteel JSON-matrices werken niet als gevolg van een fout. Een oplossing wordt uitgevoerd.) | Niet-ondersteund |
+|JSON-matrix | Ondersteund <br/>(Op dit moment JSON-matrices werken niet als gevolg van een bug. Een oplossing wordt uitgevoerd.) | Niet-ondersteund |
 | JSON-waarde | Ondersteund | Niet-ondersteund |
 | Niet-JSON-type | Niet-ondersteund | Niet-ondersteund |
 ||||
@@ -90,21 +90,21 @@ De volgende tabel worden de vereisten voor JSON-inhoud:
 ## <a name="authentication"></a>Verificatie
 
 ### <a name="none"></a>Geen
-Als verificatie niet vereist is, bevatten geen de eigenschap 'verificatie'.
+Als verificatie niet vereist is, omvatten niet de eigenschap 'verificatie'.
 
 ### <a name="basic"></a>Basic
 Geef de gebruikersnaam en wachtwoord voor gebruik met de basisverificatie. 
 
 ```json
 "authentication":{  
-   "type":"Basic,
+   "type":"Basic",
    "username":"****",
    "password":"****"
 }
 ```
 
 ### <a name="client-certificate"></a>Clientcertificaat
-Base64-gecodeerde inhoud van een PFX-bestand en het wachtwoord opgeven. 
+Met base64 gecodeerde inhoud van een PFX-bestand en het wachtwoord opgeven. 
 
 ```json
 "authentication":{  
@@ -113,8 +113,20 @@ Base64-gecodeerde inhoud van een PFX-bestand en het wachtwoord opgeven.
    "password":"****"
 }
 ```
-## <a name="request-payload-schema"></a>Aanvraag nettolading schema
-Wanneer u de POST/PUT-methode gebruikt, vertegenwoordigt de eigenschap body de nettolading dat wordt verzonden naar het eindpunt. U kunt de gekoppelde services en gegevenssets doorgeven als onderdeel van de nettolading. Hier wordt het schema voor de nettolading van de: 
+
+### <a name="managed-identity"></a>Beheerde identiteit
+
+Hiermee geeft u de resource-uri waarvoor het toegangstoken wordt aangevraagd met behulp van de beheerde identiteit voor de data factory. Gebruiken voor het aanroepen van de Azure Resource Management API `https://management.azure.com/`.
+
+```json
+"authentication": {
+    "type": "MSI",
+    "resource": "https://management.azure.com/"
+}
+```
+
+## <a name="request-payload-schema"></a>Verzoek nettolading schema
+Wanneer u de POST/PUT-methode gebruikt, vertegenwoordigt de van de hoofdteksteigenschap de nettolading die wordt verzonden naar het eindpunt. U kunt de gekoppelde services en gegevenssets als onderdeel van de nettolading doorgeven. Dit is het schema voor de nettolading van de: 
 
 ```json
 {
@@ -137,9 +149,9 @@ Wanneer u de POST/PUT-methode gebruikt, vertegenwoordigt de eigenschap body de n
 ```
 
 ## <a name="example"></a>Voorbeeld
-In dit voorbeeld roept de webactiviteit in de pipeline een REST-eindpunt. Het wordt een Azure SQL gekoppelde service en een Azure SQL-gegevensset doorgegeven aan het eindpunt. De REST-eindpunt maakt gebruik van de Azure SQL-verbindingsreeks verbinding maken met de Azure SQL-server en retourneert de naam van het exemplaar van SQL server. 
+In dit voorbeeld wordt de webactiviteit in de pijplijn een REST-eindpunt. Deze doorstuurt een gekoppelde Azure SQL-service en een Azure SQL-gegevensset naar het eindpunt. De REST-eindpunt maakt gebruik van de Azure SQL-verbindingsreeks verbinding maken met de Azure SQL-server en retourneert de naam van het exemplaar van SQL server. 
 
-### <a name="pipeline-definition"></a>Pipeline-definitie
+### <a name="pipeline-definition"></a>De pijplijndefinitie van de
 
 ```json
 {
@@ -191,7 +203,7 @@ In dit voorbeeld roept de webactiviteit in de pipeline een REST-eindpunt. Het wo
 
 ```
 
-### <a name="pipeline-parameter-values"></a>Pipeline-parameterwaarden
+### <a name="pipeline-parameter-values"></a>Pijplijn parameterwaarden
 
 ```json
 {

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 022ffeaf75f8f03447b931ed9c3a474286a17f89
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 841c65fd8420fdfe681cb99ee7054cb4edd5fcd3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067802"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968981"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamisch maken en gebruiken van een permanent volume met Azure Files in Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Zie voor meer informatie over Kubernetes permanente volumes [Kubernetes permanen
 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.46 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
+Ook moet de Azure CLI-versie 2.0.46 of later zijn geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
@@ -184,7 +184,7 @@ Maken van de schil met de [kubectl toepassen] [ kubectl-apply] opdracht.
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-U hebt nu een pod uitgevoerd met uw Azure-schijf is gekoppeld in de */mnt/azure* directory. Deze configuratie kan worden weergegeven bij de inspectie van uw schil via `kubectl describe pod mypod`. De uitvoer van de volgende verkorte voorbeeld ziet u het volume is gekoppeld in de container:
+U hebt nu een pod uitgevoerd met uw Azure-bestandsshare die is gekoppeld in de */mnt/azure* directory. Deze configuratie kan worden weergegeven bij de inspectie van uw schil via `kubectl describe pod mypod`. De uitvoer van de volgende verkorte voorbeeld ziet u het volume is gekoppeld in de container:
 
 ```
 Containers:
@@ -211,7 +211,7 @@ Volumes:
 
 Standaard *fileMode* en *dirMode* waarden verschillen tussen de Kubernetes-versies, zoals beschreven in de volgende tabel.
 
-| version | waarde |
+| versie | waarde |
 | ---- | ---- |
 | V1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |

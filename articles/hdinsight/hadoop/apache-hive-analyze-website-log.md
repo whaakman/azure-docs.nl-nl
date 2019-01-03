@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f4067c73cac4597da3099212c9c04c2544a0b2d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 30bfaad8fcc1a837a37689280149a6dbe20b7c1d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634342"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628148"
 ---
 # <a name="use-apache-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Apache Hive gebruiken met HDInsight op basis van Windows voor het analyseren van Logboeken van websites
 Leer hoe u HiveQL gebruiken met HDInsight voor het analyseren van Logboeken van een website. Websitelogboekanalyse kan worden gebruikt om te Segmenteer uw doelgroep op basis van de vergelijkbare activiteiten, Categoriseer bezoekers van de site op basis van demografische gegevens, en om erachter te komen de inhoud ze weergeven, de websites die ze afkomstig zijn uit, enzovoort.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in dit document werken alleen met HDInsight op basis van een Windows-clusters. HDInsight is alleen beschikbaar voor Windows voor versies lager dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 In dit voorbeeld gebruikt u een HDInsight-cluster voor het analyseren van website-logboekbestanden om inzicht te krijgen in de frequentie van dagelijkse bezoeken naar de website vanaf externe websites in een dag. U genereert ook een samenvatting van websitefouten die gebruikers ondervinden. In deze zelfstudie leert u procedures om het volgende te doen:
@@ -32,7 +32,7 @@ In dit voorbeeld gebruikt u een HDInsight-cluster voor het analyseren van websit
 ![HDI. Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
 ## <a name="prerequisites"></a>Vereisten
-* U moet een Hadoop-cluster op Azure HDInsight hebt ingericht. Zie voor instructies [HDInsight-Clusters inrichten](../hdinsight-hadoop-provision-linux-clusters.md).
+* U moet een Apache Hadoop-cluster op Azure HDInsight hebt ingericht. Zie voor instructies [HDInsight-Clusters inrichten](../hdinsight-hadoop-provision-linux-clusters.md).
 * U moet Microsoft Excel 2013 of Excel 2010 is geïnstalleerd.
 * U moet hebben [stuurprogramma Microsoft Hive ODBC](https://www.microsoft.com/download/details.aspx?id=40886) gegevens van Hive in Excel importeren.
 
@@ -47,6 +47,6 @@ In dit voorbeeld gebruikt u een HDInsight-cluster voor het analyseren van websit
 4. Volg de instructies op de pagina voor het voltooien van het voorbeeld.
 
 ## <a name="next-steps"></a>Volgende stappen
-Probeer het volgende voorbeeld: [analyseren van sensorgegevens via Hive met HDInsight](apache-hive-analyze-sensor-data.md).
+Probeer het volgende voorbeeld: [Analyse van sensorgegevens via Hive met HDInsight](apache-hive-analyze-sensor-data.md).
 
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md

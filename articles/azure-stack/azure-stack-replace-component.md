@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9470813f3f9c3bff58882879c06e7b7b0fc15b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9657fd448f6fb98eec87a5999af100d4d08594e5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379601"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717718"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Vervangen door een hardware-onderdeel op een Azure Stack scale unit-knooppunt
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
-In dit artikel worden de algemene ter vervanging van hardwareonderdelen die niet hot-swappable zijn beschreven. Werkelijke vervanging stappen verschillen, is afhankelijk van de leverancier van de oorspronkelijke leveranciers (OEM)-hardware. Zie van uw leverancier veld FRU (replaceable unit)-documentatie voor gedetailleerde stappen die specifiek voor uw geïntegreerde Azure Stack-systeem zijn.
+In dit artikel worden de algemene ter vervanging van hardwareonderdelen die niet hot-swappable zijn beschreven. Werkelijke vervanging stappen verschillen, is afhankelijk van de leverancier van de oorspronkelijke leveranciers (OEM)-hardware. Zie de FRU-documentatie (Field Replaceable Unit) van uw leverancier voor gedetailleerde stappen die specifiek zijn voor uw geïntegreerde Azure Stack-systeem.
 
 Niet hot-swappable onderdelen zijn onder andere het volgende:
 
@@ -54,21 +54,23 @@ De Azure Stack-status en bewakingssysteem Volg de status van netwerkadapters en 
 
 De volgende stappen bevatten een overzicht op hoog niveau van het proces voor het onderdeel vervangen. Volg deze stappen niet zonder te verwijzen naar de OEM geleverde FRU-documentatie.
 
-1. Gebruik de [leegmaken](azure-stack-node-actions.md#scale-unit-node-actions) actie het scale unit-knooppunt in de onderhoudsmodus plaatsen. Deze actie kan niet meer nodig op basis van de fysieke voorwaarde van de hardware.
+1. Gebruik de actie Afsluiten op het knooppunt van de eenheid schalen zonder problemen wordt afgesloten. Deze actie kan niet meer nodig op basis van de fysieke voorwaarde van de hardware.
 
-   > [!NOTE]
-   > In elk geval slechts één knooppunt kan worden geleegd en uitgeschakeld op hetzelfde moment zonder te verbreken van de S2D (opslagruimten Direct).
+2. In een onwaarschijnlijke geval de afsluitactie mislukt, gebruikt u de [leegmaken](azure-stack-node-actions.md#drain) actie het scale unit-knooppunt in de onderhoudsmodus plaatsen. Deze actie kan niet meer nodig op basis van de fysieke voorwaarde van de hardware.
 
-2. Als het scale unit-knooppunt in de onderhoudsmodus bevindt is, gebruikt de [uitschakelen](azure-stack-node-actions.md#scale-unit-node-actions) actie. Deze actie kan niet meer nodig op basis van de fysieke voorwaarde van de hardware.
+   > [!NOTE]  
+   > In elk geval slechts één knooppunt kan worden uitgeschakeld en uitgeschakeld op hetzelfde moment zonder te verbreken van de S2D (opslagruimten Direct).
 
-   > [!NOTE]
+3. Als het scale unit-knooppunt in de onderhoudsmodus bevindt is, gebruikt de [uitschakelen](azure-stack-node-actions.md#scale-unit-node-actions) actie. Deze actie kan niet meer nodig op basis van de fysieke voorwaarde van de hardware.
+
+   > [!NOTE]  
    > In het onwaarschijnlijke geval dat het uitschakelen van de actie niet werkt, gebruikt u de webinterface van baseboard management controller (BMC).
 
-3. Vervang de beschadigde hardware-onderdeel. Of de leverancier van de OEM-hardware wordt uitgevoerd de vervanging onderdeel kan variëren op basis van uw ondersteuningscontract.  
-4. De firmware bijwerken. Ga als volgt uw leverancierspecifieke firmware-updateproces met behulp van de host van de levenscyclus van hardware om te controleren of dat het vervangen van hardwareonderdeel heeft de goedgekeurde firmware toegepast. Of de leverancier van de OEM-hardware wordt uitgevoerd in deze stap kan variëren op basis van uw ondersteuningscontract.  
-5. Gebruik de [herstellen](azure-stack-node-actions.md#scale-unit-node-actions) actie het knooppunt van de eenheid schaal terug te brengen in de schaaleenheid.
-6. Gebruik het eindpunt van de bevoegdheden op [Controleer de status van de virtuele schijf herstellen](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Met de nieuwe schijven, een volledig herstel van de opslagtaak kan meerdere uren, afhankelijk van het laden van het systeem duren en ruimte verbruikt.
-7. Nadat de herstelactie is voltooid, valideert u dat alle actieve waarschuwingen automatisch is gesloten.
+4. Vervang de beschadigde hardware-onderdeel. Of de leverancier van de OEM-hardware wordt uitgevoerd de vervanging onderdeel kan variëren op basis van uw ondersteuningscontract.  
+5. De firmware bijwerken. Ga als volgt uw leverancierspecifieke firmware-updateproces met behulp van de host van de levenscyclus van hardware om te controleren of dat het vervangen van hardwareonderdeel heeft de goedgekeurde firmware toegepast. Of de leverancier van de OEM-hardware wordt uitgevoerd in deze stap kan variëren op basis van uw ondersteuningscontract.  
+6. Gebruik de [herstellen](azure-stack-node-actions.md#scale-unit-node-actions) actie het knooppunt van de eenheid schaal terug te brengen in de schaaleenheid.
+7. Gebruik het eindpunt van de bevoegdheden op [Controleer de status van de virtuele schijf herstellen](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Met de nieuwe schijven, een volledig herstel van de opslagtaak kan meerdere uren, afhankelijk van het laden van het systeem duren en ruimte verbruikt.
+8. Nadat de herstelactie is voltooid, valideert u dat alle actieve waarschuwingen automatisch is gesloten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 12/04/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9e3297b2493ea12f9da50556e4fc9e72d625fd25
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436956"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583446"
 ---
 # <a name="what-is-automated-machine-learning"></a>Wat is geautomatiseerde machine learning?
 
@@ -65,9 +65,10 @@ Volg deze [voorbeeld notebook](https://github.com/Azure/MachineLearningNotebooks
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie de voorbeelden en informatie over het bouwen van modellen met behulp van geautomatiseerde Machine Learning:
++ [Voorbeelden: Jupyter-notebooks gebruiken om te verkennen van Azure Machine Learning-service](samples-notebooks.md#automated-ml-setup)
 
 + [Zelfstudie: Automatisch een classificatie model trainen met Azure geautomatiseerde Machine Learning](tutorial-auto-train-models.md)
 
-+ [Instellingen configureren voor automatische training](how-to-configure-auto-train.md)
++ [Gebruik automatische training op een externe bron](how-to-auto-train-remote.md)
 
-+ [Gebruik automatische training op een externe bron](how-to-auto-train-remote.md) 
++ [Instellingen configureren voor automatische training](how-to-configure-auto-train.md)

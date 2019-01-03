@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/21/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310392"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716613"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -83,11 +83,11 @@ De API v3 heeft de volgende functiehiaten met betrekking tot de v2-API. Sluit de
     * Overlays
     * Bijsnijden
     * Miniaturen Sprites
-* LiveEvents met transcodering op dit moment bieden geen ondersteuning voor Slate invoegen halverwege stream, aangepaste voorinstellingen of advertentiemarkeringen via API-aanroep. 
+* LiveEvents met transcodering op dit moment bieden geen ondersteuning voor Slate invoegen halverwege stream en ad markering invoeging via API-aanroep. 
 
 > [!NOTE]
 > Maak een bladwijzer voor dit artikel en blijven controleren op updates.
-
+ 
 ## <a name="code-differences"></a>Codeverschillen
 
 De volgende tabel bevat de codeverschillen tussen v2 en v3 voor algemene scenario's.
@@ -108,7 +108,7 @@ De volgende tabel bevat de codeverschillen tussen v2 en v3 voor algemene scenari
     * Kanalen en programma's die zijn gemaakt met versie 2 (die zijn toegewezen aan LiveEvents en LiveOutputs in v3) kunnen niet worden voortgezet met v3 die worden beheerd. De aanbeveling is om over te schakelen naar v3 LiveEvents en LiveOutputs op een handige kanaal stoppen.<br/>U kunt geen momenteel kan migreren kanalen continu worden uitgevoerd.  
 
 > [!NOTE]
-> Maak een bladwijzer voor dit artikel en blijven controleren op updates.
+> Deze pagina wordt onderhouden als het Media Services-team voortdurende verbeteringen in de v3 API's en adressen van de tussenruimte tussen de versies.
 
 ## <a name="next-steps"></a>Volgende stappen
 

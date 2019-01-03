@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193855"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716137"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Capaciteitsplanning voor HDInsight-clusters
 
@@ -38,17 +38,17 @@ HDInsight is beschikbaar in veel Azure-regio's. De dichtstbijzijnde regio, Zie d
 
 ### <a name="location-of-default-storage"></a>Locatie van standaardopslag
 
-De standaardopslag, een Azure Storage-account of een Azure Data Lake Store, moet zich in dezelfde locatie als uw cluster. Azure Storage is beschikbaar op alle locaties. Gen1 met Data Lake Store is beschikbaar in bepaalde regio's: Zie de huidige beschikbaarheid van de Data Lake Store onder *opslag* in [Azure-producten beschikbaar per regio](https://azure.microsoft.com/regions/services/).
+De standaardopslag, een Azure Storage-account of een Azure Data Lake-opslag, moet zich in dezelfde locatie als uw cluster. Azure Storage is beschikbaar op alle locaties. Data Lake Storage Gen1 is beschikbaar in bepaalde regio's: Zie de huidige beschikbaarheid van de Data Lake Storage onder *opslag* in [Azure-producten beschikbaar per regio](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Locatie van de bestaande gegevens
 
-Als u al een storage-account of een Data Lake Store met uw gegevens en deze opslag gebruiken als standaardopslag van uw cluster wilt, moet u uw cluster op die dezelfde locatie implementeren.
+Als u al een storage-account of een Data Lake-opslag met uw gegevens en deze opslag gebruiken als standaardopslag van uw cluster wilt, moet u uw cluster op die dezelfde locatie implementeren.
 
 ### <a name="storage-size"></a>Opslaggrootte
 
-Nadat u een HDInsight-cluster geïmplementeerd hebt, kunt u aanvullende Azure Storage-accounts koppelen of toegang tot andere Data Lake Stores. Alle opslagaccounts moeten zich bevinden op dezelfde locatie als uw cluster. Een Data Lake Store kunnen zich in een andere locatie, maar dit leiden bepaalde gegevens lezen/schrijven-latentie tot kan.
+Nadat u een HDInsight-cluster geïmplementeerd hebt, kunt u aanvullende Azure Storage-accounts koppelen of toegang tot andere Data Lake-opslag. Alle opslagaccounts moeten zich bevinden op dezelfde locatie als uw cluster. Een Data Lake Storage kunnen zich in een andere locatie, maar dit leiden bepaalde gegevens lezen/schrijven-latentie tot kan.
 
-Azure Storage heeft enkele [Capaciteitslimieten](../azure-subscription-service-limits.md#storage-limits), terwijl vrijwel onbeperkte Data Lake Store Gen1.
+Azure Storage heeft enkele [Capaciteitslimieten](../azure-subscription-service-limits.md#storage-limits), terwijl vrijwel onbeperkte Data Lake Storage Gen1.
 
 Een cluster, hebben toegang tot een combinatie van verschillende opslagaccounts. Typische voorbeelden zijn onder meer:
 
@@ -75,7 +75,7 @@ De VM-grootte en het type wordt bepaald door de CPU-verwerking van kracht, RAM-g
 
 * RAM: De VM-grootte bepaalt ook de hoeveelheid RAM-geheugen beschikbaar is in de virtuele machine. Voor workloads die gegevens opslaan in het geheugen voor verwerking, in plaats van lezen van de schijf, zorg ervoor dat uw worker-knooppunten hebben onvoldoende geheugen om aan te passen de gegevens.
 
-* Netwerk: Voor de meeste clustertypen is de gegevens die worden verwerkt door het cluster niet op de lokale schijf, maar in een service voor externe opslag, zoals Data Lake Store of Azure Storage. Houd rekening met de netwerkbandbreedte en de doorvoer tussen de VM-knooppunt en de storage-service. De netwerkbandbreedte die beschikbaar zijn voor een virtuele machine wordt doorgaans met grotere verhoogt. Zie voor meer informatie, [VM-grootten overzicht](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Netwerk: Voor de meeste clustertypen is de gegevens die worden verwerkt door het cluster niet op de lokale schijf, maar in een service voor externe opslag, zoals Data Lake Storage of Azure Storage. Houd rekening met de netwerkbandbreedte en de doorvoer tussen de VM-knooppunt en de storage-service. De netwerkbandbreedte die beschikbaar zijn voor een virtuele machine wordt doorgaans met grotere verhoogt. Zie voor meer informatie, [VM-grootten overzicht](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Kies de cluster-schaal
 
@@ -89,7 +89,7 @@ U kunt schalen van uw cluster om te voldoen aan de piekvraag laden en vervolgens
 
 U betaalt voor de levensduur van een cluster. Als er alleen specifieke tijden dat u uw cluster omhoog en die wordt uitgevoerd moet, kunt u [on-demand clusters met Azure Data Factory maken](hdinsight-hadoop-create-linux-clusters-adf.md). U kunt ook PowerShell-scripts die inrichten en verwijderen van uw cluster te maken en plan vervolgens deze scripts met behulp van [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-> [!NOTE]
+> [!NOTE]  
 > Wanneer een cluster wordt verwijderd, wordt de standaard Hive-metastore ook verwijderd. Om te blijven behouden de metastore voor de volgende cluster opnieuw wordt gemaakt, gebruikt u een extern metagegevensarchief zoals Azure-Database of [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -115,12 +115,12 @@ Controleer na het vaststellen van uw doel cluster VM-grootte, de schaal en het t
     
     ![Maak een ondersteuningsaanvraag om HDInsight core quotum te verhogen](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Klik op **Volgende**.
+1. Klik op **volgende**.
 1. Op de **Details** pagina, voer een beschrijving van het probleem, selecteert u de ernst van het probleem en selecteer uw voorkeursmethode voor contact.
 1. Klik op **volgende: Beoordelen en maken**.
 1. Op de **revisie + maken** tabblad **maken**.
 
-> [!Note]
+> [!NOTE]  
 > Als u wilt verhogen van het HDInsight-quotum voor kerngeheugens in een persoonlijk gebied [een lijst met toegestane adressen indienen](https://aka.ms/canaryintwhitelist).
 
 U kunt [contact op met ondersteuning voor het aanvragen van een quotaverhoging](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 83cbb2a54ed712f8aa5084408ab852432470b73c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383932"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742470"
 ---
 # <a name="monitor-cluster-performance"></a>Cluster-prestaties bewaken
 
@@ -77,11 +77,11 @@ Bottleneck in de prestaties van een cluster kan gebeuren op het opslagniveau. Di
 
 Als u gebruikmaakt van Azure Storage, voor informatie over het bewaken van problemen met betrekking tot opslag, met inbegrip van beperking, Zie [bewaken, problemen vaststellen en oplossen van Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Als Azure Data Lake Store (ADLS) van uw cluster externe opslag is is de beperking waarschijnlijk vanwege de bandbreedte. Beperking kan in dit geval worden geïdentificeerd met geobserveerd beperkingsfouten in Logboeken van de taak. Zie voor ADLS, de bandbreedteregeling punt voor de betreffende service in deze artikelen:
+Als Azure Data Lake Storage (ADLS) van uw cluster externe opslag is is de beperking waarschijnlijk vanwege de bandbreedte. Beperking kan in dit geval worden geïdentificeerd met geobserveerd beperkingsfouten in Logboeken van de taak. Zie voor ADLS, de bandbreedteregeling punt voor de betreffende service in deze artikelen:
 
-* [Richtlijnen voor Apache Hive in HDInsight en Azure Data Lake Store afstemmen van prestaties](../data-lake-store/data-lake-store-performance-tuning-hive.md)
-* [Richtlijnen voor het afstemmen van de prestaties van MapReduce in HDInsight en Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Richtlijnen voor Apache Storm op HDInsight en Azure Data Lake Store afstemmen van prestaties](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Richtlijnen voor Apache Hive in HDInsight en Azure Data Lake Storage afstemmen van prestaties](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Richtlijnen voor MapReduce in HDInsight en Azure Data Lake Storage afstemmen van prestaties](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
+* [Richtlijnen voor Apache Storm op HDInsight en Azure Data Lake Storage afstemmen van prestaties](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

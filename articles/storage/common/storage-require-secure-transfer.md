@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6f17cb4540feea6400c60c8032d071d6a922c871
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876499"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633058"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Veilige overdracht in Azure Storage vereisen
 
@@ -49,8 +49,8 @@ U kunt inschakelen op de 'veilige overdracht vereist' instellen bij het maken va
 
 Om te vereisen dat veilige overdracht via een programma, gebruikt u de instelling _supportsHttpsTrafficOnly_ in eigenschappen van het opslagaccount met de REST-API, hulpprogramma's of bibliotheken:
 
-* [REST-API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (versie: 12-01-2016)
-* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (versie: 4.1.0)
+* [REST-API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (versie: 2016-12-01)
+* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (versie: 0,7)
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (versie: 2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (versie: 1.1.0)
 * [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (versie: 6.3.0)
@@ -59,14 +59,16 @@ Om te vereisen dat veilige overdracht via een programma, gebruikt u de instellin
 
 ### <a name="enable-secure-transfer-required-setting-with-powershell"></a>Inschakelen van 'Veilige overdracht vereist' instellen met PowerShell
 
-In dit voorbeeld is de Azure PowerShell-module, versie 4.1 of hoger vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Voer `Connect-AzureRmAccount` uit om een verbinding op te zetten met Azure.
+In dit voorbeeld is de Azure PowerShell-module Az 0,7 of hoger vereist. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-Az-ps).
+
+Voer `Connect-AzAccount` uit om een verbinding op te zetten met Azure.
 
  De volgende opdrachtregel gebruiken om te controleren of de instelling:
 
 ```powershell
-> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+> Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
@@ -77,7 +79,7 @@ EnableHttpsTrafficOnly : False
 De volgende opdrachtregel gebruiken om de instelling:
 
 ```powershell
-> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+> Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True

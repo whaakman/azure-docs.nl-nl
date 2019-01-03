@@ -7,17 +7,17 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
-manager: craigg-database
+author: juliemsft
+ms.author: jrasnick
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 20966958ff4a8a642aa4a994d17163ea68856b51
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: c323c39403f71652632c066a1a9ec464cdf9cfe1
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867524"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601403"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure SQL-databases met Azure Automation beheren
 
@@ -27,17 +27,17 @@ Deze handleiding vindt u de Azure Automation-service en hoe deze kan worden gebr
 
 [Azure Automation](https://azure.microsoft.com/services/automation/) is een Azure-service voor cloudbeheer via procesautomatisering te vereenvoudigen. Met Azure Automation, worden langlopende, handmatige, foutgevoelige en regelmatig herhaalde taken geautomatiseerd om de betrouwbaarheid, efficiëntie en tijd tot waarde voor uw organisatie te verhogen.
 
-Azure Automation biedt een uiterst betrouwbare en maximaal beschikbare engine voor werkstroomuitvoering die kan worden geschaald om te voldoen aan uw behoeften wanneer uw organisatie groeit. In Azure Automation, kunnen processen worden gestart handmatig, door systemen 3rd derden of met regelmatige tussenpozen zodat taken gebeuren precies wanneer dat nodig is.
+Azure Automation biedt een engine voor werkstroomuitvoering met hoge betrouwbaarheid en hoge beschikbaarheid en die kan worden geschaald om te voldoen aan uw behoeften wanneer uw organisatie groeit. In Azure Automation, kunnen processen worden gestart handmatig, door systemen van derden, of met regelmatige tussenpozen zodat taken gebeuren precies wanneer dat nodig is.
 
 Lagere operationele overhead en vrij IT / DevOps-personeel te concentreren op werk dat wordt toegevoegd business value door te verplaatsen van uw cloud-beheertaken automatisch wordt uitgevoerd door Azure Automation.
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Hoe u kunt Azure Automation beheren van Azure SQL-databases?
 
-Azure SQL-Database kunnen worden beheerd in Azure Automation met behulp van de [Azure SQL Database PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) die beschikbaar zijn in de [Azure PowerShell-hulpprogramma's](/powershell/azure/overview). Azure Automation heeft deze Azure SQL Database PowerShell-cmdlets beschikbaar gebruiksklaar, zodat u al uw SQL-database-beheertaken in de service kunt uitvoeren. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services voor het automatiseren van complexe taken in Azure-services en 3e systemen van derden worden gekoppeld.
+Azure SQL-Database kunnen worden beheerd in Azure Automation met behulp van de [Azure SQL Database PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) die beschikbaar zijn in de [Azure PowerShell-hulpprogramma's](/powershell/azure/overview). Azure Automation heeft deze Azure SQL Database PowerShell-cmdlets beschikbaar gebruiksklaar, zodat u al uw SQL-database-beheertaken in de service kunt uitvoeren. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services voor het automatiseren van complexe taken tussen Azure-services en systemen van derden worden gekoppeld.
 
 Azure Automation biedt ook de mogelijkheid om te communiceren met de SQL-servers rechtstreeks met behulp van SQL-opdrachten met behulp van PowerShell.
 
-De [Azure Automation runbook gallery](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) bevat tal van product-team en community-runbooks om te beginnen met het automatiseren van beheer van Azure SQL-databases, andere Azure-services en 3e systemen van derden. Runbooks uit de galerie zijn onder andere:
+De [Azure Automation runbook gallery](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) bevat tal van product-team en community-runbooks om te beginnen met het automatiseren van beheer van Azure SQL-databases, andere Azure-services en systemen van derden. Runbooks uit de galerie zijn onder andere:
 
 - [SQL-query's uitvoeren op een SQL Server-database](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 - [Verticaal schalen (omhoog of omlaag) een Azure SQL-Database volgens een schema](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)

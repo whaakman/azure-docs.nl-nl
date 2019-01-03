@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e52a7cbb5c81f779ac4d12d2f3e5fd1e4ae62852
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383592"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714012"
 ---
 # <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>Installeren en gebruiken van Apache Solr op HDInsight Hadoop-clusters
 
@@ -28,12 +28,12 @@ Leer hoe u Apache Solr installeren op Azure HDInsight met behulp van scriptactie
 
 ## <a name="whatis"></a>Wat is Solr
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) is een platform voor enterprise search waarmee krachtige zoeken in volledige tekst van gegevens. Hoewel Hadoop kunt opslaan en beheren van grote hoeveelheden gegevens, biedt Apache Solr de zoekfuncties voor het snel de gegevens worden opgehaald.
+[Apache Solr](https://lucene.apache.org/solr/features.html) is een platform voor enterprise search waarmee krachtige zoeken in volledige tekst van gegevens. Hoewel Hadoop kunt opslaan en beheren van grote hoeveelheden gegevens, biedt Apache Solr de zoekfuncties voor het snel de gegevens worden opgehaald.
 
 > [!WARNING]   
 > Onderdelen van het HDInsight-cluster worden volledig ondersteund door Microsoft.
 >
-> Aangepaste onderdelen, zoals Solr, commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Microsoft-ondersteuning niet mogelijk problemen met aangepaste onderdelen op te lossen. Het is wellicht voor ondersteuning contact opnemen met de open-source-community's. Er zijn bijvoorbeeld veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
+> Aangepaste onderdelen, zoals Solr, commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Microsoft-ondersteuning niet mogelijk problemen met aangepaste onderdelen op te lossen. Het is wellicht voor ondersteuning contact opnemen met de open-source-community's. Er zijn bijvoorbeeld veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ https://apache.org ](https://apache.org), bijvoorbeeld: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Wat het script doet
 
@@ -68,7 +68,7 @@ Voor het maken van een cluster met Solr geïnstalleerd, gebruikt u de stappen in
 ## <a name="usesolr"></a>Hoe gebruik ik Solr in HDInsight
 
 > [!IMPORTANT]  
-> De stappen in deze sectie laten zien basisfunctionaliteit Solr. Zie voor meer informatie over het gebruik van Solr de [Apache Solr site](http://lucene.apache.org/solr/).
+> De stappen in deze sectie laten zien basisfunctionaliteit Solr. Zie voor meer informatie over het gebruik van Solr de [Apache Solr site](https://lucene.apache.org/solr/).
 
 ### <a name="index-data"></a>Gegevens indexeren
 

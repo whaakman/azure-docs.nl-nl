@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0ac9b98a9dfe06492775481cd590bfb4d0db4b55
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 8af8e4b7844feb785600ef683891642ea89bccaf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542579"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556897"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Walkthrough: Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie op invoer van de gebruiker
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Overzicht: Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie op invoer van de gebruiker
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -30,7 +30,7 @@ De IEF gegevens in de claims gegevens verzendt en ontvangt in claims. De interac
 - Kunnen worden ontworpen als een REST-API claims exchange of als een validatieprofiel, die wordt uitgevoerd in een orchestration-stap.
 - Invoer van de gebruiker normaal gesproken worden gevalideerd. Als de waarde van de gebruiker wordt geweigerd, kunt de gebruiker het opnieuw proberen in te voeren van een geldige waarde met de mogelijkheid om terug te keren een foutbericht weergegeven.
 
-U kunt ook de interactie als een indelingsstap ontwerpen. Zie voor meer informatie, [rondleiding: REST-API integreren claims worden uitgewisseld in uw Azure AD B2C de gebruikersbeleving als een indelingsstap](active-directory-b2c-rest-api-step-custom.md).
+U kunt ook de interactie als een indelingsstap ontwerpen. Zie voor meer informatie, [scenario: Claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als een indelingsstap integreren](active-directory-b2c-rest-api-step-custom.md).
 
 Voor de validatie-profiel-voorbeeld gebruiken we de gebruikersbeleving profiel bewerken in de starter pack-bestand ProfileEdit.xml.
 
@@ -41,7 +41,7 @@ We kunnen verifiëren dat de naam die is opgegeven door de gebruiker in het bewe
 - Een Azure AD B2C-tenant die is geconfigureerd voor het voltooien van een lokaal account aanmelden-up-to-date/aanmelden, zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
 - Een REST-API-eindpunt om te communiceren met. Voor dit scenario wordt een demo-site met de naam hebt ingesteld [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) met een REST-API-service.
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Stap 1: Bereid de REST-API-functie
+## <a name="step-1-prepare-the-rest-api-function"></a>Stap 1: Voorbereiden van de REST-API-functie
 
 > [!NOTE]
 > Installatie van de REST API-functies is buiten het bereik van dit artikel. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) biedt een uitstekende toolkit voor het maken van RESTful-services in de cloud.
@@ -93,6 +93,7 @@ Een technisch profiel is de volledige configuratie van de uitwisseling van de ge
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
@@ -110,7 +111,7 @@ Een technisch profiel is de volledige configuratie van de uitwisseling van de ge
 
 De `InputClaims` element wordt gedefinieerd voor de claims die worden verzonden vanuit de IEF met de REST-service. In dit voorbeeld wordt de inhoud van de claim `givenName` verzonden naar de REST-service als `playerTag`. In dit voorbeeld wordt verwacht de IEF terug claims niet. In plaats daarvan wachten het op antwoord van de REST-service en besluiten op basis van de statuscodes die deze ontvangt.
 
-## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Stap 3: De claims-uitwisseling van RESTful-service opnemen in het zelf-gecontroleerde technische profiel waarin u wilt valideren van de invoer van de gebruiker
+## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Stap 3: De claimuitwisseling die RESTful-service opnemen in het zelf-gecontroleerde technische profiel waarin u wilt valideren van de invoer van de gebruiker
 
 De meest voorkomende gebruik van de validatiestap is in de interactie met een gebruiker. Alle interacties waar de gebruiker wordt verwacht voor invoer zijn *door technische profielen zelf de bevestigde*. We gaan de validatie toevoegen aan het technische profiel Asserted ProfileUpdate voor dit voorbeeld. Dit is de technische profiel dat het bestand met de relying party (RP) `Profile Edit` wordt gebruikt.
 

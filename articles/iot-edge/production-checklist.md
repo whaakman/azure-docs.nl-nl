@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d39a271f33cb86bf870c3a7692c38d780093efa2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100035"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652600"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Voorbereidingen voor het implementeren van uw IoT Edge-oplossing in productie
 
@@ -162,6 +162,17 @@ Wanneer de VPN-configuratie is vereist dat u expliciet verbindingen van de goedg
 In alle drie gevallen moet de DNS-naam kan overeenkomen met het patroon \*.azure-devices.net. 
 
 Bovendien de **Container engine** containerregisters opgeroepen via HTTPS. Als u wilt de containerinstallatiekopieën van de IoT Edge-runtime ophalen, is de DNS-naam mcr.microsoft.com. De container-engine maakt verbinding met andere registers zoals geconfigureerd in de implementatie. 
+
+Deze controlelijst is een beginpunt voor firewall-regels:
+
+   | URL (\* = jokertekens) | Uitgaande TCP-poorten | Gebruik |
+   | ----- | ----- | ----- |
+   | MCR.Microsoft.com  | 443 | Microsoft-containerregister |
+   | Global.Azure-apparaten-provisioning.net  | 443 | DPS-toegang (optioneel) |
+   | \*. azurecr.io | 443 | Persoonlijke en 3e partij container Registry |
+   | \*.blob.core.windows.net | 443 | Het downloaden van de installatiekopie van delta 's | 
+   | \*.Azure-devices.net | 5671, 8883, 443 | IoT Hub-toegang |
+   | \*. docker.io  | 443 | Docker-toegang (optioneel) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Communicatie via een proxy configureren
 

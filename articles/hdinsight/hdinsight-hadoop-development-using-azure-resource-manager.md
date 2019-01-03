@@ -9,25 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7722076c3b0031da8580dd88efdc0b575fd5a3be
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 33bb3186493b2ea2a0d676f250282574b27f7988
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875566"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718490"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migreren naar Azure Resource Manager gebaseerde ontwikkelingsprogramma's voor HDInsight-clusters
 
 HDInsight is niet meer ondersteund op basis van een Azure Service Manager ASM-hulpprogramma's voor HDInsight. Als u hebt gebruikt Azure PowerShell, klassieke Azure-CLI of de HDInsight .NET SDK voor het werken met HDInsight-clusters, wordt u aangeraden de Azure Resource Manager-versies van PowerShell, CLI en .NET-SDK gaan gebruiken. In dit artikel bevat verwijzingen over het migreren naar de nieuwe Resource Manager gebaseerde aanpak. Waar van toepassing, worden de verschillen tussen de benaderingen ASM en Resource Manager voor HDInsight in dit document gemarkeerd.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De ondersteuning voor ASM op basis van PowerShell, CLI, en .NET-SDK wordt stopgezet op **per 1 januari 2017**.
-> 
-> 
 
 ## <a name="migrating-azure-classic-cli-to-azure-resource-manager"></a>Azure CLI voor klassieke migreren naar Azure Resource Manager
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure CLI biedt geen ondersteuning voor het werken met HDInsight-clusters. U kunt nog steeds klassieke Azure-CLI gebruiken met HDInsight, maar de klassieke Azure-CLI is afgeschaft.
 
 Hier volgen de basisopdrachten voor het werken met HDInsight via de klassieke Azure-CLI:
@@ -51,11 +49,11 @@ Nieuwe opdrachten die beschikbaar zijn met Azure Resource Manager zijn:
 ### <a name="deprecated-commands"></a>Afgeschafte opdrachten
 Als u de `azure hdinsight job` opdrachten voor het verzenden van taken naar uw HDInsight-cluster, deze opdrachten zijn niet beschikbaar is via het Resource Manager-opdrachten. Als u nodig hebt voor het programmatisch verzenden van taken naar HDInsight van scripts, moet u in plaats daarvan de geleverd door HDInsight REST-API's. Zie de volgende documenten voor meer informatie over het verzenden van taken met behulp van REST-API's.
 
-* [Apache Hadoop MapReduce-taken uitvoeren met Hadoop op HDInsight met cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [MapReduce-taken uitvoeren met Hadoop op HDInsight met cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [Apache Hive-query's uitvoeren met Apache Hadoop op HDInsight met cURL](hadoop/apache-hadoop-use-hive-curl.md)
 * [Apache Pig-taken uitvoeren met Apache Hadoop op HDInsight met cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
-Zie voor meer informatie over andere manieren om uit te voeren van Apache Hadoop MapReduce, Apache Hive en Apache Pig interactief [gebruik Apache Hadoop MapReduce met Hadoop op HDInsight](hadoop/hdinsight-use-mapreduce.md), [Apache Hive gebruiken met Apache Hadoop op HDInsight](hadoop/hdinsight-use-hive.md), en [Apache Pig gebruiken met Apache Hadoop op HDInsight](hadoop/hdinsight-use-pig.md).
+Zie voor meer informatie over andere manieren om uit te voeren van Apache Hadoop MapReduce, Apache Hive en Apache Pig interactief [MapReduce gebruiken met Hadoop op HDInsight](hadoop/hdinsight-use-mapreduce.md), [Apache Hive gebruiken met Apache Hadoop op HDInsight](hadoop/hdinsight-use-hive.md), en [Apache Pig gebruiken met Apache Hadoop op HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Voorbeelden
 **Het maken van een cluster**
@@ -73,10 +71,8 @@ Zie voor meer informatie over andere manieren om uit te voeren van Apache Hadoop
 * Oude opdracht (ASM)- `azure hdinsight cluster list`
 * Nieuwe opdracht: `azure hdinsight cluster list`
 
-> [!NOTE]
+> [!NOTE]  
 > Voor de opdracht de lijst op te geven de resource-groep met `-g` retourneert alleen de clusters in de opgegeven resourcegroep.
-> 
-> 
 
 **Cluster-informatie weergeven**
 
@@ -135,17 +131,17 @@ Hieronder vindt u de nieuwe cmdlets die alleen beschikbaar in Resource Manager-m
 
 **Script actie-gerelateerde cmdlets:**
 
-* **Get-AzureRmHDInsightPersistedScriptAction**: haalt het persistente scriptacties voor een cluster en worden ze weergegeven in chronologische volgorde of Hiermee haalt u details voor een opgegeven persistente scriptactie. 
+* **Get-AzureRmHDInsightPersistedScriptAction**: Opgehaald van de persistente scriptacties voor een cluster en worden ze weergegeven in chronologische volgorde of Hiermee haalt u details voor een opgegeven persistente scriptactie. 
 * **Get-AzureRmHDInsightScriptActionHistory**: Hiermee haalt u de geschiedenis van de scriptactie voor een cluster en geeft dit weer in omgekeerde volgorde of details van een eerder uitgevoerde scriptactie opgehaald. 
-* **Remove-AzureRmHDInsightPersistedScriptAction**: Hiermee verwijdert u een persistente scriptactie van een HDInsight-cluster.
+* **Remove-AzureRmHDInsightPersistedScriptAction**: Hiermee verwijdert u een persistente scriptactie vanuit een HDInsight-cluster.
 * **Set-AzureRmHDInsightPersistedScriptAction**: Hiermee stelt u een eerder uitgevoerde scriptactie moet een persistente scriptactie.
-* **Indienen AzureRmHDInsightScriptAction**: een nieuwe scriptactie naar een Azure HDInsight-cluster worden verzonden. 
+* **Indienen AzureRmHDInsightScriptAction**: Verzendt een nieuwe scriptactie naar een Azure HDInsight-cluster. 
 
 Zie voor informatie over het extra gebruik, [aanpassen Linux gebaseerde HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Cluster-id-gerelateerde cmdlets:**
 
-* **Voeg AzureRmHDInsightClusterIdentity**: de identiteit van een cluster toevoegt aan een configuratieobject voor de cluster, zodat het HDInsight-cluster toegang heeft tot Azure Data Lake Stores. Zie [een HDInsight-cluster maken met Data Lake Store met behulp van Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Voeg AzureRmHDInsightClusterIdentity**: Voegt de identiteit van een cluster toe aan een configuratieobject cluster zodat het HDInsight-cluster toegang heeft tot Azure Data Lake-opslag. Zie [een HDInsight-cluster maken met Data Lake Storage met behulp van Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Voorbeelden
 **Cluster maken**

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581422"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653846"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Apache Spark kan worden uitgevoerd vanuit de Spark-Shell
 
@@ -63,7 +63,7 @@ De Spark-Shell-opdracht (`spark-shell`, `pyspark`, of `sparkR`) biedt ondersteun
 | Switch | description | Voorbeeld |
 | --- | --- | --- |
 | --model MASTER_URL | Hiermee geeft u de URL van de master. In HDInsight, is deze waarde altijd `yarn`. | `--master yarn`|
-| --jars JAR_LIST | Door komma's gescheiden lijst met lokale JAR-bestanden moeten worden opgenomen in de stuurprogramma- en executor klassepaden. In HDInsight, wordt deze lijst bestaat uit de paden naar het bestandssysteem standaard in Azure Storage of Data Lake Store. | `--jars /path/to/examples.jar` |
+| --jars JAR_LIST | Door komma's gescheiden lijst met lokale JAR-bestanden moeten worden opgenomen in de stuurprogramma- en executor klassepaden. In HDInsight, wordt deze lijst bestaat uit de paden naar het bestandssysteem standaard in Azure Storage of Data Lake-opslag. | `--jars /path/to/examples.jar` |
 | --MAVEN_COORDS-pakketten | Door komma's gescheiden lijst met maven-coördinaten van de JAR-bestanden moeten worden opgenomen in de stuurprogramma- en executor klassepaden. Zoekt naar de lokale maven-opslagplaats en klik vervolgens op maven central, en vervolgens extra externe opslagplaatsen die is opgegeven met `--repositories`. De notatie voor de coördinaten is *groeps-id*:*artifactId*:*versie*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | LIJST met--py-bestanden | Voor Python, een door komma's gescheiden lijst met ZIP- of .egg .py bestanden op de PYTHONPATH te plaatsen. | `--pyfiles "samples.py"` |
 
@@ -72,4 +72,3 @@ De Spark-Shell-opdracht (`spark-shell`, `pyspark`, of `sparkR`) biedt ondersteun
 - Zie [Inleiding tot Apache Spark in Azure HDInsight](apache-spark-overview.md) voor een overzicht.
 - Zie [een Apache Spark-cluster maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) om te werken met Spark-clusters en SparkSQL.
 - Zie [wat is Apache Spark Structured Streaming?](apache-spark-streaming-overview.md) toepassingen schrijft die met Spark-gegevensstromen verwerken.
-

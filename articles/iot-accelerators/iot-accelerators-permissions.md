@@ -1,106 +1,72 @@
 ---
-title: Azure IoT-oplossingsversnellers en Azure Active Directory | Microsoft Docs
-description: Hierin wordt beschreven hoe Azure IoT-oplossingsversnellers maakt gebruik van Azure Active Directory om machtigingen te beheren.
+title: Gebruik de Azure IoT-oplossingen-site - Azure | Microsoft Docs
+description: Hierin wordt beschreven hoe u de AzureIoTSolutions.com-website met de oplossingsversnellers implementeren.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: e45954389c8dd1b484a7009460c541bf35266973
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713847"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601080"
 ---
-# <a name="permissions-on-the-azureiotsolutionscom-site"></a>Machtigingen op de site azureiotsolutions.com
+# <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Gebruik de site azureiotsolutions.com aan uw oplossingsversnellers implementeren
 
-## <a name="what-happens-when-you-sign-in"></a>Wat gebeurt er wanneer u zich aanmeldt
+U kunt Azure IoT-oplossingsversnellers implementeren voor uw Azure-abonnement van [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com als host fungeert voor de Microsoft open source- en partner Oplossingsverbeteringen. Deze Oplossingsverbeteringen zijn afgestemd op de [Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture). De site kunt u snel een oplossingsverbetering als een demo's of productie-omgeving te implementeren.
 
-De eerste keer dat u zich aanmeldt bij [azureiotsuite.com][lnk-azureiotsolutions], de site bepaalt de machtigingsniveaus die u hebt op basis van de momenteel geselecteerde Azure Active Directory (AAD)-tenant en Azure-abonnement.
+![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
-1. Eerst, om in te vullen in de lijst met tenants weergegeven naast uw gebruikersnaam, de site zoekt uit van Azure die u werkzaam bent bij AAD-tenants. De site kan op dit moment alleen gebruikerstokens voor één tenant verkrijgen op een tijdstip. Dus als u tenants met behulp van de vervolgkeuzelijst in de rechterbovenhoek, de site geregistreerd in die tenant om op te halen van de tokens voor de tenant.
+> [!TIP]
+> Als u meer controle over het implementatieproces nodig hebt, kunt u de [CLI voor het implementeren van een oplossingsversnellers](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-2. De site zoekt vervolgens uit vanuit Azure welke abonnementen die u hebt gekoppeld aan de geselecteerde tenant. Bij het maken van een nieuwe oplossingsversnellers ziet u de beschikbare abonnementen.
+U kunt de oplossingsversnellers in de volgende configuraties implementeren:
 
-3. Ten slotte haalt de site alle resources in de abonnementen en resourcegroepen gelabeld als oplossingsversnellers en vult de tegels op de startpagina.
+* **Standard**: Een uitgebreide Infrastructuurimplementatie voor het ontwikkelen van een productie-omgeving. De Azure Container Service implementeert de microservices in diverse virtuele Azure-machines. Kubernetes deelt de Docker-containers in die de afzonderlijke microservices hosten.
+* **Basic**: Een lagere kosten-versie voor een demonstratie of om een implementatie te testen. Alle microservices worden geïmplementeerd op een enkele virtuele Azure-machine.
+* **Lokale**: Een implementatie van de lokale computer voor het testen en ontwikkeling. Deze benadering implementeert de microservices naar een lokale Docker-container en verbinding maakt met de IoT Hub, Azure Cosmos DB en Azure storage-services in de cloud.
 
-De volgende secties worden de rollen die de toegang aan de Oplossingsverbeteringen.
+Elk van de oplossingsversnellers maakt gebruik van een andere combinatie van Azure-services zoals IoT Hub, Azure Stream Analytics en Cosmos DB. Ga voor meer informatie naar [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) en selecteert u een oplossingsverbetering.
 
-## <a name="aad-roles"></a>AAD-rollen
+## <a name="sign-in-at-azureiotsolutionscom"></a>Meld u aan bij azureiotsolutions.com
 
-De AAD-rollen beheren de mogelijkheid om te oplossingsversnellers inrichten, voor het beheren van gebruikers en bepaalde Azure-services in een oplossingsversnellers.
+Voordat u een oplossingsverbetering implementeren kunt, moet u zich aanmelden bij AzureIoTSolutions.com met behulp van referenties die zijn gekoppeld aan een Azure-abonnement. Als uw account is gekoppeld aan meer dan één tenant van Microsoft Azure Active Directory (AD), kunt u de **Account selectie vervolgkeuzelijst** kiezen van de map te gebruiken.
 
-U vindt meer informatie over beheerdersrollen in AAD in [beheerdersrollen toewijzen in Azure AD][lnk-aad-admin]. Het huidige artikel richt zich op de **hoofdbeheerder** en de **gebruiker** maprollen gebruikt door de oplossingsversnellers.
+Uw machtigingen oplossingsversnellers implementeren, het beheren van gebruikers en het beheren van Azure-services, is afhankelijk van uw rol in de geselecteerde map. Algemene Azure AD-rollen die zijn gekoppeld aan de oplossingsversnellers zijn onder andere:
 
-### <a name="global-administrator"></a>Globale beheerder
+* **Globale beheerder**: Er kunnen zich veel [globale beheerders](../active-directory/users-groups-roles/directory-assign-admin-roles.md) per Azure AD-tenant:
 
-Er zijn veel globale beheerders per AAD-tenant:
+  * Wanneer u een Azure AD-tenant maakt, bent u standaard de globale beheerder van deze tenant.
+  * De globale beheerder kunt basic en standard-oplossingsversnellers implementeren.
 
-* Wanneer u een AAD-tenant maakt, bent u standaard de globale beheerder van deze tenant.
-* De globale beheerder kan een basic en standard oplossingsversnellers (een eenvoudige implementatie maakt gebruik van een enkel Azure-Machine) inrichten.
+* **Domeingebruiker**: Er zijn veel domeingebruikers per Azure AD-tenant. Een domeingebruiker kan een eenvoudige oplossingsversnellers implementeren.
 
-### <a name="domain-user"></a>Domeingebruiker
+* **Gastgebruiker**: Er zijn veel gastgebruikers ook kunnen per Azure AD-tenant. Gastgebruikers ook kunnen implementeren niet van een oplossingsversnellers in de Azure AD-tenant.
 
-Er zijn veel domeingebruikers per AAD-tenant:
+Zie de volgende bronnen voor meer informatie over gebruikers en rollen in Azure AD:
 
-* Een domeingebruiker kunt inrichten een eenvoudige oplossingsversnellers via de [azureiotsolutions.com] [ lnk-azureiotsolutions] site.
-* Een domeingebruiker kunt maken van een eenvoudige oplossingsversnellers met behulp van de CLI.
+* [Gebruikers maken in Azure Active Directory](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+* [Gebruikers toewijzen aan apps](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="guest-user"></a>Gastgebruiker
+## <a name="choose-your-device"></a>Kies uw apparaat
 
-Er zijn veel gastgebruikers ook kunnen per AAD-tenant. Gastgebruikers hebben een beperkte set rechten in de AAD-tenant. Gastgebruikers ook kunnen inrichten niet als gevolg hiervan een oplossingsversnellers in de AAD-tenant.
+De site AzureIoTSolutions.com is gekoppeld aan de [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsolutions.com/).
 
-Zie de volgende bronnen voor meer informatie over gebruikers en rollen in AAD:
+De catalogus bevat honderden certified IoT-apparaten die kunt u verbinding met uw Oplossingsverbeteringen om te beginnen het bouwen van uw IoT-oplossing.
 
-* [Gebruikers maken in Azure AD][lnk-create-edit-users]
-* [Gebruikers toewijzen aan apps][lnk-assign-app-roles]
+![Apparaatcatalogus](media/iot-accelerators-permissions/devicecatalog.png)
 
-## <a name="azure-subscription-administrator-roles"></a>Beheerdersrollen in Azure-abonnement
-
-De Azure-beheerdersrollen beheren de mogelijkheid om een Azure-abonnement worden toegewezen aan een AAD-tenant.
-
-Meer informatie over de Azure-beheerdersrollen in het artikel [toevoegen of wijzigen Azure-abonnementbeheerders][lnk-admin-roles].
-
-## <a name="faq"></a>Veelgestelde vragen
-
-### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Ik ben een servicebeheerder en ik wil de directory-toewijzing tussen mijn abonnement en een specifieke AAD-tenant wijzigen. Hoe ik deze taak voltooid?
-
-Zie [aan een bestaand abonnement toevoegen aan uw Azure AD-directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
-
-### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Ik wil een servicebeheerder of CO-beheerder wanneer u bent aangemeld met een organisatie-account wijzigen
-
-Zie het ondersteuningsartikel [wijzigen van servicebeheerder en Medebeheerder wanneer u bent aangemeld met een organisatieaccount][lnk-service-admins].
-
-### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Waarom krijg ik deze fout te zien? 'Uw account beschikt niet over de juiste machtigingen om een oplossing te maken. Neem contact op met uw accountbeheerder of probeer met een ander account."
-
-Bekijk het volgende diagram voor richtlijnen:
-
-![][img-flowchart]
-
-> [!NOTE]
-> Als u doorgaat om te zien de fout na de validatie u een globale beheerder van de AAD-tenant en een CO-beheerder van het abonnement zijn, de beheerder van uw account de gebruiker te verwijderen en opnieuw toewijzen van benodigde machtiging in deze volgorde. Eerst de gebruiker als een globale beheerder toevoegen en voeg deze gebruiker als een CO-beheerder van de Azure-abonnement. Als de problemen zich blijven voordoen, neem dan contact op met [Help en ondersteuning][lnk-help-support].
-
-### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Waarom krijg ik deze fout zien wanneer ik heb een Azure-abonnement? "Een Azure-abonnement is vereist om vooraf geconfigureerde oplossingen te maken. U kunt een gratis proefaccount maken in een paar minuten."
-
-Als u zeker weet dat u hebt een Azure-abonnement, de tenanttoewijzing voor uw abonnement te valideren en controleer of dat de juiste tenant in de vervolgkeuzelijst is geselecteerd. Als u hebt gevalideerd, de gewenste tenant juist is, volgt u de voorgaande diagram en valideren van de toewijzing van uw abonnement en deze AAD-tenant.
+Als u een hardwarefabrikant bent, klikt u op **een partner** voor meer informatie over de samenwerking met Microsoft op de Certified for IoT-programma.
 
 ## <a name="next-steps"></a>Volgende stappen
-Om meer te leren over IoT-oplossingsversnellers, ziet u hoe u [een oplossingsversnellers aanpassen][lnk-customize].
 
-[img-flowchart]: media/iot-accelerators-permissions/flowchart.png
+Raadpleeg de quickstarts om een van de oplossingsverbeteringen uit te proberen:
 
-[lnk-azureiotsolutions]: https://www.azureiotsolutions.com
-[lnk-rm-github-repo]: https://github.com/Azure/remote-monitoring-services-dotnet
-[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
-[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
-[lnk-portal]: https://portal.azure.com
-[lnk-create-edit-users]:../active-directory/fundamentals/active-directory-users-profile-azure-portal.md
-[lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
-[lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
-[lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
-[lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[lnk-customize]: iot-accelerators-remote-monitoring-customize.md
+* [Een oplossing voor externe controle uitproberen](quickstart-remote-monitoring-deploy.md)
+* [Een oplossing voor verbonden factory uitproberen](quickstart-connected-factory-deploy.md)
+* [Een oplossing voor predictief onderhoud uitproberen](quickstart-predictive-maintenance-deploy.md)
+* [Een oplossing voor apparaatsimulatie uitproberen](quickstart-device-simulation-deploy.md)

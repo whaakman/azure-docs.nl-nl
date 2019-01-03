@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1edb4818ff7fda170d123ea8b81e6df9d620f354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138443"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713570"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Documentatie over Backup-Service-infrastructuur
 
 ## <a name="azure-backup-infrastructure"></a>Azure-back-upinfrastructuur
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Azure Stack bestaat uit vele services die deel uitmaken van de portal, Azure Resource Manager en beheer van infrastructuur optreden. De apparaat-achtige beheerervaring van Azure Stack is gericht op het verkorten van de complexiteit blootgesteld aan de beheerder van de oplossing.
 
@@ -87,9 +87,16 @@ De vereisten zijn onder andere:
 
 Infrastructuur voor back-up Controller worden back-up van gegevens op aanvraag. De aanbeveling is het back-up van ten minste twee keer een dag en blijf aan de back-ups van maximaal zeven dagen. 
 
+**1811 en meer**
 | Omgeving schalen | Geschatte grootte van back-up | Totale hoeveelheid vereiste schijfruimte |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 knooppunten        | 10 GB                     | 140 GB                          |
+| 4-16 knooppunten        | 20 GB                    | 280 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
+
+**Pre-1811**
+| Omgeving schalen | Geschatte grootte van back-up | Totale hoeveelheid vereiste schijfruimte |
+|-------------------|--------------------------|--------------------------------|
+| 4-16 knooppunten, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Netwerkvereisten
 | Opslaglocatie                                                                 | Details                                                                                                                                                                                 |
@@ -109,7 +116,7 @@ Rekening houden deze limieten bij het plannen, implementeren en uitvoeren van uw
 | Limiet-id                                                 | Limiet        | Opmerkingen                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Type back-up                                                      | Alleen volledige    | Infrastructuur voor back-up-Controller ondersteunt alleen volledige back-ups. Incrementele back-ups worden niet ondersteund.                                          |
-| Geplande back-ups                                                | Alleen handmatig  | Back-controller ondersteunt momenteel alleen back-ups op aanvraag                                                                                 |
+| Geplande back-ups                                                | Geplande en handmatige  | Back-up-controller ondersteunt geplande en on-demand back-ups                                                                                 |
 | Maximum aantal gelijktijdige back-uptaken                                   | 1            | Slechts één actieve back-uptaak wordt per exemplaar van de back-domeincontroller ondersteund.                                                                  |
 | Configuratie van de netwerkswitch                                     | Niet in bereik | De beheerder moet back-up van configuratie van de netwerkswitch met behulp van OEM-hulpprogramma's. Raadpleeg de documentatie voor Azure Stack is geleverd door de OEM-leverancier. |
 | Hardware levenscyclus van Host                                          | Niet in bereik | De beheerder moet back-up Hardware Lifecycle Host met behulp van OEM-hulpprogramma's. Raadpleeg de documentatie voor Azure Stack is geleverd door de OEM-leverancier.      |

@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435715"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715899"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
@@ -26,7 +26,7 @@ In dit artikel wordt de Azure SQL Database en SQL Data Warehouse connectiviteits
 > [!IMPORTANT]
 > **[Toekomstige wijzigingen] Voor service-eindpunt-verbindingen met Azure SQL-servers, een `Default` connectiviteit gedrag wordt gewijzigd in `Redirect`.**
 >
-> Wijzigen is al vanaf 10 November 2019 voor regio's Zuid-Brazilië en West-Europa. Voor alle andere regio's wijziging worden van kracht vanaf 2 januari 2019.
+> Wijzigen is al vanaf 10 November 2018 voor regio's Zuid-Brazilië en West-Europa. Voor alle andere regio's wijziging worden van kracht vanaf 2 januari 2019.
 >
 > Om te voorkomen dat connectiviteit via een service-eindpunt belangrijke in bestaande omgevingen als gevolg van deze wijziging, gebruiken we telemetrie Doe het volgende:
 > - Voor servers die worden gedetecteerd die zijn toegankelijk via service-eindpunten voor de wijziging, schakelen we het verbindingstype voor `Proxy`.

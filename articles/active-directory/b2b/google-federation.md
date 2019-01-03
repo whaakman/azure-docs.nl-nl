@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 295b7eeebf8d9815aef0b862ee2b3cccbee15ed6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569002"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546739"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google als id-provider voor B2B-gastgebruikers toevoegen
 
 Door het instellen van Federatie met Google, kunt u uitgenodigde gebruikers aanmelden bij uw gedeelde apps en resources met hun eigen Google-accounts, zonder te hoeven maken van Microsoft-Accounts (MSA's) of Azure AD-accounts.  
 > [!NOTE]
-> Uw Google-gastgebruikers moeten aanmelden met een koppeling met de tenant-context, bijvoorbeeld `https://myapps.microsoft.com/?tenantid=<tenant id>`. Directe koppelingen naar toepassingen en bronnen ook werken, zolang ze de context van de tenant zijn. Gastgebruikers ook kunnen zijn op dit moment kan niet aanmelden met behulp van eindpunten waarvoor geen tenant-context. Bijvoorbeeld, met behulp van `https://myapps.microsoft.com`, `https://portal.azure.com`, of het algemene Teams-eindpunt resulteert in een fout.
+> Uw Google-gastgebruikers moeten aanmelden met een koppeling met de tenant-context, bijvoorbeeld `https://myapps.microsoft.com/<tenant id>`. Directe koppelingen naar toepassingen en bronnen ook werken, zolang ze de context van de tenant zijn. Gastgebruikers ook kunnen zijn op dit moment kan niet aanmelden met behulp van eindpunten waarvoor geen tenant-context. Bijvoorbeeld, met behulp van `https://myapps.microsoft.com`, `https://portal.azure.com`, of het algemene Teams-eindpunt resulteert in een fout.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Wat is de ervaring voor de Google-gebruiker?
 Wanneer u een uitnodiging voor een gebruiker Google Gmail verzenden, moet de gastgebruiker toegang tot uw gedeelde apps of resources met behulp van een koppeling met de tenant-context. Hun ervaring kan verschillen, afhankelijk van of ze al bent aangemeld bij Google:
@@ -35,7 +35,7 @@ Als de gastgebruiker ziet een foutbericht 'header te lang', proberen ze hun cook
 ## <a name="step-1-configure-a-google-developer-project"></a>Stap 1: Configureren van een Google developer-project
 Maak eerst een nieuw project in de Google-ontwikkelaars-Console om op te halen van een client-ID en een clientgeheim in die u later aan Azure AD toevoegen kunt. 
 1. Ga to de Google APIs op https://console.developers.google.com, en meld u aan met uw Google-account. U wordt aangeraden dat u een gedeelde team Google-account.
-2. Een nieuw project maken: op het Dashboard selecteren **Project maken**, en selecteer vervolgens **maken**. Voer op de pagina Nieuw Project voor een **projectnaam**, en selecteer vervolgens **maken**.
+2. Een nieuw project maken: Selecteer op het Dashboard, **Project maken**, en selecteer vervolgens **maken**. Voer op de pagina Nieuw Project voor een **projectnaam**, en selecteer vervolgens **maken**.
    
    ![Nieuwe Google-project](media/google-federation/google-new-project.png)
 
@@ -70,7 +70,7 @@ Maak eerst een nieuw project in de Google-ontwikkelaars-Console om op te halen v
 
    ![OAuth-client-ID en clientgeheim](media/google-federation/google-auth-client-id-secret.png)
 
-## <a name="step-2-configure-google-federation-in-azure-ad"></a>Stap 2: Google federatie configureren in Azure AD 
+## <a name="step-2-configure-google-federation-in-azure-ad"></a>Stap 2: Google-federatie configureren in Azure AD 
 Nu hebt u ingesteld de Google-client-ID en clientgeheim, door te voeren in de Azure AD-portal of met behulp van PowerShell. Zorg ervoor dat uw federation-configuratie van Google testen door het uitnodigen van uzelf met een Gmail-adres en probeer het inwisselen van de uitnodiging met het uitgenodigde Google-account. 
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Google om Federatie te configureren in de Azure AD-portal 
@@ -90,7 +90,7 @@ Nu hebt u ingesteld de Google-client-ID en clientgeheim, door te voeren in de Az
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Gebruik de client-id en clientgeheim in van de app die u hebt gemaakt in ' stap 1: configureren van een Google developer-project. " Zie voor meer informatie de [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) artikel. 
+   > Gebruik de client-id en clientgeheim in van de app die u hebt gemaakt in ' stap 1: Configureren van een Google developer-project." Zie voor meer informatie de [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) artikel. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Hoe verwijder ik Google federation?
 U kunt uw Google-federatie-instellingen verwijderen. Als u dit doet, Google-gastgebruikers die hun uitnodiging al hebt ingewisseld zich niet aanmelden, maar u kunt zodat ze toegang tot uw resources opnieuw door deze uit de map worden verwijderd en opnieuw uitnodiging. 

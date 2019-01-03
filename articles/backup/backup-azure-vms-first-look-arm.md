@@ -1,24 +1,21 @@
 ---
-title: 'Eerste blik: virtuele machines van Azure beveiligen met een Recovery Services-kluis'
-description: Beveilig virtuele machines van Azure met een Recovery Services-kluis. Gebruik back-ups van virtuele machines die met Resource Manager of het klassieke model zijn geïmplementeerd, Premium Storage-VM's, versleutelde virtuele machines en virtuele machines op beheerde schijven om uw gegevens te beveiligen. Maak en registreer een Recovery Services-kluis. Registreer VM's, maak beleid en beveilig VM's in Azure.
+title: Back-up van virtuele Azure-machines met de Azure Backup-service
+description: Meer informatie over het back-up van virtuele Azure-machines met de Azure Backup-service
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/17/2018
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-keywords: back-ups; VM-back-up
-ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869925"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631580"
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Back-up van virtuele Azure-machines naar Recovery Services-kluis
+# <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Back-up van virtuele Azure-machines met de Azure Backup-service
 
 In dit artikel wordt uitgelegd hoe u de beveiliging van een virtuele machine van de virtuele machines operations menu of de Recovery Services-kluis configureren. Recovery Services-kluizen beveiligen:
 
@@ -32,11 +29,11 @@ In dit artikel wordt uitgelegd hoe u de beveiliging van een virtuele machine van
 
 Zie het artikel [Back-ups van virtuele machines voor Premium Storage maken en terugzetten](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) voor meer informatie over het beschermen van Premium Storage-VM's. Zie [Back-ups van virtuele machines op beheerde schijven maken en terugzetten](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) voor meer informatie over ondersteuning voor virtuele machines op beheerde schijven. Voor meer informatie over pre- en post-script framework voor Linux-VM back-ups raadpleegt u [Application consistent Linux VM backup using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) (Toepassingsconsistente back-up van Linux-VM's met pre-script en post-script).
 
-Zie voor meer informatie over wat u wel en niet kan back-up maken, [uw omgeving voorbereiden op back-up van virtuele Azure-machines](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Zie voor meer informatie over wat u wel en niet kan back-up maken, [uw omgeving voorbereiden op back-up van virtuele Azure-machines](backup-azure-arm-vms-prepare.md#before-you-start).
 
 > [!NOTE]
 > Backup-service maakt een afzonderlijke resourcegroep dan de resourcegroep van de virtuele machine voor het opslaan van de verzameling van herstelpunt. Klanten wordt aangeraden niet aan het vergrendelen van de resourcegroep gemaakt voor gebruik door de Backup-service.
-De indeling van de naamgeving van de resourcegroep hebt gemaakt met Backup-service is: AzureBackupRG_`<Geo>`_`<number>`
+De naamgeving indeling van de resourcegroep hebt gemaakt met Backup-service is: AzureBackupRG_`<Geo>`_`<number>`
 <br>Bijvoorbeeld: AzureBackupRG_northeurope_1
 >
 >
@@ -337,7 +334,9 @@ De Backup-service installeert de back-upextensie, zelfs als de virtuele machine 
 Als u problemen hebt bij het uitvoeren van de taken in dit artikel, raadpleegt u de [richtlijnen voor probleemoplossing](backup-azure-vms-troubleshoot.md).
 
 ## <a name="pricing"></a>Prijzen
-De kosten voor het maken van back-ups van virtuele Azure-machines is gebaseerd op het aantal beveiligde exemplaren. Zie voor een definitie van een beveiligd exemplaar [Wat is een beveiligd exemplaar?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) Zie voor een voorbeeld van het berekenen van de kosten voor het maken van back-ups van een virtuele machine [Hoe worden beveiligde exemplaren berekend?](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances) Zie de pagina met prijzen van Azure Backup voor meer informatie over [de prijzen van Backup](https://azure.microsoft.com/pricing/details/backup/).
+De kosten voor het maken van back-ups van virtuele Azure-machines is gebaseerd op het aantal beveiligde exemplaren. Zie voor een definitie van een beveiligd exemplaar [Wat is een beveiligd exemplaar?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) Zie de pagina met prijzen van Azure Backup voor meer informatie over [de prijzen van Backup](https://azure.microsoft.com/pricing/details/backup/).
 
-## <a name="questions"></a>Vragen?
-Als u vragen hebt of als er een functie is die u graag opgenomen zag worden, [stuurt u ons feedback](https://aka.ms/azurebackup_feedback).
+## <a name="next-steps"></a>Volgende stappen
+
+[Beheren](backup-azure-manage-vms.md) uw back-ups.
+

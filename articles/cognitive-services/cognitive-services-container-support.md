@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 8d98e428d60c0981385b842bcb4dfc77bdbbcf22
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 4ee98c2d8170df5ef5878f5b534b545eb105667e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413044"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543906"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Ondersteuning voor containers in Azure Cognitive Services
 
@@ -33,8 +33,8 @@ De [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), [Teksta
 
 - **Controle over gegevens**: Kunnen klanten om te kiezen waarin deze Cognitive Services hun gegevens verwerken. Dit is essentieel voor klanten die gegevens verzenden naar de cloud, kunnen niet, maar toegang nodig tot Cognitive Services-technologie. Ondersteuning voor consistentie in hybride omgevingen: alle gegevens, beheer, identiteit en beveiliging.
 - **Controle over gegevensmodellen kunnen bijwerken**: Bieden klanten flexibiliteit in versiebeheer en bijwerken van modellen die zijn geïmplementeerd in hun oplossingen.
-- **Draagbare architectuur**: Het maken van een draagbare toepassingsarchitectuur die kan worden geïmplementeerd op Azure, on-premises en edge inschakelen. Containers rechtstreeks naar kunnen worden geïmplementeerd [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), of naar een [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](/azure/azure-stack/). Zie voor meer informatie, [Kubernetes met Azure Stack implementeren](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Hoge doorvoer / lage latentie**: Geef klanten de mogelijkheid om te schalen voor hoge doorvoer en lage latentie is vereist door het inschakelen van Cognitive Services om uit te voeren fysiek dicht bij hun logica van toepassingen en gegevens. Containers transacties per seconde (TPS) kunnen niet worden gegevenslimiet en kunnen worden gemaakt voor het schalen van zowel en uitbreiden voor het afhandelen van aanvraag als u de benodigde hardwarebronnen opgeven.
+- **Draagbare architectuur**: Het maken van een draagbare toepassingsarchitectuur die kan worden geïmplementeerd op Azure, on-premises en edge inschakelen. Containers rechtstreeks naar kunnen worden geïmplementeerd [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), of naar een [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](../azure-stack/index.yml). Zie voor meer informatie, [Kubernetes met Azure Stack implementeren](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+- **Hoge doorvoer / lage latentie**: Geef klanten de mogelijkheid om te schalen voor hoge doorvoer en lage latentie is vereist door het inschakelen van Cognitive Services om uit te voeren fysiek dicht bij hun logica van toepassingen en gegevens. Containers transacties per seconde (TPS) kunnen niet worden gegevenslimiet en kunnen worden gemaakt voor het schalen van zowel en uitbreiden voor het afhandelen van aanvraag als u de benodigde hardwarebronnen opgeven. 
 
 
 ## <a name="containers-in-azure-cognitive-services"></a>Containers in Azure Cognitive Services
@@ -61,7 +61,7 @@ Azure Cognitive Services-containers zijn openbaar beschikbaar zijn via uw Azure-
 
 U moet voldoen aan de volgende vereisten voordat u met behulp van Azure Cognitive Services-containers:
 
-**Docker-Engine**: U moet Docker Engine lokaal zijn geïnstalleerd hebben. Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), en [Windows](https://docs.docker.com/docker-for-windows/). Op Windows, moet Docker worden geconfigureerd ter ondersteuning van Linux-containers. Docker-containers kunnen ook rechtstreeks naar worden geïmplementeerd [Azure Kubernetes Service](/azure/aks/) of [Azure Container Instances](/azure/container-instances/).
+**Docker-Engine**: U moet Docker Engine lokaal zijn geïnstalleerd hebben. Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), en [Windows](https://docs.docker.com/docker-for-windows/). Op Windows, moet Docker worden geconfigureerd ter ondersteuning van Linux-containers. Docker-containers kunnen ook rechtstreeks naar worden geïmplementeerd [Azure Kubernetes Service](../aks/index.yml) of [Azure Container Instances](../container-instances/index.yml).
 
 Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure.
 

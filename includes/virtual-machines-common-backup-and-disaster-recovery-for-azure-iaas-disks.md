@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39486037"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53638796"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Back-up en herstel na noodgevallen voor Azure IaaS-schijven
 
@@ -63,9 +63,9 @@ Ter bescherming van uw IaaS-workloads van storingen, moet u plannen voor redunda
 
 Uw overwegingen voor herstel na Noodgevallen zijn onder andere de volgende aspecten:
 
-- Hoge beschikbaarheid: de mogelijkheid van de toepassing om door te gaan die wordt uitgevoerd in een goede status, zonder significante downtime. Door *status in orde*, deze status betekent dat de toepassing responsief is en dat gebruikers kunnen verbinding maken met de toepassing en er interactie mee hebt. Het is mogelijk dat bepaalde essentiële toepassingen en databases vereist moet altijd beschikbaar, zelfs als er fouten in het platform zijn. Voor deze werkbelastingen moet u mogelijk redundantie voor de toepassing, evenals de gegevens van plan bent.
+- Hoge beschikbaarheid: De mogelijkheid van de toepassing om door te gaan die wordt uitgevoerd in een goede status, zonder significante downtime. Door *status in orde*, deze status betekent dat de toepassing responsief is en dat gebruikers kunnen verbinding maken met de toepassing en er interactie mee hebt. Het is mogelijk dat bepaalde essentiële toepassingen en databases vereist moet altijd beschikbaar, zelfs als er fouten in het platform zijn. Voor deze werkbelastingen moet u mogelijk redundantie voor de toepassing, evenals de gegevens van plan bent.
 
-- Duurzaamheid van gegevens: In sommige gevallen kan de belangrijkste overweging is ervoor te zorgen dat de gegevens behouden blijft als het geval is na een noodgeval. Daarom moet u mogelijk een back-up van uw gegevens in een andere site. Voor deze werkbelastingen moet u mogelijk niet volledige redundantie voor de toepassing, maar alleen een reguliere-up van de schijven.
+- Duurzaamheid van gegevens: In sommige gevallen is de belangrijkste overweging ervoor te zorgen dat de gegevens behouden blijft als het geval is na een noodgeval. Daarom moet u mogelijk een back-up van uw gegevens in een andere site. Voor deze werkbelastingen moet u mogelijk niet volledige redundantie voor de toepassing, maar alleen een reguliere-up van de schijven.
 
 ## <a name="backup-and-dr-scenarios"></a>Scenario's voor back-up en herstel na Noodgevallen
 
@@ -92,7 +92,7 @@ We bekijken de workload van de IaaS-toepassing. Deze toepassing kan bijvoorbeeld
 
 Een ander voorbeeld is een rapportserver die gegevens ophaalt uit andere bronnen en genereert samengevoegde rapporten. Het verlies van gegevens van deze virtuele machine of de schijven kan leiden tot het verlies van gegevens van de rapporten. Echter mogelijk opnieuw uitvoeren van het proces voor rapportage en opnieuw genereren van de uitvoer. In dat geval hebt niet echt een verlies van gegevens, zelfs als de rapportserver is bereikt, wordt met een noodgeval. Als gevolg hiervan mogelijk hebt u een hoger niveau van tolerantie voor het onderdeel van de gegevens op de rapportserver verliezen. In dat geval zijn minder frequente back-ups een optie om kosten te verlagen.
 
-### <a name="scenario-4-iaas-application-data-issues"></a>Scenario 4: IaaS-toepassingsproblemen gegevens
+### <a name="scenario-4-iaas-application-data-issues"></a>Scenario 4: Problemen met de gegevens van de IaaS-toepassing
 
 Problemen met de gegevens van de IaaS-toepassing zijn een andere mogelijkheid. Houd rekening met een toepassing die worden berekend, onderhouden en kritieke commerciële gegevens, zoals informatie over de prijzen fungeert. Een nieuwe versie van uw toepassing heeft een software-oplossingen die ten onrechte de prijzen berekend en de bestaande commercegegevens geleverd door het platform beschadigd. Hier is de beste loop van de actie om terug te keren naar de eerdere versie van de toepassing en de gegevens. U kunt deze inschakelen nemen periodieke back-ups van uw systeem.
 
@@ -152,7 +152,7 @@ Gebruik de volgende stappen om in te schakelen van back-ups van uw virtuele mach
 
 1.  Het back-upbeleid configureren en selecteer de virtuele machine in dezelfde gebruikersinterface.
 
-1.  Zorg ervoor dat de Backup-Agent is geïnstalleerd op de virtuele machine. Als uw virtuele machine is gemaakt met behulp van de installatiekopie van een Azure-galerie, is klikt u vervolgens de Backup-Agent al geïnstalleerd. Anders (dat wil zeggen, als u een aangepaste installatiekopie gebruiken), gebruikt u de instructies voor het [de VM-agent installeren op een virtuele machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Zorg ervoor dat de Backup-Agent is geïnstalleerd op de virtuele machine. Als uw virtuele machine is gemaakt met behulp van de installatiekopie van een Azure-galerie, is klikt u vervolgens de Backup-Agent al geïnstalleerd. Anders (dat wil zeggen, als u een aangepaste installatiekopie gebruiken), gebruikt u de instructies voor het [de VM-agent installeren op een virtuele machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  Zorg ervoor dat de virtuele machine netwerkverbinding voor de back-upservice functie geeft. Volg de instructies voor [netwerkverbinding](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
@@ -172,7 +172,7 @@ Zie voor meer informatie de instructies voor het [de Azure portal gebruiken voor
 
 U kunt ook PowerShell voor [herstellen van een virtuele machine](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) of voor [het maken van een nieuwe VM op basis van schijven hersteld](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Alternatieve oplossing: toepassingsconsistente momentopnamen
+## <a name="alternative-solution-consistent-snapshots"></a>Alternatieve oplossing: Toepassingsconsistente momentopnamen
 
 Als u geen gebruik van Azure Backup, kunt u uw eigen back-mechanisme implementeren met behulp van momentopnamen. Toepassingsconsistente momentopnamen voor alle schijven die worden gebruikt door een virtuele machine maken en vervolgens deze momentopnamen te repliceren naar een andere regio is ingewikkeld. Om deze reden beschouwd Azure als een betere optie dan het bouwen van een aangepaste oplossing met behulp van de Backup-service. 
 

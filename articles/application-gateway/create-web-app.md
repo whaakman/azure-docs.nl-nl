@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 99a4dd25539db754a893ddda7480c64e5a13a5bd
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353336"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631512"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>App Service Web Apps configureren met Application Gateway
+# <a name="configure-app-service-with-application-gateway"></a>App Service configureren met Application Gateway
 
-Met Application Gateway kunt u een Azure Web App of andere service met meerdere tenants gebruiken als lid van een back-endpool. In dit artikel leest u meer over het configureren van Azure-web-apps met Application Gateway. In het eerste voorbeeld ziet u hoe u een bestaande toepassingsgateway configureert voor het gebruik van een web-app als lid van een back-endpool. In het tweede voorbeeld ziet u hoe u een nieuwe toepassingsgateway maakt met een web-app als lid van een back-endpool.
+Application gateway kunt u een App Service-app of andere service met meerdere tenants als lid van de back-end-pool. In dit artikel leert u een App Service-app configureren met Application Gateway. In het eerste voorbeeld ziet u hoe u een bestaande toepassingsgateway configureert voor het gebruik van een web-app als lid van een back-endpool. In het tweede voorbeeld ziet u hoe u een nieuwe toepassingsgateway maakt met een web-app als lid van een back-endpool.
 
 ## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>Een web-app configureren voor een bestaande toepassingsgateway
 
@@ -163,4 +163,4 @@ Een manier die u kunt toegang tot uw web-apps beperken, is met [statische IP-bep
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [Omleiding configureren in Application Gateway met PowerShell](redirect-overview.md) voor meer informatie over het configureren van omleidingen.
+Informatie over het configureren van omleidingen: [Omleiding configureren in Application Gateway met PowerShell](redirect-overview.md).

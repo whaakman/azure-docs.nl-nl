@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 59ca7a98bfa275502e847a8d2c34ec79141603da
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d57b6edcff5222bb411a74cc86afbbd7819f9d3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433811"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970828"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive query via het JDBC-stuurprogramma in HDInsight
 
@@ -31,7 +31,7 @@ Zie voor meer informatie over het Hive JDBC-Interface, [HiveJDBCInterface](https
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [HDInsight 3.3 buiten gebruik stellen](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [SQuirreL SQL](https://squirrel-sql.sourceforge.net/). SQuirreL is een JDBC-clienttoepassing.
+* [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is een JDBC-clienttoepassing.
 
 * De [Java Developer Kit (JDK) versie 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) of hoger.
 
@@ -113,7 +113,7 @@ SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoere
 
     * **Gebruikersnaam**: Accountnaam van het cluster-aanmelding voor uw HDInsight-cluster. De standaardwaarde is `admin`.
 
-    * **wachtwoord**: Het wachtwoord voor de aanmeldingsaccount van het cluster.
+    * **Wachtwoord**: Het wachtwoord voor de aanmeldingsaccount van het cluster.
 
  ![dialoogvenster alias toevoegen](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 

@@ -4,19 +4,19 @@ description: Meer informatie over bekende problemen/migratiebeperkingen met onli
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: a8d91c0410d2a59e4b22866aa48d36c026f3ee8e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 816b67488acc567d81bf1916735d13c0e480fe5d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956292"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719554"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure SQL DB
 
@@ -28,7 +28,7 @@ Bekende problemen en beperkingen die zijn gekoppeld aan online migraties van SQL
 
 Als uw brondatabase uit een of meer tijdelijke tabellen bestaat, uw databasemigratie is mislukt tijdens de 'alle gegevens worden geladen'-bewerking en ziet u mogelijk het volgende bericht:
 
-{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Database migratie error", "errorEvents": "[" vastleggen functies kunnen niet worden ingesteld. Retcode is: SQL_ERROR geretourneerd SqlState: 42000 NativeError: 13570 bericht: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] op het gebruik van replicatie wordt niet ondersteund met de tijdelijke systeemversietabel ' [-toepassing. Steden], regel: 1 kolom: -1 "]"}
+{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Database migratie error", "errorEvents": "[" vastleggen functies kunnen niet worden ingesteld. Retcode is: SqlState SQL_ERROR geretourneerd: 42000 NativeError: 13570 bericht: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] op het gebruik van replicatie wordt niet ondersteund met de tijdelijke systeemversietabel ' [-toepassing. Steden], regel: 1 kolom: -1 "]"}
  
  ![Voorbeeld van de tijdelijke tabel fouten](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 

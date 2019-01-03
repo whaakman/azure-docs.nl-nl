@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: aaeb24b836b47f72d0be299738e6c90f599f8d1f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314156"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631890"
 ---
 # <a name="monitor-an-azure-search-service-in-azure-portal"></a>Azure Search-service in Azure portal controleren
 
@@ -70,7 +70,7 @@ U kunt de logboeken voor bewerkingen voor de service en de onbewerkte gegevens v
 
 
 ### <a name="enabling-monitoring"></a>-Bewaking inschakelen
-Open uw Azure Search-service in de [Azure-portal](http://portal.azure.com) onder de optie bewaking inschakelen.
+Open uw Azure Search-service in de [Azure-portal](https://portal.azure.com) onder de optie bewaking inschakelen.
 
 Kies de gegevens die u wilt exporteren: Logboeken, metrische gegevens of beide. U kunt kopiëren naar een opslagaccount, verzenden naar een event hub of exporteren naar Log Analytics.
 

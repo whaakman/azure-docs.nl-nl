@@ -9,27 +9,27 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
+ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 2de57a4ade91293fb1164815f83e87517068544e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277883"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605955"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Ruimte in Azure SQL Database beheren
 Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
 
 ## <a name="overview"></a>Overzicht
 
-In Azure SQL Database zijn er patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden. Dit probleem kan optreden wanneer ruimte toeneemt gebruikt en gegevens worden vervolgens verwijderd. De reden is dat bestandsruimte die is toegewezen niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.
+In Azure SQL Database zijn er patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden. Dit probleem kan optreden als er meer ruimte wordt gebruikt en er tegelijkertijd gegevens worden verwijderd. De reden is dat bestandsruimte die is toegewezen niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.
 
-Gebruik van ruimte bewaking en gegevensbestanden verkleinen mogelijk in de volgende scenario's:
-- Groei van gegevens in een elastische pool toestaan wanneer het toegewezen bestandsruimte voor de databases de maximale grootte van de groep bereikt.
-- Toestaan dat de maximale grootte van een individuele database of elastische pool verlagen.
-- Het wijzigen van een individuele database of elastische pool naar een andere servicelaag of de prestatielaag met een lagere maximale grootte toegestaan.
+Mogelijk moet u in de volgende scenario's het gebruik van bestandsruimte bewaken en gegevensbestanden verkleinen:
+- Sta groei van gegevens in een elastische pool toe als de toegewezen bestandsruimte voor de databases de maximale grootte van de pool bereikt.
+- Sta toe dat de maximale grootte van één database of elastische pool wordt verkleind.
+- Sta toe dat databases en elastische pools afzonderlijk naar een andere servicelaag of prestatielaag kunnen worden omgezet met een kleinere maximale grootte.
 
 ### <a name="monitoring-file-space-usage"></a>Gebruik van schijfruimte bewaken
 De meeste storage space metrische gegevens weergegeven in de Azure-portal en de volgende API's meten alleen het formaat van pagina's van gegevens die worden gebruikt:

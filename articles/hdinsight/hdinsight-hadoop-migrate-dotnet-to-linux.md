@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3a9a026af67cd5528dfc00148bcbbcef82b8b189
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384192"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714658"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>.NET-oplossingen migreren voor HDInsight op Linux gebaseerde HDInsight op basis van Windows
 
@@ -24,7 +24,7 @@ HDInsight op basis van Linux-clusters gebruiken [Mono (https://mono-project.com)
 
 Mono versie 4.2.1 is opgenomen in HDInsight versie 3.6. Zie voor meer informatie over de versie van Mono geleverd bij HDInsight [HDInsight onderdeel versies](hdinsight-component-versioning.md). Als u wilt installeren op een specifieke versie van Mono, Zie de [Mono installeren of bijwerken](hdinsight-hadoop-install-mono.md) document.
 
-Zie voor meer informatie over de compatibiliteit tussen Mono en .NET de [Mono-compatibiliteit (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) document.
+Zie voor meer informatie over de compatibiliteit tussen Mono en .NET de [Mono-compatibiliteit (https://www.mono-project.com/docs/about-mono/compatibility/) ](https://www.mono-project.com/docs/about-mono/compatibility/) document.
 
 > [!IMPORTANT]  
 > Het SCP.NET-framework is compatibel met Mono. Zie voor meer informatie over het gebruik van SCP.NET met Mono [Gebruik Visual Studio om C#-topologieën ontwikkelen voor Apache Storm op HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
@@ -52,7 +52,7 @@ De [.NET draagbaarheid Analyzer](https://marketplace.visualstudio.com/items?item
 
 ## <a name="manual-portability-analysis"></a>Handmatige draagbaarheid analyse
 
-Voer een handmatige controle van uw code met behulp van de informatie in de [draagbaarheid van toepassingen (http://www.mono-project.com/docs/getting-started/application-portability/) ](http://www.mono-project.com/docs/getting-started/application-portability/) document.
+Voer een handmatige controle van uw code met behulp van de informatie in de [draagbaarheid van toepassingen (https://www.mono-project.com/docs/getting-started/application-portability/) ](https://www.mono-project.com/docs/getting-started/application-portability/) document.
 
 ## <a name="modify-and-build"></a>Wijzig en bouwen
 

@@ -4,19 +4,19 @@ description: Meer informatie over de bron- en configuraties voor de Database Mig
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/8/2018
-ms.openlocfilehash: cd62b60718a35aed9129db61413086266bb9f2c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: bc54b3dbcdb304b18f916e5fbd4866ff54d1bfa2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971076"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713193"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Netwerktopologieën voor migraties van Azure SQL database Managed Instance met behulp van de Azure Database Migration Service
 Dit artikel worden verschillende netwerktopologieën maken waarin de Azure Database Migration Service werken kunt met een uitgebreide migratie-ervaring bieden van on-premises SQL-Servers naar Azure SQL Database Managed Instance.
@@ -87,4 +87,5 @@ Deze topologie gebruiken als uw omgeving een of meer van de volgende scenario's 
 - [Een virtueel netwerk maken met Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het artikel voor een overzicht van de Azure Database Migration Service en de regionale beschikbaarheid tijdens de openbare Preview, [wat is de Azure Database Migration Service Preview](dms-overview.md). 
+- Zie het artikel voor een overzicht van de Azure Database Migration Service, [wat is de Azure Database Migration Service?](dms-overview.md).
+- Zie voor actuele informatie over regionale beschikbaarheid van de Azure Database Migration Service, de [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration) pagina.

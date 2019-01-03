@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2e515ee61144dfe56d2b5a4fac97da81b0fa8c84
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 43da5b32fe3ad8891f89544d0f9bdbd1d4d127d0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834839"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606179"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Een Windows-desktop-app bouwen
 Met behulp van Azure Active Directory (Azure AD) B2C, kunt u functies voor krachtige Self-service identiteitsbeheer toevoegen aan uw bureaubladapp in slechts enkele korte stappen. Dit artikel wordt beschreven hoe u een .NET Windows Presentation Foundation (WPF) 'takenlijst-app maakt die gebruikersregistratie, aanmelding en Profielbeheer bevat. De app biedt ondersteuning voor het registreren en aanmelden met behulp van een gebruikersnaam of e-mailbericht. Het bevat ook ondersteuning voor registratie en aanmelding via sociale accounts zoals Facebook en Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Een Azure AD B2C-directory maken
-Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken.  Een directory is een container voor alle gebruikers, apps, groepen en meer. Als u nog geen directory hebt, [maakt u een B2C-directory](active-directory-b2c-get-started.md) voordat u doorgaat in deze handleiding.
+Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken. Een directory is een container voor alle gebruikers, apps, groepen en meer. Als u nog geen directory hebt, [maakt u een B2C-directory](active-directory-b2c-get-started.md) voordat u doorgaat in deze handleiding.
 
 ## <a name="create-an-application"></a>Een app maken
-Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door aan Azure AD die nodig is om veilig te communiceren met uw app. Volg [deze instructies](active-directory-b2c-app-registration.md) om een app te maken.  Zorg ervoor dat:
+Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door aan Azure AD die nodig is om veilig te communiceren met uw app. Volg [deze instructies](active-directory-b2c-app-registration.md) om een app te maken. Zorg ervoor dat:
 
 * Bevatten een **native client** in de toepassing.
 * Kopieer de **omleidings-URI** `urn:ietf:wg:oauth:2.0:oob`. Dit is de standaard-URL voor dit codevoorbeeld.
@@ -36,7 +36,7 @@ In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-
 * Kiest u **Registratie met gebruikers-id** of **Registratie via e-mail** op de blade met identiteitsproviders.
 * Kiest u **Weergavenaam** en andere registratiekenmerken in het registratiebeleid.
 * Kiest u **Weergavenaam**- en **Object-id**-claims als toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
-* Kopieert u de **naam** van elk beleid nadat u dit hebt gemaakt. Deze moet het voorvoegsel `b2c_1_` bevatten.  U hebt deze beleidsnamen later nodig.
+* Kopieert u de **naam** van elk beleid nadat u dit hebt gemaakt. Deze moet het voorvoegsel `b2c_1_` bevatten. U hebt deze beleidsnamen later nodig.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -51,7 +51,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 De voltooide app is ook [beschikbaar als zip-bestand](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) of in de `complete`-vertakking van dezelfde opslagplaats.
 
-Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. De `TaskClient` project is de WPF-bureaubladtoepassing waarmee de gebruiker werkt. Voor de doeleinden van deze zelfstudie wordt een web-API, die wordt gehost in Azure, waarin de takenlijst van elke gebruiker van de back-end-taak.  U hoeft niet naar de web-API bouwen, we dat u al hebt.
+Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. De `TaskClient` project is de WPF-bureaubladtoepassing waarmee de gebruiker werkt. Voor de doeleinden van deze zelfstudie wordt een web-API, die wordt gehost in Azure, waarin de takenlijst van elke gebruiker van de back-end-taak. U hoeft niet naar de web-API bouwen, we dat u al hebt.
 
 Als u wilt weten hoe een web-API veilig verifieert aanvragen met behulp van Azure AD B2C, bekijk de [web-API aan de slag artikel](active-directory-b2c-devquickstarts-api-dotnet.md).
 
@@ -96,7 +96,7 @@ protected async override void OnInitialized(EventArgs e)
 
     pca = new PublicClientApplication(Globals.clientId)
     {
-        // MSAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
+        // MSAL implements an in-memory cache by default. Since we want tokens to persist when the user closes the app,
         // we've extended the MSAL TokenCache and created a simple FileCache in this app.
         UserTokenCache = new FileCache(),
     };
@@ -115,7 +115,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
     {
         // Use the app's clientId here as the scope parameter, indicating that
         // you want a token to the your app's backend web API (represented by
-        // the cloud hosted task API).  Use the UiOptions.ForceLogin flag to
+        // the cloud hosted task API). Use the UiOptions.ForceLogin flag to
         // indicate to MSAL that it should show a sign-up UI no matter what.
         result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                 string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
@@ -187,7 +187,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
 In al deze gevallen retourneert MSAL ofwel een token in `AuthenticationResult` of een uitzondering genereert. Telkens wanneer u een token van MSAL verkrijgen, kunt u de `AuthenticationResult.User` object om bij te werken van de gebruikersgegevens in de app, zoals de gebruikersinterface. Het token voor gebruik in andere onderdelen van de toepassing worden ook opgeslagen door ADAL.
 
 ### <a name="check-for-tokens-on-app-start"></a>Controleer voor op het startscherm van app-tokens
-U kunt ook MSAL gebruiken om-in status van de gebruiker bij te houden.  In deze app willen we de gebruiker aangemeld blijven, zelfs nadat ze de app sluiten en opnieuw opent.  Terug in de `OnInitialized` negeren, gebruikt u de MSAL `AcquireTokenSilent` methode om te controleren voor tokens in de cache opgeslagen:
+U kunt ook MSAL gebruiken om-in status van de gebruiker bij te houden. In deze app willen we de gebruiker aangemeld blijven, zelfs nadat ze de app te sluiten en opnieuw openen. Terug in de `OnInitialized` negeren, gebruikt u de MSAL `AcquireTokenSilent` methode om te controleren voor tokens in de cache opgeslagen:
 
 ```csharp
 AuthenticationResult result = null;
@@ -209,7 +209,7 @@ catch (MsalException ex)
 {
     if (ex.ErrorCode == "failed_to_acquire_token_silently")
     {
-        // There are no tokens in the cache.  Proceed without calling the To Do list service.
+        // There are no tokens in the cache. Proceed without calling the To Do list service.
     }
     else
     {
@@ -226,7 +226,7 @@ catch (MsalException ex)
 ```
 
 ## <a name="call-the-task-api"></a>De takenlijst-API aanroepen
-U hebt nu MSAL gebruikt uit te voeren van beleid en tokens verkrijgen.  Wanneer u een deze tokens gebruiken wilt voor het aanroepen van de takenlijst-API, kunt u het opnieuw gebruiken van MSAL `AcquireTokenSilent` methode om te controleren voor tokens in de cache opgeslagen:
+U hebt nu MSAL gebruikt uit te voeren van beleid en tokens verkrijgen. Wanneer u een deze tokens gebruiken wilt voor het aanroepen van de takenlijst-API, kunt u het opnieuw gebruiken van MSAL `AcquireTokenSilent` methode om te controleren voor tokens in de cache opgeslagen:
 
 ```csharp
 private async void GetTodoList()
@@ -284,7 +284,7 @@ Wanneer de aanroep van `AcquireTokenSilentAsync(...)` is geslaagd en een token g
 ```
 
 ## <a name="sign-the-user-out"></a>De gebruiker afmelden
-Ten slotte u MSAL kunt gebruiken voor het einde van de sessie van een gebruiker met de app wanneer de gebruiker selecteert **Afmelden**.  Wanneer u MSAL gebruikt, wordt dit wordt bereikt door het wissen van alle tokens uit de cache token:
+Ten slotte u MSAL kunt gebruiken voor het einde van de sessie van een gebruiker met de app wanneer de gebruiker selecteert **Afmelden**. Wanneer u MSAL gebruikt, wordt dit wordt bereikt door het wissen van alle tokens uit de cache token:
 
 ```csharp
 private void SignOut(object sender, RoutedEventArgs e)
@@ -306,7 +306,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## <a name="run-the-sample-app"></a>De voorbeeld-app uitvoeren
-Ten slotte, ontwikkel en voer het voorbeeld.  Zich registreren voor de app met behulp van de naam van een e-mailadres of gebruikersnaam. Meld u af en meld u opnieuw aan als de gebruiker. Bewerk het profiel van die gebruiker. Meld u af en meld u aan met behulp van een andere gebruiker.
+Ten slotte, ontwikkel en voer het voorbeeld. Zich registreren voor de app met behulp van de naam van een e-mailadres of gebruikersnaam. Meld u af en meld u opnieuw aan als de gebruiker. Bewerk het profiel van die gebruiker. Meld u af en meld u aan met behulp van een andere gebruiker.
 
 ## <a name="add-social-idps"></a>Sociale id-providers toevoegen
 De app ondersteunt momenteel alleen gebruiker zich aanmeldt en meld u met **lokale accounts**. Dit zijn accounts die zijn opgeslagen in uw B2C-directory die gebruikmaken van een gebruikersnaam en wachtwoord. Met behulp van Azure AD B2C, kunt u ondersteuning voor andere id-providers (IDPs) toevoegen zonder te hoeven wijzigen van uw code.

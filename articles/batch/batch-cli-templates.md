@@ -1,22 +1,23 @@
 ---
-title: Azure Batch-taken uitvoeren end-to-end met behulp van sjablonen | Microsoft Docs
+title: Uitvoeren van taken end-to-end met behulp van sjablonen - Azure Batch | Microsoft Docs
 description: Batch-pools, jobs en taken maken met sjabloonbestanden en de Azure CLI.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964289"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547674"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI sjablonen en -bestandsoverdracht gebruiken
 
@@ -37,7 +38,7 @@ Batch-sjablonen zijn gebaseerd op de [bestaande Batch support in de Azure CLI](b
 
 Taken doorgaans invoergegevensbestanden gebruiken en gegevensbestanden uitvoer produceren. Een storage-account is gekoppeld, standaard, met elk Batch-account. Overdracht van bestanden naar en van dit storage-account met behulp van de CLI met geen codering en geen storage-referenties.
 
-Bijvoorbeeld, [ffmpeg](http://ffmpeg.org/) is een populaire toepassing die audio en video-bestanden worden verwerkt. Hier volgen de stappen met de Azure Batch CLI om aan te roepen ffmpeg te transcoderen videobestanden bronbestanden naar verschillende resoluties.
+Bijvoorbeeld, [ffmpeg](https://ffmpeg.org/) is een populaire toepassing die audio en video-bestanden worden verwerkt. Hier volgen de stappen met de Azure Batch CLI om aan te roepen ffmpeg te transcoderen videobestanden bronbestanden naar verschillende resoluties.
 
 -   Een pool-sjabloon maken. De gebruiker die het maken van de sjabloon kent over het aanroepen van de toepassing ffmpeg en de vereisten; ze geven het juiste besturingssysteem, de VM grootte, hoe ffmpeg is geïnstalleerd (van een toepassingspakket of met behulp van Pakketbeheer, bijvoorbeeld) en andere eigenschapswaarden van toepassingen. Parameters worden gemaakt wanneer de sjabloon wordt gebruikt, alleen de groeps-ID en het aantal virtuele machines moeten worden opgegeven.
 

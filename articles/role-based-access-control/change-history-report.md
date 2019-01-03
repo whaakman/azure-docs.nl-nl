@@ -15,16 +15,16 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967892"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541554"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Activiteitenlogboeken bekijken om wijzigingen van RBAC
 
-Soms moet u informatie over wijzigingen in op basis van de rol beheer (RBAC), zoals voor controle of het oplossen van problemen. Telkens wanneer iemand anders wijzigingen in roltoewijzingen of roldefinities binnen uw abonnementen aanbrengt, de wijzigingen geregistreerd [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). U kunt de activiteitenlogboeken als u wilt zien van alle RBAC-wijzigingen voor de afgelopen 90 dagen kunt bekijken.
+Soms moet u informatie over wijzigingen in op basis van de rol beheer (RBAC), zoals voor controle of het oplossen van problemen. Telkens wanneer iemand anders wijzigingen in roltoewijzingen of roldefinities binnen uw abonnementen aanbrengt, de wijzigingen geregistreerd [Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md). U kunt de activiteitenlogboeken als u wilt zien van alle RBAC-wijzigingen voor de afgelopen 90 dagen kunt bekijken.
 
 ## <a name="operations-that-are-logged"></a>Bewerkingen die worden geregistreerd
 

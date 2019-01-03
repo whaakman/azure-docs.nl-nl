@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315792"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633858"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hoe vol tekstzoekopdrachten werkt in Azure Search
 
@@ -385,7 +385,7 @@ In dit artikel verkend zoeken in volledige tekst in de context van Azure Search.
 
 + De voorbeeldindex bouwen, probeer verschillende query's en bekijk de resultaten. Zie voor instructies [maken en query uitvoeren in een index in de portal](search-get-started-portal.md#query-index).
 
-+ Probeer van aanvullende query-syntaxis van de [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) voorbeeld in deze sectie of [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in de portal.
++ Probeer van aanvullende query-syntaxis van de [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) voorbeeld in deze sectie of [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in de portal.
 
 + Beoordeling [scoreprofielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) als u wilt om af te stemmen classificatie in uw zoektoepassing.
 
@@ -393,7 +393,7 @@ In dit artikel verkend zoeken in volledige tekst in de context van Azure Search.
 
 + [Configureren van aangepaste analyse](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) voor minimale verwerking of gespecialiseerde verwerking op specifieke velden.
 
-+ [Standaard- en Engelse analyzers vergelijken](http://alice.unearth.ai/)) naast elkaar op deze demo-website. 
++ [Standaard- en Engelse analyzers vergelijken](https://alice.unearth.ai/)) naast elkaar op deze demo-website. 
 
 ## <a name="see-also"></a>Zie ook
 

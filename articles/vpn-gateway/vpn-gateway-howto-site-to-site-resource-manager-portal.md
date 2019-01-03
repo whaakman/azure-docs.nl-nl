@@ -1,18 +1,18 @@
 ---
-title: 'Uw on-premises netwerk verbinden met een virtueel Azure-netwerk: site-naar-site-VPN: portal | Microsoft Docs'
+title: 'Uw on-premises netwerk verbinden met een Azure-netwerk: Site-naar-Site-VPN: Portal | Microsoft Docs'
 description: Stappen voor het maken van een IPSec-verbinding van uw on-premises netwerk met een virtueel Azure-netwerk via het openbare internet. Deze stappen helpen u een cross-premises site-naar-site-VPN-gatewayverbinding te maken met de portal.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: dd29b4af85826e350e116b31fa53031aacaba067
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457116"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651636"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Een site-naar-site-verbinding maken in Azure Portal
 
@@ -35,7 +35,7 @@ Een site-naar-site-VPN-gatewayverbinding wordt gebruikt om een on-premises netwe
 Controleer voordat u met de configuratie begint of u aan de volgende criteria hebt voldaan:
 
 * U hebt een compatibel VPN-apparaat nodig en iemand die dit kan configureren. Zie [Over VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor meer informatie over compatibele VPN-apparaten en -apparaatconfiguratie.
-* Controleer of u een extern gericht openbaar IPv4-adres voor het VPN-apparaat hebt. Dit IP-adres kan zich niet achter een NAT bevinden.
+* Controleer of u een extern gericht openbaar IPv4-adres voor het VPN-apparaat hebt.
 * Als u de IP-adresbereiken in uw on-premises netwerkconfiguratie niet kent, moet u contact opnemen met iemand die u hierbij kan helpen en de benodigde gegevens kan verstrekken. Wanneer u deze configuratie maakt, moet u de IP-adresbereikvoorvoegsels opgeven die Azure naar uw on-premises locatie doorstuurt. Geen van de subnetten van uw on-premises netwerk kan overlappen met de virtuele subnetten waarmee u verbinding wilt maken. 
 
 ### <a name="values"></a>Voorbeeldwaarden
@@ -44,17 +44,17 @@ In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt dez
 
 * **VNet-naam:** TestVNet1
 * **Adresruimte:** 10.1.0.0/16
-* **Abonnement:** Het gewenste abonnement
+* **Abonnement:** Het abonnement dat u wilt gebruiken
 * **Resourcegroep:** TestRG1
 * **Locatie:** US - oost
 * **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optioneel voor deze oefening)
-* **Naam gatewaysubnet:** GatewaySubnet (dit wordt in de portal automatisch ingevuld)
-* **Adresbereik gatewaysubnet:** 10.1.255.0/27
-* **DNS-server:** 8.8.8.8 (optioneel). Het IP-adres van de DNS-server.
+* **Naam Gatewaysubnet:** GatewaySubnet (dit wordt automatisch ingevuld in de portal)
+* **Adresbereik Gatewaysubnet:** 10.1.255.0/27
+* **DNS-Server:** 8.8.8.8 - optioneel. Het IP-adres van de DNS-server.
 * **Gatewaynaam van het virtuele netwerk:** VNet1GW
-* **Openbare IP:** VNet1GWIP
-* **VPN-type:** Op route gebaseerd
-* **Verbindingstype:** site-naar-site (IPsec)
+* **Openbaar IP-adres:** VNet1GWIP
+* **VPN-Type:** Op route gebaseerd
+* **Verbindingstype:** Site-naar-site (IPsec)
 * **Gatewaytype:** VPN
 * **Naam van lokale netwerkgateway:** Site1
 * **Verbindingsnaam:** VNet1toSite1

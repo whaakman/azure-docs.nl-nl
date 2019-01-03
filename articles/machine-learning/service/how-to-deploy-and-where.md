@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 17193bf3285a2052a913293ec3adc6f9b8884f72
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0c171ff768395540c123c4ef2a19168d926b0661
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435939"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633824"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -164,7 +164,7 @@ Als u wilt implementeren in Azure Container Instances, gebruikt u de volgende st
     > [!TIP]
     > Als er fouten tijdens de implementatie zijn, gebruikt u `service.get_logs()` om de AKS-service-logboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
 
-Zie voor meer informatie de documentatie bij de [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.comS/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) klassen.
+Zie voor meer informatie de documentatie bij de [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klassen.
 
 ### <a id="aks"></a> Implementeren in Azure Kubernetes Service
 
@@ -211,6 +211,7 @@ Als u wilt implementeren in Azure Kubernetes Service, gebruikt u de volgende sta
     > Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.11. *, kunt u het implementeren van uw installatiekopie. De volgende code ziet u hoe u een bestaand cluster koppelt aan uw werkruimte:
     >
     > ```python
+    > from azureml.core.compute import AksCompute, ComputeTarget
     > # Set the resource group that contains the AKS cluster and the cluster name
     > resource_group = 'myresourcegroup'
     > cluster_name = 'mycluster'
@@ -218,7 +219,7 @@ Als u wilt implementeren in Azure Kubernetes Service, gebruikt u de volgende sta
     > # Attatch the cluster to your workgroup
     > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
     >                                          cluster_name = cluster_name)
-    > compute = ComputeTarget.attach(ws, 'mycompute', attach_config)
+    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
     > 
     > # Wait for the operation to complete
     > aks_target.wait_for_completion(True)
@@ -275,7 +276,7 @@ U moet een IoT-hub maken en registreren van een apparaat of opnieuw gebruiken me
 ssh <yourusername>@<yourdeviceip>
 sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
 sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you wnat to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
 ```
 
 Opslaan van de resulterende verbindingsreeks na "cs": '{deze tekenreeks kopiëren}'.
@@ -353,8 +354,8 @@ U kunt ook u kunt de stappen in de [implementeren Azure IoT Edge-modules van de 
 > [!NOTE]
 > Als u niet bekend met Azure IoT bent, ziet u de volgende documenten voor meer informatie over aan de slag met de service:
 >
-> * [Snelstartgids: Uw eerste IoT Edge-module implementeert op een Linux-apparaat](../../iot-edge/quickstart-linux.md)
-> * [Snelstartgids: Uw eerste IoT Edge-module implementeert op een Windows-apparaat](../../iot-edge/quickstart.md)
+> * [Snelstart: Uw eerste IoT Edge-module implementeert op een Linux-apparaat](../../iot-edge/quickstart-linux.md)
+> * [Snelstart: Uw eerste IoT Edge-module implementeert op een Windows-apparaat](../../iot-edge/quickstart.md)
 
 
 ## <a name="testing-web-service-deployments"></a>Testen van de webservice-implementaties

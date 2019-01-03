@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 865525d9c978f3168a4c580dec20f0f91f0a0d16
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 62478eed2eb647a2f29e488e60e41dd9ae501273
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074071"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605837"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Wat is er een basis voor kennis van QnA Maker?
 
@@ -26,7 +26,7 @@ Een kennisdatabase QnA Maker bestaat uit een reeks vraag/antwoord (QnA)-sleutelp
 
 * **Vragen over** -een vraag tekst bevat die het dichtst bij de aanvraag voor een gebruiker. 
 * **Antwoorden** -antwoord is het antwoord dat wordt geretourneerd als een gebruikersquery met de bijbehorende vraag overeenkomt.  
-* **Metagegevens** -metagegevens zijn labels die zijn gekoppeld aan een paar QnA en worden weergegeven als sleutel-waardeparen. Metagegevens worden gebruikt om te filteren QnA-paren en beperken van de set via welke query's die overeenkomen met wordt uitgevoerd.
+* **Metagegevens** -metagegevens zijn labels die zijn gekoppeld aan een paar QnA en worden weergegeven als sleutel-waardeparen. METADATA-codes worden gebruikt om te filteren QnA-paren en beperken van de set via welke query's die overeenkomen met wordt uitgevoerd.
 
 Een enkele QnA, vertegenwoordigd door een numerieke ID van de QnA heeft meerdere varianten van een vraag (alternatieve vragen) dat alle aan een enkel antwoord toewijzen. Deze bladwijzers kan bovendien meerdere metagegevensvelden die zijn gekoppeld aan deze hebben.
 

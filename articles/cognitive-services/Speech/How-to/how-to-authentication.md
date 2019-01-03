@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e3bfdcfaaf752321997636811b282ea920e6144a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 205eff6c79ba4699516a8898c5b1268eb3dfe644
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344197"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754013"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Verifiëren bij de spraak-API
 
@@ -23,7 +23,7 @@ ms.locfileid: "49344197"
 
 Bing Speech biedt ondersteuning voor verificatie met behulp van:
 
-- De abonnementssleutel van een.
+- Een abonnementssleutel.
 - Een verificatietoken.
 
 ## <a name="use-a-subscription-key"></a>Gebruik een abonnementssleutel
@@ -34,7 +34,7 @@ Voor langdurig gebruik of een verbeterd quotum, zich aanmelden voor een [Azure-a
 
 Voor het gebruik van de REST-API voor spraakherkenning, moet u de abonnementssleutel in doorgeven de `Ocp-Apim-Subscription-Key` veld in de aanvraagheader.
 
-Naam| Indeling| Beschrijving
+Name| Indeling| Description
 ----|-------|------------
 OCP-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
@@ -72,7 +72,7 @@ https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 
 Het volgende codevoorbeeld laat zien hoe u een toegangstoken. Vervang `YOUR_SUBSCRIPTION_KEY` door uw eigen abonnementssleutel:
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -96,7 +96,7 @@ Het voorbeeld wordt curl gebruikt op Linux met bash. Als deze niet beschikbaar i
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
     /*
@@ -159,7 +159,7 @@ Het volgende voorbeeld ziet hoe u een verificatietoken gebruikt wanneer u de Spe
 > [!NOTE]
 > Vervang `YOUR_AUDIO_FILE` met het pad naar uw vooraf opgenomen audiobestand. Vervang `YOUR_ACCESS_TOKEN` door het Autorisatietoken u in de vorige stap hebt verkregen [een verificatietoken ophalen](#get-an-authorization-token).
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -189,7 +189,7 @@ $RecoResponse
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;

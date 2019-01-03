@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285047"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754030"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -43,13 +43,13 @@ De patch orchestration-app biedt de volgende functies:
 
 De patch orchestration-app bestaat uit de volgende onderdelen:
 
-- **Service Coordinator**: deze stateful service is verantwoordelijk voor:
+- **Service Coordinator**: Deze stateful service is verantwoordelijk voor:
     - De Windows Update-taak op het hele cluster coördineren.
     - Het opslaan van het resultaat van voltooide Windows Update-bewerkingen.
-- **Knooppunt-agentservice**: deze stateless service wordt uitgevoerd op alle knooppunten van de Service Fabric-cluster. De service is verantwoordelijk voor:
+- **Knooppunt-agentservice**: Deze stateless service wordt uitgevoerd op alle knooppunten van de Service Fabric-cluster. De service is verantwoordelijk voor:
     - De Agent knooppunt NTService opstarten.
     - Bewaking van de Agent knooppunt NTService.
-- **Knooppunt Agent NTService**: deze Windows NT-service wordt uitgevoerd op een hoger niveau van bevoegdheden (systeem). Daarentegen de knooppunt Agent-Service en de Coordinator-Service uitgevoerd op een lager niveau van bevoegdheden (Netwerkservice). De service is verantwoordelijk voor het uitvoeren van de volgende taken in de Windows Update op alle clusterknooppunten:
+- **Knooppunt Agent NTService**: Deze Windows NT-service wordt uitgevoerd op een hoger niveau van bevoegdheden (systeem). Daarentegen de knooppunt Agent-Service en de Coordinator-Service uitgevoerd op een lager niveau van bevoegdheden (Netwerkservice). De service is verantwoordelijk voor het uitvoeren van de volgende taken in de Windows Update op alle clusterknooppunten:
     - Het uitschakelen van automatische Update van Windows op het knooppunt.
     - Downloaden en installeren van Windows Update op basis van het beleid wordt de gebruiker is opgegeven.
     - Opnieuw starten van de computer na installatie van Windows Update.
@@ -152,16 +152,16 @@ Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoe
 |MaxResultsToCache    |Lang                              | Maximum aantal resultaten van de Windows Update, die moet worden opgeslagen in de cache. <br>Standaardwaarde is 3000 ervan uitgaande dat de: <br> -Het aantal knooppunten is 20. <br> -Het aantal updates dat op een knooppunt per maand gebeurt is vijf. <br> -Het aantal resultaten dat per bewerking is 10. <br> -Resultaten voor de afgelopen drie maanden moeten worden opgeslagen. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy geeft aan dat het beleid dat moet worden gebruikt door de Coordinator-Service op Windows-updates installeren via de Service Fabric-clusterknooppunten.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Windows Update is geïnstalleerd één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is geïnstalleerd één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten die behoren tot een upgradedomein kunnen gaan voor Windows Update.)<br> Raadpleeg [Veelgestelde vragen over](#frequently-asked-questions) sectie over het bepalen welke het beste geschikt beleid voor uw cluster.
 |LogsDiskQuotaInMB   |Lang  <br> (Standaard: 1024)               |Maximale grootte van de patch orchestration app registreert in MB, hetgeen kan lokaal worden opgeslagen op de knooppunten.
-| WUQuery               | tekenreeks<br>(Standaard: "IsInstalled = 0")                | Query voor het ophalen van Windows-updates. Zie voor meer informatie, [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Booleaans <br> (standaard: True)                 | Met deze markering kan updates voor Windows-besturingssysteem moet worden geïnstalleerd.            |
-| WUOperationTimeOutInMinutes | Int <br>(Standaard: 90).                   | Hiermee geeft u de time-out voor een Windows Update-bewerking (zoeken of downloaden of installeren). Als de bewerking is niet voltooid binnen de opgegeven time-out, wordt het afgebroken.       |
-| WURescheduleCount     | Int <br> (Standaard: 5).                  | Het maximum aantal keren dat de service opnieuw gepland voor de Windows update als een bewerking blijft mislukken.          |
-| WURescheduleTimeInMinutes | Int <br>(Standaard: 30). | Het interval waarmee de service wordt automatisch opnieuw gepland met de Windows update als fout zich blijft voordoen. |
+| WUQuery               | string<br>(Standaard: "IsInstalled = 0")                | Query voor het ophalen van Windows-updates. Zie voor meer informatie, [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| InstallWindowsOSOnlyUpdates | Booleaans <br> (standaard: De waarde True)                 | Met deze markering kan updates voor Windows-besturingssysteem moet worden geïnstalleerd.            |
+| WUOperationTimeOutInMinutes | Int <br>(Standaard: 90)                   | Hiermee geeft u de time-out voor een Windows Update-bewerking (zoeken of downloaden of installeren). Als de bewerking is niet voltooid binnen de opgegeven time-out, wordt het afgebroken.       |
+| WURescheduleCount     | Int <br> (Standaard: 5)                  | Het maximum aantal keren dat de service opnieuw gepland voor de Windows update als een bewerking blijft mislukken.          |
+| WURescheduleTimeInMinutes | Int <br>(Standaard: 30) | Het interval waarmee de service wordt automatisch opnieuw gepland met de Windows update als fout zich blijft voordoen. |
 | WUFrequency           | Door komma's gescheiden tekenreeks op (standaard: "Wekelijks, woensdag, 7:00:00")     | De frequentie voor het installeren van Windows Update. De indeling en de mogelijke waarden zijn: <br>-Maand, DD uu: mm:, bijvoorbeeld, maandelijks, 5, 12: 22:32. <br> -Wekelijks, dag, uu: mm:, voor bijvoorbeeld wekelijks, dinsdag, 12:22:32.  <br> -Dagelijks, uu: mm:, bijvoorbeeld dagelijks, 12:22:32.  <br> -Geen geeft aan dat Windows Update al dan niet mogen worden uitgevoerd.  <br><br> Houd er rekening mee dat de tijden in UTC zijn.|
 | AcceptWindowsUpdateEula | Booleaans <br>(Standaard: true) | Met deze markering instellen, accepteert de toepassing de eindgebruiker-licentie voor Windows Update namens de eigenaar van de machine.              |
 
 > [!TIP]
-> Als u wilt dat Windows Update onmiddellijk plaats, stelt u `WUFrequency` ten opzichte van de tijd van de implementatie van toepassing. Stel bijvoorbeeld dat u een testcluster met vijf knooppunten hebt en wilt implementeren, de app om ongeveer 5:00 uur UTC. Als u wordt ervan uitgegaan dat de upgrade van de toepassing of de implementatie van 30 minuten maximaal duurt, stelt u de WUFrequency als "Dagelijks, 17:30:00."
+> Als u wilt dat Windows Update onmiddellijk plaats, stelt u `WUFrequency` ten opzichte van de tijd van de implementatie van toepassing. Stel bijvoorbeeld dat u een testcluster met vijf knooppunten hebt en wilt implementeren, de app om ongeveer 5:00 uur UTC. Als u wordt ervan uitgegaan dat de upgrade van de toepassing of de implementatie van 30 minuten maximaal duurt, stelt u de WUFrequency als "Dagelijks, 17:30:00"
 
 ## <a name="deploy-the-app"></a>De app implementeren
 
@@ -227,7 +227,7 @@ Velden van de JSON worden hieronder beschreven.
 
 Veld | Waarden | Details
 -- | -- | --
-Kan operationresult niet | 0 - geslaagd<br> 1 - is voltooid met fouten<br> 2 - is mislukt<br> 3 - afgebroken<br> 4 - afgebroken met time-out | Geeft aan dat het resultaat van de algehele bewerking (meestal met betrekking tot installatie van updates voor een of meer).
+OperationResult | 0 - geslaagd<br> 1 - is voltooid met fouten<br> 2 - is mislukt<br> 3 - afgebroken<br> 4 - afgebroken met time-out | Geeft aan dat het resultaat van de algehele bewerking (meestal met betrekking tot installatie van updates voor een of meer).
 ResultCode | Kan operationresult niet gelijk | Dit veld wordt resultaat van de installatiebewerking voor individuele update aangegeven.
 OperationType | 1 - installatie<br> 0 - zoeken naar en downloaden.| De installatie is de enige OperationType die standaard wordt weergegeven in de resultaten.
 WindowsUpdateQuery | De standaardwaarde is "IsInstalled = 0" |Windows update-query die is gebruikt om te zoeken naar updates. Zie voor meer informatie, [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
@@ -316,7 +316,7 @@ Als uw cluster uitgevoerd op het aantal upgradedomeinen N-1 tolereren kan tijden
 
 V. **Hoeveel tijd doet het allemaal voor toets maken voor het vullen van een knooppunt?**
 
-A. Patch toepassen op een knooppunt kan duren (bijvoorbeeld: [definitie-updates voor Windows Defender](https://www.microsoft.com/wdsi/definitions)) uur (bijvoorbeeld: [Windows cumulatieve updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tijd die nodig is voor het vullen van een knooppunt is afhankelijk van voornamelijk op 
+A. Patch toepassen op een knooppunt kan duren (bijvoorbeeld: [Definitie-updates voor Windows Defender](https://www.microsoft.com/wdsi/definitions)) uur (bijvoorbeeld: [Windows cumulatieve updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tijd die nodig is voor het vullen van een knooppunt is afhankelijk van voornamelijk op 
  - De grootte van updates
  - Aantal updates die moeten worden toegepast in een tijdvenster
  - De tijd die nodig is de updates worden geïnstalleerd, het knooppunt (indien nodig) opnieuw opstarten en stappen na opnieuw opstarten-installatie te voltooien.
@@ -327,7 +327,7 @@ V. **Hoe lang duurt het voor het vullen van een geheel cluster?**
 A. De tijd die nodig is voor het vullen van een geheel cluster is afhankelijk van de volgende factoren:
 
 - De tijd die nodig is voor het vullen van een knooppunt.
-- Het beleid van de Coordinator-Service. -Het standaardbeleid `NodeWise`, resulteert in het patchen van slechts één knooppunt tegelijk, die langzamer dan zijn `UpgradeDomainWise`. Bijvoorbeeld: als een knooppunt ~ 1 uur moet worden gevuld, voordat kan worden uitgevoerd voor het vullen van een 20-knooppunt (hetzelfde type knooppunten)-cluster met 5 upgradedomeinen, elk met 4 knooppunten.
+- Het beleid van de Coordinator-Service. -Het standaardbeleid `NodeWise`, resulteert in het patchen van slechts één knooppunt tegelijk, die langzamer dan zijn `UpgradeDomainWise`. Bijvoorbeeld: Als een knooppunt ~ 1 uur moet worden gevuld, voordat kan worden uitgevoerd voor het vullen van een 20-knooppunt (hetzelfde type knooppunten) van het cluster met 5 upgradedomeinen, elk met 4 knooppunten.
     - Het duurt ongeveer 20 uur voor het vullen van het hele cluster als het beleid is `NodeWise`
     - Het duurt ongeveer 5 uur als beleid is `UpgradeDomainWise`
 - Belasting van de cluster - elke patch-bewerking moet de workload van een klant verplaatsen naar andere beschikbare knooppunten in het cluster. Knooppunt die een patch op zou zijn [Disabling](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) status gedurende deze tijd. Als het cluster wordt uitgevoerd in de buurt van piekbelasting, zou de uitschakelen proces langer duren. Daarom lijkt algehele patchproces langzaam in dergelijke extreme omstandigheden.

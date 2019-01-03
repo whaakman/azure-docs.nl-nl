@@ -9,15 +9,18 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5b87d04466a2c94ed233edf4069ec1a30b10d03a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283289"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634317"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- en galerieën voor Azure Automation
 In plaats van het maken van uw eigen runbooks en modules in Azure Automation, kunt u toegang tot een verscheidenheid aan scenario's die al zijn gebouwd door Microsoft en de community.  U kunt deze scenario's zonder wijzigingen gebruiken of u kunt ze als uitgangspunt gebruiken en ze bewerken voor uw specifieke vereisten.
+
+> [!NOTE]
+> De nieuwe [Az van Azure PowerShell-module](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) worden niet ondersteund in Azure Automation. Eventuele scripts downloaden vanuit de PowerShell Gallery met deze cmdlets werken niet in Azure Automation.
 
 Krijgt u runbooks uit de [Runbookgalerie](#runbooks-in-runbook-gallery) en -modules uit de [PowerShell Gallery](#modules-in-powerShell-gallery).  U kunt ook bijdragen aan de community door sharing-scenario's die u hebt ontwikkeld, Zie [een runbook toe te voegen aan de galerie](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 

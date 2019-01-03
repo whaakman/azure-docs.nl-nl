@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c9b1f3570ae3f9b945c87c2ce316c3f72e32b4ad
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191577"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792047"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Maken van HDInsight-clusters met behulp van de klassieke Azure-CLI
 
@@ -70,7 +70,7 @@ De volgende stappen moeten worden uitgevoerd vanaf de opdrachtregel, zoals Power
 
     * Vervang `storagename` met een unieke naam voor het opslagaccount.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Voor meer informatie over de parameters die in deze opdracht wordt gebruikt, gebruikt u `azure storage account create -h` om help voor deze opdracht weer te geven.
 
 5. De sleutel die wordt gebruikt voor toegang tot het opslagaccount ophalen.
@@ -90,7 +90,7 @@ De volgende stappen moeten worden uitgevoerd vanaf de opdrachtregel, zoals Power
 
     * Vervang `Hadoop` met het clustertype dat u wilt maken. Bijvoorbeeld, `Hadoop`, `HBase`, `Kafka`, `Spark`, of `Storm`.
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > HDInsight clusters worden geleverd in verschillende typen die overeenkomen met de werkbelasting of technologie die het cluster is afgestemd op. Er is geen ondersteunde methode om een cluster die meerdere typen, zoals Storm en HBase op één cluster combineert te maken.
 
     * Vervang `location` met dezelfde locatie in de vorige stappen gebruikt.
@@ -105,7 +105,7 @@ De volgende stappen moeten worden uitgevoerd vanaf de opdrachtregel, zoals Power
 
     * Vervang `sshuser` en `sshuserpassword` met de gebruikersnaam en het wachtwoord die u gebruiken wilt bij het openen van het cluster via SSH
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > In dit voorbeeld wordt een cluster met twee worker-knooppunten. U kunt ook het aantal worker-knooppunten wijzigen nadat de cluster is gemaakt door het uitvoeren van vergroten / verkleinen. Als u van plan bent over het gebruik van meer dan 32 worker-knooppunten, moet u de grootte van een hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB RAM-geheugen selecteren. U kunt de grootte van het hoofdknooppunt instellen met behulp van de `--headNodeSize` parameter tijdens het maken van clusters.
       >
       > Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
@@ -114,7 +114,7 @@ De volgende stappen moeten worden uitgevoerd vanaf de opdrachtregel, zoals Power
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
+Zie [Vereisten voor toegangsbeheer](hdinsight-hadoop-create-linux-clusters-portal.md) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -124,7 +124,7 @@ Nu dat u een HDInsight-cluster met behulp van de klassieke CLI hebt gemaakt, geb
 
 * [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
 * [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
-* [Apache Hadoop MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase-clusters
 

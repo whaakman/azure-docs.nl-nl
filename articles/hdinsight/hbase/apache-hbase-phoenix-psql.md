@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 8b14550adf89f866cf3b736db049cc671db5b765
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 04a923a8bc022aefb667489702c0e74493df94a8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314504"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652758"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Bulksgewijs gegevens laden in Apache Phoenix met psql
 
-[Apache Phoenix](http://phoenix.apache.org/) is een open source, uiterst parallelle relationele database die is gebouwd op [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix bevat een SQL-achtige query's over HBase. Phoenix maakt gebruik van JDBC-stuurprogramma's zodat gebruikers kunnen maken, verwijderen en SQL-tabellen, indexen, weergaven en reeksen en upsert rijen afzonderlijk en bulksgewijs wijzigen. Phoenix noSQL systeemeigen compilatie in plaats van MapReduce gebruiken voor het compileren van query's, gebruikt om toepassingen boven op HBase met lage latentie te maken. Phoenix CO-processoren ter ondersteuning van de uitvoering van code client wordt geleverd in de adresruimte van de server uitvoeren van de code die CO-locatie met de gegevens wordt toegevoegd. Dit verkleint client/server-gegevens worden overgebracht.  Als u wilt werken met gegevens in HDInsight met behulp van Phoenix, eerst tabellen maken en vervolgens gegevens laden in deze.
+[Apache Phoenix](https://phoenix.apache.org/) is een open source, uiterst parallelle relationele database die is gebouwd op [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix bevat een SQL-achtige query's over HBase. Phoenix maakt gebruik van JDBC-stuurprogramma's zodat gebruikers kunnen maken, verwijderen en SQL-tabellen, indexen, weergaven en reeksen en upsert rijen afzonderlijk en bulksgewijs wijzigen. Phoenix noSQL systeemeigen compilatie in plaats van MapReduce gebruiken voor het compileren van query's, gebruikt om toepassingen boven op HBase met lage latentie te maken. Phoenix CO-processoren ter ondersteuning van de uitvoering van code client wordt geleverd in de adresruimte van de server uitvoeren van de code die CO-locatie met de gegevens wordt toegevoegd. Dit verkleint client/server-gegevens worden overgebracht.  Als u wilt werken met gegevens in HDInsight met behulp van Phoenix, eerst tabellen maken en vervolgens gegevens laden in deze.
 
 ## <a name="bulk-loading-with-apache-phoenix"></a>Bulksgewijs laden met Apache Phoenix
 
@@ -73,7 +73,7 @@ Voordat u het laden van gegevens, controleert u of dat Phoenix is ingeschakeld e
     python psql.py ZookeeperQuorum createCustomersTable.sql /tmp/customers.csv listCustomers.sql
     ```
 
-    > [!NOTE] 
+    > [!NOTE]   
     > Om te bepalen de `ZookeeperQuorum` -naam, zoek de [Apache ZooKeeper](https://zookeeper.apache.org/) quorum-tekenreeks in het bestand `/etc/hbase/conf/hbase-site.xml` met de naam van eigenschap `hbase.zookeeper.quorum`.
 
 5. Na de `psql` bewerking is voltooid, ziet u een bericht in het opdrachtvenster:
@@ -141,7 +141,7 @@ Gebruik voor het laden van hogere doorvoer verdeeld zijn over het cluster, het h
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Bulksgewijs laden van gegevens met Apache Phoenix](http://phoenix.apache.org/bulk_dataload.html)
+* [Bulksgewijs laden van gegevens met Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
 * [Apache Phoenix gebruiken met Apache HBase op basis van Linux-clusters in HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
 * [Gezouten tabellen](https://phoenix.apache.org/salted.html)
-* [Phoenix-grammatica](http://phoenix.apache.org/language/index.html)
+* [Apache Phoenix-grammatica](https://phoenix.apache.org/language/index.html)

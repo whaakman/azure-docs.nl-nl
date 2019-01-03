@@ -1,5 +1,5 @@
 ---
-title: Azure IoT-oplossingsversnellers Veelgestelde vragen over | Microsoft Docs
+title: IoT-oplossingsversnellers FAQ - Azure | Microsoft Docs
 description: Veelgestelde vragen over IoT-oplossingsversnellers
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253331"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608746"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Veelgestelde vragen over IoT-oplossingsversnellers
 
@@ -32,7 +32,7 @@ De broncode wordt opgeslagen in de volgende GitHub-opslagplaatsen:
 
 Vindt u koppelingen naar de andere taal (C, .NET, Java, Node.js, Python) IoT device SDK's in de [Microsoft Azure IoT SDK's](https://github.com/Azure/azure-iot-sdks) GitHub-opslagplaatsen.
 
-Als u van het apparaat DevKit gebruikmaakt, vindt u bronnen en voorbeelden uit de [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub-opslagplaats.
+Als u het apparaat DevKit, vindt u bronnen en voorbeelden uit de [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub-opslagplaats.
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>Is de nieuwe architectuur met microservices beschikbaar voor alle drie de oplossingsversnellers?
 
@@ -40,7 +40,28 @@ Op dit moment alleen de oplossing voor externe controle maakt gebruik van de arc
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Welke voordelen biedt de nieuwe open source op basis van microservices-architectuur in de nieuwe update?
 
-Architectuur van de afgelopen twee jaar aanzienlijk zich heeft ontwikkeld. Microservices hebben naar voren gekomen als een geweldige patroon om de schaal en flexibiliteit, zonder dat dit ten koste gaat ontwikkelingssnelheid bereiken. Dit architectuurpatroon wordt gebruikt in verschillende Microsoft-services die intern met geweldige betrouwbaarheid en schaalbaarheid resultaten. We worden deze in de praktijk leren, zodat onze klanten van deze profiteren uitgeoefend.
+Architectuur van de afgelopen twee jaar aanzienlijk zich heeft ontwikkeld. Microservices hebben naar voren gekomen als een geweldige patroon om de schaal en flexibiliteit, zonder dat dit ten koste gaat ontwikkelingssnelheid bereiken. Dit architectuurpatroon wordt gebruikt in verschillende Microsoft-services die intern met geweldige betrouwbaarheid en schaalbaarheid resultaten. Microsoft is deze geleerde lessen in de praktijk in de oplossingsversnellers plaatsen, zodat klanten van deze profiteren.
+
+### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>Ik ben een servicebeheerder en ik wil wijzigen van de directory-toewijzing tussen mijn abonnement en een specifieke Azure AD-tenant. Hoe ik deze taak voltooid?
+
+Zie [aan een bestaand abonnement toevoegen aan uw Azure AD-directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
+
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Ik wil een servicebeheerder of CO-beheerder wanneer u bent aangemeld met een organisatie-account wijzigen
+
+Zie het ondersteuningsartikel [wijzigen van servicebeheerder en Medebeheerder wanneer u bent aangemeld met een organisatieaccount](https://azure.microsoft.com/support/changing-service-admin-and-co-admin).
+
+### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Waarom krijg ik deze fout te zien? 'Uw account beschikt niet over de juiste machtigingen om een oplossing te maken. Neem contact op met uw accountbeheerder of probeer met een ander account."
+
+Bekijk het volgende diagram voor richtlijnen:
+
+![Stroomdiagram van machtigingen](media/iot-accelerators-faq/flowchart.png)
+
+> [!NOTE]
+> Als u een foutbericht weergegeven na de validatie blijft u een globale beheerder van de Azure AD-tenant en een CO-beheerder van het abonnement zijn, de beheerder van uw account de gebruiker te verwijderen en opnieuw toewijzen van benodigde machtiging in deze volgorde. Eerst de gebruiker als een globale beheerder toevoegen en voeg deze gebruiker als een CO-beheerder van de Azure-abonnement. Als de problemen zich blijven voordoen, neem dan contact op met [Help en ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Waarom krijg ik deze fout zien wanneer ik heb een Azure-abonnement? "Een Azure-abonnement is vereist om vooraf geconfigureerde oplossingen te maken. U kunt een gratis proefaccount maken in een paar minuten."
+
+Als u zeker weet dat u hebt een Azure-abonnement, de tenanttoewijzing voor uw abonnement te valideren en controleer of de juiste tenant is geselecteerd in de vervolgkeuzelijst. Als u hebt gevalideerd de tenant juist is, volgt u de voorgaande diagram en valideren van de toewijzing van uw abonnement en deze Azure AD-tenant.
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Waar vind ik informatie over de vorige versie van de oplossing voor externe controle
 
@@ -52,7 +73,7 @@ Ja, de nieuwe externe controle is beschikbaar in dezelfde geografische regio's.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Wat is het verschil tussen het verwijderen van een resourcegroep in Azure portal en te klikken op verwijderen bij een oplossingsversnellers op azureiotsuite.com?
 
-* Als u de oplossingsversneller in verwijdert [azureiotsuite.com](https://www.azureiotsolutions.com/), verwijdert u alle resources die zijn ingericht bij het maken van de solution accelerator. Als u aanvullende resources toegevoegd aan de resourcegroep, worden deze resources worden ook verwijderd.
+* Als u de oplossingsversneller in verwijdert [azureiotsuite.com](https://www.azureiotsolutions.com/), verwijdert u alle resources die zijn geïmplementeerd tijdens het maken van de solution accelerator. Als u aanvullende resources toegevoegd aan de resourcegroep, worden deze resources worden ook verwijderd.
 * Als u verwijdert de resourcegroep in de [Azure-portal](https://portal.azure.com), verwijdert u alleen de resources in die resourcegroep. U moet ook de Azure Active Directory-toepassing die is gekoppeld aan de solution accelerator verwijderen.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Kan ik dan blijven om mijn bestaande investeringen in Azure IoT-oplossingsversnellers?
@@ -78,7 +99,7 @@ Twee. U kunt slechts twee interne transacties niveau 1 Bing-kaarten voor Enterpr
 
 U kunt geen op dit moment een oplossingsversnellers met maken een [Microsoft Azure voor DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) account. U kunt echter maken een [gratis proefaccount voor Azure](https://azure.microsoft.com/free/) maken in een paar minuten waarmee u kunt een oplossingsversnellers.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>Hoe verwijder ik een AAD-tenant?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Hoe verwijder ik een Azure AD-tenant?
 
 Zie het blogbericht van Eric Golpe van [overzicht van het verwijderen van een Azure AD-Tenant](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 

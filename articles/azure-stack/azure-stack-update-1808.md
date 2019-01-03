@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098087"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754540"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
 Dit artikel wordt de inhoud van het updatepakket 1808 beschreven. Het updatepakket bevat verbeteringen, problemen en bekende problemen voor deze versie van Azure Stack. In dit artikel bevat ook een koppeling, zodat u kunt de update downloaden. Bekende problemen zijn onderverdeeld in problemen direct verband houden met het updateproces en problemen met de build (na de installatie).
 
@@ -43,7 +43,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 - **Alle Azure Stack-omgevingen gebruik nu de indeling van de tijdzone Coordinated Universal Time (UTC).**  Alle logboekgegevens en gerelateerde gegevens nu weergegeven in UTC-notatie. Als u een van een vorige versie die niet is geïnstalleerd met behulp van UTC update, wordt uw omgeving is bijgewerkt voor gebruik van UTC. 
 
 <!-- 2437250  | IS  ASDK --> 
-- **Beheerde schijven worden ondersteund.** U kunt nu beheerde schijven gebruiken in Azure Stack virtuele machines en virtuele-machineschaalsets. Zie voor meer informatie, [Azure Stack Managed Disks: verschillen en overwegingen](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
+- **Beheerde schijven worden ondersteund.** U kunt nu beheerde schijven gebruiken in Azure Stack virtuele machines en virtuele-machineschaalsets. Zie voor meer informatie, [Azure Stack Managed Disks: Verschillen en overwegingen](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
 
 <!-- 2563799  | IS  ASDK --> 
 - **Azure Monitor**. Zoals Azure Monitor op Azure biedt Azure Monitor in Azure Stack-infrastructuur op basisniveau metrische gegevens en logboeken voor de meeste services. Zie voor meer informatie, [Azure Monitor in Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
@@ -226,16 +226,16 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Mogelijk ziet u waarschuwingen voor de **Health controller** onderdeel waarvoor u de volgende gegevens:  
 
    Waarschuwing #1:
-   - NAAM: De functie van de infrastructuur is niet in orde
-   - ERNST: waarschuwing
-   - ONDERDEEL: De gezondheid van controller
-   - Beschrijving: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
+   - NAAM:  De functie van de infrastructuur is niet in orde
+   - ERNST: Waarschuwing
+   - COMPONENT: De gezondheid van controller
+   - BESCHRIJVING: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
 
   Waarschuwing #2:
-   - NAAM: De functie van de infrastructuur is niet in orde
-   - ERNST: waarschuwing
-   - ONDERDEEL: De gezondheid van controller
-   - Beschrijving: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
+   - NAAM:  De functie van de infrastructuur is niet in orde
+   - ERNST: Waarschuwing
+   - COMPONENT: De gezondheid van controller
+   - BESCHRIJVING: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
 
   Beide waarschuwingen kunnen worden genegeerd en wordt automatisch gesloten na verloop van tijd.  
 
@@ -243,16 +243,15 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 <!-- 2812138 | IS --> 
 - U ziet mogelijk een waarschuwing voor **opslag** onderdeel met de volgende informatie:
 
-   - NAAM: Storage service interne communicatiefout  
-   - ERNST: kritiek  
-   - COMPONENT: opslag  
-   - Beschrijving: Storage service-interne communicatiefout is opgetreden bij het verzenden van aanvragen naar de volgende knooppunten.  
+   - NAAM: Storage service-interne communicatiefout  
+   - ERNST: Kritiek  
+   - COMPONENT: Storage  
+   - BESCHRIJVING: Storage service-interne communicatiefout is opgetreden bij het verzenden van aanvragen naar de volgende knooppunten.  
 
     De waarschuwing kan veilig worden genegeerd, maar moet u de waarschuwing handmatig sluit.
 
 <!-- 2368581 - IS. ASDK --> 
 - Azure Stack-operators, als u een waarschuwing voor een beperkte hoeveelheid geheugen ontvangt en virtuele machines van tenants niet te implementeren met een **fout bij het maken van infrastructuur-VM**, is het mogelijk dat de Azure Stack-stempel heeft te weinig geheugen beschikbaar. Gebruik de [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) naar het beste informatie over de beschikbare capaciteit voor uw workloads.
-
 
 ### <a name="compute"></a>Compute
 
@@ -283,17 +282,17 @@ Rapporten over gebruik gemaakt van het gebruik van Azure Stack API's juist aanta
    - Als u bijwerkt naar de quotawaarde op 0, is het equivalent zijn aan de standaardwaarde van 2048 GiB. Als tijdelijke oplossing, stelt u de quotawaarde in op 1.
 
 <!-- 2869209 – IS, ASDK --> 
-- Wanneer u de [ **toevoegen AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), moet u de **- OsUri** parameter als het opslagaccount URI waar de schijf is geüpload. Als u het lokale pad van de schijf gebruikt, wordt de cmdlet mislukt met de volgende fout: *langdurige bewerking is mislukt met de status 'Mislukt'*. 
+- Wanneer u de [ **toevoegen AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), moet u de **- OsUri** parameter als het opslagaccount URI waar de schijf is geüpload. Als u het lokale pad van de schijf gebruikt, wordt de cmdlet mislukt met de volgende fout: *Langdurige bewerking is mislukt met de status 'Mislukt'*. 
 
 <!--  2966665 – IS, ASDK --> 
-- SSD-gegevensschijven koppelen aan de grootte van de premium beheerde schijf virtuele machines (DS, DSv2, Fs, Fs_V2) mislukt met fout: *schijven voor de virtuele machine 'vmname' Fout bij het bijwerken is mislukt: gevraagde bewerking kan niet worden uitgevoerd omdat het type opslagaccount ' Premium_LRS wordt niet ondersteund voor VM-grootte ' Standard_DS/Ds_V2/FS/Fs_v2)*
+- Bezig met koppelen van SSD beheerde gegevensschijven aan premium-grootte schijf virtuele machines (DS, DSv2, Fs, Fs_V2) mislukt met fout:  *Kan niet bijwerken van schijven voor de virtuele machine 'vmname' fout: Gevraagde bewerking kan niet worden uitgevoerd omdat het opslagaccounttype 'Premium_LRS' wordt niet ondersteund voor VM-grootte ' Standard_DS/Ds_V2/FS/Fs_v2)*
 
    U kunt dit probleem omzeilen, gebruikt u *Standard_LRS* gegevensschijven in plaats van *Premium_LRS schijven*. Het gebruik van *Standard_LRS* gegevensschijven IOP's of de kosten voor facturering niet wijzigen. 
 
 <!--  2795678 – IS, ASDK --> 
 - Wanneer u de portal virtuele machines (VM) maken in een premium VM-grootte (DS, Ds_v2, FS, FSv2) gebruikt, wordt de virtuele machine wordt gemaakt in een standard storage-account. Het maken van in een standard storage-account heeft geen invloed op functioneel, IOP's, of facturering. 
 
-   U kunt gewoon de waarschuwing dat negeren: *u hebt gekozen voor het gebruik van een standaard schijf op een grootte die premium-schijven ondersteunt. Dit kan invloed hebben op prestaties van besturingssysteem en wordt niet aanbevolen. Overweeg het gebruik van premium-opslag (SSD) in plaats daarvan.*
+   U kunt de waarschuwing dat negeren: *U hebt ervoor gekozen een standaardschijf gebruiken op een grootte die premium-schijven ondersteunt. Dit kan invloed hebben op prestaties van besturingssysteem en wordt niet aanbevolen. Overweeg het gebruik van premium-opslag (SSD) in plaats daarvan.*
 
 <!-- 2967447 - IS, ASDK --> 
 - De virtuele-machineschaalset (VMSS) aan die conferenties 7.2 CentOS gebaseerde biedt als een optie voor implementatie. Omdat deze afbeelding niet beschikbaar op Azure Stack is, selecteert u een ander besturingssysteem voor uw implementatie of u een Azure Resource Manager-sjabloon op te geven van een andere CentOS-installatiekopie die door de operator voorafgaand aan de implementatie van de marketplace is gedownload.  
@@ -315,7 +314,7 @@ Rapporten over gebruik gemaakt van het gebruik van Azure Stack API's juist aanta
 
    Als u zoekt de grafiek CPU-Percentage voor de virtuele machine, gaat u naar de **metrische gegevens** blade en het weergeven van alle ondersteunde Windows-VM-Gast metrische gegevens.
 
-
+- Een Ubuntu 18.04 VM gemaakt met SSH-verificatie ingeschakeld kunt u de SSH-sleutels gebruiken om aan te melden. Gebruik voor de extensie voor Linux-VM-toegang voor het implementeren van SSH-sleutels na het inrichten of verificatie op basis van wachtwoord gebruiken als tijdelijke oplossing.
 
 ### <a name="networking"></a>Netwerken  
 
@@ -361,8 +360,10 @@ Rapporten over gebruik gemaakt van het gebruik van Azure Stack API's juist aanta
 
 
 ## <a name="download-the-update"></a>De update downloaden
-U kunt de Azure Stack 1808 update-pakket van downloaden [hier](https://aka.ms/azurestackupdatedownload).
-  
+
+U kunt de Azure Stack 1808 update-pakket van downloaden [hier](https://aka.ms/azurestackupdatedownload). 
+
+In verbonden scenario's alleen, Azure Stack-implementaties regelmatig controleren op een beveiligde eindpunt en automatisch een melding als een update beschikbaar voor uw cloud is. Zie voor meer informatie, [beheren van updates voor Azure Stack](azure-stack-updates.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Het uitvoeren van onderhoud beleid voor geïntegreerde Azure Stack-systemen, en wat u moet doen om te voorkomen dat uw systeem in een ondersteunde status Zie [Azure Stack servicebeleid](azure-stack-servicing-policy.md).  

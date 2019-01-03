@@ -10,40 +10,40 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/12/2017
+ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 1c0167fd7f6ef8a66968e70df26d1e7a6ed845b1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323351"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975250"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
 ## <a name="configuration-problems"></a>Configuratieproblemen
 *Ik ondervind problemen met het instellen van mijn:*
 
-* [.NET app](app-insights-asp-net-troubleshoot-no-data.md)
-* [Bewaken van een app al actief](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [.NET app](../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [Bewaken van een app al actief](../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Java-web-app](app-insights-java-troubleshoot.md)
+* [Java-web-app](../azure-monitor/app/java-troubleshoot.md)
 
 *Kan ik ophalen geen gegevens uit mijn server*
 
-* [Set firewall-uitzonderingen](app-insights-ip-addresses.md)
-* [Een ASP.NET-server instellen](app-insights-monitor-performance-live-website-now.md)
-* [Een Java-server instellen](app-insights-java-agent.md)
+* [Set firewall-uitzonderingen](../azure-monitor/app/ip-addresses.md)
+* [Een ASP.NET-server instellen](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Een Java-server instellen](../azure-monitor/app/java-agent.md)
 
 ## <a name="can-i-use-application-insights-with-"></a>Kan ik met Application Insights... gebruiken?
 
-* [Web-apps op een IIS-server, on-premises of in een virtuele machine](app-insights-asp-net.md)
-* [Java-web-apps](app-insights-java-get-started.md)
+* [Web-apps op een IIS-server, on-premises of in een virtuele machine](../azure-monitor/app/asp-net.md)
+* [Java-web-apps](../azure-monitor/app/java-get-started.md)
 * [Node.js-apps](app-insights-nodejs.md)
-* [Web-apps op Azure](app-insights-azure-web-apps.md)
-* [Cloudservices op Azure](app-insights-cloudservices.md)
-* [Appservers die worden uitgevoerd in Docker](app-insights-docker.md)
-* [Één pagina web-apps](app-insights-javascript.md)
+* [Web-apps op Azure](../azure-monitor/app/azure-web-apps.md)
+* [Cloudservices op Azure](../azure-monitor/app/cloudservices.md)
+* [Appservers die worden uitgevoerd in Docker](../azure-monitor/app/docker.md)
+* [Één pagina web-apps](../azure-monitor/app/javascript.md)
 * [SharePoint](app-insights-sharepoint.md)
 * [Windows desktop-app](app-insights-windows-desktop.md)
 * [Andere platforms](app-insights-platforms.md)
@@ -60,7 +60,7 @@ Het Enterprise-plan leidt tot een kosten in rekening gebracht voor elke dag dat 
 
 ## <a name="how-much-is-it-costing"></a>Wat is het stuk?
 
-* Open de **pagina gebruik en geschatte kosten** pagina in een Application Insights-resource. Er is een diagram van recente gebruik. Als u wilt, kunt u een maximum gegevensvolume instellen.
+* Open de **pagina gebruik en geschatte kosten** in een Application Insights-resource. Er is een diagram van recente gebruik. Als u wilt, kunt u een maximum gegevensvolume instellen.
 * Open de [blade Azure Billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) om te zien van uw facturen voor alle resources.
 
 ## <a name="q14"></a>Wat Application Insights in mijn project wijzigen?
@@ -95,34 +95,33 @@ Klik in Solution Explorer met de rechtermuisknop op `ApplicationInsights.config`
 
 Een bureaublad-app die u in uw IIS-webserver gebruiken kunt voor het configureren van Application Insights in web-apps. Status monitor verzamelt niet telemetrie: u kunt voorkomen dat deze wanneer u een app niet configureert. 
 
-[Meer informatie](app-insights-monitor-performance-live-website-now.md#questions).
+[Meer informatie](../azure-monitor/app/monitor-performance-live-website-now.md#questions).
 
 ## <a name="what-telemetry-is-collected-by-application-insights"></a>Welke telemetrie wordt verzameld door Application Insights?
 
 Van server-web-apps:
 
 * HTTP-aanvragen
-* [Afhankelijkheden](app-insights-asp-net-dependencies.md). Aanroepen naar: SQL-Databases. HTTP-aanroepen naar externe services; Azure Cosmos DB, tabel, blob-opslag en wachtrij. 
-* [Uitzonderingen](app-insights-asp-net-exceptions.md) en stack-traces.
-* [Prestatiemeteritems](app-insights-performance-counters.md) : als u [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](app-insights-azure-web-apps.md) of de [Application Insights verzamelde schrijver](app-insights-java-collectd.md).
-* [Aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md) dat u de code.
-* [Logboeken met traceringen](app-insights-asp-net-trace-logs.md) als u de juiste collector configureert.
+* [Afhankelijkheden](../azure-monitor/app/asp-net-dependencies.md). Aanroepen naar: SQL-Databases. HTTP-aanroepen naar externe services; Azure Cosmos DB, tabel, blob-opslag en wachtrij. 
+* [Uitzonderingen](../azure-monitor/app/asp-net-exceptions.md) en stack-traces.
+* [Prestatiemeteritems](app-insights-performance-counters.md) : als u [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md), [Azure monitoring](../azure-monitor/app/azure-web-apps.md), of de [Application Insights verzamelde schrijver](../azure-monitor/app/java-collectd.md).
+* [Aangepaste gebeurtenissen en metrische gegevens](../azure-monitor/app/api-custom-events-metrics.md) dat u de code.
+* [Logboeken met traceringen](../azure-monitor/app/asp-net-trace-logs.md) als u de juiste collector configureert.
 
-Van [client webpagina's](app-insights-javascript.md):
+Van [client webpagina's](../azure-monitor/app/javascript.md):
 
 * [Aantal paginaweergaven](app-insights-usage-overview.md)
-* [AJAX-aanroepen](app-insights-asp-net-dependencies.md) aanvragen van een script uit te voeren.
+* [AJAX-aanroepen](../azure-monitor/app/asp-net-dependencies.md) aanvragen van een script uit te voeren.
 * Gegevens laden van pagina weergeven
 * Aantal gebruikers en sessies
-* [Geverifieerde gebruikers-id 's](app-insights-api-custom-events-metrics.md#authenticated-users)
+* [Geverifieerde gebruikers-id 's](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)
 
 Uit andere bronnen, als u ze configureren:
 
 * [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Docker-containers](app-insights-docker.md)
-* [Tabellen importeren in Analytics](app-insights-analytics-import.md)
-* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
-* [Logstash](app-insights-analytics-import.md)
+* [Importeren met Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Logstash](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Kan ik wegfilteren of telemetrie wijzigen?
 
@@ -131,7 +130,7 @@ Ja, in de server die u kunt schrijven:
 * Telemetrie-Processor om te filteren of eigenschappen aan geselecteerde telemetrie-items toevoegen, voordat ze worden verzonden vanuit uw app.
 * Telemetrie-Initializer eigenschappen toevoegen aan alle telemetrie-items.
 
-Meer informatie voor [ASP.NET](app-insights-api-filtering-sampling.md) of [Java](app-insights-java-filter-telemetry.md).
+Meer informatie voor [ASP.NET](../azure-monitor/app/api-filtering-sampling.md) of [Java](../azure-monitor/app/java-filter-telemetry.md).
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Hoe worden stad, land en andere gegevens geo-locatie berekend?
 
@@ -148,9 +147,9 @@ U kunt [Power BI gebruiken](app-insights-export-power-bi.md) om de aanvraagtelem
 ## <a name="data"></a>Hoelang gegevens bewaard in de portal? Is het veilig?
 Kijk eens [bewaren van gegevens en Privacy][data].
 
-## <a name="might-personally-identifiable-information-pii-be-sent-in-the-telemetry"></a>Mogelijk persoonlijk identificeerbare informatie (PII) worden verzonden in de telemetrie?
+## <a name="could-personal-data-be-sent-in-the-telemetry"></a>Kan de persoonlijke gegevens worden verzonden in de telemetrie?
 
-Dit is mogelijk als de code dergelijke gegevens verzendt. Het kan ook gebeuren als variabelen in de stack-traces PII bevatten. Uw ontwikkelteam moet risicobeoordelingen om ervoor te zorgen dat PII goed wordt afgehandeld uitvoeren. [Meer informatie over het bewaren van gegevens en privacy](app-insights-data-retention-privacy.md).
+Dit is mogelijk als de code dergelijke gegevens verzendt. Het kan ook gebeuren als variabelen in de stack-traces persoonlijke gegevens bevatten. Uw ontwikkelteam moet risicobeoordelingen om ervoor te zorgen dat de persoonlijke gegevens goed wordt afgehandeld uitvoeren. [Meer informatie over het bewaren van gegevens en privacy](../azure-monitor/app/data-retention-privacy.md).
 
 **Alle** octetten van het webadres van de client altijd zijn ingesteld op 0 nadat de geo-locatie-kenmerken worden opgezocht.
 
@@ -174,31 +173,31 @@ We geen bericht gegevens automatisch vastleggen, maar u kunt een aanroep van Tra
 Gebruik één resource voor alle onderdelen of rollen in een enkele business-systeem. Gebruik afzonderlijke resources voor ontwikkelings-, test- en release-versies en voor onafhankelijke toepassingen.
 
 * [Zie het onderwerp hier](app-insights-separate-resources.md)
-* [Voorbeeld - service in de cloud met behulp van worker en webservice](app-insights-cloudservices.md)
+* [Voorbeeld - service in de cloud met behulp van worker en webservice](../azure-monitor/app/cloudservices.md)
 
 ## <a name="how-do-i-dynamically-change-the-instrumentation-key"></a>Hoe kan ik de instrumentatiesleutel dynamisch wijzigen?
 
 * [Hier discussie](app-insights-separate-resources.md)
-* [Voorbeeld - service in de cloud met behulp van worker en webservice](app-insights-cloudservices.md)
+* [Voorbeeld - service in de cloud met behulp van worker en webservice](../azure-monitor/app/cloudservices.md)
 
 ## <a name="what-are-the-user-and-session-counts"></a>Wat zijn de gebruikers- en telt?
 
 * De JavaScript-SDK wordt de cookie van een gebruiker op de webclient, om terugkerende gebruikers te identificeren en een sessiecookie ingesteld om activiteiten te groeperen.
 * Als er geen client-side-script, kunt u [cookies ingesteld op de server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Als een echte gebruiker maakt gebruik van uw site in verschillende browsers of met behulp van in-privé-/ incognito te bladeren, of verschillende computers, en ze zullen meer dan één keer worden geteld.
-* Voor het identificeren van een gebruiker is aangemeld op computers en browsers, Voeg een aanroep naar [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
+* Voor het identificeren van een gebruiker is aangemeld op computers en browsers, Voeg een aanroep naar [setAuthenticatedUserContext()](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Hebt ik alles in Application Insights ingeschakeld?
 | U ziet | Hoe u deze ophalen | Waarom u deze wilt |
 | --- | --- | --- |
-| Beschikbaarheid van grafieken |[Webtests](app-insights-monitor-web-app-availability.md) |Kent dat uw web-app is actief |
-| Server app-prestaties: reactietijden,... |[Application Insights toevoegen aan uw project](app-insights-asp-net.md) of [AI Status Monitor installeren op de server](app-insights-monitor-performance-live-website-now.md) (of uw eigen code te schrijven [afhankelijkheden bijhouden](app-insights-api-custom-events-metrics.md#trackdependency)) |Perf problemen detecteren |
-| Afhankelijkheidstelemetrie |[AI Status Monitor installeren op server](app-insights-monitor-performance-live-website-now.md) |Problemen met databases of andere externe componenten |
-| Ontvang stack-traces van uitzonderingen |[TrackException aanroepen invoegen in uw code](app-insights-asp-net-exceptions.md) (maar enkele automatisch worden gerapporteerd) |Detecteer en diagnosticeer uitzonderingen |
-| Logboektraceringen zoeken |[Een registratie-adapter toevoegen](app-insights-asp-net-trace-logs.md) |Uitzonderingen, prestaties, problemen vaststellen |
-| Grondbeginselen van de client gebruik: paginaweergaven, sessies,... |[De initialisatiefunctie JavaScript in webpagina 's](app-insights-javascript.md) |Gebruiksanalyse |
-| Aangepaste metrische gegevens van client |[Tracerings-aanroepen in webpagina 's](app-insights-api-custom-events-metrics.md) |Gebruikerservaring te verbeteren |
-| Aangepaste metrische gegevens van server |[Aanroepen voor het bijhouden van server](app-insights-api-custom-events-metrics.md) |Business intelligence |
+| Beschikbaarheid van grafieken |[Webtests](../azure-monitor/app/monitor-web-app-availability.md) |Kent dat uw web-app is actief |
+| Server app-prestaties: reactietijden,... |[Application Insights toevoegen aan uw project](../azure-monitor/app/asp-net.md) of [AI Status Monitor installeren op de server](../azure-monitor/app/monitor-performance-live-website-now.md) (of uw eigen code te schrijven [afhankelijkheden bijhouden](../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |Perf problemen detecteren |
+| Afhankelijkheidstelemetrie |[AI Status Monitor installeren op server](../azure-monitor/app/monitor-performance-live-website-now.md) |Problemen met databases of andere externe componenten |
+| Ontvang stack-traces van uitzonderingen |[TrackException aanroepen invoegen in uw code](../azure-monitor/app/asp-net-exceptions.md) (maar enkele automatisch worden gerapporteerd) |Detecteer en diagnosticeer uitzonderingen |
+| Logboektraceringen zoeken |[Een registratie-adapter toevoegen](../azure-monitor/app/asp-net-trace-logs.md) |Uitzonderingen, prestaties, problemen vaststellen |
+| Grondbeginselen van de client gebruik: paginaweergaven, sessies,... |[De initialisatiefunctie JavaScript in webpagina 's](../azure-monitor/app/javascript.md) |Gebruiksanalyse |
+| Aangepaste metrische gegevens van client |[Tracerings-aanroepen in webpagina 's](../azure-monitor/app/api-custom-events-metrics.md) |Gebruikerservaring te verbeteren |
+| Aangepaste metrische gegevens van server |[Aanroepen voor het bijhouden van server](../azure-monitor/app/api-custom-events-metrics.md) |Business intelligence |
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Waarom zijn de aantallen in zoek- en metrische gegevens over grafieken ongelijk?
 
@@ -227,7 +226,7 @@ U kan instellen van een rapport Metric Explorer of instellen van continue export
 
 ### <a name="querying-the-telemetry"></a>Uitvoeren van query's de telemetrie
 
-Gebruik de [REST-API](https://dev.applicationinsights.io/) om uit te voeren [Analytics](app-insights-analytics.md) query's.
+Gebruik de [REST-API](https://dev.applicationinsights.io/) om uit te voeren [Analytics](../azure-monitor/app/analytics.md) query's.
 
 ## <a name="how-can-i-set-an-alert-on-an-event"></a>Hoe kan ik een melding instellen op een gebeurtenis?
 
@@ -242,7 +241,7 @@ Dit wordt niet afhankelijk van waar uw Application Insights-resource wordt gehos
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Kan ik telemetrie verzenden naar de Application Insights-portal?
 
-Aangeraden u onze SDK's gebruiken en gebruik de [SDK-API](app-insights-api-custom-events-metrics.md). Er zijn varianten van de SDK voor verschillende [platforms](app-insights-platforms.md). Deze SDK's verwerken buffer, compressie, beperking, nieuwe pogingen, enzovoort. Echter, de [opname schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) en [eindpunt protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) openbaar zijn.
+Aangeraden u onze SDK's gebruiken en gebruik de [SDK-API](../azure-monitor/app/api-custom-events-metrics.md). Er zijn varianten van de SDK voor verschillende [platforms](app-insights-platforms.md). Deze SDK's verwerken buffer, compressie, beperking, nieuwe pogingen, enzovoort. Echter, de [opname schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) en [eindpunt protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) openbaar zijn.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Kan ik een intranet-webserver controleren?
 
@@ -254,7 +253,7 @@ Toestaan dat uw webserver voor het verzenden van telemetrie naar onze eindpunten
 
 ### <a name="proxy"></a>Proxy
 
-Routeren van verkeer van uw server aan een gateway op uw intranet door overwritting deze instellingen in het voorbeeld ApplicationInsights.config. Als deze eigenschappen 'Eindpunt' niet aanwezig in uw configuratie zijn, wordt deze klassen gebruikt de standaardwaarden die in het voorbeeld hieronder wordt weergegeven.
+Het routeren van verkeer van uw server aan een gateway op uw intranet door deze instellingen in het voorbeeld ApplicationInsights.config overschrijven. Als deze eigenschappen 'Eindpunt' niet aanwezig in uw configuratie zijn, wordt deze klassen gebruikt de standaardwaarden die in het voorbeeld hieronder wordt weergegeven.
 
 #### <a name="example-applicationinsightsconfig"></a>Voorbeeld ApplicationInsights.config:
 ```xml
@@ -283,22 +282,23 @@ http://<your.gateway.endpoint>/v2/track
 http://<your.gateway.endpoint>/api/profiles/{0}/apiId
 ```
 
-
-
-
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan ik webtests voor beschikbaarheid uitvoeren op een intranetserver?
 
-Onze [webtests](app-insights-monitor-web-app-availability.md) worden uitgevoerd op de punten van de aanwezigheid die zijn verdeeld over de hele wereld. Er zijn twee mogelijke oplossingen:
+Onze [webtests](../azure-monitor/app/monitor-web-app-availability.md) worden uitgevoerd op de punten van de aanwezigheid die zijn verdeeld over de hele wereld. Er zijn twee mogelijke oplossingen:
 
-* De deur van Firewall - aanvragen toestaan op uw server uit [de lange en instelbare lijst web testagents](app-insights-ip-addresses.md).
+* De deur van Firewall - aanvragen toestaan op uw server uit [de lange en instelbare lijst web testagents](../azure-monitor/app/ip-addresses.md).
 * Schrijf uw eigen code voor het verzenden van periodieke aanvragen naar uw server uit in uw intranet. U kunt Visual Studio-webtests die voor dit doel kan uitvoeren. Het testprogramma kan de resultaten verzenden naar Application Insights met behulp van de API TrackAvailability().
+
+## <a name="how-long-does-it-take-for-telemetry-to-be-collected"></a>Hoe lang duurt het voor telemetrie wordt verzameld?
+
+De meeste Application Insights-gegevens heeft een latentie van minder dan vijf minuten. Sommige gegevens kunnen langer; Normaal gesproken grotere logboekbestanden. Zie voor meer informatie de [Application Insights SLA](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
 
 ## <a name="more-answers"></a>Meer antwoorden
 * [Application Insights-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
 
 <!--Link references-->
 
-[data]: app-insights-data-retention-privacy.md
+[data]: ../azure-monitor/app/data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

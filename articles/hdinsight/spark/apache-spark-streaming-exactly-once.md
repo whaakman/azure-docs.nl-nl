@@ -8,20 +8,20 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580997"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651772"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Taken met Apache Spark Streaming precies maken-eenmaal gebeurtenis verwerken
 
 Stream-toepassingen voor batchverwerking worden verschillende benaderingen hoe ze opnieuw verwerken om berichten te na een storing in het systeem verwerken:
 
-* Ten minste één keer: elk bericht wordt gegarandeerd moeten worden verwerkt, maar het kan meer dan één keer verwerkt.
-* Maximaal eenmaal: elk bericht kan of kunnen niet worden verwerkt. Als een bericht is verwerkt, wordt slechts één keer wordt verwerkt.
-* Exact één keer: elk bericht kan worden gegarandeerd slechts eenmaal worden verwerkt.
+* Ten minste één keer: Elk bericht wordt gegarandeerd moeten worden verwerkt, maar het kan meer dan één keer verwerkt.
+* Maximaal eenmaal: Elk bericht kan of kan niet worden verwerkt. Als een bericht is verwerkt, wordt slechts één keer wordt verwerkt.
+* Exact één keer: Elk bericht is gegarandeerd slechts eenmaal worden verwerkt.
 
 In dit artikel leest u hoe het configureren van Spark Streaming te bereiken exact-één keer worden verwerkt.
 
@@ -29,11 +29,11 @@ In dit artikel leest u hoe het configureren van Spark Streaming te bereiken exac
 
 Eerst, houd rekening met hoe alle system Point of failure start opnieuw op nadat er een probleem en hoe kunt u voorkomen dat gegevens verloren gaan. Er is een toepassing voor Spark Streaming:
 
-* Een invoerbron
-* Een of meer ontvanger processen die gegevens van de invoerbron ophalen
-* Taken die de gegevens verwerken
-* Een uitvoer-sink
-* Een stuurprogramma-proces dat de taak langlopende beheert
+* Een invoerbron.
+* Een of meer ontvanger processen die gegevens van de invoerbron ophalen.
+* Taken die de gegevens te verwerken.
+* Een uitvoer-sink.
+* Een stuurprogramma-proces dat de taak langlopende beheert.
 
 Precies-zodra semantiek vereisen dat er geen gegevens verloren gegaan op elk gewenst moment zijn en die verwerking van berichten kan opnieuw worden gestart, ongeacht waar de fout zich voordoet.
 
@@ -41,7 +41,7 @@ Precies-zodra semantiek vereisen dat er geen gegevens verloren gegaan op elk gew
 
 De bron die uw toepassing Spark Streaming van de gebeurtenissen van lezen moet zijn *replayable*. Dit betekent dat in gevallen waarin het bericht opgehaald, maar vervolgens het systeem is mislukt voordat het bericht kan worden bewaard of verwerkt, de bron moet hetzelfde bericht opnieuw opgeven.
 
-In Azure, zowel Azure Event Hubs en [Apache Kafka](https://kafka.apache.org/) op HDInsight bieden replayable bronnen. Een ander voorbeeld van een replayable bron is een fouttolerante bestandssysteem, zoals [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage-blobs of Azure Data Lake Store, waar alle gegevens definitief worden bewaard en op elk gewenst moment kunt u opnieuw de gegevens in zijn geheel te lezen.
+In Azure, zowel Azure Event Hubs en [Apache Kafka](https://kafka.apache.org/) op HDInsight bieden replayable bronnen. Een ander voorbeeld van een replayable bron is een fouttolerante bestandssysteem, zoals [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage-blobs of Azure Data Lake-opslag, waarbij alle gegevens definitief worden bewaard en op elk gewenst moment kunt u de gegevens in zijn geheel opnieuw lezen.
 
 ### <a name="reliable-receivers"></a>Betrouwbare ontvangers
 
@@ -49,7 +49,7 @@ Gegevensbronnen in de Spark Streaming, zoals Event Hubs en Kafka *betrouwbare on
 
 ### <a name="use-the-write-ahead-log"></a>Gebruik de Write-Ahead van logboek
 
-Spark Streaming ondersteunt het gebruik van een Write-Ahead van logboek, waarbij elke ontvangen gebeurtenis eerst naar van Spark controlepunt directory in de fouttolerante opslag geschreven en vervolgens opgeslagen in een flexibele gedistribueerd gegevensset (RDD). In Azure is de fouttolerantie opslag HDFS ondersteund door Azure Storage of Azure Data Lake Store. In uw toepassing Spark Streaming de Write-Ahead van logboek is ingeschakeld voor alle ontvangers door in te stellen de `spark.streaming.receiver.writeAheadLog.enable` configuratie-instelling op `true`. De Write-Ahead van logboek biedt fouttolerantie voor fouten van zowel de Executor als het stuurprogramma.
+Spark Streaming ondersteunt het gebruik van een Write-Ahead van logboek, waarbij elke ontvangen gebeurtenis eerst naar van Spark controlepunt directory in de fouttolerante opslag geschreven en vervolgens opgeslagen in een flexibele gedistribueerd gegevensset (RDD). In Azure is de fouttolerantie opslag ondersteund door Azure Storage of Azure Data Lake Storage HDFS. In uw toepassing Spark Streaming de Write-Ahead van logboek is ingeschakeld voor alle ontvangers door in te stellen de `spark.streaming.receiver.writeAheadLog.enable` configuratie-instelling op `true`. De Write-Ahead van logboek biedt fouttolerantie voor fouten van zowel de Executor als het stuurprogramma.
 
 Voor werknemers met het uitvoeren van taken in de gebeurtenisgegevens, is elke RDD per definitie beide gerepliceerd en verdeeld over meerdere werknemers. Als een taak is mislukt omdat de werknemer die wordt uitgevoerd, is vastgelopen, de taak opnieuw wordt gestart op een andere werknemer die een replica van gegevens van de gebeurtenis heeft, zodat de gebeurtenis is niet verloren gaan.
 
@@ -66,7 +66,7 @@ Controlepunten zijn ingeschakeld in Spark Streaming in twee stappen.
     ssc.checkpoint("/path/to/checkpoints")
     ```
 
-    In HDInsight, moeten deze controlepunten worden opgeslagen op de standaardopslag die is gekoppeld aan het cluster, Azure Storage of Azure Data Lake Store.
+    In HDInsight, moeten deze controlepunten worden opgeslagen op de standaardopslag die is gekoppeld aan het cluster, Azure Storage of Azure Data Lake-opslag.
 
 2. Geef vervolgens een controlepunt-interval (in seconden) op de DStream. Tijdens een interval, de gegevens van de gebruikersstatus is afgeleid van de invoer gebeurtenis persistent gemaakt met storage. Gegevens van de permanente status kunnen de berekening die nodig zijn tijdens het opnieuw opbouwen van de status van de bron-gebeurtenis verminderen.
 
@@ -85,7 +85,7 @@ U kunt idempotent sinks maken door het implementeren van logica die eerst contro
 
 U kunt bijvoorbeeld een opgeslagen procedure gebruiken met Azure SQL Database die gebeurtenissen in een tabel invoegen. Deze opgeslagen procedure zoekt eerst naar de gebeurtenis die door de velden voor sleutels, en alleen als er geen overeenkomende gebeurtenis gevonden is de record ingevoegd in de tabel.
 
-Een ander voorbeeld is het gebruik van een gepartitioneerde bestandssysteem, zoals Azure Storage-blobs of Azure Data Lake store. Uw logica sink hoeft in dit geval niet te controleren of er sprake van een bestand. Als het bestand voor de gebeurtenis bestaat, wordt het eenvoudig met dezelfde gegevens overschreven. Anders wordt wordt een nieuw bestand gemaakt in de berekende pad.
+Een ander voorbeeld is het gebruik van een gepartitioneerde bestandssysteem, zoals Azure Storage-blobs of Azure Data Lake-opslag. Uw logica sink hoeft in dit geval niet te controleren of er sprake van een bestand. Als het bestand voor de gebeurtenis bestaat, wordt het eenvoudig met dezelfde gegevens overschreven. Anders wordt wordt een nieuw bestand gemaakt in de berekende pad.
 
 ## <a name="next-steps"></a>Volgende stappen
 

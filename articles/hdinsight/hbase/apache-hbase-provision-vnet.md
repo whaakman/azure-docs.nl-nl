@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 31e4f4a8cfe9a82cf5320cd364905c7c91de0959
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011195"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653795"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Apache HBase-clusters maken in HDInsight in Azure Virtual Network
 Informatie over het maken van Azure HDInsight Apache HBase-clusters in een [Azure Virtual Network][1].
@@ -34,11 +34,11 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 ## <a name="create-apache-hbase-cluster-into-virtual-network"></a>Apache HBase-cluster in virtueel netwerk maken
 In deze sectie maakt u een Apache HBase op basis van Linux-cluster maken met het afhankelijke Azure Storage-account in een virtueel Azure-netwerk met behulp van een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-template-deploy.md). Voor andere methoden voor het maken van cluster en inzicht in de instellingen, Zie [maken van HDInsight-clusters](../hdinsight-hadoop-provision-linux-clusters.md). Zie voor meer informatie over het gebruik van een sjabloon voor het maken van Apache Hadoop-clusters in HDInsight [Apache Hadoop-clusters maken in HDInsight met behulp van Azure Resource Manager-sjablonen](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-> [!NOTE]
+> [!NOTE]  
 > Sommige eigenschappen zijn vastgelegd in de sjabloon. Bijvoorbeeld:
 >
-> * **Locatie**: VS-Oost 2
-> * **Cluster-versie**: 3.6
+> * **Locatie**: US - oost 2
+> * **Clusterversie**: 3.6
 > * **Aantal worker-knooppunten cluster**: 2
 > * **Storage-account standaard**: een unieke tekenreeks
 > * **Virtuele-netwerknaam**: &lt;Clusternaam >-vnet
@@ -57,11 +57,11 @@ In deze sectie maakt u een Apache HBase op basis van Linux-cluster maken met het
 
    * **Abonnement**: Selecteer een Azure-abonnement gebruikt voor het maken van het HDInsight-cluster, het afhankelijke opslagaccount en de Azure-netwerk.
    * **Resourcegroep**: Selecteer **nieuw**, en geef de naam van een nieuwe resourcegroep.
-   * **Locatie**: selecteer een locatie voor de resourcegroep.
-   * **Clusternaam**: Voer een naam voor het Hadoop-cluster moet worden gemaakt.
-   * **Aanmeldingsgegevens voor het cluster**: de standaardaanmeldingsnaam is **admin**.
-   * **SSH-gebruikersnaam en -wachtwoord**: de standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen.
-   * **Ik ga akkoord met de voorwaarden en de bovenstaande voorwaarden**: (selecteren)
+   * **Locatie**: Selecteer een locatie voor de resourcegroep.
+   * **Clusternaam**: Voer een naam voor de Hadoop-cluster moet worden gemaakt.
+   * **Cluster-aanmeldingsnaam en dit wachtwoord**: De standaardaanmeldingsnaam is **admin**.
+   * **SSH-gebruikersnaam en wachtwoord**: De standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen.
+   * **Ik ga akkoord met de voorwaarden en de bovenstaande voorwaarden**: (Selecteren)
 3. Klik op **Kopen**. Het duurt ongeveer 20 minuten om een cluster te maken. Zodra het cluster is gemaakt, kunt u de clusterblade in de portal om dit te openen.
 
 Nadat u de zelfstudie hebt voltooid, is het raadzaam om het cluster te verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Zie voor de instructies van het verwijderen van een cluster, [beheren Apache Hadoop-clusters in HDInsight met behulp van de Azure-portal](../hdinsight-administer-use-management-portal.md#delete-clusters).
@@ -74,10 +74,8 @@ Als u wilt werken met uw nieuwe HBase-cluster, kunt u de procedures die zijn gev
    * **Virtueel netwerk**: &lt;Clusternaam >-vnet
    * **Subnet**: subnet1
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Vervang &lt;Clusternaam > met de naam die u hebt gebruikt bij het HDInsight-cluster in de vorige stappen is gemaakt.
-   >
-   >
 
    De virtuele machine wordt met behulp van deze waarden geplaatst in hetzelfde virtuele netwerk en subnet als het HDInsight-cluster. Deze configuratie kan ze rechtstreeks met elkaar communiceren. Er is een manier om een HDInsight-cluster maken met een lege edge-knooppunt. Het edge-knooppunt kan worden gebruikt voor het beheren van het cluster.  Zie voor meer informatie, [lege edge-knooppunten gebruiken in HDInsight](../hdinsight-apps-use-edge-node.md).
 
@@ -232,10 +230,8 @@ Als u deze informatie in een Java-toepassing, kunt u Volg de stappen in [Apache 
         <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
     </property>
 
-> [!NOTE]
+> [!NOTE]  
 > Zie voor meer informatie over naamomzetting in Azure virtuele netwerken, inclusief het gebruik van uw eigen DNS-server, [Name Resolution (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
->
->
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd hoe u een Apache HBase-cluster maakt. Voor meer informatie zie:

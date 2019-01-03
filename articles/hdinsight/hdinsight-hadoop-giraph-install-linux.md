@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 027f8ad854cfc4c412a56a293de3b02a425d6858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383898"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713825"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Apache Giraph installeren op HDInsight Hadoop-clusters en Giraph gebruiken om grootschalige grafieken te verwerken
 
 Leer hoe u Apache Giraph installeren op een HDInsight-cluster. Het script action-functie van HDInsight kunt u het aanpassen van uw cluster een bash-script uit te voeren. Scripts kunnen worden gebruikt voor het aanpassen van clusters tijdens en na het maken van clusters.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="whatis"></a>Wat is Giraph
 
-[Apache Giraph](http://giraph.apache.org/) Hiermee kunt u grafische verwerking met behulp van Hadoop en kan worden gebruikt met Azure HDInsight. Grafieken model relaties tussen objecten. Bijvoorbeeld, de verbindingen tussen routers in een groot netwerk zoals Internet, of de relaties tussen personen op sociale netwerken. Grafische verwerking kunt u te beredeneren de relaties tussen de objecten in een grafiek, zoals:
+[Apache Giraph](https://giraph.apache.org/) Hiermee kunt u grafische verwerking met behulp van Hadoop en kan worden gebruikt met Azure HDInsight. Grafieken model relaties tussen objecten. Bijvoorbeeld, de verbindingen tussen routers in een groot netwerk zoals Internet, of de relaties tussen personen op sociale netwerken. Grafische verwerking kunt u te beredeneren de relaties tussen de objecten in een grafiek, zoals:
 
 * Identificeren van mogelijke vrienden op basis van uw huidige relaties.
 
@@ -36,7 +36,7 @@ Leer hoe u Apache Giraph installeren op een HDInsight-cluster. Het script action
 > [!WARNING]  
 > Onderdelen van het HDInsight-cluster volledig worden ondersteund: Microsoft Support helpt bij het opsporen en oplossen van problemen met betrekking tot deze onderdelen.
 >
-> Aangepaste onderdelen, zoals Giraph, commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Het is mogelijk dat Microsoft Support kunnen de problemen kunt oplossen. Als dat niet het geval is, moet u contact opnemen met open-source-community's waar de uitgebreide expertise voor deze technologie kan worden gevonden. Er zijn bijvoorbeeld veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
+> Aangepaste onderdelen, zoals Giraph, commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Het is mogelijk dat Microsoft Support kunnen de problemen kunt oplossen. Als dat niet het geval is, moet u contact opnemen met open-source-community's waar de uitgebreide expertise voor deze technologie kan worden gevonden. Er zijn bijvoorbeeld veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ https://apache.org ](https://apache.org), bijvoorbeeld: [Hadoop](https://hadoop.apache.org/).
 
 
 ## <a name="what-the-script-does"></a>Wat het script doet
@@ -55,7 +55,7 @@ Een voorbeeld van een script Giraph installeren op een HDInsight-cluster is besc
 
 Deze sectie vindt u instructies over het gebruik van het voorbeeldscript tijdens het maken van het cluster met behulp van de Azure-portal.
 
-> [!NOTE]
+> [!NOTE]  
 > Een scriptactie kan worden toegepast met behulp van een van de volgende methoden:
 > * Azure PowerShell
 > * De klassieke Azure-CLI
@@ -86,7 +86,7 @@ Deze sectie vindt u instructies over het gebruik van het voorbeeldscript tijdens
 
 ## <a name="usegiraph"></a>Hoe gebruik ik Giraph in HDInsight?
 
-Zodra het cluster is gemaakt, gebruikt u de volgende stappen uit om uit te voeren in het voorbeeld SimpleShortestPathsComputation is opgenomen met Giraph. In dit voorbeeld wordt de basis [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) implementatie voor het zoeken naar het kortste pad tussen objecten in een grafiek.
+Zodra het cluster is gemaakt, gebruikt u de volgende stappen uit om uit te voeren in het voorbeeld SimpleShortestPathsComputation is opgenomen met Giraph. In dit voorbeeld wordt de basis [Pregel](https://people.apache.org/~edwardyoon/documents/pregel.pdf) implementatie voor het zoeken naar het kortste pad tussen objecten in een grafiek.
 
 1. Maak verbinding met het HDInsight-cluster via SSH:
 
@@ -146,7 +146,7 @@ Zodra het cluster is gemaakt, gebruikt u de volgende stappen uit om uit te voere
    | `-op` |De locatie van de uitvoer. |
    | `-w 2` |Het aantal werknemers te gebruiken. In dit voorbeeld 2. |
 
-    Zie voor meer informatie over deze en andere parameters gebruikt met Giraph voorbeelden de [Giraph snelstartgids](http://giraph.apache.org/quick_start.html).
+    Zie voor meer informatie over deze en andere parameters gebruikt met Giraph voorbeelden de [Giraph snelstartgids](https://giraph.apache.org/quick_start.html).
 
 6. Nadat de taak is voltooid, de resultaten worden opgeslagen de **/example/out/shotestpaths** directory. De namen van de uitvoer beginnen met **onderdeel-m -** en moet eindigen met een getal dat aangeeft van de eerste, tweede, enzovoort-bestand. Gebruik de volgende opdracht om de uitvoer weer te geven:
 

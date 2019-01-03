@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270124"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546858"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Meldingen voor gepland onderhoud voor virtuele-machineschaalsets
 
@@ -32,7 +32,7 @@ Azure voert regelmatig updates ter verbetering van de betrouwbaarheid, prestatie
 
 Gepland onderhoud die worden opgestart moet is in vaste blokken gepland. Elk blok heeft een ander bereik (regio's):
 
-- Een golf begint met een melding aan klanten. Standaard wordt melding verzonden naar de abonnement-eigenaar en mede-eigenaren. U kunt ontvangers en opties zoals e-mail, SMS en webhooks voor meldingen toevoegen met behulp van Azure [waarschuwingen voor activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- Een golf begint met een melding aan klanten. Standaard wordt melding verzonden naar de abonnement-eigenaar en mede-eigenaren. U kunt ontvangers en opties zoals e-mail, SMS en webhooks voor meldingen toevoegen met behulp van Azure [waarschuwingen voor activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md).  
 - Met de melding een *selfservice venster* beschikbaar wordt gesteld. Tijdens dit venster kunt u vinden die van uw VM's zijn opgenomen in de wave. U kunt onderhoud proactief te starten op basis van de behoeften van uw eigen planning.
 - Nadat het venster zelf een *geplande onderhoudsvenster* begint. Op een bepaald moment tijdens dit venster Azure plant en het vereiste onderhoud is van toepassing op uw virtuele machine. 
 
@@ -95,7 +95,7 @@ De **selfservice-onderhoud** kolom wordt nu weergegeven in de lijst met virtuele
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Meldingen en waarschuwingen in de portal
 
-Een schema voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de abonnement-eigenaar en mede-eigenaars-groep. U kunt ontvangers en kanalen toevoegen aan deze communicatie met het maken van waarschuwingen voor activiteitenlogboek. Zie voor meer informatie, [abonnement activiteiten met de Azure-activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Een schema voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de abonnement-eigenaar en mede-eigenaars-groep. U kunt ontvangers en kanalen toevoegen aan deze communicatie met het maken van waarschuwingen voor activiteitenlogboek. Zie voor meer informatie, [abonnement activiteiten met de Azure-activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md).
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer in het menu links **Monitor**. 

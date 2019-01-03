@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: On-demand Apache Hadoop-clusters maken in Azure HDInsight met Data Factory '
+title: 'Zelfstudie: Apache Hadoop-clusters op aanvraag maken in Azure HDInsight met Data Factory '
 description: Informatie over het maken van on-demand Apache Hadoop-clusters in HDInsight met behulp van Azure Data Factory.
 services: hdinsight
 author: hrasheed-msft
@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: c7ec0b29e200710070cb1243ff8bfadd5e31e8eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7b20ceb61f522bea11e7256c824a851e587cbd49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879406"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975454"
 ---
-# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Zelfstudie: On-demand Apache Hadoop-clusters in HDInsight met behulp van Azure Data Factory maken
+# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Zelfstudie: Op aanvraag Apache Hadoop-clusters in HDInsight met behulp van Azure Data Factory maken
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 In dit artikel leert u over het maken van een [Apache Hadoop](https://hadoop.apache.org/) cluster, on-demand, in Azure HDInsight met behulp van Azure Data Factory. Vervolgens gebruikt u gegevenspijplijnen in Azure Data Factory Hive-taken uitvoeren en verwijderen van het cluster. Aan het einde van deze zelfstudie leert u hoe u voor het operationeel maken van een big data-taak uitgevoerd waar het cluster te maken, taak uitvoeren en verwijderen van de cluster worden uitgevoerd volgens een schema.
@@ -55,7 +55,7 @@ Deze sectie wordt een Azure PowerShell-script voor het maken van de storage-acco
 
 
 **Een storage-account maken en kopieer de bestanden met behulp van Azure PowerShell:**
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Geef namen voor de Azure-resourcegroep en de Azure storage-account dat door het script wordt gemaakt.
 > Noteer **groepsnaam voor accountresources**, **opslagaccountnaam**, en **opslagaccountsleutel** output door het script. U moet deze in de volgende sectie.
 
@@ -166,7 +166,11 @@ In dit artikel configureert u de Hive-activiteit voor het maken van een on-deman
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-1. Selecteer in de Azure portal, **een resource maken** > **gegevens en analyses** > **Data Factory**.
+1. Selecteer in het menu links **+ een resource maken**.
+
+1. Onder **Azure Marketplace**, selecteer **Analytics**.
+
+1.  Onder **aanbevolen**, selecteer **Data Factory**.
 
     ![Azure Data Factory in de portal](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Azure Data Factory in de portal")
 
@@ -181,19 +185,18 @@ In dit artikel configureert u de Hive-activiteit voor het maken van een on-deman
     |**Naam** |  Voer een naam voor de data factory. Deze naam moet wereldwijd uniek zijn.|
     |**Abonnement**     |  Selecteer uw Azure-abonnement. |
     |**Resourcegroep**     | Selecteer **gebruik bestaande** en selecteer vervolgens de resourcegroep die u hebt gemaakt met de PowerShell-script. |
-    |**Versie**     | Selecteer **V2 (Preview)** |
-    |**Locatie**     | De locatie is automatisch ingesteld op de locatie die u hebt opgegeven tijdens het maken van de resourcegroep eerder. Voor deze zelfstudie, de locatie is ingesteld op **VS-Oost 2**. |
+    |**Versie**     | Selecteer **V2** |
+    |**Locatie**     | De locatie is automatisch ingesteld op de locatie die u hebt opgegeven tijdens het maken van de resourcegroep eerder. Voor deze zelfstudie, de locatie is ingesteld op **VS-Oost**. |
     
 
-1. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**. U ziet een nieuwe tegel met de mededeling dat **de implementatie wordt verzonden**. Het maken van een data factory kan duren voordat tussen 2 tot 4 minuten.
+1. Selecteer **Maken**. Het maken van een data factory kan duren voordat tussen 2 tot 4 minuten.
 
-    ![Voortgang van de implementatie sjabloon](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "voortgang van de sjabloon voor implementatie") 
- 
-1. Nadat de gegevensfactory is gemaakt, de portal ziet u het overzicht voor de data factory.
 
-    ![Overzicht van Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory-overzicht")
+1. Nadat de gegevensfactory is gemaakt, ontvangt u een **implementatie is voltooid** melding met een **naar de resource gaan** knop.  Selecteer **naar de resource gaan** om de weergave van de standaard Data Factory te openen.
 
 1. Selecteer **Author & Monitor** om te starten van de Azure Data Factory voor ontwerp en controle van de portal.
+
+    ![Overzicht van Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory-overzicht")
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
 
@@ -234,9 +237,9 @@ In deze sectie maakt maken u twee gekoppelde services in uw data factory.
 
     Voer de volgende waarden en laat de overige als standaard.
 
-    | Eigenschap | Beschrijving |
+    | Eigenschap | Description |
     | --- | --- |
-    | Naam | Voer een naam voor de gekoppelde HDInsight-service |
+    | Name | Voer een naam voor de gekoppelde HDInsight-service |
     | Type | Selecteer **On-demand HDInsight** |
     | Een gekoppelde Azure Storage-service | Selecteer de gekoppelde Storage-service die u eerder hebt gemaakt. |
     | Clustertype | Selecteer **hadoop** |

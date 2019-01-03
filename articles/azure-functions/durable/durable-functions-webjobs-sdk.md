@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c1a778a006c7743b6ea19062d79cff3cfeaba3d8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343153"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713265"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Het uitvoeren van duurzame functies als WebJobs
 
-[Azure Functions](../functions-overview.md) en de [duurzame functies](durable-functions-overview.md) extensie zijn gebouwd op de [WebJobs SDK](../../app-service/web-sites-create-web-jobs.md). De `JobHost` in de WebJobs SDK is de runtime in Azure Functions. Als u nodig om te bepalen hebt `JobHost` gedrag op een manier die niet mogelijk in Azure Functions, die u kunt ontwikkelen en duurzame functies uitvoeren met behulp van de WebJobs SDK. Vervolgens kunt u uw duurzame functies uitvoeren in een Azure WebJob of een willekeurige plaats een consoletoepassing wordt uitgevoerd.
+[Azure Functions](../functions-overview.md) en de [duurzame functies](durable-functions-overview.md) extensie zijn gebouwd op de [WebJobs SDK](../../app-service/webjobs-create.md). De `JobHost` in de WebJobs SDK is de runtime in Azure Functions. Als u nodig om te bepalen hebt `JobHost` gedrag op een manier die niet mogelijk in Azure Functions, die u kunt ontwikkelen en duurzame functies uitvoeren met behulp van de WebJobs SDK. Vervolgens kunt u uw duurzame functies uitvoeren in een Azure WebJob of een willekeurige plaats een consoletoepassing wordt uitgevoerd.
 
 De chaining duurzame functies voorbeeld is beschikbaar in een WebJobs SDK-versie: download of kloon de [duurzame functies opslagplaats](https://github.com/azure/azure-functions-durable-extension/) en navigeer naar de *voorbeelden\\webjobssdk\\-koppeling* map.
 

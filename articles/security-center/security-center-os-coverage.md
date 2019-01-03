@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185576"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608831"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platforms en functies die worden ondersteund door Azure Security Center
 
@@ -30,7 +30,7 @@ Status van beveiligingsbewaking en aanbevelingen zijn beschikbaar voor virtuele 
 >
 >
 
-## <a name="supported-platforms"></a>Ondersteunde platforms 
+## <a name="platforms-that-support-the-data-collection-agent"></a>Platforms die ondersteuning bieden voor de agent voor gegevensverzameling 
 
 Deze sectie vindt u de platforms waarop de Azure Security Center-agent kan worden uitgevoerd en het verzamelen van gegevens.
 
@@ -43,6 +43,10 @@ De volgende Windows-besturingssystemen worden ondersteund:
 * Windows Server 2012 R2
 * Windows Server 2016
 
+> [!NOTE]
+> Integratie met Windows Defender ATP ondersteunt alleen Windows Server 2012 R2 en Windows Server 2016.
+>
+>
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Ondersteunde platforms voor Linux-computers en virtuele machines
 De volgende Linux-besturingssystemen worden ondersteund:
@@ -55,11 +59,6 @@ De volgende Linux-besturingssystemen worden ondersteund:
 * Oracle Linux-versies 5, 6 en 7.
 * Amazon Linux 2012.09 tot 2017.
 * OpenSSL 1.1.0 wordt alleen ondersteund op 64-bits x86_64 platforms.
-
-> [!NOTE]
-> Gedragsanalyse voor virtuele machine zijn nog niet beschikbaar voor Linux-besturingssystemen.
->
->
 
 ## <a name="vms-and-cloud-services"></a>Virtuele machines en Cloudservices
 Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteund. Alleen cloud services web- en werkrollen-rollen die worden uitgevoerd in productiesites worden bewaakt. Zie voor meer informatie over cloudservices, [overzicht van Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Converteer tekst naar spraak, .NET Core - spraakservices'
+title: 'Quickstart: Converteren van tekst naar spraak, .NET Core - spraakservices'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids leert u hoe u kunt converteren van tekst naar spraak met de REST-API van tekst naar spraak. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d463ca73fb533b8a44c2019a478f2df0162cb23
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089867"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791442"
 ---
-# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Snelstartgids: Converteren voor tekst naar spraak met behulp van .NET Core
+# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Quickstart: Converteert tekst naar spraak met behulp van .NET Core
 
 In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van .NET Core en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md), waarmee u de spraak en taal van het antwoord te kiezen.
 
@@ -27,7 +27,7 @@ Deze snelstartgids moet een [Azure Cognitive Services-account](https://docs.micr
 
 Voor deze snelstart zijn de volgende zaken vereist:
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [.NET Core-SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
 * Een Azure-abonnementssleutel voor de Speech Service
 
@@ -109,7 +109,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> Zie voor meer informatie over verificatie [over het verkrijgen van een toegangstoken](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> Zie voor meer informatie over verificatie [verifiëren met een toegangstoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>Een toegangstoken ophalen en instellen van de host-URL
 
@@ -162,7 +162,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> In dit voorbeeld wordt de `ZiraRUS` spraakstijl. Voor een volledige lijst van door Microsoft geleverd stemmen/talen, Zie [taalondersteuning](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). Als u geïnteresseerd bent in het maken van een unieke, herkenbare stem voor uw merk, Zie [het maken van aangepaste spraakstijlen](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
+> In dit voorbeeld wordt de `ZiraRUS` spraakstijl. Voor een volledige lijst van door Microsoft geleverd stemmen/talen, Zie [taalondersteuning](language-support.md). Als u geïnteresseerd bent in het maken van een unieke, herkenbare stem voor uw merk, Zie [het maken van aangepaste spraakstijlen](how-to-customize-voice-font.md).
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>Exemplaar maken van de client, een aanvraag indienen en kunstmatige audio naar een bestand opslaan
 

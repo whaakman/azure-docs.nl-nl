@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 62056b27669f334f1d8007d5284979ac4701f9d9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012569"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650504"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API gebruiken voor het verzenden van externe taken naar een HDInsight Spark-cluster
 
-Meer informatie over het gebruik van [Apache Livy](https://livy.incubator.apache.org/), wordt de [Apache Spark](https://spark.apache.org/) REST-API, die wordt gebruikt voor het verzenden van externe taken naar een Azure HDInsight Spark-cluster. Zie voor gedetailleerde documentatie [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
+Meer informatie over het gebruik van [Apache Livy](https://livy.incubator.apache.org/), wordt de [Apache Spark](https://spark.apache.org/) REST-API, die wordt gebruikt voor het verzenden van externe taken naar een Azure HDInsight Spark-cluster. Zie voor gedetailleerde documentatie [ https://livy.incubator.apache.org/ ](https://livy.incubator.apache.org/).
 
 Hier kunt u uitvoeren van interactieve Spark shells of verzenden van batchtaken kunnen worden uitgevoerd op Spark. In dit artikel wordt besproken met behulp van Livy batchtaken indienen. De codefragmenten in dit artikel gebruiken we cURL voor REST-API-aanroepen naar het eindpunt Livy Spark.
 
@@ -172,9 +172,9 @@ Hier volgen enkele problemen beschreven die u kunt tegenkomen tijdens het gebrui
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Gebruik een externe jar van de extra opslagruimte wordt niet ondersteund
 
-**Probleem:** als uw Livy Spark-taak verwijst naar een externe jar van de extra opslagaccount dat is gekoppeld aan het cluster, de taak is mislukt.
+**Probleem:** Als uw Livy Spark-taak verwijst naar een externe jar van de extra opslagaccount dat is gekoppeld aan het cluster, de taak is mislukt.
 
-**Oplossing:** Zorg ervoor dat de jar die u wilt gebruiken in de standaardopslag die is gekoppeld aan het HDInsight-cluster beschikbaar is.
+**Oplossing:** Zorg ervoor dat de jar die u wilt gebruiken beschikbaar in de standaardopslag die is gekoppeld aan het HDInsight-cluster is.
 
 
 
@@ -182,7 +182,7 @@ Hier volgen enkele problemen beschreven die u kunt tegenkomen tijdens het gebrui
 
 ## <a name="next-step"></a>Volgende stap
 
-* [Apache Livy REST API-documentatie](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Apache Livy REST API-documentatie](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](apache-spark-resource-manager.md)
 * [Taken die worden uitgevoerd in een Apache Spark-cluster in HDInsight, traceren en er fouten in oplossen](apache-spark-job-debugging.md)
 

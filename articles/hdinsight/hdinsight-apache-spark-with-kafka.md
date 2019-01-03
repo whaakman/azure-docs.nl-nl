@@ -10,24 +10,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 5f4b7994ad5061c64021f3625f42ac028cbee859
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165794"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653404"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark-streaming (DStream)-voorbeeld met Apache Kafka in HDInsight
 
 Meer informatie over het gebruik van [Apache Spark](https://spark.apache.org/) om gegevens te streamen naar of van [Apache Kafka](https://kafka.apache.org/) over het gebruik van HDInsight [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html). In dit voorbeeld wordt een [Jupyter-Notebook](https://jupyter.org/) die wordt uitgevoerd op het Spark-cluster.
 
-> [!NOTE]
+> [!NOTE]  
 > Met de stappen in dit document wordt een Azure-resourcegroep gemaakt die zowel een Spark in HDInsight- als een Kafka in HDInsight-cluster bevat. Deze clusters bevinden zich beide binnen een Azure Virtual Network, waardoor het Spark-cluster rechtstreeks kan communiceren met het Kafka-cluster.
 >
 > Nadat u de stappen in dit document hebt doorlopen, moet u niet vergeten de clusters te verwijderen om overtollige kosten te voorkomen.
 
-> [!IMPORTANT]
-> In dit voorbeeld maakt gebruik van DStreams, dit een oudere Spark streaming-technologie is. Zie voor een voorbeeld met nieuwere Spark streaming-functies, de [Spark Structured Streaming met Kafka](hdinsight-apache-kafka-spark-structured-streaming.md) document.
+> [!IMPORTANT]  
+> In dit voorbeeld maakt gebruik van DStreams, dit een oudere Spark streaming-technologie is. Zie voor een voorbeeld met nieuwere Spark streaming-functies, de [Spark Structured Streaming met Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md) document.
 
 ## <a name="create-the-clusters"></a>De clusters maken
 
@@ -35,7 +35,7 @@ Apache Kafka in HDInsight biedt geen toegang tot de Kafka-brokers via het openba
 
 ![Diagram van Spark- en Kafka-clusters in een Azure Virtual Network](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Hoewel Kafka zelf beperkt tot communicatie binnen het virtuele netwerk is, kunnen andere services op het cluster zoals SSH en Ambari zijn toegankelijk via internet. Zie [Poorten en URI's die worden gebruikt door HDInsight](hdinsight-hadoop-port-settings-for-services.md) voor meer informatie over de openbare poorten die beschikbaar zijn voor HDInsight.
 
 Hoewel u een Azure-netwerk, Kafka, maken kunt en Spark-clusters handmatig, is het eenvoudiger te gebruiken van een Azure Resource Manager-sjabloon. Gebruik de volgende stappen uit op een Azure-netwerk, Kafka, implementeren en Spark-clusters naar uw Azure-abonnement.
@@ -46,7 +46,7 @@ Hoewel u een Azure-netwerk, Kafka, maken kunt en Spark-clusters handmatig, is he
     
     De Azure Resource Manager-sjabloon bevindt zich op **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Om beschikbaarheid van Kafka op HDInsight te garanderen, moet uw cluster ten minste drie werkknooppunten bevatten. Met deze sjabloon maakt u een Kafka-cluster dat drie werkknooppunten bevat.
 
     Deze sjabloon maakt een HDInsight 3.6-cluster voor zowel Kafka en Spark.
@@ -77,7 +77,7 @@ Zodra de resources zijn gemaakt, wordt er een overzichtspagina weergegeven.
 
 ![Resourcegroep samenvatting voor het vnet en -clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > U ziet dat de namen van de HDInsight-clusters zijn **spark-BASENAME** en **kafka-BASENAME**, waarbij BASENAME is de naam die u hebt opgegeven voor de sjabloon. U gebruikt deze namen in latere stappen bij het verbinden met de clusters.
 
 ## <a name="use-the-notebooks"></a>De notebooks gebruiken

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: b5083a2af335bd40dc55f7f325ac0a4ad125b682
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 03b4cc919086ff2a8eb038ad9c4f45200e9a6246
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384222"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715102"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>HDInsight-clusters beheren met behulp van de Apache Ambari REST-API
 
@@ -26,7 +26,7 @@ Apache Ambari vereenvoudigt het beheer en bewaking van een Hadoop-cluster met ee
 
 ## <a id="whatis"></a>Wat is Apache Ambari
 
-[Apache Ambari](http://ambari.apache.org) biedt web-UI die kan worden gebruikt om te beheren en bewaken van Hadoop-clusters. Ontwikkelaars kunnen deze mogelijkheden integreren in hun toepassingen met behulp van de [Ambari REST-API's](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) biedt web-UI die kan worden gebruikt om te beheren en bewaken van Hadoop-clusters. Ontwikkelaars kunnen deze mogelijkheden integreren in hun toepassingen met behulp van de [Ambari REST-API's](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari wordt geboden door standaard met HDInsight op basis van Linux-clusters.
 
@@ -232,7 +232,7 @@ foreach($item in $respObj.items) {
 
 ## <a name="example-get-the-default-storage"></a>Voorbeeld: Profiteer van de standaardopslag
 
-Wanneer u een HDInsight-cluster maakt, moet u een Azure Storage-Account of een Data Lake Store als standaardopslag gebruiken voor het cluster. Ambari kunt u deze informatie ophalen nadat het cluster is gemaakt. Bijvoorbeeld, als u wilt lezen/schrijven van gegevens naar de container buiten HDInsight.
+Wanneer u een HDInsight-cluster maakt, moet u een Azure Storage-Account of een Data Lake-opslag gebruiken als de standaardopslag voor het cluster. Ambari kunt u deze informatie ophalen nadat het cluster is gemaakt. Bijvoorbeeld, als u wilt lezen/schrijven van gegevens naar de container buiten HDInsight.
 
 De standaardconfiguratie voor opslag ophalen in de volgende voorbeelden uit het cluster:
 
@@ -255,9 +255,9 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` -Deze waarde geeft aan dat het cluster een Azure Storage-account wordt gebruikt voor standaardopslag. De `ACCOUNTNAME` waarde is de naam van het opslagaccount. De `CONTAINER` gedeelte is de naam van de blob-container in het opslagaccount. De container is de hoofdmap van het HDFS-compatibele opslag voor het cluster.
 
-* `adl://home` -Deze waarde geeft aan dat het cluster een Azure Data Lake Store wordt gebruikt voor standaardopslag.
+* `adl://home` -Deze waarde geeft aan dat het cluster een Azure Data Lake Storage wordt gebruikt voor standaardopslag.
 
-    Als u wilt zoeken in de naam van de Data Lake Store-account, moet u de volgende voorbeelden gebruiken:
+    Als u de naam van het Data Lake Storage zoekt, kunt u de volgende voorbeelden gebruiken:
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -271,9 +271,9 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    De geretourneerde waarde is vergelijkbaar met `ACCOUNTNAME.azuredatalakestore.net`, waarbij `ACCOUNTNAME` is de naam van het Data Lake Store-account.
+    De geretourneerde waarde is vergelijkbaar met `ACCOUNTNAME.azuredatalakestore.net`, waarbij `ACCOUNTNAME` is de naam van de Data Lake Storage-account.
 
-    Als u zoekt de map in Data Lake Store met de opslag voor het cluster, moet u de volgende voorbeelden gebruiken:
+    Als u wilt zoeken in de map in Data Lake-opslag met de opslag voor het cluster, moet u de volgende voorbeelden gebruiken:
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -287,7 +287,7 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    De geretourneerde waarde is vergelijkbaar met `/clusters/CLUSTERNAME/`. Deze waarde is een pad in het Data Lake Store-account. Dit pad is de hoofdmap van de compatibele HDFS-bestandssysteem voor het cluster. 
+    De geretourneerde waarde is vergelijkbaar met `/clusters/CLUSTERNAME/`. Deze waarde is een pad in het Data Lake Storage-account. Dit pad is de hoofdmap van de compatibele HDFS-bestandssysteem voor het cluster. 
 
 > [!NOTE]  
 > De `Get-AzureRmHDInsightCluster` cmdlet geleverd door [Azure PowerShell](/powershell/azure/overview) geeft ook de opslaginformatie voor het cluster.

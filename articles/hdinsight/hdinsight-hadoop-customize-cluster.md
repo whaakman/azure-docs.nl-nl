@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: aeb0dec07ef9c8fb124089c785929f4e5ce69ffe
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ad59decab7233c74e13468b0cf0b11fdb5485d07
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871422"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722348"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>HDInsight op basis van Windows clusters aanpassen met Script Action
 **Actie script** kan worden gebruikt om aan te roepen [aangepaste scripts](hdinsight-hadoop-script-actions.md) tijdens het maken van het cluster voor het installeren van extra software op een cluster.
 
 De informatie in dit artikel is specifiek voor HDInsight op basis van een Windows-clusters. Zie voor Linux gebaseerde clusters [aanpassen Linux gebaseerde HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 HDInsight-clusters kunnen worden aangepast in tal van andere manieren, zoals aanvullende Azure Storage-accounts wijzigen waaronder de [Apache Hadoop](https://hadoop.apache.org/) configuratiebestanden (core-site.xml, hive-site.xml, enzovoort) of toe te voegen gedeeld bibliotheken (bijvoorbeeld [Apache Hive](https://hive.apache.org/), [Apache Oozie](https://oozie.apache.org/)) in veelgebruikte locaties in het cluster. Deze aanpassingen kunnen worden gedaan via Azure PowerShell, Azure HDInsight .NET SDK of de Azure-portal. Zie voor meer informatie, [Apache Hadoop-clusters maken in HDInsight][hdinsight-provision-cluster].
@@ -35,7 +35,7 @@ Script Action wordt alleen gebruikt terwijl een cluster wordt momenteel wordt ge
 
 Wanneer het script wordt uitgevoerd, wordt het cluster krijgt de **ClusterCustomization** fase. In dit stadium het script wordt uitgevoerd onder het account system admin, parallel op de opgegeven knooppunten in het cluster, en biedt volledige beheerdersbevoegdheden op de knooppunten.
 
-> [!NOTE]
+> [!NOTE]  
 > Omdat u beheerdersbevoegdheden op de clusterknooppunten tijdens hebt de **ClusterCustomization** fase, kunt u het script gebruiken om uit te voeren bewerkingen zoals het stoppen en starten van services, waaronder Hadoop-gerelateerde services. Dus als onderdeel van het script, moet u ervoor zorgen dat de Ambari-services en andere Hadoop-gerelateerde services actief zijn voordat het script is voltooid. Deze services zijn vereist om na te gaan met succes de status en de status van het cluster terwijl deze wordt gemaakt. Als u geen configuratie op het cluster die gevolgen heeft voor deze services wijzigt, moet u de Help-functies die worden geleverd. Zie voor meer informatie over ondersteunende functies [ontwikkelen Script Action-scripts voor HDInsight][hdinsight-write-script].
 >
 >
@@ -46,7 +46,7 @@ Elk cluster accepteert meerdere scriptacties die worden aangeroepen in de volgor
 
 HDInsight biedt verschillende scripts voor het installeren van de volgende onderdelen in HDInsight-clusters:
 
-| Naam | Script |
+| Name | Script |
 | --- | --- |
 | **Apache Spark installeren** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Zie [installeren en gebruiken Apache Spark in HDInsight-clusters][hdinsight-install-spark]. |
 | **R installeren** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Zie [installeren en gebruiken R op HDInsight-clusters](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
@@ -64,7 +64,7 @@ HDInsight biedt verschillende scripts voor het installeren van de volgende onder
 
     <table border='1'>
         <tr><th>Eigenschap</th><th>Waarde</th></tr>
-        <tr><td>Naam</td>
+        <tr><td>Name</td>
             <td>Geef een naam voor de scriptactie.</td></tr>
         <tr><td>Script-URI</td>
             <td>Hiermee geeft u de URI naar het script dat wordt aangeroepen voor het aanpassen van het cluster. s</td></tr>
@@ -288,10 +288,10 @@ Er zijn twee typen van open source-componenten die beschikbaar in de HDInsight-s
 
 Ingebouwde onderdelen volledig worden ondersteund en Microsoft Support helpt om te isoleren en het oplossen van problemen met betrekking tot deze onderdelen.
 
-> [!WARNING]
+> [!WARNING]  
 > Onderdelen van het HDInsight-cluster volledig worden ondersteund en Microsoft Support kunnen opsporen en oplossen van problemen met betrekking tot deze onderdelen.
 >
-> Aangepaste onderdelen commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Dit kan resulteren in het oplossen van het probleem of vraag of u contact opnemen met beschikbare kanalen voor de open source-technologieën waar uitgebreide expertise voor deze technologie kan worden gevonden. Bijvoorbeeld, er zijn veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Aangepaste onderdelen commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Dit kan resulteren in het oplossen van het probleem of vraag of u contact opnemen met beschikbare kanalen voor de open source-technologieën waar uitgebreide expertise voor deze technologie kan worden gevonden. Er zijn bijvoorbeeld veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ https://apache.org ](https://apache.org), bijvoorbeeld: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 >
 >
 

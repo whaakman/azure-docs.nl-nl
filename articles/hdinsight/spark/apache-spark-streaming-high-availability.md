@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1d9a7caa7ab70ef1f0da41e1ec3f30780f93536a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581898"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53649718"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Hoge beschikbaarheid Apache Spark Streaming taken met YARN maken
 
@@ -122,6 +122,6 @@ Om samen te vatten, met behulp van het plaatsen van controlepunten, WAL + betrou
 
 * [Apache Spark-Streaming-overzicht](apache-spark-streaming-overview.md)
 * [Taken met Apache Spark Streaming precies maken-eenmaal gebeurtenis verwerken](apache-spark-streaming-exactly-once.md)
-* [Langlopende Apache Spark-Streamingtaken in YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
-* [Structured Streaming: Fout met betrekking tot fouttolerante semantiek](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
-* [Onderscheiden Streams: Een fouttolerantie Model voor de verwerking van schaalbare Stream](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+* [Langlopende Apache Spark-Streamingtaken in YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Gestructureerd streamen: Fout met betrekking tot fouttolerante semantiek](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
+* [Onderscheiden stromen: Een fouttolerantie Model voor de verwerking van schaalbare Stream](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

@@ -1,5 +1,5 @@
 ---
-title: De oplossing voor externe controle integreren met Azure Data Lake Store | Microsoft Docs
+title: De oplossing voor externe controle worden geïntegreerd met Data Lake Store - Azure | Microsoft Docs
 description: Meer informatie over het integreren van de oplossing voor externe controle met Azure Data Lake Store met behulp van een Azure Stream Analytics-taak.
 author: philmea
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: a918866ff5e206ea4d2dedde2711424924a478fe
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188061"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603926"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>De oplossing voor externe controle integreren met Azure Data Lake Store
 
@@ -154,7 +154,7 @@ Azure Stream Analytics maakt gebruik van een SQL-achtige querytaal voor het opge
 
 1. Aangepaste tijd om een paar uur terug om op te halen gegevens uit wanneer het apparaat is gestart streaming instellen.
 
-1. Klik op **Start**.
+1. Klik op **Starten**.
 
     ![Aangepaste datum kiezen](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 

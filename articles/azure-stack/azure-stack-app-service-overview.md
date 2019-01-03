@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 3015755d8046f72c03cd1a1485d90a7f720a8909
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b1b4ea5775a661712838c1495ef0025a83b8c518
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353015"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607940"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Overzicht App Service op Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Azure App Service in Azure Stack is een platform-as-a-service (PaaS) aanbieding van Microsoft Azure beschikbaar voor Azure Stack. De service kan uw interne of externe klanten te maken van web-API en Azure Functions-toepassingen voor elk platform of apparaat. Ze kunnen uw apps integreren met on-premises toepassingen en hun bedrijfsprocessen automatiseren. Azure Stack-cloud-operators kunnen klant apps uitvoeren op volledig beheerde virtuele machines (VM's), met hun eigen keuze aan gedeelde VM-resources of toegewezen virtuele machines.
+Azure App Service in Azure Stack is een platform-as-a-service (PaaS) aanbieding van Microsoft Azure beschikbaar voor Azure Stack. De service kan uw interne of externe klanten te maken van web-API en Azure Functions-toepassingen voor elk platform of apparaat. Ze kunnen uw apps integreren met on-premises toepassingen en hun bedrijfsprocessen automatiseren. Azure Stack-cloudoperators kunnen apps van klanten uitvoeren op volledig beheerde virtuele machines (VM's), waarbij u kunt kiezen uit gedeelde VM-resources of toegewezen VM's.
 
 Azure App Service kunt u bedrijfsprocessen automatiseren en hosten van cloud-API's. Als een geïntegreerde service kunt Azure App Service u diverse onderdelen, zoals websites, REST-API's en bedrijfsprocessen, in één oplossing combineert.
 
@@ -34,15 +34,15 @@ Azure App Service kunt u bedrijfsprocessen automatiseren en hosten van cloud-API
 Hierna ziet u een paar belangrijke functies en mogelijkheden van App Service:
 
 - **Meerdere talen en frameworks**: App Service biedt uitstekende ondersteuning voor ASP.NET, Node.js, Java, PHP en Python. U kunt ook Windows PowerShell en andere scripts of uitvoerbare bestanden uitvoeren op virtuele machines van App Service.
-- **DevOps-optimalisatie**: instellen van continue integratie en implementatie met GitHub-, lokale Git- of BitBucket. U kunt Verhoog updateniveaus via test- en faseringsomgevingen en beheer uw apps in App Service met behulp van Azure PowerShell of de platformoverschrijdende opdrachtregelinterface (CLI).
-- **Visual Studio-integratie**: specifieke hulpprogramma's in Visual Studio stroomlijnen het maken en implementeren van toepassingen.
+- **DevOps-optimalisatie**: Instellen van continue integratie en implementatie met GitHub-, lokale Git- of BitBucket. U kunt Verhoog updateniveaus via test- en faseringsomgevingen en beheer uw apps in App Service met behulp van Azure PowerShell of de platformoverschrijdende opdrachtregelinterface (CLI).
+- **Visual Studio-integratie**: Specifieke hulpprogramma's in Visual Studio stroomlijnen het maken en implementeren van toepassingen.
 
 ## <a name="app-types-in-app-service"></a>App-typen in App Service
 
 App Service biedt verschillende app-typen, die elk zijn bedoeld voor een specifieke workload:
 
-- [Web-Apps](../app-service/app-service-web-overview.md) voor het hosten van websites en webtoepassingen.
-- [API Apps](../app-service/app-service-web-overview.md) voor het hosten van REST-API's.
+- [Web-Apps](../app-service/overview.md) voor het hosten van websites en webtoepassingen.
+- [API Apps](../app-service/overview.md) voor het hosten van REST-API's.
 - Azure Functions voor het hosten van op gebeurtenissen gebaseerde, serverloze werkbelastingen.
 
 Het woord *app* verwijst naar de hostresources die worden toegewezen aan het uitvoeren van een werkbelasting. Duurt *web-app* bijvoorbeeld u waarschijnlijk gewend bent aan denkt aan een web-app als de compute-resources en de toepassing die samen bieden functionaliteit aan een browser code. In App Service wordt een web-app de compute-resource die Azure Stack biedt voor het hosten van code van uw toepassing.

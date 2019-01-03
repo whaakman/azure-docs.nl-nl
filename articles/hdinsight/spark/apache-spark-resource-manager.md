@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3536fb21d50dd54ec71615eba25c2d60fc727f34
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8072d72dbb164d5012ad42d5cba66c8b425e99a1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583292"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787900"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Resources beheren voor Apache Spark-cluster in Azure HDInsight 
 
@@ -34,7 +34,7 @@ Spark geschiedenis-Server is de web-UI voor Spark-toepassingen is voltooid en wo
 
 **De Webgebruikersinterface van Spark geschiedenis Server openen**
 
-1. Uit de [Azure-portal](https://portal.azure.com/), opent u het Spark-cluster. Zie voor meer informatie, [clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Uit de [Azure-portal](https://portal.azure.com/), opent u het Spark-cluster. Zie voor meer informatie, [clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Van **snelkoppelingen**, klikt u op **Clusterdashboard**, en klik vervolgens op **Spark geschiedenis-Server**
 
     ![Spark-geschiedenis Server](./media/apache-spark-resource-manager/launch-history-server.png "Spark-geschiedenis-Server")
@@ -54,15 +54,13 @@ De Spark-geschiedenis Server web UI ziet eruit zoals:
 ## <a name="open-the-yarn-ui"></a>Open de Yarn-gebruikersinterface
 U kunt de gebruikersinterface van YARN gebruiken voor het bewaken van toepassingen die momenteel worden uitgevoerd op het Spark-cluster.
 
-1. Uit de [Azure-portal](https://portal.azure.com/), opent u het Spark-cluster. Zie voor meer informatie, [clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Uit de [Azure-portal](https://portal.azure.com/), opent u het Spark-cluster. Zie voor meer informatie, [clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Van **snelkoppelingen**, klikt u op **Clusterdashboard**, en klik vervolgens op **YARN**.
 
     ![Gebruikersinterface van YARN starten](./media/apache-spark-resource-manager/launch-yarn-ui.png)
 
-   > [!TIP]
+   > [!TIP]  
    > U kunt ook kunt u ook de YARN-gebruikersinterface van de Ambari UI starten. Als u wilt de UI Ambari starten, klikt u op **Clusterdashboard**, en klik vervolgens op **HDInsight-Clusterdashboard**. Klik op de UI Ambari **YARN**, klikt u op **snelkoppelingen**, klikt u op de actieve Resource Manager en klik vervolgens op **Resource Manager UI**.
-   >
-   >
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Clusters voor Spark-toepassingen optimaliseren
 De drie belangrijkste parameters die kunnen worden gebruikt voor de configuratie van Spark, afhankelijk van de vereisten van webtoepassingen zijn `spark.executor.instances`, `spark.executor.cores`, en `spark.executor.memory`. Een Executor is een proces gestart voor een Spark-toepassing. Het wordt uitgevoerd op de worker-knooppunt en is verantwoordelijk voor het uitvoeren van de taken voor de toepassing. Het standaardaantal Executor en de grootte van de executor voor elk cluster wordt berekend op basis van het aantal worker-knooppunten en de grootte van het worker-knooppunt. Deze informatie wordt opgeslagen in `spark-defaults.conf` over de hoofdknooppunten van het cluster.
@@ -158,8 +156,8 @@ Start de gebruikersinterface van Yarn zoals wordt weergegeven in het begin van h
 
 ### <a name="for-data-analysts"></a>Voor gegevensanalisten
 
-* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
 * [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Telemetrie analyse van Application Insights met Apache Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Caffe gebruiken op Azure HDInsight Spark voor gedistribueerde deep learning](apache-spark-deep-learning-caffe.md)
@@ -167,7 +165,7 @@ Start de gebruikersinterface van Yarn zoals wordt weergegeven in het begin van h
 ### <a name="for-apache-spark-developers"></a>Voor Apache Spark-ontwikkelaars
 
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md)
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op te sporen Apache Spark-toepassingen op afstand](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)

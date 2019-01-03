@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088048"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754047"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
 Dit artikel wordt de inhoud van het updatepakket 1809 beschreven. Het updatepakket bevat verbeteringen, problemen en bekende problemen voor deze versie van Azure Stack. In dit artikel bevat ook een koppeling, zodat u kunt de update downloaden. Bekende problemen zijn onderverdeeld in problemen direct verband houden met het updateproces en problemen met de build (na de installatie).
 
@@ -60,10 +60,10 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
 - De volgende beheerde schijf problemen zijn opgelost in 1809 en ook zijn opgelost in de 1808 [Azure Stack-Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Het probleem opgelost in welke koppelen SSD-gegevensschijven aan premium-grootte beheerde schijf virtuele machines (DS, DSv2, Fs, Fs_V2) is mislukt met een fout opgetreden: *schijven voor de virtuele machine 'vmname' Fout bij het bijwerken is mislukt: gevraagde bewerking kan niet worden uitgevoerd omdat opslagaccounttype 'Premium_LRS' wordt niet ondersteund voor VM-grootte ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
+   - Het probleem opgelost in welke koppelen SSD-gegevensschijven aan premium-grootte beheerde schijf virtuele machines (DS, DSv2, Fs, Fs_V2) is mislukt met een fout opgetreden:  *Kan niet bijwerken van schijven voor de virtuele machine 'vmname' fout: Gevraagde bewerking kan niet worden uitgevoerd omdat het opslagaccounttype 'Premium_LRS' wordt niet ondersteund voor VM-grootte ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
    
-   - Het maken van een beheerde schijf-VM met behulp van **createOption**: **Attach** mislukt met de volgende fout: *langdurige bewerking is mislukt met de status 'Mislukt'. Aanvullende informatie:' interne uitvoering is een fout opgetreden.'*
-   ErrorCode: InternalExecutionError ErrorMessage: Er is een interne uitvoeringsfout opgetreden.
+   - Het maken van een beheerde schijf-VM met behulp van **createOption**: **Koppelen** mislukt met de volgende fout: *Langdurige bewerking is mislukt met de status 'Mislukt'. Aanvullende informatie:' interne uitvoering is een fout opgetreden.'*
+   Foutcode: InternalExecutionError ErrorMessage: Er is een interne uitvoeringsfout opgetreden.
    
    Dit probleem is opgelost.
 
@@ -221,16 +221,16 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Mogelijk ziet u waarschuwingen voor de **Health controller** onderdeel waarvoor u de volgende gegevens:  
 
    Waarschuwing #1:
-   - NAAM: De functie van de infrastructuur is niet in orde
-   - ERNST: waarschuwing
-   - ONDERDEEL: De gezondheid van controller
-   - Beschrijving: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
+   - NAAM:  De functie van de infrastructuur is niet in orde
+   - ERNST: Waarschuwing
+   - COMPONENT: De gezondheid van controller
+   - BESCHRIJVING: De health-controller Heartbeat-Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.  
 
   Waarschuwing #2:
-   - NAAM: De functie van de infrastructuur is niet in orde
-   - ERNST: waarschuwing
-   - ONDERDEEL: De gezondheid van controller
-   - Beschrijving: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
+   - NAAM:  De functie van de infrastructuur is niet in orde
+   - ERNST: Waarschuwing
+   - COMPONENT: De gezondheid van controller
+   - BESCHRIJVING: De health-controller fouttolerantie Scanner is niet beschikbaar. Dit kan invloed hebben op statusrapporten en metrische gegevens.
 
   Beide waarschuwingen kunnen worden genegeerd en wordt automatisch gesloten na verloop van tijd.  
 
@@ -238,10 +238,10 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 <!-- 2812138 | IS --> 
 - U ziet mogelijk een waarschuwing voor de **opslag** onderdeel dat de volgende gegevens heeft:
 
-   - NAAM: Storage service interne communicatiefout  
-   - ERNST: kritiek  
-   - COMPONENT: opslag  
-   - Beschrijving: Storage service-interne communicatiefout is opgetreden bij het verzenden van aanvragen naar de volgende knooppunten.  
+   - NAAM: Storage service-interne communicatiefout  
+   - ERNST: Kritiek  
+   - COMPONENT: Storage  
+   - BESCHRIJVING: Storage service-interne communicatiefout is opgetreden bij het verzenden van aanvragen naar de volgende knooppunten.  
 
     De waarschuwing kan veilig worden genegeerd, maar moet u de waarschuwing handmatig sluit.
 
@@ -257,12 +257,12 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Wanneer u een nieuwe virtuele machine (VM) met behulp van de Azure Stack-portal maakt, en u de VM-grootte selecteert, wordt de kolom USD/maand weergegeven met een **niet beschikbaar** bericht. Deze kolom mag niet weergegeven. prijzen kolom, dat is het weergeven van de virtuele machine wordt niet ondersteund in Azure Stack.
 
 <!-- 2869209 – IS, ASDK --> 
-- Wanneer u de [ **toevoegen AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), moet u de **- OsUri** parameter als het opslagaccount URI waar de schijf is geüpload. Als u het lokale pad van de schijf gebruikt, wordt de cmdlet mislukt met de volgende fout: *langdurige bewerking is mislukt met de status 'Mislukt'*. 
+- Wanneer u de [ **toevoegen AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), moet u de **- OsUri** parameter als het opslagaccount URI waar de schijf is geüpload. Als u het lokale pad van de schijf gebruikt, wordt de cmdlet mislukt met de volgende fout: *Langdurige bewerking is mislukt met de status 'Mislukt'*. 
 
 <!--  2795678 – IS, ASDK --> 
 - Wanneer u de portal virtuele machines (VM) maken in een premium VM-grootte (DS, Ds_v2, FS, FSv2) gebruikt, wordt de virtuele machine wordt gemaakt in een standard storage-account. Het maken van in een standard storage-account heeft geen invloed op functioneel, IOP's, of facturering. 
 
-   U kunt gewoon de waarschuwing dat negeren: *u hebt gekozen voor het gebruik van een standaard schijf op een grootte die premium-schijven ondersteunt. Dit kan invloed hebben op prestaties van besturingssysteem en wordt niet aanbevolen. Overweeg het gebruik van premium-opslag (SSD) in plaats daarvan.*
+   U kunt de waarschuwing dat negeren: *U hebt ervoor gekozen een standaardschijf gebruiken op een grootte die premium-schijven ondersteunt. Dit kan invloed hebben op prestaties van besturingssysteem en wordt niet aanbevolen. Overweeg het gebruik van premium-opslag (SSD) in plaats daarvan.*
 
 <!-- 2967447 - IS, ASDK --> 
 - De interface voor het maken van VM scale set (VMSS) biedt 7.2 CentOS gebaseerde als een optie voor implementatie. Omdat deze afbeelding niet beschikbaar op Azure Stack is, selecteert u een ander besturingssysteem voor uw implementatie of u een Azure Resource Manager-sjabloon op te geven van een andere CentOS-installatiekopie die door de operator voorafgaand aan de implementatie van de marketplace is gedownload.  
@@ -287,12 +287,15 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
    - Voor de quota die zijn gemaakt vóór de update 1808, weergegeven het quotum voor Managed Disks 0 waarden in de beheerdersportal, hoewel 2048 GiB is toegewezen. U kunt vergroten of verkleinen van de waarde die is gebaseerd op de behoeften van uw werkelijke en de nieuwe ingestelde quotawaarde overschrijft de 2048 GiB-standaard.
    - Als u bijwerkt naar de quotawaarde op 0, is het equivalent zijn aan de standaardwaarde van 2048 GiB. Als tijdelijke oplossing, stelt u de quotawaarde in op 1.
 
-<!-- TBD - IS ASDK --> Na het toepassen van de 1809 bijwerken, kunnen de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:
+<!-- TBD - IS ASDK --> 
+- Na het toepassen van de 1809 bijwerken, kunnen de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:
 
    - Als het abonnement is gemaakt vóór de update 1808, een virtuele machine met Managed Disks kan mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
       1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
       2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
    2. Als u een omgeving met meerdere tenants hebt geconfigureerd, kan virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map mislukken met een interne fout. Volg deze stappen om op te lossen de fout, [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
+
+- Een Ubuntu 18.04 VM gemaakt met SSH-verificatie ingeschakeld kunt u de SSH-sleutels gebruiken om aan te melden. Gebruik voor de extensie voor Linux-VM-toegang voor het implementeren van SSH-sleutels na het inrichten of verificatie op basis van wachtwoord gebruiken als tijdelijke oplossing.
 
 ### <a name="networking"></a>Netwerken  
 

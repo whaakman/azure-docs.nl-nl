@@ -8,22 +8,24 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 1333c8cdb4493530e1e4803192b382720dbfa5ee
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918873"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634402"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Geregistreerde servers met Azure File Sync beheren
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door het transformeren van uw Windows-Servers in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
 
 Het volgende artikel ziet u hoe u te registreren en beheren van een server met een Opslagsynchronisatieservice. Zie [over het implementeren van Azure File Sync](storage-sync-files-deployment-guide.md) voor informatie over het implementeren van Azure File Sync end-to-end.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Een server met de Opslagsynchronisatieservice registreren/registratie
 Een server registreren met Azure File Sync brengt een vertrouwensrelatie tussen Windows Server en Azure. Deze relatie kan vervolgens worden gebruikt om te maken *servereindpunten* op de server, die staan voor specifieke mappen die moeten worden gesynchroniseerd met een Azure-bestandsshare (ook wel bekend als een *cloud-eindpunt*). 
 
-### <a name="prerequisites"></a>Vereiste onderdelen
+### <a name="prerequisites"></a>Vereisten
 Voor het registreren van een server met een Opslagsynchronisatieservice, moet u eerst de server met de vereiste items voor voorbereiden:
 
 * De server moet een ondersteunde versie van Windows Server worden uitgevoerd. Zie voor meer informatie, [Azure File Sync-systeemvereisten en interoperabiliteit](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
@@ -33,10 +35,10 @@ Voor het registreren van een server met een Opslagsynchronisatieservice, moet u 
     
     ![Serverbeheer-UI met de Internet Explorer Verbeterde beveiliging gemarkeerd](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Zorg ervoor dat de AzureRM PowerShell-module is geïnstalleerd op uw server. Als uw server lid van een failovercluster is, moet elk knooppunt in het cluster de AzureRM-module. Meer informatie over het installeren van de AzureRM-module kunnen worden gevonden op de [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* Zorg ervoor dat de Azure PowerShell-module is geïnstalleerd op uw server. Als uw server lid van een failovercluster is, moet elk knooppunt in het cluster de Az-module. Meer informatie over het installeren van de Az-module kunnen worden gevonden op de [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
     > [!Note]  
-    > Het is raadzaam om een server registreren/registratie ongedaan te maken met behulp van de nieuwste versie van de AzureRM PowerShell-module. Als het pakket AzureRM eerder is geïnstalleerd op deze server (en de PowerShell-versie op deze server is 5.* of hoger), kunt u de `Update-Module` cmdlet dit pakket wilt bijwerken. 
+    > Het is raadzaam om een server registreren/registratie ongedaan te maken met behulp van de nieuwste versie van de Az-PowerShell-module. Als het pakket Az eerder is geïnstalleerd op deze server (en de PowerShell-versie op deze server is 5.* of hoger), kunt u de `Update-Module` cmdlet dit pakket wilt bijwerken. 
 * Als u een proxy-server in uw omgeving gebruiken, kunt u de proxy-instellingen configureren op de server voor de sync-agent gebruiken.
     1. Proxy IP-adres en poort nummer van uw bepalen
     2. Bewerk deze twee bestanden:
@@ -61,7 +63,7 @@ Voor het registreren van een server met een Opslagsynchronisatieservice, moet u 
 ### <a name="register-a-server-with-storage-sync-service"></a>Een server registreren bij de Opslagsynchronisatieservice
 Voordat u een server kan worden gebruikt als een *servereindpunt* in een Azure File Sync *synchronisatiegroep*, moet deze worden geregistreerd met een *Opslagsynchronisatieservice*. Een server kan alleen worden geregistreerd met een Opslagsynchronisatieservice tegelijk.
 
-#### <a name="install-the-azure-file-sync-agent"></a>De Azure File Sync-agent installeren
+#### <a name="install-the-azure-file-sync-agent"></a>Azure File Sync-agent installeren
 1. [Download de Azure File Sync-agent](https://go.microsoft.com/fwlink/?linkid=858257).
 2. Start het installatieprogramma van de Azure File Sync-agent.
     
@@ -101,8 +103,8 @@ U kunt ook serverregistratie via PowerShell uitvoeren. Dit is de enige ondersteu
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
-Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+Login-AzStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
 ```
 
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Registratie van de server met de Opslagsynchronisatieservice
@@ -135,15 +137,15 @@ Dit kan ook worden bereikt met een eenvoudige PowerShell-script:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Connect-AzureRmAccount
-Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$accountInfo = Connect-AzAccount
+Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"
 
-Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
+Get-AzStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
     $SyncGroup = $_; 
-    Get-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
-        Remove-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
+    Get-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
+        Remove-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
     } 
 }
 ```

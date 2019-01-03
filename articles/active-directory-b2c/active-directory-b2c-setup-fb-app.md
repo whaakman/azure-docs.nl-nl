@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1fbf77bfb771bd94ed9acdecb3c54e4c6894687
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 183afaeb40b90de078a44f4677dd0218b8d86ba8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182107"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968978"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Facebook-account met behulp van Azure Active Directory B2C
 
@@ -38,11 +38,11 @@ Voor het gebruik van een Facebook-account als id-provider in Azure Active Direct
 13. Selecteer **producten**, en selecteer vervolgens **instellen** onder **aanmelden via Facebook**.
 14. Selecteer **instellingen** onder **aanmelden via Facebook**.
 15. In **geldig OAuth omleidings-URI's**, voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Vervang `your-tenant-name` met de naam van uw tenant. Klik op **wijzigingen opslaan** aan de onderkant van de pagina.
-16. Als u uw Facebook-toepassing naar Azure AD B2C, selecteer **App-revisie**, stel **openbaar maken van mijn toepassing?** naar **Ja**, en klik vervolgens op **bevestigen** .
+16. Als u uw Facebook-toepassing naar Azure AD B2C, klikt u op de kiezer Status aan de bovenkant van de pagina en schakel het **op** openbaar maken van de toepassing en klik vervolgens op **bevestigen**.  Op dit moment de Status te wijzigen van **ontwikkeling** naar **Live**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configureren van een Facebook-account als id-provider
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
+1. Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen. 
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.

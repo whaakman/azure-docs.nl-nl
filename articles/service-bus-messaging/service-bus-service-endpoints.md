@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 3e1bdcc9340cc6cf997bebcdf1567bf676521ea5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87a89ffd627454752924bfc69e44da87b071b5e5
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276125"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651432"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Service-eindpunten voor Virtueelnetwerk gebruiken met Azure Service Bus
 
@@ -26,7 +26,7 @@ Eenmaal is geconfigureerd om te worden gekoppeld aan ten minste één virtueel n
 Het resultaat is een privé- en geïsoleerd relatie tussen de werkbelastingen die zijn gebonden aan het subnet en de bijbehorende Service Bus-naamruimte, ondanks het waarneembare netwerkadres van de berichten service eindpunt wordt in een openbare IP-adresbereik.
 
 >[!WARNING]
-> Implementatie van de integratie van virtuele netwerken kunt voorkomen dat andere Azure-services interactie met Service Bus.
+> Het implementeren van de integratie van virtuele netwerken kan voorkomen dat andere Azure-services interactie hebben met Service Bus.
 >
 > Vertrouwde Microsoft-services worden niet ondersteund wanneer virtuele netwerken worden geïmplementeerd en binnenkort beschikbaar worden gesteld.
 >
@@ -39,7 +39,7 @@ Het resultaat is een privé- en geïsoleerd relatie tussen de werkbelastingen di
 > - Azure Data Explorer
 >
 > De onderstaande Microsoft services vereist zijn om te worden in een virtueel netwerk
-> - Azure Web Apps
+> - Azure App Service
 > - Azure Functions
 
 > [!IMPORTANT]

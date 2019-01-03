@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: bc37b3b60a5ad7f4e2b4794e4fcb74c1a5004b75
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 33f8547721f499ed7b9a81088681fc2ade2d030c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336880"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723532"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
 
@@ -95,7 +95,7 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="how-log-analytics-data-is-organized"></a>De rangschikking van Log Analytics-gegevens
 Wanneer u een query bouwen, start u door te bepalen welke tabellen bevatten de gegevens die u zoekt. Verschillende soorten gegevens zijn onderverdeeld in specifieke tabellen in elk [Log Analytics-werkruimte](../../azure-monitor/learn/quick-create-workspace.md).  Documentatie voor verschillende gegevensbronnen bevat de naam van het gegevenstype dat wordt gemaakt en een beschrijving van elk van de bijbehorende eigenschappen.  Veel query's worden alleen gegevens uit één tabel vereist, maar andere gebruiken misschien een verscheidenheid aan opties om op te nemen van gegevens uit meerdere tabellen.
 
-Terwijl [Application Insights](../../application-insights/app-insights-overview.md) gegevens van de toepassing stores, zoals aanvragen, uitzonderingen, traceringen en gebruik in Log Analytics, deze gegevens worden opgeslagen in een andere partitie dan de andere logboekgegevens. U dezelfde querytaal gebruiken voor toegang tot deze gegevens, maar moet gebruiken de [Application Insights-console](../../application-insights/app-insights-analytics.md) of [Application Insights REST-API](https://dev.applicationinsights.io/) om deze te openen. U kunt [cross-resources query's](../../azure-monitor/log-query/cross-workspace-query.md) om Application Insights-gegevens met andere gegevens in Log Analytics te combineren.
+Terwijl [Application Insights](../../application-insights/app-insights-overview.md) gegevens van de toepassing stores, zoals aanvragen, uitzonderingen, traceringen en gebruik in Log Analytics, deze gegevens worden opgeslagen in een andere partitie dan de andere logboekgegevens. U dezelfde querytaal gebruiken voor toegang tot deze gegevens, maar moet gebruiken de [Application Insights-console](../../azure-monitor/app/analytics.md) of [Application Insights REST-API](https://dev.applicationinsights.io/) om deze te openen. U kunt [cross-resources query's](../../azure-monitor/log-query/cross-workspace-query.md) om Application Insights-gegevens met andere gegevens in Log Analytics te combineren.
 
 
 ![Tabellen](media/log-query-overview/queries-tables.png)

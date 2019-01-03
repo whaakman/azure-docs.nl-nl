@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/18/2018
 ms.author: adgera
-ms.openlocfilehash: b22bf34a06966f917cdcdd07c28ead2d042061c1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 92ff8cb732c7c10c525d8a8ec76180cb435bd466
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163993"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975005"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Postman voor digitale dubbels voor Azure configureren
 
@@ -31,7 +31,7 @@ Configureer uw Azure AD-app voor het gebruik van de stroom van de impliciete goe
 
 1. Volg de stappen in [in deze snelstartgids](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) te maken van een Azure AD-toepassing van het type native modus. Of u een bestaande systeemeigen app-registratie opnieuw kunt gebruiken.
 
-1. Onder **vereiste machtigingen**, voer `Azure Digital Twins` en selecteer **gedelegeerde machtigingen**. Selecteer vervolgens **machtigingen verlenen**.
+1. Onder **vereiste machtigingen**, selecteer **toevoegen** en voer **Azure digitale dubbels** onder **API-toegang toevoegen**. Als de API met uw zoekopdracht niet wordt gevonden, zoekt u in plaats daarvan **Azure Smart Spaces**. Selecteer **machtigingen verlenen > gedelegeerde machtigingen** en **gedaan**.
 
     ![Azure AD-app-registraties toevoegen api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
@@ -56,7 +56,7 @@ Vervolgens instellen en configureren van Postman om op te halen van een Azure AD
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Naam  | Vervangen door | Voorbeeld |
+    | Name  | Vervangen door | Voorbeeld |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | De naam van uw tenant of organisatie | `microsoft` |
 
@@ -65,7 +65,7 @@ Vervolgens instellen en configureren van Postman om op te halen van een Azure AD
     | Veld  | Waarde |
     |---------|---------|
     | Toekenningstype | `Implicit` |
-    | URL voor terugbellen | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
+    | URL voor terugbellen | `https://www.getpostman.com/oauth2/callback` |
     | Auth.-URL | Gebruik de **autorisatie-URL** uit stap 2 hierboven |
     | Client-id | Gebruik de **toepassings-ID** voor de Azure AD-app die is gemaakt of nieuwe bestemming krijgen uit de vorige sectie |
     | Bereik | Leeg laten |

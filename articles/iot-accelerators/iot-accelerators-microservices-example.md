@@ -1,5 +1,5 @@
 ---
-title: Wijzigen en opnieuw implementeren van een microservice | Microsoft Docs
+title: Wijzigen en opnieuw implementeren van een microservice - Azure | Microsoft Docs
 description: Deze zelfstudie leert u hoe u kunt wijzigen en opnieuw implementeren van een microservice in externe controle
 author: dominicbetts
 ms.author: dobett
@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315754"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631891"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Een microservice aanpassen en opnieuw implementeren
 
-Deze zelfstudie leert u hoe u bewerkt een van de [microservices](http://azure.com/microservices) in de oplossing voor externe controle, bouw een installatiekopie van uw microservice, de installatiekopie naar uw docker hub implementeren en vervolgens worden gebruikt in de oplossing voor externe controle. Om te introduceren dit concept, gebruikgemaakt van een eenvoudige scenario waarin u een microservice-API aanroepen en wijzigen van het statusbericht van 'Leven en ook' naar "New bewerkt maken hier!"
+Deze zelfstudie leert u hoe u bewerkt een van de [microservices](https://azure.com/microservices) in de oplossing voor externe controle, bouw een installatiekopie van uw microservice, de installatiekopie naar uw docker hub implementeren en vervolgens worden gebruikt in de oplossing voor externe controle. Om te introduceren dit concept, gebruikgemaakt van een eenvoudige scenario waarin u een microservice-API aanroepen en wijzigen van het statusbericht van 'Leven en ook' naar "New bewerkt maken hier!"
 
 Oplossing voor externe bewaking maakt gebruik van microservices die zijn gebouwd met behulp van docker-installatiekopieën die zijn opgehaald uit een docker-hub. 
 
@@ -77,7 +77,7 @@ Wijzig nu het statusbericht van de Iot Hub-beheer microservice "Nieuwe wijziging
     
     of op Windows:
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

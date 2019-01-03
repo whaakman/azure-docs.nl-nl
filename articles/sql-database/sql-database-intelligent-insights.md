@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6969744ff52e9aff9d486d2eab6fffc2c3ac8b74
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278131"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607997"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights met behulp van AI voor bewaking en probleemoplossing van databaseprestaties
 
@@ -57,7 +57,7 @@ Geïdentificeerd SQL Database performance degradations worden vastgelegd in de l
 | Waarde van de impact | Waarde van een metrische waarde gemeten. |
 | Betrokken query's en foutcodes | Query uitvoeren op hash of foutcode. Deze kunnen worden gebruikt om eenvoudig correleert met betrokken query's. Metrische gegevens die bestaan uit de toename van de duur van de query, wachttijd, time-out tellingen of foutcodes worden geleverd. |
 | Detecties | De detectie is geïdentificeerd in de database tijdens het ophalen van een gebeurtenis. Er zijn 15 detectie patronen. Zie voor meer informatie, [oplossen van prestatieproblemen met de database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
-| Hoofdoorzaakanalyses | Hoofdoorzaak analyse van het probleem dat is geïdentificeerd in een leesbare indeling. Sommige insights bevat mogelijk een verbetering van prestaties aanbeveling waar mogelijk. |
+| Hoofdoorzaakanalyse | Hoofdoorzaak analyse van het probleem dat is geïdentificeerd in een leesbare indeling. Sommige insights bevat mogelijk een verbetering van prestaties aanbeveling waar mogelijk. |
 |||
 
 Zie de ingesloten video voor een praktische overzicht over het gebruik van Intelligent Insights met Azure SQL Analytics en voor typische gebruiksscenario's:
@@ -97,7 +97,7 @@ Het volgende voorbeeld ziet u dat een Intelligent Insights weergegeven via de Az
 
 ### <a name="set-up-with-event-hubs"></a>Met Event Hubs instellen
 
-Configureren voor het gebruik van Intelligent Insights met Event Hubs, Intelligent Insights-logboekgegevens te worden gestreamd naar Event Hubs, raadpleegt u [Stream Azure diagnostics-logboeken naar Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+Configureren voor het gebruik van Intelligent Insights met Event Hubs, Intelligent Insights-logboekgegevens te worden gestreamd naar Event Hubs, raadpleegt u [Stream Azure diagnostics-logboeken naar Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
 
 Zie voor het gebruik van Event Hubs voor het instellen van aangepaste bewaking en waarschuwingen, [wat te doen met metrische gegevens en diagnostische logboeken in Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
@@ -180,4 +180,4 @@ Als een van de bewaakte kritieke uitzonderingen cross-de absolute drempelwaarden
 - Meer informatie over het [oplossen van prestatieproblemen met de SQL-Database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Gebruik de [diagnoselogboek voor Intelligent Insights SQL Database performance](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Meer informatie over het [SQL-Database bewaken met behulp van SQL-analyse](../azure-monitor/insights/azure-sql.md).
-- Meer informatie over het [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+- Meer informatie over het [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../azure-monitor/platform/diagnostic-logs-overview.md).

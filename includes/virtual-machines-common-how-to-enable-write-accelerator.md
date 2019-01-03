@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: a7fe2cf151b79b02f4f8996ad938d8fc262a5f77
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400276"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594334"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator inschakelt
 
@@ -41,7 +41,7 @@ Inschakelen van Write Accelerator voor OS-schijven mag geen die nodig zijn voor 
 Als u Write Accelerator voor een Azure-schijf/VHD, wordt deze beperkingen gelden:
 
 - De Premium-schijfcache moet worden ingesteld op 'None' of 'Alleen-lezen'. Alle andere opslaan in cache modi worden niet ondersteund.
-- Momentopnamen op een schijf Write Accelerator is ingeschakeld wordt nog niet ondersteund. Deze beperking blokkeert Azure Backup-Service de mogelijkheid om uit te voeren een toepassingsconsistente momentopname van alle schijven van de virtuele machine.
+- Momentopname worden momenteel niet ondersteund voor schijven Write Accelerator is ingeschakeld. Tijdens de back-up sluit de Azure Backup-service automatisch Write Accelerator is ingeschakeld schijven die zijn gekoppeld aan de virtuele machine.
 - Alleen kleinere i/o-grootte (< = 32 KiB) het versneld pad afleggen. In de workload situaties waarin bulksgewijs is het ophalen van gegevens geladen of wanneer de buffers transactie logboek van de verschillende DBMS-systemen zijn ingevuld in een grotere mate voordat het ophalen van persistent gemaakt met de opslag, zijn kans om de i/o geschreven naar schijf neemt het versneld pad niet.
 
 Er zijn beperkingen van Azure Premium Storage VHD's per virtuele machine die kan worden ondersteund door Write Accelerator. De huidige limieten zijn:

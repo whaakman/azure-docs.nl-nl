@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270396"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541610"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) SQL-Database
 
@@ -51,11 +51,11 @@ Beide modellen, zowel die op basis van DTU als vCores, blijven naast elkaar best
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>Hoe moet ik kiezen tussen de vs aankopen model op basis van DTU op vCore gebaseerde aankoopmodel
 
-De Data Transmission Unit (DTU) is gebaseerd op gecombineerde meetgegevens van CPU, geheugen en lees- en schrijfbewerkingen. De grootte op basis van DTU compute vertegenwoordigen vooraf geconfigureerde bundels van resources op verschillende niveaus van de schijf van de prestaties van toepassingen. Klanten die u geen wilt zorgen te maken over de onderliggende resources en de voorkeur van een vooraf geconfigureerde bundel tijdens een vast bedrag per maand betalen vinden het dtu model beter geschikt is voor hun behoeften. Het vCore-model wordt echter voor klanten die meer inzicht in de onderliggende resources nodig of moeten ze onafhankelijk van elkaar voor optimale prestaties schalen, worden de beste keuze.  Bovendien, als een klant een actieve Software Assurance (SA) voor SQL Server heeft, ze kunnen gebruikmaken van hun bestaande investeringen en bespaar tot wel 30% met [Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Binnen elk aanschafmodellen bieden de voordelen van een volledig beheerde service zoals geautomatiseerde back-ups, software-updates en patches.
+De Data Transmission Unit (DTU) is gebaseerd op gecombineerde meetgegevens van CPU, geheugen en lees- en schrijfbewerkingen. De grootte op basis van DTU compute vertegenwoordigen vooraf geconfigureerde bundels van resources op verschillende niveaus van de schijf van de prestaties van toepassingen. Klanten die u geen wilt zorgen te maken over de onderliggende resources en de voorkeur van een vooraf geconfigureerde bundel tijdens een vast bedrag per maand betalen vinden het dtu model beter geschikt is voor hun behoeften. Het vCore-model wordt echter voor klanten die meer inzicht in de onderliggende resources nodig of moeten ze onafhankelijk van elkaar voor optimale prestaties schalen, worden de beste keuze.  Bovendien, als een klant een actieve Software Assurance (SA) voor SQL Server heeft, ze kunnen gebruikmaken van hun bestaande investeringen en bespaar tot wel 30% met [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Binnen elk aanschafmodellen bieden de voordelen van een volledig beheerde service zoals geautomatiseerde back-ups, software-updates en patches.
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>Wat is Azure Hybrid Benefit voor SQL Server
 
-De [Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) helpt u bij de waarde van uw huidige licentie-investeringen maximaliseren en Versnel de migratie naar de cloud. Azure Hybrid Benefit voor SQL Server is een Azure-voordeel waarmee u uw SQL Server-licenties met Software Assurance gebruiken voor een gereduceerd tarief ('basistarief') voor SQL-Database. Azure Hybrid Benefit voor SQL Server is beschikbaar in openbare preview-versie van het op vCore gebaseerde aankoopmodel voor SQL-Database, individuele databases en elastische pools. U kunt dit voordeel toepassen, zelfs als de SKU actief is, maar houd er rekening mee dat het basistarief wordt toegepast vanaf het moment dat u dit in de Azure-portal selecteren. Er worden niet met terugwerkende kracht tegoeden verleend.
+De [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) helpt u bij de waarde van uw huidige licentie-investeringen maximaliseren en Versnel de migratie naar de cloud. Azure Hybrid Benefit voor SQL Server is een Azure-voordeel waarmee u uw SQL Server-licenties met Software Assurance gebruiken voor een gereduceerd tarief ('basistarief') voor SQL-Database. Azure Hybrid Benefit voor SQL Server is beschikbaar in openbare preview-versie van het op vCore gebaseerde aankoopmodel voor SQL-Database, individuele databases en elastische pools. U kunt dit voordeel toepassen, zelfs als de SKU actief is, maar houd er rekening mee dat het basistarief wordt toegepast vanaf het moment dat u dit in de Azure-portal selecteren. Er worden niet met terugwerkende kracht tegoeden verleend.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Zijn er twee gebruiksrechten met Azure Hybrid Benefit voor SQL Server
 
@@ -127,13 +127,13 @@ Ja, kunt u uw database omzetten naar een ondersteunde prestaties doelstelling me
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>Ik kan upgraden en downgraden tussen de lagen algemeen gebruik en bedrijfskritiek
 
-Ja, met enkele beperkingen. De SKU van de bestemming moet voldoen aan de maximale database of elastische pool-grootte die u hebt geconfigureerd voor uw bestaande implementatie. Als u [Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), de bedrijfskritieke SKU is alleen beschikbaar voor klanten met Enterprise Edition-licenties. Alleen klanten die zijn gemigreerd vanuit on-premises naar algemeen gebruik met behulp van Azure Hybrid Benefit voor SQL Server Enterprise Edition-licenties kunnen upgraden naar bedrijfskritiek. Zie voor meer informatie [wat zijn de specifieke rechten van de Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
+Ja, met enkele beperkingen. De SKU van de bestemming moet voldoen aan de maximale database of elastische pool-grootte die u hebt geconfigureerd voor uw bestaande implementatie. Als u [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/), de bedrijfskritieke SKU is alleen beschikbaar voor klanten met Enterprise Edition-licenties. Alleen klanten die zijn gemigreerd vanuit on-premises naar algemeen gebruik met behulp van Azure Hybrid Benefit voor SQL Server Enterprise Edition-licenties kunnen upgraden naar bedrijfskritiek. Zie voor meer informatie [wat zijn de specifieke rechten van de Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/)?
 
 Deze conversie een hoeveelheid niet leidt tot downtime en kan worden gestart via Azure portal, PowerShell, Azure CLI, T-SQL of de REST-API. Zie [individuele databases beheren](sql-database-single-database-scale.md) en [elastische pools beheren](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Ik een Premium RS-database die niet beschikbaar zijn in het algemeen gebruik - kan ik een upgrade uitvoert naar een nieuwe laag en een soortgelijk prijs-prestatieverhouding voordeel behalen
 
-Omdat het vCore-model onafhankelijke controle over de hoeveelheid ingerichte Computing en opslag kunt, kunt u effectiever beheren de kosten van de resulterende, waardoor het een aantrekkelijke bestemming voor Premium RS-databases. Bovendien de [Azure Hybrid Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) biedt een aanzienlijke korting wanneer het vCore-model wordt gebruikt.
+Omdat het vCore-model onafhankelijke controle over de hoeveelheid ingerichte Computing en opslag kunt, kunt u effectiever beheren de kosten van de resulterende, waardoor het een aantrekkelijke bestemming voor Premium RS-databases. Bovendien de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) biedt een aanzienlijke korting wanneer het vCore-model wordt gebruikt.
 
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Hoe vaak kan ik de bronnen per groep van toepassingen aanpassen
 

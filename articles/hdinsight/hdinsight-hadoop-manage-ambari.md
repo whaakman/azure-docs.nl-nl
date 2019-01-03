@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385564"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722019"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface
 
@@ -26,7 +26,7 @@ In dit document leert u hoe u de Ambari-Webinterface gebruiken met een HDInsight
 
 ## <a id="whatis"></a>Wat is Apache Ambari?
 
-[Apache Ambari](http://ambari.apache.org) vereenvoudigt het beheer van Hadoop door te geven van de web-UI van een eenvoudig te gebruiken. U kunt Ambari gebruiken om te beheren en bewaken van Hadoop-clusters. Ontwikkelaars kunnen deze mogelijkheden integreren in hun toepassingen met behulp van de [Ambari REST-API's](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) vereenvoudigt het beheer van Hadoop door te geven van de web-UI van een eenvoudig te gebruiken. U kunt Ambari gebruiken om te beheren en bewaken van Hadoop-clusters. Ontwikkelaars kunnen deze mogelijkheden integreren in hun toepassingen met behulp van de [Ambari REST-API's](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 De Ambari-Webgebruikersinterface wordt geboden door standaard met HDInsight-clusters die gebruikmaken van de Linux-besturingssysteem.
 
@@ -181,12 +181,12 @@ De **Hosts** pagina geeft een lijst van alle hosts in het cluster. Volg deze sta
 
    * **Uit bedrijf nemen** -Hiermee verwijdert u een host uit het cluster.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Deze actie niet gebruiken op HDInsight-clusters.
 
    * **Recommission** -voegt een eerder buiten gebruik gestelde host aan het cluster.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Deze actie niet gebruiken op HDInsight-clusters.
 
 ### <a id="service"></a>Services
