@@ -139,7 +139,7 @@
 ### [AES-128-versleuteling](media-services-protect-with-aes128.md)
 ### [PlayReady/Widevine voor Streaming](media-services-protect-with-playready-widevine.md)
 ### [FairPlay voor Streaming](media-services-protect-hls-with-fairplay.md)
-### [Offline PlayReady voor Windows 10](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [Offline PlayReady voor Windows 10](offline-playready-streaming-windows-10.md)
 ### [Offline FairPlay voor iOS](media-services-protect-hls-with-offline-fairplay.md)
 ### [Offline Widevine voor Android](offline-widevine-for-android.md)
 ### [Configureren in Azure Portal](media-services-portal-protect-content.md)
