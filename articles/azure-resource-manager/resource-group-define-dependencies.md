@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295560"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727799"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>De volgorde voor het implementeren van resources in Azure Resource Manager-sjablonen definiëren
 Voor een bepaalde resource, kunnen er andere resources die moeten bestaan voordat de resource is geïmplementeerd. Bijvoorbeeld, moet een SQL-server bestaan voordat u probeert te implementeren van een SQL-database. Deze relatie definieert u een resource als afhankelijk van de andere resource markeren. U definieert een afhankelijkheid met de **dependsOn** -element, of met behulp van de **verwijzing** functie. 
@@ -145,16 +145,7 @@ U kunt dit element of het element dependsOn gebruiken om op te geven van afhanke
 
 Zie voor meer informatie, [verwijzen naar de functie](resource-group-template-functions-resource.md#reference).
 
-## <a name="recommendations-for-setting-dependencies"></a>Aanbevelingen voor het instellen van afhankelijkheden
-
-Wanneer u bepaalt welke afhankelijkheden om in te stellen, gebruikt u de volgende richtlijnen:
-
-* Afhankelijkheden van zo weinig mogelijk ingesteld.
-* Een onderliggende resource instellen als afhankelijk van de bovenliggende resource.
-* Gebruik de **verwijzing** functioneren en geef de resourcenaam impliciete afhankelijkheden tussen resources die nodig hebt voor het delen van een eigenschap instellen. Geen een expliciete afhankelijkheid toevoegen (**dependsOn**) wanneer u een impliciete afhankelijkheid al hebt gedefinieerd. Deze aanpak vermindert het risico dat onnodige afhankelijkheden. 
-* Een afhankelijkheid ingesteld wanneer een resource kan niet worden **gemaakt** zonder de functionaliteit van een andere resource. Een afhankelijkheid niet worden ingesteld als de resources alleen interactie kunnen aangaan na de implementatie.
-* Laat afhankelijkheden cascade zonder expliciet instelt. Bijvoorbeeld: uw virtuele machine is afhankelijk van een virtuele netwerkinterface en de virtuele netwerkinterface is afhankelijk van een virtueel netwerk en openbare IP-adressen. Daarom wordt de virtuele machine is geïmplementeerd nadat alle drie resources, maar de virtuele machine niet expliciet worden ingesteld als afhankelijk is van alle drie resources. Deze aanpak wordt uitleg gegeven over de volgorde van de afhankelijkheid en kunt u gemakkelijker de sjabloon later wijzigen.
-* Als een waarde kan worden bepaald vóór de implementatie, kunt u de implementatie van de resource zijn zonder een afhankelijkheid. Bijvoorbeeld, als een configuratiewaarde de naam van een andere bron moet, moet u mogelijk niet een afhankelijkheid. In deze richtlijnen werken niet altijd, omdat sommige resources controleren of er sprake van de andere resource. Als u een foutbericht ontvangt, moet u een afhankelijkheid toevoegen. 
+## <a name="circular-dependencies"></a>Circulaire afhankelijkheden
 
 Resource Manager identificeert circulaire afhankelijkheden tijdens de sjabloonvalidatie. Als u een foutmelding waarin staat dat er een circulaire afhankelijkheid bestaat, evalueren de sjabloon om te controleren of alle afhankelijkheden zijn niet nodig en kunnen worden verwijderd. Als het verwijderen van afhankelijkheden niet werkt, kunt u circulaire afhankelijkheden voorkomen door bepaalde implementatiebewerkingen verplaatsen naar onderliggende resources die zijn geïmplementeerd nadat de resources die u een circulaire afhankelijkheid hebt. Stel bijvoorbeeld dat u twee virtuele machines implementeert, maar moet u de eigenschappen instellen op elk die verwijzen naar de andere. U kunt deze implementeren in de volgende volgorde:
 
@@ -168,6 +159,7 @@ Zie voor meer informatie over de implementatievolgorde vast te stellen en het op
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor een zelfstudie doorloopt, [zelfstudie: Azure Resource Manager-sjablonen maken met afhankelijke resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+* Zie voor aanbevelingen bij het instellen van afhankelijkheden, [aanbevolen procedures voor Azure Resource Manager-sjabloon](template-best-practices.md).
 * Zie voor meer informatie over het oplossen van afhankelijkheden tijdens de implementatie, [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Zie voor meer informatie over het maken van Azure Resource Manager-sjablonen, [-sjablonen maken](resource-group-authoring-templates.md). 
 * Zie voor een lijst van de beschikbare functies in een sjabloon, [sjabloonfuncties](resource-group-template-functions.md).

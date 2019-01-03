@@ -3,17 +3,15 @@ title: Beperkingen in Azure Database voor MariaDB
 description: Dit artikel wordt beschreven beperkingen in Azure Database voor MariaDB, zoals het aantal verbindingen en opties voor opslag-engine.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835706"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970281"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Beperkingen in Azure Database voor MariaDB
 De volgende secties beschrijven capaciteit, ondersteuning voor de opslag-engine, bevoegdheden ondersteuning, gegevens manipuleren instructie ondersteuning en functionele limieten in de database-service.
@@ -36,7 +34,7 @@ Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt:
 |Geoptimaliseerd geheugen| 16| 5000|
 
 Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
-> Fout 1040 (08004): Te veel verbindingen
+> FOUT 1040 (08004): Te veel verbindingen
 
 ## <a name="storage-engine-support"></a>Ondersteuning voor de opslag-engine
 
@@ -46,14 +44,14 @@ Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 
 ### <a name="unsupported"></a>Niet-ondersteund
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
-- [ZWARTE GAT](https://mariadb.com/kb/en/library/blackhole/l)
+- [ZWARTE GAT](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVEREN](https://mariadb.com/kb/en/library/archive/)
 
 ## <a name="privilege-support"></a>Ondersteuning van bevoegdheden
 
 ### <a name="unsupported"></a>Niet-ondersteund
-- DBA rol: veel parameters van de server en instellingen kunnen per ongeluk serverprestaties slechter of ACID-eigenschappen van de DBMS negatief moet worden gemaakt. Als zodanig wilt behouden de integriteit van de service en SLA op het productniveau van een, wordt deze service niet weergegeven de DBA-rol. De standaard-gebruikersaccount, die is gemaakt wanneer een nieuwe database-exemplaar wordt gemaakt, kan die gebruiker voor het uitvoeren van de meeste DDL en DML-instructies in de beheerde database-instantie.
-- SUPER bevoegdheden: op dezelfde manier [SUPER bevoegdheden](https://mariadb.com/kb/en/library/grant/#global-privileges) is ook beperkt.
+- DBA rol: Veel parameters van de server en instellingen kunnen per ongeluk serverprestaties slechter of ACID-eigenschappen van de DBMS negatief moet worden gemaakt. Als zodanig wilt behouden de integriteit van de service en SLA op het productniveau van een, wordt deze service niet weergegeven de DBA-rol. De standaard-gebruikersaccount, die is gemaakt wanneer een nieuwe database-exemplaar wordt gemaakt, kan die gebruiker voor het uitvoeren van de meeste DDL en DML-instructies in de beheerde database-instantie.
+- SUPER bevoegdheden: Op dezelfde manier [SUPER bevoegdheden](https://mariadb.com/kb/en/library/grant/#global-privileges) is ook beperkt.
 
 ## <a name="data-manipulation-statement-support"></a>Beheerondersteuning-instructie bewerken
 

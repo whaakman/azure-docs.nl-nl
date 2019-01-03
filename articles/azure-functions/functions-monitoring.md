@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 600bec9e4cfe356dcd28d489707d20ab47f5b013
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876516"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753639"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -119,9 +119,9 @@ In [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md),
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Op de [fouten](../application-insights/app-insights-asp-net-exceptions.md) tabblad kunt u diagrammen maken en waarschuwingen op basis van functie fouten en server uitzonderingen. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u implementeren [aangepaste telemetrie](#custom-telemetry-in-c-functions) voor afhankelijkheden.
+Op de [fouten](../azure-monitor/app/asp-net-exceptions.md) tabblad kunt u diagrammen maken en waarschuwingen op basis van functie fouten en server uitzonderingen. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u implementeren [aangepaste telemetrie](#custom-telemetry-in-c-functions) voor afhankelijkheden.
 
-![Mislukte pogingen](media/functions-monitoring/failures.png)
+![Aantal mislukte processen](media/functions-monitoring/failures.png)
 
 Op de [prestaties](../application-insights/app-insights-performance-counters.md) tabblad kunt u prestatieproblemen analyseren.
 
@@ -137,7 +137,7 @@ De [Live Metrics Stream](../application-insights/app-insights-live-stream.md) ta
 
 ## <a name="query-telemetry-data"></a>Telemetriegegevens op te vragen
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) krijgt u toegang tot alle van de telemetriegegevens in de vorm van tabellen in een database. Analytics biedt een querytaal voor uitpakken, bewerken en de gegevens te visualiseren.
+[Application Insights Analytics](../azure-monitor/app/analytics.md) krijgt u toegang tot alle van de telemetriegegevens in de vorm van tabellen in een database. Analytics biedt een querytaal voor uitpakken, bewerken en de gegevens te visualiseren.
 
 ![Selecteer Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -158,7 +158,7 @@ De tabellen die beschikbaar zijn worden weergegeven in de **Schema** tabblad van
 * **aanvragen** : één voor elke functieaanroep.
 * **uitzonderingen** - eventuele uitzonderingen die door de runtime.
 * **customMetrics** -telling van geslaagde en mislukte aanroepen, slagingspercentage, duur.
-* **customEvents** -gebeurtenissen bijgehouden door de runtime, bijvoorbeeld: HTTP-aanvragen die een functie geactiveerd.
+* **customEvents** -gebeurtenissen bijgehouden door de runtime, bijvoorbeeld:  HTTP-aanvragen die een functie geactiveerd.
 * **performanceCounters** -informatie over de prestaties van de servers die de functies worden uitgevoerd op.
 
 De andere tabellen zijn voor beschikbaarheidstests en clientbrowser/telemetrie. U kunt aangepaste telemetrie om toe te voegen gegevens om ze te implementeren.
@@ -439,7 +439,7 @@ Deze code is een alternatief voor aanroepen `trackMetric` met behulp van [de Nod
 
 ## <a name="custom-telemetry-in-c-functions"></a>Aangepaste telemetrie in C#-functies
 
-U kunt de [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet-pakket aan aangepaste telemetrische gegevens verzenden naar Application Insights. De volgende C# voorbeeld wordt de [aangepaste telemetrie-API](../application-insights/app-insights-api-custom-events-metrics.md). Het voorbeeld is voor een .NET-klassebibliotheek, maar de Application Insights-code is hetzelfde voor C#-script.
+U kunt de [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet-pakket aan aangepaste telemetrische gegevens verzenden naar Application Insights. De volgende C# voorbeeld wordt de [aangepaste telemetrie-API](../azure-monitor/app/api-custom-events-metrics.md). Het voorbeeld is voor een .NET-klassebibliotheek, maar de Application Insights-code is hetzelfde voor C#-script.
 
 ### <a name="version-2x"></a>Versie 2.x
 
@@ -671,7 +671,7 @@ PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-A
 PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Zie voor meer informatie, [over het streamen van logboeken](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+Zie voor meer informatie, [over het streamen van logboeken](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
 ### <a name="viewing-log-files-locally"></a>Logboekbestanden lokaal weergeven
 

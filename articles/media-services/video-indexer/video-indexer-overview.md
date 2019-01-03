@@ -7,46 +7,46 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: ae8634fbfdaa250cbabda6189c6c2eeef8e5e4f1
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 58124ab5938c7bee9f83a8c37ab5c5618b4b7d54
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292289"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789820"
 ---
 # <a name="what-is-video-indexer"></a>Wat is Video Indexer?
 
 Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure Media Analytics, Azure Search, Cognitive Services (zoals de Face-API, Microsoft Translator, de Computer Vision-API en Custom Speech Service). Hiermee kunt u inzichten ophalen uit uw video's met Video Indexer-modellen die hieronder worden beschreven:
  
-- **Automatische taaldetectie**: identificeert automatisch de meest gesproken taal. De volgende talen worden ondersteund: Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Japans, Russisch en Portugees (Brazilië). De taal wordt standaard ingesteld op het Engels als de taal niet kan worden gedetecteerd.
-- **Audiotranscriptie**: converteert spraak naar tekst in 10 talen en kan worden uitgebreid. De volgende talen worden ondersteund: Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Japans, Arabisch, Russisch en Portugees (Brazilië).
-- **Ondertiteling**: hiermee maakt u ondertiteling in drie indelingen: VTT, TTML, SRT.
-- **Verwerking van twee kanalen**: detecteert automatisch afzonderlijke transcripten en voegt ze samen in één tijdlijn.
-- **Ruisvermindering**: schoont telefoonaudio of luide opnamen op (gebaseerd op Skype-filters).
-- **Transcriptaanpassing (CRIS)**: traint uitgebreide aangepaste spraak-naar-tekst-modellen zodat ze branchespecifieke transcripten maken en voert deze uit.
-- **Sprekersopsomming**: detecteert en begrijpt welke spreker welke woorden heeft gezegd en wanneer.
-- **Statistieken van de spreker**: biedt statistieken voor de spraakverhouding van sprekers.
-- **Visuele tekstherkenning (OCR)**: extraheert de tekst die visueel wordt weergegeven in de video.
-- **Extractie van sleutelframes**: detecteert stabiele sleutelframes in een video.
-- **Gevoelsanalyse**: identificeert positieve, negatieve en neutrale gevoelens uit visuele tekst en gesproken woorden.
-- **Visueel inhoudstoezicht**: detecteert inhoud voor volwassenen en/of ongepaste visuele elementen.
-- **Trefwoorden extraheren**: trefwoorden worden geëxtraheerd uit de visuele tekst en spraak.
-- **Identificatie van labels**: identificeert visuele objecten en acties die worden weergegeven.
-- **Merken extraheren**: merken worden geëxtraheerd uit de visuele tekst en spraak.
-- **Gezichtsdetectie**: detecteert en groepeert gezichten die worden weergegeven in de video.
-- **Miniatuurextractie voor gezichten ('beste gezicht')**: identificeert automatisch het beste vastgelegde gezicht in elke groep van gezichten (gebaseerd op de kwaliteit, de grootte en positie) en extraheert deze als een afbeeldingsasset.
-- **Beroemdheden identificeren**: Video Indexer identificeert automatisch meer dan 1 miljoen beroemdheden, zoals wereldleiders, acteurs en actrices, atleten, onderzoekers, zakelijke en technische leiders overal ter wereld. De gegevens van deze beroemdheden zijn ook beschikbaar op verschillende beroemde websites, zoals IMDB en Wikipedia.
-- **Gezichtsidentificatie op basis van account**: Video Indexer traint een model voor een specifiek account. Vervolgens herkent de service gezichten in de video op basis van het model dat specifiek is getraind voor video's in dat account.
-- **Tekstueel inhoudsbeheer**: detecteert expliciete tekst in het audiotranscript.
-- **Scènedetectie**: herkent wanneer een scène wijzigt in de video.
-- **Detectie van zwarte frames**: identificeert zwarte frames in de video.
-- **Audio-effecten**: identificeert audio-effecten, zoals applaus, spraak en stilte.
-- **Onderwerpdeductie**: maakt een deductie van de belangrijkste onderwerpen uit de transcripten. De [IPTC](https://iptc.org/standards/media-topics/)-taxonomie van het eerste niveau is opgenomen.
-- **Detectie van emoties**: identificeert emoties op basis van hints in de spraak en audio. De emotie kan vreugde, verdriet, boosheid of angst zijn.
-- **Artefacten**: extraheert een grote verscheidenheid aan 'extra gedetailleerde' artefacten voor elk van de modellen.
-- **Vertaling**: maakt vertalingen van het audiotranscript in 54 verschillende talen.
+- **Automatische taaldetectie**: Identificeert automatisch de dominante gesproken taal. De volgende talen worden ondersteund: Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Japans, Russisch en Portugees (Brazilië). De taal wordt standaard ingesteld op het Engels als de taal niet kan worden gedetecteerd.
+- **Audiotranscriptie**: Converteert van spraak naar tekst in 12 talen waardoor nu extensies. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees (Vereenvoudigd), Japans, Arabisch, Russisch, Portugees (Brazilië), Hindi en Koreaans.
+- **Ondertiteling**: Hiermee maakt u ondertiteling in drie indelingen hebben: SRT VTT, TTML.
+- **Twee verwerking channel**: Automatisch detecteert, afzonderlijke transcript- en samengevoegd in één tijdlijn.
+- **Reductie van ruis**:  Hiermee schakelt u van de telephony-audio- of ruis opnamen (gebaseerd op Skype filters).
+- **Transcript aanpassing (CRI)**: Traint en uitgebreide aangepaste spraak-naar-tekst-modellen te maken van branchespecifieke Transcripten uitgevoerd.
+- **Sprekerherkenning-opsomming**:  Kaarten en begrijpt welke spreker spokenetwerktopologie welke woorden en wanneer.
+- **Statistieken van de spreker**: Voorziet in statistieken voor sprekers spraak ratio's.
+- **Visual tekstherkenning (OCR)**: Retourneert de tekst die visueel wordt weergegeven in de video.
+- **Sleutelframes extractie**: Detecteert stabiel hoofdframes in een video.
+- **Sentimentanalyse**: Hiermee geeft u positieve, negatieve en neutrale sentimenten uit visual tekst en spraak.
+- **Visual inhoudstoezicht**: Detecteert volwassen en/of ongepaste visuele elementen.
+- **Trefwoorden extraheren**: Extraheert trefwoorden uit de visual tekst en spraak.
+- **Identificatie van labels**: Hiermee geeft u visuele objecten en acties die worden weergegeven.
+- **Extractie merken**: Extraheert merken uit visual tekst en spraak.
+- **Gezichtsdetectie**: Detecteert en groepen gezichten worden weergegeven in de video.
+- **Miniaturen extractie voor gezichten ('beste face")**: Automatisch de beste vastgelegde gezicht in elke groep van gezichten wordt uitgevoerd (gebaseerd op de kwaliteit, de grootte en positie van de voorzijde) identificeert en pak het uit als een afbeelding asset.
+- **Beroemdheden identificatie**: Video Indexer identificeert automatisch meer dan 1 miljoen beroemdheden – zoals world-leiders, actoren en actresses, atleten, onderzoekers, zakelijke en technische leiders overal ter wereld. De gegevens van deze beroemdheden zijn ook beschikbaar op verschillende beroemde websites, zoals IMDB en Wikipedia.
+- **Op basis van een account gezichts-id**: Video Indexer traint een model voor een specifiek account. Vervolgens herkent de service gezichten in de video op basis van het model dat specifiek is getraind voor video's in dat account.
+- **Tekstuele inhoudstoezicht**: Expliciete tekst in de audiotranscript gedetecteerd.
+- **Detectie van agenda**: Bepaalt wanneer een scène wordt gewijzigd in de video.
+- **Detectie van een zwarte**: Hiermee geeft u zwarte frames die zijn gepresenteerd in de video.
+- **Audio-effecten**: Hiermee geeft u audio-effecten, zoals hand hiep, spraak en stilte.
+- **Onderwerp Deductie**: Deductie van de belangrijkste onderwerpen uit Transcripten maakt. De [IPTC](https://iptc.org/standards/media-topics/)-taxonomie van het eerste niveau is opgenomen.
+- **Detectie van emoties in**: Identificeert willekeurige emoties op basis van de spraak- en audio-hints. De emotie kan vreugde, verdriet, boosheid of angst zijn.
+- **Artefacten**: Extraheert de grote verscheidenheid aan 'volgende niveau van details' artefacten voor elk van de modellen.
+- **Vertaling**: Hiermee maakt u vertalingen van de audiotranscript aan 54 verschillende talen.
 
 Wanneer Video Indexer klaar is met de verwerking en analyse, kunt u de video-inzichten bekijken, cureren, doorzoeken en publiceren.
 

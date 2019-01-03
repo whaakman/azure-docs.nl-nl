@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6ce51dc9bbcdc7b46593a4800c4fce07a42f3171
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9cb52aea56e9c1183af9ca76201ab65c62a58f22
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346019"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972168"
 ---
 # <a name="offer-settings-tab"></a>Tabblad instellingen bieden
 
@@ -42,9 +42,6 @@ Deze id is gerelateerd aan uw account. Wanneer u bent aangemeld met uw organisat
 *Naam*
 
 Deze tekenreeks vormt wat wordt weergegeven als de aanbiedingsnaam van de op AppSource of Azure Marketplace. De *naam* veld is beperkt tot 50 tekens.  De revisor moet mogelijk uw titel om toe te staan voor het toevoegen van de aanbiedingsnaam van de met de duur bewerken en type aanbieding.
-
->[!Note]
->Belangrijk: Voer alleen de naam van de service hier. Geen duur en het type van de service.
 
 Het volgende voorbeeld door Edgewater Fullscope laat zien hoe de aanbiedingsnaam van de is samengesteld. De aanbiedingsnaam van de wordt weergegeven als:
 

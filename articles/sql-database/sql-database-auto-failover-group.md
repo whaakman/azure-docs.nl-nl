@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 3da4d6ffe8660c490d39f223dff105ed126fa10b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284939"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994637"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
-Automatische failover-groepen is een SQL-Database-functie waarmee u voor het beheren van replicatie en failover van een groep databases op een logische server of alle databases in een beheerd exemplaar naar een andere regio (momenteel in openbare preview voor beheerd exemplaar). Hierbij de dezelfde onderliggende technologie als [actieve geo-replicatie](sql-database-active-geo-replication.md). U kunt failover handmatig starten of kunt u het delegeren aan de service SQL Database op basis van een gebruiker gedefinieerde beleid met behulp van een door de gebruiker gedefinieerd beleid. De laatste optie kunt u meerdere verwante databases in een secundaire regio wordt automatisch hersteld na een onherstelbare fout of andere niet-geplande gebeurtenis optreedt die in het volledige of gedeeltelijke verlies van beschikbaarheid van de service SQL Database in de primaire regio resulteert. Bovendien kunt u de leesbare secundaire databases voor de offload van alleen-lezen querywerkbelastingen. Omdat automatische failover-groepen hebben betrekking op meerdere databases, moeten deze databases worden geconfigureerd op de primaire server. Primaire en secundaire servers voor de databases in de failovergroep moeten zich in hetzelfde abonnement. Automatische failovergroepen ondersteuning bieden voor replicatie van alle databases in de groep met slechts één secundaire server in een andere regio.
+Automatische failover-groepen is een SQL-Database-functie waarmee u voor het beheren van replicatie en failover van een groep databases op een logische server of alle databases in een beheerd exemplaar naar een andere regio (momenteel in openbare preview voor beheerd exemplaar). Hierbij de dezelfde onderliggende technologie als [actieve geo-replicatie](sql-database-active-geo-replication.md). U kunt failover handmatig starten of kunt u het delegeren aan de service SQL Database op basis van een door de gebruiker gedefinieerd beleid. De laatste optie kunt u meerdere verwante databases in een secundaire regio wordt automatisch hersteld na een onherstelbare fout of andere niet-geplande gebeurtenis optreedt die in het volledige of gedeeltelijke verlies van beschikbaarheid van de service SQL Database in de primaire regio resulteert. Bovendien kunt u de leesbare secundaire databases voor de offload van alleen-lezen querywerkbelastingen. Omdat automatische failover-groepen hebben betrekking op meerdere databases, moeten deze databases worden geconfigureerd op de primaire server. Primaire en secundaire servers voor de databases in de failovergroep moeten zich in hetzelfde abonnement. Automatische failovergroepen ondersteuning bieden voor replicatie van alle databases in de groep met slechts één secundaire server in een andere regio.
 
 > [!NOTE]
 > Bij het werken met één of gegroepeerde databases op een logische server en u wilt dat meerdere secundaire replica's in de dezelfde of verschillende regio's, gebruikt u [actieve geo-replicatie](sql-database-active-geo-replication.md).
@@ -42,7 +42,7 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Failover-groep**
 
-  Een failovergroep is een groep databases door door één logische server of in een beheerd exemplaar van één die fungeren als kan failover als één eenheid naar een andere regio in het geval alle of een primaire databases niet beschikbaar vanwege een storing in de primaire regio.
+  Een failovergroep is een groep databases die worden beheerd door één logische server of in een beheerd exemplaar van één die fungeren als kan failover als één eenheid naar een andere regio in het geval alle of een primaire databases niet beschikbaar vanwege een storing in de primaire regio.
 
   - **Logische servers**
 
@@ -81,7 +81,7 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Failover-groep alleen-lezen-listener**
 
-  Een DNS CNAME-record die een onjuiste indeling die naar verwijst de de alleen-lezen-listener die naar de URL van de secundaire server verwijst. Hierdoor kan de alleen-lezen SQL-toepassingen op transparante wijze verbinding maken met de secundaire server met behulp van de opgegeven regels voor taakverdeling.
+  Een DNS CNAME-record gemaakt die verwijst naar de alleen-lezen-listener die naar de URL van de secundaire server verwijst. Hierdoor kan de alleen-lezen SQL-toepassingen op transparante wijze verbinding maken met de secundaire server met behulp van de opgegeven regels voor taakverdeling.
 
   - **Logische server DNS CNAME-record voor alleen-lezen-listener**
 
@@ -203,7 +203,7 @@ Als uw toepassing gebruikmaakt van beheerd exemplaar als de gegevenslaag, volgt 
 
 - **Worden voorbereid voor verslechtering van prestaties**
 
-  SQL failover beslissing is onafhankelijk van de rest van de toepassing of andere services die worden gebruikt. De toepassing kan worden "gemengde" met bepaalde onderdelen in één regio en sommige in een andere. Zorg ervoor dat de implementatie van de redundante toepassing in de DR-regio om te voorkomen dat de degradatie, en volgt u deze [richtlijnen voor beveiliging van het netwerk](#Failover groups-and-network-security).
+  SQL failover beslissing is onafhankelijk van de rest van de toepassing of andere services die worden gebruikt. De toepassing kan worden "gemengde" met bepaalde onderdelen in één regio en sommige in een andere. Zorg ervoor dat de implementatie van de redundante toepassing in de DR-regio om te voorkomen dat de degradatie, en volgt u deze [richtlijnen voor beveiliging van het netwerk](#failover-groups-and-network-security).
 
 - **Voorbereiden op het verlies van gegevens**
 
@@ -262,7 +262,7 @@ Bij het instellen van een failover-groepen tussen primaire en secundaire beheerd
     > [!IMPORTANT]
     > Onjuist geconfigureerde NSG security regels leidt tot kopieerbewerkingen vastgelopen database.
 
-7. U moet voor het configureren van DNS-zone partner op secundaire exemplaar. Een DNS-zone is een eigenschap van een beheerd exemplaar. Staat voor het deel van de hostnaam die volgt op de naam van de Managed Instance en voorafgaat aan de `.database.windows.net` voorvoegsel. Het wordt als willekeurige tekenreeks gegenereerd tijdens het maken van de eerste Managed Instance in elk VNet. De DNS-zone kan niet worden gewijzigd na het maken van een beheerd exemplaar en alle beheerde instanties binnen hetzelfde subnet delen dezelfde waarde voor de DNS-zone. Voor de installatie van beheerde exemplaar failover-groep, moet de primaire Managed Instance en de secundaire Managed Instance dezelfde waarde voor de DNS-zone delen. U doet dit door de parameter DnsZonePartner op te geven bij het maken van de secundaire Managed Instance. De DNS-zone partner eigenschap definieert het beheerd exemplaar voor het delen van een failovergroep exemplaar met. Door te geven in de resource-id van een ander beheerd exemplaar als de invoer van DnsZonePartner, neemt het beheerde exemplaar wordt gemaakt over dezelfde DNS-zone-waarde van de partner voor het beheerde exemplaar.
+7. U moet voor het configureren van DNS-zone partner op secundaire exemplaar. Een DNS-zone is een eigenschap van een beheerd exemplaar. Staat voor het deel van de hostnaam die volgt op de naam van de Managed Instance en voorafgaat aan de `.database.windows.net` voorvoegsel. Het wordt als willekeurige tekenreeks gegenereerd tijdens het maken van de eerste Managed Instance in elk VNet. De DNS-zone kan niet worden gewijzigd na het maken van een beheerd exemplaar en alle beheerde instanties binnen hetzelfde subnet delen dezelfde waarde voor de DNS-zone. Voor beheerd exemplaar voor failover instellen, moet de primaire Managed Instance en de secundaire Managed Instance dezelfde waarde voor de DNS-zone delen. U doet dit door de parameter DnsZonePartner op te geven bij het maken van de secundaire Managed Instance. De DNS-zone partner eigenschap definieert het beheerd exemplaar voor het delen van een failovergroep exemplaar met. Door te geven in de resource-id van een ander beheerd exemplaar als de invoer van DnsZonePartner, neemt het beheerde exemplaar wordt gemaakt over dezelfde DNS-zone-waarde van de partner voor het beheerde exemplaar.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Het upgraden of downgraden van een primaire database
 
@@ -306,17 +306,17 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 #### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installeer de nieuwste versie van de voorlopige versie van Powershell
 
-1. De powershellget-module bijwerken naar 1.6.5 (of de nieuwste preview-versie). Zie [PowerShell voorbeeldsite](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
+1. De PowerShellGet-module bijwerken naar 1.6.5 (of de nieuwste preview-versie). Zie [PowerShell voorbeeldsite](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
    ```Powershell
-      install-module powershellget -MinimumVersion 1.6.5 -force
+      install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Voer de volgende opdrachten in een nieuwe PowerShell-venster:
 
    ```Powershell
-      import-module powershellget
-      get-module powershellget #verify version is 1.6.5 (or newer)
+      import-module PowerShellGet
+      get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```

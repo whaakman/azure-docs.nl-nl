@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8a8b1e29a6504c725e244efa1ae8c37a9a0d8420
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0d673ee9d316f14f95f6924929ad319eae13efcc
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726267"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973312"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Metrische gegevens in Application Insights verkennen
 Metrische gegevens in [Application Insights] [ start] zijn gemeten waarden en aantallen gebeurtenissen die worden verzonden in telemetrie van uw toepassing. Ze helpen u prestatieproblemen detecteren en bekijk de trends in hoe uw toepassing wordt gebruikt. Er is een breed scala aan standaard metrische gegevens en u kunt ook uw eigen aangepaste metrische gegevens en gebeurtenissen maken.
@@ -140,7 +140,7 @@ U kunt ook filteren op **bron van synthetisch verkeer**.
 ### <a name="to-add-properties-to-the-filter-list"></a>Eigenschappen toevoegen aan de lijst met filters
 Wilt u de telemetrie voor een categorie van uw eigen keuze filteren? Bijvoorbeeld, misschien u delen van uw gebruikers in verschillende categorieën, en u wilt dat uw gegevens segmenteren op deze categorieën.
 
-[Maak uw eigen eigenschap](app-insights-api-custom-events-metrics.md#properties). Stel deze een [telemetrische Initializer](app-insights-api-custom-events-metrics.md#defaults) zodat deze worden weergegeven in alle telemetrie - met inbegrip van de telemetrie die is verzonden door andere SDK-modules.
+[Maak uw eigen eigenschap](../azure-monitor/app/api-custom-events-metrics.md#properties). Stel deze een [telemetrische Initializer](../azure-monitor/app/api-custom-events-metrics.md#defaults) zodat deze worden weergegeven in alle telemetrie - met inbegrip van de telemetrie die is verzonden door andere SDK-modules.
 
 ## <a name="edit-the-chart-type"></a>Type van de grafiek bewerken
 U ziet dat u tussen rasters en grafieken schakelen kunt:
@@ -176,13 +176,13 @@ Om te worden geïnformeerd via e-mail van ongebruikelijke waarden van elke meetw
 
 
 ## <a name="continuous-export"></a>Continuous Export
-Als u gegevens continu exporteren wilt, zodat u deze extern kan verwerken, kunt u overwegen [continue export](app-insights-export-telemetry.md).
+Als u gegevens continu exporteren wilt, zodat u deze extern kan verwerken, kunt u overwegen [continue export](../azure-monitor/app/export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
 Als u nog uitgebreider weergaven van uw gegevens wilt, kunt u [exporteren naar Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Analyse
-[Analytics](app-insights-analytics.md) is een veelzijdiger manier voor het analyseren van uw telemetrie met behulp van een krachtige querytaal. Gebruik deze optie als u wilt combineren, berekenen van resultaten van metrische gegevens of een grondig onderzoek van de recente prestaties van uw app uitvoeren. 
+[Analytics](../azure-monitor/app/analytics.md) is een veelzijdiger manier voor het analyseren van uw telemetrie met behulp van een krachtige querytaal. Gebruik deze optie als u wilt combineren, berekenen van resultaten van metrische gegevens of een grondig onderzoek van de recente prestaties van uw app uitvoeren. 
 
 In een grafiek met metrische gegevens, kunt u het pictogram Analytics rechtstreeks naar de equivalente Analytics-query.
 
@@ -193,7 +193,7 @@ In een grafiek met metrische gegevens, kunt u het pictogram Analytics rechtstree
 
     Als u wilt andere filters instellen op de verschillende grafieken, ze in verschillende blades maken, deze opslaan als afzonderlijke Favorieten. Als u wilt, kunt u deze vastmaken aan het dashboard zodat u ze naast elkaar kunt zien.
 * Als u een grafiek op een eigenschap die is niet gedefinieerd in de metriek groepeert, wordt er niets in de grafiek. Wist u 'groeperen op', of kies een eigenschap verschillende groepeerniveaus.
-* Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor Java-web-services, Windows-bureaublad-apps, [IIS web-apps en services als u statusmonitor installeert](app-insights-monitor-performance-live-website-now.md), en [Azure Cloud Services](app-insights-overview.md). Het is niet beschikbaar voor Azure websites.
+* Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor Java-web-services, Windows-bureaublad-apps, [IIS web-apps en services als u statusmonitor installeert](../azure-monitor/app/monitor-performance-live-website-now.md), en [Azure Cloud Services](app-insights-overview.md). Het is niet beschikbaar voor Azure websites.
 
 ## <a name="video"></a>Video
 
@@ -201,10 +201,10 @@ In een grafiek met metrische gegevens, kunt u het pictogram Analytics rechtstree
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Bewaking met Application Insights wordt gebruikt](app-insights-usage-overview.md)
-* [Met behulp van diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md)
+* [Met behulp van diagnostische gegevens doorzoeken](../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->
 
-[alerts]: app-insights-alerts.md
+[alerts]: ../azure-monitor/app/alerts.md
 [start]: app-insights-overview.md
-[track]: app-insights-api-custom-events-metrics.md
+[track]: ../azure-monitor/app/api-custom-events-metrics.md

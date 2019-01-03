@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: c68febc7bd6aac0262c41cc8b33602f8496eb215
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436397"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809094"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Een virtuele Windows-machine oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met behulp van de Azure-portal voor herstel
 Als uw Windows virtuele machine (VM) in Azure een opstart- of schijffout-fout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een mislukte toepassingsupdate die verhindert de virtuele machine dat wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de virtuele harde schijf naar een andere Windows-virtuele machine om eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine opnieuw te maken met Azure portal.
@@ -133,7 +133,7 @@ Zodra de fouten opgelost zijn, loskoppelen van de bestaande virtuele harde schij
     Wacht totdat de virtuele machine heeft de gegevensschijf losgekoppeld voordat u doorgaat.
 
 ## <a name="create-vm-from-original-hard-disk"></a>Virtuele machine maken vanaf de oorspronkelijke harde schijf
-Gebruik voor het maken van een virtuele machine van de oorspronkelijke virtuele harde schijf [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). De sjabloon implementeert een virtuele machine in een bestaand virtueel netwerk, met behulp van de VHD-URL van de vorige opdracht. Klik op de **implementeren in Azure** knop als volgt:
+Gebruik voor het maken van een virtuele machine van de oorspronkelijke virtuele harde schijf [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet). De sjabloon implementeert een virtuele machine in een bestaand of nieuw virtueel netwerk, met behulp van de VHD-URL van de vorige opdracht. Klik op de **implementeren in Azure** knop als volgt:
 
 ![Virtuele machine implementeren vanuit GitHub-sjabloon](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
 

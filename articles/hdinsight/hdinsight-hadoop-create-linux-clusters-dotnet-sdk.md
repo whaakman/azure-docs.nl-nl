@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 06135ff77cb9c2a5b8fa2ae674206406469ed293
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 52f67d21c3a130df4d85c220baca9c6af8eb06c1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870602"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793475"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de .NET SDK
 
@@ -23,7 +23,7 @@ ms.locfileid: "52870602"
 
 Meer informatie over het maken van een [Apache Hadoop](https://hadoop.apache.org/) -cluster in Azure HDInsight-cluster met de .NET SDK.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > De stappen in dit document wordt een cluster maken met een worker-knooppunt. Als u van plan bent op meer dan 32 worker-knooppunten op het maken van clusters of door te schalen van het cluster na het maken, moet u selecteert de grootte van een hoofdknooppunt met ten minste 8 kerngeheugens en 14GB RAM-geheugen.
 >
 > Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
@@ -367,7 +367,7 @@ static void Main(string[] args)
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
+Zie [Vereisten voor toegangsbeheer](hdinsight-hadoop-create-linux-clusters-portal.md) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u een HDInsight-cluster hebt gemaakt, gebruikt u de volgende voor informatie over het werken met uw cluster. 
@@ -375,7 +375,7 @@ Nu dat u een HDInsight-cluster hebt gemaakt, gebruikt u de volgende voor informa
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop-clusters
 * [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
 * [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
-* [Apache Hadoop MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase-clusters
 * [Aan de slag met Apache HBase op HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
@@ -389,8 +389,8 @@ Nu dat u een HDInsight-cluster hebt gemaakt, gebruikt u de volgende voor informa
 ### <a name="apache-spark-clusters"></a>Apache Spark-clusters
 * [Een zelfstandige toepassing maken met behulp van Scala](spark/apache-spark-create-standalone-application.md)
 * [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met BI: Interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](spark/apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="run-jobs"></a>Taken uitvoeren
 * [Apache Hive-taken uitvoeren in HDInsight met behulp van .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)

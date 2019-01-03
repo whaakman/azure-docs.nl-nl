@@ -10,20 +10,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498267"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971662"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Aan de slag met Apache Storm in HDInsight met behulp van Storm-Starter-voorbeelden
 
-Meer informatie over het gebruik van [Apache Storm](http://storm.apache.org/) in HDInsight met behulp van de storm starter-voorbeelden.
+Meer informatie over het gebruik van [Apache Storm](https://storm.apache.org/) in HDInsight met behulp van de storm starter-voorbeelden.
 
 Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime berekeningssysteem voor het verwerken van gegevensstromen. Met Storm in Azure HDInsight kunt u een op een cloud gebaseerd Storm-cluster maken dat in realtime big data-analyses uitvoert.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -38,18 +38,20 @@ Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime bereken
 
 Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
-1. In [Azure Portal](https://portal.azure.com) selecteert u **+ Een resource maken**, **Gegevens en analyses** en vervolgens **HDInsight**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+
+1. Navigeer naar **+ een resource maken** > **Analytics** > **HDInsight**.
 
     ![Een HDInsight-cluster maken](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
 2. Geef in de sectie **Basisbeginselen** de volgende gegevens op:
 
-    * **Clusternaam**: de naam van het HDInsight-cluster.
-    * **Abonnement**: selecteer het abonnement dat u wilt gebruiken.
-    * **Aanmeldingsgebruikersnaam** en -**wachtwoord** van cluster: de aanmeldingsgegevens voor toegang tot het cluster via HTTPS. U gebruikt deze referenties voor toegang tot services als de Ambari-webinterface of de REST-API.
-    * **SSH-gebruikersnaam (Secure Shell)**: de aanmeldingsgegevens voor toegang tot het cluster via SSH. Het wachtwoord is standaard hetzelfde als het aanmeldingswachtwoord van het cluster.
-    * **Resourcegroep**: de resourcegroep waarin het cluster wordt gemaakt.
-    * **Locatie**: de Azure-regio waarin het cluster wordt gemaakt.
+    * **Clusternaam**: De naam van het HDInsight-cluster.
+    * **Abonnement**: Selecteer het abonnement te gebruiken.
+    * **Gebruikersnaam voor aanmelding cluster** en **wachtwoord voor clusteraanmelding**: De aanmelding bij het openen van het cluster via HTTPS. U gebruikt deze referenties voor toegang tot services als de Ambari-webinterface of de REST-API.
+    * **Secure Shell (SSH)-gebruikersnaam**: De aanmeldingsgegevens voor toegang tot het cluster via SSH. Het wachtwoord is standaard hetzelfde als het aanmeldingswachtwoord van het cluster.
+    * **Resourcegroep**: De resourcegroep waarin het cluster wordt gemaakt.
+    * **Locatie**: De Azure-regio waarin het cluster wordt gemaakt.
 
    ![Abonnement selecteren](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
@@ -67,7 +69,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
 4. Nadat u het clustertype hebt geselecteerd, gebruikt u de knop __Selecteren__ om het clustertype te selecteren. Gebruik vervolgens de knop __Volgende__ om de basisconfiguratie te voltooien.
 
-5. In de sectie **Opslag** selecteert of maakt u een opslagaccount. Voor de stappen in dit document gebruikt u voor de andere velden in deze sectie de standaardwaarden. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan. Zie [Snelstart: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) voor meer informatie over het gebruik van Data Lake Storage Gen2.
+5. In de sectie **Opslag** selecteert of maakt u een opslagaccount. Voor de stappen in dit document gebruikt u voor de andere velden in deze sectie de standaardwaarden. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan. Zie voor meer informatie over het gebruik van Data Lake Storage Gen2 [Quick Start: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
@@ -84,10 +86,10 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [!TIP]
+    > [!TIP]  
     > De SSH-client geeft mogelijk aan dat de authenticiteit van de host niet kan worden vastgesteld. Als dat het geval is, voert u `yes` in om verder te gaan.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Als u een wachtwoord hebt gebruikt om uw SSH gebruikersaccount te beveiligen, wordt u gevraagd het wachtwoord in te voeren. Als u een openbare sleutel hebt gebruikt, moet u mogelijk de parameter `-i` gebruiken om de overeenkomende persoonlijke sleutel op te geven. Bijvoorbeeld `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Zie [SSH-sleutels gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
@@ -98,7 +100,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
     Met deze opdracht wordt de WordCount-voorbeeldtopologie gestart op het cluster. Deze topologie genereert willekeurige zinnen en telt hoe vaak woorden voorkomen. De beschrijvende naam van de topologie is `wordcount`.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Bij het indienen van uw eigen topologieën bij het cluster moet u eerst het JAR-bestand met het cluster kopiëren voordat u de opdracht `storm` gebruikt. Gebruik de opdracht `scp` om het bestand te kopiëren. Bijvoorbeeld: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > Het WordCount-voorbeeld en andere Storm Starter-voorbeelden zijn al in uw cluster opgenomen op `/usr/hdp/current/storm-client/contrib/storm-starter/`.
@@ -113,7 +115,7 @@ Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de
 
 1. Als u de Storm-gebruikersinterface wilt weergeven, opent u `https://CLUSTERNAME.azurehdinsight.net/stormui` in een webbrowser. Vervang **CLUSTERNAME** door de naam van uw cluster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Als u wordt gevraagd een gebruikersnaam en een wachtwoord op te geven, voert u de gegevens voor de clusterbeheerder (admin) en het wachtwoord in die u hebt gebruikt toen u het cluster maakte.
 
 2. Selecteer onder **Topology summary** de vermelding **wordcount** in de kolom **Name**. Er wordt informatie over de topologie weergegeven.
@@ -124,7 +126,7 @@ Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de
 
     * **Topology stats**: basisinformatie over de topologieprestaties, geordend in tijdvensters.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Wanneer er een specifiek tijdvenster wordt geselecteerd, verandert het tijdvenster voor informatie die wordt weergegeven in andere gedeelten van de pagina.
 
     * **Spouts**: basisinformatie over spouts, met inbegrip van de laatste fout die door elke spout is geretourneerd.
@@ -139,7 +141,7 @@ Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de
 
     * **Deactivate**: een actieve topologie wordt onderbroken.
 
-    * **Rebalance**: de parallelle uitvoering van de topologie wordt aangepast. Nadat u het aantal knooppunten in het cluster hebt gewijzigd, moet u actieve topologieën opnieuw verdelen. Met het opnieuw verdelen wordt de parallelle uitvoering aangepast om te compenseren voor het toegenomen/afgenomen aantal knooppunten in het cluster. Zie voor meer informatie, [inzicht in de parallelle uitvoering van een Apache Storm-topologie](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    * **Rebalance**: de parallelle uitvoering van de topologie wordt aangepast. Nadat u het aantal knooppunten in het cluster hebt gewijzigd, moet u actieve topologieën opnieuw verdelen. Met het opnieuw verdelen wordt de parallelle uitvoering aangepast om te compenseren voor het toegenomen/afgenomen aantal knooppunten in het cluster. Zie voor meer informatie, [inzicht in de parallelle uitvoering van een Apache Storm-topologie](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     * **Kill**: hiermee wordt een Storm-topologie na de opgegeven time-out beëindigd.
 
@@ -151,7 +153,7 @@ Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de
 
     * **Spout/Bolt stats**: basisinformatie over de prestaties van de diverse onderdelen, geordend in tijdvensters.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Wanneer er een specifiek tijdvenster wordt geselecteerd, verandert het tijdvenster voor informatie die wordt weergegeven in andere gedeelten van de pagina.
 
     * **Input stats** (alleen bolts): informatie over onderdelen die gegevens produceren die worden verbruikt door de bolt.
@@ -183,7 +185,7 @@ Ga terug naar de pagina **Topology summary** voor de word-count-topologie en kli
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-Zie [Vereisten voor toegangsbeheer](../hdinsight-administer-use-portal-linux.md#create-clusters) als u een probleem ondervindt met het maken van een HDInsight-cluster.
+Zie [Vereisten voor toegangsbeheer](../hdinsight-hadoop-create-linux-clusters-portal.md) als u een probleem ondervindt met het maken van een HDInsight-cluster.
 
 ## <a id="next"></a>Volgende stappen
 
@@ -198,7 +200,7 @@ Zie voor voorbeeldtopologieën die kunnen worden gebruikt met Storm op HDInsight
 * [Example Storm toplogies and components for Apache Storm on HDInsight](apache-storm-example-topology.md) (Voorbeelden van Storm-topologieën en -onderdelen in HDInsight)
 
 [apachestorm]: https://storm.incubator.apache.org
-[stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
+[stormdocs]: https://storm.incubator.apache.org/documentation/Documentation.html
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

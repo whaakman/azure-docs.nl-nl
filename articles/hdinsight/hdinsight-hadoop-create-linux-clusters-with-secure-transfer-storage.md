@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 5ad49c8e28f0e91b18af6dc485489d11464fbc0d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 15c0a3d90b4a6493c49b67058f1d989a4ab72346
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413384"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726847"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop-cluster maken met veilige overdracht storage-accounts in Azure HDInsight
 
@@ -78,7 +78,7 @@ Zie de volgende artikelen voor meer informatie over hoe HDInsight gegevens opsla
 
 Zie de volgende artikelen voor meer informatie over het maken of beheren van een HDInsight-cluster:
 
-* Zie voor meer informatie over het beheren van uw HDInsight-cluster op basis van Linux [HDInsight-clusters beheren met Ambari](hdinsight-hadoop-manage-ambari.md).
+* Zie [HDInsight-clusters beheren met Apache Ambari](hdinsight-hadoop-manage-ambari.md) voor meer informatie over het beheren van uw HDInsight-cluster op basis van Linux.
 * Zie voor meer informatie over de opties die u kunt selecteren bij het maken van een HDInsight-cluster [HDInsight op Linux maken met aangepaste opties](hdinsight-hadoop-provision-linux-clusters.md).
 * Als u bekend met Linux- en Apache Hadoop bent, maar u meer details over Hadoop op de HDInsight wilt weten, Zie [werken met HDInsight op Linux](hdinsight-hadoop-linux-information.md). Dit artikel biedt informatie zoals:
 

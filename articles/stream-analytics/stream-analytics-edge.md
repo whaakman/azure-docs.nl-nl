@@ -9,26 +9,26 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf290343634f9f9f836a87ab15f13cc1dac6f86f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9d5a0cf9fa4f9ad8b5a673cd2420416f92edda91
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141948"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994977"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics op IoT Edge
  
-Azure Stream Analytics (ASA) op IoT Edge kunnen ontwikkelaars bijna-realtime analytische intelligence dichter bij IoT-apparaten implementeren, zodat ze de volledige waarde van het apparaat worden gegenereerd gegevens kunnen ontgrendelen. Azure Stream Analytics is ontworpen voor lage latentie, tolerantie en efficiënt gebruik van bandbreedte en naleving. Ondernemingen kunnen nu implementeren logische besturingselement dicht bij de industriële bewerkingen en een aanvulling vormen op Big Data-analyses klaar in de cloud.  
+Azure Stream Analytics (ASA) op IoT Edge kunnen ontwikkelaars bijna-realtime analytische intelligence dichter bij IoT-apparaten implementeren, zodat ze de volledige waarde van het apparaat worden gegenereerd gegevens kunnen ontgrendelen. Azure Stream Analytics biedt een lage latentie, tolerantie en efficiënt gebruik van bandbreedte en naleving. Ondernemingen kunnen nu implementeren logische besturingselement dicht bij de industriële bewerkingen en een aanvulling vormen op Big Data-analyses klaar in de cloud.  
 
 Azure Stream Analytics op IoT Edge wordt uitgevoerd binnen de [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Nadat de taak is gemaakt in ASA, kunt u deze kunt implementeren en beheren met behulp van IoT-Hub.
 
 ## <a name="scenarios"></a>Scenario's
 ![Diagram op hoog niveau van IoT Edge](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
-* **Lage latentie opdracht en controle**: bijvoorbeeld veiligheid productiesystemen moet reageren op operationele gegevens met zeer lage latentie. Met ASA op IoT Edge, kunt u analyseren sensor gegevens in bijna realtime en opdrachten geven bij het detecteren van afwijkingen op een virtuele machine stoppen of alarmen te activeren.
-*   **Verbinding met de cloud beperkt**: missie kritieke systemen, zoals externe analysestructuur apparatuur, verbonden vaartuigen of offshore analyseren wilt analyseren en reageren op gegevens, zelfs wanneer cloudconnectiviteit onderbroken wordt. Met ASA, uw streaming logica wordt uitgevoerd onafhankelijk van de verbinding met het netwerk en u kunt kiezen wat u verzendt naar de cloud voor verdere verwerking of opslag.
-* **Beperkte bandbreedte**: de hoeveelheid gegevens die worden geproduceerd door jet-engines of verbonden auto's kunnen zo groot is dat gegevens moet worden gefilterd of vooraf verwerken voordat deze wordt verzonden naar de cloud. Met ASA, kunt u filteren en samenvoegen van de gegevens die moet worden verzonden naar de cloud.
-* **Naleving**: naleving van regelgeving mogelijk enkele gegevens aan lokaal worden geanonimiseerd of samengevoegd voordat het wordt verzonden naar de cloud.
+* **Lage latentie opdracht en controle**: Bijvoorbeeld, moet het veiligheid productiesystemen reageren op operationele gegevens met zeer lage latentie. Met ASA op IoT Edge, kunt u analyseren sensor gegevens in bijna realtime en opdrachten geven bij het detecteren van afwijkingen op een virtuele machine stoppen of alarmen te activeren.
+*   **Verbinding met de cloud beperkt**: Missiekritieke kritieke systemen, zoals externe analysestructuur apparatuur, verbonden vaartuigen of offshore analyseren, moeten het analyseren en reageren op gegevens, zelfs wanneer cloudconnectiviteit onregelmatige. Met ASA, uw streaming logica wordt uitgevoerd onafhankelijk van de verbinding met het netwerk en u kunt kiezen wat u verzendt naar de cloud voor verdere verwerking of opslag.
+* **Beperkte bandbreedte**: De hoeveelheid gegevens die worden geproduceerd door jet-engines of verbonden auto's kunnen zo groot is dat gegevens moet worden gefilterd of vooraf verwerken voordat deze wordt verzonden naar de cloud. Met ASA, kunt u filteren en samenvoegen van de gegevens die moet worden verzonden naar de cloud.
+* **Naleving**: Naleving van regelgeving mogelijk enkele gegevens aan lokaal worden geanonimiseerd of samengevoegd voordat het wordt verzonden naar de cloud.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Edge-taken in Azure Stream Analytics
 ### <a name="what-is-an-edge-job"></a>Wat is een 'edge'-taak?
@@ -144,7 +144,7 @@ In dit voorbeeld definieert de volgende routes:
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Huidige beperkingen voor IoT Edge-taken in vergelijking met cloudtaken
 Het doel is dat pariteit tussen IoT Edge-taken en cloudtaken. De meeste SQL-query-taalfuncties worden al ondersteund.
 Echter de volgende functies zijn nog niet ondersteund voor edge-taken:
-* Gebruiker gedefinieerde functies (UDF's) in JavaScript. UDF zijn beschikbaar in [ C# voor IoT Edge-taken](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf) (preview).
+* Gebruiker gedefinieerde functies (UDF's) in JavaScript. UDF zijn beschikbaar in [ C# voor IoT Edge-taken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (preview).
 * De gebruiker gedefinieerde verzamelingen (UDA).
 * Azure ML-functies
 * Met behulp van meer dan 14 combinaties in één stap.
@@ -167,7 +167,7 @@ Als u wilt uitvoeren ASA op IoT Edge, moet u de apparaten die kunnen worden uitg
 
 ASA en Azure IoT Edge gebruiken **Docker** containers om een draagbare oplossing die wordt uitgevoerd op meerdere host-besturingssystemen (Windows, Linux) te bieden.
 
-ASA on IoT Edge is beschikbaar als Windows en Linux-installatiekopieën, die worden uitgevoerd op zowel x86 64- of Azure Resource Manager-architecturen. 
+ASA on IoT Edge is beschikbaar als Windows en Linux-installatiekopieën, die worden uitgevoerd op zowel x86 64 of ARM (Advanced RISC Machines)-architecturen. 
 
 
 ### <a name="input-and-output"></a>Invoer en uitvoer

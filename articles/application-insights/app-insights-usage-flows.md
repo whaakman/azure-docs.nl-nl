@@ -13,12 +13,12 @@ ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 05853cb494ef6cc615bea7eecb1cfac288b46f3b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 54155346c7f417be8beb0ced8ef825ec22a08237
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721949"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971610"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Gebruiker navigatiepatronen met Gebruikersstromen in Application Insights analyseren
 
@@ -34,7 +34,7 @@ Het hulpprogramma Gebruikersstromen laat zien hoe gebruikers navigeren tussen de
 Het hulpprogramma Gebruikersstromen begint bij een eerste paginaweergave, aangepaste gebeurtenis of uitzonderingen die u opgeeft. Deze initiële gebeurtenis worden gegeven, ziet Gebruikersstromen u de gebeurtenissen die hebben plaatsgevonden vóór en daarna tijdens gebruikerssessies. Regels van verschillende dikte laten zien hoe vaak elk pad is gevolgd door gebruikers. Speciale **-sessie gestart** knooppunten weergeven wanneer een sessie in de volgende knooppunten is begonnen. **Sessie beëindigd** knooppunten tonen hoeveel gebruikers verzonden geen paginaweergaven of aangepaste gebeurtenissen na de vorige knooppunt markeren waar gebruikers waarschijnlijk bent uw site.
 
 > [!NOTE]
-> Uw Application Insights-resource moet paginaweergaven of aangepaste gebeurtenissen met het hulpprogramma Gebruikersstromen bevatten. [Meer informatie over het instellen van uw app voor het verzamelen van paginaweergaven automatisch met de Application Insights JavaScript SDK](app-insights-javascript.md).
+> Uw Application Insights-resource moet paginaweergaven of aangepaste gebeurtenissen met het hulpprogramma Gebruikersstromen bevatten. [Meer informatie over het instellen van uw app voor het verzamelen van paginaweergaven automatisch met de Application Insights JavaScript SDK](../azure-monitor/app/javascript.md).
 >
 >
 
@@ -59,7 +59,7 @@ Als paginaweergaven of aangepaste gebeurtenissen die ontbreekt verwacht u te zie
 * Controleer de **uitgesloten gebeurtenissen** sectie de **bewerken** menu.
 * Gebruik de knoppen plus op **anderen** knooppunten minder frequent gebeurtenissen worden opgenomen in de visualisatie.
 * Als de paginaweergave of het aangepaste gebeurtenis die u verwacht wordt niet regelmatig worden verzonden door gebruikers, verhoog het tijdsbereik van de visualisatie in de **bewerken** menu.
-* Zorg ervoor dat de paginaweergave, aangepaste gebeurtenis of een uitzondering die u verwacht, is ingesteld om te worden verzameld door de Application Insights-SDK in de broncode van uw site. [Meer informatie over het verzamelen van aangepaste gebeurtenissen.](app-insights-api-custom-events-metrics.md)
+* Zorg ervoor dat de paginaweergave, aangepaste gebeurtenis of een uitzondering die u verwacht, is ingesteld om te worden verzameld door de Application Insights-SDK in de broncode van uw site. [Meer informatie over het verzamelen van aangepaste gebeurtenissen.](../azure-monitor/app/api-custom-events-metrics.md)
 
 Als u zien van meer stappen in de visualisatie wilt, gebruikt u de **vorige stappen** en **Vervolgstappen** vervolgkeuzelijsten boven de visualisatie.
 
@@ -99,4 +99,4 @@ Gebruik de **splitsen op basis van** opties in de **bewerken** menu:
 * [Gebruiksoverzicht](app-insights-usage-overview.md)
 * [Gebruikers, sessies en gebeurtenissen](app-insights-usage-segmentation.md)
 * [Retentie](app-insights-usage-retention.md)
-* [Aangepaste gebeurtenissen toevoegen aan uw app](app-insights-api-custom-events-metrics.md)
+* [Aangepaste gebeurtenissen toevoegen aan uw app](../azure-monitor/app/api-custom-events-metrics.md)

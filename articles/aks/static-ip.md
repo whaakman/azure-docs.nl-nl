@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 5ac64f61d1c7879c578a1b6994a6918a7aa28a2e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f1507bc2aebcd29feea7480761cd1b4949439583
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017045"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994484"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Gebruik een statisch openbaar IP-adres aan de load balancer van Azure Kubernetes Service (AKS)
 
@@ -25,6 +25,8 @@ Dit artikel ziet u hoe u een statisch openbaar IP-adres maakt en deze toewijzen 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
 Ook moet de Azure CLI-versie 2.0.46 of later zijn geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+
+Momenteel worden alleen standaard IP-SKU wordt ondersteund. Werk wordt uitgevoerd voor de ondersteuning van standaard IP-adressen.
 
 ## <a name="create-a-static-ip-address"></a>Een statisch IP-adres maken
 

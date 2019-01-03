@@ -1,7 +1,7 @@
 ---
 title: Client voor het gebruiken van de geïmplementeerde webservice maken
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u een webservice die is gegenereerd wanneer een model is geïmplementeerd met Azure Machine Learning-model te gebruiken. De webservice die een REST-API beschikbaar stelt. Clients voor deze API met behulp van de programmeertaal van uw keuze maken.
+description: Leer hoe u een webservice die is gegenereerd wanneer een model is geïmplementeerd met Azure Machine Learning-model te gebruiken. De webservice wordt aangegeven dat een REST-API. Clients voor deze API maken met behulp van de programmeertaal van uw keuze.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,31 +11,31 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251127"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753384"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
-Een Azure Machine Learning-model als een webservice implementeren, maakt u een REST-API. U kunt gegevens verzenden naar deze API en ontvangen de voorspelling geretourneerd door het model. In dit document, informatie over het maken van clients voor de web service via C#, Go, Java en Python.
+Een Azure Machine Learning-model als een webservice implementeren, maakt u een REST-API. U kunt gegevens verzenden naar deze API en ontvangen de voorspelling geretourneerd door het model. In dit document, informatie over het maken van clients voor de webservice met behulp van C#, Go, Java en Python.
 
-Een webservice wordt gemaakt wanneer u een installatiekopie op een Azure Container Instance, Azure Kubernetes Service of Project Brainwave (veld programmable gate arrays implementeert). Installatiekopieën worden van geregistreerde modellen en scoring-bestanden gemaakt. De URI die wordt gebruikt voor toegang tot een webservice kan worden opgehaald met behulp van de [SDK van Azure Machine Learning](https://aka.ms/aml-sdk). Als verificatie is ingeschakeld, kunt u de SDK ook gebruiken om op te halen van de verificatiesleutels.
+Wanneer u een installatiekopie op Azure Container Instances, Azure Kubernetes Service of Project Brainwave (veld programmable gate arrays implementeert) maakt u een webservice. U maken installatiekopieën van geregistreerde modellen en scoring-bestanden. Ophalen van de URI die wordt gebruikt voor toegang tot een webservice met behulp van de [SDK van Azure Machine Learning](https://aka.ms/aml-sdk). Als verificatie is ingeschakeld, kunt u de SDK ook gebruiken om op te halen van de verificatiesleutels.
 
-De algemene werkstroom wanneer het maken van een client die gebruikmaakt van een ML-webservice is:
+De algemene werkstroom voor het maken van een client die gebruikmaakt van een machine learning-webservice is:
 
-1. De SDK gebruiken om de verbindingsgegevens ophalen
-1. Bepalen welk type gegevens van aanvragen die worden gebruikt door het model
-1. Maak een toepassing die de webservice-aanroepen
+1. Gebruik de SDK om de verbindingsgegevens.
+1. Bepalen welk type gegevens van aanvragen die worden gebruikt door het model.
+1. Maak een toepassing die de webservice aanroept.
 
 ## <a name="connection-information"></a>Verbindingsgegevens
 
 > [!NOTE]
-> De SDK van Azure Machine Learning wordt gebruikt om de web service-informatie ophalen. Dit is een Python-SDK. Terwijl deze wordt gebruikt om informatie over de web-services te halen, kunt u elke taal kunt gebruiken om een client voor de service te maken.
+> Gebruik de SDK van Azure Machine Learning om de gegevens van een webservice. Dit is een Python-SDK. U kunt elke taal gebruiken om een client voor de service te maken.
 
-De verbindingsgegevens van de web service kan worden opgehaald met de SDK van Azure Machine Learning. De [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klasse bevat de informatie die nodig zijn voor het maken van een client. De volgende `Webservice` eigenschappen die nuttig zijn bij het maken van een clienttoepassing:
+De [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klasse bevat de informatie die u wilt maken van een client. De volgende `Webservice` eigenschappen zijn handig voor het maken van een clienttoepassing:
 
 * `auth_enabled` -Als verificatie is ingeschakeld, `True`; anders `False`.
 * `scoring_uri` -De REST-API-adres.
@@ -60,7 +60,7 @@ Er zijn een drie manieren om op te halen van deze informatie voor de geïmplemen
     print(services[0].scoring_uri)
     ```
 
-* Als u de naam van de geïmplementeerde service weet, kunt u een nieuw exemplaar van `Webservice` en geef de naam van de werkruimte en de service als parameters. Het nieuwe object bevat informatie over de geïmplementeerde service.
+* Als u de naam van de geïmplementeerde service weet, kunt u een nieuw exemplaar van `Webservice`, en geef de naam van de werkruimte en de service als parameters. Het nieuwe object bevat informatie over de geïmplementeerde service.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -69,12 +69,12 @@ Er zijn een drie manieren om op te halen van deze informatie voor de geïmplemen
 
 ### <a name="authentication-key"></a>Verificatiesleutel
 
-Verificatiesleutels worden automatisch gemaakt als verificatie is ingeschakeld voor een implementatie.
+Als u verificatie voor een implementatie inschakelt, maakt u automatisch verificatiesleutels.
 
-* Verificatie is __standaard ingeschakeld__ bij het implementeren op __Azure Kubernetes Service__.
-* Verificatie is __standaard uitgeschakeld__ bij het implementeren op __Azure container Instances__.
+* Verificatie is standaard ingeschakeld wanneer u in Azure Kubernetes Service implementeert.
+* Verificatie is standaard uitgeschakeld wanneer u in Azure Container Instances implementeert.
 
-Voor het beheren van verificatie, gebruikt u de `auth_enabled` parameter bij het maken of bijwerken van een implementatie.
+Voor het beheren van verificatie, gebruikt u de `auth_enabled` parameter wanneer u het maken of bijwerken van een implementatie.
 
 Als verificatie is ingeschakeld, kunt u de `get_keys` methode voor het ophalen van een primaire en secundaire verificatiesleutel:
 
@@ -102,7 +102,7 @@ De REST-API wordt verwacht dat de hoofdtekst van het verzoek om te worden van ee
 > [!IMPORTANT]
 > De structuur van de gegevens moet overeenkomen met wat de scoring-script en het model in de verwachte service. Het scoring-script kan de gegevens wijzigen voordat deze wordt doorgegeven aan het model.
 
-Bijvoorbeeld, het model in de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) voorbeeld wordt een matrix van 10 cijfers verwacht. Het scoring-script in dit voorbeeld maakt een matrix Numpy van de aanvraag en doorgegeven aan het model. Het volgende voorbeeld ziet u de gegevens die deze service wordt verwacht dat:
+Bijvoorbeeld, het model in de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) voorbeeld wordt een matrix van 10 cijfers verwacht. Het scoring-script in dit voorbeeld maakt een matrix Numpy van de aanvraag, en wordt doorgegeven aan het model. Het volgende voorbeeld ziet u de gegevens die deze service wordt verwacht dat:
 
 ```json
 {
@@ -155,9 +155,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> Dingen die u in de `azureml.contrib` naamruimte regelmatig wordt gewijzigd terwijl we er als u wilt de service te verbeteren. In deze naamruimte moet als zodanig worden beschouwd als een Preview-versie en niet volledig ondersteund door Microsoft.
+> De `azureml.contrib` naamruimte vaak verandert, zoals we werken om de service te verbeteren. Als zodanig moet in deze naamruimte worden beschouwd als een Preview-versie, en niet volledig ondersteund door Microsoft.
 >
-> Als u testen op uw lokale ontwikkelomgeving wilt, kunt u de onderdelen installeren op de contrib-naamruimte met de volgende opdracht:
+> Als u testen op uw lokale ontwikkelomgeving wilt, kunt u de onderdelen in installeren de `contrib` naamruimte met behulp van de volgende opdracht uit:
 > 
 > ```shell
 > pip install azureml-contrib-services

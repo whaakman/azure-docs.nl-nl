@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 76cdd4bd4d95c7c11906f9c02a0f5cfa2326390e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d8d48a41f9100abc3bc8ba306c766d9511f80026
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000778"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972070"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet-pakketten
 
@@ -70,17 +70,17 @@ Hieronder volgt de huidige lijst van stabiele versie van NuGet-pakketten voor Ap
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Schakelt de gegevensverzameling van de runtime voor x64 toepassingen | [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Schakelt de gegevensverzameling van de runtime voor x86 toepassingen. | [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Deze pakketten maken deel van de kernfunctionaliteit van runtimecontrole [Status Monitor](app-insights-monitor-performance-live-website-now.md). U hoeft niet te deze pakketten rechtstreeks downloaden, gebruikt u alleen de Status Monitor-installatieprogramma. Als u wilt weten meer over hoe deze pakketten werken achter de schermen [blogbericht](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) uit een van onze ontwikkelaars is een goede start.
+Deze pakketten maken deel van de kernfunctionaliteit van runtimecontrole [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md). U hoeft niet te deze pakketten rechtstreeks downloaden, gebruikt u alleen de Status Monitor-installatieprogramma. Als u wilt weten meer over hoe deze pakketten werken achter de schermen [blogbericht](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) uit een van onze ontwikkelaars is een goede start.
 
 ## <a name="additional-packages"></a>Extra pakketten
 
 | Pakketnaam | Stabiele versie | Description | Downloaden |
 |-------------------------------|-----------------------|------------|----|
-| Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | Deze extensie kunt de bewaking van Application Insights op een Azure App Service. SDK-versie 2.6.1. Instructies: 'APPINSIGHTS_INSTRUMENTATIONKEY' toepassingsinstellingen in met uw ikey toevoegen en de Web-App als u wilt een kracht opnieuw opstarten.| [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
+| Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | Deze extensie kunt de bewaking van Application Insights op een Azure App Service. SDK-versie 2.6.1. Instructies: Toepassingsinstellingen 'APPINSIGHTS_INSTRUMENTATIONKEY' met uw ikey toevoegen en de Web-App als u wilt een kracht opnieuw opstarten.| [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
 | Microsoft.ApplicationInsights.Injector | 2.6.7 | Dit pakket bevat de vereiste bestanden voor zonder code Application Insights-injectie | [Het pakket downloaden](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Injector/) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Monitor [ASP.NET Core](app-insights-asp-net-core.md).
+- Monitor [ASP.NET Core](../azure-monitor/app/asp-net-core.md).
 - Profileren van ASP.NET Core [Azure Linux-web-apps](app-insights-profiler-aspnetcore-linux.md).
 - Fouten opsporen in ASP.NET [momentopnamen](app-insights-snapshot-debugger.md).

@@ -14,37 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2018
+ms.date: 12/22/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 042be0b818ba448d64aa5e8631926420f00f4b5e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 367a9b2bd7b4a32d69974639a13f67340ea56518
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679661"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745003"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang? 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?
 
-Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), u kunt bepalen hoe gemachtigde gebruikers toegang tot uw cloud-apps. In een beleid voor voorwaardelijke toegang definieert u het antwoord ('Doe dit') met de reden voor het activeren van uw beleid ('als dit gebeurt'). 
+Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), u kunt bepalen hoe gemachtigde gebruikers toegang tot uw cloud-apps. In een beleid voor voorwaardelijke toegang definieert u het antwoord ('Doe dit') met de reden voor het activeren van uw beleid ('als dit gebeurt').
 
 ![Beheer](./media/controls/10.png)
 
-
-In de context van voorwaardelijke toegang 
+In de context van voorwaardelijke toegang
 
 - "**Wanneer dit gebeurt**' heet **voorwaarden**
 
 - "**Voert u deze**' heet **besturingselementen voor toegang**
 
-
 De combinatie van een voorwaardeninstructie met de besturingselementen vertegenwoordigt een beleid voor voorwaardelijke toegang.
 
 ![Beheer](./media/controls/61.png)
 
-Elk besturingselement is een vereiste waaraan moet worden voldaan door de persoon die of systeem aanmelden of een beperking op wat de gebruiker kan doen na het aanmelden. 
+Elk besturingselement is een vereiste waaraan moet worden voldaan door de persoon die of systeem aanmelden of een beperking op wat de gebruiker kan doen na het aanmelden.
 
-Er zijn twee typen besturingselementen: 
+Er zijn twee typen besturingselementen:
 
 - **Besturingselementen toekennen** - gate-toegang
 
@@ -56,24 +54,20 @@ Dit onderwerp worden de verschillende besturingselementen die beschikbaar in Azu
 
 Met besturingselementen voor verlenen, kunt u toegang volledig blokkeren of toegang met aanvullende vereisten toestaan door het selecteren van de gewenste besturingselementen. Voor meerdere besturingselementen, kunt u het volgende nodig:
 
-- Alle geselecteerde besturingselementen om te worden uitgevoerd (*en*) 
+- Alle geselecteerde besturingselementen om te worden uitgevoerd (*en*)
 - Een geselecteerd besturingselement moet worden voldaan (*of*)
 
 ![Beheer](./media/controls/17.png)
 
-
-
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Dit besturingselement kunt u multi-factor authentication voor toegang tot de opgegeven cloud-app vereisen. Dit besturingselement ondersteunt de volgende multi-factor Authentication-providers: 
+Dit besturingselement kunt u multi-factor authentication voor toegang tot de opgegeven cloud-app vereisen. Dit besturingselement ondersteunt de volgende multi-factor Authentication-providers:
 
-- Azure Multi-Factor Authentication 
+- Azure Multi-Factor Authentication
 
 - Een on-premises multi-factor authentication-provider, gecombineerd met Active Directory Federation Services (AD FS).
- 
+
 Met multi-factor authentication beschermt resources toegankelijk zijn via een niet-gemachtigde gebruiker die mogelijk toegang tot de primaire referenties van een geldige gebruiker hebben opgedaan.
-
-
 
 ### <a name="compliant-device"></a>Compatibel apparaat
 
@@ -87,25 +81,18 @@ Vereist dat een hybride Azure AD gekoppelde apparaat is een andere optie die u m
 
 Zie voor meer informatie, [instellen van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](require-managed-devices.md).
 
-
-
-
-
 ### <a name="approved-client-app"></a>Goedgekeurde client-app
 
 Omdat uw werknemers mobiele apparaten voor zowel privé- en werktaken gebruiken, kunt u de mogelijkheid om bedrijfsgegevens toegankelijk zijn via apparaten, zelfs in het geval wanneer ze niet worden beheerd door u te beschermen.
 U kunt [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy) ter bescherming van gegevens van uw bedrijf onafhankelijk van een oplossing voor mobile device management (MDM).
 
-
 Met goedgekeurde client-apps, u kunt vereisen dat een client-app die u probeert te krijgen tot uw cloud-apps voor de ondersteuning van [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy). U kunt bijvoorbeeld toegang tot Exchange Online beperken voor de Outlook-app. Beleid voor voorwaardelijke toegang waarvoor goedgekeurde client-apps wordt ook wel bekend als [beleid voor voorwaardelijke toegang op basis van app](app-based-conditional-access.md). Zie voor een lijst van ondersteunde goedgekeurde client-apps, [goedgekeurde client-app vereiste](technical-reference.md#approved-client-app-requirement).
-
 
 ### <a name="terms-of-use"></a>Gebruiksvoorwaarden
 
-U kunt vereisen dat een gebruiker in uw tenant akkoord gaan met de gebruiksvoorwaarden voordat toegang tot een resource wordt verleend. U kunt als beheerder, configureren en aanpassen van gebruiksvoorwaarden door te uploaden, een PDF-document. Als een gebruiker valt wordt bereik van dit besturingselement voor toegang tot een toepassing alleen verleend als de gebruiksvoorwaarden zijn vastgesteld. 
+U kunt vereisen dat een gebruiker in uw tenant akkoord gaan met de gebruiksvoorwaarden voordat toegang tot een resource wordt verleend. U kunt als beheerder, configureren en aanpassen van gebruiksvoorwaarden door te uploaden, een PDF-document. Als een gebruiker valt wordt bereik van dit besturingselement voor toegang tot een toepassing alleen verleend als de gebruiksvoorwaarden zijn vastgesteld.
 
-
-### <a name="custom-controls-preview"></a>Aangepaste besturingselementen (preview-versie) 
+### <a name="custom-controls-preview"></a>Aangepaste besturingselementen (preview-versie)
 
 U kunt aangepaste besturingselementen maken voor de voorwaardelijke toegang die uw gebruikers omleiden naar een compatibele service voor verdere buiten Azure Active Directory-vereisten. Hiermee kunt u bepaalde externe verificatie met meerdere factoren en verificatie providers gebruiken om af te dwingen van regels voor voorwaardelijke toegang of om uw eigen aangepaste service. Vereist verificatie of validatie-activiteiten wordt uitgevoerd en wordt vervolgens keert u terug naar Azure Active Directory om te voldoen aan dit besturingselement, de browser van een gebruiker wordt omgeleid naar de externe service. Als de gebruiker is geverifieerd of gevalideerd, wordt de gebruiker blijft in de stroom voor voorwaardelijke toegang. 
 
@@ -121,6 +108,7 @@ Biedt momenteel een compatibele service providers zijn onder andere:
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
+- [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
@@ -138,9 +126,7 @@ De optie voor het maken van een aangepast besturingselement is in de **beheren**
 
 Te klikken op **nieuw aangepast besturingselement**, wordt een blade geopend met een tekstvak voor de JSON-gegevens van het besturingselement.  
 
-
 ![Beheer](./media/controls/81.png)
-
 
 ### <a name="deleting-custom-controls"></a>Verwijderen van aangepaste besturingselementen
 
@@ -156,9 +142,6 @@ Als u wilt verwijderen van een aangepast besturingselement, moet u eerst ervoor 
 
 Als u wilt een aangepast besturingselement bewerken, moet u het huidige besturingselement verwijderen en maak een nieuw besturingselement met de bijgewerkte gegevens.
 
-
-
-
 ## <a name="session-controls"></a>Sessiebesturingselementen
 
 Met de sessiebesturingselementen wordt de beperkte ervaring in een cloud-app ingeschakeld. De sessiebesturingselementen worden afgedwongen door cloud-apps en zijn gebaseerd op aanvullende informatie geleverd door Azure AD aan de app over de sessie.
@@ -171,15 +154,12 @@ U kunt dit besturingselement gebruiken om te vereisen van Azure AD apparaatgegev
 
 Voor meer informatie zie:
 
-- [Beperkte toegang met SharePoint Online inschakelen](https://aka.ms/spolimitedaccessdocs) 
+- [Beperkte toegang met SharePoint Online inschakelen](https://aka.ms/spolimitedaccessdocs)
 
 - [Beperkte toegang met Exchange Online inschakelen](https://aka.ms/owalimitedaccess)
-
-
-
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
 
-- Zie [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md) als u klaar bent om beleid voor voorwaardelijke toegang in Azure Active Directory te configureren. 
+- Zie [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md) als u klaar bent om beleid voor voorwaardelijke toegang in Azure Active Directory te configureren.

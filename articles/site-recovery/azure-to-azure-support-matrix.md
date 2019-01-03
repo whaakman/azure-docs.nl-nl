@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24776e2d14824c6d7b028a2cb9e2ba1e1aaa5c96
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342711"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789123"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -56,8 +56,9 @@ China | China-Oost, China-Noord, China North2, China-Oost 2
 
 >[!NOTE]
 >
-> U kunt voor de regio Brazilië-Zuid, repliceren en failover naar een van de volgende: Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noord-centraal VS-regio's.</br>
-> Er moet worden opgemerkt Site Recovery is alleen ingeschakeld voor Brazilië-Zuid moet worden gebruikt als een regio van de gegevensbron van waar de virtuele machines kunnen worden beveiligd. Het kan niet worden gebruikt als een doel-DR-regio voor het gebruik van de Azure-regio's, zoals Zuid-centraal VS. De reden hiervoor is dat van latentie waargenomen vanwege geografische afstand dat het verdient aanbeveling om te selecteren van een andere Amerika andere regio dan Brazilië-Zuid.  
+> U kunt voor de regio Brazilië-Zuid, repliceren en failover naar een van de volgende: Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noord-centraal VS-regio's.
+>
+> Er moet worden opgemerkt Site Recovery is alleen ingeschakeld voor Brazilië-Zuid moet worden gebruikt als een regio van de gegevensbron van waar de virtuele machines kunnen worden beveiligd. Het kan niet worden gebruikt als een doel-DR-regio voor het gebruik van de Azure-regio's, zoals Zuid-centraal VS. De reden hiervoor is dat van latentie waargenomen vanwege geografische afstand dat het verdient aanbeveling om te selecteren van een andere Amerika andere regio dan Brazilië-Zuid.
 
 ## <a name="cache-storage"></a>Cacheopslag
 
@@ -127,10 +128,10 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-AMD64 naar 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 
 
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.20 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.69-default |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.19 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default naar 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.18 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default naar 4.4.138-94.39-default |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.17 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default naar 4.4.126-94.22-default |
+SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.20 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default<br/><br/> SP2 4.4.21-69-default naar 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default<br/><br/>SP3 4.4.73-5-default naar 4.4.162-94.69-default |
+SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.19 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.93-default<br/><br/> SP2 4.4.21-69-default naar 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.80-default<br/><br/>SP3 4.4.73-5-default naar 4.4.140-94.42-default |
+SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.18 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.93-default<br/><br/> SP2 4.4.21-69-default naar 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.80-default<br/><br/>SP3 4.4.73-5-default naar 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.17 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.88-default<br/><br/> SP2 4.4.21-69-default naar 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default<br/><br/>SP3 4.4.73-5-default naar 4.4.126-94.22-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Gerepliceerde machines - Linux-systeem/Gast bestandsopslag
 
@@ -145,7 +146,7 @@ SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.17 | SP1 3.12.49-11-default n
 --- | --- | ---
 Grootte | Elke Azure-VM-grootte met ten minste 2 CPU-kernen en 1 GB RAM-geheugen | Controleer of [Azure VM-groottes](../virtual-machines/windows/sizes.md).
 Beschikbaarheidssets | Ondersteund | Als u replicatie voor een Azure VM met de standaardopties inschakelt, wordt een beschikbaarheidsset op basis van de bron regio-instellingen automatisch gemaakt. U kunt deze instellingen wijzigen.
-Beschikbaarheidszones | Ondersteund |  
+Beschikbaarheidszones | Ondersteund |
 Hybrid Use Benefit (HUB) | Ondersteund | Als de bron-VM een HUB-licentie ingeschakeld, een testfailover heeft of failover gebruikt VM ook de HUB-licentie.
 Schaalsets van virtuele machines | Niet ondersteund |
 Installatiekopieën van Azure-galerie - Microsoft gepubliceerd | Ondersteund | Als de virtuele machine wordt uitgevoerd op een ondersteund besturingssysteem wordt ondersteund.
@@ -177,12 +178,12 @@ Maximum aantal voor gegevens-schijf | Maximaal 64, in overeenstemming met de ond
 Veranderingssnelheid van gegevens-schijf | Maximaal 10 MBps per schijf voor premium-opslag. Maximaal 2 MBps per schijf voor Standard-opslag. | Als de gemiddelde gegevenswijzigingssnelheid op de schijf is voortdurend hoger is dan de maximale, replicatie wordt niet actueel.<br/><br/>  Echter, als de maximale sporadisch wordt overschreden, replicatie kan bijwonen, maar ziet u mogelijk enigszins vertraagd herstelpunten.
 Gegevensschijf - standard storage-account | Ondersteund |
 Gegevensschijf - premium storage-account | Ondersteund | Als een virtuele machine schijven die zijn verdeeld over premium en standard storage-accounts bevat, kunt u een ander doel-opslagaccount voor elke schijf, zodat u de dezelfde opslagconfiguratie hebt in de doelregio.
-Beheerde schijf - standaard | Ondersteund in Azure-regio's waar Azure Site Recovery wordt ondersteund. |  
+Beheerde schijf - standaard | Ondersteund in Azure-regio's waar Azure Site Recovery wordt ondersteund. |
 Beheerde schijf - premium | Ondersteund in Azure-regio's waar Azure Site Recovery wordt ondersteund. |
 Standard - SSD | Niet ondersteund |
 Redundantie | LRS en GRS worden ondersteund.<br/><br/> ZRS wordt niet ondersteund.
 Opslag van koude en warme | Niet ondersteund | VM-schijven worden niet ondersteund op de opslag van koude en warme
-Opslagruimten | Ondersteund |         
+Opslagruimten | Ondersteund |
 Versleuteling-at-rest (SSE) | Ondersteund | SSE is de standaardinstelling op storage-accounts.   
 Azure Disk Encryption (ADE) voor Windows-besturingssysteem | VM's zijn ingeschakeld voor [versleuteling met Azure AD-app](https://aka.ms/ade-aad-app) worden ondersteund |
 Azure Disk Encryption (ADE) voor Linux-besturingssysteem | Niet ondersteund |
@@ -193,7 +194,7 @@ Scale-out bestandsserver  | Niet ondersteund|
 LRS | Ondersteund |
 GRS | Ondersteund |
 RA-GRS | Ondersteund |
-ZRS | Niet ondersteund |  
+ZRS | Niet ondersteund |
 Opslag van koude en warme | Niet ondersteund | Schijven van virtuele machines worden niet ondersteund op de opslag van koude en warme
 Azure Storage-firewalls voor virtuele netwerken  | Ondersteund | Als u zijn beperken van toegang tot het virtuele netwerk voor storage-accounts, controleert u of u ['Vertrouwde Microsoft-services toestaan'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Opslagaccounts voor algemeen gebruik V2 (zowel warme en koude laag) | Nee | Toename van de transactie kosten vergeleken aanzienlijk met algemeen gebruik V1-opslagaccounts
@@ -220,13 +221,13 @@ NIC | Maximum aantal dat wordt ondersteund voor een specifieke Azure-VM-grootte 
 Internet Load Balancer | Ondersteund | Koppel de vooraf geconfigureerde load balancer met behulp van een Azure Automation-script van een herstelplan te gaan.
 Een interne Load balancer | Ondersteund | Koppel de vooraf geconfigureerde load balancer met behulp van een Azure Automation-script van een herstelplan te gaan.
 Openbaar IP-adres | Ondersteund | Een bestaande openbare IP-adres koppelen aan de NIC. Of maak een openbaar IP-adres en koppel deze aan de NIC met behulp van een Azure Automation-script van een herstelplan te gaan.
-NSG op de NIC | Ondersteund | De NSG koppelen aan de NIC met behulp van een Azure Automation-script van een herstelplan te gaan.  
+NSG op de NIC | Ondersteund | De NSG koppelen aan de NIC met behulp van een Azure Automation-script van een herstelplan te gaan.
 NSG voor subnet | Ondersteund | De NSG koppelen aan het subnet met behulp van een Azure Automation-script van een herstelplan te gaan.
 Gereserveerd (statisch) IP-adres | Ondersteund | Als de NIC op de bron-VM een statisch IP-adres heeft en het doelsubnet de hetzelfde IP-adres is, deze toegewezen aan de failover VM.<br/><br/> Als het doelsubnet niet hetzelfde IP-adres beschikbaar is, wordt een van de beschikbare IP-adressen in het subnet is gereserveerd voor de virtuele machine.<br/><br/> U kunt ook opgeven een vast IP-adres en subnetmasker in **gerepliceerde items** > **instellingen** > **berekening en netwerk**  >  **Netwerkinterfaces**.
 Dynamisch IP-adres | Ondersteund | Als de NIC op de broncomputer dynamische IP heeft-adressering, is het ook de NIC uitvoert voor virtuele machine op de standaard dynamisch.<br/><br/> U kunt dit wijzigen naar een vaste IP-adres indien nodig.
 Traffic Manager     | Ondersteund | U kunt Traffic Manager vooraf configureren zodat verkeer wordt doorgestuurd naar het eindpunt in de bronregio op gezette tijden en naar het eindpunt in de doelregio in het geval van failover.
 Azure DNS | Ondersteund |
-Aangepaste DNS  | Ondersteund |    
+Aangepaste DNS  | Ondersteund |
 Niet-geverifieerde Proxy | Ondersteund | Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)    
 Geverifieerde Proxy | Niet ondersteund | Als de virtuele machine van een geverifieerde proxyserver voor de uitgaande connectiviteit gebruikmaakt, kan niet worden gerepliceerd met behulp van Azure Site Recovery.    
 Site-naar-Site-VPN met on-premises (met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de Udr en nsg's zodanig dat het Site recovery-verkeer niet wordt doorgestuurd naar on-premises zijn geconfigureerd. Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)  

@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 9f7f7731490467ff32a72507239bfeedc794f2f2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3fe57fe0aac4c355b65b55ee37213221eb854a5c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000537"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976544"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Analyses voor ontwikkelaars: programmeertalen, platforms en integraties
 Deze items zijn implementaties van [Application Insights](app-insights-overview.md) die tot nu toe bij ons bekend zijn (inclusief implementaties door derden).
 
 ## <a name="languages---officially-supported-by-application-insights-team"></a>Programmeertalen - officieel ondersteund door het team van Application Insights
-* [C#|VB (.NET)](app-insights-asp-net.md)
-* [Java](app-insights-java-get-started.md)
-* [JavaScript-webpagina's](app-insights-javascript.md)
+* [C#|VB (.NET)](../azure-monitor/app/asp-net.md)
+* [Java](../azure-monitor/app/java-get-started.md)
+* [JavaScript-webpagina's](../azure-monitor/app/javascript.md)
 * [Node.JS](app-insights-nodejs.md)
 
 ## <a name="languages---community-supported"></a>Programmeertalen - ondersteund door de community
@@ -37,22 +37,22 @@ Deze items zijn implementaties van [Application Insights](app-insights-overview.
 * [Overige](#projects)
 
 ## <a name="platforms-and-frameworks"></a>Platforms en frameworks
-* [ASP.NET](app-insights-asp-net.md)
-* [ASP.NET - voor apps die al live zijn](app-insights-monitor-performance-live-website-now.md)
-* [ASP.NET Core](app-insights-asp-net-core.md)
+* [ASP.NET](../azure-monitor/app/asp-net.md)
+* [ASP.NET - voor apps die al live zijn](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [ASP.NET Core](../azure-monitor/app/asp-net-core.md)
 * [Android](app-insights-mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
-* [Azure Web Apps](app-insights-azure-web-apps.md)
-* [Azure Cloud Services](app-insights-cloudservices.md) met inbegrip van web- en werkrollen
+* [Azure App Service](../azure-monitor/app/azure-web-apps.md)
+* [Azure Cloud Services](../azure-monitor/app/cloudservices.md) met inbegrip van web- en werkrollen
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
-* [Docker](app-insights-docker.md)
+* [Docker](../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](app-insights-mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
-* [J2EE](app-insights-java-get-started.md)
-* [J2EE - voor apps die al live zijn](app-insights-java-live.md)
+* [J2EE](../azure-monitor/app/java-get-started.md)
+* [J2EE - voor apps die al live zijn](../azure-monitor/app/java-live.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
@@ -63,8 +63,8 @@ Deze items zijn implementaties van [Application Insights](app-insights-overview.
 * [Overige](#projects)
 
 ## <a name="logging-frameworks"></a>Frameworks voor logboekregistratie
-* [Log4Net, NLog of System.Diagnostics.Trace](app-insights-asp-net-trace-logs.md)
-* [Java, Log4J of Logback](app-insights-java-trace-logs.md)
+* [Log4Net, NLog of System.Diagnostics.Trace](../azure-monitor/app/asp-net-trace-logs.md)
+* [Java, Log4J of Logback](../azure-monitor/app/java-trace-logs.md)
 * [Semantische logboekregistratie (SLAB)](https://github.com/fidmor89/SLAB_AppInsights): kan worden geïntegreerd met het [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Belastingstests in de cloud](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash-invoegtoepassing](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)

@@ -10,20 +10,20 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 40b9685c56dd494e82c05bff9ed75f425a3006ff
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886624"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741739"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Voorbeelden van Bing insights gebruik
 
-In deze sectie bevat voorbeelden van hoe Bing inzichten op Bing.com mogelijk weergegeven.
+In dit artikel bevat voorbeelden van hoe Bing kan gebruiken en inzichten in afbeeldingen op Bing.com weergeven.
 
 ## <a name="pagesincluding-insight-example"></a>Voorbeeld van PagesIncluding inzicht
 
-Hieronder ziet u hoe Bing webpagina's die de installatiekopie bevatten mogelijk weergegeven. In het voorbeeld wordt een koppeling weergegeven naar de webpagina van de eerste en Hiermee kan de gebruiker uitvouwen of samenvouwen van de lijst met andere webpagina's die de installatiekopie bevatten.
+Het volgende wordt een koppeling weergegeven naar de webpagina van de eerste en Hiermee kan de gebruiker uitvouwen of samenvouwen van de lijst met andere webpagina's die de installatiekopie bevatten.
 
 ![Uitgebreide pagina's, inclusief](./media/pages-including.PNG)
 
@@ -83,9 +83,7 @@ Niet-standaard-tags bevatten het selectiekader waarmee het gebied van belang zij
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Om te zien wat de JSON achter deze voorbeelden, Zie [standaard insights](default-insights-tag.md) en [JSON-antwoord](overview.md#the-response).
-
-Als u wilt snel aan de slag met uw eerste aanvraag, Zie de Quick starts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)
+Als u wilt snel aan de slag met uw eerste aanvraag, Zie de snelstartgidsen: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

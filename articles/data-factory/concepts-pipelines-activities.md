@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: ca64c87a0211ae00218493fe7bfddcbbb81a032a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ac72de799ce7cd00e939e9b67f1ef5574ce3eed3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109436"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972563"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pijplijnen en activiteiten in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +55,7 @@ Activiteiten voor gegevenstransformatie | Compute-omgeving
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Machine Learning-activiteiten: batchuitvoering en resources bijwerken](transform-data-using-machine-learning.md) | Azure VM
+[Machine Learning-activiteiten: Batchuitvoering en resources bijwerken](transform-data-using-machine-learning.md) | Azure VM
 [Opgeslagen procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse of SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Aangepaste code](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -66,7 +66,7 @@ Zie het artikel [Activiteiten voor gegevenstransformatie](transform-data.md) voo
 ## <a name="control-activities"></a>Controleactiviteiten
 De volgende controlestroomactiviteiten worden ondersteund:
 
-Controleactiviteit | Beschrijving
+Controleactiviteit | Description
 ---------------- | -----------
 [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md) | De Execute Pipeline Activity stelt een Data Factory-pijplijn in staat om een andere pijplijn aan te roepen.
 [ForEachActivity](control-flow-for-each-activity.md) | De ForEachActivity definieert een herhalende controlestroom in de pijplijn. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
@@ -95,15 +95,15 @@ Een pijplijn wordt als volgt in de JSON-indeling gedefinieerd:
 }
 ```
 
-Label | Beschrijving | Type | Vereist
+Label | Description | Type | Vereist
 --- | ----------- | ---- | --------
-naam | Naam van de pijplijn. Geef een naam op die staat voor de actie die de pijplijn uitvoert. <br/><ul><li>Maximum aantal tekens: 140</li><li>Moet beginnen met een letter, cijfer of onderstrepingsteken (_)</li><li>De volgende tekens zijn niet toegestaan: '.', '+', '?', '/', '<', '>', ' * ', '%', '&', ':', '\'</li></ul> | Reeks | Ja
+naam | Naam van de pijplijn. Geef een naam op die staat voor de actie die de pijplijn uitvoert. <br/><ul><li>Maximum aantal tekens: 140</li><li>Moet beginnen met een letter, cijfer of een onderstrepingsteken (\_)</li><li>De volgende tekens zijn niet toegestaan: '.', '+', '?', '/', '<', '>', ' * ', '%', '&', ':', '\'</li></ul> | Reeks | Ja
 description | Voer een beschrijving in van het doel waarvoor de pijplijn wordt gebruikt. | Reeks | Nee
 activities | De sectie **activities** kan één of meer activiteiten bevatten die zijn gedefinieerd binnen de activiteit. Zie de sectie [Activity in JSON](#activity-json) voor meer informatie over het JSON-element activities. | Matrix | Ja
 parameters | De sectie **parameters** kan één of meer parameters bevatten die zijn gedefinieerd in de pijplijn, waardoor uw pijplijn kan worden hergebruikt. | Lijst | Nee
 
 ## <a name="activity-json"></a>Activity in JSON
-De sectie **activities** kan één of meer activiteiten bevatten die zijn gedefinieerd binnen de activiteit. Er zijn twee soorten activiteiten: uitvoerings- en controleactiviteiten.
+De sectie **activities** kan één of meer activiteiten bevatten die zijn gedefinieerd binnen de activiteit. Er zijn twee soorten activiteiten: Uitvoering en controleactiviteiten.
 
 ### <a name="execution-activities"></a>Uitvoeringsactiviteiten
 Uitvoeringsactiviteiten zijn [activiteiten voor gegevensverplaatsing](#data-movement-activities) en [activiteiten voor gegevenstransformatie](#data-transformation-activities). Ze hebben de volgende structuur op het hoogste niveau:
@@ -128,9 +128,9 @@ Uitvoeringsactiviteiten zijn [activiteiten voor gegevensverplaatsing](#data-move
 
 De volgende tabel beschrijft de eigenschappen in de JSON-definitie activity:
 
-Label | Beschrijving | Vereist
+Label | Description | Vereist
 --- | ----------- | ---------
-naam | De naam van de activiteit. Geef een naam op die staat voor de actie die de activiteit uitvoert. <br/><ul><li>Maximum aantal tekens: 55</li><li>Moet beginnen met een letter, cijfer of onderstrepingsteken (_)</li><li>De volgende tekens zijn niet toegestaan: '.', '+', '?', '/', '<', '>', ' * ', '%', '&', ':', '\' | Ja</li></ul>
+naam | De naam van de activiteit. Geef een naam op die staat voor de actie die de activiteit uitvoert. <br/><ul><li>Maximum aantal tekens: 55</li><li>Moet beginnen met een letter, cijfer of een onderstrepingsteken (\_)</li><li>De volgende tekens zijn niet toegestaan: '.', '+', '?', '/', '<', '>', ' * ', '%', '&', ':', '\' | Ja</li></ul>
 description | Beschrijving van het doel waarvoor de activiteit of wordt gebruikt | Ja
 type | Type activiteit. Bekijk de secties [Activiteiten voor gegevensverplaatsing](#data-movement-activities), [Activiteiten voor gegevenstransformatie](#data-transformation-activities) en [Controleactiviteiten](#control-activities) voor andere typen activiteiten. | Ja
 linkedServiceName | De naam van de gekoppelde service die door de activiteit wordt gebruikt.<br/><br/>Een activiteit kan vereisen dat u de gekoppelde service opgeeft die is gekoppeld aan de vereiste rekenomgeving. | Ja voor HDInsight Activity, Azure Machine Learning Batch Scoring Activity en Stored Procedure Activity. <br/><br/>Nee voor alle andere
@@ -168,7 +168,7 @@ Beleidsregels beïnvloeden het de runtimegedrag van een activiteit, waarbij conf
     }
 }
 ```
-JSON-naam | Beschrijving | Toegestane waarden | Vereist
+JSON-naam | Description | Toegestane waarden | Vereist
 --------- | ----------- | -------------- | --------
 timeout | Hiermee geeft u de time-out op voor de activiteit die moet worden uitgevoerd. | Periode | Nee. De standaardwaarde is 7 dagen.
 retry | Maximaal aantal nieuwe pogingen | Geheel getal | Nee. De standaardwaarde is 0
@@ -192,9 +192,9 @@ Controleactiviteiten hebben de volgende structuur op het hoogste niveau:
 }
 ```
 
-Label | Beschrijving | Vereist
+Label | Description | Vereist
 --- | ----------- | --------
-naam | De naam van de activiteit. Geef een naam op die staat voor de actie die de activiteit uitvoert.<br/><ul><li>Maximum aantal tekens: 55</li><li>Moet beginnen met een letter, cijfer of onderstrepingsteken (_)</li><li>De volgende tekens zijn niet toegestaan: '.', '+', '?', '/', '<', '>', ' * ', '%', '&', ':', '\' | Ja</li><ul>
+naam | De naam van de activiteit. Geef een naam op die staat voor de actie die de activiteit uitvoert.<br/><ul><li>Maximum aantal tekens: 55</li><li>Moet beginnen met een letter, cijfer of een onderstrepingsteken (\_)</li><li>De volgende tekens zijn niet toegestaan: '.', '+', '?', '/', '<', '>', ' * ', '%', '&', ':', '\' | Ja</li><ul>
 description | Beschrijving van het doel waarvoor de activiteit of wordt gebruikt | Ja
 type | Type activiteit. Bekijk de secties [Activiteiten voor gegevensverplaatsing](#data-movement-activities), [Activiteiten voor gegevenstransformatie](#data-transformation-activities) en [Controleactiviteiten](#control-activities) voor andere typen activiteiten. | Ja
 typeProperties | Eigenschappen in de sectie typeProperties zijn afhankelijk van elk type activiteit. Klik op koppelingen naar de activiteiten in de vorige sectie om typeProperties voor een activiteit te bekijken. | Nee
@@ -203,16 +203,16 @@ dependsOn | Deze eigenschap wordt gebruikt voor het definiëren van afhankelijkh
 ### <a name="activity-dependency"></a>Afhankelijkheid van activiteiten
 De afhankelijkheid van activiteiten definieert hoe latere activiteiten afhankelijk zijn van vorige activiteiten. Op basis hiervan wordt bepaald of de volgende taak kan worden uitgevoerd. Een activiteit kan afhankelijk zijn van een of meer eerdere activiteiten met verschillende afhankelijkheidsvoorwaarden.
 
-De verschillende afhankelijkheidsvoorwaarden zijn: Succeeded, Failed, Skipped, Completed.
+De verschillende afhankelijkheidsvoorwaarden zijn: Is voltooid, is mislukt, overgeslagen, voltooid.
 
 Als een pijplijn bijvoorbeeld Activiteit A -> Activiteit B heeft, zijn dit de verschillende scenario's die kunnen ontstaan:
 
-- Activiteit B heeft de afhankelijkheidsvoorwaarde **succeeded** ten opzichte van Activiteit A. Dit houdt in dat Activiteit B alleen kan worden uitgevoerd als Activiteit A de definitieve status succeeded heeft
-- Activiteit B heeft de afhankelijkheidsvoorwaarde **failed** ten opzichte van Activiteit A. Dit houdt in dat Activiteit B alleen kan worden uitgevoerd als Activiteit A de definitieve status failed heeft
-- Activiteit B heeft de afhankelijkheidsvoorwaarde **completed** ten opzichte van Activiteit A. Dit houdt in dat Activiteit B wordt uitgevoerd als Activiteit A de definitieve status succeeded of failed heeft
-- Activiteit B heeft de afhankelijkheidsvoorwaarde **skipped** ten opzichte van Activiteit A. Dit houdt in dat Activiteit B wordt uitgevoerd als Activiteit A de definitieve status skipped heeft. Skipped komt voor in het scenario Activiteit X -> Activiteit Y -> Activiteit Z, waarbij elke activiteit alleen wordt uitgevoerd als de vorige activiteit is geslaagd. Als Activiteit X is mislukt, heeft Activiteit Y de status 'Skipped' omdat deze niet is uitgevoerd. Activiteit Z heeft om dezelfde reden ook de status 'Skipped'.
+- Activiteit B heeft de afhankelijkheidsvoorwaarde op activiteit met **geslaagd**: Activiteit B alleen kan worden uitgevoerd voltooid als activiteit a de definitieve status van heeft
+- Activiteit B heeft de afhankelijkheidsvoorwaarde op activiteit met **mislukt**: Activiteit B alleen kan worden uitgevoerd mislukt als activiteit a de definitieve status van is
+- Activiteit B heeft de afhankelijkheidsvoorwaarde op activiteit met **voltooid**: Activiteit B wordt uitgevoerd als activiteit a de definitieve status van is geslaagd of mislukt
+- Activiteit B heeft de afhankelijkheidsvoorwaarde op activiteit met **overgeslagen**: Activiteit B wordt uitgevoerd overgeslagen als activiteit a de definitieve status van is. Skipped komt voor in het scenario Activiteit X -> Activiteit Y -> Activiteit Z, waarbij elke activiteit alleen wordt uitgevoerd als de vorige activiteit is geslaagd. Als Activiteit X is mislukt, heeft Activiteit Y de status 'Skipped' omdat deze niet is uitgevoerd. Activiteit Z heeft om dezelfde reden ook de status 'Skipped'.
 
-#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Voorbeeld: Activiteit 2 is afhankelijk van het slagen van Activiteit 1
+#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Voorbeeld: Activiteit 2 is afhankelijk van het slagen van activiteit 1
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d3ae15193b5e2d759825e60f880dea4355329837
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fca763d04cc8cbf22d1578b18d504ec3ce9656d9
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407044"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993022"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Apache Hadoop HDFS oplossen met behulp van Azure HDInsight
 
@@ -23,7 +23,7 @@ Meer informatie over de meest voorkomende problemen en hun oplossingen bij het w
 
 ### <a name="issue"></a>Probleem
 
-De lokale HDFS te openen vanaf de opdrachtregel en toepassingscode in plaats van met behulp van Azure Blob storage of Azure Data Lake Store uit in het HDInsight-cluster.   
+De lokale HDFS te openen vanaf de opdrachtregel en toepassingscode in plaats van met behulp van Azure Blob storage of Azure Data Lake Storage uit in het HDInsight-cluster.   
 
 ### <a name="resolution-steps"></a>Oplossingen
 

@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722374"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794240"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informatie over periodieke back-upconfiguratie in Azure Service Fabric
 
 Configuratie periodieke back-up van uw Reliable stateful services of Reliable Actors bestaat uit de volgende stappen uit:
 
-1. **Het maken van back-upbeleid**: In deze stap een of meer back-upbeleid worden gemaakt, afhankelijk van de vereisten.
+1. **Het maken van back-upbeleid**: Een of meer back-upbeleid worden in deze stap is gemaakt, afhankelijk van de vereisten.
 
-2. **Om back-up**: In deze stap koppelt u de back-upbeleid is gemaakt in **stap 1** aan de vereiste entiteiten _toepassing_, _Service_, of een  _Partitie_.
+2. **Om back-up**: In deze stap koppelt u de back-upbeleid is gemaakt in **stap 1** aan de vereiste entiteiten _toepassing_, _Service_, of een _partitie_.
 
 ## <a name="create-backup-policy"></a>Back-upbeleid maken
 
 Een back-upbeleid bestaat uit de volgende configuraties:
 
-* **Terugzetten op het verlies van gegevens automatisch**: Hiermee bepaalt u of de herstelbewerking wordt automatisch met behulp van de meest recente beschikbare back-up in het geval de partitie een gegevensverlies optreedt.
+* **Terugzetten op het verlies van gegevens automatisch**: Geeft aan of de herstelbewerking wordt automatisch met behulp van de meest recente beschikbare back-up in het geval de partitie een gegevensverlies optreedt.
 
-* **Maximum aantal incrementele back-ups**: definieert het maximum aantal incrementele back-ups moeten worden uitgevoerd tussen twee volledige back-ups. Maximum aantal incrementele back-ups opgeven de bovenste limiet. Een volledige back-up kan worden uitgevoerd voordat het opgegeven aantal incrementele back-ups wordt uitgevoerd in een van de volgende voorwaarden
+* **Maximum aantal incrementele back-ups**: Hiermee definieert u het maximum aantal incrementele back-ups moeten worden uitgevoerd tussen twee volledige back-ups. Maximum aantal incrementele back-ups opgeven de bovenste limiet. Een volledige back-up kan worden uitgevoerd voordat het opgegeven aantal incrementele back-ups wordt uitgevoerd in een van de volgende voorwaarden
 
     1. De replica heeft nooit genomen voor een volledige back-up omdat het primaire is geworden.
 
@@ -43,9 +43,9 @@ Een back-upbeleid bestaat uit de volgende configuraties:
 
     3. Replica doorgegeven de limiet MaxAccumulatedBackupLogSizeInMB.
 
-* **Back-upschema**: de tijd of de frequentie waarmee periodieke back-ups maken. Een kunt back-ups om te worden herhaald op basis van opgegeven interval of op een vaste tijd dagelijks / wekelijks plannen.
+* **Back-upschema**: De tijd of de frequentie waarmee periodieke back-ups maken. Een kunt back-ups om te worden herhaald op basis van opgegeven interval of op een vaste tijd dagelijks / wekelijks plannen.
 
-    1. **Op basis van een frequentie van back-upschema**: dit schematype moet worden gebruikt als de noodzaak is het back-up van gegevens met vaste intervallen. Gewenste tijdsinterval tussen twee opeenvolgende back-ups is gedefinieerd met behulp van de ISO8601-notatie. Op basis van een frequentie van back-upschema ondersteunt interval resolutie van maximaal minuut.
+    1. **Op basis van een frequentie van back-upschema**: Dit schematype moet worden gebruikt als de noodzaak is het back-up van gegevens met vaste intervallen. Gewenste tijdsinterval tussen twee opeenvolgende back-ups is gedefinieerd met behulp van de ISO8601-notatie. Op basis van een frequentie van back-upschema ondersteunt interval resolutie van maximaal minuut.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -53,8 +53,8 @@ Een back-upbeleid bestaat uit de volgende configuraties:
         }
         ```
 
-    2. **Back-upschema op basis van tijd**: dit schematype moet worden gebruikt als de noodzaak te nemen van de back-up op specifieke tijdstippen van de dag of week. Frequentie schematype zijn dagelijks of wekelijks.
-        1. **_Dagelijkse_ back-upschema op basis van tijd**: dit schematype moet worden gebruikt als de id hoeft te nemen van de back-up op specifieke tijdstippen van de dag. Als dit opgeven, stelt u `ScheduleFrequencyType` naar _dagelijkse_; en stel `RunTimes` aan de lijst met de gewenste tijd gedurende de dag ISO8601-indeling hebben, datum en tijd opgegeven wordt genegeerd. Bijvoorbeeld, `0001-01-01T18:00:00` vertegenwoordigt _18:00:00 uur_ elke dag, datum wordt genegeerd _0001-01-01_. Onderstaande voorbeeld ziet u de configuratie van trigger dagelijkse back-up op _9:00 uur_ en _18:00:00 uur_ dagelijks.
+    2. **Back-upschema op basis van tijd**: Dit schematype moet worden gebruikt als de noodzaak te nemen van de back-up op specifieke tijdstippen van de dag of week. Frequentie schematype zijn dagelijks of wekelijks.
+        1. **_Dagelijkse_ back-upschema op basis van tijd**: Dit schematype moet worden gebruikt als de id hoeft te nemen van de back-up op specifieke tijdstippen van de dag. Als dit opgeven, stelt u `ScheduleFrequencyType` naar _dagelijkse_; en stel `RunTimes` aan de lijst met de gewenste tijd gedurende de dag ISO8601-indeling hebben, datum en tijd opgegeven wordt genegeerd. Bijvoorbeeld, `0001-01-01T18:00:00` vertegenwoordigt _18:00:00 uur_ elke dag, datum wordt genegeerd _0001-01-01_. Onderstaande voorbeeld ziet u de configuratie van trigger dagelijkse back-up op _9:00 uur_ en _18:00:00 uur_ dagelijks.
 
             ```json
             {
@@ -67,7 +67,7 @@ Een back-upbeleid bestaat uit de volgende configuraties:
             }
             ```
 
-        2. **_Wekelijkse_ back-upschema op basis van tijd**: dit schematype moet worden gebruikt als de id hoeft te nemen van de back-up op specifieke tijdstippen van de dag. Als dit opgeven, stelt u `ScheduleFrequencyType` naar _wekelijkse_; set `RunDays` aan lijst van dagen in een week wanneer back-up moet worden geactiveerd en stel `RunTimes` aan de lijst met de gewenste tijd gedurende de dag ISO8601-indeling hebben, datum en tijd opgegeven worden genegeerd. Lijst van dagen van een week bij het activeren van de periodieke back-up. Onderstaande voorbeeld ziet u de configuratie van trigger dagelijkse back-up op _9:00 uur_ en _18:00:00 uur_ tijdens maandag tot en met vrijdag.
+        2. **_Wekelijkse_ back-upschema op basis van tijd**: Dit schematype moet worden gebruikt als de id hoeft te nemen van de back-up op specifieke tijdstippen van de dag. Als dit opgeven, stelt u `ScheduleFrequencyType` naar _wekelijkse_; set `RunDays` aan lijst van dagen in een week wanneer back-up moet worden geactiveerd en stel `RunTimes` aan de lijst met de gewenste tijd gedurende de dag ISO8601-indeling hebben, datum en tijd opgegeven worden genegeerd. Lijst van dagen van een week bij het activeren van de periodieke back-up. Onderstaande voorbeeld ziet u de configuratie van trigger dagelijkse back-up op _9:00 uur_ en _18:00:00 uur_ tijdens maandag tot en met vrijdag.
 
             ```json
             {
@@ -88,7 +88,7 @@ Een back-upbeleid bestaat uit de volgende configuraties:
             ```
 
 * **Back-upopslag**: Hiermee geeft u de locatie op voor het uploaden van de back-ups. Opslag kan een Azure blob-archief of bestandsshare.
-    1. **Azure blob-archief**: dit opslagtype moet worden geselecteerd als de noodzaak voor store gegenereerde back-ups in Azure is. Beide _zelfstandige_ en _op basis van Azure_ clusters kunnen dit opslagtype gebruiken. Beschrijving voor dit opslagtype is vereist voor de verbindingstekenreeks en de naam van de container waar de back-ups moeten worden geüpload. Als de container met de opgegeven naam niet beschikbaar is, wordt tijdens het uploaden van een back-up wordt gemaakt.
+    1. **Azure blob-archief**: Dit opslagtype moet worden geselecteerd als de noodzaak voor store gegenereerde back-ups in Azure is. Beide _zelfstandige_ en _op basis van Azure_ clusters kunnen dit opslagtype gebruiken. Beschrijving voor dit opslagtype is vereist voor de verbindingstekenreeks en de naam van de container waar de back-ups moeten worden geüpload. Als de container met de opgegeven naam niet beschikbaar is, wordt tijdens het uploaden van een back-up wordt gemaakt.
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -98,7 +98,7 @@ Een back-upbeleid bestaat uit de volgende configuraties:
         }
         ```
 
-    2. **Bestandsshare**: dit opslagtype moet worden geselecteerd voor _zelfstandige_ clusters als de noodzaak is voor het opslaan van gegevens back-up maken van de on-premises. Beschrijving voor dit opslagtype vereist pad naar de bestandsshare waar de back-ups moeten worden geüpload. Toegang tot de bestandsshare kan worden geconfigureerd met behulp van een van de volgende opties
+    2. **Bestandsshare**: Dit opslagtype moet worden geselecteerd voor _zelfstandige_ clusters als de noodzaak is voor het opslaan van gegevens back-up maken van de on-premises. Beschrijving voor dit opslagtype vereist pad naar de bestandsshare waar de back-ups moeten worden geüpload. Toegang tot de bestandsshare kan worden geconfigureerd met behulp van een van de volgende opties
         1. _Geïntegreerde Windows-authenticatie_, waar de toegang tot de bestandsshare is opgegeven voor alle computers die behoren tot de Service Fabric-cluster. In dit geval, stelt de volgende velden configureren _bestandsshare_ op basis van de back-upopslag.
 
             ```json
@@ -128,7 +128,7 @@ Een back-upbeleid bestaat uit de volgende configuraties:
 >
 
 * **Bewaarbeleid**: Hiermee geeft u het beleid voor het bewaren van back-ups in de geconfigureerde opslag. Alleen eenvoudige bewaarbeleid wordt ondersteund.
-    1. **Basic bewaarbeleid**: deze bewaarbeleid kunt om te controleren of gebruik van de optimale opslag door het verwijderen van back-upbestanden die u niet meer nodig. `RetentionDuration` om in te stellen de tijdsspanne waarvoor back-ups zijn vereist om te worden bewaard in de opslag kan worden opgegeven. `MinimumNumberOfBackups` is een optionele parameter die kan worden opgegeven om ervoor te zorgen dat het opgegeven aantal back-ups blijft altijd ongeacht behouden de `RetentionDuration`. Onderstaande voorbeeld ziet u de configuratie voor het bewaren van back-ups voor _10_ dagen en staat niet toe dat het aantal back-ups onder _20_.
+    1. **Basic bewaarbeleid**: Dit beleid voor Gegevensretentie kunt om te controleren of gebruik van de optimale opslag door het verwijderen van back-upbestanden die u niet meer nodig. `RetentionDuration` om in te stellen de tijdsspanne waarvoor back-ups zijn vereist om te worden bewaard in de opslag kan worden opgegeven. `MinimumNumberOfBackups` is een optionele parameter die kan worden opgegeven om ervoor te zorgen dat het opgegeven aantal back-ups blijft altijd ongeacht behouden de `RetentionDuration`. Onderstaande voorbeeld ziet u de configuratie voor het bewaren van back-ups voor _10_ dagen en staat niet toe dat het aantal back-ups onder _20_.
 
         ```json
         {
@@ -137,6 +137,9 @@ Een back-upbeleid bestaat uit de volgende configuraties:
             "MinimumNumberOfBackups": 20
         }
         ```
+
+> [!IMPORTANT]
+> Zorg ervoor dat de bewaartermijn in het bewaarbeleid is geconfigureerd voor minder dan 24 dagen anders resulteert dit in de service gaan naar het quorum verloren na replica-failover back-up herstellen vanwege een probleem in de runtime.
 
 ## <a name="enable-periodic-backup"></a>Periodieke back-up inschakelen
 Na het definiëren van back-upbeleid om te voldoen aan vereisten voor back-up van gegevens, het back-upbeleid moet worden op de juiste wijze gekoppeld ofwel met een _toepassing_, of _service_, of een _partitie_.
@@ -215,6 +218,11 @@ Zodra de noodzaak van opschorting uitgevoerd is, kan klikt u vervolgens de gegev
 
 * Als de onderbreking is toegepast op een _partitie_, en vervolgens moet worden hervat met behulp van [partitie back-up hervatten](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
+### <a name="difference-between-suspend-and-disable-backups"></a>Verschil tussen de back-ups van de stand-by- en uitschakelen
+Schakel back-up moet worden gebruikt als back-ups niet langer vereist voor een bepaalde toepassing, service of partitie zijn. Één kan infact aanroepen uitschakelen back-upaanvraag samen met de parameter schone back-ups te zijn ' True ' wat betekent dat alle bestaande back-ups worden ook verwijderd. Echter, onderbreken moet worden gebruikt in scenario's waarbij een wil uitschakelen back-ups tijdelijk zoals wanneer de lokale schijf vol raakt of uploaden van back-up is mislukt vanwege bekende netwerkprobleem enzovoort. 
+
+Hoewel uitschakelen alleen op een niveau kan worden aangeroepen die eerder is ingeschakeld voor back-up explicilty echter onderbreking kan worden toegepast op elk niveau die momenteel is ingeschakeld voor back-up ofwel rechtstreeks of via overname / hiërarchie. Als de back-up is ingeschakeld op het toepassingsniveau van een, kan een bijvoorbeeld uitschakelen aanroepen alleen op het toepassingsniveau van de echter onderbreken kan worden aangeroepen op de toepassing, een service of de partitie in die toepassing. 
+
 ## <a name="auto-restore-on-data-loss"></a>Automatisch herstel op verlies van gegevens
 De servicepartitie kan gegevens vanwege onverwachte fouten worden verbroken. Bijvoorbeeld, wordt de schijf voor twee van de drie replica's voor een partitie (met inbegrip van de primaire replica) beschadigd of wordt gewist.
 
@@ -237,11 +245,11 @@ Deze API's bieden ook ondersteuning voor paginering van de resultaten als _MaxRe
 
 Hieronder volgt de beknopte informatie over de ondersteunde varianten.
 
-- [Lijst met back-up van toepassingen ophalen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): retourneert een lijst met back-ups beschikbaar voor elke partitie die behoren tot de opgegeven Service Fabric-toepassing.
+- [Lijst met back-up van toepassingen ophalen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): Retourneert een lijst met back-ups beschikbaar voor elke partitie die behoren tot de opgegeven Service Fabric-toepassing.
 
-- [Overzicht van Service-back-up](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): retourneert een lijst met back-ups beschikbaar voor elke partitie die behoren tot de opgegeven Service Fabric-service.
+- [Service-back-lijst ophalen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): Retourneert een lijst met back-ups beschikbaar voor elke partitie die behoren tot de opgegeven Service Fabric-service.
  
-- [Lijst met back-up van partitie ophalen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): retourneert een lijst met back-ups beschikbaar voor de opgegeven partitie.
+- [Ophalen van de back-up Partitielijst](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): Retourneert een lijst met back-ups beschikbaar voor de opgegeven partitie.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Naslaginformatie over REST API voor back-up terugzetten](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

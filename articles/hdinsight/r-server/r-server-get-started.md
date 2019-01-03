@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 46791468e094ffb17a6dc9993b2cf8623a72b9b3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496459"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968805"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Aan de slag met ML Services in Azure HDInsight
 
@@ -22,8 +22,8 @@ Met Azure HDInsight kunt u een cluster met ML Services maken. Deze optie kan R-s
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een Azure-abonnement**: voordat u aan deze zelfstudie begint, moet u beschikken over een Azure-abonnement. Zie [Get Microsoft Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Gratis proefversie van Microsoft Azure downloaden) voor meer informatie.
-* **Een SSH-client (Secure Shell)**: er wordt een SSH-client gebruikt om extern verbinding te maken met het HDInsight-cluster en om opdrachten rechtstreeks uit te voeren op het cluster. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* **Een Azure-abonnement**: Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [Get Microsoft Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Gratis proefversie van Microsoft Azure downloaden) voor meer informatie.
+* **Een Secure Shell (SSH)-client**: Een SSH-client wordt gebruikt om op afstand verbinding maken met het HDInsight-cluster en opdrachten rechtstreeks op het cluster uitvoeren. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
@@ -31,16 +31,16 @@ Met Azure HDInsight kunt u een cluster met ML Services maken. Deze optie kan R-s
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Klik op **Een resource maken** > **Gegevens en analyses** > **HDInsight**.
+2. Navigeer naar **+ een resource maken** > **Analytics** > **HDInsight**.
 
 3. Voer bij **Basisbeginselen** de volgende informatie in:
 
-    * **Clusternaam**: de naam van het HDInsight-cluster.
-    * **Abonnement**: selecteer het abonnement dat u wilt gebruiken.
-    * **Aanmeldingsgebruikersnaam** en -**wachtwoord** van cluster: de aanmeldingsgegevens voor toegang tot het cluster via HTTPS. U gebruikt deze referenties voor toegang tot services, zoals de Apache Ambari-Webinterface of de REST-API.
-    * **SSH-gebruikersnaam (Secure Shell)**: de aanmeldingsgegevens voor toegang tot het cluster via SSH. Het wachtwoord is standaard hetzelfde als het aanmeldingswachtwoord van het cluster.
-    * **Resourcegroep**: de resourcegroep waarin het cluster wordt gemaakt.
-    * **Locatie**: de Azure-regio waarin het cluster wordt gemaakt.
+    * **Clusternaam**: De naam van het HDInsight-cluster.
+    * **Abonnement**: Selecteer het abonnement te gebruiken.
+    * **Gebruikersnaam voor aanmelding cluster** en **wachtwoord voor clusteraanmelding**: De aanmelding bij het openen van het cluster via HTTPS. U gebruikt deze referenties voor toegang tot services, zoals de Apache Ambari-Webinterface of de REST-API.
+    * **Secure Shell (SSH)-gebruikersnaam**: De aanmeldingsgegevens voor toegang tot het cluster via SSH. Het wachtwoord is standaard hetzelfde als het aanmeldingswachtwoord van het cluster.
+    * **Resourcegroep**: De resourcegroep waarin het cluster wordt gemaakt.
+    * **Locatie**: De Azure-regio waarin het cluster wordt gemaakt.
 
         ![Basisgegevens van clusters](./media/r-server-get-started/clustername.png)
 
@@ -52,7 +52,7 @@ Met Azure HDInsight kunt u een cluster met ML Services maken. Deze optie kan R-s
 
     * **Versie**: ML Server 9.3 (HDI 3.6). Releaseopmerkingen voor ML Server 9.3 zijn beschikbaar op [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server).
 
-    * **R Studio Community-editie voor ML Server**: deze IDE op basis van een browser wordt standaard geïnstalleerd op het Edge-knooppunt. Schakel het selectievakje uit als u de IDE niet wilt installeren. Als u ervoor kiest deze wel te laten installeren, is de URL naar de aanmeldingspagina voor RStudio Server beschikbaar op een portaltoepassingsblade voor het cluster nadat het is gemaakt.
+    * **R Studio community-editie voor ML Server**: Deze IDE op basis van een browser wordt standaard geïnstalleerd op het edge-knooppunt. Schakel het selectievakje uit als u de IDE niet wilt installeren. Als u ervoor kiest deze wel te laten installeren, is de URL naar de aanmeldingspagina voor RStudio Server beschikbaar op een portaltoepassingsblade voor het cluster nadat het is gemaakt.
 
         ![Basisgegevens van clusters](./media/r-server-get-started/clustertypeconfig.png)
 
@@ -66,7 +66,7 @@ Met Azure HDInsight kunt u een cluster met ML Services maken. Deze optie kan R-s
 
     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/r-server-get-started/clustersummary.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Het kan tot 20 minuten duren om het cluster te maken.
 
 <a name="connect-to-rstudio-server"></a>
@@ -78,15 +78,16 @@ Als u ervoor kiest RStudio Server Community Edition te installeren als onderdeel
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* **Optie 2**: open het ML Services-cluster in Azure Portal onder **Snelkoppelingen** en klik op **ML Services-dashboards**.
-
-     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/r-server-get-started/dashboard-quick-links.png)
-
-    Klik vanuit **Clusterdashboards** op **R Studio Server**.
+* **Optie 2** -Azure portal gebruiken.
+Vanuit de portal:
+  1. Selecteer **alle services** in het menu links.
+  2. Onder **ANALYTICS**, selecteer **HDInsight-clusters**.
+  3. Selecteer de clusternaam van uw vanaf het **HDInsight-clusters** pagina.
+  4. Van **ML-Services dashboards**, selecteer **R Studio server**. 
 
     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Ongeacht welke methode u kiest, de eerste keer dat u zich aanmeldt moet u zich twee keer verifiëren.  Bij de eerste verificatieprompt geeft u de *gebruikers-id* en het *wachtwoord* voor de beheerder op voor het cluster. Bij de tweede verificatieprompt geeft u de *gebruikers-id* en het *wachtwoord* voor SSH op. Bij alle volgende aanmeldingen zijn alleen SSH-referenties vereist.
 
 Zodra u verbonden bent, moet het scherm vergelijkbaar zijn met de volgende schermafbeelding:
@@ -221,11 +222,11 @@ U kunt het maken van het ML Services-cluster voor HDInsight automatiseren met de
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-Zie [Vereisten voor toegangsbeheer](../hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
+Zie [Vereisten voor toegangsbeheer](../hdinsight-hadoop-create-linux-clusters-portal.md) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u meer geleerd over het maken van een nieuw ML Services-cluster in Azure HDInsight en de basisbeginselen van het gebruik van de R-console van een SSH-sessie. In de volgende artikelen worden andere manieren beschreven om ML Services in HDInsight te beheren en ermee te werken:
+In dit artikel hebt u geleerd hoe u een nieuw cluster met ML-Services maakt in Azure HDInsight en de basisbeginselen van het gebruik van de R-console vanuit een SSH-sessie. In de volgende artikelen worden andere manieren beschreven om ML Services in HDInsight te beheren en ermee te werken:
 
 * [Taken verzenden vanuit R-hulpprogramma's voor Visual Studio](r-server-submit-jobs-r-tools-vs.md)
 * [ML Services-cluster beheren in HDInsight](r-server-hdinsight-manage.md)

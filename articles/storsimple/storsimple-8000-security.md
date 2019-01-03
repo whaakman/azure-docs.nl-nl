@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193906"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976015"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple-beveiliging en gegevensbescherming
 
@@ -121,7 +121,7 @@ Voor meer informatie over StorSimple Snapshot Manager, gaat u naar [wat is StorS
 U wordt aangeraden gebruik te maken van de volgende richtlijnen om ervoor te zorgen dat de StorSimple-wachtwoorden sterke en goed beveiligde zijn:
 
 * Elke drie maanden van uw wachtwoord wijzigen. Wijzigen van de wachtwoorden wordt jaarlijks afgedwongen.
-* Sterke wachtwoorden gebruiken. Ga voor meer informatie naar [sterke wachtwoorden maken en deze beveiligen](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Sterke wachtwoorden gebruiken. Ga voor meer informatie naar [sterke wachtwoorden maken en deze beveiligen](https://cloudblogs.microsoft.com/microsoftsecure/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Gebruik altijd verschillende wachtwoorden voor verschillende mechanismen voor; elk van de wachtwoorden die u opgeeft moet uniek zijn.
 * Wachtwoorden niet delen met iedereen die is niet gemachtigd voor toegang tot het StorSimple-apparaat.
 * Geen spreken over een wachtwoord in het zicht van anderen of hint op de indeling van een wachtwoord.

@@ -3,16 +3,17 @@ title: Een Dr-herstelanalyse uitvoeren naar Azure met behulp van Azure Site Reco
 description: Meer informatie over het uitvoeren van een Dr-herstelanalyse van on-premises naar Azure met behulp van de Azure Site Recovery-service.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cd8a7540b14c9d0896b9b0db2cae91ac54d92f2a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 19f41256866b42962be36bbb97f5f6d3c06d7fed
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844682"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976548"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure 
 
@@ -30,12 +31,12 @@ Deze procedure wordt beschreven hoe u een testfailover uitvoeren voor een herste
 
 1. In Site Recovery in Azure portal, klikt u op **herstelplannen** > *recoveryplan_name* > **Testfailover**.
 2. Selecteer een **herstelpunt** waarnaar u failover wilt uitvoeren. U kunt een van de volgende opties gebruiken:
-    - **Laatst verwerkte**: deze optie wordt over alle virtuele machines in het plan naar het meest recente herstelpunt dat is verwerkt door Site Recovery. Raadpleeg het meest recente herstelpunt voor een specifieke virtuele machine, **laatste herstelpunten** in de instellingen van de virtuele machine. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
-    - **Laatste toepassingsconsistente**: deze optie wordt op alle virtuele machines in het plan naar de meest recente toepassingsconsistente herstelpunt verwerkt door Site Recovery. Raadpleeg het meest recente herstelpunt voor een specifieke virtuele machine, **laatste herstelpunten** in de instellingen van de virtuele machine.
-    - **Meest recente**: deze optie eerst alle gegevens die is verzonden naar Site Recovery-service te maken van een herstelpunt voor elke virtuele machine voordat de failover wordt uitgevoerd naar het verwerkt. Deze optie biedt het laagste RPO (Recovery Point Objective), omdat de virtuele machine gemaakt nadat de failover heeft de gegevens die zijn gerepliceerd naar de Site Recovery wanneer de failover werd geactiveerd.
-    - **Meest recente verwerkte multi-VM**: deze optie is beschikbaar voor herstelplannen met een of meer VM's die multi-VM's is ingeschakeld. Virtuele machines met de instelling is ingeschakeld, schakelt over naar de meest recente algemene multi-VM toepassingsconsistente herstelpunt uitgevoerd. Andere VM's een failover naar de meest recente verwerkte herstelpunt.  
-    - **Nieuwste multi-VM-app-consistente**: deze optie is beschikbaar voor herstelplannen met een of meer VM's die multi-VM's is ingeschakeld. Virtuele machines die deel van een replicatiegroep uitmaken schakelt over naar de meest recente algemene multi-VM toepassingsconsistente herstelpunt. Andere VM's een failover naar de meest recente toepassingsconsistente herstelpunt.
-    - **Aangepaste**: Gebruik deze optie om de failover van een specifieke virtuele machine naar een bepaald herstelpunt.
+    - **Laatst verwerkte**: Deze optie wordt over alle virtuele machines in het plan naar het meest recente herstelpunt dat is verwerkt door Site Recovery. Raadpleeg het meest recente herstelpunt voor een specifieke virtuele machine, **laatste herstelpunten** in de instellingen van de virtuele machine. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
+    - **Laatste toepassingsconsistente**: Deze optie wordt op alle virtuele machines in het plan naar de meest recente toepassingsconsistente herstelpunt verwerkt door Site Recovery. Raadpleeg het meest recente herstelpunt voor een specifieke virtuele machine, **laatste herstelpunten** in de instellingen van de virtuele machine.
+    - **Meest recente**: Deze optie worden eerst alle gegevens die is verzonden naar Site Recovery-service te maken van een herstelpunt voor elke virtuele machine voordat de failover wordt uitgevoerd naar het verwerkt. Deze optie biedt het laagste RPO (Recovery Point Objective), omdat de virtuele machine gemaakt nadat de failover heeft de gegevens die zijn gerepliceerd naar de Site Recovery wanneer de failover werd geactiveerd.
+    - **Meest recente verwerkte multi-VM**: Deze optie is beschikbaar voor herstelplannen met een of meer VM's die multi-VM's is ingeschakeld. Virtuele machines met de instelling is ingeschakeld, schakelt over naar de meest recente algemene multi-VM toepassingsconsistente herstelpunt uitgevoerd. Andere VM's een failover naar de meest recente verwerkte herstelpunt.  
+    - **Nieuwste multi-VM-app-consistente**: Deze optie is beschikbaar voor herstelplannen met een of meer VM's die multi-VM's is ingeschakeld. Virtuele machines die deel van een replicatiegroep uitmaken schakelt over naar de meest recente algemene multi-VM toepassingsconsistente herstelpunt. Andere VM's een failover naar de meest recente toepassingsconsistente herstelpunt.
+    - **Aangepaste**: Gebruik deze optie voor failover van een specifieke virtuele machine naar een bepaald herstelpunt.
 3. Selecteer een Azure-netwerk waarin de test-VM's worden gemaakt.
 
     - Site Recovery probeert te maken van test-VM's in een subnet met dezelfde naam en hetzelfde IP-adres als die beschikbaar is in de **berekening en netwerk** instellingen van de virtuele machine.
@@ -52,10 +53,10 @@ Deze procedure wordt beschreven hoe u een testfailover uitvoeren voor een herste
 
 Wanneer een test-failover wordt geactiveerd, gebeurt het volgende:
 
-1. **Vereisten**: een controle uitgevoerd om ervoor te zorgen dat alle vereiste voorwaarden voor failover wordt voldaan.
-2. **Failover**: de failover verwerkt en de gegevens voorbereid, zodat een Azure-VM kan worden gemaakt op basis van deze.
-3. **Meest recente**: als u de meest recente herstelpunt hebt gekozen, een herstelpunt wordt gemaakt van de gegevens die zijn verzonden naar de service.
-4. **Start**: deze stap maakt u een virtuele machine van Azure met behulp van de gegevens verwerkt in de vorige stap.
+1. **Vereisten**: Een controle uitgevoerd om ervoor te zorgen dat alle vereiste voorwaarden voor failover wordt voldaan.
+2. **Failover**: De failover verwerkt en de gegevens voorbereid, zodat een Azure-VM kan worden gemaakt op basis van deze.
+3. **Meest recente**: Als u de meest recente herstelpunt hebt gekozen, wordt een herstelpunt wordt gemaakt van de gegevens die zijn verzonden naar de service.
+4. **Start**: Deze stap maakt u een virtuele machine van Azure met behulp van de gegevens verwerkt in de vorige stap.
 
 ### <a name="failover-timing"></a>Timing van failover
 

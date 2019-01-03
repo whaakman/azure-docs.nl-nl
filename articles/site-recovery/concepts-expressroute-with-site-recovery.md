@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: mayg
-ms.openlocfilehash: 60da5d4e80a7465d02926066298a5dc63afb1de7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1fabbe3a9a486abc862bfb6c2671c60d11d8e8c7
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875175"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809927"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Met Azure ExpressRoute met Azure Site Recovery
 
@@ -38,7 +38,7 @@ Meer informatie over en vergelijken van ExpressRoute-Routeringsdomeinen [hier](.
 
 Azure Site Recovery maakt herstel na noodgevallen en migratie naar Azure voor on-premises [Hyper-V virtuele machines](hyper-v-azure-architecture.md), [virtuele VMware-machines](vmware-azure-architecture.md), en [fysieke servers](physical-azure-architecture.md). Replicatiegegevens worden voor alle on-premises naar Azure-scenario's, verzonden naar en opgeslagen in een Azure Storage-account. Tijdens de replicatie betaalt u geen kosten voor elke virtuele machine. Wanneer u een failover naar Azure uitvoert, maakt Site Recovery automatisch virtuele machines van Azure IaaS.
 
-Site Recovery repliceert gegevens naar een Azure Storage-account via een openbaar eindpunt. U kunt gebruiken voor het gebruik van ExpressRoute voor Site Recovery-replicatie, [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Nadat de virtuele machines of servers een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Replicatie wordt niet ondersteund via persoonlijke peering.
+Site Recovery repliceert gegevens naar een Azure Storage-account via een openbaar eindpunt. U kunt gebruiken voor het gebruik van ExpressRoute voor Site Recovery-replicatie, [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) ook voor replicatie wordt voldaan. Nadat de virtuele machines of servers een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Replicatie wordt niet ondersteund via persoonlijke peering.
 
 De gecombineerde scenario wordt weergegeven in het volgende diagram: ![On-premises-to-Azure met ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 

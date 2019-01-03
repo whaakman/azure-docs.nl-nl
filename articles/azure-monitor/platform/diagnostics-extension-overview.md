@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338155"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789753"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
 De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, Virtual Machine Scale sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](../../azure-monitor/overview.md).
@@ -42,7 +42,7 @@ De Azure Diagnostics-extensie kan de volgende typen gegevens verzamelen:
 ## <a name="data-storage"></a>Gegevensopslag
 De extensie slaat de gegevens op in een [Azure Storage-account](diagnostics-extension-to-storage.md) die u opgeeft.
 
-U kunt ook verzenden naar [Application Insights](../../application-insights/app-insights-cloudservices.md). Een andere optie is om te streamen naar [Event Hub](../../event-hubs/event-hubs-about.md), die vervolgens kunt u deze verzenden naar het controleren van niet-Azure-services.
+U kunt ook verzenden naar [Application Insights](../../azure-monitor/app/cloudservices.md). Een andere optie is om te streamen naar [Event Hub](../../event-hubs/event-hubs-about.md), die vervolgens kunt u deze verzenden naar het controleren van niet-Azure-services.
 
 ### <a name="azure-monitor"></a>Azure Monitor
 U hebt ook de keuze van uw gegevens te verzenden naar Azure Monitor. Deze sink is op dit moment alleen van toepassing op prestatiemeteritems. Hiermee kunt u prestatiemeteritems verzamelde verzenden op de virtuele machine, VMSS, of in de cloud service naar Azure Monitor als aangepaste metrische gegevens. Biedt ondersteuning voor de Azure Monitor-sink:
@@ -66,7 +66,7 @@ Kies welke service u wilt verzamelen van diagnostische gegevens op en gebruik de
 
 Zie voor meer geavanceerde onderwerpen
 
-* [Met behulp van Azure Diagnostics voor Cloudservices met Application Insights](../../application-insights/app-insights-cloudservices.md)
+* [Met behulp van Azure Diagnostics voor Cloudservices met Application Insights](../../azure-monitor/app/cloudservices.md)
 * [De stroom van een Cloud Services-toepassing met Azure Diagnostics traceren](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [PowerShell gebruiken voor het instellen van diagnostische gegevens op Cloud Services](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

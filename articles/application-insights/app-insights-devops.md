@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e9c3f9018965908ae065cedb63149190080d7f07
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994418"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970233"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diepe diagnostische gegevens voor web-apps en services met Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Waarom moet ik Application Insights?
@@ -25,7 +25,7 @@ Application Insights bewaakt uw actieve web-app. Het vertelt u over de fouten en
 
 ![Aspecten van de complexiteit van het leveren van web-apps](./media/app-insights-devops/010.png)
 
-Het is essentieel voor het bewaken van een moderne toepassing terwijl deze wordt uitgevoerd. Het belangrijkste is dat wilt u detecteren van fouten voordat de meeste van uw klanten. U ook wilt detecteren en oplossen van prestatieproblemen, terwijl niet catastrofale, wat mogelijk vertragen of ongemak kan veroorzaken voor uw gebruikers. En wanneer het systeem naar uw tevredenheid uitvoert, u wilt weten wat de gebruikers bij het doen zijn: ze de meest recente functie gebruikt? Worden ze verwerkt ermee?
+Het is essentieel voor het bewaken van een moderne toepassing terwijl deze wordt uitgevoerd. Het belangrijkste is dat wilt u detecteren van fouten voordat de meeste van uw klanten. U ook wilt detecteren en oplossen van prestatieproblemen, terwijl niet catastrofale, wat mogelijk vertragen of ongemak kan veroorzaken voor uw gebruikers. En wanneer het systeem naar uw tevredenheid uitvoert, u wilt weten wat de gebruikers met deze doen: Gebruikt ze de meest recente functie? Worden ze verwerkt ermee?
 
 Moderne webtoepassingen zijn ontwikkeld in een cyclus van continue levering: een nieuwe functie of verbetering; release Bekijk hoe goed werkt voor gebruikers. de volgende verhoging van de ontwikkeling op basis van deze kennis van plan bent. Een belangrijk onderdeel van de cyclus is de fase waarneming. Application Insights biedt de hulpprogramma's voor het bewaken van een webtoepassing voor prestaties en het gebruik.
 
@@ -40,7 +40,7 @@ Wat zijn nu dus heel anders. Uw app heeft tal van verschillende apparaten uit te
 
 In deze gevallen is de enige manier om een bedrijf bepalen op basis van het aantal fout geautomatiseerde Eenheidstesten. Het is onmogelijk is om handmatig opnieuw test alles op elke levering. Test jednotky is nu een veelvuldig onderdeel van het bouwproces. Hulpprogramma's, zoals de Xamarin Test Cloud u helpen met geautomatiseerde UI testen op meerdere browserversies. Deze tests regelingen kunnen we hopen dat de frequentie van fouten die zijn gevonden in een app kan worden bewaard tot een minimum beperkt.
 
-Typische webtoepassingen hebben veel live onderdelen. Naast de client (in een browser of apparaat-app) en de webserver is er waarschijnlijk aanzienlijke back endverwerking. De back-end is wellicht een pijplijn van onderdelen of een lossere verzameling samenwerkende onderdelen. En veel van deze zich niet in uw beheer - ze externe services waarvan u afhankelijk bent.
+Typische webtoepassingen hebben veel live onderdelen. Naast de client (in een browser of apparaat-app) en de webserver is er waarschijnlijk aanzienlijke back endverwerking. De back-end is wellicht een pijplijn van onderdelen of een lossere verzameling samenwerkende onderdelen. En veel van deze zich niet in uw beheer - ze worden externe services waarvan u afhankelijk bent.
 
 In de configuraties zoals deze, kan het zijn moeilijk en uneconomical wilt testen of voorzien, elke mogelijke fout-modus, andere dan in het live systeem zelf. 
 
@@ -79,7 +79,7 @@ De belangrijkste categorieën van de gegevens zijn:
 * Logboektraceringen gebruikt voor foutopsporing.
 
 ## <a name="case-study-real-madrid-fc"></a>Casestudy: Real Madrid F.C.
-De webservice van [Real Madrid Football Club](https://www.realmadrid.com/) bedient ongeveer 450 miljoen fans over de hele wereld. Fans toegang zowel via webbrowsers en mobiele apps van de Club. Fans kunnen niet alleen het adresboek van tickets, maar ook toegang tot gegevens en videoclips op toekomstige games, spelers en resultaten. Ze kunnen zoeken met filters zoals aantallen doelstellingen beoordeeld. Er zijn ook koppelingen naar sociale media. De gebruikerservaring is uiterst persoonlijke en is bedoeld als een communicatie in twee richtingen contact opnemen met fans.
+De webservice van [Real Madrid Football Club](https://www.realmadrid.com/) bedient ongeveer 450 miljoen fans over de hele wereld. Fans toegang zowel via webbrowsers en mobiele apps van de Club. Fans kunnen niet alleen book tickets, maar ook toegang tot gegevens en videoclips op toekomstige games, spelers en resultaten. Ze kunnen zoeken met filters zoals aantallen doelstellingen beoordeeld. Er zijn ook koppelingen naar sociale media. De gebruikerservaring is uiterst persoonlijke en is bedoeld als een communicatie in twee richtingen contact opnemen met fans.
 
 De oplossing [is een systeem van services en toepassingen op Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Schaalbaarheid is een basisvereiste: verkeer variabele en tijdens de en rond komt overeen met zeer hoge volumes kunt bereiken.
 
@@ -102,28 +102,28 @@ In beide gevallen wordt de waarschuwing u niet alleen de symptomen wordt gedetec
 
 ![E-mail van proactieve diagnostische gegevens](./media/app-insights-devops/030.png)
 
-Klant Samtec zei: "We hebben gevonden tijdens een recente functie cutover, een onder maten database die is de resource-limiet hebt bereikt en time-outs veroorzaakt. De Proactive detectiewaarschuwingen is geleverd via letterlijk als we het probleem, zeer bijna realtime zijn uitsorteren geadverteerd. Deze waarschuwing in combinatie met de Azure-platform waarschuwingen geholpen bij ons vrijwel onmiddellijk los het probleem. Totaal aantal minuten downtime < 10 minuten."
+Klant Samtec gezegd: "We hebben gevonden tijdens een recente functie cutover, een onder maten database die is de resource-limiet hebt bereikt en time-outs veroorzaakt. De Proactive detectiewaarschuwingen is geleverd via letterlijk als we het probleem, zeer bijna realtime zijn uitsorteren geadverteerd. Deze waarschuwing in combinatie met de Azure-platform waarschuwingen geholpen bij ons vrijwel onmiddellijk los het probleem. Totaal aantal minuten downtime < 10 minuten."
 
 ## <a name="live-metrics-stream"></a>Live Metrics Stream
 Implementatie van de nieuwste build, kan een zorgen ervaring zijn. Als er problemen zijn, wilt u weten over deze meteen, zodat u kunt back-ups uit als nodig. Live Metrics Stream kunt u belangrijke metrische gegevens met een latentie van ongeveer één seconde.
 
-![Live metrics Stream](./media/app-insights-devops/040.png)
+![Live metrics Stream](./media/app-insights-devops/0040.png)
 
 En kunt u direct een voorbeeld van eventuele fouten of uitzonderingen te inspecteren.
 
-![Live foutgebeurtenissen](./media/app-insights-devops/live-stream-failures.png)
+![Live foutgebeurtenissen](./media/app-insights-devops/002-live-stream-failures.png)
 
 ## <a name="application-map"></a>Toepassingskaart
 Overzicht van de toepassing detecteert automatisch de Toepassingstopologie van uw, waarin de informatie over de prestaties daarboven, zodat u eenvoudig bepalen knelpunten en problematische stromen in uw gedistribueerde omgeving. Hiermee kunt u voor het detecteren van afhankelijkheden voor toepassingen op Azure-Services. U kunt het probleem beoordelen door te begrijpen als deze met betrekking tot code of afhankelijkheid die betrekking hebben en ervaring van een enkele locatie Zoom in op gerelateerde diagnostische gegevens. Uw toepassing kan bijvoorbeeld worden mislukken vanwege een verslechtering van prestaties optreedt in de SQL-laag. Met overzicht van de toepassing, kunt u direct bekijken en Zoom in op de SQL Index Advisor of Queryinzichten optreden.
 
-![Toepassingskaart](./media/app-insights-devops/050.png)
+![Toepassingskaart](./media/app-insights-devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights Analytics
-Met [Analytics](app-insights-analytics.md), u kunt een willekeurige query's schrijven in een krachtige SQL-achtige taal.  Diagnose in de hele app-stack wordt het gemakkelijk verschillende perspectieven verbinding en u kunt de juiste vragen serviceprestaties correleren met zakelijke metrische gegevens en ervaring van de klant. 
+Met [Analytics](../azure-monitor/app/analytics.md), u kunt een willekeurige query's schrijven in een krachtige SQL-achtige taal.  Diagnose in de hele app-stack wordt het gemakkelijk verschillende perspectieven verbinding en u kunt de juiste vragen serviceprestaties correleren met zakelijke metrische gegevens en ervaring van de klant. 
 
 U kunt uw telemetrie-instantie en metrische onbewerkte gegevens die zijn opgeslagen in de portal een query. De taal bevat filter, join, aggregatie en andere bewerkingen. U kunt velden berekenen en statistische analyses uitvoeren. Er zijn in tabelvorm en grafische visualisaties.
 
-![Grafiek met gebruiksanalyses query en de resultaten](./media/app-insights-devops/025.png)
+![Grafiek met gebruiksanalyses query en de resultaten](./media/app-insights-devops/0025.png)
 
 Bijvoorbeeld, is het eenvoudig:
 
@@ -150,16 +150,11 @@ En wanneer Application Insights zich een uitzondering, kunt u weergeven van het 
 
 Tijdens de foutopsporing, hebt u de optie voor het behouden van de telemetrie op uw ontwikkelcomputer bekijken in Visual Studio, maar zonder dat deze worden verzonden naar de portal. Deze optie lokale voorkomt met een combinatie van foutopsporing met telemetrie voor productie.
 
-### <a name="build-annotations"></a>Aantekeningen maken
-Als u Azure DevOps om te bouwen en implementeren van uw app, weergegeven implementatie-aantekeningen op de grafieken in de portal. Als uw meest recente versie van invloed zijn op de metrische gegevens is, wordt het duidelijk.
-
-![Aantekeningen maken](./media/app-insights-devops/070.png)
-
 ### <a name="work-items"></a>Werkitems
 Wanneer een waarschuwing wordt gegenereerd, kan Application Insights automatisch een werkitem maken in uw werk volgsysteem.
 
 ## <a name="but-what-about"></a>Maar hoe zit...?
-* [Privacy- en storage](app-insights-data-retention-privacy.md) -uw telemetrie wordt bewaard in Azure beveiligde servers.
+* [Privacy- en storage](../azure-monitor/app/data-retention-privacy.md) -uw telemetrie wordt bewaard in Azure beveiligde servers.
 * Prestaties - de impact is zeer laag. Telemetrie in batch wordt verwerkt.
 * [Prijzen](app-insights-pricing.md) : U kunt aan de slag gratis, en die blijft terwijl u in laag volume bent.
 
@@ -171,7 +166,7 @@ Wanneer een waarschuwing wordt gegenereerd, kan Application Insights automatisch
 ## <a name="next-steps"></a>Volgende stappen
 Aan de slag met Application Insights is eenvoudig. De belangrijkste opties zijn:
 
-* Instrumenteer een web-app al actief. Dit biedt u alle telemetrie van de ingebouwde prestatiecontrole. Het is beschikbaar voor [Java](app-insights-java-live.md) en [IIS-servers](app-insights-monitor-performance-live-website-now.md), en ook voor [Azure web-apps](app-insights-overview.md).
-* Instrumenteer uw project tijdens de ontwikkeling. U kunt dit doen voor [ASP.NET](app-insights-asp-net.md) of [Java](app-insights-java-get-started.md) apps, evenals [Node.js](app-insights-nodejs.md) en een groot aantal [andere typen](app-insights-platforms.md). 
-* Instrument [elke webpagina](app-insights-javascript.md) door een korte codefragment toe te voegen.
+* Instrumenteer een web-app al actief. Dit biedt u alle telemetrie van de ingebouwde prestatiecontrole. Het is beschikbaar voor [Java](../azure-monitor/app/java-live.md) en [IIS-servers](../azure-monitor/app/monitor-performance-live-website-now.md), en ook voor [Azure App Service](app-insights-overview.md).
+* Instrumenteer uw project tijdens de ontwikkeling. U kunt dit doen voor [ASP.NET](../azure-monitor/app/asp-net.md) of [Java](../azure-monitor/app/java-get-started.md) apps, evenals [Node.js](app-insights-nodejs.md) en een groot aantal [andere typen](app-insights-platforms.md). 
+* Instrument [elke webpagina](../azure-monitor/app/javascript.md) door een korte codefragment toe te voegen.
 

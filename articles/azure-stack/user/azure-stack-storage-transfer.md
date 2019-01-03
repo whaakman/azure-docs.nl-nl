@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 45bf9bbffdbba22336da08c81df069ce0267686f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 40df81d496e04ab2d549923cc0645afb8eddaf57
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092657"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724450"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Gebruik van hulpmiddelen voor het overbrengen van gegevens voor Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Microsoft Azure Stack biedt een set met de storage-services voor schijven, blobs, tabellen, wachtrijen en account-beheerfuncties. U kunt een set hulpprogramma's van Azure storage gebruiken als u wilt beheren of gegevens te verplaatsen naar of van Azure Stack-opslag. Dit artikel bevat een overzicht van de beschikbare hulpprogramma's.
 
@@ -48,7 +48,7 @@ Uw vereisten te bepalen welke van de volgende hulpprogramma's het beste voor u w
 
     Een virtuele stuurprogramma van het bestandssysteem voor Azure Blob Storage, waarmee u uw bestaande blok-blobgegevens in uw Storage-account via het bestandssysteem van Linux. 
 
-Als gevolg van de storage-services verschillen tussen Azure en Azure Stack, is het mogelijk dat er een enkele specifieke vereisten voor elk hulpprogramma dat wordt beschreven in de volgende secties. Zie voor een vergelijking van Azure Stack storage en Azure storage, [Azure Stack-opslag: verschillen en overwegingen](azure-stack-acs-differences.md).
+Als gevolg van de storage-services verschillen tussen Azure en Azure Stack, is het mogelijk dat er een enkele specifieke vereisten voor elk hulpprogramma dat wordt beschreven in de volgende secties. Zie voor een vergelijking van Azure Stack storage en Azure storage, [Azure Stack-opslag: Verschillen en overwegingen](azure-stack-acs-differences.md).
 
 ## <a name="azcopy"></a>AzCopy
 
@@ -59,13 +59,14 @@ AzCopy is een opdrachtregelprogramma dat is ontworpen om gegevens te kopiëren n
 Er zijn twee versies van het hulpprogramma AzCopy: AzCopy in Windows en AzCopy in Linux.
 
  - **AzCopy in Windows**
-    - Download de ondersteunde versie van AzCopy voor Azure Stack. U kunt installeren en u kunt AzCopy gebruiken in Azure Stack op dezelfde manier als Azure. Zie voor meer informatie, [AzCopy in Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
-        - Voor de 1802 update, of nieuwere versies, [AzCopy 7.1.0 downloaden](https://aka.ms/azcopyforazurestack20170417).
-        - Voor eerdere versies [AzCopy 5.0.0 downloaden](https://aka.ms/azcopyforazurestack20170417).
+    - Download de ondersteunde versie van AzCopy voor Azure Stack. U kunt installeren en u kunt AzCopy gebruiken in Azure Stack op dezelfde manier als Azure. Zie voor meer informatie, [AzCopy in Windows](../../storage/common/storage-use-azcopy.md).
+        - Voor de 1811 update, of nieuwere versies, [AzCopy 7.3.0 downloaden](https://aka.ms/azcopyforazurestack20171109).
+        - Voor eerdere versies (1802-1809 update), [AzCopy 7.1.0 downloaden](https://aka.ms/azcopyforazurestack20170417).
 
  - **AzCopy in Linux**
 
-    - AzCopy in Linux biedt ondersteuning voor Azure Stack 1802 update of nieuwere versies. U kunt installeren en u kunt AzCopy gebruiken in Azure Stack op dezelfde manier als Azure. Zie voor meer informatie, [AzCopy in Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+    - U kunt installeren en u kunt AzCopy gebruiken in Azure Stack op dezelfde manier als Azure. Zie voor meer informatie, [AzCopy in Linux](../../storage/common/storage-use-azcopy-linux.md).
+    - Zie voor vorige versies (1802-1809 updates), de [installatie van de stappen voor AzCopy 7.1 en eerdere versies](../../storage/common/storage-use-azcopy-linux.md#installation-steps-for-azcopy-71-and-earlier-versions).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Voorbeelden van AzCopy-opdracht voor gegevensoverdracht
 
@@ -75,36 +76,36 @@ De volgende voorbeelden volgen typische scenario's voor het kopiëren van gegeve
 
 **Windows**
 
-````AzCopy
+```shell
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount.blob.local.azurestack.external/mycontainer \
     --destination /mnt/myfiles \
     --source-key <key> \
     --recursive
-````
+```
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Eén bestand uploaden naar de virtuele map
 
 **Windows**
 
-```AzCopy
+```shell
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source /mnt/myfiles/abc.txt \
     --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
     --dest-key <key>
-````
+```
 
 ### <a name="move-data-between-azure-and-azure-stack-storage"></a>Gegevens verplaatsen tussen Azure en Azure Stack-opslag
 
@@ -112,13 +113,13 @@ Asynchrone gegevensoverdracht tussen Azure storage en Azure Stack wordt niet ond
 
 **Windows**
 
-````AzCopy
+```shell
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
     --destination https://myaccount2.blob.core.windows.net/myContainer/ \
@@ -126,7 +127,7 @@ azcopy \
     --dest-key <key2> \
     --include "abc.txt" \
     --sync-copy
-````
+```
 
 ### <a name="azcopy-known-issues"></a>Bekende problemen met Azcopy
 
@@ -217,28 +218,27 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-````
+```
 
 ### <a name="powershell-known-issues"></a>Bekende problemen met PowerShell
 
 Met de huidige compatibele Azure PowerShell-moduleversie voor Azure Stack is 1.2.11 voor de gebruikersbewerkingen. Dit wijkt af van de meest recente versie van Azure PowerShell. Dit verschil heeft gevolgen voor opslagbewerking services:
 
-* De indeling van de geretourneerde waarde van `Get-AzureRmStorageAccountKey` in versie 1.2.11 heeft twee eigenschappen: `Key1` en `Key2`, terwijl de huidige versie van de Azure retourneert een matrix met alle accountsleutels.
+De indeling van de geretourneerde waarde van `Get-AzureRmStorageAccountKey` in versie 1.2.11 heeft twee eigenschappen: `Key1` en `Key2`, terwijl de huidige versie van de Azure retourneert een matrix met alle accountsleutels.
 
-   ```
-   # This command gets a specific key for a storage account, 
-   # and works for Azure PowerShell version 1.4, and later versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Value[0]
+```powershell
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.4, and later versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a storage account, 
-   # and works for Azure PowerShell version 1.3.2, and previous versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Key1
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.3.2, and previous versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Key1
+```
 
-   ```
-
-   Zie voor meer informatie, [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
+Zie voor meer informatie, [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey).
 
 ## <a name="azure-cli"></a>Azure-CLI
 
@@ -265,7 +265,7 @@ Voordat u dit script uitvoert, zorg ervoor dat u kunt met succes verbinding met 
 4. Markeer het script als uitvoerbare bestanden, indien nodig: `chmod +x my_storage_sample.sh`
 5. Voer het script. Bijvoorbeeld, in Bash: `./my_storage_sample.sh`
 
-```bash
+```azurecli
 #!/bin/bash
 # A simple Azure Stack storage example script
 
@@ -296,7 +296,7 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-````
+```
 
 ## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure storage explorer
 
@@ -317,20 +317,20 @@ In het Azure Stack development Kit, worden de blobEndpoint `myaccount.blob.local
 
 Houd er rekening mee dat accountKey en sasToken mag alleen bestaan uit geconfigureerde één bewerking tegelijk. Wanneer de sleutel van het opslagaccount is opgegeven, is het configuratiebestand van de referenties in de volgende indeling: 
 
-```text  
-    accountName myaccount 
-    accountKey myaccesskey== 
-    containerName mycontainer 
-    blobEndpoint myaccount.blob.local.azurestack.external
+```
+accountName myaccount 
+accountKey myaccesskey== 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
 Wanneer het token voor gedeelde toegang is opgegeven, is het configuratiebestand van de referenties in de volgende indeling:
 
-```text  
-    accountName myaccount 
-    sasToken ?mysastoken 
-    containerName mycontainer 
-    blobEndpoint myaccount.blob.local.azurestack.external
+```  
+accountName myaccount 
+sasToken ?mysastoken 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

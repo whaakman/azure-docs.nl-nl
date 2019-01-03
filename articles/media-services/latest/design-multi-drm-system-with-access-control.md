@@ -4,22 +4,22 @@ description: Meer informatie over licentieverlening Microsoft Smooth Streaming C
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: femila
+manager: steveng
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7b3f6410e65e9a43578d50d6aacaec0ea4ec4684
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136270"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753486"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met toegangsbeheer 
 
@@ -29,7 +29,7 @@ Het ontwerpen en bouwen van een subsysteem Digital Rights Management (DRM) voor 
 
 De betreffende lezers voor dit document zijn engineers die werken in DRM subsystemen van OTT of online streaming/Graphic; oplossingen of lezers die geïnteresseerd in DRM subsystemen zijn. Verondersteld wordt dat lezers bekend met ten minste één van de DRM-technologieën op de markt, zoals PlayReady, Widevine, FairPlay of Adobe-toegang bent.
 
-In deze discussie door multi-DRM nemen we de 3 DRM's ondersteund door Azure Media Services: algemene versleuteling (CENC) voor PlayReady en Widevine, FairPlay, evenals de AES-128 clear key-versleuteling. Een belangrijke trend in online streaming en uit de branche OTT is het gebruik van systeemeigen DRM's op verschillende-clientplatforms. Deze trend is een overstap van de voorgaande build is die een enkele DRM en de client-SDK voor verschillende-clientplatforms gebruikt. Wanneer u CENC met multi systeemeigen DRM, zowel PlayReady als Widevine zijn versleuteld volgens de [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specificatie.
+In deze discussie door multi-DRM nemen we de 3 DRM's ondersteund door Azure Media Services: Algemene versleuteling (CENC) voor PlayReady en Widevine, FairPlay, evenals de AES-128 clear key-versleuteling. Een belangrijke trend in online streaming en uit de branche OTT is het gebruik van systeemeigen DRM's op verschillende-clientplatforms. Deze trend is een overstap van de voorgaande build is die een enkele DRM en de client-SDK voor verschillende-clientplatforms gebruikt. Wanneer u CENC met multi systeemeigen DRM, zowel PlayReady als Widevine zijn versleuteld volgens de [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specificatie.
 
 De voordelen van het gebruik van systeemeigen multi-DRM voor inhoudsbeveiliging zijn dat deze:
 
@@ -119,11 +119,11 @@ Waarom deze overwegingen belangrijk zijn?
 
 Als u een openbare cloud voor de licentielevering van de, hebben permanente en niet-persistente licenties een directe invloed op kosten voor de levering van licentie. De volgende twee verschillende ontwerp-gevallen hebben om te illustreren:
 
-* Maandabonnement: gebruik een permanente licentie en 1-op-veel inhoud sleutel-asset-toewijzing. Bijvoorbeeld, voor alle kinderen films gebruiken we een enkele inhoudssleutel voor versleuteling. In dit geval:
+* Maandabonnement: Gebruik een permanente licentie en 1-op-veel inhoud sleutel-asset-toewijzing. Bijvoorbeeld, voor alle kinderen films gebruiken we een enkele inhoudssleutel voor versleuteling. In dit geval:
 
     Totaal aantal licenties die zijn aangevraagd voor alle kinderen films/apparaat = 1
 
-* Maandabonnement: gebruik een niet-persistente licentie en 1-op-1-toewijzing tussen inhoudssleutel en asset. In dit geval:
+* Maandabonnement: Gebruik een niet-persistente licentie en 1-op-1-toewijzing tussen inhoudssleutel en asset. In dit geval:
 
     Totaal aantal licenties die zijn aangevraagd voor alle kinderen films/apparaat = [aantal films bekeken] x [aantal sessies]
 
@@ -247,7 +247,7 @@ Gebruik de volgende informatie voor probleemoplossing voor hulp bij problemen me
 
 * Lidmaatschap van verlenen claims bevoegdheden. Zorg ervoor dat het volgende in het manifestbestand van de Azure AD-toepassing: 
 
-    "groupMembershipClaims": "Alle" (de standaardwaarde is null)
+    'groupMembershipClaims': 'Alle' (de standaardwaarde is null)
 
 * Stel de juiste TokenType bij het maken van beperking vereisten.
 
@@ -360,13 +360,13 @@ Wanneer u een aangepaste STS, moet twee worden gewijzigd:
 
 Er zijn twee soorten sleutels:
 
-* Symmetrische sleutel: dezelfde sleutel wordt gebruikt voor het genereren en te controleren of een JWT.
-* Asymmetrische sleutel: een openbaar / persoonlijk sleutelpaar in een X509 certificaat wordt gebruikt met een persoonlijke sleutel voor het versleutelen/genereren van een JWT en met de openbare sleutel om te controleren of het token.
+* Symmetrische sleutel: Dezelfde sleutel wordt gebruikt om te genereren en om te controleren of een JWT.
+* Asymmetrische sleutel: Een openbaar / persoonlijk sleutelpaar in een X509 certificaat wordt gebruikt met een persoonlijke sleutel voor het versleutelen/genereren van een JWT en met de openbare sleutel om te controleren of het token.
 
 > [!NOTE]
 > Als u .NET Framework / C# als uw ontwikkelplatform, de X509 certificaat dat wordt gebruikt voor een asymmetrische beveiligingssleutel moet een sleutellengte van ten minste 2048 hebben. Dit is een vereiste van de klasse System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Anders is de volgende uitzondering opgetreden:
 
-> IDX10630: System.IdentityModel.Tokens.X509AsymmetricSecurityKey voor het ondertekenen van mag niet kleiner dan '2048-bits.
+> IDX10630: De System.IdentityModel.Tokens.X509AsymmetricSecurityKey voor het ondertekenen van mag niet kleiner dan '2048-bits.
 
 ## <a name="the-completed-system-and-test"></a>Het voltooide systeem en de test
 In dit gedeelte leidt u door de volgende scenario's in het voltooide end-to-end-systeem zodat u een eenvoudige beeld van het gedrag hebben kunt voordat u een account aanmelden:
@@ -400,15 +400,15 @@ U kunt contact opnemen met een van de auteurs hebben een account te maken of toe
 
 De volgende schermafbeeldingen tonen verschillende aanmelden pagina's die worden gebruikt door verschillende domeinaccounts:
 
-**Aangepaste Azure AD-tenant domeinaccount**: de aangepaste aanmeldingspagina van de aangepaste Azure AD tenant-domein.
+**Aangepast Azure AD-tenant domeinaccount**: De aangepaste aanmeldingspagina van de aangepaste Azure AD tenant-domein.
 
 ![Aangepast Azure AD-tenant domeinaccount een](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
-**Microsoft-domeinaccount met smartcard**: aangepast door Microsoft zakelijke pagina IT met tweeledige verificatie.
+**Microsoft-domeinaccount met smartcard**: Aangepast door Microsoft zakelijke pagina IT met tweeledige verificatie.
 
 ![Aangepast Azure AD-tenant-domeinaccount twee](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
-**Microsoft-account**: de aanmeldingspagina van het Microsoft-account voor consumenten.
+**Microsoft-account**: De aanmeldingspagina van het Microsoft-account voor consumenten.
 
 ![Aangepast Azure AD-tenant domeinaccount drie](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 

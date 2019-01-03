@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/27/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c7f801f173ec4daf920a0853b62b4ecf0f4db256
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439204"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995674"
 ---
 1. Open een opdrachtprompt met verhoogde bevoegdheden met de rechtermuisknop op **opdrachtprompt** en selecteren **als administrator uitvoeren**.
 2. Voer de volgende opdrachten in de opdrachtprompt:
@@ -27,7 +27,11 @@ ms.locfileid: "53439204"
 3. Installeer de volgende updates:
   
    * [KB3140245](https://www.catalog.update.microsoft.com/search.aspx?q=kb3140245)
-   * [KB2977292](https://www.microsoft.com/en-us/download/details.aspx?id=44342)
+   * [KB2977292](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2977292)
 
 4. Start de computer opnieuw op.
 5. Verbinding maken met de VPN-verbinding.
+
+> [!NOTE]
+> U moet de bovenstaande registersleutel instellen als u een oudere versie van Windows 10 (10240) uitvoert.
+>
