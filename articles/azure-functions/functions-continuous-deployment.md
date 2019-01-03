@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301545"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548592"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Doorlopende implementatie voor Azure Functions
 Azure Functions kunt eenvoudig uw functie-app met behulp van continue integratie van App Service implementeren. Functions integreert met BitBucket, Dropbox, GitHub en DevOps met Azure. Hierdoor wordt een werkstroom waar functiecode updates die worden gemaakt met behulp van een van deze implementatie van de trigger geïntegreerde services naar Azure. Als u niet bekend bent met Azure Functions, begint u met [overzicht van Azure Functions](functions-overview.md).
@@ -26,7 +26,7 @@ Continue implementatie is een goede optie voor projecten waar meerdere en regelm
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * Externe opslagplaats (Git- of Mercurial)
-* [Lokale GIT-opslagplaats](../app-service/app-service-deploy-local-git.md)
+* [Lokale GIT-opslagplaats](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Azure DevOps-Services](https://www.visualstudio.com/team-services/)
@@ -52,7 +52,7 @@ Gebruik deze procedure om continue implementatie voor een bestaande functie-app 
  
     ![Continue implementatie instellen](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. In de **implementatiebron** blade, klikt u op **bron kiezen**, en vul vervolgens de gegevens in voor uw gekozen implementatiebron en klikt u op **OK**.
+3. In de **implementatiebron** blade, klikt u op **bron kiezen**, en vul vervolgens de gegevens in voor uw gekozen implementatiebron en klikt u op **OK**.
    
     ![Implementatiebron kiezen](./media/functions-continuous-deployment/choose-deployment-source.png)
 
@@ -93,12 +93,12 @@ Wanneer u hebt bestaande functies die u hebt gemaakt en beheerd in de portal, mo
 > [!NOTE]
 > Nadat u continue integratie configureren, kunt u worden niet meer bewerken van de bronbestanden in de Functions-portal.
 
-- [Hoe: referenties voor implementatie configureren](#credentials)
-- [Hoe: downloaden van bestanden via FTP](#downftp)
-- [Hoe: downloaden van bestanden met behulp van de lokale Git-opslagplaats](#downgit)
+- [Procedures: Referenties voor implementatie configureren](#credentials)
+- [Procedures: Downloaden van bestanden via FTP](#downftp)
+- [Procedures: Downloaden van bestanden met behulp van de lokale Git-opslagplaats](#downgit)
 
 <a name="credentials"></a>
-#### <a name="how-to-configure-deployment-credentials"></a>Hoe: referenties voor implementatie configureren
+#### <a name="how-to-configure-deployment-credentials"></a>Procedure: Referenties voor implementatie configureren
 Voordat u bestanden van uw functie-app met FTP- of lokale Git-opslagplaats downloaden kunt, moet u uw referenties in om toegang tot de site configureren. Referenties zijn ingesteld op het niveau van de functie-app. Gebruik de volgende stappen uit om in te stellen van referenties voor implementatie in Azure portal:
 
 1. In uw functie-app in de [Azure-portal](https://portal.azure.com), klikt u op **platformfuncties** en **implementatiereferenties**.
@@ -108,7 +108,7 @@ Voordat u bestanden van uw functie-app met FTP- of lokale Git-opslagplaats downl
 2. Typ een gebruikersnaam en wachtwoord in en klik vervolgens op **opslaan**. U kunt nu deze referenties gebruiken voor toegang tot uw functie-app van FTP of de ingebouwde Git-opslagplaats.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Hoe: downloaden van bestanden via FTP
+#### <a name="how-to-download-files-using-ftp"></a>Procedure: Downloaden van bestanden via FTP
 
 1. In uw functie-app in de [Azure-portal](https://portal.azure.com), klikt u op **platformfuncties** en **eigenschappen**, kopieer vervolgens de waarden voor **FTP-/ Implementatiegebruiker**, **FTP-hostnaam**, en **FTPS-hostnaam**.  
 
@@ -119,7 +119,7 @@ Voordat u bestanden van uw functie-app met FTP- of lokale Git-opslagplaats downl
 2. Gebruik de verbindingsgegevens van de FTP-client u verzameld om te verbinden met uw app en download de bronbestanden voor uw functies.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Hoe: downloaden van bestanden met een lokale gitopslagplaats
+#### <a name="how-to-download-files-using-a-local-git-repository"></a>Procedure: Downloaden van bestanden met een lokale gitopslagplaats
 
 1. In uw functie-app in de [Azure-portal](https://portal.azure.com), klikt u op **platformfuncties** en **implementatieopties**. 
    

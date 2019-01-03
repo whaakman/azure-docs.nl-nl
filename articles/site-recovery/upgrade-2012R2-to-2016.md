@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: 351213749dcec2b4c16728c04230c75a12179118
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e7644128a3f0e0ea531933286e95b15149fdebd3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410967"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557854"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Upgrade van Windows Server 2012 R2-hosts, SCVMM 2012 R2 is geconfigureerd met Azure Site Recovery naar Windows Server 2016 & SCVMM 2016
 
@@ -49,7 +49,7 @@ Voordat u een upgrade uitvoert, Let op het volgende:-
     - Noteer de VMM-ID van de primaire 2012R2 en de herstel-VMM-servers. VMM-ID kunt u vinden in het register 'HKLM:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup'.
     - Zorg ervoor dat u de nieuwe SCVMMs die u aan het cluster toevoegt dezelfde namen als eerder was. 
 
-- Als u repliceert tussen twee van u uw sites beheerd door SCVMMs aan beide zijden bent, zorgt u ervoor dat u uw herstelzijde vóór de upgrade van de primaire zijde eerst hebt upgraden.
+- Als u tussen twee van uw sites beheerd door SCVMMs aan beide zijden repliceert, zorgt u ervoor dat u uw herstelzijde vóór de upgrade van de primaire zijde eerst hebt upgraden.
 > [!WARNING]
 > Selecteer tijdens het upgraden van het SCVMM 2012 R2, onder Distributed Key Management **opslag van versleutelingssleutels in Active Directory**. Kies de instellingen voor het serviceaccount en gedistribueerd Sleutelbeheer zorgvuldig. Op basis van uw selectie, versleutelde gegevens, zoals wachtwoorden in sjablonen mogelijk niet meer beschikbaar zijn na de upgrade, en de kan mogelijk van invloed zijn op replicatie met Azure Site Recovery
 
@@ -109,5 +109,5 @@ Vóór de upgrade van uw Windows Server 2012 R2-hosts, moet u de SCVMM 2012 R2 u
 4.  Ga naar Azure portal en controleer of de gerepliceerde status van de virtuele machines in de Recovery Services-kluis. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zodra de upgrade van de hosts wordt uitgevoerd, kunt u uitvoeren een [testfailover](tutorial-dr-drill-azure.md) voor het testen van de status van de status van uw replicatie en noodherstel recovey.
+Zodra de upgrade van de hosts wordt uitgevoerd, kunt u uitvoeren een [testfailover](tutorial-dr-drill-azure.md) voor het testen van de status van de status van de recovery-replicatie en noodherstel.
 

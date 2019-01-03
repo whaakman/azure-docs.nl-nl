@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: f6d343d42bf9d918bf23c9f5f442d977a5caca96
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 34177cb2ea1650c4b7130d8c5a2a886655852783
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343714"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555027"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -416,7 +416,7 @@ public class WorkItem
 
 Het bereik van standaard voor een vergrendeling is `SingletonScope.Function` wat betekent dat het vergrendelingsbereik (blob-lease pad) is gekoppeld aan de naam van de volledig gekwalificeerde functie. Als u wilt vergrendelen voor functies, geef `SingletonScope.Host` en gebruik een bereik-ID-naam die is hetzelfde voor alle van de functies die u niet wilt dat tegelijkertijd uit te voeren. In het volgende voorbeeld wordt slechts één exemplaar van `AddItem` of `RemoveItem` wordt uitgevoerd op een tijdstip:
 
-```charp
+```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
 public static void AddItem([QueueTrigger("add-item")] string message)
 {

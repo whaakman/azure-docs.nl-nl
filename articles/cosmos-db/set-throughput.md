@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 54b2ada0f269bca681305efc2e1eb7c2f9776ab7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075349"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542999"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Doorvoer inrichten op Azure Cosmos-containers en databases
 
@@ -47,7 +47,7 @@ Het verdient aanbeveling om de doorvoer van een database te configureren wanneer
 
 * Een database de ingerichte doorvoer voor een set van containers te delen is handig wanneer u van een NoSQL-database (zoals MongoDB, Cassandra migreert) die worden gehost vanuit een cluster met virtuele machines of vanuit on-premises fysieke servers naar Azure Cosmos DB. U kunt zien van de ingerichte doorvoer in uw Azure Cosmos-database geconfigureerd als een logische equivalent (maar meer rendabele en flexibele) met die van de computercapaciteit van uw MongoDB- of Cassandra-cluster.  
 
-Op een willekeurig moment tijd wordt opgelost, wordt de doorvoer die is toegewezen aan een container in een database verdeeld over alle logische partities van die container. Wanneer u containers delen ingerichte doorvoer voor een database hebt, kunt u de doorvoer niet selectief toepassen op een specifieke container of een logische partitie. Als de werkbelasting van een logische partitie meer dan de doorvoer die is toegewezen aan een specifieke logische partitie verbruikt, worden uw bewerkingen tarief beperkt. Wanneer er gelden enkele beperkingen optreedt, kunt u verhoogt de doorvoer voor de volledige container of Voer de bewerking opnieuw uit. Zie voor meer informatie over het partitioneren van [logische partities](partition-data.md).
+Alle containers die zijn gemaakt in een database met een ingerichte doorvoer moeten worden gemaakt met een partitiesleutel. Op een willekeurig moment tijd wordt opgelost, wordt de doorvoer die is toegewezen aan een container in een database verdeeld over alle logische partities van die container. Wanneer u containers delen ingerichte doorvoer voor een database hebt, kunt u de doorvoer niet selectief toepassen op een specifieke container of een logische partitie. Als de werkbelasting van een logische partitie meer dan de doorvoer die is toegewezen aan een specifieke logische partitie verbruikt, worden uw bewerkingen tarief beperkt. Wanneer er gelden enkele beperkingen optreedt, kunt u verhoogt de doorvoer voor de volledige container of Voer de bewerking opnieuw uit. Zie voor meer informatie over het partitioneren van [logische partities](partition-data.md).
 
 Meerdere logische partities delen van de doorvoer die is ingericht met een database kunnen worden gehost op een enkele resource-partitie. Als één logische partitie van een container heeft altijd een bereik binnen een resourcepartitie, kunnen 'L' logische partities 'C' containers delen van de ingerichte doorvoer van een database kunnen worden toegewezen en die worden gehost op 'R' fysieke partities. De volgende afbeelding ziet u hoe een resource aan een of meer logische partities die deel uitmaken van verschillende containers in een database kan hosten:
 

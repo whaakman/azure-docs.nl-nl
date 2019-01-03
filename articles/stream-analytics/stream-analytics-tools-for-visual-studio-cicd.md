@@ -4,24 +4,23 @@ description: Dit artikel wordt beschreven hoe u Visual Studio-hulpprogramma's vo
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 567e2f850e2c51a6103dc24b91d139042d58acb3
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2f3cc3b386dec0010b179455372fb49bcec55ffc
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986822"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558393"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Doorlopend integreren en ontwikkelen met hulpprogramma's voor Stream Analytics
 In dit artikel wordt beschreven hoe u de Azure Stream Analytics-hulpprogramma's voor Visual Studio gebruiken voor het instellen van een continue integratie en implementatie-proces.
 
 Gebruik versie 2.3.0000.0 of hoger van [Stream Analytics-hulpprogramma's voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) ondersteuning voor MSBuild krijgen.
 
-Een NuGet-pakket beschikbaar is: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Dit bevat de tools voor MSBuild, lokaal uitvoeren en implementatie die ondersteuning bieden voor het continue integratie- en implementatieproces van Stream Analytics Visual Studio-projecten. 
+Een NuGet-pakket is beschikbaar: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Dit bevat de tools voor MSBuild, lokaal uitvoeren en implementatie die ondersteuning bieden voor het continue integratie- en implementatieproces van Stream Analytics Visual Studio-projecten. 
 > [!NOTE] 
 Het NuGet-pakket kan worden gebruikt alleen met de 2.3.0000.0 of hoger versie van Stream Analytics-hulpprogramma's voor Visual Studio. Hebt u projecten die zijn gemaakt in eerdere versies van Visual Studio-hulpprogramma's, alleen openen met de 2.3.0000.0 of hoger versie en opslaan. De nieuwe mogelijkheden zijn ingeschakeld. 
 
@@ -80,11 +79,11 @@ localrun -Project [ProjectFullPath]
 
 De *arm* opdracht gebruikt u de taaksjabloon en de taak sjabloon parameterbestanden die worden gegenereerd door build als invoer. Vervolgens combineert het ze in een taak definitie JSON-bestand dat kan worden gebruikt met de PowerShell-API van Stream Analytics.
 
-```
+```powershell
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
 ```
 Voorbeeld:
-```
+```powershell
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```
 

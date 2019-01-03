@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: b1bea9b1a2bdb04a60fa6a8fa1d92bfbaf80c6d6
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 2df24cfe217a9955a3abb08d042836821b083946
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320826"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580634"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Hebt u een klassieke waarschuwing voor metrische gegevens op de hoogte stellen een niet-Azure-systeem met behulp van een webhook
 U kunt webhooks gebruiken voor het routeren van een Azure waarschuwingsmelding met andere systemen voor na verwerking of aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar services die de SMS-berichten, om aan te melden bugs, om de hoogte van een team via chatten of berichtenservices, of voor verschillende andere acties te verzenden. 
@@ -27,7 +27,7 @@ Toevoegen of bijwerken van de webhook URI, in de [Azure-portal](https://portal.a
 
 ![Een deelvenster waarschuwingsregel toevoegen](./media/alerts-webhooks/Alertwebhook.png)
 
-U kunt ook een waarschuwing te posten naar de URI van een webhook met behulp van [Azure PowerShell-cmdlets](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts), een [platformoverschrijdende CLI](../../azure-monitor/platform/cli-samples.md#work-with-alerts), of [Azure Monitor REST API's](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+U kunt ook een waarschuwing te posten naar de URI van een webhook met behulp van [Azure PowerShell-cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), een [platformoverschrijdende CLI](../../azure-monitor/platform/cli-samples.md#work-with-alerts), of [Azure Monitor REST API's](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Verifiëren van de webhook
 De webhook kan verifiëren met behulp van verificatie op basis van tokens. De webhook URI wordt opgeslagen met een token-ID. Bijvoorbeeld: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

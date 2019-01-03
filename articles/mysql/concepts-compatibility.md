@@ -1,20 +1,17 @@
 ---
 title: MySQL-stuurprogramma's en compatibiliteit met hulpprogramma's voor beheer
 description: In dit artikel beschrijft de MySQL-stuurprogramma's en beheerprogramma's nodig die compatibel met Azure Database for MySQL zijn.
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 4232e1850a1354fe247258d46b280e1bfa653972
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 7bb5f861676517d709f59c1bf50d77c4d9cc49a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290821"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548048"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL-stuurprogramma's en beheerprogramma's compatibel zijn met Azure Database for MySQL
 In dit artikel beschrijft de stuurprogramma's en beheerprogramma's nodig die compatibel met Azure Database for MySQL zijn.

@@ -1,5 +1,5 @@
 ---
-title: Met een beschrijving van erotische en ongepaste inhoud - Computer Vision
+title: Beschrijf erotische en ongepaste inhoud - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepten met betrekking tot het detecteren van erotische en ongepaste inhoud in afbeeldingen met behulp van de Computer Vision-APi.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 71866149e3d2dca4b39585ce8da73aae658a4d59
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: e0cca054acb7d3d649105ecd45748a60a2aa9bbb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344911"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582164"
 ---
 # <a name="detecting-adult-and-racy-content"></a>Erotische en ongepaste inhoud detecteren
 
-Is de groep erotische en ongepaste, schakelt u het detecteren van volwassenen materialen en Hiermee beperkt u de weergave van afbeeldingen die seksuele inhoud bevat over de verschillende categorieën van de visual. Het filter voor de detectie van erotische en ongepaste inhoud kan worden ingesteld op een schaal van de schuifregelaar om voorkeur van de gebruiker mogelijk te maken.
+De groep met inhoud van voor volwassenen en ongepaste inhoud is een van de visuele categorieën. Met deze categorie wordt inhoud voor volwassenen gedetecteerd en de weergave van afbeeldingen met seksuele inhoud beperkt. Het filter voor de detectie van inhoud voor volwassenen en ongepaste inhoud kan worden ingesteld met een glijdende schaal waarmee gebruikers hun voorkeuren kunnen aangeven.
 
 ## <a name="defining-adult-and-racy-content"></a>Erotische en ongepaste inhoud definiëren
 

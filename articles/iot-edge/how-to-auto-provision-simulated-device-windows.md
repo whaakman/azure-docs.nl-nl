@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1ad8435626b35859968bdf93589f22dc81e74e02
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101599"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557696"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Maken en inrichten van een gesimuleerd TPM-Edge-apparaat op Windows
 
@@ -61,14 +61,13 @@ Na het maken van de afzonderlijke registratie, sla de waarde van de **registrati
 
 Na het voltooien van de vorige sectie, ziet u het nieuwe apparaat weergegeven als een IoT Edge-apparaat in uw IoT-Hub. Nu moet u de IoT Edge-runtime installeren op uw apparaat. 
 
-De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. De onderdelen in containers worden uitgevoerd, en kunnen u extra containers implementeren op het apparaat, zodat u kunt de code aan de rand uitvoeren. Op apparaten waarop Windows wordt uitgevoerd, kunt u Windows-containers of Linux-containers gebruiken. Kies het type van de containers die u wilt gebruiken en volg de stappen. Zorg ervoor dat u de IoT Edge-runtime voor het inrichten van automatische, niet handmatig configureren. 
+De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. De onderdelen in containers worden uitgevoerd, en kunnen u extra containers implementeren op het apparaat, zodat u kunt de code aan de rand uitvoeren.  
 
-Volg de instructies voor het installeren van de IoT Edge-runtime op het apparaat dat het gesimuleerde TPM uit de vorige sectie wordt uitgevoerd. 
+Volg de instructies voor het installeren van de IoT Edge-runtime op het apparaat dat het gesimuleerde TPM uit de vorige sectie wordt uitgevoerd. Zorg ervoor dat u de IoT Edge-runtime voor het inrichten van automatische, niet handmatig configureren.
 
-Kent uw DPS **ID-bereik** en apparaat **registratie-ID** voordat u begint met deze artikelen. 
+Kent uw DPS **ID-bereik** en apparaat **registratie-ID** voordat u IoT Edge op uw apparaat installeert. 
 
-* [Windows-containers](how-to-install-iot-edge-windows-with-windows.md)
-* [Linux-containers](how-to-install-iot-edge-windows-with-linux.md)
+[Installeren en automatisch inrichten van IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Controleer of geslaagde installatie
 

@@ -11,14 +11,15 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 478727a4d3628fbe6a385e3beb28201c228f9e2d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8ea180131ce2f9e1288c3ffb928170be55a77de7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078229"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598447"
 ---
-# <a name="luis-api-http-response-codes"></a>LUIS API HTTP-responscodes
+# <a name="common-api-response-codes-and-their-meaning"></a>Algemene API-responscodes en hun betekenis
+
 De [ontwerpen](https://aka.ms/luis-authoring-apis) en [eindpunt](https://aka.ms/luis-endpoint-apis) API's geven de HTTP-responscodes. Terwijl antwoordberichten informatie die specifiek zijn voor een aanvraag bevatten, is de HTTP-antwoordstatuscode algemeen. 
 
 ## <a name="common-status-codes"></a>Algemene statuscodes
@@ -38,3 +39,7 @@ De volgende tabel bevat enkele van de meest voorkomende HTTP-antwoord-statuscode
 |410|Eindpunt|toepassing moet worden retrained en gepubliceerd|
 |414|Eindpunt|query groter is dan het maximum aantal tekens|
 |429|Ontwerpen, eindpunt|Limiet wordt overschreden (aanvragen/seconde)|
+
+## <a name="next-steps"></a>Volgende stappen
+
+* REST-API [ontwerpen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) en [eindpunt](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) documentatie

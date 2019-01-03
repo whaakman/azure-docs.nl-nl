@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: c3c1aa9abc6a7ba97bf7c95aa1c670c7239df3ab
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5a1febb80b5d3aaf0e5da2620f1b0a35d5d1144b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019788"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556795"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migreren vanuit Managed cacheservice naar Azure Cache voor Redis
 Migreren van uw toepassingen die gebruikmaken van Azure Managed Cache Service met Azure-Cache voor Redis kan worden bewerkstelligd met minimale wijzigingen in uw toepassing, afhankelijk van de Managed Cache Service-functies die worden gebruikt door uw toepassing in het cachegeheugen. Terwijl de API's niet precies hetzelfde zijn ze zijn vergelijkbaar en veel van uw bestaande code die gebruikmaakt van Managed Cache Service voor toegang tot een cache met minimale wijzigingen opnieuw kan worden gebruikt. Dit artikel wordt beschreven hoe u de vereiste configuratie en toepassing verandert als u wilt migreren van uw Managed Cache Service-toepassingen met Azure Cache voor Redis en laat zien hoe sommige van de functies van Azure voor Redis-Cache kan worden gebruikt voor het implementeren van de functionaliteit van een Managed Cache Service-cache.
@@ -47,7 +47,7 @@ Azure Managed Cache Service en Azure voor Redis-Cache zijn vergelijkbaar, maar s
 
 | Beheerde Cache Service-functie | Ondersteuning voor beheerde Cache Service | Azure Cache voor Redis-ondersteuning |
 | --- | --- | --- |
-| Benoemde caches |Een standaardcache is geconfigureerd en in de cache standaard en Premium-aanbiedingen, maximaal negen extra caches met de naam kunnen worden geconfigureerd als gewenst. |Azure Cache voor Rediss hebben een configureerbaar aantal databases (standaard 16) die kunnen worden gebruikt voor het implementeren van een vergelijkbare functionaliteit als benoemde caches. Zie [Wat zijn Redis-databases?](cache-faq.md#what-are-redis-databases) en [Standaardconfiguratie voor Redis-server](cache-configure.md#default-redis-server-configuration) voor meer informatie. |
+| Benoemde caches |Een standaardcache is geconfigureerd en in de cache standaard en Premium-aanbiedingen, maximaal negen extra caches met de naam kunnen worden geconfigureerd als gewenst. |Azure Redis-Cache heeft een configureerbaar aantal databases (standaard 16) die kunnen worden gebruikt voor het implementeren van een vergelijkbare functionaliteit als benoemde caches. Zie [Wat zijn Redis-databases?](cache-faq.md#what-are-redis-databases) en [Standaardconfiguratie voor Redis-server](cache-configure.md#default-redis-server-configuration) voor meer informatie. |
 | Hoge beschikbaarheid |Biedt hoge beschikbaarheid voor items in de cache in de Standard en Premium-cache-aanbiedingen. Als artikelen verbroken vanwege een fout zijn, wordt back-ups van de items in de cache nog steeds beschikbaar zijn. Schrijfbewerkingen naar de secundaire cache worden synchroon gemaakt. |Hoge beschikbaarheid is beschikbaar in de Standard en Premium-cache-aanbiedingen, waarvoor een configuratie primair/Replica met twee knooppunten (elke shard in een Premium-cache heeft de combinatie van een primaire/replica). Schrijfbewerkingen naar de replica worden asynchroon gedaan. Zie voor meer informatie, [Azure Cache voor Redis-prijsstelling](https://azure.microsoft.com/pricing/details/cache/). |
 | Meldingen |Hiermee kunnen clients asynchrone meldingen ontvangen wanneer diverse cachebewerkingen worden uitgevoerd in een benoemde cache. |Clienttoepassingen kunnen gebruikmaken van Redis pub/sub of [Keyspace-meldingen](cache-configure.md#keyspace-notifications-advanced-settings) op een vergelijkbare functionaliteit om meldingen te bereiken. |
 | Lokale cache |Lokaal een kopie van de objecten in de cache opgeslagen op de client voor extra snelle toegang. |Clienttoepassingen moet voor het implementeren van deze functionaliteit met behulp van een woordenlijst of een vergelijkbare gegevensstructuur. |
@@ -130,7 +130,7 @@ Voeg de volgende gebruiksinstructie aan het begin van alle bestanden die u wilt 
 using StackExchange.Redis
 ```
 
-Als deze naamruimte niet kan worden opgelost, moet u dat u het StackExchange.Redis-pakket hebt toegevoegd zoals beschreven in [Quick Start: Azure Cache gebruik van Redis met een .NET-toepassing](cache-dotnet-how-to-use-azure-redis-cache.md).
+Als deze naamruimte niet kan worden opgelost, moet u dat u het StackExchange.Redis-pakket hebt toegevoegd zoals beschreven in [Quick Start: Azure Cache voor Redis gebruiken met een .NET-toepassing](cache-dotnet-how-to-use-azure-redis-cache.md).
 
 > [!NOTE]
 > Houd er rekening mee dat de client StackExchange.Redis is .NET Framework 4 of hoger vereist.

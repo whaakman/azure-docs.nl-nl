@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496921"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579954"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>ML-Services-cluster in Azure HDInsight operationeel maken
 
@@ -24,11 +24,11 @@ Nadat u Services ML-cluster in HDInsight gebruikt hebt om uit te voeren van het 
 
 * **Een ML-Services-cluster in HDInsight**: Zie voor instructies [aan de slag met ML-Services op HDInsight](r-server-get-started.md).
 
-* **Een SSH-client (Secure Shell)**: er wordt een SSH-client gebruikt om extern verbinding te maken met het HDInsight-cluster en om opdrachten rechtstreeks uit te voeren op het cluster. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* **Een Secure Shell (SSH)-client**: Een SSH-client wordt gebruikt om op afstand verbinding maken met het HDInsight-cluster en opdrachten rechtstreeks op het cluster uitvoeren. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Cluster met-in-één configuratie ML-Services operationeel maken
 
-> [!NOTE]
+> [!NOTE]  
 > De onderstaande stappen zijn van toepassing op R Server 9.0 en ML Server 9.1. Raadpleeg voor ML Server 9.3, [gebruiken het beheerprogramma voor het beheren van de configuratie voor uitoefening](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH op het Edge-knooppunt.
@@ -137,7 +137,7 @@ Zodra de SSH-sessie actief is, wordt het verkeer bij poort 12800 op uw lokale ma
 
 Als u wilt de compute-knooppunten schalen, moet u eerst uit bedrijf nemen de worker-knooppunten en vervolgens rekenknooppunten configureren op de uit bedrijf genomen worker-knooppunten.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>Stap 1: Uit bedrijf nemen de worker-knooppunten
+### <a name="step-1-decommission-the-worker-nodes"></a>Stap 1: De worker-knooppunten uit bedrijf nemen
 
 ML-Services cluster niet wordt beheerd via [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Als de worker-knooppunten niet uit bedrijf genomen, werkt de resourcemanager YARN niet zoals verwacht, omdat het is niet op de hoogte van de resources in beslag wordt genomen door de server. Om deze sitatie te voorkomen raden we u aan de werkknooppunten uit bedrijf te nemen voordat u de rekenknooppunten uitschaalt.
 
@@ -159,7 +159,7 @@ Volg deze stappen voor het worker-knooppunten uit bedrijf nemen:
 * Hef de selectie van de worker-knooppunten op en selecteer de hoofdknooppunten.
 * Selecteer **acties** > **geselecteerde Hosts** > "**Hosts** > **alle onderdelen opnieuw starten**.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Stap 2: Configureer rekenknooppunten op elk uit bedrijf genomen worker-knooppunten
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Stap 2: Rekenknooppunten configureren op elk uit bedrijf genomen worker-knooppunten
 
 1. SSH op elk uit bedrijf genomen werkknooppunt.
 
@@ -173,7 +173,7 @@ Volg deze stappen voor het worker-knooppunten uit bedrijf nemen:
 
 1. Sluit het beheerprogramma.
 
-### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Stap 3: Toevoegen compute-knooppunten details op het webknooppunt
+### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Stap 3: Details van rekenknooppunten toevoegen op het webknooppunt
 
 Zodra alle uit bedrijf genomen worker-knooppunten zijn geconfigureerd voor het rekenknooppunt worden uitgevoerd, keert u terug naar het edge-knooppunt en toevoegen van IP-adressen uit bedrijf genomen worker-knooppunten in het ML-Server-webknooppunt configuratie:
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek
+ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
 ms.date: 02/05/2018
-ms.openlocfilehash: 290414ca07014d5f3bfbe160b0f571397fb13948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 96627d96acee76516c9dc3db1b58d6e4b7b6ff15
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467122"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601034"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias voor Azure SQL Database
 
@@ -55,12 +55,12 @@ Een herstel na noodgevallen mogelijk uw SQL Database-server verplaatsen naar een
 
 De volgende eigenschappen zijn van toepassing op elke DNS-alias voor uw SQL Database-server:
 
-- *Unieke naam:* elke aliasnaam die u maakt is uniek voor alle Azure SQL Database-servers, net zoals server namen zijn.
-- *Server is vereist:* A-DNS-alias kan niet worden gemaakt, tenzij deze verwijst naar exact één server en de server moet al bestaan. Een bijgewerkte alias moet altijd verwijzen naar exact één bestaande server.
+- *Unieke naam op:* De naam van elke alias die u maakt is uniek zijn voor alle Azure SQL Database-servers, net zoals de servernamen van de zijn.
+- *Server is vereist:* Een DNS-server kan geen alias worden gemaakt, tenzij deze verwijst naar exact één server en de server moet al bestaan. Een bijgewerkte alias moet altijd verwijzen naar exact één bestaande server.
   - Wanneer u een SQL-databaseserver neerzet, wordt in de Azure-systeem ook alle DNS-aliassen die naar de server verwijzen komt.
-- *Niet gebonden aan een andere regio's:* DNS-aliassen zijn niet gebonden aan een regio. Een DNS-aliassen kunnen worden bijgewerkt om te verwijzen naar een Azure SQL Database-server die zich in elke geografische regio bevinden.
+- *Niet gekoppeld aan andere regio's:* DNS-aliassen zijn niet gebonden aan een regio. Een DNS-aliassen kunnen worden bijgewerkt om te verwijzen naar een Azure SQL Database-server die zich in elke geografische regio bevinden.
   - Echter, wanneer u een alias om te verwijzen naar een andere server bijwerkt, beide servers moeten bestaan in dezelfde Azure *abonnement*.
-- *Machtigingen:* voor het beheren van een DNS-alias, moet de gebruiker hebben *Inzender voor Server* machtigingen of hoger. Zie voor meer informatie, [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../role-based-access-control/overview.md).
+- *Machtigingen:* Voor het beheren van een DNS-alias, moet de gebruiker hebben *Inzender voor Server* machtigingen of hoger. Zie voor meer informatie, [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Beheer van uw DNS-aliassen
 
@@ -95,10 +95,10 @@ Een voorbeeld van PowerShell-cmdlets die worden gebruikt voor het beheren van DN
 
 De cmdlets die in het codevoorbeeld gebruikt zijn de volgende:
 
-- [Nieuwe-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): een nieuwe DNS-alias maakt in het systeem van de service Azure SQL Database. De alias verwijst naar Azure SQL Database-server 1.
-- [Get-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): ophalen en weergeven van alle DNS-aliassen die zijn toegewezen aan de SQL-database-server 1.
+- [Nieuwe-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Hiermee maakt u een nieuwe DNS-alias in het systeem van de service Azure SQL Database. De alias verwijst naar Azure SQL Database-server 1.
+- [Get-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Ophalen en weergeven van alle DNS-aliassen die zijn toegewezen aan de SQL-database-server 1.
 - [Set-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Hiermee wijzigt u de naam van de server die de alias is geconfigureerd om te verwijzen naar, van server 1 naar 2 van de SQL-database-server.
-- [Remove-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): verwijderen van de DNS-alias van de SQL-database-server 2, met behulp van de naam van de alias.
+- [Remove-azurermsqlserverdnsalias toegevoegd,](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Verwijder de DNS-alias van de SQL-database-server 2, met behulp van de naam van de alias.
 
 De voorgaande cmdlets zijn toegevoegd aan de **AzureRM.Sql** module vanaf versie 5.1.1.
 
@@ -106,10 +106,10 @@ De voorgaande cmdlets zijn toegevoegd aan de **AzureRM.Sql** module vanaf versie
 
 Een DNS-server heeft momenteel kan alias de volgende beperkingen:
 
-- *Vertraging van maximaal 2 minuten:* duurt maximaal twee minuten om een DNS-alias worden bijgewerkt of verwijderd.
+- *Vertraging van maximaal 2 minuten:* Het duurt maximaal 2 minuten voor een DNS-alias worden bijgewerkt of verwijderd.
   - Ongeacht een korte vertraging stopt de alias onmiddellijk clientverbindingen met de oude server verwijzen.
-- *DNS-zoekactie:* voor het alleen bindende manier om te controleren welke server die een opgegeven DNS-Server alias naar verwijst is door te voeren op dit moment een [DNS-zoekactie](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Tabelcontrole wordt niet ondersteund](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* u een DNS-alias niet gebruiken op een Azure SQL Database-server die is *tabelcontrole* ingeschakeld voor een database.
+- *DNS-zoekopdracht:* Voor het alleen bindende manier om te controleren welke server die een opgegeven DNS-Server alias naar verwijst is door te voeren op dit moment een [DNS-zoekactie](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
+- *[Tabelcontrole wordt niet ondersteund](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* U kunt een DNS-alias niet gebruiken op een Azure SQL Database-server die is *tabelcontrole* ingeschakeld voor een database.
   - Tabelcontrole is afgeschaft.
   - Het is raadzaam dat u naar verplaatsen [controlefunctie voor blobs](sql-database-auditing.md).
 

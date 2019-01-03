@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6b6dd80f649b0c92aacdb5711e88d7710db5f51b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 50d071c420eec106f5ab28530aa7b2ff9a55fe4a
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424439"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558751"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Azure Active Directory-codevoorbeelden (v2.0-eindpunt)
 
@@ -62,8 +62,8 @@ De volgende voorbeelden ziet u webtoepassingen die aanmelden van gebruikers. Aan
 
  Platform | Alleen gebruikers worden aangemeld | Gebruikers worden aangemeld en Microsoft Graph aanroepen
  -------- | ------------------- | ---------------------------------
-![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.1 | [aspnetcore-Web-App-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) | Hetzelfde voorbeeld de [aspnetcore2-2-signInAndCallGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/aspnetcore2-2-signInAndCallGraph) vertakking
-![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [ASP.NET-snelstartgids](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [DotNet-Web-App-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [DotNet-admin-beperkt-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) <p/>[MSGraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [aspnetcore-Web-App-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) | Hetzelfde voorbeeld de [aspnetcore2-2-signInAndCallGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/aspnetcore2-2-signInAndCallGraph) vertakking
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET-snelstartgids](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [DotNet-Web-App-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [DotNet-admin-beperkt-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[MSGraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 ![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Snelstartgids voor node.js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
 ![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [MSGraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
 
@@ -73,12 +73,12 @@ De volgende voorbeelden tonen openbare client toepassingen (desktop/mobiele toep
 
 Clienttoepassing | Platform | Stroom/verlenen | Aanroepen van Microsoft Graph | Een ASP.NET Core 2.0-Web-API-aanroepen
 ------------------ | -------- |  ----------| ---------- | -------------------------
-(WPF) Desktop      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Interactieve | [DotNet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [DotNet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+(WPF) Desktop      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Interactieve | [DotNet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [DotNet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NET.png) | Geïntegreerde Windows-verificatie |[DotNet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 Bureaublad (Console)   | ![.NET / C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Gebruikersnaam en wachtwoord |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 Mobile (UWP)   | ![.NET / C# (UWP)](media/sample-v2-code/logo_windows.png) | Interactieve |[DotNet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
-Mobile (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interactieve |[xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
-Mobile (iOS)       | ![iOS / Objective-C of swift.](media/sample-v2-code/logo_iOS.png) | Interactieve |[IOS swift-native v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [IOS-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
+Mobile (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interactieve |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |
+Mobile (iOS)       | ![iOS / Objective-C of swift.](media/sample-v2-code/logo_iOS.png) | Interactieve |[IOS swift-native v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [IOS-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
 Mobile (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interactieve |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
 
 ## <a name="daemon-applications"></a>Daemon-toepassingen
@@ -87,8 +87,8 @@ De volgende voorbeelden ziet een toepassing die toegang heeft tot de Microsoft G
 
 Clienttoepassing | Platform | Stroom/verlenen | Aanroepen van Microsoft Graph
 ------------------ | -------- | ---------- | --------------------
-Console | ![.NET Core](media/sample-v2-code/logo_NETcore.png)<p/> ASP.NET  | Clientreferenties | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
-Web-app | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET  | Clientreferenties | [DotNet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
+Console | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | Clientreferenties | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
+Web-app | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | Clientreferenties | [DotNet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
 
 ## <a name="headless-applications"></a>' Headless '-toepassingen
 
@@ -104,7 +104,7 @@ Het volgende voorbeeld toont het beveiligen van een web-API met de Azure AD v2.0
 
 Platform | Voorbeeld
  -------- | -------------------
-![.NET / C#](media/sample-v2-code/logo_NET.png) | WebAPI (service) van [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+![.NET / C#](media/sample-v2-code/logo_NET.png) | WebAPI (service) van [dotnet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 
 ## <a name="other-microsoft-graph-samples"></a>Andere voorbeelden van Microsoft Graph
 

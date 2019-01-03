@@ -1,51 +1,48 @@
 ---
-title: Een overzicht voor de ontwikkelaars voor Azure-Database voor MySQL database
-description: Overwegingen bij het ontwerpen die een ontwikkelaar volgen moet bij het schrijven van code van de toepassing verbinding maken met Azure-Database voor MySQL introduceert
-services: mysql
+title: Overzicht van database-toepassing voor ontwikkelaars voor Azure Database for MySQL
+description: Introduceert ontwerpoverwegingen die een ontwikkelaar volgen moet bij het schrijven van code van de toepassing verbinding maakt met Azure Database voor MySQL
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: b733468d41afacb616c95f0628e7bad6b0c837f0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264160"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544460"
 ---
-# <a name="application-development-overview-for-azure-database-for-mysql"></a>Overzicht van toepassing voor ontwikkelaars voor Azure-Database voor MySQL 
-Dit artikel wordt beschreven ontwerpoverwegingen die een ontwikkelaar bij het schrijven van code van de toepassing verbinding maken met Azure-Database voor MySQL moet volgen. 
+# <a name="application-development-overview-for-azure-database-for-mysql"></a>Overzicht van toepassing voor ontwikkelaars voor Azure Database for MySQL 
+Dit artikel worden besproken ontwerpoverwegingen die een ontwikkelaar volgen moet bij het schrijven van code van de toepassing verbinding maakt met Azure Database voor MySQL. 
 
 > [!TIP]
-> Zie voor een zelfstudie waarin u het maken van een server, maken van een firewall op de server, servereigenschappen weergeven, database maken en verbinding maken en query uitvoeren met behulp van workbench en mysql.exe [ontwerpen van uw eerste Azure-Database voor de MySQL-database](tutorial-design-database-using-portal.md)
+> Zie voor een zelfstudie waarin u over het maken van een server, een server gebaseerde firewall maken, weergeven van servereigenschappen, -database maken en verbinding maken en query's uitvoeren met behulp van workbench en mysql.exe [uw eerste Azure Database voor MySQL-database ontwerpen](tutorial-design-database-using-portal.md)
 
 ## <a name="language-and-platform"></a>Taal en platform
-Er zijn codevoorbeelden beschikbaar voor verschillende programmeertalen en platforms. Vindt u koppelingen naar de codevoorbeelden op: [bibliotheken voor databaseconnectiviteit verbinding maken met Azure Database MySQL gebruikt](concepts-connection-libraries.md)
+Er zijn codevoorbeelden beschikbaar voor verschillende programmeertalen en platforms. Hier vindt u koppelingen naar de codevoorbeelden: [Connectiviteitsbibliotheken gebruikt voor het verbinding maken met Azure Database for MySQL](concepts-connection-libraries.md)
 
 ## <a name="tools"></a>Hulpprogramma's
-Azure MySQL-Database maakt gebruik van de MySQL-community-versie, compatibel zijn met algemene beheerprogramma's zoals Workbench of MySQL hulpprogramma's zoals mysql.exe, MySQL [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql), en andere. U kunt ook de Azure-portal, Azure CLI en REST-API's gebruiken om te communiceren met de database-service.
+Azure Database voor MySQL maakt gebruik van de MySQL community-versie, compatibel zijn met MySQL algemene beheerprogramma's zoals Workbench of MySQL-hulpprogramma's zoals mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql), enzovoort. U kunt ook de Azure portal, Azure CLI en REST-API's gebruiken om te communiceren met de database-service.
 
 ## <a name="resource-limitations"></a>Resourcebeperkingen
-Azure MySQL-Database beheert de beschikbare bronnen voor een server met behulp van twee verschillende mechanismen: 
-- Beheer van bronnen.
+Azure Database voor MySQL beheert de resources die beschikbaar zijn voor een server met behulp van twee verschillende mechanismen: 
+- Resources Governance.
 - Afdwinging van limieten.
 
 ## <a name="security"></a>Beveiliging
-Azure MySQL-Database bevat bronnen voor beperkende toegang, beschermen gegevens configureren gebruikers en rollen en bewakingsactiviteiten op een MySQL-database.
+Azure Database voor MySQL biedt resources voor beperkende toegang, beveiligt gegevens, configureren gebruikers en rollen en bewakingsactiviteiten in een MySQL-database.
 
 ## <a name="authentication"></a>Verificatie
-Azure MySQL-Database biedt ondersteuning voor server-verificatie van gebruikers en aanmeldingen.
+Azure Database voor MySQL biedt ondersteuning voor server-verificatie van gebruikers en aanmeldgegevens.
 
 ## <a name="resiliency"></a>Flexibiliteit
-Wanneer een tijdelijke fout optreedt bij het verbinden met een MySQL-database, moet de aanroep opnieuw proberen uw code. Wordt aangeraden de Pogingslogica gebruiken uit logica zodat deze heeft niet de SQL-database overbelast met meerdere clients tegelijkertijd opnieuw uit te voeren.
+Wanneer er een tijdelijke fout optreedt bij het verbinden met een MySQL-database, moet uw code de aanroep opnieuw. Wordt aanbevolen dat de logica voor opnieuw proberen uitstel logische zodat deze niet overbelast raakt de SQL-database met meerdere clients tegelijk opnieuw proberen.
 
-- Codevoorbeelden: codevoorbeelden die aangeven Pogingslogica, vindt u voorbeelden voor de taal van uw keuze op: [bibliotheken voor databaseconnectiviteit verbinding maken met Azure Database MySQL gebruikt](concepts-connection-libraries.md)
+- Codevoorbeelden: Voor codevoorbeelden met daarin logica voor opnieuw proberen, ziet u voorbeelden van de taal van uw keuze: [Connectiviteitsbibliotheken gebruikt voor het verbinding maken met Azure Database for MySQL](concepts-connection-libraries.md)
 
 ## <a name="managing-connections"></a>Verbindingen beheren
-Databaseverbindingen zijn een beperkte resource daarom logisch verbindingen worden gebruikt aangeraden bij het openen van uw MySQL-database voor betere prestaties bereiken.
-- Toegang tot de database met behulp van verbindingsgroepering of permanente verbindingen.
+Databaseverbindingen zijn hier een beperkte resource, raden wij aan zijn verbindingen worden gebruikt bij het openen van uw MySQL-database om betere prestaties te behalen.
+- Toegang tot de database met behulp van permanente verbindingen of Groepsgewijze verbinding.
 - Toegang tot de database met behulp van de levensduur van een korte verbinding. 
-- Pogingslogica voor gebruik in uw toepassing op het moment van de verbindingspoging om af te vangen fouten ten gevolge van gelijktijdige verbindingen het maximaal toegestane aantal is bereikt. In de Pogingslogica een korte vertraging instellen en vervolgens wachten op een willekeurige tijd voordat de aanvullende verbindingspogingen.
+- Pogingslogica voor gebruik in uw toepassing op het moment van de verbindingspoging om af te vangen van fouten die voortvloeien uit gelijktijdige verbindingen hebt bereikt van het maximaal toegestane aantal. In de logica voor opnieuw proberen, een korte vertraging instellen en vervolgens wachten op een willekeurige periode voordat de aanvullende verbindingspogingen.

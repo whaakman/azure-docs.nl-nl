@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights-klantgegevens aanvraag - gegevens van de klant voor aanvragen functies in Azure Time Series Insights | Microsoft Docs
+title: Gegevens van de klant functies in Azure Time Series Insights aanvragen | Microsoft Docs
 description: Overzicht van functies voor aanvraag klant Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: c749a61fa26b13ffe67c5913d1a11b6c1f0e186b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 30f6b1fd953f89170a18d56bf0353c643853074e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276057"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558546"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Overzicht van de klant functies voor aanvraag
 

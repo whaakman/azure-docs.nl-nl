@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b81b9b34843974ceacf41b08a40a52418ea46d22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888508"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547546"
 ---
 # <a name="configure-deployment-sources"></a>Implementatiebronnen configureren
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 App Service in Azure Stack biedt ondersteuning voor implementatie van meerdere resourcebeheerproviders op aanvraag. Deze functie kunt toepassingsontwikkelaars rechtstreeks implementeren via hun broncodebeheeropslagplaatsen. Als gebruikers configureren, App Service wilt verbinden met hun opslagplaatsen, moet eerst de integratie tussen App Service in Azure Stack en de gewenste provider configureren in een cloud-operator.  
 
@@ -74,8 +74,8 @@ U moet een BitBucket-account om deze taak te voltooien. Mogelijk wilt u een acco
 5. Voer de **URL voor terugbellen**. In een standaard Azure Stack-implementatie, de callback-URL is in het formulier https://portal.local.azurestack.external/TokenAuthorize. Als u worden uitgevoerd onder een ander domein, vervangt u de naam van het domein voor azurestack.local. Voor de integratie van de BitBucket te voltooien, moet de URL volgen het hoofdlettergebruik die hier worden vermeld.
 6. Voer de **URL**. Deze URL moet de Azure Stack-portal URL; bijvoorbeeld, https://portal.local.azurestack.external.
 7. Selecteer de **machtigingen** vereist:
-    - **Opslagplaatsen**: *lezen*
-    - **Webhooks**: *lezen en schrijven*
+    - **Opslagplaatsen**: *Lezen*
+    - **Webhooks**: *Lezen en schrijven*
 8. Klik op **Opslaan**. Nu ziet u deze nieuwe toepassing, samen met de **sleutel** en **geheim**onder **OAuth consumenten**.
     ![Aanbieding voor BitBucket-toepassing][9]
 9.  In een nieuw browsertabblad of -venster moet u zich aanmelden bij de Azure Stack-beheerportal (https://adminportal.local.azurestack.external) als de service-beheerder.
@@ -138,7 +138,7 @@ U moet Microsoft-Account hebt gekoppeld aan een OneDrive-account om deze taak te
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Gebruikers kunnen nu de van implementatiebronnen gebruiken voor zaken zoals [continue implementatie](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [lokale Git-implementatie](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), en [cloud mapsynchronisatie](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).
+Gebruikers kunnen nu de van implementatiebronnen gebruiken voor zaken zoals [continue implementatie](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment), [lokale Git-implementatie](https://docs.microsoft.com/azure/app-service/deploy-local-git), en [cloud mapsynchronisatie](https://docs.microsoft.com/azure/app-service-web/deploy-content-sync).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

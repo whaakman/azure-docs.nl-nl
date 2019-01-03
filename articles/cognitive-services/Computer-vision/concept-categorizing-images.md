@@ -1,7 +1,7 @@
 ---
 title: Voor het categoriseren van beelden - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepten met betrekking tot het categoriseren van afbeeldingen met behulp van de Computer Vision-API.
+description: Meer informatie over concepten met betrekking tot de installatiekopie categorisatie-functie van de Computer Vision-API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 40873b13407066920caec5c04751b65c01d7e209
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333476"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579495"
 ---
-# <a name="categorizing-images"></a>Afbeeldingen categoriseren
+# <a name="image-categorization-with-computer-vision"></a>Afbeelding categorisatie met Computer Vision
 
 Naast de labels en beschrijvingen, Computer Vision geeft als resultaat de taxonomie op basis van categorieën die in eerdere versies zijn gedefinieerd. Deze categorieën zijn ingedeeld als taxonomie met bovenliggende/onderliggende overdraagbare hiërarchieën. Alle categorieën zijn in het Engels. Ze kunnen worden gebruikt alleen of met onze nieuwe modellen tagging.
 
@@ -31,7 +32,7 @@ Op basis van een lijst met 86 concepten die worden weergegeven in het volgende d
 
 De volgende JSON-antwoord wordt geïllustreerd wat Computer Vision geretourneerd bij het categoriseren van de voorbeeld-installatiekopie op basis van de visuele kenmerken.
 
-![Vrouw op dak](./Images/woman_roof.png)
+![Een vrouw die op het plafond van een gebouw apartment](./Images/woman_roof.png)
 
 ```json
 {
@@ -54,10 +55,10 @@ De volgende tabel ziet u een set typische installatiekopie en de categorie die i
 
 | Installatiekopie | Categorie |
 |-------|----------|
-| ![Familiefoto](./Images/family_photo.png) | people_group |
-| ![Leuke hond](./Images/cute_dog.png) | animal_dog |
-| ![Berglandschap](./Images/mountain_vista.png) | outdoor_mountain |
-| ![Vision-analyse Voedsel en brood](./Images/bread.png) | food_bread |
+| ![Vier personen zich voordeed samen als een familie](./Images/family_photo.png) | people_group |
+| ![Een puppy zit in een grassy veld](./Images/cute_dog.png) | animal_dog |
+| ![Een persoon die permanent op een rock mountain zonsondergang](./Images/mountain_vista.png) | outdoor_mountain |
+| ![Een stapel van brood rollen in een tabel](./Images/bread.png) | food_bread |
 
 ## <a name="next-steps"></a>Volgende stappen
 

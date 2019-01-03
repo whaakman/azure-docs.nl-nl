@@ -1,20 +1,17 @@
 ---
 title: Serverlogboeken voor Azure Database for MySQL
 description: Beschrijving van de logboeken die beschikbaar zijn in Azure Database voor MySQL en de beschikbare parameters voor het inschakelen van van verschillende logboekregistratieniveaus.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/03/2018
-ms.openlocfilehash: 73be0e4ecff4bc0d9b69249430bba69a93cc54ae
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c9f8fc4bee370f287b40275b76fa98d2552d7600
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093779"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545070"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Serverlogboeken in Azure Database for MySQL
 In Azure Database voor MySQL is het logboek voor langzame query's beschikbaar voor gebruikers. Toegang tot het transactielogboek wordt niet ondersteund. Het logboek voor langzame query's kan worden gebruikt om knelpunten in de prestaties voor het oplossen van problemen. 
@@ -42,12 +39,12 @@ Er zijn andere parameters die u kunt aanpassen:
 - **long_query_time**: als een query langer duurt dan long_query_time (in seconden) deze query wordt geregistreerd. De standaardwaarde is 10 seconden.
 - **log_slow_admin_statements**: als u op administratieve instructies zoals ALTER_TABLE en ANALYZE_TABLE in de instructies naar de slow_query_log geschreven bevat.
 - **log_queries_not_using_indexes**: Hiermee bepaalt u of query's die geen gebruik maken van indexen worden geregistreerd in de slow_query_log
-- **log_throttle_queries_not_using_indexes**: deze parameter beperkt het aantal niet-index-query's die kunnen worden geschreven naar het logboek voor langzame query's. Deze parameter wordt van kracht wanneer log_queries_not_using_indexes is ingesteld op ON.
+- **log_throttle_queries_not_using_indexes**: Deze parameter beperkt het aantal niet-index-query's die kunnen worden geschreven naar het logboek voor langzame query's. Deze parameter wordt van kracht wanneer log_queries_not_using_indexes is ingesteld op ON.
 
 Zie de MySQL [trage query-documentatie voor log](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) voor een volledige beschrijving van de parameters voor het vastleggen van langzame query's.
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
-Azure Database voor MySQL is geïntegreerd met Azure Monitor diagnostische logboeken. Als u Logboeken voor langzame query's hebt ingeschakeld op uw MySQL-server, kunt u deze verzonden naar Log Analytics, Event Hubs of Azure Storage. Zie voor meer informatie over het inschakelen van diagnostische logboeken, het gedeelte van de [diagnostische logboeken documentatie](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Azure Database voor MySQL is geïntegreerd met Azure Monitor diagnostische logboeken. Als u Logboeken voor langzame query's hebt ingeschakeld op uw MySQL-server, kunt u deze verzonden naar Log Analytics, Event Hubs of Azure Storage. Zie voor meer informatie over het inschakelen van diagnostische logboeken, het gedeelte van de [diagnostische logboeken documentatie](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van de uitvoermethode, zijn de velden die zijn opgenomen en de volgorde waarin ze worden weergegeven kunnen verschillen.
 

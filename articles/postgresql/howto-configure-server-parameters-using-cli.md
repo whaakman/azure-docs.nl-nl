@@ -1,21 +1,18 @@
 ---
 title: Configureren van de parameters van de service in Azure Database for PostgreSQL
 description: In dit artikel wordt beschreven hoe u de parameters van de service configureren in Azure Database for PostgreSQL via de opdrachtregel van Azure CLI.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 5520c08d2bf5dba85ece1de0bca7329286625911
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d566f317595e314c91cf510ba2459638e624d8c3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968047"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539734"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Met behulp van Azure CLI parameters voor serverconfiguratie aanpassen
 U kunt weergeven, weergeven en bijwerken van parameters voor de configuratie voor een Azure PostgreSQL-server met behulp van de opdrachtregelinterface (Azure CLI). Een subset van de engine configuraties op niveau van de server wordt weergegeven en kan worden gewijzigd. 

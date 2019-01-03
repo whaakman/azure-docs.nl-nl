@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights sjabloon management - over het beheren van uw Azure Time Series Insights-omgeving met behulp van Azure Resource Manager-sjablonen | Microsoft Docs
+title: Over het beheren van uw Azure Time Series Insights-omgeving met behulp van Azure Resource Manager-sjablonen | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u uw Azure Time Series Insights-omgeving via een programma met behulp van Azure Resource Manager beheert.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 70f82c19bced7618027379fcf9451348ac2591eb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9200b3b8cd85bfd94bbc4c66cccb35b78a97aaff
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270617"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554687"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Time Series Insights-resources met behulp van Azure Resource Manager-sjablonen maken
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: a4a80132b243cdf00cac4b14ecb1af3a13864cb5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4b827419d9aaae1b4445880c28bae307ec14391c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356724"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538970"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Het configureren van eenmalige aanmelding in voor een toepassing in Azure AD-galerie
 
@@ -167,7 +167,7 @@ De metagegevens van de toepassing of het certificaat downloaden van Azure AD, de
 
 8.  Ga naar **SAML-handtekeningcertificaat** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van wat de toepassing configureren van eenmalige aanmelding moet, ziet u ofwel de optie voor het downloaden van de Metadata XML of het certificaat.
 
-Azure AD biedt ook een URL waarmee u de metagegevens ophalen. Ga als volgt dit patroon om op te halen de metagegevens-URL voor de toepassing: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+Azure AD biedt ook een URL waarmee u de metagegevens ophalen. Ga als volgt dit patroon om op te halen de metagegevens-URL voor de toepassing: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`
 
 ## <a name="assign-users-to-the-application"></a>Gebruikers toewijzen aan een toepassing
 
@@ -197,7 +197,7 @@ Als u wilt toewijzen een of meer gebruikers rechtstreeks aan een toepassing, de 
 
 11. Beweeg de muisaanwijzer over de **gebruiker** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de gebruiker of het logo om toe te voegen van de gebruiker naar de **geselecteerde** lijst.
 
-12. **Optioneel:** als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
+12. **Optioneel:** Als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** het zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
 
 13. Wanneer u klaar bent met gebruikers te selecteren, klikt u op de **Selecteer** knop aan de lijst met gebruikers en groepen die moeten worden toegewezen aan de toepassing wilt toevoegen.
 

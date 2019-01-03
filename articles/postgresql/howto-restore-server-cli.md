@@ -1,21 +1,18 @@
 ---
-title: Het back-up en herstellen van een server in Azure Database for PostgreSQL | Microsoft Docs
+title: Het back-up en herstellen van een server in Azure Database for PostgreSQL
 description: Leer hoe u back-up en herstellen van een server in Azure Database for PostgreSQL met behulp van de Azure CLI.
-services: postgresql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: e73fe4929d889da768328be22a3e23603dab5be6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 93bece582975f5149ea8ab5cb85d4d508613d066
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970750"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536352"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure Database for PostgreSQL via de Azure CLI
 
@@ -71,9 +68,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 De `az postgres server restore` opdracht moet de volgende parameters:
-| Instelling | Voorgestelde waarde | Beschrijving  |
+| Instelling | Voorgestelde waarde | Description  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  De resourcegroep waarin de bronserver bestaat.  |
+| resource-group |  myResourceGroup |  De resourcegroep waarin de bronserver bestaat.  |
 | naam | mydemoserver-restored | De naam van de nieuwe server die door de opdracht restore is gemaakt. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selecteer een punt in tijd om naar te herstellen. Deze datum en tijd moet binnen de back-upretentieperiode van de bronserver vallen. Gebruik de ISO8601 datum en tijd-indeling. Bijvoorbeeld, kunt u uw eigen lokale tijdzone, zoals `2018-03-13T05:59:00-08:00`. U kunt ook de UTC Zulu-notatie, bijvoorbeeld gebruiken `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | De naam of ID van de bronserver voor het herstellen. |
@@ -110,13 +107,13 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 ```
 
 De `az postgres server georestore` opdracht requies de volgende parameters:
-| Instelling | Voorgestelde waarde | Beschrijving  |
+| Instelling | Voorgestelde waarde | Description  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | De naam van de resourcegroep waarin de nieuwe server deel van uitmaakt.|
 |naam | mydemoserver-georestored | De naam van de nieuwe server. |
 |source-server | mydemoserver | De naam van de bestaande server waarvan back-ups redundante geo worden gebruikt. |
 |location | eastus | De locatie van de nieuwe server. |
-|SKU-naam| GP_Gen4_8 | Deze parameter stelt de prijzen laag, bewerking voor compute en het aantal vCores van de nieuwe server. GP_Gen4_8 toegewezen aan een algemeen gebruik, Gen 4-server met 8 vCores.|
+|sku-name| GP_Gen4_8 | Deze parameter stelt de prijzen laag, bewerking voor compute en het aantal vCores van de nieuwe server. GP_Gen4_8 toegewezen aan een algemeen gebruik, Gen 4-server met 8 vCores.|
 
 
 >[!Important]

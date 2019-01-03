@@ -16,19 +16,19 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c0c8740648ad845b58ff0578607f4b5e9c235166
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c32662b446df10649617570c63ce534071ed7d27
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105475"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540313"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Diagnostische logboeken voor een Azure event hub instellen
 
 U kunt twee typen logboeken voor Azure Event Hubs bekijken:
 
-* **[Activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**: deze logboeken zijn informatie over de bewerkingen die worden uitgevoerd op een andere taak. De logboeken zijn altijd ingeschakeld.
-* **[Diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**: U kunt diagnostische logboeken voor een uitgebreidere weergave van alles wat er gebeurt met een taak configureren. Diagnostische logboeken voor activiteiten vanaf het moment dat de taak is gemaakt totdat de taak wordt verwijderd, met inbegrip van updates en activiteiten die plaatsvinden terwijl de taak wordt uitgevoerd.
+* **[Activiteitenlogboeken](../azure-monitor/platform/activity-logs-overview.md)**: Deze logboeken zijn gegevens over de bewerkingen die worden uitgevoerd op een andere taak. De logboeken zijn altijd ingeschakeld.
+* **[Diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md)**: U kunt diagnostische logboeken voor een uitgebreidere weergave van alles wat er gebeurt met een taak configureren. Diagnostische logboeken voor activiteiten vanaf het moment dat de taak is gemaakt totdat de taak wordt verwijderd, met inbegrip van updates en activiteiten die plaatsvinden terwijl de taak wordt uitgevoerd.
 
 ## <a name="enable-diagnostic-logs"></a>Diagnostische logboeken inschakelen
 
@@ -54,7 +54,7 @@ Diagnostische logboeken zijn standaard uitgeschakeld. Volg deze stappen zodat lo
 
 Nieuwe instellingen van kracht in ongeveer 10 minuten. Hierna logboeken worden weergegeven in de geconfigureerde archivering doel, in de **diagnoselogboeken** deelvenster.
 
-Zie voor meer informatie over het configureren van diagnostische gegevens over de [overzicht van diagnostische logboeken in Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Zie voor meer informatie over het configureren van diagnostische gegevens over de [overzicht van diagnostische logboeken in Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorieën van diagnostische logboeken
 

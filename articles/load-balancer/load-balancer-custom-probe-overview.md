@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: f9ada3518c4354b112e9e288da89ee9659629b1c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 51d781f331bcbc08642dc32c21baa150e9e5eee6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435120"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538682"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 
@@ -201,7 +201,7 @@ Als u niet de [bron-IP](#probesource) van de test in uw firewall-beleid, de stat
 
 Voor de Load Balancer-statustest markeert u uw exemplaar u **moet** toestaan dit IP-adres in elke Azure [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) en lokale firewall-beleid.  Elke netwerkbeveiligingsgroep omvat standaard de [servicetag](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer naar health test verkeer toestaan.
 
-Als u wilt testen van een test-fout health- of markeren in een afzonderlijk exemplaar, kunt u een [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) naar expliciete blokkeren de statustest (doelpoort of [bron-IP](#probesource)) en simuleren de een test is mislukt.
+Als u wilt testen van een test-fout health- of markeren in een afzonderlijk exemplaar, kunt u een [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) expliciet blokkeren de statustest (doelpoort of [bron-IP](#probesource)) en simuleren de een test is mislukt.
 
 Stel uw VNet niet met de IP-adresbereik dat 168.63.129.16 bevat het eigendom van Microsoft.  Deze configuraties worden conflicteren met het IP-adres van de statustest en kunnen leiden tot uw scenario mislukken.
 

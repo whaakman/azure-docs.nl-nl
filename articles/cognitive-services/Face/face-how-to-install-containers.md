@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086433"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536539"
 ---
 # <a name="install-and-run-containers"></a>Containers installeren en uitvoeren
 
@@ -30,11 +30,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 U moet voldoen aan de volgende vereisten voordat u met de Face-container:
 
-**Docker-Engine**: U moet Docker Engine lokaal zijn geïnstalleerd. Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), en [Windows](https://docs.docker.com/docker-for-windows/). Op Windows, moet Docker worden geconfigureerd ter ondersteuning van Linux-containers. Docker-containers kunnen ook rechtstreeks naar worden geïmplementeerd [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), of naar een [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](/azure/azure-stack/). Zie voor meer informatie over het implementeren van Kubernetes op Azure Stack [Kubernetes met Azure Stack implementeren](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Docker-Engine**: U moet Docker Engine lokaal zijn geïnstalleerd hebben. Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), en [Windows](https://docs.docker.com/docker-for-windows/). Op Windows, moet Docker worden geconfigureerd ter ondersteuning van Linux-containers. Docker-containers kunnen ook rechtstreeks naar worden geïmplementeerd [Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), of naar een [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](../../azure-stack/index.yml). Zie voor meer informatie over het implementeren van Kubernetes op Azure Stack [Kubernetes met Azure Stack implementeren](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure.
 
-**Vertrouwd zijn met Microsoft Container Registry en Docker**: U moet een basiskennis hebben van zowel Microsoft Container Registry en Docker-concepten, zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van Basic `docker` opdrachten.  
+**Vertrouwd zijn met Microsoft-Container Registry en Docker**: U moet een basiskennis hebben van zowel Microsoft Container Registry en Docker-concepten, zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.  
 
 Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).
 
@@ -58,7 +58,7 @@ Als u wilt de Face-container gebruiken, moet u een resource Face maken op Azure.
 Voer de volgende stappen uit om te maken en gegevens ophalen uit een bron voor Face:
 
 1. Maak een Face-resource in Azure portal.  
-   Als u de Face-container gebruiken wilt, moet u eerst een bijbehorende Face-resource maken in Azure portal. Zie voor meer informatie, [Snelstartgids: een Cognitive Services-account maken in Azure portal](../cognitive-services-apis-create-account.md).
+   Als u de Face-container gebruiken wilt, moet u eerst een bijbehorende Face-resource maken in Azure portal. Zie voor meer informatie [Snelstart: Een Cognitive Services-account maken in Azure portal](../cognitive-services-apis-create-account.md).
 
 1. De eindpunt-URL en abonnement-sleutel voor de Azure-resource ophalen.  
    Nadat de Azure-resource is gemaakt, moet u de eindpunt-URL en abonnement sleutel van die resource voor het starten van de bijbehorende Face-container. U kunt de eindpunt-URL en abonnement sleutel kopiëren uit respectievelijk de Quick Start- en sleutels's van de Face-resource in Azure portal.

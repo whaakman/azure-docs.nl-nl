@@ -1,5 +1,5 @@
 ---
-title: 'Maken en installeren van de VPN-clientconfiguratiebestanden voor P2S-RADIUS-verbindingen: PowerShell: Azure | Microsoft Docs'
+title: 'Maken en VPN-clientconfiguratiebestanden voor P2S-RADIUS-verbindingen te installeren: PowerShell: Azure | Microsoft Docs'
 description: Configuratiebestanden voor verbindingen die gebruikmaken van RADIUS-verificatie voor Windows, Mac OS X en Linux-VPN-client maken.
 services: vpn-gateway
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
 ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51251999"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Maken en VPN-clientconfiguratiebestanden voor P2S-RADIUS-verificatie installeren
@@ -62,9 +62,9 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
  
 Met de opdracht retourneert een koppeling. Kopieer en plak de koppeling naar een webbrowser om te downloaden **VpnClientConfiguration.zip**. Decomprimeer het bestand om de volgende mappen weer te geven: 
  
-* **WindowsAmd64** en **WindowsX86**: deze mappen bevatten de pakketten van het installatieprogramma voor Windows 64-bits en 32-bits, respectievelijk. 
-* **Algemene**: deze map bevat algemene informatie die u gebruiken voor het maken van de configuratie van uw eigen VPN-client. U hoeft deze map geen verificatie voor gebruikersnaam en wachtwoord.
-* **Mac**: als u tijdens het maken van de virtuele netwerkgateway IKEv2 hebt geconfigureerd, ziet u een map met de naam **Mac** die bevat een **mobileconfig** bestand. Dit bestand kunt u Mac-clients configureren.
+* **WindowsAmd64** en **WindowsX86**: Deze mappen bevatten de pakketten van het installatieprogramma voor Windows 64-bits en 32-bits, respectievelijk. 
+* **Algemene**: Deze map bevat algemene informatie die u gebruiken voor het maken van de configuratie van uw eigen VPN-client. U hoeft deze map geen verificatie voor gebruikersnaam en wachtwoord.
+* **Mac**: Als u tijdens het maken van de virtuele netwerkgateway IKEv2 hebt geconfigureerd, ziet u een map met de naam **Mac** die bevat een **mobileconfig** bestand. Dit bestand kunt u Mac-clients configureren.
 
 Als u al hebt gemaakt client-configuratiebestanden, kunt u ze wel ophalen met behulp van de `Get-AzureRmVpnClientConfiguration` cmdlet. Maar als u wijzigingen aanbrengt aan uw P2S-VPN-configuratie, zoals het VPN-protocol-type of verificatietype, de configuratie automatisch wordt niet bijgewerkt. U moet uitvoeren de `New-AzureRmVpnClientConfiguration` cmdlet voor het maken van het downloaden van een nieuwe configuratie.
 
@@ -193,8 +193,8 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 
 Met de opdracht retourneert een koppeling. Kopieer en plak de koppeling naar een webbrowser om te downloaden van VpnClientConfiguration.zip. Decomprimeer het bestand om de volgende mappen weer te geven:
 
-* **WindowsAmd64** en **WindowsX86**: deze mappen bevatten de pakketten van het installatieprogramma voor Windows 64-bits en 32-bits, respectievelijk. 
-* **GenericDevice**: deze map bevat algemene informatie die wordt gebruikt voor het maken van de configuratie van uw eigen VPN-client.
+* **WindowsAmd64** en **WindowsX86**: Deze mappen bevatten de pakketten van het installatieprogramma voor Windows 64-bits en 32-bits, respectievelijk. 
+* **GenericDevice**: Deze map bevat algemene informatie die wordt gebruikt voor het maken van de configuratie van uw eigen VPN-client.
 
 Als u al hebt gemaakt client-configuratiebestanden, kunt u ze wel ophalen met behulp van de `Get-AzureRmVpnClientConfiguration` cmdlet. Maar als u wijzigingen aanbrengt aan uw P2S-VPN-configuratie, zoals het VPN-protocol-type of verificatietype, de configuratie automatisch wordt niet bijgewerkt. U moet uitvoeren de `New-AzureRmVpnClientConfiguration` cmdlet voor het maken van het downloaden van een nieuwe configuratie.
 
@@ -267,7 +267,7 @@ Gebruik een ander verificatietype (bijvoorbeeld voor eenmalig gebruik), of een a
 3. De **GenenericDevice** map bevat een XML-bestand met de naam **VpnSettings**. Dit bestand bevat de vereiste gegevens:
 
    * **VpnServer**: FQDN-naam van de Azure VPN-gateway. Dit is het adres waarmee de client verbinding maakt.
-   * **VpnType**: Tunnel die u gebruikt om verbinding te maken.
+   * **VpnType**: Tunneltype die u gebruikt om verbinding te maken.
    * **Routes**: Routes die u configureren in uw profiel moet zodat alleen het verkeer dat gekoppeld aan het Azure-netwerk wordt verzonden via de P2S-tunnel.
    
    De **GenenericDevice** map bevat ook een cer-bestand met de naam **VpnServerRoot**. Dit bestand bevat het basiscertificaat dat is vereist voor het valideren van de Azure VPN-gateway tijdens de installatie van de P2S-verbinding. Het certificaat installeren op alle apparaten die verbinding met de Azure-netwerk maken.

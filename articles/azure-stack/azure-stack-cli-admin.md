@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: e9309f8cb46b31ded46b705308465ac6f6c89204
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c2827a4badd61aeb8de556795834dee39769e85e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585183"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554500"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Azure CLI inschakelen voor Azure Stack-gebruikers
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 U kunt de CA-basiscertificaat bieden aan gebruikers van Azure Stack zodat Azure CLI kan worden gebruikt op de ontwikkeling van virtuele machines. Uw gebruikers moeten het certificaat voor het beheren van resources via de CLI.
 
@@ -38,7 +38,7 @@ De volgende secties wordt beschreven hoe u deze waarden ophalen.
 U vindt het Azure Stack-CA-basiscertificaat in de development kit en op een tenant virtuele machine die wordt uitgevoerd in de ontwikkelomgeving van de kit. Voor het exporteren van het Azure Stack-basiscertificaat in de PEM-indeling, zich aanmelden bij uw development kit of de tenant-VM en voer het volgende script:
 
 ```powershell
-$label = "AzureStackSelfSignedRootCert"
+$label = "<Your Azure Stack CA root certificate name>"
 Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)

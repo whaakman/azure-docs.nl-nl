@@ -1,20 +1,17 @@
 ---
 title: Het dumpen en terugzetten in de Azure Database for PostgreSQL
 description: Beschrijft hoe u een PostgreSQL-database voor het uitpakken naar een dumpbestand en terugzetten vanuit een bestand dat is gemaakt door pg_dump in Azure Database voor PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 41a5f2eab78d68bdb1f51b423955cfefa5a541b8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966905"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538582"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migreren van de PostgreSQL-database met behulp van dumpen en terugzetten
 U kunt [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) om op te halen van een PostgreSQL-database naar een dumpbestand en [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) de PostgreSQL-database herstellen vanuit een archiefbestand die zijn gemaakt door pg_dump.

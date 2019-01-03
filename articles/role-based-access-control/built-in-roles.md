@@ -15,12 +15,12 @@ ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: d6696d9bdd69b085b9c9ac0804da68cd91612f35
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: b2d834c5f9f46f2ebe3c997c75dc50f30ed4bda7
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386958"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558920"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -98,7 +98,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Inzender voor netwerken](#network-contributor) | Hiermee beheert u netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
 | [Nieuwe Relic APM-Account Inzender](#new-relic-apm-account-contributor) | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
 | [Lezer en toegang tot gegevens](#reader-and-data-access) | Hiermee kunt u Alles weergeven, maar kunt u verwijderen of te maken van een storage-account of een ingesloten resource niet. Er kunnen ook toegang tot alle gegevens in een opslagaccount verleend via toegang tot opslagaccountsleutels lezen/schrijven. |
-| [Azure Cache voor Redis-Inzender](#redis-cache-contributor) | U kunt Azure Cache voor Rediss, maar niet de toegang tot beheren. |
+| [Azure Cache voor Redis-Inzender](#redis-cache-contributor) | Hiermee kunt u Azure-Cache voor Redis beheren, maar niet de toegang tot deze. |
 | [Inzender voor Resourcebeleid (Preview)](#resource-policy-contributor-preview) | (Preview) Gebruikers gevuld vanuit EA, met rechten voor het maken/wijzigen voor resourcebeleid, supportticket maken en het lezen van resources/hiërarchie. |
 | [Inzender voor Scheduler-taak](#scheduler-job-collections-contributor) | Hiermee beheert u Scheduler-taakverzamelingen, maar kunt u niet de toegang tot de verzamelingen beheren. |
 | [Inzender voor Search-Services](#search-service-contributor) | Hiermee beheert u Search-services, maar kunt u niet de toegang tot de services beheren. |
@@ -114,7 +114,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Inzender voor opslagaccounts](#storage-account-contributor) | Hiermee kunt u opslagaccounts beheren, maar niet de toegang. |
 | [Storage-Account servicerol Sleuteloperator](#storage-account-key-operator-service-role) | Sleuteloperators voor opslagaccounts kunnen een lijst met sleutels voor opslagaccounts maken en de sleutels opnieuw genereren |
 | [Gegevensbijdrager voor Blob (Preview)](#storage-blob-data-contributor-preview) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
-| [Storage Blob de eigenaar van gegevens (Preview)](#storage-blob-data-owner-preview) | Hiermee wordt lees-, schrijf-, verwijder- en POSIX-superusertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
+| [Storage Blob de eigenaar van gegevens (Preview)](#storage-blob-data-owner-preview) | Kunt u lezen, schrijven, verwijderen en POSIX beheerder toegang tot Azure Storage-blobcontainers en -gegevens |
 | [Gegevenslezer voor Opslagblob (Preview)](#storage-blob-data-reader-preview) | Hiermee wordt leestoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
 | [Gegevensbijdrager voor wachtrij (Preview)](#storage-queue-data-contributor-preview) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-wachtrijen en -wachtrijberichten verleend. |
 | [Gegevenslezer voor Opslagwachtrij (Preview)](#storage-queue-data-reader-preview) | Hiermee wordt leestoegang verleend voor Azure Storage-wachtrijen en -wachtrijberichten. |
@@ -1289,11 +1289,11 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | U kunt Azure Cache voor Rediss, maar niet de toegang tot beheren. |
+> | **Beschrijving** | Hiermee kunt u Azure-Cache voor Redis beheren, maar niet de toegang tot deze. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
-> | Microsoft.Cache/redis/* | Maken en beheren van Azure Cache voor Rediss |
+> | Microsoft.Cache/redis/* | Maken en beheren van Azure Cache voor Redis |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
@@ -1701,7 +1701,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Hiermee wordt lees-, schrijf-, verwijder- en POSIX-superusertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
+> | **Beschrijving** | Kunt u lezen, schrijven, verwijderen en POSIX beheerder toegang tot Azure Storage-blobcontainers en -gegevens |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Hiermee wordt het resultaat van het verwijderen van een container geretourneerd |

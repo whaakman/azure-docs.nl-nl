@@ -4,18 +4,18 @@ ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: ed771d1817e7ee1161e0f94ec9eefb5d2dfb3e23
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7771bbcab08fb84a941eedab402880fb7bc4232d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50737225"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53551390"
 ---
 ## <a name="rest"></a>ZIP-bestand met de REST-API's implementeren 
 
 U kunt de [service REST-API's voor implementatie](https://github.com/projectkudu/kudu/wiki/REST-API) voor het implementeren van het ZIP-bestand in uw app in Azure. Als u wilt implementeren, een POST-aanvraag naar https://<app_name>.scm.azurewebsites.net/api/zipdeploy te verzenden. De POST-aanvraag moet het ZIP-bestand in de hoofdtekst van bericht bevatten. De implementatiereferenties voor uw app moet u opgegeven in de aanvraag met behulp van HTTP-basisverificatie. Zie voor meer informatie de [naslaginformatie over de implementatie van de ZIP-push](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
-Voor de HTTP-basisverificatie moet u de referenties voor uw App Service-implementatie. Zie voor meer informatie over het instellen van de referenties voor implementatie, [instellen en op gebruikersniveau referenties opnieuw instellen](../articles/app-service/app-service-deployment-credentials.md#userscope).
+Voor de HTTP-basisverificatie moet u de referenties voor uw App Service-implementatie. Zie voor meer informatie over het instellen van de referenties voor implementatie, [instellen en op gebruikersniveau referenties opnieuw instellen](../articles/app-service/deploy-configure-credentials.md#userscope).
 
 ### <a name="with-curl"></a>Met cURL
 

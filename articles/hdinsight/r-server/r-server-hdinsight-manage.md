@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497549"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584391"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Cluster op HDInsight van Azure ML-Services beheren
 
@@ -24,7 +24,7 @@ In dit artikel leert u hoe u voor het beheren van een bestaand cluster ML-Servic
 
 * **Een ML-Services-cluster in HDInsight**: Zie voor instructies [aan de slag met ML-Services op HDInsight](r-server-get-started.md).
 
-* **Een SSH-client (Secure Shell)**: er wordt een SSH-client gebruikt om extern verbinding te maken met het HDInsight-cluster en om opdrachten rechtstreeks uit te voeren op het cluster. Zie voor meer informatie, [SSH gebruiken met HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Een Secure Shell (SSH)-client**: Een SSH-client wordt gebruikt om op afstand verbinding maken met het HDInsight-cluster en opdrachten rechtstreeks op het cluster uitvoeren. Zie voor meer informatie, [SSH gebruiken met HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Meerdere gelijktijdige gebruikers inschakelen
@@ -54,7 +54,7 @@ Omdat RStudio wordt uitgevoerd op het edge-knooppunt van het cluster, zijn er ve
 
 Volg de instructies op [verbinding maken met HDInsight (Apache Hadoop) via SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) voor toegang tot het edge-knooppunt. Het adres van het edge-knooppunt voor ML-Services-cluster in HDInsight wordt `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
-### <a name="step-2-add-more-linux-users-in-edge-node"></a>Stap 2: meer Linux-gebruikers toevoegen in Edge-knooppunt
+### <a name="step-2-add-more-linux-users-in-edge-node"></a>Stap 2: Meer Linux-gebruikers toevoegen in Edge-knooppunt
 
 Om een gebruiker toe te voegen aan het Edge-knooppunt, voert u de volgende opdrachten uit:
 
@@ -80,7 +80,7 @@ U ziet ook dat de zojuist toegevoegde gebruikers geen hoofdmapbevoegdheden in he
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Extern verbinding maken met Microsoft ML-Services
 
-U kunt toegang instellen voor de HDInsight Spark-compute-context van een extern exemplaar van ML-Client die wordt uitgevoerd op het bureaublad. Om dit te doen, moet u de opties (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches en sshProfileScript) wanneer het definiëren van de RxSpark compute-context op het bureaublad: voorbeeld:
+U kunt toegang instellen voor de HDInsight Spark-compute-context van een extern exemplaar van ML-Client die wordt uitgevoerd op het bureaublad. Om dit te doen, moet u de opties (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches en sshProfileScript) wanneer het definiëren van de RxSpark compute-context op het bureaublad: Bijvoorbeeld:
 
     myNameNode <- "default"
     myPort <- 0
@@ -299,10 +299,8 @@ Als u extra R-pakketten installeren op het edge-knooppunt wilt, kunt u `install.
 
 Voor het installeren van R-pakketten op de worker-knooppunten van het cluster, moet u een scriptactie gebruiken. Scriptacties zijn Bash-scripts die worden gebruikt om configuratiewijzigingen aan te brengen in het HDInsight-cluster of om extra software te installeren, zoals extra R-pakketten. 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > U kunt scriptacties alleen gebruiken om extra R-pakketten te installeren nadat het cluster is gemaakt. Gebruik deze procedure niet tijdens het maken van het cluster, zoals het script maakt gebruik van ML-Services die zijn volledig wordt geconfigureerd.
->
->
 
 1. Volg de stappen in [clusters aanpassen met Script Action](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -312,11 +310,11 @@ Voor het installeren van R-pakketten op de worker-knooppunten van het cluster, m
 
    * Voor **naam**, Geef een naam op voor de scriptactie.
 
-    * Voor **Bash-script-URI**, voer `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Dit is het script die extra R-pakketten op de worker-knooppunt installeert
+    * Voor **Bash-script-URI**, voer `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Dit is het script die extra R-pakketten op de worker-knooppunt installeert
 
    * Schakel het selectievakje in als u alleen voor **Worker**.
 
-   * **Parameters**: de R-pakketten die moeten worden geïnstalleerd. Bijvoorbeeld: `bitops stringr arules`
+   * **Parameters**: De R-pakketten worden geïnstalleerd. Bijvoorbeeld: `bitops stringr arules`
 
    * Schakel het selectievakje in om te **deze scriptactie**.  
 

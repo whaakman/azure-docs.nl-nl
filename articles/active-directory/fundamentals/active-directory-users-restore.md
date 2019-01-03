@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5f747d90368b636cb2ab8cf0e20ef5e676f99af6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080500"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556778"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Herstellen of verwijderen van een onlangs verwijderde gebruiker met behulp van Azure Active Directory
 Nadat u een gebruiker verwijdert, wordt het account de status onderbroken blijft gedurende 30 dagen. Tijdens deze periode 30-daagse kan account van de gebruiker worden hersteld, samen met de eigenschappen ervan. Als dit venster 30 dagen is verstreken, de gebruiker wordt automatisch en definitief verwijderd.
@@ -59,6 +59,9 @@ Terwijl een gebruikersaccount is onderbroken, blijft de gerelateerde directoryge
 2. Selecteer **terugzetten gebruiker**.
 
     ![Gebruikers - pagina van de verwijderde gebruikers, met de optie gebruiker herstellen gemarkeerd](media/active-directory-users-restore/users-deleted-users-restore-user.png)
+
+>[!NOTE]
+>Eerder als een gebruiker is verwijderd uit het bereik van de synchronisatie van on-premises en in de cloud worden verwijderd, de DirSyncEnabled status van het account is ten onrechte ingesteld op "False". Als die gebruiker is later handmatig wordt hersteld uit Azure AD-Prullenbak, hebt u geleerd een onjuiste status van de 'Cloud-Only'-account. Dit probleem nu is opgelost en de waarde van de status van de DirSyncEnabled is altijd 'True' wanneer een gebruiker wordt verwijderd uit het bereik voor gegevenssynchronisatie, klikt u vervolgens voorlopig verwijderde en handmatig worden hersteld vanuit Azure AD-Prullenbak.
 
 ## <a name="permanently-delete-a-user"></a>Een gebruiker permanent verwijderen
 U kunt een gebruiker permanent verwijderen uit uw directory zonder te wachten op de 30 dagen voor de automatische verwijdering. Een gebruiker is definitief verwijderd kan niet worden hersteld door u, als een andere beheerder, of door de klantondersteuning van Microsoft.

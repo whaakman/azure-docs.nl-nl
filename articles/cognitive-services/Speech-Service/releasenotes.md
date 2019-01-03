@@ -8,24 +8,65 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7485ca1e4b1143ed46c9b3bef9ca66af0638b4f8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088295"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599413"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 
-## <a name="speech-service-sdk-110"></a>Spraakservice-SDK 1.1.0
+## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: Release van December 2018
+
+**Nieuwe functies**
+
+* Python
+  * De bètaversie van Python-ondersteuning (3.5 en hoger) is beschikbaar in deze versie. Voor meer informatie [hier te zien krijgen](quickstart-python.md).
+* Javascript
+  * De spraak-SDK voor JavaScript is open-source. De broncode is beschikbaar op [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  * We bieden nu ondersteuning voor Node.js, kunt u meer informatie vinden [hier](quickstart-js-node.md).
+  * De lengtebeperking voor audio-sessies is verwijderd, opnieuw verbinden gebeurt automatisch onder de dekking.
+* Verbindingsobject
+  * U kunt een verbindingsobject openen vanuit de herkenning. Dit object kunt u expliciet de serviceverbinding tot stand brengen en zich inschrijven voor het verbinding maken en gebeurtenissen te verbreken.
+    (Dit nog niet beschikbaar is via JavaScript en Python.)
+* Ondersteuning voor Ubuntu 18.04.
+* Android
+  * Ingeschakelde ProGuard ondersteuning tijdens het genereren van APK.
+
+**Verbeteringen**
+
+* Verbeteringen in het gebruik van interne thread, het aantal threads, vergrendelingen, mutexen te verminderen.
+* Verbeterde foutrapportage / gegevens. In enkele gevallen zijn foutberichten niet helemaal af doorgegeven.
+* Ontwikkeling van afhankelijkheden in JavaScript, kunnen gebruikmaken van recente modules bijgewerkt.
+
+**Oplossingen voor problemen**
+
+* Vaste geheugenlekken vanwege een niet-overeenkomend gegevenstype in RecognizeAsync.
+* In sommige gevallen zijn uitzonderingen worden gelekt.
+* Geheugenlek gecorrigeerd in translation gebeurtenisargumenten.
+* Vaste een vergrendelingsprobleem op herstellen in lange sessies uitgevoerd.
+* Er is een probleem die leiden kan tot het uiteindelijke resultaat voor mislukte vertalingen ontbreekt opgelost.
+* C#: Als een asynchrone bewerking is niet in de hoofdthread gestopt, is het mogelijk dat het kenmerk kan worden verwijderd voordat de asynchrone taak is voltooid.
+* Java: Een probleem opgetreden bij het leidt tot een crash van de Java-virtuele machine vast.
+* Objective-c Toewijzing van vaste enum; RecognizedIntent is geretourneerd in plaats van RecognizingIntent.
+* JavaScript: Set standaarduitvoerindeling in een eenvoudig in SpeechConfig.
+* JavaScript: Inconsistentie tussen de eigenschappen van het object config in JavaScript en andere talen wordt verwijderd.
+
+**Voorbeelden**
+
+* Bijgewerkt en vaste enkele voorbeelden van (bijvoorbeeld uitvoer stemmen voor vertaling, enzovoort).
+* Voorbeelden van Node.js in toegevoegd de [voorbeeldopslagplaats](https://aka.ms/csspeech/samples).
+
+## <a name="speech-sdk-110"></a>Spraak SDK 1.1.0
 
 **Nieuwe functies**
 
 * Ondersteuning voor Android x86/x64.
-* Proxy-ondersteuning: In het object SpeechConfig kunt u nu een functie aanroepen om in te stellen van de proxy-informatie (hostnaam, poort, gebruikersnaam en wachtwoord). Deze functie is nog niet beschikbaar op iOS.
+* Proxy-ondersteuning: U kunt nu een functie voor het instellen van de proxy-informatie (hostnaam, poort, gebruikersnaam en wachtwoord) in het object SpeechConfig aanroepen. Deze functie is nog niet beschikbaar op iOS.
 * Verbeterde foutcode en berichten. Als een erkenning heeft een fout geretourneerd, deze al ingesteld `Reason` (in geannuleerde gebeurtenis) of `CancellationDetails` (in herkenningsresultaat) naar `Error`. De geannuleerde gebeurtenis bevat nu twee aanvullende leden, `ErrorCode` en `ErrorDetails`. Als de server heeft aanvullende foutinformatie met de gemelde fout geretourneerd, is het nu zijn beschikbaar in de nieuwe leden.
 
 **Verbeteringen**
@@ -51,21 +92,21 @@ ms.locfileid: "53088295"
 
 * C++ toegevoegd en C# samplea voor gebruik in de pull-abonnementen en push de stroom in de [voorbeeldopslagplaats](https://aka.ms/csspeech/samples).
 
-## <a name="speech-service-sdk-101"></a>Spraakservice-SDK 1.0.1
+## <a name="speech-sdk-101"></a>Spraak SDK 1.0.1
 
 Verbeteringen van de betrouwbaarheid en oplossingen voor problemen:
 
 * Vaste mogelijke fatale fout vanwege een racevoorwaarde in herkenning wordt verwijderd
 * Vaste mogelijke fatale fout in het geval van niet-ingestelde eigenschappen.
 * Toegevoegde extra fout en controleren van de parameter.
-* Objective-c vaste mogelijk fatale fout veroorzaakt door de naam in NSString overschrijven.
-* Objective-c aangepast zichtbaarheid van de API
+* Objective-c Vaste mogelijk fatale fout veroorzaakt door de naam in NSString overschrijven.
+* Objective-c Aangepaste zichtbaarheid van de API
 * JavaScript: Vaste met betrekking tot de gebeurtenissen en de nuttige informatie.
 * Verbeteringen in de documentatie bij.
 
 In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe steekproef voor JavaScript is toegevoegd.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: release 2018-September
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: Release van September 2018
 
 **Nieuwe functies**
 
@@ -77,7 +118,7 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 * Met deze release zijn een aantal belangrijke wijzigingen worden geïntroduceerd.
   Controleer of [deze pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) voor meer informatie.
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: augustus 2018-release
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: Release van augustus 2018
 
 **Nieuwe functies**
 
@@ -103,7 +144,7 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 * Een probleem opgelost waar een langlopende opname in het midden van de overdracht kan beëindigd.
 * Herkenning afsluiten, een zeldzame situatie vast.
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: juli 2018-release
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: Release van juli 2018
 
 **Nieuwe functies**
 
@@ -111,7 +152,7 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 * Ondersteuning voor .NET Standard 2.0 op Windows. Bekijk de [.NET Core-snelstartgids](quickstart-csharp-dotnetcore-windows.md).
 * Experimentele: Ondersteuning voor UWP op Windows (versie 1709 of hoger).
   * Bekijk de [UWP-snelstartgids](quickstart-csharp-uwp.md).
-  * Opmerking: UWP-apps die zijn gebouwd met de spraak-SDK niet nog door de Windows App Certification Kit (WACK).
+  * Opmerking: UWP-apps die zijn gebouwd met de spraak-SDK nog doorgegeven niet de Windows App Certification Kit (WACK).
 * Ondersteuning voor langlopende met automatisch opnieuw verbinden.
 
 **Functionele wijzigingen**
@@ -122,7 +163,7 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 
 **Belangrijke wijzigingen**
 
-* Herkenning van gebeurtenissen: NoMatch gebeurtenistype is samengevoegd met de fout-gebeurtenis.
+* Herkenning van gebeurtenissen: Gebeurtenistype NoMatch is samengevoegd met de fout-gebeurtenis.
 * Uitvoerindeling om te blijven met C++ uitgelijnde is SpeechOutputFormat in C# gewijzigd.
 * Het retourtype van sommige methoden van de `AudioInputStream` interface enigszins gewijzigd:
    * In Java, de `read` methode nu retourneert `long` in plaats van `int`.
@@ -134,13 +175,13 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 
 * Onjuiste retourwaarden, het resultaat vast wanneer `RecognizeAsync()` een time-out optreedt.
 * De afhankelijkheid van media foundation-bibliotheken op Windows is verwijderd. De SDK gebruikt nu Core Audio-API's.
-* Documentatie fix: toegevoegd een [regio's](regions.md) pagina voor het beschrijven van de ondersteunde regio's.
+* Documentatie fix: Toegevoegd een [regio's](regions.md) pagina voor het beschrijven van de ondersteunde regio's.
 
 **Bekend probleem**
 
 * De spraak-SDK voor Android rapporteren niet spraak synthese resultaten voor vertaling. Dit probleem wordt opgelost in de volgende release.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: release 2018-juni
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: Release van juni 2018
 
 **Functionele wijzigingen**
 
@@ -176,6 +217,6 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 
 Meer voorbeelden zijn toegevoegd en worden voortdurend bijgewerkt. Zie voor de meest recente set voorbeelden, de [spraak SDK voorbeelden van GitHub-opslagplaats](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services Speech SDK 0.2.12733: release 2018-mei
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services Speech SDK 0.2.12733: 2018-mei release
 
 Deze release is de eerste openbare preview-versie van de Cognitive Services Speech SDK.

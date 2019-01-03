@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: cf315718377210e13a6634c0eaf8caab158bcc4d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24d0965fa2a88bc844a81c7430d46c071a9b874b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342218"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580039"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Begrijpen hoe metriek werk waarschuwingen in Azure Monitor
 
@@ -93,7 +93,7 @@ Voor metrische waarschuwingen, doorgaans u gewaarschuwd in minder dan vijf minut
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Ondersteunde resourcetypen voor de metrische waarschuwingen
 
-U vindt de volledige lijst met ondersteunde resourcetypen in deze [artikel](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+U vindt de volledige lijst met ondersteunde resourcetypen in deze [artikel](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 Als u bent al gebruikmaken van de klassieke metrische waarschuwingen en informatie als metrische waarschuwingen ondersteuning bieden voor de alle de resourcetypen die willen u, de volgende tabel bevat de resource gegevenstypen ondersteund door klassieke metrische waarschuwingen en als ze worden ondersteund door metrische waarschuwingen vandaag of niet.
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db24cb1e1b303fbd3f0981390940732685c98baf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075867"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558801"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Rapporten die beschikbaar zijn in de Cloudyn-portal
 
@@ -29,7 +29,7 @@ Er zijn drie typen van Cloudyn-rapporten:
 
 - Te veel tijd rapporten. Bijvoorbeeld, het rapport Cost Over Time. Te veel tijd rapporten weergeven van een tijdreeks van gegevens tijdens een interval van de geselecteerde met een resolutie van vooraf gedefinieerde en een wekelijkse resolutie weergeven voor de laatste twee maanden. U kunt groeperen en filteren om in te zoomen op verschillende gegevenspunten.
   - Te veel tijd rapporten kunt u trends weergeven en pieken en afwijkingen te detecteren.
-- Van analyserapporten. Bijvoorbeeld, repot de kostenanalyse. Deze rapporten weergeven cumulatieve gegevens gedurende een periode van dat u definieert en groeperen en filteren op de gegevens toestaan.
+- Van analyserapporten. Bijvoorbeeld, het rapport Cost Analysis. Deze rapporten weergeven cumulatieve gegevens gedurende een periode van dat u definieert en groeperen en filteren op de gegevens toestaan.
   - Analyse van rapporten kunt u weergeven van pieken en anomaliedetectie-oorzaken te bepalen en om u een gedetailleerde uitsplitsing van uw gegevens weer te geven.
 - Rapporten in tabelvorm. U kunt een rapport als een tabel weergeven, maar sommige rapporten worden weergegeven alleen als een tabel. Deze rapporten bieden gedetailleerde van lijsten met items.
   - Aanbevelingen zijn in tabelvorm rapporten: Er zijn geen visualisaties voor aanbevelingen. U kunt echter aanbeveling resultaten te visualiseren. Bijvoorbeeld, besparingen na verloop van tijd.
@@ -63,7 +63,7 @@ Veel Cloudyn-rapporten weergeven budgetgegevens nadat u deze handmatig hebt gema
 
 ## <a name="reports-and-reporting-features"></a>Rapporten en reporting-functies
 
-Clouydn bevat de volgende rapporten en rapportagefuncties.
+Cloudyn bevat de volgende rapporten en rapportagefuncties.
 
 ### <a name="cost-navigator-report"></a>Rapport van kosten Navigator
 
@@ -208,7 +208,7 @@ Aangepaste kosten worden in Kostenrapporten weergegeven. Open het rapport Actual
 
 U Cost Allocation 360 gebruiken om aangepaste cost allocation modellen als u wilt kosten toewijzen aan verbruikte cloudresources te maken. Veel rapporten weergegeven gegevens uit aangepaste kostenmodellen die u hebt gemaakt met aangepaste kostenmodellen. En sommige rapporten worden alleen informatie weergegeven nadat u een aangepaste kostenmodel met kostentoewijzing hebt gemaakt.
 
-Zie voor meer informatie over het maken van aangepaste kostenmodellen [zelfstudie: kosten beheren met behulp van Cloudyn](tutorial-manage-costs.md).
+Zie voor meer informatie over het maken van aangepaste kostenmodellen [zelfstudie: Kosten beheren met behulp van Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Cost vs. Rapport budget gedurende een periode
 
@@ -448,7 +448,7 @@ De **CPU-gebruik** sectie vindt u het CPU-gebruik voor het exemplaar in de afgel
 
 Klik op de grafiek als u wilt inzoomen en het exemplaar CPU via tijd rapport openen om te zien van een uitsplitsing van de exemplaren.
 
-- Gebruik **velden weergeven/verbergen** toevoegen of verwijderen van velden: Timestamp, CPU van de Avg, Min CPU, maximaal CPU.
+- Gebruik **velden weergeven/verbergen** toevoegen of verwijderen van velden: Timestamp, CPU, Gem, Min, CPU, maximaal CPU.
 - Gebruik **datumbereik** in te voeren van een datum of datumbereik en Zoom in op een specifieke InstanceID.
 - Gebruik **Extended Filters** Alles weergeven of een specifiek exemplaar-ID
 - Klik op **inzoomen** om de CPU-gebruik rapport te openen

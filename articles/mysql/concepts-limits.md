@@ -1,20 +1,17 @@
 ---
 title: Beperkingen in Azure Database for MySQL
 description: Dit artikel wordt beschreven beperkingen in Azure Database voor MySQL, zoals het aantal verbindingen en opties voor opslag-engine.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19fc20f21a57c2325254581c642b75c92c221fd9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090989"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536081"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Beperkingen in Azure Database for MySQL
 De volgende secties beschrijven capaciteit, ondersteuning voor de opslag-engine, bevoegdheden ondersteuning, gegevens manipuleren instructie ondersteuning en functionele limieten in de database-service. Zie ook [algemene beperkingen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) van toepassing op de MySQL-database-engine.
@@ -39,7 +36,7 @@ Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt:
 |Geoptimaliseerd geheugen| 32| 10.000|
 
 Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
-> Fout 1040 (08004): Te veel verbindingen
+> FOUT 1040 (08004): Te veel verbindingen
 
 ## <a name="storage-engine-support"></a>Ondersteuning voor de opslag-engine
 
@@ -56,8 +53,8 @@ Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 ## <a name="privilege-support"></a>Ondersteuning van bevoegdheden
 
 ### <a name="unsupported"></a>Niet-ondersteund
-- DBA rol: veel parameters van de server en instellingen kunnen per ongeluk serverprestaties slechter of ACID-eigenschappen van de DBMS negatief moet worden gemaakt. Als zodanig wilt behouden de integriteit van de service en SLA op het productniveau van een, wordt deze service niet weergegeven de DBA-rol. De standaard-gebruikersaccount, die is gemaakt wanneer een nieuwe database-exemplaar wordt gemaakt, kan die gebruiker voor het uitvoeren van de meeste DDL en DML-instructies in de beheerde database-instantie. 
-- SUPER bevoegdheden: op dezelfde manier [SUPER bevoegdheden](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is ook beperkt.
+- DBA rol: Veel parameters van de server en instellingen kunnen per ongeluk serverprestaties slechter of ACID-eigenschappen van de DBMS negatief moet worden gemaakt. Als zodanig wilt behouden de integriteit van de service en SLA op het productniveau van een, wordt deze service niet weergegeven de DBA-rol. De standaard-gebruikersaccount, die is gemaakt wanneer een nieuwe database-exemplaar wordt gemaakt, kan die gebruiker voor het uitvoeren van de meeste DDL en DML-instructies in de beheerde database-instantie. 
+- SUPER bevoegdheden: Op dezelfde manier [SUPER bevoegdheden](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is ook beperkt.
 
 ## <a name="data-manipulation-statement-support"></a>Beheerondersteuning-instructie bewerken
 

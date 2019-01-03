@@ -3,17 +3,15 @@ title: Verbinding maken met toepassingen met Azure Database voor MariaDB
 description: Dit document geeft een lijst van de momenteel ondersteunde verbindingsreeksen voor toepassingen verbinding kunnen maken met Azure Database voor MariaDB, met inbegrip van ADO.NET (C#), JDBC, Node.js, ODBC-, PHP, Python en Ruby.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 706bf395df98bd78fa36273a4948a11d4b59067d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 70cd25ff63101fa2a477cde2502d5d286b289366
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967928"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536571"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Verbinding maken tussen toepassingen met Azure Database voor MariaDB
 In dit onderwerp geeft een lijst van de tekenreeks verbindingstypen die worden ondersteund door Azure Database voor MariaDB, samen met sjablonen en voorbeelden. Mogelijk hebt u verschillende parameters en instellingen in de verbindingsreeks.
@@ -64,7 +62,7 @@ client = Mysql2::Client.new(username: "{username@servername}", password: {your_p
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>De verbinding details van de verbindingsreeks ophalen uit de Azure portal
-In de [Azure-portal](https://portal.azure.com), gaat u naar uw Azure Database voor MariaDB-server en klik vervolgens op **verbindingsreeksen** voor de tekenreekslijst voor uw exemplaar: ![deelvenster van de verbinding tekenreeksen in Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+In de [Azure-portal](https://portal.azure.com), gaat u naar uw Azure Database voor MariaDB-server en klik vervolgens op **verbindingsreeksen** voor de tekenreekslijst voor uw exemplaar: ![Het deelvenster verbinding tekenreeksen in de Azure-portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 De tekenreeks bevat informatie zoals het stuurprogramma, server en andere database verbindingsparameters. Deze voorbeelden voor het gebruik van uw eigen parameters, zoals de databasenaam van de en wachtwoord wijzigen. U kunt vervolgens deze tekenreeks verbinding maken met de server vanuit uw code en toepassingen.
 

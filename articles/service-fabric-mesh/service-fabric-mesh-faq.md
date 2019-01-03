@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7103557d19b367be0b9f0aa6f4a4642800c14558
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314826"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555843"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Veelgestelde vragen over Service Fabric NET
 
@@ -79,7 +79,7 @@ Als u wilt verwijderen van de resourcegroep, gebruikt u de `az group delete <nam
 
 ## <a name="supported-container-os-images"></a>Ondersteunde OS containerinstallatiekopieën
 
-Als u ontwikkelt op een computer met Windows Fall Creators Update (versie 1709), kunt u alleen Windows-versie 1709 docker docker-installatiekopieën.
+Als u ontwikkelt op een computer met Windows Fall Creators Update (versie 1709), kunt u alleen Windows-versie 1709 docker-installatiekopieën.
 
 Als u ontwikkelt op een Windows-10 April 2018 update (versie 1803) machine, kunt u Windows-versie 1709 of Windows-versie 1803 docker-installatiekopieën.
 
@@ -101,7 +101,7 @@ Service-naar-servicecommunicatie kan onder bepaalde omstandigheden mislukken. Di
 - Als u alleen de naam van de service niet werkt, probeert u de volledig gekwalificeerde naam: ServiceName.ApplicationName.
 - Voeg in het Docker-bestand voor uw service, `EXPOSE <port>` waar de poort is u uw service wordt weergegeven op. Bijvoorbeeld:
 
-```
+```DockerFile
 EXPOSE 80
 ```
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388865"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549425"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Veelgestelde vragen over de implementatie voor Web-Apps in Azure
 
@@ -36,7 +36,7 @@ Hier zijn enkele opties voor het publiceren van de code van uw web-app:
 *   Implementeren met behulp van Visual Studio. Als u de Visual Studio-oplossing hebt, met de rechtermuisknop op het web application-project en selecteer vervolgens **publiceren**.
 *   Implementeren met behulp van een FTP-client. Download het publicatieprofiel voor de web-app die u wilt uw code te implementeren in Azure portal. Vervolgens de bestanden uploaden naar \site\wwwroot met behulp van dezelfde referenties van de FTP-profiel publiceren.
 
-Zie voor meer informatie, [uw app implementeren in App Service](app-service-deploy-local-git.md).
+Zie voor meer informatie, [uw app implementeren in App Service](deploy-local-git.md).
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Ik zie een foutbericht wanneer ik probeer om vanuit Visual Studio te implementeren. Hoe kan ik dit oplossen?
 
@@ -51,7 +51,7 @@ De zelfstudie [in vijf minuten uw eerste ASP.NET-web-app in Azure maken](app-ser
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Wat zijn de verschillende soorten referenties voor implementatie?
 
-App Service ondersteunt twee soorten referenties voor de lokale Git-implementatie en implementatie van FTP/S. Zie voor meer informatie over het configureren van de referenties voor implementatie [implementatiereferenties voor App Service configureren](app-service-deployment-credentials.md).
+App Service ondersteunt twee soorten referenties voor de lokale Git-implementatie en implementatie van FTP/S. Zie voor meer informatie over het configureren van de referenties voor implementatie [implementatiereferenties voor App Service configureren](deploy-configure-credentials.md).
 
 ## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>Wat is de structuur van het bestand of map van mijn App Service-web-app?
 
@@ -63,7 +63,7 @@ Als u dit bericht ziet, is het waarschijnlijk dat u een schijfquotum in het serv
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Hoe stel ik continue implementatie voor mijn App Service-web-app?
 
-U kunt instellen van continue implementatie vanuit verschillende bronnen, met inbegrip van Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox en andere Git-opslagplaatsen. Deze opties zijn beschikbaar in de portal. [Continue implementatie naar App Service](app-service-continuous-deployment.md) is een nuttig zelfstudie waarin wordt uitgelegd hoe u continue implementatie kunt instellen.
+U kunt instellen van continue implementatie vanuit verschillende bronnen, met inbegrip van Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox en andere Git-opslagplaatsen. Deze opties zijn beschikbaar in de portal. [Continue implementatie naar App Service](deploy-continuous-deployment.md) is een nuttig zelfstudie waarin wordt uitgelegd hoe u continue implementatie kunt instellen.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Hoe los ik problemen met continue implementatie vanuit GitHub en Bitbucket?
 
@@ -100,4 +100,4 @@ Implementatie van de continue code voor deze beide opties, is afhankelijk van be
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Hoe gebruik ik FTP- of FTPS mijn app implementeert in App Service?
 
-Zie voor meer informatie over uw web-app implementeren in App Service met behulp van FTP- of FTPS [uw app in App Service implementeren met behulp van FTP/S](app-service-deploy-ftp.md).
+Zie voor meer informatie over uw web-app implementeren in App Service met behulp van FTP- of FTPS [uw app in App Service implementeren met behulp van FTP/S](deploy-ftp.md).

@@ -1,5 +1,5 @@
 ---
-title: Azure Batch-workloads uitvoeren op rendabele VM's met lage prioriteit | Microsoft Docs
+title: Uitvoeren van workloads op rendabele met lage prioriteit VM's - Azure Batch | Microsoft Docs
 description: Informatie over het inrichten van virtuele machines met lage prioriteit om de kosten van Azure Batch-workloads.
 services: batch
 author: mscurrell
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec18
+ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093000"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546790"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Virtuele machines met lage prioriteit gebruiken met Batch
 
@@ -42,11 +43,11 @@ Gezien de kenmerken van virtuele machines met lage prioriteit, werkbelastingen k
 
 Enkele voorbeelden van batch verwerking van use cases uitermate geschikt voor het gebruik van virtuele machines met lage prioriteit zijn:
 
--   **Ontwikkelen en testen**: In het bijzonder als grootschalige oplossingen worden ontwikkeld, aanzienlijke besparingen kunnen worden gerealiseerd. Alle typen testen kunnen profiteren, maar grootschalige belastingtests uitvoeren en testen van regressie zijn uitstekende gebruikt.
+-   **Ontwikkelen en testen**: In het bijzonder als grootschalige oplossingen worden ontwikkeld, kunt aanzienlijke kostenbesparing realiseren. Alle typen testen kunnen profiteren, maar grootschalige belastingtests uitvoeren en testen van regressie zijn uitstekende gebruikt.
 
--   **Ter aanvulling van capaciteit op aanvraag**: VM's met lage prioriteit kunnen worden gebruikt om te vormen een aanvulling op regular toegewezen virtuele machines - indien beschikbaar, taken kunnen schalen en daarom sneller voltooid voor lagere kosten; wanneer deze niet beschikbaar is, de basislijn die is toegewezen virtuele machines beschikbaar blijft .
+-   **Ter aanvulling van capaciteit op aanvraag**: Virtuele machines met lage prioriteit kunnen worden gebruikt om te vormen een aanvulling op regular toegewezen virtuele machines - indien beschikbaar, taken kunnen schalen en daarom sneller voltooid voor lagere kosten. Als niet beschikbaar is, blijft de basislijn die is toegewezen virtuele machines beschikbaar.
 
--   **Flexibele uitvoeringstijd**: als er flexibiliteit in de time-taken hebt voltooid, en vervolgens mogelijke val in capaciteit kunnen worden getolereerd; echter met het toevoegen van virtuele machines met lage prioriteit taken regelmatig uitgevoerd sneller en tegen lagere kosten.
+-   **Flexibele uitvoeringstijd**: Als er flexibiliteit in de tijd taken hebt voltooid en vervolgens mogelijke val in capaciteit kunnen worden getolereerd; echter met het toevoegen van virtuele machines met lage prioriteit taken regelmatig uitgevoerd sneller en tegen lagere kosten.
 
 Batch-pools kunnen worden geconfigureerd voor het gebruik van virtuele machines met lage prioriteit in een aantal manieren, afhankelijk van de flexibiliteit in uitvoeringstijd:
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights-URL's - aangepaste weergaven van Share Azure Time Series Insights met geparameteriseerde URL's | Microsoft Docs
+title: Aangepaste weergaven van Share Azure Time Series Insights delen via geparameteriseerde URL's | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u geparameteriseerde URL's samenstelt in Azure Time Series Insights, zodat een aangepaste weergave eenvoudig kan worden gedeeld.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 5b43ba4c3f88c678b160e8aec442fa92b4822a3d
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274357"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558461"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c1af73d57255b3c74bbab4c69767d1756b24a6da
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140748"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541571"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Azure Cosmos DB explorer gebruiken om uw gegevens te beheren 
 
@@ -51,4 +51,4 @@ Op dit moment de **Open volledig scherm** ervaring waarmee u delen van tijdelijk
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u hebt geleerd hoe u aan de slag met Azure Cosmos DB explorer voor het beheren van uw gegevens, u kunt volgende:
 
-* Beginnen met het definiëren van [query's](sql-api-query-reference.md) met behulp van SQL-syntaxis en uit te voeren [programmeren op de server](programming.md) met behulp van opgeslagen procedures, UDF's, wordt geactiveerd. 
+* Beginnen met het definiëren van [query's](sql-api-query-reference.md) met behulp van SQL-syntaxis en uit te voeren [programmeren op de server](stored-procedures-triggers-udfs.md) met behulp van opgeslagen procedures, UDF's, wordt geactiveerd. 

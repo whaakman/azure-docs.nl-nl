@@ -1,24 +1,24 @@
 ---
-title: Containers installeren en uitvoeren
-titlesuffix: Computer Vision - Azure Cognitive Services
+title: Over het installeren en uitvoeren van containers - Computer Vision
+titlesuffix: Azure Cognitive Services
 description: Het downloaden, installeren en uitvoeren van containers voor Computer Vision in deze zelfstudie met stapsgewijze instructies.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 9964be07c578cd1cafd93328bffe972483123e03
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 6a6468cd71cf83c627f6dd72e5a1fc5564361d50
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077032"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579852"
 ---
-# <a name="install-and-run-containers"></a>Containers installeren en uitvoeren
+# <a name="install-and-run-recognize-text-containers"></a>Installeren en te herkennen tekst containers uitvoeren
 
 Containerstrategie is een benadering voor softwaredistributie waarin een toepassing of service wordt geleverd als een containerinstallatiekopie. De configuratie en afhankelijkheden voor de toepassing of service zijn opgenomen in de containerinstallatiekopie. De container-installatiekopie kan vervolgens worden geïmplementeerd op een containerhost met weinig of geen wijziging. Containers zijn geïsoleerd van elkaar worden verbonden en het onderliggende besturingssysteem, met een kleinere footprint dan een virtuele machine. Containers kunnen worden geïnstantieerd van containerinstallatiekopieën voor taken op korte termijn en verwijderd wanneer het niet meer nodig hebt.
 
@@ -32,11 +32,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 U moet voldoen aan de volgende vereisten voordat u de container tekst herkennen:
 
-**Docker-Engine**: U moet Docker Engine lokaal zijn geïnstalleerd. Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), en [Windows](https://docs.docker.com/docker-for-windows/). Op Windows, moet Docker worden geconfigureerd ter ondersteuning van Linux-containers. Docker-containers kunnen ook rechtstreeks naar worden geïmplementeerd [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), of naar een [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](/azure/azure-stack/). Zie voor meer informatie over het implementeren van Kubernetes op Azure Stack [Kubernetes met Azure Stack implementeren](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Docker-Engine**: U moet Docker Engine lokaal zijn geïnstalleerd hebben. Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), en [Windows](https://docs.docker.com/docker-for-windows/). Op Windows, moet Docker worden geconfigureerd ter ondersteuning van Linux-containers. Docker-containers kunnen ook rechtstreeks naar worden geïmplementeerd [Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), of naar een [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](../../azure-stack/index.yml). Zie voor meer informatie over het implementeren van Kubernetes op Azure Stack [Kubernetes met Azure Stack implementeren](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure.
 
-**Vertrouwd zijn met Microsoft Container Registry en Docker**: U moet een basiskennis hebben van zowel Microsoft Container Registry en Docker-concepten, zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van Basic `docker` opdrachten.  
+**Vertrouwd zijn met Microsoft-Container Registry en Docker**: U moet een basiskennis hebben van zowel Microsoft Container Registry en Docker-concepten, zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.  
 
 Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).
 
@@ -60,7 +60,7 @@ Als u wilt gebruiken van de container tekst herkennen, moet u een Computer Visio
 Voer de volgende stappen uit om te maken en gegevens ophalen uit een Azure-resource:
 
 1. Maak een Azure-resource in Azure portal.  
-   Als u gebruiken van de container tekst herkennen wilt, moet u eerst een bijbehorende Computer Vision-resource maken in Azure portal. Zie voor meer informatie, [Snelstartgids: een Cognitive Services-account maken in Azure portal](../cognitive-services-apis-create-account.md).
+   Als u gebruiken van de container tekst herkennen wilt, moet u eerst een bijbehorende Computer Vision-resource maken in Azure portal. Zie voor meer informatie [Snelstart: Een Cognitive Services-account maken in Azure portal](../cognitive-services-apis-create-account.md).
 
 1. De eindpunt-URL en abonnement-sleutel voor de Azure-resource ophalen.  
    Nadat de Azure-resource is gemaakt, moet u de eindpunt-URL en abonnement sleutel van die resource voor het starten van de overeenkomstige tekst herkennen-container. U kunt de eindpunt-URL en abonnement sleutel kopiëren uit respectievelijk de Quick Start- en sleutels's van de Computer Vision-resource in Azure portal.

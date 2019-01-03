@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a841ae168119546e8be32ce6f614656f775709ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2fe018139fd99f395ff88eae39ca8836eded5677
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583309"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581518"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Eigendom van een Azure-abonnement naar een ander account overdragen
 
@@ -31,9 +31,6 @@ Overdracht van uw abonnement aan een andere gebruiker in het Accountcentrum te w
 > [!IMPORTANT]
 > 
 > Als u overdraagt van een abonnement op een nieuwe Azure AD-tenant, worden alle roltoewijzingen in [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) permanent worden verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant.
-
-> [!div class="nextstepaction"]
-> [Help bij het verbeteren van documenten over Azure-facturering](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Eigendom van een Azure-abonnement overdragen
 

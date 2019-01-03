@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e3d938c4464fc5141b97f85220bf096920e17d00
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339590"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557278"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie van de gebruikersinvoer
 
@@ -26,19 +26,19 @@ Met de Identiteitservaring-Framework, welke opslagstructuur achter Azure Active 
 ## <a name="introduction"></a>Inleiding
 Met behulp van Azure AD B2C, kunt u uw eigen bedrijfslogica toevoegen aan een gebruikersbeleving door uw eigen RESTful-service aan te roepen. De Identity-Ervaringsframework verzendt gegevens naar de RESTful-service in een *invoer claims* verzameling en ontvangt gegevens van RESTful in een *uitvoer claims* verzameling. Met integratie van RESTful-service, kunt u het volgende doen:
 
-* **Valideren van de gebruiker ingevoerde gegevens**: deze actie voorkomt dat onjuist gevormde gegevens opslaan op Azure AD. Als de waarde van de gebruiker niet geldig is, retourneert de RESTful-service een foutbericht weergegeven waarin de gebruiker voor een vermelding wordt geïnstrueerd. U kunt bijvoorbeeld controleren of het e-mailadres dat is opgegeven door de gebruiker in de database van uw klant bestaat.
-* **Invoerclaims overschrijven**: bijvoorbeeld, als een gebruiker de eerste naam in hoofdletters of hoofdletters letters invoert, u kunt de naam opmaken met alleen de eerste letter in hoofdletters zijn.
-* **Gebruikersgegevens verrijken door verder integreren met zakelijke line-of-business-toepassingen**: uw RESTful-service kan ontvangen van e-mailadres van de gebruiker, query uitvoeren op database van de klant en loyaliteit-nummer van de gebruiker terug naar Azure AD B2C. Het rendement claims kunnen worden opgeslagen in een van de gebruiker Azure AD-account, geëvalueerd in de volgende *Indelingsstappen*, of opgenomen in het toegangstoken.
+* **Valideren van de gebruiker ingevoerde gegevens**: Deze actie voorkomt dat onjuist gevormde gegevens opslaan op Azure AD. Als de waarde van de gebruiker niet geldig is, retourneert de RESTful-service een foutbericht weergegeven waarin de gebruiker voor een vermelding wordt geïnstrueerd. U kunt bijvoorbeeld controleren of het e-mailadres dat is opgegeven door de gebruiker in de database van uw klant bestaat.
+* **Invoerclaims overschrijven**: Als een gebruiker moet invoeren voor de eerste naam in alleen kleine letters of alle hoofdletters, kunt u bijvoorbeeld de naam van de opmaken met alleen de eerste letter in hoofdletters zijn.
+* **Gebruikersgegevens verrijken door verder integreren met zakelijke line-of-business-toepassingen**: Uw RESTful-service kan ontvangen van e-mailadres van de gebruiker, query uitvoeren op database van de klant en loyaliteit-nummer van de gebruiker terug naar Azure AD B2C. Het rendement claims kunnen worden opgeslagen in een van de gebruiker Azure AD-account, geëvalueerd in de volgende *Indelingsstappen*, of opgenomen in het toegangstoken.
 * **Uitvoeren van aangepaste bedrijfslogica**: U kunt pushmeldingen te verzenden, zakelijke databases bijwerken, uitvoeren van het migratieproces van een gebruiker, machtigingen beheren, controleren van databases en andere acties worden uitgevoerd.
 
 U kunt de integratie met de RESTful-services ontwerpen in de volgende manieren:
 
-* **Validatie van technisch profiel**: de aanroep van de RESTful-service gebeurt binnen het technische profiel van de validatie van het opgegeven technisch profiel. Het technische validatieprofiel valideert de gegevens van de gebruiker opgegeven voordat de gebruikersbeleving doorsturen. Met het technische validatieprofiel kunt u het volgende doen:
+* **Validatie van technisch profiel**: De aanroep van de RESTful-service gebeurt binnen het technische profiel van de validatie van het opgegeven technisch profiel. Het technische validatieprofiel valideert de gegevens van de gebruiker opgegeven voordat de gebruikersbeleving doorsturen. Met het technische validatieprofiel kunt u het volgende doen:
    * Invoer claims verzenden.
    * Valideer de invoerclaims en genereren van aangepaste foutberichten.
    * Back-uitvoerclaims verzenden.
 
-* **Exchange-claims**: dit ontwerp is vergelijkbaar met het technische validatieprofiel, maar dit gebeurt in een orchestration-stap. Deze definitie is beperkt tot:
+* **Exchange-claims**: Dit ontwerp is vergelijkbaar met het technische validatieprofiel, maar dit gebeurt in een orchestration-stap. Deze definitie is beperkt tot:
    * Invoer claims verzenden.
    * Back-uitvoerclaims verzenden.
 
@@ -74,7 +74,7 @@ Voer de stappen in de [aan de slag met aangepaste beleidsregels](active-director
 
 6. Selecteer **OK** om het project te maken.
 
-## <a name="step-2-prepare-the-rest-api-endpoint"></a>Stap 2: Bereid de REST API-eindpunt
+## <a name="step-2-prepare-the-rest-api-endpoint"></a>Stap 2: Voorbereiden van de REST API-eindpunt
 
 ### <a name="step-21-add-data-models"></a>Stap 2.1: Gegevensmodellen toevoegen
 De modellen vertegenwoordigen de invoerclaims en uitvoer claims gegevens in uw RESTful-service. Uw code leest de ingevoerde gegevens met het deserialiseren van het model invoerclaims vanuit een JSON-tekenreeks voor een C#-object (uw model). De ASP.NET-web-API automatisch gedeserialiseerd het model van de claims uitvoer terug naar JSON en vervolgens de geserialiseerde gegevens schrijft naar het hoofdgedeelte van de HTTP-antwoordbericht. 
@@ -203,7 +203,7 @@ In de web-API, een _controller_ is een object dat HTTP-aanvragen worden verwerkt
     }
     ```
 
-## <a name="step-3-publish-the-project-to-azure"></a>Stap 3: Het project publiceren naar Azure
+## <a name="step-3-publish-the-project-to-azure"></a>Stap 3: Het project naar Azure publiceren
 1. Klik in Solution Explorer met de rechtermuisknop op de **Contoso.AADB2C.API** project en selecteer vervolgens **publiceren**.
 
     ![Publiceren naar Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
@@ -226,7 +226,7 @@ In de web-API, een _controller_ is een object dat HTTP-aanvragen worden verwerkt
 
 6. Kopieer de URL van de web-app.
 
-## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Stap 4: De nieuwe toevoegen `loyaltyNumber` claim met het schema van het bestand TrustFrameworkExtensions.xml
+## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Stap 4: Toevoegen van de nieuwe `loyaltyNumber` claim met het schema van het bestand TrustFrameworkExtensions.xml
 De `loyaltyNumber` claim nog niet is gedefinieerd in onze schema. Een definitie in de `<BuildingBlocks>` element, dat u aan het begin van vindt de *TrustFrameworkExtensions.xml* bestand.
 
 ```xml
@@ -241,59 +241,59 @@ De `loyaltyNumber` claim nog niet is gedefinieerd in onze schema. Een definitie 
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>Stap 5: Een claimprovider toevoegen 
+## <a name="step-5-add-a-claims-provider"></a>Stap 5: Toevoegen van een claimprovider 
 Elke claimprovider beschikken over een of meer technische profielen die bepalen de eindpunten en protocollen die nodig zijn om te communiceren met de claimprovider. 
 
 Een claimprovider kan meerdere technische profielen om verschillende redenen hebben. Meerdere technische profielen kunnen bijvoorbeeld worden gedefinieerd omdat de claimprovider meerdere protocollen ondersteunt, eindpunten verschillende mogelijkheden hebben kunnen of releases claims die verschillende niveaus van zekerheid hebben kunnen bevatten. Het kan zijn aanvaardbaar is voor het vrijgeven van gevoelige claims in een gebruikersbeleving maar niet in een andere. 
 
 De volgende XML-fragment bevat een claims provider-knooppunt met twee technische profielen:
 
-* **Technische profiel-Id = "REST-API-SignUp"**: uw RESTful-service definieert. 
+* **Technische profiel-Id = "REST-API-SignUp"**: Hiermee definieert u uw RESTful-service. 
    * `Proprietary` wordt beschreven als protocol voor een op basis van een RESTful-provider. 
    * `InputClaims` Hiermee definieert u de claims die naar de REST-service van Azure AD B2C worden verzonden. 
 
    In dit voorbeeld wordt de inhoud van de claim `givenName` verzendt naar de REST-service als `firstName`, de inhoud van de claim `surname` verzendt naar de REST-service als `lastName`, en `email` is verzonden. De `OutputClaims` element wordt gedefinieerd voor de claims die worden opgehaald uit RESTful-service naar Azure AD B2C.
 
-* **Technische profiel-Id = "LocalAccountSignUpWithLogonEmail"**: een technisch validatieprofiel toegevoegd aan een bestaand technische profiel (gedefinieerd in het Basisbeleid). Tijdens de registratie reis roept het technische profiel van de validatie van de voorgaande technisch profiel. Als de RESTful-service retourneert een HTTP-fout 409 (een conflict-fout), wordt het foutbericht wordt weergegeven aan de gebruiker. 
+* **Technische profiel-Id = "LocalAccountSignUpWithLogonEmail"**: Voegt een validatie technisch profiel toe aan een bestaand technische profiel (gedefinieerd in het Basisbeleid). Tijdens de registratie reis roept het technische profiel van de validatie van de voorgaande technisch profiel. Als de RESTful-service retourneert een HTTP-fout 409 (een conflict-fout), wordt het foutbericht wordt weergegeven aan de gebruiker. 
 
 Zoek de `<ClaimsProviders>` knooppunt, en voeg de volgende XML-fragment uit onder de `<ClaimsProviders>` knooppunt:
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
     
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
-        <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        <Metadata>
+      <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
         <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
-        </Metadata>
-        <InputClaims>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />
         <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
         <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-        </InputClaims>
-        <OutputClaims>
+      </InputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
 
-<!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
+    <!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-        <OutputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <ValidationTechnicalProfiles>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
         <ValidationTechnicalProfile ReferenceId="REST-API-SignUp" />
-        </ValidationTechnicalProfiles>
+      </ValidationTechnicalProfiles>
     </TechnicalProfile>
-
-    </TechnicalProfiles>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
@@ -323,7 +323,7 @@ Nadat u de nieuwe claim toegevoegd, ziet de relying party-code er als volgt uit:
 </TrustFrameworkPolicy>
 ```
 
-## <a name="step-7-upload-the-policy-to-your-tenant"></a>Stap 7: Het beleid voor uploaden naar uw tenant
+## <a name="step-7-upload-the-policy-to-your-tenant"></a>Stap 7: Uploaden van het beleid aan uw tenant
 
 1. In de [Azure-portal](https://portal.azure.com), Ga naar de [context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md), en open vervolgens **Azure AD B2C**.
 

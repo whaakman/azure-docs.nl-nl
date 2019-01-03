@@ -16,18 +16,15 @@ ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
-ms.openlocfilehash: 9e3ad2327297e0403b279ad40db2186fcb55ae93
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 944623943fc49f4f6856c3a62f30ea61f901c16d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080976"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579410"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure facturerings-API's gebruiken om via een programma inzicht uw gebruik van Azure
 Gebruik Azure facturering API's voor pull-gebruik en de resource-gegevens in uw favoriete hulpprogramma's voor gegevensanalyse. De Azure Resource Usage- en RateCard-API’s kunnen u helpen uw kosten nauwkeurig te voorspellen en te beheren. De API's worden geïmplementeerd als een Resource Provider en een deel van de API's beschikbaar gemaakt door de Azure Resource Manager-familie.  
-
-> [!div class="nextstepaction"]
-> [Help bij het verbeteren van documenten over Azure-facturering](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="azure-invoice-download-api-preview"></a>API voor Azure-facturen downloaden (Preview)
 Zodra de [aanmelden is voltooid](billing-manage-access.md#opt-in), downloaden van facturen met behulp van de preview-versie van [factuur API](/rest/api/billing). De functies zijn onder andere:

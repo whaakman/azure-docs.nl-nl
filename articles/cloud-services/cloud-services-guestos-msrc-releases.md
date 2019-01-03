@@ -11,22 +11,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2018
+ms.date: 12/14/2018
 ms.author: raiye
-ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854268"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541027"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
 
-## <a name="november-2018-guest-os"></a>November 2018-Gastbesturingssysteem
+## <a name="december-2018-guest-os"></a>December 2018-Gastbesturingssysteem
 
 >[!NOTE]
->Het Gastbesturingssysteem November wordt momenteel geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het Gastbesturingssysteem November. Deze lijst is onderhevig aan wijzigingen.
+>Het Gastbesturingssysteem December wordt momenteel geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het Gastbesturingssysteem December. Deze lijst is onderhevig aan wijzigingen.
+
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 18-12 | [4471321] | Windows 10-beveiliging | 5.26 | 11 december 2018 |
+| Rel 18-12 | [4471328] | Windows-beveiliging   | 2.81 | 11 december 2018 |
+| Rel 18-12 | [4471326] | Windows-beveiliging   | 3,68 | 11 december 2018 |
+| Rel 18-12 | [4471322] | Windows-beveiliging   | 4.61 | 11 december 2018 |
+| Rel 18-12 | [4470600] | .NET 3.x-beveiliging  | 2.81 | 11 december 2018 |
+| Rel 18-12 | [4470601] | .NET 3.x-beveiliging  | 3,68 | 11 december 2018|
+| Rel 18-12 | [4470602] | .NET 3.x-beveiliging  | 4.61 | 11 december 2018 |
+| Rel 18-12 | [4470493] | .NET 4.x-beveiliging  | 2.81 | 11 december 2018 |
+| Rel 18-12 | [4470492] | .NET 4.x-beveiliging  | 3,68 | 11 december 2018 |
+| Rel 18-12 | [4470491] | .NET 4.x-beveiliging  | 4.61| 11 december 2018 |
+| Rel 18-12 | [4471331] | Flash  | 3,68, 4.61, 5.26 | 5 december 2018  |
+| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3,68, 4.61 | 11 december 2018 |
+| N/A | [4468323] | Tijdzone-update    | 2.81, 3,68, 4.61 | 13 december 2018 |
+| N/A | [4467107] | Updatepakket van november niet voor beveiliging   | 2.81 | 13 november 2018 |
+| N/A | [4467701] | Updatepakket van november niet voor beveiliging     | 3,68 | 13 november 2018 |
+| N/A | [4467697] | Updatepakket van november niet voor beveiliging     | 4.61 | 13 november 2018 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## <a name="november-2018-guest-os"></a>November 2018-Gastbesturingssysteem
 
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
@@ -468,7 +506,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[3192321] |Turkije eindigt DST-naleving |5.3, 4.38, 3.45, 2.57 |8 november 2016 |
 | N/A |[3185330] |Oktober 2016 security maandelijkse kwaliteit updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.57 |8 november 2016 |
 | N/A |[3192403] |Oktober 2016 Preview van maandelijkse kwaliteit updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.57 |8 november 2016 |
-| N/A |[3177467] |Servicing stack update voor Windows 7 SP1 en Windows Server 2008 R2 SP1: 20 September 2016 |2.57 |8 november 2016 |
+| N/A |[3177467] |Servicing stack update voor Windows 7 SP1 en Windows Server 2008 R2 SP1: 20 september 2016 |2.57 |8 november 2016 |
 | N/A |[3185332] |Oktober 2016 security maandelijkse kwaliteit updatepakket voor Windows Server 2012 |3.45 |8 november 2016 |
 | N/A |[3192406] |Oktober 2016 Preview van maandelijkse kwaliteit updatepakket voor WindowsServer 2012 |3.45 |8 november 2016 |
 | N/A |[3185331] |Oktober 2016 security maandelijkse kwaliteit updatepakket voor Windows 8.1 en Windows Server 2012 R2 |4.38 |8 november 2016 |
@@ -581,7 +619,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[3133977] |BitLocker kan stations niet versleutelen vanwege het vastlopen van de service in het proces van svchost.exe in Windows 7 of Windows Server 2008 R2  |2.51 |10 mei 2016 |
 | N/A |[3133681] |Virtuele machines reageren niet op uw bewerking in SCVMM in Windows Server 2012 R2  |4.32 |10 mei 2016 |
 | N/A |[3123245] |Update verbetert de poort uitputting identificatie in Windows Server 2012 R2  |4.32 |10 mei 2016 |
-| N/A |[RC4 uitschakelen] | Microsoft-beveiligingsadvies: bijwerken voor het uitschakelen van RC4  |4.32, 3.39, 2.51 |10 mei 2016 |
+| N/A |[RC4 uitschakelen] | Microsoft-beveiligingsadvies: Update voor het uitschakelen van RC4  |4.32, 3.39, 2.51 |10 mei 2016 |
 
 ## <a name="april-2016-guest-os"></a>April 2016-Gastbesturingssystemen
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -630,7 +668,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS16-005 |[3124584] |Beveiligingsupdate voor Windows-Kernel-modus stuurprogramma's om de uitvoering van externe Code |4.28, 3.35, 2.47 |12 januari 2016 |
 | MS16-007 |[3124901] |Beveiligingsupdate voor Microsoft Windows om de uitvoering van externe Code |4.28, 3.35, 2.47 |12 januari 2016 |
 | MS16-008 |[3124605] |Beveiligingsupdate voor Kernel om misbruik van bevoegdheden |4.28, 3.35, 2.47 |12 januari 2016 |
-| Microsoft Security Advisory revisie |[2755801] |Beveiligingsproblemen in Adobe Flash Player in Internet Explorer bijwerken (pakket KB: nog te bepalen)-Advisory tijdelijke aanduiding |4.28, 3.35 |12 januari 2016 |
+| Microsoft Security Advisory revisie |[2755801] |Update voor beveiligingsproblemen in Adobe Flash Player in Internet Explorer (pakket KB: Nog te bepalen) - Advisory tijdelijke aanduiding |4.28, 3.35 |12 januari 2016 |
 | Microsoft-beveiligingsadvies |[3109853] |Update voor het verbeteren van TLS-interoperabiliteit |4.28, 3.35 |12 januari 2016 |
 | Microsoft-beveiligingsadvies |[3123479] |Afschaffing van SHA-1-hash-algoritme voor het Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 januari 2016 |
 | Microsoft-beveiligingsadvies |[2736233] |Updates voor ActiveX-Kill-Bits |4.28, 3.35, 2.47 |12 januari 2016 |
@@ -778,7 +816,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-014 |[3004361] |Beveiligingslek in SMB kan leiden Security functie overslaan |4.17, 3.24, 2.36 |N/A |
 | MS15-015 |[3031432] |Beveiligingslek in Microsoft Windows kan leiden tot misbruik van bevoegdheden |4.17, 3.24, 2.36 |N/A |
 | MS15-016 |[3029944] |Beveiligingslek in Microsoft grafische onderdeel kan leiden tot vrijgeven van informatie |4.17, 3.24, 2.36 |N/A |
-| N/A |[3004375] |Update voor het verbeteren van Windows Command Line controleren<p/>**Houd er rekening mee**: dit is geïnstalleerd, maar de registersleutel voor het inschakelen is uitgeschakeld |4.17, 3.24, 2.36 |N/A |
+| N/A |[3004375] |Update voor het verbeteren van Windows Command Line controleren<p/>**Opmerking**: Dit is geïnstalleerd, maar de registersleutel voor het inschakelen is uitgeschakeld |4.17, 3.24, 2.36 |N/A |
 
 ## <a name="january-2015-guest-os"></a>Januari 2015-Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |

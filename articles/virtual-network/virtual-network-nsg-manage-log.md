@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: ee1e70e58c2f6dd15ae48c15373d4b1dc58f9328
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 383c870148193f4831f06d75aba241e827af9006
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384986"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543356"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostische logboekregistratie voor een netwerkbeveiligingsgroep
 
@@ -31,7 +31,7 @@ Een netwerkbeveiligingsgroep (NSG) bevat regels die verkeer naar een subnet van 
 
 Logboeken met diagnostische gegevens zijn alleen beschikbaar voor nsg's die zijn geïmplementeerd via het Azure Resource Manager-implementatiemodel. U kunt Diagnostische logboekregistratie voor Netwerkbeveiligingsgroepen die zijn geïmplementeerd via het klassieke implementatiemodel niet inschakelen. Zie voor een beter begrip van de twee modellen, [inzicht krijgen in Azure-implementatiemodellen](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Registratie in diagnoselogboek afzonderlijk is ingeschakeld voor *elke* NSG die u wenst te verzamelen van diagnostische gegevens voor. Als u geïnteresseerd bent in operationeel is, of activiteit, in plaats daarvan registreert, bekijk hoe Azure [activiteitenregistratie](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Registratie in diagnoselogboek afzonderlijk is ingeschakeld voor *elke* NSG die u wenst te verzamelen van diagnostische gegevens voor. Als u geïnteresseerd bent in operationeel is, of activiteit, in plaats daarvan registreert, bekijk hoe Azure [activiteitenregistratie](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="enable-logging"></a>Logboekregistratie inschakelen
 
@@ -88,7 +88,7 @@ Set-AzureRmDiagnosticSetting `
   -Enabled $true
 ```
 
-Als u alleen gegevens voor één categorie of de andere, in plaats van beide vastleggen wilt, voegt u toe de `-Categories` optie naar de vorige opdracht, gevolgd door *NetworkSecurityGroupEvent* of *NetworkSecurityGroupRuleCounter*. Als u zich wilt aanmelden met een andere [bestemming](#log-destinations) dan een Log Analytics-werkruimte, gebruikt u de juiste parameters voor een Azure [opslagaccount](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Als u alleen gegevens voor één categorie of de andere, in plaats van beide vastleggen wilt, voegt u toe de `-Categories` optie naar de vorige opdracht, gevolgd door *NetworkSecurityGroupEvent* of *NetworkSecurityGroupRuleCounter*. Als u zich wilt aanmelden met een andere [bestemming](#log-destinations) dan een Log Analytics-werkruimte, gebruikt u de juiste parameters voor een Azure [opslagaccount](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Logboeken bekijken en analyseren. Zie voor meer informatie, [weergeven en logboeken analyseren](#view-and-analyze-logs).
 
@@ -123,7 +123,7 @@ az monitor diagnostic-settings create \
 
 Als u geen een bestaande werkruimte hebt, kunt u maken met behulp van één de [Azure-portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Er zijn twee categorieën van logboekregistratie die kunt u Logboeken voor inschakelen. 
 
-Als u wilt dat alleen om gegevens voor één categorie of het andere te registreren, moet u de categorie die u niet wilt dat om gegevens te registreren in de vorige opdracht verwijderen. Als u zich wilt aanmelden met een andere [bestemming](#log-destinations) dan een Log Analytics-werkruimte, gebruikt u de juiste parameters voor een Azure [opslagaccount](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Als u wilt dat alleen om gegevens voor één categorie of het andere te registreren, moet u de categorie die u niet wilt dat om gegevens te registreren in de vorige opdracht verwijderen. Als u zich wilt aanmelden met een andere [bestemming](#log-destinations) dan een Log Analytics-werkruimte, gebruikt u de juiste parameters voor een Azure [opslagaccount](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Logboeken bekijken en analyseren. Zie voor meer informatie, [weergeven en logboeken analyseren](#view-and-analyze-logs).
 
@@ -131,7 +131,7 @@ Logboeken bekijken en analyseren. Zie voor meer informatie, [weergeven en logboe
 
 Diagnostische gegevens kan zijn:
 - [Naar een Azure Storage-account geschreven](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), voor controle of handmatige controle. U kunt de bewaartijd (in dagen) met behulp van de instellingen voor resourcediagnose opgeven.
-- [Gestreamd naar een Event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor opname van een service van derden of aangepaste analytics-oplossing, zoals Power BI.
+- [Gestreamd naar een Event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor opname van een service van derden of aangepaste analytics-oplossing, zoals Power BI.
 - [Geschreven naar Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Logboekcategorieën
@@ -198,7 +198,7 @@ Het logboek van de teller regel bevat informatie over elke regel toegepast op re
 
 ## <a name="view-and-analyze-logs"></a>Logboeken bekijken en analyseren
 
-Zie voor informatie over het weergeven van diagnostische logboekgegevens, [diagnostische logboeken van Azure-overzicht](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u diagnostische gegevens verzenden:
+Zie voor informatie over het weergeven van diagnostische logboekgegevens, [diagnostische logboeken van Azure-overzicht](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u diagnostische gegevens verzenden:
 - **Log Analytics**: U kunt de [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) oplossing voor het verbeterde inzicht te krijgen. De oplossing biedt visualisaties voor NSG-regels die verkeer per MAC-adres van de netwerkinterface in een virtuele machine toestaan of weigeren.
 - **Azure Storage-account**: Gegevens worden geschreven naar een bestand PT1H.json. U vindt de:
@@ -207,7 +207,7 @@ Zie voor informatie over het weergeven van diagnostische logboekgegevens, [diagn
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [activiteitenregistratie](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), voorheen bekend als de controle- of operationele Logboeken. Activiteit-logboekregistratie is standaard ingeschakeld voor Netwerkbeveiligingsgroepen die zijn gemaakt via een Azure-implementatiemodel. Om te bepalen welke bewerkingen zijn voltooid op nsg's in het activiteitenlogboek, zoeken naar gegevens die bestaan uit de volgende resourcetypen:
+- Meer informatie over [activiteitenregistratie](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), voorheen bekend als de controle- of operationele Logboeken. Activiteit-logboekregistratie is standaard ingeschakeld voor Netwerkbeveiligingsgroepen die zijn gemaakt via een Azure-implementatiemodel. Om te bepalen welke bewerkingen zijn voltooid op nsg's in het activiteitenlogboek, zoeken naar gegevens die bestaan uit de volgende resourcetypen:
     - Microsoft.ClassicNetwork/networkSecurityGroups
     - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
     - Microsoft.Network/networkSecurityGroups

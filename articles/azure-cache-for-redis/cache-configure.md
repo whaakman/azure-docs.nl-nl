@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: c95c40404bb52f739c407eca3c0d48be5e0a86e6
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ff6a3f32d9163be01483e8b8c743caa4e5bb573c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262432"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581246"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache voor Redis configureren
 Dit onderwerp beschrijft de configuraties die beschikbaar zijn voor uw Azure-Cache voor instanties van Redis. Dit onderwerp bevat ook de Redis-server standaardconfiguratie voor Azure Cache voor instanties van Redis.
@@ -359,7 +359,7 @@ Klik op **waarschuwingsregels** waarschuwingen op basis van Azure Cache voor Red
 Metrische cache-gegevens in Azure Monitor zijn standaard [30 dagen bewaard](../azure-monitor/platform/data-collection.md#metrics) en vervolgens verwijderd. Als u wilt uw cache metrische gegevens langer dan 30 dagen behouden, klikt u op **diagnostische gegevens** naar [configureren van het opslagaccount](cache-how-to-monitor.md#export-cache-metrics) gebruikt voor het opslaan van cache diagnostische gegevens.
 
 >[!NOTE]
->Naast het archiveren van uw cache metrische gegevens naar de opslag, kunt u ook [ze naar een Event hub streamen of ze verzenden naar Log Analytics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+>Naast het archiveren van uw cache metrische gegevens naar de opslag, kunt u ook [ze naar een Event hub streamen of ze verzenden naar Log Analytics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 

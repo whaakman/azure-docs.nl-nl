@@ -3,17 +3,15 @@ title: Prijscategorieën voor Azure Database voor MariaDB
 description: Dit artikel beschrijft de Prijscategorieën voor Azure Database voor MariaDB.
 author: jan-eng
 ms.author: janeng
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 561244efd653294694cc16a1115962473e9a7cec
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249023"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544580"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database voor MariaDB Prijscategorieën
 
@@ -60,9 +58,9 @@ U kunt uw i/o-gebruik in Azure portal of met behulp van Azure CLI-opdrachten kun
 
 ### <a name="reaching-the-storage-limit"></a>De opslaglimiet bereikt
 
-De server wordt gemarkeerd als alleen-lezen wanneer de hoeveelheid vrije opslagruimte kleiner is dan 5 GB of 5% van de ingerichte opslag bereikt, afhankelijk van wat kleiner is. Bijvoorbeeld, als u 100 GB aan opslag hebt ingericht, en het gebruik van de werkelijke gaat via 95 GB, de server is gemarkeerd als alleen-lezen. U kunt ook als u 5 GB aan opslag hebt ingericht, is de server gemarkeerd alleen-lezen wanneer de vrije opslagruimte is minder dan 250 MB bereikt.  
+De server wordt als alleen-lezen gemarkeerd wanneer de beschikbare opslagruimte kleiner is dan 5 GB of 5% van de ingerichte opslag, al naar gelang wat kleiner is. Bijvoorbeeld, als u 100 GB aan opslag hebt ingericht, en het gebruik van de werkelijke gaat via 95 GB, de server is gemarkeerd als alleen-lezen. Als u in een ander geval 5 GB aan opslagruimte hebt ingericht, wordt de server als alleen-lezen gemarkeerd indien de beschikbare opslagruimte minder dan 250 MB wordt.  
 
-Terwijl de service probeert te maken van de server alleen-lezen, alle nieuwe schrijftransactieaanvragen geblokkeerd en kunnen bestaande actieve transacties blijft om uit te voeren. Wanneer de server is ingesteld op alleen-lezen, voert alle daaropvolgende schrijfbewerkingen en transactie is mislukt. Lezen query's blijven doorwerken. Nadat u de ingerichte opslag verhoogt, wordt de server zijn klaar om te accepteren schrijftransacties opnieuw.
+Terwijl de service probeert om de server alleen-lezen te maken, worden alle nieuwe transactieaanvragen voor schrijven geblokkeerd en worden bestaande actieve transacties verder uitgevoerd. Indien de server op alleen-lezen is ingesteld, zullen alle daaropvolgende schrijfbewerkingen en transactiedoorvoeringen mislukken. Leesquery’s blijven gewoon werken. Pas nadat u de ingerichte opslagruimte hebt vergroot, is de server weer klaar om nieuwe schrijftransacties te accepteren.
 
 U wordt aangeraden dat u een waarschuwing instellen om u te waarschuwen als de opslag van uw server bijna de drempelwaarde is bereikt, zodat u kunt te voorkomen dat de status alleen-lezen. 
 

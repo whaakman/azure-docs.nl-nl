@@ -4,17 +4,17 @@ description: Informatie over welke besturingssystemen voor de Azure IoT Edge-dae
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6443260de0a8bd8531edb303fa581d281034fef3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100175"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555605"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge ondersteunde systemen
 
@@ -41,12 +41,14 @@ Algemeen beschikbaar
 | Ubuntu Server 16.04 | Ja | Nee |
 | Ubuntu-Server 18.04 | Ja | Nee |
 
-Openbare Preview
+Openbare preview
 | Besturingssysteem | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core (April 2018 update) | Ja | Nee |
-| Windows 10 IoT Enterprise (April 2018 update) | Ja | Nee |
-| Windows 10-Server 1803 | Ja | Nee |
+| Windows 10 IoT Core build 17763 | Ja | Nee |
+| Windows 10 bouwen 17763 voor Windows-containers<br><br>Windows 10 build 14393 of nieuwer voor Linux-containers\* | Ja | Nee |
+| Windows Server 2019 voor Windows-containers<br><br>WindowsServer 2016 of nieuwer voor Linux-containers\* | Ja | Nee |
+
+\* Microsoft biedt installatiepakketten voor Linux-containers op Windows-apparaten alleen voor ontwikkeling en testen. Dit is geen ondersteunde configuratie voor gebruik in productieomgevingen. 
 
 ### <a name="tier-2"></a>Categorie 2
 Laag 2-systemen kunnen worden beschouwd als compatibel met Azure IoT Edge en relatief eenvoudig kunnen worden gebruikt. Dit betekent dat:

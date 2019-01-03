@@ -1,20 +1,17 @@
 ---
 title: Serverparameters configureren in Azure Database voor MySQL
 description: In dit artikel wordt beschreven hoe u MySQL-serverparameters configureren in Azure Database voor MySQL met behulp van de Azure-portal.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 451316b32bcda43d62bbabf0c4f73d239698c85b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078719"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538495"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Parameters van de server configureren in Azure Database voor MySQL met behulp van Azure portal
 

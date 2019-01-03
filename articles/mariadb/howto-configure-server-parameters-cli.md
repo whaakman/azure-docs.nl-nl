@@ -1,21 +1,18 @@
 ---
 title: Configureren van de parameters van de service in Azure Database voor MariaDB
 description: In dit artikel wordt beschreven hoe u de parameters van de service configureren in Azure Database voor MariaDB met behulp van het opdrachtregelprogramma van Azure CLI.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 4e391ce56b31f35da67b3d975bbc1290c17cb139
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 4e0bf45f1c67a5e07d6ed632f6560d094b673c0a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516176"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547149"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Parameters voor serverconfiguratie aanpassen met behulp van Azure CLI
 U kunt weergeven, weergeven en parameters voor de configuratie voor een Azure Database voor MariaDB-server bijwerken met behulp van Azure CLI, het Azure-opdrachtregelprogramma. Een subset van de engine-configuratie wordt weergegeven op het niveau van de server en kan worden gewijzigd.

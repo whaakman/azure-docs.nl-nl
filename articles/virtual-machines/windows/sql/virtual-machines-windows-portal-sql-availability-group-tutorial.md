@@ -17,17 +17,17 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51238072"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
 Deze zelfstudie laat zien hoe u een SQL Server AlwaysOn-beschikbaarheidsgroep maken op Azure Virtual Machines. De volledige zelfstudie maakt u een beschikbaarheidsgroep toevoegen met een databasereplica op twee SQL-Servers.
 
-**Geschatte tijd**: duurt ongeveer 30 minuten om te voltooien als aan de vereisten is voldaan.
+**Geschatte tijd**: Duurt circa 30 minuten om te voltooien als aan de vereisten is voldaan.
 
 Het diagram ziet wat u in de zelfstudie maken.
 
@@ -39,13 +39,13 @@ De zelfstudie wordt ervan uitgegaan dat u een basiskennis hebben van SQL Server 
 
 De volgende tabel bevat de vereisten die u nodig hebt om te voltooien voordat u deze zelfstudie begint:
 
-|  |Vereiste |Beschrijving |
+|  |Vereiste |Description |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Twee SQL-Servers | -In een Azure-beschikbaarheidsset <br/> -In één domein <br/> -Met de functie Failover Clustering geïnstalleerd |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | File share voor een cluster witness |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server-serviceaccount | Domeinaccount |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent-serviceaccount | Domeinaccount |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall-poorten openen | -SQL Server: **1433** voor standaardexemplaar <br/> -Eindpunt voor databasespiegeling: **5022** of een beschikbare poort <br/> -Beschikbaarheid van groep statustest load balancer IP-adres: **59999** of een beschikbare poort <br/> -Cluster core statustest load balancer IP-adres: **58888** of een beschikbare poort |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall-poorten openen | -SQL Server: **1433** voor standaardexemplaar <br/> -Eindpunt voor databasespiegeling: **5022** of een beschikbare poort <br/> -Beschikbaarheidsgroep load balancer-statustest voor IP-adres: **59999** of een beschikbare poort <br/> -Statustest core load balancer IP-adres van cluster: **58888** of een beschikbare poort |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Toevoegen van de functie Failoverclustering | Deze functie nodig hebben voor zowel SQL-Servers |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Domeinaccount voor installatie | -Lokale beheerder zijn op elke SQL-Server <br/> -Lid is van SQL Server vaste serverrol sysadmin voor elk exemplaar van SQL Server  |
 
@@ -109,7 +109,7 @@ De andere SQL-Server toevoegen aan het cluster.
     >[!WARNING]
    >Als u van opslagruimten gebruikmaakt en niet doen Schakel **alle in aanmerking komende opslag toevoegen aan het cluster**, Windows losgekoppeld van de virtuele schijven tijdens het clusterproces. Als gevolg hiervan worden niet weergegeven in Schijfbeheer of Explorer totdat de opslagruimten zijn verwijderd uit het cluster en opnieuw gekoppeld met behulp van PowerShell. Storage Spaces gegroepeerd meerdere schijven in opslaggroepen. Zie voor meer informatie, [opslagruimten](https://technet.microsoft.com/library/hh831739).
 
-1. Klik op **Volgende**.
+1. Klik op **volgende**.
 
 1. Klik op **Voltooien**.
 
@@ -133,9 +133,9 @@ In dit voorbeeld gebruikt de Windows-cluster een bestandsshare te maken van een 
 
    Gebruik **maken van een Wizard gedeelde map** om een bestandsshare te maken.
 
-1. Op **mappad**, klikt u op **Bladeren** en zoekt of maakt u een pad voor de gedeelde map. Klik op **Volgende**.
+1. Op **mappad**, klikt u op **Bladeren** en zoekt of maakt u een pad voor de gedeelde map. Klik op **volgende**.
 
-1. In **naam, beschrijving en instellingen** controleren of de sharenaam en het pad. Klik op **Volgende**.
+1. In **naam, beschrijving en instellingen** controleren of de sharenaam en het pad. Klik op **volgende**.
 
 1. Op **machtigingen voor gedeelde mappen** ingesteld **machtigingen aanpassen**. Klik op **aangepaste...** .
 
@@ -170,9 +170,9 @@ Vervolgens stelt u het clusterquorum.
    >[!TIP]
    >Windows Server 2016 biedt ondersteuning voor een cloud-witness. Als u dit type witness kiest, u hoeft niet een bestand witness delen. Zie voor meer informatie, [een cloudwitness voor een Failover-Cluster implementeren](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). In deze zelfstudie maakt gebruik van een bestandssharewitness wordt ondersteund door eerdere besturingssystemen.
 
-1. Op **bestandssharewitness configureren**, typt u het pad voor de share die u hebt gemaakt. Klik op **Volgende**.
+1. Op **bestandssharewitness configureren**, typt u het pad voor de share die u hebt gemaakt. Klik op **volgende**.
 
-1. Controleer de instellingen op **bevestiging**. Klik op **Volgende**.
+1. Controleer de instellingen op **bevestiging**. Klik op **volgende**.
 
 1. Klik op **Voltooien**.
 
@@ -235,9 +235,9 @@ Repeat these steps on the second SQL Server.
 
    Gebruik **maken van een Wizard gedeelde map** om een bestandsshare te maken.
 
-1. Op **mappad**, klikt u op **Bladeren** en zoekt of maakt u een pad voor de database een back-up gedeelde map. Klik op **Volgende**.
+1. Op **mappad**, klikt u op **Bladeren** en zoekt of maakt u een pad voor de database een back-up gedeelde map. Klik op **volgende**.
 
-1. In **naam, beschrijving en instellingen** controleren of de sharenaam en het pad. Klik op **Volgende**.
+1. In **naam, beschrijving en instellingen** controleren of de sharenaam en het pad. Klik op **volgende**.
 
 1. Op **machtigingen voor gedeelde mappen** ingesteld **machtigingen aanpassen**. Klik op **aangepaste...** .
 
@@ -273,7 +273,7 @@ U bent nu klaar om te configureren van een beschikbaarheidsgroep toevoegen met b
 
     ![Wizard Nieuwe beschikbaarheidsgroep starten](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
-2. In de **inleiding** pagina, klikt u op **volgende**. In de **naam van de beschikbaarheidsgroep opgeven** pagina, typ een naam voor de beschikbaarheidsgroep, bijvoorbeeld **AG1**in **naam van de beschikbaarheidsgroep**. Klik op **Volgende**.
+2. In de **inleiding** pagina, klikt u op **volgende**. In de **naam van de beschikbaarheidsgroep opgeven** pagina, typ een naam voor de beschikbaarheidsgroep, bijvoorbeeld **AG1**in **naam van de beschikbaarheidsgroep**. Klik op **volgende**.
 
     ![Wizard Nieuwe AG, AG-naam opgeven](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
@@ -296,7 +296,7 @@ U bent nu klaar om te configureren van een beschikbaarheidsgroep toevoegen met b
 
     ![Wizard Nieuwe AG, eerste gegevenssynchronisatie selecteren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. In de **eerste gegevenssynchronisatie selecteren** pagina, selecteert u **volledige** en geef een gedeelde netwerklocatie. Voor de locatie, gebruikt u de [back-upshare die u hebt gemaakt](#backupshare). In het voorbeeld het geval is, **\\\\\<eerst SQL Server\>\Backup\\**. Klik op **Volgende**.
+8. In de **eerste gegevenssynchronisatie selecteren** pagina, selecteert u **volledige** en geef een gedeelde netwerklocatie. Voor de locatie, gebruikt u de [back-upshare die u hebt gemaakt](#backupshare). In het voorbeeld het geval is, **\\\\\<eerst SQL Server\>\Backup\**. Klik op **volgende**.
 
    >[!NOTE]
    >Volledige synchronisatie duurt een volledige back-up van de database op het eerste exemplaar van SQL Server en aan het tweede exemplaar te herstellen. Volledige synchronisatie wordt voor grote databases, niet aanbevolen omdat het lang duurt. U kunt dit moment beperken door handmatig een back-up maken van de database en het herstellen van met `NO RECOVERY`. Als de database is al hersteld met `NO RECOVERY` op de tweede SQL Server voordat u de beschikbaarheidsgroep configureert, kiest u **alleen deelnemen**. Als u wilt een back-up na de configuratie van de beschikbaarheidsgroep, kiest u **eerste gegevenssynchronisatie overslaan**.
@@ -397,7 +397,7 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
 
 1. De statustest listener als volgt instellen:
 
-   | Instelling | Beschrijving | Voorbeeld
+   | Instelling | Description | Voorbeeld
    | --- | --- |---
    | **Naam** | Tekst | SQLAlwaysOnEndPointProbe |
    | **Protocol** | Kies TCP | TCP |
@@ -412,7 +412,7 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
 1. Klik op de load balancer, **Taakverdelingsregels**, en klikt u op **+ toevoegen**.
 
 1. De listener-load balancer-regels als volgt instellen.
-   | Instelling | Beschrijving | Voorbeeld
+   | Instelling | Description | Voorbeeld
    | --- | --- |---
    | **Naam** | Tekst | SQLAlwaysOnEndPointListener |
    | **Frontend-IP-adres** | Kies een adres |Gebruik het adres dat u hebt gemaakt tijdens het maken van de load balancer. |
@@ -439,7 +439,7 @@ Het WSFC-IP-adres moet ook worden op de load balancer.
 
 1. De statustest WSFC-cluster core IP-adres als volgt instellen:
 
-   | Instelling | Beschrijving | Voorbeeld
+   | Instelling | Description | Voorbeeld
    | --- | --- |---
    | **Naam** | Tekst | WSFCEndPointProbe |
    | **Protocol** | Kies TCP | TCP |
@@ -452,7 +452,7 @@ Het WSFC-IP-adres moet ook worden op de load balancer.
 1. Stel de load balancer-regels. Klik op **Taakverdelingsregels**, en klikt u op **+ toevoegen**.
 
 1. Het cluster core IP-adres load balancer-regels als volgt instellen.
-   | Instelling | Beschrijving | Voorbeeld
+   | Instelling | Description | Voorbeeld
    | --- | --- |---
    | **Naam** | Tekst | WSFCEndPoint |
    | **Frontend-IP-adres** | Kies een adres |Het adres dat u hebt gemaakt tijdens het configureren van het WSFC-IP-adres gebruiken. Dit wijkt af van het listener-IP-adres |

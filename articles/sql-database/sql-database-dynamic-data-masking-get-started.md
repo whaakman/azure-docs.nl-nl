@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/16/2018
+ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165548"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536369"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Dynamische gegevensmaskering voor SQL-Database
 
@@ -31,7 +31,7 @@ Bijvoorbeeld, een vertegenwoordiger van de service op een callcenter aanroepers 
 U instellen kunt een beleid in de Azure-portal voor een dynamische gegevensmaskering door het selecteren van de bewerking in de blade SQL Database-configuratie of de instellingenblade voor dynamische gegevensmaskering.
 
 ### <a name="dynamic-data-masking-permissions"></a>Dynamic data masking machtigingen
-Dynamische gegevensmaskering kan worden geconfigureerd door de beheerder van de Azure-Database, -serverbeheerder of officer van beveiligingsrollen.
+Dynamische gegevensmaskering kan worden geconfigureerd door de beheerder van de Azure-Database, serverbeheerder of [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) rollen.
 
 ### <a name="dynamic-data-masking-policy"></a>Beleid voor dynamische gegevens maskeren
 * **SQL-gebruikers die zijn uitgesloten van maskering** : een set van SQL-gebruikers of AAD-identiteiten die toegankelijk maakt gegevens in de SQL ophalen-queryresultaten. Gebruikers met beheerdersrechten zijn altijd uitgesloten van maskeren en de oorspronkelijke gegevens zonder een masker zien.
