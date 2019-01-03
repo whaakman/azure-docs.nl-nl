@@ -12,25 +12,25 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bb70bf56efac28029401b69ee4f87c2738c52e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 28e21180fde50d19154830694cd4959795ae9d5c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721847"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789378"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profiel live Azure-cloudservices met Application Insights
 
 U kunt Application Insights profiler voor deze services ook implementeren:
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric-toepassingen](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtuele machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler is geïnstalleerd met de extensie voor Windows Azure Diagnostics (WAD). U hoeft alleen het configureren van WAD voor het installeren van de profiler en profielen verzenden naar uw Application Insights-resource.
 
 ## <a name="enable-profiler-for-your-azure-cloud-service"></a>Inschakelen van profiler voor uw Azure-Cloudservice
-1. Selectievakje om te zien die u met behulp van [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger.  Het is voldoende om te bevestigen dat de *ServiceConfiguration.\*. cscfg* bestanden hebben een `osFamily` waarde van '5' of hoger.
-1. Voeg [Application Insights-SDK met cloudservice](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Selectievakje om te zien die u met behulp van [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger.  Het is voldoende om te bevestigen dat de *ServiceConfiguration.\*.cscfg* bestanden hebben een `osFamily` waarde van '5' of hoger.
+1. Voeg [Application Insights-SDK met cloudservice](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Aanvragen voor bijhouden met Application Insights:
 
     Voor ASP.Net-web-rollen bijhouden Application Insights automatisch de-aanvragen.
@@ -63,12 +63,12 @@ Application Insights Profiler is geïnstalleerd met de extensie voor Windows Azu
       </WadCfg>
       ```
 
-    >   **Opmerking:** als de *diagnostics.wadcfgx* -bestand bevat ook een andere sink van het type `ApplicationInsights`, alle drie van de volgende instrumentatiesleutels moet overeenkomen met:  
+    >   **OPMERKING:** Als de *diagnostics.wadcfgx* -bestand bevat ook een andere sink van het type `ApplicationInsights`, alle drie van de volgende instrumentatiesleutels moet overeenkomen met:  
     >  * De sleutel die wordt gebruikt door uw toepassing.  
     >  * De sleutel die wordt gebruikt door de `ApplicationInsights` sink.  
     >  * De sleutel die wordt gebruikt door de `ApplicationInsightsProfiler` sink.  
     >
-    > U vindt de daadwerkelijke instrumentation sleutelwaarde die wordt gebruikt door de `ApplicationInsights` sink in de *ServiceConfiguration.\*. cscfg* bestanden.  
+    > U vindt de daadwerkelijke instrumentation sleutelwaarde die wordt gebruikt door de `ApplicationInsights` sink in de *ServiceConfiguration.\*.cscfg* bestanden.  
     > Na de release van Visual Studio 15.5 Azure SDK, alleen de instrumentatiesleutels die worden gebruikt door de toepassing en de `ApplicationInsightsProfiler` sink moeten met elkaar overeen.
 1. De service met de nieuwe diagnostische configuratie implementeert en Application Insights Profiler wordt geconfigureerd om uit te voeren op uw service.
  

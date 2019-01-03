@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: e2e76e3cd058e5798b0159923118b050f38d077e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: aca5b1613a6500b3aeca1a7074cabdce50023510
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034634"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789497"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hoge beschikbaarheid van SAP HANA op Azure VM's in SUSE Linux Enterprise Server
 
@@ -36,6 +36,7 @@ ms.locfileid: "47034634"
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
+[401162]:https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -67,6 +68,7 @@ Lees eerst de volgende SAP-opmerkingen en documenten:
 * SAP-notitie [2243692] bevat informatie over de licentieverlening voor SAP op Linux in Azure.
 * SAP-notitie [1984787] bevat algemene informatie over het SUSE Linux Enterprise Server 12.
 * SAP-notitie [1999351] bevat aanvullende informatie over probleemoplossing voor de Azure uitgebreide controle-extensie voor SAP.
+* SAP-notitie [401162] bevat informatie over hoe u om te voorkomen dat 'het adres is al in gebruik' bij het instellen van HANA System Replication.
 * [SAP-Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) heeft alle van de vereiste SAP-opmerkingen voor Linux.
 * [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Azure virtuele Machines, planning en implementatie van SAP op Linux] [ planning-guide] handleiding.
@@ -85,9 +87,9 @@ SAP HANA is voor het bereiken van hoge beschikbaarheid, geïnstalleerd op de twe
 SAP HANA-Systeemreplicatie setup maakt gebruik van een speciale virtuele hostnaam en het virtuele IP-adressen. In Azure, wordt een load balancer overstappen naar een virtueel IP-adres. De volgende lijst ziet u de configuratie van de load balancer:
 
 * Front-end-configuratie: IP-adres 10.0.0.13 voor hn1-db
-* Back-end-configuratie: verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van HANA-Systeemreplicatie uitmaken
-* Testpoort: Poort 62503
-* Regels voor taakverdeling: 30313 TCP, 30315 TCP, 30317 TCP
+* Back-end-configuratie: Verbonden met primaire netwerkinterfaces van alle virtuele machines die deel van HANA-Systeemreplicatie uitmaken
+* Test-poort: Poort 62503
+* Taakverdelingsregels: 30313 TCP, 30315 TCP, 30317 TCP
 
 ## <a name="deploy-for-linux"></a>Voor Linux implementeren
 
@@ -104,14 +106,14 @@ Volg deze stappen voor het implementeren van de sjabloon:
 
 1. Voer de volgende parameters:
     - **SAP-systeem-ID**: Voer de SAP-systeem-ID van de SAP-systeem die u wilt installeren. De ID wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
-    - **Stack-Type**: (deze parameter is alleen van toepassing als u de geconvergeerde sjabloon gebruiken.) Selecteer het type SAP NetWeaver-stack.
+    - **Stack-Type**: (Deze parameter is alleen van toepassing als u de geconvergeerde sjabloon gebruiken.) Selecteer het type SAP NetWeaver-stack.
     - **Type besturingssysteem**: Selecteer een van de Linux-distributies. Selecteer voor dit voorbeeld **SLES 12**.
     - **Databasetype**: Selecteer **HANA**.
-    - **SAP-systeem grootte**: Voer het aantal SAP's die voor u het nieuwe systeem. Als u niet zeker weet hoeveel SAP's van het systeem is vereist, vraagt u uw SAP-technologie-Partner of systeemintegrator.
+    - **SAP-systeem grootte**: Voer het nummer van SAP's die voor u het nieuwe systeem. Als u niet zeker weet hoeveel SAP's van het systeem is vereist, vraagt u uw SAP-technologie-Partner of systeemintegrator.
     - **Beschikbaarheid van het systeem**: Selecteer **HA**.
-    - **Admin Username en het wachtwoord van beheerder**: een nieuwe gebruiker wordt gemaakt die kan worden gebruikt voor aanmelding bij de machine.
-    - **Nieuwe of bestaande Subnet**: bepaalt of een nieuw virtueel netwerk en subnet moeten worden gemaakt of een bestaand subnet gebruikt. Als u al een virtueel netwerk dat verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-    - **Subnet-ID**: als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal, lijkt **/subscriptions/\<abonnements-ID > /resourceGroups/\<groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/\<virtuele-netwerknaam > /subnets/ \<subnetnaam >**.
+    - **Gebruikersnaam voor de beheerder en het wachtwoord van beheerder**: Een nieuwe gebruiker wordt gemaakt die kan worden gebruikt voor aanmelding bij de machine.
+    - **Nieuw of bestaand Subnet**: Bepaalt of een nieuw virtueel netwerk en subnet moeten worden gemaakt of een bestaand subnet gebruikt. Als u al een virtueel netwerk dat verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
+    - **Subnet-ID**: Als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal, lijkt **/subscriptions/\<abonnements-ID > /resourceGroups/\<groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/\<virtuele-netwerknaam > /subnets/ \<subnetnaam >**.
 
 ### <a name="manual-deployment"></a>Handmatige implementatie
 
@@ -203,7 +205,7 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 - **[1]** : De stap is van toepassing op knooppunt 1 alleen.
 - **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
-1. **[A]**  Instellen van de schijfindeling: **logische Volume Manager (LVM)**.
+1. **[A]**  Instellen van de schijfindeling: **Logical Volume Manager (LVM)**.
 
    U wordt aangeraden LVM voor volumes die opslaan van gegevens en logboekbestanden. Het volgende voorbeeld wordt ervan uitgegaan dat de virtuele machines vier gegevensschijven die zijn gekoppeld die worden gebruikt om twee volumes te maken.
 
@@ -319,26 +321,26 @@ Volg voor het installeren van SAP HANA-Systeemreplicatie hoofdstuk 4 van de [SAP
    * Voer Installation Path [/ hana/gedeelde]: Selecteer invoeren.
    * Voer de naam van de lokale Host [.]: Selecteer invoeren.
    * Wilt u extra hosts toevoegen aan het systeem? (j/n) [n]: Selecteer invoeren.
-   * Voer SAP HANA-systeem-ID: Voer de SID van HANA, bijvoorbeeld: **HN1**.
-   * Voer exemplaarnummer [00]: Voer in HANA-instantie. Voer **03** als u de Azure-sjabloon gebruikt of de handmatige implementatie-sectie van dit artikel wordt gevolgd.
-   * Selecteer Database modus / Index [1] Voer: Voer selecteren.
-   * Selecteert u het gebruik van / Voer Index [4]: Selecteer de waarde van de gebruik system.
+   * Voer SAP HANA-systeem-ID: Voer bijvoorbeeld de SID van HANA: **HN1**.
+   * Voer exemplaarnummer [00]: Voer het nummer van de HANA-instantie. Voer **03** als u de Azure-sjabloon gebruikt of de handmatige implementatie-sectie van dit artikel wordt gevolgd.
+   * Selecteer Database modus / Index [1] invoeren: Selecteer invoeren.
+   * Selecteer het gebruik van / Index [4] invoeren: Selecteer de waarde van de gebruik system.
    * Geef de locatie van gegevensvolumes [/ hana/data/HN1]: Selecteer invoeren.
    * Geef de locatie van de Logboekvolumes [/ hana/log/HN1]: Selecteer invoeren.
    * Beperk de maximale hoeveelheid geheugen ingesteld? [n]: Selecteer invoeren.
    * Voer de hostnaam certificaat voor Host '...' [...]: Selecteer invoeren.
    * Voer SAP Host Agent-gebruiker (sapadm) wachtwoord: Voer het wachtwoord van de host agent-gebruiker.
    * SAP-Host Agent-gebruiker (sapadm) wachtwoord bevestigen: Voer het wachtwoord van de host-agent gebruiker opnieuw te bevestigen.
-   * Systeembeheerder (hdbadm) wachtwoord invoeren: Voer het wachtwoord voor de systeembeheerder.
+   * Geef de systeembeheerder (hdbadm) wachtwoord: Voer het wachtwoord voor de systeembeheerder.
    * Controleer of de systeembeheerder (hdbadm) wachtwoord: Voer het beheerderswachtwoord van systeem opnieuw te bevestigen.
-   * De systeembeheerder ENTER Home-map [/ usr/sap/HN1/home]: Selecteer invoeren.
+   * Voer System Administrator basismap [/ usr/sap/HN1/home]: Selecteer invoeren.
    * Voer System Administrator aanmeldingsshell [/ bin/sh]: Selecteer invoeren.
    * Voer de gebruikersnaam van systeembeheerder [1001]: Selecteer invoeren.
    * Voer-ID van de gebruikersgroep (sapsys) [79]: Selecteer invoeren.
-   * Geef het wachtwoord van de Database-gebruiker (systeem): Voer het wachtwoord van de database-gebruiker.
-   * Bevestig het wachtwoord van de Database-gebruiker (systeem): Geef het wachtwoord van de database-gebruiker opnieuw om te bevestigen.
+   * Geef het wachtwoord voor Database-gebruiker (systeem): Voer het wachtwoord van de database-gebruiker.
+   * Bevestig het wachtwoord voor Database-gebruiker (systeem): Voer het wachtwoord van de gebruiker database opnieuw te bevestigen.
    * Systeem opnieuw opstarten na opnieuw opstarten van machine? [n]: Selecteer invoeren.
-   * Wilt u doorgaan? (j/n): de samenvatting te valideren. Voer **y** om door te gaan.
+   * Wilt u doorgaan? (j/n): Valideer de samenvatting. Voer **y** om door te gaan.
 
 1. **[A]**  De SAP-Host-Agent bijwerken.
 
@@ -688,7 +690,7 @@ Voer alle testcases die worden vermeld in de SAP HANA SR prestaties geoptimalise
 De volgende tests uit zijn een kopie van de test-beschrijvingen van de SAP HANA SR prestaties geoptimaliseerd Scenario SUSE Linux Enterprise Server voor SAP-toepassingen 12 SP1 handleiding. Lees voor een actuele versie altijd ook de handleiding zelf. Zorg er altijd HANA is gesynchroniseerd voordat u begint met de test en ook voor zorgen dat de configuratie van de Pacemaker juist is.
 
 In de volgende beschrijvingen van de test Aannemende PREFER_SITE_TAKEOVER = "true" en AUTOMATED_REGISTER = "false".
-Opmerking: De volgende tests zijn ontworpen om te worden uitgevoerd in de volgorde en afhankelijk van de status van het afsluiten van de voorgaande tests.
+OPMERKING: De volgende tests zijn ontworpen om te worden uitgevoerd in de volgorde en afhankelijk van de status van het afsluiten van de voorgaande tests.
 
 1. TEST 1: STOP PRIMAIRE DATABASE OP KNOOPPUNT 1
 
@@ -731,7 +733,7 @@ Opmerking: De volgende tests zijn ontworpen om te worden uitgevoerd in de volgor
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-1. TEST 2: STOPPEN PRIMAIRE DATABASE OP KNOOPPUNT 2
+1. TEST 2: STOP PRIMAIRE DATABASE OP KNOOPPUNT 2
 
    De resourcestatus van de voordat u begint met de test:
 
@@ -854,7 +856,7 @@ Opmerking: De volgende tests zijn ontworpen om te worden uitgevoerd in de volgor
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TEST 5: CRASH PRIMAIRE SITE-KNOOPPUNT (KNOOPPUNT 1)
+1. TEST 5: CRASH VAN DE PRIMAIRE SITE-KNOOPPUNT (1 KNOOPPUNT)
 
    De resourcestatus van de voordat u begint met de test:
 
@@ -905,7 +907,7 @@ Opmerking: De volgende tests zijn ontworpen om te worden uitgevoerd in de volgor
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-1. TEST 6: CRASH SECUNDAIRE SITE-KNOOPPUNT (KNOOPPUNT 2)
+1. TEST 6: SECUNDAIRE SITE-KNOOPPUNT (KNOOPPUNT 2) LOOPT VAST
 
    De resourcestatus van de voordat u begint met de test:
 
@@ -993,7 +995,7 @@ Opmerking: De volgende tests zijn ontworpen om te worden uitgevoerd in de volgor
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TEST 8: CRASH DE SECUNDAIRE DATABASE OP KNOOPPUNT 2
+1. TEST 8: DE SECUNDAIRE DATABASE OP KNOOPPUNT 2 CRASHES
 
    De resourcestatus van de voordat u begint met de test:
 
@@ -1030,7 +1032,7 @@ Opmerking: De volgende tests zijn ontworpen om te worden uitgevoerd in de volgor
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TEST 9: CRASH SECUNDAIRE SITE-KNOOPPUNT (KNOOPPUNT 2) UITGEVOERD SECUNDAIRE HANA-DATABASE
+1. TEST 9: CRASH SECUNDAIRE HANA-DATABASE VAN SECUNDAIRE SITE-KNOOPPUNT (KNOOPPUNT 2) DIE WORDT UITGEVOERD
 
    De resourcestatus van de voordat u begint met de test:
 
