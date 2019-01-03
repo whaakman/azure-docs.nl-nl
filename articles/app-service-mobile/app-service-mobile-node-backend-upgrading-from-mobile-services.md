@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a74097521cc7dceea2c47f78c1dbb2f17e292aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002115"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726677"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Uw bestaande Node.js Azure Mobile Service upgraden naar App Service
 App Service Mobile is een nieuwe manier voor het bouwen van mobiele toepassingen met Microsoft Azure. Zie voor meer informatie, [Wat zijn mobiele apps?].
@@ -98,7 +98,7 @@ Tijdens de implementatie gaat u als volgt te werk:
 2. Klik op **+NIEUW** > **Web en mobiel** > **Mobile App** en geef een naam op voor de nieuwe back-end van Mobile App.
 3. Selecteer voor de **Resourcegroep** een bestaande resourcegroep of maak een nieuwe (gebruik dezelfde naam als uw app).
 
-    U kunt ofwel een ander App Service-abonnement selecteren of een nieuw maken. Zie [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) (Uitgebreid overzicht van Azure App Service-abonnementen) voor meer informatie over App Service-abonnementen en hoe u een nieuw abonnement maakt in een andere prijscategorie op de door u gewenste locatie.
+    U kunt ofwel een ander App Service-abonnement selecteren of een nieuw maken. Zie [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md) (Uitgebreid overzicht van Azure App Service-abonnementen) voor meer informatie over App Service-abonnementen en hoe u een nieuw abonnement maakt in een andere prijscategorie op de door u gewenste locatie.
 4. Voor het **App Service-abonnement** is het standaardabonnement (in de [standaardcategorie](https://azure.microsoft.com/pricing/details/app-service/)) geselecteerd. U kunt ook een ander abonnement selecteren of [een nieuw abonnement maken](../app-service/app-service-plan-manage.md#create-an-app-service-plan). Instellingen voor de App Service-plan bepalen de [locatie, functies, kosten en rekenresources](https://azure.microsoft.com/pricing/details/app-service/) die zijn gekoppeld aan uw app.
 
     Nadat u voor een beslissing hebt genomen met betrekking tot een bepaald abonnement, klikt u op **Maken**. Hiermee maakt u de back-end voor de mobiele app.
@@ -162,7 +162,7 @@ Wanneer u de nieuwe clientversie gereed, probeer het op basis van uw project bij
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [prijzen van App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Verificatie op basis van]: ../app-service/app-service-authentication-overview.md
+[Verificatie op basis van]: ../app-service/overview-authentication-authorization.md
 [Snelstartgids voor verificatie]: app-service-mobile-auth.md
 
 [Azure Portal]: https://portal.azure.com/

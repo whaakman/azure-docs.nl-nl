@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409255"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725028"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Het gebruik van de Mobile Apps Node.js-SDK
 
@@ -153,14 +153,14 @@ Wanneer u een back-end voor Node.js mobiele Apps maakt met behulp van de portal 
 De volgende procedure maakt gebruik van een Git-opslagplaats voor het downloaden van de snelstartcode project:
 
 1. Installeer Git, als u dat nog niet hebt gedaan. De stappen die nodig zijn om Git te installeren variëren tussen besturingssystemen. Zie voor specifieke besturingssysteem-distributies en installatie [installeren van Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
-1. Zie [voorbereiden van uw opslagplaats](../app-service/app-service-deploy-local-git.md#prepare-your-repository) om in te schakelen van de Git-opslagplaats voor uw back-end-site. Maak een notitie van de implementatie-gebruikersnaam en wachtwoord.
-1. In het deelvenster voor uw Mobile Apps-back-end, maak een notitie van de **Git-kloon-URL** instelling.
-1. Voer de `git clone` met behulp van de Git-kloon-URL. Voer uw wachtwoord indien nodig, zoals in het volgende voorbeeld:
+2. Zie [voorbereiden van uw opslagplaats](../app-service/deploy-local-git.md#prepare-your-repository) om in te schakelen van de Git-opslagplaats voor uw back-end-site. Maak een notitie van de implementatie-gebruikersnaam en wachtwoord.
+3. In het deelvenster voor uw Mobile Apps-back-end, maak een notitie van de **Git-kloon-URL** instelling.
+4. Voer de `git clone` met behulp van de Git-kloon-URL. Voer uw wachtwoord indien nodig, zoals in het volgende voorbeeld:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-1. Blader naar de lokale map (`/todolist` in het voorgaande voorbeeld), en u ziet dat project-bestanden zijn gedownload. Ga naar het bestand todoitem.json in de `/tables` directory. Dit bestand definieert machtigingen voor de tabel. Ook vindt u het bestand todoitem.js in dezelfde map. Hiermee definieert u de scripts CRUD bewerking voor de tabel.
-1. Nadat u wijzigingen in de project-bestanden aanbrengt, voer de volgende opdrachten om toe te voegen, doorvoeren en de wijzigingen vervolgens uploaden naar de site:
+5. Blader naar de lokale map (`/todolist` in het voorgaande voorbeeld), en u ziet dat project-bestanden zijn gedownload. Ga naar het bestand todoitem.json in de `/tables` directory. Dit bestand definieert machtigingen voor de tabel. Ook vindt u het bestand todoitem.js in dezelfde map. Hiermee definieert u de scripts CRUD bewerking voor de tabel.
+6. Nadat u wijzigingen in de project-bestanden aanbrengt, voer de volgende opdrachten om toe te voegen, doorvoeren en de wijzigingen vervolgens uploaden naar de site:
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -968,10 +968,10 @@ Met behulp van de Azure-portal, kunt u uw Node.js-back-end-script-bestanden in A
 [Google-verificatie configureren]: ../app-service/configure-authentication-provider-google.md
 [Microsoft-verificatie configureren]: ../app-service/configure-authentication-provider-microsoft.md
 [Twitter-verificatie configureren]: ../app-service/configure-authentication-provider-twitter.md
-[Azure App Service-Implementatiehandleiding]: ../app-service/app-service-deploy-local-git.md
+[Azure App Service-Implementatiehandleiding]: ../app-service/deploy-local-git.md
 [Bewaking van Azure App Service]: ../app-service/web-sites-monitor.md
-[Diagnostische logboekregistratie inschakelen in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
-[Azure App Service in Visual Studio oplossen]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Diagnostische logboekregistratie inschakelen in Azure App Service]: ../app-service/troubleshoot-diagnostic-logs.md
+[Azure App Service in Visual Studio oplossen]: ../app-service/troubleshoot-dotnet-visual-studio.md
 [Geef de versie van het knooppunt]: ../nodejs-specify-node-version-azure-apps.md
 [Node-modules gebruiken]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/

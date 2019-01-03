@@ -1,6 +1,6 @@
 ---
-title: Web-apps - Azure App Service configureren
-description: Configureren van een web-app in Azure App Services
+title: Apps - Azure App Service configureren
+description: Een app in Azure App Service configureren
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,22 +15,20 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269427"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716460"
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>Web-apps configureren in Azure App Service
+# <a name="configure-apps-in-azure-app-service"></a>Apps in Azure App Service configureren
 
-In dit onderwerp wordt uitgelegd hoe u het configureren van een web-app via de [Azure Portal].
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+In dit onderwerp wordt uitgelegd hoe u het configureren van een web-app, mobiele back-end- of API-app via de [Azure Portal].
 
 ## <a name="application-settings"></a>Toepassingsinstellingen
-1. In de [Azure Portal], open de blade voor de web-app.
-3. Klik op **Toepassingsinstellingen**.
+1. In de [Azure Portal], open de blade voor de app.
+2. Klik op **Toepassingsinstellingen**.
 
 ![Toepassingsinstellingen][configure01]
 
@@ -47,14 +45,14 @@ De **toepassingsinstellingen** blade bevat instellingen die zijn gegroepeerd ond
 Omwille van de technische schakelt Java voor uw app u de opties voor .NET, PHP en Python.
 
 <a name="platform"></a>
-**Platform**. Hiermee selecteert u of uw web-app wordt uitgevoerd in een 32-bits of 64-bits-omgeving. De 64-bits-omgeving vereist Basic of Standard-laag. Gratis en gedeelde laag wordt altijd uitgevoerd in een 32-bits-omgeving.
+**Platform**. Hiermee selecteert u of uw app wordt uitgevoerd in een 32-bits of 64-bits-omgeving. De 64-bits-omgeving vereist Basic of Standard-laag. Gratis en gedeelde laag wordt altijd uitgevoerd in een 32-bits-omgeving.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web-Sockets**. Stel **ON** om in te schakelen van de WebSocket-protocol; bijvoorbeeld, als uw web-app maakt gebruik van [ASP.NET SignalR] of [socket.io](https://socket.io/).
+**Web-Sockets**. Stel **ON** om in te schakelen van de WebSocket-protocol; bijvoorbeeld, als uw app gebruikmaakt van [ASP.NET SignalR] of [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
-**Always On**. Standaard worden web-apps uit het geheugen verwijderd als ze een bepaalde tijd niet actief zijn. Hiermee wordt het systeem te besparen. In de Basic- of Standard-modus, kunt u inschakelen **Always On** om te voorkomen dat de app geladen voortdurend. Als uw app wordt uitgevoerd voor doorlopende webtaken of uitvoeringen WebJobs geactiveerd met behulp van een CRON-expressie, moet u inschakelen **Always On**, of de webtaken mogelijk niet betrouwbaar worden uitgevoerd.
+**Always On**. Standaard worden apps uit het geheugen verwijderd als ze een bepaalde tijd niet actief zijn. Hiermee wordt het systeem te besparen. In de Basic- of Standard-modus, kunt u inschakelen **Always On** om te voorkomen dat de app geladen voortdurend. Als uw app wordt uitgevoerd voor doorlopende webtaken of uitvoeringen WebJobs geactiveerd met behulp van een CRON-expressie, moet u inschakelen **Always On**, of de webtaken mogelijk niet betrouwbaar worden uitgevoerd.
 
 **Beheerde Pipeline-versie**. Hiermee stelt u de IIS [pipeline-modus]. Laat deze geïntegreerde (standaard), tenzij u hebt een verouderde app waarvoor een oudere versie van IIS.
 
@@ -65,13 +63,13 @@ Omwille van de technische schakelt Java voor uw app u de opties voor .NET, PHP e
 
 **ARR-affiniteit**. In een app die geschaald naar meerdere VM-instanties, ARR-affiniteit cookies garanderen dat de client wordt gerouteerd naar hetzelfde exemplaar voor de levensduur van de sessie. De prestaties van stateless toepassingen verbeteren, kunt u deze optie instelt op **uit**.   
 
-**Automatische wisselen**. Als u automatisch wisselen voor een implementatiesite inschakelt, wordt App Service automatisch de web-app wisselen in productie wanneer u een update aan dat de sleuf pusht. Zie voor meer informatie, [implementeren in faseringssleuven voor web-apps in Azure App Service](web-sites-staged-publishing.md).
+**Automatische wisselen**. Als u automatisch wisselen voor een implementatiesite inschakelt, wordt App Service automatisch de app wisselen in productie wanneer u een update aan dat de sleuf pusht. Zie voor meer informatie, [implementeren in faseringssleuven voor apps in Azure App Service](deploy-staging-slots.md).
 
 ### <a name="debugging"></a>Foutopsporing
-**Foutopsporing op afstand**. Foutopsporing op afstand inschakelen Wanneer dit is ingeschakeld, kunt u de externe foutopsporing in Visual Studio rechtstreeks verbinden met uw web-app. Foutopsporing op afstand blijft ingeschakeld gedurende 48 uur. 
+**Foutopsporing op afstand**. Foutopsporing op afstand inschakelen Wanneer dit is ingeschakeld, kunt u de externe foutopsporing in Visual Studio rechtstreeks verbinden met uw app. Foutopsporing op afstand blijft ingeschakeld gedurende 48 uur. 
 
 ### <a name="app-settings"></a>App-instellingen
-In deze sectie bevat de naam/waarde-paren die uw web-app wordt geladen op het startscherm. 
+In deze sectie bevat de naam/waarde-paren die uw app wordt geladen op het startscherm. 
 
 * Voor .NET-apps, deze instellingen zijn opgenomen in de configuratie van uw .NET `AppSettings` tijdens runtime, overschrijven bestaande instellingen. 
 * Voor App Service op Linux- of Web App for Containers, als u json-sleutelstructuur in uw naam geneste, zoals `ApplicationInsights:InstrumentationKey` moet u hebben `ApplicationInsights__InstrumentationKey` als de naam van de sleutel. Zo ziet u dat elke `:` moet worden vervangen door `__` (dat wil zeggen dubbele onderstrepingstekens).
@@ -102,7 +100,7 @@ Tekenreeksen voor databaseverbindingen, kunnen worden opgelost vanuit Key Vault 
 ### <a name="default-documents"></a>Standaarddocumenten
 Het standaarddocument is de webpagina die wordt weergegeven op de basis-URL voor een website.  De eerste overeenkomende bestand in de lijst wordt gebruikt. 
 
-Modules die route op basis van URL, plaats leveren van statische inhoud, in welk geval er is geen standaarddocument als zodanig kunnen gebruikmaken van web-apps.    
+Modules die route op basis van URL, plaats leveren van statische inhoud, in welk geval er is geen standaarddocument als zodanig kunnen gebruikmaken van apps.    
 
 ### <a name="handler-mappings"></a>Handlertoewijzingen
 Gebruik dit gebied toe te voegen processors aangepast script voor het afhandelen van aanvragen voor specifieke bestandsextensies. 
@@ -117,7 +115,7 @@ Geef voor het configureren van virtuele toepassingen en mappen, op elke virtuele
 ## <a name="enabling-diagnostic-logs"></a>Logboeken met diagnostische gegevens inschakelen
 Logboeken met diagnostische gegevens inschakelen:
 
-1. Klik op de blade voor uw web-app **alle instellingen**.
+1. Klik op de blade voor uw app **alle instellingen**.
 2. Klik op **Diagnostische logboeken**. 
 
 Opties voor het schrijven van logboeken met diagnostische gegevens vanuit een webtoepassing die ondersteuning biedt voor logboekregistratie: 
@@ -134,31 +132,31 @@ Opties voor het schrijven van logboeken met diagnostische gegevens vanuit een we
 
 Als u de logboekbestanden, moet u FTP-referenties, als volgt maken:
 
-1. Klik op de blade voor uw web-app **alle instellingen**.
+1. Klik op de blade voor uw app **alle instellingen**.
 2. Klik op **implementatiereferenties**.
 3. Voer een gebruikersnaam en wachtwoord.
 4. Klik op **Opslaan**.
 
 ![Implementatiereferenties instellen][configure03]
 
-De volledige naam van de FTP-gebruiker is "app\username" waar *app* is de naam van uw web-app. De gebruikersnaam wordt vermeld in de blade web-app onder **Essentials**.
+De volledige naam van de FTP-gebruiker is "app\username" waar *app* is de naam van uw app. De gebruikersnaam wordt vermeld in de blade app onder **Essentials**.
 
 ![FTP-implementatiereferenties][configure02]
 
 ## <a name="other-configuration-tasks"></a>Andere configuratietaken
 ### <a name="ssl"></a>SSL
-In de Basic- of Standard-modus, kunt u SSL-certificaten voor een aangepast domein uploaden. Zie voor meer informatie, [HTTPS inschakelen voor een web-app](app-service-web-tutorial-custom-ssl.md). 
+In de Basic- of Standard-modus, kunt u SSL-certificaten voor een aangepast domein uploaden. Zie voor meer informatie, [HTTPS inschakelen voor een app](app-service-web-tutorial-custom-ssl.md). 
 
 Klik op om uw geüploade certificaten **alle instellingen** > **aangepaste domeinen en SSL**.
 
 ### <a name="domain-names"></a>Domeinnamen
-Aangepaste domeinnamen voor uw web-app toevoegen. Zie voor meer informatie, [configureren van een aangepaste domeinnaam voor een web-app in Azure App Service](app-service-web-tutorial-custom-domain.md).
+Aangepaste domeinnamen voor uw app toevoegen. Zie voor meer informatie, [configureren van een aangepaste domeinnaam voor een app in Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 Als u uw domeinnamen, klikt u op **alle instellingen** > **aangepaste domeinen en SSL**.
 
 ### <a name="deployments"></a>Implementaties
-* Continue implementatie instellen. Zie [Git Web-Apps in Azure App Service implementeren met behulp van](app-service-deploy-local-git.md).
-* Implementatiesites gebruiken. Zie [Implementeren naar Faseringsomgevingen voor Web-Apps in Azure App Service].
+* Continue implementatie instellen. Zie [Git om apps in Azure App Service te implementeren met behulp van](deploy-local-git.md).
+* Implementatiesites gebruiken. Zie [Implementeren naar Faseringsomgevingen voor Azure App Service].
 
 Als u wilt uw implementatiesites weergeven, klikt u op **alle instellingen** > **implementatiesites**.
 
@@ -167,29 +165,23 @@ In de Basic- of Standard-modus, kunt u de beschikbaarheid van HTTP of HTTPS-eind
 
 Zie voor meer informatie, [Procedures: Web-eindpunt controleren].
 
-> [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen]. Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
-> 
-> 
-
 ## <a name="next-steps"></a>Volgende stappen
 * [Een aangepaste domeinnaam configureren in Azure App Service]
 * [HTTPS inschakelen voor een app in Azure App Service]
-* [Een web-app schalen in Azure App Service]
-* [Basisbeginselen van controle voor Web-Apps in Azure App Service]
+* [Een app schalen in Azure App Service]
+* [Controle-bewerkingen in Azure App Service]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Een aangepaste domeinnaam configureren in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
-[Implementeren naar Faseringsomgevingen voor Web-Apps in Azure App Service]: ./web-sites-staged-publishing.md
+[Implementeren naar Faseringsomgevingen voor Azure App Service]: ./deploy-staging-slots.md
 [HTTPS inschakelen voor een app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [Procedures: Web-eindpunt controleren]: https://go.microsoft.com/fwLink/?LinkID=279906
-[Basisbeginselen van controle voor Web-Apps in Azure App Service]: ./web-sites-monitor.md
+[Controle-bewerkingen in Azure App Service]: ./web-sites-monitor.md
 [pipeline-modus]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Een web-app schalen in Azure App Service]: ./web-sites-scale.md
-[App Service uitproberen]: https://azure.microsoft.com/try/app-service/
+[Een app schalen in Azure App Service]: ./web-sites-scale.md
 
 <!-- IMG List -->
 

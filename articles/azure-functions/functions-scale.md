@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1940908cc0120ed5a69ae6603ec101d020b0ef3f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434661"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722070"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
@@ -66,7 +66,7 @@ Houd rekening met een App Service-plan in de volgende gevallen:
 * Gewenste functies die alleen beschikbaar op een App Service-plan, zoals ondersteuning voor App Service-omgeving, VNET-VPN-connectiviteit en grotere VM-grootten zijn.
 * U wilt uitvoeren van uw functie-app op Linux of u wilt mogelijk een aangepaste installatiekopie op voor het uitvoeren van uw functies.
 
-Een virtuele machine worden losgekoppeld-kosten van het aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Als gevolg hiervan wordt niet betaalt u meer dan de kosten van het VM-exemplaar dat u toewijst. Zie voor meer informatie over de werking van de App Service-plan de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Een virtuele machine worden losgekoppeld-kosten van het aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Als gevolg hiervan wordt niet betaalt u meer dan de kosten van het VM-exemplaar dat u toewijst. Zie voor meer informatie over de werking van de App Service-plan de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/overview-hosting-plans.md). 
 
 U kunt handmatig opwaarts schalen door meer VM-exemplaren toe te voegen met een App Service-plan, of kunt u automatisch schalen inschakelen. Zie voor meer informatie, [aantal exemplaren handmatig of automatisch schalen](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). U kunt ook omhoog schalen door een andere App Service-plan te kiezen. Zie voor meer informatie, [opschalen van een app in Azure](../app-service/web-sites-scale.md). 
 
